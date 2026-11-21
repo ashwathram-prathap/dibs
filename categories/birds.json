@@ -11,11 +11,12 @@
     "categoryLists": null,
     "queryRoot": "Q5113",
     "property": "P171",
-    "builtAt": "2026-11-21T04:29:55.336Z",
+    "builtAt": "2026-11-21T05:02:39.610Z",
     "license": "Wikidata CC0; Wikipedia titles and pageview counts. See source URL on each entry.",
     "scoring": "Mean daily Wikipedia pageviews over available days in the past 30: 1 >=1000; 2 >=200; 3 >=50; 4 >=10; 5 <10. Missing data excluded.",
     "scopeNote": null,
-    "reviewRequired": true
+    "reviewRequired": true,
+    "identityPolicy": "exclude-cross-title-redirects-v1"
   },
   "answers": [
     {
@@ -8069,20 +8070,6 @@
       }
     },
     {
-      "canonical": "crownedwoodnymph",
-      "display": "Crowned woodnymph",
-      "aliases": [],
-      "obscurity": 4,
-      "source": "https://en.wikipedia.org/wiki/Green-crowned_woodnymph",
-      "wikidata": "http://www.wikidata.org/entity/Q1059573",
-      "pageviews": {
-        "total": 496,
-        "days": 30,
-        "start": "2026-10-22",
-        "end": "2026-11-20"
-      }
-    },
-    {
       "canonical": "tepuigoldenthroat",
       "display": "Tepui goldenthroat",
       "aliases": [],
@@ -9567,6 +9554,20 @@
       }
     },
     {
+      "canonical": "crownedwoodnymph",
+      "display": "Crowned woodnymph",
+      "aliases": [],
+      "obscurity": 4,
+      "source": "https://en.wikipedia.org/wiki/Crowned_woodnymph",
+      "wikidata": "http://www.wikidata.org/entity/Q15707884",
+      "pageviews": {
+        "total": 496,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
       "canonical": "brownvioletear",
       "display": "Brown violetear",
       "aliases": [],
@@ -10225,34 +10226,6 @@
       }
     },
     {
-      "canonical": "doublecrestedcormorant",
-      "display": "Double-crested cormorant",
-      "aliases": [],
-      "obscurity": 3,
-      "source": "https://en.wikipedia.org/wiki/Phalacrocorax_auritus",
-      "wikidata": "http://www.wikidata.org/entity/Q725289",
-      "pageviews": {
-        "total": 4415,
-        "days": 30,
-        "start": "2026-10-22",
-        "end": "2026-11-20"
-      }
-    },
-    {
-      "canonical": "neotropiccormorant",
-      "display": "Neotropic cormorant",
-      "aliases": [],
-      "obscurity": 4,
-      "source": "https://en.wikipedia.org/wiki/Phalacrocorax_brasilianus",
-      "wikidata": "http://www.wikidata.org/entity/Q849173",
-      "pageviews": {
-        "total": 1007,
-        "days": 30,
-        "start": "2026-10-22",
-        "end": "2026-11-20"
-      }
-    },
-    {
       "canonical": "greenfrontedhummingbird",
       "display": "Green-fronted hummingbird",
       "aliases": [],
@@ -10737,20 +10710,6 @@
       "wikidata": "http://www.wikidata.org/entity/Q27074775",
       "pageviews": {
         "total": 192,
-        "days": 30,
-        "start": "2026-10-22",
-        "end": "2026-11-20"
-      }
-    },
-    {
-      "canonical": "pumiliornis",
-      "display": "Pumiliornis",
-      "aliases": [],
-      "obscurity": 5,
-      "source": "https://en.wikipedia.org/wiki/Pumiliornis_tessellatus",
-      "wikidata": "http://www.wikidata.org/entity/Q16688836",
-      "pageviews": {
-        "total": 57,
         "days": 30,
         "start": "2026-10-22",
         "end": "2026-11-20"
@@ -12997,20 +12956,6 @@
       }
     },
     {
-      "canonical": "amaziliahummingbird",
-      "display": "Amazilia hummingbird",
-      "aliases": [],
-      "obscurity": 5,
-      "source": "https://en.wikipedia.org/wiki/Loja_hummingbird",
-      "wikidata": "http://www.wikidata.org/entity/Q1131174",
-      "pageviews": {
-        "total": 159,
-        "days": 30,
-        "start": "2026-10-22",
-        "end": "2026-11-20"
-      }
-    },
-    {
       "canonical": "velvetbrowedbrilliant",
       "display": "Velvet-browed brilliant",
       "aliases": [],
@@ -13859,6 +13804,20 @@
       "wikidata": "http://www.wikidata.org/entity/Q941990",
       "pageviews": {
         "total": 87,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "amaziliahummingbird",
+      "display": "Amazilia hummingbird",
+      "aliases": [],
+      "obscurity": 5,
+      "source": "https://en.wikipedia.org/wiki/Amazilia_hummingbird",
+      "wikidata": "http://www.wikidata.org/entity/Q943588",
+      "pageviews": {
+        "total": 159,
         "days": 30,
         "start": "2026-10-22",
         "end": "2026-11-20"
@@ -15475,20 +15434,6 @@
       }
     },
     {
-      "canonical": "bandwingednightjar",
-      "display": "Band-winged nightjar",
-      "aliases": [],
-      "obscurity": 5,
-      "source": "https://en.wikipedia.org/wiki/Caprimulgus_longirostris",
-      "wikidata": "http://www.wikidata.org/entity/Q961239",
-      "pageviews": {
-        "total": 144,
-        "days": 30,
-        "start": "2026-10-22",
-        "end": "2026-11-20"
-      }
-    },
-    {
       "canonical": "wilsonplover",
       "display": "Wilson's plover",
       "aliases": [],
@@ -15497,20 +15442,6 @@
       "wikidata": "http://www.wikidata.org/entity/Q979488",
       "pageviews": {
         "total": 303,
-        "days": 30,
-        "start": "2026-10-22",
-        "end": "2026-11-20"
-      }
-    },
-    {
-      "canonical": "okinawarail",
-      "display": "Okinawa rail",
-      "aliases": [],
-      "obscurity": 3,
-      "source": "https://en.wikipedia.org/wiki/Hypotaenidia_okinawae",
-      "wikidata": "http://www.wikidata.org/entity/Q28114050",
-      "pageviews": {
-        "total": 2007,
         "days": 30,
         "start": "2026-10-22",
         "end": "2026-11-20"
@@ -15623,6 +15554,20 @@
       "wikidata": "http://www.wikidata.org/entity/Q1260982",
       "pageviews": {
         "total": 223,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "okinawarail",
+      "display": "Okinawa rail",
+      "aliases": [],
+      "obscurity": 3,
+      "source": "https://en.wikipedia.org/wiki/Okinawa_rail",
+      "wikidata": "http://www.wikidata.org/entity/Q1069867",
+      "pageviews": {
+        "total": 2007,
         "days": 30,
         "start": "2026-10-22",
         "end": "2026-11-20"
@@ -15909,20 +15854,6 @@
       }
     },
     {
-      "canonical": "littleswift",
-      "display": "Little swift",
-      "aliases": [],
-      "obscurity": 4,
-      "source": "https://en.wikipedia.org/wiki/House_swift",
-      "wikidata": "http://www.wikidata.org/entity/Q31713",
-      "pageviews": {
-        "total": 645,
-        "days": 30,
-        "start": "2026-10-22",
-        "end": "2026-11-20"
-      }
-    },
-    {
       "canonical": "pacificswift",
       "display": "Pacific swift",
       "aliases": [],
@@ -16189,6 +16120,20 @@
       }
     },
     {
+      "canonical": "littleswift",
+      "display": "Little swift",
+      "aliases": [],
+      "obscurity": 4,
+      "source": "https://en.wikipedia.org/wiki/Little_swift",
+      "wikidata": "http://www.wikidata.org/entity/Q611324",
+      "pageviews": {
+        "total": 645,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
       "canonical": "redneckedavocet",
       "display": "Red-necked avocet",
       "aliases": [],
@@ -16449,20 +16394,6 @@
       "wikidata": "http://www.wikidata.org/entity/Q631863",
       "pageviews": {
         "total": 104,
-        "days": 30,
-        "start": "2026-10-22",
-        "end": "2026-11-20"
-      }
-    },
-    {
-      "canonical": "barwingedrail",
-      "display": "Bar-winged rail",
-      "aliases": [],
-      "obscurity": 5,
-      "source": "https://en.wikipedia.org/wiki/Nesoclopeus_poecilopterus",
-      "wikidata": "http://www.wikidata.org/entity/Q633057",
-      "pageviews": {
-        "total": 188,
         "days": 30,
         "start": "2026-10-22",
         "end": "2026-11-20"
@@ -17309,6 +17240,20 @@
       }
     },
     {
+      "canonical": "bandwingednightjar",
+      "display": "Band-winged nightjar",
+      "aliases": [],
+      "obscurity": 5,
+      "source": "https://en.wikipedia.org/wiki/Band-winged_nightjar",
+      "wikidata": "http://www.wikidata.org/entity/Q27074761",
+      "pageviews": {
+        "total": 144,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
       "canonical": "flamebreastedfruitdove",
       "display": "Flame-breasted fruit dove",
       "aliases": [],
@@ -17807,6 +17752,34 @@
       "wikidata": "http://www.wikidata.org/entity/Q117254072",
       "pageviews": {
         "total": 94,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "neotropiccormorant",
+      "display": "Neotropic cormorant",
+      "aliases": [],
+      "obscurity": 4,
+      "source": "https://en.wikipedia.org/wiki/Neotropic_cormorant",
+      "wikidata": "http://www.wikidata.org/entity/Q117254632",
+      "pageviews": {
+        "total": 1007,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "doublecrestedcormorant",
+      "display": "Double-crested cormorant",
+      "aliases": [],
+      "obscurity": 3,
+      "source": "https://en.wikipedia.org/wiki/Double-crested_cormorant",
+      "wikidata": "http://www.wikidata.org/entity/Q117254648",
+      "pageviews": {
+        "total": 4415,
         "days": 30,
         "start": "2026-10-22",
         "end": "2026-11-20"
@@ -22069,20 +22042,6 @@
       }
     },
     {
-      "canonical": "matsudairastormpetrel",
-      "display": "Matsudaira's storm petrel",
-      "aliases": [],
-      "obscurity": 5,
-      "source": "https://en.wikipedia.org/wiki/Oceanodroma_matsudairae",
-      "wikidata": "http://www.wikidata.org/entity/Q785281",
-      "pageviews": {
-        "total": 95,
-        "days": 30,
-        "start": "2026-10-22",
-        "end": "2026-11-20"
-      }
-    },
-    {
       "canonical": "greygoawaybird",
       "display": "Grey go-away-bird",
       "aliases": [],
@@ -22427,20 +22386,6 @@
       "wikidata": "http://www.wikidata.org/entity/Q1263541",
       "pageviews": {
         "total": 89,
-        "days": 30,
-        "start": "2026-10-22",
-        "end": "2026-11-20"
-      }
-    },
-    {
-      "canonical": "capeverdestormpetrel",
-      "display": "Cape Verde storm petrel",
-      "aliases": [],
-      "obscurity": 5,
-      "source": "https://en.wikipedia.org/wiki/Oceanodroma_jabejabe",
-      "wikidata": "http://www.wikidata.org/entity/Q1267681",
-      "pageviews": {
-        "total": 95,
         "days": 30,
         "start": "2026-10-22",
         "end": "2026-11-20"
@@ -24435,20 +24380,6 @@
       }
     },
     {
-      "canonical": "scaniornis",
-      "display": "Scaniornis",
-      "aliases": [],
-      "obscurity": 5,
-      "source": "https://en.wikipedia.org/wiki/Scaniornis_lundgreni",
-      "wikidata": "http://www.wikidata.org/entity/Q7430037",
-      "pageviews": {
-        "total": 212,
-        "days": 30,
-        "start": "2026-10-22",
-        "end": "2026-11-20"
-      }
-    },
-    {
       "canonical": "whitetippeddove",
       "display": "White-tipped dove",
       "aliases": [],
@@ -26423,20 +26354,6 @@
       }
     },
     {
-      "canonical": "makiraowl",
-      "display": "Makira owl",
-      "aliases": [],
-      "obscurity": 5,
-      "source": "https://en.wikipedia.org/wiki/Makira_boobook",
-      "wikidata": "http://www.wikidata.org/entity/Q22675179",
-      "pageviews": {
-        "total": 116,
-        "days": 30,
-        "start": "2026-10-22",
-        "end": "2026-11-20"
-      }
-    },
-    {
       "canonical": "blackandwhiteowl",
       "display": "Black-and-white owl",
       "aliases": [],
@@ -26669,20 +26586,6 @@
       "wikidata": "http://www.wikidata.org/entity/Q1263774",
       "pageviews": {
         "total": 90,
-        "days": 30,
-        "start": "2026-10-22",
-        "end": "2026-11-20"
-      }
-    },
-    {
-      "canonical": "wedgetailedsabrewing",
-      "display": "Wedge-tailed sabrewing",
-      "aliases": [],
-      "obscurity": 5,
-      "source": "https://en.wikipedia.org/wiki/Long-tailed_sabrewing",
-      "wikidata": "http://www.wikidata.org/entity/Q1264058",
-      "pageviews": {
-        "total": 68,
         "days": 30,
         "start": "2026-10-22",
         "end": "2026-11-20"
@@ -27109,20 +27012,6 @@
       }
     },
     {
-      "canonical": "scarceswift",
-      "display": "Scarce swift",
-      "aliases": [],
-      "obscurity": 5,
-      "source": "https://en.wikipedia.org/wiki/Schouteden%27s_swift",
-      "wikidata": "http://www.wikidata.org/entity/Q1260416",
-      "pageviews": {
-        "total": 59,
-        "days": 30,
-        "start": "2026-10-22",
-        "end": "2026-11-20"
-      }
-    },
-    {
       "canonical": "newguineabronzewing",
       "display": "New Guinea bronzewing",
       "aliases": [],
@@ -27189,6 +27078,20 @@
         "total": 40,
         "days": 28,
         "start": "2026-10-23",
+        "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "scarceswift",
+      "display": "Scarce swift",
+      "aliases": [],
+      "obscurity": 5,
+      "source": "https://en.wikipedia.org/wiki/Scarce_swift",
+      "wikidata": "http://www.wikidata.org/entity/Q1266075",
+      "pageviews": {
+        "total": 59,
+        "days": 30,
+        "start": "2026-10-22",
         "end": "2026-11-20"
       }
     },
@@ -27860,34 +27763,6 @@
       "pageviews": {
         "total": 112,
         "days": 30,
-        "start": "2026-10-22",
-        "end": "2026-11-20"
-      }
-    },
-    {
-      "canonical": "ediblenestswiftlet",
-      "display": "Edible-nest swiftlet",
-      "aliases": [],
-      "obscurity": 3,
-      "source": "https://en.wikipedia.org/wiki/Germain%27s_swiftlet",
-      "wikidata": "http://www.wikidata.org/entity/Q27470",
-      "pageviews": {
-        "total": 2496,
-        "days": 30,
-        "start": "2026-10-22",
-        "end": "2026-11-20"
-      }
-    },
-    {
-      "canonical": "moluccanswiftlet",
-      "display": "Moluccan swiftlet",
-      "aliases": [],
-      "obscurity": 5,
-      "source": "https://en.wikipedia.org/wiki/Halmahera_swiftlet",
-      "wikidata": "http://www.wikidata.org/entity/Q27542",
-      "pageviews": {
-        "total": 42,
-        "days": 29,
         "start": "2026-10-22",
         "end": "2026-11-20"
       }
@@ -29405,6 +29280,34 @@
       }
     },
     {
+      "canonical": "moluccanswiftlet",
+      "display": "Moluccan swiftlet",
+      "aliases": [],
+      "obscurity": 5,
+      "source": "https://en.wikipedia.org/wiki/Moluccan_swiftlet",
+      "wikidata": "http://www.wikidata.org/entity/Q13612426",
+      "pageviews": {
+        "total": 42,
+        "days": 29,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "wedgetailedsabrewing",
+      "display": "Wedge-tailed sabrewing",
+      "aliases": [],
+      "obscurity": 5,
+      "source": "https://en.wikipedia.org/wiki/Wedge-tailed_sabrewing",
+      "wikidata": "http://www.wikidata.org/entity/Q2935663",
+      "pageviews": {
+        "total": 68,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
       "canonical": "africancuckoohawk",
       "display": "African cuckoo-hawk",
       "aliases": [],
@@ -29595,6 +29498,20 @@
       "wikidata": "http://www.wikidata.org/entity/Q27581",
       "pageviews": {
         "total": 156,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "ediblenestswiftlet",
+      "display": "Edible-nest swiftlet",
+      "aliases": [],
+      "obscurity": 3,
+      "source": "https://en.wikipedia.org/wiki/Edible-nest_swiftlet",
+      "wikidata": "http://www.wikidata.org/entity/Q31801",
+      "pageviews": {
+        "total": 2496,
         "days": 30,
         "start": "2026-10-22",
         "end": "2026-11-20"
@@ -30301,20 +30218,6 @@
       }
     },
     {
-      "canonical": "stewartislandshag",
-      "display": "Stewart Island shag",
-      "aliases": [],
-      "obscurity": 5,
-      "source": "https://en.wikipedia.org/wiki/Foveaux_shag",
-      "wikidata": "http://www.wikidata.org/entity/Q24551139",
-      "pageviews": {
-        "total": 115,
-        "days": 30,
-        "start": "2026-10-22",
-        "end": "2026-11-20"
-      }
-    },
-    {
       "canonical": "jacobincuckoo",
       "display": "Jacobin cuckoo",
       "aliases": [],
@@ -30337,6 +30240,20 @@
       "wikidata": "http://www.wikidata.org/entity/Q27074617",
       "pageviews": {
         "total": 551,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "stewartislandshag",
+      "display": "Stewart Island shag",
+      "aliases": [],
+      "obscurity": 5,
+      "source": "https://en.wikipedia.org/wiki/Stewart_Island_shag",
+      "wikidata": "http://www.wikidata.org/entity/Q27074618",
+      "pageviews": {
+        "total": 115,
         "days": 30,
         "start": "2026-10-22",
         "end": "2026-11-20"
@@ -30749,20 +30666,6 @@
       }
     },
     {
-      "canonical": "northernpygmyowl",
-      "display": "Northern pygmy owl",
-      "aliases": [],
-      "obscurity": 4,
-      "source": "https://en.wikipedia.org/wiki/Mountain_pygmy_owl",
-      "wikidata": "http://www.wikidata.org/entity/Q1034956",
-      "pageviews": {
-        "total": 1019,
-        "days": 30,
-        "start": "2026-10-22",
-        "end": "2026-11-20"
-      }
-    },
-    {
       "canonical": "coquifrancolin",
       "display": "Coqui francolin",
       "aliases": [],
@@ -30813,6 +30716,104 @@
       "wikidata": "http://www.wikidata.org/entity/Q1273333",
       "pageviews": {
         "total": 314,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "newguineawoodcock",
+      "display": "New Guinea woodcock",
+      "aliases": [],
+      "obscurity": 5,
+      "source": "https://en.wikipedia.org/wiki/New_Guinea_woodcock",
+      "wikidata": "http://www.wikidata.org/entity/Q1472594",
+      "pageviews": {
+        "total": 160,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "anthonynightjar",
+      "display": "Anthony's nightjar",
+      "aliases": [],
+      "obscurity": 5,
+      "source": "https://en.wikipedia.org/wiki/Anthony%27s_nightjar",
+      "wikidata": "http://www.wikidata.org/entity/Q21348346",
+      "pageviews": {
+        "total": 59,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "whitewingednightjar",
+      "display": "White-winged nightjar",
+      "aliases": [],
+      "obscurity": 5,
+      "source": "https://en.wikipedia.org/wiki/White-winged_nightjar",
+      "wikidata": "http://www.wikidata.org/entity/Q21965805",
+      "pageviews": {
+        "total": 71,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "bufffrontedquaildove",
+      "display": "Buff-fronted quail-dove",
+      "aliases": [],
+      "obscurity": 5,
+      "source": "https://en.wikipedia.org/wiki/Buff-fronted_quail-dove",
+      "wikidata": "http://www.wikidata.org/entity/Q27074685",
+      "pageviews": {
+        "total": 86,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "purplishbackedquaildove",
+      "display": "Purplish-backed quail-dove",
+      "aliases": [],
+      "obscurity": 5,
+      "source": "https://en.wikipedia.org/wiki/Purplish-backed_quail-dove",
+      "wikidata": "http://www.wikidata.org/entity/Q27074686",
+      "pageviews": {
+        "total": 68,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "tuxtlaquaildove",
+      "display": "Tuxtla quail-dove",
+      "aliases": [],
+      "obscurity": 5,
+      "source": "https://en.wikipedia.org/wiki/Tuxtla_quail-dove",
+      "wikidata": "http://www.wikidata.org/entity/Q27074683",
+      "pageviews": {
+        "total": 82,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "whitefacedquaildove",
+      "display": "White-faced quail-dove",
+      "aliases": [],
+      "obscurity": 5,
+      "source": "https://en.wikipedia.org/wiki/White-faced_quail-dove",
+      "wikidata": "http://www.wikidata.org/entity/Q27074687",
+      "pageviews": {
+        "total": 74,
         "days": 30,
         "start": "2026-10-22",
         "end": "2026-11-20"
