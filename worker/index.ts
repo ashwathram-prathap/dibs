@@ -376,7 +376,7 @@ export async function route(req: Request, env: Env): Promise<Response> {
   }
   if (path === '/archive') {
     const rows = await env.DB.prepare(
-      "SELECT id,date,name,slug,total_registrable,drop_at FROM categories WHERE date<=? AND status='approved' AND drop_at<=? ORDER BY date DESC",
+      "SELECT id,date,name,slug,total_registrable,drop_at FROM categories g WHERE date<? AND status='approved' AND drop_at<=? AND EXISTS(SELECT 1 FROM claims c WHERE c.category_id=g.id AND c.voided=0) ORDER BY date DESC",
     )
       .bind(registryDate(), new Date().toISOString())
       .all();

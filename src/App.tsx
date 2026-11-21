@@ -536,7 +536,7 @@ function Home({
 
               </div>
       </section>}
-      <Ledger category={today.category} />
+      <Ledger category={today.category} open={today.open} />
       <div className="bottom-note">
         <span className="eyebrow">A NOTE FROM THE CLERK</span>
         <p>All claims are real. All ownership is entirely ceremonial.</p>
@@ -606,7 +606,7 @@ function Streak({ me }: { me: Me }) {
     </div>
   );
 }
-function Ledger({ category }: { category: Category | null }) {
+function Ledger({ category, open }: { category: Category | null; open?: number }) {
   const [rows, setRows] = useState<Claim[]>([]);
   const [query, setQuery] = useState('');
   const [error, setError] = useState('');
@@ -656,7 +656,7 @@ function Ledger({ category }: { category: Category | null }) {
         <div>
           <span className="section-number">02 / PUBLIC RECORD</span>
           <h2>
-            The live ledger
+            {rows.length < 10 ? 'First filings' : 'The live ledger'}
             <span className="live-mark" aria-hidden="true" />
           </h2>
         </div>
@@ -672,7 +672,8 @@ function Ledger({ category }: { category: Category | null }) {
         </label>
       </div>
       {error && <p role="status">{error}</p>}
-      <table className="ledger">
+      {category && open !== undefined && rows.length < 10 && <p className="open-pool">{open.toLocaleString()} {category.name.toLowerCase()} still unclaimed. Be early.</p>}
+      <table className={"ledger " + (rows.length < 10 ? 'first-filings' : '')}>
         <caption className="sr-only">Claims in {category?.name || 'today’s registry'}</caption>
         <thead>
           <tr>
@@ -698,7 +699,7 @@ function Ledger({ category }: { category: Category | null }) {
               <td className="time-col">{time(r.created_at)}</td>
             </tr>
           ))}
-          {!filtered.length && (
+          {!filtered.length && (query || !category) && (
             <tr className="empty-row">
               <td colSpan={4}>
                 {query
@@ -709,12 +710,9 @@ function Ledger({ category }: { category: Category | null }) {
               </td>
             </tr>
           )}
-          {Array.from({ length: Math.max(0, 5 - filtered.length) }, (_, i) => (
-            <tr className="ruled-row" key={'blank' + i} aria-hidden="true">
-              <td>—</td>
-              <td />
-              <td />
-              <td className="time-col" />
+          {!query && category && rows.length < 10 && Array.from({ length: Math.min(3, 10 - rows.length) }, (_, i) => (
+            <tr className="open-filing" key={'blank' + i}>
+              <td colSpan={4}>No. {serial(Math.max(0, ...rows.map(r => r.claim_no)) + i + 1)} — open</td>
             </tr>
           ))}
         </tbody>
@@ -941,7 +939,16 @@ function Archive() {
               <h2>{selected.name}</h2>
             </div>
           )}
-          <Ledger category={selected} />
+          {selected ? <Ledger category={selected} /> : !error && <section className="archive-specimen" aria-label="Specimen example, not a real record">
+            <span className="eyebrow">SPECIMEN — how a filed day looks</span>
+            <h2>A day of first claims.</h2>
+            <p>This sample shows the layout. These are examples, not player records.</p>
+            <div className="specimen-watermark" aria-hidden="true">SPECIMEN</div>
+            <div className="specimen-line">EXAMPLE ENTRY / AXOLOTL</div>
+            <div className="specimen-line">HELD BY / Example holder</div>
+            <div className="specimen-line">DATE / A completed day</div>
+            <p className="eyebrow">The first real page arrives after a claimed day closes.</p>
+          </section>}
         </div>
       </div>
     </>

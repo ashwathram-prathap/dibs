@@ -77,7 +77,7 @@ export async function request(path: string, body?: any): Promise<any> {
       ),
     };
   if (path.startsWith('/ledger')) return { rows: claims };
-  if (path === '/archive') return { categories: [category] };
+  if (path === '/archive') return { categories: [] };
   if (path.startsWith('/certificate/'))
     return { claim: claims.find((c) => c.id === path.split('/').pop()) || mine };
   if (path === '/claim') {
