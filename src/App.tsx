@@ -1,7 +1,9 @@
 import { useEffect, useLayoutEffect, useState, useRef, type FormEvent } from 'react';
-import { motion, useReducedMotion } from 'framer-motion';
+import { m as motion, LazyMotion, domAnimation, useReducedMotion } from 'framer-motion';
 import { api, ApiError, isDemo } from './api';
 import { type Category, type Claim, type Me, type Today, serial } from './types';
+import { getSnapshot, publish, publishClaim, subscribe, watchRegistry, type Snapshot } from './live';
+import { suggestions as catalogSuggestions } from './suggestions';
 import { PUBLIC_HOST, certificateUrl } from '../shared/config';
 import { exportCertificate } from './share';
 import { WORDMARK_WIDTH, WORDMARK_PATH, WORDMARK_BLOCK_X } from '../shared/brand';
@@ -106,18 +108,20 @@ export default function App() {
   const [error, setError] = useState('');
   const refresh = async () => {
     try {
-      const [t, m] = await Promise.all([api<Today>('/today'), api<Me>('/me')]);
-      setToday(t);
-      setMe(m);
+      const data = await api<Snapshot>('/bootstrap');
+      publish({...data, reset:true});
+      setToday(data.today);
+      setMe(data.me!);
       setError('');
     } catch (e) {
       setError((e as Error).message);
     }
   };
   useEffect(() => {
+    const off = subscribe(s => { setToday(s.today); setError(''); setMe(previous => s.me || (previous ? {...previous, claim:previous.claim?.category_id === s.today.category?.id ? previous.claim : null} : null)); });
     void refresh();
-    const id = setInterval(() => void refresh(), 30000);
-    return () => clearInterval(id);
+    const stop = path === '/' ? watchRegistry(setError) : () => {};
+    return () => { off(); stop(); };
   }, []);
   useEffect(() => {
     document.documentElement.dataset.theme = theme;
@@ -129,7 +133,7 @@ export default function App() {
     document.title = `Dibs — ${path.startsWith('/certificate') ? 'Certificate of Dibs' : path === '/about' ? 'Office notice' : path.startsWith('/archive') ? 'Registry archive' : 'The daily registry'}`;
   }, [path]);
   return (
-    <>
+    <LazyMotion features={domAnimation}>
       <Filters />
       <a className="skip" href="#main">
         Skip to registry
@@ -185,8 +189,8 @@ export default function App() {
         <main id="main">
           {error ? (
             <div className="notice" role="alert">
-              <span className="eyebrow">SERVICE NOTICE / 503</span>
-              <h1>The clerk is away.</h1>
+              <span className="eyebrow">OFFICE NOTICE</span>
+              <h1>{error.includes('Registry closed') ? 'Registry closed for the day.' : 'The clerk is away.'}</h1>
               <p>{error}</p>
               <button onClick={() => void refresh()}>Try the office again</button>
             </div>
@@ -226,7 +230,7 @@ export default function App() {
           <span className="footer-right">FILED DAILY. HELD BRIEFLY.</span>
         </footer>
       </div>
-    </>
+    </LazyMotion>
   );
 }
 function CategoryHeading({ name }: { name: string }) {
@@ -316,12 +320,8 @@ function Home({
     let valid = true;
     const id = setTimeout(() => {
       if (answer.trim().length >= 3 && today.category)
-        api<{ answers: string[] }>(
-          '/answers?category=' + today.category.id + '&q=' + encodeURIComponent(answer),
-        )
-          .then((d) => {
-            if (valid) setSuggestions(d.answers);
-          })
+        (isDemo ? api<{answers:string[]}>('/answers?category=' + today.category.id + '&q=' + encodeURIComponent(answer)).then(d=>d.answers) : catalogSuggestions(today.category.slug, answer))
+          .then((answers) => { if (valid) setSuggestions(answers); })
           .catch(() => setSuggestions([]));
       else setSuggestions([]);
     }, 180);
@@ -345,16 +345,14 @@ function Home({
     setMessage('');
     setSuggestions([]);
     try {
-      await api('/session-check', {}).catch((e) => {
-        if (!isDemo) throw e;
-      });
       const token = isDemo
         ? 'demo'
         : await runTurnstile(today.turnstileSiteKey, turnstileBox.current!);
-      const result = await api<{ claim: Claim }>('/claim', { answer, turnstileToken: token });
+      const result = await api<{ claim: Claim; me?: Me }>('/claim', { answer, turnstileToken: token });
       setClaim(result.claim);
       setLanded(true);
-      await refresh();
+      if (result.me) setMe(result.me);
+      publishClaim(result.claim, result.me);
       setTimeout(() => setLanded(false), 1300);
     } catch (e) {
       const err = e as ApiError;
@@ -614,41 +612,20 @@ function Ledger({ category, open }: { category: Category | null; open?: number }
   const [query, setQuery] = useState('');
   const [error, setError] = useState('');
   const [newIds, setNewIds] = useState<Set<string>>(new Set());
-  const known = useRef(new Set<string>());
-  const loaded = useRef(false);
   useEffect(() => {
-    if (!category) {
-      setRows([]);
-      return;
-    }
     let alive = true;
-    known.current = new Set();
-    loaded.current = false;
-    const update = async () => {
-      try {
-        const data = await api<{ rows: Claim[] }>('/ledger?category=' + category.id);
-        if (!alive) return;
-        setNewIds(
-          new Set(
-            loaded.current
-              ? data.rows.filter((r) => !known.current.has(r.id)).map((r) => r.id)
-              : [],
-          ),
-        );
-        known.current = new Set(data.rows.map((r) => r.id));
-        loaded.current = true;
-        setRows(data.rows);
+    setRows([]);
+    const accept = (s: Snapshot) => {
+      if (s.today.category?.id === category?.id) {
+        setRows(previous => { setNewIds(new Set(s.rows.filter(r=>!previous.some(p=>p.id===r.id)).map(r=>r.id))); return s.rows; });
         setError('');
-      } catch {
-        if (alive) setError('The ledger could not be refreshed. The last filed copy is shown.');
       }
     };
-    void update();
-    const id = setInterval(() => void update(), 5000);
-    return () => {
-      alive = false;
-      clearInterval(id);
-    };
+    const snapshot = getSnapshot();
+    if (snapshot && snapshot.today.category?.id === category?.id) accept(snapshot);
+    else if (category) api<{rows:Claim[]}>('/ledger?category='+category.id).then(d=>{if(alive)setRows(d.rows);}).catch(()=>{if(alive)setError('The ledger could not be refreshed. Please try again shortly.');});
+    const off = subscribe(accept);
+    return () => { alive=false; off(); };
   }, [category?.id]);
   const filtered = rows.filter((r) =>
     `${r.display} ${r.handle}`.toLowerCase().includes(query.toLowerCase()),
@@ -664,7 +641,7 @@ function Ledger({ category, open }: { category: Category | null; open?: number }
           </h2>
         </div>
         <label className="search">
-          <span className="eyebrow">SEARCH THE REGISTER</span>
+          <span className="eyebrow">SEARCH THESE FILINGS</span>
           <input
             type="search"
             value={query}
@@ -720,9 +697,17 @@ function Ledger({ category, open }: { category: Category | null; open?: number }
           ))}
         </tbody>
       </table>
+      {rows.length >= 50 && <button className="load-older" onClick={async () => {
+        try {
+          const before = Math.min(...rows.map(r=>r.claim_no));
+          const data = await api<{rows:Claim[]}>('/ledger?category='+category?.id+'&before='+before+'&limit=50');
+          setRows(previous => [...previous, ...data.rows.filter(r=>!previous.some(p=>p.id===r.id))]);
+          if (!data.rows.length) setError('You have reached the first filing.');
+        } catch { setError('Older filings could not be loaded. Please try again.'); }
+      }}>Load earlier filings</button>}
       <div className="ledger-foot">
         <span>END OF ENTRIES / {rows.length.toLocaleString()} ON FILE</span>
-        <span>UPDATED EVERY 5 SECONDS</span>
+        <span>LIVE / 15s, THEN 60s · PAUSED IN BACKGROUND</span>
       </div>
     </section>
   );

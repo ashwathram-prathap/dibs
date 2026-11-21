@@ -1,0 +1,13 @@
+{
+  "passed": true,
+  "checks": [
+    "real local D1 claim",
+    "taken explanation",
+    "immediate ledger insertion",
+    "cookie persistence",
+    "daily limit",
+    "blocked cookie fallback",
+    "OG PNG"
+  ],
+  "failures": []
+}

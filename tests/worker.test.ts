@@ -23,6 +23,7 @@ beforeAll(async () => {
   const result = await build({
     entryPoints: ['worker/index.ts'],
     bundle: true,
+    external: ['cloudflare:workers'],
     write: false,
     format: 'esm',
     platform: 'browser',

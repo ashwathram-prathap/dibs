@@ -1,13 +1,13 @@
 @font-face {
   font-family: ArchivoSupplement;
-  src: url('/fonts/archivo-supplement-400.otf') format('opentype');
+  src: url('/fonts/archivo-supplement-400.woff2') format('woff2');
   font-weight: 400;
   font-display: swap;
   unicode-range: U+02BB, U+1E90-1E91;
 }
 @font-face {
   font-family: ArchivoSupplement;
-  src: url('/fonts/archivo-supplement-900.otf') format('opentype');
+  src: url('/fonts/archivo-supplement-900.woff2') format('woff2');
   font-weight: 900;
   font-display: swap;
   unicode-range: U+02BB, U+1E90-1E91;
@@ -1840,3 +1840,6 @@ html.low-power .claim-imprint strong {
 .cert-emblem { width: 88px; height: auto; border: 0; padding: 0; }
 @media(max-width:600px) { .wordmark { width: 178px; } .cert-emblem { width: 66px; } }
 html.low-power .dibs-stamp strong { filter: none; }
+/* Keep the lower navigation outside the viewport while the first register loads. */
+.home-page .loading { min-height: calc(100dvh - 92px); }
+.load-older { margin-top: 16px; }

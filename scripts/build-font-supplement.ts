@@ -3,6 +3,7 @@
 // The derived font has a distinct internal name, under the bundled SIL OFL license.
 import { readFileSync, writeFileSync } from 'node:fs';
 import opentype from 'opentype.js';
+import wawoff2 from 'wawoff2';
 for (const weight of [400, 900]) {
   const data = readFileSync(
     `node_modules/@fontsource/archivo/files/archivo-latin-${weight}-normal.woff`,
@@ -51,6 +52,8 @@ for (const weight of [400, 900]) {
     descender: base.descender,
     glyphs,
   });
-  writeFileSync(`public/fonts/archivo-supplement-${weight}.otf`, Buffer.from(font.toArrayBuffer()));
+  const otf = Buffer.from(font.toArrayBuffer());
+  writeFileSync(`public/fonts/archivo-supplement-${weight}.otf`, otf);
+  writeFileSync(`public/fonts/archivo-supplement-${weight}.woff2`, await wawoff2.compress(otf));
 }
 console.log('Built three Archivo-derived orthographic glyphs at regular and black weights.');

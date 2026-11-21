@@ -27,7 +27,7 @@ export default defineConfig(({ mode }) => {
             : [],
       },
     ],
-    server: { proxy: { '/api': 'http://127.0.0.1:8787' } },
+    server: { proxy: { '/api': {target:'http://127.0.0.1:8787', ws:true} } },
     build: { sourcemap: false, target: ['es2022', 'safari16', 'chrome110', 'firefox115'] },
   };
 });

@@ -49,9 +49,10 @@ const originalClaim = claims[0];
 let mine: any = null;
 export async function request(path: string, body?: any): Promise<any> {
   await new Promise((r) => setTimeout(r, 120));
+  if (path === '/bootstrap') return {today: await request('/today'), me:await request('/me'), rows:claims};
   if (path === '/today')
     return {
-      category,
+      category: {...category},
       claimed: claims.length,
       lastClaimAt: claims[0]?.created_at || null,
       open: 2400 - claims.length,
@@ -76,7 +77,7 @@ export async function request(path: string, body?: any): Promise<any> {
         e.toLowerCase().includes(decodeURIComponent(path.split('q=')[1] || '').toLowerCase()),
       ),
     };
-  if (path.startsWith('/ledger')) return { rows: claims };
+  if (path.startsWith('/ledger')) { const u = new URL(path, 'http://fixture'); return {rows:claims.filter(r=>r.category_id===u.searchParams.get('category') && r.claim_no>Number(u.searchParams.get('since')||0))}; }
   if (path === '/archive') return { categories: [] };
   if (path.startsWith('/certificate/'))
     return { claim: claims.find((c) => c.id === path.split('/').pop()) || mine };
@@ -111,7 +112,7 @@ export async function request(path: string, body?: any): Promise<any> {
       obscurity: 4,
     };
     claims = [mine, ...claims];
-    return { claim: mine };
+    return { claim: mine, me:await request('/me') };
   }
   if (path === '/events/share') return { ok: true };
   throw new ApiError(404, { message: 'No file at this address.' });
