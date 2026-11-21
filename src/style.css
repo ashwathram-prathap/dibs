@@ -267,7 +267,8 @@ nav a[aria-current='page']:after {
   letter-spacing: -0.065em;
   text-transform: uppercase;
   margin: 20px 0 26px;
-  overflow-wrap: anywhere;
+  white-space: nowrap;
+  overflow: hidden;
 }
 .category.long {
   font-size: clamp(60px, 9vw, 135px);

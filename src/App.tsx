@@ -1,4 +1,4 @@
-import { useEffect, useState, useRef, type FormEvent } from 'react';
+import { useEffect, useLayoutEffect, useState, useRef, type FormEvent } from 'react';
 import { motion, useReducedMotion } from 'framer-motion';
 import { api, ApiError, isDemo } from './api';
 import { type Category, type Claim, type Me, type Today, schools, serial } from './types';
@@ -222,6 +222,37 @@ export default function App() {
     </>
   );
 }
+function CategoryHeading({ name }: { name: string }) {
+  const ref = useRef<HTMLHeadingElement>(null);
+  useLayoutEffect(() => {
+    const heading = ref.current!;
+    let alive = true;
+    const fit = () => {
+      if (!alive || !heading.isConnected) return;
+      heading.style.fontSize = '';
+      const size = parseFloat(getComputedStyle(heading).fontSize);
+      const range = document.createRange();
+      range.selectNodeContents(heading);
+      const width = range.getBoundingClientRect().width;
+      if (width > heading.clientWidth)
+        heading.style.fontSize =
+          Math.floor(((size * (heading.clientWidth - 1)) / width) * 10) / 10 + 'px';
+    };
+    fit();
+    const observer = new ResizeObserver(fit);
+    observer.observe(heading);
+    void document.fonts.ready.then(fit);
+    return () => {
+      alive = false;
+      observer.disconnect();
+    };
+  }, [name]);
+  return (
+    <h1 ref={ref} className={name.length > 12 ? 'category long' : 'category'}>
+      {name}
+    </h1>
+  );
+}
 function Home({
   today,
   me,
@@ -350,13 +381,7 @@ function Home({
           </span>
           <span className="folio">ONE CATEGORY. ONE CLAIM.</span>
         </div>
-        <h1
-          className={
-            today.category && today.category.name.length > 12 ? 'category long' : 'category'
-          }
-        >
-          {today.category?.name || 'DIBS'}
-        </h1>
+        <CategoryHeading name={today.category?.name || 'DIBS'} />
         <div className="category-bottom">
           <span>
             {today.category ? (
