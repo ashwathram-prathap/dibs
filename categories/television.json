@@ -11,11 +11,12 @@
     "categoryLists": null,
     "queryRoot": "Q5398426",
     "property": "P31",
-    "builtAt": "2026-11-21T04:52:27.491Z",
+    "builtAt": "2026-11-21T05:05:18.038Z",
     "license": "Wikidata CC0; Wikipedia titles and pageview counts. See source URL on each entry.",
     "scoring": "Mean daily Wikipedia pageviews over available days in the past 30: 1 >=1000; 2 >=200; 3 >=50; 4 >=10; 5 <10. Missing data excluded.",
     "scopeNote": null,
-    "reviewRequired": true
+    "reviewRequired": true,
+    "identityPolicy": "exclude-cross-title-redirects-v1"
   },
   "answers": [
     {
@@ -12675,20 +12676,6 @@
       }
     },
     {
-      "canonical": "yosoybettylafea",
-      "display": "Yo soy Betty, la fea",
-      "aliases": [],
-      "obscurity": 2,
-      "source": "https://en.wikipedia.org/wiki/Yo_soy_Bea",
-      "wikidata": "http://www.wikidata.org/entity/Q1703401",
-      "pageviews": {
-        "total": 13121,
-        "days": 29,
-        "start": "2026-10-22",
-        "end": "2026-11-19"
-      }
-    },
-    {
       "canonical": "lajauladeorotvsery",
       "display": "La jaula de oro (TV series)",
       "aliases": [],
@@ -12868,20 +12855,6 @@
         "days": 30,
         "start": "2026-10-22",
         "end": "2026-11-20"
-      }
-    },
-    {
-      "canonical": "girlgeneration",
-      "display": "Girls' Generation",
-      "aliases": [],
-      "obscurity": 2,
-      "source": "https://en.wikipedia.org/wiki/Girls%27_Generation_and_the_Dangerous_Boys",
-      "wikidata": "http://www.wikidata.org/entity/Q285577",
-      "pageviews": {
-        "total": 28730,
-        "days": 29,
-        "start": "2026-10-22",
-        "end": "2026-11-19"
       }
     },
     {
@@ -14086,20 +14059,6 @@
         "days": 30,
         "start": "2026-10-22",
         "end": "2026-11-20"
-      }
-    },
-    {
-      "canonical": "treyparker",
-      "display": "Trey Parker",
-      "aliases": [],
-      "obscurity": 1,
-      "source": "https://en.wikipedia.org/wiki/Time_Warped",
-      "wikidata": "http://www.wikidata.org/entity/Q1734892",
-      "pageviews": {
-        "total": 95756,
-        "days": 29,
-        "start": "2026-10-22",
-        "end": "2026-11-19"
       }
     },
     {
@@ -16060,20 +16019,6 @@
         "days": 30,
         "start": "2026-10-22",
         "end": "2026-11-20"
-      }
-    },
-    {
-      "canonical": "1litrenonamida",
-      "display": "1 Litre no Namida",
-      "aliases": [],
-      "obscurity": 3,
-      "source": "https://en.wikipedia.org/wiki/1_Litre_no_Namida_(TV_series)",
-      "wikidata": "http://www.wikidata.org/entity/Q618755",
-      "pageviews": {
-        "total": 2940,
-        "days": 29,
-        "start": "2026-10-22",
-        "end": "2026-11-19"
       }
     },
     {
@@ -24029,20 +23974,6 @@
       }
     },
     {
-      "canonical": "heiterbistodlichmunchen7",
-      "display": "Heiter bis tödlich: München 7",
-      "aliases": [],
-      "obscurity": 5,
-      "source": "https://en.wikipedia.org/wiki/M%C3%BCnchen_7",
-      "wikidata": "http://www.wikidata.org/entity/Q1259921",
-      "pageviews": {
-        "total": 16,
-        "days": 28,
-        "start": "2026-10-22",
-        "end": "2026-11-20"
-      }
-    },
-    {
       "canonical": "stillstandingamericantvsery",
       "display": "Still Standing (American TV series)",
       "aliases": [],
@@ -30693,20 +30624,6 @@
       }
     },
     {
-      "canonical": "worstcasescenariosery",
-      "display": "Worst-Case Scenario series",
-      "aliases": [],
-      "obscurity": 5,
-      "source": "https://en.wikipedia.org/wiki/Worst-Case_Scenario_(TV_series)",
-      "wikidata": "http://www.wikidata.org/entity/Q1969628",
-      "pageviews": {
-        "total": 272,
-        "days": 30,
-        "start": "2026-10-22",
-        "end": "2026-11-20"
-      }
-    },
-    {
       "canonical": "elsexodebil",
       "display": "El Sexo Débil",
       "aliases": [],
@@ -30816,6 +30733,90 @@
         "days": 29,
         "start": "2026-10-22",
         "end": "2026-11-19"
+      }
+    },
+    {
+      "canonical": "milliondollarpassword",
+      "display": "Million Dollar Password",
+      "aliases": [],
+      "obscurity": 4,
+      "source": "https://en.wikipedia.org/wiki/Million_Dollar_Password",
+      "wikidata": "http://www.wikidata.org/entity/Q425836",
+      "pageviews": {
+        "total": 516,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "walkertexaranger",
+      "display": "Walker, Texas Ranger",
+      "aliases": [],
+      "obscurity": 2,
+      "source": "https://en.wikipedia.org/wiki/Walker,_Texas_Ranger",
+      "wikidata": "http://www.wikidata.org/entity/Q426432",
+      "pageviews": {
+        "total": 23932,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "goodnightbeantown",
+      "display": "Goodnight, Beantown",
+      "aliases": [],
+      "obscurity": 4,
+      "source": "https://en.wikipedia.org/wiki/Goodnight,_Beantown",
+      "wikidata": "http://www.wikidata.org/entity/Q426718",
+      "pageviews": {
+        "total": 578,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "rishtacom",
+      "display": "Rishta.com",
+      "aliases": [],
+      "obscurity": 4,
+      "source": "https://en.wikipedia.org/wiki/Rishta.com",
+      "wikidata": "http://www.wikidata.org/entity/Q426964",
+      "pageviews": {
+        "total": 639,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "thekillpoint",
+      "display": "The Kill Point",
+      "aliases": [],
+      "obscurity": 4,
+      "source": "https://en.wikipedia.org/wiki/The_Kill_Point",
+      "wikidata": "http://www.wikidata.org/entity/Q427327",
+      "pageviews": {
+        "total": 668,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "cashmeremafia",
+      "display": "Cashmere Mafia",
+      "aliases": [],
+      "obscurity": 4,
+      "source": "https://en.wikipedia.org/wiki/Cashmere_Mafia",
+      "wikidata": "http://www.wikidata.org/entity/Q427453",
+      "pageviews": {
+        "total": 856,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
       }
     }
   ]
