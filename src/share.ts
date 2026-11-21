@@ -1,4 +1,5 @@
 import { type Claim, serial } from './types';
+import { WORDMARK_WIDTH, WORDMARK_PATH, WORDMARK_BLOCK_X } from '../shared/brand';
 import { fitText } from '../shared/typography';
 // Canvas avoids Safari's SVG foreignObject restrictions. Font faces are self-hosted.
 export async function exportCertificate(claim: Claim, story: boolean, text: string, url: string) {
@@ -43,13 +44,18 @@ export async function exportCertificate(claim: Claim, story: boolean, text: stri
       c.lineTo(x, y + 13);
       c.stroke();
     }
-  mono('DIBS / REGISTRY OF CLAIMS', 80, 105);
+  mono('REGISTRY OF CLAIMS', 80, 105);
   mono('FORM D-1', 890, 105);
   line(135);
   mono('CERTIFICATE OF DIBS', 80, 200, 22);
   mono('No. ' + serial(claim.claim_no), 80, 237, 22);
-  c.font = '900 85px Archivo, ArchivoSupplement';
-  c.fillText('D.', 870, 237);
+  c.save();
+  c.translate(800, 162);
+  c.scale(200 / WORDMARK_WIDTH, 200 / WORDMARK_WIDTH);
+  c.fill(new Path2D(WORDMARK_PATH));
+  c.fillStyle = '#E1462B';
+  c.fillRect(WORDMARK_BLOCK_X, 67, 18, 18);
+  c.restore();
   const top = story ? 420 : 340;
   c.font = '400 34px Instrument';
   c.fillText('Let the record show.', 80, top);

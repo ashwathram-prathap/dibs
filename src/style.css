@@ -1834,3 +1834,9 @@ html.low-power .claim-imprint strong {
 .dibs-stamp strong { filter: url('#ink'); }
 .dibs-stamp span { font-size: 11px; letter-spacing: .05em; line-height: 1.5; }
 @media (max-width: 600px) { .dibs-stamp span { font-size: 10px; } }
+.brand-mark { display: block; width: 100%; height: auto; }
+.wordmark { width: 212px; }
+.footer-logo { display: block; width: 72px; color: var(--ink); }
+.cert-emblem { width: 88px; height: auto; border: 0; padding: 0; }
+@media(max-width:600px) { .wordmark { width: 178px; } .cert-emblem { width: 66px; } }
+html.low-power .dibs-stamp strong { filter: none; }

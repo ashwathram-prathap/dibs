@@ -3,6 +3,8 @@ import { motion, useReducedMotion } from 'framer-motion';
 import { api, ApiError, isDemo } from './api';
 import { type Category, type Claim, type Me, type Today, serial } from './types';
 import { exportCertificate } from './share';
+import { WORDMARK_WIDTH, WORDMARK_PATH, WORDMARK_BLOCK_X } from '../shared/brand';
+function Wordmark() { return <svg className="brand-mark" role="img" aria-label="dibs." viewBox={`0 0 ${WORDMARK_WIDTH} 100`}><path fill="currentColor" d={WORDMARK_PATH}/><path fill="#E1462B" d={`M${WORDMARK_BLOCK_X} 67h18v18h-18z`}/></svg>; }
 
 const time = (s: string) =>
   new Date(s).toLocaleTimeString('en-CA', {
@@ -134,7 +136,7 @@ export default function App() {
       <div className={"page " + (path === "/" ? "home-page" : "")}>
         <header className="masthead">
           <Link to="/" className="wordmark" aria-label="Dibs home">
-            dibs<span className="wordmark-dot">.</span>
+            <Wordmark />
           </Link>
           <p className="mast-note">
             DEPARTMENT OF
@@ -217,7 +219,7 @@ export default function App() {
         </main>
         <footer>
           <Link to="/" className="footer-logo">
-            DIBS /
+            <Wordmark />
           </Link>
           <span>A little claim to call your own.</span>
           <span className="footer-right">FILED DAILY. HELD BRIEFLY.</span>
@@ -735,7 +737,7 @@ export function Certificate({ claim, animated = false }: { claim: Claim; animate
       aria-label={'Certificate of Dibs for ' + claim.display}
     >
       <div className="cert-rule">
-        <span>DIBS / REGISTRY OF CLAIMS</span>
+        <span>REGISTRY OF CLAIMS</span>
         <span>FORM D-1</span>
       </div>
       <div className="cert-top">
@@ -745,7 +747,7 @@ export function Certificate({ claim, animated = false }: { claim: Claim; animate
           No. {serial(claim.claim_no)}
         </span>
         <span className="cert-emblem" aria-hidden="true">
-          D.
+          <Wordmark />
         </span>
       </div>
       <p className="cert-intro">
@@ -929,7 +931,7 @@ function Archive() {
             <p>{error || 'Volume I is waiting for its first page.'}</p>
           )}
           <div className="archive-spine" aria-hidden="true">
-            DIBS / VOL. I / PUBLIC RECORD
+            <Wordmark /> VOL. I / PUBLIC RECORD
           </div>
         </aside>
         <div>
