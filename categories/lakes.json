@@ -11,11 +11,12 @@
     "categoryLists": null,
     "queryRoot": "Q23397",
     "property": "P31",
-    "builtAt": "2026-11-21T04:59:59.799Z",
+    "builtAt": "2026-11-21T05:05:18.103Z",
     "license": "Wikidata CC0; Wikipedia titles and pageview counts. See source URL on each entry.",
     "scoring": "Mean daily Wikipedia pageviews over available days in the past 30: 1 >=1000; 2 >=200; 3 >=50; 4 >=10; 5 <10. Missing data excluded.",
     "scopeNote": null,
-    "reviewRequired": true
+    "reviewRequired": true,
+    "identityPolicy": "exclude-cross-title-redirects-v1"
   },
   "answers": [
     {
@@ -2315,20 +2316,6 @@
       }
     },
     {
-      "canonical": "kissingbavaria",
-      "display": "Kissing, Bavaria",
-      "aliases": [],
-      "obscurity": 4,
-      "source": "https://en.wikipedia.org/wiki/Auensee_(Kissing)",
-      "wikidata": "http://www.wikidata.org/entity/Q281196",
-      "pageviews": {
-        "total": 421,
-        "days": 30,
-        "start": "2026-10-22",
-        "end": "2026-11-20"
-      }
-    },
-    {
       "canonical": "lakevegoritida",
       "display": "Lake Vegoritida",
       "aliases": [],
@@ -3513,20 +3500,6 @@
       "wikidata": "http://www.wikidata.org/entity/Q365220",
       "pageviews": {
         "total": 6,
-        "days": 30,
-        "start": "2026-10-22",
-        "end": "2026-11-20"
-      }
-    },
-    {
-      "canonical": "gordondam",
-      "display": "Gordon Dam",
-      "aliases": [],
-      "obscurity": 4,
-      "source": "https://en.wikipedia.org/wiki/Lake_Gordon",
-      "wikidata": "http://www.wikidata.org/entity/Q366813",
-      "pageviews": {
-        "total": 1035,
         "days": 30,
         "start": "2026-10-22",
         "end": "2026-11-20"
@@ -8629,20 +8602,6 @@
       }
     },
     {
-      "canonical": "mackintoshdam",
-      "display": "Mackintosh Dam",
-      "aliases": [],
-      "obscurity": 5,
-      "source": "https://en.wikipedia.org/wiki/Lake_Mackintosh",
-      "wikidata": "http://www.wikidata.org/entity/Q1800988",
-      "pageviews": {
-        "total": 25,
-        "days": 30,
-        "start": "2026-10-22",
-        "end": "2026-11-20"
-      }
-    },
-    {
       "canonical": "lakematahina",
       "display": "Lake Matahina",
       "aliases": [],
@@ -9707,20 +9666,6 @@
       }
     },
     {
-      "canonical": "juliusdam",
-      "display": "Julius Dam",
-      "aliases": [],
-      "obscurity": 5,
-      "source": "https://en.wikipedia.org/wiki/Lake_Julius",
-      "wikidata": "http://www.wikidata.org/entity/Q1800962",
-      "pageviews": {
-        "total": 156,
-        "days": 30,
-        "start": "2026-10-22",
-        "end": "2026-11-20"
-      }
-    },
-    {
       "canonical": "lakekaniere",
       "display": "Lake Kaniere",
       "aliases": [],
@@ -9746,20 +9691,6 @@
         "days": 29,
         "start": "2026-10-22",
         "end": "2026-11-19"
-      }
-    },
-    {
-      "canonical": "clarkdam",
-      "display": "Clark Dam",
-      "aliases": [],
-      "obscurity": 5,
-      "source": "https://en.wikipedia.org/wiki/Lake_King_William",
-      "wikidata": "http://www.wikidata.org/entity/Q1800972",
-      "pageviews": {
-        "total": 40,
-        "days": 30,
-        "start": "2026-10-22",
-        "end": "2026-11-20"
       }
     },
     {
@@ -13291,20 +13222,6 @@
       }
     },
     {
-      "canonical": "caniapiscau",
-      "display": "Caniapiscau",
-      "aliases": [],
-      "obscurity": 5,
-      "source": "https://en.wikipedia.org/wiki/Opiscoteo_Lake",
-      "wikidata": "http://www.wikidata.org/entity/Q2400343",
-      "pageviews": {
-        "total": 185,
-        "days": 30,
-        "start": "2026-10-22",
-        "end": "2026-11-20"
-      }
-    },
-    {
       "canonical": "lakezumpango",
       "display": "Lake Zumpango",
       "aliases": [],
@@ -13636,20 +13553,6 @@
       "pageviews": {
         "total": 1,
         "days": 26,
-        "start": "2026-10-22",
-        "end": "2026-11-20"
-      }
-    },
-    {
-      "canonical": "sanfranciscocebu",
-      "display": "San Francisco, Cebu",
-      "aliases": [],
-      "obscurity": 4,
-      "source": "https://en.wikipedia.org/wiki/Lake_Danao_(Cebu)",
-      "wikidata": "http://www.wikidata.org/entity/Q1159269",
-      "pageviews": {
-        "total": 323,
-        "days": 30,
         "start": "2026-10-22",
         "end": "2026-11-20"
       }
@@ -16315,20 +16218,6 @@
       }
     },
     {
-      "canonical": "taylorvalley",
-      "display": "Taylor Valley",
-      "aliases": [],
-      "obscurity": 5,
-      "source": "https://en.wikipedia.org/wiki/Lake_Chad_(Antarctica)",
-      "wikidata": "http://www.wikidata.org/entity/Q2457425",
-      "pageviews": {
-        "total": 258,
-        "days": 30,
-        "start": "2026-10-22",
-        "end": "2026-11-20"
-      }
-    },
-    {
       "canonical": "turtlelakesaskatchewan",
       "display": "Turtle Lake (Saskatchewan)",
       "aliases": [],
@@ -18088,20 +17977,6 @@
       "pageviews": {
         "total": 20,
         "days": 28,
-        "start": "2026-10-22",
-        "end": "2026-11-20"
-      }
-    },
-    {
-      "canonical": "volder",
-      "display": "Volders",
-      "aliases": [],
-      "obscurity": 5,
-      "source": "https://en.wikipedia.org/wiki/Volderer_See",
-      "wikidata": "http://www.wikidata.org/entity/Q2530731",
-      "pageviews": {
-        "total": 41,
-        "days": 29,
         "start": "2026-10-22",
         "end": "2026-11-20"
       }
@@ -20137,20 +20012,6 @@
       }
     },
     {
-      "canonical": "valminor",
-      "display": "Val Minor",
-      "aliases": [],
-      "obscurity": 5,
-      "source": "https://en.wikipedia.org/wiki/Lej_Minor",
-      "wikidata": "http://www.wikidata.org/entity/Q690121",
-      "pageviews": {
-        "total": 12,
-        "days": 28,
-        "start": "2026-10-22",
-        "end": "2026-11-20"
-      }
-    },
-    {
       "canonical": "laketuusula",
       "display": "Lake Tuusula",
       "aliases": [],
@@ -21159,20 +21020,6 @@
       }
     },
     {
-      "canonical": "arthurlakedam",
-      "display": "Arthurs Lake Dam",
-      "aliases": [],
-      "obscurity": 5,
-      "source": "https://en.wikipedia.org/wiki/Arthurs_Lake_(Tasmania)",
-      "wikidata": "http://www.wikidata.org/entity/Q712277",
-      "pageviews": {
-        "total": 23,
-        "days": 29,
-        "start": "2026-10-22",
-        "end": "2026-11-19"
-      }
-    },
-    {
       "canonical": "heavenlake",
       "display": "Heaven Lake",
       "aliases": [],
@@ -21280,20 +21127,6 @@
       "pageviews": {
         "total": 10,
         "days": 28,
-        "start": "2026-10-22",
-        "end": "2026-11-20"
-      }
-    },
-    {
-      "canonical": "mackenziedam",
-      "display": "Mackenzie Dam",
-      "aliases": [],
-      "obscurity": 5,
-      "source": "https://en.wikipedia.org/wiki/Lake_Mackenzie_(Tasmania)",
-      "wikidata": "http://www.wikidata.org/entity/Q1257453",
-      "pageviews": {
-        "total": 17,
-        "days": 30,
         "start": "2026-10-22",
         "end": "2026-11-20"
       }
@@ -28621,20 +28454,6 @@
       }
     },
     {
-      "canonical": "littlepinelagoon",
-      "display": "Little Pine Lagoon",
-      "aliases": [],
-      "obscurity": 5,
-      "source": "https://en.wikipedia.org/wiki/Little_Pine_Lagoon_(lagoon)",
-      "wikidata": "http://www.wikidata.org/entity/Q1322049",
-      "pageviews": {
-        "total": 28,
-        "days": 27,
-        "start": "2026-10-22",
-        "end": "2026-11-20"
-      }
-    },
-    {
       "canonical": "paynelakequebec",
       "display": "Payne Lake (Quebec)",
       "aliases": [],
@@ -29148,20 +28967,6 @@
       "pageviews": {
         "total": 25,
         "days": 30,
-        "start": "2026-10-22",
-        "end": "2026-11-20"
-      }
-    },
-    {
-      "canonical": "schlitter",
-      "display": "Schlitters",
-      "aliases": [],
-      "obscurity": 5,
-      "source": "https://en.wikipedia.org/wiki/Schlitterer_See",
-      "wikidata": "http://www.wikidata.org/entity/Q2239851",
-      "pageviews": {
-        "total": 19,
-        "days": 29,
         "start": "2026-10-22",
         "end": "2026-11-20"
       }
@@ -30814,6 +30619,202 @@
       "pageviews": {
         "total": 1381,
         "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "lochawe",
+      "display": "Loch Awe",
+      "aliases": [],
+      "obscurity": 4,
+      "source": "https://en.wikipedia.org/wiki/Loch_Awe",
+      "wikidata": "http://www.wikidata.org/entity/Q1368230",
+      "pageviews": {
+        "total": 1155,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "lakeesrum",
+      "display": "Lake Esrum",
+      "aliases": [],
+      "obscurity": 5,
+      "source": "https://en.wikipedia.org/wiki/Lake_Esrum",
+      "wikidata": "http://www.wikidata.org/entity/Q1368515",
+      "pageviews": {
+        "total": 73,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "lagoadafajadesantocristo",
+      "display": "Lagoa da Fajã de Santo Cristo",
+      "aliases": [],
+      "obscurity": 5,
+      "source": "https://en.wikipedia.org/wiki/Lagoa_da_Faj%C3%A3_de_Santo_Cristo",
+      "wikidata": "http://www.wikidata.org/entity/Q1369105",
+      "pageviews": {
+        "total": 13,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "lillooetlake",
+      "display": "Lillooet Lake",
+      "aliases": [],
+      "obscurity": 5,
+      "source": "https://en.wikipedia.org/wiki/Lillooet_Lake",
+      "wikidata": "http://www.wikidata.org/entity/Q1369680",
+      "pageviews": {
+        "total": 107,
+        "days": 29,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "lakeofbanyole",
+      "display": "Lake of Banyoles",
+      "aliases": [],
+      "obscurity": 5,
+      "source": "https://en.wikipedia.org/wiki/Lake_of_Banyoles",
+      "wikidata": "http://www.wikidata.org/entity/Q1369765",
+      "pageviews": {
+        "total": 219,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "askevatnet",
+      "display": "Askevatnet",
+      "aliases": [],
+      "obscurity": 5,
+      "source": "https://en.wikipedia.org/wiki/Askevatnet",
+      "wikidata": "http://www.wikidata.org/entity/Q1774018",
+      "pageviews": {
+        "total": 6,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "kaldvagvatnet",
+      "display": "Kaldvågvatnet",
+      "aliases": [],
+      "obscurity": 5,
+      "source": "https://en.wikipedia.org/wiki/Kaldv%C3%A5gvatnet",
+      "wikidata": "http://www.wikidata.org/entity/Q1774027",
+      "pageviews": {
+        "total": 7,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "kulivatnet",
+      "display": "Kulivatnet",
+      "aliases": [],
+      "obscurity": 5,
+      "source": "https://en.wikipedia.org/wiki/Kulivatnet",
+      "wikidata": "http://www.wikidata.org/entity/Q1774079",
+      "pageviews": {
+        "total": 3,
+        "days": 27,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "sildhopvatnet",
+      "display": "Sildhopvatnet",
+      "aliases": [],
+      "obscurity": 5,
+      "source": "https://en.wikipedia.org/wiki/Sildhopvatnet",
+      "wikidata": "http://www.wikidata.org/entity/Q1774086",
+      "pageviews": {
+        "total": 6,
+        "days": 28,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "klenzsee",
+      "display": "Klenzsee",
+      "aliases": [],
+      "obscurity": 5,
+      "source": "https://en.wikipedia.org/wiki/Klenzsee",
+      "wikidata": "http://www.wikidata.org/entity/Q1774117",
+      "pageviews": {
+        "total": 4,
+        "days": 20,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "lakebolshoyemorskoye",
+      "display": "Lake Bolshoye Morskoye",
+      "aliases": [],
+      "obscurity": 5,
+      "source": "https://en.wikipedia.org/wiki/Lake_Bolshoye_Morskoye",
+      "wikidata": "http://www.wikidata.org/entity/Q1774474",
+      "pageviews": {
+        "total": 48,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "lakenerpichyesakharepublic",
+      "display": "Lake Nerpichye (Sakha Republic)",
+      "aliases": [],
+      "obscurity": 5,
+      "source": "https://en.wikipedia.org/wiki/Lake_Nerpichye_(Sakha_Republic)",
+      "wikidata": "http://www.wikidata.org/entity/Q1774501",
+      "pageviews": {
+        "total": 10,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "juovvajavri",
+      "display": "Juovvajávri",
+      "aliases": [],
+      "obscurity": 5,
+      "source": "https://en.wikipedia.org/wiki/Juovvaj%C3%A1vri",
+      "wikidata": "http://www.wikidata.org/entity/Q1775560",
+      "pageviews": {
+        "total": 51,
+        "days": 29,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "bajitspielgajavri",
+      "display": "Bajit Spielgajávri",
+      "aliases": [],
+      "obscurity": 5,
+      "source": "https://en.wikipedia.org/wiki/Bajit_Spielgaj%C3%A1vri",
+      "wikidata": "http://www.wikidata.org/entity/Q1775580",
+      "pageviews": {
+        "total": 3,
+        "days": 29,
         "start": "2026-10-22",
         "end": "2026-11-20"
       }
