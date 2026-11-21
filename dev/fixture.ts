@@ -1,5 +1,5 @@
 // DEVELOPMENT ONLY. Vite removes this import from every production build.
-import {ApiError} from '../src/api';
+class ApiError extends Error {constructor(public status:number,public data:any){super(data.message)}}
 const date=new Date().toISOString().slice(0,10);
 const category={id:'fixture-animals',date,name:'Animals',slug:'animals',total_registrable:2400,drop_at:new Date().toISOString()};
 const entries=['Axolotl','Pangolin','Capybara','Okapi','Quokka','Wombat','Narwhal','Aardvark'];

@@ -9,3 +9,7 @@ MORNING_REPORT.md
 test-results/
 playwright-report/
 .DS_Store
+
+*.tsbuildinfo
+
+.category-cache/
