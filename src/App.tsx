@@ -246,6 +246,15 @@ function Home({
   const turnstileBox = useRef<HTMLDivElement>(null);
   useEffect(() => setClaim(me.claim), [me.claim]);
   useEffect(() => {
+    if (!landed) return;
+    const frame = requestAnimationFrame(() =>
+      document
+        .querySelector('.filed-section')
+        ?.scrollIntoView({ block: 'start', behavior: 'auto' }),
+    );
+    return () => cancelAnimationFrame(frame);
+  }, [landed]);
+  useEffect(() => {
     const viewport = window.visualViewport;
     const keepFormVisible = () => {
       if (document.activeElement !== input.current || !viewport) return;
@@ -396,6 +405,21 @@ function Home({
           transition={{ duration: 0.25 }}
         >
           <span className="eyebrow">YOUR DIBS HAS BEEN ENTERED INTO THE PUBLIC RECORD.</span>
+          {landed && !reduced && (
+            <div className="claim-imprint-stage" aria-hidden="true">
+              <motion.div
+                className="claim-imprint"
+                aria-hidden="true"
+                initial={{ scale: 1.4, opacity: 0, rotate: ((claim.claim_no * 7.31) % 7) - 4 }}
+                animate={{ scale: [1.4, 1, 1, 1], opacity: [0, 1, 1, 0] }}
+                transition={{ duration: 1.15, times: [0, 0.15, 0.58, 1] }}
+              >
+                <strong>DIBS</strong>
+                <span>{claim.display}</span>
+                <small>No. {serial(claim.claim_no)} · ENTERED INTO THE RECORD</small>
+              </motion.div>
+            </div>
+          )}
           <Certificate claim={claim} animated={landed} />
           <ShareButtons claim={claim} />
           <Streak me={me} />
@@ -611,6 +635,7 @@ function Ledger({ category }: { category: Category | null }) {
   const [error, setError] = useState('');
   const [newIds, setNewIds] = useState<Set<string>>(new Set());
   const known = useRef(new Set<string>());
+  const loaded = useRef(false);
   useEffect(() => {
     if (!category) {
       setRows([]);
@@ -618,18 +643,20 @@ function Ledger({ category }: { category: Category | null }) {
     }
     let alive = true;
     known.current = new Set();
+    loaded.current = false;
     const update = async () => {
       try {
         const data = await api<{ rows: Claim[] }>('/ledger?category=' + category.id);
         if (!alive) return;
         setNewIds(
           new Set(
-            known.current.size
+            loaded.current
               ? data.rows.filter((r) => !known.current.has(r.id)).map((r) => r.id)
               : [],
           ),
         );
         known.current = new Set(data.rows.map((r) => r.id));
+        loaded.current = true;
         setRows(data.rows);
         setError('');
       } catch {
@@ -787,7 +814,7 @@ export function Certificate({ claim, animated = false }: { claim: Claim; animate
           style={{ rotate: ((claim.claim_no * 7.31) % 7) - 4 }}
           initial={animated && !reduced ? { scale: 1.4, opacity: 0 } : false}
           animate={{ scale: 1, opacity: 1 }}
-          transition={{ duration: 0.18, delay: 0.05 }}
+          transition={{ duration: 0.18, delay: 0.65 }}
         >
           <strong>DIBS</strong>
           <span>

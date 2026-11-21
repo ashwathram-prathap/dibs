@@ -757,6 +757,8 @@ footer {
   padding-top: 15px;
 }
 .filed-section {
+  position: relative;
+  scroll-margin-top: 24px;
   padding: 38px 0 30px;
   border-bottom: 1px solid var(--ink);
 }
@@ -1646,8 +1648,86 @@ html.low-power .dibs-stamp strong {
     monospace;
 }
 /* Touch controls retain their physical size even in the dense printed layout. */
-.search input,.identity select,.archive-layout aside select{font-size:16px}
-.footer-logo,.bottom-note a,.office-note a{display:inline-flex;align-items:center;min-height:44px}
-.ledger td:nth-child(2) a{display:flex;align-items:center;min-height:44px;margin:-12px 0;padding:8px 0}
-body{padding-top:env(safe-area-inset-top)}
-.cert-footer:before,.cert-footer:after{content:'+';position:absolute;bottom:1px;left:2px;font:22px Plex,monospace}.cert-footer:after{left:auto;right:2px}
+.search input,
+.identity select,
+.archive-layout aside select {
+  font-size: 16px;
+}
+.footer-logo,
+.bottom-note a,
+.office-note a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+}
+.ledger td:nth-child(2) a {
+  display: flex;
+  align-items: center;
+  min-height: 44px;
+  margin: -12px 0;
+  padding: 8px 0;
+}
+body {
+  padding-top: env(safe-area-inset-top);
+}
+.cert-footer:before,
+.cert-footer:after {
+  content: '+';
+  position: absolute;
+  bottom: 1px;
+  left: 2px;
+  font:
+    22px Plex,
+    monospace;
+}
+.cert-footer:after {
+  left: auto;
+  right: 2px;
+}
+
+.claim-imprint {
+  position: absolute;
+  z-index: 3;
+  top: 54px;
+  left: max(16px, calc((100% - 700px) / 2));
+  width: min(620px, calc(100% - 32px));
+  padding: 24px;
+  border: 7px double var(--red);
+  background: var(--paper);
+  color: var(--ink);
+  pointer-events: none;
+  display: grid;
+  gap: 12px;
+}
+.claim-imprint strong {
+  color: var(--red);
+  font:
+    900 clamp(64px, 14vw, 120px)/0.8 Archivo,
+    sans-serif;
+  font-stretch: 125%;
+  letter-spacing: -0.06em;
+  filter: url(#ink);
+}
+.claim-imprint > span {
+  font:
+    900 clamp(24px, 6vw, 48px)/1 Archivo,
+    sans-serif;
+  text-transform: uppercase;
+  overflow-wrap: anywhere;
+}
+.claim-imprint small {
+  font:
+    11px/1.5 Plex,
+    monospace;
+}
+html.low-power .claim-imprint strong {
+  filter: none;
+}
+
+.claim-imprint-stage {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  z-index: 3;
+  pointer-events: none;
+}

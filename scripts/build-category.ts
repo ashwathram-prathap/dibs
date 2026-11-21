@@ -297,7 +297,7 @@ let checklist =
 for (const s of sources) {
   const path = 'categories/' + s.slug + '.json';
   const c = existsSync(path) ? JSON.parse(readFileSync(path, 'utf8')) : null;
-  checklist += `## ${s.name}\n\n- Source: Wikidata ${s.root}; English Wikipedia article links in each record.\n- Entries: ${c?.answers?.length || 0}; proposed date: ${c?.date || 'unscheduled'}; status: draft.\n- [ ] Confirm the scope and at least 2,000 suitable answers.\n- [ ] Review every display name for sensitive or offensive terms (automated filter is supplementary).\n- [ ] Check ambiguous titles, duplicates, scientific names and aliases.\n- [ ] Spot-check pageview provenance and 1–5 ratings.\n- [ ] Test familiar and obscure answers.\n- [ ] Approve through the admin command with a future 9 PM Toronto date.\n\n`;
+  checklist += `## ${s.name}\n\n- Source: ${s.wikiCategoryRoots ? 'English Wikipedia categories: ' + s.wikiCategoryRoots.join(', ') : 'Wikidata ' + s.root}; article links in each record.\n- Scope: ${s.note || 'English Wikipedia articles in the specified Wikidata class; this is a curated subset, not an exhaustive list.'}\n- Entries: ${c?.answers?.length || 0}; proposed date: ${c?.date || 'unscheduled'}; status: draft.\n- [ ] Confirm the scope and at least 2,000 suitable answers.\n- [ ] Review every display name for sensitive or offensive terms (automated filter is supplementary).\n- [ ] Check ambiguous titles, duplicates, scientific names and aliases.\n- [ ] Spot-check pageview provenance and 1–5 ratings.\n- [ ] Test familiar and obscure answers.\n- [ ] Approve through the admin command with a future 9 PM Toronto date.\n\n`;
 }
 writeFileSync('review/categories.md', checklist);
 if (failures.length) process.exitCode = 1;

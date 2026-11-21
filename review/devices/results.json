@@ -3,7 +3,23 @@
     "argv": [
       "/opt/homebrew/Cellar/node/26.13.1_2/bin/node",
       "/Users/ashwathram/Projects/dibs/node_modules/.bin/playwright",
-      "test"
+      "test",
+      "--project",
+      "iPhone-*",
+      "--project",
+      "Pixel-*",
+      "--project",
+      "Galaxy-*",
+      "--project",
+      "iPad-*",
+      "--project",
+      "chromium-*",
+      "--project",
+      "webkit-*",
+      "--project",
+      "320-*",
+      "--project",
+      "landscape-*"
     ],
     "configFile": "/Users/ashwathram/Projects/dibs/playwright.config.ts",
     "rootDir": "/Users/ashwathram/Projects/dibs/tests/e2e",
@@ -1032,93 +1048,6 @@
         "metadata": {
           "actualWorkers": 4
         },
-        "name": "firefox-1280-light",
-        "testDir": "/Users/ashwathram/Projects/dibs/tests/e2e",
-        "snapshotDir": "/Users/ashwathram/Projects/dibs/tests/e2e",
-        "testIgnore": [],
-        "testMatch": "**/*.@(spec|test).?(c|m)[jt]s?(x)",
-        "timeout": 60000,
-        "use": {
-          "baseURL": "http://127.0.0.1:5173",
-          "trace": "retain-on-failure",
-          "browserName": "firefox",
-          "viewport": {
-            "width": 1280,
-            "height": 900
-          },
-          "colorScheme": "light"
-        },
-        "dependencies": [],
-        "ignoreSnapshots": false,
-        "__projectId": "firefox-1280-light"
-      },
-      {
-        "grep": {},
-        "grepInvert": null,
-        "outputDir": "/Users/ashwathram/Projects/dibs/test-results",
-        "repeatEach": 1,
-        "retries": 0,
-        "metadata": {
-          "actualWorkers": 4
-        },
-        "name": "firefox-1440-light",
-        "testDir": "/Users/ashwathram/Projects/dibs/tests/e2e",
-        "snapshotDir": "/Users/ashwathram/Projects/dibs/tests/e2e",
-        "testIgnore": [],
-        "testMatch": "**/*.@(spec|test).?(c|m)[jt]s?(x)",
-        "timeout": 60000,
-        "use": {
-          "baseURL": "http://127.0.0.1:5173",
-          "trace": "retain-on-failure",
-          "browserName": "firefox",
-          "viewport": {
-            "width": 1440,
-            "height": 900
-          },
-          "colorScheme": "light"
-        },
-        "dependencies": [],
-        "ignoreSnapshots": false,
-        "__projectId": "firefox-1440-light"
-      },
-      {
-        "grep": {},
-        "grepInvert": null,
-        "outputDir": "/Users/ashwathram/Projects/dibs/test-results",
-        "repeatEach": 1,
-        "retries": 0,
-        "metadata": {
-          "actualWorkers": 4
-        },
-        "name": "firefox-2560-light",
-        "testDir": "/Users/ashwathram/Projects/dibs/tests/e2e",
-        "snapshotDir": "/Users/ashwathram/Projects/dibs/tests/e2e",
-        "testIgnore": [],
-        "testMatch": "**/*.@(spec|test).?(c|m)[jt]s?(x)",
-        "timeout": 60000,
-        "use": {
-          "baseURL": "http://127.0.0.1:5173",
-          "trace": "retain-on-failure",
-          "browserName": "firefox",
-          "viewport": {
-            "width": 2560,
-            "height": 900
-          },
-          "colorScheme": "light"
-        },
-        "dependencies": [],
-        "ignoreSnapshots": false,
-        "__projectId": "firefox-2560-light"
-      },
-      {
-        "grep": {},
-        "grepInvert": null,
-        "outputDir": "/Users/ashwathram/Projects/dibs/test-results",
-        "repeatEach": 1,
-        "retries": 0,
-        "metadata": {
-          "actualWorkers": 4
-        },
         "name": "320-small-light",
         "testDir": "/Users/ashwathram/Projects/dibs/tests/e2e",
         "snapshotDir": "/Users/ashwathram/Projects/dibs/tests/e2e",
@@ -1605,93 +1534,6 @@
         "metadata": {
           "actualWorkers": 4
         },
-        "name": "firefox-1280-dark",
-        "testDir": "/Users/ashwathram/Projects/dibs/tests/e2e",
-        "snapshotDir": "/Users/ashwathram/Projects/dibs/tests/e2e",
-        "testIgnore": [],
-        "testMatch": "**/*.@(spec|test).?(c|m)[jt]s?(x)",
-        "timeout": 60000,
-        "use": {
-          "baseURL": "http://127.0.0.1:5173",
-          "trace": "retain-on-failure",
-          "browserName": "firefox",
-          "viewport": {
-            "width": 1280,
-            "height": 900
-          },
-          "colorScheme": "dark"
-        },
-        "dependencies": [],
-        "ignoreSnapshots": false,
-        "__projectId": "firefox-1280-dark"
-      },
-      {
-        "grep": {},
-        "grepInvert": null,
-        "outputDir": "/Users/ashwathram/Projects/dibs/test-results",
-        "repeatEach": 1,
-        "retries": 0,
-        "metadata": {
-          "actualWorkers": 4
-        },
-        "name": "firefox-1440-dark",
-        "testDir": "/Users/ashwathram/Projects/dibs/tests/e2e",
-        "snapshotDir": "/Users/ashwathram/Projects/dibs/tests/e2e",
-        "testIgnore": [],
-        "testMatch": "**/*.@(spec|test).?(c|m)[jt]s?(x)",
-        "timeout": 60000,
-        "use": {
-          "baseURL": "http://127.0.0.1:5173",
-          "trace": "retain-on-failure",
-          "browserName": "firefox",
-          "viewport": {
-            "width": 1440,
-            "height": 900
-          },
-          "colorScheme": "dark"
-        },
-        "dependencies": [],
-        "ignoreSnapshots": false,
-        "__projectId": "firefox-1440-dark"
-      },
-      {
-        "grep": {},
-        "grepInvert": null,
-        "outputDir": "/Users/ashwathram/Projects/dibs/test-results",
-        "repeatEach": 1,
-        "retries": 0,
-        "metadata": {
-          "actualWorkers": 4
-        },
-        "name": "firefox-2560-dark",
-        "testDir": "/Users/ashwathram/Projects/dibs/tests/e2e",
-        "snapshotDir": "/Users/ashwathram/Projects/dibs/tests/e2e",
-        "testIgnore": [],
-        "testMatch": "**/*.@(spec|test).?(c|m)[jt]s?(x)",
-        "timeout": 60000,
-        "use": {
-          "baseURL": "http://127.0.0.1:5173",
-          "trace": "retain-on-failure",
-          "browserName": "firefox",
-          "viewport": {
-            "width": 2560,
-            "height": 900
-          },
-          "colorScheme": "dark"
-        },
-        "dependencies": [],
-        "ignoreSnapshots": false,
-        "__projectId": "firefox-2560-dark"
-      },
-      {
-        "grep": {},
-        "grepInvert": null,
-        "outputDir": "/Users/ashwathram/Projects/dibs/test-results",
-        "repeatEach": 1,
-        "retries": 0,
-        "metadata": {
-          "actualWorkers": 4
-        },
         "name": "320-small-dark",
         "testDir": "/Users/ashwathram/Projects/dibs/tests/e2e",
         "snapshotDir": "/Users/ashwathram/Projects/dibs/tests/e2e",
@@ -1798,12 +1640,12 @@
                   "workerIndex": 0,
                   "parallelIndex": 0,
                   "status": "passed",
-                  "duration": 9619,
+                  "duration": 9422,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-11-21T04:32:21.330Z",
+                  "startTime": "2026-11-21T04:52:23.394Z",
                   "annotations": [],
                   "attachments": []
                 }
@@ -1821,12 +1663,12 @@
                   "workerIndex": 1,
                   "parallelIndex": 1,
                   "status": "passed",
-                  "duration": 10106,
+                  "duration": 9910,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-11-21T04:32:21.327Z",
+                  "startTime": "2026-11-21T04:52:23.392Z",
                   "annotations": [],
                   "attachments": []
                 }
@@ -1844,12 +1686,12 @@
                   "workerIndex": 2,
                   "parallelIndex": 2,
                   "status": "passed",
-                  "duration": 10139,
+                  "duration": 10042,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-11-21T04:32:21.328Z",
+                  "startTime": "2026-11-21T04:52:23.395Z",
                   "annotations": [],
                   "attachments": []
                 }
@@ -1867,12 +1709,12 @@
                   "workerIndex": 3,
                   "parallelIndex": 3,
                   "status": "passed",
-                  "duration": 10507,
+                  "duration": 10303,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-11-21T04:32:21.328Z",
+                  "startTime": "2026-11-21T04:52:23.393Z",
                   "annotations": [],
                   "attachments": []
                 }
@@ -1890,12 +1732,12 @@
                   "workerIndex": 4,
                   "parallelIndex": 0,
                   "status": "passed",
-                  "duration": 13938,
+                  "duration": 13952,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-11-21T04:32:31.481Z",
+                  "startTime": "2026-11-21T04:52:33.376Z",
                   "annotations": [],
                   "attachments": []
                 }
@@ -1913,12 +1755,12 @@
                   "workerIndex": 5,
                   "parallelIndex": 1,
                   "status": "passed",
-                  "duration": 9107,
+                  "duration": 9180,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-11-21T04:32:32.000Z",
+                  "startTime": "2026-11-21T04:52:33.891Z",
                   "annotations": [],
                   "attachments": []
                 }
@@ -1936,12 +1778,12 @@
                   "workerIndex": 6,
                   "parallelIndex": 2,
                   "status": "passed",
-                  "duration": 9513,
+                  "duration": 9735,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-11-21T04:32:32.027Z",
+                  "startTime": "2026-11-21T04:52:34.014Z",
                   "annotations": [],
                   "attachments": []
                 }
@@ -1959,12 +1801,12 @@
                   "workerIndex": 7,
                   "parallelIndex": 3,
                   "status": "passed",
-                  "duration": 9146,
+                  "duration": 9331,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-11-21T04:32:32.459Z",
+                  "startTime": "2026-11-21T04:52:34.071Z",
                   "annotations": [],
                   "attachments": []
                 }
@@ -1982,12 +1824,12 @@
                   "workerIndex": 8,
                   "parallelIndex": 1,
                   "status": "passed",
-                  "duration": 9302,
+                  "duration": 9359,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-11-21T04:32:41.555Z",
+                  "startTime": "2026-11-21T04:52:43.592Z",
                   "annotations": [],
                   "attachments": []
                 }
@@ -2003,14 +1845,14 @@
               "results": [
                 {
                   "workerIndex": 9,
-                  "parallelIndex": 2,
+                  "parallelIndex": 3,
                   "status": "passed",
-                  "duration": 8844,
+                  "duration": 9413,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-11-21T04:32:42.022Z",
+                  "startTime": "2026-11-21T04:52:43.865Z",
                   "annotations": [],
                   "attachments": []
                 }
@@ -2026,14 +1868,14 @@
               "results": [
                 {
                   "workerIndex": 10,
-                  "parallelIndex": 3,
+                  "parallelIndex": 2,
                   "status": "passed",
-                  "duration": 8939,
+                  "duration": 9014,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-11-21T04:32:42.035Z",
+                  "startTime": "2026-11-21T04:52:44.312Z",
                   "annotations": [],
                   "attachments": []
                 }
@@ -2051,12 +1893,12 @@
                   "workerIndex": 11,
                   "parallelIndex": 0,
                   "status": "passed",
-                  "duration": 8769,
+                  "duration": 9280,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-11-21T04:32:45.742Z",
+                  "startTime": "2026-11-21T04:52:47.699Z",
                   "annotations": [],
                   "attachments": []
                 }
@@ -2074,12 +1916,12 @@
                   "workerIndex": 12,
                   "parallelIndex": 1,
                   "status": "passed",
-                  "duration": 9104,
+                  "duration": 8640,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-11-21T04:32:51.225Z",
+                  "startTime": "2026-11-21T04:52:53.363Z",
                   "annotations": [],
                   "attachments": []
                 }
@@ -2090,145 +1932,19 @@
               "timeout": 60000,
               "annotations": [],
               "expectedStatus": "passed",
-              "projectId": "firefox-1280-light",
-              "projectName": "firefox-1280-light",
-              "results": [
-                {
-                  "workerIndex": 13,
-                  "parallelIndex": 2,
-                  "status": "failed",
-                  "duration": 1,
-                  "error": {
-                    "message": "Error: browserType.launch: Failed to launch the browser process.\nBrowser logs:\n\n<launching> /Users/ashwathram/Library/Caches/ms-playwright/firefox-1572/firefox/Nightly.app/Contents/MacOS/firefox -no-remote -headless -profile /var/folders/r6/zvxw5nv934j_h8r0wb_rj2580000gn/T/playwright_firefoxdev_profile-WuBdWE -juggler-pipe -silent\n<launched> pid=23481\n[pid=23481][err] *** You are running in headless mode.\n[pid=23481][err] Could not find profile folder.\n[pid=23481] <process did exit: exitCode=1, signal=null>\n[pid=23481] starting temporary directories cleanup\nCall log:\n\u001b[2m  - <launching> /Users/ashwathram/Library/Caches/ms-playwright/firefox-1572/firefox/Nightly.app/Contents/MacOS/firefox -no-remote -headless -profile /var/folders/r6/zvxw5nv934j_h8r0wb_rj2580000gn/T/playwright_firefoxdev_profile-WuBdWE -juggler-pipe -silent\u001b[22m\n\u001b[2m  - <launched> pid=23481\u001b[22m\n\u001b[2m  - [pid=23481][err] *** You are running in headless mode.\u001b[22m\n\u001b[2m  - [pid=23481][err] Could not find profile folder.\u001b[22m\n\u001b[2m  - [pid=23481] <process did exit: exitCode=1, signal=null>\u001b[22m\n\u001b[2m  - [pid=23481] starting temporary directories cleanup\u001b[22m\n\u001b[2m  - [pid=23481] <gracefully close start>\u001b[22m\n\u001b[2m  - [pid=23481] <kill>\u001b[22m\n\u001b[2m  - [pid=23481] <skipped force kill spawnedProcess.killed=false processClosed=true>\u001b[22m\n\u001b[2m  - [pid=23481] finished temporary directories cleanup\u001b[22m\n\u001b[2m  - [pid=23481] <gracefully close end>\u001b[22m\n",
-                    "stack": "Error: browserType.launch: Failed to launch the browser process.\nBrowser logs:\n\n<launching> /Users/ashwathram/Library/Caches/ms-playwright/firefox-1572/firefox/Nightly.app/Contents/MacOS/firefox -no-remote -headless -profile /var/folders/r6/zvxw5nv934j_h8r0wb_rj2580000gn/T/playwright_firefoxdev_profile-WuBdWE -juggler-pipe -silent\n<launched> pid=23481\n[pid=23481][err] *** You are running in headless mode.\n[pid=23481][err] Could not find profile folder.\n[pid=23481] <process did exit: exitCode=1, signal=null>\n[pid=23481] starting temporary directories cleanup\nCall log:\n\u001b[2m  - <launching> /Users/ashwathram/Library/Caches/ms-playwright/firefox-1572/firefox/Nightly.app/Contents/MacOS/firefox -no-remote -headless -profile /var/folders/r6/zvxw5nv934j_h8r0wb_rj2580000gn/T/playwright_firefoxdev_profile-WuBdWE -juggler-pipe -silent\u001b[22m\n\u001b[2m  - <launched> pid=23481\u001b[22m\n\u001b[2m  - [pid=23481][err] *** You are running in headless mode.\u001b[22m\n\u001b[2m  - [pid=23481][err] Could not find profile folder.\u001b[22m\n\u001b[2m  - [pid=23481] <process did exit: exitCode=1, signal=null>\u001b[22m\n\u001b[2m  - [pid=23481] starting temporary directories cleanup\u001b[22m\n\u001b[2m  - [pid=23481] <gracefully close start>\u001b[22m\n\u001b[2m  - [pid=23481] <kill>\u001b[22m\n\u001b[2m  - [pid=23481] <skipped force kill spawnedProcess.killed=false processClosed=true>\u001b[22m\n\u001b[2m  - [pid=23481] finished temporary directories cleanup\u001b[22m\n\u001b[2m  - [pid=23481] <gracefully close end>\u001b[22m\n"
-                  },
-                  "errors": [
-                    {
-                      "message": "Error: browserType.launch: Failed to launch the browser process.\nBrowser logs:\n\n<launching> /Users/ashwathram/Library/Caches/ms-playwright/firefox-1572/firefox/Nightly.app/Contents/MacOS/firefox -no-remote -headless -profile /var/folders/r6/zvxw5nv934j_h8r0wb_rj2580000gn/T/playwright_firefoxdev_profile-WuBdWE -juggler-pipe -silent\n<launched> pid=23481\n[pid=23481][err] *** You are running in headless mode.\n[pid=23481][err] Could not find profile folder.\n[pid=23481] <process did exit: exitCode=1, signal=null>\n[pid=23481] starting temporary directories cleanup\nCall log:\n\u001b[2m  - <launching> /Users/ashwathram/Library/Caches/ms-playwright/firefox-1572/firefox/Nightly.app/Contents/MacOS/firefox -no-remote -headless -profile /var/folders/r6/zvxw5nv934j_h8r0wb_rj2580000gn/T/playwright_firefoxdev_profile-WuBdWE -juggler-pipe -silent\u001b[22m\n\u001b[2m  - <launched> pid=23481\u001b[22m\n\u001b[2m  - [pid=23481][err] *** You are running in headless mode.\u001b[22m\n\u001b[2m  - [pid=23481][err] Could not find profile folder.\u001b[22m\n\u001b[2m  - [pid=23481] <process did exit: exitCode=1, signal=null>\u001b[22m\n\u001b[2m  - [pid=23481] starting temporary directories cleanup\u001b[22m\n\u001b[2m  - [pid=23481] <gracefully close start>\u001b[22m\n\u001b[2m  - [pid=23481] <kill>\u001b[22m\n\u001b[2m  - [pid=23481] <skipped force kill spawnedProcess.killed=false processClosed=true>\u001b[22m\n\u001b[2m  - [pid=23481] finished temporary directories cleanup\u001b[22m\n\u001b[2m  - [pid=23481] <gracefully close end>\u001b[22m\n"
-                    }
-                  ],
-                  "stdout": [],
-                  "stderr": [],
-                  "retry": 0,
-                  "startTime": "2026-11-21T04:32:51.225Z",
-                  "annotations": [],
-                  "attachments": [
-                    {
-                      "name": "error-context",
-                      "contentType": "text/markdown",
-                      "path": "/Users/ashwathram/Projects/dibs/test-results/flow-full-filing-certificate-sharing-and-public-record-firefox-1280-light/error-context.md"
-                    },
-                    {
-                      "name": "trace",
-                      "contentType": "application/zip",
-                      "path": "/Users/ashwathram/Projects/dibs/test-results/flow-full-filing-certificate-sharing-and-public-record-firefox-1280-light/trace.zip"
-                    }
-                  ]
-                }
-              ],
-              "status": "unexpected"
-            },
-            {
-              "timeout": 60000,
-              "annotations": [],
-              "expectedStatus": "passed",
-              "projectId": "firefox-1440-light",
-              "projectName": "firefox-1440-light",
-              "results": [
-                {
-                  "workerIndex": 14,
-                  "parallelIndex": 3,
-                  "status": "failed",
-                  "duration": 1,
-                  "error": {
-                    "message": "Error: browserType.launch: Failed to launch the browser process.\nBrowser logs:\n\n<launching> /Users/ashwathram/Library/Caches/ms-playwright/firefox-1572/firefox/Nightly.app/Contents/MacOS/firefox -no-remote -headless -profile /var/folders/r6/zvxw5nv934j_h8r0wb_rj2580000gn/T/playwright_firefoxdev_profile-eQflBw -juggler-pipe -silent\n<launched> pid=23492\n[pid=23492][err] *** You are running in headless mode.\n[pid=23492][err] Could not find profile folder.\n[pid=23492] <process did exit: exitCode=1, signal=null>\n[pid=23492] starting temporary directories cleanup\nCall log:\n\u001b[2m  - <launching> /Users/ashwathram/Library/Caches/ms-playwright/firefox-1572/firefox/Nightly.app/Contents/MacOS/firefox -no-remote -headless -profile /var/folders/r6/zvxw5nv934j_h8r0wb_rj2580000gn/T/playwright_firefoxdev_profile-eQflBw -juggler-pipe -silent\u001b[22m\n\u001b[2m  - <launched> pid=23492\u001b[22m\n\u001b[2m  - [pid=23492][err] *** You are running in headless mode.\u001b[22m\n\u001b[2m  - [pid=23492][err] Could not find profile folder.\u001b[22m\n\u001b[2m  - [pid=23492] <process did exit: exitCode=1, signal=null>\u001b[22m\n\u001b[2m  - [pid=23492] starting temporary directories cleanup\u001b[22m\n\u001b[2m  - [pid=23492] <gracefully close start>\u001b[22m\n\u001b[2m  - [pid=23492] <kill>\u001b[22m\n\u001b[2m  - [pid=23492] <skipped force kill spawnedProcess.killed=false processClosed=true>\u001b[22m\n\u001b[2m  - [pid=23492] finished temporary directories cleanup\u001b[22m\n\u001b[2m  - [pid=23492] <gracefully close end>\u001b[22m\n",
-                    "stack": "Error: browserType.launch: Failed to launch the browser process.\nBrowser logs:\n\n<launching> /Users/ashwathram/Library/Caches/ms-playwright/firefox-1572/firefox/Nightly.app/Contents/MacOS/firefox -no-remote -headless -profile /var/folders/r6/zvxw5nv934j_h8r0wb_rj2580000gn/T/playwright_firefoxdev_profile-eQflBw -juggler-pipe -silent\n<launched> pid=23492\n[pid=23492][err] *** You are running in headless mode.\n[pid=23492][err] Could not find profile folder.\n[pid=23492] <process did exit: exitCode=1, signal=null>\n[pid=23492] starting temporary directories cleanup\nCall log:\n\u001b[2m  - <launching> /Users/ashwathram/Library/Caches/ms-playwright/firefox-1572/firefox/Nightly.app/Contents/MacOS/firefox -no-remote -headless -profile /var/folders/r6/zvxw5nv934j_h8r0wb_rj2580000gn/T/playwright_firefoxdev_profile-eQflBw -juggler-pipe -silent\u001b[22m\n\u001b[2m  - <launched> pid=23492\u001b[22m\n\u001b[2m  - [pid=23492][err] *** You are running in headless mode.\u001b[22m\n\u001b[2m  - [pid=23492][err] Could not find profile folder.\u001b[22m\n\u001b[2m  - [pid=23492] <process did exit: exitCode=1, signal=null>\u001b[22m\n\u001b[2m  - [pid=23492] starting temporary directories cleanup\u001b[22m\n\u001b[2m  - [pid=23492] <gracefully close start>\u001b[22m\n\u001b[2m  - [pid=23492] <kill>\u001b[22m\n\u001b[2m  - [pid=23492] <skipped force kill spawnedProcess.killed=false processClosed=true>\u001b[22m\n\u001b[2m  - [pid=23492] finished temporary directories cleanup\u001b[22m\n\u001b[2m  - [pid=23492] <gracefully close end>\u001b[22m\n"
-                  },
-                  "errors": [
-                    {
-                      "message": "Error: browserType.launch: Failed to launch the browser process.\nBrowser logs:\n\n<launching> /Users/ashwathram/Library/Caches/ms-playwright/firefox-1572/firefox/Nightly.app/Contents/MacOS/firefox -no-remote -headless -profile /var/folders/r6/zvxw5nv934j_h8r0wb_rj2580000gn/T/playwright_firefoxdev_profile-eQflBw -juggler-pipe -silent\n<launched> pid=23492\n[pid=23492][err] *** You are running in headless mode.\n[pid=23492][err] Could not find profile folder.\n[pid=23492] <process did exit: exitCode=1, signal=null>\n[pid=23492] starting temporary directories cleanup\nCall log:\n\u001b[2m  - <launching> /Users/ashwathram/Library/Caches/ms-playwright/firefox-1572/firefox/Nightly.app/Contents/MacOS/firefox -no-remote -headless -profile /var/folders/r6/zvxw5nv934j_h8r0wb_rj2580000gn/T/playwright_firefoxdev_profile-eQflBw -juggler-pipe -silent\u001b[22m\n\u001b[2m  - <launched> pid=23492\u001b[22m\n\u001b[2m  - [pid=23492][err] *** You are running in headless mode.\u001b[22m\n\u001b[2m  - [pid=23492][err] Could not find profile folder.\u001b[22m\n\u001b[2m  - [pid=23492] <process did exit: exitCode=1, signal=null>\u001b[22m\n\u001b[2m  - [pid=23492] starting temporary directories cleanup\u001b[22m\n\u001b[2m  - [pid=23492] <gracefully close start>\u001b[22m\n\u001b[2m  - [pid=23492] <kill>\u001b[22m\n\u001b[2m  - [pid=23492] <skipped force kill spawnedProcess.killed=false processClosed=true>\u001b[22m\n\u001b[2m  - [pid=23492] finished temporary directories cleanup\u001b[22m\n\u001b[2m  - [pid=23492] <gracefully close end>\u001b[22m\n"
-                    }
-                  ],
-                  "stdout": [],
-                  "stderr": [],
-                  "retry": 0,
-                  "startTime": "2026-11-21T04:32:51.439Z",
-                  "annotations": [],
-                  "attachments": [
-                    {
-                      "name": "error-context",
-                      "contentType": "text/markdown",
-                      "path": "/Users/ashwathram/Projects/dibs/test-results/flow-full-filing-certificate-sharing-and-public-record-firefox-1440-light/error-context.md"
-                    },
-                    {
-                      "name": "trace",
-                      "contentType": "application/zip",
-                      "path": "/Users/ashwathram/Projects/dibs/test-results/flow-full-filing-certificate-sharing-and-public-record-firefox-1440-light/trace.zip"
-                    }
-                  ]
-                }
-              ],
-              "status": "unexpected"
-            },
-            {
-              "timeout": 60000,
-              "annotations": [],
-              "expectedStatus": "passed",
-              "projectId": "firefox-2560-light",
-              "projectName": "firefox-2560-light",
-              "results": [
-                {
-                  "workerIndex": 15,
-                  "parallelIndex": 2,
-                  "status": "failed",
-                  "duration": 1,
-                  "error": {
-                    "message": "Error: browserType.launch: Failed to launch the browser process.\nBrowser logs:\n\n<launching> /Users/ashwathram/Library/Caches/ms-playwright/firefox-1572/firefox/Nightly.app/Contents/MacOS/firefox -no-remote -headless -profile /var/folders/r6/zvxw5nv934j_h8r0wb_rj2580000gn/T/playwright_firefoxdev_profile-Gn27rq -juggler-pipe -silent\n<launched> pid=23496\n[pid=23496][err] *** You are running in headless mode.\n[pid=23496][err] Could not find profile folder.\n[pid=23496] <process did exit: exitCode=1, signal=null>\n[pid=23496] starting temporary directories cleanup\nCall log:\n\u001b[2m  - <launching> /Users/ashwathram/Library/Caches/ms-playwright/firefox-1572/firefox/Nightly.app/Contents/MacOS/firefox -no-remote -headless -profile /var/folders/r6/zvxw5nv934j_h8r0wb_rj2580000gn/T/playwright_firefoxdev_profile-Gn27rq -juggler-pipe -silent\u001b[22m\n\u001b[2m  - <launched> pid=23496\u001b[22m\n\u001b[2m  - [pid=23496][err] *** You are running in headless mode.\u001b[22m\n\u001b[2m  - [pid=23496][err] Could not find profile folder.\u001b[22m\n\u001b[2m  - [pid=23496] <process did exit: exitCode=1, signal=null>\u001b[22m\n\u001b[2m  - [pid=23496] starting temporary directories cleanup\u001b[22m\n\u001b[2m  - [pid=23496] <gracefully close start>\u001b[22m\n\u001b[2m  - [pid=23496] <kill>\u001b[22m\n\u001b[2m  - [pid=23496] <skipped force kill spawnedProcess.killed=false processClosed=true>\u001b[22m\n\u001b[2m  - [pid=23496] finished temporary directories cleanup\u001b[22m\n\u001b[2m  - [pid=23496] <gracefully close end>\u001b[22m\n",
-                    "stack": "Error: browserType.launch: Failed to launch the browser process.\nBrowser logs:\n\n<launching> /Users/ashwathram/Library/Caches/ms-playwright/firefox-1572/firefox/Nightly.app/Contents/MacOS/firefox -no-remote -headless -profile /var/folders/r6/zvxw5nv934j_h8r0wb_rj2580000gn/T/playwright_firefoxdev_profile-Gn27rq -juggler-pipe -silent\n<launched> pid=23496\n[pid=23496][err] *** You are running in headless mode.\n[pid=23496][err] Could not find profile folder.\n[pid=23496] <process did exit: exitCode=1, signal=null>\n[pid=23496] starting temporary directories cleanup\nCall log:\n\u001b[2m  - <launching> /Users/ashwathram/Library/Caches/ms-playwright/firefox-1572/firefox/Nightly.app/Contents/MacOS/firefox -no-remote -headless -profile /var/folders/r6/zvxw5nv934j_h8r0wb_rj2580000gn/T/playwright_firefoxdev_profile-Gn27rq -juggler-pipe -silent\u001b[22m\n\u001b[2m  - <launched> pid=23496\u001b[22m\n\u001b[2m  - [pid=23496][err] *** You are running in headless mode.\u001b[22m\n\u001b[2m  - [pid=23496][err] Could not find profile folder.\u001b[22m\n\u001b[2m  - [pid=23496] <process did exit: exitCode=1, signal=null>\u001b[22m\n\u001b[2m  - [pid=23496] starting temporary directories cleanup\u001b[22m\n\u001b[2m  - [pid=23496] <gracefully close start>\u001b[22m\n\u001b[2m  - [pid=23496] <kill>\u001b[22m\n\u001b[2m  - [pid=23496] <skipped force kill spawnedProcess.killed=false processClosed=true>\u001b[22m\n\u001b[2m  - [pid=23496] finished temporary directories cleanup\u001b[22m\n\u001b[2m  - [pid=23496] <gracefully close end>\u001b[22m\n"
-                  },
-                  "errors": [
-                    {
-                      "message": "Error: browserType.launch: Failed to launch the browser process.\nBrowser logs:\n\n<launching> /Users/ashwathram/Library/Caches/ms-playwright/firefox-1572/firefox/Nightly.app/Contents/MacOS/firefox -no-remote -headless -profile /var/folders/r6/zvxw5nv934j_h8r0wb_rj2580000gn/T/playwright_firefoxdev_profile-Gn27rq -juggler-pipe -silent\n<launched> pid=23496\n[pid=23496][err] *** You are running in headless mode.\n[pid=23496][err] Could not find profile folder.\n[pid=23496] <process did exit: exitCode=1, signal=null>\n[pid=23496] starting temporary directories cleanup\nCall log:\n\u001b[2m  - <launching> /Users/ashwathram/Library/Caches/ms-playwright/firefox-1572/firefox/Nightly.app/Contents/MacOS/firefox -no-remote -headless -profile /var/folders/r6/zvxw5nv934j_h8r0wb_rj2580000gn/T/playwright_firefoxdev_profile-Gn27rq -juggler-pipe -silent\u001b[22m\n\u001b[2m  - <launched> pid=23496\u001b[22m\n\u001b[2m  - [pid=23496][err] *** You are running in headless mode.\u001b[22m\n\u001b[2m  - [pid=23496][err] Could not find profile folder.\u001b[22m\n\u001b[2m  - [pid=23496] <process did exit: exitCode=1, signal=null>\u001b[22m\n\u001b[2m  - [pid=23496] starting temporary directories cleanup\u001b[22m\n\u001b[2m  - [pid=23496] <gracefully close start>\u001b[22m\n\u001b[2m  - [pid=23496] <kill>\u001b[22m\n\u001b[2m  - [pid=23496] <skipped force kill spawnedProcess.killed=false processClosed=true>\u001b[22m\n\u001b[2m  - [pid=23496] finished temporary directories cleanup\u001b[22m\n\u001b[2m  - [pid=23496] <gracefully close end>\u001b[22m\n"
-                    }
-                  ],
-                  "stdout": [],
-                  "stderr": [],
-                  "retry": 0,
-                  "startTime": "2026-11-21T04:32:52.077Z",
-                  "annotations": [],
-                  "attachments": [
-                    {
-                      "name": "error-context",
-                      "contentType": "text/markdown",
-                      "path": "/Users/ashwathram/Projects/dibs/test-results/flow-full-filing-certificate-sharing-and-public-record-firefox-2560-light/error-context.md"
-                    },
-                    {
-                      "name": "trace",
-                      "contentType": "application/zip",
-                      "path": "/Users/ashwathram/Projects/dibs/test-results/flow-full-filing-certificate-sharing-and-public-record-firefox-2560-light/trace.zip"
-                    }
-                  ]
-                }
-              ],
-              "status": "unexpected"
-            },
-            {
-              "timeout": 60000,
-              "annotations": [],
-              "expectedStatus": "passed",
               "projectId": "320-small-light",
               "projectName": "320-small-light",
               "results": [
                 {
-                  "workerIndex": 16,
+                  "workerIndex": 13,
                   "parallelIndex": 3,
                   "status": "passed",
-                  "duration": 8847,
+                  "duration": 9068,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-11-21T04:32:52.123Z",
+                  "startTime": "2026-11-21T04:52:53.692Z",
                   "annotations": [],
                   "attachments": []
                 }
@@ -2243,15 +1959,15 @@
               "projectName": "landscape-phone-light",
               "results": [
                 {
-                  "workerIndex": 17,
+                  "workerIndex": 14,
                   "parallelIndex": 2,
                   "status": "passed",
-                  "duration": 8619,
+                  "duration": 8796,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-11-21T04:32:52.559Z",
+                  "startTime": "2026-11-21T04:52:53.950Z",
                   "annotations": [],
                   "attachments": []
                 }
@@ -2266,15 +1982,15 @@
               "projectName": "iPhone-SE-dark",
               "results": [
                 {
-                  "workerIndex": 18,
+                  "workerIndex": 15,
                   "parallelIndex": 0,
                   "status": "passed",
-                  "duration": 8963,
+                  "duration": 9011,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-11-21T04:32:54.933Z",
+                  "startTime": "2026-11-21T04:52:57.422Z",
                   "annotations": [],
                   "attachments": []
                 }
@@ -2289,15 +2005,15 @@
               "projectName": "iPhone-15-Pro-dark",
               "results": [
                 {
-                  "workerIndex": 19,
+                  "workerIndex": 16,
                   "parallelIndex": 1,
                   "status": "passed",
-                  "duration": 9377,
+                  "duration": 9512,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-11-21T04:33:00.744Z",
+                  "startTime": "2026-11-21T04:53:02.439Z",
                   "annotations": [],
                   "attachments": []
                 }
@@ -2312,15 +2028,15 @@
               "projectName": "iPhone-15-Pro-Max-dark",
               "results": [
                 {
-                  "workerIndex": 20,
+                  "workerIndex": 17,
                   "parallelIndex": 3,
                   "status": "passed",
-                  "duration": 9606,
+                  "duration": 9881,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-11-21T04:33:01.416Z",
+                  "startTime": "2026-11-21T04:53:03.151Z",
                   "annotations": [],
                   "attachments": []
                 }
@@ -2335,15 +2051,15 @@
               "projectName": "Pixel-7-dark",
               "results": [
                 {
-                  "workerIndex": 21,
+                  "workerIndex": 18,
                   "parallelIndex": 2,
                   "status": "passed",
-                  "duration": 10501,
+                  "duration": 10577,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-11-21T04:33:01.703Z",
+                  "startTime": "2026-11-21T04:53:03.475Z",
                   "annotations": [],
                   "attachments": []
                 }
@@ -2358,15 +2074,15 @@
               "projectName": "Galaxy-S9+-dark",
               "results": [
                 {
-                  "workerIndex": 22,
+                  "workerIndex": 19,
                   "parallelIndex": 0,
                   "status": "passed",
-                  "duration": 14136,
+                  "duration": 14119,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-11-21T04:33:04.311Z",
+                  "startTime": "2026-11-21T04:53:06.844Z",
                   "annotations": [],
                   "attachments": []
                 }
@@ -2381,15 +2097,15 @@
               "projectName": "iPad-Mini-dark",
               "results": [
                 {
-                  "workerIndex": 23,
+                  "workerIndex": 20,
                   "parallelIndex": 1,
                   "status": "passed",
-                  "duration": 8879,
+                  "duration": 9128,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-11-21T04:33:10.635Z",
+                  "startTime": "2026-11-21T04:53:12.384Z",
                   "annotations": [],
                   "attachments": []
                 }
@@ -2404,15 +2120,15 @@
               "projectName": "iPad-Pro-11-landscape-dark",
               "results": [
                 {
-                  "workerIndex": 24,
+                  "workerIndex": 21,
                   "parallelIndex": 3,
                   "status": "passed",
-                  "duration": 9411,
+                  "duration": 9630,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-11-21T04:33:11.521Z",
+                  "startTime": "2026-11-21T04:53:13.560Z",
                   "annotations": [],
                   "attachments": []
                 }
@@ -2427,15 +2143,15 @@
               "projectName": "chromium-1280-dark",
               "results": [
                 {
-                  "workerIndex": 25,
+                  "workerIndex": 22,
                   "parallelIndex": 2,
                   "status": "passed",
-                  "duration": 9216,
+                  "duration": 9250,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-11-21T04:33:12.591Z",
+                  "startTime": "2026-11-21T04:53:14.498Z",
                   "annotations": [],
                   "attachments": []
                 }
@@ -2450,15 +2166,15 @@
               "projectName": "chromium-1440-dark",
               "results": [
                 {
-                  "workerIndex": 26,
+                  "workerIndex": 23,
                   "parallelIndex": 0,
                   "status": "passed",
-                  "duration": 9165,
+                  "duration": 9314,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-11-21T04:33:18.875Z",
+                  "startTime": "2026-11-21T04:53:21.398Z",
                   "annotations": [],
                   "attachments": []
                 }
@@ -2473,15 +2189,15 @@
               "projectName": "chromium-2560-dark",
               "results": [
                 {
-                  "workerIndex": 27,
+                  "workerIndex": 24,
                   "parallelIndex": 1,
                   "status": "passed",
-                  "duration": 9017,
+                  "duration": 9074,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-11-21T04:33:19.953Z",
+                  "startTime": "2026-11-21T04:53:22.043Z",
                   "annotations": [],
                   "attachments": []
                 }
@@ -2496,15 +2212,15 @@
               "projectName": "webkit-1280-dark",
               "results": [
                 {
-                  "workerIndex": 28,
+                  "workerIndex": 25,
                   "parallelIndex": 3,
                   "status": "passed",
-                  "duration": 8936,
+                  "duration": 8885,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-11-21T04:33:21.342Z",
+                  "startTime": "2026-11-21T04:53:23.666Z",
                   "annotations": [],
                   "attachments": []
                 }
@@ -2519,15 +2235,15 @@
               "projectName": "webkit-1440-dark",
               "results": [
                 {
-                  "workerIndex": 29,
+                  "workerIndex": 26,
                   "parallelIndex": 2,
                   "status": "passed",
-                  "duration": 9007,
+                  "duration": 8964,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-11-21T04:33:22.208Z",
+                  "startTime": "2026-11-21T04:53:24.286Z",
                   "annotations": [],
                   "attachments": []
                 }
@@ -2542,15 +2258,15 @@
               "projectName": "webkit-2560-dark",
               "results": [
                 {
-                  "workerIndex": 30,
+                  "workerIndex": 27,
                   "parallelIndex": 0,
                   "status": "passed",
-                  "duration": 8559,
+                  "duration": 8756,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-11-21T04:33:28.464Z",
+                  "startTime": "2026-11-21T04:53:31.088Z",
                   "annotations": [],
                   "attachments": []
                 }
@@ -2561,145 +2277,19 @@
               "timeout": 60000,
               "annotations": [],
               "expectedStatus": "passed",
-              "projectId": "firefox-1280-dark",
-              "projectName": "firefox-1280-dark",
-              "results": [
-                {
-                  "workerIndex": 31,
-                  "parallelIndex": 1,
-                  "status": "failed",
-                  "duration": 0,
-                  "error": {
-                    "message": "Error: browserType.launch: Failed to launch the browser process.\nBrowser logs:\n\n<launching> /Users/ashwathram/Library/Caches/ms-playwright/firefox-1572/firefox/Nightly.app/Contents/MacOS/firefox -no-remote -headless -profile /var/folders/r6/zvxw5nv934j_h8r0wb_rj2580000gn/T/playwright_firefoxdev_profile-e1oA1X -juggler-pipe -silent\n<launched> pid=23711\n[pid=23711][err] *** You are running in headless mode.\n[pid=23711][err] Could not find profile folder.\n[pid=23711] <process did exit: exitCode=1, signal=null>\n[pid=23711] starting temporary directories cleanup\nCall log:\n\u001b[2m  - <launching> /Users/ashwathram/Library/Caches/ms-playwright/firefox-1572/firefox/Nightly.app/Contents/MacOS/firefox -no-remote -headless -profile /var/folders/r6/zvxw5nv934j_h8r0wb_rj2580000gn/T/playwright_firefoxdev_profile-e1oA1X -juggler-pipe -silent\u001b[22m\n\u001b[2m  - <launched> pid=23711\u001b[22m\n\u001b[2m  - [pid=23711][err] *** You are running in headless mode.\u001b[22m\n\u001b[2m  - [pid=23711][err] Could not find profile folder.\u001b[22m\n\u001b[2m  - [pid=23711] <process did exit: exitCode=1, signal=null>\u001b[22m\n\u001b[2m  - [pid=23711] starting temporary directories cleanup\u001b[22m\n\u001b[2m  - [pid=23711] <gracefully close start>\u001b[22m\n\u001b[2m  - [pid=23711] <kill>\u001b[22m\n\u001b[2m  - [pid=23711] <skipped force kill spawnedProcess.killed=false processClosed=true>\u001b[22m\n\u001b[2m  - [pid=23711] finished temporary directories cleanup\u001b[22m\n\u001b[2m  - [pid=23711] <gracefully close end>\u001b[22m\n",
-                    "stack": "Error: browserType.launch: Failed to launch the browser process.\nBrowser logs:\n\n<launching> /Users/ashwathram/Library/Caches/ms-playwright/firefox-1572/firefox/Nightly.app/Contents/MacOS/firefox -no-remote -headless -profile /var/folders/r6/zvxw5nv934j_h8r0wb_rj2580000gn/T/playwright_firefoxdev_profile-e1oA1X -juggler-pipe -silent\n<launched> pid=23711\n[pid=23711][err] *** You are running in headless mode.\n[pid=23711][err] Could not find profile folder.\n[pid=23711] <process did exit: exitCode=1, signal=null>\n[pid=23711] starting temporary directories cleanup\nCall log:\n\u001b[2m  - <launching> /Users/ashwathram/Library/Caches/ms-playwright/firefox-1572/firefox/Nightly.app/Contents/MacOS/firefox -no-remote -headless -profile /var/folders/r6/zvxw5nv934j_h8r0wb_rj2580000gn/T/playwright_firefoxdev_profile-e1oA1X -juggler-pipe -silent\u001b[22m\n\u001b[2m  - <launched> pid=23711\u001b[22m\n\u001b[2m  - [pid=23711][err] *** You are running in headless mode.\u001b[22m\n\u001b[2m  - [pid=23711][err] Could not find profile folder.\u001b[22m\n\u001b[2m  - [pid=23711] <process did exit: exitCode=1, signal=null>\u001b[22m\n\u001b[2m  - [pid=23711] starting temporary directories cleanup\u001b[22m\n\u001b[2m  - [pid=23711] <gracefully close start>\u001b[22m\n\u001b[2m  - [pid=23711] <kill>\u001b[22m\n\u001b[2m  - [pid=23711] <skipped force kill spawnedProcess.killed=false processClosed=true>\u001b[22m\n\u001b[2m  - [pid=23711] finished temporary directories cleanup\u001b[22m\n\u001b[2m  - [pid=23711] <gracefully close end>\u001b[22m\n"
-                  },
-                  "errors": [
-                    {
-                      "message": "Error: browserType.launch: Failed to launch the browser process.\nBrowser logs:\n\n<launching> /Users/ashwathram/Library/Caches/ms-playwright/firefox-1572/firefox/Nightly.app/Contents/MacOS/firefox -no-remote -headless -profile /var/folders/r6/zvxw5nv934j_h8r0wb_rj2580000gn/T/playwright_firefoxdev_profile-e1oA1X -juggler-pipe -silent\n<launched> pid=23711\n[pid=23711][err] *** You are running in headless mode.\n[pid=23711][err] Could not find profile folder.\n[pid=23711] <process did exit: exitCode=1, signal=null>\n[pid=23711] starting temporary directories cleanup\nCall log:\n\u001b[2m  - <launching> /Users/ashwathram/Library/Caches/ms-playwright/firefox-1572/firefox/Nightly.app/Contents/MacOS/firefox -no-remote -headless -profile /var/folders/r6/zvxw5nv934j_h8r0wb_rj2580000gn/T/playwright_firefoxdev_profile-e1oA1X -juggler-pipe -silent\u001b[22m\n\u001b[2m  - <launched> pid=23711\u001b[22m\n\u001b[2m  - [pid=23711][err] *** You are running in headless mode.\u001b[22m\n\u001b[2m  - [pid=23711][err] Could not find profile folder.\u001b[22m\n\u001b[2m  - [pid=23711] <process did exit: exitCode=1, signal=null>\u001b[22m\n\u001b[2m  - [pid=23711] starting temporary directories cleanup\u001b[22m\n\u001b[2m  - [pid=23711] <gracefully close start>\u001b[22m\n\u001b[2m  - [pid=23711] <kill>\u001b[22m\n\u001b[2m  - [pid=23711] <skipped force kill spawnedProcess.killed=false processClosed=true>\u001b[22m\n\u001b[2m  - [pid=23711] finished temporary directories cleanup\u001b[22m\n\u001b[2m  - [pid=23711] <gracefully close end>\u001b[22m\n"
-                    }
-                  ],
-                  "stdout": [],
-                  "stderr": [],
-                  "retry": 0,
-                  "startTime": "2026-11-21T04:33:29.411Z",
-                  "annotations": [],
-                  "attachments": [
-                    {
-                      "name": "error-context",
-                      "contentType": "text/markdown",
-                      "path": "/Users/ashwathram/Projects/dibs/test-results/flow-full-filing-certificate-sharing-and-public-record-firefox-1280-dark/error-context.md"
-                    },
-                    {
-                      "name": "trace",
-                      "contentType": "application/zip",
-                      "path": "/Users/ashwathram/Projects/dibs/test-results/flow-full-filing-certificate-sharing-and-public-record-firefox-1280-dark/trace.zip"
-                    }
-                  ]
-                }
-              ],
-              "status": "unexpected"
-            },
-            {
-              "timeout": 60000,
-              "annotations": [],
-              "expectedStatus": "passed",
-              "projectId": "firefox-1440-dark",
-              "projectName": "firefox-1440-dark",
-              "results": [
-                {
-                  "workerIndex": 32,
-                  "parallelIndex": 1,
-                  "status": "failed",
-                  "duration": 0,
-                  "error": {
-                    "message": "Error: browserType.launch: Failed to launch the browser process.\nBrowser logs:\n\n<launching> /Users/ashwathram/Library/Caches/ms-playwright/firefox-1572/firefox/Nightly.app/Contents/MacOS/firefox -no-remote -headless -profile /var/folders/r6/zvxw5nv934j_h8r0wb_rj2580000gn/T/playwright_firefoxdev_profile-HiAcRV -juggler-pipe -silent\n<launched> pid=23739\n[pid=23739][err] *** You are running in headless mode.\n[pid=23739][err] Could not find profile folder.\n[pid=23739] <process did exit: exitCode=1, signal=null>\n[pid=23739] starting temporary directories cleanup\nCall log:\n\u001b[2m  - <launching> /Users/ashwathram/Library/Caches/ms-playwright/firefox-1572/firefox/Nightly.app/Contents/MacOS/firefox -no-remote -headless -profile /var/folders/r6/zvxw5nv934j_h8r0wb_rj2580000gn/T/playwright_firefoxdev_profile-HiAcRV -juggler-pipe -silent\u001b[22m\n\u001b[2m  - <launched> pid=23739\u001b[22m\n\u001b[2m  - [pid=23739][err] *** You are running in headless mode.\u001b[22m\n\u001b[2m  - [pid=23739][err] Could not find profile folder.\u001b[22m\n\u001b[2m  - [pid=23739] <process did exit: exitCode=1, signal=null>\u001b[22m\n\u001b[2m  - [pid=23739] starting temporary directories cleanup\u001b[22m\n\u001b[2m  - [pid=23739] <gracefully close start>\u001b[22m\n\u001b[2m  - [pid=23739] <kill>\u001b[22m\n\u001b[2m  - [pid=23739] <skipped force kill spawnedProcess.killed=false processClosed=true>\u001b[22m\n\u001b[2m  - [pid=23739] finished temporary directories cleanup\u001b[22m\n\u001b[2m  - [pid=23739] <gracefully close end>\u001b[22m\n",
-                    "stack": "Error: browserType.launch: Failed to launch the browser process.\nBrowser logs:\n\n<launching> /Users/ashwathram/Library/Caches/ms-playwright/firefox-1572/firefox/Nightly.app/Contents/MacOS/firefox -no-remote -headless -profile /var/folders/r6/zvxw5nv934j_h8r0wb_rj2580000gn/T/playwright_firefoxdev_profile-HiAcRV -juggler-pipe -silent\n<launched> pid=23739\n[pid=23739][err] *** You are running in headless mode.\n[pid=23739][err] Could not find profile folder.\n[pid=23739] <process did exit: exitCode=1, signal=null>\n[pid=23739] starting temporary directories cleanup\nCall log:\n\u001b[2m  - <launching> /Users/ashwathram/Library/Caches/ms-playwright/firefox-1572/firefox/Nightly.app/Contents/MacOS/firefox -no-remote -headless -profile /var/folders/r6/zvxw5nv934j_h8r0wb_rj2580000gn/T/playwright_firefoxdev_profile-HiAcRV -juggler-pipe -silent\u001b[22m\n\u001b[2m  - <launched> pid=23739\u001b[22m\n\u001b[2m  - [pid=23739][err] *** You are running in headless mode.\u001b[22m\n\u001b[2m  - [pid=23739][err] Could not find profile folder.\u001b[22m\n\u001b[2m  - [pid=23739] <process did exit: exitCode=1, signal=null>\u001b[22m\n\u001b[2m  - [pid=23739] starting temporary directories cleanup\u001b[22m\n\u001b[2m  - [pid=23739] <gracefully close start>\u001b[22m\n\u001b[2m  - [pid=23739] <kill>\u001b[22m\n\u001b[2m  - [pid=23739] <skipped force kill spawnedProcess.killed=false processClosed=true>\u001b[22m\n\u001b[2m  - [pid=23739] finished temporary directories cleanup\u001b[22m\n\u001b[2m  - [pid=23739] <gracefully close end>\u001b[22m\n"
-                  },
-                  "errors": [
-                    {
-                      "message": "Error: browserType.launch: Failed to launch the browser process.\nBrowser logs:\n\n<launching> /Users/ashwathram/Library/Caches/ms-playwright/firefox-1572/firefox/Nightly.app/Contents/MacOS/firefox -no-remote -headless -profile /var/folders/r6/zvxw5nv934j_h8r0wb_rj2580000gn/T/playwright_firefoxdev_profile-HiAcRV -juggler-pipe -silent\n<launched> pid=23739\n[pid=23739][err] *** You are running in headless mode.\n[pid=23739][err] Could not find profile folder.\n[pid=23739] <process did exit: exitCode=1, signal=null>\n[pid=23739] starting temporary directories cleanup\nCall log:\n\u001b[2m  - <launching> /Users/ashwathram/Library/Caches/ms-playwright/firefox-1572/firefox/Nightly.app/Contents/MacOS/firefox -no-remote -headless -profile /var/folders/r6/zvxw5nv934j_h8r0wb_rj2580000gn/T/playwright_firefoxdev_profile-HiAcRV -juggler-pipe -silent\u001b[22m\n\u001b[2m  - <launched> pid=23739\u001b[22m\n\u001b[2m  - [pid=23739][err] *** You are running in headless mode.\u001b[22m\n\u001b[2m  - [pid=23739][err] Could not find profile folder.\u001b[22m\n\u001b[2m  - [pid=23739] <process did exit: exitCode=1, signal=null>\u001b[22m\n\u001b[2m  - [pid=23739] starting temporary directories cleanup\u001b[22m\n\u001b[2m  - [pid=23739] <gracefully close start>\u001b[22m\n\u001b[2m  - [pid=23739] <kill>\u001b[22m\n\u001b[2m  - [pid=23739] <skipped force kill spawnedProcess.killed=false processClosed=true>\u001b[22m\n\u001b[2m  - [pid=23739] finished temporary directories cleanup\u001b[22m\n\u001b[2m  - [pid=23739] <gracefully close end>\u001b[22m\n"
-                    }
-                  ],
-                  "stdout": [],
-                  "stderr": [],
-                  "retry": 0,
-                  "startTime": "2026-11-21T04:33:29.944Z",
-                  "annotations": [],
-                  "attachments": [
-                    {
-                      "name": "error-context",
-                      "contentType": "text/markdown",
-                      "path": "/Users/ashwathram/Projects/dibs/test-results/flow-full-filing-certificate-sharing-and-public-record-firefox-1440-dark/error-context.md"
-                    },
-                    {
-                      "name": "trace",
-                      "contentType": "application/zip",
-                      "path": "/Users/ashwathram/Projects/dibs/test-results/flow-full-filing-certificate-sharing-and-public-record-firefox-1440-dark/trace.zip"
-                    }
-                  ]
-                }
-              ],
-              "status": "unexpected"
-            },
-            {
-              "timeout": 60000,
-              "annotations": [],
-              "expectedStatus": "passed",
-              "projectId": "firefox-2560-dark",
-              "projectName": "firefox-2560-dark",
-              "results": [
-                {
-                  "workerIndex": 33,
-                  "parallelIndex": 1,
-                  "status": "failed",
-                  "duration": 0,
-                  "error": {
-                    "message": "Error: browserType.launch: Failed to launch the browser process.\nBrowser logs:\n\n<launching> /Users/ashwathram/Library/Caches/ms-playwright/firefox-1572/firefox/Nightly.app/Contents/MacOS/firefox -no-remote -headless -profile /var/folders/r6/zvxw5nv934j_h8r0wb_rj2580000gn/T/playwright_firefoxdev_profile-dqVtBx -juggler-pipe -silent\n<launched> pid=23759\n[pid=23759][err] *** You are running in headless mode.\n[pid=23759][err] Could not find profile folder.\n[pid=23759] <process did exit: exitCode=1, signal=null>\n[pid=23759] starting temporary directories cleanup\nCall log:\n\u001b[2m  - <launching> /Users/ashwathram/Library/Caches/ms-playwright/firefox-1572/firefox/Nightly.app/Contents/MacOS/firefox -no-remote -headless -profile /var/folders/r6/zvxw5nv934j_h8r0wb_rj2580000gn/T/playwright_firefoxdev_profile-dqVtBx -juggler-pipe -silent\u001b[22m\n\u001b[2m  - <launched> pid=23759\u001b[22m\n\u001b[2m  - [pid=23759][err] *** You are running in headless mode.\u001b[22m\n\u001b[2m  - [pid=23759][err] Could not find profile folder.\u001b[22m\n\u001b[2m  - [pid=23759] <process did exit: exitCode=1, signal=null>\u001b[22m\n\u001b[2m  - [pid=23759] starting temporary directories cleanup\u001b[22m\n\u001b[2m  - [pid=23759] <gracefully close start>\u001b[22m\n\u001b[2m  - [pid=23759] <kill>\u001b[22m\n\u001b[2m  - [pid=23759] <skipped force kill spawnedProcess.killed=false processClosed=true>\u001b[22m\n\u001b[2m  - [pid=23759] finished temporary directories cleanup\u001b[22m\n\u001b[2m  - [pid=23759] <gracefully close end>\u001b[22m\n",
-                    "stack": "Error: browserType.launch: Failed to launch the browser process.\nBrowser logs:\n\n<launching> /Users/ashwathram/Library/Caches/ms-playwright/firefox-1572/firefox/Nightly.app/Contents/MacOS/firefox -no-remote -headless -profile /var/folders/r6/zvxw5nv934j_h8r0wb_rj2580000gn/T/playwright_firefoxdev_profile-dqVtBx -juggler-pipe -silent\n<launched> pid=23759\n[pid=23759][err] *** You are running in headless mode.\n[pid=23759][err] Could not find profile folder.\n[pid=23759] <process did exit: exitCode=1, signal=null>\n[pid=23759] starting temporary directories cleanup\nCall log:\n\u001b[2m  - <launching> /Users/ashwathram/Library/Caches/ms-playwright/firefox-1572/firefox/Nightly.app/Contents/MacOS/firefox -no-remote -headless -profile /var/folders/r6/zvxw5nv934j_h8r0wb_rj2580000gn/T/playwright_firefoxdev_profile-dqVtBx -juggler-pipe -silent\u001b[22m\n\u001b[2m  - <launched> pid=23759\u001b[22m\n\u001b[2m  - [pid=23759][err] *** You are running in headless mode.\u001b[22m\n\u001b[2m  - [pid=23759][err] Could not find profile folder.\u001b[22m\n\u001b[2m  - [pid=23759] <process did exit: exitCode=1, signal=null>\u001b[22m\n\u001b[2m  - [pid=23759] starting temporary directories cleanup\u001b[22m\n\u001b[2m  - [pid=23759] <gracefully close start>\u001b[22m\n\u001b[2m  - [pid=23759] <kill>\u001b[22m\n\u001b[2m  - [pid=23759] <skipped force kill spawnedProcess.killed=false processClosed=true>\u001b[22m\n\u001b[2m  - [pid=23759] finished temporary directories cleanup\u001b[22m\n\u001b[2m  - [pid=23759] <gracefully close end>\u001b[22m\n"
-                  },
-                  "errors": [
-                    {
-                      "message": "Error: browserType.launch: Failed to launch the browser process.\nBrowser logs:\n\n<launching> /Users/ashwathram/Library/Caches/ms-playwright/firefox-1572/firefox/Nightly.app/Contents/MacOS/firefox -no-remote -headless -profile /var/folders/r6/zvxw5nv934j_h8r0wb_rj2580000gn/T/playwright_firefoxdev_profile-dqVtBx -juggler-pipe -silent\n<launched> pid=23759\n[pid=23759][err] *** You are running in headless mode.\n[pid=23759][err] Could not find profile folder.\n[pid=23759] <process did exit: exitCode=1, signal=null>\n[pid=23759] starting temporary directories cleanup\nCall log:\n\u001b[2m  - <launching> /Users/ashwathram/Library/Caches/ms-playwright/firefox-1572/firefox/Nightly.app/Contents/MacOS/firefox -no-remote -headless -profile /var/folders/r6/zvxw5nv934j_h8r0wb_rj2580000gn/T/playwright_firefoxdev_profile-dqVtBx -juggler-pipe -silent\u001b[22m\n\u001b[2m  - <launched> pid=23759\u001b[22m\n\u001b[2m  - [pid=23759][err] *** You are running in headless mode.\u001b[22m\n\u001b[2m  - [pid=23759][err] Could not find profile folder.\u001b[22m\n\u001b[2m  - [pid=23759] <process did exit: exitCode=1, signal=null>\u001b[22m\n\u001b[2m  - [pid=23759] starting temporary directories cleanup\u001b[22m\n\u001b[2m  - [pid=23759] <gracefully close start>\u001b[22m\n\u001b[2m  - [pid=23759] <kill>\u001b[22m\n\u001b[2m  - [pid=23759] <skipped force kill spawnedProcess.killed=false processClosed=true>\u001b[22m\n\u001b[2m  - [pid=23759] finished temporary directories cleanup\u001b[22m\n\u001b[2m  - [pid=23759] <gracefully close end>\u001b[22m\n"
-                    }
-                  ],
-                  "stdout": [],
-                  "stderr": [],
-                  "retry": 0,
-                  "startTime": "2026-11-21T04:33:30.367Z",
-                  "annotations": [],
-                  "attachments": [
-                    {
-                      "name": "error-context",
-                      "contentType": "text/markdown",
-                      "path": "/Users/ashwathram/Projects/dibs/test-results/flow-full-filing-certificate-sharing-and-public-record-firefox-2560-dark/error-context.md"
-                    },
-                    {
-                      "name": "trace",
-                      "contentType": "application/zip",
-                      "path": "/Users/ashwathram/Projects/dibs/test-results/flow-full-filing-certificate-sharing-and-public-record-firefox-2560-dark/trace.zip"
-                    }
-                  ]
-                }
-              ],
-              "status": "unexpected"
-            },
-            {
-              "timeout": 60000,
-              "annotations": [],
-              "expectedStatus": "passed",
               "projectId": "320-small-dark",
               "projectName": "320-small-dark",
               "results": [
                 {
-                  "workerIndex": 34,
-                  "parallelIndex": 3,
+                  "workerIndex": 28,
+                  "parallelIndex": 1,
                   "status": "passed",
-                  "duration": 8982,
+                  "duration": 8958,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-11-21T04:33:30.771Z",
+                  "startTime": "2026-11-21T04:53:31.614Z",
                   "annotations": [],
                   "attachments": []
                 }
@@ -2714,15 +2304,15 @@
               "projectName": "landscape-phone-dark",
               "results": [
                 {
-                  "workerIndex": 35,
-                  "parallelIndex": 1,
+                  "workerIndex": 29,
+                  "parallelIndex": 3,
                   "status": "passed",
-                  "duration": 8705,
+                  "duration": 8793,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-11-21T04:33:30.826Z",
+                  "startTime": "2026-11-21T04:53:32.988Z",
                   "annotations": [],
                   "attachments": []
                 }
@@ -2740,11 +2330,11 @@
   ],
   "errors": [],
   "stats": {
-    "startTime": "2026-11-21T04:32:21.032Z",
-    "duration": 78852.621,
+    "startTime": "2026-11-21T04:52:23.104Z",
+    "duration": 78858.057,
     "expected": 30,
     "skipped": 0,
-    "unexpected": 6,
+    "unexpected": 0,
     "flaky": 0
   }
 }

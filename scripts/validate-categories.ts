@@ -1,4 +1,47 @@
-import {readFileSync,readdirSync,writeFileSync} from 'node:fs';import {normalize,dropAt} from '../worker/domain';
-const files=readdirSync('categories').filter(x=>x.endsWith('.json'));if(files.length!==30)throw new Error(`Expected 30 registers, found ${files.length}`);const rows=[];
-for(const name of files){const c=JSON.parse(readFileSync('categories/'+name,'utf8'));if(c.status!=='draft'||c.answers.length<2000||c.total_registrable!==c.answers.length)throw new Error('Invalid draft '+name);const keys=new Set<string>();for(const a of c.answers){const v=a.pageviews;const n=normalize(a.display);if(keys.has(n)||!n)throw new Error('Duplicate entry '+name+': '+a.display);keys.add(n);if(!v||v.days<20||v.days>30||!Number.isFinite(v.total)||v.total<0||!a.source.startsWith('https://en.wikipedia.org/wiki/'))throw new Error('Missing measurement or source '+name);const avg=v.total/v.days;const score=avg>=1000?1:avg>=200?2:avg>=50?3:avg>=10?4:5;if(a.obscurity!==score)throw new Error('Score mismatch '+name)}if(c.date&&c.drop_at!==dropAt(c.date))throw new Error('Wrong Toronto drop '+name);rows.push({name:c.name,entries:c.answers.length,status:c.status,date:c.date});}
-if(rows.filter(r=>r.date).length!==3)throw new Error('Only three registers may carry proposed dates');writeFileSync('review/category-validation.json',JSON.stringify({passed:true,registers:rows.length,entries:rows.reduce((n,r)=>n+r.entries,0),rows},null,2));console.log('Validated all 30 measured draft registers');
+import { readFileSync, readdirSync, writeFileSync } from 'node:fs';
+import { normalize, dropAt } from '../worker/domain';
+const files = readdirSync('categories').filter((x) => x.endsWith('.json'));
+if (files.length !== 30) throw new Error(`Expected 30 registers, found ${files.length}`);
+const rows = [];
+for (const name of files) {
+  const c = JSON.parse(readFileSync('categories/' + name, 'utf8'));
+  if (c.status !== 'draft' || c.answers.length < 2000 || c.total_registrable !== c.answers.length)
+    throw new Error('Invalid draft ' + name);
+  const keys = new Set<string>();
+  for (const a of c.answers) {
+    const v = a.pageviews;
+    const n = normalize(a.display);
+    if (keys.has(n) || !n) throw new Error('Duplicate entry ' + name + ': ' + a.display);
+    keys.add(n);
+    if (
+      !v ||
+      v.days < 20 ||
+      v.days > 30 ||
+      !Number.isFinite(v.total) ||
+      v.total < 0 ||
+      !a.source.startsWith('https://en.wikipedia.org/wiki/')
+    )
+      throw new Error('Missing measurement or source ' + name);
+    const avg = v.total / v.days;
+    const score = avg >= 1000 ? 1 : avg >= 200 ? 2 : avg >= 50 ? 3 : avg >= 10 ? 4 : 5;
+    if (a.obscurity !== score) throw new Error('Score mismatch ' + name);
+  }
+  if (c.date && c.drop_at !== dropAt(c.date)) throw new Error('Wrong Toronto drop ' + name);
+  rows.push({ name: c.name, entries: c.answers.length, status: c.status, date: c.date });
+}
+if (rows.filter((r) => r.date).length !== 3)
+  throw new Error('Only three registers may carry proposed dates');
+writeFileSync(
+  'review/category-validation.json',
+  JSON.stringify(
+    {
+      passed: true,
+      registers: rows.length,
+      entries: rows.reduce((n, r) => n + r.entries, 0),
+      rows,
+    },
+    null,
+    2,
+  ),
+);
+console.log('Validated all 30 measured draft registers');
