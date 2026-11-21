@@ -37,7 +37,7 @@ npx tsx scripts/lighthouse.ts
 
 The Worker suite runs the actual Worker and SQLite through Miniflare: 50-way contention, double claiming, atomic shared-IP quota, rolling user limits, signatures, time zones, drafts, rerolls, and access controls. The browser suite covers the full flow, both PNG dimensions, accessibility, small screens, tablets, desktop, and both themes. Test fixtures never run against production. `scripts/integration.ts` exercises the real local Worker, database and signed cookie, with only the Turnstile client stubbed. It expects Axolotl to be unclaimed in the local emulator.
 
-Screenshot files, video, Lighthouse reports, and device results are in `review/`. Large per-device PNG captures stay local to keep the private repository small. The final design proofs are committed. The local `MORNING_REPORT.md` includes deployment details and the admin token and must never be committed.
+Open `review/index.html` for the local visual gallery. Screenshot files, video, Lighthouse reports, and device results are in `review/`. The latest Lighthouse run records its exact QA identity IDs in an ignored file; `npx tsx scripts/cleanup-audit-accounts.ts` removes only those accounts, and preserves any account with a claim. Large per-device PNG captures stay local to keep the private repository small. The final design proofs are committed. The local `MORNING_REPORT.md` includes deployment details and the admin token and must never be committed.
 
 ## Category pipeline
 

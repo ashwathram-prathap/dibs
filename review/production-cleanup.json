@@ -1,6 +1,6 @@
 {
-  "qaAccountsRemoved": 8,
+  "qaAccountsRemoved": 9,
   "remainingUsers": 0,
   "remainingClaims": 0,
-  "scope": "Only the exact signed identities created by our Lighthouse and live-page browser checks; no claims deleted."
+  "scope": "Only exact signed identities created by our Lighthouse and live-page browser checks; accounts with claims are preserved. No claims deleted."
 }

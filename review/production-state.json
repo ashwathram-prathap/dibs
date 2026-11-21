@@ -27,9 +27,9 @@
       "served_by_colo": "ORD",
       "served_by_primary": true,
       "timings": {
-        "sql_duration_ms": 0.3631
+        "sql_duration_ms": 0.4141
       },
-      "duration": 0.3631,
+      "duration": 0.4141,
       "changes": 0,
       "last_row_id": 0,
       "changed_db": false,
@@ -52,9 +52,9 @@
       "served_by_colo": "ORD",
       "served_by_primary": true,
       "timings": {
-        "sql_duration_ms": 0.0576
+        "sql_duration_ms": 0.0678
       },
-      "duration": 0.0576,
+      "duration": 0.0678,
       "changes": 0,
       "last_row_id": 0,
       "changed_db": false,
@@ -77,9 +77,9 @@
       "served_by_colo": "ORD",
       "served_by_primary": true,
       "timings": {
-        "sql_duration_ms": 0.0386
+        "sql_duration_ms": 0.0637
       },
-      "duration": 0.0386,
+      "duration": 0.0637,
       "changes": 0,
       "last_row_id": 0,
       "changed_db": false,

@@ -3,6 +3,19 @@ import lighthouse from 'lighthouse';
 import { writeFileSync, mkdirSync } from 'node:fs';
 mkdirSync('review/lighthouse', { recursive: true });
 const browser = await chromium.launch({ args: ['--remote-debugging-port=9222'] });
+// Observe only identities created or loaded by this audit, so QA cleanup never guesses by time.
+const observer = await chromium.connectOverCDP('http://127.0.0.1:9222');
+const identities = new Set<string>();
+observer.contexts()[0].on('page', (page) => {
+  page.on('response', async (response) => {
+    if (response.url() === 'https://dibs-7hz.pages.dev/api/me') {
+      try {
+        const data = await response.json();
+        if (typeof data.user?.id === 'string') identities.add(data.user.id);
+      } catch {}
+    }
+  });
+});
 try {
   const result = await lighthouse(process.argv[2] || 'https://dibs-7hz.pages.dev', {
     port: 9222,
@@ -37,5 +50,7 @@ try {
     console.log(result.lhr.audits['largest-contentful-paint'].displayValue);
   }
 } finally {
+  writeFileSync('review/lighthouse/qa-identities.json', JSON.stringify([...identities]));
+  await observer.close();
   await browser.close();
 }
