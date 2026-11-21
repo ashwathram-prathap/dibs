@@ -98,13 +98,13 @@ async function querySource(s: any) {
     property === 'P171'
       ? `?item wdt:P31 wd:Q16521; wdt:P105 wd:Q7432; wdt:P171* wd:${s.root}.`
       : `?item wdt:${property} wd:${s.root}.`;
-  const query = `SELECT DISTINCT ?item ?article WHERE { ${clause} ?article schema:about ?item; schema:isPartOf <https://en.wikipedia.org/>. } LIMIT 3200`;
+  const query = `SELECT DISTINCT ?item ?article WHERE { ${clause} ?article schema:about ?item; schema:isPartOf <https://en.wikipedia.org/>. } LIMIT ${s.sourceLimit || 3200}`;
   const url = 'https://query.wikidata.org/sparql?format=json&query=' + encodeURIComponent(query);
   let result;
   try {
     result = await get(url);
     if (property !== 'P171' && result.results.bindings.length < 2450) {
-      const expanded = `SELECT DISTINCT ?item ?article WHERE { ?item wdt:${property}/wdt:P279* wd:${s.root}. ?article schema:about ?item; schema:isPartOf <https://en.wikipedia.org/>. } LIMIT 3200`;
+      const expanded = `SELECT DISTINCT ?item ?article WHERE { ?item wdt:${property}/wdt:P279* wd:${s.root}. ?article schema:about ?item; schema:isPartOf <https://en.wikipedia.org/>. } LIMIT ${s.sourceLimit || 3200}`;
       const additional = await get(
         'https://query.wikidata.org/sparql?format=json&query=' + encodeURIComponent(expanded),
       );
@@ -118,7 +118,7 @@ async function querySource(s: any) {
       ];
     }
   } catch {
-    const fallback = `SELECT DISTINCT ?item ?article WHERE { ?item wdt:${property} wd:${s.root}. ?article schema:about ?item; schema:isPartOf <https://en.wikipedia.org/>. } LIMIT 3200`;
+    const fallback = `SELECT DISTINCT ?item ?article WHERE { ?item wdt:${property} wd:${s.root}. ?article schema:about ?item; schema:isPartOf <https://en.wikipedia.org/>. } LIMIT ${s.sourceLimit || 3200}`;
     result = await get(
       'https://query.wikidata.org/sparql?format=json&query=' + encodeURIComponent(fallback),
     );
@@ -226,7 +226,7 @@ async function build(s: any, index: number) {
       ...source,
     ];
   }
-  const candidates = source.filter((r: any) => acceptable(r.title)).slice(0, 3200);
+  const candidates = source.filter((r: any) => acceptable(r.title)).slice(0, s.sourceLimit || 3200);
   let pool = Math.min(2450, candidates.length);
   const collect = () => {
     const seen = new Set<string>();

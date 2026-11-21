@@ -1,8 +1,10 @@
-import { chromium } from '@playwright/test';
+import { chromium, webkit } from '@playwright/test';
 import { readFileSync, mkdirSync, writeFileSync } from 'node:fs';
 const categories = JSON.parse(readFileSync('scripts/category-sources.json', 'utf8'));
-mkdirSync('review/headings', { recursive: true });
-const browser = await chromium.launch();
+const engine = process.argv[2] === 'webkit' ? 'webkit' : 'chromium';
+const folder = engine === 'webkit' ? 'review/headings-webkit' : 'review/headings';
+mkdirSync(folder, { recursive: true });
+const browser = await (engine === 'webkit' ? webkit : chromium).launch();
 const results = [];
 for (const width of [320, 390, 1440])
   for (const theme of ['light', 'dark'] as const) {
@@ -38,14 +40,14 @@ for (const width of [320, 390, 1440])
       results.push({ name: c.name, width, theme, ...result });
       if (['Universities', 'Arthropods'].includes(c.name) && width !== 320)
         await page.screenshot({
-          path: `review/headings/${c.slug}-${width}-${theme}.png`,
+          path: `${folder}/${c.slug}-${width}-${theme}.png`,
           fullPage: true,
         });
     }
     await page.close();
   }
 await browser.close();
-writeFileSync('review/headings/results.json', JSON.stringify(results, null, 2));
+writeFileSync(folder + '/results.json', JSON.stringify(results, null, 2));
 if (results.some((r) => !r.fits || !r.singleLine || !r.noOverflow))
   throw new Error('Category heading failed its content stress test');
 console.log('All ' + results.length + ' category, width and theme heading checks passed.');

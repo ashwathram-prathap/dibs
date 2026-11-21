@@ -4,6 +4,7 @@ import { writeFileSync, mkdirSync } from 'node:fs';
 mkdirSync('review/final', { recursive: true });
 const browser = await chromium.launch();
 const results: any[] = [];
+const identities = new Set<string>();
 try {
   for (const width of [390, 1440])
     for (const theme of ['light', 'dark'] as const) {
@@ -12,6 +13,14 @@ try {
         colorScheme: theme,
       });
       const page = await context.newPage();
+      page.on('response', async (response) => {
+        if (response.url() === 'https://dibs-7hz.pages.dev/api/me') {
+          try {
+            const data = await response.json();
+            if (typeof data.user?.id === 'string') identities.add(data.user.id);
+          } catch {}
+        }
+      });
       for (const [route, name] of [
         ['/', 'closed-office'],
         ['/archive', 'empty-archive'],
@@ -47,6 +56,7 @@ try {
     }
 } finally {
   await browser.close();
+  writeFileSync('review/live-qa-identities.json', JSON.stringify([...identities]));
   writeFileSync('review/live-accessibility.json', JSON.stringify(results, null, 2));
 }
 if (results.some((r) => !r.noOverflow || r.violations.length)) process.exitCode = 1;

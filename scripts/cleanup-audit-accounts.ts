@@ -2,7 +2,11 @@
 // Accounts with a claim are preserved. No timestamp guessing or broad DELETE is used.
 import { readFileSync, writeFileSync } from 'node:fs';
 import { execFileSync } from 'node:child_process';
-const ids: string[] = JSON.parse(readFileSync('review/lighthouse/qa-identities.json', 'utf8'));
+const auditPath =
+  process.argv[2] === 'live'
+    ? 'review/live-qa-identities.json'
+    : 'review/lighthouse/qa-identities.json';
+const ids: string[] = JSON.parse(readFileSync(auditPath, 'utf8'));
 if (!ids.length || ids.some((id) => !/^[a-f0-9-]{36}$/.test(id)))
   throw new Error('No valid audit identity list. Nothing deleted.');
 const sql = `DELETE FROM users WHERE id IN (${ids.map((id) => "'" + id + "'").join(',')}) AND NOT EXISTS(SELECT 1 FROM claims WHERE user_id=users.id); SELECT id,status,date,total_registrable FROM categories; SELECT COUNT(*) users FROM users; SELECT COUNT(*) claims FROM claims;`;

@@ -38,7 +38,7 @@ npx tsx scripts/lighthouse.ts
 
 The Worker suite runs the actual Worker and SQLite through Miniflare: 50-way contention, double claiming, atomic shared-IP quota, rolling user limits, signatures, time zones, drafts, rerolls, and access controls. The browser suite covers the full flow, both PNG dimensions, accessibility, small screens, tablets, desktop, and both themes. Test fixtures never run against production. `scripts/integration.ts` exercises the real local Worker, database and signed cookie, with only the Turnstile client stubbed. It expects Axolotl to be unclaimed in the local emulator.
 
-Open `review/index.html` for the local visual gallery. Screenshot files, video, Lighthouse reports, and device results are in `review/`. The latest Lighthouse run records its exact QA identity IDs in an ignored file; `npx tsx scripts/cleanup-audit-accounts.ts` removes only those accounts, and preserves any account with a claim. Large per-device PNG captures stay local to keep the private repository small. The final design proofs are committed. The local `MORNING_REPORT.md` includes deployment details and the admin token and must never be committed.
+Open `review/index.html` for the local visual gallery. Screenshot files, video, Lighthouse reports, and device results are in `review/`. The latest Lighthouse run records its exact QA identity IDs in an ignored file; `npx tsx scripts/cleanup-audit-accounts.ts` removes only those accounts, and preserves any account with a claim. After `scripts/live-review.ts`, use the same cleanup command with the `live` argument. Large per-device PNG captures stay local to keep the private repository small. The final design proofs are committed. The local `MORNING_REPORT.md` includes deployment details and the admin token and must never be committed.
 
 ## Category pipeline
 
@@ -51,7 +51,7 @@ npm run categories -- animals       # one catalogued source
 
 Obscurity is based on the average daily pageviews over at least 20 observed days in the last 30: **1 ≥ 1,000; 2 ≥ 200; 3 ≥ 50; 4 ≥ 10; 5 < 10**. Missing measurements are excluded. These are readership bands, not player percentiles. Every answer includes its source and measurements. Scientific and disambiguated titles are retained. Aliases are exact and must be unique within a category.
 
-All files are written as drafts. Only Animals, Plants and Birds have proposed launch dates, at 9 PM Toronto time. The other registers are unscheduled. The review docket is `review/categories.md`. A category below 2,000 scored entries cannot be approved. Source data comes from Wikidata (CC0) and English Wikipedia; each record links to its originating article. Font licenses are in `public/fonts/`.
+All files are written as drafts. Only Animals, Plants and Birds have proposed launch dates, at 9 PM Toronto time. The other registers are unscheduled and remain in `categories/` until uploaded for review; only the first three are currently in D1. The review docket is `review/categories.md`. A category below 2,000 scored entries cannot be approved. Source data comes from Wikidata (CC0) and English Wikipedia; each record links to its originating article. Font licenses are in `public/fonts/`.
 
 ## Admin procedures
 
