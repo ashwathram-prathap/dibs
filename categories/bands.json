@@ -11,11 +11,12 @@
     "categoryLists": null,
     "queryRoot": "Q215380",
     "property": "P31",
-    "builtAt": "2026-11-21T04:40:28.176Z",
+    "builtAt": "2026-11-21T05:02:39.689Z",
     "license": "Wikidata CC0; Wikipedia titles and pageview counts. See source URL on each entry.",
     "scoring": "Mean daily Wikipedia pageviews over available days in the past 30: 1 >=1000; 2 >=200; 3 >=50; 4 >=10; 5 <10. Missing data excluded.",
     "scopeNote": null,
-    "reviewRequired": true
+    "reviewRequired": true,
+    "identityPolicy": "exclude-cross-title-redirects-v1"
   },
   "answers": [
     {
@@ -1727,20 +1728,6 @@
       }
     },
     {
-      "canonical": "israelintheeurovisionsongcontest1993",
-      "display": "Israel in the Eurovision Song Contest 1993",
-      "aliases": [],
-      "obscurity": 5,
-      "source": "https://en.wikipedia.org/wiki/Lehakat_Shiru",
-      "wikidata": "http://www.wikidata.org/entity/Q110593",
-      "pageviews": {
-        "total": 55,
-        "days": 30,
-        "start": "2026-10-22",
-        "end": "2026-11-20"
-      }
-    },
-    {
       "canonical": "korpiklaani",
       "display": "Korpiklaani",
       "aliases": [],
@@ -1889,20 +1876,6 @@
       "wikidata": "http://www.wikidata.org/entity/Q114651",
       "pageviews": {
         "total": 14129,
-        "days": 30,
-        "start": "2026-10-22",
-        "end": "2026-11-20"
-      }
-    },
-    {
-      "canonical": "romaniaintheeurovisionsongcontest2007",
-      "display": "Romania in the Eurovision Song Contest 2007",
-      "aliases": [],
-      "obscurity": 5,
-      "source": "https://en.wikipedia.org/wiki/Todomondo",
-      "wikidata": "http://www.wikidata.org/entity/Q115213",
-      "pageviews": {
-        "total": 86,
         "days": 30,
         "start": "2026-10-22",
         "end": "2026-11-20"
@@ -6529,20 +6502,6 @@
       }
     },
     {
-      "canonical": "karljenkin",
-      "display": "Karl Jenkins",
-      "aliases": [],
-      "obscurity": 2,
-      "source": "https://en.wikipedia.org/wiki/Adiemus_(ensemble)",
-      "wikidata": "http://www.wikidata.org/entity/Q357077",
-      "pageviews": {
-        "total": 14677,
-        "days": 29,
-        "start": "2026-10-22",
-        "end": "2026-11-19"
-      }
-    },
-    {
       "canonical": "spandauballet",
       "display": "Spandau Ballet",
       "aliases": [],
@@ -7355,20 +7314,6 @@
       }
     },
     {
-      "canonical": "austriaintheeurovisionsongcontest1983",
-      "display": "Austria in the Eurovision Song Contest 1983",
-      "aliases": [],
-      "obscurity": 5,
-      "source": "https://en.wikipedia.org/wiki/Westend_(band)",
-      "wikidata": "http://www.wikidata.org/entity/Q181792",
-      "pageviews": {
-        "total": 30,
-        "days": 29,
-        "start": "2026-10-22",
-        "end": "2026-11-19"
-      }
-    },
-    {
       "canonical": "neu",
       "display": "Neu!",
       "aliases": [],
@@ -8021,20 +7966,6 @@
       "wikidata": "http://www.wikidata.org/entity/Q687309",
       "pageviews": {
         "total": 659,
-        "days": 30,
-        "start": "2026-10-22",
-        "end": "2026-11-20"
-      }
-    },
-    {
-      "canonical": "sebastiansantamaria",
-      "display": "Sebastián Santa María",
-      "aliases": [],
-      "obscurity": 5,
-      "source": "https://en.wikipedia.org/wiki/Piano_Seven",
-      "wikidata": "http://www.wikidata.org/entity/Q687367",
-      "pageviews": {
-        "total": 105,
         "days": 30,
         "start": "2026-10-22",
         "end": "2026-11-20"
@@ -8777,20 +8708,6 @@
       "wikidata": "http://www.wikidata.org/entity/Q370374",
       "pageviews": {
         "total": 256,
-        "days": 30,
-        "start": "2026-10-22",
-        "end": "2026-11-20"
-      }
-    },
-    {
-      "canonical": "einherjer",
-      "display": "Einherjer",
-      "aliases": [],
-      "obscurity": 4,
-      "source": "https://en.wikipedia.org/wiki/Battered_(band)",
-      "wikidata": "http://www.wikidata.org/entity/Q370655",
-      "pageviews": {
-        "total": 483,
         "days": 30,
         "start": "2026-10-22",
         "end": "2026-11-20"
@@ -12115,20 +12032,6 @@
       }
     },
     {
-      "canonical": "snowyshaw",
-      "display": "Snowy Shaw",
-      "aliases": [],
-      "obscurity": 4,
-      "source": "https://en.wikipedia.org/wiki/Notre_Dame_(band)",
-      "wikidata": "http://www.wikidata.org/entity/Q696719",
-      "pageviews": {
-        "total": 1343,
-        "days": 30,
-        "start": "2026-10-22",
-        "end": "2026-11-20"
-      }
-    },
-    {
       "canonical": "gayebykeronacid",
       "display": "Gaye Bykers on Acid",
       "aliases": [],
@@ -12389,20 +12292,6 @@
       "wikidata": "http://www.wikidata.org/entity/Q188713",
       "pageviews": {
         "total": 105128,
-        "days": 30,
-        "start": "2026-10-22",
-        "end": "2026-11-20"
-      }
-    },
-    {
-      "canonical": "yugoslaviaintheeurovisionsongcontest1988",
-      "display": "Yugoslavia in the Eurovision Song Contest 1988",
-      "aliases": [],
-      "obscurity": 5,
-      "source": "https://en.wikipedia.org/wiki/Srebrna_krila",
-      "wikidata": "http://www.wikidata.org/entity/Q378238",
-      "pageviews": {
-        "total": 125,
         "days": 30,
         "start": "2026-10-22",
         "end": "2026-11-20"
@@ -13235,34 +13124,6 @@
       }
     },
     {
-      "canonical": "bobmarleyandthewailer",
-      "display": "Bob Marley and the Wailers",
-      "aliases": [],
-      "obscurity": 2,
-      "source": "https://en.wikipedia.org/wiki/The_Wailers",
-      "wikidata": "http://www.wikidata.org/entity/Q383016",
-      "pageviews": {
-        "total": 9217,
-        "days": 30,
-        "start": "2026-10-22",
-        "end": "2026-11-20"
-      }
-    },
-    {
-      "canonical": "austriaintheeurovisionsongcontest2004",
-      "display": "Austria in the Eurovision Song Contest 2004",
-      "aliases": [],
-      "obscurity": 5,
-      "source": "https://en.wikipedia.org/wiki/Tie_Break_(Austrian_band)",
-      "wikidata": "http://www.wikidata.org/entity/Q383211",
-      "pageviews": {
-        "total": 86,
-        "days": 30,
-        "start": "2026-10-22",
-        "end": "2026-11-20"
-      }
-    },
-    {
       "canonical": "theflowerpotman",
       "display": "The Flower Pot Men",
       "aliases": [],
@@ -13537,20 +13398,6 @@
       "wikidata": "http://www.wikidata.org/entity/Q567484",
       "pageviews": {
         "total": 121,
-        "days": 30,
-        "start": "2026-10-22",
-        "end": "2026-11-20"
-      }
-    },
-    {
-      "canonical": "andorraintheeurovisionsongcontest2007",
-      "display": "Andorra in the Eurovision Song Contest 2007",
-      "aliases": [],
-      "obscurity": 5,
-      "source": "https://en.wikipedia.org/wiki/Anonymous_(band)",
-      "wikidata": "http://www.wikidata.org/entity/Q567632",
-      "pageviews": {
-        "total": 122,
         "days": 30,
         "start": "2026-10-22",
         "end": "2026-11-20"
@@ -15755,20 +15602,6 @@
       }
     },
     {
-      "canonical": "raycappo",
-      "display": "Ray Cappo",
-      "aliases": [],
-      "obscurity": 3,
-      "source": "https://en.wikipedia.org/wiki/Better_Than_a_Thousand",
-      "wikidata": "http://www.wikidata.org/entity/Q832467",
-      "pageviews": {
-        "total": 2526,
-        "days": 30,
-        "start": "2026-10-22",
-        "end": "2026-11-20"
-      }
-    },
-    {
       "canonical": "engelsstaub",
       "display": "Engelsstaub",
       "aliases": [],
@@ -17040,20 +16873,6 @@
         "days": 29,
         "start": "2026-10-22",
         "end": "2026-11-19"
-      }
-    },
-    {
-      "canonical": "nickeandersson",
-      "display": "Nicke Andersson",
-      "aliases": [],
-      "obscurity": 3,
-      "source": "https://en.wikipedia.org/wiki/Imperial_State_Electric",
-      "wikidata": "http://www.wikidata.org/entity/Q201336",
-      "pageviews": {
-        "total": 2131,
-        "days": 30,
-        "start": "2026-10-22",
-        "end": "2026-11-20"
       }
     },
     {
@@ -20347,20 +20166,6 @@
       }
     },
     {
-      "canonical": "novipunkval",
-      "display": "Novi Punk Val",
-      "aliases": [],
-      "obscurity": 5,
-      "source": "https://en.wikipedia.org/wiki/Termiti",
-      "wikidata": "http://www.wikidata.org/entity/Q725388",
-      "pageviews": {
-        "total": 110,
-        "days": 30,
-        "start": "2026-10-22",
-        "end": "2026-11-20"
-      }
-    },
-    {
       "canonical": "poetofthefall",
       "display": "Poets of the Fall",
       "aliases": [],
@@ -20496,20 +20301,6 @@
       "pageviews": {
         "total": 1000,
         "days": 30,
-        "start": "2026-10-22",
-        "end": "2026-11-20"
-      }
-    },
-    {
-      "canonical": "portugalintheeurovisionsongcontest2001",
-      "display": "Portugal in the Eurovision Song Contest 2001",
-      "aliases": [],
-      "obscurity": 5,
-      "source": "https://en.wikipedia.org/wiki/MTM_(band)",
-      "wikidata": "http://www.wikidata.org/entity/Q844416",
-      "pageviews": {
-        "total": 58,
-        "days": 29,
         "start": "2026-10-22",
         "end": "2026-11-20"
       }
@@ -20677,20 +20468,6 @@
       "wikidata": "http://www.wikidata.org/entity/Q208989",
       "pageviews": {
         "total": 574,
-        "days": 30,
-        "start": "2026-10-22",
-        "end": "2026-11-20"
-      }
-    },
-    {
-      "canonical": "sloveniaintheeurovisionsongcontest1993",
-      "display": "Slovenia in the Eurovision Song Contest 1993",
-      "aliases": [],
-      "obscurity": 5,
-      "source": "https://en.wikipedia.org/wiki/1X_Band",
-      "wikidata": "http://www.wikidata.org/entity/Q209027",
-      "pageviews": {
-        "total": 76,
         "days": 30,
         "start": "2026-10-22",
         "end": "2026-11-20"
@@ -21643,20 +21420,6 @@
       "wikidata": "http://www.wikidata.org/entity/Q426068",
       "pageviews": {
         "total": 4397,
-        "days": 30,
-        "start": "2026-10-22",
-        "end": "2026-11-20"
-      }
-    },
-    {
-      "canonical": "marcuswiebusch",
-      "display": "Marcus Wiebusch",
-      "aliases": [],
-      "obscurity": 5,
-      "source": "https://en.wikipedia.org/wiki/...But_Alive",
-      "wikidata": "http://www.wikidata.org/entity/Q426072",
-      "pageviews": {
-        "total": 54,
         "days": 30,
         "start": "2026-10-22",
         "end": "2026-11-20"
@@ -23105,20 +22868,6 @@
       }
     },
     {
-      "canonical": "formationassociationfootball",
-      "display": "Formation (association football)",
-      "aliases": [],
-      "obscurity": 2,
-      "source": "https://en.wikipedia.org/wiki/Two_Banks_of_Four",
-      "wikidata": "http://www.wikidata.org/entity/Q729900",
-      "pageviews": {
-        "total": 8887,
-        "days": 30,
-        "start": "2026-10-22",
-        "end": "2026-11-20"
-      }
-    },
-    {
       "canonical": "softheapband",
       "display": "Soft Heap (band)",
       "aliases": [],
@@ -23211,20 +22960,6 @@
       "wikidata": "http://www.wikidata.org/entity/Q730843",
       "pageviews": {
         "total": 78,
-        "days": 30,
-        "start": "2026-10-22",
-        "end": "2026-11-20"
-      }
-    },
-    {
-      "canonical": "larfrederiksen",
-      "display": "Lars Frederiksen",
-      "aliases": [],
-      "obscurity": 3,
-      "source": "https://en.wikipedia.org/wiki/Lars_Frederiksen_and_the_Bastards",
-      "wikidata": "http://www.wikidata.org/entity/Q730859",
-      "pageviews": {
-        "total": 4914,
         "days": 30,
         "start": "2026-10-22",
         "end": "2026-11-20"
@@ -25104,20 +24839,6 @@
         "days": 30,
         "start": "2026-10-22",
         "end": "2026-11-20"
-      }
-    },
-    {
-      "canonical": "sega",
-      "display": "Sega",
-      "aliases": [],
-      "obscurity": 1,
-      "source": "https://en.wikipedia.org/wiki/S.S.T._Band",
-      "wikidata": "http://www.wikidata.org/entity/Q858402",
-      "pageviews": {
-        "total": 45079,
-        "days": 29,
-        "start": "2026-10-22",
-        "end": "2026-11-19"
       }
     },
     {
@@ -27005,20 +26726,6 @@
       "wikidata": "http://www.wikidata.org/entity/Q605778",
       "pageviews": {
         "total": 12455,
-        "days": 30,
-        "start": "2026-10-22",
-        "end": "2026-11-20"
-      }
-    },
-    {
-      "canonical": "germanyintheeurovisionsongcontest",
-      "display": "Germany in the Eurovision Song Contest",
-      "aliases": [],
-      "obscurity": 3,
-      "source": "https://en.wikipedia.org/wiki/Mekado",
-      "wikidata": "http://www.wikidata.org/entity/Q606119",
-      "pageviews": {
-        "total": 2256,
         "days": 30,
         "start": "2026-10-22",
         "end": "2026-11-20"
@@ -29349,20 +29056,6 @@
       }
     },
     {
-      "canonical": "anderwendin",
-      "display": "Anders Wendin",
-      "aliases": [],
-      "obscurity": 5,
-      "source": "https://en.wikipedia.org/wiki/Monster_(band)",
-      "wikidata": "http://www.wikidata.org/entity/Q744270",
-      "pageviews": {
-        "total": 229,
-        "days": 30,
-        "start": "2026-10-22",
-        "end": "2026-11-20"
-      }
-    },
-    {
       "canonical": "beastofbourbon",
       "display": "Beasts of Bourbon",
       "aliases": [],
@@ -30813,6 +30506,314 @@
       "wikidata": "http://www.wikidata.org/entity/Q466355",
       "pageviews": {
         "total": 129,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "bbumbleandthestinger",
+      "display": "B. Bumble and the Stingers",
+      "aliases": [],
+      "obscurity": 4,
+      "source": "https://en.wikipedia.org/wiki/B._Bumble_and_the_Stingers",
+      "wikidata": "http://www.wikidata.org/entity/Q466389",
+      "pageviews": {
+        "total": 724,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "dreadfulshadow",
+      "display": "Dreadful Shadows",
+      "aliases": [],
+      "obscurity": 5,
+      "source": "https://en.wikipedia.org/wiki/Dreadful_Shadows",
+      "wikidata": "http://www.wikidata.org/entity/Q466717",
+      "pageviews": {
+        "total": 212,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "thesoulstirrer",
+      "display": "The Soul Stirrers",
+      "aliases": [],
+      "obscurity": 4,
+      "source": "https://en.wikipedia.org/wiki/The_Soul_Stirrers",
+      "wikidata": "http://www.wikidata.org/entity/Q466840",
+      "pageviews": {
+        "total": 1080,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "americansteel",
+      "display": "American Steel",
+      "aliases": [],
+      "obscurity": 4,
+      "source": "https://en.wikipedia.org/wiki/American_Steel",
+      "wikidata": "http://www.wikidata.org/entity/Q467032",
+      "pageviews": {
+        "total": 300,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "thelemonpiper",
+      "display": "The Lemon Pipers",
+      "aliases": [],
+      "obscurity": 3,
+      "source": "https://en.wikipedia.org/wiki/The_Lemon_Pipers",
+      "wikidata": "http://www.wikidata.org/entity/Q466992",
+      "pageviews": {
+        "total": 2575,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "nglabanda",
+      "display": "NG La Banda",
+      "aliases": [],
+      "obscurity": 5,
+      "source": "https://en.wikipedia.org/wiki/NG_La_Banda",
+      "wikidata": "http://www.wikidata.org/entity/Q467532",
+      "pageviews": {
+        "total": 242,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "waspband",
+      "display": "W.A.S.P. (band)",
+      "aliases": [],
+      "obscurity": 1,
+      "source": "https://en.wikipedia.org/wiki/W.A.S.P._(band)",
+      "wikidata": "http://www.wikidata.org/entity/Q467673",
+      "pageviews": {
+        "total": 32042,
+        "days": 29,
+        "start": "2026-10-22",
+        "end": "2026-11-19"
+      }
+    },
+    {
+      "canonical": "clovenhoofband",
+      "display": "Cloven Hoof (band)",
+      "aliases": [],
+      "obscurity": 4,
+      "source": "https://en.wikipedia.org/wiki/Cloven_Hoof_(band)",
+      "wikidata": "http://www.wikidata.org/entity/Q467811",
+      "pageviews": {
+        "total": 1038,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "thesisterhoodgothicrockband",
+      "display": "The Sisterhood (gothic rock band)",
+      "aliases": [],
+      "obscurity": 3,
+      "source": "https://en.wikipedia.org/wiki/The_Sisterhood_(gothic_rock_band)",
+      "wikidata": "http://www.wikidata.org/entity/Q467799",
+      "pageviews": {
+        "total": 1798,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "theduskfall",
+      "display": "The Duskfall",
+      "aliases": [],
+      "obscurity": 4,
+      "source": "https://en.wikipedia.org/wiki/The_Duskfall",
+      "wikidata": "http://www.wikidata.org/entity/Q467849",
+      "pageviews": {
+        "total": 388,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "thechilite",
+      "display": "The Chi-Lites",
+      "aliases": [],
+      "obscurity": 3,
+      "source": "https://en.wikipedia.org/wiki/The_Chi-Lites",
+      "wikidata": "http://www.wikidata.org/entity/Q467933",
+      "pageviews": {
+        "total": 4789,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "thefooldesigncollective",
+      "display": "The Fool (design collective)",
+      "aliases": [],
+      "obscurity": 4,
+      "source": "https://en.wikipedia.org/wiki/The_Fool_(design_collective)",
+      "wikidata": "http://www.wikidata.org/entity/Q468872",
+      "pageviews": {
+        "total": 1318,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "amestigon",
+      "display": "Amestigon",
+      "aliases": [],
+      "obscurity": 5,
+      "source": "https://en.wikipedia.org/wiki/Amestigon",
+      "wikidata": "http://www.wikidata.org/entity/Q470308",
+      "pageviews": {
+        "total": 106,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "amethystium",
+      "display": "Amethystium",
+      "aliases": [],
+      "obscurity": 5,
+      "source": "https://en.wikipedia.org/wiki/Amethystium",
+      "wikidata": "http://www.wikidata.org/entity/Q470368",
+      "pageviews": {
+        "total": 243,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "thetwingermanduo",
+      "display": "The Twins (German duo)",
+      "aliases": [],
+      "obscurity": 4,
+      "source": "https://en.wikipedia.org/wiki/The_Twins_(German_duo)",
+      "wikidata": "http://www.wikidata.org/entity/Q470662",
+      "pageviews": {
+        "total": 685,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "msjohnsoda",
+      "display": "Ms. John Soda",
+      "aliases": [],
+      "obscurity": 5,
+      "source": "https://en.wikipedia.org/wiki/Ms._John_Soda",
+      "wikidata": "http://www.wikidata.org/entity/Q470969",
+      "pageviews": {
+        "total": 84,
+        "days": 29,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "mileband",
+      "display": "Miles (band)",
+      "aliases": [],
+      "obscurity": 4,
+      "source": "https://en.wikipedia.org/wiki/Miles_(band)",
+      "wikidata": "http://www.wikidata.org/entity/Q615289",
+      "pageviews": {
+        "total": 1167,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "m83band",
+      "display": "M83 (band)",
+      "aliases": [],
+      "obscurity": 2,
+      "source": "https://en.wikipedia.org/wiki/M83_(band)",
+      "wikidata": "http://www.wikidata.org/entity/Q615471",
+      "pageviews": {
+        "total": 20591,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "pereza",
+      "display": "Pereza",
+      "aliases": [],
+      "obscurity": 5,
+      "source": "https://en.wikipedia.org/wiki/Pereza",
+      "wikidata": "http://www.wikidata.org/entity/Q615654",
+      "pageviews": {
+        "total": 149,
+        "days": 29,
+        "start": "2026-10-22",
+        "end": "2026-11-19"
+      }
+    },
+    {
+      "canonical": "telexband",
+      "display": "Telex (band)",
+      "aliases": [],
+      "obscurity": 4,
+      "source": "https://en.wikipedia.org/wiki/Telex_(band)",
+      "wikidata": "http://www.wikidata.org/entity/Q615867",
+      "pageviews": {
+        "total": 967,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "goddethroned",
+      "display": "God Dethroned",
+      "aliases": [],
+      "obscurity": 4,
+      "source": "https://en.wikipedia.org/wiki/God_Dethroned",
+      "wikidata": "http://www.wikidata.org/entity/Q616074",
+      "pageviews": {
+        "total": 655,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "scandalamericanband",
+      "display": "Scandal (American band)",
+      "aliases": [],
+      "obscurity": 3,
+      "source": "https://en.wikipedia.org/wiki/Scandal_(American_band)",
+      "wikidata": "http://www.wikidata.org/entity/Q616239",
+      "pageviews": {
+        "total": 5595,
         "days": 30,
         "start": "2026-10-22",
         "end": "2026-11-20"
