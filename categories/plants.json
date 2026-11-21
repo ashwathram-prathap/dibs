@@ -15,11 +15,12 @@
     ],
     "queryRoot": "Q756",
     "property": "P171",
-    "builtAt": "2026-11-21T04:27:39.475Z",
+    "builtAt": "2026-11-21T05:02:39.589Z",
     "license": "Wikidata CC0; Wikipedia titles and pageview counts. See source URL on each entry.",
     "scoring": "Mean daily Wikipedia pageviews over available days in the past 30: 1 >=1000; 2 >=200; 3 >=50; 4 >=10; 5 <10. Missing data excluded.",
     "scopeNote": "Plant species from Wikipedia botanical description-year lists, retaining scientific article names.",
-    "reviewRequired": true
+    "reviewRequired": true,
+    "identityPolicy": "exclude-cross-title-redirects-v1"
   },
   "answers": [
     {
@@ -1143,20 +1144,6 @@
       }
     },
     {
-      "canonical": "aizoanthemopsis",
-      "display": "Aizoanthemopsis",
-      "aliases": [],
-      "obscurity": 5,
-      "source": "https://en.wikipedia.org/wiki/Aizoon_hispanicum",
-      "wikidata": null,
-      "pageviews": {
-        "total": 33,
-        "days": 29,
-        "start": "2026-10-22",
-        "end": "2026-11-20"
-      }
-    },
-    {
       "canonical": "ajugagenevensis",
       "display": "Ajuga genevensis",
       "aliases": [],
@@ -1311,20 +1298,6 @@
       }
     },
     {
-      "canonical": "alkekengi",
-      "display": "Alkekengi",
-      "aliases": [],
-      "obscurity": 3,
-      "source": "https://en.wikipedia.org/wiki/Alkekengi_officinarum",
-      "wikidata": null,
-      "pageviews": {
-        "total": 3038,
-        "days": 30,
-        "start": "2026-10-22",
-        "end": "2026-11-20"
-      }
-    },
-    {
       "canonical": "alliumampeloprasum",
       "display": "Allium ampeloprasum",
       "aliases": [],
@@ -1378,20 +1351,6 @@
         "days": 30,
         "start": "2026-10-22",
         "end": "2026-11-20"
-      }
-    },
-    {
-      "canonical": "onion",
-      "display": "Onion",
-      "aliases": [],
-      "obscurity": 2,
-      "source": "https://en.wikipedia.org/wiki/Allium_cepa",
-      "wikidata": null,
-      "pageviews": {
-        "total": 24651,
-        "days": 29,
-        "start": "2026-10-22",
-        "end": "2026-11-19"
       }
     },
     {
@@ -1574,34 +1533,6 @@
         "days": 30,
         "start": "2026-10-22",
         "end": "2026-11-20"
-      }
-    },
-    {
-      "canonical": "garlic",
-      "display": "Garlic",
-      "aliases": [],
-      "obscurity": 2,
-      "source": "https://en.wikipedia.org/wiki/Allium_sativum",
-      "wikidata": null,
-      "pageviews": {
-        "total": 19627,
-        "days": 29,
-        "start": "2026-10-22",
-        "end": "2026-11-19"
-      }
-    },
-    {
-      "canonical": "chive",
-      "display": "Chives",
-      "aliases": [],
-      "obscurity": 2,
-      "source": "https://en.wikipedia.org/wiki/Allium_schoenoprasum",
-      "wikidata": null,
-      "pageviews": {
-        "total": 11114,
-        "days": 29,
-        "start": "2026-10-22",
-        "end": "2026-11-19"
       }
     },
     {
@@ -2137,20 +2068,6 @@
       }
     },
     {
-      "canonical": "amethystea",
-      "display": "Amethystea",
-      "aliases": [],
-      "obscurity": 5,
-      "source": "https://en.wikipedia.org/wiki/Amethystea_caerulea",
-      "wikidata": null,
-      "pageviews": {
-        "total": 41,
-        "days": 30,
-        "start": "2026-10-22",
-        "end": "2026-11-20"
-      }
-    },
-    {
       "canonical": "ammimajus",
       "display": "Ammi majus",
       "aliases": [],
@@ -2277,20 +2194,6 @@
       }
     },
     {
-      "canonical": "cashew",
-      "display": "Cashew",
-      "aliases": [],
-      "obscurity": 1,
-      "source": "https://en.wikipedia.org/wiki/Anacardium_occidentale",
-      "wikidata": null,
-      "pageviews": {
-        "total": 35289,
-        "days": 29,
-        "start": "2026-10-22",
-        "end": "2026-11-19"
-      }
-    },
-    {
       "canonical": "anacistripteris",
       "display": "Anacis tripteris",
       "aliases": [],
@@ -2355,20 +2258,6 @@
       "wikidata": null,
       "pageviews": {
         "total": 760,
-        "days": 30,
-        "start": "2026-10-22",
-        "end": "2026-11-20"
-      }
-    },
-    {
-      "canonical": "anastatica",
-      "display": "Anastatica",
-      "aliases": [],
-      "obscurity": 4,
-      "source": "https://en.wikipedia.org/wiki/Anastatica_hierochuntica",
-      "wikidata": null,
-      "pageviews": {
-        "total": 1213,
         "days": 30,
         "start": "2026-10-22",
         "end": "2026-11-20"
@@ -2680,20 +2569,6 @@
         "days": 30,
         "start": "2026-10-22",
         "end": "2026-11-20"
-      }
-    },
-    {
-      "canonical": "dill",
-      "display": "Dill",
-      "aliases": [],
-      "obscurity": 2,
-      "source": "https://en.wikipedia.org/wiki/Anethum_graveolens",
-      "wikidata": null,
-      "pageviews": {
-        "total": 11044,
-        "days": 29,
-        "start": "2026-10-22",
-        "end": "2026-11-19"
       }
     },
     {
@@ -3061,20 +2936,6 @@
       }
     },
     {
-      "canonical": "aphyllanthe",
-      "display": "Aphyllanthes",
-      "aliases": [],
-      "obscurity": 5,
-      "source": "https://en.wikipedia.org/wiki/Aphyllanthes_monspeliensis",
-      "wikidata": null,
-      "pageviews": {
-        "total": 47,
-        "days": 30,
-        "start": "2026-10-22",
-        "end": "2026-11-20"
-      }
-    },
-    {
       "canonical": "apioamericana",
       "display": "Apios americana",
       "aliases": [],
@@ -3257,20 +3118,6 @@
       }
     },
     {
-      "canonical": "peanut",
-      "display": "Peanut",
-      "aliases": [],
-      "obscurity": 1,
-      "source": "https://en.wikipedia.org/wiki/Arachis_hypogaea",
-      "wikidata": null,
-      "pageviews": {
-        "total": 37169,
-        "days": 29,
-        "start": "2026-10-22",
-        "end": "2026-11-19"
-      }
-    },
-    {
       "canonical": "araliachinensis",
       "display": "Aralia chinensis",
       "aliases": [],
@@ -3425,20 +3272,6 @@
       }
     },
     {
-      "canonical": "aremonia",
-      "display": "Aremonia",
-      "aliases": [],
-      "obscurity": 5,
-      "source": "https://en.wikipedia.org/wiki/Aremonia_agrimonoides",
-      "wikidata": null,
-      "pageviews": {
-        "total": 76,
-        "days": 30,
-        "start": "2026-10-22",
-        "end": "2026-11-20"
-      }
-    },
-    {
       "canonical": "arenariaciliata",
       "display": "Arenaria ciliata",
       "aliases": [],
@@ -3461,20 +3294,6 @@
       "wikidata": null,
       "pageviews": {
         "total": 71,
-        "days": 30,
-        "start": "2026-10-22",
-        "end": "2026-11-20"
-      }
-    },
-    {
-      "canonical": "dragonmouth",
-      "display": "Dragon's mouth",
-      "aliases": [],
-      "obscurity": 5,
-      "source": "https://en.wikipedia.org/wiki/Arethusa_bulbosa",
-      "wikidata": null,
-      "pageviews": {
-        "total": 216,
         "days": 30,
         "start": "2026-10-22",
         "end": "2026-11-20"
@@ -3705,20 +3524,6 @@
       }
     },
     {
-      "canonical": "artedia",
-      "display": "Artedia",
-      "aliases": [],
-      "obscurity": 5,
-      "source": "https://en.wikipedia.org/wiki/Artedia_squamata",
-      "wikidata": null,
-      "pageviews": {
-        "total": 26,
-        "days": 29,
-        "start": "2026-10-22",
-        "end": "2026-11-20"
-      }
-    },
-    {
       "canonical": "artemisiaabrotanum",
       "display": "Artemisia abrotanum",
       "aliases": [],
@@ -3783,20 +3588,6 @@
       "wikidata": null,
       "pageviews": {
         "total": 212,
-        "days": 30,
-        "start": "2026-10-22",
-        "end": "2026-11-20"
-      }
-    },
-    {
-      "canonical": "tarragon",
-      "display": "Tarragon",
-      "aliases": [],
-      "obscurity": 2,
-      "source": "https://en.wikipedia.org/wiki/Artemisia_dracunculus",
-      "wikidata": null,
-      "pageviews": {
-        "total": 12189,
         "days": 30,
         "start": "2026-10-22",
         "end": "2026-11-20"
@@ -4245,34 +4036,6 @@
       "wikidata": null,
       "pageviews": {
         "total": 212,
-        "days": 30,
-        "start": "2026-10-22",
-        "end": "2026-11-20"
-      }
-    },
-    {
-      "canonical": "asparagus",
-      "display": "Asparagus",
-      "aliases": [],
-      "obscurity": 2,
-      "source": "https://en.wikipedia.org/wiki/Asparagus_officinalis",
-      "wikidata": null,
-      "pageviews": {
-        "total": 13288,
-        "days": 29,
-        "start": "2026-10-22",
-        "end": "2026-11-19"
-      }
-    },
-    {
-      "canonical": "asperugo",
-      "display": "Asperugo",
-      "aliases": [],
-      "obscurity": 5,
-      "source": "https://en.wikipedia.org/wiki/Asperugo_procumbens",
-      "wikidata": null,
-      "pageviews": {
-        "total": 67,
         "days": 30,
         "start": "2026-10-22",
         "end": "2026-11-20"
@@ -4906,20 +4669,6 @@
         "days": 30,
         "start": "2026-10-22",
         "end": "2026-11-20"
-      }
-    },
-    {
-      "canonical": "oat",
-      "display": "Oat",
-      "aliases": [],
-      "obscurity": 2,
-      "source": "https://en.wikipedia.org/wiki/Avena_sativa",
-      "wikidata": null,
-      "pageviews": {
-        "total": 26640,
-        "days": 29,
-        "start": "2026-10-22",
-        "end": "2026-11-19"
       }
     },
     {
@@ -5693,20 +5442,6 @@
       }
     },
     {
-      "canonical": "bolusafra",
-      "display": "Bolusafra",
-      "aliases": [],
-      "obscurity": 5,
-      "source": "https://en.wikipedia.org/wiki/Bolusafra_bituminosa",
-      "wikidata": null,
-      "pageviews": {
-        "total": 11,
-        "days": 26,
-        "start": "2026-10-22",
-        "end": "2026-11-20"
-      }
-    },
-    {
       "canonical": "bombaxceiba",
       "display": "Bombax ceiba",
       "aliases": [],
@@ -5715,48 +5450,6 @@
       "wikidata": null,
       "pageviews": {
         "total": 3607,
-        "days": 30,
-        "start": "2026-10-22",
-        "end": "2026-11-20"
-      }
-    },
-    {
-      "canonical": "bonannia",
-      "display": "Bonannia",
-      "aliases": [],
-      "obscurity": 5,
-      "source": "https://en.wikipedia.org/wiki/Bonannia_graeca",
-      "wikidata": null,
-      "pageviews": {
-        "total": 80,
-        "days": 29,
-        "start": "2026-10-22",
-        "end": "2026-11-20"
-      }
-    },
-    {
-      "canonical": "bontia",
-      "display": "Bontia",
-      "aliases": [],
-      "obscurity": 5,
-      "source": "https://en.wikipedia.org/wiki/Bontia_daphnoides",
-      "wikidata": null,
-      "pageviews": {
-        "total": 53,
-        "days": 30,
-        "start": "2026-10-22",
-        "end": "2026-11-20"
-      }
-    },
-    {
-      "canonical": "borage",
-      "display": "Borage",
-      "aliases": [],
-      "obscurity": 2,
-      "source": "https://en.wikipedia.org/wiki/Borago_officinalis",
-      "wikidata": null,
-      "pageviews": {
-        "total": 6757,
         "days": 30,
         "start": "2026-10-22",
         "end": "2026-11-20"
@@ -5819,34 +5512,6 @@
       }
     },
     {
-      "canonical": "botrypus",
-      "display": "Botrypus",
-      "aliases": [],
-      "obscurity": 5,
-      "source": "https://en.wikipedia.org/wiki/Botrypus_virginianus",
-      "wikidata": null,
-      "pageviews": {
-        "total": 109,
-        "days": 30,
-        "start": "2026-10-22",
-        "end": "2026-11-20"
-      }
-    },
-    {
-      "canonical": "brabejum",
-      "display": "Brabejum",
-      "aliases": [],
-      "obscurity": 5,
-      "source": "https://en.wikipedia.org/wiki/Brabejum_stellatifolium",
-      "wikidata": null,
-      "pageviews": {
-        "total": 115,
-        "days": 30,
-        "start": "2026-10-22",
-        "end": "2026-11-20"
-      }
-    },
-    {
       "canonical": "brassavolanodosa",
       "display": "Brassavola nodosa",
       "aliases": [],
@@ -5858,20 +5523,6 @@
         "days": 30,
         "start": "2026-10-22",
         "end": "2026-11-20"
-      }
-    },
-    {
-      "canonical": "rapeseed",
-      "display": "Rapeseed",
-      "aliases": [],
-      "obscurity": 2,
-      "source": "https://en.wikipedia.org/wiki/Brassica_napus",
-      "wikidata": null,
-      "pageviews": {
-        "total": 19164,
-        "days": 29,
-        "start": "2026-10-22",
-        "end": "2026-11-19"
       }
     },
     {
@@ -6079,20 +5730,6 @@
       "wikidata": null,
       "pageviews": {
         "total": 842,
-        "days": 29,
-        "start": "2026-10-22",
-        "end": "2026-11-19"
-      }
-    },
-    {
-      "canonical": "papermulberry",
-      "display": "Paper mulberry",
-      "aliases": [],
-      "obscurity": 3,
-      "source": "https://en.wikipedia.org/wiki/Broussonetia_papyrifera",
-      "wikidata": null,
-      "pageviews": {
-        "total": 2508,
         "days": 29,
         "start": "2026-10-22",
         "end": "2026-11-19"
@@ -6491,20 +6128,6 @@
       }
     },
     {
-      "canonical": "calla",
-      "display": "Calla",
-      "aliases": [],
-      "obscurity": 4,
-      "source": "https://en.wikipedia.org/wiki/Calla_palustris",
-      "wikidata": null,
-      "pageviews": {
-        "total": 1080,
-        "days": 29,
-        "start": "2026-10-22",
-        "end": "2026-11-19"
-      }
-    },
-    {
       "canonical": "callicarpaamericana",
       "display": "Callicarpa americana",
       "aliases": [],
@@ -6869,20 +6492,6 @@
       }
     },
     {
-      "canonical": "canella",
-      "display": "Canella",
-      "aliases": [],
-      "obscurity": 4,
-      "source": "https://en.wikipedia.org/wiki/Canella_winterana",
-      "wikidata": null,
-      "pageviews": {
-        "total": 800,
-        "days": 30,
-        "start": "2026-10-22",
-        "end": "2026-11-20"
-      }
-    },
-    {
       "canonical": "cannaglauca",
       "display": "Canna glauca",
       "aliases": [],
@@ -6919,34 +6528,6 @@
       "wikidata": null,
       "pageviews": {
         "total": 11800,
-        "days": 30,
-        "start": "2026-10-22",
-        "end": "2026-11-20"
-      }
-    },
-    {
-      "canonical": "capnoide",
-      "display": "Capnoides",
-      "aliases": [],
-      "obscurity": 5,
-      "source": "https://en.wikipedia.org/wiki/Capnoides_sempervirens",
-      "wikidata": null,
-      "pageviews": {
-        "total": 99,
-        "days": 30,
-        "start": "2026-10-22",
-        "end": "2026-11-20"
-      }
-    },
-    {
-      "canonical": "caper",
-      "display": "Caper",
-      "aliases": [],
-      "obscurity": 2,
-      "source": "https://en.wikipedia.org/wiki/Capparis_spinosa",
-      "wikidata": null,
-      "pageviews": {
-        "total": 24270,
         "days": 30,
         "start": "2026-10-22",
         "end": "2026-11-20"
@@ -7527,20 +7108,6 @@
       }
     },
     {
-      "canonical": "papaya",
-      "display": "Papaya",
-      "aliases": [],
-      "obscurity": 2,
-      "source": "https://en.wikipedia.org/wiki/Carica_papaya",
-      "wikidata": null,
-      "pageviews": {
-        "total": 17545,
-        "days": 29,
-        "start": "2026-10-22",
-        "end": "2026-11-19"
-      }
-    },
-    {
       "canonical": "carlinaacaulis",
       "display": "Carlina acaulis",
       "aliases": [],
@@ -7681,48 +7248,6 @@
       }
     },
     {
-      "canonical": "safflower",
-      "display": "Safflower",
-      "aliases": [],
-      "obscurity": 2,
-      "source": "https://en.wikipedia.org/wiki/Carthamus_tinctorius",
-      "wikidata": null,
-      "pageviews": {
-        "total": 8779,
-        "days": 30,
-        "start": "2026-10-22",
-        "end": "2026-11-20"
-      }
-    },
-    {
-      "canonical": "caraway",
-      "display": "Caraway",
-      "aliases": [],
-      "obscurity": 2,
-      "source": "https://en.wikipedia.org/wiki/Carum_carvi",
-      "wikidata": null,
-      "pageviews": {
-        "total": 15316,
-        "days": 29,
-        "start": "2026-10-22",
-        "end": "2026-11-19"
-      }
-    },
-    {
-      "canonical": "clove",
-      "display": "Clove",
-      "aliases": [],
-      "obscurity": 1,
-      "source": "https://en.wikipedia.org/wiki/Caryophyllus_aromaticus",
-      "wikidata": null,
-      "pageviews": {
-        "total": 32209,
-        "days": 29,
-        "start": "2026-10-22",
-        "end": "2026-11-19"
-      }
-    },
-    {
       "canonical": "caryotauren",
       "display": "Caryota urens",
       "aliases": [],
@@ -7734,6 +7259,20 @@
         "days": 30,
         "start": "2026-10-22",
         "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "cashew",
+      "display": "Cashew",
+      "aliases": [],
+      "obscurity": 1,
+      "source": "https://en.wikipedia.org/wiki/Cashew",
+      "wikidata": null,
+      "pageviews": {
+        "total": 35289,
+        "days": 29,
+        "start": "2026-10-22",
+        "end": "2026-11-19"
       }
     },
     {
@@ -7849,20 +7388,6 @@
       }
     },
     {
-      "canonical": "caucalis",
-      "display": "Caucalis",
-      "aliases": [],
-      "obscurity": 5,
-      "source": "https://en.wikipedia.org/wiki/Caucalis_daucoides",
-      "wikidata": null,
-      "pageviews": {
-        "total": 55,
-        "days": 30,
-        "start": "2026-10-22",
-        "end": "2026-11-20"
-      }
-    },
-    {
       "canonical": "causonistrifolia",
       "display": "Causonis trifolia",
       "aliases": [],
@@ -7885,20 +7410,6 @@
       "wikidata": null,
       "pageviews": {
         "total": 803,
-        "days": 30,
-        "start": "2026-10-22",
-        "end": "2026-11-20"
-      }
-    },
-    {
-      "canonical": "cedronella",
-      "display": "Cedronella",
-      "aliases": [],
-      "obscurity": 5,
-      "source": "https://en.wikipedia.org/wiki/Cedronella_canariensis",
-      "wikidata": null,
-      "pageviews": {
-        "total": 140,
         "days": 30,
         "start": "2026-10-22",
         "end": "2026-11-20"
@@ -8577,20 +8088,6 @@
       }
     },
     {
-      "canonical": "chaiturus",
-      "display": "Chaiturus",
-      "aliases": [],
-      "obscurity": 5,
-      "source": "https://en.wikipedia.org/wiki/Chaiturus_marrubiastrum",
-      "wikidata": null,
-      "pageviews": {
-        "total": 19,
-        "days": 29,
-        "start": "2026-10-22",
-        "end": "2026-11-20"
-      }
-    },
-    {
       "canonical": "chamaebuxusalpestris",
       "display": "Chamaebuxus alpestris",
       "aliases": [],
@@ -8627,20 +8124,6 @@
       "wikidata": null,
       "pageviews": {
         "total": 6360,
-        "days": 30,
-        "start": "2026-10-22",
-        "end": "2026-11-20"
-      }
-    },
-    {
-      "canonical": "chamaerop",
-      "display": "Chamaerops",
-      "aliases": [],
-      "obscurity": 3,
-      "source": "https://en.wikipedia.org/wiki/Chamaerops_humilis",
-      "wikidata": null,
-      "pageviews": {
-        "total": 1665,
         "days": 30,
         "start": "2026-10-22",
         "end": "2026-11-20"
@@ -8840,6 +8323,20 @@
         "days": 28,
         "start": "2026-10-22",
         "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "chive",
+      "display": "Chives",
+      "aliases": [],
+      "obscurity": 2,
+      "source": "https://en.wikipedia.org/wiki/Chives",
+      "wikidata": null,
+      "pageviews": {
+        "total": 11114,
+        "days": 29,
+        "start": "2026-10-22",
+        "end": "2026-11-19"
       }
     },
     {
@@ -9089,20 +8586,6 @@
       "wikidata": null,
       "pageviews": {
         "total": 42,
-        "days": 30,
-        "start": "2026-10-22",
-        "end": "2026-11-20"
-      }
-    },
-    {
-      "canonical": "cionura",
-      "display": "Cionura",
-      "aliases": [],
-      "obscurity": 5,
-      "source": "https://en.wikipedia.org/wiki/Cionura_erecta",
-      "wikidata": null,
-      "pageviews": {
-        "total": 32,
         "days": 30,
         "start": "2026-10-22",
         "end": "2026-11-20"
@@ -9403,20 +8886,6 @@
       }
     },
     {
-      "canonical": "citron",
-      "display": "Citron",
-      "aliases": [],
-      "obscurity": 2,
-      "source": "https://en.wikipedia.org/wiki/Citrus_medica",
-      "wikidata": null,
-      "pageviews": {
-        "total": 17314,
-        "days": 29,
-        "start": "2026-10-22",
-        "end": "2026-11-19"
-      }
-    },
-    {
       "canonical": "cladanthusmixtus",
       "display": "Cladanthus mixtus",
       "aliases": [],
@@ -9467,20 +8936,6 @@
       "wikidata": null,
       "pageviews": {
         "total": 384,
-        "days": 30,
-        "start": "2026-10-22",
-        "end": "2026-11-20"
-      }
-    },
-    {
-      "canonical": "claytosmunda",
-      "display": "Claytosmunda",
-      "aliases": [],
-      "obscurity": 5,
-      "source": "https://en.wikipedia.org/wiki/Claytosmunda_claytoniana",
-      "wikidata": null,
-      "pageviews": {
-        "total": 136,
         "days": 30,
         "start": "2026-10-22",
         "end": "2026-11-20"
@@ -9649,20 +9104,6 @@
       "wikidata": null,
       "pageviews": {
         "total": 28,
-        "days": 30,
-        "start": "2026-10-22",
-        "end": "2026-11-20"
-      }
-    },
-    {
-      "canonical": "cleonia",
-      "display": "Cleonia",
-      "aliases": [],
-      "obscurity": 5,
-      "source": "https://en.wikipedia.org/wiki/Cleonia_lusitanica",
-      "wikidata": null,
-      "pageviews": {
-        "total": 35,
         "days": 30,
         "start": "2026-10-22",
         "end": "2026-11-20"
@@ -9893,20 +9334,6 @@
       }
     },
     {
-      "canonical": "cochliasanthus",
-      "display": "Cochliasanthus",
-      "aliases": [],
-      "obscurity": 4,
-      "source": "https://en.wikipedia.org/wiki/Cochliasanthus_caracalla",
-      "wikidata": null,
-      "pageviews": {
-        "total": 421,
-        "days": 30,
-        "start": "2026-10-22",
-        "end": "2026-11-20"
-      }
-    },
-    {
       "canonical": "coconut",
       "display": "Coconut",
       "aliases": [],
@@ -9957,20 +9384,6 @@
       "wikidata": null,
       "pageviews": {
         "total": 18,
-        "days": 30,
-        "start": "2026-10-22",
-        "end": "2026-11-20"
-      }
-    },
-    {
-      "canonical": "jobtear",
-      "display": "Job's tears",
-      "aliases": [],
-      "obscurity": 3,
-      "source": "https://en.wikipedia.org/wiki/Coix_lacryma-jobi",
-      "wikidata": null,
-      "pageviews": {
-        "total": 5263,
         "days": 30,
         "start": "2026-10-22",
         "end": "2026-11-20"
@@ -10229,20 +9642,6 @@
       }
     },
     {
-      "canonical": "lilyofthevalley",
-      "display": "Lily of the valley",
-      "aliases": [],
-      "obscurity": 2,
-      "source": "https://en.wikipedia.org/wiki/Convallaria_majalis",
-      "wikidata": null,
-      "pageviews": {
-        "total": 21657,
-        "days": 29,
-        "start": "2026-10-22",
-        "end": "2026-11-19"
-      }
-    },
-    {
       "canonical": "convolvulusalthaeoide",
       "display": "Convolvulus althaeoides",
       "aliases": [],
@@ -10377,20 +9776,6 @@
       "wikidata": null,
       "pageviews": {
         "total": 3988,
-        "days": 30,
-        "start": "2026-10-22",
-        "end": "2026-11-20"
-      }
-    },
-    {
-      "canonical": "corchorus",
-      "display": "Corchorus",
-      "aliases": [],
-      "obscurity": 4,
-      "source": "https://en.wikipedia.org/wiki/Corchorus_siliquosus",
-      "wikidata": null,
-      "pageviews": {
-        "total": 795,
         "days": 30,
         "start": "2026-10-22",
         "end": "2026-11-20"
@@ -11125,20 +10510,6 @@
       }
     },
     {
-      "canonical": "crithmum",
-      "display": "Crithmum",
-      "aliases": [],
-      "obscurity": 4,
-      "source": "https://en.wikipedia.org/wiki/Crithmum_maritimum",
-      "wikidata": null,
-      "pageviews": {
-        "total": 1013,
-        "days": 30,
-        "start": "2026-10-22",
-        "end": "2026-11-20"
-      }
-    },
-    {
       "canonical": "crocussativus",
       "display": "Crocus sativus",
       "aliases": [],
@@ -11391,20 +10762,6 @@
       }
     },
     {
-      "canonical": "turmeric",
-      "display": "Turmeric",
-      "aliases": [],
-      "obscurity": 2,
-      "source": "https://en.wikipedia.org/wiki/Curcuma_longa",
-      "wikidata": null,
-      "pageviews": {
-        "total": 28103,
-        "days": 29,
-        "start": "2026-10-22",
-        "end": "2026-11-19"
-      }
-    },
-    {
       "canonical": "cuscutaeuropaea",
       "display": "Cuscuta europaea",
       "aliases": [],
@@ -11587,20 +10944,6 @@
       }
     },
     {
-      "canonical": "artichoke",
-      "display": "Artichoke",
-      "aliases": [],
-      "obscurity": 2,
-      "source": "https://en.wikipedia.org/wiki/Cynara_cardunculus_var._scolymus",
-      "wikidata": null,
-      "pageviews": {
-        "total": 22652,
-        "days": 29,
-        "start": "2026-10-22",
-        "end": "2026-11-19"
-      }
-    },
-    {
       "canonical": "cynarahumilis",
       "display": "Cynara humilis",
       "aliases": [],
@@ -11665,20 +11008,6 @@
       "wikidata": null,
       "pageviews": {
         "total": 91,
-        "days": 30,
-        "start": "2026-10-22",
-        "end": "2026-11-20"
-      }
-    },
-    {
-      "canonical": "cynomorium",
-      "display": "Cynomorium",
-      "aliases": [],
-      "obscurity": 4,
-      "source": "https://en.wikipedia.org/wiki/Cynomorium_coccineum",
-      "wikidata": null,
-      "pageviews": {
-        "total": 319,
         "days": 30,
         "start": "2026-10-22",
         "end": "2026-11-20"
@@ -12651,6 +11980,20 @@
       }
     },
     {
+      "canonical": "dill",
+      "display": "Dill",
+      "aliases": [],
+      "obscurity": 2,
+      "source": "https://en.wikipedia.org/wiki/Dill",
+      "wikidata": null,
+      "pageviews": {
+        "total": 11044,
+        "days": 29,
+        "start": "2026-10-22",
+        "end": "2026-11-19"
+      }
+    },
+    {
       "canonical": "dilleniaindica",
       "display": "Dillenia indica",
       "aliases": [],
@@ -12987,6 +12330,20 @@
       }
     },
     {
+      "canonical": "dragonmouth",
+      "display": "Dragon's mouth",
+      "aliases": [],
+      "obscurity": 5,
+      "source": "https://en.wikipedia.org/wiki/Dragon's_mouth",
+      "wikidata": null,
+      "pageviews": {
+        "total": 216,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
       "canonical": "drimiamaritima",
       "display": "Drimia maritima",
       "aliases": [],
@@ -13051,20 +12408,6 @@
       "wikidata": null,
       "pageviews": {
         "total": 1289,
-        "days": 30,
-        "start": "2026-10-22",
-        "end": "2026-11-20"
-      }
-    },
-    {
-      "canonical": "drosophyllum",
-      "display": "Drosophyllum",
-      "aliases": [],
-      "obscurity": 4,
-      "source": "https://en.wikipedia.org/wiki/Drosophyllum_lusitanicum",
-      "wikidata": null,
-      "pageviews": {
-        "total": 460,
         "days": 30,
         "start": "2026-10-22",
         "end": "2026-11-20"
@@ -15143,20 +14486,6 @@
       }
     },
     {
-      "canonical": "buckwheat",
-      "display": "Buckwheat",
-      "aliases": [],
-      "obscurity": 2,
-      "source": "https://en.wikipedia.org/wiki/Fagopyrum_esculentum",
-      "wikidata": null,
-      "pageviews": {
-        "total": 26811,
-        "days": 29,
-        "start": "2026-10-22",
-        "end": "2026-11-19"
-      }
-    },
-    {
       "canonical": "fagussylvatica",
       "display": "Fagus sylvatica",
       "aliases": [],
@@ -15339,20 +14668,6 @@
       }
     },
     {
-      "canonical": "fig",
-      "display": "Fig",
-      "aliases": [],
-      "obscurity": 1,
-      "source": "https://en.wikipedia.org/wiki/Ficus_carica",
-      "wikidata": null,
-      "pageviews": {
-        "total": 33629,
-        "days": 29,
-        "start": "2026-10-22",
-        "end": "2026-11-19"
-      }
-    },
-    {
       "canonical": "ficuspumila",
       "display": "Ficus pumila",
       "aliases": [],
@@ -15403,6 +14718,20 @@
       "wikidata": null,
       "pageviews": {
         "total": 3703,
+        "days": 29,
+        "start": "2026-10-22",
+        "end": "2026-11-19"
+      }
+    },
+    {
+      "canonical": "fig",
+      "display": "Fig",
+      "aliases": [],
+      "obscurity": 1,
+      "source": "https://en.wikipedia.org/wiki/Fig",
+      "wikidata": null,
+      "pageviews": {
+        "total": 33629,
         "days": 29,
         "start": "2026-10-22",
         "end": "2026-11-19"
@@ -16109,20 +15438,6 @@
       }
     },
     {
-      "canonical": "mangosteen",
-      "display": "Mangosteen",
-      "aliases": [],
-      "obscurity": 2,
-      "source": "https://en.wikipedia.org/wiki/Garcinia_mangostana",
-      "wikidata": null,
-      "pageviews": {
-        "total": 23951,
-        "days": 29,
-        "start": "2026-10-22",
-        "end": "2026-11-19"
-      }
-    },
-    {
       "canonical": "gardencress",
       "display": "Garden cress",
       "aliases": [],
@@ -16134,6 +15449,20 @@
         "days": 30,
         "start": "2026-10-22",
         "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "garlic",
+      "display": "Garlic",
+      "aliases": [],
+      "obscurity": 2,
+      "source": "https://en.wikipedia.org/wiki/Garlic",
+      "wikidata": null,
+      "pageviews": {
+        "total": 19627,
+        "days": 29,
+        "start": "2026-10-22",
+        "end": "2026-11-19"
       }
     },
     {
@@ -16809,20 +16138,6 @@
       }
     },
     {
-      "canonical": "honeylocust",
-      "display": "Honey locust",
-      "aliases": [],
-      "obscurity": 2,
-      "source": "https://en.wikipedia.org/wiki/Gleditsia_triacanthos",
-      "wikidata": null,
-      "pageviews": {
-        "total": 11426,
-        "days": 30,
-        "start": "2026-10-22",
-        "end": "2026-11-20"
-      }
-    },
-    {
       "canonical": "glinuslotoide",
       "display": "Glinus lotoides",
       "aliases": [],
@@ -16932,20 +16247,6 @@
         "days": 30,
         "start": "2026-10-22",
         "end": "2026-11-20"
-      }
-    },
-    {
-      "canonical": "liquorice",
-      "display": "Liquorice",
-      "aliases": [],
-      "obscurity": 1,
-      "source": "https://en.wikipedia.org/wiki/Glycyrrhiza_glabra",
-      "wikidata": null,
-      "pageviews": {
-        "total": 33550,
-        "days": 29,
-        "start": "2026-10-22",
-        "end": "2026-11-19"
       }
     },
     {
@@ -17607,20 +16908,6 @@
       }
     },
     {
-      "canonical": "jerusalemartichoke",
-      "display": "Jerusalem artichoke",
-      "aliases": [],
-      "obscurity": 1,
-      "source": "https://en.wikipedia.org/wiki/Helianthus_tuberosus",
-      "wikidata": null,
-      "pageviews": {
-        "total": 30262,
-        "days": 30,
-        "start": "2026-10-22",
-        "end": "2026-11-20"
-      }
-    },
-    {
       "canonical": "helichrysumorientale",
       "display": "Helichrysum orientale",
       "aliases": [],
@@ -17999,20 +17286,6 @@
       }
     },
     {
-      "canonical": "wahlenbergiahederacea",
-      "display": "Wahlenbergia hederacea",
-      "aliases": [],
-      "obscurity": 5,
-      "source": "https://en.wikipedia.org/wiki/Hesperocodon_hederaceus",
-      "wikidata": null,
-      "pageviews": {
-        "total": 27,
-        "days": 27,
-        "start": "2026-10-22",
-        "end": "2026-11-20"
-      }
-    },
-    {
       "canonical": "heucheraamericana",
       "display": "Heuchera americana",
       "aliases": [],
@@ -18063,20 +17336,6 @@
       "wikidata": null,
       "pageviews": {
         "total": 4498,
-        "days": 30,
-        "start": "2026-10-22",
-        "end": "2026-11-20"
-      }
-    },
-    {
-      "canonical": "roselleplant",
-      "display": "Roselle (plant)",
-      "aliases": [],
-      "obscurity": 2,
-      "source": "https://en.wikipedia.org/wiki/Hibiscus_sabdariffa",
-      "wikidata": null,
-      "pageviews": {
-        "total": 12304,
         "days": 30,
         "start": "2026-10-22",
         "end": "2026-11-20"
@@ -18293,20 +17552,6 @@
       }
     },
     {
-      "canonical": "manchineel",
-      "display": "Manchineel",
-      "aliases": [],
-      "obscurity": 2,
-      "source": "https://en.wikipedia.org/wiki/Hippomane_mancinella",
-      "wikidata": null,
-      "pageviews": {
-        "total": 21861,
-        "days": 30,
-        "start": "2026-10-22",
-        "end": "2026-11-20"
-      }
-    },
-    {
       "canonical": "hippomanespinosa",
       "display": "Hippomane spinosa",
       "aliases": [],
@@ -18391,14 +17636,14 @@
       }
     },
     {
-      "canonical": "honckenya",
-      "display": "Honckenya",
+      "canonical": "honeylocust",
+      "display": "Honey locust",
       "aliases": [],
-      "obscurity": 5,
-      "source": "https://en.wikipedia.org/wiki/Honckenya_peploides",
+      "obscurity": 2,
+      "source": "https://en.wikipedia.org/wiki/Honey_locust",
       "wikidata": null,
       "pageviews": {
-        "total": 159,
+        "total": 11426,
         "days": 30,
         "start": "2026-10-22",
         "end": "2026-11-20"
@@ -18447,20 +17692,6 @@
       }
     },
     {
-      "canonical": "barley",
-      "display": "Barley",
-      "aliases": [],
-      "obscurity": 2,
-      "source": "https://en.wikipedia.org/wiki/Hordeum_vulgare",
-      "wikidata": null,
-      "pageviews": {
-        "total": 26621,
-        "days": 29,
-        "start": "2026-10-22",
-        "end": "2026-11-19"
-      }
-    },
-    {
       "canonical": "hormathophyllaspinosa",
       "display": "Hormathophylla spinosa",
       "aliases": [],
@@ -18470,20 +17701,6 @@
       "pageviews": {
         "total": 34,
         "days": 28,
-        "start": "2026-10-22",
-        "end": "2026-11-20"
-      }
-    },
-    {
-      "canonical": "horminum",
-      "display": "Horminum",
-      "aliases": [],
-      "obscurity": 5,
-      "source": "https://en.wikipedia.org/wiki/Horminum_pyrenaicum",
-      "wikidata": null,
-      "pageviews": {
-        "total": 44,
-        "days": 30,
         "start": "2026-10-22",
         "end": "2026-11-20"
       }
@@ -19343,20 +18560,6 @@
       }
     },
     {
-      "canonical": "elecampane",
-      "display": "Elecampane",
-      "aliases": [],
-      "obscurity": 3,
-      "source": "https://en.wikipedia.org/wiki/Inula_helenium",
-      "wikidata": null,
-      "pageviews": {
-        "total": 1611,
-        "days": 30,
-        "start": "2026-10-22",
-        "end": "2026-11-20"
-      }
-    },
-    {
       "canonical": "ionactislinariifolia",
       "display": "Ionactis linariifolia",
       "aliases": [],
@@ -19903,6 +19106,34 @@
       }
     },
     {
+      "canonical": "jerusalemartichoke",
+      "display": "Jerusalem artichoke",
+      "aliases": [],
+      "obscurity": 1,
+      "source": "https://en.wikipedia.org/wiki/Jerusalem_artichoke",
+      "wikidata": null,
+      "pageviews": {
+        "total": 30262,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "jobtear",
+      "display": "Job's tears",
+      "aliases": [],
+      "obscurity": 3,
+      "source": "https://en.wikipedia.org/wiki/Job's_tears",
+      "wikidata": null,
+      "pageviews": {
+        "total": 5263,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
       "canonical": "juglannigra",
       "display": "Juglans nigra",
       "aliases": [],
@@ -20323,20 +19554,6 @@
       }
     },
     {
-      "canonical": "kiggelaria",
-      "display": "Kiggelaria",
-      "aliases": [],
-      "obscurity": 5,
-      "source": "https://en.wikipedia.org/wiki/Kiggelaria_africana",
-      "wikidata": null,
-      "pageviews": {
-        "total": 202,
-        "days": 30,
-        "start": "2026-10-22",
-        "end": "2026-11-20"
-      }
-    },
-    {
       "canonical": "kosteletzkyapentacarpo",
       "display": "Kosteletzkya pentacarpos",
       "aliases": [],
@@ -20374,20 +19591,6 @@
       "pageviews": {
         "total": 33,
         "days": 29,
-        "start": "2026-10-22",
-        "end": "2026-11-20"
-      }
-    },
-    {
-      "canonical": "lablab",
-      "display": "Lablab",
-      "aliases": [],
-      "obscurity": 3,
-      "source": "https://en.wikipedia.org/wiki/Lablab_purpureus",
-      "wikidata": null,
-      "pageviews": {
-        "total": 2481,
-        "days": 30,
         "start": "2026-10-22",
         "end": "2026-11-20"
       }
@@ -20474,20 +19677,6 @@
         "days": 30,
         "start": "2026-10-22",
         "end": "2026-11-20"
-      }
-    },
-    {
-      "canonical": "lettuce",
-      "display": "Lettuce",
-      "aliases": [],
-      "obscurity": 2,
-      "source": "https://en.wikipedia.org/wiki/Lactuca_sativa",
-      "wikidata": null,
-      "pageviews": {
-        "total": 11926,
-        "days": 29,
-        "start": "2026-10-22",
-        "end": "2026-11-19"
       }
     },
     {
@@ -20655,20 +19844,6 @@
         "total": 21,
         "days": 25,
         "start": "2026-10-23",
-        "end": "2026-11-20"
-      }
-    },
-    {
-      "canonical": "lanaria",
-      "display": "Lanaria",
-      "aliases": [],
-      "obscurity": 5,
-      "source": "https://en.wikipedia.org/wiki/Lanaria_lanata",
-      "wikidata": null,
-      "pageviews": {
-        "total": 79,
-        "days": 30,
-        "start": "2026-10-22",
         "end": "2026-11-20"
       }
     },
@@ -21513,6 +20688,20 @@
       }
     },
     {
+      "canonical": "lilyofthevalley",
+      "display": "Lily of the valley",
+      "aliases": [],
+      "obscurity": 2,
+      "source": "https://en.wikipedia.org/wiki/Lily_of_the_valley",
+      "wikidata": null,
+      "pageviews": {
+        "total": 21657,
+        "days": 29,
+        "start": "2026-10-22",
+        "end": "2026-11-19"
+      }
+    },
+    {
       "canonical": "limabean",
       "display": "Lima bean",
       "aliases": [],
@@ -21804,6 +20993,20 @@
         "days": 30,
         "start": "2026-10-22",
         "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "liquorice",
+      "display": "Liquorice",
+      "aliases": [],
+      "obscurity": 1,
+      "source": "https://en.wikipedia.org/wiki/Liquorice",
+      "wikidata": null,
+      "pageviews": {
+        "total": 33550,
+        "days": 29,
+        "start": "2026-10-22",
+        "end": "2026-11-19"
       }
     },
     {
@@ -22123,20 +21326,6 @@
       "wikidata": null,
       "pageviews": {
         "total": 649,
-        "days": 30,
-        "start": "2026-10-22",
-        "end": "2026-11-20"
-      }
-    },
-    {
-      "canonical": "lorinseria",
-      "display": "Lorinseria",
-      "aliases": [],
-      "obscurity": 5,
-      "source": "https://en.wikipedia.org/wiki/Lorinseria_areolata",
-      "wikidata": null,
-      "pageviews": {
-        "total": 33,
         "days": 30,
         "start": "2026-10-22",
         "end": "2026-11-20"
@@ -23025,6 +22214,20 @@
       }
     },
     {
+      "canonical": "manchineel",
+      "display": "Manchineel",
+      "aliases": [],
+      "obscurity": 2,
+      "source": "https://en.wikipedia.org/wiki/Manchineel",
+      "wikidata": null,
+      "pageviews": {
+        "total": 21861,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
       "canonical": "mandragoraofficinarum",
       "display": "Mandragora officinarum",
       "aliases": [],
@@ -23047,6 +22250,20 @@
       "wikidata": null,
       "pageviews": {
         "total": 7601,
+        "days": 29,
+        "start": "2026-10-22",
+        "end": "2026-11-19"
+      }
+    },
+    {
+      "canonical": "mangosteen",
+      "display": "Mangosteen",
+      "aliases": [],
+      "obscurity": 2,
+      "source": "https://en.wikipedia.org/wiki/Mangosteen",
+      "wikidata": null,
+      "pageviews": {
+        "total": 23951,
         "days": 29,
         "start": "2026-10-22",
         "end": "2026-11-19"
@@ -23165,20 +22382,6 @@
       }
     },
     {
-      "canonical": "martynia",
-      "display": "Martynia",
-      "aliases": [],
-      "obscurity": 5,
-      "source": "https://en.wikipedia.org/wiki/Martynia_annua",
-      "wikidata": null,
-      "pageviews": {
-        "total": 244,
-        "days": 30,
-        "start": "2026-10-22",
-        "end": "2026-11-20"
-      }
-    },
-    {
       "canonical": "matricariachamomilla",
       "display": "Matricaria chamomilla",
       "aliases": [],
@@ -23187,20 +22390,6 @@
       "wikidata": null,
       "pageviews": {
         "total": 2853,
-        "days": 30,
-        "start": "2026-10-22",
-        "end": "2026-11-20"
-      }
-    },
-    {
-      "canonical": "matteuccia",
-      "display": "Matteuccia",
-      "aliases": [],
-      "obscurity": 4,
-      "source": "https://en.wikipedia.org/wiki/Matteuccia_struthiopteris",
-      "wikidata": null,
-      "pageviews": {
-        "total": 765,
         "days": 30,
         "start": "2026-10-22",
         "end": "2026-11-20"
@@ -23286,20 +22475,6 @@
       "pageviews": {
         "total": 8,
         "days": 24,
-        "start": "2026-10-22",
-        "end": "2026-11-20"
-      }
-    },
-    {
-      "canonical": "alfalfa",
-      "display": "Alfalfa",
-      "aliases": [],
-      "obscurity": 2,
-      "source": "https://en.wikipedia.org/wiki/Medicago_sativa",
-      "wikidata": null,
-      "pageviews": {
-        "total": 13265,
-        "days": 30,
         "start": "2026-10-22",
         "end": "2026-11-20"
       }
@@ -23487,20 +22662,6 @@
       }
     },
     {
-      "canonical": "melittis",
-      "display": "Melittis",
-      "aliases": [],
-      "obscurity": 5,
-      "source": "https://en.wikipedia.org/wiki/Melittis_melissophyllum",
-      "wikidata": null,
-      "pageviews": {
-        "total": 147,
-        "days": 30,
-        "start": "2026-10-22",
-        "end": "2026-11-20"
-      }
-    },
-    {
       "canonical": "melocactuscarolilinnaei",
       "display": "Melocactus caroli-linnaei",
       "aliases": [],
@@ -23613,20 +22774,6 @@
       }
     },
     {
-      "canonical": "peppermint",
-      "display": "Peppermint",
-      "aliases": [],
-      "obscurity": 2,
-      "source": "https://en.wikipedia.org/wiki/Mentha_%C3%97_piperita",
-      "wikidata": null,
-      "pageviews": {
-        "total": 9555,
-        "days": 29,
-        "start": "2026-10-22",
-        "end": "2026-11-19"
-      }
-    },
-    {
       "canonical": "menthapulegium",
       "display": "Mentha pulegium",
       "aliases": [],
@@ -23650,20 +22797,6 @@
       "pageviews": {
         "total": 29,
         "days": 26,
-        "start": "2026-10-22",
-        "end": "2026-11-20"
-      }
-    },
-    {
-      "canonical": "menyanthe",
-      "display": "Menyanthes",
-      "aliases": [],
-      "obscurity": 4,
-      "source": "https://en.wikipedia.org/wiki/Menyanthes_trifoliata",
-      "wikidata": null,
-      "pageviews": {
-        "total": 561,
-        "days": 30,
         "start": "2026-10-22",
         "end": "2026-11-20"
       }
@@ -24355,20 +23488,6 @@
       }
     },
     {
-      "canonical": "muntingia",
-      "display": "Muntingia",
-      "aliases": [],
-      "obscurity": 3,
-      "source": "https://en.wikipedia.org/wiki/Muntingia_calabura",
-      "wikidata": null,
-      "pageviews": {
-        "total": 1679,
-        "days": 30,
-        "start": "2026-10-22",
-        "end": "2026-11-20"
-      }
-    },
-    {
       "canonical": "muscaribotryoide",
       "display": "Muscari botryoides",
       "aliases": [],
@@ -24671,20 +23790,6 @@
       "wikidata": null,
       "pageviews": {
         "total": 612,
-        "days": 30,
-        "start": "2026-10-22",
-        "end": "2026-11-20"
-      }
-    },
-    {
-      "canonical": "nardus",
-      "display": "Nardus",
-      "aliases": [],
-      "obscurity": 5,
-      "source": "https://en.wikipedia.org/wiki/Nardus_stricta",
-      "wikidata": null,
-      "pageviews": {
-        "total": 139,
         "days": 30,
         "start": "2026-10-22",
         "end": "2026-11-20"
@@ -25181,14 +24286,14 @@
       }
     },
     {
-      "canonical": "basil",
-      "display": "Basil",
+      "canonical": "oat",
+      "display": "Oat",
       "aliases": [],
       "obscurity": 2,
-      "source": "https://en.wikipedia.org/wiki/Ocimum_basilicum",
+      "source": "https://en.wikipedia.org/wiki/Oat",
       "wikidata": null,
       "pageviews": {
-        "total": 16160,
+        "total": 26640,
         "days": 29,
         "start": "2026-10-22",
         "end": "2026-11-19"
@@ -25388,6 +24493,20 @@
         "days": 29,
         "start": "2026-10-22",
         "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "onion",
+      "display": "Onion",
+      "aliases": [],
+      "obscurity": 2,
+      "source": "https://en.wikipedia.org/wiki/Onion",
+      "wikidata": null,
+      "pageviews": {
+        "total": 24651,
+        "days": 29,
+        "start": "2026-10-22",
+        "end": "2026-11-19"
       }
     },
     {
@@ -25806,20 +24925,6 @@
       "pageviews": {
         "total": 118,
         "days": 30,
-        "start": "2026-10-22",
-        "end": "2026-11-20"
-      }
-    },
-    {
-      "canonical": "oroxylum",
-      "display": "Oroxylum",
-      "aliases": [],
-      "obscurity": 5,
-      "source": "https://en.wikipedia.org/wiki/Oroxylum_indicum",
-      "wikidata": null,
-      "pageviews": {
-        "total": 143,
-        "days": 27,
         "start": "2026-10-22",
         "end": "2026-11-20"
       }
@@ -26245,20 +25350,6 @@
       }
     },
     {
-      "canonical": "prosomillet",
-      "display": "Proso millet",
-      "aliases": [],
-      "obscurity": 3,
-      "source": "https://en.wikipedia.org/wiki/Panicum_miliaceum",
-      "wikidata": null,
-      "pageviews": {
-        "total": 2773,
-        "days": 30,
-        "start": "2026-10-22",
-        "end": "2026-11-20"
-      }
-    },
-    {
       "canonical": "panicumvirgatum",
       "display": "Panicum virgatum",
       "aliases": [],
@@ -26337,6 +25428,34 @@
       "wikidata": null,
       "pageviews": {
         "total": 18475,
+        "days": 29,
+        "start": "2026-10-22",
+        "end": "2026-11-19"
+      }
+    },
+    {
+      "canonical": "papaya",
+      "display": "Papaya",
+      "aliases": [],
+      "obscurity": 2,
+      "source": "https://en.wikipedia.org/wiki/Papaya",
+      "wikidata": null,
+      "pageviews": {
+        "total": 17545,
+        "days": 29,
+        "start": "2026-10-22",
+        "end": "2026-11-19"
+      }
+    },
+    {
+      "canonical": "papermulberry",
+      "display": "Paper mulberry",
+      "aliases": [],
+      "obscurity": 3,
+      "source": "https://en.wikipedia.org/wiki/Paper_mulberry",
+      "wikidata": null,
+      "pageviews": {
+        "total": 2508,
         "days": 29,
         "start": "2026-10-22",
         "end": "2026-11-19"
@@ -26707,6 +25826,20 @@
       }
     },
     {
+      "canonical": "peanut",
+      "display": "Peanut",
+      "aliases": [],
+      "obscurity": 1,
+      "source": "https://en.wikipedia.org/wiki/Peanut",
+      "wikidata": null,
+      "pageviews": {
+        "total": 37169,
+        "days": 29,
+        "start": "2026-10-22",
+        "end": "2026-11-19"
+      }
+    },
+    {
       "canonical": "pedicularispalustris",
       "display": "Pedicularis palustris",
       "aliases": [],
@@ -26903,6 +26036,20 @@
       }
     },
     {
+      "canonical": "peppermint",
+      "display": "Peppermint",
+      "aliases": [],
+      "obscurity": 2,
+      "source": "https://en.wikipedia.org/wiki/Peppermint",
+      "wikidata": null,
+      "pageviews": {
+        "total": 9555,
+        "days": 29,
+        "start": "2026-10-22",
+        "end": "2026-11-19"
+      }
+    },
+    {
       "canonical": "periplocagraeca",
       "display": "Periploca graeca",
       "aliases": [],
@@ -27085,20 +26232,6 @@
       }
     },
     {
-      "canonical": "petiveria",
-      "display": "Petiveria",
-      "aliases": [],
-      "obscurity": 4,
-      "source": "https://en.wikipedia.org/wiki/Petiveria_alliacea",
-      "wikidata": null,
-      "pageviews": {
-        "total": 697,
-        "days": 30,
-        "start": "2026-10-22",
-        "end": "2026-11-20"
-      }
-    },
-    {
       "canonical": "petrea",
       "display": "Petrea",
       "aliases": [],
@@ -27122,20 +26255,6 @@
       "pageviews": {
         "total": 1338,
         "days": 30,
-        "start": "2026-10-22",
-        "end": "2026-11-20"
-      }
-    },
-    {
-      "canonical": "petromarula",
-      "display": "Petromarula",
-      "aliases": [],
-      "obscurity": 5,
-      "source": "https://en.wikipedia.org/wiki/Petromarula_pinnata",
-      "wikidata": null,
-      "pageviews": {
-        "total": 31,
-        "days": 29,
         "start": "2026-10-22",
         "end": "2026-11-20"
       }
@@ -27247,20 +26366,6 @@
       "wikidata": null,
       "pageviews": {
         "total": 1424,
-        "days": 30,
-        "start": "2026-10-22",
-        "end": "2026-11-20"
-      }
-    },
-    {
-      "canonical": "canarygrass",
-      "display": "Canary grass",
-      "aliases": [],
-      "obscurity": 4,
-      "source": "https://en.wikipedia.org/wiki/Phalaris_canariensis",
-      "wikidata": null,
-      "pageviews": {
-        "total": 668,
         "days": 30,
         "start": "2026-10-22",
         "end": "2026-11-20"
@@ -27387,20 +26492,6 @@
       "wikidata": null,
       "pageviews": {
         "total": 41,
-        "days": 30,
-        "start": "2026-10-22",
-        "end": "2026-11-20"
-      }
-    },
-    {
-      "canonical": "timothygrass",
-      "display": "Timothy (grass)",
-      "aliases": [],
-      "obscurity": 3,
-      "source": "https://en.wikipedia.org/wiki/Phleum_pratense",
-      "wikidata": null,
-      "pageviews": {
-        "total": 2856,
         "days": 30,
         "start": "2026-10-22",
         "end": "2026-11-20"
@@ -27757,20 +26848,6 @@
       }
     },
     {
-      "canonical": "anise",
-      "display": "Anise",
-      "aliases": [],
-      "obscurity": 2,
-      "source": "https://en.wikipedia.org/wiki/Pimpinella_anisum",
-      "wikidata": null,
-      "pageviews": {
-        "total": 19977,
-        "days": 29,
-        "start": "2026-10-22",
-        "end": "2026-11-19"
-      }
-    },
-    {
       "canonical": "pimpinellasaxifraga",
       "display": "Pimpinella saxifraga",
       "aliases": [],
@@ -27911,20 +26988,6 @@
       }
     },
     {
-      "canonical": "betel",
-      "display": "Betel",
-      "aliases": [],
-      "obscurity": 2,
-      "source": "https://en.wikipedia.org/wiki/Piper_betle",
-      "wikidata": null,
-      "pageviews": {
-        "total": 16248,
-        "days": 29,
-        "start": "2026-10-22",
-        "end": "2026-11-19"
-      }
-    },
-    {
       "canonical": "piperpeltatum",
       "display": "Piper peltatum",
       "aliases": [],
@@ -27989,20 +27052,6 @@
       "wikidata": null,
       "pageviews": {
         "total": 3726,
-        "days": 30,
-        "start": "2026-10-22",
-        "end": "2026-11-20"
-      }
-    },
-    {
-      "canonical": "pistia",
-      "display": "Pistia",
-      "aliases": [],
-      "obscurity": 3,
-      "source": "https://en.wikipedia.org/wiki/Pistia_stratiotes",
-      "wikidata": null,
-      "pageviews": {
-        "total": 1895,
         "days": 30,
         "start": "2026-10-22",
         "end": "2026-11-20"
@@ -28227,20 +27276,6 @@
       "wikidata": null,
       "pageviews": {
         "total": 3951,
-        "days": 30,
-        "start": "2026-10-22",
-        "end": "2026-11-20"
-      }
-    },
-    {
-      "canonical": "platycladus",
-      "display": "Platycladus",
-      "aliases": [],
-      "obscurity": 3,
-      "source": "https://en.wikipedia.org/wiki/Platycladus_orientalis",
-      "wikidata": null,
-      "pageviews": {
-        "total": 1511,
         "days": 30,
         "start": "2026-10-22",
         "end": "2026-11-20"
@@ -28625,20 +27660,6 @@
       }
     },
     {
-      "canonical": "polypremum",
-      "display": "Polypremum",
-      "aliases": [],
-      "obscurity": 5,
-      "source": "https://en.wikipedia.org/wiki/Polypremum_procumbens",
-      "wikidata": null,
-      "pageviews": {
-        "total": 56,
-        "days": 29,
-        "start": "2026-10-22",
-        "end": "2026-11-20"
-      }
-    },
-    {
       "canonical": "pomegranate",
       "display": "Pomegranate",
       "aliases": [],
@@ -28961,20 +27982,6 @@
       }
     },
     {
-      "canonical": "prasium",
-      "display": "Prasium",
-      "aliases": [],
-      "obscurity": 5,
-      "source": "https://en.wikipedia.org/wiki/Prasium_majus",
-      "wikidata": null,
-      "pageviews": {
-        "total": 47,
-        "days": 30,
-        "start": "2026-10-22",
-        "end": "2026-11-20"
-      }
-    },
-    {
       "canonical": "prenanthepurpurea",
       "display": "Prenanthes purpurea",
       "aliases": [],
@@ -29087,6 +28094,20 @@
       }
     },
     {
+      "canonical": "prosomillet",
+      "display": "Proso millet",
+      "aliases": [],
+      "obscurity": 3,
+      "source": "https://en.wikipedia.org/wiki/Proso_millet",
+      "wikidata": null,
+      "pageviews": {
+        "total": 2773,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
       "canonical": "prosperoautumnale",
       "display": "Prospero autumnale",
       "aliases": [],
@@ -29140,20 +28161,6 @@
         "days": 30,
         "start": "2026-10-22",
         "end": "2026-11-20"
-      }
-    },
-    {
-      "canonical": "almond",
-      "display": "Almond",
-      "aliases": [],
-      "obscurity": 2,
-      "source": "https://en.wikipedia.org/wiki/Prunus_amygdalus",
-      "wikidata": null,
-      "pageviews": {
-        "total": 20235,
-        "days": 29,
-        "start": "2026-10-22",
-        "end": "2026-11-19"
       }
     },
     {
@@ -29376,20 +28383,6 @@
       "pageviews": {
         "total": 3246,
         "days": 30,
-        "start": "2026-10-22",
-        "end": "2026-11-20"
-      }
-    },
-    {
-      "canonical": "pseudorchis",
-      "display": "Pseudorchis",
-      "aliases": [],
-      "obscurity": 5,
-      "source": "https://en.wikipedia.org/wiki/Pseudorchis_albida",
-      "wikidata": null,
-      "pageviews": {
-        "total": 33,
-        "days": 28,
         "start": "2026-10-22",
         "end": "2026-11-20"
       }
@@ -30095,6 +29088,20 @@
       }
     },
     {
+      "canonical": "rapeseed",
+      "display": "Rapeseed",
+      "aliases": [],
+      "obscurity": 2,
+      "source": "https://en.wikipedia.org/wiki/Rapeseed",
+      "wikidata": null,
+      "pageviews": {
+        "total": 19164,
+        "days": 29,
+        "start": "2026-10-22",
+        "end": "2026-11-19"
+      }
+    },
+    {
       "canonical": "raphanusraphanistrum",
       "display": "Raphanus raphanistrum",
       "aliases": [],
@@ -30106,20 +29113,6 @@
         "days": 30,
         "start": "2026-10-22",
         "end": "2026-11-20"
-      }
-    },
-    {
-      "canonical": "radish",
-      "display": "Radish",
-      "aliases": [],
-      "obscurity": 2,
-      "source": "https://en.wikipedia.org/wiki/Raphanus_sativus",
-      "wikidata": null,
-      "pageviews": {
-        "total": 12766,
-        "days": 29,
-        "start": "2026-10-22",
-        "end": "2026-11-19"
       }
     },
     {
@@ -30627,20 +29620,6 @@
       }
     },
     {
-      "canonical": "ricinus",
-      "display": "Ricinus",
-      "aliases": [],
-      "obscurity": 2,
-      "source": "https://en.wikipedia.org/wiki/Ricinus_communis",
-      "wikidata": null,
-      "pageviews": {
-        "total": 16913,
-        "days": 29,
-        "start": "2026-10-22",
-        "end": "2026-11-19"
-      }
-    },
-    {
       "canonical": "rivinahumilis",
       "display": "Rivina humilis",
       "aliases": [],
@@ -30820,6 +29799,1028 @@
         "days": 29,
         "start": "2026-10-22",
         "end": "2026-11-19"
+      }
+    },
+    {
+      "canonical": "rostrariacristata",
+      "display": "Rostraria cristata",
+      "aliases": [],
+      "obscurity": 5,
+      "source": "https://en.wikipedia.org/wiki/Rostraria_cristata",
+      "wikidata": null,
+      "pageviews": {
+        "total": 53,
+        "days": 29,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "rotalaramosior",
+      "display": "Rotala ramosior",
+      "aliases": [],
+      "obscurity": 5,
+      "source": "https://en.wikipedia.org/wiki/Rotala_ramosior",
+      "wikidata": null,
+      "pageviews": {
+        "total": 57,
+        "days": 29,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "rubiaperegrina",
+      "display": "Rubia peregrina",
+      "aliases": [],
+      "obscurity": 5,
+      "source": "https://en.wikipedia.org/wiki/Rubia_peregrina",
+      "wikidata": null,
+      "pageviews": {
+        "total": 284,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "rubiatinctorum",
+      "display": "Rubia tinctorum",
+      "aliases": [],
+      "obscurity": 3,
+      "source": "https://en.wikipedia.org/wiki/Rubia_tinctorum",
+      "wikidata": null,
+      "pageviews": {
+        "total": 3139,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "rubusarcticus",
+      "display": "Rubus arcticus",
+      "aliases": [],
+      "obscurity": 4,
+      "source": "https://en.wikipedia.org/wiki/Rubus_arcticus",
+      "wikidata": null,
+      "pageviews": {
+        "total": 935,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "rubuscaesius",
+      "display": "Rubus caesius",
+      "aliases": [],
+      "obscurity": 4,
+      "source": "https://en.wikipedia.org/wiki/Rubus_caesius",
+      "wikidata": null,
+      "pageviews": {
+        "total": 629,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "rubuscanadensis",
+      "display": "Rubus canadensis",
+      "aliases": [],
+      "obscurity": 5,
+      "source": "https://en.wikipedia.org/wiki/Rubus_canadensis",
+      "wikidata": null,
+      "pageviews": {
+        "total": 126,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "rubuschamaemorus",
+      "display": "Rubus chamaemorus",
+      "aliases": [],
+      "obscurity": 2,
+      "source": "https://en.wikipedia.org/wiki/Rubus_chamaemorus",
+      "wikidata": null,
+      "pageviews": {
+        "total": 8524,
+        "days": 29,
+        "start": "2026-10-22",
+        "end": "2026-11-19"
+      }
+    },
+    {
+      "canonical": "rubushispidus",
+      "display": "Rubus hispidus",
+      "aliases": [],
+      "obscurity": 5,
+      "source": "https://en.wikipedia.org/wiki/Rubus_hispidus",
+      "wikidata": null,
+      "pageviews": {
+        "total": 144,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "rubusidaeus",
+      "display": "Rubus idaeus",
+      "aliases": [],
+      "obscurity": 3,
+      "source": "https://en.wikipedia.org/wiki/Rubus_idaeus",
+      "wikidata": null,
+      "pageviews": {
+        "total": 2542,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "rubusmoluccanus",
+      "display": "Rubus moluccanus",
+      "aliases": [],
+      "obscurity": 5,
+      "source": "https://en.wikipedia.org/wiki/Rubus_moluccanus",
+      "wikidata": null,
+      "pageviews": {
+        "total": 125,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "rubusoccidentalis",
+      "display": "Rubus occidentalis",
+      "aliases": [],
+      "obscurity": 3,
+      "source": "https://en.wikipedia.org/wiki/Rubus_occidentalis",
+      "wikidata": null,
+      "pageviews": {
+        "total": 2451,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "rubusodoratus",
+      "display": "Rubus odoratus",
+      "aliases": [],
+      "obscurity": 4,
+      "source": "https://en.wikipedia.org/wiki/Rubus_odoratus",
+      "wikidata": null,
+      "pageviews": {
+        "total": 370,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "rubusparvifolius",
+      "display": "Rubus parvifolius",
+      "aliases": [],
+      "obscurity": 4,
+      "source": "https://en.wikipedia.org/wiki/Rubus_parvifolius",
+      "wikidata": null,
+      "pageviews": {
+        "total": 425,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "rubusrepen",
+      "display": "Rubus repens",
+      "aliases": [],
+      "obscurity": 5,
+      "source": "https://en.wikipedia.org/wiki/Rubus_repens",
+      "wikidata": null,
+      "pageviews": {
+        "total": 33,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "rubussaxatilis",
+      "display": "Rubus saxatilis",
+      "aliases": [],
+      "obscurity": 5,
+      "source": "https://en.wikipedia.org/wiki/Rubus_saxatilis",
+      "wikidata": null,
+      "pageviews": {
+        "total": 290,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "rudbeckiahirta",
+      "display": "Rudbeckia hirta",
+      "aliases": [],
+      "obscurity": 3,
+      "source": "https://en.wikipedia.org/wiki/Rudbeckia_hirta",
+      "wikidata": null,
+      "pageviews": {
+        "total": 4232,
+        "days": 29,
+        "start": "2026-10-22",
+        "end": "2026-11-19"
+      }
+    },
+    {
+      "canonical": "rudbeckialaciniata",
+      "display": "Rudbeckia laciniata",
+      "aliases": [],
+      "obscurity": 4,
+      "source": "https://en.wikipedia.org/wiki/Rudbeckia_laciniata",
+      "wikidata": null,
+      "pageviews": {
+        "total": 687,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "rudbeckiatriloba",
+      "display": "Rudbeckia triloba",
+      "aliases": [],
+      "obscurity": 4,
+      "source": "https://en.wikipedia.org/wiki/Rudbeckia_triloba",
+      "wikidata": null,
+      "pageviews": {
+        "total": 510,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "ruelliastrepen",
+      "display": "Ruellia strepens",
+      "aliases": [],
+      "obscurity": 5,
+      "source": "https://en.wikipedia.org/wiki/Ruellia_strepens",
+      "wikidata": null,
+      "pageviews": {
+        "total": 28,
+        "days": 29,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "ruelliatuberosa",
+      "display": "Ruellia tuberosa",
+      "aliases": [],
+      "obscurity": 4,
+      "source": "https://en.wikipedia.org/wiki/Ruellia_tuberosa",
+      "wikidata": null,
+      "pageviews": {
+        "total": 772,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "rumexacetosella",
+      "display": "Rumex acetosella",
+      "aliases": [],
+      "obscurity": 4,
+      "source": "https://en.wikipedia.org/wiki/Rumex_acetosella",
+      "wikidata": null,
+      "pageviews": {
+        "total": 1313,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "rumexalpinus",
+      "display": "Rumex alpinus",
+      "aliases": [],
+      "obscurity": 5,
+      "source": "https://en.wikipedia.org/wiki/Rumex_alpinus",
+      "wikidata": null,
+      "pageviews": {
+        "total": 80,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "rumexcrispus",
+      "display": "Rumex crispus",
+      "aliases": [],
+      "obscurity": 3,
+      "source": "https://en.wikipedia.org/wiki/Rumex_crispus",
+      "wikidata": null,
+      "pageviews": {
+        "total": 1773,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "rumexmaritimus",
+      "display": "Rumex maritimus",
+      "aliases": [],
+      "obscurity": 5,
+      "source": "https://en.wikipedia.org/wiki/Rumex_maritimus",
+      "wikidata": null,
+      "pageviews": {
+        "total": 100,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "rumexobtusifolius",
+      "display": "Rumex obtusifolius",
+      "aliases": [],
+      "obscurity": 3,
+      "source": "https://en.wikipedia.org/wiki/Rumex_obtusifolius",
+      "wikidata": null,
+      "pageviews": {
+        "total": 2683,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "rumexpatientia",
+      "display": "Rumex patientia",
+      "aliases": [],
+      "obscurity": 4,
+      "source": "https://en.wikipedia.org/wiki/Rumex_patientia",
+      "wikidata": null,
+      "pageviews": {
+        "total": 364,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "rumexpersicarioide",
+      "display": "Rumex persicarioides",
+      "aliases": [],
+      "obscurity": 5,
+      "source": "https://en.wikipedia.org/wiki/Rumex_persicarioides",
+      "wikidata": null,
+      "pageviews": {
+        "total": 12,
+        "days": 24,
+        "start": "2026-10-22",
+        "end": "2026-11-18"
+      }
+    },
+    {
+      "canonical": "rumexpulcher",
+      "display": "Rumex pulcher",
+      "aliases": [],
+      "obscurity": 5,
+      "source": "https://en.wikipedia.org/wiki/Rumex_pulcher",
+      "wikidata": null,
+      "pageviews": {
+        "total": 137,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "rumexscutatus",
+      "display": "Rumex scutatus",
+      "aliases": [],
+      "obscurity": 5,
+      "source": "https://en.wikipedia.org/wiki/Rumex_scutatus",
+      "wikidata": null,
+      "pageviews": {
+        "total": 215,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "rumexspinosus",
+      "display": "Rumex spinosus",
+      "aliases": [],
+      "obscurity": 5,
+      "source": "https://en.wikipedia.org/wiki/Rumex_spinosus",
+      "wikidata": null,
+      "pageviews": {
+        "total": 128,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "rumexvesicarius",
+      "display": "Rumex vesicarius",
+      "aliases": [],
+      "obscurity": 5,
+      "source": "https://en.wikipedia.org/wiki/Rumex_vesicarius",
+      "wikidata": null,
+      "pageviews": {
+        "total": 145,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "ruppiamaritima",
+      "display": "Ruppia maritima",
+      "aliases": [],
+      "obscurity": 5,
+      "source": "https://en.wikipedia.org/wiki/Ruppia_maritima",
+      "wikidata": null,
+      "pageviews": {
+        "total": 221,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "ruscusaculeatus",
+      "display": "Ruscus aculeatus",
+      "aliases": [],
+      "obscurity": 4,
+      "source": "https://en.wikipedia.org/wiki/Ruscus_aculeatus",
+      "wikidata": null,
+      "pageviews": {
+        "total": 1417,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "ruscushypoglossum",
+      "display": "Ruscus hypoglossum",
+      "aliases": [],
+      "obscurity": 4,
+      "source": "https://en.wikipedia.org/wiki/Ruscus_hypoglossum",
+      "wikidata": null,
+      "pageviews": {
+        "total": 396,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "rutagraveolen",
+      "display": "Ruta graveolens",
+      "aliases": [],
+      "obscurity": 2,
+      "source": "https://en.wikipedia.org/wiki/Ruta_graveolens",
+      "wikidata": null,
+      "pageviews": {
+        "total": 8157,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "rutabaga",
+      "display": "Rutabaga",
+      "aliases": [],
+      "obscurity": 1,
+      "source": "https://en.wikipedia.org/wiki/Rutabaga",
+      "wikidata": null,
+      "pageviews": {
+        "total": 29696,
+        "days": 29,
+        "start": "2026-10-22",
+        "end": "2026-11-19"
+      }
+    },
+    {
+      "canonical": "rye",
+      "display": "Rye",
+      "aliases": [],
+      "obscurity": 2,
+      "source": "https://en.wikipedia.org/wiki/Rye",
+      "wikidata": null,
+      "pageviews": {
+        "total": 20161,
+        "days": 29,
+        "start": "2026-10-22",
+        "end": "2026-11-19"
+      }
+    },
+    {
+      "canonical": "sabatiaangularis",
+      "display": "Sabatia angularis",
+      "aliases": [],
+      "obscurity": 5,
+      "source": "https://en.wikipedia.org/wiki/Sabatia_angularis",
+      "wikidata": null,
+      "pageviews": {
+        "total": 112,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "saccharumalopecuroide",
+      "display": "Saccharum alopecuroides",
+      "aliases": [],
+      "obscurity": 5,
+      "source": "https://en.wikipedia.org/wiki/Saccharum_alopecuroides",
+      "wikidata": null,
+      "pageviews": {
+        "total": 13,
+        "days": 28,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "saccharumofficinarum",
+      "display": "Saccharum officinarum",
+      "aliases": [],
+      "obscurity": 3,
+      "source": "https://en.wikipedia.org/wiki/Saccharum_officinarum",
+      "wikidata": null,
+      "pageviews": {
+        "total": 2226,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "safflower",
+      "display": "Safflower",
+      "aliases": [],
+      "obscurity": 2,
+      "source": "https://en.wikipedia.org/wiki/Safflower",
+      "wikidata": null,
+      "pageviews": {
+        "total": 8779,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "saginaprocumben",
+      "display": "Sagina procumbens",
+      "aliases": [],
+      "obscurity": 4,
+      "source": "https://en.wikipedia.org/wiki/Sagina_procumbens",
+      "wikidata": null,
+      "pageviews": {
+        "total": 477,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "sagittariasagittifolia",
+      "display": "Sagittaria sagittifolia",
+      "aliases": [],
+      "obscurity": 4,
+      "source": "https://en.wikipedia.org/wiki/Sagittaria_sagittifolia",
+      "wikidata": null,
+      "pageviews": {
+        "total": 897,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "sagittariasubulata",
+      "display": "Sagittaria subulata",
+      "aliases": [],
+      "obscurity": 4,
+      "source": "https://en.wikipedia.org/wiki/Sagittaria_subulata",
+      "wikidata": null,
+      "pageviews": {
+        "total": 437,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "sagittariatrifolia",
+      "display": "Sagittaria trifolia",
+      "aliases": [],
+      "obscurity": 5,
+      "source": "https://en.wikipedia.org/wiki/Sagittaria_trifolia",
+      "wikidata": null,
+      "pageviews": {
+        "total": 264,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "salicorniaeuropaea",
+      "display": "Salicornia europaea",
+      "aliases": [],
+      "obscurity": 4,
+      "source": "https://en.wikipedia.org/wiki/Salicornia_europaea",
+      "wikidata": null,
+      "pageviews": {
+        "total": 758,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "salicorniavirginica",
+      "display": "Salicornia virginica",
+      "aliases": [],
+      "obscurity": 5,
+      "source": "https://en.wikipedia.org/wiki/Salicornia_virginica",
+      "wikidata": null,
+      "pageviews": {
+        "total": 150,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "salixalba",
+      "display": "Salix alba",
+      "aliases": [],
+      "obscurity": 3,
+      "source": "https://en.wikipedia.org/wiki/Salix_alba",
+      "wikidata": null,
+      "pageviews": {
+        "total": 2553,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "salixarbuscula",
+      "display": "Salix arbuscula",
+      "aliases": [],
+      "obscurity": 5,
+      "source": "https://en.wikipedia.org/wiki/Salix_arbuscula",
+      "wikidata": null,
+      "pageviews": {
+        "total": 66,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "salixaurita",
+      "display": "Salix aurita",
+      "aliases": [],
+      "obscurity": 5,
+      "source": "https://en.wikipedia.org/wiki/Salix_aurita",
+      "wikidata": null,
+      "pageviews": {
+        "total": 267,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "salixbabylonica",
+      "display": "Salix babylonica",
+      "aliases": [],
+      "obscurity": 2,
+      "source": "https://en.wikipedia.org/wiki/Salix_babylonica",
+      "wikidata": null,
+      "pageviews": {
+        "total": 6092,
+        "days": 29,
+        "start": "2026-10-22",
+        "end": "2026-11-19"
+      }
+    },
+    {
+      "canonical": "salixcaprea",
+      "display": "Salix caprea",
+      "aliases": [],
+      "obscurity": 3,
+      "source": "https://en.wikipedia.org/wiki/Salix_caprea",
+      "wikidata": null,
+      "pageviews": {
+        "total": 1623,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "salixcinerea",
+      "display": "Salix cinerea",
+      "aliases": [],
+      "obscurity": 4,
+      "source": "https://en.wikipedia.org/wiki/Salix_cinerea",
+      "wikidata": null,
+      "pageviews": {
+        "total": 701,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "salixfragilis",
+      "display": "Salix × fragilis",
+      "aliases": [],
+      "obscurity": 4,
+      "source": "https://en.wikipedia.org/wiki/Salix_%C3%97_fragilis",
+      "wikidata": null,
+      "pageviews": {
+        "total": 865,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "salixglauca",
+      "display": "Salix glauca",
+      "aliases": [],
+      "obscurity": 5,
+      "source": "https://en.wikipedia.org/wiki/Salix_glauca",
+      "wikidata": null,
+      "pageviews": {
+        "total": 259,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "salixhastata",
+      "display": "Salix hastata",
+      "aliases": [],
+      "obscurity": 5,
+      "source": "https://en.wikipedia.org/wiki/Salix_hastata",
+      "wikidata": null,
+      "pageviews": {
+        "total": 42,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "salixherbacea",
+      "display": "Salix herbacea",
+      "aliases": [],
+      "obscurity": 4,
+      "source": "https://en.wikipedia.org/wiki/Salix_herbacea",
+      "wikidata": null,
+      "pageviews": {
+        "total": 847,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "salixlanata",
+      "display": "Salix lanata",
+      "aliases": [],
+      "obscurity": 5,
+      "source": "https://en.wikipedia.org/wiki/Salix_lanata",
+      "wikidata": null,
+      "pageviews": {
+        "total": 98,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "salixlapponum",
+      "display": "Salix lapponum",
+      "aliases": [],
+      "obscurity": 5,
+      "source": "https://en.wikipedia.org/wiki/Salix_lapponum",
+      "wikidata": null,
+      "pageviews": {
+        "total": 99,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "salixmyrtilloide",
+      "display": "Salix myrtilloides",
+      "aliases": [],
+      "obscurity": 5,
+      "source": "https://en.wikipedia.org/wiki/Salix_myrtilloides",
+      "wikidata": null,
+      "pageviews": {
+        "total": 49,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "salixpentandra",
+      "display": "Salix pentandra",
+      "aliases": [],
+      "obscurity": 5,
+      "source": "https://en.wikipedia.org/wiki/Salix_pentandra",
+      "wikidata": null,
+      "pageviews": {
+        "total": 210,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "salixphylicifolia",
+      "display": "Salix phylicifolia",
+      "aliases": [],
+      "obscurity": 5,
+      "source": "https://en.wikipedia.org/wiki/Salix_phylicifolia",
+      "wikidata": null,
+      "pageviews": {
+        "total": 167,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "salixpurpurea",
+      "display": "Salix purpurea",
+      "aliases": [],
+      "obscurity": 4,
+      "source": "https://en.wikipedia.org/wiki/Salix_purpurea",
+      "wikidata": null,
+      "pageviews": {
+        "total": 695,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "salixrepen",
+      "display": "Salix repens",
+      "aliases": [],
+      "obscurity": 5,
+      "source": "https://en.wikipedia.org/wiki/Salix_repens",
+      "wikidata": null,
+      "pageviews": {
+        "total": 171,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "salixreticulata",
+      "display": "Salix reticulata",
+      "aliases": [],
+      "obscurity": 5,
+      "source": "https://en.wikipedia.org/wiki/Salix_reticulata",
+      "wikidata": null,
+      "pageviews": {
+        "total": 86,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "salixtriandra",
+      "display": "Salix triandra",
+      "aliases": [],
+      "obscurity": 5,
+      "source": "https://en.wikipedia.org/wiki/Salix_triandra",
+      "wikidata": null,
+      "pageviews": {
+        "total": 270,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "salixviminalis",
+      "display": "Salix viminalis",
+      "aliases": [],
+      "obscurity": 4,
+      "source": "https://en.wikipedia.org/wiki/Salix_viminalis",
+      "wikidata": null,
+      "pageviews": {
+        "total": 873,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "salsolakali",
+      "display": "Salsola kali",
+      "aliases": [],
+      "obscurity": 4,
+      "source": "https://en.wikipedia.org/wiki/Salsola_kali",
+      "wikidata": null,
+      "pageviews": {
+        "total": 321,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "salvadorapersica",
+      "display": "Salvadora persica",
+      "aliases": [],
+      "obscurity": 3,
+      "source": "https://en.wikipedia.org/wiki/Salvadora_persica",
+      "wikidata": null,
+      "pageviews": {
+        "total": 5765,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "salviaaegyptiaca",
+      "display": "Salvia aegyptiaca",
+      "aliases": [],
+      "obscurity": 5,
+      "source": "https://en.wikipedia.org/wiki/Salvia_aegyptiaca",
+      "wikidata": null,
+      "pageviews": {
+        "total": 46,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "salviaaethiopis",
+      "display": "Salvia aethiopis",
+      "aliases": [],
+      "obscurity": 5,
+      "source": "https://en.wikipedia.org/wiki/Salvia_aethiopis",
+      "wikidata": null,
+      "pageviews": {
+        "total": 62,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "salviaafricana",
+      "display": "Salvia africana",
+      "aliases": [],
+      "obscurity": 5,
+      "source": "https://en.wikipedia.org/wiki/Salvia_africana",
+      "wikidata": null,
+      "pageviews": {
+        "total": 85,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
       }
     }
   ]
