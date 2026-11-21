@@ -1830,3 +1830,7 @@ html.low-power .claim-imprint strong {
 .specimen-line { padding: 18px 0; border-top: 1px solid var(--ink); font: 12px/1.5 Plex, monospace; }
 .specimen-watermark { position: absolute; top: 49%; left: 0; width: 100%; text-align: center; transform: rotate(-18deg); font: 900 clamp(36px, 7vw, 100px) Archivo; color: var(--ink); opacity: .15; pointer-events: none; }
 .archive-specimen > .eyebrow:last-child { margin: 30px 0 0; }
+.dibs-stamp { filter: none; }
+.dibs-stamp strong { filter: url('#ink'); }
+.dibs-stamp span { font-size: 11px; letter-spacing: .05em; line-height: 1.5; }
+@media (max-width: 600px) { .dibs-stamp span { font-size: 10px; } }

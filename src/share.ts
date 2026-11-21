@@ -99,9 +99,9 @@ export async function exportCertificate(claim: Claim, story: boolean, text: stri
   c.textAlign = 'center';
   c.fillText('DIBS', 0, 32);
   c.fillStyle = '#1A1A17';
-  c.font = '400 14px Plex';
+  c.font = '400 22px Plex';
   c.fillText(
-    claim.obscurity && claim.obscurity >= 4 ? 'DEEP CUT · REGISTERED' : 'OFFICIALLY REGISTERED',
+    claim.obscurity && claim.obscurity >= 4 ? 'DEEP CUT' : 'REGISTERED',
     0,
     61,
   );

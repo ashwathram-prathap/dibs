@@ -788,8 +788,8 @@ export function Certificate({ claim, animated = false }: { claim: Claim; animate
           <strong>DIBS</strong>
           <span>
             {claim.obscurity && claim.obscurity >= 4
-              ? 'DEEP CUT · REGISTERED'
-              : 'OFFICIALLY REGISTERED'}
+              ? 'DEEP CUT'
+              : 'REGISTERED'}
           </span>
         </motion.div>
       </div>
