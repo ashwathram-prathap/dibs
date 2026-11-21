@@ -1,0 +1,188 @@
+[
+  {
+    "project": "iPhone-SE-light",
+    "status": "expected",
+    "duration": 9619
+  },
+  {
+    "project": "iPhone-15-Pro-light",
+    "status": "expected",
+    "duration": 10106
+  },
+  {
+    "project": "iPhone-15-Pro-Max-light",
+    "status": "expected",
+    "duration": 10139
+  },
+  {
+    "project": "Pixel-7-light",
+    "status": "expected",
+    "duration": 10507
+  },
+  {
+    "project": "Galaxy-S9+-light",
+    "status": "expected",
+    "duration": 13938
+  },
+  {
+    "project": "iPad-Mini-light",
+    "status": "expected",
+    "duration": 9107
+  },
+  {
+    "project": "iPad-Pro-11-landscape-light",
+    "status": "expected",
+    "duration": 9513
+  },
+  {
+    "project": "chromium-1280-light",
+    "status": "expected",
+    "duration": 9146
+  },
+  {
+    "project": "chromium-1440-light",
+    "status": "expected",
+    "duration": 9302
+  },
+  {
+    "project": "chromium-2560-light",
+    "status": "expected",
+    "duration": 8844
+  },
+  {
+    "project": "webkit-1280-light",
+    "status": "expected",
+    "duration": 8939
+  },
+  {
+    "project": "webkit-1440-light",
+    "status": "expected",
+    "duration": 8769
+  },
+  {
+    "project": "webkit-2560-light",
+    "status": "expected",
+    "duration": 9104
+  },
+  {
+    "project": "firefox-1280-light",
+    "status": "unexpected",
+    "duration": 1,
+    "error": "Error: browserType.launch: Failed to launch the browser process.\nBrowser logs:\n\n<launching> /Users/ashwathram/Library/Caches/ms-playwright/firefox-1572/firefox/Nightly.app/Contents/MacOS/firefox -no-remote -headless -profile /var/folders/r6/zvxw5nv934j_h8r0wb_rj2580000gn/T/playwright_firefoxdev_profile-WuBdWE -juggler-pipe -silent\n<launched> pid=23481\n[pid=23481][err] *** You are running in headless mode.\n[pid=23481][err] Could not find profile folder.\n[pid=23481] <process did exit: exitCode=1, signal=null>"
+  },
+  {
+    "project": "firefox-1440-light",
+    "status": "unexpected",
+    "duration": 1,
+    "error": "Error: browserType.launch: Failed to launch the browser process.\nBrowser logs:\n\n<launching> /Users/ashwathram/Library/Caches/ms-playwright/firefox-1572/firefox/Nightly.app/Contents/MacOS/firefox -no-remote -headless -profile /var/folders/r6/zvxw5nv934j_h8r0wb_rj2580000gn/T/playwright_firefoxdev_profile-eQflBw -juggler-pipe -silent\n<launched> pid=23492\n[pid=23492][err] *** You are running in headless mode.\n[pid=23492][err] Could not find profile folder.\n[pid=23492] <process did exit: exitCode=1, signal=null>"
+  },
+  {
+    "project": "firefox-2560-light",
+    "status": "unexpected",
+    "duration": 1,
+    "error": "Error: browserType.launch: Failed to launch the browser process.\nBrowser logs:\n\n<launching> /Users/ashwathram/Library/Caches/ms-playwright/firefox-1572/firefox/Nightly.app/Contents/MacOS/firefox -no-remote -headless -profile /var/folders/r6/zvxw5nv934j_h8r0wb_rj2580000gn/T/playwright_firefoxdev_profile-Gn27rq -juggler-pipe -silent\n<launched> pid=23496\n[pid=23496][err] *** You are running in headless mode.\n[pid=23496][err] Could not find profile folder.\n[pid=23496] <process did exit: exitCode=1, signal=null>"
+  },
+  {
+    "project": "320-small-light",
+    "status": "expected",
+    "duration": 8847
+  },
+  {
+    "project": "landscape-phone-light",
+    "status": "expected",
+    "duration": 8619
+  },
+  {
+    "project": "iPhone-SE-dark",
+    "status": "expected",
+    "duration": 8963
+  },
+  {
+    "project": "iPhone-15-Pro-dark",
+    "status": "expected",
+    "duration": 9377
+  },
+  {
+    "project": "iPhone-15-Pro-Max-dark",
+    "status": "expected",
+    "duration": 9606
+  },
+  {
+    "project": "Pixel-7-dark",
+    "status": "expected",
+    "duration": 10501
+  },
+  {
+    "project": "Galaxy-S9+-dark",
+    "status": "expected",
+    "duration": 14136
+  },
+  {
+    "project": "iPad-Mini-dark",
+    "status": "expected",
+    "duration": 8879
+  },
+  {
+    "project": "iPad-Pro-11-landscape-dark",
+    "status": "expected",
+    "duration": 9411
+  },
+  {
+    "project": "chromium-1280-dark",
+    "status": "expected",
+    "duration": 9216
+  },
+  {
+    "project": "chromium-1440-dark",
+    "status": "expected",
+    "duration": 9165
+  },
+  {
+    "project": "chromium-2560-dark",
+    "status": "expected",
+    "duration": 9017
+  },
+  {
+    "project": "webkit-1280-dark",
+    "status": "expected",
+    "duration": 8936
+  },
+  {
+    "project": "webkit-1440-dark",
+    "status": "expected",
+    "duration": 9007
+  },
+  {
+    "project": "webkit-2560-dark",
+    "status": "expected",
+    "duration": 8559
+  },
+  {
+    "project": "firefox-1280-dark",
+    "status": "unexpected",
+    "duration": 0,
+    "error": "Error: browserType.launch: Failed to launch the browser process.\nBrowser logs:\n\n<launching> /Users/ashwathram/Library/Caches/ms-playwright/firefox-1572/firefox/Nightly.app/Contents/MacOS/firefox -no-remote -headless -profile /var/folders/r6/zvxw5nv934j_h8r0wb_rj2580000gn/T/playwright_firefoxdev_profile-e1oA1X -juggler-pipe -silent\n<launched> pid=23711\n[pid=23711][err] *** You are running in headless mode.\n[pid=23711][err] Could not find profile folder.\n[pid=23711] <process did exit: exitCode=1, signal=null>"
+  },
+  {
+    "project": "firefox-1440-dark",
+    "status": "unexpected",
+    "duration": 0,
+    "error": "Error: browserType.launch: Failed to launch the browser process.\nBrowser logs:\n\n<launching> /Users/ashwathram/Library/Caches/ms-playwright/firefox-1572/firefox/Nightly.app/Contents/MacOS/firefox -no-remote -headless -profile /var/folders/r6/zvxw5nv934j_h8r0wb_rj2580000gn/T/playwright_firefoxdev_profile-HiAcRV -juggler-pipe -silent\n<launched> pid=23739\n[pid=23739][err] *** You are running in headless mode.\n[pid=23739][err] Could not find profile folder.\n[pid=23739] <process did exit: exitCode=1, signal=null>"
+  },
+  {
+    "project": "firefox-2560-dark",
+    "status": "unexpected",
+    "duration": 0,
+    "error": "Error: browserType.launch: Failed to launch the browser process.\nBrowser logs:\n\n<launching> /Users/ashwathram/Library/Caches/ms-playwright/firefox-1572/firefox/Nightly.app/Contents/MacOS/firefox -no-remote -headless -profile /var/folders/r6/zvxw5nv934j_h8r0wb_rj2580000gn/T/playwright_firefoxdev_profile-dqVtBx -juggler-pipe -silent\n<launched> pid=23759\n[pid=23759][err] *** You are running in headless mode.\n[pid=23759][err] Could not find profile folder.\n[pid=23759] <process did exit: exitCode=1, signal=null>"
+  },
+  {
+    "project": "320-small-dark",
+    "status": "expected",
+    "duration": 8982
+  },
+  {
+    "project": "landscape-phone-dark",
+    "status": "expected",
+    "duration": 8705
+  }
+]

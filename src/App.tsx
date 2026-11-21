@@ -75,7 +75,12 @@ function Filters() {
       <defs>
         <filter id="ink">
           <feTurbulence type="fractalNoise" baseFrequency=".035" numOctaves="3" seed="8" />
-          <feDisplacementMap in="SourceGraphic" scale="1.5" />
+          <feDisplacementMap
+            in="SourceGraphic"
+            scale="1.5"
+            xChannelSelector="R"
+            yChannelSelector="G"
+          />
         </filter>
       </defs>
     </svg>

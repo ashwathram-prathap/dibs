@@ -170,4 +170,71 @@ describe('Worker with real SQLite/D1 execution', () => {
     expect(((await (await request('/ledger?category=test')).json()) as any).rows).toHaveLength(0);
     await db.prepare("UPDATE categories SET status='approved' WHERE id='test'").run();
   });
+  it('imports a complete draft atomically and rejects alias collisions', async () => {
+    const upload = async (body: any) =>
+      mf.dispatchFetch('http://localhost/api/admin/category', {
+        method: 'POST',
+        headers: { authorization: 'Bearer test-admin', 'content-type': 'application/json' },
+        body: JSON.stringify(body),
+      });
+    const answers = Array.from({ length: 2000 }, (_, i) => ({
+      display: 'Test catalog entry ' + i,
+      aliases: [],
+      obscurity: 3,
+    }));
+    const result = await upload({
+      id: 'test-catalog',
+      slug: 'test-catalog',
+      name: 'Test catalog',
+      status: 'draft',
+      answers,
+    });
+    expect(result.status).toBe(201);
+    expect(
+      (
+        await db
+          .prepare('SELECT COUNT(*) n FROM answers WHERE category_id=?')
+          .bind('test-catalog')
+          .first()
+      ).n,
+    ).toBe(2000);
+    expect(
+      (await db.prepare('SELECT status FROM categories WHERE id=?').bind('test-catalog').first())
+        .status,
+    ).toBe('draft');
+    answers[0].aliases = ['shared alias'] as never[];
+    answers[1].aliases = ['shared alias'] as never[];
+    expect(
+      (await upload({ id: 'test-invalid', slug: 'test-invalid', name: 'Invalid', answers })).status,
+    ).toBe(422);
+    expect(
+      await db.prepare('SELECT id FROM categories WHERE id=?').bind('test-invalid').first(),
+    ).toBeNull();
+  });
+  it('does not accept the localhost verification bypass on a remote hostname', async () => {
+    const a = await account();
+    const r = await mf.dispatchFetch('https://preview.example/api/claim', {
+      method: 'POST',
+      headers: { cookie: a.cookie, 'content-type': 'application/json' },
+      body: JSON.stringify({ answer: 'Axolotl', turnstileToken: 'test' }),
+    });
+    expect(r.status).toBe(503);
+  });
+  it('moderation hides holders and voids certificates without reusing ownership', async () => {
+    const row = await db.prepare('SELECT id,user_id FROM claims ORDER BY claim_no LIMIT 1').first();
+    const post = async (path: string, id: string) =>
+      mf.dispatchFetch('http://localhost/api/admin/' + path, {
+        method: 'POST',
+        headers: { authorization: 'Bearer test-admin', 'content-type': 'application/json' },
+        body: JSON.stringify({ id }),
+      });
+    expect((await post('hide-user', row.user_id)).status).toBe(200);
+    const cert = (await (await request('/certificate/' + row.id)).json()) as any;
+    expect(cert.claim.handle).toBe('Record withheld');
+    expect((await post('void-claim', row.id)).status).toBe(200);
+    expect((await request('/certificate/' + row.id)).status).toBe(404);
+    expect(
+      (await db.prepare('SELECT voided FROM claims WHERE id=?').bind(row.id).first()).voided,
+    ).toBe(1);
+  });
 });

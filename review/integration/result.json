@@ -1,0 +1,10 @@
+{
+  "status": "pass",
+  "checks": [
+    "real category claim through Vite proxy and Worker D1",
+    "signed cookie survives reload",
+    "second daily claim rejected",
+    "cookie-blocked clerk message"
+  ],
+  "turnstile": "Client widget stub and localhost-only server bypass; live widget verification is separately configured."
+}

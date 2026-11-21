@@ -1,0 +1,142 @@
+[
+  {
+    "route": "/",
+    "width": 390,
+    "theme": "light",
+    "noOverflow": true,
+    "violations": []
+  },
+  {
+    "route": "/archive",
+    "width": 390,
+    "theme": "light",
+    "noOverflow": true,
+    "violations": []
+  },
+  {
+    "route": "/schools",
+    "width": 390,
+    "theme": "light",
+    "noOverflow": true,
+    "violations": []
+  },
+  {
+    "route": "/about",
+    "width": 390,
+    "theme": "light",
+    "noOverflow": true,
+    "violations": []
+  },
+  {
+    "route": "/stats",
+    "width": 390,
+    "theme": "light",
+    "noOverflow": true,
+    "violations": []
+  },
+  {
+    "route": "/",
+    "width": 390,
+    "theme": "dark",
+    "noOverflow": true,
+    "violations": []
+  },
+  {
+    "route": "/archive",
+    "width": 390,
+    "theme": "dark",
+    "noOverflow": true,
+    "violations": []
+  },
+  {
+    "route": "/schools",
+    "width": 390,
+    "theme": "dark",
+    "noOverflow": true,
+    "violations": []
+  },
+  {
+    "route": "/about",
+    "width": 390,
+    "theme": "dark",
+    "noOverflow": true,
+    "violations": []
+  },
+  {
+    "route": "/stats",
+    "width": 390,
+    "theme": "dark",
+    "noOverflow": true,
+    "violations": []
+  },
+  {
+    "route": "/",
+    "width": 1440,
+    "theme": "light",
+    "noOverflow": true,
+    "violations": []
+  },
+  {
+    "route": "/archive",
+    "width": 1440,
+    "theme": "light",
+    "noOverflow": true,
+    "violations": []
+  },
+  {
+    "route": "/schools",
+    "width": 1440,
+    "theme": "light",
+    "noOverflow": true,
+    "violations": []
+  },
+  {
+    "route": "/about",
+    "width": 1440,
+    "theme": "light",
+    "noOverflow": true,
+    "violations": []
+  },
+  {
+    "route": "/stats",
+    "width": 1440,
+    "theme": "light",
+    "noOverflow": true,
+    "violations": []
+  },
+  {
+    "route": "/",
+    "width": 1440,
+    "theme": "dark",
+    "noOverflow": true,
+    "violations": []
+  },
+  {
+    "route": "/archive",
+    "width": 1440,
+    "theme": "dark",
+    "noOverflow": true,
+    "violations": []
+  },
+  {
+    "route": "/schools",
+    "width": 1440,
+    "theme": "dark",
+    "noOverflow": true,
+    "violations": []
+  },
+  {
+    "route": "/about",
+    "width": 1440,
+    "theme": "dark",
+    "noOverflow": true,
+    "violations": []
+  },
+  {
+    "route": "/stats",
+    "width": 1440,
+    "theme": "dark",
+    "noOverflow": true,
+    "violations": []
+  }
+]
