@@ -29,3 +29,14 @@ review/lighthouse/qa-identities.json
 review/live-qa-identities.json
 
 .upload-state.json
+
+# Rebuildable raw visual captures (compact results live in review/round2).
+review/devices/
+review/accents/
+review/fallbacks/
+review/headings/
+review/headings-webkit/
+review/integration/
+review/m1-refined/
+review/motion/
+review/rollover/

@@ -1,0 +1,127 @@
+{
+  "measurement": "du -sk allocated disk space; excludes historical Git objects",
+  "inventory": [
+    {
+      "path": ".category-cache",
+      "allocatedKiBBefore": 24632,
+      "allocatedKiBAfter": 0,
+      "freedKiB": 24632
+    },
+    {
+      "path": "test-results",
+      "allocatedKiBBefore": 4,
+      "allocatedKiBAfter": 0,
+      "freedKiB": 4
+    },
+    {
+      "path": "review/devices",
+      "allocatedKiBBefore": 487792,
+      "allocatedKiBAfter": 0,
+      "freedKiB": 487792
+    },
+    {
+      "path": "review/accents",
+      "allocatedKiBBefore": 1104,
+      "allocatedKiBAfter": 0,
+      "freedKiB": 1104
+    },
+    {
+      "path": "review/answer-index",
+      "allocatedKiBBefore": 1300,
+      "allocatedKiBAfter": 1300,
+      "freedKiB": 0,
+      "note": "Retained: linked alphabetical lists support the preserved category review docket."
+    },
+    {
+      "path": "review/fallbacks",
+      "allocatedKiBBefore": 1248,
+      "allocatedKiBAfter": 0,
+      "freedKiB": 1248
+    },
+    {
+      "path": "review/headings",
+      "allocatedKiBBefore": 3280,
+      "allocatedKiBAfter": 0,
+      "freedKiB": 3280
+    },
+    {
+      "path": "review/headings-webkit",
+      "allocatedKiBBefore": 4444,
+      "allocatedKiBAfter": 0,
+      "freedKiB": 4444
+    },
+    {
+      "path": "review/integration",
+      "allocatedKiBBefore": 988,
+      "allocatedKiBAfter": 0,
+      "freedKiB": 988
+    },
+    {
+      "path": "review/m1",
+      "allocatedKiBBefore": 5016,
+      "allocatedKiBAfter": 0,
+      "freedKiB": 5016
+    },
+    {
+      "path": "review/m1-refined",
+      "allocatedKiBBefore": 12388,
+      "allocatedKiBAfter": 0,
+      "freedKiB": 12388
+    },
+    {
+      "path": "review/motion",
+      "allocatedKiBBefore": 1604,
+      "allocatedKiBAfter": 0,
+      "freedKiB": 1604
+    },
+    {
+      "path": "review/rollover",
+      "allocatedKiBBefore": 48656,
+      "allocatedKiBAfter": 0,
+      "freedKiB": 48656
+    },
+    {
+      "path": "dist",
+      "allocatedKiBBefore": 4844,
+      "allocatedKiBAfter": 0,
+      "freedKiB": 4844
+    },
+    {
+      "path": "node_modules",
+      "allocatedKiBBefore": 599004,
+      "allocatedKiBAfter": 0,
+      "freedKiB": 599004
+    },
+    {
+      "path": ".tmp",
+      "allocatedKiBBefore": 2700,
+      "allocatedKiBAfter": 0,
+      "freedKiB": 2700
+    },
+    {
+      "path": "~/Library/Caches/ms-playwright",
+      "allocatedKiBBefore": 1233608,
+      "allocatedKiBAfter": 0,
+      "freedKiB": 1233608
+    }
+  ],
+  "allocatedKiBBefore": 2432612,
+  "preserved": [
+    "review/final/",
+    "review/index.html",
+    "review/categories.md",
+    "review/ACCEPTANCE.md",
+    "review/round2/",
+    "review/lighthouse/",
+    "categories/",
+    "source files",
+    "local D1 state",
+    "ignored secrets and MORNING_REPORT.md",
+    "review/answer-index/ (category review links)"
+  ],
+  "allocatedKiBAfter": 1300,
+  "freedKiB": 2431312,
+  "freedBytes": 2489663488,
+  "freedGiB": 2.319,
+  "browsersRemovedWith": "npx playwright uninstall --all"
+}
