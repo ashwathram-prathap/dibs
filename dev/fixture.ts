@@ -55,6 +55,7 @@ export async function request(path: string, body?: any): Promise<any> {
     return {
       category,
       claimed: claims.length,
+      lastClaimAt: claims[0]?.created_at || null,
       open: 2400 - claims.length,
       nextDrop: new Date(Date.now() + 3600000 * 12).toISOString(),
       turnstileSiteKey: 'demo',

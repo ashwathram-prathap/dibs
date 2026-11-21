@@ -131,7 +131,7 @@ export default function App() {
       <a className="skip" href="#main">
         Skip to registry
       </a>
-      <div className="page">
+      <div className={"page " + (path === "/" ? "home-page" : "")}>
         <header className="masthead">
           <Link to="/" className="wordmark" aria-label="Dibs home">
             dibs<span className="wordmark-dot">.</span>
@@ -360,7 +360,7 @@ function Home({
       setTaken(err.status === 409);
       setMessage(
         err.status === 409
-          ? `${answer.toUpperCase()} is already registered to ${err.data.takenBy} (${time(err.data.at)}). Please call dibs on something else.`
+          ? `Someone already called dibs on ${answer.toUpperCase()} (${err.data.takenBy}). Try another.`
           : err.message,
       );
       input.current?.focus();
@@ -370,64 +370,19 @@ function Home({
   }
   return (
     <>
-      <div className="reg-strip">
-        <span>
-          REGISTRY OF CLAIMS <b>·</b> FORM C-1 <b>·</b> REG.{' '}
-          {today.category?.date ||
-            new Date().toLocaleDateString('en-CA', { timeZone: 'America/Toronto' })}
-        </span>
-        <span>
-          NEXT DROP <Clock target={today.nextDrop} />
-        </span>
-      </div>
       <section className="daily-heading">
-        <div className="heading-note">
-          <span className="eyebrow">
-            {today.category ? 'TODAY’S OPEN REGISTER' : 'OFFICE NOTICE / 001'}
-          </span>
-          <span className="folio">ONE CATEGORY. ONE CLAIM.</span>
-        </div>
+        <span className="eyebrow">{today.category ? "Today's category:" : 'THE DAILY GAME OF FIRST CLAIMS'}</span>
         <CategoryHeading name={today.category?.name || 'DIBS'} />
-        <div className="category-bottom">
-          <span>
-            {today.category ? (
-              <>
-                <strong>{today.category.total_registrable.toLocaleString()}</strong> registrable{' '}
-                <i>·</i> <strong>{today.claimed.toLocaleString()}</strong> claimed <i>·</i>{' '}
-                <strong>{today.open.toLocaleString()}</strong> open
-                {!!today.voided && (
-                  <>
-                    <i>·</i>
-                    <strong>{today.voided.toLocaleString()}</strong> voided
-                  </>
-                )}
-              </>
-            ) : (
-              'THE DAILY REGISTRY OF FIRST CLAIMS'
-            )}
-          </span>
-          <span className="small-stamp">
-            {today.category ? 'OPEN FOR CLAIMS' : 'AWAITING REVIEW'}
-          </span>
-        </div>
+        {today.category && <p className="game-rule">Name {today.category.slug === 'animals' ? 'an animal' : 'an item in this category'} nobody has claimed yet. First to call it owns it today.</p>}
       </section>
       {!today.category ? (
         <section className="closed-office">
           <span className="section-number">01 /</span>
           <div>
-            <h2>
-              The next register
-              <br />
-              is on the clerk’s desk.
-            </h2>
-            <p>
-              One category. One answer that belongs to you.
-              <br />
-              New registers open at 9 PM, Toronto time.
-            </p>
-            <p className="eyebrow">
-              {today.closedReason || 'CATEGORIES ARE UNDER REVIEW. NO CLAIMS ARE OPEN YET.'}
-            </p>
+            <h2>The office opens tonight.</h2>
+            <p>The next category drops tonight at 9 PM ET. Come back to call dibs.</p>
+            <p className="eyebrow">NEXT DROP <Clock target={today.nextDrop} /></p>
+            <p className="closed-example">EXAMPLE · If the category is Animals, type “axolotl”. If nobody has it, it’s yours. Share your certificate.</p>
           </div>
           <div className="closed-seal" aria-hidden="true">
             DIBS
@@ -473,25 +428,7 @@ function Home({
           animate={landed && !reduced ? { x: [0, -6, 6, -3, 0] } : {}}
           transition={{ duration: 0.25 }}
         >
-          <div className="claim-side">
-            <span className="section-number">01 / FILE A CLAIM</span>
-            <h2>
-              See it. <br />
-              Say it.
-              <br />
-              It’s yours.
-            </h2>
-            <p>
-              First to call it, first to own it.
-              <br />
-              One successful claim per day.
-            </p>
-          </div>
           <div className="claim-paper">
-            <div className="form-heading">
-              <span className="eyebrow">APPLICATION FOR TEMPORARY OWNERSHIP</span>
-              <span>C-1</span>
-            </div>
             <form onSubmit={submit}>
               <label className="eyebrow" htmlFor="answer">
                 ENTRY:
@@ -502,7 +439,7 @@ function Home({
                   id="answer"
                   name="answer"
                   value={answer}
-                  placeholder={`Name an ${today.category.name.toLowerCase() === 'animals' ? 'animal' : 'entry'}…`}
+                  placeholder={today.category.slug === 'animals' ? 'try: axolotl' : 'Name an item…'}
                   onChange={(e) => {
                     setAnswer(e.target.value);
                     setActive(-1);
@@ -568,10 +505,23 @@ function Home({
                   </li>
                 ))}
               </ul>
+              <p className="live-strip">{today.open.toLocaleString()} still up for grabs · {today.lastClaimAt ? `last claim ${Math.max(0, Math.floor((Date.now() - Date.parse(today.lastClaimAt)) / 60000))} min ago` : 'be the first to claim'}</p>
+              <ol className="how-it-works" aria-label="How it works">
+                <li>Type {today.category.slug === 'animals' ? 'an animal' : 'a category item'}.</li>
+                <li>If nobody has it, it's yours.</li>
+                <li>Share your certificate.</li>
+              </ol>
               <div ref={turnstileBox} className="turnstile" />
               <p className={'clerk-message ' + (taken ? 'taken' : '')} role="status">
                 {message || 'Spell it right. The clerk is particular.'}
               </p>
+            </form>
+
+          </div>
+        </motion.section>
+      )}
+      {!claim && me.user && <section className="identity-section">
+        <span className="eyebrow">YOUR HANDLE · FORM C-1</span>
               <div className="identity">
                 <div>
                   <span className="eyebrow">FILED UNDER</span>
@@ -599,11 +549,7 @@ function Home({
                   ))}
                 </select>
               </div>
-            </form>
-            <div className="form-foot">NO FEE. NO APPEALS. NO PARTICULAR LEGAL STANDING.</div>
-          </div>
-        </motion.section>
-      )}
+      </section>}
       <Ledger category={today.category} />
       <div className="bottom-note">
         <span className="eyebrow">A NOTE FROM THE CLERK</span>

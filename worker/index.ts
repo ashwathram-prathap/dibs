@@ -288,7 +288,7 @@ export async function route(req: Request, env: Env): Promise<Response> {
     const category = await current(env);
     const counts = category
       ? await env.DB.prepare(
-          'SELECT COUNT(*) reserved,COALESCE(SUM(voided=0),0) claimed FROM claims WHERE category_id=?',
+          'SELECT COUNT(*) reserved,COALESCE(SUM(voided=0),0) claimed,MAX(CASE WHEN voided=0 THEN created_at END) lastClaimAt FROM claims WHERE category_id=?',
         )
           .bind(category.id)
           .first<any>()
@@ -297,6 +297,7 @@ export async function route(req: Request, env: Env): Promise<Response> {
     return json({
       category,
       claimed,
+      lastClaimAt: counts.lastClaimAt || null,
       open: category ? category.total_registrable - Number(counts.reserved) : 0,
       voided: Number(counts.reserved) - claimed,
       nextDrop: nextDrop(),

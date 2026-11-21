@@ -27,7 +27,7 @@ test('full filing, certificate, sharing and public record', async ({ page }, inf
   await input.press('Enter');
   await expect(input).toHaveValue('Pangolin');
   await page.getByRole('button', { name: 'CALL DIBS' }).click();
-  await expect(page.getByRole('status')).toContainText('already registered');
+  await expect(page.getByRole('status')).toContainText('already called dibs');
   await shot('02-taken');
   await input.fill('Axolotl');
   await page.getByRole('button', { name: 'CALL DIBS' }).click();

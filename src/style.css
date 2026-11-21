@@ -1795,3 +1795,29 @@ html.low-power .claim-imprint strong {
   z-index: 3;
   pointer-events: none;
 }
+/* Round 2: the game is the first form on the page. */
+.home-page { display: flex; flex-direction: column; }
+.home-page > nav { order: 2; margin-top: 36px; }
+.home-page > footer { order: 3; }
+.home-page .mast-note, .home-page .theme-toggle { display: none; }
+.home-page .demo-label { display: none; }
+.home-page .daily-heading { padding-top: 24px; }
+.home-page .category { margin: 12px 0 20px; }
+.game-rule { font-size: 20px; max-width: 650px; margin-bottom: 24px; line-height: 1.4; }
+.home-page .claim-section { display: block; padding: 0; border: 0; }
+.home-page .claim-paper { padding: 20px; }
+.live-strip { font: 11px/1.7 Plex, monospace; margin: 22px 0 16px; }
+.how-it-works { list-style: none; padding: 0; margin: 0; counter-reset: steps; }
+.how-it-works li { border: 1px solid var(--ink); padding: 12px; font-size: 14px; }
+.how-it-works li + li { border-top: 0; }
+.how-it-works li:before { counter-increment: steps; content: '0' counter(steps) ' / '; font: 11px Plex, monospace; margin-right: 10px; }
+.home-page .clerk-message { margin-bottom: 0; }
+.identity-section { margin-top: 70px; }
+@media(max-width: 600px) {
+  .home-page .masthead { min-height: 92px; padding: 16px 0; }
+  .home-page .daily-heading { padding-top: 22px; }
+  .home-page .category { margin: 12px 0 18px; }
+  .game-rule { font-size: 18px; margin-bottom: 24px; }
+  .home-page .claim-paper { padding: 16px; }
+  .home-page .identity-section { margin-top: max(70px, calc(844px - 640px)); }
+}

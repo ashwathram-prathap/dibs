@@ -31,7 +31,7 @@ for (const width of [390, 1440])
     await page.goto('http://127.0.0.1:5173');
     await page.getByLabel('ENTRY:', { exact: true }).fill('Pangolin');
     await page.getByRole('button', { name: 'CALL DIBS' }).click();
-    await page.getByRole('status').filter({ hasText: 'already registered' }).waitFor();
+    await page.getByRole('status').filter({ hasText: 'already called dibs' }).waitFor();
     await page.screenshot({ path: `${dir}/taken-${width}-${theme}.png`, fullPage: true });
     await page.getByLabel('ENTRY:', { exact: true }).fill('Axolotl');
     await page.getByRole('button', { name: 'CALL DIBS' }).click();

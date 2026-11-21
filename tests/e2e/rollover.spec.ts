@@ -11,7 +11,7 @@ test('a new daily register clears yesterday’s certificate and form state', asy
   await page.goto('/');
   await page.getByLabel('ENTRY:', { exact: true }).fill('Pangolin');
   await page.getByRole('button', { name: 'CALL DIBS' }).click();
-  await expect(page.getByRole('status')).toContainText('already registered');
+  await expect(page.getByRole('status')).toContainText('already called dibs');
   await page.getByLabel('ENTRY:', { exact: true }).fill('Axolotl');
   await page.getByRole('button', { name: 'CALL DIBS' }).click();
   await expect(

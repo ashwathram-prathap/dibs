@@ -34,6 +34,7 @@ export interface Today {
   nextDrop: string;
   turnstileSiteKey: string;
   closedReason?: string;
+  lastClaimAt?: string | null;
 }
 export interface Me {
   user: User | null;
