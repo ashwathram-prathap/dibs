@@ -8,13 +8,15 @@
   "total_registrable": 2200,
   "provenance": {
     "source": "Wikidata SPARQL + English Wikipedia PageViewInfo",
+    "categoryLists": null,
     "queryRoot": "Q7377",
     "property": "P171",
-    "builtAt": "2026-11-21T04:21:47.832Z",
+    "builtAt": "2026-11-21T05:02:39.567Z",
     "license": "Wikidata CC0; Wikipedia titles and pageview counts. See source URL on each entry.",
     "scoring": "Mean daily Wikipedia pageviews over available days in the past 30: 1 >=1000; 2 >=200; 3 >=50; 4 >=10; 5 <10. Missing data excluded.",
     "scopeNote": "Mammal species with English Wikipedia articles; animal register starts with mammals.",
-    "reviewRequired": true
+    "reviewRequired": true,
+    "identityPolicy": "exclude-cross-title-redirects-v1"
   },
   "answers": [
     {
@@ -368,20 +370,6 @@
       }
     },
     {
-      "canonical": "wolf",
-      "display": "Wolf",
-      "aliases": [],
-      "obscurity": 1,
-      "source": "https://en.wikipedia.org/wiki/Gray_wolf",
-      "wikidata": null,
-      "pageviews": {
-        "total": 76359,
-        "days": 29,
-        "start": "2026-10-22",
-        "end": "2026-11-19"
-      }
-    },
-    {
       "canonical": "brownbear",
       "display": "Brown bear",
       "aliases": [],
@@ -726,20 +714,6 @@
       "wikidata": null,
       "pageviews": {
         "total": 60483,
-        "days": 29,
-        "start": "2026-10-22",
-        "end": "2026-11-19"
-      }
-    },
-    {
-      "canonical": "elk",
-      "display": "Elk",
-      "aliases": [],
-      "obscurity": 1,
-      "source": "https://en.wikipedia.org/wiki/Wapiti",
-      "wikidata": null,
-      "pageviews": {
-        "total": 39700,
         "days": 29,
         "start": "2026-10-22",
         "end": "2026-11-19"
@@ -1218,20 +1192,6 @@
         "total": 63,
         "days": 30,
         "start": "2026-10-22",
-        "end": "2026-11-20"
-      }
-    },
-    {
-      "canonical": "setirostris",
-      "display": "Setirostris",
-      "aliases": [],
-      "obscurity": 5,
-      "source": "https://en.wikipedia.org/wiki/Setirostris_eleryi",
-      "wikidata": "http://www.wikidata.org/entity/Q61650441",
-      "pageviews": {
-        "total": 24,
-        "days": 29,
-        "start": "2026-10-23",
         "end": "2026-11-20"
       }
     },
@@ -5254,20 +5214,6 @@
       }
     },
     {
-      "canonical": "pteropuspelagicus",
-      "display": "Pteropus pelagicus",
-      "aliases": [],
-      "obscurity": 5,
-      "source": "https://en.wikipedia.org/wiki/Pteropus_insularis",
-      "wikidata": "http://www.wikidata.org/entity/Q551900",
-      "pageviews": {
-        "total": 103,
-        "days": 30,
-        "start": "2026-10-22",
-        "end": "2026-11-20"
-      }
-    },
-    {
       "canonical": "greyheadedflyingfox",
       "display": "Grey-headed flying fox",
       "aliases": [],
@@ -5878,20 +5824,6 @@
       "wikidata": "http://www.wikidata.org/entity/Q974052",
       "pageviews": {
         "total": 116,
-        "days": 30,
-        "start": "2026-10-22",
-        "end": "2026-11-20"
-      }
-    },
-    {
-      "canonical": "dobsonepaulettedfruitbat",
-      "display": "Dobson's epauletted fruit bat",
-      "aliases": [],
-      "obscurity": 5,
-      "source": "https://en.wikipedia.org/wiki/Epomops_dobsonii",
-      "wikidata": "http://www.wikidata.org/entity/Q305674",
-      "pageviews": {
-        "total": 61,
         "days": 30,
         "start": "2026-10-22",
         "end": "2026-11-20"
@@ -6595,20 +6527,6 @@
         "days": 29,
         "start": "2026-10-22",
         "end": "2026-11-20"
-      }
-    },
-    {
-      "canonical": "gnomefruiteatingbat",
-      "display": "Gnome fruit-eating bat",
-      "aliases": [],
-      "obscurity": 5,
-      "source": "https://en.wikipedia.org/wiki/Artibeus_gnomus",
-      "wikidata": "http://www.wikidata.org/entity/Q308262",
-      "pageviews": {
-        "total": 36,
-        "days": 29,
-        "start": "2026-10-22",
-        "end": "2026-11-19"
       }
     },
     {
@@ -7335,20 +7253,6 @@
       "pageviews": {
         "total": 18,
         "days": 29,
-        "start": "2026-10-22",
-        "end": "2026-11-20"
-      }
-    },
-    {
-      "canonical": "wrinklelippedfreetailedbat",
-      "display": "Wrinkle-lipped free-tailed bat",
-      "aliases": [],
-      "obscurity": 5,
-      "source": "https://en.wikipedia.org/wiki/Tadarida_plicata",
-      "wikidata": "http://www.wikidata.org/entity/Q12072644",
-      "pageviews": {
-        "total": 275,
-        "days": 30,
         "start": "2026-10-22",
         "end": "2026-11-20"
       }
@@ -8334,6 +8238,20 @@
       }
     },
     {
+      "canonical": "pteropuspelagicus",
+      "display": "Pteropus pelagicus",
+      "aliases": [],
+      "obscurity": 5,
+      "source": "https://en.wikipedia.org/wiki/Pteropus_pelagicus",
+      "wikidata": "http://www.wikidata.org/entity/Q125845288",
+      "pageviews": {
+        "total": 103,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
       "canonical": "indianflyingfox",
       "display": "Indian flying fox",
       "aliases": [],
@@ -8510,20 +8428,6 @@
       "wikidata": "http://www.wikidata.org/entity/Q1834039",
       "pageviews": {
         "total": 40,
-        "days": 30,
-        "start": "2026-10-22",
-        "end": "2026-11-20"
-      }
-    },
-    {
-      "canonical": "silkyshorttailedbat",
-      "display": "Silky short-tailed bat",
-      "aliases": [],
-      "obscurity": 5,
-      "source": "https://en.wikipedia.org/wiki/Colombian_short-tailed_bat",
-      "wikidata": "http://www.wikidata.org/entity/Q1834169",
-      "pageviews": {
-        "total": 81,
         "days": 30,
         "start": "2026-10-22",
         "end": "2026-11-20"
@@ -9020,20 +8924,6 @@
       }
     },
     {
-      "canonical": "woollymouseopossum",
-      "display": "Woolly mouse opossum",
-      "aliases": [],
-      "obscurity": 5,
-      "source": "https://en.wikipedia.org/wiki/Micoureus_demerarae",
-      "wikidata": "http://www.wikidata.org/entity/Q195038",
-      "pageviews": {
-        "total": 98,
-        "days": 30,
-        "start": "2026-10-22",
-        "end": "2026-11-20"
-      }
-    },
-    {
       "canonical": "brossetbigearedbat",
       "display": "Brosset's big-eared bat",
       "aliases": [],
@@ -9073,20 +8963,6 @@
         "days": 30,
         "start": "2026-10-22",
         "end": "2026-11-20"
-      }
-    },
-    {
-      "canonical": "southerndogfacedbat",
-      "display": "Southern dog-faced bat",
-      "aliases": [],
-      "obscurity": 5,
-      "source": "https://en.wikipedia.org/wiki/Para_dog-faced_bat",
-      "wikidata": "http://www.wikidata.org/entity/Q1829457",
-      "pageviews": {
-        "total": 38,
-        "days": 28,
-        "start": "2026-10-22",
-        "end": "2026-11-19"
       }
     },
     {
@@ -9370,6 +9246,20 @@
       }
     },
     {
+      "canonical": "gnomefruiteatingbat",
+      "display": "Gnome fruit-eating bat",
+      "aliases": [],
+      "obscurity": 5,
+      "source": "https://en.wikipedia.org/wiki/Gnome_fruit-eating_bat",
+      "wikidata": "http://www.wikidata.org/entity/Q28154668",
+      "pageviews": {
+        "total": 36,
+        "days": 29,
+        "start": "2026-10-22",
+        "end": "2026-11-19"
+      }
+    },
+    {
       "canonical": "azagnyifruitbat",
       "display": "Azagnyi fruit bat",
       "aliases": [],
@@ -9395,20 +9285,6 @@
         "days": 30,
         "start": "2026-10-22",
         "end": "2026-11-20"
-      }
-    },
-    {
-      "canonical": "bushveldhorseshoebat",
-      "display": "Bushveld horseshoe bat",
-      "aliases": [],
-      "obscurity": 5,
-      "source": "https://en.wikipedia.org/wiki/Roberts%27_horseshoe_bat",
-      "wikidata": "http://www.wikidata.org/entity/Q55103099",
-      "pageviews": {
-        "total": 27,
-        "days": 29,
-        "start": "2026-10-22",
-        "end": "2026-11-19"
       }
     },
     {
@@ -9841,20 +9717,6 @@
       "pageviews": {
         "total": 31,
         "days": 28,
-        "start": "2026-10-22",
-        "end": "2026-11-20"
-      }
-    },
-    {
-      "canonical": "broadstripedtubenosedfruitbat",
-      "display": "Broad-striped tube-nosed fruit bat",
-      "aliases": [],
-      "obscurity": 5,
-      "source": "https://en.wikipedia.org/wiki/Dark_tube-nosed_fruit_bat",
-      "wikidata": "http://www.wikidata.org/entity/Q2043248",
-      "pageviews": {
-        "total": 26,
-        "days": 29,
         "start": "2026-10-22",
         "end": "2026-11-20"
       }
@@ -10938,6 +10800,20 @@
       }
     },
     {
+      "canonical": "southerndogfacedbat",
+      "display": "Southern dog-faced bat",
+      "aliases": [],
+      "obscurity": 5,
+      "source": "https://en.wikipedia.org/wiki/Southern_dog-faced_bat",
+      "wikidata": "http://www.wikidata.org/entity/Q1832690",
+      "pageviews": {
+        "total": 38,
+        "days": 28,
+        "start": "2026-10-22",
+        "end": "2026-11-19"
+      }
+    },
+    {
       "canonical": "brownlongearedbat",
       "display": "Brown long-eared bat",
       "aliases": [],
@@ -10989,6 +10865,20 @@
       "pageviews": {
         "total": 3339,
         "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "broadstripedtubenosedfruitbat",
+      "display": "Broad-striped tube-nosed fruit bat",
+      "aliases": [],
+      "obscurity": 5,
+      "source": "https://en.wikipedia.org/wiki/Broad-striped_tube-nosed_fruit_bat",
+      "wikidata": "http://www.wikidata.org/entity/Q662459",
+      "pageviews": {
+        "total": 26,
+        "days": 29,
         "start": "2026-10-22",
         "end": "2026-11-20"
       }
@@ -14200,20 +14090,6 @@
       }
     },
     {
-      "canonical": "longtailedweasel",
-      "display": "Long-tailed weasel",
-      "aliases": [],
-      "obscurity": 3,
-      "source": "https://en.wikipedia.org/wiki/Mustela_frenata",
-      "wikidata": "http://www.wikidata.org/entity/Q720696",
-      "pageviews": {
-        "total": 5545,
-        "days": 29,
-        "start": "2026-10-22",
-        "end": "2026-11-19"
-      }
-    },
-    {
       "canonical": "steppepolecat",
       "display": "Steppe polecat",
       "aliases": [],
@@ -14250,20 +14126,6 @@
       "wikidata": "http://www.wikidata.org/entity/Q752436",
       "pageviews": {
         "total": 3501,
-        "days": 30,
-        "start": "2026-10-22",
-        "end": "2026-11-20"
-      }
-    },
-    {
-      "canonical": "blacktaileddasyure",
-      "display": "Black-tailed dasyure",
-      "aliases": [],
-      "obscurity": 5,
-      "source": "https://en.wikipedia.org/wiki/Murexechinus_melanurus",
-      "wikidata": "http://www.wikidata.org/entity/Q194415",
-      "pageviews": {
-        "total": 96,
         "days": 30,
         "start": "2026-10-22",
         "end": "2026-11-20"
@@ -14502,6 +14364,20 @@
       "wikidata": "http://www.wikidata.org/entity/Q232644",
       "pageviews": {
         "total": 439,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "wrinklelippedfreetailedbat",
+      "display": "Wrinkle-lipped free-tailed bat",
+      "aliases": [],
+      "obscurity": 5,
+      "source": "https://en.wikipedia.org/wiki/Wrinkle-lipped_free-tailed_bat",
+      "wikidata": "http://www.wikidata.org/entity/Q2406428",
+      "pageviews": {
+        "total": 275,
         "days": 30,
         "start": "2026-10-22",
         "end": "2026-11-20"
@@ -14872,20 +14748,6 @@
       }
     },
     {
-      "canonical": "amazonweasel",
-      "display": "Amazon weasel",
-      "aliases": [],
-      "obscurity": 4,
-      "source": "https://en.wikipedia.org/wiki/Mustela_africana",
-      "wikidata": "http://www.wikidata.org/entity/Q1137422",
-      "pageviews": {
-        "total": 476,
-        "days": 30,
-        "start": "2026-10-22",
-        "end": "2026-11-20"
-      }
-    },
-    {
       "canonical": "backstripedweasel",
       "display": "Back-striped weasel",
       "aliases": [],
@@ -14964,20 +14826,6 @@
       "wikidata": "http://www.wikidata.org/entity/Q1464840",
       "pageviews": {
         "total": 189,
-        "days": 30,
-        "start": "2026-10-22",
-        "end": "2026-11-20"
-      }
-    },
-    {
-      "canonical": "colombianweasel",
-      "display": "Colombian weasel",
-      "aliases": [],
-      "obscurity": 4,
-      "source": "https://en.wikipedia.org/wiki/Mustela_felipei",
-      "wikidata": "http://www.wikidata.org/entity/Q1508910",
-      "pageviews": {
-        "total": 414,
         "days": 30,
         "start": "2026-10-22",
         "end": "2026-11-20"
@@ -15762,6 +15610,20 @@
       "wikidata": "http://www.wikidata.org/entity/Q306079",
       "pageviews": {
         "total": 77,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "silkyshorttailedbat",
+      "display": "Silky short-tailed bat",
+      "aliases": [],
+      "obscurity": 5,
+      "source": "https://en.wikipedia.org/wiki/Silky_short-tailed_bat",
+      "wikidata": "http://www.wikidata.org/entity/Q306040",
+      "pageviews": {
+        "total": 81,
         "days": 30,
         "start": "2026-10-22",
         "end": "2026-11-20"
@@ -16720,20 +16582,6 @@
       }
     },
     {
-      "canonical": "joffrebat",
-      "display": "Joffre's bat",
-      "aliases": [],
-      "obscurity": 5,
-      "source": "https://en.wikipedia.org/wiki/Hypsugo_anthonyi",
-      "wikidata": "http://www.wikidata.org/entity/Q1829507",
-      "pageviews": {
-        "total": 17,
-        "days": 25,
-        "start": "2026-10-22",
-        "end": "2026-11-20"
-      }
-    },
-    {
       "canonical": "cadornapipistrelle",
       "display": "Cadorna's pipistrelle",
       "aliases": [],
@@ -16772,20 +16620,6 @@
         "total": 21,
         "days": 25,
         "start": "2026-10-22",
-        "end": "2026-11-20"
-      }
-    },
-    {
-      "canonical": "anchietaserotine",
-      "display": "Anchieta's serotine",
-      "aliases": [],
-      "obscurity": 5,
-      "source": "https://en.wikipedia.org/wiki/Hypsugo_anchietae",
-      "wikidata": "http://www.wikidata.org/entity/Q1830108",
-      "pageviews": {
-        "total": 50,
-        "days": 29,
-        "start": "2026-10-23",
         "end": "2026-11-20"
       }
     },
@@ -17064,20 +16898,6 @@
       "wikidata": "http://www.wikidata.org/entity/Q209497",
       "pageviews": {
         "total": 732,
-        "days": 30,
-        "start": "2026-10-22",
-        "end": "2026-11-20"
-      }
-    },
-    {
-      "canonical": "americanhognosedskunk",
-      "display": "American hog-nosed skunk",
-      "aliases": [],
-      "obscurity": 4,
-      "source": "https://en.wikipedia.org/wiki/Western_hog-nosed_skunk",
-      "wikidata": "http://www.wikidata.org/entity/Q2166001",
-      "pageviews": {
-        "total": 1338,
         "days": 30,
         "start": "2026-10-22",
         "end": "2026-11-20"
@@ -18540,20 +18360,6 @@
       }
     },
     {
-      "canonical": "northernneotropicalriverotter",
-      "display": "Northern Neotropical river otter",
-      "aliases": [],
-      "obscurity": 5,
-      "source": "https://en.wikipedia.org/wiki/Lontra_annectens",
-      "wikidata": "http://www.wikidata.org/entity/Q127599093",
-      "pageviews": {
-        "total": 229,
-        "days": 30,
-        "start": "2026-10-22",
-        "end": "2026-11-20"
-      }
-    },
-    {
       "canonical": "largespottedcivet",
       "display": "Large-spotted civet",
       "aliases": [],
@@ -18689,20 +18495,6 @@
       "pageviews": {
         "total": 22,
         "days": 24,
-        "start": "2026-10-22",
-        "end": "2026-11-20"
-      }
-    },
-    {
-      "canonical": "acratocnus",
-      "display": "Acratocnus",
-      "aliases": [],
-      "obscurity": 4,
-      "source": "https://en.wikipedia.org/wiki/Miocnus_antillensis",
-      "wikidata": "http://www.wikidata.org/entity/Q127328807",
-      "pageviews": {
-        "total": 361,
-        "days": 30,
         "start": "2026-10-22",
         "end": "2026-11-20"
       }
@@ -19094,6 +18886,20 @@
       "wikidata": "http://www.wikidata.org/entity/Q856593",
       "pageviews": {
         "total": 2889,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "americanhognosedskunk",
+      "display": "American hog-nosed skunk",
+      "aliases": [],
+      "obscurity": 4,
+      "source": "https://en.wikipedia.org/wiki/American_hog-nosed_skunk",
+      "wikidata": "http://www.wikidata.org/entity/Q934487",
+      "pageviews": {
+        "total": 1338,
         "days": 30,
         "start": "2026-10-22",
         "end": "2026-11-20"
@@ -21242,20 +21048,6 @@
       }
     },
     {
-      "canonical": "siberianbat",
-      "display": "Siberian bat",
-      "aliases": [],
-      "obscurity": 4,
-      "source": "https://en.wikipedia.org/wiki/Ussuri_whiskered_bat",
-      "wikidata": "http://www.wikidata.org/entity/Q6127612",
-      "pageviews": {
-        "total": 372,
-        "days": 30,
-        "start": "2026-10-22",
-        "end": "2026-11-20"
-      }
-    },
-    {
       "canonical": "rickettbigfootedbat",
       "display": "Rickett's big-footed bat",
       "aliases": [],
@@ -21578,6 +21370,20 @@
       }
     },
     {
+      "canonical": "wolf",
+      "display": "Wolf",
+      "aliases": [],
+      "obscurity": 1,
+      "source": "https://en.wikipedia.org/wiki/Wolf",
+      "wikidata": "http://www.wikidata.org/entity/Q18498",
+      "pageviews": {
+        "total": 76359,
+        "days": 29,
+        "start": "2026-10-22",
+        "end": "2026-11-19"
+      }
+    },
+    {
       "canonical": "caracal",
       "display": "Caracal",
       "aliases": [],
@@ -21601,6 +21407,20 @@
       "pageviews": {
         "total": 65,
         "days": 28,
+        "start": "2026-10-23",
+        "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "anchietaserotine",
+      "display": "Anchieta's serotine",
+      "aliases": [],
+      "obscurity": 5,
+      "source": "https://en.wikipedia.org/wiki/Anchieta%27s_serotine",
+      "wikidata": "http://www.wikidata.org/entity/Q125867017",
+      "pageviews": {
+        "total": 50,
+        "days": 29,
         "start": "2026-10-23",
         "end": "2026-11-20"
       }
@@ -22020,34 +21840,6 @@
       "wikidata": "http://www.wikidata.org/entity/Q6967764",
       "pageviews": {
         "total": 393,
-        "days": 30,
-        "start": "2026-10-22",
-        "end": "2026-11-20"
-      }
-    },
-    {
-      "canonical": "mirusoden",
-      "display": "Mirusodens",
-      "aliases": [],
-      "obscurity": 5,
-      "source": "https://en.wikipedia.org/wiki/Mirusodens_caii",
-      "wikidata": "http://www.wikidata.org/entity/Q135934460",
-      "pageviews": {
-        "total": 29,
-        "days": 28,
-        "start": "2026-10-23",
-        "end": "2026-11-20"
-      }
-    },
-    {
-      "canonical": "baycat",
-      "display": "Bay cat",
-      "aliases": [],
-      "obscurity": 3,
-      "source": "https://en.wikipedia.org/wiki/Pardofelis_badia",
-      "wikidata": "http://www.wikidata.org/entity/Q213044",
-      "pageviews": {
-        "total": 3930,
         "days": 30,
         "start": "2026-10-22",
         "end": "2026-11-20"
@@ -23350,20 +23142,6 @@
       "wikidata": "http://www.wikidata.org/entity/Q19717143",
       "pageviews": {
         "total": 368,
-        "days": 30,
-        "start": "2026-10-22",
-        "end": "2026-11-20"
-      }
-    },
-    {
-      "canonical": "megacyon",
-      "display": "Megacyon",
-      "aliases": [],
-      "obscurity": 5,
-      "source": "https://en.wikipedia.org/wiki/Megacyon_merriami",
-      "wikidata": "http://www.wikidata.org/entity/Q3853916",
-      "pageviews": {
-        "total": 169,
         "days": 30,
         "start": "2026-10-22",
         "end": "2026-11-20"
@@ -25624,20 +25402,6 @@
       }
     },
     {
-      "canonical": "cozumelcoati",
-      "display": "Cozumel coati",
-      "aliases": [],
-      "obscurity": 4,
-      "source": "https://en.wikipedia.org/wiki/Cozumel_Island_coati",
-      "wikidata": "http://www.wikidata.org/entity/Q869465",
-      "pageviews": {
-        "total": 445,
-        "days": 30,
-        "start": "2026-10-22",
-        "end": "2026-11-20"
-      }
-    },
-    {
       "canonical": "surathelmetedbat",
       "display": "Surat helmeted bat",
       "aliases": [],
@@ -25719,6 +25483,20 @@
         "days": 29,
         "start": "2026-10-22",
         "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "bushveldhorseshoebat",
+      "display": "Bushveld horseshoe bat",
+      "aliases": [],
+      "obscurity": 5,
+      "source": "https://en.wikipedia.org/wiki/Bushveld_horseshoe_bat",
+      "wikidata": "http://www.wikidata.org/entity/Q1769005",
+      "pageviews": {
+        "total": 27,
+        "days": 29,
+        "start": "2026-10-22",
+        "end": "2026-11-19"
       }
     },
     {
@@ -26240,20 +26018,6 @@
       }
     },
     {
-      "canonical": "northernthreestripedopossum",
-      "display": "Northern three-striped opossum",
-      "aliases": [],
-      "obscurity": 5,
-      "source": "https://en.wikipedia.org/wiki/Chestnut-striped_opossum",
-      "wikidata": "http://www.wikidata.org/entity/Q194484",
-      "pageviews": {
-        "total": 132,
-        "days": 30,
-        "start": "2026-10-22",
-        "end": "2026-11-20"
-      }
-    },
-    {
       "canonical": "amazonianredsidedopossum",
       "display": "Amazonian red-sided opossum",
       "aliases": [],
@@ -26685,6 +26449,34 @@
         "days": 29,
         "start": "2026-10-22",
         "end": "2026-11-19"
+      }
+    },
+    {
+      "canonical": "amazonweasel",
+      "display": "Amazon weasel",
+      "aliases": [],
+      "obscurity": 4,
+      "source": "https://en.wikipedia.org/wiki/Amazon_weasel",
+      "wikidata": "http://www.wikidata.org/entity/Q116894337",
+      "pageviews": {
+        "total": 476,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "colombianweasel",
+      "display": "Colombian weasel",
+      "aliases": [],
+      "obscurity": 4,
+      "source": "https://en.wikipedia.org/wiki/Colombian_weasel",
+      "wikidata": "http://www.wikidata.org/entity/Q116894434",
+      "pageviews": {
+        "total": 414,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
       }
     },
     {
@@ -27304,6 +27096,20 @@
       }
     },
     {
+      "canonical": "joffrebat",
+      "display": "Joffre's bat",
+      "aliases": [],
+      "obscurity": 5,
+      "source": "https://en.wikipedia.org/wiki/Joffre%27s_bat",
+      "wikidata": "http://www.wikidata.org/entity/Q88796715",
+      "pageviews": {
+        "total": 17,
+        "days": 25,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
       "canonical": "commonraccoondog",
       "display": "Common raccoon dog",
       "aliases": [],
@@ -27424,6 +27230,20 @@
       "wikidata": "http://www.wikidata.org/entity/Q194458",
       "pageviews": {
         "total": 95,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "northernthreestripedopossum",
+      "display": "Northern three-striped opossum",
+      "aliases": [],
+      "obscurity": 5,
+      "source": "https://en.wikipedia.org/wiki/Northern_three-striped_opossum",
+      "wikidata": "http://www.wikidata.org/entity/Q194466",
+      "pageviews": {
+        "total": 132,
         "days": 30,
         "start": "2026-10-22",
         "end": "2026-11-20"
@@ -27626,6 +27446,20 @@
       }
     },
     {
+      "canonical": "baycat",
+      "display": "Bay cat",
+      "aliases": [],
+      "obscurity": 3,
+      "source": "https://en.wikipedia.org/wiki/Bay_cat",
+      "wikidata": "http://www.wikidata.org/entity/Q23772801",
+      "pageviews": {
+        "total": 3930,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
       "canonical": "madagascanpygmyshrew",
       "display": "Madagascan pygmy shrew",
       "aliases": [],
@@ -27676,6 +27510,20 @@
       "wikidata": "http://www.wikidata.org/entity/Q30693238",
       "pageviews": {
         "total": 271,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "blacktaileddasyure",
+      "display": "Black-tailed dasyure",
+      "aliases": [],
+      "obscurity": 5,
+      "source": "https://en.wikipedia.org/wiki/Black-tailed_dasyure",
+      "wikidata": "http://www.wikidata.org/entity/Q49090868",
+      "pageviews": {
+        "total": 96,
         "days": 30,
         "start": "2026-10-22",
         "end": "2026-11-20"
@@ -28180,6 +28028,20 @@
       "wikidata": "http://www.wikidata.org/entity/Q124020304",
       "pageviews": {
         "total": 63,
+        "days": 29,
+        "start": "2026-10-22",
+        "end": "2026-11-19"
+      }
+    },
+    {
+      "canonical": "longtailedweasel",
+      "display": "Long-tailed weasel",
+      "aliases": [],
+      "obscurity": 3,
+      "source": "https://en.wikipedia.org/wiki/Long-tailed_weasel",
+      "wikidata": "http://www.wikidata.org/entity/Q125749307",
+      "pageviews": {
+        "total": 5545,
         "days": 29,
         "start": "2026-10-22",
         "end": "2026-11-19"
@@ -29572,20 +29434,6 @@
       }
     },
     {
-      "canonical": "palawantreeshrew",
-      "display": "Palawan treeshrew",
-      "aliases": [],
-      "obscurity": 5,
-      "source": "https://en.wikipedia.org/wiki/Calamian_treeshrew",
-      "wikidata": "http://www.wikidata.org/entity/Q965015",
-      "pageviews": {
-        "total": 84,
-        "days": 30,
-        "start": "2026-10-22",
-        "end": "2026-11-20"
-      }
-    },
-    {
       "canonical": "geoffroycat",
       "display": "Geoffroy's cat",
       "aliases": [],
@@ -29597,20 +29445,6 @@
         "days": 29,
         "start": "2026-10-22",
         "end": "2026-11-19"
-      }
-    },
-    {
-      "canonical": "militocodon",
-      "display": "Militocodon",
-      "aliases": [],
-      "obscurity": 5,
-      "source": "https://en.wikipedia.org/wiki/Militocodon_lydae",
-      "wikidata": "http://www.wikidata.org/entity/Q131454308",
-      "pageviews": {
-        "total": 43,
-        "days": 27,
-        "start": "2026-10-22",
-        "end": "2026-11-20"
       }
     },
     {
@@ -29824,6 +29658,20 @@
       }
     },
     {
+      "canonical": "dobsonepaulettedfruitbat",
+      "display": "Dobson's epauletted fruit bat",
+      "aliases": [],
+      "obscurity": 5,
+      "source": "https://en.wikipedia.org/wiki/Dobson%27s_epauletted_fruit_bat",
+      "wikidata": "http://www.wikidata.org/entity/Q135751189",
+      "pageviews": {
+        "total": 61,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
       "canonical": "greatercongoshrew",
       "display": "Greater Congo shrew",
       "aliases": [],
@@ -29833,20 +29681,6 @@
       "pageviews": {
         "total": 23,
         "days": 28,
-        "start": "2026-10-22",
-        "end": "2026-11-20"
-      }
-    },
-    {
-      "canonical": "urocyon",
-      "display": "Urocyon",
-      "aliases": [],
-      "obscurity": 3,
-      "source": "https://en.wikipedia.org/wiki/Cozumel_fox",
-      "wikidata": "http://www.wikidata.org/entity/Q2720989",
-      "pageviews": {
-        "total": 3542,
-        "days": 30,
         "start": "2026-10-22",
         "end": "2026-11-20"
       }
@@ -30280,6 +30114,20 @@
       "wikidata": "http://www.wikidata.org/entity/Q1761577",
       "pageviews": {
         "total": 358,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "palawantreeshrew",
+      "display": "Palawan treeshrew",
+      "aliases": [],
+      "obscurity": 5,
+      "source": "https://en.wikipedia.org/wiki/Palawan_treeshrew",
+      "wikidata": "http://www.wikidata.org/entity/Q1761638",
+      "pageviews": {
+        "total": 84,
         "days": 30,
         "start": "2026-10-22",
         "end": "2026-11-20"
@@ -30812,6 +30660,160 @@
       "wikidata": "http://www.wikidata.org/entity/Q1761878",
       "pageviews": {
         "total": 273,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "llanolongnosedarmadillo",
+      "display": "Llanos long-nosed armadillo",
+      "aliases": [],
+      "obscurity": 5,
+      "source": "https://en.wikipedia.org/wiki/Llanos_long-nosed_armadillo",
+      "wikidata": "http://www.wikidata.org/entity/Q1761916",
+      "pageviews": {
+        "total": 177,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "greaternakedtailedarmadillo",
+      "display": "Greater naked-tailed armadillo",
+      "aliases": [],
+      "obscurity": 5,
+      "source": "https://en.wikipedia.org/wiki/Greater_naked-tailed_armadillo",
+      "wikidata": "http://www.wikidata.org/entity/Q1762962",
+      "pageviews": {
+        "total": 286,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "greaterlongnosedarmadillo",
+      "display": "Greater long-nosed armadillo",
+      "aliases": [],
+      "obscurity": 4,
+      "source": "https://en.wikipedia.org/wiki/Greater_long-nosed_armadillo",
+      "wikidata": "http://www.wikidata.org/entity/Q1764523",
+      "pageviews": {
+        "total": 354,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "chacoannakedtailedarmadillo",
+      "display": "Chacoan naked-tailed armadillo",
+      "aliases": [],
+      "obscurity": 5,
+      "source": "https://en.wikipedia.org/wiki/Chacoan_naked-tailed_armadillo",
+      "wikidata": "http://www.wikidata.org/entity/Q1764906",
+      "pageviews": {
+        "total": 150,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "thereseshrew",
+      "display": "Therese's shrew",
+      "aliases": [],
+      "obscurity": 5,
+      "source": "https://en.wikipedia.org/wiki/Therese%27s_shrew",
+      "wikidata": "http://www.wikidata.org/entity/Q1766231",
+      "pageviews": {
+        "total": 23,
+        "days": 29,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "westafricanlongtailedshrew",
+      "display": "West African long-tailed shrew",
+      "aliases": [],
+      "obscurity": 5,
+      "source": "https://en.wikipedia.org/wiki/West_African_long-tailed_shrew",
+      "wikidata": "http://www.wikidata.org/entity/Q1766241",
+      "pageviews": {
+        "total": 22,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "moonshineshrew",
+      "display": "Moonshine shrew",
+      "aliases": [],
+      "obscurity": 5,
+      "source": "https://en.wikipedia.org/wiki/Moonshine_shrew",
+      "wikidata": "http://www.wikidata.org/entity/Q1766512",
+      "pageviews": {
+        "total": 25,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "butiabanakedtailedshrew",
+      "display": "Butiaba naked-tailed shrew",
+      "aliases": [],
+      "obscurity": 5,
+      "source": "https://en.wikipedia.org/wiki/Butiaba_naked-tailed_shrew",
+      "wikidata": "http://www.wikidata.org/entity/Q1766843",
+      "pageviews": {
+        "total": 15,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "horsfieldshrew",
+      "display": "Horsfield's shrew",
+      "aliases": [],
+      "obscurity": 5,
+      "source": "https://en.wikipedia.org/wiki/Horsfield%27s_shrew",
+      "wikidata": "http://www.wikidata.org/entity/Q1766837",
+      "pageviews": {
+        "total": 84,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "borneanshrew",
+      "display": "Bornean shrew",
+      "aliases": [],
+      "obscurity": 5,
+      "source": "https://en.wikipedia.org/wiki/Bornean_shrew",
+      "wikidata": "http://www.wikidata.org/entity/Q1767225",
+      "pageviews": {
+        "total": 27,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "sulawesitinyshrew",
+      "display": "Sulawesi tiny shrew",
+      "aliases": [],
+      "obscurity": 5,
+      "source": "https://en.wikipedia.org/wiki/Sulawesi_tiny_shrew",
+      "wikidata": "http://www.wikidata.org/entity/Q1767397",
+      "pageviews": {
+        "total": 34,
         "days": 30,
         "start": "2026-10-22",
         "end": "2026-11-20"
