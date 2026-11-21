@@ -47,7 +47,7 @@ npm run categories                  # all sources
 npm run categories -- animals       # one catalogued source
 ```
 
-`scripts/category-sources.json` is the input catalog. Each entry accepts a Wikidata class/occupation/taxon ID, or `wikiCategoryRoots` containing English Wikipedia category-list names. The builder follows source pagination and PageViewInfo continuation, records article URLs and measured pageview windows, normalizes and deduplicates names, filters sensitive names and disambiguation pages, and caches requests in the ignored `.category-cache/` directory. An interrupted run is resumable. The automated filter supplements the owner's review; it does not claim to replace it.
+`scripts/category-sources.json` is the input catalog. Each entry accepts a Wikidata class/occupation/taxon ID, or `wikiCategoryRoots` containing English Wikipedia category-list names. The builder follows source pagination and PageViewInfo continuation, records article URLs and measured pageview windows, normalizes and deduplicates names, filters sensitive names and disambiguation pages, excludes redirects whose normalized source title differs from the measured article title, and caches requests in the ignored `.category-cache/` directory. An interrupted run is resumable. The automated filter supplements the owner's review; it does not claim to replace it.
 
 Obscurity is based on the average daily pageviews over at least 20 observed days in the last 30: **1 ≥ 1,000; 2 ≥ 200; 3 ≥ 50; 4 ≥ 10; 5 < 10**. Missing measurements are excluded. These are readership bands, not player percentiles. Every answer includes its source and measurements. Scientific and disambiguated titles are retained. Aliases are exact and must be unique within a category.
 

@@ -7,10 +7,15 @@ for (const name of files) {
   const c = JSON.parse(readFileSync('categories/' + name, 'utf8'));
   if (c.status !== 'draft' || c.answers.length < 2000 || c.total_registrable !== c.answers.length)
     throw new Error('Invalid draft ' + name);
+  if (c.provenance?.identityPolicy !== 'exclude-cross-title-redirects-v1')
+    throw new Error('Unverified source identity ' + name);
   const keys = new Set<string>();
   for (const a of c.answers) {
     const v = a.pageviews;
     const n = normalize(a.display);
+    const article = decodeURIComponent(a.source.split('/wiki/')[1] || '').replaceAll('_', ' ');
+    if (a.canonical !== n || normalize(article) !== n)
+      throw new Error('Cross-title redirect or canonical mismatch ' + name + ': ' + a.display);
     if (keys.has(n) || !n) throw new Error('Duplicate entry ' + name + ': ' + a.display);
     keys.add(n);
     if (

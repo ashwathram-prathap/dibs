@@ -475,7 +475,9 @@ function Home({
                   aria-autocomplete="list"
                   aria-controls="suggestions"
                   aria-expanded={suggestions.length > 0}
-                  aria-activedescendant={active >= 0 ? 'suggestion-' + active : undefined}
+                  aria-activedescendant={
+                    active >= 0 && active < suggestions.length ? 'suggestion-' + active : undefined
+                  }
                   onKeyDown={(e) => {
                     if (e.key === 'ArrowDown') {
                       e.preventDefault();
