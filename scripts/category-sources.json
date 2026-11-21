@@ -4,7 +4,7 @@
     "name": "Animals",
     "root": "Q7377",
     "property": "P171",
-    "note": "Mammal species with English Wikipedia articles; animal register starts with mammals."
+    "note": "A mammal-led register supplemented with familiar animals such as Axolotl. Includes common animal names as well as species with English Wikipedia articles."
   },
   {
     "slug": "plants",
@@ -141,12 +141,14 @@
   {
     "slug": "ships",
     "name": "Ships",
-    "root": "Q11446"
+    "root": "Q11446",
+    "note": "Ship articles classified by Wikidata, including historical, proposed and reported designs. Review planned or fictional vessel entries before publication."
   },
   {
     "slug": "castles",
     "name": "Castles",
-    "root": "Q23413"
+    "root": "Q23413",
+    "note": "Castles classified by Wikidata, including historic structures and legendary or literary fortresses. Confirm whether to retain fictional entries before publication."
   },
   {
     "slug": "painters",
@@ -155,10 +157,11 @@
     "property": "P106"
   },
   {
-    "slug": "writers",
-    "name": "Writers",
+    "slug": "poets",
+    "name": "Poets",
     "root": "Q49757",
-    "property": "P106"
+    "property": "P106",
+    "note": "Poets identified by the Wikidata poet occupation, with dedicated English Wikipedia articles."
   },
   {
     "slug": "composers",

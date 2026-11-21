@@ -30,6 +30,7 @@ export interface Today {
   category: Category | null;
   claimed: number;
   open: number;
+  voided?: number;
   nextDrop: string;
   turnstileSiteKey: string;
   closedReason?: string;

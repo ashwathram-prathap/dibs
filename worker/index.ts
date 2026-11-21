@@ -116,6 +116,11 @@ async function admin(req: Request, env: Env, path: string) {
   if (path === '/admin/approve') {
     const c = await env.DB.prepare('SELECT * FROM categories WHERE id=?').bind(b.id).first<any>();
     if (!c) return fail(404, 'Register not found.');
+    if (c.status !== 'draft')
+      return fail(
+        409,
+        'Published registers keep their original date. File a new draft to run another day.',
+      );
     if (b.reviewed !== true || !validDate(b.date))
       return fail(422, 'Supply the reviewed date and reviewed: true.');
     const n = await env.DB.prepare(
@@ -274,17 +279,19 @@ export async function route(req: Request, env: Env): Promise<Response> {
   }
   if (path === '/today') {
     const category = await current(env);
-    const claimed = category
-      ? (
-          await env.DB.prepare('SELECT COUNT(*) n FROM claims WHERE category_id=? AND voided=0')
-            .bind(category.id)
-            .first<any>()
-        ).n
-      : 0;
+    const counts = category
+      ? await env.DB.prepare(
+          'SELECT COUNT(*) reserved,COALESCE(SUM(voided=0),0) claimed FROM claims WHERE category_id=?',
+        )
+          .bind(category.id)
+          .first<any>()
+      : { reserved: 0, claimed: 0 };
+    const claimed = Number(counts.claimed);
     return json({
       category,
       claimed,
-      open: category ? category.total_registrable - claimed : 0,
+      open: category ? category.total_registrable - Number(counts.reserved) : 0,
+      voided: Number(counts.reserved) - claimed,
       nextDrop: nextDrop(),
       turnstileSiteKey: env.TURNSTILE_SITE_KEY,
       closedReason: category

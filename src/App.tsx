@@ -193,7 +193,13 @@ export default function App() {
               OPENING THE REGISTER<span className="loading-dots"> . . .</span>
             </div>
           ) : path === '/' ? (
-            <Home today={today} me={me} refresh={refresh} setMe={setMe} />
+            <Home
+              key={today.category?.id || 'closed'}
+              today={today}
+              me={me}
+              refresh={refresh}
+              setMe={setMe}
+            />
           ) : path.startsWith('/certificate/') ? (
             <CertificatePage id={decodeURIComponent(path.split('/').pop()!)} />
           ) : path.startsWith('/archive') ? (
@@ -389,6 +395,12 @@ function Home({
                 <strong>{today.category.total_registrable.toLocaleString()}</strong> registrable{' '}
                 <i>·</i> <strong>{today.claimed.toLocaleString()}</strong> claimed <i>·</i>{' '}
                 <strong>{today.open.toLocaleString()}</strong> open
+                {!!today.voided && (
+                  <>
+                    <i>·</i>
+                    <strong>{today.voided.toLocaleString()}</strong> voided
+                  </>
+                )}
               </>
             ) : (
               'THE DAILY REGISTRY OF FIRST CLAIMS'

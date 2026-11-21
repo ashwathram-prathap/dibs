@@ -2,7 +2,7 @@
 
 A daily registry of first-come, first-served claims. React + TypeScript + Vite on Cloudflare Pages; a single Worker with D1 and Turnstile. All fonts are self-hosted. The repository is private.
 
-The preview deliberately opens with a closed office. The three proposed launch registers are **drafts**, and there are no production claims. Reviewing a category is a separate, explicit operation. Nothing in deployment approves one.
+The preview deliberately opens with a closed office. The three proposed launch registers are **drafts**, and there are no production claims. Reviewing a category is a separate, explicit operation. Nothing in deployment approves one. Published register dates cannot be moved; create a new draft ID for a later edition.
 
 ## Run locally
 
@@ -70,7 +70,7 @@ npx tsx scripts/admin.ts stats
 
 The `/stats` page accepts the token in a password field and keeps it only in memory. The daily table uses UTC. D1/D7 retention uses exact Toronto registry dates and mature first-claim cohorts; numerator and denominator are shown. School season counts cover all published registers since opening.
 
-Moderation is soft: hiding a user anonymizes their public holder information and blocks new filings. Voiding a claim removes it from public counts and certificates. It does **not** reopen the answer or grant a second daily claim. Serial numbers are never reused. Identity and school freeze after the first claim so old ledgers cannot be rewritten by changing the holder's name or school. A nullable provider subject is reserved for a future optional sign-in flow.
+Moderation is soft: hiding a user anonymizes their public holder information and blocks new filings. Voiding a claim removes it from public counts and certificates. It does **not** reopen the answer or grant a second daily claim. Serial numbers are never reused. Open counts exclude those reserved slots, and the daily header reports voided filings separately. Identity and school freeze after the first claim so old ledgers cannot be rewritten by changing the holder's name or school. A nullable provider subject is reserved for a future optional sign-in flow.
 
 ## Deploy on free Cloudflare services
 

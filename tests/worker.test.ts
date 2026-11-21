@@ -254,7 +254,14 @@ describe('Worker with real SQLite/D1 execution', () => {
           .first()
       ).n,
     ).toBe(2000);
-    await db.prepare("UPDATE categories SET status='approved' WHERE id='replace-me'").run();
+    const approve = () =>
+      mf.dispatchFetch('http://localhost/api/admin/approve', {
+        method: 'POST',
+        headers: { authorization: 'Bearer test-admin', 'content-type': 'application/json' },
+        body: JSON.stringify({ id: 'replace-me', date: '2099-01-01', reviewed: true }),
+      });
+    expect((await approve()).status).toBe(200);
+    expect((await approve()).status).toBe(409);
     expect((await upload({ ...draft, replaceDraft: true })).status).toBe(409);
     expect(
       (await db.prepare("SELECT display FROM answers WHERE id='replace-me:0'").first()).display,
@@ -285,5 +292,13 @@ describe('Worker with real SQLite/D1 execution', () => {
     expect(
       (await db.prepare('SELECT voided FROM claims WHERE id=?').bind(row.id).first()).voided,
     ).toBe(1);
+    const today = (await (await request('/today')).json()) as any;
+    const reserved = (
+      await db.prepare("SELECT COUNT(*) n FROM claims WHERE category_id='test'").first()
+    ).n;
+    expect(today.voided).toBe(1);
+    expect(today.claimed + today.voided).toBe(reserved);
+    expect(today.open).toBe(2400 - reserved);
+    expect(today.claimed + today.open + today.voided).toBe(today.category.total_registrable);
   });
 });
