@@ -11,11 +11,12 @@
     "categoryLists": null,
     "queryRoot": "Q482994",
     "property": "P31",
-    "builtAt": "2026-11-21T04:43:18.047Z",
+    "builtAt": "2026-11-21T05:02:39.712Z",
     "license": "Wikidata CC0; Wikipedia titles and pageview counts. See source URL on each entry.",
     "scoring": "Mean daily Wikipedia pageviews over available days in the past 30: 1 >=1000; 2 >=200; 3 >=50; 4 >=10; 5 <10. Missing data excluded.",
     "scopeNote": null,
-    "reviewRequired": true
+    "reviewRequired": true,
+    "identityPolicy": "exclude-cross-title-redirects-v1"
   },
   "answers": [
     {
@@ -65,8 +66,8 @@
       "display": "Uneasy Listening Vol. 1 & 2",
       "aliases": [],
       "obscurity": 5,
-      "source": "https://en.wikipedia.org/wiki/Uneasy_Listening_Vol._1",
-      "wikidata": "http://www.wikidata.org/entity/Q26263",
+      "source": "https://en.wikipedia.org/wiki/Uneasy_Listening_Vol._1_%26_2",
+      "wikidata": "http://www.wikidata.org/entity/Q26289",
       "pageviews": {
         "total": 220,
         "days": 30,
@@ -111,20 +112,6 @@
       "wikidata": "http://www.wikidata.org/entity/Q26342",
       "pageviews": {
         "total": 590,
-        "days": 30,
-        "start": "2026-10-22",
-        "end": "2026-11-20"
-      }
-    },
-    {
-      "canonical": "himdiscography",
-      "display": "HIM discography",
-      "aliases": [],
-      "obscurity": 3,
-      "source": "https://en.wikipedia.org/wiki/The_Single_Collection",
-      "wikidata": "http://www.wikidata.org/entity/Q26217",
-      "pageviews": {
-        "total": 3343,
         "days": 30,
         "start": "2026-10-22",
         "end": "2026-11-20"
@@ -621,20 +608,6 @@
       }
     },
     {
-      "canonical": "the69eyediscography",
-      "display": "The 69 Eyes discography",
-      "aliases": [],
-      "obscurity": 4,
-      "source": "https://en.wikipedia.org/wiki/Bump_%27n%27_Grind_(The_69_Eyes_album)",
-      "wikidata": "http://www.wikidata.org/entity/Q128331",
-      "pageviews": {
-        "total": 560,
-        "days": 30,
-        "start": "2026-10-22",
-        "end": "2026-11-20"
-      }
-    },
-    {
       "canonical": "universemoderntalkingalbum",
       "display": "Universe (Modern Talking album)",
       "aliases": [],
@@ -685,20 +658,6 @@
       "wikidata": "http://www.wikidata.org/entity/Q72456",
       "pageviews": {
         "total": 45,
-        "days": 30,
-        "start": "2026-10-22",
-        "end": "2026-11-20"
-      }
-    },
-    {
-      "canonical": "ayumix6",
-      "display": "Ayu-mi-x 6",
-      "aliases": [],
-      "obscurity": 5,
-      "source": "https://en.wikipedia.org/wiki/Ayu-mi-x_6:_Gold",
-      "wikidata": "http://www.wikidata.org/entity/Q72603",
-      "pageviews": {
-        "total": 17,
         "days": 30,
         "start": "2026-10-22",
         "end": "2026-11-20"
@@ -979,20 +938,6 @@
       "wikidata": "http://www.wikidata.org/entity/Q60782",
       "pageviews": {
         "total": 116,
-        "days": 30,
-        "start": "2026-10-22",
-        "end": "2026-11-20"
-      }
-    },
-    {
-      "canonical": "kaufmich",
-      "display": "Kauf MICH!",
-      "aliases": [],
-      "obscurity": 5,
-      "source": "https://en.wikipedia.org/wiki/Kauf_MICH!_(album)",
-      "wikidata": "http://www.wikidata.org/entity/Q60816",
-      "pageviews": {
-        "total": 43,
         "days": 30,
         "start": "2026-10-22",
         "end": "2026-11-20"
@@ -1654,20 +1599,6 @@
         "days": 30,
         "start": "2026-10-22",
         "end": "2026-11-20"
-      }
-    },
-    {
-      "canonical": "metallicadiscography",
-      "display": "Metallica discography",
-      "aliases": [],
-      "obscurity": 2,
-      "source": "https://en.wikipedia.org/wiki/Limited-Edition_Vinyl_Box_Set",
-      "wikidata": "http://www.wikidata.org/entity/Q130707",
-      "pageviews": {
-        "total": 25471,
-        "days": 29,
-        "start": "2026-10-22",
-        "end": "2026-11-19"
       }
     },
     {
@@ -2749,20 +2680,6 @@
       }
     },
     {
-      "canonical": "losfreddy",
-      "display": "Los Freddy's",
-      "aliases": [],
-      "obscurity": 5,
-      "source": "https://en.wikipedia.org/wiki/Vida_Nueva_(Los_Freddy%27s_album)",
-      "wikidata": "http://www.wikidata.org/entity/Q88792",
-      "pageviews": {
-        "total": 297,
-        "days": 30,
-        "start": "2026-10-22",
-        "end": "2026-11-20"
-      }
-    },
-    {
       "canonical": "staklenihotel",
       "display": "Stakleni hotel",
       "aliases": [],
@@ -2939,20 +2856,6 @@
       "wikidata": "http://www.wikidata.org/entity/Q15647",
       "pageviews": {
         "total": 547,
-        "days": 30,
-        "start": "2026-10-22",
-        "end": "2026-11-20"
-      }
-    },
-    {
-      "canonical": "vargaband",
-      "display": "Varga (band)",
-      "aliases": [],
-      "obscurity": 5,
-      "source": "https://en.wikipedia.org/wiki/Oxygen_(Varga_album)",
-      "wikidata": "http://www.wikidata.org/entity/Q15645",
-      "pageviews": {
-        "total": 146,
         "days": 30,
         "start": "2026-10-22",
         "end": "2026-11-20"
@@ -3247,20 +3150,6 @@
       "wikidata": "http://www.wikidata.org/entity/Q29338",
       "pageviews": {
         "total": 257,
-        "days": 30,
-        "start": "2026-10-22",
-        "end": "2026-11-20"
-      }
-    },
-    {
-      "canonical": "hopsin",
-      "display": "Hopsin",
-      "aliases": [],
-      "obscurity": 2,
-      "source": "https://en.wikipedia.org/wiki/Raw_(Hopsin_album)",
-      "wikidata": "http://www.wikidata.org/entity/Q29713",
-      "pageviews": {
-        "total": 6207,
         "days": 30,
         "start": "2026-10-22",
         "end": "2026-11-20"
@@ -3712,20 +3601,6 @@
         "days": 29,
         "start": "2026-10-22",
         "end": "2026-11-19"
-      }
-    },
-    {
-      "canonical": "nightrangerdiscography",
-      "display": "Night Ranger discography",
-      "aliases": [],
-      "obscurity": 3,
-      "source": "https://en.wikipedia.org/wiki/Seven_(Night_Ranger_album)",
-      "wikidata": "http://www.wikidata.org/entity/Q133425",
-      "pageviews": {
-        "total": 1819,
-        "days": 30,
-        "start": "2026-10-22",
-        "end": "2026-11-20"
       }
     },
     {
@@ -4555,20 +4430,6 @@
       }
     },
     {
-      "canonical": "behemothband",
-      "display": "Behemoth (band)",
-      "aliases": [],
-      "obscurity": 2,
-      "source": "https://en.wikipedia.org/wiki/...From_the_Pagan_Vastlands",
-      "wikidata": "http://www.wikidata.org/entity/Q119482",
-      "pageviews": {
-        "total": 15235,
-        "days": 30,
-        "start": "2026-10-22",
-        "end": "2026-11-20"
-      }
-    },
-    {
       "canonical": "helpyourselfjulianlennonalbum",
       "display": "Help Yourself (Julian Lennon album)",
       "aliases": [],
@@ -4608,20 +4469,6 @@
         "days": 30,
         "start": "2026-10-22",
         "end": "2026-11-20"
-      }
-    },
-    {
-      "canonical": "dieterderfilm",
-      "display": "Dieter: Der Film",
-      "aliases": [],
-      "obscurity": 4,
-      "source": "https://en.wikipedia.org/wiki/Dieter:_Der_Film_(soundtrack)",
-      "wikidata": "http://www.wikidata.org/entity/Q121545",
-      "pageviews": {
-        "total": 520,
-        "days": 29,
-        "start": "2026-10-22",
-        "end": "2026-11-19"
       }
     },
     {
@@ -5801,20 +5648,6 @@
       }
     },
     {
-      "canonical": "thetolkienensemble",
-      "display": "The Tolkien Ensemble",
-      "aliases": [],
-      "obscurity": 5,
-      "source": "https://en.wikipedia.org/wiki/Complete_Songs_%26_Poems",
-      "wikidata": "http://www.wikidata.org/entity/Q293006",
-      "pageviews": {
-        "total": 285,
-        "days": 30,
-        "start": "2026-10-22",
-        "end": "2026-11-20"
-      }
-    },
-    {
       "canonical": "leavingrivendell",
       "display": "Leaving Rivendell",
       "aliases": [],
@@ -6257,20 +6090,6 @@
       "wikidata": "http://www.wikidata.org/entity/Q161212",
       "pageviews": {
         "total": 3326,
-        "days": 30,
-        "start": "2026-10-22",
-        "end": "2026-11-20"
-      }
-    },
-    {
-      "canonical": "nicholateo",
-      "display": "Nicholas Teo",
-      "aliases": [],
-      "obscurity": 4,
-      "source": "https://en.wikipedia.org/wiki/The_Moment_of_Silence_(album)",
-      "wikidata": "http://www.wikidata.org/entity/Q301571",
-      "pageviews": {
-        "total": 927,
         "days": 30,
         "start": "2026-10-22",
         "end": "2026-11-20"
@@ -9049,20 +8868,6 @@
       }
     },
     {
-      "canonical": "subwaytosally",
-      "display": "Subway to Sally",
-      "aliases": [],
-      "obscurity": 4,
-      "source": "https://en.wikipedia.org/wiki/Nord_Nord_Ost",
-      "wikidata": "http://www.wikidata.org/entity/Q161996",
-      "pageviews": {
-        "total": 656,
-        "days": 30,
-        "start": "2026-10-22",
-        "end": "2026-11-20"
-      }
-    },
-    {
       "canonical": "freshfruitforrottingvegetable",
       "display": "Fresh Fruit for Rotting Vegetables",
       "aliases": [],
@@ -10589,20 +10394,6 @@
       }
     },
     {
-      "canonical": "sweetbox",
-      "display": "Sweetbox",
-      "aliases": [],
-      "obscurity": 4,
-      "source": "https://en.wikipedia.org/wiki/After_the_Lights",
-      "wikidata": "http://www.wikidata.org/entity/Q514217",
-      "pageviews": {
-        "total": 834,
-        "days": 30,
-        "start": "2026-10-22",
-        "end": "2026-11-20"
-      }
-    },
-    {
       "canonical": "afterthestormmonicaalbum",
       "display": "After the Storm (Monica album)",
       "aliases": [],
@@ -10642,20 +10433,6 @@
         "days": 29,
         "start": "2026-10-22",
         "end": "2026-11-19"
-      }
-    },
-    {
-      "canonical": "cornbug",
-      "display": "Cornbugs",
-      "aliases": [],
-      "obscurity": 4,
-      "source": "https://en.wikipedia.org/wiki/Skeleton_Farm",
-      "wikidata": "http://www.wikidata.org/entity/Q514468",
-      "pageviews": {
-        "total": 760,
-        "days": 30,
-        "start": "2026-10-22",
-        "end": "2026-11-20"
       }
     },
     {
@@ -11188,20 +10965,6 @@
         "days": 29,
         "start": "2026-10-22",
         "end": "2026-11-19"
-      }
-    },
-    {
-      "canonical": "3oh3discography",
-      "display": "3OH!3 discography",
-      "aliases": [],
-      "obscurity": 4,
-      "source": "https://en.wikipedia.org/wiki/SHT:_From_the_Vault",
-      "wikidata": "http://www.wikidata.org/entity/Q609101",
-      "pageviews": {
-        "total": 771,
-        "days": 30,
-        "start": "2026-10-22",
-        "end": "2026-11-20"
       }
     },
     {
@@ -11815,20 +11578,6 @@
       "wikidata": "http://www.wikidata.org/entity/Q310480",
       "pageviews": {
         "total": 4403,
-        "days": 30,
-        "start": "2026-10-22",
-        "end": "2026-11-20"
-      }
-    },
-    {
-      "canonical": "martasanchez",
-      "display": "Marta Sánchez",
-      "aliases": [],
-      "obscurity": 4,
-      "source": "https://en.wikipedia.org/wiki/Mi_Mundo_(Marta_S%C3%A1nchez_album)",
-      "wikidata": "http://www.wikidata.org/entity/Q522084",
-      "pageviews": {
-        "total": 1294,
         "days": 30,
         "start": "2026-10-22",
         "end": "2026-11-20"
@@ -12465,20 +12214,6 @@
       }
     },
     {
-      "canonical": "secretpassion",
-      "display": "Secret Passion",
-      "aliases": [],
-      "obscurity": 5,
-      "source": "https://en.wikipedia.org/wiki/Secret_Passion_(Amanda_Lear_album)",
-      "wikidata": "http://www.wikidata.org/entity/Q302867",
-      "pageviews": {
-        "total": 70,
-        "days": 30,
-        "start": "2026-10-22",
-        "end": "2026-11-20"
-      }
-    },
-    {
       "canonical": "thesuffererthewitness",
       "display": "The Sufferer & the Witness",
       "aliases": [],
@@ -12661,20 +12396,6 @@
       }
     },
     {
-      "canonical": "projekct",
-      "display": "ProjeKcts",
-      "aliases": [],
-      "obscurity": 4,
-      "source": "https://en.wikipedia.org/wiki/Masque_(King_Crimson_album)",
-      "wikidata": "http://www.wikidata.org/entity/Q304376",
-      "pageviews": {
-        "total": 1103,
-        "days": 30,
-        "start": "2026-10-22",
-        "end": "2026-11-20"
-      }
-    },
-    {
       "canonical": "unisoncelinedionalbum",
       "display": "Unison (Celine Dion album)",
       "aliases": [],
@@ -12843,20 +12564,6 @@
       }
     },
     {
-      "canonical": "jadevillalon",
-      "display": "Jade Villalon",
-      "aliases": [],
-      "obscurity": 4,
-      "source": "https://en.wikipedia.org/wiki/Out_of_the_Box_(Jade_Valerie_album)",
-      "wikidata": "http://www.wikidata.org/entity/Q518307",
-      "pageviews": {
-        "total": 658,
-        "days": 30,
-        "start": "2026-10-22",
-        "end": "2026-11-20"
-      }
-    },
-    {
       "canonical": "waratthewarfield",
       "display": "War at the Warfield",
       "aliases": [],
@@ -12963,20 +12670,6 @@
       "wikidata": "http://www.wikidata.org/entity/Q519128",
       "pageviews": {
         "total": 628,
-        "days": 30,
-        "start": "2026-10-22",
-        "end": "2026-11-20"
-      }
-    },
-    {
-      "canonical": "snakefinger",
-      "display": "Snakefinger",
-      "aliases": [],
-      "obscurity": 4,
-      "source": "https://en.wikipedia.org/wiki/Manual_of_Errors",
-      "wikidata": "http://www.wikidata.org/entity/Q519246",
-      "pageviews": {
-        "total": 1336,
         "days": 30,
         "start": "2026-10-22",
         "end": "2026-11-20"
@@ -14159,20 +13852,6 @@
       }
     },
     {
-      "canonical": "manuchaodiscography",
-      "display": "Manu Chao discography",
-      "aliases": [],
-      "obscurity": 4,
-      "source": "https://en.wikipedia.org/wiki/Sib%C3%A9rie_m%27%C3%A9tait_cont%C3%A9ee",
-      "wikidata": "http://www.wikidata.org/entity/Q524241",
-      "pageviews": {
-        "total": 580,
-        "days": 30,
-        "start": "2026-10-22",
-        "end": "2026-11-20"
-      }
-    },
-    {
       "canonical": "onzedansepourcombattrelamigraine",
       "display": "Onze Danses Pour Combattre la Migraine",
       "aliases": [],
@@ -14209,20 +13888,6 @@
       "wikidata": "http://www.wikidata.org/entity/Q524559",
       "pageviews": {
         "total": 628,
-        "days": 30,
-        "start": "2026-10-22",
-        "end": "2026-11-20"
-      }
-    },
-    {
-      "canonical": "ewafarna",
-      "display": "Ewa Farna",
-      "aliases": [],
-      "obscurity": 3,
-      "source": "https://en.wikipedia.org/wiki/Ticho_(album)",
-      "wikidata": "http://www.wikidata.org/entity/Q524635",
-      "pageviews": {
-        "total": 1629,
         "days": 30,
         "start": "2026-10-22",
         "end": "2026-11-20"
@@ -14467,20 +14132,6 @@
       }
     },
     {
-      "canonical": "hacavitzband",
-      "display": "Hacavitz (band)",
-      "aliases": [],
-      "obscurity": 5,
-      "source": "https://en.wikipedia.org/wiki/Venganza_(album)",
-      "wikidata": "http://www.wikidata.org/entity/Q614585",
-      "pageviews": {
-        "total": 52,
-        "days": 30,
-        "start": "2026-10-22",
-        "end": "2026-11-20"
-      }
-    },
-    {
       "canonical": "universoaomeuredor",
       "display": "Universo ao Meu Redor",
       "aliases": [],
@@ -14573,20 +14224,6 @@
       "wikidata": "http://www.wikidata.org/entity/Q168573",
       "pageviews": {
         "total": 822,
-        "days": 30,
-        "start": "2026-10-22",
-        "end": "2026-11-20"
-      }
-    },
-    {
-      "canonical": "fler",
-      "display": "Fler",
-      "aliases": [],
-      "obscurity": 4,
-      "source": "https://en.wikipedia.org/wiki/Airmax_Muzik_II",
-      "wikidata": "http://www.wikidata.org/entity/Q168585",
-      "pageviews": {
-        "total": 585,
         "days": 30,
         "start": "2026-10-22",
         "end": "2026-11-20"
@@ -15405,20 +15042,6 @@
       }
     },
     {
-      "canonical": "chrisisaak",
-      "display": "Chris Isaak",
-      "aliases": [],
-      "obscurity": 1,
-      "source": "https://en.wikipedia.org/wiki/3_for_One",
-      "wikidata": "http://www.wikidata.org/entity/Q612481",
-      "pageviews": {
-        "total": 84796,
-        "days": 29,
-        "start": "2026-10-22",
-        "end": "2026-11-19"
-      }
-    },
-    {
       "canonical": "fuckingwithfirelive",
       "display": "Fucking with Fire: Live",
       "aliases": [],
@@ -15727,20 +15350,6 @@
       }
     },
     {
-      "canonical": "udontknowmelikeuusedto",
-      "display": "U Don't Know Me (Like U Used To)",
-      "aliases": [],
-      "obscurity": 4,
-      "source": "https://en.wikipedia.org/wiki/U_Don%27t_Know_Me_(EP)",
-      "wikidata": "http://www.wikidata.org/entity/Q177520",
-      "pageviews": {
-        "total": 312,
-        "days": 30,
-        "start": "2026-10-22",
-        "end": "2026-11-20"
-      }
-    },
-    {
       "canonical": "madonnaalbum",
       "display": "Madonna (album)",
       "aliases": [],
@@ -15979,20 +15588,6 @@
       }
     },
     {
-      "canonical": "andytimmon",
-      "display": "Andy Timmons",
-      "aliases": [],
-      "obscurity": 3,
-      "source": "https://en.wikipedia.org/wiki/Ear_X-Tacy",
-      "wikidata": "http://www.wikidata.org/entity/Q331215",
-      "pageviews": {
-        "total": 3566,
-        "days": 30,
-        "start": "2026-10-22",
-        "end": "2026-11-20"
-      }
-    },
-    {
       "canonical": "strippedchristinaaguileraalbum",
       "display": "Stripped (Christina Aguilera album)",
       "aliases": [],
@@ -16015,20 +15610,6 @@
       "wikidata": "http://www.wikidata.org/entity/Q524874",
       "pageviews": {
         "total": 478,
-        "days": 30,
-        "start": "2026-10-22",
-        "end": "2026-11-20"
-      }
-    },
-    {
-      "canonical": "darklunacy",
-      "display": "Dark Lunacy",
-      "aliases": [],
-      "obscurity": 5,
-      "source": "https://en.wikipedia.org/wiki/The_Diarist",
-      "wikidata": "http://www.wikidata.org/entity/Q524986",
-      "pageviews": {
-        "total": 254,
         "days": 30,
         "start": "2026-10-22",
         "end": "2026-11-20"
@@ -17533,20 +17114,6 @@
       }
     },
     {
-      "canonical": "nouseforaname",
-      "display": "No Use for a Name",
-      "aliases": [],
-      "obscurity": 3,
-      "source": "https://en.wikipedia.org/wiki/Live_in_a_Dive_(No_Use_for_a_Name_album)",
-      "wikidata": "http://www.wikidata.org/entity/Q616499",
-      "pageviews": {
-        "total": 3871,
-        "days": 30,
-        "start": "2026-10-22",
-        "end": "2026-11-20"
-      }
-    },
-    {
       "canonical": "smashhitthejimihendrixexperiencealbum",
       "display": "Smash Hits (The Jimi Hendrix Experience album)",
       "aliases": [],
@@ -17723,20 +17290,6 @@
       "wikidata": "http://www.wikidata.org/entity/Q709117",
       "pageviews": {
         "total": 127,
-        "days": 30,
-        "start": "2026-10-22",
-        "end": "2026-11-20"
-      }
-    },
-    {
-      "canonical": "alanismorissettediscography",
-      "display": "Alanis Morissette discography",
-      "aliases": [],
-      "obscurity": 2,
-      "source": "https://en.wikipedia.org/wiki/ITunes_Originals_%E2%80%93_Alanis_Morissette",
-      "wikidata": "http://www.wikidata.org/entity/Q709577",
-      "pageviews": {
-        "total": 9631,
         "days": 30,
         "start": "2026-10-22",
         "end": "2026-11-20"
@@ -18471,20 +18024,6 @@
       }
     },
     {
-      "canonical": "bersuitvergarabat",
-      "display": "Bersuit Vergarabat",
-      "aliases": [],
-      "obscurity": 4,
-      "source": "https://en.wikipedia.org/wiki/Don_Leopardo",
-      "wikidata": "http://www.wikidata.org/entity/Q530457",
-      "pageviews": {
-        "total": 489,
-        "days": 30,
-        "start": "2026-10-22",
-        "end": "2026-11-20"
-      }
-    },
-    {
       "canonical": "perunamico",
       "display": "Per un amico",
       "aliases": [],
@@ -18619,20 +18158,6 @@
       "wikidata": "http://www.wikidata.org/entity/Q619218",
       "pageviews": {
         "total": 226,
-        "days": 30,
-        "start": "2026-10-22",
-        "end": "2026-11-20"
-      }
-    },
-    {
-      "canonical": "keakdasneak",
-      "display": "Keak da Sneak",
-      "aliases": [],
-      "obscurity": 3,
-      "source": "https://en.wikipedia.org/wiki/Word_Pimpin_2:_We_Don%27t_Need_You",
-      "wikidata": "http://www.wikidata.org/entity/Q619213",
-      "pageviews": {
-        "total": 2459,
         "days": 30,
         "start": "2026-10-22",
         "end": "2026-11-20"
@@ -18815,20 +18340,6 @@
       "wikidata": "http://www.wikidata.org/entity/Q621067",
       "pageviews": {
         "total": 1272,
-        "days": 30,
-        "start": "2026-10-22",
-        "end": "2026-11-20"
-      }
-    },
-    {
-      "canonical": "bohseonkelz",
-      "display": "Böhse Onkelz",
-      "aliases": [],
-      "obscurity": 3,
-      "source": "https://en.wikipedia.org/wiki/Live_in_Dortmund",
-      "wikidata": "http://www.wikidata.org/entity/Q621445",
-      "pageviews": {
-        "total": 2049,
         "days": 30,
         "start": "2026-10-22",
         "end": "2026-11-20"
@@ -19409,20 +18920,6 @@
       }
     },
     {
-      "canonical": "psychoticwaltz",
-      "display": "Psychotic Waltz",
-      "aliases": [],
-      "obscurity": 4,
-      "source": "https://en.wikipedia.org/wiki/A_Social_Grace",
-      "wikidata": "http://www.wikidata.org/entity/Q336756",
-      "pageviews": {
-        "total": 802,
-        "days": 30,
-        "start": "2026-10-22",
-        "end": "2026-11-20"
-      }
-    },
-    {
       "canonical": "livemetalchurchalbum",
       "display": "Live (Metal Church album)",
       "aliases": [],
@@ -19703,20 +19200,6 @@
       }
     },
     {
-      "canonical": "guymanning",
-      "display": "Guy Manning",
-      "aliases": [],
-      "obscurity": 5,
-      "source": "https://en.wikipedia.org/wiki/Cascade_(Guy_Manning_album)",
-      "wikidata": "http://www.wikidata.org/entity/Q528100",
-      "pageviews": {
-        "total": 127,
-        "days": 30,
-        "start": "2026-10-22",
-        "end": "2026-11-20"
-      }
-    },
-    {
       "canonical": "invasionmanillaroadalbum",
       "display": "Invasion (Manilla Road album)",
       "aliases": [],
@@ -19725,20 +19208,6 @@
       "wikidata": "http://www.wikidata.org/entity/Q528147",
       "pageviews": {
         "total": 318,
-        "days": 30,
-        "start": "2026-10-22",
-        "end": "2026-11-20"
-      }
-    },
-    {
-      "canonical": "gentlemanmusician",
-      "display": "Gentleman (musician)",
-      "aliases": [],
-      "obscurity": 3,
-      "source": "https://en.wikipedia.org/wiki/Trodin_On",
-      "wikidata": "http://www.wikidata.org/entity/Q528268",
-      "pageviews": {
-        "total": 1804,
         "days": 30,
         "start": "2026-10-22",
         "end": "2026-11-20"
@@ -19823,20 +19292,6 @@
       "wikidata": "http://www.wikidata.org/entity/Q529760",
       "pageviews": {
         "total": 2550,
-        "days": 30,
-        "start": "2026-10-22",
-        "end": "2026-11-20"
-      }
-    },
-    {
-      "canonical": "jeannebalibar",
-      "display": "Jeanne Balibar",
-      "aliases": [],
-      "obscurity": 3,
-      "source": "https://en.wikipedia.org/wiki/Slalom_Dame",
-      "wikidata": "http://www.wikidata.org/entity/Q529864",
-      "pageviews": {
-        "total": 3806,
         "days": 30,
         "start": "2026-10-22",
         "end": "2026-11-20"
@@ -20123,20 +19578,6 @@
       }
     },
     {
-      "canonical": "iqband",
-      "display": "IQ (band)",
-      "aliases": [],
-      "obscurity": 3,
-      "source": "https://en.wikipedia.org/wiki/The_Seventh_House",
-      "wikidata": "http://www.wikidata.org/entity/Q717988",
-      "pageviews": {
-        "total": 2846,
-        "days": 30,
-        "start": "2026-10-22",
-        "end": "2026-11-20"
-      }
-    },
-    {
       "canonical": "wanteddreadalive",
       "display": "Wanted Dread & Alive",
       "aliases": [],
@@ -20257,20 +19698,6 @@
       "wikidata": "http://www.wikidata.org/entity/Q718783",
       "pageviews": {
         "total": 1813,
-        "days": 30,
-        "start": "2026-10-22",
-        "end": "2026-11-20"
-      }
-    },
-    {
-      "canonical": "stephanepompougnac",
-      "display": "Stéphane Pompougnac",
-      "aliases": [],
-      "obscurity": 4,
-      "source": "https://en.wikipedia.org/wiki/H%C3%B4tel_Costes,_Vol._1",
-      "wikidata": "http://www.wikidata.org/entity/Q718821",
-      "pageviews": {
-        "total": 315,
         "days": 30,
         "start": "2026-10-22",
         "end": "2026-11-20"
@@ -21033,20 +20460,6 @@
       }
     },
     {
-      "canonical": "younhadiscography",
-      "display": "Younha discography",
-      "aliases": [],
-      "obscurity": 5,
-      "source": "https://en.wikipedia.org/wiki/Songs_-_Teen%27s_Collection",
-      "wikidata": "http://www.wikidata.org/entity/Q624048",
-      "pageviews": {
-        "total": 298,
-        "days": 30,
-        "start": "2026-10-22",
-        "end": "2026-11-20"
-      }
-    },
-    {
       "canonical": "somedayyounhaalbum",
       "display": "Someday (Younha album)",
       "aliases": [],
@@ -21114,20 +20527,6 @@
         "days": 30,
         "start": "2026-10-22",
         "end": "2026-11-20"
-      }
-    },
-    {
-      "canonical": "thecorr",
-      "display": "The Corrs",
-      "aliases": [],
-      "obscurity": 1,
-      "source": "https://en.wikipedia.org/wiki/The_Corrs_%E2%80%93_Live",
-      "wikidata": "http://www.wikidata.org/entity/Q625326",
-      "pageviews": {
-        "total": 31673,
-        "days": 29,
-        "start": "2026-10-22",
-        "end": "2026-11-19"
       }
     },
     {
@@ -22363,20 +21762,6 @@
       }
     },
     {
-      "canonical": "lindaperry",
-      "display": "Linda Perry",
-      "aliases": [],
-      "obscurity": 1,
-      "source": "https://en.wikipedia.org/wiki/After_Hours_(Linda_Perry_album)",
-      "wikidata": "http://www.wikidata.org/entity/Q534619",
-      "pageviews": {
-        "total": 79790,
-        "days": 30,
-        "start": "2026-10-22",
-        "end": "2026-11-20"
-      }
-    },
-    {
       "canonical": "thisissinatra",
       "display": "This Is Sinatra!",
       "aliases": [],
@@ -22609,20 +21994,6 @@
       "wikidata": "http://www.wikidata.org/entity/Q628205",
       "pageviews": {
         "total": 403,
-        "days": 30,
-        "start": "2026-10-22",
-        "end": "2026-11-20"
-      }
-    },
-    {
-      "canonical": "phideauxxavier",
-      "display": "Phideaux Xavier",
-      "aliases": [],
-      "obscurity": 4,
-      "source": "https://en.wikipedia.org/wiki/Chupacabras_(album)",
-      "wikidata": "http://www.wikidata.org/entity/Q628229",
-      "pageviews": {
-        "total": 646,
         "days": 30,
         "start": "2026-10-22",
         "end": "2026-11-20"
@@ -23581,20 +22952,6 @@
       }
     },
     {
-      "canonical": "eyesettokill",
-      "display": "Eyes Set to Kill",
-      "aliases": [],
-      "obscurity": 3,
-      "source": "https://en.wikipedia.org/wiki/Reach_(Eyes_Set_to_Kill_album)",
-      "wikidata": "http://www.wikidata.org/entity/Q629747",
-      "pageviews": {
-        "total": 1977,
-        "days": 30,
-        "start": "2026-10-22",
-        "end": "2026-11-20"
-      }
-    },
-    {
       "canonical": "jeweleinsturzendeneubautenalbum",
       "display": "Jewels (Einstürzende Neubauten album)",
       "aliases": [],
@@ -23715,20 +23072,6 @@
       "wikidata": "http://www.wikidata.org/entity/Q630126",
       "pageviews": {
         "total": 299,
-        "days": 30,
-        "start": "2026-10-22",
-        "end": "2026-11-20"
-      }
-    },
-    {
-      "canonical": "magicaband",
-      "display": "Magica (band)",
-      "aliases": [],
-      "obscurity": 5,
-      "source": "https://en.wikipedia.org/wiki/Lightseeker",
-      "wikidata": "http://www.wikidata.org/entity/Q630265",
-      "pageviews": {
-        "total": 121,
         "days": 30,
         "start": "2026-10-22",
         "end": "2026-11-20"
@@ -24155,20 +23498,6 @@
       }
     },
     {
-      "canonical": "eisregen",
-      "display": "Eisregen",
-      "aliases": [],
-      "obscurity": 4,
-      "source": "https://en.wikipedia.org/wiki/Zerfall",
-      "wikidata": "http://www.wikidata.org/entity/Q191608",
-      "pageviews": {
-        "total": 304,
-        "days": 30,
-        "start": "2026-10-22",
-        "end": "2026-11-20"
-      }
-    },
-    {
       "canonical": "thebestdamnthing",
       "display": "The Best Damn Thing",
       "aliases": [],
@@ -24457,20 +23786,6 @@
       "wikidata": "http://www.wikidata.org/entity/Q370177",
       "pageviews": {
         "total": 97,
-        "days": 30,
-        "start": "2026-10-22",
-        "end": "2026-11-20"
-      }
-    },
-    {
-      "canonical": "jeanmicheljarre",
-      "display": "Jean-Michel Jarre",
-      "aliases": [],
-      "obscurity": 1,
-      "source": "https://en.wikipedia.org/wiki/Interior_Music",
-      "wikidata": "http://www.wikidata.org/entity/Q370195",
-      "pageviews": {
-        "total": 32427,
         "days": 30,
         "start": "2026-10-22",
         "end": "2026-11-20"
@@ -25205,20 +24520,6 @@
       }
     },
     {
-      "canonical": "velcra",
-      "display": "Velcra",
-      "aliases": [],
-      "obscurity": 5,
-      "source": "https://en.wikipedia.org/wiki/Hadal_(album)",
-      "wikidata": "http://www.wikidata.org/entity/Q728054",
-      "pageviews": {
-        "total": 227,
-        "days": 30,
-        "start": "2026-10-22",
-        "end": "2026-11-20"
-      }
-    },
-    {
       "canonical": "sacredlove",
       "display": "Sacred Love",
       "aliases": [],
@@ -25233,34 +24534,6 @@
       }
     },
     {
-      "canonical": "sonandfascinationsisterfeelingcall",
-      "display": "Sons and Fascination/Sister Feelings Call",
-      "aliases": [],
-      "obscurity": 3,
-      "source": "https://en.wikipedia.org/wiki/Sister_Feelings_Call",
-      "wikidata": "http://www.wikidata.org/entity/Q727976",
-      "pageviews": {
-        "total": 3394,
-        "days": 30,
-        "start": "2026-10-22",
-        "end": "2026-11-20"
-      }
-    },
-    {
-      "canonical": "lordi",
-      "display": "Lordi",
-      "aliases": [],
-      "obscurity": 3,
-      "source": "https://en.wikipedia.org/wiki/The_Monster_Show",
-      "wikidata": "http://www.wikidata.org/entity/Q728165",
-      "pageviews": {
-        "total": 5107,
-        "days": 29,
-        "start": "2026-10-22",
-        "end": "2026-11-19"
-      }
-    },
-    {
       "canonical": "lovehatenineblackalpalbum",
       "display": "Love/Hate (Nine Black Alps album)",
       "aliases": [],
@@ -25270,20 +24543,6 @@
       "pageviews": {
         "total": 57,
         "days": 29,
-        "start": "2026-10-22",
-        "end": "2026-11-20"
-      }
-    },
-    {
-      "canonical": "saintjustband",
-      "display": "Saint Just (band)",
-      "aliases": [],
-      "obscurity": 5,
-      "source": "https://en.wikipedia.org/wiki/Saint_Just_(album)",
-      "wikidata": "http://www.wikidata.org/entity/Q728295",
-      "pageviews": {
-        "total": 47,
-        "days": 30,
         "start": "2026-10-22",
         "end": "2026-11-20"
       }
@@ -26255,20 +25514,6 @@
       }
     },
     {
-      "canonical": "tommyemmanueldiscography",
-      "display": "Tommy Emmanuel discography",
-      "aliases": [],
-      "obscurity": 4,
-      "source": "https://en.wikipedia.org/wiki/Initiation_(Tommy_Emmanuel_album)",
-      "wikidata": "http://www.wikidata.org/entity/Q631643",
-      "pageviews": {
-        "total": 506,
-        "days": 30,
-        "start": "2026-10-22",
-        "end": "2026-11-20"
-      }
-    },
-    {
       "canonical": "calltoarmsickofitallalbum",
       "display": "Call to Arms (Sick of It All album)",
       "aliases": [],
@@ -26507,20 +25752,6 @@
       }
     },
     {
-      "canonical": "edguy",
-      "display": "Edguy",
-      "aliases": [],
-      "obscurity": 3,
-      "source": "https://en.wikipedia.org/wiki/Evil_Minded",
-      "wikidata": "http://www.wikidata.org/entity/Q730435",
-      "pageviews": {
-        "total": 4338,
-        "days": 30,
-        "start": "2026-10-22",
-        "end": "2026-11-20"
-      }
-    },
-    {
       "canonical": "autoamerican",
       "display": "Autoamerican",
       "aliases": [],
@@ -26613,20 +25844,6 @@
       "wikidata": "http://www.wikidata.org/entity/Q730853",
       "pageviews": {
         "total": 387,
-        "days": 30,
-        "start": "2026-10-22",
-        "end": "2026-11-20"
-      }
-    },
-    {
-      "canonical": "skrewdriver",
-      "display": "Skrewdriver",
-      "aliases": [],
-      "obscurity": 2,
-      "source": "https://en.wikipedia.org/wiki/Warlord_(Skrewdriver_album)",
-      "wikidata": "http://www.wikidata.org/entity/Q730819",
-      "pageviews": {
-        "total": 8922,
         "days": 30,
         "start": "2026-10-22",
         "end": "2026-11-20"
@@ -27305,20 +26522,6 @@
       }
     },
     {
-      "canonical": "butterflyworldtour",
-      "display": "Butterfly World Tour",
-      "aliases": [],
-      "obscurity": 4,
-      "source": "https://en.wikipedia.org/wiki/Around_the_World_(video)",
-      "wikidata": "http://www.wikidata.org/entity/Q374724",
-      "pageviews": {
-        "total": 1182,
-        "days": 29,
-        "start": "2026-10-22",
-        "end": "2026-11-19"
-      }
-    },
-    {
       "canonical": "bestofthebeast",
       "display": "Best of the Beast",
       "aliases": [],
@@ -27557,34 +26760,6 @@
       }
     },
     {
-      "canonical": "theletterblack",
-      "display": "The Letter Black",
-      "aliases": [],
-      "obscurity": 4,
-      "source": "https://en.wikipedia.org/wiki/Stand_(Breaking_the_Silence_album)",
-      "wikidata": "http://www.wikidata.org/entity/Q541400",
-      "pageviews": {
-        "total": 686,
-        "days": 30,
-        "start": "2026-10-22",
-        "end": "2026-11-20"
-      }
-    },
-    {
-      "canonical": "styleofbeyond",
-      "display": "Styles of Beyond",
-      "aliases": [],
-      "obscurity": 3,
-      "source": "https://en.wikipedia.org/wiki/Razor_Tag",
-      "wikidata": "http://www.wikidata.org/entity/Q541442",
-      "pageviews": {
-        "total": 3353,
-        "days": 30,
-        "start": "2026-10-22",
-        "end": "2026-11-20"
-      }
-    },
-    {
       "canonical": "theeraalbum",
       "display": "The Era (album)",
       "aliases": [],
@@ -27624,20 +26799,6 @@
         "days": 30,
         "start": "2026-10-22",
         "end": "2026-11-20"
-      }
-    },
-    {
-      "canonical": "wisinyandel",
-      "display": "Wisin & Yandel",
-      "aliases": [],
-      "obscurity": 3,
-      "source": "https://en.wikipedia.org/wiki/Wisin_%26_Yandel_Presentan:_WY_Records:_Lo_Mejor_De_La_Compa%C3%B1%C3%ADa",
-      "wikidata": "http://www.wikidata.org/entity/Q542403",
-      "pageviews": {
-        "total": 3852,
-        "days": 29,
-        "start": "2026-10-22",
-        "end": "2026-11-19"
       }
     },
     {
@@ -27789,20 +26950,6 @@
       "wikidata": "http://www.wikidata.org/entity/Q636039",
       "pageviews": {
         "total": 300,
-        "days": 30,
-        "start": "2026-10-22",
-        "end": "2026-11-20"
-      }
-    },
-    {
-      "canonical": "alexzjohnson",
-      "display": "Alexz Johnson",
-      "aliases": [],
-      "obscurity": 3,
-      "source": "https://en.wikipedia.org/wiki/Voodoo_(Alexz_Johnson_album)",
-      "wikidata": "http://www.wikidata.org/entity/Q636196",
-      "pageviews": {
-        "total": 4176,
         "days": 30,
         "start": "2026-10-22",
         "end": "2026-11-20"
@@ -28747,20 +27894,6 @@
       }
     },
     {
-      "canonical": "3xkrazy",
-      "display": "3X Krazy",
-      "aliases": [],
-      "obscurity": 4,
-      "source": "https://en.wikipedia.org/wiki/Flowamatic-9",
-      "wikidata": "http://www.wikidata.org/entity/Q632977",
-      "pageviews": {
-        "total": 594,
-        "days": 30,
-        "start": "2026-10-22",
-        "end": "2026-11-20"
-      }
-    },
-    {
       "canonical": "thedirtchambersessionvolumeone",
       "display": "The Dirtchamber Sessions Volume One",
       "aliases": [],
@@ -29419,20 +28552,6 @@
       }
     },
     {
-      "canonical": "xtc",
-      "display": "XTC",
-      "aliases": [],
-      "obscurity": 2,
-      "source": "https://en.wikipedia.org/wiki/BBC_Radio_1_Live_in_Concert_(XTC_album)",
-      "wikidata": "http://www.wikidata.org/entity/Q376615",
-      "pageviews": {
-        "total": 21263,
-        "days": 30,
-        "start": "2026-10-22",
-        "end": "2026-11-20"
-      }
-    },
-    {
       "canonical": "quicksilvermessengerservicealbum",
       "display": "Quicksilver Messenger Service (album)",
       "aliases": [],
@@ -29875,20 +28994,6 @@
       "wikidata": "http://www.wikidata.org/entity/Q637692",
       "pageviews": {
         "total": 1455,
-        "days": 30,
-        "start": "2026-10-22",
-        "end": "2026-11-20"
-      }
-    },
-    {
-      "canonical": "asperahiemsymfonia",
-      "display": "Aspera Hiems Symfonia",
-      "aliases": [],
-      "obscurity": 4,
-      "source": "https://en.wikipedia.org/wiki/Aspera_Hiems_Symfonia/Constellation/My_Angel",
-      "wikidata": "http://www.wikidata.org/entity/Q637752",
-      "pageviews": {
-        "total": 553,
         "days": 30,
         "start": "2026-10-22",
         "end": "2026-11-20"
@@ -30813,6 +29918,902 @@
       "wikidata": "http://www.wikidata.org/entity/Q544828",
       "pageviews": {
         "total": 3095,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "quickthewordsharptheaction",
+      "display": "Quick the Word, Sharp the Action",
+      "aliases": [],
+      "obscurity": 5,
+      "source": "https://en.wikipedia.org/wiki/Quick_the_Word,_Sharp_the_Action",
+      "wikidata": "http://www.wikidata.org/entity/Q545127",
+      "pageviews": {
+        "total": 119,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "spiderland",
+      "display": "Spiderland",
+      "aliases": [],
+      "obscurity": 2,
+      "source": "https://en.wikipedia.org/wiki/Spiderland",
+      "wikidata": "http://www.wikidata.org/entity/Q545227",
+      "pageviews": {
+        "total": 9333,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "worldwideunderground",
+      "display": "Worldwide Underground",
+      "aliases": [],
+      "obscurity": 3,
+      "source": "https://en.wikipedia.org/wiki/Worldwide_Underground",
+      "wikidata": "http://www.wikidata.org/entity/Q545287",
+      "pageviews": {
+        "total": 1771,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "thestorygoe",
+      "display": "The Story Goes...",
+      "aliases": [],
+      "obscurity": 4,
+      "source": "https://en.wikipedia.org/wiki/The_Story_Goes...",
+      "wikidata": "http://www.wikidata.org/entity/Q545361",
+      "pageviews": {
+        "total": 762,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "darkhorsenickelbackalbum",
+      "display": "Dark Horse (Nickelback album)",
+      "aliases": [],
+      "obscurity": 2,
+      "source": "https://en.wikipedia.org/wiki/Dark_Horse_(Nickelback_album)",
+      "wikidata": "http://www.wikidata.org/entity/Q545699",
+      "pageviews": {
+        "total": 6152,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "vennivettivecci",
+      "display": "Venni Vetti Vecci",
+      "aliases": [],
+      "obscurity": 3,
+      "source": "https://en.wikipedia.org/wiki/Venni_Vetti_Vecci",
+      "wikidata": "http://www.wikidata.org/entity/Q545758",
+      "pageviews": {
+        "total": 2548,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "inmymemory",
+      "display": "In My Memory",
+      "aliases": [],
+      "obscurity": 4,
+      "source": "https://en.wikipedia.org/wiki/In_My_Memory",
+      "wikidata": "http://www.wikidata.org/entity/Q640334",
+      "pageviews": {
+        "total": 833,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "areyoudeadyet",
+      "display": "Are You Dead Yet?",
+      "aliases": [],
+      "obscurity": 3,
+      "source": "https://en.wikipedia.org/wiki/Are_You_Dead_Yet%3F",
+      "wikidata": "http://www.wikidata.org/entity/Q640351",
+      "pageviews": {
+        "total": 2341,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "areyougonnagomyway",
+      "display": "Are You Gonna Go My Way",
+      "aliases": [],
+      "obscurity": 3,
+      "source": "https://en.wikipedia.org/wiki/Are_You_Gonna_Go_My_Way",
+      "wikidata": "http://www.wikidata.org/entity/Q640392",
+      "pageviews": {
+        "total": 4129,
+        "days": 29,
+        "start": "2026-10-22",
+        "end": "2026-11-19"
+      }
+    },
+    {
+      "canonical": "areyouexperienced",
+      "display": "Are You Experienced",
+      "aliases": [],
+      "obscurity": 2,
+      "source": "https://en.wikipedia.org/wiki/Are_You_Experienced",
+      "wikidata": "http://www.wikidata.org/entity/Q640397",
+      "pageviews": {
+        "total": 15641,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "galorethecurealbum",
+      "display": "Galore (The Cure album)",
+      "aliases": [],
+      "obscurity": 3,
+      "source": "https://en.wikipedia.org/wiki/Galore_(The_Cure_album)",
+      "wikidata": "http://www.wikidata.org/entity/Q640521",
+      "pageviews": {
+        "total": 2505,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "returntoheavendenied",
+      "display": "Return to Heaven Denied",
+      "aliases": [],
+      "obscurity": 5,
+      "source": "https://en.wikipedia.org/wiki/Return_to_Heaven_Denied",
+      "wikidata": "http://www.wikidata.org/entity/Q640583",
+      "pageviews": {
+        "total": 279,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "wfoalbum",
+      "display": "W.F.O. (album)",
+      "aliases": [],
+      "obscurity": 4,
+      "source": "https://en.wikipedia.org/wiki/W.F.O._(album)",
+      "wikidata": "http://www.wikidata.org/entity/Q640875",
+      "pageviews": {
+        "total": 1034,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "mrbadguy",
+      "display": "Mr. Bad Guy",
+      "aliases": [],
+      "obscurity": 3,
+      "source": "https://en.wikipedia.org/wiki/Mr._Bad_Guy",
+      "wikidata": "http://www.wikidata.org/entity/Q640902",
+      "pageviews": {
+        "total": 4368,
+        "days": 29,
+        "start": "2026-10-22",
+        "end": "2026-11-19"
+      }
+    },
+    {
+      "canonical": "biszumbitterenendedietotenhosenlive",
+      "display": "Bis zum bitteren Ende – Die Toten Hosen Live!",
+      "aliases": [],
+      "obscurity": 5,
+      "source": "https://en.wikipedia.org/wiki/Bis_zum_bitteren_Ende_%E2%80%93_Die_Toten_Hosen_Live!",
+      "wikidata": "http://www.wikidata.org/entity/Q641023",
+      "pageviews": {
+        "total": 43,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "chimairaalbum",
+      "display": "Chimaira (album)",
+      "aliases": [],
+      "obscurity": 3,
+      "source": "https://en.wikipedia.org/wiki/Chimaira_(album)",
+      "wikidata": "http://www.wikidata.org/entity/Q641171",
+      "pageviews": {
+        "total": 1685,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "phantomofthehighsea",
+      "display": "Phantoms of the High Seas",
+      "aliases": [],
+      "obscurity": 5,
+      "source": "https://en.wikipedia.org/wiki/Phantoms_of_the_High_Seas",
+      "wikidata": "http://www.wikidata.org/entity/Q641079",
+      "pageviews": {
+        "total": 45,
+        "days": 29,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "subterraneaalbum",
+      "display": "Subterranea (album)",
+      "aliases": [],
+      "obscurity": 4,
+      "source": "https://en.wikipedia.org/wiki/Subterranea_(album)",
+      "wikidata": "http://www.wikidata.org/entity/Q641157",
+      "pageviews": {
+        "total": 343,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "alleythereturnoftheyingyangtwin",
+      "display": "Alley: The Return of the Ying Yang Twins",
+      "aliases": [],
+      "obscurity": 4,
+      "source": "https://en.wikipedia.org/wiki/Alley:_The_Return_of_the_Ying_Yang_Twins",
+      "wikidata": "http://www.wikidata.org/entity/Q641338",
+      "pageviews": {
+        "total": 483,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "lentoviolentoealtrestorie",
+      "display": "Lento Violento ...e altre storie",
+      "aliases": [],
+      "obscurity": 5,
+      "source": "https://en.wikipedia.org/wiki/Lento_Violento_...e_altre_storie",
+      "wikidata": "http://www.wikidata.org/entity/Q641246",
+      "pageviews": {
+        "total": 47,
+        "days": 26,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "korvenkuninga",
+      "display": "Korven Kuningas",
+      "aliases": [],
+      "obscurity": 5,
+      "source": "https://en.wikipedia.org/wiki/Korven_Kuningas",
+      "wikidata": "http://www.wikidata.org/entity/Q641291",
+      "pageviews": {
+        "total": 150,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "razorbladesuitcase",
+      "display": "Razorblade Suitcase",
+      "aliases": [],
+      "obscurity": 3,
+      "source": "https://en.wikipedia.org/wiki/Razorblade_Suitcase",
+      "wikidata": "http://www.wikidata.org/entity/Q641451",
+      "pageviews": {
+        "total": 5340,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "crueltyandthebeast",
+      "display": "Cruelty and the Beast",
+      "aliases": [],
+      "obscurity": 3,
+      "source": "https://en.wikipedia.org/wiki/Cruelty_and_the_Beast",
+      "wikidata": "http://www.wikidata.org/entity/Q641614",
+      "pageviews": {
+        "total": 2966,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "ordogiangyal",
+      "display": "Ördögi angyal",
+      "aliases": [],
+      "obscurity": 5,
+      "source": "https://en.wikipedia.org/wiki/%C3%96rd%C3%B6gi_angyal",
+      "wikidata": "http://www.wikidata.org/entity/Q733606",
+      "pageviews": {
+        "total": 11,
+        "days": 25,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "boxoffire",
+      "display": "Box of Fire",
+      "aliases": [],
+      "obscurity": 4,
+      "source": "https://en.wikipedia.org/wiki/Box_of_Fire",
+      "wikidata": "http://www.wikidata.org/entity/Q733665",
+      "pageviews": {
+        "total": 529,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "hellbillydeluxe2",
+      "display": "Hellbilly Deluxe 2",
+      "aliases": [],
+      "obscurity": 3,
+      "source": "https://en.wikipedia.org/wiki/Hellbilly_Deluxe_2",
+      "wikidata": "http://www.wikidata.org/entity/Q734013",
+      "pageviews": {
+        "total": 2518,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "letenglandshake",
+      "display": "Let England Shake",
+      "aliases": [],
+      "obscurity": 3,
+      "source": "https://en.wikipedia.org/wiki/Let_England_Shake",
+      "wikidata": "http://www.wikidata.org/entity/Q734093",
+      "pageviews": {
+        "total": 2808,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "animalrightalbum",
+      "display": "Animal Rights (album)",
+      "aliases": [],
+      "obscurity": 3,
+      "source": "https://en.wikipedia.org/wiki/Animal_Rights_(album)",
+      "wikidata": "http://www.wikidata.org/entity/Q734112",
+      "pageviews": {
+        "total": 2421,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "herecomethewarmjet",
+      "display": "Here Come the Warm Jets",
+      "aliases": [],
+      "obscurity": 3,
+      "source": "https://en.wikipedia.org/wiki/Here_Come_the_Warm_Jets",
+      "wikidata": "http://www.wikidata.org/entity/Q734156",
+      "pageviews": {
+        "total": 5097,
+        "days": 29,
+        "start": "2026-10-22",
+        "end": "2026-11-19"
+      }
+    },
+    {
+      "canonical": "oldergeorgemichaelalbum",
+      "display": "Older (George Michael album)",
+      "aliases": [],
+      "obscurity": 2,
+      "source": "https://en.wikipedia.org/wiki/Older_(George_Michael_album)",
+      "wikidata": "http://www.wikidata.org/entity/Q734398",
+      "pageviews": {
+        "total": 9232,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "blackcelebration",
+      "display": "Black Celebration",
+      "aliases": [],
+      "obscurity": 2,
+      "source": "https://en.wikipedia.org/wiki/Black_Celebration",
+      "wikidata": "http://www.wikidata.org/entity/Q734566",
+      "pageviews": {
+        "total": 9578,
+        "days": 29,
+        "start": "2026-10-22",
+        "end": "2026-11-19"
+      }
+    },
+    {
+      "canonical": "somegreatreward",
+      "display": "Some Great Reward",
+      "aliases": [],
+      "obscurity": 2,
+      "source": "https://en.wikipedia.org/wiki/Some_Great_Reward",
+      "wikidata": "http://www.wikidata.org/entity/Q734543",
+      "pageviews": {
+        "total": 8107,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "slayed",
+      "display": "Slayed?",
+      "aliases": [],
+      "obscurity": 3,
+      "source": "https://en.wikipedia.org/wiki/Slayed%3F",
+      "wikidata": "http://www.wikidata.org/entity/Q734602",
+      "pageviews": {
+        "total": 3304,
+        "days": 29,
+        "start": "2026-10-22",
+        "end": "2026-11-19"
+      }
+    },
+    {
+      "canonical": "vol3thesubliminalverse",
+      "display": "Vol. 3: (The Subliminal Verses)",
+      "aliases": [],
+      "obscurity": 2,
+      "source": "https://en.wikipedia.org/wiki/Vol._3:_(The_Subliminal_Verses)",
+      "wikidata": "http://www.wikidata.org/entity/Q734600",
+      "pageviews": {
+        "total": 11192,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "countryliferoxymusicalbum",
+      "display": "Country Life (Roxy Music album)",
+      "aliases": [],
+      "obscurity": 2,
+      "source": "https://en.wikipedia.org/wiki/Country_Life_(Roxy_Music_album)",
+      "wikidata": "http://www.wikidata.org/entity/Q734776",
+      "pageviews": {
+        "total": 9916,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "ilprogramminodigigidagostino",
+      "display": "Il programmino di Gigi D'agostino",
+      "aliases": [],
+      "obscurity": 5,
+      "source": "https://en.wikipedia.org/wiki/Il_programmino_di_Gigi_D%27agostino",
+      "wikidata": "http://www.wikidata.org/entity/Q734878",
+      "pageviews": {
+        "total": 25,
+        "days": 26,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "shinybeastbatchainpuller",
+      "display": "Shiny Beast (Bat Chain Puller)",
+      "aliases": [],
+      "obscurity": 4,
+      "source": "https://en.wikipedia.org/wiki/Shiny_Beast_(Bat_Chain_Puller)",
+      "wikidata": "http://www.wikidata.org/entity/Q734814",
+      "pageviews": {
+        "total": 1426,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "thefinalfrontier",
+      "display": "The Final Frontier",
+      "aliases": [],
+      "obscurity": 2,
+      "source": "https://en.wikipedia.org/wiki/The_Final_Frontier",
+      "wikidata": "http://www.wikidata.org/entity/Q734951",
+      "pageviews": {
+        "total": 6943,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "moondogmatinee",
+      "display": "Moondog Matinee",
+      "aliases": [],
+      "obscurity": 3,
+      "source": "https://en.wikipedia.org/wiki/Moondog_Matinee",
+      "wikidata": "http://www.wikidata.org/entity/Q735051",
+      "pageviews": {
+        "total": 2493,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "deadmansoundtrack",
+      "display": "Dead Man (soundtrack)",
+      "aliases": [],
+      "obscurity": 4,
+      "source": "https://en.wikipedia.org/wiki/Dead_Man_(soundtrack)",
+      "wikidata": "http://www.wikidata.org/entity/Q735110",
+      "pageviews": {
+        "total": 1249,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "coverupministryalbum",
+      "display": "Cover Up (Ministry album)",
+      "aliases": [],
+      "obscurity": 4,
+      "source": "https://en.wikipedia.org/wiki/Cover_Up_(Ministry_album)",
+      "wikidata": "http://www.wikidata.org/entity/Q735108",
+      "pageviews": {
+        "total": 347,
+        "days": 29,
+        "start": "2026-10-22",
+        "end": "2026-11-19"
+      }
+    },
+    {
+      "canonical": "tubularbellii",
+      "display": "Tubular Bells II",
+      "aliases": [],
+      "obscurity": 3,
+      "source": "https://en.wikipedia.org/wiki/Tubular_Bells_II",
+      "wikidata": "http://www.wikidata.org/entity/Q735357",
+      "pageviews": {
+        "total": 2158,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "theresistancealbum",
+      "display": "The Resistance (album)",
+      "aliases": [],
+      "obscurity": 2,
+      "source": "https://en.wikipedia.org/wiki/The_Resistance_(album)",
+      "wikidata": "http://www.wikidata.org/entity/Q205168",
+      "pageviews": {
+        "total": 8031,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "theparamoursession",
+      "display": "The Paramour Sessions",
+      "aliases": [],
+      "obscurity": 3,
+      "source": "https://en.wikipedia.org/wiki/The_Paramour_Sessions",
+      "wikidata": "http://www.wikidata.org/entity/Q205294",
+      "pageviews": {
+        "total": 2068,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "meddle",
+      "display": "Meddle",
+      "aliases": [],
+      "obscurity": 2,
+      "source": "https://en.wikipedia.org/wiki/Meddle",
+      "wikidata": "http://www.wikidata.org/entity/Q205458",
+      "pageviews": {
+        "total": 27579,
+        "days": 29,
+        "start": "2026-10-22",
+        "end": "2026-11-19"
+      }
+    },
+    {
+      "canonical": "uno",
+      "display": "¡Uno!",
+      "aliases": [],
+      "obscurity": 3,
+      "source": "https://en.wikipedia.org/wiki/%C2%A1Uno!",
+      "wikidata": "http://www.wikidata.org/entity/Q205603",
+      "pageviews": {
+        "total": 4434,
+        "days": 29,
+        "start": "2026-10-22",
+        "end": "2026-11-19"
+      }
+    },
+    {
+      "canonical": "slipwayfire",
+      "display": "Slipway Fires",
+      "aliases": [],
+      "obscurity": 4,
+      "source": "https://en.wikipedia.org/wiki/Slipway_Fires",
+      "wikidata": "http://www.wikidata.org/entity/Q205819",
+      "pageviews": {
+        "total": 506,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "wirklichalle",
+      "display": "Wirklich alles!",
+      "aliases": [],
+      "obscurity": 5,
+      "source": "https://en.wikipedia.org/wiki/Wirklich_alles!",
+      "wikidata": "http://www.wikidata.org/entity/Q206027",
+      "pageviews": {
+        "total": 10,
+        "days": 27,
+        "start": "2026-10-23",
+        "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "yellowsubmarinealbum",
+      "display": "Yellow Submarine (album)",
+      "aliases": [],
+      "obscurity": 2,
+      "source": "https://en.wikipedia.org/wiki/Yellow_Submarine_(album)",
+      "wikidata": "http://www.wikidata.org/entity/Q206097",
+      "pageviews": {
+        "total": 27136,
+        "days": 29,
+        "start": "2026-10-22",
+        "end": "2026-11-19"
+      }
+    },
+    {
+      "canonical": "yeahdefleppardalbum",
+      "display": "Yeah! (Def Leppard album)",
+      "aliases": [],
+      "obscurity": 3,
+      "source": "https://en.wikipedia.org/wiki/Yeah!_(Def_Leppard_album)",
+      "wikidata": "http://www.wikidata.org/entity/Q206115",
+      "pageviews": {
+        "total": 2361,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "hotterthanjuly",
+      "display": "Hotter than July",
+      "aliases": [],
+      "obscurity": 2,
+      "source": "https://en.wikipedia.org/wiki/Hotter_than_July",
+      "wikidata": "http://www.wikidata.org/entity/Q378291",
+      "pageviews": {
+        "total": 7590,
+        "days": 29,
+        "start": "2026-10-22",
+        "end": "2026-11-19"
+      }
+    },
+    {
+      "canonical": "bellysoundtrack",
+      "display": "Belly (soundtrack)",
+      "aliases": [],
+      "obscurity": 3,
+      "source": "https://en.wikipedia.org/wiki/Belly_(soundtrack)",
+      "wikidata": "http://www.wikidata.org/entity/Q378383",
+      "pageviews": {
+        "total": 1978,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "monk1956album",
+      "display": "Monk (1956 album)",
+      "aliases": [],
+      "obscurity": 4,
+      "source": "https://en.wikipedia.org/wiki/Monk_(1956_album)",
+      "wikidata": "http://www.wikidata.org/entity/Q378623",
+      "pageviews": {
+        "total": 361,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "drfeelgoodalbum",
+      "display": "Dr. Feelgood (album)",
+      "aliases": [],
+      "obscurity": 2,
+      "source": "https://en.wikipedia.org/wiki/Dr._Feelgood_(album)",
+      "wikidata": "http://www.wikidata.org/entity/Q378668",
+      "pageviews": {
+        "total": 9207,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "indestructibledisturbedalbum",
+      "display": "Indestructible (Disturbed album)",
+      "aliases": [],
+      "obscurity": 3,
+      "source": "https://en.wikipedia.org/wiki/Indestructible_(Disturbed_album)",
+      "wikidata": "http://www.wikidata.org/entity/Q378805",
+      "pageviews": {
+        "total": 3086,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "luaumtvnandoreisosinfernais",
+      "display": "Luau MTV: Nando Reis & Os Infernais",
+      "aliases": [],
+      "obscurity": 5,
+      "source": "https://en.wikipedia.org/wiki/Luau_MTV:_Nando_Reis_%26_Os_Infernais",
+      "wikidata": "http://www.wikidata.org/entity/Q378818",
+      "pageviews": {
+        "total": 12,
+        "days": 24,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "coveragealbum",
+      "display": "Coverage (album)",
+      "aliases": [],
+      "obscurity": 4,
+      "source": "https://en.wikipedia.org/wiki/Coverage_(album)",
+      "wikidata": "http://www.wikidata.org/entity/Q378956",
+      "pageviews": {
+        "total": 1017,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "myrskyntuoja",
+      "display": "Myrskyntuoja",
+      "aliases": [],
+      "obscurity": 5,
+      "source": "https://en.wikipedia.org/wiki/Myrskyntuoja",
+      "wikidata": "http://www.wikidata.org/entity/Q379095",
+      "pageviews": {
+        "total": 14,
+        "days": 22,
+        "start": "2026-10-22",
+        "end": "2026-11-18"
+      }
+    },
+    {
+      "canonical": "jelonekalbum",
+      "display": "Jelonek (album)",
+      "aliases": [],
+      "obscurity": 5,
+      "source": "https://en.wikipedia.org/wiki/Jelonek_(album)",
+      "wikidata": "http://www.wikidata.org/entity/Q379132",
+      "pageviews": {
+        "total": 22,
+        "days": 29,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "theworldaccordingtogessle",
+      "display": "The World According to Gessle",
+      "aliases": [],
+      "obscurity": 5,
+      "source": "https://en.wikipedia.org/wiki/The_World_According_to_Gessle",
+      "wikidata": "http://www.wikidata.org/entity/Q379183",
+      "pageviews": {
+        "total": 125,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "letitbleed",
+      "display": "Let It Bleed",
+      "aliases": [],
+      "obscurity": 2,
+      "source": "https://en.wikipedia.org/wiki/Let_It_Bleed",
+      "wikidata": "http://www.wikidata.org/entity/Q379339",
+      "pageviews": {
+        "total": 23850,
+        "days": 29,
+        "start": "2026-10-22",
+        "end": "2026-11-19"
+      }
+    },
+    {
+      "canonical": "oldfriendfromyoungyear",
+      "display": "Old Friends from Young Years",
+      "aliases": [],
+      "obscurity": 3,
+      "source": "https://en.wikipedia.org/wiki/Old_Friends_from_Young_Years",
+      "wikidata": "http://www.wikidata.org/entity/Q379373",
+      "pageviews": {
+        "total": 2401,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "3suburbankidwithbiblicalnamealbum",
+      "display": "3 (Suburban Kids with Biblical Names album)",
+      "aliases": [],
+      "obscurity": 5,
+      "source": "https://en.wikipedia.org/wiki/3_(Suburban_Kids_with_Biblical_Names_album)",
+      "wikidata": "http://www.wikidata.org/entity/Q379484",
+      "pageviews": {
+        "total": 31,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "milkandhoneyalbum",
+      "display": "Milk and Honey (album)",
+      "aliases": [],
+      "obscurity": 3,
+      "source": "https://en.wikipedia.org/wiki/Milk_and_Honey_(album)",
+      "wikidata": "http://www.wikidata.org/entity/Q379551",
+      "pageviews": {
+        "total": 5926,
         "days": 30,
         "start": "2026-10-22",
         "end": "2026-11-20"
