@@ -2,6 +2,8 @@
 
 A daily registry of first-come, first-served claims. React + TypeScript + Vite on Cloudflare Pages; a single Worker with D1 and Turnstile. All fonts are self-hosted. The repository is private.
 
+**Current deployment caveat (November 21):** D1 reported its free-tier daily read limit. The home and static pages work, but archive/schools/admin queries return a clerk message until the reset at **7 PM Toronto, November 21 (midnight UTC)**. See `review/d1-quota.json` and `review/final-api-health.json`. No paid upgrade was made.
+
 The preview deliberately opens with a closed office. The three proposed launch registers are **drafts**, and there are no production claims. Reviewing a category is a separate, explicit operation. Nothing in deployment approves one. Published register dates cannot be moved; create a new draft ID for a later edition.
 
 ## Run locally
@@ -51,6 +53,8 @@ npm run categories -- animals       # one catalogued source
 
 Obscurity is based on the average daily pageviews over at least 20 observed days in the last 30: **1 ≥ 1,000; 2 ≥ 200; 3 ≥ 50; 4 ≥ 10; 5 < 10**. Missing measurements are excluded. These are readership bands, not player percentiles. Every answer includes its source and measurements. Scientific and disambiguated titles are retained. Aliases are exact and must be unique within a category.
 
+The final catalog validates **30 registers / 65,846 measured answers**, each at least 2,000. Run `npx tsx scripts/validate-categories.ts` to recheck it.
+
 All files are written as drafts. Only Animals, Plants and Birds have proposed launch dates, at 9 PM Toronto time. The other registers are unscheduled and remain in `categories/` until uploaded for review; only the first three are currently in D1. The review docket is `review/categories.md`. A category below 2,000 scored entries cannot be approved. Source data comes from Wikidata (CC0) and English Wikipedia; each record links to its originating article. Font licenses are in `public/fonts/`.
 
 ## Admin procedures
@@ -70,7 +74,7 @@ npx tsx scripts/admin.ts stats
 
 The `/stats` page accepts the token in a password field and keeps it only in memory. The daily table uses UTC. D1/D7 retention uses exact Toronto registry dates and mature first-claim cohorts; numerator and denominator are shown. School season counts cover all published registers since opening.
 
-Moderation is soft: hiding a user anonymizes their public holder information and blocks new filings. Voiding a claim removes it from public counts and certificates. It does **not** reopen the answer or grant a second daily claim. Serial numbers are never reused. Open counts exclude those reserved slots, and the daily header reports voided filings separately. Identity and school freeze after the first claim so old ledgers cannot be rewritten by changing the holder's name or school. A nullable provider subject is reserved for a future optional sign-in flow.
+Moderation is soft: hiding a user anonymizes their public holder information and blocks new filings. Voiding a claim removes it from public counts and certificates. It does **not** reopen the answer or grant a second daily claim. Serial numbers are never reused. Open counts exclude those reserved slots, and the daily header reports voided filings separately. Identity and school freeze after the first claim so old ledgers cannot be rewritten by changing the holder's name or school. Anonymous accounts are created when a reviewed register is open; pre-launch closed-office visits do not need an identity or database writes. A nullable provider subject is reserved for a future optional sign-in flow.
 
 ## Deploy on free Cloudflare services
 
@@ -80,11 +84,13 @@ npm run deploy:api
 npm run deploy:web
 ```
 
+Migration `0002_foreign_key_indexes.sql` adds the child-key indexes required for efficient bulk draft replacement. Its two indexes were applied remotely using `d1 execute --file`; normal migration bookkeeping remains blocked by the daily quota. After the reset, rerun the idempotent migration command above. The Worker also ensures the indexes before replacement and during scheduled cleanup at 00:05 and 05:17 UTC. The quota response is HTTP 503 with `Retry-After`; the next midnight UTC is shown in Toronto time. [Cloudflare free-tier limits](https://developers.cloudflare.com/d1/platform/limits/) explain the reset. Three unclaimed anonymous accounts remain from interrupted QA requests; row inspection is currently blocked, so no broad cleanup was performed.
+
 Root `wrangler.jsonc` configures Pages and its `API` service binding. `worker/wrangler.jsonc` configures the Worker, D1 and cleanup cron. The Pages gateway preserves first-party, signed, httpOnly, SameSite=Lax cookies on Safari. The production cookie is Secure. Secrets are provisioned with `wrangler secret put NAME -c worker/wrangler.jsonc` and are never bundled. Never set `LOCAL_TEST` on a remote Worker.
 
 Turnstile checks every claim token with Siteverify, checks its hostname and `claim` action, and never trusts client ownership status. Autocomplete only returns canonical names. Both ownership constraints and serial assignment run atomically in SQLite; database triggers also enforce the IP quota. The raw IP is never written to the database. Its daily HMAC salt is derived from `COOKIE_SECRET`; hashes are scrubbed from old claims and quotas after two days. Attempt timestamps expire through the daily cleanup cron.
 
-Certificate PNGs are rendered with canvas at 1080×1350 and 1080×1920. Unsupported sharing falls back to download, a manual image link, and Copy text. Per-claim OG PNGs use bundled font outlines and resvg; short certificate URLs resolve to the canonical certificate. Draft or voided claims cannot produce public certificates.
+Certificate PNGs are rendered with canvas at 1080×1350 and 1080×1920. Unsupported sharing falls back to download, a manual image link, and Copy text. Per-claim OG PNGs use bundled font outlines and resvg; short certificate URLs resolve to the canonical certificate. Draft or voided claims cannot produce public certificates. Extended Latin and Vietnamese subsets are bundled; a separately named OFL supplement supplies three missing orthographic glyphs. `scripts/verify-fonts.ts` checks every original and uppercase catalog name. Accented export proofs are in `review/accents/`.
 
 Cloudflare Web Analytics needs an account token with Web Analytics/RUM permission or dashboard setup. After obtaining the public beacon token, set `VITE_CF_ANALYTICS_TOKEN` in an ignored `.env.local` and rebuild. No beacon is injected without a valid token. The default Wrangler OAuth grant on this machine cannot provision that service.
 

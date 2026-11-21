@@ -1,0 +1,30 @@
+[
+  {
+    "results": [
+      {
+        "id": 2,
+        "parent": 0,
+        "notused": 54,
+        "detail": "SEARCH answer_keys USING COVERING INDEX answer_keys_answer_id (answer_id=?)"
+      }
+    ],
+    "success": true,
+    "meta": {
+      "duration": 0
+    }
+  },
+  {
+    "results": [
+      {
+        "id": 2,
+        "parent": 0,
+        "notused": 53,
+        "detail": "SEARCH claims USING COVERING INDEX claims_answer_id (answer_id=?)"
+      }
+    ],
+    "success": true,
+    "meta": {
+      "duration": 0
+    }
+  }
+]

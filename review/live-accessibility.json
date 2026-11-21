@@ -1,5 +1,6 @@
 [
   {
+    "apiErrors": [],
     "route": "/",
     "width": 390,
     "theme": "light",
@@ -7,6 +8,12 @@
     "violations": []
   },
   {
+    "apiErrors": [
+      {
+        "url": "https://dibs-7hz.pages.dev/api/archive",
+        "status": 503
+      }
+    ],
     "route": "/archive",
     "width": 390,
     "theme": "light",
@@ -14,6 +21,12 @@
     "violations": []
   },
   {
+    "apiErrors": [
+      {
+        "url": "https://dibs-7hz.pages.dev/api/schools",
+        "status": 503
+      }
+    ],
     "route": "/schools",
     "width": 390,
     "theme": "light",
@@ -21,6 +34,7 @@
     "violations": []
   },
   {
+    "apiErrors": [],
     "route": "/about",
     "width": 390,
     "theme": "light",
@@ -28,6 +42,7 @@
     "violations": []
   },
   {
+    "apiErrors": [],
     "route": "/stats",
     "width": 390,
     "theme": "light",
@@ -35,6 +50,7 @@
     "violations": []
   },
   {
+    "apiErrors": [],
     "route": "/",
     "width": 390,
     "theme": "dark",
@@ -42,6 +58,12 @@
     "violations": []
   },
   {
+    "apiErrors": [
+      {
+        "url": "https://dibs-7hz.pages.dev/api/archive",
+        "status": 503
+      }
+    ],
     "route": "/archive",
     "width": 390,
     "theme": "dark",
@@ -49,6 +71,12 @@
     "violations": []
   },
   {
+    "apiErrors": [
+      {
+        "url": "https://dibs-7hz.pages.dev/api/schools",
+        "status": 503
+      }
+    ],
     "route": "/schools",
     "width": 390,
     "theme": "dark",
@@ -56,6 +84,7 @@
     "violations": []
   },
   {
+    "apiErrors": [],
     "route": "/about",
     "width": 390,
     "theme": "dark",
@@ -63,6 +92,7 @@
     "violations": []
   },
   {
+    "apiErrors": [],
     "route": "/stats",
     "width": 390,
     "theme": "dark",
@@ -70,6 +100,7 @@
     "violations": []
   },
   {
+    "apiErrors": [],
     "route": "/",
     "width": 1440,
     "theme": "light",
@@ -77,6 +108,12 @@
     "violations": []
   },
   {
+    "apiErrors": [
+      {
+        "url": "https://dibs-7hz.pages.dev/api/archive",
+        "status": 503
+      }
+    ],
     "route": "/archive",
     "width": 1440,
     "theme": "light",
@@ -84,6 +121,12 @@
     "violations": []
   },
   {
+    "apiErrors": [
+      {
+        "url": "https://dibs-7hz.pages.dev/api/schools",
+        "status": 503
+      }
+    ],
     "route": "/schools",
     "width": 1440,
     "theme": "light",
@@ -91,6 +134,7 @@
     "violations": []
   },
   {
+    "apiErrors": [],
     "route": "/about",
     "width": 1440,
     "theme": "light",
@@ -98,6 +142,7 @@
     "violations": []
   },
   {
+    "apiErrors": [],
     "route": "/stats",
     "width": 1440,
     "theme": "light",
@@ -105,6 +150,7 @@
     "violations": []
   },
   {
+    "apiErrors": [],
     "route": "/",
     "width": 1440,
     "theme": "dark",
@@ -112,6 +158,12 @@
     "violations": []
   },
   {
+    "apiErrors": [
+      {
+        "url": "https://dibs-7hz.pages.dev/api/archive",
+        "status": 503
+      }
+    ],
     "route": "/archive",
     "width": 1440,
     "theme": "dark",
@@ -119,6 +171,12 @@
     "violations": []
   },
   {
+    "apiErrors": [
+      {
+        "url": "https://dibs-7hz.pages.dev/api/schools",
+        "status": 503
+      }
+    ],
     "route": "/schools",
     "width": 1440,
     "theme": "dark",
@@ -126,6 +184,7 @@
     "violations": []
   },
   {
+    "apiErrors": [],
     "route": "/about",
     "width": 1440,
     "theme": "dark",
@@ -133,6 +192,7 @@
     "violations": []
   },
   {
+    "apiErrors": [],
     "route": "/stats",
     "width": 1440,
     "theme": "dark",

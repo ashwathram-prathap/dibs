@@ -1,6 +1,7 @@
 {
   "qaAccountsRemoved": 14,
-  "remainingUsers": 0,
+  "remainingUsers": 3,
   "remainingClaims": 0,
-  "scope": "Only exact signed identities created by our Lighthouse and live-page browser checks; accounts with claims are preserved. No claims deleted."
+  "scope": "Only exact signed identities created by our Lighthouse and live-page browser checks; accounts with claims are preserved. No claims deleted.",
+  "note": "Three unclaimed anonymous accounts remain after quota-interrupted QA requests. Their IDs were not returned to the browser, and row inspection is quota-blocked. No broad deletion was attempted. Closed-office visits now create no accounts."
 }

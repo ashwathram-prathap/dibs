@@ -1,0 +1,28 @@
+{
+  "observedAt": "2026-11-21T05:47:11Z",
+  "resetAt": "2026-11-22T00:00:00Z",
+  "resetToronto": "November 21, 2026 at 7:00 PM",
+  "errorCode": 7500,
+  "scope": "D1 account free-tier daily rows read",
+  "affected": [
+    "archive",
+    "schools",
+    "ledger lookups",
+    "admin statistics and normal migration bookkeeping"
+  ],
+  "healthy": [
+    "public home",
+    "office notice",
+    "closed-office identity endpoint",
+    "static assets and brand OG"
+  ],
+  "repair": "Foreign-key child indexes applied successfully via the documented D1 SQL import command. Import reported 13,261 rows read and 6,602 written. Migration bookkeeping query is still quota-blocked; rerun the idempotent migration command after reset. The Worker also ensures these indexes before draft replacement and daily cleanup.",
+  "likelyCause": "Missing child foreign-key indexes let bulk draft replacement repeatedly scan other registers. This is inferred from the schema; the exact account billing trace is not available.",
+  "noUpgrade": true,
+  "source": "https://developers.cloudflare.com/d1/platform/limits/",
+  "nextActions": [
+    "After reset, run remote migrations and confirm admin stats/archive/schools recover.",
+    "Inspect the three remaining unclaimed anonymous accounts before any exact-ID QA cleanup.",
+    "Review and explicitly approve categories only after recovery."
+  ]
+}

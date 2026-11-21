@@ -1,0 +1,66 @@
+{
+  "checkedAt": "2026-11-21T05:47:11.650Z",
+  "results": [
+    {
+      "path": "/api/today",
+      "status": 200,
+      "data": {
+        "category": null,
+        "claimed": 0,
+        "open": 0,
+        "voided": 0,
+        "nextDrop": "2026-11-22T02:00:00.000Z",
+        "turnstileSiteKey": "0x4AAAAAAGLNsW8c9WxZVAxQ",
+        "closedReason": "THE NEXT REGISTER IS UNDER REVIEW. NO CLAIMS ARE OPEN YET."
+      },
+      "retryAfter": null
+    },
+    {
+      "path": "/api/me",
+      "status": 200,
+      "data": {
+        "user": null,
+        "claim": null,
+        "streak": 0,
+        "streakDates": []
+      },
+      "retryAfter": null
+    },
+    {
+      "path": "/api/archive",
+      "status": 503,
+      "data": {
+        "message": "Today’s filing allowance is spent. Please return after Saturday 7:00 p.m., Toronto time.",
+        "retryAt": "2026-11-22T00:00:00.000Z"
+      },
+      "retryAfter": "65569"
+    },
+    {
+      "path": "/api/schools",
+      "status": 503,
+      "data": {
+        "message": "Today’s filing allowance is spent. Please return after Saturday 7:00 p.m., Toronto time.",
+        "retryAt": "2026-11-22T00:00:00.000Z"
+      },
+      "retryAfter": "65569"
+    },
+    {
+      "path": "/api/ledger?category=animals",
+      "status": 503,
+      "data": {
+        "message": "Today’s filing allowance is spent. Please return after Saturday 7:00 p.m., Toronto time.",
+        "retryAt": "2026-11-22T00:00:00.000Z"
+      },
+      "retryAfter": "65569"
+    },
+    {
+      "path": "/api/admin/stats",
+      "status": 503,
+      "data": {
+        "message": "Today’s filing allowance is spent. Please return after Saturday 7:00 p.m., Toronto time.",
+        "retryAt": "2026-11-22T00:00:00.000Z"
+      },
+      "retryAfter": "65569"
+    }
+  ]
+}

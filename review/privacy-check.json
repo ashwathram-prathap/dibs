@@ -1,0 +1,8 @@
+{
+  "passed": true,
+  "checks": [
+    "Exact local secret values absent from tracked files and all Git history patches",
+    "Secret files and morning report are ignored and mode 0600",
+    "Private repository confirmed through GitHub CLI"
+  ]
+}
