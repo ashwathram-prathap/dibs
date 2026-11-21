@@ -14,7 +14,7 @@
     "builtAt": "2026-11-21T05:20:23.096Z",
     "license": "Wikidata CC0; Wikipedia titles and pageview counts. See source URL on each entry.",
     "scoring": "Mean daily Wikipedia pageviews over available days in the past 30: 1 >=1000; 2 >=200; 3 >=50; 4 >=10; 5 <10. Missing data excluded.",
-    "scopeNote": null,
+    "scopeNote": "Ship articles classified by Wikidata, including historical, proposed and reported designs. Review planned or fictional vessel entries before publication.",
     "reviewRequired": true,
     "identityPolicy": "exclude-cross-title-redirects-v1"
   },
