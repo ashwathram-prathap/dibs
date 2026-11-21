@@ -1,4 +1,5 @@
 /// <reference types="@cloudflare/workers-types" />
+import { PUBLIC_ORIGIN } from '../shared/config';
 import { handle, hmac, cookieUser } from './identity';
 import {
   normalize,
@@ -16,7 +17,6 @@ export interface Env {
   ADMIN_TOKEN: string;
   TURNSTILE_SECRET: string;
   TURNSTILE_SITE_KEY: string;
-  SITE_URL: string;
   LOCAL_TEST?: string;
 }
 const claimSelect = `SELECT c.id,c.category_id,c.claim_no,c.created_at,a.display,a.obscurity,CASE WHEN u.hidden=1 THEN 'Record withheld' ELSE u.handle END handle,g.name category_name,g.date category_date,g.total_registrable FROM claims c JOIN answers a ON a.id=c.answer_id JOIN users u ON u.id=c.user_id JOIN categories g ON g.id=c.category_id`;
@@ -262,7 +262,7 @@ export async function route(req: Request, env: Env): Promise<Response> {
     const origin = req.headers.get('origin');
     if (
       origin &&
-      origin !== env.SITE_URL &&
+      origin !== PUBLIC_ORIGIN &&
       !(env.LOCAL_TEST === 'true' && /^http:\/\/(localhost|127\.0\.0\.1)(:\d+)?$/.test(origin))
     )
       return fail(403, 'Please file from the registry’s own window.');
@@ -277,7 +277,7 @@ export async function route(req: Request, env: Env): Promise<Response> {
       : null;
     if (id && !claim) return fail(404, 'No certificate on file.');
     try {
-      return await og(env.SITE_URL, claim);
+      return await og(claim);
     } catch (e) {
       console.error('OG render failed:', (e as Error).message);
       throw e;
@@ -462,7 +462,7 @@ async function claim(req: Request, env: Env, u: any) {
     const verified = (await response.json()) as any;
     if (
       !verified.success ||
-      verified.hostname !== new URL(env.SITE_URL).hostname ||
+      verified.hostname !== new URL(PUBLIC_ORIGIN).hostname ||
       verified.action !== 'claim'
     )
       return fail(400, 'Verification was not accepted. Please try again.');

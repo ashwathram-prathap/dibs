@@ -11,3 +11,24 @@ test('a fresh phone explains the game and can call dibs without scrolling', asyn
     expect(box!.y + box!.height).toBeLessThanOrEqual(844);
   }
 });
+test('certificate and canvas export never print the local origin', async ({ page }) => {
+  await page.addInitScript(() => {
+    (window as any).printed = [];
+    const original = CanvasRenderingContext2D.prototype.fillText;
+    CanvasRenderingContext2D.prototype.fillText = function(text, ...args) {
+      (window as any).printed.push(text);
+      return original.call(this, text, ...args as [number, number]);
+    };
+    Object.defineProperty(navigator, 'canShare', {value: () => false});
+  });
+  await page.goto('/certificate/fixture-1');
+  await expect(page.locator('.cert-footer')).toContainText('dibs-7hz.pages.dev');
+  const download = page.waitForEvent('download');
+  await page.getByRole('button', {name:'SHARE CERTIFICATE'}).click();
+  await download;
+  const text = await page.evaluate(() => (window as any).printed.join(' '));
+  expect(text).toContain('dibs-7hz.pages.dev');
+  expect(text).not.toMatch(/127\.0\.0\.1|localhost|5173/);
+  const label = await page.locator('.dibs-stamp span').evaluate(el => parseFloat(getComputedStyle(el).fontSize));
+  expect(label).toBeGreaterThanOrEqual(9);
+});

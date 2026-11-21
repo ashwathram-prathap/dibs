@@ -1,3 +1,4 @@
+import { PUBLIC_HOST } from '../shared/config';
 import { type Claim, serial } from './types';
 import { WORDMARK_WIDTH, WORDMARK_PATH, WORDMARK_BLOCK_X } from '../shared/brand';
 import { fitText } from '../shared/typography';
@@ -116,7 +117,7 @@ export async function exportCertificate(claim: Claim, story: boolean, text: stri
   line(h - 120);
   c.setLineDash([]);
   mono(`ONE OF ${claim.total_registrable.toLocaleString()}. ONLY ONE YOURS.`, 80, h - 80, 17);
-  mono(location.host, 740, h - 80, 17);
+  mono(PUBLIC_HOST, 740, h - 80, 17);
   const blob = await new Promise<Blob>((resolve, reject) =>
     canvas.toBlob((b) => (b ? resolve(b) : reject(new Error('PNG failed'))), 'image/png'),
   );

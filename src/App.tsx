@@ -2,6 +2,7 @@ import { useEffect, useLayoutEffect, useState, useRef, type FormEvent } from 're
 import { motion, useReducedMotion } from 'framer-motion';
 import { api, ApiError, isDemo } from './api';
 import { type Category, type Claim, type Me, type Today, serial } from './types';
+import { PUBLIC_HOST, certificateUrl } from '../shared/config';
 import { exportCertificate } from './share';
 import { WORDMARK_WIDTH, WORDMARK_PATH, WORDMARK_BLOCK_X } from '../shared/brand';
 function Wordmark() { return <svg className="brand-mark" role="img" aria-label="dibs." viewBox={`0 0 ${WORDMARK_WIDTH} 100`}><path fill="currentColor" d={WORDMARK_PATH}/><path fill="#E1462B" d={`M${WORDMARK_BLOCK_X} 67h18v18h-18z`}/></svg>; }
@@ -798,7 +799,7 @@ export function Certificate({ claim, animated = false }: { claim: Claim; animate
       <div className="cert-footer">
         <span>ONE OF {claim.total_registrable.toLocaleString()}. ONLY ONE YOURS.</span>
         <span>
-          {location.host}/c/{claim.id.slice(0, 16)}
+          {PUBLIC_HOST}/c/{claim.id.slice(0, 16)}
         </span>
       </div>
     </motion.article>
@@ -807,7 +808,7 @@ export function Certificate({ claim, animated = false }: { claim: Claim; animate
 function ShareButtons({ claim }: { claim: Claim }) {
   const [status, setStatus] = useState('');
   const [busy, setBusy] = useState(false);
-  const url = location.origin + '/certificate/' + claim.id;
+  const url = certificateUrl(claim.id);
   const text = `I called dibs on ${claim.display.toUpperCase()}. Dibs No. ${claim.claim_no} of ${claim.total_registrable.toLocaleString()} ${claim.category_name.toLowerCase()}. ${url}`;
   async function share(story: boolean) {
     setBusy(true);
