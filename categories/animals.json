@@ -14,7 +14,7 @@
     "builtAt": "2026-11-21T05:02:39.567Z",
     "license": "Wikidata CC0; Wikipedia titles and pageview counts. See source URL on each entry.",
     "scoring": "Mean daily Wikipedia pageviews over available days in the past 30: 1 >=1000; 2 >=200; 3 >=50; 4 >=10; 5 <10. Missing data excluded.",
-    "scopeNote": "Mammal species with English Wikipedia articles; animal register starts with mammals.",
+    "scopeNote": "A mammal-led register supplemented with familiar animals such as Axolotl. Includes common animal names as well as species with English Wikipedia articles.",
     "reviewRequired": true,
     "identityPolicy": "exclude-cross-title-redirects-v1"
   },
