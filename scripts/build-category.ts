@@ -96,12 +96,26 @@ async function querySource(s: any) {
   let clause =
     property === 'P171'
       ? `?item wdt:P31 wd:Q16521; wdt:P105 wd:Q7432; wdt:P171* wd:${s.root}.`
-      : `?item wdt:${property}/wdt:P279* wd:${s.root}.`;
+      : `?item wdt:${property} wd:${s.root}.`;
   const query = `SELECT DISTINCT ?item ?article WHERE { ${clause} ?article schema:about ?item; schema:isPartOf <https://en.wikipedia.org/>. } LIMIT 3200`;
   const url = 'https://query.wikidata.org/sparql?format=json&query=' + encodeURIComponent(query);
   let result;
   try {
     result = await get(url);
+    if (property !== 'P171' && result.results.bindings.length < 2450) {
+      const expanded = `SELECT DISTINCT ?item ?article WHERE { ?item wdt:${property}/wdt:P279* wd:${s.root}. ?article schema:about ?item; schema:isPartOf <https://en.wikipedia.org/>. } LIMIT 3200`;
+      const additional = await get(
+        'https://query.wikidata.org/sparql?format=json&query=' + encodeURIComponent(expanded),
+      );
+      result.results.bindings = [
+        ...new Map(
+          [...result.results.bindings, ...additional.results.bindings].map((r: any) => [
+            r.article.value,
+            r,
+          ]),
+        ).values(),
+      ];
+    }
   } catch {
     const fallback = `SELECT DISTINCT ?item ?article WHERE { ?item wdt:${property} wd:${s.root}. ?article schema:about ?item; schema:isPartOf <https://en.wikipedia.org/>. } LIMIT 3200`;
     result = await get(

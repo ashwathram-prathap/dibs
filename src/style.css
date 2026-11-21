@@ -1650,3 +1650,4 @@ html.low-power .dibs-stamp strong {
 .footer-logo,.bottom-note a,.office-note a{display:inline-flex;align-items:center;min-height:44px}
 .ledger td:nth-child(2) a{display:flex;align-items:center;min-height:44px;margin:-12px 0;padding:8px 0}
 body{padding-top:env(safe-area-inset-top)}
+.cert-footer:before,.cert-footer:after{content:'+';position:absolute;bottom:1px;left:2px;font:22px Plex,monospace}.cert-footer:after{left:auto;right:2px}

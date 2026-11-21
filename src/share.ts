@@ -1,4 +1,5 @@
 import { type Claim, serial } from './types';
+import { fitText } from '../shared/typography';
 // Canvas avoids Safari's SVG foreignObject restrictions. Font faces are self-hosted.
 export async function exportCertificate(claim: Claim, story: boolean, text: string, url: string) {
   await document.fonts.ready;
@@ -49,24 +50,16 @@ export async function exportCertificate(claim: Claim, story: boolean, text: stri
   c.font = '400 34px Instrument';
   c.fillText('Let the record show.', 80, top);
   c.fillText('I called dibs on', 80, top + 48);
-  const words = claim.display.toUpperCase().split(' ');
-  let size = 145;
-  let lines: string[] = [];
-  do {
-    c.font = `900 ${size}px Archivo`;
-    lines = [];
-    let row = '';
-    for (const word of words) {
-      const candidate = row ? row + ' ' + word : word;
-      if (c.measureText(candidate).width > 910 && row) {
-        lines.push(row);
-        row = word;
-      } else row = candidate;
-    }
-    if (row) lines.push(row);
-    if (lines.length <= 3 && lines.every((s) => c.measureText(s).width <= 910)) break;
-    size -= 5;
-  } while (size >= 35);
+  const { lines, size } = fitText(
+    claim.display.toUpperCase(),
+    (text, size) => {
+      c.font = `900 ${size}px Archivo`;
+      return c.measureText(text).width;
+    },
+    910,
+    { startSize: 145, minSize: 20, maxLines: 3, maxHeight: story ? 400 : 270, lineHeight: 0.9 },
+  );
+  c.font = `900 ${size}px Archivo`;
   let y = top + 110;
   for (const row of lines) {
     y += size * 0.9;

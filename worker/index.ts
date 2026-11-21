@@ -1,6 +1,14 @@
 /// <reference types="@cloudflare/workers-types" />
 import { handle, hmac, cookieUser } from './identity';
-import { normalize, registryDate, nextDrop, streak, torontoDate, dropAt } from './domain';
+import {
+  normalize,
+  registryDate,
+  nextDrop,
+  streak,
+  torontoDate,
+  dropAt,
+  validDate,
+} from './domain';
 import { schools } from '../src/types';
 import { og } from './og';
 export interface Env {
@@ -21,6 +29,7 @@ const json = (data: unknown, status = 200, extra: Record<string, string> = {}) =
       'content-type': 'application/json;charset=utf-8',
       'cache-control': 'no-store',
       'x-content-type-options': 'nosniff',
+      'x-robots-tag': 'noindex, nofollow',
       ...extra,
     },
   });
@@ -40,10 +49,32 @@ async function user(req: Request, env: Env) {
         .first<any>()
     : null;
 }
-async function body(req: Request) {
-  const raw = await req.text();
-  if (raw.length > 5_000_000) throw new Error('BODY_TOO_LARGE');
-  return JSON.parse(raw);
+async function body(req: Request, limit = 4096) {
+  if (Number(req.headers.get('content-length') || 0) > limit) throw new Error('BODY_TOO_LARGE');
+  const reader = req.body?.getReader();
+  if (!reader) throw new SyntaxError('Empty body');
+  const chunks: Uint8Array[] = [];
+  let length = 0;
+  while (true) {
+    const { done, value } = await reader.read();
+    if (done) break;
+    length += value.length;
+    if (length > limit) {
+      await reader.cancel();
+      throw new Error('BODY_TOO_LARGE');
+    }
+    chunks.push(value);
+  }
+  const bytes = new Uint8Array(length);
+  let offset = 0;
+  for (const chunk of chunks) {
+    bytes.set(chunk, offset);
+    offset += chunk.length;
+  }
+  const parsed = JSON.parse(new TextDecoder().decode(bytes));
+  if (!parsed || typeof parsed !== 'object' || Array.isArray(parsed))
+    throw new SyntaxError('An object is required');
+  return parsed;
 }
 async function admin(req: Request, env: Env, path: string) {
   if (
@@ -64,7 +95,7 @@ async function admin(req: Request, env: Env, path: string) {
     return json({ days: days.results, d1: await retention(1), d7: await retention(7) });
   }
   if (req.method !== 'POST') return fail(405, 'File changes by POST.');
-  const b = await body(req);
+  const b = await body(req, path === '/admin/category' ? 5_000_000 : 4096);
   if (path === '/admin/hide-user' || path === '/admin/void-claim') {
     if (typeof b.id !== 'string') return fail(422, 'A record ID is required.');
     const hide = path.endsWith('hide-user');
@@ -85,7 +116,7 @@ async function admin(req: Request, env: Env, path: string) {
   if (path === '/admin/approve') {
     const c = await env.DB.prepare('SELECT * FROM categories WHERE id=?').bind(b.id).first<any>();
     if (!c) return fail(404, 'Register not found.');
-    if (!b.reviewed || !b.date || !/^\d{4}-\d{2}-\d{2}$/.test(b.date))
+    if (b.reviewed !== true || !validDate(b.date))
       return fail(422, 'Supply the reviewed date and reviewed: true.');
     const n = await env.DB.prepare(
       'SELECT COUNT(*) n FROM answers WHERE category_id=? AND obscurity IS NOT NULL',
@@ -94,6 +125,12 @@ async function admin(req: Request, env: Env, path: string) {
       .first<any>();
     if (n.n < 2000 || n.n !== c.total_registrable)
       return fail(422, 'Review requires at least 2,000 fully scored entries.');
+    if (
+      await env.DB.prepare('SELECT id FROM categories WHERE date=? AND id<>?')
+        .bind(b.date, b.id)
+        .first()
+    )
+      return fail(409, 'Another register is already assigned to that date.');
     if (dropAt(b.date) <= new Date().toISOString()) return fail(422, 'Choose a future drop date.');
     await env.DB.batch([
       env.DB.prepare("UPDATE categories SET status='approved',date=?,drop_at=? WHERE id=?").bind(
@@ -129,6 +166,8 @@ export async function uploadCategory(env: Env, b: any) {
     return fail(422, 'A register needs 2,000–12,000 valid entries, a name and a slug.');
   if (b.status && b.status !== 'draft')
     return fail(422, 'Uploads enter as drafts. Approve separately after review.');
+  if (b.date && !validDate(b.date))
+    return fail(422, 'Use a real calendar date in YYYY-MM-DD form.');
   const id = b.id || b.slug;
   if (typeof id !== 'string' || !/^[a-z0-9-]{2,80}$/.test(id))
     return fail(422, 'Use a plain register ID.');

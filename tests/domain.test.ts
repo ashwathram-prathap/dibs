@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { normalize, dropAt, registryDate, nextDrop, streak } from '../worker/domain';
+import { normalize, dropAt, registryDate, nextDrop, streak, validDate } from '../worker/domain';
 import { hmac, verify } from '../worker/identity';
 describe('registry rules', () => {
   it('folds case, accents, punctuation, whitespace and simple plurals', () => {
@@ -25,4 +25,26 @@ describe('registry rules', () => {
     expect(await verify('other', sig, 'secret')).toBe(false);
     expect(await verify('user', 'bad', 'secret')).toBe(false);
   });
+});
+
+import { fitText } from '../shared/typography';
+it('fits long unbroken names without escaping the printed area', () => {
+  const measure = (text: string, size: number) => text.length * size;
+  const layout = fitText('W'.repeat(120), measure, 910, {
+    startSize: 145,
+    minSize: 20,
+    maxLines: 3,
+    maxHeight: 270,
+    lineHeight: 0.9,
+  });
+  expect(layout.lines.join('')).toBe('W'.repeat(120));
+  expect(layout.lines.every((line) => measure(line, layout.size) <= 910)).toBe(true);
+  expect(layout.lines.length * layout.size * 0.9).toBeLessThanOrEqual(270);
+});
+
+it('rejects impossible schedule dates', () => {
+  expect(validDate('2026-02-29')).toBe(false);
+  expect(validDate('2028-02-29')).toBe(true);
+  expect(validDate('2026-13-01')).toBe(false);
+  expect(validDate('2026-11-21')).toBe(true);
 });

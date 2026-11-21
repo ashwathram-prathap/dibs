@@ -800,7 +800,7 @@ export function Certificate({ claim, animated = false }: { claim: Claim; animate
       <div className="cert-footer">
         <span>ONE OF {claim.total_registrable.toLocaleString()}. ONLY ONE YOURS.</span>
         <span>
-          {location.host}/c/{claim.id.slice(0, 8)}
+          {location.host}/c/{claim.id.slice(0, 16)}
         </span>
       </div>
     </motion.article>

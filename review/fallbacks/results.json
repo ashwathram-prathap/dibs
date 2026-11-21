@@ -1,0 +1,18 @@
+[
+  {
+    "scenario": "reduced-motion",
+    "passed": true
+  },
+  {
+    "scenario": "low-power",
+    "passed": true
+  },
+  {
+    "scenario": "blocked-storage",
+    "passed": true
+  },
+  {
+    "scenario": "javascript-disabled-notice",
+    "passed": true
+  }
+]
