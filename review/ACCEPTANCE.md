@@ -1,37 +1,28 @@
-# Dibs acceptance record
+# Dibs acceptance — Round 2
 
-The preview is deployed on the default Cloudflare hosts. M1–M4 were implemented without waiting for milestone approval, as OVERNIGHT.md directs. Category publication remains an explicit owner review step; deployment never approves a register.
+Round 2 supersedes the earlier visual proofs and feature list. All categories remain drafts. The preview stays on default Cloudflare hosts, with no plan/billing/domain change or announcement.
 
-| SPEC acceptance check | Result | Evidence / remaining action |
+| Check | Result | Evidence / remaining action |
 | --- | --- | --- |
-| Every screen passes the visual checklist at 390×844 and 1440×900, light and dark | PASS | `final/` contains 32 development proofs plus 20 production empty-state views. Paper/ink palette, self-hosted fonts, square rules, serials, no gradients or decorative icon library. `index.html` is the local gallery. `headings/results.json` and `headings-webkit/results.json` add 360 content stress checks of all category names at 320/390/1440px in both themes. |
-| A brand-new registry with zero claims looks intentional | PASS | `final/live-*`; ruled blank ledger lines and explicit closed-office copy. `production-state.json` confirms zero claims; three unclaimed accounts remain from quota-interrupted QA. The live closed office is healthy. Archive/schools currently show the documented quota message. |
-| No fabricated production numbers or fixtures | PASS | `production-audit.json`; fixture module gated by both development mode and the explicit demo flag. No fixture identities or imports survive the bundle. All three remote registers are drafts. |
-| Crisp exported PNGs on iPhone Safari and Android Chrome | PARTIAL / DEVICE BLOCKED | WebKit/Chromium emulation verifies 1080×1350 and 1080×1920 files, self-hosted canvas fonts, long titles and download fallback. Physical phone engines, native sharing and image-save behavior require the owner's phone checks. |
-| Concurrency and double-claim tests | PASS | 19 Worker/domain tests, including exactly one 201 plus 49 409 responses for 50 simultaneous requests; simultaneous double-claim rejection, unique serials, shared-IP quota, per-user rate limits, safe draft replacement, immutable published dates and correct void/open counts. |
-| No raw IPs or free-text names stored | PASS | D1 schema has daily salted IP hashes, curated handles and an enforced school list. Cleanup removes old IP hashes. Neither raw IPs nor user-written public names are written. |
+| First phone viewport explains the game and contains the input/button | PASS | Fresh-page 390×844 bounding-box test; `final/today-390-*.png`. |
+| Schools removed from UI, exports and API | PASS | Runtime types, queries, navigation and picker removed; 0003 drops the ignored legacy column. Local migration passed; remote is queued. |
+| Honest low traffic and archive | PASS | First filings with numbered open lines and actual pool count; only claimed closed days enter the archive; empty archive is labelled and watermarked SPECIMEN. |
+| Legible stamp, consistent wordmark, public origin | PASS | Shared outlined wordmark; stamp label 10px mobile / 22px canvas; canvas text and source regression tests reject local origins. |
+| No fixture data in production | PASS | `production-audit.json`; production bundle scan. Catalogs are real static answer lists, not player records. |
+| Atomic claims and safe cached reads | PASS | 29 unit/integration tests, including 50 contenders → one 201 and 49 409, double claims, IP limit, cached moderation, idempotent uploads, quota notice, polling pause/backoff and cursor safety. |
+| Real local D1 browser flow | PASS | `round2/local-integration.json`; claim/taken, reload identity, immediate ledger update, blocked cookie fallback, daily lock and OG PNG. |
+| Free-tier model at 10,000 five-minute visitors | PASS for documented workload | `round2/free-tier.md` and `d1-actions.json`; 80,000 Worker HTTP requests, 89,900 DO request units, 352,800 D1 reads and conservative 83,600 writes/day. Existing 2,046–2,200-answer catalogs and UTC day overlap are explicit. |
+| Quota recovery and category upload safety | PASS locally | Clerk-voice quota page and reset circuit; indexed cleanup; sequential upload budget, bounded JSON batches, identical-content no-op and no automatic retry. Remote D1 work waits until 7 PM Toronto. |
+| Browser/device matrix | PASS emulation | 120 tests across 30 WebKit/Chromium configurations in both themes. `round2/devices.md` and `browser-summary.json` survive raw-capture cleanup. |
+| Firefox | BLOCKED before app load | Default launch, project-local temporary profile and clean reinstall all fail with “Could not find profile folder.” Rerun on a host where Firefox launches. |
+| Native device/browser behavior | NOT PHYSICALLY VERIFIED | Safari 16, Samsung Internet, branded Edge, social webviews, native keyboards/share sheets and iMessage previews still require a physical device. Engine emulation is not physical coverage. |
+| Accessibility, exports and motion | PASS automated checks | axe AA, no horizontal overflow, keyboard selection, both PNG sizes and fallback download across the browser matrix. `final/certificate-feed.png`, `certificate-story.png`, `claim-moment.webm`. |
+| Lighthouse mobile / Slow 4G | PASS | 96 performance / 100 accessibility against the local production build and local API; `lighthouse/mobile.html`. SEO is intentionally limited by private-preview noindex. |
+| Thirty measured categories | PASS | 30 drafts / 65,846 measured answers; `category-validation.json`, `categories.md`; 270 original/uppercase glyphs covered. |
+| Design review | PASS | Screenshot loop at 390×844 and 1440×900, both themes; `round2/visual-checks.md`, `index.html`. |
+| Live D1/Turnstile behavior | DEFERRED | No remote queries or migrations before reset. Owner must apply the listed migration command after November 21, 7 PM Toronto, then verify the closed office and admin tools. No category was opened. |
+| Cookieless Cloudflare Web Analytics | EXISTING BLOCK | Beacon provisioning lacked RUM permission in the previous run. No account permission or billing changes made. Share taps are counted independently in DO storage. |
 
-## Additional required verification
+No raw IP or free-text public handle is stored. Daily salted hashes are scrubbed through indexed cleanup. Pending identities/attempts live in private SQLite caches; D1 player records are written on claims. Public records survive cache eviction. Social image previews use bounded 30-day caching; older previews use the common Dibs card.
 
-| Requirement | Result / evidence |
-| --- | --- |
-| M1 prototype and recording | PASS. All screens, both themes, receipt reveal, visible 1.4→1 stamp impact and 6px mobile shake. `motion/results.json` verifies that the impact is actually visible in the viewport with no overflow. Total sequence 1.3 seconds. `final/claim-moment.webm`. |
-| Worker, D1, signed identity and Turnstile | PASS implementation and local integration. First-party Pages gateway, Secure/httpOnly/HMAC cookie, three rerolls, real D1 upload/claim flow, server-side Siteverify with hostname and action checks. Positive production Turnstile interaction remains part of the physical first-claim check after category approval. |
-| Ledger, archive, schools, streaks, obscurity and sharing | PASS. Full browser flow, exact Toronto-day streaks and pageview bands. The additional rollover regression passes in Chromium and WebKit, clearing yesterday’s certificate and form. Canvas feed/story images, manual image-open link and Copy text. No share or social post was sent. |
-| Thirty measured draft registers | PASS: 30 registers, 65,846 measured entries, each ≥2,000; `category-validation.json` and `categories.md`. Only Animals, Plants and Birds have proposed dates. |
-| Admin tools and D1 analytics | PASS locally; LIVE QUOTA BLOCKED until reset. Bearer-protected upload, explicit review/approval, hide-user, void-claim and `/stats`; daily counts, mature-cohort D1/D7 retention and content-free share taps. |
-| Cloudflare Web Analytics | BLOCKED. Existing OAuth grant returns HTTP 403 for RUM list/create, and the browser access host is unavailable for dashboard setup. Owner: enable free Web Analytics in Cloudflare, put its public beacon token in ignored `.env.local` as `VITE_CF_ANALYTICS_TOKEN`, then `npm run deploy:web`. |
-| Open Graph images | PASS. Real local claim and deployed brand PNGs render using bundled Archivo outlines and resvg. `font-coverage.json` verifies all 270 characters across every original/uppercase name; `accents/` contains Chromium/WebKit canvas and Worker proofs. Certificate HTML carries per-claim metadata; short links resolve to the original. Native iMessage/social preview caching remains a physical check. |
-| D1 daily allowance | BLOCKED for archive, schools, ledger lookup and admin queries until November 21 at 7 PM Toronto (midnight UTC). Home/static pages are healthy. Child-key indexes have been applied to prevent repeated foreign-key scans; migration bookkeeping must be rerun after reset. No upgrade. Exact evidence and actions: `d1-quota.json`, `final-api-health.json`. |
-| Deployment and repository | PASS. Cloudflare Pages + one Worker + D1 + Turnstile, free services only; private GitHub repo, regular commits and milestone tags. No custom domain per OVERNIGHT.md. Preview is unlisted/noindex, not access-controlled. |
-| Lighthouse mobile, Slow 4G | PASS. See `lighthouse/mobile.html` and JSON for measured performance ≥90 and accessibility ≥95. |
-| Responsive browser matrix | PASS for 30 WebKit/Chromium configurations in both themes: iPhone SE/15 Pro/15 Pro Max, Pixel 7, Galaxy S9+, iPad Mini/Pro landscape, desktop 1280/1440/2560, 320px and phone landscape. `devices/results.json` contains the latest rerun. |
-| Firefox | BLOCKED before app load in all six desktop/theme cases. Bundled, project-local/headed, older/manual install and reduced sandbox attempts hit macOS profile/sandbox/framebuffer errors. Owner: rerun the suite on a Mac where Firefox can start, or a Linux test host. `devices/summary.json` preserves the original errors. |
-| Native browser/device coverage | BLOCKED by unavailable physical devices. Safari 16 specifically, Samsung Internet, branded Edge, Instagram/TikTok/X/Discord webviews, native keyboards/share sheets and iMessage preview caching need hands-on checks. Engine emulation is not labelled as physical coverage. |
-| Accessibility and fallbacks | PASS automated AA checks in both themes, keyboard autocomplete, visible focus, 44px targets, 16px fields, safe areas and dynamic viewport. 20 production layout checks have no axe AA violations or horizontal overflow; API failures are recorded separately and are not counted as functional passes. Reduced motion, low-power static stamp, denied storage and disabled JavaScript all pass. Physical on-screen keyboard clearance remains a device check. |
-
-## Review boundaries
-
-Automated filtering and measured pageviews do not substitute for the owner's category review. Draft sources retain scientific names and disambiguating parentheses. The first proposed dates are November 21–23, 2026 at 9 PM America/Toronto; choose future dates if review happens later. No production register is opened by this handoff.
-
-The three visually weakest views are the empty Schools board (two long ruled tables), empty Archive (limited hierarchy without past volumes), and admin Stats (deliberately utilitarian). Each is usable and consistent with the registry design.
+The three least polished views are the utilitarian admin Stats page, the intentionally quiet closed-office page, and certificates with exceptionally long scientific names. The final gallery shows the current design; obsolete raw proofs are removed during cleanup.

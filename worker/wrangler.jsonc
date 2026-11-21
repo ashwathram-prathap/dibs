@@ -13,8 +13,8 @@
       "migrations_dir": "../migrations",
     },
   ],
-  "durable_objects": { "bindings": [{ "name": "REGISTRY", "class_name": "Registry" }] },
-  "migrations": [{ "tag": "r2-registry-cache", "new_sqlite_classes": ["Registry"] }],
+  "durable_objects": { "bindings": [{ "name": "REGISTRY", "class_name": "Registry" }, { "name": "IMAGE_CACHE", "class_name": "ImageCache" }] },
+  "migrations": [{ "tag": "r2-registry-cache", "new_sqlite_classes": ["Registry", "ImageCache"] }],
   "vars": {
     "TURNSTILE_SITE_KEY": "0x4AAAAAAGLNsW8c9WxZVAxQ",
   },

@@ -1,0 +1,10 @@
+{
+  "worker": "https://dibs-api.dibs-registry.workers.dev",
+  "version": "6e47f977-58ba-49f7-9ba8-c00f07bf3a0d",
+  "pages": "https://dibs-7hz.pages.dev",
+  "deployment": "https://854432b8.dibs-7hz.pages.dev",
+  "remoteD1QueriesRun": false,
+  "remoteD1MigrationsRun": false,
+  "categoriesApprovedOrScheduled": false,
+  "note": "Code deployment succeeded. D1 recovery is intentionally unverified until after the requested reset."
+}

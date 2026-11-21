@@ -14,6 +14,7 @@ import { og } from './og';
 export interface Env {
   DB: D1Database;
   REGISTRY?: DurableObjectNamespace;
+  IMAGE_CACHE?: DurableObjectNamespace;
   PLAYER?: any;
   ATTEMPT_CHECKED?: boolean;
   COOKIE_SECRET: string;
@@ -137,7 +138,7 @@ async function admin(req: Request, env: Env, path: string) {
     )
       .bind(b.id)
       .first<any>();
-    if (n.n < 2000 || n.n !== c.total_registrable)
+    if (n.n < 2000 || n.n > 2200 || n.n !== c.total_registrable)
       return fail(422, 'Review requires at least 2,000 fully scored entries.');
     if (
       await env.DB.prepare('SELECT id FROM categories WHERE date=? AND id<>?')
@@ -166,18 +167,26 @@ async function admin(req: Request, env: Env, path: string) {
 async function constantEqual(a: string, b: string) {
   return (await hmac(a, b)) === (await hmac(b, b));
 }
+function bulkStatements(env: Env, sql: string, rows: any[]) {
+  // At most 18 bounded JSON statements per table, under Free's 50-query invocation limit.
+  const size = Math.max(1, Math.ceil(rows.length / 18));
+  const statements: D1PreparedStatement[] = [];
+  for (let i = 0; i < rows.length; i += size)
+    statements.push(env.DB.prepare(sql).bind(JSON.stringify(rows.slice(i, i + size))));
+  return statements;
+}
 export async function uploadCategory(env: Env, b: any) {
   if (
     !b ||
     !Array.isArray(b.answers) ||
     b.answers.length < 2000 ||
-    b.answers.length > 12000 ||
+    b.answers.length > 2200 ||
     typeof b.name !== 'string' ||
     b.name.length > 50 ||
     typeof b.slug !== 'string' ||
     !/^[a-z0-9-]{2,60}$/.test(b.slug)
   )
-    return fail(422, 'A register needs 2,000–12,000 valid entries, a name and a slug.');
+    return fail(422, 'A register needs 2,000–2,200 valid entries, a name and a slug.');
   if (b.status && b.status !== 'draft')
     return fail(422, 'Uploads enter as drafts. Approve separately after review.');
   if (b.date && !validDate(b.date))
@@ -185,7 +194,7 @@ export async function uploadCategory(env: Env, b: any) {
   const id = b.id || b.slug;
   if (typeof id !== 'string' || !/^[a-z0-9-]{2,80}$/.test(id))
     return fail(422, 'Use a plain register ID.');
-  const existing = await env.DB.prepare('SELECT status FROM categories WHERE id=?')
+  const existing = await env.DB.prepare('SELECT status,source_json FROM categories WHERE id=?')
     .bind(id)
     .first<any>();
   if (
@@ -221,6 +230,20 @@ export async function uploadCategory(env: Env, b: any) {
     });
     entries.push([aid, id, canonical, a.display, JSON.stringify(a.aliases), a.obscurity]);
   }
+  const fingerprint = [
+    ...new Uint8Array(
+      await crypto.subtle.digest(
+        'SHA-256',
+        new TextEncoder().encode(
+          JSON.stringify([b.name, b.slug, b.date || null, b.answers, b.provenance || {}]),
+        ),
+      ),
+    ),
+  ]
+    .map((n) => n.toString(16).padStart(2, '0'))
+    .join('');
+  if (existing && JSON.parse(existing.source_json || '{}').uploadFingerprint === fingerprint)
+    return json({ id, status: 'draft', entries: b.answers.length, unchanged: true });
   if (existing) await ensureMaintenanceIndexes(env);
   // Each conditional delete is in the same transaction as insertion. If approval races
   // replacement, the insert conflicts and the entire batch rolls back without changing it.
@@ -247,14 +270,18 @@ export async function uploadCategory(env: Env, b: any) {
       b.answers.length,
       b.date ? dropAt(b.date) : null,
       'draft',
-      JSON.stringify(b.provenance || {}),
+      JSON.stringify({ ...b.provenance, uploadFingerprint: fingerprint }),
     ),
-    env.DB.prepare(
+    ...bulkStatements(
+      env,
       "INSERT INTO answers SELECT json_extract(value,'$[0]'),json_extract(value,'$[1]'),json_extract(value,'$[2]'),json_extract(value,'$[3]'),json_extract(value,'$[4]'),json_extract(value,'$[5]') FROM json_each(?)",
-    ).bind(JSON.stringify(entries)),
-    env.DB.prepare(
+      entries,
+    ),
+    ...bulkStatements(
+      env,
       "INSERT INTO answer_keys SELECT json_extract(value,'$[0]'),json_extract(value,'$[1]'),json_extract(value,'$[2]') FROM json_each(?)",
-    ).bind(JSON.stringify(keys)),
+      keys,
+    ),
   ]);
   return json({ id, status: 'draft', entries: b.answers.length }, 201);
 }
@@ -388,10 +415,16 @@ export async function route(req: Request, env: Env): Promise<Response> {
   }
   if (path.startsWith('/certificate/')) {
     const id = path.slice(13);
-    const rows = await env.DB.prepare(
-      publicClaim + ' AND (c.id=? OR (length(?)>=8 AND c.id LIKE ?)) LIMIT 2',
-    )
-      .bind(id, id, id.replace(/[%_]/g, '') + '%')
+    if (!/^[a-zA-Z0-9-]{8,80}$/.test(id))
+      return fail(404, 'That certificate is not on the public record.');
+    const exact = await env.DB.prepare(publicClaim + ' AND c.id=?')
+      .bind(id)
+      .first();
+    if (exact) return json({ claim: exact });
+    if (id.length >= 36) return fail(404, 'That certificate is not on the public record.');
+    // A primary-key range supports printed short links without an OR/LIKE table scan.
+    const rows = await env.DB.prepare(publicClaim + ' AND c.id>=? AND c.id<? LIMIT 2')
+      .bind(id, id + '\uffff')
       .all();
     return rows.results.length === 1
       ? json({ claim: rows.results[0] })
@@ -438,9 +471,10 @@ export async function route(req: Request, env: Env): Promise<Response> {
 }
 async function claim(req: Request, env: Env, u: any) {
   try {
-    if (!env.ATTEMPT_CHECKED) await env.DB.prepare('INSERT INTO attempts VALUES(?,?,?)')
-      .bind(crypto.randomUUID(), u.id, Date.now())
-      .run();
+    if (!env.ATTEMPT_CHECKED)
+      await env.DB.prepare('INSERT INTO attempts VALUES(?,?,?)')
+        .bind(crypto.randomUUID(), u.id, Date.now())
+        .run();
   } catch (e) {
     if (String(e).includes('USER_RATE_LIMIT'))
       return fail(429, 'Three attempts per minute. Give the ink a moment to dry.');
@@ -494,8 +528,11 @@ async function claim(req: Request, env: Env, u: any) {
   const existing = await taken();
   if (existing) return existing;
   // Persist a pending identity only once a valid, available claim is being filed.
-  await env.DB.prepare('INSERT OR IGNORE INTO users(id,handle,created_at,rerolls_used) VALUES(?,?,?,?)')
-    .bind(u.id, u.handle, new Date().toISOString(), u.rerolls_used).run();
+  await env.DB.prepare(
+    'INSERT OR IGNORE INTO users(id,handle,created_at,rerolls_used) VALUES(?,?,?,?)',
+  )
+    .bind(u.id, u.handle, new Date().toISOString(), u.rerolls_used)
+    .run();
   const ip =
     (local ? req.headers.get('x-test-ip') : null) ||
     req.headers.get('CF-Connecting-IP') ||
@@ -532,43 +569,54 @@ async function claim(req: Request, env: Env, u: any) {
   );
 }
 export function safeError(e: unknown, env: Env): Response {
-      if (env.LOCAL_TEST === 'true') console.error(e);
-      if (/free tier daily|daily row read limit|daily row write limit|7500/i.test(String(e))) {
-        const reset = new Date();
-        reset.setUTCHours(24, 0, 0, 0);
-        const when = new Intl.DateTimeFormat('en-CA', {
-          timeZone: 'America/Toronto',
-          weekday: 'long',
-          hour: 'numeric',
-          minute: '2-digit',
-        }).format(reset);
-        return json(
-          {
-            code: 'REGISTRY_CLOSED',
-            message:
-              'Registry closed for the day. The clerk’s filing allowance is spent. Please return after ' + when + ', Toronto time.',
-            retryAt: reset.toISOString(),
-          },
-          503,
-          { 'retry-after': String(Math.ceil((reset.getTime() - Date.now()) / 1000)) },
-        );
-      }
-      if (e instanceof SyntaxError) return fail(400, 'That form could not be read.');
-      if (String(e).includes('BODY_TOO_LARGE')) return fail(413, 'That form is too large.');
-      return fail(500, 'The filing cabinet is unavailable. Please try again.');
-
+  if (env.LOCAL_TEST === 'true') console.error(e);
+  if (/free tier daily|daily row read limit|daily row write limit|7500/i.test(String(e))) {
+    const reset = new Date();
+    reset.setUTCHours(24, 0, 0, 0);
+    const when = new Intl.DateTimeFormat('en-CA', {
+      timeZone: 'America/Toronto',
+      weekday: 'long',
+      hour: 'numeric',
+      minute: '2-digit',
+    }).format(reset);
+    return json(
+      {
+        code: 'REGISTRY_CLOSED',
+        message:
+          'Registry closed for the day. The clerk’s filing allowance is spent. Please return after ' +
+          when +
+          ', Toronto time.',
+        retryAt: reset.toISOString(),
+      },
+      503,
+      { 'retry-after': String(Math.ceil((reset.getTime() - Date.now()) / 1000)) },
+    );
+  }
+  if (e instanceof SyntaxError) return fail(400, 'That form could not be read.');
+  if (String(e).includes('BODY_TOO_LARGE')) return fail(413, 'That form is too large.');
+  return fail(500, 'The filing cabinet is unavailable. Please try again.');
 }
 const inflight = new Map<string, Promise<Response>>();
 export default {
   async fetch(req: Request, env: Env) {
     try {
-      if (!env.REGISTRY) return await route(req, env);
-      const url = new URL(req.url), path = url.pathname.replace(/^\/api/, '');
+      if (!env.REGISTRY)
+        return env.LOCAL_TEST === 'true'
+          ? await route(req, env)
+          : fail(503, 'The registry cache is not configured. The clerk is checking the files.');
+      const url = new URL(req.url),
+        path = url.pathname.replace(/^\/api/, '');
       const stub = env.REGISTRY.get(env.REGISTRY.idFromName('public-registry-v1'));
+      if ((path === '/og' || path.startsWith('/og/')) && env.IMAGE_CACHE) {
+        const id = path.slice(4);
+        const shard = (parseInt(id.replace(/[^a-f0-9]/gi, '').slice(0, 2) || '0', 16) || 0) % 8;
+        return env.IMAGE_CACHE.get(env.IMAGE_CACHE.idFromName('images-' + shard)).fetch(req);
+      }
       if (req.method === 'GET' && (path === '/today' || path === '/ledger')) {
         // Neither cookies, query order nor the player's cursor fragments the shared cache.
         const key = new URL(PUBLIC_ORIGIN + '/api' + path);
-        if (path === '/ledger') key.searchParams.set('category', url.searchParams.get('category') || '');
+        if (path === '/ledger')
+          key.searchParams.set('category', url.searchParams.get('category') || '');
         const cache = await caches.open('dibs-public-v2');
         let response = await cache.match(key.toString());
         if (!response) {
@@ -583,19 +631,29 @@ export default {
             })();
             inflight.set(key.toString(), pending);
           }
-          try { response = (await pending).clone(); } finally { inflight.delete(key.toString()); }
+          try {
+            response = (await pending).clone();
+          } finally {
+            inflight.delete(key.toString());
+          }
         }
         if (path === '/ledger' && response.ok) {
-          const data = await response.json() as any;
+          const data = (await response.json()) as any;
           const since = Math.max(0, Number(url.searchParams.get('since')) || 0);
           const before = Number(url.searchParams.get('before')) || Infinity;
           const limit = Math.min(100, Math.max(1, Number(url.searchParams.get('limit')) || 50));
-          return json({rows:data.rows.filter((r:any)=>r.claim_no>since && r.claim_no<before).slice(0,limit)});
+          return json({
+            rows: data.rows
+              .filter((r: any) => r.claim_no > since && r.claim_no < before)
+              .slice(0, limit),
+          });
         }
         return response;
       }
       return await stub.fetch(req);
-    } catch(e) { return safeError(e, env); }
+    } catch (e) {
+      return safeError(e, env);
+    }
   },
   async scheduled(_event: ScheduledController, env: Env) {
     await ensureMaintenanceIndexes(env);

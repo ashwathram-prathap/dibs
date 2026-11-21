@@ -252,6 +252,9 @@ describe('Worker with real SQLite/D1 execution', () => {
       (await db.prepare("SELECT display FROM answers WHERE id='replace-me:0'").first()).display,
     ).toBe('Original entry 0');
     expect((await upload(revised)).status).toBe(201);
+    const unchanged = await upload(revised);
+    expect(unchanged.status).toBe(200);
+    expect((await unchanged.json() as any).unchanged).toBe(true);
     const plan = await db
       .prepare(
         "EXPLAIN QUERY PLAN SELECT answer_id FROM answer_keys WHERE answer_id='replace-me:0'",

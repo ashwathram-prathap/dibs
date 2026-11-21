@@ -327,7 +327,7 @@
     "action": "/claim",
     "status": 201,
     "reads": 9,
-    "writes": 14
+    "writes": 15
   },
   {
     "action": "/claim",
@@ -624,7 +624,7 @@
     "writes": 0
   },
   {
-    "action": "/certificate/9c388770-9475-4871-b20c-e984e0fcba08",
+    "action": "/certificate/17285186-31f6-455c-a736-0b446cc13a78",
     "status": 200,
     "reads": 0,
     "writes": 0
@@ -636,13 +636,13 @@
     "writes": 0
   },
   {
-    "action": "/og/9c388770-9475-4871-b20c-e984e0fcba08",
+    "action": "/og/17285186-31f6-455c-a736-0b446cc13a78",
     "status": 200,
     "reads": 0,
     "writes": 0
   },
   {
-    "action": "/og/9c388770-9475-4871-b20c-e984e0fcba08",
+    "action": "/og/17285186-31f6-455c-a736-0b446cc13a78",
     "status": 200,
     "reads": 0,
     "writes": 0
@@ -705,6 +705,54 @@
     "action": "/claim",
     "status": 429,
     "reads": 0,
+    "writes": 0
+  },
+  {
+    "action": "eventual privacy and IP quota cleanup per claim",
+    "status": 200,
+    "reads": 4,
+    "writes": 2
+  },
+  {
+    "action": "/og/17285186-31f6-455c-a736-0b446cc13a78",
+    "status": 200,
+    "reads": 0,
+    "writes": 0
+  },
+  {
+    "action": "/certificate/17285186-31f6-455c-a736-0b446cc13a78",
+    "status": 200,
+    "reads": 4,
+    "writes": 0
+  },
+  {
+    "action": "/og/17285186-31f6-455c-a736-0b446cc13a78",
+    "status": 200,
+    "reads": 0,
+    "writes": 0
+  },
+  {
+    "action": "/certificate/17285186-31f6-455c-a736-0b446cc13a78",
+    "status": 404,
+    "reads": 1,
+    "writes": 0
+  },
+  {
+    "action": "/og/17285186-31f6-455c-a736-0b446cc13a78",
+    "status": 404,
+    "reads": 0,
+    "writes": 0
+  },
+  {
+    "action": "/certificate/12345678-1234-4234-8234-123456789abc",
+    "status": 200,
+    "reads": 4,
+    "writes": 0
+  },
+  {
+    "action": "/certificate/12345678-1234-42",
+    "status": 200,
+    "reads": 5,
     "writes": 0
   }
 ]

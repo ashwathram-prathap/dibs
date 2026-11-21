@@ -1,2 +1,2 @@
 export { default } from './routes';
-export { Registry } from './registry';
+export { Registry, ImageCache } from './registry';

@@ -2,12 +2,26 @@ import { useEffect, useLayoutEffect, useState, useRef, type FormEvent } from 're
 import { m as motion, LazyMotion, domAnimation, useReducedMotion } from 'framer-motion';
 import { api, ApiError, isDemo } from './api';
 import { type Category, type Claim, type Me, type Today, serial } from './types';
-import { getSnapshot, publish, publishClaim, subscribe, watchRegistry, type Snapshot } from './live';
+import {
+  getSnapshot,
+  publish,
+  publishClaim,
+  subscribe,
+  watchRegistry,
+  type Snapshot,
+} from './live';
 import { suggestions as catalogSuggestions } from './suggestions';
 import { PUBLIC_HOST, certificateUrl } from '../shared/config';
 import { exportCertificate } from './share';
 import { WORDMARK_WIDTH, WORDMARK_PATH, WORDMARK_BLOCK_X } from '../shared/brand';
-function Wordmark() { return <svg className="brand-mark" role="img" aria-label="dibs." viewBox={`0 0 ${WORDMARK_WIDTH} 100`}><path fill="currentColor" d={WORDMARK_PATH}/><path fill="#E1462B" d={`M${WORDMARK_BLOCK_X} 67h18v18h-18z`}/></svg>; }
+function Wordmark() {
+  return (
+    <svg className="brand-mark" role="img" aria-label="dibs." viewBox={`0 0 ${WORDMARK_WIDTH} 100`}>
+      <path fill="currentColor" d={WORDMARK_PATH} />
+      <path fill="#E1462B" d={`M${WORDMARK_BLOCK_X} 67h18v18h-18z`} />
+    </svg>
+  );
+}
 
 const time = (s: string) =>
   new Date(s).toLocaleTimeString('en-CA', {
@@ -109,7 +123,7 @@ export default function App() {
   const refresh = async () => {
     try {
       const data = await api<Snapshot>('/bootstrap');
-      publish({...data, reset:true});
+      publish({ ...data, reset: true });
       setToday(data.today);
       setMe(data.me!);
       setError('');
@@ -118,10 +132,26 @@ export default function App() {
     }
   };
   useEffect(() => {
-    const off = subscribe(s => { setToday(s.today); setError(''); setMe(previous => s.me || (previous ? {...previous, claim:previous.claim?.category_id === s.today.category?.id ? previous.claim : null} : null)); });
+    const off = subscribe((s) => {
+      setToday(s.today);
+      setError('');
+      setMe(
+        (previous) =>
+          s.me ||
+          (previous
+            ? {
+                ...previous,
+                claim: previous.claim?.category_id === s.today.category?.id ? previous.claim : null,
+              }
+            : null),
+      );
+    });
     void refresh();
     const stop = path === '/' ? watchRegistry(setError) : () => {};
-    return () => { off(); stop(); };
+    return () => {
+      off();
+      stop();
+    };
   }, []);
   useEffect(() => {
     document.documentElement.dataset.theme = theme;
@@ -138,7 +168,7 @@ export default function App() {
       <a className="skip" href="#main">
         Skip to registry
       </a>
-      <div className={"page " + (path === "/" ? "home-page" : "")}>
+      <div className={'page ' + (path === '/' ? 'home-page' : '')}>
         <header className="masthead">
           <Link to="/" className="wordmark" aria-label="Dibs home">
             <Wordmark />
@@ -190,8 +220,12 @@ export default function App() {
           {error ? (
             <div className="notice" role="alert">
               <span className="eyebrow">OFFICE NOTICE</span>
-              <h1>{error.includes('Registry closed') ? 'Registry closed for the day.' : 'The clerk is away.'}</h1>
-              <p>{error}</p>
+              <h1>
+                {error.includes('Registry closed')
+                  ? 'Registry closed for the day.'
+                  : 'The clerk is away.'}
+              </h1>
+              <p>{error.replace(/^Registry closed for the day\.\s*/, '')}</p>
               <button onClick={() => void refresh()}>Try the office again</button>
             </div>
           ) : !today || !me ? (
@@ -210,7 +244,6 @@ export default function App() {
             <CertificatePage id={decodeURIComponent(path.split('/').pop()!)} />
           ) : path.startsWith('/archive') ? (
             <Archive />
-
           ) : path === '/about' ? (
             <About />
           ) : path === '/stats' ? (
@@ -320,8 +353,15 @@ function Home({
     let valid = true;
     const id = setTimeout(() => {
       if (answer.trim().length >= 3 && today.category)
-        (isDemo ? api<{answers:string[]}>('/answers?category=' + today.category.id + '&q=' + encodeURIComponent(answer)).then(d=>d.answers) : catalogSuggestions(today.category.slug, answer))
-          .then((answers) => { if (valid) setSuggestions(answers); })
+        (isDemo
+          ? api<{ answers: string[] }>(
+              '/answers?category=' + today.category.id + '&q=' + encodeURIComponent(answer),
+            ).then((d) => d.answers)
+          : catalogSuggestions(today.category.slug, answer)
+        )
+          .then((answers) => {
+            if (valid) setSuggestions(answers);
+          })
           .catch(() => setSuggestions([]));
       else setSuggestions([]);
     }, 180);
@@ -348,7 +388,10 @@ function Home({
       const token = isDemo
         ? 'demo'
         : await runTurnstile(today.turnstileSiteKey, turnstileBox.current!);
-      const result = await api<{ claim: Claim; me?: Me }>('/claim', { answer, turnstileToken: token });
+      const result = await api<{ claim: Claim; me?: Me }>('/claim', {
+        answer,
+        turnstileToken: token,
+      });
       setClaim(result.claim);
       setLanded(true);
       if (result.me) setMe(result.me);
@@ -370,9 +413,16 @@ function Home({
   return (
     <>
       <section className="daily-heading">
-        <span className="eyebrow">{today.category ? "Today's category:" : 'THE DAILY GAME OF FIRST CLAIMS'}</span>
+        <span className="eyebrow">
+          {today.category ? "Today's category:" : 'THE DAILY GAME OF FIRST CLAIMS'}
+        </span>
         <CategoryHeading name={today.category?.name || 'DIBS'} />
-        {today.category && <p className="game-rule">Name {today.category.slug === 'animals' ? 'an animal' : 'an item in this category'} nobody has claimed yet. First to call it owns it today.</p>}
+        {today.category && (
+          <p className="game-rule">
+            Name {today.category.slug === 'animals' ? 'an animal' : 'an item in this category'}{' '}
+            nobody has claimed yet. First to call it owns it today.
+          </p>
+        )}
       </section>
       {!today.category ? (
         <section className="closed-office">
@@ -380,8 +430,13 @@ function Home({
           <div>
             <h2>The office opens tonight.</h2>
             <p>The next category drops tonight at 9 PM ET. Come back to call dibs.</p>
-            <p className="eyebrow">NEXT DROP <Clock target={today.nextDrop} /></p>
-            <p className="closed-example">EXAMPLE · If the category is Animals, type “axolotl”. If nobody has it, it’s yours. Share your certificate.</p>
+            <p className="eyebrow">
+              NEXT DROP <Clock target={today.nextDrop} />
+            </p>
+            <p className="closed-example">
+              EXAMPLE · If the category is Animals, type “axolotl”. If nobody has it, it’s yours.
+              Share your certificate.
+            </p>
           </div>
           <div className="closed-seal" aria-hidden="true">
             DIBS
@@ -504,7 +559,12 @@ function Home({
                   </li>
                 ))}
               </ul>
-              <p className="live-strip">{today.open.toLocaleString()} still up for grabs · {today.lastClaimAt ? `last claim ${Math.max(0, Math.floor((Date.now() - Date.parse(today.lastClaimAt)) / 60000))} min ago` : 'be the first to claim'}</p>
+              <p className="live-strip">
+                {today.open.toLocaleString()} still up for grabs ·{' '}
+                {today.lastClaimAt
+                  ? `last claim ${Math.max(0, Math.floor((Date.now() - Date.parse(today.lastClaimAt)) / 60000))} min ago`
+                  : 'be the first to claim'}
+              </p>
               <ol className="how-it-works" aria-label="How it works">
                 <li>Type {today.category.slug === 'animals' ? 'an animal' : 'a category item'}.</li>
                 <li>If nobody has it, it's yours.</li>
@@ -515,29 +575,29 @@ function Home({
                 {message || 'Spell it right. The clerk is particular.'}
               </p>
             </form>
-
           </div>
         </motion.section>
       )}
-      {!claim && me.user && <section className="identity-section">
-        <span className="eyebrow">YOUR HANDLE · FORM C-1</span>
-              <div className="identity">
-                <div>
-                  <span className="eyebrow">FILED UNDER</span>
-                  <strong>{me.user.handle}</strong>
-                </div>
-                <button
-                  type="button"
-                  className="text-button"
-                  disabled={me.user.rerolls_used >= 3 || busy}
-                  onClick={() => void identity('reroll', {})}
-                >
-                  Re-roll ({3 - me.user.rerolls_used} left)
-                </button>
-
-              </div>
-      </section>}
-      <Ledger category={today.category} open={today.open} />
+      {!claim && me.user && (
+        <section className="identity-section">
+          <span className="eyebrow">YOUR HANDLE · FORM C-1</span>
+          <div className="identity">
+            <div>
+              <span className="eyebrow">FILED UNDER</span>
+              <strong>{me.user.handle}</strong>
+            </div>
+            <button
+              type="button"
+              className="text-button"
+              disabled={me.user.rerolls_used >= 3 || busy}
+              onClick={() => void identity('reroll', {})}
+            >
+              Re-roll ({3 - me.user.rerolls_used} left)
+            </button>
+          </div>
+        </section>
+      )}
+      {today.category && <Ledger category={today.category} open={today.open} />}
       <div className="bottom-note">
         <span className="eyebrow">A NOTE FROM THE CLERK</span>
         <p>All claims are real. All ownership is entirely ceremonial.</p>
@@ -615,17 +675,39 @@ function Ledger({ category, open }: { category: Category | null; open?: number }
   useEffect(() => {
     let alive = true;
     setRows([]);
+    let version = getSnapshot()?.version || 0;
     const accept = (s: Snapshot) => {
       if (s.today.category?.id === category?.id) {
-        setRows(previous => { setNewIds(new Set(s.rows.filter(r=>!previous.some(p=>p.id===r.id)).map(r=>r.id))); return s.rows; });
+        const reset = version !== (s.version || 0);
+        version = s.version || 0;
+        setRows((previous) => {
+          setNewIds(
+            new Set(s.rows.filter((r) => !previous.some((p) => p.id === r.id)).map((r) => r.id)),
+          );
+          return reset
+            ? s.rows
+            : [...new Map([...previous, ...s.rows].map((r) => [r.id, r])).values()].sort(
+                (a, b) => b.claim_no - a.claim_no,
+              );
+        });
         setError('');
       }
     };
     const snapshot = getSnapshot();
     if (snapshot && snapshot.today.category?.id === category?.id) accept(snapshot);
-    else if (category) api<{rows:Claim[]}>('/ledger?category='+category.id).then(d=>{if(alive)setRows(d.rows);}).catch(()=>{if(alive)setError('The ledger could not be refreshed. Please try again shortly.');});
+    else if (category)
+      api<{ rows: Claim[] }>('/ledger?category=' + category.id)
+        .then((d) => {
+          if (alive) setRows(d.rows);
+        })
+        .catch(() => {
+          if (alive) setError('The ledger could not be refreshed. Please try again shortly.');
+        });
     const off = subscribe(accept);
-    return () => { alive=false; off(); };
+    return () => {
+      alive = false;
+      off();
+    };
   }, [category?.id]);
   const filtered = rows.filter((r) =>
     `${r.display} ${r.handle}`.toLowerCase().includes(query.toLowerCase()),
@@ -652,8 +734,12 @@ function Ledger({ category, open }: { category: Category | null; open?: number }
         </label>
       </div>
       {error && <p role="status">{error}</p>}
-      {category && open !== undefined && rows.length < 10 && <p className="open-pool">{open.toLocaleString()} {category.name.toLowerCase()} still unclaimed. Be early.</p>}
-      <table className={"ledger " + (rows.length < 10 ? 'first-filings' : '')}>
+      {category && open !== undefined && rows.length < 10 && (
+        <p className="open-pool">
+          {open.toLocaleString()} {category.name.toLowerCase()} still unclaimed. Be early.
+        </p>
+      )}
+      <table className={'ledger ' + (rows.length < 10 ? 'first-filings' : '')}>
         <caption className="sr-only">Claims in {category?.name || 'today’s registry'}</caption>
         <thead>
           <tr>
@@ -672,9 +758,7 @@ function Ledger({ category, open }: { category: Category | null; open?: number }
               </td>
               <td>
                 {r.handle}
-                <span className="mobile-meta">
-                  {time(r.created_at)}
-                </span>
+                <span className="mobile-meta">{time(r.created_at)}</span>
               </td>
               <td className="time-col">{time(r.created_at)}</td>
             </tr>
@@ -690,21 +774,40 @@ function Ledger({ category, open }: { category: Category | null; open?: number }
               </td>
             </tr>
           )}
-          {!query && category && rows.length < 10 && Array.from({ length: Math.min(3, 10 - rows.length) }, (_, i) => (
-            <tr className="open-filing" key={'blank' + i}>
-              <td colSpan={4}>No. {serial(Math.max(0, ...rows.map(r => r.claim_no)) + i + 1)} — open</td>
-            </tr>
-          ))}
+          {!query &&
+            category &&
+            rows.length < 10 &&
+            Array.from({ length: Math.min(3, 10 - rows.length) }, (_, i) => (
+              <tr className="open-filing" key={'blank' + i}>
+                <td colSpan={4}>
+                  No. {serial(Math.max(0, ...rows.map((r) => r.claim_no)) + i + 1)} — open
+                </td>
+              </tr>
+            ))}
         </tbody>
       </table>
-      {rows.length >= 50 && <button className="load-older" onClick={async () => {
-        try {
-          const before = Math.min(...rows.map(r=>r.claim_no));
-          const data = await api<{rows:Claim[]}>('/ledger?category='+category?.id+'&before='+before+'&limit=50');
-          setRows(previous => [...previous, ...data.rows.filter(r=>!previous.some(p=>p.id===r.id))]);
-          if (!data.rows.length) setError('You have reached the first filing.');
-        } catch { setError('Older filings could not be loaded. Please try again.'); }
-      }}>Load earlier filings</button>}
+      {rows.length >= 50 && (
+        <button
+          className="load-older"
+          onClick={async () => {
+            try {
+              const before = Math.min(...rows.map((r) => r.claim_no));
+              const data = await api<{ rows: Claim[] }>(
+                '/ledger?category=' + category?.id + '&before=' + before + '&limit=50',
+              );
+              setRows((previous) => [
+                ...previous,
+                ...data.rows.filter((r) => !previous.some((p) => p.id === r.id)),
+              ]);
+              if (!data.rows.length) setError('You have reached the first filing.');
+            } catch {
+              setError('Older filings could not be loaded. Please try again.');
+            }
+          }}
+        >
+          Load earlier filings
+        </button>
+      )}
       <div className="ledger-foot">
         <span>END OF ENTRIES / {rows.length.toLocaleString()} ON FILE</span>
         <span>LIVE / 15s, THEN 60s · PAUSED IN BACKGROUND</span>
@@ -774,11 +877,7 @@ export function Certificate({ claim, animated = false }: { claim: Claim; animate
           transition={{ duration: 0.18, delay: 0.65 }}
         >
           <strong>DIBS</strong>
-          <span>
-            {claim.obscurity && claim.obscurity >= 4
-              ? 'DEEP CUT'
-              : 'REGISTERED'}
-          </span>
+          <span>{claim.obscurity && claim.obscurity >= 4 ? 'DEEP CUT' : 'REGISTERED'}</span>
         </motion.div>
       </div>
       <div className="cert-footer">
@@ -927,16 +1026,27 @@ function Archive() {
               <h2>{selected.name}</h2>
             </div>
           )}
-          {selected ? <Ledger category={selected} /> : !error && <section className="archive-specimen" aria-label="Specimen example, not a real record">
-            <span className="eyebrow">SPECIMEN — how a filed day looks</span>
-            <h2>A day of first claims.</h2>
-            <p>This sample shows the layout. These are examples, not player records.</p>
-            <div className="specimen-watermark" aria-hidden="true">SPECIMEN</div>
-            <div className="specimen-line">EXAMPLE ENTRY / AXOLOTL</div>
-            <div className="specimen-line">HELD BY / Example holder</div>
-            <div className="specimen-line">DATE / A completed day</div>
-            <p className="eyebrow">The first real page arrives after a claimed day closes.</p>
-          </section>}
+          {selected ? (
+            <Ledger category={selected} />
+          ) : (
+            !error && (
+              <section
+                className="archive-specimen"
+                aria-label="Specimen example, not a real record"
+              >
+                <span className="eyebrow">SPECIMEN — how a filed day looks</span>
+                <h2>A day of first claims.</h2>
+                <p>This sample shows the layout. These are examples, not player records.</p>
+                <div className="specimen-watermark" aria-hidden="true">
+                  SPECIMEN
+                </div>
+                <div className="specimen-line">EXAMPLE ENTRY / AXOLOTL</div>
+                <div className="specimen-line">HELD BY / Example holder</div>
+                <div className="specimen-line">DATE / A completed day</div>
+                <p className="eyebrow">The first real page arrives after a claimed day closes.</p>
+              </section>
+            )
+          )}
         </div>
       </div>
     </>
@@ -977,8 +1087,8 @@ function About() {
             stays modest.
           </h2>
           <p>
-            We store a randomly generated handle and your claims. An anonymous,
-            signed cookie keeps your place. No email. No password. No public names to type.
+            We store a randomly generated handle and your claims. An anonymous, signed cookie keeps
+            your place. No email. No password. No public names to type.
           </p>
           <p>
             For abuse prevention, an IP address becomes a daily rotating hash. We do not store raw

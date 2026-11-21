@@ -1,14 +1,16 @@
 {
-  "bytes": 250328,
+  "bytes": 250401,
   "limit": 300000,
   "excludes": "grain PNG; catalogs load on typing; API bootstrap up to 50 filings adds about 6 KB compressed",
   "files": [
-    "dist/assets/index-BCJtPJMW.js",
+    "dist/assets/index-C_GsUJjb.js",
     "dist/assets/index-Dh7ZBvEb.css",
     "dist/index.html",
     "public/fonts/archivo.woff2",
     "public/fonts/instrument.woff2",
     "public/fonts/plex.woff2",
     "public/favicon.svg"
-  ]
+  ],
+  "actualBootstrapGzip": 749,
+  "total": 251150
 }
