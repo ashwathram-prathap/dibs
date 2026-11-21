@@ -13,3 +13,9 @@ playwright-report/
 *.tsbuildinfo
 
 .category-cache/
+
+.tmp/
+
+.playwright/
+review/devices/**/*.png
+review/m1/

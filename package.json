@@ -1,1 +1,49 @@
-{"name":"dibs","version":"1.0.0","private":true,"type":"module","scripts":{"dev":"vite --host 127.0.0.1","build":"tsc -b && vite build","preview":"vite preview --host 127.0.0.1","worker:dev":"wrangler dev --port 8787","test":"vitest run","test:e2e":"playwright test","categories":"tsx scripts/build-category.ts","deploy:api":"wrangler deploy","deploy:web":"npm run build && wrangler pages deploy dist --project-name dibs"},"dependencies":{"react":"^19.2.0","react-dom":"^19.2.0","framer-motion":"^12.23.0","html-to-image":"^1.11.13"},"devDependencies":{"@cloudflare/workers-types":"latest","@fontsource-variable/archivo":"latest","@fontsource-variable/instrument-sans":"latest","@fontsource/ibm-plex-mono":"latest","@playwright/test":"latest","@types/react":"latest","@types/react-dom":"latest","@types/node":"latest","@vitejs/plugin-react":"latest","vite":"latest","vitest":"latest","typescript":"latest","tsx":"latest","wrangler":"latest","pngjs":"latest","lighthouse":"latest","@axe-core/playwright":"latest"}}
+{
+  "name": "dibs",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite --host 127.0.0.1",
+    "build": "tsc -b && vite build",
+    "preview": "vite preview --host 127.0.0.1",
+    "worker:dev": "wrangler dev -c worker/wrangler.jsonc --port 8787 --env-file .dev.vars",
+    "test": "vitest run",
+    "test:e2e": "playwright test",
+    "categories": "tsx scripts/build-category.ts",
+    "deploy:api": "wrangler deploy -c worker/wrangler.jsonc",
+    "deploy:web": "npm run build && wrangler pages deploy dist --project-name dibs",
+    "check": "tsc -b && tsc -p tsconfig.worker.json"
+  },
+  "dependencies": {
+    "@resvg/resvg-wasm": "^2.6.2",
+    "framer-motion": "^12.23.0",
+    "html-to-image": "^1.11.13",
+    "react": "^19.2.0",
+    "react-dom": "^19.2.0",
+    "satori": "^0.63.2"
+  },
+  "devDependencies": {
+    "@axe-core/playwright": "latest",
+    "@cloudflare/workers-types": "latest",
+    "@fontsource-variable/archivo": "latest",
+    "@fontsource-variable/instrument-sans": "latest",
+    "@fontsource/archivo": "^5.3.0",
+    "@fontsource/ibm-plex-mono": "latest",
+    "@playwright/test": "latest",
+    "@types/node": "latest",
+    "@types/react": "latest",
+    "@types/react-dom": "latest",
+    "@vitejs/plugin-react": "latest",
+    "lighthouse": "latest",
+    "pngjs": "latest",
+    "tsx": "latest",
+    "typescript": "latest",
+    "vite": "latest",
+    "vitest": "latest",
+    "wrangler": "latest"
+  },
+  "overrides": {
+    "fflate": "^0.8.2"
+  }
+}
