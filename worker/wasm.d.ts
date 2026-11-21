@@ -7,3 +7,8 @@ declare module '*.woff' {
   const font: ArrayBuffer;
   export default font;
 }
+
+declare module '*.otf' {
+  const font: ArrayBuffer;
+  export default font;
+}

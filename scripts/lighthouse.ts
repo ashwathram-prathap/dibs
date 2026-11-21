@@ -6,8 +6,11 @@ const browser = await chromium.launch({ args: ['--remote-debugging-port=9222'] }
 // Observe only identities created or loaded by this audit, so QA cleanup never guesses by time.
 const observer = await chromium.connectOverCDP('http://127.0.0.1:9222');
 const identities = new Set<string>();
+const failures: string[] = [];
 observer.contexts()[0].on('page', (page) => {
   page.on('response', async (response) => {
+    if (response.url().includes('/api/') && response.status() >= 400)
+      failures.push(response.url() + ' ' + response.status());
     if (response.url() === 'https://dibs-7hz.pages.dev/api/me') {
       try {
         const data = await response.json();
@@ -40,6 +43,8 @@ try {
     },
   });
   if (result) {
+    if (failures.length || result.lhr.audits['errors-in-console']?.score === 0)
+      throw new Error('Invalid audit: failed API/console errors: ' + failures.join(', '));
     writeFileSync('review/lighthouse/mobile.json', result.report[0]);
     writeFileSync('review/lighthouse/mobile.html', result.report[1]);
     console.log(

@@ -7,7 +7,11 @@ const auditPath =
     ? 'review/live-qa-identities.json'
     : 'review/lighthouse/qa-identities.json';
 const ids: string[] = JSON.parse(readFileSync(auditPath, 'utf8'));
-if (!ids.length || ids.some((id) => !/^[a-f0-9-]{36}$/.test(id)))
+if (!ids.length) {
+  console.log('No identity was created by this closed-office audit; no cleanup needed.');
+  process.exit(0);
+}
+if (ids.some((id) => !/^[a-f0-9-]{36}$/.test(id)))
   throw new Error('No valid audit identity list. Nothing deleted.');
 const sql = `DELETE FROM users WHERE id IN (${ids.map((id) => "'" + id + "'").join(',')}) AND NOT EXISTS(SELECT 1 FROM claims WHERE user_id=users.id); SELECT id,status,date,total_registrable FROM categories; SELECT COUNT(*) users FROM users; SELECT COUNT(*) claims FROM claims;`;
 const rows = JSON.parse(

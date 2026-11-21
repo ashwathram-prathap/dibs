@@ -26,7 +26,7 @@ beforeAll(async () => {
     write: false,
     format: 'esm',
     platform: 'browser',
-    loader: { '.wasm': 'binary', '.woff': 'binary' },
+    loader: { '.wasm': 'binary', '.woff': 'binary', '.otf': 'binary' },
   });
   mf = new Miniflare(
     convertV4MiniflareOptions({
@@ -54,6 +54,11 @@ beforeAll(async () => {
       /CREATE TRIGGER[\s\S]*?\nEND;/g,
       (m) => m.replace(/\n/g, ' '),
     ),
+  );
+  await db.exec(
+    readFileSync('migrations/0002_foreign_key_indexes.sql', 'utf8')
+      .replace(/^--.*$/gm, '')
+      .replace(/\n/g, ' '),
   );
   const date = registryDate();
   await db
@@ -167,6 +172,9 @@ describe('Worker with real SQLite/D1 execution', () => {
     await db.prepare("UPDATE categories SET status='draft' WHERE id='test'").run();
     const today = (await (await request('/today')).json()) as any;
     expect(today.category).toBeNull();
+    const before = (await db.prepare('SELECT COUNT(*) n FROM users').first()).n;
+    expect(((await (await request('/me')).json()) as any).user).toBeNull();
+    expect((await db.prepare('SELECT COUNT(*) n FROM users').first()).n).toBe(before);
     expect(((await (await request('/ledger?category=test')).json()) as any).rows).toHaveLength(0);
     await db.prepare("UPDATE categories SET status='approved' WHERE id='test'").run();
   });
@@ -244,6 +252,14 @@ describe('Worker with real SQLite/D1 execution', () => {
       (await db.prepare("SELECT display FROM answers WHERE id='replace-me:0'").first()).display,
     ).toBe('Original entry 0');
     expect((await upload(revised)).status).toBe(201);
+    const plan = await db
+      .prepare(
+        "EXPLAIN QUERY PLAN SELECT answer_id FROM answer_keys WHERE answer_id='replace-me:0'",
+      )
+      .all();
+    expect(plan.results.some((r: any) => String(r.detail).includes('answer_keys_answer_id'))).toBe(
+      true,
+    );
     expect(
       (await db.prepare("SELECT display FROM answers WHERE id='replace-me:0'").first()).display,
     ).toBe('Revised entry 0');

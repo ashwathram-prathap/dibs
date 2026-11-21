@@ -36,7 +36,7 @@ export interface Today {
   closedReason?: string;
 }
 export interface Me {
-  user: User;
+  user: User | null;
   claim: Claim | null;
   streak: number;
   streakDates: string[];

@@ -1,0 +1,12 @@
+Dibs Archivo Supplement, derived from Archivo under the SIL Open Font License.
+See Archivo-LICENSE.txt for the original copyright and license.
+
+The distributed Google Fonts subsets omit U+02BB, U+1E90 and U+1E91.
+This separate, internally renamed font reuses Archivo's left single quote for the
+ʻokina and combines its Z/z and circumflex outlines for Ẑ/ẑ. No other glyphs change.
+Rebuild regular and black OTF files with:
+  npx tsx scripts/build-font-supplement.ts
+
+The browser loads these three glyphs only when required. The Worker uses the
+black supplement alongside the official Latin, extended Latin and Vietnamese
+subsets. scripts/verify-fonts.ts audits all catalog names in original and uppercase.

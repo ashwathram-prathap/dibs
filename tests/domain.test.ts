@@ -48,3 +48,14 @@ it('rejects impossible schedule dates', () => {
   expect(validDate('2026-13-01')).toBe(false);
   expect(validDate('2026-11-21')).toBe(true);
 });
+
+it('keeps whole words on a certificate before resorting to letter wrapping', () => {
+  const fitted = fitText('CHEZICHED BINY', (text, size) => text.length * size, 910, {
+    startSize: 145,
+    minSize: 20,
+    maxLines: 3,
+    maxHeight: 270,
+    lineHeight: 0.9,
+  });
+  expect(fitted.lines).toEqual(['CHEZICHED', 'BINY']);
+});

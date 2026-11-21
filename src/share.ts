@@ -4,7 +4,11 @@ import { fitText } from '../shared/typography';
 export async function exportCertificate(claim: Claim, story: boolean, text: string, url: string) {
   await document.fonts.ready;
   await Promise.all([
-    document.fonts.load('900 100px Archivo'),
+    document.fonts.load(
+      '900 100px Archivo, ArchivoSupplement',
+      'DIBS ' + claim.display.toUpperCase(),
+    ),
+    document.fonts.load('900 100px ArchivoSupplement', claim.display.toUpperCase()),
     document.fonts.load('400 30px Instrument'),
     document.fonts.load('400 20px Plex'),
   ]);
@@ -44,7 +48,7 @@ export async function exportCertificate(claim: Claim, story: boolean, text: stri
   line(135);
   mono('CERTIFICATE OF DIBS', 80, 200, 22);
   mono('No. ' + serial(claim.claim_no), 80, 237, 22);
-  c.font = '900 85px Archivo';
+  c.font = '900 85px Archivo, ArchivoSupplement';
   c.fillText('D.', 870, 237);
   const top = story ? 420 : 340;
   c.font = '400 34px Instrument';
@@ -53,13 +57,13 @@ export async function exportCertificate(claim: Claim, story: boolean, text: stri
   const { lines, size } = fitText(
     claim.display.toUpperCase(),
     (text, size) => {
-      c.font = `900 ${size}px Archivo`;
+      c.font = `900 ${size}px Archivo, ArchivoSupplement`;
       return c.measureText(text).width;
     },
     910,
     { startSize: 145, minSize: 20, maxLines: 3, maxHeight: story ? 400 : 270, lineHeight: 0.9 },
   );
-  c.font = `900 ${size}px Archivo`;
+  c.font = `900 ${size}px Archivo, ArchivoSupplement`;
   let y = top + 110;
   for (const row of lines) {
     y += size * 0.9;
@@ -92,7 +96,7 @@ export async function exportCertificate(claim: Claim, story: boolean, text: stri
   c.lineWidth = 5;
   c.strokeRect(-166, -67, 332, 147);
   c.strokeRect(-156, -57, 312, 127);
-  c.font = '900 110px Archivo';
+  c.font = '900 110px Archivo, ArchivoSupplement';
   c.textAlign = 'center';
   c.fillText('DIBS', 0, 32);
   c.fillStyle = '#1A1A17';

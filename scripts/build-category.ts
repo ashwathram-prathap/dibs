@@ -205,6 +205,7 @@ async function build(s: any, index: number) {
   if (
     existsSync(dest) &&
     JSON.parse(readFileSync(dest, 'utf8')).answers?.length >= 2000 &&
+    JSON.parse(readFileSync(dest, 'utf8')).answers.every((a: any) => normalize(a.display)) &&
     JSON.parse(readFileSync(dest, 'utf8')).provenance?.identityPolicy === identityPolicy
   ) {
     console.log('CACHED ' + s.slug);
@@ -238,7 +239,7 @@ async function build(s: any, index: number) {
       if (normalize(row.title) !== normalize(v.title)) continue;
       const display = v.title;
       const canonical = normalize(display);
-      if (seen.has(canonical)) continue;
+      if (!canonical || seen.has(canonical)) continue;
       seen.add(canonical);
       const average = v.views / v.days;
       const obscurity =

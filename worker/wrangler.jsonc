@@ -18,7 +18,7 @@
     "TURNSTILE_SITE_KEY": "0x4AAAAAAGLNsW8c9WxZVAxQ",
   },
   "triggers": {
-    "crons": ["17 5 * * *"],
+    "crons": ["17 5 * * *", "5 0 * * *"],
   },
   "observability": {
     "enabled": false,
@@ -27,7 +27,7 @@
   "rules": [
     {
       "type": "Data",
-      "globs": ["**/*.woff"],
+      "globs": ["**/*.woff", "**/*.otf"],
       "fallthrough": true,
     },
   ],

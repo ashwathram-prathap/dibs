@@ -461,6 +461,12 @@ function Home({
           <ShareButtons claim={claim} />
           <Streak me={me} />
         </motion.section>
+      ) : !me.user ? (
+        <section className="notice">
+          <h2>The clerk is preparing your file.</h2>
+          <p>Please open your filing identity before calling dibs.</p>
+          <button onClick={() => void refresh()}>Open my file</button>
+        </section>
       ) : (
         <motion.section
           className="claim-section"

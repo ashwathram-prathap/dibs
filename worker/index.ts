@@ -76,6 +76,12 @@ async function body(req: Request, limit = 4096) {
     throw new SyntaxError('An object is required');
   return parsed;
 }
+async function ensureMaintenanceIndexes(env: Env) {
+  await env.DB.batch([
+    env.DB.prepare('CREATE INDEX IF NOT EXISTS answer_keys_answer_id ON answer_keys(answer_id)'),
+    env.DB.prepare('CREATE INDEX IF NOT EXISTS claims_answer_id ON claims(answer_id)'),
+  ]);
+}
 async function admin(req: Request, env: Env, path: string) {
   if (
     !env.ADMIN_TOKEN ||
@@ -212,6 +218,7 @@ export async function uploadCategory(env: Env, b: any) {
     });
     entries.push([aid, id, canonical, a.display, JSON.stringify(a.aliases), a.obscurity]);
   }
+  if (existing) await ensureMaintenanceIndexes(env);
   // Each conditional delete is in the same transaction as insertion. If approval races
   // replacement, the insert conflicts and the entire batch rolls back without changing it.
   const replace: D1PreparedStatement[] = [];
@@ -301,6 +308,9 @@ export async function route(req: Request, env: Env): Promise<Response> {
   }
   if (path === '/me' && req.method === 'GET') {
     let u = await user(req, env);
+    const g = await current(env);
+    // A closed office does not need to create an identity or spend a database write.
+    if (!u && !g) return json({ user: null, claim: null, streak: 0, streakDates: [] });
     let cookie = '';
     if (!u) {
       const id = crypto.randomUUID();
@@ -319,7 +329,6 @@ export async function route(req: Request, env: Env): Promise<Response> {
         .first<any>();
       cookie = `dibs_session=${id}.${await hmac(id, env.COOKIE_SECRET)}; HttpOnly; SameSite=Lax; Path=/; Max-Age=31536000${url.protocol === 'https:' ? '; Secure' : ''}`;
     }
-    const g = await current(env);
     const claim = g
       ? await env.DB.prepare(publicClaim + ' AND c.user_id=? AND c.category_id=?')
           .bind(u.id, g.id)
@@ -367,13 +376,19 @@ export async function route(req: Request, env: Env): Promise<Response> {
   }
   if (path === '/archive') {
     const rows = await env.DB.prepare(
-      "SELECT id,date,name,slug,total_registrable,drop_at FROM categories WHERE status='approved' AND drop_at<=? ORDER BY date DESC",
+      "SELECT id,date,name,slug,total_registrable,drop_at FROM categories WHERE date<=? AND status='approved' AND drop_at<=? ORDER BY date DESC",
     )
-      .bind(new Date().toISOString())
+      .bind(registryDate(), new Date().toISOString())
       .all();
     return json({ categories: rows.results });
   }
   if (path === '/schools') {
+    const published = await env.DB.prepare(
+      "SELECT id FROM categories WHERE date<=? AND status='approved' LIMIT 1",
+    )
+      .bind(registryDate())
+      .first();
+    if (!published) return json({ today: [], season: [] });
     const g = url.searchParams.get('category') || (await current(env))?.id || '';
     const base =
       "SELECT u.school,COUNT(*) claims FROM claims c JOIN users u ON u.id=c.user_id JOIN categories g ON g.id=c.category_id WHERE c.voided=0 AND u.hidden=0 AND g.status='approved' AND u.school NOT IN ('None','Other')";
@@ -545,12 +560,32 @@ export default {
       return await route(req, env);
     } catch (e) {
       if (env.LOCAL_TEST === 'true') console.error(e);
+      if (/free tier daily|daily row read limit|daily row write limit|7500/i.test(String(e))) {
+        const reset = new Date();
+        reset.setUTCHours(24, 0, 0, 0);
+        const when = new Intl.DateTimeFormat('en-CA', {
+          timeZone: 'America/Toronto',
+          weekday: 'long',
+          hour: 'numeric',
+          minute: '2-digit',
+        }).format(reset);
+        return json(
+          {
+            message:
+              'Today’s filing allowance is spent. Please return after ' + when + ', Toronto time.',
+            retryAt: reset.toISOString(),
+          },
+          503,
+          { 'retry-after': String(Math.ceil((reset.getTime() - Date.now()) / 1000)) },
+        );
+      }
       if (e instanceof SyntaxError) return fail(400, 'That form could not be read.');
       if (String(e).includes('BODY_TOO_LARGE')) return fail(413, 'That form is too large.');
       return fail(500, 'The filing cabinet is unavailable. Please try again.');
     }
   },
   async scheduled(_event: ScheduledController, env: Env) {
+    await ensureMaintenanceIndexes(env);
     await env.DB.batch([
       env.DB.prepare('DELETE FROM attempts WHERE at<?').bind(Date.now() - 120000),
       env.DB.prepare("DELETE FROM rate_limits WHERE day<date('now','-2 day')"),

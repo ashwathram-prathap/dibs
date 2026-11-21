@@ -3,22 +3,29 @@ import { parse, type Font } from 'opentype.js';
 import { fitText } from '../shared/typography';
 import resvgWasm from '@resvg/resvg-wasm/index_bg.wasm';
 import archivoFont from '../public/fonts/archivo-og.woff';
-let font: Font | undefined;
+import archivoExtended from '../public/fonts/archivo-og-latin-ext.woff';
+import archivoVietnamese from '../public/fonts/archivo-og-vietnamese.woff';
+import archivoSupplement from '../public/fonts/archivo-supplement-900.otf';
+let fonts: Font[] | undefined;
 let ready: Promise<void> | undefined;
 // Render self-hosted type to vector outlines before PNG rasterization. No remote fonts or HTML parser.
 export async function og(site: string, claim: any) {
   ready ||= initWasm(resvgWasm);
   await ready;
-  font ||= parse(archivoFont);
-  const face = font;
+  fonts ||= [archivoFont, archivoExtended, archivoVietnamese, archivoSupplement].map((data) =>
+    parse(data),
+  );
+  const faceFor = (ch: string) =>
+    fonts!.find((face) => face.charToGlyphIndex(ch) !== 0) || fonts![0];
   const width = (value: string, size: number) =>
-    [...value].reduce(
-      (n, ch) => n + ((face.charToGlyph(ch).advanceWidth || 0) * size) / face.unitsPerEm,
-      0,
-    );
+    [...value].reduce((n, ch) => {
+      const face = faceFor(ch);
+      return n + ((face.charToGlyph(ch).advanceWidth || 0) * size) / face.unitsPerEm;
+    }, 0);
   const text = (value: string, x: number, y: number, size: number, color = '#1A1A17') => {
     let out = '';
     for (const ch of value) {
+      const face = faceFor(ch);
       const glyph = face.charToGlyph(ch);
       out += `<path fill="${color}" d="${glyph.getPath(x, y, size).toPathData(2)}"/>`;
       x += ((glyph.advanceWidth || 0) * size) / face.unitsPerEm;

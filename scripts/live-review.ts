@@ -13,7 +13,10 @@ try {
         colorScheme: theme,
       });
       const page = await context.newPage();
+      let apiErrors: { url: string; status: number }[] = [];
       page.on('response', async (response) => {
+        if (response.url().includes('/api/') && response.status() >= 400)
+          apiErrors.push({ url: response.url(), status: response.status() });
         if (response.url() === 'https://dibs-7hz.pages.dev/api/me') {
           try {
             const data = await response.json();
@@ -28,6 +31,7 @@ try {
         ['/about', 'office-notice'],
         ['/stats', 'stats'],
       ]) {
+        apiErrors = [];
         await page.goto('https://dibs-7hz.pages.dev' + route);
         await page.locator('main h1').waitFor();
         await page.evaluate(() => document.fonts.ready);
@@ -42,6 +46,7 @@ try {
           () => document.documentElement.scrollWidth <= innerWidth,
         );
         results.push({
+          apiErrors,
           route,
           width,
           theme,
@@ -62,7 +67,7 @@ try {
 if (results.some((r) => !r.noOverflow || r.violations.length)) process.exitCode = 1;
 console.log(
   results.length +
-    ' live page checks; ' +
+    ' live layout/accessibility checks (API availability reported separately); ' +
     results.filter((r) => r.noOverflow && !r.violations.length).length +
     ' passed',
 );
