@@ -1,9 +1,11 @@
 // Unattended delivery helper. Only commits complete category drafts, never other work.
-import { readdirSync, readFileSync, writeFileSync } from 'node:fs';
+import { readdirSync, readFileSync, writeFileSync, existsSync } from 'node:fs';
 import { execFileSync } from 'node:child_process';
 const git = (args: string[]) =>
   execFileSync('git', args, { encoding: 'utf8', maxBuffer: 2_000_000 });
-const history: any[] = [];
+const history: any[] = existsSync('review/category-pushes.json')
+  ? JSON.parse(readFileSync('review/category-pushes.json', 'utf8'))
+  : [];
 let done = false;
 while (!done) {
   const complete: string[] = [];
@@ -13,6 +15,7 @@ while (!done) {
       const c = JSON.parse(readFileSync(path, 'utf8'));
       if (
         c.status === 'draft' &&
+        c.provenance?.identityPolicy === 'exclude-cross-title-redirects-v1' &&
         c.answers?.length >= 2000 &&
         c.total_registrable === c.answers.length
       )

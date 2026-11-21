@@ -22,7 +22,7 @@ The preview is unlisted/noindex, **not access-controlled**. No announcement, soc
 ## 2. What's done
 
 - **M1:** All screens, paper/carbon themes, self-hosted fonts, grain, ink rules, visible stamp impact and receipt reveal under 1.4 seconds. Final gallery: [review/index.html](review/index.html).
-- **M2:** Worker, D1, Turnstile, signed first-party identity, rerolls, school selection, moderation, atomic serials and abuse limits. **17 tests pass**, including 50 simultaneous claims → one 201 and 49 409s, double claims and shared-IP quota. Real local browser→D1 integration passes.
+- **M2:** Worker, D1, Turnstile, signed first-party identity, rerolls, school selection, moderation, atomic serials and abuse limits. **18 tests pass**, including 50 simultaneous claims → one 201 and 49 409s, double claims and shared-IP quota. Real local browser→D1 integration passes.
 - **M3:** Polling/searchable ledger, archive, schools, streaks, measured obscurity, two PNG sizes and share/manual-save/text fallbacks. **30 browser configurations pass**, four motion proofs and four fallback scenarios pass; 20 live page checks have no axe AA violations or overflow.
 - **M4:** **30 draft categories / ${categories.entries.toLocaleString()} measured entries**, each ≥2,000; admin tools, D1 statistics/retention, per-claim OG, deployment and private GitHub pushes. Final mobile Slow 4G Lighthouse: **${performance} performance / ${accessibility} accessibility**. Dependency audit: zero vulnerabilities. Remaining external blockers below.
 

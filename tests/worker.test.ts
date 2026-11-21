@@ -211,6 +211,55 @@ describe('Worker with real SQLite/D1 execution', () => {
       await db.prepare('SELECT id FROM categories WHERE id=?').bind('test-invalid').first(),
     ).toBeNull();
   });
+  it('replaces only unclaimed drafts, and invalid replacements preserve the original', async () => {
+    const upload = (body: any) =>
+      mf.dispatchFetch('http://localhost/api/admin/category', {
+        method: 'POST',
+        headers: { authorization: 'Bearer test-admin', 'content-type': 'application/json' },
+        body: JSON.stringify(body),
+      });
+    const draft = {
+      id: 'replace-me',
+      slug: 'replace-me',
+      name: 'Review draft',
+      answers: Array.from({ length: 2000 }, (_, i) => ({
+        display: 'Original entry ' + i,
+        aliases: [] as string[],
+        obscurity: 3,
+      })),
+    };
+    expect((await upload(draft)).status).toBe(201);
+    expect((await upload(draft)).status).toBe(409);
+    const revised = {
+      ...draft,
+      replaceDraft: true,
+      answers: draft.answers.map((a, i) => ({ ...a, display: 'Revised entry ' + i })),
+    };
+    const bad = {
+      ...revised,
+      answers: revised.answers.map((a) => ({ ...a, aliases: ['same alias'] })),
+    };
+    expect((await upload(bad)).status).toBe(422);
+    expect(
+      (await db.prepare("SELECT display FROM answers WHERE id='replace-me:0'").first()).display,
+    ).toBe('Original entry 0');
+    expect((await upload(revised)).status).toBe(201);
+    expect(
+      (await db.prepare("SELECT display FROM answers WHERE id='replace-me:0'").first()).display,
+    ).toBe('Revised entry 0');
+    expect(
+      (
+        await db
+          .prepare("SELECT COUNT(*) n FROM answer_keys WHERE category_id='replace-me'")
+          .first()
+      ).n,
+    ).toBe(2000);
+    await db.prepare("UPDATE categories SET status='approved' WHERE id='replace-me'").run();
+    expect((await upload({ ...draft, replaceDraft: true })).status).toBe(409);
+    expect(
+      (await db.prepare("SELECT display FROM answers WHERE id='replace-me:0'").first()).display,
+    ).toBe('Revised entry 0');
+  });
   it('does not accept the localhost verification bypass on a remote hostname', async () => {
     const a = await account();
     const r = await mf.dispatchFetch('https://preview.example/api/claim', {

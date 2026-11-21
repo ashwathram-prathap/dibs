@@ -8,7 +8,7 @@ The preview is deployed on the default Cloudflare hosts. M1–M4 were implemente
 | A brand-new registry with zero claims looks intentional | PASS | `final/live-*`; ruled blank ledger lines and explicit closed-office copy. `production-state.json` confirms zero users and claims after QA cleanup. |
 | No fabricated production numbers or fixtures | PASS | `production-audit.json`; fixture module gated by both development mode and the explicit demo flag. No fixture identities or imports survive the bundle. All three remote registers are drafts. |
 | Crisp exported PNGs on iPhone Safari and Android Chrome | PARTIAL / DEVICE BLOCKED | WebKit/Chromium emulation verifies 1080×1350 and 1080×1920 files, self-hosted canvas fonts, long titles and download fallback. Physical phone engines, native sharing and image-save behavior require the owner's phone checks. |
-| Concurrency and double-claim tests | PASS | 17 Worker/domain tests, including exactly one 201 plus 49 409 responses for 50 simultaneous requests; simultaneous double-claim rejection, unique serials, shared-IP quota and per-user rate limits. |
+| Concurrency and double-claim tests | PASS | 18 Worker/domain tests, including exactly one 201 plus 49 409 responses for 50 simultaneous requests; simultaneous double-claim rejection, unique serials, shared-IP quota and per-user rate limits. |
 | No raw IPs or free-text names stored | PASS | D1 schema has daily salted IP hashes, curated handles and an enforced school list. Cleanup removes old IP hashes. Neither raw IPs nor user-written public names are written. |
 
 ## Additional required verification

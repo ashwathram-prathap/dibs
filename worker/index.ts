@@ -171,8 +171,16 @@ export async function uploadCategory(env: Env, b: any) {
   const id = b.id || b.slug;
   if (typeof id !== 'string' || !/^[a-z0-9-]{2,80}$/.test(id))
     return fail(422, 'Use a plain register ID.');
-  if (await env.DB.prepare('SELECT id FROM categories WHERE id=?').bind(id).first())
-    return fail(409, 'This register is already filed. Use a new ID.');
+  const existing = await env.DB.prepare('SELECT status FROM categories WHERE id=?')
+    .bind(id)
+    .first<any>();
+  if (
+    existing &&
+    (b.replaceDraft !== true ||
+      existing.status !== 'draft' ||
+      (await env.DB.prepare('SELECT id FROM claims WHERE category_id=? LIMIT 1').bind(id).first()))
+  )
+    return fail(409, 'Only an unclaimed draft can be replaced, with replaceDraft: true.');
   const seen = new Set<string>();
   const entries: any[] = [];
   const keys: any[] = [];
@@ -199,8 +207,21 @@ export async function uploadCategory(env: Env, b: any) {
     });
     entries.push([aid, id, canonical, a.display, JSON.stringify(a.aliases), a.obscurity]);
   }
-  // JSON1 performs bulk inserts in three queries, staying inside Free Worker query limits.
+  // Each conditional delete is in the same transaction as insertion. If approval races
+  // replacement, the insert conflicts and the entire batch rolls back without changing it.
+  const replace: D1PreparedStatement[] = [];
+  if (existing) {
+    const guard =
+      "EXISTS(SELECT 1 FROM categories g WHERE g.id=? AND g.status='draft' AND NOT EXISTS(SELECT 1 FROM claims WHERE category_id=g.id))";
+    replace.push(
+      env.DB.prepare('DELETE FROM answer_keys WHERE category_id=? AND ' + guard).bind(id, id),
+      env.DB.prepare('DELETE FROM answers WHERE category_id=? AND ' + guard).bind(id, id),
+      env.DB.prepare('DELETE FROM categories WHERE id=? AND ' + guard).bind(id, id),
+    );
+  }
+  // JSON1 keeps bulk writes inside Free Worker query limits, including replacement.
   await env.DB.batch([
+    ...replace,
     env.DB.prepare(
       'INSERT INTO categories(id,date,name,slug,total_registrable,drop_at,status,source_json) VALUES(?,?,?,?,?,?,?,?)',
     ).bind(

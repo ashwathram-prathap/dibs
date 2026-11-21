@@ -25,9 +25,9 @@
     "property": "P171"
   },
   {
-    "slug": "insects",
-    "name": "Insects",
-    "root": "Q1390",
+    "slug": "arthropods",
+    "name": "Arthropods",
+    "root": "Q1360",
     "property": "P171",
     "wikiCategoryRoots": [
       "Insects described in 1758",
@@ -36,7 +36,7 @@
       "Insects described in 1822",
       "Insects described in 1858"
     ],
-    "note": "Insect species from Wikipedia description-year lists and their taxonomic subcategories."
+    "note": "Arthropods from historical Wikipedia insect description-year lists and their taxonomic subcategories. Includes insects, centipedes and other arthropod kin classified in those historical lists."
   },
   {
     "slug": "cities",

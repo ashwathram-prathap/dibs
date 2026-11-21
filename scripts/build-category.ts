@@ -4,6 +4,7 @@ const sources = JSON.parse(readFileSync('scripts/category-sources.json', 'utf8')
 mkdirSync('categories', { recursive: true });
 mkdirSync('review', { recursive: true });
 mkdirSync('.category-cache', { recursive: true });
+const identityPolicy = 'exclude-cross-title-redirects-v1';
 const ua = 'DibsCategoryBuilder/1.0 (https://www.ashwathram.ca; private registry prototype)';
 const sleep = (n: number) => new Promise((r) => setTimeout(r, n));
 let nextRequest = 0;
@@ -201,7 +202,11 @@ async function views(titles: string[]) {
 }
 async function build(s: any, index: number) {
   const dest = 'categories/' + s.slug + '.json';
-  if (existsSync(dest) && JSON.parse(readFileSync(dest, 'utf8')).answers?.length >= 2000) {
+  if (
+    existsSync(dest) &&
+    JSON.parse(readFileSync(dest, 'utf8')).answers?.length >= 2000 &&
+    JSON.parse(readFileSync(dest, 'utf8')).provenance?.identityPolicy === identityPolicy
+  ) {
     console.log('CACHED ' + s.slug);
     return;
   }
@@ -221,30 +226,47 @@ async function build(s: any, index: number) {
       ...source,
     ];
   }
-  const candidates = source.filter((r: any) => acceptable(r.title)).slice(0, 2450);
-  await views(candidates.map((r: any) => r.title).filter((t: string) => !viewCache[t]));
-  const seen = new Set<string>();
-  const answers = [];
-  for (const row of candidates) {
-    const v = viewCache[row.title];
-    if (!v || v.excluded || v.days < 20 || !acceptable(v.title)) continue;
-    const display = v.title;
-    const canonical = normalize(display);
-    if (seen.has(canonical)) continue;
-    seen.add(canonical);
-    const average = v.views / v.days;
-    const obscurity =
-      average >= 1000 ? 1 : average >= 200 ? 2 : average >= 50 ? 3 : average >= 10 ? 4 : 5;
-    answers.push({
-      canonical,
-      display,
-      aliases: [],
-      obscurity,
-      source: row.url,
-      wikidata: row.wikidata,
-      pageviews: { total: v.views, days: v.days, start: v.start, end: v.end },
-    });
-    if (answers.length >= 2200) break;
+  const candidates = source.filter((r: any) => acceptable(r.title)).slice(0, 3200);
+  let pool = Math.min(2450, candidates.length);
+  const collect = () => {
+    const seen = new Set<string>();
+    const answers = [];
+    for (const row of candidates.slice(0, pool)) {
+      const v = viewCache[row.title];
+      if (!v || v.excluded || v.days < 20 || !acceptable(v.title)) continue;
+      // A song redirected to its artist is not a song article or a valid song readership score.
+      if (normalize(row.title) !== normalize(v.title)) continue;
+      const display = v.title;
+      const canonical = normalize(display);
+      if (seen.has(canonical)) continue;
+      seen.add(canonical);
+      const average = v.views / v.days;
+      const obscurity =
+        average >= 1000 ? 1 : average >= 200 ? 2 : average >= 50 ? 3 : average >= 10 ? 4 : 5;
+      answers.push({
+        canonical,
+        display,
+        aliases: [],
+        obscurity,
+        source: row.url,
+        wikidata: row.wikidata,
+        pageviews: { total: v.views, days: v.days, start: v.start, end: v.end },
+      });
+      if (answers.length >= 2200) break;
+    }
+    return answers;
+  };
+  await views(
+    candidates
+      .slice(0, pool)
+      .map((r: any) => r.title)
+      .filter((t: string) => !viewCache[t]),
+  );
+  let answers = collect();
+  if (answers.length < 2000 && pool < candidates.length) {
+    pool = candidates.length;
+    await views(candidates.map((r: any) => r.title).filter((t: string) => !viewCache[t]));
+    answers = collect();
   }
   const date =
     index < 3
@@ -271,6 +293,7 @@ async function build(s: any, index: number) {
         'Mean daily Wikipedia pageviews over available days in the past 30: 1 >=1000; 2 >=200; 3 >=50; 4 >=10; 5 <10. Missing data excluded.',
       scopeNote: s.note || null,
       reviewRequired: true,
+      identityPolicy,
     },
     answers,
   };
@@ -292,12 +315,41 @@ for (const source of selected) {
     failures.push(source.slug);
   }
 }
+mkdirSync('review/answer-index', { recursive: true });
+const markdown = (value: string) => value.replace(/[\\`*_{}[\]()#+.!|>]/g, '\\$&');
 let checklist =
-  '# Category review docket\n\nAll registers are drafts. Only the first three carry proposed dates. Nothing may open until the owner reviews and explicitly approves it. Titles retain disambiguating parentheses, rather than silently merging distinct works or places. No fuzzy aliases.\n\n';
+  '# Category review docket\n\nAll registers are drafts. Only the first three carry proposed dates. Nothing may open until the owner reviews and explicitly approves it. Titles retain disambiguating parentheses, rather than silently merging distinct works or places. No fuzzy aliases. Each answer index is a plain alphabetical list; the JSON contains its source and measured pageviews.\n\n';
 for (const s of sources) {
   const path = 'categories/' + s.slug + '.json';
   const c = existsSync(path) ? JSON.parse(readFileSync(path, 'utf8')) : null;
-  checklist += `## ${s.name}\n\n- Source: ${s.wikiCategoryRoots ? 'English Wikipedia categories: ' + s.wikiCategoryRoots.join(', ') : 'Wikidata ' + s.root}; article links in each record.\n- Scope: ${s.note || 'English Wikipedia articles in the specified Wikidata class; this is a curated subset, not an exhaustive list.'}\n- Entries: ${c?.answers?.length || 0}; proposed date: ${c?.date || 'unscheduled'}; status: draft.\n- [ ] Confirm the scope and at least 2,000 suitable answers.\n- [ ] Review every display name for sensitive or offensive terms (automated filter is supplementary).\n- [ ] Check ambiguous titles, duplicates, scientific names and aliases.\n- [ ] Spot-check pageview provenance and 1–5 ratings.\n- [ ] Test familiar and obscure answers.\n- [ ] Approve through the admin command with a future 9 PM Toronto date.\n\n`;
+  const answers = c?.answers || [];
+  const counts = [1, 2, 3, 4, 5]
+    .map((score) => score + ': ' + answers.filter((a: any) => a.obscurity === score).length)
+    .join(' / ');
+  const popular = [...answers]
+    .sort(
+      (a: any, b: any) =>
+        b.pageviews.total / b.pageviews.days - a.pageviews.total / a.pageviews.days,
+    )
+    .slice(0, 8)
+    .map((a: any) => markdown(a.display))
+    .join('; ');
+  writeFileSync(
+    'review/answer-index/' + s.slug + '.txt',
+    s.name +
+      ' — DRAFT — ' +
+      answers.length +
+      ' measured entries\n' +
+      (s.note ||
+        'English Wikipedia articles in the specified Wikidata class; a subset, not an exhaustive list.') +
+      '\n\n' +
+      answers
+        .map((a: any) => a.display)
+        .sort((a: string, b: string) => a.localeCompare(b))
+        .join('\n') +
+      '\n',
+  );
+  checklist += `## ${s.name}\n\n- Source: ${s.wikiCategoryRoots ? 'English Wikipedia categories: ' + s.wikiCategoryRoots.join(', ') : 'Wikidata ' + s.root}; article links in each record.\n- Scope: ${s.note || 'English Wikipedia articles in the specified Wikidata class; this is a subset, not an exhaustive list.'}\n- Entries: ${answers.length}; proposed date: ${c?.date || 'unscheduled'}; status: draft.\n- [Alphabetical answer index](answer-index/${s.slug}.txt) · [Full measurements and sources](../categories/${s.slug}.json)\n- Obscurity counts (1 most read → 5 least read): ${counts}.\n- Most-read sample: ${popular || 'Build pending'}.\n- [ ] Confirm the scope and at least 2,000 suitable answers.\n- [ ] Review display names for sensitive or offensive terms (automated filtering is supplementary).\n- [ ] Check ambiguous titles, duplicates, scientific names and aliases.\n- [ ] Spot-check pageview provenance and 1–5 ratings.\n- [ ] Test familiar and obscure answers.\n- [ ] Approve through the admin command with a future 9 PM Toronto date.\n\n`;
 }
 writeFileSync('review/categories.md', checklist);
 if (failures.length) process.exitCode = 1;

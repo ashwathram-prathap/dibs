@@ -8,10 +8,11 @@ if (!token)
 const base = process.env.DIBS_API || 'https://dibs-7hz.pages.dev/api';
 let body: any;
 let path = '';
-if (command === 'upload') {
+if (command === 'upload' || command === 'replace-draft') {
   path = '/admin/category';
   body = JSON.parse(readFileSync(target, 'utf8'));
   body.status = 'draft';
+  if (command === 'replace-draft') body.replaceDraft = true;
 } else if (command === 'approve') {
   if (!date) throw new Error('Provide the reviewed category ID and a future YYYY-MM-DD date.');
   path = '/admin/approve';
@@ -22,7 +23,7 @@ if (command === 'upload') {
 } else if (command === 'stats') path = '/admin/stats';
 else
   throw new Error(
-    'Usage: tsx scripts/admin.ts upload <file> | approve <id> <date> | hide-user <id> | void-claim <id> | stats',
+    'Usage: tsx scripts/admin.ts upload <file> | replace-draft <file> | approve <id> <date> | hide-user <id> | void-claim <id> | stats',
   );
 const r = await fetch(base + path, {
   method: body ? 'POST' : 'GET',

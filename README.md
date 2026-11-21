@@ -8,7 +8,8 @@ The preview deliberately opens with a closed office. The three proposed launch r
 
 ```sh
 npm ci
-# Create worker/.dev.vars with COOKIE_SECRET, ADMIN_TOKEN and TURNSTILE_SECRET.
+# Create .dev.vars with COOKIE_SECRET, ADMIN_TOKEN and TURNSTILE_SECRET.
+cp .dev.vars worker/.dev.vars
 # LOCAL_TEST=true permits test tokens only on localhost / 127.0.0.1.
 npx wrangler d1 migrations apply dibs-db --local -c worker/wrangler.jsonc
 npm run worker:dev
@@ -58,6 +59,8 @@ Set `ADMIN_TOKEN` in your shell using the local morning report. Do not put the t
 
 ```sh
 npx tsx scripts/admin.ts upload categories/animals.json
+# To correct a draft already uploaded (refuses approved or claimed registers):
+npx tsx scripts/admin.ts replace-draft categories/animals.json
 # Only after personally reviewing the register; choose a future date:
 npx tsx scripts/admin.ts approve animals YYYY-MM-DD
 npx tsx scripts/admin.ts hide-user USER_ID
