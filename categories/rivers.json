@@ -11,11 +11,12 @@
     "categoryLists": null,
     "queryRoot": "Q4022",
     "property": "P31",
-    "builtAt": "2026-11-21T04:57:10.783Z",
+    "builtAt": "2026-11-21T05:05:18.079Z",
     "license": "Wikidata CC0; Wikipedia titles and pageview counts. See source URL on each entry.",
     "scoring": "Mean daily Wikipedia pageviews over available days in the past 30: 1 >=1000; 2 >=200; 3 >=50; 4 >=10; 5 <10. Missing data excluded.",
     "scopeNote": null,
-    "reviewRequired": true
+    "reviewRequired": true,
+    "identityPolicy": "exclude-cross-title-redirects-v1"
   },
   "answers": [
     {
@@ -5017,20 +5018,6 @@
       }
     },
     {
-      "canonical": "barzavatimis",
-      "display": "Bârzava (Timiș)",
-      "aliases": [],
-      "obscurity": 5,
-      "source": "https://en.wikipedia.org/wiki/Crivaia_Mic%C4%83_River",
-      "wikidata": "http://www.wikidata.org/entity/Q258079",
-      "pageviews": {
-        "total": 33,
-        "days": 30,
-        "start": "2026-10-22",
-        "end": "2026-11-20"
-      }
-    },
-    {
       "canonical": "kleineschweimke",
       "display": "Kleine Schweimke",
       "aliases": [],
@@ -5042,20 +5029,6 @@
         "days": 20,
         "start": "2026-10-22",
         "end": "2026-11-19"
-      }
-    },
-    {
-      "canonical": "crivadia",
-      "display": "Crivadia",
-      "aliases": [],
-      "obscurity": 5,
-      "source": "https://en.wikipedia.org/wiki/P%C3%A2r%C3%A2ul_lui_B%C4%83loi",
-      "wikidata": "http://www.wikidata.org/entity/Q258160",
-      "pageviews": {
-        "total": 5,
-        "days": 29,
-        "start": "2026-10-22",
-        "end": "2026-11-20"
       }
     },
     {
@@ -5773,20 +5746,6 @@
       }
     },
     {
-      "canonical": "lotru",
-      "display": "Lotru",
-      "aliases": [],
-      "obscurity": 5,
-      "source": "https://en.wikipedia.org/wiki/C%C4%83rbunele_River_(Lotru)",
-      "wikidata": "http://www.wikidata.org/entity/Q259024",
-      "pageviews": {
-        "total": 39,
-        "days": 30,
-        "start": "2026-10-22",
-        "end": "2026-11-20"
-      }
-    },
-    {
       "canonical": "atuelriver",
       "display": "Atuel River",
       "aliases": [],
@@ -6109,20 +6068,6 @@
       }
     },
     {
-      "canonical": "dornariver",
-      "display": "Dorna (river)",
-      "aliases": [],
-      "obscurity": 5,
-      "source": "https://en.wikipedia.org/wiki/Doceni_River",
-      "wikidata": "http://www.wikidata.org/entity/Q259915",
-      "pageviews": {
-        "total": 26,
-        "days": 27,
-        "start": "2026-10-23",
-        "end": "2026-11-20"
-      }
-    },
-    {
       "canonical": "sulzeelbe",
       "display": "Sülze (Elbe)",
       "aliases": [],
@@ -6146,20 +6091,6 @@
       "pageviews": {
         "total": 113,
         "days": 30,
-        "start": "2026-10-22",
-        "end": "2026-11-20"
-      }
-    },
-    {
-      "canonical": "bahlui",
-      "display": "Bahlui",
-      "aliases": [],
-      "obscurity": 5,
-      "source": "https://en.wikipedia.org/wiki/Cotnari_River",
-      "wikidata": "http://www.wikidata.org/entity/Q260244",
-      "pageviews": {
-        "total": 66,
-        "days": 29,
         "start": "2026-10-22",
         "end": "2026-11-20"
       }
@@ -6414,34 +6345,6 @@
         "days": 27,
         "start": "2026-10-22",
         "end": "2026-11-20"
-      }
-    },
-    {
-      "canonical": "oltriver",
-      "display": "Olt (river)",
-      "aliases": [],
-      "obscurity": 4,
-      "source": "https://en.wikipedia.org/wiki/Bude%C8%99_River",
-      "wikidata": "http://www.wikidata.org/entity/Q261182",
-      "pageviews": {
-        "total": 558,
-        "days": 30,
-        "start": "2026-10-22",
-        "end": "2026-11-20"
-      }
-    },
-    {
-      "canonical": "gersprenz",
-      "display": "Gersprenz",
-      "aliases": [],
-      "obscurity": 5,
-      "source": "https://en.wikipedia.org/wiki/Schnepfenbach",
-      "wikidata": "http://www.wikidata.org/entity/Q261487",
-      "pageviews": {
-        "total": 13,
-        "days": 24,
-        "start": "2026-10-22",
-        "end": "2026-11-19"
       }
     },
     {
@@ -6986,20 +6889,6 @@
       "pageviews": {
         "total": 78,
         "days": 29,
-        "start": "2026-10-22",
-        "end": "2026-11-20"
-      }
-    },
-    {
-      "canonical": "horincea",
-      "display": "Horincea",
-      "aliases": [],
-      "obscurity": 5,
-      "source": "https://en.wikipedia.org/wiki/Zoiteana_River",
-      "wikidata": "http://www.wikidata.org/entity/Q266446",
-      "pageviews": {
-        "total": 9,
-        "days": 27,
         "start": "2026-10-22",
         "end": "2026-11-20"
       }
@@ -7607,20 +7496,6 @@
       }
     },
     {
-      "canonical": "rohrbachfelchbach",
-      "display": "Rohrbach (Felchbach)",
-      "aliases": [],
-      "obscurity": 5,
-      "source": "https://en.wikipedia.org/wiki/Stickelgraben",
-      "wikidata": "http://www.wikidata.org/entity/Q201719",
-      "pageviews": {
-        "total": 2,
-        "days": 30,
-        "start": "2026-10-22",
-        "end": "2026-11-20"
-      }
-    },
-    {
       "canonical": "warta",
       "display": "Warta",
       "aliases": [],
@@ -7769,34 +7644,6 @@
       "wikidata": "http://www.wikidata.org/entity/Q264925",
       "pageviews": {
         "total": 249,
-        "days": 30,
-        "start": "2026-10-22",
-        "end": "2026-11-20"
-      }
-    },
-    {
-      "canonical": "dragancrisulrepede",
-      "display": "Drăgan (Crișul Repede)",
-      "aliases": [],
-      "obscurity": 5,
-      "source": "https://en.wikipedia.org/wiki/Valea_Poienii_River_(Dr%C4%83gan)",
-      "wikidata": "http://www.wikidata.org/entity/Q265145",
-      "pageviews": {
-        "total": 18,
-        "days": 25,
-        "start": "2026-10-23",
-        "end": "2026-11-20"
-      }
-    },
-    {
-      "canonical": "ialomitariver",
-      "display": "Ialomița (river)",
-      "aliases": [],
-      "obscurity": 5,
-      "source": "https://en.wikipedia.org/wiki/Leurda_River_(Ialomi%C8%9Ba)",
-      "wikidata": "http://www.wikidata.org/entity/Q265349",
-      "pageviews": {
-        "total": 195,
         "days": 30,
         "start": "2026-10-22",
         "end": "2026-11-20"
@@ -8218,34 +8065,6 @@
       "pageviews": {
         "total": 32,
         "days": 30,
-        "start": "2026-10-22",
-        "end": "2026-11-20"
-      }
-    },
-    {
-      "canonical": "eselbach",
-      "display": "Eselbach",
-      "aliases": [],
-      "obscurity": 5,
-      "source": "https://en.wikipedia.org/wiki/Salinenbach",
-      "wikidata": "http://www.wikidata.org/entity/Q269343",
-      "pageviews": {
-        "total": 5,
-        "days": 22,
-        "start": "2026-10-22",
-        "end": "2026-11-20"
-      }
-    },
-    {
-      "canonical": "cracaulalb",
-      "display": "Cracăul Alb",
-      "aliases": [],
-      "obscurity": 5,
-      "source": "https://en.wikipedia.org/wiki/Frasinu_River_(Crac%C4%83ul_Alb)",
-      "wikidata": "http://www.wikidata.org/entity/Q269403",
-      "pageviews": {
-        "total": 5,
-        "days": 28,
         "start": "2026-10-22",
         "end": "2026-11-20"
       }
@@ -10785,20 +10604,6 @@
       }
     },
     {
-      "canonical": "hollerbachbrensbach",
-      "display": "Hollerbach (Brensbach)",
-      "aliases": [],
-      "obscurity": 5,
-      "source": "https://en.wikipedia.org/wiki/Bach_von_den_Rehwiesen",
-      "wikidata": "http://www.wikidata.org/entity/Q277348",
-      "pageviews": {
-        "total": 11,
-        "days": 23,
-        "start": "2026-10-23",
-        "end": "2026-11-20"
-      }
-    },
-    {
       "canonical": "bolshoykinel",
       "display": "Bolshoy Kinel",
       "aliases": [],
@@ -11765,20 +11570,6 @@
       }
     },
     {
-      "canonical": "rebrariver",
-      "display": "Rebra (river)",
-      "aliases": [],
-      "obscurity": 5,
-      "source": "https://en.wikipedia.org/wiki/Izvorul_M%C4%83guricii_River",
-      "wikidata": "http://www.wikidata.org/entity/Q282017",
-      "pageviews": {
-        "total": 10,
-        "days": 27,
-        "start": "2026-10-22",
-        "end": "2026-11-20"
-      }
-    },
-    {
       "canonical": "maumeeriver",
       "display": "Maumee River",
       "aliases": [],
@@ -11788,34 +11579,6 @@
       "pageviews": {
         "total": 1587,
         "days": 30,
-        "start": "2026-10-22",
-        "end": "2026-11-20"
-      }
-    },
-    {
-      "canonical": "madarasulmare",
-      "display": "Mădărașul Mare",
-      "aliases": [],
-      "obscurity": 5,
-      "source": "https://en.wikipedia.org/wiki/M%C4%83d%C4%83ra%C8%99_River",
-      "wikidata": "http://www.wikidata.org/entity/Q282130",
-      "pageviews": {
-        "total": 5,
-        "days": 24,
-        "start": "2026-10-24",
-        "end": "2026-11-20"
-      }
-    },
-    {
-      "canonical": "topariver",
-      "display": "Topa (river)",
-      "aliases": [],
-      "obscurity": 5,
-      "source": "https://en.wikipedia.org/wiki/Valea_Mare_River_(Topa)",
-      "wikidata": "http://www.wikidata.org/entity/Q282224",
-      "pageviews": {
-        "total": 7,
-        "days": 25,
         "start": "2026-10-22",
         "end": "2026-11-20"
       }
@@ -13137,20 +12900,6 @@
       }
     },
     {
-      "canonical": "saducibin",
-      "display": "Sadu (Cibin)",
-      "aliases": [],
-      "obscurity": 5,
-      "source": "https://en.wikipedia.org/wiki/C%C3%A2naia_River",
-      "wikidata": "http://www.wikidata.org/entity/Q286278",
-      "pageviews": {
-        "total": 9,
-        "days": 27,
-        "start": "2026-10-22",
-        "end": "2026-11-19"
-      }
-    },
-    {
       "canonical": "klondikeriver",
       "display": "Klondike River",
       "aliases": [],
@@ -14061,20 +13810,6 @@
       }
     },
     {
-      "canonical": "ariesulmic",
-      "display": "Arieșul Mic",
-      "aliases": [],
-      "obscurity": 5,
-      "source": "https://en.wikipedia.org/wiki/Valea_Lung%C4%83_River_(Arie%C8%99ul_Mic)",
-      "wikidata": "http://www.wikidata.org/entity/Q288870",
-      "pageviews": {
-        "total": 14,
-        "days": 30,
-        "start": "2026-10-22",
-        "end": "2026-11-20"
-      }
-    },
-    {
       "canonical": "coxriver",
       "display": "Coxs River",
       "aliases": [],
@@ -14967,20 +14702,6 @@
         "total": 14,
         "days": 23,
         "start": "2026-10-24",
-        "end": "2026-11-19"
-      }
-    },
-    {
-      "canonical": "whitenile",
-      "display": "White Nile",
-      "aliases": [],
-      "obscurity": 2,
-      "source": "https://en.wikipedia.org/wiki/Bahr_al_Jabal_(river)",
-      "wikidata": "http://www.wikidata.org/entity/Q121424",
-      "pageviews": {
-        "total": 6236,
-        "days": 29,
-        "start": "2026-10-22",
         "end": "2026-11-19"
       }
     },
@@ -15993,20 +15714,6 @@
       }
     },
     {
-      "canonical": "itterdiemel",
-      "display": "Itter (Diemel)",
-      "aliases": [],
-      "obscurity": 5,
-      "source": "https://en.wikipedia.org/wiki/Aarbach",
-      "wikidata": "http://www.wikidata.org/entity/Q301040",
-      "pageviews": {
-        "total": 5,
-        "days": 21,
-        "start": "2026-10-22",
-        "end": "2026-11-20"
-      }
-    },
-    {
       "canonical": "messoyakha",
       "display": "Messoyakha",
       "aliases": [],
@@ -16091,20 +15798,6 @@
       }
     },
     {
-      "canonical": "gilort",
-      "display": "Gilort",
-      "aliases": [],
-      "obscurity": 5,
-      "source": "https://en.wikipedia.org/wiki/R%C3%A2nca_River",
-      "wikidata": "http://www.wikidata.org/entity/Q303775",
-      "pageviews": {
-        "total": 32,
-        "days": 28,
-        "start": "2026-10-22",
-        "end": "2026-11-20"
-      }
-    },
-    {
       "canonical": "dourdoudeconque",
       "display": "Dourdou de Conques",
       "aliases": [],
@@ -16127,20 +15820,6 @@
       "wikidata": "http://www.wikidata.org/entity/Q304413",
       "pageviews": {
         "total": 554,
-        "days": 30,
-        "start": "2026-10-22",
-        "end": "2026-11-20"
-      }
-    },
-    {
-      "canonical": "barsaolt",
-      "display": "Bârsa (Olt)",
-      "aliases": [],
-      "obscurity": 5,
-      "source": "https://en.wikipedia.org/wiki/Topli%C8%9Ba_River_(B%C3%A2rsa)",
-      "wikidata": "http://www.wikidata.org/entity/Q304456",
-      "pageviews": {
-        "total": 25,
         "days": 30,
         "start": "2026-10-22",
         "end": "2026-11-20"
@@ -16259,20 +15938,6 @@
       }
     },
     {
-      "canonical": "dhansiririver",
-      "display": "Dhansiri River",
-      "aliases": [],
-      "obscurity": 5,
-      "source": "https://en.wikipedia.org/wiki/Mora_Dhansiri_River",
-      "wikidata": "http://www.wikidata.org/entity/Q609157",
-      "pageviews": {
-        "total": 272,
-        "days": 30,
-        "start": "2026-10-22",
-        "end": "2026-11-20"
-      }
-    },
-    {
       "canonical": "mataurariver",
       "display": "Mataura River",
       "aliases": [],
@@ -16337,6 +16002,20 @@
       "wikidata": "http://www.wikidata.org/entity/Q610021",
       "pageviews": {
         "total": 242,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "oltriver",
+      "display": "Olt (river)",
+      "aliases": [],
+      "obscurity": 4,
+      "source": "https://en.wikipedia.org/wiki/Olt_(river)",
+      "wikidata": "http://www.wikidata.org/entity/Q126822",
+      "pageviews": {
+        "total": 558,
         "days": 30,
         "start": "2026-10-22",
         "end": "2026-11-20"
@@ -17085,20 +16764,6 @@
       }
     },
     {
-      "canonical": "vetlugariver",
-      "display": "Vetluga (river)",
-      "aliases": [],
-      "obscurity": 5,
-      "source": "https://en.wikipedia.org/wiki/Wahma_River",
-      "wikidata": "http://www.wikidata.org/entity/Q613508",
-      "pageviews": {
-        "total": 47,
-        "days": 29,
-        "start": "2026-10-22",
-        "end": "2026-11-20"
-      }
-    },
-    {
       "canonical": "bolshoyirgiz",
       "display": "Bolshoy Irgiz",
       "aliases": [],
@@ -17488,6 +17153,20 @@
         "days": 27,
         "start": "2026-10-22",
         "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "gersprenz",
+      "display": "Gersprenz",
+      "aliases": [],
+      "obscurity": 5,
+      "source": "https://en.wikipedia.org/wiki/Gersprenz",
+      "wikidata": "http://www.wikidata.org/entity/Q315393",
+      "pageviews": {
+        "total": 13,
+        "days": 24,
+        "start": "2026-10-22",
+        "end": "2026-11-19"
       }
     },
     {
@@ -19311,20 +18990,6 @@
       }
     },
     {
-      "canonical": "brunsbachwupper",
-      "display": "Brunsbach (Wupper)",
-      "aliases": [],
-      "obscurity": 5,
-      "source": "https://en.wikipedia.org/wiki/Weierbach_(Brunsbach)",
-      "wikidata": "http://www.wikidata.org/entity/Q144214",
-      "pageviews": {
-        "total": 3,
-        "days": 27,
-        "start": "2026-10-22",
-        "end": "2026-11-20"
-      }
-    },
-    {
       "canonical": "zalariver",
       "display": "Zala (river)",
       "aliases": [],
@@ -19893,20 +19558,6 @@
       "wikidata": "http://www.wikidata.org/entity/Q630036",
       "pageviews": {
         "total": 28,
-        "days": 30,
-        "start": "2026-10-22",
-        "end": "2026-11-20"
-      }
-    },
-    {
-      "canonical": "kinzigmain",
-      "display": "Kinzig (Main)",
-      "aliases": [],
-      "obscurity": 5,
-      "source": "https://en.wikipedia.org/wiki/Bieber_(Kinzig)",
-      "wikidata": "http://www.wikidata.org/entity/Q630230",
-      "pageviews": {
-        "total": 75,
         "days": 30,
         "start": "2026-10-22",
         "end": "2026-11-20"
@@ -25121,6 +24772,20 @@
       }
     },
     {
+      "canonical": "kinzigmain",
+      "display": "Kinzig (Main)",
+      "aliases": [],
+      "obscurity": 5,
+      "source": "https://en.wikipedia.org/wiki/Kinzig_(Main)",
+      "wikidata": "http://www.wikidata.org/entity/Q645736",
+      "pageviews": {
+        "total": 75,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
       "canonical": "dosseriver",
       "display": "Dosse (river)",
       "aliases": [],
@@ -25317,20 +24982,6 @@
       }
     },
     {
-      "canonical": "tarcauriver",
-      "display": "Tarcău (river)",
-      "aliases": [],
-      "obscurity": 5,
-      "source": "https://en.wikipedia.org/wiki/Murgoci_River",
-      "wikidata": "http://www.wikidata.org/entity/Q368654",
-      "pageviews": {
-        "total": 11,
-        "days": 25,
-        "start": "2026-10-22",
-        "end": "2026-11-19"
-      }
-    },
-    {
       "canonical": "fojnickariver",
       "display": "Fojnička River",
       "aliases": [],
@@ -25353,20 +25004,6 @@
       "wikidata": "http://www.wikidata.org/entity/Q369237",
       "pageviews": {
         "total": 23,
-        "days": 30,
-        "start": "2026-10-22",
-        "end": "2026-11-20"
-      }
-    },
-    {
-      "canonical": "oltet",
-      "display": "Olteț",
-      "aliases": [],
-      "obscurity": 5,
-      "source": "https://en.wikipedia.org/wiki/Rom%C3%A2na_River",
-      "wikidata": "http://www.wikidata.org/entity/Q369352",
-      "pageviews": {
-        "total": 36,
         "days": 30,
         "start": "2026-10-22",
         "end": "2026-11-20"
@@ -25495,20 +25132,6 @@
         "total": 2,
         "days": 22,
         "start": "2026-10-22",
-        "end": "2026-11-20"
-      }
-    },
-    {
-      "canonical": "mele",
-      "display": "Meleș",
-      "aliases": [],
-      "obscurity": 5,
-      "source": "https://en.wikipedia.org/wiki/S%C4%83rata_(Mele%C8%99)",
-      "wikidata": "http://www.wikidata.org/entity/Q370720",
-      "pageviews": {
-        "total": 3,
-        "days": 23,
-        "start": "2026-10-23",
         "end": "2026-11-20"
       }
     },
@@ -26031,20 +25654,6 @@
       }
     },
     {
-      "canonical": "valealuncanilor",
-      "display": "Valea Luncanilor",
-      "aliases": [],
-      "obscurity": 5,
-      "source": "https://en.wikipedia.org/wiki/Porc%C4%83re%C8%9B_River",
-      "wikidata": "http://www.wikidata.org/entity/Q371595",
-      "pageviews": {
-        "total": 4,
-        "days": 21,
-        "start": "2026-10-22",
-        "end": "2026-11-19"
-      }
-    },
-    {
       "canonical": "waldbachgurzenicherbach",
       "display": "Waldbach (Gürzenicher Bach)",
       "aliases": [],
@@ -26068,20 +25677,6 @@
       "pageviews": {
         "total": 392,
         "days": 30,
-        "start": "2026-10-22",
-        "end": "2026-11-20"
-      }
-    },
-    {
-      "canonical": "valeacerbuluiprahova",
-      "display": "Valea Cerbului (Prahova)",
-      "aliases": [],
-      "obscurity": 5,
-      "source": "https://en.wikipedia.org/wiki/Valea_C%C4%83ld%C4%83rilor_River",
-      "wikidata": "http://www.wikidata.org/entity/Q372569",
-      "pageviews": {
-        "total": 6,
-        "days": 25,
         "start": "2026-10-22",
         "end": "2026-11-20"
       }
@@ -26700,20 +26295,6 @@
         "days": 29,
         "start": "2026-10-22",
         "end": "2026-11-19"
-      }
-    },
-    {
-      "canonical": "bleichenbachnidder",
-      "display": "Bleichenbach (Nidder)",
-      "aliases": [],
-      "obscurity": 5,
-      "source": "https://en.wikipedia.org/wiki/Wolfshainer_Bach",
-      "wikidata": "http://www.wikidata.org/entity/Q524493",
-      "pageviews": {
-        "total": 10,
-        "days": 28,
-        "start": "2026-10-22",
-        "end": "2026-11-20"
       }
     },
     {
@@ -27977,20 +27558,6 @@
       }
     },
     {
-      "canonical": "kocher",
-      "display": "Kocher",
-      "aliases": [],
-      "obscurity": 5,
-      "source": "https://en.wikipedia.org/wiki/Ernsbach_(Kocher)",
-      "wikidata": "http://www.wikidata.org/entity/Q253426",
-      "pageviews": {
-        "total": 120,
-        "days": 30,
-        "start": "2026-10-22",
-        "end": "2026-11-20"
-      }
-    },
-    {
       "canonical": "mizqueriver",
       "display": "Mizque River",
       "aliases": [],
@@ -28618,20 +28185,6 @@
         "days": 30,
         "start": "2026-10-22",
         "end": "2026-11-20"
-      }
-    },
-    {
-      "canonical": "jijilariver",
-      "display": "Jijila (river)",
-      "aliases": [],
-      "obscurity": 5,
-      "source": "https://en.wikipedia.org/wiki/Valea_lui_Bran_River",
-      "wikidata": "http://www.wikidata.org/entity/Q251706",
-      "pageviews": {
-        "total": 7,
-        "days": 24,
-        "start": "2026-10-22",
-        "end": "2026-11-19"
       }
     },
     {
@@ -29965,20 +29518,6 @@
       }
     },
     {
-      "canonical": "wetterriver",
-      "display": "Wetter (river)",
-      "aliases": [],
-      "obscurity": 5,
-      "source": "https://en.wikipedia.org/wiki/%C3%84schersbach",
-      "wikidata": "http://www.wikidata.org/entity/Q256723",
-      "pageviews": {
-        "total": 43,
-        "days": 29,
-        "start": "2026-10-22",
-        "end": "2026-11-20"
-      }
-    },
-    {
       "canonical": "nettelenne",
       "display": "Nette (Lenne)",
       "aliases": [],
@@ -30087,34 +29626,6 @@
         "total": 38,
         "days": 30,
         "start": "2026-10-22",
-        "end": "2026-11-20"
-      }
-    },
-    {
-      "canonical": "geoagiualba",
-      "display": "Geoagiu (Alba)",
-      "aliases": [],
-      "obscurity": 5,
-      "source": "https://en.wikipedia.org/wiki/Valea_%C8%98icanelor_River",
-      "wikidata": "http://www.wikidata.org/entity/Q388958",
-      "pageviews": {
-        "total": 17,
-        "days": 25,
-        "start": "2026-10-22",
-        "end": "2026-11-19"
-      }
-    },
-    {
-      "canonical": "azugariver",
-      "display": "Azuga (river)",
-      "aliases": [],
-      "obscurity": 5,
-      "source": "https://en.wikipedia.org/wiki/Ceau%C8%99oaia_River",
-      "wikidata": "http://www.wikidata.org/entity/Q389026",
-      "pageviews": {
-        "total": 7,
-        "days": 28,
-        "start": "2026-10-24",
         "end": "2026-11-20"
       }
     },
@@ -30368,6 +29879,20 @@
         "days": 28,
         "start": "2026-10-22",
         "end": "2026-11-19"
+      }
+    },
+    {
+      "canonical": "rohrbachfelchbach",
+      "display": "Rohrbach (Felchbach)",
+      "aliases": [],
+      "obscurity": 5,
+      "source": "https://en.wikipedia.org/wiki/Rohrbach_(Felchbach)",
+      "wikidata": "http://www.wikidata.org/entity/Q658434",
+      "pageviews": {
+        "total": 2,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
       }
     },
     {
@@ -30816,6 +30341,482 @@
         "days": 30,
         "start": "2026-10-22",
         "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "luppbode",
+      "display": "Luppbode",
+      "aliases": [],
+      "obscurity": 5,
+      "source": "https://en.wikipedia.org/wiki/Luppbode",
+      "wikidata": "http://www.wikidata.org/entity/Q547579",
+      "pageviews": {
+        "total": 8,
+        "days": 25,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "boize",
+      "display": "Boize",
+      "aliases": [],
+      "obscurity": 5,
+      "source": "https://en.wikipedia.org/wiki/Boize",
+      "wikidata": "http://www.wikidata.org/entity/Q547950",
+      "pageviews": {
+        "total": 9,
+        "days": 29,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "saccoriver",
+      "display": "Sacco (river)",
+      "aliases": [],
+      "obscurity": 5,
+      "source": "https://en.wikipedia.org/wiki/Sacco_(river)",
+      "wikidata": "http://www.wikidata.org/entity/Q547937",
+      "pageviews": {
+        "total": 45,
+        "days": 29,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "teinach",
+      "display": "Teinach",
+      "aliases": [],
+      "obscurity": 5,
+      "source": "https://en.wikipedia.org/wiki/Teinach",
+      "wikidata": "http://www.wikidata.org/entity/Q547969",
+      "pageviews": {
+        "total": 11,
+        "days": 27,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "dreisbachbrol",
+      "display": "Dreisbach (Bröl)",
+      "aliases": [],
+      "obscurity": 5,
+      "source": "https://en.wikipedia.org/wiki/Dreisbach_(Br%C3%B6l)",
+      "wikidata": "http://www.wikidata.org/entity/Q548200",
+      "pageviews": {
+        "total": 7,
+        "days": 21,
+        "start": "2026-10-22",
+        "end": "2026-11-19"
+      }
+    },
+    {
+      "canonical": "auberiver",
+      "display": "Aube (river)",
+      "aliases": [],
+      "obscurity": 5,
+      "source": "https://en.wikipedia.org/wiki/Aube_(river)",
+      "wikidata": "http://www.wikidata.org/entity/Q548466",
+      "pageviews": {
+        "total": 97,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "glannahe",
+      "display": "Glan (Nahe)",
+      "aliases": [],
+      "obscurity": 5,
+      "source": "https://en.wikipedia.org/wiki/Glan_(Nahe)",
+      "wikidata": "http://www.wikidata.org/entity/Q660690",
+      "pageviews": {
+        "total": 45,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "harveyriver",
+      "display": "Harvey River",
+      "aliases": [],
+      "obscurity": 5,
+      "source": "https://en.wikipedia.org/wiki/Harvey_River",
+      "wikidata": "http://www.wikidata.org/entity/Q660766",
+      "pageviews": {
+        "total": 18,
+        "days": 28,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "sihl",
+      "display": "Sihl",
+      "aliases": [],
+      "obscurity": 5,
+      "source": "https://en.wikipedia.org/wiki/Sihl",
+      "wikidata": "http://www.wikidata.org/entity/Q660909",
+      "pageviews": {
+        "total": 159,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "abucea",
+      "display": "Abucea",
+      "aliases": [],
+      "obscurity": 5,
+      "source": "https://en.wikipedia.org/wiki/Abucea",
+      "wikidata": "http://www.wikidata.org/entity/Q660961",
+      "pageviews": {
+        "total": 9,
+        "days": 29,
+        "start": "2026-10-23",
+        "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "elblagriver",
+      "display": "Elbląg (river)",
+      "aliases": [],
+      "obscurity": 5,
+      "source": "https://en.wikipedia.org/wiki/Elbl%C4%85g_(river)",
+      "wikidata": "http://www.wikidata.org/entity/Q661087",
+      "pageviews": {
+        "total": 57,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "wapeljade",
+      "display": "Wapel (Jade)",
+      "aliases": [],
+      "obscurity": 5,
+      "source": "https://en.wikipedia.org/wiki/Wapel_(Jade)",
+      "wikidata": "http://www.wikidata.org/entity/Q661118",
+      "pageviews": {
+        "total": 5,
+        "days": 22,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "bresleriver",
+      "display": "Bresle (river)",
+      "aliases": [],
+      "obscurity": 5,
+      "source": "https://en.wikipedia.org/wiki/Bresle_(river)",
+      "wikidata": "http://www.wikidata.org/entity/Q661525",
+      "pageviews": {
+        "total": 107,
+        "days": 29,
+        "start": "2026-10-22",
+        "end": "2026-11-19"
+      }
+    },
+    {
+      "canonical": "flambeauriver",
+      "display": "Flambeau River",
+      "aliases": [],
+      "obscurity": 5,
+      "source": "https://en.wikipedia.org/wiki/Flambeau_River",
+      "wikidata": "http://www.wikidata.org/entity/Q661667",
+      "pageviews": {
+        "total": 153,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "vilnia",
+      "display": "Vilnia",
+      "aliases": [],
+      "obscurity": 5,
+      "source": "https://en.wikipedia.org/wiki/Vilnia",
+      "wikidata": "http://www.wikidata.org/entity/Q661684",
+      "pageviews": {
+        "total": 180,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "arinoriver",
+      "display": "Arinos River",
+      "aliases": [],
+      "obscurity": 5,
+      "source": "https://en.wikipedia.org/wiki/Arinos_River",
+      "wikidata": "http://www.wikidata.org/entity/Q661805",
+      "pageviews": {
+        "total": 25,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "cernamure",
+      "display": "Cerna (Mureș)",
+      "aliases": [],
+      "obscurity": 5,
+      "source": "https://en.wikipedia.org/wiki/Cerna_(Mure%C8%99)",
+      "wikidata": "http://www.wikidata.org/entity/Q661815",
+      "pageviews": {
+        "total": 22,
+        "days": 29,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "loeriver",
+      "display": "Loes River",
+      "aliases": [],
+      "obscurity": 5,
+      "source": "https://en.wikipedia.org/wiki/Loes_River",
+      "wikidata": "http://www.wikidata.org/entity/Q662160",
+      "pageviews": {
+        "total": 62,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "isornoriver",
+      "display": "Isorno (river)",
+      "aliases": [],
+      "obscurity": 5,
+      "source": "https://en.wikipedia.org/wiki/Isorno_(river)",
+      "wikidata": "http://www.wikidata.org/entity/Q662667",
+      "pageviews": {
+        "total": 16,
+        "days": 29,
+        "start": "2026-10-23",
+        "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "arsenyevka",
+      "display": "Arsenyevka",
+      "aliases": [],
+      "obscurity": 5,
+      "source": "https://en.wikipedia.org/wiki/Arsenyevka",
+      "wikidata": "http://www.wikidata.org/entity/Q704754",
+      "pageviews": {
+        "total": 21,
+        "days": 29,
+        "start": "2026-10-22",
+        "end": "2026-11-19"
+      }
+    },
+    {
+      "canonical": "mze",
+      "display": "Mže",
+      "aliases": [],
+      "obscurity": 5,
+      "source": "https://en.wikipedia.org/wiki/M%C5%BEe",
+      "wikidata": "http://www.wikidata.org/entity/Q704800",
+      "pageviews": {
+        "total": 155,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "wiedriver",
+      "display": "Wied (river)",
+      "aliases": [],
+      "obscurity": 5,
+      "source": "https://en.wikipedia.org/wiki/Wied_(river)",
+      "wikidata": "http://www.wikidata.org/entity/Q704771",
+      "pageviews": {
+        "total": 43,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "sauerrhine",
+      "display": "Sauer (Rhine)",
+      "aliases": [],
+      "obscurity": 5,
+      "source": "https://en.wikipedia.org/wiki/Sauer_(Rhine)",
+      "wikidata": "http://www.wikidata.org/entity/Q705057",
+      "pageviews": {
+        "total": 56,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "tarairtysh",
+      "display": "Tara (Irtysh)",
+      "aliases": [],
+      "obscurity": 5,
+      "source": "https://en.wikipedia.org/wiki/Tara_(Irtysh)",
+      "wikidata": "http://www.wikidata.org/entity/Q705896",
+      "pageviews": {
+        "total": 22,
+        "days": 29,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "gerariver",
+      "display": "Gera (river)",
+      "aliases": [],
+      "obscurity": 5,
+      "source": "https://en.wikipedia.org/wiki/Gera_(river)",
+      "wikidata": "http://www.wikidata.org/entity/Q706112",
+      "pageviews": {
+        "total": 104,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "niddariver",
+      "display": "Nidda (river)",
+      "aliases": [],
+      "obscurity": 5,
+      "source": "https://en.wikipedia.org/wiki/Nidda_(river)",
+      "wikidata": "http://www.wikidata.org/entity/Q706133",
+      "pageviews": {
+        "total": 114,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "ueckerriver",
+      "display": "Uecker (river)",
+      "aliases": [],
+      "obscurity": 5,
+      "source": "https://en.wikipedia.org/wiki/Uecker_(river)",
+      "wikidata": "http://www.wikidata.org/entity/Q704775",
+      "pageviews": {
+        "total": 80,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "murrayriver",
+      "display": "Murray River",
+      "aliases": [],
+      "obscurity": 2,
+      "source": "https://en.wikipedia.org/wiki/Murray_River",
+      "wikidata": "http://www.wikidata.org/entity/Q183078",
+      "pageviews": {
+        "total": 6677,
+        "days": 29,
+        "start": "2026-10-22",
+        "end": "2026-11-19"
+      }
+    },
+    {
+      "canonical": "riverkelvin",
+      "display": "River Kelvin",
+      "aliases": [],
+      "obscurity": 4,
+      "source": "https://en.wikipedia.org/wiki/River_Kelvin",
+      "wikidata": "http://www.wikidata.org/entity/Q183161",
+      "pageviews": {
+        "total": 748,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "lieksanjoki",
+      "display": "Lieksanjoki",
+      "aliases": [],
+      "obscurity": 5,
+      "source": "https://en.wikipedia.org/wiki/Lieksanjoki",
+      "wikidata": "http://www.wikidata.org/entity/Q183422",
+      "pageviews": {
+        "total": 29,
+        "days": 28,
+        "start": "2026-10-23",
+        "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "lochbachitter",
+      "display": "Lochbach (Itter)",
+      "aliases": [],
+      "obscurity": 5,
+      "source": "https://en.wikipedia.org/wiki/Lochbach_(Itter)",
+      "wikidata": "http://www.wikidata.org/entity/Q183477",
+      "pageviews": {
+        "total": 5,
+        "days": 25,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "zeegenbach",
+      "display": "Zeegenbach",
+      "aliases": [],
+      "obscurity": 5,
+      "source": "https://en.wikipedia.org/wiki/Zeegenbach",
+      "wikidata": "http://www.wikidata.org/entity/Q184380",
+      "pageviews": {
+        "total": 6,
+        "days": 20,
+        "start": "2026-10-24",
+        "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "zeeschelde",
+      "display": "Zeeschelde",
+      "aliases": [],
+      "obscurity": 5,
+      "source": "https://en.wikipedia.org/wiki/Zeeschelde",
+      "wikidata": "http://www.wikidata.org/entity/Q184408",
+      "pageviews": {
+        "total": 32,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "erdbach",
+      "display": "Erdbach",
+      "aliases": [],
+      "obscurity": 5,
+      "source": "https://en.wikipedia.org/wiki/Erdbach",
+      "wikidata": "http://www.wikidata.org/entity/Q185310",
+      "pageviews": {
+        "total": 4,
+        "days": 20,
+        "start": "2026-10-24",
+        "end": "2026-11-16"
       }
     }
   ]
