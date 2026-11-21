@@ -27,7 +27,6 @@ try {
       for (const [route, name] of [
         ['/', 'closed-office'],
         ['/archive', 'empty-archive'],
-        ['/schools', 'empty-schools'],
         ['/about', 'office-notice'],
         ['/stats', 'stats'],
       ]) {

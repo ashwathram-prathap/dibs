@@ -65,7 +65,6 @@ test('full filing, certificate, sharing and public record', async ({ page }, inf
   for (const [route, name] of [
     ['/certificate/fixture-1', '06-certificate'],
     ['/archive', '07-archive'],
-    ['/schools', '08-schools'],
     ['/about', '09-about'],
   ]) {
     await page.goto(route);

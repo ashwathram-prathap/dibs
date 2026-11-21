@@ -145,12 +145,11 @@ describe('Worker with real SQLite/D1 execution', () => {
     expect(rs.filter((r) => r.status === 422)).toHaveLength(3);
     expect(rs.filter((r) => r.status === 429)).toHaveLength(1);
   });
-  it('locks re-rolls at three and refuses arbitrary schools', async () => {
+  it('locks re-rolls at three', async () => {
     const a = await account();
     for (let i = 0; i < 3; i++)
       expect((await request('/me/reroll', {}, a.cookie)).status).toBe(200);
     expect((await request('/me/reroll', {}, a.cookie)).status).toBe(403);
-    expect((await request('/me/school', { school: 'arbitrary' }, a.cookie)).status).toBe(422);
   });
   it('rejects blocked cookies, cross-origin writes and unsigned admin requests', async () => {
     expect((await request('/session-check', {})).status).toBe(401);

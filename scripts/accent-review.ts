@@ -13,7 +13,6 @@ const claim = {
   claim_no: 31,
   total_registrable: 2200,
   handle: 'Teal Otter #41',
-  school: 'University of Waterloo',
   obscurity: 5,
   created_at: '2026-11-22T02:01:00Z',
 };

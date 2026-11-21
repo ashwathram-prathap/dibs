@@ -13,7 +13,6 @@ export interface Claim {
   claim_no: number;
   display: string;
   handle: string;
-  school: string;
   created_at: string;
   obscurity: number | null;
   category_name: string;
@@ -23,7 +22,6 @@ export interface Claim {
 export interface User {
   id: string;
   handle: string;
-  school: string;
   rerolls_used: number;
 }
 export interface Today {
@@ -42,16 +40,4 @@ export interface Me {
   streak: number;
   streakDates: string[];
 }
-export const schools = [
-  'University of Waterloo',
-  'Wilfrid Laurier',
-  'University of Toronto',
-  'McMaster',
-  'Western',
-  'Queen’s',
-  'TMU',
-  'York',
-  'Other',
-  'None',
-];
 export const serial = (n: number) => String(n).padStart(4, '0');

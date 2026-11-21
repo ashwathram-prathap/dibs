@@ -9,7 +9,6 @@ import {
   dropAt,
   validDate,
 } from './domain';
-import { schools } from '../src/types';
 import { og } from './og';
 export interface Env {
   DB: D1Database;
@@ -20,7 +19,7 @@ export interface Env {
   SITE_URL: string;
   LOCAL_TEST?: string;
 }
-const claimSelect = `SELECT c.id,c.category_id,c.claim_no,c.created_at,a.display,a.obscurity,CASE WHEN u.hidden=1 THEN 'Record withheld' ELSE u.handle END handle,CASE WHEN u.hidden=1 THEN 'None' ELSE u.school END school,g.name category_name,g.date category_date,g.total_registrable FROM claims c JOIN answers a ON a.id=c.answer_id JOIN users u ON u.id=c.user_id JOIN categories g ON g.id=c.category_id`;
+const claimSelect = `SELECT c.id,c.category_id,c.claim_no,c.created_at,a.display,a.obscurity,CASE WHEN u.hidden=1 THEN 'Record withheld' ELSE u.handle END handle,g.name category_name,g.date category_date,g.total_registrable FROM claims c JOIN answers a ON a.id=c.answer_id JOIN users u ON u.id=c.user_id JOIN categories g ON g.id=c.category_id`;
 const publicClaim = claimSelect + ` WHERE c.voided=0 AND g.status='approved'`;
 const json = (data: unknown, status = 200, extra: Record<string, string> = {}) =>
   new Response(JSON.stringify(data), {
@@ -44,7 +43,7 @@ async function current(env: Env) {
 async function user(req: Request, env: Env) {
   const id = await cookieUser(req, env.COOKIE_SECRET);
   return id
-    ? env.DB.prepare('SELECT id,handle,school,rerolls_used,hidden FROM users WHERE id=?')
+    ? env.DB.prepare('SELECT id,handle,rerolls_used,hidden FROM users WHERE id=?')
         .bind(id)
         .first<any>()
     : null;
@@ -317,15 +316,15 @@ export async function route(req: Request, env: Env): Promise<Response> {
       const id = crypto.randomUUID();
       for (let i = 0; i < 4; i++) {
         try {
-          await env.DB.prepare('INSERT INTO users(id,handle,school,created_at) VALUES(?,?,?,?)')
-            .bind(id, handle(), 'None', new Date().toISOString())
+          await env.DB.prepare('INSERT INTO users(id,handle,created_at) VALUES(?,?,?)')
+            .bind(id, handle(), new Date().toISOString())
             .run();
           break;
         } catch (e) {
           if (i === 3) throw e;
         }
       }
-      u = await env.DB.prepare('SELECT id,handle,school,rerolls_used,hidden FROM users WHERE id=?')
+      u = await env.DB.prepare('SELECT id,handle,rerolls_used,hidden FROM users WHERE id=?')
         .bind(id)
         .first<any>();
       cookie = `dibs_session=${id}.${await hmac(id, env.COOKIE_SECRET)}; HttpOnly; SameSite=Lax; Path=/; Max-Age=31536000${url.protocol === 'https:' ? '; Secure' : ''}`;
@@ -383,24 +382,6 @@ export async function route(req: Request, env: Env): Promise<Response> {
       .all();
     return json({ categories: rows.results });
   }
-  if (path === '/schools') {
-    const published = await env.DB.prepare(
-      "SELECT id FROM categories WHERE date<=? AND status='approved' LIMIT 1",
-    )
-      .bind(registryDate())
-      .first();
-    if (!published) return json({ today: [], season: [] });
-    const g = url.searchParams.get('category') || (await current(env))?.id || '';
-    const base =
-      "SELECT u.school,COUNT(*) claims FROM claims c JOIN users u ON u.id=c.user_id JOIN categories g ON g.id=c.category_id WHERE c.voided=0 AND u.hidden=0 AND g.status='approved' AND u.school NOT IN ('None','Other')";
-    const [today, season] = await env.DB.batch([
-      env.DB.prepare(
-        base + ' AND c.category_id=? GROUP BY u.school ORDER BY claims DESC,u.school',
-      ).bind(g),
-      env.DB.prepare(base + ' GROUP BY u.school ORDER BY claims DESC,u.school'),
-    ]);
-    return json({ today: today.results, season: season.results });
-  }
   if (path.startsWith('/certificate/')) {
     const id = path.slice(13);
     const rows = await env.DB.prepare(
@@ -423,25 +404,13 @@ export async function route(req: Request, env: Env): Promise<Response> {
   if (path === '/session-check') return json({ ok: true });
   if (path === '/me/reroll') {
     const result = await env.DB.prepare(
-      'UPDATE users SET handle=?,rerolls_used=rerolls_used+1 WHERE id=? AND rerolls_used<3 AND NOT EXISTS(SELECT 1 FROM claims WHERE user_id=?) RETURNING id,handle,school,rerolls_used',
+      'UPDATE users SET handle=?,rerolls_used=rerolls_used+1 WHERE id=? AND rerolls_used<3 AND NOT EXISTS(SELECT 1 FROM claims WHERE user_id=?) RETURNING id,handle,rerolls_used',
     )
       .bind(handle(), u.id, u.id)
       .first();
     return result
       ? json({ user: result })
       : fail(403, 'This handle has been filed. Re-rolls are closed.');
-  }
-  if (path === '/me/school') {
-    const b = await body(req);
-    if (!schools.includes(b.school)) return fail(422, 'Choose a school from the register.');
-    const result = await env.DB.prepare(
-      'UPDATE users SET school=? WHERE id=? AND NOT EXISTS(SELECT 1 FROM claims WHERE user_id=?) RETURNING id,handle,school,rerolls_used',
-    )
-      .bind(b.school, u.id, u.id)
-      .first();
-    return result
-      ? json({ user: result })
-      : fail(403, 'School affiliation locks with your first claim.');
   }
   if (path === '/events/share') {
     const b = await body(req);

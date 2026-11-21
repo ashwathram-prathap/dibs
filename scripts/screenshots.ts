@@ -20,7 +20,6 @@ for (const width of [390, 1440])
     for (const [url, name] of [
       ['/', 'today'],
       ['/archive', 'archive'],
-      ['/schools', 'schools'],
       ['/about', 'about'],
       ['/stats', 'stats'],
     ]) {

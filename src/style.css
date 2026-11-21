@@ -528,14 +528,14 @@ nav a[aria-current='page']:after {
   padding: 6px 0;
 }
 .ledger,
-.school-table {
+.record-table {
   border-collapse: collapse;
   width: 100%;
   text-align: left;
   table-layout: fixed;
 }
 .ledger th,
-.school-table th {
+.record-table th {
   font:
     10px Plex,
     monospace;
@@ -586,7 +586,7 @@ nav a[aria-current='page']:after {
   text-decoration: none;
 }
 .ledger tbody tr:nth-child(odd),
-.school-table tbody tr:nth-child(odd) {
+.record-table tbody tr:nth-child(odd) {
   background: var(--panel);
 }
 .ledger .ruled-row {
@@ -912,33 +912,33 @@ footer {
 .archive-layout .search input {
   width: 100%;
 }
-.schools-layout {
+.records-layout {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 45px;
 }
-.school-table th:first-child {
+.record-table th:first-child {
   width: 16%;
 }
-.school-table th:last-child {
+.record-table th:last-child {
   width: 20%;
   text-align: right;
 }
-.school-table td {
+.record-table td {
   padding: 22px 10px;
   border-bottom: 1px solid var(--ink);
   font-size: 13px;
   overflow-wrap: anywhere;
 }
-.school-table td:first-child,
-.school-table td:last-child {
+.record-table td:first-child,
+.record-table td:last-child {
   font-family: Plex, monospace;
   font-size: 12px;
 }
-.school-table td:last-child {
+.record-table td:last-child {
   text-align: right;
 }
-.school-table td[colspan] {
+.record-table td[colspan] {
   text-align: left;
   font:
     13px Instrument,
@@ -1181,13 +1181,13 @@ footer {
   .about-layout {
     gap: 40px;
   }
-  .schools-layout {
+  .records-layout {
     gap: 25px;
   }
   .identity select {
     min-width: 160px;
   }
-  .school-col {
+  .removed-col {
     display: none;
   }
   .ledger th:nth-child(3) {
@@ -1462,23 +1462,23 @@ footer {
   .page-heading p {
     font-size: 13px;
   }
-  .schools-layout,
+  .records-layout,
   .about-layout {
     grid-template-columns: 1fr;
     gap: 35px;
   }
-  .school-table th {
+  .record-table th {
     font-size: 8px;
   }
-  .school-table td {
+  .record-table td {
     padding: 18px 8px;
     font-size: 12px;
   }
-  .school-table th:first-child {
+  .record-table th:first-child {
     width: 17%;
   }
-  .school-table td:first-child,
-  .school-table td:last-child {
+  .record-table td:first-child,
+  .record-table td:last-child {
     font-size: 11px;
   }
   .about-layout h2 {

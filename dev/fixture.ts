@@ -29,7 +29,6 @@ const entries = [
 let user = {
   id: 'fixture-reader',
   handle: 'Teal Otter #41',
-  school: 'University of Waterloo',
   rerolls_used: 0,
 };
 let claims: any[] = [
@@ -39,7 +38,6 @@ let claims: any[] = [
     claim_no: 1,
     display: 'Pangolin',
     handle: 'Rust Finch #12',
-    school: 'McMaster',
     created_at: new Date().toISOString(),
     obscurity: 4,
     category_name: 'Animals',
@@ -72,10 +70,6 @@ export async function request(path: string, body?: any): Promise<any> {
     };
     return { user };
   }
-  if (path === '/me/school') {
-    user.school = body.school;
-    return { user };
-  }
   if (path.startsWith('/answers'))
     return {
       answers: entries.filter((e) =>
@@ -84,11 +78,6 @@ export async function request(path: string, body?: any): Promise<any> {
     };
   if (path.startsWith('/ledger')) return { rows: claims };
   if (path === '/archive') return { categories: [category] };
-  if (path.startsWith('/schools'))
-    return {
-      today: [{ school: 'McMaster', claims: 1 }],
-      season: [{ school: 'McMaster', claims: 1 }],
-    };
   if (path.startsWith('/certificate/'))
     return { claim: claims.find((c) => c.id === path.split('/').pop()) || mine };
   if (path === '/claim') {
@@ -118,7 +107,6 @@ export async function request(path: string, body?: any): Promise<any> {
       claim_no: 2,
       display: entry,
       handle: user.handle,
-      school: user.school,
       created_at: new Date().toISOString(),
       obscurity: 4,
     };

@@ -1,7 +1,7 @@
 import { useEffect, useLayoutEffect, useState, useRef, type FormEvent } from 'react';
 import { motion, useReducedMotion } from 'framer-motion';
 import { api, ApiError, isDemo } from './api';
-import { type Category, type Claim, type Me, type Today, schools, serial } from './types';
+import { type Category, type Claim, type Me, type Today, serial } from './types';
 import { exportCertificate } from './share';
 
 const time = (s: string) =>
@@ -123,7 +123,7 @@ export default function App() {
     } catch {}
   }, [theme]);
   useEffect(() => {
-    document.title = `Dibs — ${path.startsWith('/certificate') ? 'Certificate of Dibs' : path === '/about' ? 'Office notice' : path === '/schools' ? 'Schools board' : path.startsWith('/archive') ? 'Registry archive' : 'The daily registry'}`;
+    document.title = `Dibs — ${path.startsWith('/certificate') ? 'Certificate of Dibs' : path === '/about' ? 'Office notice' : path.startsWith('/archive') ? 'Registry archive' : 'The daily registry'}`;
   }, [path]);
   return (
     <>
@@ -154,7 +154,6 @@ export default function App() {
           {[
             ['/', 'Today'],
             ['/archive', 'Archive'],
-            ['/schools', 'Schools'],
             ['/about', 'Office notice'],
           ].map(([url, label]) => (
             <Link
@@ -204,8 +203,7 @@ export default function App() {
             <CertificatePage id={decodeURIComponent(path.split('/').pop()!)} />
           ) : path.startsWith('/archive') ? (
             <Archive />
-          ) : path === '/schools' ? (
-            <Schools category={today.category} />
+
           ) : path === '/about' ? (
             <About />
           ) : path === '/stats' ? (
@@ -535,19 +533,7 @@ function Home({
                 >
                   Re-roll ({3 - me.user.rerolls_used} left)
                 </button>
-                <label htmlFor="school" className="eyebrow">
-                  SCHOOL / OPTIONAL
-                </label>
-                <select
-                  id="school"
-                  value={me.user.school}
-                  disabled={busy}
-                  onChange={(e) => void identity('school', { school: e.target.value })}
-                >
-                  {schools.map((s) => (
-                    <option key={s}>{s}</option>
-                  ))}
-                </select>
+
               </div>
       </section>}
       <Ledger category={today.category} />
@@ -662,7 +648,7 @@ function Ledger({ category }: { category: Category | null }) {
     };
   }, [category?.id]);
   const filtered = rows.filter((r) =>
-    `${r.display} ${r.handle} ${r.school}`.toLowerCase().includes(query.toLowerCase()),
+    `${r.display} ${r.handle}`.toLowerCase().includes(query.toLowerCase()),
   );
   return (
     <section className="ledger-section">
@@ -680,7 +666,7 @@ function Ledger({ category }: { category: Category | null }) {
             type="search"
             value={query}
             onChange={(e) => setQuery(e.target.value)}
-            placeholder="Entry, holder or school"
+            placeholder="Entry or holder"
             aria-label="Search the ledger"
           />
         </label>
@@ -693,7 +679,6 @@ function Ledger({ category }: { category: Category | null }) {
             <th>No.</th>
             <th>ENTRY</th>
             <th>HOLDER</th>
-            <th className="school-col">SCHOOL</th>
             <th className="time-col">TIME</th>
           </tr>
         </thead>
@@ -707,18 +692,15 @@ function Ledger({ category }: { category: Category | null }) {
               <td>
                 {r.handle}
                 <span className="mobile-meta">
-                  {r.school !== 'None' ? r.school : 'Independent claimant'}
-                  <br />
                   {time(r.created_at)}
                 </span>
               </td>
-              <td className="school-col">{r.school}</td>
               <td className="time-col">{time(r.created_at)}</td>
             </tr>
           ))}
           {!filtered.length && (
             <tr className="empty-row">
-              <td colSpan={5}>
+              <td colSpan={4}>
                 {query
                   ? 'No matching entries in this register.'
                   : category
@@ -732,7 +714,6 @@ function Ledger({ category }: { category: Category | null }) {
               <td>—</td>
               <td />
               <td />
-              <td className="school-col" />
               <td className="time-col" />
             </tr>
           ))}
@@ -783,7 +764,6 @@ export function Certificate({ claim, animated = false }: { claim: Claim; animate
       <div className="cert-holder">
         <span className="eyebrow">HELD BY</span>
         <strong>{claim.handle}</strong>
-        <span>{claim.school === 'None' ? 'Independent claimant' : claim.school}</span>
       </div>
       <div className="cert-bottom">
         <div>
@@ -967,80 +947,6 @@ function Archive() {
     </>
   );
 }
-function Schools({ category }: { category: Category | null }) {
-  const [data, setData] = useState<{
-    today: { school: string; claims: number }[];
-    season: { school: string; claims: number }[];
-  }>({ today: [], season: [] });
-  const [error, setError] = useState('');
-  useEffect(() => {
-    api<typeof data>('/schools' + (category ? '?category=' + category.id : ''))
-      .then(setData)
-      .catch((e) => setError(e.message));
-  }, [category?.id]);
-  return (
-    <>
-      <div className="page-heading">
-        <span className="eyebrow">INTERCOLLEGIATE RECORD / FORM S-1</span>
-        <h1>
-          School
-          <br />
-          of dibs.
-        </h1>
-        <p>Institutional pride. Questionable academic credit.</p>
-      </div>
-      {error && <p role="status">{error}</p>}
-      <div className="schools-layout">
-        {(['today', 'season'] as const).map((k) => (
-          <section key={k}>
-            <div className="section-heading">
-              <div>
-                <span className="eyebrow">
-                  {k === 'today' ? '01 / DAILY REGISTER' : '02 / SINCE OPENING DAY'}
-                </span>
-                <h2>{k === 'today' ? 'Today’s roll call' : 'The season record'}</h2>
-              </div>
-            </div>
-            <table className="school-table">
-              <thead>
-                <tr>
-                  <th>RANK</th>
-                  <th>SCHOOL</th>
-                  <th>CLAIMS</th>
-                </tr>
-              </thead>
-              <tbody>
-                {data[k].map((row, i) => (
-                  <tr key={row.school}>
-                    <td>{String(i + 1).padStart(2, '0')}</td>
-                    <td>{row.school}</td>
-                    <td>{row.claims}</td>
-                  </tr>
-                ))}
-                {!data[k].length && (
-                  <tr>
-                    <td colSpan={3}>No claims on the board. Attendance is optional.</td>
-                  </tr>
-                )}
-                {Array.from({ length: Math.max(0, 5 - data[k].length) }, (_, i) => (
-                  <tr key={i} aria-hidden="true">
-                    <td>—</td>
-                    <td />
-                    <td>—</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </section>
-        ))}
-      </div>
-      <p className="fine-print">
-        Counts are actual, successful claims. School affiliation is selected by the holder. “Other”
-        and “None” are not ranked.
-      </p>
-    </>
-  );
-}
 function About() {
   return (
     <>
@@ -1076,7 +982,7 @@ function About() {
             stays modest.
           </h2>
           <p>
-            We store a randomly generated handle, your chosen school, and your claims. An anonymous,
+            We store a randomly generated handle and your claims. An anonymous,
             signed cookie keeps your place. No email. No password. No public names to type.
           </p>
           <p>
@@ -1086,7 +992,7 @@ function About() {
           </p>
           <p>
             Clearing cookies loses access to your anonymous account. Claims stay in the public
-            record. School and handle lock after your first claim.
+            record. Your handle locks after your first claim.
           </p>
           <p>
             Obscurity uses Wikipedia pageviews, grouped from 1 (familiar) to 5 (less read). It
@@ -1146,7 +1052,7 @@ function Stats() {
       <p role="status">{error}</p>
       {data && (
         <>
-          <table className="school-table">
+          <table className="record-table">
             <thead>
               <tr>
                 <th>DATE</th>

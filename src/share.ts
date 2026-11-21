@@ -79,7 +79,6 @@ export async function exportCertificate(claim: Claim, story: boolean, text: stri
   c.font = '600 42px Instrument';
   c.fillText(claim.handle, 80, holder + 60);
   c.font = '400 26px Instrument';
-  c.fillText(claim.school === 'None' ? 'Independent claimant' : claim.school, 80, holder + 104);
   mono('OBSCURITY', 80, h - 250);
   for (let i = 0; i < 5; i++) {
     c.beginPath();
