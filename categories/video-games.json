@@ -11,11 +11,12 @@
     "categoryLists": null,
     "queryRoot": "Q7889",
     "property": "P31",
-    "builtAt": "2026-11-21T04:49:51.888Z",
+    "builtAt": "2026-11-21T05:05:18.013Z",
     "license": "Wikidata CC0; Wikipedia titles and pageview counts. See source URL on each entry.",
     "scoring": "Mean daily Wikipedia pageviews over available days in the past 30: 1 >=1000; 2 >=200; 3 >=50; 4 >=10; 5 <10. Missing data excluded.",
     "scopeNote": null,
-    "reviewRequired": true
+    "reviewRequired": true,
+    "identityPolicy": "exclude-cross-title-redirects-v1"
   },
   "answers": [
     {
@@ -1167,20 +1168,6 @@
       }
     },
     {
-      "canonical": "supersprint",
-      "display": "Super Sprint",
-      "aliases": [],
-      "obscurity": 4,
-      "source": "https://en.wikipedia.org/wiki/Championship_Sprint",
-      "wikidata": "http://www.wikidata.org/entity/Q90990",
-      "pageviews": {
-        "total": 638,
-        "days": 30,
-        "start": "2026-10-22",
-        "end": "2026-11-20"
-      }
-    },
-    {
       "canonical": "chasehq",
       "display": "Chase H.Q.",
       "aliases": [],
@@ -1427,20 +1414,6 @@
       "wikidata": "http://www.wikidata.org/entity/Q13165",
       "pageviews": {
         "total": 893,
-        "days": 30,
-        "start": "2026-10-22",
-        "end": "2026-11-20"
-      }
-    },
-    {
-      "canonical": "strongholdcrusader",
-      "display": "Stronghold: Crusader",
-      "aliases": [],
-      "obscurity": 3,
-      "source": "https://en.wikipedia.org/wiki/Stronghold:_Crusader_Extreme",
-      "wikidata": "http://www.wikidata.org/entity/Q13699",
-      "pageviews": {
-        "total": 3696,
         "days": 30,
         "start": "2026-10-22",
         "end": "2026-11-20"
@@ -1861,20 +1834,6 @@
       "wikidata": "http://www.wikidata.org/entity/Q55239",
       "pageviews": {
         "total": 4282,
-        "days": 30,
-        "start": "2026-10-22",
-        "end": "2026-11-20"
-      }
-    },
-    {
-      "canonical": "starwarrepubliccommando",
-      "display": "Star Wars: Republic Commando",
-      "aliases": [],
-      "obscurity": 3,
-      "source": "https://en.wikipedia.org/wiki/Star_Wars:_Republic_Commando:_Order_66",
-      "wikidata": "http://www.wikidata.org/entity/Q55237",
-      "pageviews": {
-        "total": 4848,
         "days": 30,
         "start": "2026-10-22",
         "end": "2026-11-20"
@@ -2872,20 +2831,6 @@
         "days": 30,
         "start": "2026-10-22",
         "end": "2026-11-20"
-      }
-    },
-    {
-      "canonical": "battlefield1942",
-      "display": "Battlefield 1942",
-      "aliases": [],
-      "obscurity": 2,
-      "source": "https://en.wikipedia.org/wiki/FinnWars",
-      "wikidata": "http://www.wikidata.org/entity/Q24076",
-      "pageviews": {
-        "total": 7249,
-        "days": 29,
-        "start": "2026-10-22",
-        "end": "2026-11-19"
       }
     },
     {
@@ -7061,20 +7006,6 @@
       }
     },
     {
-      "canonical": "davilexgame",
-      "display": "Davilex Games",
-      "aliases": [],
-      "obscurity": 4,
-      "source": "https://en.wikipedia.org/wiki/A2_Racer",
-      "wikidata": "http://www.wikidata.org/entity/Q785417",
-      "pageviews": {
-        "total": 518,
-        "days": 29,
-        "start": "2026-10-22",
-        "end": "2026-11-19"
-      }
-    },
-    {
       "canonical": "testdrive2001",
       "display": "Test Drive 2001",
       "aliases": [],
@@ -7125,20 +7056,6 @@
       "wikidata": "http://www.wikidata.org/entity/Q786669",
       "pageviews": {
         "total": 97,
-        "days": 30,
-        "start": "2026-10-22",
-        "end": "2026-11-20"
-      }
-    },
-    {
-      "canonical": "bobobobobobobo",
-      "display": "Bobobo-bo Bo-bobo",
-      "aliases": [],
-      "obscurity": 2,
-      "source": "https://en.wikipedia.org/wiki/Bobobo-bo_Bo-bobo_Dassutsu!_Hajike_Royale",
-      "wikidata": "http://www.wikidata.org/entity/Q787184",
-      "pageviews": {
-        "total": 7141,
         "days": 30,
         "start": "2026-10-22",
         "end": "2026-11-20"
@@ -7243,6 +7160,20 @@
       }
     },
     {
+      "canonical": "battlefield1942",
+      "display": "Battlefield 1942",
+      "aliases": [],
+      "obscurity": 2,
+      "source": "https://en.wikipedia.org/wiki/Battlefield_1942",
+      "wikidata": "http://www.wikidata.org/entity/Q791439",
+      "pageviews": {
+        "total": 7249,
+        "days": 29,
+        "start": "2026-10-22",
+        "end": "2026-11-19"
+      }
+    },
+    {
       "canonical": "battlefieldvietnam",
       "display": "Battlefield Vietnam",
       "aliases": [],
@@ -7282,20 +7213,6 @@
         "days": 29,
         "start": "2026-10-22",
         "end": "2026-11-19"
-      }
-    },
-    {
-      "canonical": "mangagamer",
-      "display": "MangaGamer",
-      "aliases": [],
-      "obscurity": 4,
-      "source": "https://en.wikipedia.org/wiki/Edelweiss_(visual_novel)",
-      "wikidata": "http://www.wikidata.org/entity/Q784901",
-      "pageviews": {
-        "total": 1111,
-        "days": 30,
-        "start": "2026-10-22",
-        "end": "2026-11-20"
       }
     },
     {
@@ -7447,20 +7364,6 @@
       "wikidata": "http://www.wikidata.org/entity/Q254851",
       "pageviews": {
         "total": 2986,
-        "days": 29,
-        "start": "2026-10-22",
-        "end": "2026-11-19"
-      }
-    },
-    {
-      "canonical": "fifamanager",
-      "display": "FIFA Manager",
-      "aliases": [],
-      "obscurity": 4,
-      "source": "https://en.wikipedia.org/wiki/FIFA_Manager_09",
-      "wikidata": "http://www.wikidata.org/entity/Q255660",
-      "pageviews": {
-        "total": 1299,
         "days": 29,
         "start": "2026-10-22",
         "end": "2026-11-19"
@@ -8461,20 +8364,6 @@
       }
     },
     {
-      "canonical": "procyclingmanager",
-      "display": "Pro Cycling Manager",
-      "aliases": [],
-      "obscurity": 5,
-      "source": "https://en.wikipedia.org/wiki/Pro_Cycling_Manager_2010",
-      "wikidata": "http://www.wikidata.org/entity/Q260699",
-      "pageviews": {
-        "total": 283,
-        "days": 30,
-        "start": "2026-10-22",
-        "end": "2026-11-20"
-      }
-    },
-    {
       "canonical": "tmntgbavideogame",
       "display": "TMNT (GBA video game)",
       "aliases": [],
@@ -9435,20 +9324,6 @@
       "wikidata": "http://www.wikidata.org/entity/Q836690",
       "pageviews": {
         "total": 14855,
-        "days": 29,
-        "start": "2026-10-22",
-        "end": "2026-11-19"
-      }
-    },
-    {
-      "canonical": "18wheelofsteel",
-      "display": "18 Wheels of Steel",
-      "aliases": [],
-      "obscurity": 3,
-      "source": "https://en.wikipedia.org/wiki/18_Wheels_of_Steel:_Haulin%27",
-      "wikidata": "http://www.wikidata.org/entity/Q836919",
-      "pageviews": {
-        "total": 1638,
         "days": 29,
         "start": "2026-10-22",
         "end": "2026-11-19"
@@ -12563,20 +12438,6 @@
       }
     },
     {
-      "canonical": "opensourcevideogame",
-      "display": "Open-source video game",
-      "aliases": [],
-      "obscurity": 4,
-      "source": "https://en.wikipedia.org/wiki/Gbrainy",
-      "wikidata": "http://www.wikidata.org/entity/Q307397",
-      "pageviews": {
-        "total": 1123,
-        "days": 30,
-        "start": "2026-10-22",
-        "end": "2026-11-20"
-      }
-    },
-    {
       "canonical": "osu",
       "display": "Osu!",
       "aliases": [],
@@ -12781,20 +12642,6 @@
       "wikidata": "http://www.wikidata.org/entity/Q735926",
       "pageviews": {
         "total": 25903,
-        "days": 29,
-        "start": "2026-10-22",
-        "end": "2026-11-19"
-      }
-    },
-    {
-      "canonical": "bemani",
-      "display": "Bemani",
-      "aliases": [],
-      "obscurity": 3,
-      "source": "https://en.wikipedia.org/wiki/Dance_Maniax",
-      "wikidata": "http://www.wikidata.org/entity/Q842019",
-      "pageviews": {
-        "total": 1908,
         "days": 29,
         "start": "2026-10-22",
         "end": "2026-11-19"
@@ -13638,20 +13485,6 @@
         "days": 30,
         "start": "2026-10-22",
         "end": "2026-11-20"
-      }
-    },
-    {
-      "canonical": "thesimstory",
-      "display": "The Sims Stories",
-      "aliases": [],
-      "obscurity": 4,
-      "source": "https://en.wikipedia.org/wiki/The_Sims_Life_Stories",
-      "wikidata": "http://www.wikidata.org/entity/Q930248",
-      "pageviews": {
-        "total": 973,
-        "days": 29,
-        "start": "2026-10-22",
-        "end": "2026-11-19"
       }
     },
     {
@@ -15587,34 +15420,6 @@
       }
     },
     {
-      "canonical": "unchartedwater",
-      "display": "Uncharted Waters",
-      "aliases": [],
-      "obscurity": 3,
-      "source": "https://en.wikipedia.org/wiki/Uncharted_Waters_2:_New_Horizons",
-      "wikidata": "http://www.wikidata.org/entity/Q845526",
-      "pageviews": {
-        "total": 2283,
-        "days": 30,
-        "start": "2026-10-22",
-        "end": "2026-11-20"
-      }
-    },
-    {
-      "canonical": "luckystarmanga",
-      "display": "Lucky Star (manga)",
-      "aliases": [],
-      "obscurity": 2,
-      "source": "https://en.wikipedia.org/wiki/Lucky_Star:_Moe_Drill",
-      "wikidata": "http://www.wikidata.org/entity/Q844112",
-      "pageviews": {
-        "total": 10148,
-        "days": 30,
-        "start": "2026-10-22",
-        "end": "2026-11-20"
-      }
-    },
-    {
       "canonical": "residentevil6",
       "display": "Resident Evil 6",
       "aliases": [],
@@ -17169,6 +16974,20 @@
       }
     },
     {
+      "canonical": "strongholdcrusader",
+      "display": "Stronghold: Crusader",
+      "aliases": [],
+      "obscurity": 3,
+      "source": "https://en.wikipedia.org/wiki/Stronghold:_Crusader",
+      "wikidata": "http://www.wikidata.org/entity/Q750086",
+      "pageviews": {
+        "total": 3696,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
       "canonical": "nooneliveforever2aspyinharmsway",
       "display": "No One Lives Forever 2: A Spy in H.A.R.M.'s Way",
       "aliases": [],
@@ -17600,20 +17419,6 @@
         "days": 30,
         "start": "2026-10-22",
         "end": "2026-11-20"
-      }
-    },
-    {
-      "canonical": "astrumonlineentertainment",
-      "display": "Astrum Online Entertainment",
-      "aliases": [],
-      "obscurity": 5,
-      "source": "https://en.wikipedia.org/wiki/Legend:_Legacy_of_the_Dragons",
-      "wikidata": "http://www.wikidata.org/entity/Q1254303",
-      "pageviews": {
-        "total": 107,
-        "days": 29,
-        "start": "2026-10-22",
-        "end": "2026-11-19"
       }
     },
     {
@@ -18513,20 +18318,6 @@
       }
     },
     {
-      "canonical": "transporttycoon",
-      "display": "Transport Tycoon",
-      "aliases": [],
-      "obscurity": 3,
-      "source": "https://en.wikipedia.org/wiki/Transport_Tycoon_Deluxe",
-      "wikidata": "http://www.wikidata.org/entity/Q745879",
-      "pageviews": {
-        "total": 4105,
-        "days": 30,
-        "start": "2026-10-22",
-        "end": "2026-11-20"
-      }
-    },
-    {
       "canonical": "riseoftheguardianthevideogame",
       "display": "Rise of the Guardians: The Video Game",
       "aliases": [],
@@ -19165,20 +18956,6 @@
       "wikidata": "http://www.wikidata.org/entity/Q753892",
       "pageviews": {
         "total": 7348,
-        "days": 30,
-        "start": "2026-10-22",
-        "end": "2026-11-20"
-      }
-    },
-    {
-      "canonical": "taleofmobile",
-      "display": "Tales of Mobile",
-      "aliases": [],
-      "obscurity": 5,
-      "source": "https://en.wikipedia.org/wiki/Tales_of_Commons",
-      "wikidata": "http://www.wikidata.org/entity/Q853250",
-      "pageviews": {
-        "total": 134,
         "days": 30,
         "start": "2026-10-22",
         "end": "2026-11-20"
@@ -19927,20 +19704,6 @@
       }
     },
     {
-      "canonical": "romanceofthethreekingdomvideogamesery",
-      "display": "Romance of the Three Kingdoms (video game series)",
-      "aliases": [],
-      "obscurity": 3,
-      "source": "https://en.wikipedia.org/wiki/Sangokushi_K%C5%8Dmeiden",
-      "wikidata": "http://www.wikidata.org/entity/Q860030",
-      "pageviews": {
-        "total": 4118,
-        "days": 30,
-        "start": "2026-10-22",
-        "end": "2026-11-20"
-      }
-    },
-    {
       "canonical": "undefinedfantasticobject",
       "display": "Undefined Fantastic Object",
       "aliases": [],
@@ -20103,20 +19866,6 @@
       "wikidata": "http://www.wikidata.org/entity/Q951568",
       "pageviews": {
         "total": 2373,
-        "days": 30,
-        "start": "2026-10-22",
-        "end": "2026-11-20"
-      }
-    },
-    {
-      "canonical": "knightandmerchanttheshatteredkingdom",
-      "display": "Knights and Merchants: The Shattered Kingdom",
-      "aliases": [],
-      "obscurity": 4,
-      "source": "https://en.wikipedia.org/wiki/Knights_and_Merchants:_The_Peasants_Rebellion",
-      "wikidata": "http://www.wikidata.org/entity/Q952964",
-      "pageviews": {
-        "total": 963,
         "days": 30,
         "start": "2026-10-22",
         "end": "2026-11-20"
@@ -21103,6 +20852,20 @@
       }
     },
     {
+      "canonical": "starwarrepubliccommando",
+      "display": "Star Wars: Republic Commando",
+      "aliases": [],
+      "obscurity": 3,
+      "source": "https://en.wikipedia.org/wiki/Star_Wars:_Republic_Commando",
+      "wikidata": "http://www.wikidata.org/entity/Q862542",
+      "pageviews": {
+        "total": 4848,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
       "canonical": "letgojunglelostontheislandofspice",
       "display": "Let's Go Jungle!: Lost on the Island of Spice",
       "aliases": [],
@@ -21363,20 +21126,6 @@
       "wikidata": "http://www.wikidata.org/entity/Q1317811",
       "pageviews": {
         "total": 4608,
-        "days": 30,
-        "start": "2026-10-22",
-        "end": "2026-11-20"
-      }
-    },
-    {
-      "canonical": "dungeoncrawlstonesoup",
-      "display": "Dungeon Crawl Stone Soup",
-      "aliases": [],
-      "obscurity": 3,
-      "source": "https://en.wikipedia.org/wiki/Linley%27s_Dungeon_Crawl",
-      "wikidata": "http://www.wikidata.org/entity/Q1317822",
-      "pageviews": {
-        "total": 2487,
         "days": 30,
         "start": "2026-10-22",
         "end": "2026-11-20"
@@ -21775,20 +21524,6 @@
       }
     },
     {
-      "canonical": "programminggame",
-      "display": "Programming game",
-      "aliases": [],
-      "obscurity": 4,
-      "source": "https://en.wikipedia.org/wiki/Robocode",
-      "wikidata": "http://www.wikidata.org/entity/Q767496",
-      "pageviews": {
-        "total": 481,
-        "days": 30,
-        "start": "2026-10-22",
-        "end": "2026-11-20"
-      }
-    },
-    {
       "canonical": "troubleshooter",
       "display": "Trouble Shooter",
       "aliases": [],
@@ -21800,20 +21535,6 @@
         "days": 30,
         "start": "2026-10-22",
         "end": "2026-11-20"
-      }
-    },
-    {
-      "canonical": "halflifesery",
-      "display": "Half-Life (series)",
-      "aliases": [],
-      "obscurity": 2,
-      "source": "https://en.wikipedia.org/wiki/Codename:_Gordon",
-      "wikidata": "http://www.wikidata.org/entity/Q768764",
-      "pageviews": {
-        "total": 17929,
-        "days": 29,
-        "start": "2026-10-22",
-        "end": "2026-11-19"
       }
     },
     {
@@ -23060,20 +22781,6 @@
         "days": 30,
         "start": "2026-10-22",
         "end": "2026-11-20"
-      }
-    },
-    {
-      "canonical": "rob",
-      "display": "R.O.B.",
-      "aliases": [],
-      "obscurity": 2,
-      "source": "https://en.wikipedia.org/wiki/Gyromite",
-      "wikidata": "http://www.wikidata.org/entity/Q869558",
-      "pageviews": {
-        "total": 7409,
-        "days": 29,
-        "start": "2026-10-22",
-        "end": "2026-11-19"
       }
     },
     {
@@ -24883,20 +24590,6 @@
       }
     },
     {
-      "canonical": "shinmegamitenseidigitaldevilsaga",
-      "display": "Shin Megami Tensei: Digital Devil Saga",
-      "aliases": [],
-      "obscurity": 3,
-      "source": "https://en.wikipedia.org/wiki/Shin_Megami_Tensei:_Digital_Devil_Saga_2",
-      "wikidata": "http://www.wikidata.org/entity/Q776587",
-      "pageviews": {
-        "total": 4491,
-        "days": 30,
-        "start": "2026-10-22",
-        "end": "2026-11-20"
-      }
-    },
-    {
       "canonical": "csihardevidence",
       "display": "CSI: Hard Evidence",
       "aliases": [],
@@ -26157,20 +25850,6 @@
       }
     },
     {
-      "canonical": "alexkidd",
-      "display": "Alex Kidd",
-      "aliases": [],
-      "obscurity": 3,
-      "source": "https://en.wikipedia.org/wiki/Alex_Kidd_BMX_Trial",
-      "wikidata": "http://www.wikidata.org/entity/Q973462",
-      "pageviews": {
-        "total": 3015,
-        "days": 29,
-        "start": "2026-10-22",
-        "end": "2026-11-19"
-      }
-    },
-    {
       "canonical": "killerinstinct1994videogame",
       "display": "Killer Instinct (1994 video game)",
       "aliases": [],
@@ -26252,20 +25931,6 @@
         "days": 30,
         "start": "2026-10-22",
         "end": "2026-11-20"
-      }
-    },
-    {
-      "canonical": "winxclub",
-      "display": "Winx Club",
-      "aliases": [],
-      "obscurity": 2,
-      "source": "https://en.wikipedia.org/wiki/Winx_Club:_Quest_for_the_Codex",
-      "wikidata": "http://www.wikidata.org/entity/Q974537",
-      "pageviews": {
-        "total": 24656,
-        "days": 29,
-        "start": "2026-10-22",
-        "end": "2026-11-19"
       }
     },
     {
@@ -29335,20 +29000,6 @@
       }
     },
     {
-      "canonical": "teamfortressclassic",
-      "display": "Team Fortress Classic",
-      "aliases": [],
-      "obscurity": 3,
-      "source": "https://en.wikipedia.org/wiki/Team_Fortress",
-      "wikidata": "http://www.wikidata.org/entity/Q2164966",
-      "pageviews": {
-        "total": 5230,
-        "days": 30,
-        "start": "2026-10-22",
-        "end": "2026-11-20"
-      }
-    },
-    {
       "canonical": "parasiteevevideogame",
       "display": "Parasite Eve (video game)",
       "aliases": [],
@@ -30539,20 +30190,6 @@
       }
     },
     {
-      "canonical": "mightandmagicvdarksideofxeen",
-      "display": "Might and Magic V: Darkside of Xeen",
-      "aliases": [],
-      "obscurity": 4,
-      "source": "https://en.wikipedia.org/wiki/Swords_of_Xeen",
-      "wikidata": "http://www.wikidata.org/entity/Q905839",
-      "pageviews": {
-        "total": 1360,
-        "days": 30,
-        "start": "2026-10-22",
-        "end": "2026-11-20"
-      }
-    },
-    {
       "canonical": "dirt3",
       "display": "Dirt 3",
       "aliases": [],
@@ -30813,6 +30450,370 @@
       "wikidata": "http://www.wikidata.org/entity/Q1030478",
       "pageviews": {
         "total": 2176,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "hardnova",
+      "display": "Hard Nova",
+      "aliases": [],
+      "obscurity": 5,
+      "source": "https://en.wikipedia.org/wiki/Hard_Nova",
+      "wikidata": "http://www.wikidata.org/entity/Q1033908",
+      "pageviews": {
+        "total": 115,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "danganronpatriggerhappyhavoc",
+      "display": "Danganronpa: Trigger Happy Havoc",
+      "aliases": [],
+      "obscurity": 2,
+      "source": "https://en.wikipedia.org/wiki/Danganronpa:_Trigger_Happy_Havoc",
+      "wikidata": "http://www.wikidata.org/entity/Q1035512",
+      "pageviews": {
+        "total": 9951,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "heroeofmightandmagiciiitheshadowofdeath",
+      "display": "Heroes of Might and Magic III: The Shadow of Death",
+      "aliases": [],
+      "obscurity": 4,
+      "source": "https://en.wikipedia.org/wiki/Heroes_of_Might_and_Magic_III:_The_Shadow_of_Death",
+      "wikidata": "http://www.wikidata.org/entity/Q1035703",
+      "pageviews": {
+        "total": 480,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "hitman2silentassassin",
+      "display": "Hitman 2: Silent Assassin",
+      "aliases": [],
+      "obscurity": 2,
+      "source": "https://en.wikipedia.org/wiki/Hitman_2:_Silent_Assassin",
+      "wikidata": "http://www.wikidata.org/entity/Q1037042",
+      "pageviews": {
+        "total": 6221,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "championshipmanagerseason0102",
+      "display": "Championship Manager: Season 01/02",
+      "aliases": [],
+      "obscurity": 4,
+      "source": "https://en.wikipedia.org/wiki/Championship_Manager:_Season_01/02",
+      "wikidata": "http://www.wikidata.org/entity/Q1037535",
+      "pageviews": {
+        "total": 1306,
+        "days": 29,
+        "start": "2026-10-22",
+        "end": "2026-11-19"
+      }
+    },
+    {
+      "canonical": "harukabeyondthestreamoftime",
+      "display": "Haruka: Beyond the Stream of Time",
+      "aliases": [],
+      "obscurity": 4,
+      "source": "https://en.wikipedia.org/wiki/Haruka:_Beyond_the_Stream_of_Time",
+      "wikidata": "http://www.wikidata.org/entity/Q1037613",
+      "pageviews": {
+        "total": 512,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "mysimkingdom",
+      "display": "MySims Kingdom",
+      "aliases": [],
+      "obscurity": 4,
+      "source": "https://en.wikipedia.org/wiki/MySims_Kingdom",
+      "wikidata": "http://www.wikidata.org/entity/Q1037628",
+      "pageviews": {
+        "total": 1316,
+        "days": 29,
+        "start": "2026-10-22",
+        "end": "2026-11-19"
+      }
+    },
+    {
+      "canonical": "rockrevolution",
+      "display": "Rock Revolution",
+      "aliases": [],
+      "obscurity": 4,
+      "source": "https://en.wikipedia.org/wiki/Rock_Revolution",
+      "wikidata": "http://www.wikidata.org/entity/Q1038251",
+      "pageviews": {
+        "total": 642,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "anachronox",
+      "display": "Anachronox",
+      "aliases": [],
+      "obscurity": 3,
+      "source": "https://en.wikipedia.org/wiki/Anachronox",
+      "wikidata": "http://www.wikidata.org/entity/Q483454",
+      "pageviews": {
+        "total": 2059,
+        "days": 29,
+        "start": "2026-10-22",
+        "end": "2026-11-19"
+      }
+    },
+    {
+      "canonical": "kirbyreturntodreamland",
+      "display": "Kirby's Return to Dream Land",
+      "aliases": [],
+      "obscurity": 3,
+      "source": "https://en.wikipedia.org/wiki/Kirby%27s_Return_to_Dream_Land",
+      "wikidata": "http://www.wikidata.org/entity/Q1370609",
+      "pageviews": {
+        "total": 5375,
+        "days": 29,
+        "start": "2026-10-22",
+        "end": "2026-11-19"
+      }
+    },
+    {
+      "canonical": "chesstitan",
+      "display": "Chess Titans",
+      "aliases": [],
+      "obscurity": 4,
+      "source": "https://en.wikipedia.org/wiki/Chess_Titans",
+      "wikidata": "http://www.wikidata.org/entity/Q1370646",
+      "pageviews": {
+        "total": 1330,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "salamandervideogame",
+      "display": "Salamander (video game)",
+      "aliases": [],
+      "obscurity": 3,
+      "source": "https://en.wikipedia.org/wiki/Salamander_(video_game)",
+      "wikidata": "http://www.wikidata.org/entity/Q1370988",
+      "pageviews": {
+        "total": 1911,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "systemshock2",
+      "display": "System Shock 2",
+      "aliases": [],
+      "obscurity": 2,
+      "source": "https://en.wikipedia.org/wiki/System_Shock_2",
+      "wikidata": "http://www.wikidata.org/entity/Q1371495",
+      "pageviews": {
+        "total": 9212,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "samuraiwarrior",
+      "display": "Samurai Warriors",
+      "aliases": [],
+      "obscurity": 3,
+      "source": "https://en.wikipedia.org/wiki/Samurai_Warriors",
+      "wikidata": "http://www.wikidata.org/entity/Q1371574",
+      "pageviews": {
+        "total": 3744,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "starfox643d",
+      "display": "Star Fox 64 3D",
+      "aliases": [],
+      "obscurity": 3,
+      "source": "https://en.wikipedia.org/wiki/Star_Fox_64_3D",
+      "wikidata": "http://www.wikidata.org/entity/Q1371603",
+      "pageviews": {
+        "total": 2004,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "watchdogvideogame",
+      "display": "Watch Dogs (video game)",
+      "aliases": [],
+      "obscurity": 2,
+      "source": "https://en.wikipedia.org/wiki/Watch_Dogs_(video_game)",
+      "wikidata": "http://www.wikidata.org/entity/Q1371726",
+      "pageviews": {
+        "total": 10718,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "prehistorik",
+      "display": "Prehistorik",
+      "aliases": [],
+      "obscurity": 4,
+      "source": "https://en.wikipedia.org/wiki/Prehistorik",
+      "wikidata": "http://www.wikidata.org/entity/Q1372919",
+      "pageviews": {
+        "total": 475,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "raymanravingrabbid2",
+      "display": "Rayman Raving Rabbids 2",
+      "aliases": [],
+      "obscurity": 3,
+      "source": "https://en.wikipedia.org/wiki/Rayman_Raving_Rabbids_2",
+      "wikidata": "http://www.wikidata.org/entity/Q1373328",
+      "pageviews": {
+        "total": 1691,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "sherlockholmethemysteryofthemummy",
+      "display": "Sherlock Holmes: The Mystery of the Mummy",
+      "aliases": [],
+      "obscurity": 4,
+      "source": "https://en.wikipedia.org/wiki/Sherlock_Holmes:_The_Mystery_of_the_Mummy",
+      "wikidata": "http://www.wikidata.org/entity/Q1374448",
+      "pageviews": {
+        "total": 910,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "lordoftherealm",
+      "display": "Lords of the Realm",
+      "aliases": [],
+      "obscurity": 4,
+      "source": "https://en.wikipedia.org/wiki/Lords_of_the_Realm",
+      "wikidata": "http://www.wikidata.org/entity/Q1377313",
+      "pageviews": {
+        "total": 742,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "petergabrieleve",
+      "display": "Peter Gabriel: Eve",
+      "aliases": [],
+      "obscurity": 5,
+      "source": "https://en.wikipedia.org/wiki/Peter_Gabriel:_Eve",
+      "wikidata": "http://www.wikidata.org/entity/Q1381575",
+      "pageviews": {
+        "total": 246,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "everquestii",
+      "display": "EverQuest II",
+      "aliases": [],
+      "obscurity": 3,
+      "source": "https://en.wikipedia.org/wiki/EverQuest_II",
+      "wikidata": "http://www.wikidata.org/entity/Q1381947",
+      "pageviews": {
+        "total": 3014,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "evolva",
+      "display": "Evolva",
+      "aliases": [],
+      "obscurity": 4,
+      "source": "https://en.wikipedia.org/wiki/Evolva",
+      "wikidata": "http://www.wikidata.org/entity/Q1382598",
+      "pageviews": {
+        "total": 348,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "rocketknightadventure",
+      "display": "Rocket Knight Adventures",
+      "aliases": [],
+      "obscurity": 3,
+      "source": "https://en.wikipedia.org/wiki/Rocket_Knight_Adventures",
+      "wikidata": "http://www.wikidata.org/entity/Q1382986",
+      "pageviews": {
+        "total": 1548,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "powerslave",
+      "display": "PowerSlave",
+      "aliases": [],
+      "obscurity": 3,
+      "source": "https://en.wikipedia.org/wiki/PowerSlave",
+      "wikidata": "http://www.wikidata.org/entity/Q1383776",
+      "pageviews": {
+        "total": 1964,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "exolon",
+      "display": "Exolon",
+      "aliases": [],
+      "obscurity": 5,
+      "source": "https://en.wikipedia.org/wiki/Exolon",
+      "wikidata": "http://www.wikidata.org/entity/Q1384124",
+      "pageviews": {
+        "total": 223,
         "days": 30,
         "start": "2026-10-22",
         "end": "2026-11-20"
