@@ -10,20 +10,25 @@
       "binding": "DB",
       "database_name": "dibs-db",
       "database_id": "b4d0eb75-781e-489c-bc0f-504fcfc879d9",
-      "migrations_dir": "../migrations"
-    }
+      "migrations_dir": "../migrations",
+    },
   ],
   "vars": {
     "SITE_URL": "https://dibs-7hz.pages.dev",
-    "TURNSTILE_SITE_KEY": "0x4AAAAAAGLNsW8c9WxZVAxQ"
+    "TURNSTILE_SITE_KEY": "0x4AAAAAAGLNsW8c9WxZVAxQ",
   },
   "triggers": {
-    "crons": [
-      "17 5 * * *"
-    ]
+    "crons": ["17 5 * * *"],
   },
   "observability": {
-    "enabled": false
+    "enabled": false,
   },
-  "preview_urls": false
+  "preview_urls": false,
+  "rules": [
+    {
+      "type": "Data",
+      "globs": ["**/*.woff"],
+      "fallthrough": true,
+    },
+  ],
 }

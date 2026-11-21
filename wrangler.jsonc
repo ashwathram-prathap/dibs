@@ -5,7 +5,7 @@
   "services": [
     {
       "binding": "API",
-      "service": "dibs-api"
-    }
-  ]
+      "service": "dibs-api",
+    },
+  ],
 }

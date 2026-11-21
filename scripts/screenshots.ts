@@ -1,4 +1,46 @@
-import {chromium} from '@playwright/test';
-import {mkdirSync} from 'node:fs';
-const dir=process.argv[2]||'review/m1';mkdirSync(dir,{recursive:true});const browser=await chromium.launch();
-for(const width of [390,1440])for(const theme of ['light','dark'] as const){const context=await browser.newContext({viewport:{width,height:width===390?844:900},colorScheme:theme,recordVideo:width===390&&theme==='light'?{dir:dir+'/video',size:{width:390,height:844}}:undefined});const page=await context.newPage();await page.goto('http://127.0.0.1:5173');await page.getByRole('heading',{name:'Animals',exact:true}).waitFor();await page.evaluate(()=>document.fonts.ready);for(const [url,name]of [['/','today'],['/archive','archive'],['/schools','schools'],['/about','about'],['/stats','stats']]){await page.goto('http://127.0.0.1:5173'+url);await page.waitForTimeout(500);await page.screenshot({path:`${dir}/${name}-${width}-${theme}.png`,fullPage:true})}await page.goto('http://127.0.0.1:5173');await page.getByLabel('ENTRY:',{exact:true}).fill('Pangolin');await page.getByRole('button',{name:'CALL DIBS'}).click();await page.getByRole('status').filter({hasText:'already registered'}).waitFor();await page.screenshot({path:`${dir}/taken-${width}-${theme}.png`,fullPage:true});await page.getByLabel('ENTRY:',{exact:true}).fill('Axolotl');await page.getByRole('button',{name:'CALL DIBS'}).click();await page.getByRole('article',{name:'Certificate of Dibs for Axolotl'}).waitFor();await page.waitForTimeout(1500);await page.screenshot({path:`${dir}/success-${width}-${theme}.png`,fullPage:true});await page.goto('http://127.0.0.1:5173/certificate/fixture-1');await page.getByRole('article').waitFor();await page.screenshot({path:`${dir}/certificate-${width}-${theme}.png`,fullPage:true});await context.close();}await browser.close();
+import { chromium } from '@playwright/test';
+import { mkdirSync } from 'node:fs';
+const dir = process.argv[2] || 'review/m1';
+mkdirSync(dir, { recursive: true });
+const browser = await chromium.launch();
+for (const width of [390, 1440])
+  for (const theme of ['light', 'dark'] as const) {
+    const context = await browser.newContext({
+      viewport: { width, height: width === 390 ? 844 : 900 },
+      colorScheme: theme,
+      recordVideo:
+        width === 390 && theme === 'light'
+          ? { dir: dir + '/video', size: { width: 390, height: 844 } }
+          : undefined,
+    });
+    const page = await context.newPage();
+    await page.goto('http://127.0.0.1:5173');
+    await page.getByRole('heading', { name: 'Animals', exact: true }).waitFor();
+    await page.evaluate(() => document.fonts.ready);
+    for (const [url, name] of [
+      ['/', 'today'],
+      ['/archive', 'archive'],
+      ['/schools', 'schools'],
+      ['/about', 'about'],
+      ['/stats', 'stats'],
+    ]) {
+      await page.goto('http://127.0.0.1:5173' + url);
+      await page.waitForTimeout(500);
+      await page.screenshot({ path: `${dir}/${name}-${width}-${theme}.png`, fullPage: true });
+    }
+    await page.goto('http://127.0.0.1:5173');
+    await page.getByLabel('ENTRY:', { exact: true }).fill('Pangolin');
+    await page.getByRole('button', { name: 'CALL DIBS' }).click();
+    await page.getByRole('status').filter({ hasText: 'already registered' }).waitFor();
+    await page.screenshot({ path: `${dir}/taken-${width}-${theme}.png`, fullPage: true });
+    await page.getByLabel('ENTRY:', { exact: true }).fill('Axolotl');
+    await page.getByRole('button', { name: 'CALL DIBS' }).click();
+    await page.getByRole('article', { name: 'Certificate of Dibs for Axolotl' }).waitFor();
+    await page.waitForTimeout(1500);
+    await page.screenshot({ path: `${dir}/success-${width}-${theme}.png`, fullPage: true });
+    await page.goto('http://127.0.0.1:5173/certificate/fixture-1');
+    await page.getByRole('article').waitFor();
+    await page.screenshot({ path: `${dir}/certificate-${width}-${theme}.png`, fullPage: true });
+    await context.close();
+  }
+await browser.close();

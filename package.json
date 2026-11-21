@@ -19,9 +19,9 @@
     "@resvg/resvg-wasm": "^2.6.2",
     "framer-motion": "^12.23.0",
     "html-to-image": "^1.11.13",
+    "opentype.js": "^2.0.0",
     "react": "^19.2.0",
-    "react-dom": "^19.2.0",
-    "satori": "^0.63.2"
+    "react-dom": "^19.2.0"
   },
   "devDependencies": {
     "@axe-core/playwright": "latest",
@@ -32,11 +32,13 @@
     "@fontsource/ibm-plex-mono": "latest",
     "@playwright/test": "latest",
     "@types/node": "latest",
+    "@types/opentype.js": "^1.3.10",
     "@types/react": "latest",
     "@types/react-dom": "latest",
     "@vitejs/plugin-react": "latest",
     "lighthouse": "latest",
     "pngjs": "latest",
+    "prettier": "^3.10.1",
     "tsx": "latest",
     "typescript": "latest",
     "vite": "latest",

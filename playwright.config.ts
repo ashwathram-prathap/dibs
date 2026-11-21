@@ -1,0 +1,61 @@
+import { defineConfig, devices } from '@playwright/test';
+const mobile = [
+  'iPhone SE',
+  'iPhone 15 Pro',
+  'iPhone 15 Pro Max',
+  'Pixel 7',
+  'Galaxy S9+',
+  'iPad Mini',
+  'iPad Pro 11 landscape',
+];
+const projects: any[] = [];
+for (const theme of ['light', 'dark']) {
+  for (const name of mobile) {
+    const browserName = name.startsWith('i') ? 'webkit' : 'chromium';
+    projects.push({
+      name: name.replaceAll(' ', '-') + '-' + theme,
+      use: { ...devices[name], browserName, colorScheme: theme },
+    });
+  }
+  for (const browserName of ['chromium', 'webkit', 'firefox'])
+    for (const width of [1280, 1440, 2560])
+      projects.push({
+        name: `${browserName}-${width}-${theme}`,
+        use: { browserName, viewport: { width, height: 900 }, colorScheme: theme },
+      });
+  projects.push({
+    name: '320-small-' + theme,
+    use: {
+      browserName: 'chromium',
+      viewport: { width: 320, height: 568 },
+      colorScheme: theme,
+      isMobile: true,
+      hasTouch: true,
+    },
+  });
+  projects.push({
+    name: 'landscape-phone-' + theme,
+    use: {
+      browserName: 'webkit',
+      viewport: { width: 844, height: 390 },
+      colorScheme: theme,
+      isMobile: true,
+      hasTouch: true,
+    },
+  });
+}
+export default defineConfig({
+  testDir: 'tests/e2e',
+  fullyParallel: true,
+  workers: 4,
+  timeout: 60000,
+  retries: 0,
+  reporter: [['list'], ['json', { outputFile: 'review/devices/results.json' }]],
+  use: { baseURL: 'http://127.0.0.1:5173', trace: 'retain-on-failure' },
+  projects,
+  webServer: {
+    command: 'VITE_DEMO=true npm run dev -- --port 5173',
+    url: 'http://127.0.0.1:5173',
+    reuseExistingServer: true,
+  },
+});

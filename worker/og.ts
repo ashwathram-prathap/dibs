@@ -1,18 +1,51 @@
-import satori,{init} from 'satori/standalone';
-import {Resvg,initWasm} from '@resvg/resvg-wasm';
-import layoutWasm from 'satori/layout.wasm';
+import { Resvg, initWasm } from '@resvg/resvg-wasm';
+import { parse, type Font } from 'opentype.js';
 import resvgWasm from '@resvg/resvg-wasm/index_bg.wasm';
-let font:Promise<ArrayBuffer>|undefined;
-let ready:Promise<unknown>|undefined;
-const div=(style:Record<string,unknown>,...children:any[])=>({type:'div',props:{style:{display:'flex',...style},children}});
-export async function og(site:string,claim:any){
- ready||=Promise.all([init(layoutWasm),initWasm(resvgWasm)]);await ready;
- font||=fetch(site+'/fonts/archivo-og.woff').then(r=>{if(!r.ok)throw new Error('Font unavailable');return r.arrayBuffer()}).catch(e=>{font=undefined;throw e});const data=await font;
- const title=claim?claim.display.toUpperCase():'DIBS.';const serial=claim?'CERTIFICATE OF DIBS No. '+String(claim.claim_no).padStart(4,'0'):'REGISTRY OF CLAIMS / FORM C-1';
- const tree=div({flexDirection:'column',background:'#F1ECE2',color:'#1A1A17',width:1200,height:630,padding:46,fontFamily:'Archivo',border:'14px double #1A1A17'},
- div({fontSize:22,justifyContent:'space-between',borderBottom:'2px solid #1A1A17',paddingBottom:24},div({},serial),div({},claim?claim.category_date:'FIRST COME. FIRST SERVED.')),
- div({fontSize:30,marginTop:35},claim?'I called dibs on':'One category. One claim.'),
- div({fontSize:title.length>20?70:title.length>12?100:155,lineHeight:1,letterSpacing:-6,marginTop:20,flexGrow:1},title),
- div({justifyContent:'space-between',alignItems:'center',borderTop:'2px solid #1A1A17',paddingTop:24,fontSize:25},div({},claim?claim.handle+' · '+claim.category_name:'Yours for the day.'),div({color:'#E1462B',border:'4px solid #E1462B',padding:'7px 18px',transform:'rotate(-3deg)',fontSize:40},claim?'REGISTERED':'DIBS')));
- const svg=await satori(tree as any,{width:1200,height:630,fonts:[{name:'Archivo',data,weight:900,style:'normal'}]});const renderer=new Resvg(svg);try{const png=renderer.render();try{return new Response(png.asPng(),{headers:{'content-type':'image/png','cache-control':'public, max-age=300','x-robots-tag':'noindex'}})}finally{png.free()}}finally{renderer.free()}
+import archivoFont from '../public/fonts/archivo-og.woff';
+let font: Font | undefined;
+let ready: Promise<void> | undefined;
+// Render self-hosted type to vector outlines before PNG rasterization. No remote fonts or HTML parser.
+export async function og(site: string, claim: any) {
+  ready ||= initWasm(resvgWasm);
+  await ready;
+  font ||= parse(archivoFont);
+  const face = font;
+  const width = (value: string, size: number) =>
+    [...value].reduce(
+      (n, ch) => n + ((face.charToGlyph(ch).advanceWidth || 0) * size) / face.unitsPerEm,
+      0,
+    );
+  const text = (value: string, x: number, y: number, size: number, color = '#1A1A17') => {
+    let out = '';
+    for (const ch of value) {
+      const glyph = face.charToGlyph(ch);
+      out += `<path fill="${color}" d="${glyph.getPath(x, y, size).toPathData(2)}"/>`;
+      x += ((glyph.advanceWidth || 0) * size) / face.unitsPerEm;
+    }
+    return out;
+  };
+  const title = claim ? claim.display.toUpperCase() : 'DIBS.';
+  let size = title.length > 20 ? 70 : title.length > 12 ? 100 : 155;
+  while (width(title, size) > 1060 && size > 36) size -= 2;
+  const number = claim
+    ? 'CERTIFICATE OF DIBS No. ' + String(claim.claim_no).padStart(4, '0')
+    : 'REGISTRY OF CLAIMS / FORM C-1';
+  const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630"><path fill="#F1ECE2" d="M0 0h1200v630H0z"/><g fill="none" stroke="#1A1A17" stroke-width="2"><path d="M20 20h1160v590H20z M30 30h1140v570H30z M60 130h1080 M60 470h1080"/></g>${text(number, 60, 100, 22)}${text(claim ? claim.category_date : 'FIRST COME. FIRST SERVED.', claim ? 930 : 800, 100, 18)}${text(claim ? 'I called dibs on' : 'One category. One claim.', 60, 210, 30)}${text(title, 60, 390, size)}${text(claim ? claim.handle : 'Yours for the day.', 60, 530, 30)}${claim ? text(claim.category_name.toUpperCase(), 60, 565, 18) : ''}<g transform="translate(935 538) rotate(-3)"><path fill="none" stroke="#E1462B" stroke-width="4" d="M-150-42h300v80h-300z"/>${text(claim ? 'REGISTERED' : 'DIBS', -132, 14, claim ? 37 : 52, '#E1462B')}</g></svg>`;
+  const renderer = new Resvg(svg);
+  try {
+    const png = renderer.render();
+    try {
+      return new Response(png.asPng().buffer as ArrayBuffer, {
+        headers: {
+          'content-type': 'image/png',
+          'cache-control': 'public, max-age=300',
+          'x-robots-tag': 'noindex',
+        },
+      });
+    } finally {
+      png.free();
+    }
+  } finally {
+    renderer.free();
+  }
 }

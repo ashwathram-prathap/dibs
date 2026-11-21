@@ -1,20 +1,173 @@
-import {beforeAll,afterAll,describe,it,expect} from 'vitest';
-import {Miniflare,convertV4MiniflareOptions} from 'miniflare';
-import {build} from 'esbuild';
-import {readFileSync} from 'node:fs';
-import {registryDate,dropAt,normalize} from '../worker/domain';
-let mf:Miniflare;let db:any;
-const request=(path:string,body?:any,cookie?:string,ip?:string)=>mf.dispatchFetch('http://localhost/api'+path,{method:body===undefined?'GET':'POST',headers:{...(body!==undefined?{'content-type':'application/json'}:{}),...(cookie?{cookie}:{}),...(ip?{'x-test-ip':ip}:{})},body:body===undefined?undefined:JSON.stringify(body)});
-async function account(){const r=await request('/me');return {cookie:r.headers.get('set-cookie')!.split(';')[0],...await r.json() as any}}
-beforeAll(async()=>{const result=await build({entryPoints:['worker/index.ts'],bundle:true,write:false,format:'esm',platform:'browser',loader:{'.wasm':'binary'}});mf=new Miniflare(convertV4MiniflareOptions({workers:[{name:"test",modules:true,script:result.outputFiles[0].text,compatibilityDate:'2026-11-20',d1Databases:['DB'],bindings:{COOKIE_SECRET:'test-secret-not-for-production',ADMIN_TOKEN:'test-admin',LOCAL_TEST:'true',SITE_URL:'http://localhost',TURNSTILE_SITE_KEY:'test'}}]}));db=await mf.getD1Database('DB');await db.exec(readFileSync('migrations/0001_registry.sql','utf8').replace(/CREATE TRIGGER[\s\S]*?\nEND;/g,m=>m.replace(/\n/g,' ')));const date=registryDate();await db.prepare('INSERT INTO categories(id,date,name,slug,total_registrable,drop_at,status) VALUES(?,?,?,?,?,?,?)').bind('test',date,'Animals','animals',2400,dropAt(date),'approved').run();for(let i=0;i<70;i++){const display=i===0?'Axolotl':'Test animal '+i;await db.prepare('INSERT INTO answers VALUES(?,?,?,?,?,?)').bind('answer-'+i,'test',normalize(display),display,'[]',3).run();await db.prepare('INSERT INTO answer_keys VALUES(?,?,?)').bind('test',normalize(display),'answer-'+i).run()}},30000);
-afterAll(async()=>{await mf?.dispose()});
-describe('Worker with real SQLite/D1 execution',()=>{
- it('50 simultaneous attempts yield one 201 and 49 conflicts',async()=>{const accounts=await Promise.all(Array.from({length:50},account));const responses=await Promise.all(accounts.map((a,i)=>request('/claim',{answer:'Axolotl',turnstileToken:'test'},a.cookie,'concurrency-'+i)));expect(responses.filter(r=>r.status===201)).toHaveLength(1);expect(responses.filter(r=>r.status===409)).toHaveLength(49);const rows=await db.prepare('SELECT * FROM claims WHERE answer_id=?').bind('answer-0').all();expect(rows.results).toHaveLength(1);expect(rows.results[0].claim_no).toBe(1)},30000);
- it('one user cannot successfully claim twice, including concurrently',async()=>{const a=await account();const rs=await Promise.all([1,2].map(i=>request('/claim',{answer:'Test animal '+i,turnstileToken:'test'},a.cookie,'double')));expect(rs.map(r=>r.status).sort()).toEqual([201,403]);expect((await db.prepare('SELECT COUNT(*) n FROM claims WHERE user_id=?').bind(a.user.id).first()).n).toBe(1)});
- it('enforces five successful accounts per daily IP atomically',async()=>{const accounts=await Promise.all(Array.from({length:8},account));const rs=await Promise.all(accounts.map((a,i)=>request('/claim',{answer:'Test animal '+(i+5),turnstileToken:'test'},a.cookie,'shared-network')));expect(rs.filter(r=>r.status===201)).toHaveLength(5);expect(rs.filter(r=>r.status===429)).toHaveLength(3);const hashes=await db.prepare('SELECT ip_hash FROM rate_limits').all();expect(hashes.results.every((x:any)=>/^[a-f0-9]{64}$/.test(x.ip_hash))).toBe(true)});
- it('limits attempts to three in a rolling minute',async()=>{const a=await account();const rs=await Promise.all(Array.from({length:4},()=>request('/claim',{answer:'missing',turnstileToken:'test'},a.cookie)));expect(rs.filter(r=>r.status===422)).toHaveLength(3);expect(rs.filter(r=>r.status===429)).toHaveLength(1)});
- it('locks re-rolls at three and refuses arbitrary schools',async()=>{const a=await account();for(let i=0;i<3;i++)expect((await request('/me/reroll',{},a.cookie)).status).toBe(200);expect((await request('/me/reroll',{},a.cookie)).status).toBe(403);expect((await request('/me/school',{school:'arbitrary'},a.cookie)).status).toBe(422)});
- it('rejects blocked cookies, cross-origin writes and unsigned admin requests',async()=>{expect((await request('/session-check',{})).status).toBe(401);const r=await mf.dispatchFetch('http://localhost/api/claim',{method:'POST',headers:{origin:'https://elsewhere.example'},body:'{}'});expect(r.status).toBe(403);expect((await request('/admin/stats')).status).toBe(401)});
- it('autocomplete never reveals ownership and ledger serials are unique',async()=>{const r=await request('/answers?q=axo');expect(await r.json()).toEqual({answers:['Axolotl']});const rows=(await (await request('/ledger?category=test')).json() as any).rows;expect(new Set(rows.map((r:any)=>r.claim_no)).size).toBe(rows.length)});
- it('never exposes draft registers',async()=>{await db.prepare("UPDATE categories SET status='draft' WHERE id='test'").run();const today=await (await request('/today')).json() as any;expect(today.category).toBeNull();expect((await (await request('/ledger?category=test')).json() as any).rows).toHaveLength(0);await db.prepare("UPDATE categories SET status='approved' WHERE id='test'").run()});
+import { beforeAll, afterAll, describe, it, expect } from 'vitest';
+import { Miniflare, convertV4MiniflareOptions } from 'miniflare';
+import { build } from 'esbuild';
+import { readFileSync } from 'node:fs';
+import { registryDate, dropAt, normalize } from '../worker/domain';
+let mf: Miniflare;
+let db: any;
+const request = (path: string, body?: any, cookie?: string, ip?: string) =>
+  mf.dispatchFetch('http://localhost/api' + path, {
+    method: body === undefined ? 'GET' : 'POST',
+    headers: {
+      ...(body !== undefined ? { 'content-type': 'application/json' } : {}),
+      ...(cookie ? { cookie } : {}),
+      ...(ip ? { 'x-test-ip': ip } : {}),
+    },
+    body: body === undefined ? undefined : JSON.stringify(body),
+  });
+async function account() {
+  const r = await request('/me');
+  return { cookie: r.headers.get('set-cookie')!.split(';')[0], ...((await r.json()) as any) };
+}
+beforeAll(async () => {
+  const result = await build({
+    entryPoints: ['worker/index.ts'],
+    bundle: true,
+    write: false,
+    format: 'esm',
+    platform: 'browser',
+    loader: { '.wasm': 'binary', '.woff': 'binary' },
+  });
+  mf = new Miniflare(
+    convertV4MiniflareOptions({
+      workers: [
+        {
+          name: 'test',
+          modules: true,
+          script: result.outputFiles[0].text,
+          compatibilityDate: '2026-11-20',
+          d1Databases: ['DB'],
+          bindings: {
+            COOKIE_SECRET: 'test-secret-not-for-production',
+            ADMIN_TOKEN: 'test-admin',
+            LOCAL_TEST: 'true',
+            SITE_URL: 'http://localhost',
+            TURNSTILE_SITE_KEY: 'test',
+          },
+        },
+      ],
+    }),
+  );
+  db = await mf.getD1Database('DB');
+  await db.exec(
+    readFileSync('migrations/0001_registry.sql', 'utf8').replace(
+      /CREATE TRIGGER[\s\S]*?\nEND;/g,
+      (m) => m.replace(/\n/g, ' '),
+    ),
+  );
+  const date = registryDate();
+  await db
+    .prepare(
+      'INSERT INTO categories(id,date,name,slug,total_registrable,drop_at,status) VALUES(?,?,?,?,?,?,?)',
+    )
+    .bind('test', date, 'Animals', 'animals', 2400, dropAt(date), 'approved')
+    .run();
+  for (let i = 0; i < 70; i++) {
+    const display = i === 0 ? 'Axolotl' : 'Test animal ' + i;
+    await db
+      .prepare('INSERT INTO answers VALUES(?,?,?,?,?,?)')
+      .bind('answer-' + i, 'test', normalize(display), display, '[]', 3)
+      .run();
+    await db
+      .prepare('INSERT INTO answer_keys VALUES(?,?,?)')
+      .bind('test', normalize(display), 'answer-' + i)
+      .run();
+  }
+}, 30000);
+afterAll(async () => {
+  await mf?.dispose();
+});
+describe('Worker with real SQLite/D1 execution', () => {
+  it('50 simultaneous attempts yield one 201 and 49 conflicts', async () => {
+    const accounts = await Promise.all(Array.from({ length: 50 }, account));
+    const responses = await Promise.all(
+      accounts.map((a, i) =>
+        request(
+          '/claim',
+          { answer: 'Axolotl', turnstileToken: 'test' },
+          a.cookie,
+          'concurrency-' + i,
+        ),
+      ),
+    );
+    expect(responses.filter((r) => r.status === 201)).toHaveLength(1);
+    expect(responses.filter((r) => r.status === 409)).toHaveLength(49);
+    const rows = await db.prepare('SELECT * FROM claims WHERE answer_id=?').bind('answer-0').all();
+    expect(rows.results).toHaveLength(1);
+    expect(rows.results[0].claim_no).toBe(1);
+  }, 30000);
+  it('one user cannot successfully claim twice, including concurrently', async () => {
+    const a = await account();
+    const rs = await Promise.all(
+      [1, 2].map((i) =>
+        request(
+          '/claim',
+          { answer: 'Test animal ' + i, turnstileToken: 'test' },
+          a.cookie,
+          'double',
+        ),
+      ),
+    );
+    expect(rs.map((r) => r.status).sort()).toEqual([201, 403]);
+    expect(
+      (await db.prepare('SELECT COUNT(*) n FROM claims WHERE user_id=?').bind(a.user.id).first()).n,
+    ).toBe(1);
+  });
+  it('enforces five successful accounts per daily IP atomically', async () => {
+    const accounts = await Promise.all(Array.from({ length: 8 }, account));
+    const rs = await Promise.all(
+      accounts.map((a, i) =>
+        request(
+          '/claim',
+          { answer: 'Test animal ' + (i + 5), turnstileToken: 'test' },
+          a.cookie,
+          'shared-network',
+        ),
+      ),
+    );
+    expect(rs.filter((r) => r.status === 201)).toHaveLength(5);
+    expect(rs.filter((r) => r.status === 429)).toHaveLength(3);
+    const hashes = await db.prepare('SELECT ip_hash FROM rate_limits').all();
+    expect(hashes.results.every((x: any) => /^[a-f0-9]{64}$/.test(x.ip_hash))).toBe(true);
+  });
+  it('limits attempts to three in a rolling minute', async () => {
+    const a = await account();
+    const rs = await Promise.all(
+      Array.from({ length: 4 }, () =>
+        request('/claim', { answer: 'missing', turnstileToken: 'test' }, a.cookie),
+      ),
+    );
+    expect(rs.filter((r) => r.status === 422)).toHaveLength(3);
+    expect(rs.filter((r) => r.status === 429)).toHaveLength(1);
+  });
+  it('locks re-rolls at three and refuses arbitrary schools', async () => {
+    const a = await account();
+    for (let i = 0; i < 3; i++)
+      expect((await request('/me/reroll', {}, a.cookie)).status).toBe(200);
+    expect((await request('/me/reroll', {}, a.cookie)).status).toBe(403);
+    expect((await request('/me/school', { school: 'arbitrary' }, a.cookie)).status).toBe(422);
+  });
+  it('rejects blocked cookies, cross-origin writes and unsigned admin requests', async () => {
+    expect((await request('/session-check', {})).status).toBe(401);
+    const r = await mf.dispatchFetch('http://localhost/api/claim', {
+      method: 'POST',
+      headers: { origin: 'https://elsewhere.example' },
+      body: '{}',
+    });
+    expect(r.status).toBe(403);
+    expect((await request('/admin/stats')).status).toBe(401);
+  });
+  it('autocomplete never reveals ownership and ledger serials are unique', async () => {
+    const r = await request('/answers?q=axo');
+    expect(await r.json()).toEqual({ answers: ['Axolotl'] });
+    const rows = ((await (await request('/ledger?category=test')).json()) as any).rows;
+    expect(new Set(rows.map((r: any) => r.claim_no)).size).toBe(rows.length);
+  });
+  it('never exposes draft registers', async () => {
+    await db.prepare("UPDATE categories SET status='draft' WHERE id='test'").run();
+    const today = (await (await request('/today')).json()) as any;
+    expect(today.category).toBeNull();
+    expect(((await (await request('/ledger?category=test')).json()) as any).rows).toHaveLength(0);
+    await db.prepare("UPDATE categories SET status='approved' WHERE id='test'").run();
+  });
 });
