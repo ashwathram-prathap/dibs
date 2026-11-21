@@ -11,11 +11,12 @@
     "categoryLists": null,
     "queryRoot": "Q515",
     "property": "P31",
-    "builtAt": "2026-11-21T04:35:27.729Z",
+    "builtAt": "2026-11-21T05:02:39.647Z",
     "license": "Wikidata CC0; Wikipedia titles and pageview counts. See source URL on each entry.",
     "scoring": "Mean daily Wikipedia pageviews over available days in the past 30: 1 >=1000; 2 >=200; 3 >=50; 4 >=10; 5 <10. Missing data excluded.",
     "scopeNote": null,
-    "reviewRequired": true
+    "reviewRequired": true,
+    "identityPolicy": "exclude-cross-title-redirects-v1"
   },
   "answers": [
     {
@@ -6823,20 +6824,6 @@
       }
     },
     {
-      "canonical": "katerini",
-      "display": "Katerini",
-      "aliases": [],
-      "obscurity": 3,
-      "source": "https://en.wikipedia.org/wiki/Katerini,_Greece",
-      "wikidata": "http://www.wikidata.org/entity/Q210470",
-      "pageviews": {
-        "total": 2343,
-        "days": 30,
-        "start": "2026-10-22",
-        "end": "2026-11-20"
-      }
-    },
-    {
       "canonical": "telaviv",
       "display": "Tel Aviv",
       "aliases": [],
@@ -10001,20 +9988,6 @@
       }
     },
     {
-      "canonical": "olympiagreece",
-      "display": "Olympia, Greece",
-      "aliases": [],
-      "obscurity": 2,
-      "source": "https://en.wikipedia.org/wiki/Archaia_Olympia",
-      "wikidata": "http://www.wikidata.org/entity/Q632542",
-      "pageviews": {
-        "total": 9275,
-        "days": 29,
-        "start": "2026-10-22",
-        "end": "2026-11-19"
-      }
-    },
-    {
       "canonical": "oshakati",
       "display": "Oshakati",
       "aliases": [],
@@ -11549,20 +11522,6 @@
       "wikidata": "http://www.wikidata.org/entity/Q988185",
       "pageviews": {
         "total": 31,
-        "days": 30,
-        "start": "2026-10-22",
-        "end": "2026-11-20"
-      }
-    },
-    {
-      "canonical": "tapachula",
-      "display": "Tapachula",
-      "aliases": [],
-      "obscurity": 3,
-      "source": "https://en.wikipedia.org/wiki/Tapachula_de_Cordova_y_Ordo%C3%B1ez",
-      "wikidata": "http://www.wikidata.org/entity/Q988225",
-      "pageviews": {
-        "total": 3207,
         "days": 30,
         "start": "2026-10-22",
         "end": "2026-11-20"
@@ -14181,20 +14140,6 @@
       "wikidata": "http://www.wikidata.org/entity/Q653855",
       "pageviews": {
         "total": 128,
-        "days": 30,
-        "start": "2026-10-22",
-        "end": "2026-11-20"
-      }
-    },
-    {
-      "canonical": "penonome",
-      "display": "Penonomé",
-      "aliases": [],
-      "obscurity": 4,
-      "source": "https://en.wikipedia.org/wiki/Penonom%C3%A9,_Cocl%C3%A9",
-      "wikidata": "http://www.wikidata.org/entity/Q654169",
-      "pageviews": {
-        "total": 321,
         "days": 30,
         "start": "2026-10-22",
         "end": "2026-11-20"
@@ -17011,20 +16956,6 @@
         "total": 6,
         "days": 29,
         "start": "2026-10-23",
-        "end": "2026-11-20"
-      }
-    },
-    {
-      "canonical": "kebribeyahworeda",
-      "display": "Kebri Beyah (woreda)",
-      "aliases": [],
-      "obscurity": 5,
-      "source": "https://en.wikipedia.org/wiki/Kebri_Beyah",
-      "wikidata": "http://www.wikidata.org/entity/Q1627555",
-      "pageviews": {
-        "total": 206,
-        "days": 30,
-        "start": "2026-10-22",
         "end": "2026-11-20"
       }
     },
@@ -20526,20 +20457,6 @@
         "days": 29,
         "start": "2026-10-22",
         "end": "2026-11-19"
-      }
-    },
-    {
-      "canonical": "houayxay",
-      "display": "Houayxay",
-      "aliases": [],
-      "obscurity": 4,
-      "source": "https://en.wikipedia.org/wiki/Ban_Houayxay",
-      "wikidata": "http://www.wikidata.org/entity/Q717371",
-      "pageviews": {
-        "total": 487,
-        "days": 30,
-        "start": "2026-10-22",
-        "end": "2026-11-20"
       }
     },
     {
@@ -27725,20 +27642,6 @@
       }
     },
     {
-      "canonical": "alexandreiagreece",
-      "display": "Alexandreia, Greece",
-      "aliases": [],
-      "obscurity": 4,
-      "source": "https://en.wikipedia.org/wiki/Alexandria,_Greece",
-      "wikidata": "http://www.wikidata.org/entity/Q1014285",
-      "pageviews": {
-        "total": 727,
-        "days": 29,
-        "start": "2026-10-22",
-        "end": "2026-11-19"
-      }
-    },
-    {
       "canonical": "cipolletti",
       "display": "Cipolletti",
       "aliases": [],
@@ -30813,6 +30716,104 @@
       "wikidata": "http://www.wikidata.org/entity/Q1017637",
       "pageviews": {
         "total": 1106,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "chaman",
+      "display": "Chaman",
+      "aliases": [],
+      "obscurity": 4,
+      "source": "https://en.wikipedia.org/wiki/Chaman",
+      "wikidata": "http://www.wikidata.org/entity/Q1017644",
+      "pageviews": {
+        "total": 763,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "chiniot",
+      "display": "Chiniot",
+      "aliases": [],
+      "obscurity": 4,
+      "source": "https://en.wikipedia.org/wiki/Chiniot",
+      "wikidata": "http://www.wikidata.org/entity/Q1017651",
+      "pageviews": {
+        "total": 1302,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "qakhcity",
+      "display": "Qakh (city)",
+      "aliases": [],
+      "obscurity": 5,
+      "source": "https://en.wikipedia.org/wiki/Qakh_(city)",
+      "wikidata": "http://www.wikidata.org/entity/Q1017662",
+      "pageviews": {
+        "total": 237,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "isatown",
+      "display": "Isa Town",
+      "aliases": [],
+      "obscurity": 4,
+      "source": "https://en.wikipedia.org/wiki/Isa_Town",
+      "wikidata": "http://www.wikidata.org/entity/Q1017673",
+      "pageviews": {
+        "total": 409,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "salyanazerbaijan",
+      "display": "Salyan, Azerbaijan",
+      "aliases": [],
+      "obscurity": 5,
+      "source": "https://en.wikipedia.org/wiki/Salyan,_Azerbaijan",
+      "wikidata": "http://www.wikidata.org/entity/Q1017678",
+      "pageviews": {
+        "total": 191,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "siyazan",
+      "display": "Siyazan",
+      "aliases": [],
+      "obscurity": 5,
+      "source": "https://en.wikipedia.org/wiki/Siyazan",
+      "wikidata": "http://www.wikidata.org/entity/Q1017683",
+      "pageviews": {
+        "total": 81,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "warmansaskatchewan",
+      "display": "Warman, Saskatchewan",
+      "aliases": [],
+      "obscurity": 4,
+      "source": "https://en.wikipedia.org/wiki/Warman,_Saskatchewan",
+      "wikidata": "http://www.wikidata.org/entity/Q1904521",
+      "pageviews": {
+        "total": 710,
         "days": 30,
         "start": "2026-10-22",
         "end": "2026-11-20"
