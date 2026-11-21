@@ -11,11 +11,12 @@
     "categoryLists": null,
     "queryRoot": "Q11424",
     "property": "P31",
-    "builtAt": "2026-11-21T04:37:44.739Z",
+    "builtAt": "2026-11-21T05:02:39.668Z",
     "license": "Wikidata CC0; Wikipedia titles and pageview counts. See source URL on each entry.",
     "scoring": "Mean daily Wikipedia pageviews over available days in the past 30: 1 >=1000; 2 >=200; 3 >=50; 4 >=10; 5 <10. Missing data excluded.",
     "scopeNote": null,
-    "reviewRequired": true
+    "reviewRequired": true,
+    "identityPolicy": "exclude-cross-title-redirects-v1"
   },
   "answers": [
     {
@@ -6565,20 +6566,6 @@
       "wikidata": "http://www.wikidata.org/entity/Q83495",
       "pageviews": {
         "total": 120734,
-        "days": 29,
-        "start": "2026-10-22",
-        "end": "2026-11-19"
-      }
-    },
-    {
-      "canonical": "2girl1cup",
-      "display": "2 Girls 1 Cup",
-      "aliases": [],
-      "obscurity": 1,
-      "source": "https://en.wikipedia.org/wiki/Hungry_Bitches",
-      "wikidata": "http://www.wikidata.org/entity/Q83103",
-      "pageviews": {
-        "total": 169753,
         "days": 29,
         "start": "2026-10-22",
         "end": "2026-11-19"
@@ -14671,20 +14658,6 @@
       "wikidata": "http://www.wikidata.org/entity/Q185888",
       "pageviews": {
         "total": 88669,
-        "days": 30,
-        "start": "2026-10-22",
-        "end": "2026-11-20"
-      }
-    },
-    {
-      "canonical": "zeitgeistfilmsery",
-      "display": "Zeitgeist (film series)",
-      "aliases": [],
-      "obscurity": 2,
-      "source": "https://en.wikipedia.org/wiki/Zeitgeist:_Addendum",
-      "wikidata": "http://www.wikidata.org/entity/Q185976",
-      "pageviews": {
-        "total": 8031,
         "days": 30,
         "start": "2026-10-22",
         "end": "2026-11-20"
@@ -30231,20 +30204,6 @@
       }
     },
     {
-      "canonical": "tatu",
-      "display": "T.A.T.u.",
-      "aliases": [],
-      "obscurity": 1,
-      "source": "https://en.wikipedia.org/wiki/Anatomy_of_t.A.T.u.",
-      "wikidata": "http://www.wikidata.org/entity/Q488362",
-      "pageviews": {
-        "total": 36741,
-        "days": 29,
-        "start": "2026-10-22",
-        "end": "2026-11-19"
-      }
-    },
-    {
       "canonical": "anatomyofamurder",
       "display": "Anatomy of a Murder",
       "aliases": [],
@@ -30813,6 +30772,48 @@
       "wikidata": "http://www.wikidata.org/entity/Q489149",
       "pageviews": {
         "total": 1136,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "eattherichfilm",
+      "display": "Eat the Rich (film)",
+      "aliases": [],
+      "obscurity": 3,
+      "source": "https://en.wikipedia.org/wiki/Eat_the_Rich_(film)",
+      "wikidata": "http://www.wikidata.org/entity/Q489117",
+      "pageviews": {
+        "total": 2311,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "thehunchbackofrome",
+      "display": "The Hunchback of Rome",
+      "aliases": [],
+      "obscurity": 5,
+      "source": "https://en.wikipedia.org/wiki/The_Hunchback_of_Rome",
+      "wikidata": "http://www.wikidata.org/entity/Q489133",
+      "pageviews": {
+        "total": 189,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "thefirstdayoftherestofyourlifefilm",
+      "display": "The First Day of the Rest of Your Life (film)",
+      "aliases": [],
+      "obscurity": 4,
+      "source": "https://en.wikipedia.org/wiki/The_First_Day_of_the_Rest_of_Your_Life_(film)",
+      "wikidata": "http://www.wikidata.org/entity/Q489196",
+      "pageviews": {
+        "total": 301,
         "days": 30,
         "start": "2026-10-22",
         "end": "2026-11-20"
