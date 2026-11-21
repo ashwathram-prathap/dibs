@@ -11,11 +11,12 @@
     "categoryLists": null,
     "queryRoot": "Q7366",
     "property": "P31",
-    "builtAt": "2026-11-21T04:46:14.163Z",
+    "builtAt": "2026-11-21T05:02:39.734Z",
     "license": "Wikidata CC0; Wikipedia titles and pageview counts. See source URL on each entry.",
     "scoring": "Mean daily Wikipedia pageviews over available days in the past 30: 1 >=1000; 2 >=200; 3 >=50; 4 >=10; 5 <10. Missing data excluded.",
     "scopeNote": null,
-    "reviewRequired": true
+    "reviewRequired": true,
+    "identityPolicy": "exclude-cross-title-redirects-v1"
   },
   "answers": [
     {
@@ -89,20 +90,6 @@
       }
     },
     {
-      "canonical": "norwayintheeurovisionsongcontest2012",
-      "display": "Norway in the Eurovision Song Contest 2012",
-      "aliases": [],
-      "obscurity": 5,
-      "source": "https://en.wikipedia.org/wiki/Stay_(Tooji_song)",
-      "wikidata": "http://www.wikidata.org/entity/Q263600",
-      "pageviews": {
-        "total": 144,
-        "days": 30,
-        "start": "2026-10-22",
-        "end": "2026-11-20"
-      }
-    },
-    {
       "canonical": "naturallyselenagomezthescenesong",
       "display": "Naturally (Selena Gomez & the Scene song)",
       "aliases": [],
@@ -125,20 +112,6 @@
       "wikidata": "http://www.wikidata.org/entity/Q731688",
       "pageviews": {
         "total": 559,
-        "days": 30,
-        "start": "2026-10-22",
-        "end": "2026-11-20"
-      }
-    },
-    {
-      "canonical": "heartbreakergdragonalbum",
-      "display": "Heartbreaker (G-Dragon album)",
-      "aliases": [],
-      "obscurity": 4,
-      "source": "https://en.wikipedia.org/wiki/Butterfly_(G-Dragon_song)",
-      "wikidata": "http://www.wikidata.org/entity/Q732705",
-      "pageviews": {
-        "total": 714,
         "days": 30,
         "start": "2026-10-22",
         "end": "2026-11-20"
@@ -359,8 +332,8 @@
       "display": "TTL (Time to Love)",
       "aliases": [],
       "obscurity": 5,
-      "source": "https://en.wikipedia.org/wiki/TTL_Listen_2",
-      "wikidata": "http://www.wikidata.org/entity/Q497542",
+      "source": "https://en.wikipedia.org/wiki/TTL_(Time_to_Love)",
+      "wikidata": "http://www.wikidata.org/entity/Q497807",
       "pageviews": {
         "total": 212,
         "days": 30,
@@ -397,20 +370,6 @@
       }
     },
     {
-      "canonical": "sweetboxdiscography",
-      "display": "Sweetbox discography",
-      "aliases": [],
-      "obscurity": 5,
-      "source": "https://en.wikipedia.org/wiki/Addicted_(Sweetbox_song)",
-      "wikidata": "http://www.wikidata.org/entity/Q503283",
-      "pageviews": {
-        "total": 115,
-        "days": 30,
-        "start": "2026-10-22",
-        "end": "2026-11-20"
-      }
-    },
-    {
       "canonical": "femmelikeudonnemoitoncorp",
       "display": "Femme Like U (Donne-moi ton corps)",
       "aliases": [],
@@ -436,20 +395,6 @@
         "days": 29,
         "start": "2026-10-22",
         "end": "2026-11-19"
-      }
-    },
-    {
-      "canonical": "enjoytheridemarieserneholtalbum",
-      "display": "Enjoy the Ride (Marie Serneholt album)",
-      "aliases": [],
-      "obscurity": 5,
-      "source": "https://en.wikipedia.org/wiki/Oxygen_(Marie_Serneholt_song)",
-      "wikidata": "http://www.wikidata.org/entity/Q15654",
-      "pageviews": {
-        "total": 62,
-        "days": 30,
-        "start": "2026-10-22",
-        "end": "2026-11-20"
       }
     },
     {
@@ -646,20 +591,6 @@
         "days": 30,
         "start": "2026-10-22",
         "end": "2026-11-20"
-      }
-    },
-    {
-      "canonical": "chucksum41album",
-      "display": "Chuck (Sum 41 album)",
-      "aliases": [],
-      "obscurity": 3,
-      "source": "https://en.wikipedia.org/wiki/No_Reason_(Sum_41_song)",
-      "wikidata": "http://www.wikidata.org/entity/Q748972",
-      "pageviews": {
-        "total": 5764,
-        "days": 29,
-        "start": "2026-10-22",
-        "end": "2026-11-19"
       }
     },
     {
@@ -965,20 +896,6 @@
       "wikidata": "http://www.wikidata.org/entity/Q834275",
       "pageviews": {
         "total": 9178,
-        "days": 30,
-        "start": "2026-10-22",
-        "end": "2026-11-20"
-      }
-    },
-    {
-      "canonical": "armeniaintheeurovisionsongcontest2011",
-      "display": "Armenia in the Eurovision Song Contest 2011",
-      "aliases": [],
-      "obscurity": 5,
-      "source": "https://en.wikipedia.org/wiki/Boom_Boom_(Emmy_song)",
-      "wikidata": "http://www.wikidata.org/entity/Q834611",
-      "pageviews": {
-        "total": 131,
         "days": 30,
         "start": "2026-10-22",
         "end": "2026-11-20"
@@ -1741,20 +1658,6 @@
       }
     },
     {
-      "canonical": "israelintheeurovisionsongcontest2005",
-      "display": "Israel in the Eurovision Song Contest 2005",
-      "aliases": [],
-      "obscurity": 5,
-      "source": "https://en.wikipedia.org/wiki/HaSheket_SheNish%27ar",
-      "wikidata": "http://www.wikidata.org/entity/Q831449",
-      "pageviews": {
-        "total": 140,
-        "days": 30,
-        "start": "2026-10-22",
-        "end": "2026-11-20"
-      }
-    },
-    {
       "canonical": "bettedaviseye",
       "display": "Bette Davis Eyes",
       "aliases": [],
@@ -1920,20 +1823,6 @@
         "days": 29,
         "start": "2026-10-22",
         "end": "2026-11-19"
-      }
-    },
-    {
-      "canonical": "prospektmarch",
-      "display": "Prospekt's March",
-      "aliases": [],
-      "obscurity": 3,
-      "source": "https://en.wikipedia.org/wiki/Glass_of_Water",
-      "wikidata": "http://www.wikidata.org/entity/Q127752",
-      "pageviews": {
-        "total": 2187,
-        "days": 30,
-        "start": "2026-10-22",
-        "end": "2026-11-20"
       }
     },
     {
@@ -2141,20 +2030,6 @@
       "wikidata": "http://www.wikidata.org/entity/Q302863",
       "pageviews": {
         "total": 773,
-        "days": 30,
-        "start": "2026-10-22",
-        "end": "2026-11-20"
-      }
-    },
-    {
-      "canonical": "christinaaguileradiscography",
-      "display": "Christina Aguilera discography",
-      "aliases": [],
-      "obscurity": 2,
-      "source": "https://en.wikipedia.org/wiki/Hello_(Follow_Your_Own_Star)",
-      "wikidata": "http://www.wikidata.org/entity/Q304010",
-      "pageviews": {
-        "total": 6049,
         "days": 30,
         "start": "2026-10-22",
         "end": "2026-11-20"
@@ -2679,20 +2554,6 @@
       }
     },
     {
-      "canonical": "austriaintheeurovisionsongcontest2011",
-      "display": "Austria in the Eurovision Song Contest 2011",
-      "aliases": [],
-      "obscurity": 5,
-      "source": "https://en.wikipedia.org/wiki/The_Secret_Is_Love",
-      "wikidata": "http://www.wikidata.org/entity/Q699102",
-      "pageviews": {
-        "total": 102,
-        "days": 30,
-        "start": "2026-10-22",
-        "end": "2026-11-20"
-      }
-    },
-    {
       "canonical": "caribbeanblue",
       "display": "Caribbean Blue",
       "aliases": [],
@@ -3183,20 +3044,6 @@
       }
     },
     {
-      "canonical": "germanyintheeurovisionsongcontest1964",
-      "display": "Germany in the Eurovision Song Contest 1964",
-      "aliases": [],
-      "obscurity": 5,
-      "source": "https://en.wikipedia.org/wiki/Man_gew%C3%B6hnt_sich_so_schnell_an_das_Sch%C3%B6ne",
-      "wikidata": "http://www.wikidata.org/entity/Q325210",
-      "pageviews": {
-        "total": 32,
-        "days": 29,
-        "start": "2026-10-22",
-        "end": "2026-11-20"
-      }
-    },
-    {
       "canonical": "genieinabottle",
       "display": "Genie in a Bottle",
       "aliases": [],
@@ -3334,20 +3181,6 @@
         "days": 29,
         "start": "2026-10-22",
         "end": "2026-11-19"
-      }
-    },
-    {
-      "canonical": "homeworkdaftpunkalbum",
-      "display": "Homework (Daft Punk album)",
-      "aliases": [],
-      "obscurity": 2,
-      "source": "https://en.wikipedia.org/wiki/The_New_Wave_(instrumental)",
-      "wikidata": "http://www.wikidata.org/entity/Q568616",
-      "pageviews": {
-        "total": 10742,
-        "days": 30,
-        "start": "2026-10-22",
-        "end": "2026-11-20"
       }
     },
     {
@@ -3491,20 +3324,6 @@
       }
     },
     {
-      "canonical": "georgiaintheeurovisionsongcontest2007",
-      "display": "Georgia in the Eurovision Song Contest 2007",
-      "aliases": [],
-      "obscurity": 5,
-      "source": "https://en.wikipedia.org/wiki/Visionary_Dream",
-      "wikidata": "http://www.wikidata.org/entity/Q577583",
-      "pageviews": {
-        "total": 107,
-        "days": 30,
-        "start": "2026-10-22",
-        "end": "2026-11-20"
-      }
-    },
-    {
       "canonical": "releasetimbalandsong",
       "display": "Release (Timbaland song)",
       "aliases": [],
@@ -3527,20 +3346,6 @@
       "wikidata": "http://www.wikidata.org/entity/Q579284",
       "pageviews": {
         "total": 801,
-        "days": 30,
-        "start": "2026-10-22",
-        "end": "2026-11-20"
-      }
-    },
-    {
-      "canonical": "movinginsecret",
-      "display": "Moving in Secret",
-      "aliases": [],
-      "obscurity": 5,
-      "source": "https://en.wikipedia.org/wiki/Love_Is_Move",
-      "wikidata": "http://www.wikidata.org/entity/Q579855",
-      "pageviews": {
-        "total": 79,
         "days": 30,
         "start": "2026-10-22",
         "end": "2026-11-20"
@@ -3743,20 +3548,6 @@
       }
     },
     {
-      "canonical": "notgonnagetus",
-      "display": "Not Gonna Get Us",
-      "aliases": [],
-      "obscurity": 4,
-      "source": "https://en.wikipedia.org/wiki/Nas_Ne_Dogonyat",
-      "wikidata": "http://www.wikidata.org/entity/Q596029",
-      "pageviews": {
-        "total": 1306,
-        "days": 30,
-        "start": "2026-10-22",
-        "end": "2026-11-20"
-      }
-    },
-    {
       "canonical": "barbrastreisandsong",
       "display": "Barbra Streisand (song)",
       "aliases": [],
@@ -3793,20 +3584,6 @@
       "wikidata": "http://www.wikidata.org/entity/Q598455",
       "pageviews": {
         "total": 2575,
-        "days": 30,
-        "start": "2026-10-22",
-        "end": "2026-11-20"
-      }
-    },
-    {
-      "canonical": "sanmarinointheeurovisionsongcontest2011",
-      "display": "San Marino in the Eurovision Song Contest 2011",
-      "aliases": [],
-      "obscurity": 5,
-      "source": "https://en.wikipedia.org/wiki/Stand_By_(Senit_song)",
-      "wikidata": "http://www.wikidata.org/entity/Q600529",
-      "pageviews": {
-        "total": 92,
         "days": 30,
         "start": "2026-10-22",
         "end": "2026-11-20"
@@ -4101,20 +3878,6 @@
       "wikidata": "http://www.wikidata.org/entity/Q510066",
       "pageviews": {
         "total": 6921,
-        "days": 30,
-        "start": "2026-10-22",
-        "end": "2026-11-20"
-      }
-    },
-    {
-      "canonical": "armeniaintheeurovisionsongcontest2008",
-      "display": "Armenia in the Eurovision Song Contest 2008",
-      "aliases": [],
-      "obscurity": 5,
-      "source": "https://en.wikipedia.org/wiki/Q%C3%A9l%C3%A9,_Q%C3%A9l%C3%A9",
-      "wikidata": "http://www.wikidata.org/entity/Q510128",
-      "pageviews": {
-        "total": 133,
         "days": 30,
         "start": "2026-10-22",
         "end": "2026-11-20"
@@ -4807,20 +4570,6 @@
       }
     },
     {
-      "canonical": "germanyintheeurovisionsongcontest1956",
-      "display": "Germany in the Eurovision Song Contest 1956",
-      "aliases": [],
-      "obscurity": 5,
-      "source": "https://en.wikipedia.org/wiki/Im_Wartesaal_zum_gro%C3%9Fen_Gl%C3%BCck",
-      "wikidata": "http://www.wikidata.org/entity/Q82525",
-      "pageviews": {
-        "total": 90,
-        "days": 30,
-        "start": "2026-10-22",
-        "end": "2026-11-20"
-      }
-    },
-    {
       "canonical": "professionalgriefer",
       "display": "Professional Griefers",
       "aliases": [],
@@ -4857,20 +4606,6 @@
       "wikidata": "http://www.wikidata.org/entity/Q25936",
       "pageviews": {
         "total": 75,
-        "days": 30,
-        "start": "2026-10-22",
-        "end": "2026-11-20"
-      }
-    },
-    {
-      "canonical": "greatestlovesongvol666",
-      "display": "Greatest Lovesongs Vol. 666",
-      "aliases": [],
-      "obscurity": 3,
-      "source": "https://en.wikipedia.org/wiki/It%27s_All_Tears_(Drown_in_This_Love)",
-      "wikidata": "http://www.wikidata.org/entity/Q26434",
-      "pageviews": {
-        "total": 3919,
         "days": 30,
         "start": "2026-10-22",
         "end": "2026-11-20"
@@ -5241,20 +4976,6 @@
       }
     },
     {
-      "canonical": "hungaryintheeurovisionsongcontest2011",
-      "display": "Hungary in the Eurovision Song Contest 2011",
-      "aliases": [],
-      "obscurity": 5,
-      "source": "https://en.wikipedia.org/wiki/What_About_My_Dreams%3F",
-      "wikidata": "http://www.wikidata.org/entity/Q382928",
-      "pageviews": {
-        "total": 99,
-        "days": 30,
-        "start": "2026-10-22",
-        "end": "2026-11-20"
-      }
-    },
-    {
       "canonical": "visionoflove",
       "display": "Vision of Love",
       "aliases": [],
@@ -5563,20 +5284,6 @@
       }
     },
     {
-      "canonical": "neversayneverbrandyalbum",
-      "display": "Never Say Never (Brandy album)",
-      "aliases": [],
-      "obscurity": 3,
-      "source": "https://en.wikipedia.org/wiki/Never_Say_Never_(Brandy_song)",
-      "wikidata": "http://www.wikidata.org/entity/Q728890",
-      "pageviews": {
-        "total": 3915,
-        "days": 30,
-        "start": "2026-10-22",
-        "end": "2026-11-20"
-      }
-    },
-    {
       "canonical": "bulletprooflarouxsong",
       "display": "Bulletproof (La Roux song)",
       "aliases": [],
@@ -5731,20 +5438,6 @@
       }
     },
     {
-      "canonical": "ukraineintheeurovisionsongcontest2011",
-      "display": "Ukraine in the Eurovision Song Contest 2011",
-      "aliases": [],
-      "obscurity": 5,
-      "source": "https://en.wikipedia.org/wiki/Angel_(Mika_Newton_song)",
-      "wikidata": "http://www.wikidata.org/entity/Q769271",
-      "pageviews": {
-        "total": 170,
-        "days": 30,
-        "start": "2026-10-22",
-        "end": "2026-11-20"
-      }
-    },
-    {
       "canonical": "liveforeveroasissong",
       "display": "Live Forever (Oasis song)",
       "aliases": [],
@@ -5809,20 +5502,6 @@
       "wikidata": "http://www.wikidata.org/entity/Q772465",
       "pageviews": {
         "total": 59,
-        "days": 30,
-        "start": "2026-10-22",
-        "end": "2026-11-20"
-      }
-    },
-    {
-      "canonical": "greeceintheeurovisionsongcontest2012",
-      "display": "Greece in the Eurovision Song Contest 2012",
-      "aliases": [],
-      "obscurity": 5,
-      "source": "https://en.wikipedia.org/wiki/Aphrodisiac_(song)",
-      "wikidata": "http://www.wikidata.org/entity/Q773454",
-      "pageviews": {
-        "total": 161,
         "days": 30,
         "start": "2026-10-22",
         "end": "2026-11-20"
@@ -6305,20 +5984,6 @@
       }
     },
     {
-      "canonical": "cheesealbum",
-      "display": "Cheese (album)",
-      "aliases": [],
-      "obscurity": 4,
-      "source": "https://en.wikipedia.org/wiki/Je_cours",
-      "wikidata": "http://www.wikidata.org/entity/Q3163412",
-      "pageviews": {
-        "total": 1115,
-        "days": 30,
-        "start": "2026-10-22",
-        "end": "2026-11-20"
-      }
-    },
-    {
       "canonical": "birdanouksong",
       "display": "Birds (Anouk song)",
       "aliases": [],
@@ -6403,20 +6068,6 @@
       }
     },
     {
-      "canonical": "tka",
-      "display": "TKA",
-      "aliases": [],
-      "obscurity": 4,
-      "source": "https://en.wikipedia.org/wiki/Crash_(Have_Some_Fun)",
-      "wikidata": "http://www.wikidata.org/entity/Q5182334",
-      "pageviews": {
-        "total": 1253,
-        "days": 30,
-        "start": "2026-10-22",
-        "end": "2026-11-20"
-      }
-    },
-    {
       "canonical": "crashtheprimitivesong",
       "display": "Crash (The Primitives song)",
       "aliases": [],
@@ -6425,20 +6076,6 @@
       "wikidata": "http://www.wikidata.org/entity/Q5182338",
       "pageviews": {
         "total": 2112,
-        "days": 30,
-        "start": "2026-10-22",
-        "end": "2026-11-20"
-      }
-    },
-    {
-      "canonical": "blameitonmealbum",
-      "display": "Blame It on Me (album)",
-      "aliases": [],
-      "obscurity": 5,
-      "source": "https://en.wikipedia.org/wiki/Crazy_(Alana_Davis_song)",
-      "wikidata": "http://www.wikidata.org/entity/Q5183083",
-      "pageviews": {
-        "total": 111,
         "days": 30,
         "start": "2026-10-22",
         "end": "2026-11-20"
@@ -6566,20 +6203,6 @@
       "pageviews": {
         "total": 60,
         "days": 29,
-        "start": "2026-10-22",
-        "end": "2026-11-20"
-      }
-    },
-    {
-      "canonical": "mydreamalbum",
-      "display": "My Dream (album)",
-      "aliases": [],
-      "obscurity": 5,
-      "source": "https://en.wikipedia.org/wiki/Crazy_(Yvette_Michele_song)",
-      "wikidata": "http://www.wikidata.org/entity/Q5183102",
-      "pageviews": {
-        "total": 119,
-        "days": 28,
         "start": "2026-10-22",
         "end": "2026-11-20"
       }
@@ -6977,34 +6600,6 @@
       }
     },
     {
-      "canonical": "welcome2detroit",
-      "display": "Welcome 2 Detroit",
-      "aliases": [],
-      "obscurity": 4,
-      "source": "https://en.wikipedia.org/wiki/Pause_(Jay_Dee_song)",
-      "wikidata": "http://www.wikidata.org/entity/Q7155485",
-      "pageviews": {
-        "total": 1463,
-        "days": 30,
-        "start": "2026-10-22",
-        "end": "2026-11-20"
-      }
-    },
-    {
-      "canonical": "juvenilehell",
-      "display": "Juvenile Hell",
-      "aliases": [],
-      "obscurity": 3,
-      "source": "https://en.wikipedia.org/wiki/Peer_Pressure_(Mobb_Deep_song)",
-      "wikidata": "http://www.wikidata.org/entity/Q7160390",
-      "pageviews": {
-        "total": 1736,
-        "days": 30,
-        "start": "2026-10-22",
-        "end": "2026-11-20"
-      }
-    },
-    {
       "canonical": "perfectfairgroundattractionsong",
       "display": "Perfect (Fairground Attraction song)",
       "aliases": [],
@@ -7103,48 +6698,6 @@
       }
     },
     {
-      "canonical": "badattitudealbum",
-      "display": "Bad Attitude (album)",
-      "aliases": [],
-      "obscurity": 3,
-      "source": "https://en.wikipedia.org/wiki/Piece_of_the_Action_(Meat_Loaf_song)",
-      "wikidata": "http://www.wikidata.org/entity/Q7191369",
-      "pageviews": {
-        "total": 2266,
-        "days": 30,
-        "start": "2026-10-22",
-        "end": "2026-11-20"
-      }
-    },
-    {
-      "canonical": "romeojulia",
-      "display": "Romeo & Julia",
-      "aliases": [],
-      "obscurity": 5,
-      "source": "https://en.wikipedia.org/wiki/Pilver%C3%A4balad",
-      "wikidata": "http://www.wikidata.org/entity/Q7194550",
-      "pageviews": {
-        "total": 36,
-        "days": 30,
-        "start": "2026-10-22",
-        "end": "2026-11-20"
-      }
-    },
-    {
-      "canonical": "smiler",
-      "display": "Smilers",
-      "aliases": [],
-      "obscurity": 5,
-      "source": "https://en.wikipedia.org/wiki/Pimedam_pool",
-      "wikidata": "http://www.wikidata.org/entity/Q7194605",
-      "pageviews": {
-        "total": 152,
-        "days": 30,
-        "start": "2026-10-22",
-        "end": "2026-11-20"
-      }
-    },
-    {
       "canonical": "pissfactory",
       "display": "Piss Factory",
       "aliases": [],
@@ -7215,20 +6768,6 @@
       }
     },
     {
-      "canonical": "poisonsecretep",
-      "display": "Poison (Secret EP)",
-      "aliases": [],
-      "obscurity": 5,
-      "source": "https://en.wikipedia.org/wiki/Poison_(Secret_song)",
-      "wikidata": "http://www.wikidata.org/entity/Q7208438",
-      "pageviews": {
-        "total": 64,
-        "days": 30,
-        "start": "2026-10-22",
-        "end": "2026-11-20"
-      }
-    },
-    {
       "canonical": "poisonbellbivdevoealbum",
       "display": "Poison (Bell Biv DeVoe album)",
       "aliases": [],
@@ -7266,20 +6805,6 @@
       "pageviews": {
         "total": 14,
         "days": 27,
-        "start": "2026-10-22",
-        "end": "2026-11-20"
-      }
-    },
-    {
-      "canonical": "thetimeoftheoath",
-      "display": "The Time of the Oath",
-      "aliases": [],
-      "obscurity": 3,
-      "source": "https://en.wikipedia.org/wiki/Power_(Helloween_song)",
-      "wikidata": "http://www.wikidata.org/entity/Q7236261",
-      "pageviews": {
-        "total": 2266,
-        "days": 30,
         "start": "2026-10-22",
         "end": "2026-11-20"
       }
@@ -7649,20 +7174,6 @@
       }
     },
     {
-      "canonical": "franceintheeurovisionsongcontest2009",
-      "display": "France in the Eurovision Song Contest 2009",
-      "aliases": [],
-      "obscurity": 5,
-      "source": "https://en.wikipedia.org/wiki/Et_s%27il_fallait_le_faire",
-      "wikidata": "http://www.wikidata.org/entity/Q3045329",
-      "pageviews": {
-        "total": 106,
-        "days": 30,
-        "start": "2026-10-22",
-        "end": "2026-11-20"
-      }
-    },
-    {
       "canonical": "freedomalicecoopersong",
       "display": "Freedom (Alice Cooper song)",
       "aliases": [],
@@ -7845,20 +7356,6 @@
       }
     },
     {
-      "canonical": "oldcrowyoungcardinal",
-      "display": "Old Crows / Young Cardinals",
-      "aliases": [],
-      "obscurity": 3,
-      "source": "https://en.wikipedia.org/wiki/Born_and_Raised_(Alexisonfire_song)",
-      "wikidata": "http://www.wikidata.org/entity/Q4945874",
-      "pageviews": {
-        "total": 1583,
-        "days": 30,
-        "start": "2026-10-22",
-        "end": "2026-11-20"
-      }
-    },
-    {
       "canonical": "borntorunemmylouharrissong",
       "display": "Born to Run (Emmylou Harris song)",
       "aliases": [],
@@ -7868,34 +7365,6 @@
       "pageviews": {
         "total": 311,
         "days": 30,
-        "start": "2026-10-22",
-        "end": "2026-11-20"
-      }
-    },
-    {
-      "canonical": "monacointheeurovisionsongcontest1967",
-      "display": "Monaco in the Eurovision Song Contest 1967",
-      "aliases": [],
-      "obscurity": 5,
-      "source": "https://en.wikipedia.org/wiki/Boum-Badaboum",
-      "wikidata": "http://www.wikidata.org/entity/Q4949773",
-      "pageviews": {
-        "total": 50,
-        "days": 30,
-        "start": "2026-10-22",
-        "end": "2026-11-20"
-      }
-    },
-    {
-      "canonical": "notheretopleaseyou",
-      "display": "Not Here to Please You",
-      "aliases": [],
-      "obscurity": 5,
-      "source": "https://en.wikipedia.org/wiki/Bounce_(Hadouken!_song)",
-      "wikidata": "http://www.wikidata.org/entity/Q4949790",
-      "pageviews": {
-        "total": 54,
-        "days": 28,
         "start": "2026-10-22",
         "end": "2026-11-20"
       }
@@ -8181,20 +7650,6 @@
       }
     },
     {
-      "canonical": "flukeband",
-      "display": "Fluke (band)",
-      "aliases": [],
-      "obscurity": 3,
-      "source": "https://en.wikipedia.org/wiki/Bubble_(Fluke_song)",
-      "wikidata": "http://www.wikidata.org/entity/Q4982188",
-      "pageviews": {
-        "total": 1668,
-        "days": 29,
-        "start": "2026-10-22",
-        "end": "2026-11-19"
-      }
-    },
-    {
       "canonical": "bubblesong",
       "display": "Bubbles (song)",
       "aliases": [],
@@ -8247,20 +7702,6 @@
         "total": 71,
         "days": 29,
         "start": "2026-10-23",
-        "end": "2026-11-20"
-      }
-    },
-    {
-      "canonical": "deborahalbum",
-      "display": "Deborah (album)",
-      "aliases": [],
-      "obscurity": 4,
-      "source": "https://en.wikipedia.org/wiki/Naturally_(Deborah_Gibson_song)",
-      "wikidata": "http://www.wikidata.org/entity/Q6980828",
-      "pageviews": {
-        "total": 462,
-        "days": 30,
-        "start": "2026-10-22",
         "end": "2026-11-20"
       }
     },
@@ -8399,20 +7840,6 @@
       "wikidata": "http://www.wikidata.org/entity/Q7041224",
       "pageviews": {
         "total": 265,
-        "days": 30,
-        "start": "2026-10-22",
-        "end": "2026-11-20"
-      }
-    },
-    {
-      "canonical": "greatesthitbonjovialbum",
-      "display": "Greatest Hits (Bon Jovi album)",
-      "aliases": [],
-      "obscurity": 3,
-      "source": "https://en.wikipedia.org/wiki/No_Apologies_(Bon_Jovi_song)",
-      "wikidata": "http://www.wikidata.org/entity/Q7043971",
-      "pageviews": {
-        "total": 2607,
         "days": 30,
         "start": "2026-10-22",
         "end": "2026-11-20"
@@ -9203,20 +8630,6 @@
       }
     },
     {
-      "canonical": "macedoniaintheeurovisionsongcontest2013",
-      "display": "Macedonia in the Eurovision Song Contest 2013",
-      "aliases": [],
-      "obscurity": 5,
-      "source": "https://en.wikipedia.org/wiki/Imperija",
-      "wikidata": "http://www.wikidata.org/entity/Q5016127",
-      "pageviews": {
-        "total": 148,
-        "days": 30,
-        "start": "2026-10-22",
-        "end": "2026-11-20"
-      }
-    },
-    {
       "canonical": "calibandream",
       "display": "Caliban's Dream",
       "aliases": [],
@@ -9413,20 +8826,6 @@
       }
     },
     {
-      "canonical": "austinjessieallyallstarnewyear",
-      "display": "Austin & Jessie & Ally All Star New Year",
-      "aliases": [],
-      "obscurity": 4,
-      "source": "https://en.wikipedia.org/wiki/Can_You_Feel_It_(Ross_Lynch_song)",
-      "wikidata": "http://www.wikidata.org/entity/Q5029109",
-      "pageviews": {
-        "total": 479,
-        "days": 30,
-        "start": "2026-10-22",
-        "end": "2026-11-20"
-      }
-    },
-    {
       "canonical": "captainjackcaptainjacksong",
       "display": "Captain Jack (Captain Jack song)",
       "aliases": [],
@@ -9435,20 +8834,6 @@
       "wikidata": "http://www.wikidata.org/entity/Q5036679",
       "pageviews": {
         "total": 1234,
-        "days": 30,
-        "start": "2026-10-22",
-        "end": "2026-11-20"
-      }
-    },
-    {
-      "canonical": "spainintheeurovisionsongcontest1964",
-      "display": "Spain in the Eurovision Song Contest 1964",
-      "aliases": [],
-      "obscurity": 5,
-      "source": "https://en.wikipedia.org/wiki/Caracola_(song)",
-      "wikidata": "http://www.wikidata.org/entity/Q5037582",
-      "pageviews": {
-        "total": 42,
         "days": 30,
         "start": "2026-10-22",
         "end": "2026-11-20"
@@ -9637,20 +9022,6 @@
       }
     },
     {
-      "canonical": "gregorianband",
-      "display": "Gregorian (band)",
-      "aliases": [],
-      "obscurity": 3,
-      "source": "https://en.wikipedia.org/wiki/Once_in_a_Lifetime_(Gregorian_song)",
-      "wikidata": "http://www.wikidata.org/entity/Q7091938",
-      "pageviews": {
-        "total": 2526,
-        "days": 30,
-        "start": "2026-10-22",
-        "end": "2026-11-20"
-      }
-    },
-    {
       "canonical": "onebadapple",
       "display": "One Bad Apple",
       "aliases": [],
@@ -9819,34 +9190,6 @@
       }
     },
     {
-      "canonical": "portugalintheeurovisionsongcontest1964",
-      "display": "Portugal in the Eurovision Song Contest 1964",
-      "aliases": [],
-      "obscurity": 5,
-      "source": "https://en.wikipedia.org/wiki/Ora%C3%A7%C3%A3o",
-      "wikidata": "http://www.wikidata.org/entity/Q7099979",
-      "pageviews": {
-        "total": 40,
-        "days": 28,
-        "start": "2026-10-23",
-        "end": "2026-11-20"
-      }
-    },
-    {
-      "canonical": "bridgetobabylon",
-      "display": "Bridges to Babylon",
-      "aliases": [],
-      "obscurity": 3,
-      "source": "https://en.wikipedia.org/wiki/Out_of_Control_(Rolling_Stones_song)",
-      "wikidata": "http://www.wikidata.org/entity/Q7111538",
-      "pageviews": {
-        "total": 5630,
-        "days": 29,
-        "start": "2026-10-22",
-        "end": "2026-11-19"
-      }
-    },
-    {
       "canonical": "outsideofasmallcircleoffriend",
       "display": "Outside of a Small Circle of Friends",
       "aliases": [],
@@ -9872,20 +9215,6 @@
         "days": 30,
         "start": "2026-10-22",
         "end": "2026-11-20"
-      }
-    },
-    {
-      "canonical": "eurovisionsongcontest1964",
-      "display": "Eurovision Song Contest 1964",
-      "aliases": [],
-      "obscurity": 3,
-      "source": "https://en.wikipedia.org/wiki/O%C3%B9_sont-elles_pass%C3%A9es",
-      "wikidata": "http://www.wikidata.org/entity/Q7116759",
-      "pageviews": {
-        "total": 1512,
-        "days": 29,
-        "start": "2026-10-22",
-        "end": "2026-11-19"
       }
     },
     {
@@ -10211,20 +9540,6 @@
       }
     },
     {
-      "canonical": "everytimewetouchalbum",
-      "display": "Everytime We Touch (album)",
-      "aliases": [],
-      "obscurity": 3,
-      "source": "https://en.wikipedia.org/wiki/Bad_Boy_(Cascada_song)",
-      "wikidata": "http://www.wikidata.org/entity/Q221744",
-      "pageviews": {
-        "total": 1529,
-        "days": 30,
-        "start": "2026-10-22",
-        "end": "2026-11-20"
-      }
-    },
-    {
       "canonical": "whowanttoliveforever",
       "display": "Who Wants to Live Forever",
       "aliases": [],
@@ -10292,20 +9607,6 @@
         "days": 29,
         "start": "2026-10-22",
         "end": "2026-11-19"
-      }
-    },
-    {
-      "canonical": "germanyintheeurovisionsongcontest1962",
-      "display": "Germany in the Eurovision Song Contest 1962",
-      "aliases": [],
-      "obscurity": 5,
-      "source": "https://en.wikipedia.org/wiki/Zwei_kleine_Italiener",
-      "wikidata": "http://www.wikidata.org/entity/Q232206",
-      "pageviews": {
-        "total": 49,
-        "days": 30,
-        "start": "2026-10-22",
-        "end": "2026-11-20"
       }
     },
     {
@@ -10561,20 +9862,6 @@
       }
     },
     {
-      "canonical": "israelintheeurovisionsongcontest1989",
-      "display": "Israel in the Eurovision Song Contest 1989",
-      "aliases": [],
-      "obscurity": 5,
-      "source": "https://en.wikipedia.org/wiki/Derekh_Hamelekh",
-      "wikidata": "http://www.wikidata.org/entity/Q2915404",
-      "pageviews": {
-        "total": 56,
-        "days": 29,
-        "start": "2026-10-22",
-        "end": "2026-11-19"
-      }
-    },
-    {
       "canonical": "surrenderingsong",
       "display": "Surrendering (song)",
       "aliases": [],
@@ -10698,20 +9985,6 @@
         "days": 30,
         "start": "2026-10-22",
         "end": "2026-11-20"
-      }
-    },
-    {
-      "canonical": "fatboyslimdiscography",
-      "display": "Fatboy Slim discography",
-      "aliases": [],
-      "obscurity": 3,
-      "source": "https://en.wikipedia.org/wiki/Star_69_/_Weapon_of_Choice",
-      "wikidata": "http://www.wikidata.org/entity/Q474776",
-      "pageviews": {
-        "total": 2502,
-        "days": 29,
-        "start": "2026-10-22",
-        "end": "2026-11-19"
       }
     },
     {
@@ -10841,20 +10114,6 @@
       }
     },
     {
-      "canonical": "cyprusintheeurovisionsongcontest1984",
-      "display": "Cyprus in the Eurovision Song Contest 1984",
-      "aliases": [],
-      "obscurity": 5,
-      "source": "https://en.wikipedia.org/wiki/Anna_Maria_Lena",
-      "wikidata": "http://www.wikidata.org/entity/Q4767305",
-      "pageviews": {
-        "total": 63,
-        "days": 29,
-        "start": "2026-10-22",
-        "end": "2026-11-20"
-      }
-    },
-    {
       "canonical": "anotherbodymurdered",
       "display": "Another Body Murdered",
       "aliases": [],
@@ -10878,20 +10137,6 @@
       "pageviews": {
         "total": 52,
         "days": 29,
-        "start": "2026-10-22",
-        "end": "2026-11-20"
-      }
-    },
-    {
-      "canonical": "germanyintheeurovisionsongcontest1967",
-      "display": "Germany in the Eurovision Song Contest 1967",
-      "aliases": [],
-      "obscurity": 5,
-      "source": "https://en.wikipedia.org/wiki/Anouschka",
-      "wikidata": "http://www.wikidata.org/entity/Q4770436",
-      "pageviews": {
-        "total": 24,
-        "days": 28,
         "start": "2026-10-22",
         "end": "2026-11-20"
       }
@@ -10981,34 +10226,6 @@
       }
     },
     {
-      "canonical": "austriaintheeurovisionsongcontest2013",
-      "display": "Austria in the Eurovision Song Contest 2013",
-      "aliases": [],
-      "obscurity": 5,
-      "source": "https://en.wikipedia.org/wiki/Shine_(Nat%C3%A1lia_Kelly_song)",
-      "wikidata": "http://www.wikidata.org/entity/Q4801035",
-      "pageviews": {
-        "total": 91,
-        "days": 30,
-        "start": "2026-10-22",
-        "end": "2026-11-20"
-      }
-    },
-    {
-      "canonical": "gamblingwiththedevil",
-      "display": "Gambling with the Devil",
-      "aliases": [],
-      "obscurity": 4,
-      "source": "https://en.wikipedia.org/wiki/As_Long_as_I_Fall",
-      "wikidata": "http://www.wikidata.org/entity/Q4802926",
-      "pageviews": {
-        "total": 1382,
-        "days": 30,
-        "start": "2026-10-22",
-        "end": "2026-11-20"
-      }
-    },
-    {
       "canonical": "assassintheorbsong",
       "display": "Assassin (The Orb song)",
       "aliases": [],
@@ -11045,20 +10262,6 @@
       "wikidata": "http://www.wikidata.org/entity/Q4809860",
       "pageviews": {
         "total": 79,
-        "days": 30,
-        "start": "2026-10-22",
-        "end": "2026-11-20"
-      }
-    },
-    {
-      "canonical": "nicolescherzingerdiscography",
-      "display": "Nicole Scherzinger discography",
-      "aliases": [],
-      "obscurity": 4,
-      "source": "https://en.wikipedia.org/wiki/Supervillain_(Nicole_Scherzinger_song)",
-      "wikidata": "http://www.wikidata.org/entity/Q4810382",
-      "pageviews": {
-        "total": 1058,
         "days": 30,
         "start": "2026-10-22",
         "end": "2026-11-20"
@@ -11177,20 +10380,6 @@
       }
     },
     {
-      "canonical": "yukaritamura",
-      "display": "Yukari Tamura",
-      "aliases": [],
-      "obscurity": 3,
-      "source": "https://en.wikipedia.org/wiki/Endless_Story_(Yukari_Tamura_song)",
-      "wikidata": "http://www.wikidata.org/entity/Q781599",
-      "pageviews": {
-        "total": 3031,
-        "days": 30,
-        "start": "2026-10-22",
-        "end": "2026-11-20"
-      }
-    },
-    {
       "canonical": "firekasabiansong",
       "display": "Fire (Kasabian song)",
       "aliases": [],
@@ -11289,20 +10478,6 @@
       }
     },
     {
-      "canonical": "ukraineintheeurovisionsongcontest2012",
-      "display": "Ukraine in the Eurovision Song Contest 2012",
-      "aliases": [],
-      "obscurity": 5,
-      "source": "https://en.wikipedia.org/wiki/Be_My_Guest_(Gaitana_song)",
-      "wikidata": "http://www.wikidata.org/entity/Q791610",
-      "pageviews": {
-        "total": 136,
-        "days": 30,
-        "start": "2026-10-22",
-        "end": "2026-11-20"
-      }
-    },
-    {
       "canonical": "beautifuldirtyrich",
       "display": "Beautiful, Dirty, Rich",
       "aliases": [],
@@ -11339,34 +10514,6 @@
       "wikidata": "http://www.wikidata.org/entity/Q794173",
       "pageviews": {
         "total": 130,
-        "days": 30,
-        "start": "2026-10-22",
-        "end": "2026-11-20"
-      }
-    },
-    {
-      "canonical": "franceintheeurovisionsongcontest2004",
-      "display": "France in the Eurovision Song Contest 2004",
-      "aliases": [],
-      "obscurity": 5,
-      "source": "https://en.wikipedia.org/wiki/%C3%80_chaque_pas",
-      "wikidata": "http://www.wikidata.org/entity/Q794312",
-      "pageviews": {
-        "total": 76,
-        "days": 30,
-        "start": "2026-10-22",
-        "end": "2026-11-20"
-      }
-    },
-    {
-      "canonical": "estoniaintheeurovisionsongcontest2007",
-      "display": "Estonia in the Eurovision Song Contest 2007",
-      "aliases": [],
-      "obscurity": 5,
-      "source": "https://en.wikipedia.org/wiki/Partners_in_Crime_(song)",
-      "wikidata": "http://www.wikidata.org/entity/Q794330",
-      "pageviews": {
-        "total": 106,
         "days": 30,
         "start": "2026-10-22",
         "end": "2026-11-20"
@@ -11793,20 +10940,6 @@
       }
     },
     {
-      "canonical": "turkeyintheeurovisionsongcontest1980",
-      "display": "Turkey in the Eurovision Song Contest 1980",
-      "aliases": [],
-      "obscurity": 5,
-      "source": "https://en.wikipedia.org/wiki/Pet%27r_Oil",
-      "wikidata": "http://www.wikidata.org/entity/Q4825807",
-      "pageviews": {
-        "total": 62,
-        "days": 30,
-        "start": "2026-10-22",
-        "end": "2026-11-20"
-      }
-    },
-    {
       "canonical": "automaticsarahwhatmoresong",
       "display": "Automatic (Sarah Whatmore song)",
       "aliases": [],
@@ -11927,20 +11060,6 @@
       "wikidata": "http://www.wikidata.org/entity/Q3073378",
       "pageviews": {
         "total": 332,
-        "days": 30,
-        "start": "2026-10-22",
-        "end": "2026-11-20"
-      }
-    },
-    {
-      "canonical": "flowersonicyouthsong",
-      "display": "Flower (Sonic Youth song)",
-      "aliases": [],
-      "obscurity": 5,
-      "source": "https://en.wikipedia.org/wiki/Flower/Halloween",
-      "wikidata": "http://www.wikidata.org/entity/Q3074431",
-      "pageviews": {
-        "total": 275,
         "days": 30,
         "start": "2026-10-22",
         "end": "2026-11-20"
@@ -12255,20 +11374,6 @@
       }
     },
     {
-      "canonical": "monacointheeurovisionsongcontest2004",
-      "display": "Monaco in the Eurovision Song Contest 2004",
-      "aliases": [],
-      "obscurity": 5,
-      "source": "https://en.wikipedia.org/wiki/Notre_plan%C3%A8te",
-      "wikidata": "http://www.wikidata.org/entity/Q7063519",
-      "pageviews": {
-        "total": 85,
-        "days": 30,
-        "start": "2026-10-22",
-        "end": "2026-11-20"
-      }
-    },
-    {
       "canonical": "nowherefastfireincsong",
       "display": "Nowhere Fast (Fire Inc. song)",
       "aliases": [],
@@ -12381,20 +11486,6 @@
       }
     },
     {
-      "canonical": "bulgariaintheeurovisionsongcontest2013",
-      "display": "Bulgaria in the Eurovision Song Contest 2013",
-      "aliases": [],
-      "obscurity": 5,
-      "source": "https://en.wikipedia.org/wiki/Samo_shampioni",
-      "wikidata": "http://www.wikidata.org/entity/Q7071099",
-      "pageviews": {
-        "total": 127,
-        "days": 30,
-        "start": "2026-10-22",
-        "end": "2026-11-20"
-      }
-    },
-    {
       "canonical": "oasisrobertaflacksong",
       "display": "Oasis (Roberta Flack song)",
       "aliases": [],
@@ -12493,20 +11584,6 @@
       }
     },
     {
-      "canonical": "greeceintheeurovisionsongcontest2002",
-      "display": "Greece in the Eurovision Song Contest 2002",
-      "aliases": [],
-      "obscurity": 5,
-      "source": "https://en.wikipedia.org/wiki/S.A.G.A.P.O.",
-      "wikidata": "http://www.wikidata.org/entity/Q887002",
-      "pageviews": {
-        "total": 100,
-        "days": 30,
-        "start": "2026-10-22",
-        "end": "2026-11-20"
-      }
-    },
-    {
       "canonical": "bogurodzica",
       "display": "Bogurodzica",
       "aliases": [],
@@ -12585,20 +11662,6 @@
       "wikidata": "http://www.wikidata.org/entity/Q898499",
       "pageviews": {
         "total": 1237,
-        "days": 30,
-        "start": "2026-10-22",
-        "end": "2026-11-20"
-      }
-    },
-    {
-      "canonical": "finlandintheeurovisionsongcontest2011",
-      "display": "Finland in the Eurovision Song Contest 2011",
-      "aliases": [],
-      "obscurity": 5,
-      "source": "https://en.wikipedia.org/wiki/Da_Da_Dam",
-      "wikidata": "http://www.wikidata.org/entity/Q901059",
-      "pageviews": {
-        "total": 96,
         "days": 30,
         "start": "2026-10-22",
         "end": "2026-11-20"
@@ -12801,6 +11864,20 @@
       }
     },
     {
+      "canonical": "notgonnagetus",
+      "display": "Not Gonna Get Us",
+      "aliases": [],
+      "obscurity": 4,
+      "source": "https://en.wikipedia.org/wiki/Not_Gonna_Get_Us",
+      "wikidata": "http://www.wikidata.org/entity/Q246583",
+      "pageviews": {
+        "total": 1306,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
       "canonical": "youdaone",
       "display": "You da One",
       "aliases": [],
@@ -12991,20 +12068,6 @@
       "wikidata": "http://www.wikidata.org/entity/Q2986030",
       "pageviews": {
         "total": 102,
-        "days": 30,
-        "start": "2026-10-22",
-        "end": "2026-11-20"
-      }
-    },
-    {
-      "canonical": "hypnotizealbum",
-      "display": "Hypnotize (album)",
-      "aliases": [],
-      "obscurity": 2,
-      "source": "https://en.wikipedia.org/wiki/Vicinity_of_Obscenity",
-      "wikidata": "http://www.wikidata.org/entity/Q2986207",
-      "pageviews": {
-        "total": 10638,
         "days": 30,
         "start": "2026-10-22",
         "end": "2026-11-20"
@@ -13277,34 +12340,6 @@
       }
     },
     {
-      "canonical": "norwayintheeurovisionsongcontest2003",
-      "display": "Norway in the Eurovision Song Contest 2003",
-      "aliases": [],
-      "obscurity": 5,
-      "source": "https://en.wikipedia.org/wiki/I%27m_Not_Afraid_to_Move_On",
-      "wikidata": "http://www.wikidata.org/entity/Q4832291",
-      "pageviews": {
-        "total": 74,
-        "days": 30,
-        "start": "2026-10-22",
-        "end": "2026-11-20"
-      }
-    },
-    {
-      "canonical": "austriaintheeurovisionsongcontest2003",
-      "display": "Austria in the Eurovision Song Contest 2003",
-      "aliases": [],
-      "obscurity": 5,
-      "source": "https://en.wikipedia.org/wiki/Weil_der_Mensch_z%C3%A4hlt",
-      "wikidata": "http://www.wikidata.org/entity/Q4832336",
-      "pageviews": {
-        "total": 87,
-        "days": 30,
-        "start": "2026-10-22",
-        "end": "2026-11-20"
-      }
-    },
-    {
       "canonical": "babacarsong",
       "display": "Babacar (song)",
       "aliases": [],
@@ -13327,20 +12362,6 @@
       "wikidata": "http://www.wikidata.org/entity/Q4838477",
       "pageviews": {
         "total": 1271,
-        "days": 30,
-        "start": "2026-10-22",
-        "end": "2026-11-20"
-      }
-    },
-    {
-      "canonical": "fasterpussycatalbum",
-      "display": "Faster Pussycat (album)",
-      "aliases": [],
-      "obscurity": 4,
-      "source": "https://en.wikipedia.org/wiki/Babylon_(Faster_Pussycat_song)",
-      "wikidata": "http://www.wikidata.org/entity/Q4838489",
-      "pageviews": {
-        "total": 1114,
         "days": 30,
         "start": "2026-10-22",
         "end": "2026-11-20"
@@ -13411,20 +12432,6 @@
       "wikidata": "http://www.wikidata.org/entity/Q4840291",
       "pageviews": {
         "total": 145,
-        "days": 30,
-        "start": "2026-10-22",
-        "end": "2026-11-20"
-      }
-    },
-    {
-      "canonical": "badgirlalbum",
-      "display": "Bad Girl (album)",
-      "aliases": [],
-      "obscurity": 5,
-      "source": "https://en.wikipedia.org/wiki/Bad_Girl_(La_Toya_Jackson_song)",
-      "wikidata": "http://www.wikidata.org/entity/Q4840288",
-      "pageviews": {
-        "total": 267,
         "days": 30,
         "start": "2026-10-22",
         "end": "2026-11-20"
@@ -14061,48 +13068,6 @@
       }
     },
     {
-      "canonical": "destinystratovariusalbum",
-      "display": "Destiny (Stratovarius album)",
-      "aliases": [],
-      "obscurity": 4,
-      "source": "https://en.wikipedia.org/wiki/S.O.S._(Stratovarius_song)",
-      "wikidata": "http://www.wikidata.org/entity/Q850561",
-      "pageviews": {
-        "total": 997,
-        "days": 30,
-        "start": "2026-10-22",
-        "end": "2026-11-20"
-      }
-    },
-    {
-      "canonical": "episodestratovariusalbum",
-      "display": "Episode (Stratovarius album)",
-      "aliases": [],
-      "obscurity": 4,
-      "source": "https://en.wikipedia.org/wiki/Will_the_Sun_Rise%3F",
-      "wikidata": "http://www.wikidata.org/entity/Q850987",
-      "pageviews": {
-        "total": 1116,
-        "days": 30,
-        "start": "2026-10-22",
-        "end": "2026-11-20"
-      }
-    },
-    {
-      "canonical": "infinitestratovariusalbum",
-      "display": "Infinite (Stratovarius album)",
-      "aliases": [],
-      "obscurity": 4,
-      "source": "https://en.wikipedia.org/wiki/A_Million_Light_Years_Away",
-      "wikidata": "http://www.wikidata.org/entity/Q851019",
-      "pageviews": {
-        "total": 1252,
-        "days": 30,
-        "start": "2026-10-22",
-        "end": "2026-11-20"
-      }
-    },
-    {
       "canonical": "reachforthestarwilliamsong",
       "display": "Reach for the Stars (will.i.am song)",
       "aliases": [],
@@ -14167,20 +13132,6 @@
       "wikidata": "http://www.wikidata.org/entity/Q3028868",
       "pageviews": {
         "total": 104,
-        "days": 30,
-        "start": "2026-10-22",
-        "end": "2026-11-20"
-      }
-    },
-    {
-      "canonical": "eveninthequietestmoment",
-      "display": "Even in the Quietest Moments...",
-      "aliases": [],
-      "obscurity": 2,
-      "source": "https://en.wikipedia.org/wiki/Fool%27s_Overture",
-      "wikidata": "http://www.wikidata.org/entity/Q3029235",
-      "pageviews": {
-        "total": 7112,
         "days": 30,
         "start": "2026-10-22",
         "end": "2026-11-20"
@@ -14296,20 +13247,6 @@
         "days": 29,
         "start": "2026-10-22",
         "end": "2026-11-20"
-      }
-    },
-    {
-      "canonical": "trythis",
-      "display": "Try This",
-      "aliases": [],
-      "obscurity": 3,
-      "source": "https://en.wikipedia.org/wiki/Humble_Neighborhoods",
-      "wikidata": "http://www.wikidata.org/entity/Q4892267",
-      "pageviews": {
-        "total": 3437,
-        "days": 29,
-        "start": "2026-10-22",
-        "end": "2026-11-19"
       }
     },
     {
@@ -14733,20 +13670,6 @@
       }
     },
     {
-      "canonical": "emiliesimonalbum",
-      "display": "Émilie Simon (album)",
-      "aliases": [],
-      "obscurity": 5,
-      "source": "https://en.wikipedia.org/wiki/D%C3%A9sert_(%C3%89milie_Simon_song)",
-      "wikidata": "http://www.wikidata.org/entity/Q12685943",
-      "pageviews": {
-        "total": 51,
-        "days": 30,
-        "start": "2026-10-22",
-        "end": "2026-11-20"
-      }
-    },
-    {
       "canonical": "almostcutmyhair",
       "display": "Almost Cut My Hair",
       "aliases": [],
@@ -15055,34 +13978,6 @@
       }
     },
     {
-      "canonical": "wearenotalonebreakingbenjaminalbum",
-      "display": "We Are Not Alone (Breaking Benjamin album)",
-      "aliases": [],
-      "obscurity": 3,
-      "source": "https://en.wikipedia.org/wiki/Rain_(Breaking_Benjamin_song)",
-      "wikidata": "http://www.wikidata.org/entity/Q13479470",
-      "pageviews": {
-        "total": 4105,
-        "days": 30,
-        "start": "2026-10-22",
-        "end": "2026-11-20"
-      }
-    },
-    {
-      "canonical": "accidentofbirth",
-      "display": "Accident of Birth",
-      "aliases": [],
-      "obscurity": 3,
-      "source": "https://en.wikipedia.org/wiki/Man_of_Sorrows_(Bruce_Dickinson_song)",
-      "wikidata": "http://www.wikidata.org/entity/Q13479490",
-      "pageviews": {
-        "total": 4792,
-        "days": 30,
-        "start": "2026-10-22",
-        "end": "2026-11-20"
-      }
-    },
-    {
       "canonical": "everyfacetellastorysong",
       "display": "Every Face Tells a Story (song)",
       "aliases": [],
@@ -15363,20 +14258,6 @@
       }
     },
     {
-      "canonical": "worldcollideapocalypticaalbum",
-      "display": "Worlds Collide (Apocalyptica album)",
-      "aliases": [],
-      "obscurity": 4,
-      "source": "https://en.wikipedia.org/wiki/S.O.S._(Anything_but_Love)",
-      "wikidata": "http://www.wikidata.org/entity/Q5058797",
-      "pageviews": {
-        "total": 1050,
-        "days": 30,
-        "start": "2026-10-22",
-        "end": "2026-11-20"
-      }
-    },
-    {
       "canonical": "chainpattylovelesssong",
       "display": "Chains (Patty Loveless song)",
       "aliases": [],
@@ -15456,20 +14337,6 @@
       "pageviews": {
         "total": 28,
         "days": 29,
-        "start": "2026-10-22",
-        "end": "2026-11-20"
-      }
-    },
-    {
-      "canonical": "mihofukuharadiscography",
-      "display": "Miho Fukuhara discography",
-      "aliases": [],
-      "obscurity": 5,
-      "source": "https://en.wikipedia.org/wiki/Change_(Miho_Fukuhara_song)",
-      "wikidata": "http://www.wikidata.org/entity/Q5071778",
-      "pageviews": {
-        "total": 39,
-        "days": 30,
         "start": "2026-10-22",
         "end": "2026-11-20"
       }
@@ -15638,20 +14505,6 @@
       "pageviews": {
         "total": 408,
         "days": 30,
-        "start": "2026-10-22",
-        "end": "2026-11-20"
-      }
-    },
-    {
-      "canonical": "closerjarofclayep",
-      "display": "Closer (Jars of Clay EP)",
-      "aliases": [],
-      "obscurity": 5,
-      "source": "https://en.wikipedia.org/wiki/Closer_(Jars_of_Clay_song)",
-      "wikidata": "http://www.wikidata.org/entity/Q5135372",
-      "pageviews": {
-        "total": 38,
-        "days": 29,
         "start": "2026-10-22",
         "end": "2026-11-20"
       }
@@ -16231,20 +15084,6 @@
       }
     },
     {
-      "canonical": "unia",
-      "display": "Unia",
-      "aliases": [],
-      "obscurity": 4,
-      "source": "https://en.wikipedia.org/wiki/Paid_in_Full_(Sonata_Arctica_song)",
-      "wikidata": "http://www.wikidata.org/entity/Q929131",
-      "pageviews": {
-        "total": 631,
-        "days": 30,
-        "start": "2026-10-22",
-        "end": "2026-11-20"
-      }
-    },
-    {
       "canonical": "newborn",
       "display": "New Born",
       "aliases": [],
@@ -16609,20 +15448,6 @@
       }
     },
     {
-      "canonical": "finlandintheeurovisionsongcontest2012",
-      "display": "Finland in the Eurovision Song Contest 2012",
-      "aliases": [],
-      "obscurity": 5,
-      "source": "https://en.wikipedia.org/wiki/N%C3%A4r_jag_blundar",
-      "wikidata": "http://www.wikidata.org/entity/Q945779",
-      "pageviews": {
-        "total": 118,
-        "days": 30,
-        "start": "2026-10-22",
-        "end": "2026-11-20"
-      }
-    },
-    {
       "canonical": "runningtotheedgeoftheworld",
       "display": "Running to the Edge of the World",
       "aliases": [],
@@ -16673,20 +15498,6 @@
       "wikidata": "http://www.wikidata.org/entity/Q947715",
       "pageviews": {
         "total": 100,
-        "days": 30,
-        "start": "2026-10-22",
-        "end": "2026-11-20"
-      }
-    },
-    {
-      "canonical": "georgiaintheeurovisionsongcontest2011",
-      "display": "Georgia in the Eurovision Song Contest 2011",
-      "aliases": [],
-      "obscurity": 5,
-      "source": "https://en.wikipedia.org/wiki/One_More_Day_(Eldrine_song)",
-      "wikidata": "http://www.wikidata.org/entity/Q947857",
-      "pageviews": {
-        "total": 106,
         "days": 30,
         "start": "2026-10-22",
         "end": "2026-11-20"
@@ -16757,20 +15568,6 @@
       "wikidata": "http://www.wikidata.org/entity/Q951715",
       "pageviews": {
         "total": 4749,
-        "days": 30,
-        "start": "2026-10-22",
-        "end": "2026-11-20"
-      }
-    },
-    {
-      "canonical": "switzerlandintheeurovisionsongcontest2012",
-      "display": "Switzerland in the Eurovision Song Contest 2012",
-      "aliases": [],
-      "obscurity": 5,
-      "source": "https://en.wikipedia.org/wiki/Unbreakable_(Sinplus_song)",
-      "wikidata": "http://www.wikidata.org/entity/Q951889",
-      "pageviews": {
-        "total": 109,
         "days": 30,
         "start": "2026-10-22",
         "end": "2026-11-20"
@@ -16883,48 +15680,6 @@
       "wikidata": "http://www.wikidata.org/entity/Q1035698",
       "pageviews": {
         "total": 3115,
-        "days": 30,
-        "start": "2026-10-22",
-        "end": "2026-11-20"
-      }
-    },
-    {
-      "canonical": "frightnightalbum",
-      "display": "Fright Night (album)",
-      "aliases": [],
-      "obscurity": 4,
-      "source": "https://en.wikipedia.org/wiki/Black_Night_(Stratovarius_song)",
-      "wikidata": "http://www.wikidata.org/entity/Q1041304",
-      "pageviews": {
-        "total": 858,
-        "days": 30,
-        "start": "2026-10-22",
-        "end": "2026-11-20"
-      }
-    },
-    {
-      "canonical": "stratovarius",
-      "display": "Stratovarius",
-      "aliases": [],
-      "obscurity": 2,
-      "source": "https://en.wikipedia.org/wiki/Maniac_Dance",
-      "wikidata": "http://www.wikidata.org/entity/Q1041959",
-      "pageviews": {
-        "total": 7271,
-        "days": 29,
-        "start": "2026-10-22",
-        "end": "2026-11-19"
-      }
-    },
-    {
-      "canonical": "elementpt2",
-      "display": "Elements Pt. 2",
-      "aliases": [],
-      "obscurity": 4,
-      "source": "https://en.wikipedia.org/wiki/I_Walk_to_My_Own_Song",
-      "wikidata": "http://www.wikidata.org/entity/Q1041964",
-      "pageviews": {
-        "total": 540,
         "days": 30,
         "start": "2026-10-22",
         "end": "2026-11-20"
@@ -17262,20 +16017,6 @@
       "pageviews": {
         "total": 32,
         "days": 29,
-        "start": "2026-10-22",
-        "end": "2026-11-20"
-      }
-    },
-    {
-      "canonical": "maltainthejunioreurovisionsongcontest",
-      "display": "Malta in the Junior Eurovision Song Contest",
-      "aliases": [],
-      "obscurity": 3,
-      "source": "https://en.wikipedia.org/wiki/The_Start_(song)",
-      "wikidata": "http://www.wikidata.org/entity/Q15261266",
-      "pageviews": {
-        "total": 2322,
-        "days": 30,
         "start": "2026-10-22",
         "end": "2026-11-20"
       }
@@ -17701,20 +16442,6 @@
       }
     },
     {
-      "canonical": "grinderman2",
-      "display": "Grinderman 2",
-      "aliases": [],
-      "obscurity": 4,
-      "source": "https://en.wikipedia.org/wiki/Evil_(Grinderman_song)",
-      "wikidata": "http://www.wikidata.org/entity/Q5418390",
-      "pageviews": {
-        "total": 478,
-        "days": 30,
-        "start": "2026-10-22",
-        "end": "2026-11-20"
-      }
-    },
-    {
       "canonical": "excitedmpeoplesong",
       "display": "Excited (M People song)",
       "aliases": [],
@@ -17779,34 +16506,6 @@
       "wikidata": "http://www.wikidata.org/entity/Q7451268",
       "pageviews": {
         "total": 2859,
-        "days": 30,
-        "start": "2026-10-22",
-        "end": "2026-11-20"
-      }
-    },
-    {
-      "canonical": "7wishnightrangeralbum",
-      "display": "7 Wishes (Night Ranger album)",
-      "aliases": [],
-      "obscurity": 3,
-      "source": "https://en.wikipedia.org/wiki/Sentimental_Street",
-      "wikidata": "http://www.wikidata.org/entity/Q7451275",
-      "pageviews": {
-        "total": 1501,
-        "days": 30,
-        "start": "2026-10-22",
-        "end": "2026-11-20"
-      }
-    },
-    {
-      "canonical": "foranagaeilge",
-      "display": "Foras na Gaeilge",
-      "aliases": [],
-      "obscurity": 5,
-      "source": "https://en.wikipedia.org/wiki/Seo_Linn_Go_Mherica",
-      "wikidata": "http://www.wikidata.org/entity/Q7451477",
-      "pageviews": {
-        "total": 292,
         "days": 30,
         "start": "2026-10-22",
         "end": "2026-11-20"
@@ -17939,20 +16638,6 @@
       }
     },
     {
-      "canonical": "breed77album",
-      "display": "Breed 77 (album)",
-      "aliases": [],
-      "obscurity": 5,
-      "source": "https://en.wikipedia.org/wiki/Shadows_(Breed_77_song)",
-      "wikidata": "http://www.wikidata.org/entity/Q7460773",
-      "pageviews": {
-        "total": 118,
-        "days": 30,
-        "start": "2026-10-22",
-        "end": "2026-11-20"
-      }
-    },
-    {
       "canonical": "shadowwarpaintsong",
       "display": "Shadows (Warpaint song)",
       "aliases": [],
@@ -17995,20 +16680,6 @@
       }
     },
     {
-      "canonical": "moldovaintheeurovisionsongcontest2013",
-      "display": "Moldova in the Eurovision Song Contest 2013",
-      "aliases": [],
-      "obscurity": 5,
-      "source": "https://en.wikipedia.org/wiki/O_mie",
-      "wikidata": "http://www.wikidata.org/entity/Q7480284",
-      "pageviews": {
-        "total": 113,
-        "days": 30,
-        "start": "2026-10-22",
-        "end": "2026-11-20"
-      }
-    },
-    {
       "canonical": "shameorchestralmanoeuvreinthedarksong",
       "display": "Shame (Orchestral Manoeuvres in the Dark song)",
       "aliases": [],
@@ -18017,20 +16688,6 @@
       "wikidata": "http://www.wikidata.org/entity/Q7487499",
       "pageviews": {
         "total": 125,
-        "days": 30,
-        "start": "2026-10-22",
-        "end": "2026-11-20"
-      }
-    },
-    {
-      "canonical": "dantedailiang",
-      "display": "Dantès Dailiang",
-      "aliases": [],
-      "obscurity": 5,
-      "source": "https://en.wikipedia.org/wiki/Shanghai_(Dant%C3%A8s_Dailiang_song)",
-      "wikidata": "http://www.wikidata.org/entity/Q7488395",
-      "pageviews": {
-        "total": 173,
         "days": 30,
         "start": "2026-10-22",
         "end": "2026-11-20"
@@ -18423,20 +17080,6 @@
       "wikidata": "http://www.wikidata.org/entity/Q15393250",
       "pageviews": {
         "total": 259,
-        "days": 30,
-        "start": "2026-10-22",
-        "end": "2026-11-20"
-      }
-    },
-    {
-      "canonical": "americantragedyalbum",
-      "display": "American Tragedy (album)",
-      "aliases": [],
-      "obscurity": 4,
-      "source": "https://en.wikipedia.org/wiki/Levitate_(Hollywood_Undead_song)",
-      "wikidata": "http://www.wikidata.org/entity/Q15401702",
-      "pageviews": {
-        "total": 1473,
         "days": 30,
         "start": "2026-10-22",
         "end": "2026-11-20"
@@ -19017,20 +17660,6 @@
       }
     },
     {
-      "canonical": "armisticealbum",
-      "display": "Armistice (album)",
-      "aliases": [],
-      "obscurity": 5,
-      "source": "https://en.wikipedia.org/wiki/Spotlight_(Mutemath_song)",
-      "wikidata": "http://www.wikidata.org/entity/Q7580068",
-      "pageviews": {
-        "total": 229,
-        "days": 30,
-        "start": "2026-10-22",
-        "end": "2026-11-20"
-      }
-    },
-    {
       "canonical": "outofcontrolnothingcarvedinstonesong",
       "display": "Out of Control (Nothing's Carved in Stone song)",
       "aliases": [],
@@ -19140,20 +17769,6 @@
         "days": 27,
         "start": "2026-10-22",
         "end": "2026-11-19"
-      }
-    },
-    {
-      "canonical": "someoneincontrol",
-      "display": "Someone in Control",
-      "aliases": [],
-      "obscurity": 4,
-      "source": "https://en.wikipedia.org/wiki/Stand_Up_(Trapt_song)",
-      "wikidata": "http://www.wikidata.org/entity/Q7598100",
-      "pageviews": {
-        "total": 1090,
-        "days": 30,
-        "start": "2026-10-22",
-        "end": "2026-11-20"
       }
     },
     {
@@ -19297,20 +17912,6 @@
       }
     },
     {
-      "canonical": "kenhiraidiscography",
-      "display": "Ken Hirai discography",
-      "aliases": [],
-      "obscurity": 5,
-      "source": "https://en.wikipedia.org/wiki/Stay_with_Me_(Ken_Hirai_song)",
-      "wikidata": "http://www.wikidata.org/entity/Q7605106",
-      "pageviews": {
-        "total": 98,
-        "days": 30,
-        "start": "2026-10-22",
-        "end": "2026-11-20"
-      }
-    },
-    {
       "canonical": "staywithmeyoumeatsixsong",
       "display": "Stay with Me (You Me at Six song)",
       "aliases": [],
@@ -19381,20 +17982,6 @@
       }
     },
     {
-      "canonical": "carinadahl",
-      "display": "Carina Dahl",
-      "aliases": [],
-      "obscurity": 5,
-      "source": "https://en.wikipedia.org/wiki/Sticky_Dough",
-      "wikidata": "http://www.wikidata.org/entity/Q7616312",
-      "pageviews": {
-        "total": 172,
-        "days": 30,
-        "start": "2026-10-22",
-        "end": "2026-11-20"
-      }
-    },
-    {
       "canonical": "stillbillandersonsong",
       "display": "Still (Bill Anderson song)",
       "aliases": [],
@@ -19459,20 +18046,6 @@
       "wikidata": "http://www.wikidata.org/entity/Q7617038",
       "pageviews": {
         "total": 1133,
-        "days": 30,
-        "start": "2026-10-22",
-        "end": "2026-11-20"
-      }
-    },
-    {
-      "canonical": "hellonearthmobbdeepalbum",
-      "display": "Hell on Earth (Mobb Deep album)",
-      "aliases": [],
-      "obscurity": 3,
-      "source": "https://en.wikipedia.org/wiki/Still_Shinin%27",
-      "wikidata": "http://www.wikidata.org/entity/Q7617141",
-      "pageviews": {
-        "total": 3919,
         "days": 30,
         "start": "2026-10-22",
         "end": "2026-11-20"
@@ -19591,20 +18164,6 @@
       }
     },
     {
-      "canonical": "diearzte1986album",
-      "display": "Die Ärzte (1986 album)",
-      "aliases": [],
-      "obscurity": 5,
-      "source": "https://en.wikipedia.org/wiki/F%C3%BCr_immer_(Die_%C3%84rzte_song)",
-      "wikidata": "http://www.wikidata.org/entity/Q5511755",
-      "pageviews": {
-        "total": 100,
-        "days": 30,
-        "start": "2026-10-22",
-        "end": "2026-11-20"
-      }
-    },
-    {
       "canonical": "godptiii",
       "display": "G.O.D. Pt. III",
       "aliases": [],
@@ -19683,20 +18242,6 @@
       "wikidata": "http://www.wikidata.org/entity/Q5526260",
       "pageviews": {
         "total": 47,
-        "days": 30,
-        "start": "2026-10-22",
-        "end": "2026-11-20"
-      }
-    },
-    {
-      "canonical": "disclaimerseetheralbum",
-      "display": "Disclaimer (Seether album)",
-      "aliases": [],
-      "obscurity": 3,
-      "source": "https://en.wikipedia.org/wiki/Gasoline_(Seether_song)",
-      "wikidata": "http://www.wikidata.org/entity/Q5526512",
-      "pageviews": {
-        "total": 2970,
         "days": 30,
         "start": "2026-10-22",
         "end": "2026-11-20"
@@ -19868,20 +18413,6 @@
         "days": 29,
         "start": "2026-10-22",
         "end": "2026-11-19"
-      }
-    },
-    {
-      "canonical": "nameis4minute",
-      "display": "Name Is 4Minute",
-      "aliases": [],
-      "obscurity": 5,
-      "source": "https://en.wikipedia.org/wiki/What%27s_Your_Name%3F_(4Minute_song)",
-      "wikidata": "http://www.wikidata.org/entity/Q14763497",
-      "pageviews": {
-        "total": 97,
-        "days": 30,
-        "start": "2026-10-22",
-        "end": "2026-11-20"
       }
     },
     {
@@ -20375,20 +18906,6 @@
       }
     },
     {
-      "canonical": "theconfessionofdrdreamandotherstory",
-      "display": "The Confessions of Dr. Dream and Other Stories",
-      "aliases": [],
-      "obscurity": 4,
-      "source": "https://en.wikipedia.org/wiki/Day_by_Day_(Kevin_Ayers_song)",
-      "wikidata": "http://www.wikidata.org/entity/Q5242891",
-      "pageviews": {
-        "total": 622,
-        "days": 30,
-        "start": "2026-10-22",
-        "end": "2026-11-20"
-      }
-    },
-    {
       "canonical": "daybydayreginasong",
       "display": "Day by Day (Regina song)",
       "aliases": [],
@@ -20487,20 +19004,6 @@
       }
     },
     {
-      "canonical": "goldfly",
-      "display": "Goldfly",
-      "aliases": [],
-      "obscurity": 5,
-      "source": "https://en.wikipedia.org/wiki/Demons_(Guster_song)",
-      "wikidata": "http://www.wikidata.org/entity/Q5256281",
-      "pageviews": {
-        "total": 219,
-        "days": 30,
-        "start": "2026-10-22",
-        "end": "2026-11-20"
-      }
-    },
-    {
       "canonical": "demonsuperfurryanimalsong",
       "display": "Demons (Super Furry Animals song)",
       "aliases": [],
@@ -20571,20 +19074,6 @@
       }
     },
     {
-      "canonical": "babylonskindredalbum",
-      "display": "Babylon (Skindred album)",
-      "aliases": [],
-      "obscurity": 4,
-      "source": "https://en.wikipedia.org/wiki/Pressure_(Skindred_song)",
-      "wikidata": "http://www.wikidata.org/entity/Q7241693",
-      "pageviews": {
-        "total": 952,
-        "days": 30,
-        "start": "2026-10-22",
-        "end": "2026-11-20"
-      }
-    },
-    {
       "canonical": "prettyflamingo",
       "display": "Pretty Flamingo",
       "aliases": [],
@@ -20594,20 +19083,6 @@
       "pageviews": {
         "total": 1043,
         "days": 30,
-        "start": "2026-10-22",
-        "end": "2026-11-20"
-      }
-    },
-    {
-      "canonical": "silversunnothingcarvedinstonealbum",
-      "display": "Silver Sun (Nothing's Carved in Stone album)",
-      "aliases": [],
-      "obscurity": 5,
-      "source": "https://en.wikipedia.org/wiki/Pride_(Nothing%27s_Carved_in_Stone_song)",
-      "wikidata": "http://www.wikidata.org/entity/Q7242741",
-      "pageviews": {
-        "total": 55,
-        "days": 26,
         "start": "2026-10-22",
         "end": "2026-11-20"
       }
@@ -20627,20 +19102,6 @@
       }
     },
     {
-      "canonical": "franceintheeurovisionsongcontest1961",
-      "display": "France in the Eurovision Song Contest 1961",
-      "aliases": [],
-      "obscurity": 5,
-      "source": "https://en.wikipedia.org/wiki/Printemps,_avril_carillonne",
-      "wikidata": "http://www.wikidata.org/entity/Q7245286",
-      "pageviews": {
-        "total": 26,
-        "days": 30,
-        "start": "2026-10-22",
-        "end": "2026-11-20"
-      }
-    },
-    {
       "canonical": "privatejoy",
       "display": "Private Joy",
       "aliases": [],
@@ -20649,20 +19110,6 @@
       "wikidata": "http://www.wikidata.org/entity/Q7246107",
       "pageviews": {
         "total": 273,
-        "days": 30,
-        "start": "2026-10-22",
-        "end": "2026-11-20"
-      }
-    },
-    {
-      "canonical": "themaxxisback",
-      "display": "The Maxx Is Back",
-      "aliases": [],
-      "obscurity": 5,
-      "source": "https://en.wikipedia.org/wiki/Private_Party_(Klymaxx_song)",
-      "wikidata": "http://www.wikidata.org/entity/Q7246128",
-      "pageviews": {
-        "total": 154,
         "days": 30,
         "start": "2026-10-22",
         "end": "2026-11-20"
@@ -20767,20 +19214,6 @@
       }
     },
     {
-      "canonical": "punkstatikparanoia",
-      "display": "Punk Statik Paranoia",
-      "aliases": [],
-      "obscurity": 4,
-      "source": "https://en.wikipedia.org/wiki/Pure_(Orgy_song)",
-      "wikidata": "http://www.wikidata.org/entity/Q7261046",
-      "pageviews": {
-        "total": 601,
-        "days": 30,
-        "start": "2026-10-22",
-        "end": "2026-11-20"
-      }
-    },
-    {
       "canonical": "pushthatknotaway",
       "display": "Push That Knot Away",
       "aliases": [],
@@ -20823,20 +19256,6 @@
       }
     },
     {
-      "canonical": "azerbaijanintheeurovisionsongcontest2013",
-      "display": "Azerbaijan in the Eurovision Song Contest 2013",
-      "aliases": [],
-      "obscurity": 5,
-      "source": "https://en.wikipedia.org/wiki/Hold_Me_(Farid_Mammadov_song)",
-      "wikidata": "http://www.wikidata.org/entity/Q7269801",
-      "pageviews": {
-        "total": 141,
-        "days": 30,
-        "start": "2026-10-22",
-        "end": "2026-11-20"
-      }
-    },
-    {
       "canonical": "queenoftheslipstream",
       "display": "Queen of the Slipstream",
       "aliases": [],
@@ -20845,20 +19264,6 @@
       "wikidata": "http://www.wikidata.org/entity/Q7270672",
       "pageviews": {
         "total": 185,
-        "days": 30,
-        "start": "2026-10-22",
-        "end": "2026-11-20"
-      }
-    },
-    {
-      "canonical": "switzerlandintheeurovisionsongcontest1967",
-      "display": "Switzerland in the Eurovision Song Contest 1967",
-      "aliases": [],
-      "obscurity": 5,
-      "source": "https://en.wikipedia.org/wiki/Quel_c%C5%93ur_vas-tu_briser_%3F",
-      "wikidata": "http://www.wikidata.org/entity/Q7271191",
-      "pageviews": {
-        "total": 59,
         "days": 30,
         "start": "2026-10-22",
         "end": "2026-11-20"
@@ -20963,20 +19368,6 @@
       }
     },
     {
-      "canonical": "raindropstuntsong",
-      "display": "Raindrops (Stunt song)",
-      "aliases": [],
-      "obscurity": 5,
-      "source": "https://en.wikipedia.org/wiki/Raindrops_(Encore_une_fois)",
-      "wikidata": "http://www.wikidata.org/entity/Q7284790",
-      "pageviews": {
-        "total": 235,
-        "days": 30,
-        "start": "2026-10-22",
-        "end": "2026-11-20"
-      }
-    },
-    {
       "canonical": "rampagesong",
       "display": "Rampage (song)",
       "aliases": [],
@@ -20999,20 +19390,6 @@
       "wikidata": "http://www.wikidata.org/entity/Q7299611",
       "pageviews": {
         "total": 70,
-        "days": 30,
-        "start": "2026-10-22",
-        "end": "2026-11-20"
-      }
-    },
-    {
-      "canonical": "eyesettokill",
-      "display": "Eyes Set to Kill",
-      "aliases": [],
-      "obscurity": 3,
-      "source": "https://en.wikipedia.org/wiki/Reach_(Eyes_Set_to_Kill_song)",
-      "wikidata": "http://www.wikidata.org/entity/Q7300161",
-      "pageviews": {
-        "total": 1977,
         "days": 30,
         "start": "2026-10-22",
         "end": "2026-11-20"
@@ -21341,20 +19718,6 @@
       }
     },
     {
-      "canonical": "israelintheeurovisionsongcontest2012",
-      "display": "Israel in the Eurovision Song Contest 2012",
-      "aliases": [],
-      "obscurity": 5,
-      "source": "https://en.wikipedia.org/wiki/Time_(Izabo_song)",
-      "wikidata": "http://www.wikidata.org/entity/Q1095296",
-      "pageviews": {
-        "total": 88,
-        "days": 30,
-        "start": "2026-10-22",
-        "end": "2026-11-20"
-      }
-    },
-    {
       "canonical": "mywaylimpbizkitsong",
       "display": "My Way (Limp Bizkit song)",
       "aliases": [],
@@ -21450,20 +19813,6 @@
         "days": 29,
         "start": "2026-10-22",
         "end": "2026-11-19"
-      }
-    },
-    {
-      "canonical": "nicotouchthewall",
-      "display": "Nico Touches the Walls",
-      "aliases": [],
-      "obscurity": 4,
-      "source": "https://en.wikipedia.org/wiki/Niwaka_Ame_ni_Mo_Makezu",
-      "wikidata": "http://www.wikidata.org/entity/Q15284309",
-      "pageviews": {
-        "total": 699,
-        "days": 30,
-        "start": "2026-10-22",
-        "end": "2026-11-20"
       }
     },
     {
@@ -21635,20 +19984,6 @@
       }
     },
     {
-      "canonical": "andorraintheeurovisionsongcontest2006",
-      "display": "Andorra in the Eurovision Song Contest 2006",
-      "aliases": [],
-      "obscurity": 5,
-      "source": "https://en.wikipedia.org/wiki/Sense_tu",
-      "wikidata": "http://www.wikidata.org/entity/Q3314249",
-      "pageviews": {
-        "total": 86,
-        "days": 30,
-        "start": "2026-10-22",
-        "end": "2026-11-20"
-      }
-    },
-    {
       "canonical": "boyfriendashleesimpsonsong",
       "display": "Boyfriend (Ashlee Simpson song)",
       "aliases": [],
@@ -21728,20 +20063,6 @@
       "pageviews": {
         "total": 43,
         "days": 29,
-        "start": "2026-10-22",
-        "end": "2026-11-20"
-      }
-    },
-    {
-      "canonical": "forgivennotforgotten",
-      "display": "Forgiven, Not Forgotten",
-      "aliases": [],
-      "obscurity": 3,
-      "source": "https://en.wikipedia.org/wiki/Closer_(The_Corrs_song)",
-      "wikidata": "http://www.wikidata.org/entity/Q3327884",
-      "pageviews": {
-        "total": 1831,
-        "days": 30,
         "start": "2026-10-22",
         "end": "2026-11-20"
       }
@@ -21868,20 +20189,6 @@
       "pageviews": {
         "total": 22,
         "days": 29,
-        "start": "2026-10-22",
-        "end": "2026-11-20"
-      }
-    },
-    {
-      "canonical": "swedenintheeurovisionsongcontest1974",
-      "display": "Sweden in the Eurovision Song Contest 1974",
-      "aliases": [],
-      "obscurity": 5,
-      "source": "https://en.wikipedia.org/wiki/Min_k%C3%A4rlekss%C3%A5ng_till_dig",
-      "wikidata": "http://www.wikidata.org/entity/Q3351840",
-      "pageviews": {
-        "total": 131,
-        "days": 30,
         "start": "2026-10-22",
         "end": "2026-11-20"
       }
@@ -22027,20 +20334,6 @@
       }
     },
     {
-      "canonical": "dividedbynight",
-      "display": "Divided by Night",
-      "aliases": [],
-      "obscurity": 4,
-      "source": "https://en.wikipedia.org/wiki/Sine_Language",
-      "wikidata": "http://www.wikidata.org/entity/Q7522361",
-      "pageviews": {
-        "total": 362,
-        "days": 30,
-        "start": "2026-10-22",
-        "end": "2026-11-20"
-      }
-    },
-    {
       "canonical": "singsesamestreetsong",
       "display": "Sing (Sesame Street song)",
       "aliases": [],
@@ -22077,20 +20370,6 @@
       "wikidata": "http://www.wikidata.org/entity/Q7523821",
       "pageviews": {
         "total": 169,
-        "days": 30,
-        "start": "2026-10-22",
-        "end": "2026-11-20"
-      }
-    },
-    {
-      "canonical": "jefflynne",
-      "display": "Jeff Lynne",
-      "aliases": [],
-      "obscurity": 1,
-      "source": "https://en.wikipedia.org/wiki/Sirens_(Jeff_Lynne_song)",
-      "wikidata": "http://www.wikidata.org/entity/Q7530145",
-      "pageviews": {
-        "total": 59648,
         "days": 30,
         "start": "2026-10-22",
         "end": "2026-11-20"
@@ -22335,20 +20614,6 @@
       }
     },
     {
-      "canonical": "coolbanana",
-      "display": "Cool Bananas",
-      "aliases": [],
-      "obscurity": 5,
-      "source": "https://en.wikipedia.org/wiki/Solo_(DD_Smash_song)",
-      "wikidata": "http://www.wikidata.org/entity/Q7558427",
-      "pageviews": {
-        "total": 32,
-        "days": 29,
-        "start": "2026-10-22",
-        "end": "2026-11-20"
-      }
-    },
-    {
       "canonical": "solomongundie",
       "display": "Solomon Gundie",
       "aliases": [],
@@ -22416,20 +20681,6 @@
         "days": 29,
         "start": "2026-10-22",
         "end": "2026-11-19"
-      }
-    },
-    {
-      "canonical": "10987654321",
-      "display": "10, 9, 8, 7, 6, 5, 4, 3, 2, 1",
-      "aliases": [],
-      "obscurity": 3,
-      "source": "https://en.wikipedia.org/wiki/Somebody%27s_Trying_to_Tell_Me_Something",
-      "wikidata": "http://www.wikidata.org/entity/Q7559537",
-      "pageviews": {
-        "total": 2182,
-        "days": 30,
-        "start": "2026-10-22",
-        "end": "2026-11-20"
       }
     },
     {
@@ -22601,48 +20852,6 @@
       }
     },
     {
-      "canonical": "video",
-      "display": "Video!",
-      "aliases": [],
-      "obscurity": 5,
-      "source": "https://en.wikipedia.org/wiki/Sooner_or_Later_(Jeff_Lynne_song)",
-      "wikidata": "http://www.wikidata.org/entity/Q7562710",
-      "pageviews": {
-        "total": 203,
-        "days": 30,
-        "start": "2026-10-22",
-        "end": "2026-11-20"
-      }
-    },
-    {
-      "canonical": "visionstratovariusalbum",
-      "display": "Visions (Stratovarius album)",
-      "aliases": [],
-      "obscurity": 4,
-      "source": "https://en.wikipedia.org/wiki/Black_Diamond_(Stratovarius_song)",
-      "wikidata": "http://www.wikidata.org/entity/Q3267984",
-      "pageviews": {
-        "total": 1459,
-        "days": 30,
-        "start": "2026-10-22",
-        "end": "2026-11-20"
-      }
-    },
-    {
-      "canonical": "keeperofthesevenkeyparti",
-      "display": "Keeper of the Seven Keys: Part I",
-      "aliases": [],
-      "obscurity": 3,
-      "source": "https://en.wikipedia.org/wiki/Future_World_(Helloween_song)",
-      "wikidata": "http://www.wikidata.org/entity/Q3268505",
-      "pageviews": {
-        "total": 5417,
-        "days": 30,
-        "start": "2026-10-22",
-        "end": "2026-11-20"
-      }
-    },
-    {
       "canonical": "runawaythecorrsong",
       "display": "Runaway (The Corrs song)",
       "aliases": [],
@@ -22695,20 +20904,6 @@
         "total": 130,
         "days": 28,
         "start": "2026-10-23",
-        "end": "2026-11-20"
-      }
-    },
-    {
-      "canonical": "croatiaintheeurovisionsongcontest2013",
-      "display": "Croatia in the Eurovision Song Contest 2013",
-      "aliases": [],
-      "obscurity": 5,
-      "source": "https://en.wikipedia.org/wiki/Mi%C5%BEerja",
-      "wikidata": "http://www.wikidata.org/entity/Q3276949",
-      "pageviews": {
-        "total": 83,
-        "days": 30,
-        "start": "2026-10-22",
         "end": "2026-11-20"
       }
     },
@@ -22807,20 +21002,6 @@
         "total": 105,
         "days": 29,
         "start": "2026-10-23",
-        "end": "2026-11-20"
-      }
-    },
-    {
-      "canonical": "norwayintheeurovisionsongcontest1971",
-      "display": "Norway in the Eurovision Song Contest 1971",
-      "aliases": [],
-      "obscurity": 5,
-      "source": "https://en.wikipedia.org/wiki/Lykken_er",
-      "wikidata": "http://www.wikidata.org/entity/Q3287770",
-      "pageviews": {
-        "total": 20,
-        "days": 30,
-        "start": "2026-10-22",
         "end": "2026-11-20"
       }
     },
@@ -23231,34 +21412,6 @@
       }
     },
     {
-      "canonical": "cyclonebabybashalbum",
-      "display": "Cyclone (Baby Bash album)",
-      "aliases": [],
-      "obscurity": 4,
-      "source": "https://en.wikipedia.org/wiki/Don%27t_Stop_(Baby_Bash_song)",
-      "wikidata": "http://www.wikidata.org/entity/Q5291914",
-      "pageviews": {
-        "total": 478,
-        "days": 30,
-        "start": "2026-10-22",
-        "end": "2026-11-20"
-      }
-    },
-    {
-      "canonical": "gloria",
-      "display": "Gloria!",
-      "aliases": [],
-      "obscurity": 4,
-      "source": "https://en.wikipedia.org/wiki/Don%27t_Stop_(Gloria_Estefan_song)",
-      "wikidata": "http://www.wikidata.org/entity/Q5291915",
-      "pageviews": {
-        "total": 630,
-        "days": 30,
-        "start": "2026-10-22",
-        "end": "2026-11-20"
-      }
-    },
-    {
       "canonical": "dontstopwadehayesong",
       "display": "Don't Stop (Wade Hayes song)",
       "aliases": [],
@@ -23525,20 +21678,6 @@
       }
     },
     {
-      "canonical": "eurovisionsongcontest1995",
-      "display": "Eurovision Song Contest 1995",
-      "aliases": [],
-      "obscurity": 3,
-      "source": "https://en.wikipedia.org/wiki/Sama_(song)",
-      "wikidata": "http://www.wikidata.org/entity/Q7408402",
-      "pageviews": {
-        "total": 2778,
-        "days": 30,
-        "start": "2026-10-22",
-        "end": "2026-11-20"
-      }
-    },
-    {
       "canonical": "sameolg",
       "display": "Same Ol' G",
       "aliases": [],
@@ -23563,20 +21702,6 @@
         "total": 200,
         "days": 30,
         "start": "2026-10-22",
-        "end": "2026-11-20"
-      }
-    },
-    {
-      "canonical": "denmarkintheeurovisionsongcontest1964",
-      "display": "Denmark in the Eurovision Song Contest 1964",
-      "aliases": [],
-      "obscurity": 5,
-      "source": "https://en.wikipedia.org/wiki/Sangen_om_dig",
-      "wikidata": "http://www.wikidata.org/entity/Q7417934",
-      "pageviews": {
-        "total": 36,
-        "days": 27,
-        "start": "2026-10-24",
         "end": "2026-11-20"
       }
     },
@@ -23645,20 +21770,6 @@
       "wikidata": "http://www.wikidata.org/entity/Q7428014",
       "pageviews": {
         "total": 38,
-        "days": 30,
-        "start": "2026-10-22",
-        "end": "2026-11-20"
-      }
-    },
-    {
-      "canonical": "drawnfrommemory",
-      "display": "Drawn from Memory",
-      "aliases": [],
-      "obscurity": 4,
-      "source": "https://en.wikipedia.org/wiki/Save_Me_(Embrace_song)",
-      "wikidata": "http://www.wikidata.org/entity/Q7428015",
-      "pageviews": {
-        "total": 524,
         "days": 30,
         "start": "2026-10-22",
         "end": "2026-11-20"
@@ -23973,20 +22084,6 @@
       }
     },
     {
-      "canonical": "allthethingshesaid",
-      "display": "All the Things She Said",
-      "aliases": [],
-      "obscurity": 2,
-      "source": "https://en.wikipedia.org/wiki/Ya_Soshla_s_Uma",
-      "wikidata": "http://www.wikidata.org/entity/Q984229",
-      "pageviews": {
-        "total": 15924,
-        "days": 30,
-        "start": "2026-10-22",
-        "end": "2026-11-20"
-      }
-    },
-    {
       "canonical": "idontwannacry",
       "display": "I Don't Wanna Cry",
       "aliases": [],
@@ -23995,20 +22092,6 @@
       "wikidata": "http://www.wikidata.org/entity/Q1050963",
       "pageviews": {
         "total": 1514,
-        "days": 30,
-        "start": "2026-10-22",
-        "end": "2026-11-20"
-      }
-    },
-    {
-      "canonical": "cathyclown",
-      "display": "Cathy's Clown",
-      "aliases": [],
-      "obscurity": 3,
-      "source": "https://en.wikipedia.org/wiki/Cathy%27s_Clown_(The_Everly_Brothers_song)",
-      "wikidata": "http://www.wikidata.org/entity/Q1051161",
-      "pageviews": {
-        "total": 1998,
         "days": 30,
         "start": "2026-10-22",
         "end": "2026-11-20"
@@ -24141,20 +22224,6 @@
       }
     },
     {
-      "canonical": "cyprusintheeurovisionsongcontest2011",
-      "display": "Cyprus in the Eurovision Song Contest 2011",
-      "aliases": [],
-      "obscurity": 5,
-      "source": "https://en.wikipedia.org/wiki/San_Aggelos_S%27agapisa",
-      "wikidata": "http://www.wikidata.org/entity/Q1064875",
-      "pageviews": {
-        "total": 80,
-        "days": 30,
-        "start": "2026-10-22",
-        "end": "2026-11-20"
-      }
-    },
-    {
       "canonical": "whatmorecanigive",
       "display": "What More Can I Give",
       "aliases": [],
@@ -24191,20 +22260,6 @@
       "wikidata": "http://www.wikidata.org/entity/Q1067049",
       "pageviews": {
         "total": 3032,
-        "days": 30,
-        "start": "2026-10-22",
-        "end": "2026-11-20"
-      }
-    },
-    {
-      "canonical": "lithuaniaintheeurovisionsongcontest2012",
-      "display": "Lithuania in the Eurovision Song Contest 2012",
-      "aliases": [],
-      "obscurity": 5,
-      "source": "https://en.wikipedia.org/wiki/Love_Is_Blind_(Donny_Montell_song)",
-      "wikidata": "http://www.wikidata.org/entity/Q1068433",
-      "pageviews": {
-        "total": 93,
         "days": 30,
         "start": "2026-10-22",
         "end": "2026-11-20"
@@ -24323,20 +22378,6 @@
       }
     },
     {
-      "canonical": "polandintheeurovisionsongcontest2011",
-      "display": "Poland in the Eurovision Song Contest 2011",
-      "aliases": [],
-      "obscurity": 5,
-      "source": "https://en.wikipedia.org/wiki/Jestem",
-      "wikidata": "http://www.wikidata.org/entity/Q1084414",
-      "pageviews": {
-        "total": 80,
-        "days": 30,
-        "start": "2026-10-22",
-        "end": "2026-11-20"
-      }
-    },
-    {
       "canonical": "libertywalk",
       "display": "Liberty Walk",
       "aliases": [],
@@ -24376,34 +22417,6 @@
         "days": 28,
         "start": "2026-10-22",
         "end": "2026-11-20"
-      }
-    },
-    {
-      "canonical": "ukraineintheeurovisionsongcontest2003",
-      "display": "Ukraine in the Eurovision Song Contest 2003",
-      "aliases": [],
-      "obscurity": 5,
-      "source": "https://en.wikipedia.org/wiki/Hasta_la_Vista_(Oleksandr_Ponomaryov_song)",
-      "wikidata": "http://www.wikidata.org/entity/Q3298461",
-      "pageviews": {
-        "total": 92,
-        "days": 30,
-        "start": "2026-10-22",
-        "end": "2026-11-20"
-      }
-    },
-    {
-      "canonical": "greatesthitsofarpinkalbum",
-      "display": "Greatest Hits... So Far!!! (Pink album)",
-      "aliases": [],
-      "obscurity": 3,
-      "source": "https://en.wikipedia.org/wiki/Heartbreak_Down",
-      "wikidata": "http://www.wikidata.org/entity/Q3298915",
-      "pageviews": {
-        "total": 2269,
-        "days": 29,
-        "start": "2026-10-22",
-        "end": "2026-11-19"
       }
     },
     {
@@ -24547,20 +22560,6 @@
       }
     },
     {
-      "canonical": "dreamingoutloud",
-      "display": "Dreaming Out Loud",
-      "aliases": [],
-      "obscurity": 3,
-      "source": "https://en.wikipedia.org/wiki/Mercy_(OneRepublic_song)",
-      "wikidata": "http://www.wikidata.org/entity/Q3307902",
-      "pageviews": {
-        "total": 2671,
-        "days": 30,
-        "start": "2026-10-22",
-        "end": "2026-11-20"
-      }
-    },
-    {
       "canonical": "shineonchristinemiltonsong",
       "display": "Shine On (Christine Milton song)",
       "aliases": [],
@@ -24673,20 +22672,6 @@
       }
     },
     {
-      "canonical": "metricband",
-      "display": "Metric (band)",
-      "aliases": [],
-      "obscurity": 2,
-      "source": "https://en.wikipedia.org/wiki/Sick_Muse",
-      "wikidata": "http://www.wikidata.org/entity/Q7507577",
-      "pageviews": {
-        "total": 12524,
-        "days": 30,
-        "start": "2026-10-22",
-        "end": "2026-11-20"
-      }
-    },
-    {
       "canonical": "sidimansoursong",
       "display": "Sidi Mansour (song)",
       "aliases": [],
@@ -24709,20 +22694,6 @@
       "wikidata": "http://www.wikidata.org/entity/Q7512096",
       "pageviews": {
         "total": 210,
-        "days": 30,
-        "start": "2026-10-22",
-        "end": "2026-11-20"
-      }
-    },
-    {
-      "canonical": "169album",
-      "display": "16/9 (album)",
-      "aliases": [],
-      "obscurity": 5,
-      "source": "https://en.wikipedia.org/wiki/Signes_(song)",
-      "wikidata": "http://www.wikidata.org/entity/Q7512915",
-      "pageviews": {
-        "total": 42,
         "days": 30,
         "start": "2026-10-22",
         "end": "2026-11-20"
@@ -25135,20 +23106,6 @@
       }
     },
     {
-      "canonical": "resiliencedrowningpoolalbum",
-      "display": "Resilience (Drowning Pool album)",
-      "aliases": [],
-      "obscurity": 4,
-      "source": "https://en.wikipedia.org/wiki/In_Memory_Of..._(song)",
-      "wikidata": "http://www.wikidata.org/entity/Q15614289",
-      "pageviews": {
-        "total": 744,
-        "days": 30,
-        "start": "2026-10-22",
-        "end": "2026-11-20"
-      }
-    },
-    {
       "canonical": "saturdaynightdrowningpoolsong",
       "display": "Saturday Night (Drowning Pool song)",
       "aliases": [],
@@ -25326,34 +23283,6 @@
       "pageviews": {
         "total": 703,
         "days": 30,
-        "start": "2026-10-22",
-        "end": "2026-11-20"
-      }
-    },
-    {
-      "canonical": "norwayintheeurovisionsongcontest1967",
-      "display": "Norway in the Eurovision Song Contest 1967",
-      "aliases": [],
-      "obscurity": 5,
-      "source": "https://en.wikipedia.org/wiki/Dukkemann",
-      "wikidata": "http://www.wikidata.org/entity/Q3434906",
-      "pageviews": {
-        "total": 20,
-        "days": 28,
-        "start": "2026-10-22",
-        "end": "2026-11-19"
-      }
-    },
-    {
-      "canonical": "norwayintheeurovisionsongcontest1964",
-      "display": "Norway in the Eurovision Song Contest 1964",
-      "aliases": [],
-      "obscurity": 5,
-      "source": "https://en.wikipedia.org/wiki/Spiral_(Arne_Bendiksen_song)",
-      "wikidata": "http://www.wikidata.org/entity/Q3435193",
-      "pageviews": {
-        "total": 22,
-        "days": 27,
         "start": "2026-10-22",
         "end": "2026-11-20"
       }
@@ -25723,20 +23652,6 @@
       }
     },
     {
-      "canonical": "aliveedkowalczykalbum",
-      "display": "Alive (Ed Kowalczyk album)",
-      "aliases": [],
-      "obscurity": 5,
-      "source": "https://en.wikipedia.org/wiki/Grace_(Ed_Kowalczyk_song)",
-      "wikidata": "http://www.wikidata.org/entity/Q5590931",
-      "pageviews": {
-        "total": 260,
-        "days": 30,
-        "start": "2026-10-22",
-        "end": "2026-11-20"
-      }
-    },
-    {
       "canonical": "gracemisskittinsong",
       "display": "Grace (Miss Kittin song)",
       "aliases": [],
@@ -25860,20 +23775,6 @@
         "days": 29,
         "start": "2026-10-22",
         "end": "2026-11-19"
-      }
-    },
-    {
-      "canonical": "spainintheeurovisionsongcontest1967",
-      "display": "Spain in the Eurovision Song Contest 1967",
-      "aliases": [],
-      "obscurity": 5,
-      "source": "https://en.wikipedia.org/wiki/Hablemos_del_amor",
-      "wikidata": "http://www.wikidata.org/entity/Q5636918",
-      "pageviews": {
-        "total": 101,
-        "days": 30,
-        "start": "2026-10-22",
-        "end": "2026-11-20"
       }
     },
     {
@@ -26479,20 +24380,6 @@
       }
     },
     {
-      "canonical": "franceintheeurovisionsongcontest1956",
-      "display": "France in the Eurovision Song Contest 1956",
-      "aliases": [],
-      "obscurity": 5,
-      "source": "https://en.wikipedia.org/wiki/Le_temps_perdu",
-      "wikidata": "http://www.wikidata.org/entity/Q3289732",
-      "pageviews": {
-        "total": 179,
-        "days": 30,
-        "start": "2026-10-22",
-        "end": "2026-11-20"
-      }
-    },
-    {
       "canonical": "foolintherain",
       "display": "Fool in the Rain",
       "aliases": [],
@@ -26633,20 +24520,6 @@
       }
     },
     {
-      "canonical": "swedenintheeurovisionsongcontest1960",
-      "display": "Sweden in the Eurovision Song Contest 1960",
-      "aliases": [],
-      "obscurity": 5,
-      "source": "https://en.wikipedia.org/wiki/Alla_andra_f%C3%A5r_varann",
-      "wikidata": "http://www.wikidata.org/entity/Q3296893",
-      "pageviews": {
-        "total": 31,
-        "days": 30,
-        "start": "2026-10-22",
-        "end": "2026-11-20"
-      }
-    },
-    {
       "canonical": "breakoutmileycyrussong",
       "display": "Breakout (Miley Cyrus song)",
       "aliases": [],
@@ -26712,20 +24585,6 @@
       "pageviews": {
         "total": 252,
         "days": 30,
-        "start": "2026-10-22",
-        "end": "2026-11-20"
-      }
-    },
-    {
-      "canonical": "sugarpill",
-      "display": "Sugarpills",
-      "aliases": [],
-      "obscurity": 5,
-      "source": "https://en.wikipedia.org/wiki/Downtown_(Kids_of_88_song)",
-      "wikidata": "http://www.wikidata.org/entity/Q5303335",
-      "pageviews": {
-        "total": 26,
-        "days": 27,
         "start": "2026-10-22",
         "end": "2026-11-20"
       }
@@ -26913,20 +24772,6 @@
       }
     },
     {
-      "canonical": "220voltlive",
-      "display": "220 Volt Live",
-      "aliases": [],
-      "obscurity": 5,
-      "source": "https://en.wikipedia.org/wiki/Dreamtime_(Tangerine_Dream_song)",
-      "wikidata": "http://www.wikidata.org/entity/Q5306786",
-      "pageviews": {
-        "total": 137,
-        "days": 30,
-        "start": "2026-10-22",
-        "end": "2026-11-20"
-      }
-    },
-    {
       "canonical": "drivecheyennejacksonsong",
       "display": "Drive (Cheyenne Jackson song)",
       "aliases": [],
@@ -26997,20 +24842,6 @@
       }
     },
     {
-      "canonical": "indecentproposalalbum",
-      "display": "Indecent Proposal (album)",
-      "aliases": [],
-      "obscurity": 4,
-      "source": "https://en.wikipedia.org/wiki/Drop_(Timbaland_%26_Magoo_song)",
-      "wikidata": "http://www.wikidata.org/entity/Q5308383",
-      "pageviews": {
-        "total": 851,
-        "days": 30,
-        "start": "2026-10-22",
-        "end": "2026-11-20"
-      }
-    },
-    {
       "canonical": "dropthepharcydesong",
       "display": "Drop (The Pharcyde song)",
       "aliases": [],
@@ -27061,20 +24892,6 @@
       "wikidata": "http://www.wikidata.org/entity/Q5313567",
       "pageviews": {
         "total": 26,
-        "days": 30,
-        "start": "2026-10-22",
-        "end": "2026-11-20"
-      }
-    },
-    {
-      "canonical": "royworld",
-      "display": "Royworld",
-      "aliases": [],
-      "obscurity": 5,
-      "source": "https://en.wikipedia.org/wiki/Dust_(Royworld_song)",
-      "wikidata": "http://www.wikidata.org/entity/Q5316969",
-      "pageviews": {
-        "total": 65,
         "days": 30,
         "start": "2026-10-22",
         "end": "2026-11-20"
@@ -27235,20 +25052,6 @@
       }
     },
     {
-      "canonical": "elementaltearforfearalbum",
-      "display": "Elemental (Tears for Fears album)",
-      "aliases": [],
-      "obscurity": 3,
-      "source": "https://en.wikipedia.org/wiki/Elemental_(song)",
-      "wikidata": "http://www.wikidata.org/entity/Q5358854",
-      "pageviews": {
-        "total": 4074,
-        "days": 30,
-        "start": "2026-10-22",
-        "end": "2026-11-20"
-      }
-    },
-    {
       "canonical": "elizabeththestatlerbrothersong",
       "display": "Elizabeth (The Statler Brothers song)",
       "aliases": [],
@@ -27358,20 +25161,6 @@
         "days": 29,
         "start": "2026-10-22",
         "end": "2026-11-19"
-      }
-    },
-    {
-      "canonical": "dreamspace",
-      "display": "Dreamspace",
-      "aliases": [],
-      "obscurity": 4,
-      "source": "https://en.wikipedia.org/wiki/Wings_of_Tomorrow_(song)",
-      "wikidata": "http://www.wikidata.org/entity/Q5371863",
-      "pageviews": {
-        "total": 984,
-        "days": 30,
-        "start": "2026-10-22",
-        "end": "2026-11-20"
       }
     },
     {
@@ -27579,20 +25368,6 @@
       "wikidata": "http://www.wikidata.org/entity/Q993833",
       "pageviews": {
         "total": 5138,
-        "days": 30,
-        "start": "2026-10-22",
-        "end": "2026-11-20"
-      }
-    },
-    {
-      "canonical": "starmikanakashimaalbum",
-      "display": "Star (Mika Nakashima album)",
-      "aliases": [],
-      "obscurity": 5,
-      "source": "https://en.wikipedia.org/wiki/Always_(Mika_Nakashima_song)",
-      "wikidata": "http://www.wikidata.org/entity/Q1107279",
-      "pageviews": {
-        "total": 42,
         "days": 30,
         "start": "2026-10-22",
         "end": "2026-11-20"
@@ -27893,20 +25668,6 @@
       }
     },
     {
-      "canonical": "elementpt1",
-      "display": "Elements Pt. 1",
-      "aliases": [],
-      "obscurity": 4,
-      "source": "https://en.wikipedia.org/wiki/Eagleheart_(song)",
-      "wikidata": "http://www.wikidata.org/entity/Q1153640",
-      "pageviews": {
-        "total": 746,
-        "days": 30,
-        "start": "2026-10-22",
-        "end": "2026-11-20"
-      }
-    },
-    {
       "canonical": "smokenatalieimbrugliasong",
       "display": "Smoke (Natalie Imbruglia song)",
       "aliases": [],
@@ -28159,20 +25920,6 @@
       }
     },
     {
-      "canonical": "jadewarriorfilm",
-      "display": "Jade Warrior (film)",
-      "aliases": [],
-      "obscurity": 4,
-      "source": "https://en.wikipedia.org/wiki/Fate_(Bleak_song)",
-      "wikidata": "http://www.wikidata.org/entity/Q5437361",
-      "pageviews": {
-        "total": 392,
-        "days": 30,
-        "start": "2026-10-22",
-        "end": "2026-11-20"
-      }
-    },
-    {
       "canonical": "fearlessthebraverysong",
       "display": "Fearless (The Bravery song)",
       "aliases": [],
@@ -28313,20 +26060,6 @@
       }
     },
     {
-      "canonical": "thedayofgray",
-      "display": "The Days of Grays",
-      "aliases": [],
-      "obscurity": 4,
-      "source": "https://en.wikipedia.org/wiki/Flag_in_the_Ground",
-      "wikidata": "http://www.wikidata.org/entity/Q5456673",
-      "pageviews": {
-        "total": 627,
-        "days": 30,
-        "start": "2026-10-22",
-        "end": "2026-11-20"
-      }
-    },
-    {
       "canonical": "flashstephaniesong",
       "display": "Flash (Stéphanie song)",
       "aliases": [],
@@ -28450,20 +26183,6 @@
         "days": 29,
         "start": "2026-10-22",
         "end": "2026-11-20"
-      }
-    },
-    {
-      "canonical": "yuyamatsushita",
-      "display": "Yuya Matsushita",
-      "aliases": [],
-      "obscurity": 4,
-      "source": "https://en.wikipedia.org/wiki/Foolish_Foolish",
-      "wikidata": "http://www.wikidata.org/entity/Q5465667",
-      "pageviews": {
-        "total": 333,
-        "days": 29,
-        "start": "2026-10-22",
-        "end": "2026-11-19"
       }
     },
     {
@@ -28593,20 +26312,6 @@
       }
     },
     {
-      "canonical": "brookevalentinediscography",
-      "display": "Brooke Valentine discography",
-      "aliases": [],
-      "obscurity": 5,
-      "source": "https://en.wikipedia.org/wiki/Forever_(Brooke_Valentine_song)",
-      "wikidata": "http://www.wikidata.org/entity/Q5469333",
-      "pageviews": {
-        "total": 100,
-        "days": 30,
-        "start": "2026-10-22",
-        "end": "2026-11-20"
-      }
-    },
-    {
       "canonical": "foreverkidrocksong",
       "display": "Forever (Kid Rock song)",
       "aliases": [],
@@ -28672,20 +26377,6 @@
       "pageviews": {
         "total": 21,
         "days": 26,
-        "start": "2026-10-22",
-        "end": "2026-11-20"
-      }
-    },
-    {
-      "canonical": "sturmunddrangband",
-      "display": "Sturm und Drang (band)",
-      "aliases": [],
-      "obscurity": 4,
-      "source": "https://en.wikipedia.org/wiki/Forever_(Sturm_und_Drang_song)",
-      "wikidata": "http://www.wikidata.org/entity/Q5469360",
-      "pageviews": {
-        "total": 410,
-        "days": 30,
         "start": "2026-10-22",
         "end": "2026-11-20"
       }
@@ -29405,20 +27096,6 @@
       }
     },
     {
-      "canonical": "thequeenclassroom2013tvsery",
-      "display": "The Queen's Classroom (2013 TV series)",
-      "aliases": [],
-      "obscurity": 4,
-      "source": "https://en.wikipedia.org/wiki/Green_Rain",
-      "wikidata": "http://www.wikidata.org/entity/Q15091992",
-      "pageviews": {
-        "total": 552,
-        "days": 30,
-        "start": "2026-10-22",
-        "end": "2026-11-20"
-      }
-    },
-    {
       "canonical": "impatientannaabreusong",
       "display": "Impatient (Anna Abreu song)",
       "aliases": [],
@@ -29682,20 +27359,6 @@
         "days": 29,
         "start": "2026-10-22",
         "end": "2026-11-20"
-      }
-    },
-    {
-      "canonical": "eurovisionsongcontest1962",
-      "display": "Eurovision Song Contest 1962",
-      "aliases": [],
-      "obscurity": 4,
-      "source": "https://en.wikipedia.org/wiki/Petit_bonhomme",
-      "wikidata": "http://www.wikidata.org/entity/Q3246535",
-      "pageviews": {
-        "total": 1296,
-        "days": 29,
-        "start": "2026-10-22",
-        "end": "2026-11-19"
       }
     },
     {
@@ -29965,20 +27628,6 @@
       }
     },
     {
-      "canonical": "theeleventhhourjarofclayalbum",
-      "display": "The Eleventh Hour (Jars of Clay album)",
-      "aliases": [],
-      "obscurity": 5,
-      "source": "https://en.wikipedia.org/wiki/Revolution_(Jars_of_Clay_song)",
-      "wikidata": "http://www.wikidata.org/entity/Q7318631",
-      "pageviews": {
-        "total": 226,
-        "days": 30,
-        "start": "2026-10-22",
-        "end": "2026-11-20"
-      }
-    },
-    {
       "canonical": "revolutionchumbawambaep",
       "display": "Revolution (Chumbawamba EP)",
       "aliases": [],
@@ -30004,20 +27653,6 @@
         "days": 30,
         "start": "2026-10-22",
         "end": "2026-11-20"
-      }
-    },
-    {
-      "canonical": "revolutionbeatlesong",
-      "display": "Revolution (Beatles song)",
-      "aliases": [],
-      "obscurity": 2,
-      "source": "https://en.wikipedia.org/wiki/Revolution_(Thompson_Twins_song)",
-      "wikidata": "http://www.wikidata.org/entity/Q7318641",
-      "pageviews": {
-        "total": 8152,
-        "days": 29,
-        "start": "2026-10-22",
-        "end": "2026-11-19"
       }
     },
     {
@@ -30085,20 +27720,6 @@
       "wikidata": "http://www.wikidata.org/entity/Q7334669",
       "pageviews": {
         "total": 67,
-        "days": 30,
-        "start": "2026-10-22",
-        "end": "2026-11-20"
-      }
-    },
-    {
-      "canonical": "netherlandintheeurovisionsongcontest1967",
-      "display": "Netherlands in the Eurovision Song Contest 1967",
-      "aliases": [],
-      "obscurity": 5,
-      "source": "https://en.wikipedia.org/wiki/Ring-dinge-ding",
-      "wikidata": "http://www.wikidata.org/entity/Q7334674",
-      "pageviews": {
-        "total": 26,
         "days": 30,
         "start": "2026-10-22",
         "end": "2026-11-20"
@@ -30287,20 +27908,6 @@
       }
     },
     {
-      "canonical": "forunlawfulcarnalknowledge",
-      "display": "For Unlawful Carnal Knowledge",
-      "aliases": [],
-      "obscurity": 2,
-      "source": "https://en.wikipedia.org/wiki/Runaround_(Van_Halen_song)",
-      "wikidata": "http://www.wikidata.org/entity/Q7379623",
-      "pageviews": {
-        "total": 8570,
-        "days": 30,
-        "start": "2026-10-22",
-        "end": "2026-11-20"
-      }
-    },
-    {
       "canonical": "runawaydevlinsong",
       "display": "Runaway (Devlin song)",
       "aliases": [],
@@ -30337,20 +27944,6 @@
       "wikidata": "http://www.wikidata.org/entity/Q7379639",
       "pageviews": {
         "total": 48,
-        "days": 30,
-        "start": "2026-10-22",
-        "end": "2026-11-20"
-      }
-    },
-    {
-      "canonical": "iio",
-      "display": "IiO",
-      "aliases": [],
-      "obscurity": 3,
-      "source": "https://en.wikipedia.org/wiki/Runaway_(iiO_song)",
-      "wikidata": "http://www.wikidata.org/entity/Q7379643",
-      "pageviews": {
-        "total": 1642,
         "days": 30,
         "start": "2026-10-22",
         "end": "2026-11-20"
@@ -30623,20 +28216,6 @@
       }
     },
     {
-      "canonical": "denmarkintheeurovisionsongcontest2014",
-      "display": "Denmark in the Eurovision Song Contest 2014",
-      "aliases": [],
-      "obscurity": 5,
-      "source": "https://en.wikipedia.org/wiki/Cliche_Love_Song",
-      "wikidata": "http://www.wikidata.org/entity/Q15912474",
-      "pageviews": {
-        "total": 223,
-        "days": 30,
-        "start": "2026-10-22",
-        "end": "2026-11-20"
-      }
-    },
-    {
       "canonical": "roundandroundtinkarakovacsong",
       "display": "Round and Round (Tinkara Kovač song)",
       "aliases": [],
@@ -30645,20 +28224,6 @@
       "wikidata": "http://www.wikidata.org/entity/Q15912669",
       "pageviews": {
         "total": 44,
-        "days": 30,
-        "start": "2026-10-22",
-        "end": "2026-11-20"
-      }
-    },
-    {
-      "canonical": "tigersuit",
-      "display": "Tiger Suit",
-      "aliases": [],
-      "obscurity": 4,
-      "source": "https://en.wikipedia.org/wiki/Come_On,_Get_In",
-      "wikidata": "http://www.wikidata.org/entity/Q15913706",
-      "pageviews": {
-        "total": 332,
         "days": 30,
         "start": "2026-10-22",
         "end": "2026-11-20"
@@ -30791,20 +28356,6 @@
       }
     },
     {
-      "canonical": "sanmarinointheeurovisionsongcontest2014",
-      "display": "San Marino in the Eurovision Song Contest 2014",
-      "aliases": [],
-      "obscurity": 5,
-      "source": "https://en.wikipedia.org/wiki/Maybe_(Valentina_Monetta_song)",
-      "wikidata": "http://www.wikidata.org/entity/Q15936362",
-      "pageviews": {
-        "total": 151,
-        "days": 30,
-        "start": "2026-10-22",
-        "end": "2026-11-20"
-      }
-    },
-    {
       "canonical": "ireallydontwanttoknow",
       "display": "I Really Don't Want to Know",
       "aliases": [],
@@ -30813,6 +28364,2456 @@
       "wikidata": "http://www.wikidata.org/entity/Q5978763",
       "pageviews": {
         "total": 349,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "iseeyoubaby",
+      "display": "I See You Baby",
+      "aliases": [],
+      "obscurity": 4,
+      "source": "https://en.wikipedia.org/wiki/I_See_You_Baby",
+      "wikidata": "http://www.wikidata.org/entity/Q5978902",
+      "pageviews": {
+        "total": 1220,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "iseethelight",
+      "display": "I See the Light",
+      "aliases": [],
+      "obscurity": 3,
+      "source": "https://en.wikipedia.org/wiki/I_See_the_Light",
+      "wikidata": "http://www.wikidata.org/entity/Q5978909",
+      "pageviews": {
+        "total": 1677,
+        "days": 29,
+        "start": "2026-10-22",
+        "end": "2026-11-19"
+      }
+    },
+    {
+      "canonical": "itoldyousokarminsong",
+      "display": "I Told You So (Karmin song)",
+      "aliases": [],
+      "obscurity": 5,
+      "source": "https://en.wikipedia.org/wiki/I_Told_You_So_(Karmin_song)",
+      "wikidata": "http://www.wikidata.org/entity/Q5979221",
+      "pageviews": {
+        "total": 21,
+        "days": 28,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "iwannalive",
+      "display": "I Wanna Live",
+      "aliases": [],
+      "obscurity": 5,
+      "source": "https://en.wikipedia.org/wiki/I_Wanna_Live",
+      "wikidata": "http://www.wikidata.org/entity/Q5979394",
+      "pageviews": {
+        "total": 74,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "iwasheresong",
+      "display": "I Was Here (song)",
+      "aliases": [],
+      "obscurity": 4,
+      "source": "https://en.wikipedia.org/wiki/I_Was_Here_(song)",
+      "wikidata": "http://www.wikidata.org/entity/Q5979662",
+      "pageviews": {
+        "total": 804,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "iwillloveagain",
+      "display": "I Will Love Again",
+      "aliases": [],
+      "obscurity": 4,
+      "source": "https://en.wikipedia.org/wiki/I_Will_Love_Again",
+      "wikidata": "http://www.wikidata.org/entity/Q5979804",
+      "pageviews": {
+        "total": 449,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "iwishjodeemessinasong",
+      "display": "I Wish (Jo Dee Messina song)",
+      "aliases": [],
+      "obscurity": 5,
+      "source": "https://en.wikipedia.org/wiki/I_Wish_(Jo_Dee_Messina_song)",
+      "wikidata": "http://www.wikidata.org/entity/Q5979861",
+      "pageviews": {
+        "total": 35,
+        "days": 29,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "iwishshanicesong",
+      "display": "I Wish (Shanice song)",
+      "aliases": [],
+      "obscurity": 5,
+      "source": "https://en.wikipedia.org/wiki/I_Wish_(Shanice_song)",
+      "wikidata": "http://www.wikidata.org/entity/Q5979867",
+      "pageviews": {
+        "total": 62,
+        "days": 29,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "ifihadaheart",
+      "display": "If I Had a Heart",
+      "aliases": [],
+      "obscurity": 3,
+      "source": "https://en.wikipedia.org/wiki/If_I_Had_a_Heart",
+      "wikidata": "http://www.wikidata.org/entity/Q5990462",
+      "pageviews": {
+        "total": 1722,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "malditoamor",
+      "display": "Maldito amor",
+      "aliases": [],
+      "obscurity": 5,
+      "source": "https://en.wikipedia.org/wiki/Maldito_amor",
+      "wikidata": "http://www.wikidata.org/entity/Q5990519",
+      "pageviews": {
+        "total": 13,
+        "days": 21,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "iflookcouldkillheartsong",
+      "display": "If Looks Could Kill (Heart song)",
+      "aliases": [],
+      "obscurity": 4,
+      "source": "https://en.wikipedia.org/wiki/If_Looks_Could_Kill_(Heart_song)",
+      "wikidata": "http://www.wikidata.org/entity/Q5990613",
+      "pageviews": {
+        "total": 559,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "ifyoulovesomebodysetthemfree",
+      "display": "If You Love Somebody Set Them Free",
+      "aliases": [],
+      "obscurity": 4,
+      "source": "https://en.wikipedia.org/wiki/If_You_Love_Somebody_Set_Them_Free",
+      "wikidata": "http://www.wikidata.org/entity/Q5990957",
+      "pageviews": {
+        "total": 1144,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "ifyoureallywantto",
+      "display": "If You Really Want To",
+      "aliases": [],
+      "obscurity": 5,
+      "source": "https://en.wikipedia.org/wiki/If_You_Really_Want_To",
+      "wikidata": "http://www.wikidata.org/entity/Q5990983",
+      "pageviews": {
+        "total": 78,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "ilmeditquejesuisbelle",
+      "display": "Il me dit que je suis belle",
+      "aliases": [],
+      "obscurity": 5,
+      "source": "https://en.wikipedia.org/wiki/Il_me_dit_que_je_suis_belle",
+      "wikidata": "http://www.wikidata.org/entity/Q5996743",
+      "pageviews": {
+        "total": 64,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "ilnousfaut",
+      "display": "Il nous faut",
+      "aliases": [],
+      "obscurity": 5,
+      "source": "https://en.wikipedia.org/wiki/Il_nous_faut",
+      "wikidata": "http://www.wikidata.org/entity/Q5996758",
+      "pageviews": {
+        "total": 38,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "ilyatropdegenquitaiment",
+      "display": "Il y a trop de gens qui t'aiment",
+      "aliases": [],
+      "obscurity": 5,
+      "source": "https://en.wikipedia.org/wiki/Il_y_a_trop_de_gens_qui_t%27aiment",
+      "wikidata": "http://www.wikidata.org/entity/Q5996825",
+      "pageviews": {
+        "total": 49,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "imwagenvormir",
+      "display": "Im Wagen vor mir",
+      "aliases": [],
+      "obscurity": 5,
+      "source": "https://en.wikipedia.org/wiki/Im_Wagen_vor_mir",
+      "wikidata": "http://www.wikidata.org/entity/Q6001840",
+      "pageviews": {
+        "total": 48,
+        "days": 29,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "kedvesem",
+      "display": "Kedvesem",
+      "aliases": [],
+      "obscurity": 5,
+      "source": "https://en.wikipedia.org/wiki/Kedvesem",
+      "wikidata": "http://www.wikidata.org/entity/Q6002270",
+      "pageviews": {
+        "total": 108,
+        "days": 29,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "imaginationlatoyajacksonsong",
+      "display": "Imagination (La Toya Jackson song)",
+      "aliases": [],
+      "obscurity": 5,
+      "source": "https://en.wikipedia.org/wiki/Imagination_(La_Toya_Jackson_song)",
+      "wikidata": "http://www.wikidata.org/entity/Q6002574",
+      "pageviews": {
+        "total": 25,
+        "days": 27,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "masqueradekayasong",
+      "display": "Masquerade (Kaya song)",
+      "aliases": [],
+      "obscurity": 5,
+      "source": "https://en.wikipedia.org/wiki/Masquerade_(Kaya_song)",
+      "wikidata": "http://www.wikidata.org/entity/Q6005476",
+      "pageviews": {
+        "total": 12,
+        "days": 23,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "cambiodolor",
+      "display": "Cambio Dolor",
+      "aliases": [],
+      "obscurity": 4,
+      "source": "https://en.wikipedia.org/wiki/Cambio_Dolor",
+      "wikidata": "http://www.wikidata.org/entity/Q6007603",
+      "pageviews": {
+        "total": 317,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "whiteandblackblue",
+      "display": "White and Black Blues",
+      "aliases": [],
+      "obscurity": 5,
+      "source": "https://en.wikipedia.org/wiki/White_and_Black_Blues",
+      "wikidata": "http://www.wikidata.org/entity/Q7995558",
+      "pageviews": {
+        "total": 92,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "whobooty",
+      "display": "Who Booty",
+      "aliases": [],
+      "obscurity": 5,
+      "source": "https://en.wikipedia.org/wiki/Who_Booty",
+      "wikidata": "http://www.wikidata.org/entity/Q7997163",
+      "pageviews": {
+        "total": 121,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "whoiamblog27song",
+      "display": "Who I Am (Blog 27 song)",
+      "aliases": [],
+      "obscurity": 5,
+      "source": "https://en.wikipedia.org/wiki/Who_I_Am_(Blog_27_song)",
+      "wikidata": "http://www.wikidata.org/entity/Q7997257",
+      "pageviews": {
+        "total": 14,
+        "days": 25,
+        "start": "2026-10-23",
+        "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "whyeverybodyalwaypickinonme",
+      "display": "Why's Everybody Always Pickin' on Me?",
+      "aliases": [],
+      "obscurity": 4,
+      "source": "https://en.wikipedia.org/wiki/Why%27s_Everybody_Always_Pickin%27_on_Me%3F",
+      "wikidata": "http://www.wikidata.org/entity/Q7997693",
+      "pageviews": {
+        "total": 422,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "whycarlysimonsong",
+      "display": "Why (Carly Simon song)",
+      "aliases": [],
+      "obscurity": 4,
+      "source": "https://en.wikipedia.org/wiki/Why_(Carly_Simon_song)",
+      "wikidata": "http://www.wikidata.org/entity/Q7997703",
+      "pageviews": {
+        "total": 1116,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "whyandygibbsong",
+      "display": "Why (Andy Gibb song)",
+      "aliases": [],
+      "obscurity": 5,
+      "source": "https://en.wikipedia.org/wiki/Why_(Andy_Gibb_song)",
+      "wikidata": "http://www.wikidata.org/entity/Q7997700",
+      "pageviews": {
+        "total": 115,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "whyrascalflattsong",
+      "display": "Why (Rascal Flatts song)",
+      "aliases": [],
+      "obscurity": 5,
+      "source": "https://en.wikipedia.org/wiki/Why_(Rascal_Flatts_song)",
+      "wikidata": "http://www.wikidata.org/entity/Q7997712",
+      "pageviews": {
+        "total": 122,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "whysoniquesong",
+      "display": "Why (Sonique song)",
+      "aliases": [],
+      "obscurity": 5,
+      "source": "https://en.wikipedia.org/wiki/Why_(Sonique_song)",
+      "wikidata": "http://www.wikidata.org/entity/Q7997713",
+      "pageviews": {
+        "total": 19,
+        "days": 26,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "wightiswight",
+      "display": "Wight Is Wight",
+      "aliases": [],
+      "obscurity": 5,
+      "source": "https://en.wikipedia.org/wiki/Wight_Is_Wight",
+      "wikidata": "http://www.wikidata.org/entity/Q7999646",
+      "pageviews": {
+        "total": 169,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "wishyouwereherebarbaramandrellsong",
+      "display": "Wish You Were Here (Barbara Mandrell song)",
+      "aliases": [],
+      "obscurity": 5,
+      "source": "https://en.wikipedia.org/wiki/Wish_You_Were_Here_(Barbara_Mandrell_song)",
+      "wikidata": "http://www.wikidata.org/entity/Q8027555",
+      "pageviews": {
+        "total": 54,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "wishingonastar",
+      "display": "Wishing on a Star",
+      "aliases": [],
+      "obscurity": 3,
+      "source": "https://en.wikipedia.org/wiki/Wishing_on_a_Star",
+      "wikidata": "http://www.wikidata.org/entity/Q8027629",
+      "pageviews": {
+        "total": 2854,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "withlovetamtasong",
+      "display": "With Love (Tamta song)",
+      "aliases": [],
+      "obscurity": 5,
+      "source": "https://en.wikipedia.org/wiki/With_Love_(Tamta_song)",
+      "wikidata": "http://www.wikidata.org/entity/Q8028014",
+      "pageviews": {
+        "total": 21,
+        "days": 25,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "withoutyoubrookefrasersong",
+      "display": "Without You (Brooke Fraser song)",
+      "aliases": [],
+      "obscurity": 5,
+      "source": "https://en.wikipedia.org/wiki/Without_You_(Brooke_Fraser_song)",
+      "wikidata": "http://www.wikidata.org/entity/Q8028254",
+      "pageviews": {
+        "total": 14,
+        "days": 25,
+        "start": "2026-10-23",
+        "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "withoutyoudixiechicksong",
+      "display": "Without You (Dixie Chicks song)",
+      "aliases": [],
+      "obscurity": 5,
+      "source": "https://en.wikipedia.org/wiki/Without_You_(Dixie_Chicks_song)",
+      "wikidata": "http://www.wikidata.org/entity/Q8028255",
+      "pageviews": {
+        "total": 229,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "withoutyoudebbiegibsonsong",
+      "display": "Without You (Debbie Gibson song)",
+      "aliases": [],
+      "obscurity": 5,
+      "source": "https://en.wikipedia.org/wiki/Without_You_(Debbie_Gibson_song)",
+      "wikidata": "http://www.wikidata.org/entity/Q8028253",
+      "pageviews": {
+        "total": 234,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "withoutyougeorgelamondsong",
+      "display": "Without You (George Lamond song)",
+      "aliases": [],
+      "obscurity": 5,
+      "source": "https://en.wikipedia.org/wiki/Without_You_(George_Lamond_song)",
+      "wikidata": "http://www.wikidata.org/entity/Q8028259",
+      "pageviews": {
+        "total": 23,
+        "days": 24,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "withoutyouempireofthesunsong",
+      "display": "Without You (Empire of the Sun song)",
+      "aliases": [],
+      "obscurity": 5,
+      "source": "https://en.wikipedia.org/wiki/Without_You_(Empire_of_the_Sun_song)",
+      "wikidata": "http://www.wikidata.org/entity/Q8028256",
+      "pageviews": {
+        "total": 106,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "withoutyouelpresidentesong",
+      "display": "Without You (El Presidente song)",
+      "aliases": [],
+      "obscurity": 5,
+      "source": "https://en.wikipedia.org/wiki/Without_You_(El_Presidente_song)",
+      "wikidata": "http://www.wikidata.org/entity/Q8028257",
+      "pageviews": {
+        "total": 20,
+        "days": 26,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "withoutyoukeithurbansong",
+      "display": "Without You (Keith Urban song)",
+      "aliases": [],
+      "obscurity": 5,
+      "source": "https://en.wikipedia.org/wiki/Without_You_(Keith_Urban_song)",
+      "wikidata": "http://www.wikidata.org/entity/Q8028262",
+      "pageviews": {
+        "total": 89,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "withoutyoujyongrisong",
+      "display": "Without You (Jyongri song)",
+      "aliases": [],
+      "obscurity": 5,
+      "source": "https://en.wikipedia.org/wiki/Without_You_(Jyongri_song)",
+      "wikidata": "http://www.wikidata.org/entity/Q8028260",
+      "pageviews": {
+        "total": 4,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "withoutyouvanhalensong",
+      "display": "Without You (Van Halen song)",
+      "aliases": [],
+      "obscurity": 4,
+      "source": "https://en.wikipedia.org/wiki/Without_You_(Van_Halen_song)",
+      "wikidata": "http://www.wikidata.org/entity/Q8028267",
+      "pageviews": {
+        "total": 525,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "withoutyoumotleycruesong",
+      "display": "Without You (Mötley Crüe song)",
+      "aliases": [],
+      "obscurity": 4,
+      "source": "https://en.wikipedia.org/wiki/Without_You_(M%C3%B6tley_Cr%C3%BCe_song)",
+      "wikidata": "http://www.wikidata.org/entity/Q8028264",
+      "pageviews": {
+        "total": 618,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "withoutyouthefeelingsong",
+      "display": "Without You (The Feeling song)",
+      "aliases": [],
+      "obscurity": 5,
+      "source": "https://en.wikipedia.org/wiki/Without_You_(The_Feeling_song)",
+      "wikidata": "http://www.wikidata.org/entity/Q8028265",
+      "pageviews": {
+        "total": 44,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "womanpaulmccartneysong",
+      "display": "Woman (Paul McCartney song)",
+      "aliases": [],
+      "obscurity": 4,
+      "source": "https://en.wikipedia.org/wiki/Woman_(Paul_McCartney_song)",
+      "wikidata": "http://www.wikidata.org/entity/Q8030676",
+      "pageviews": {
+        "total": 1082,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "womantowomanshirleybrownsong",
+      "display": "Woman to Woman (Shirley Brown song)",
+      "aliases": [],
+      "obscurity": 4,
+      "source": "https://en.wikipedia.org/wiki/Woman_to_Woman_(Shirley_Brown_song)",
+      "wikidata": "http://www.wikidata.org/entity/Q8030755",
+      "pageviews": {
+        "total": 610,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "womantowomanbeverleycravensong",
+      "display": "Woman to Woman (Beverley Craven song)",
+      "aliases": [],
+      "obscurity": 5,
+      "source": "https://en.wikipedia.org/wiki/Woman_to_Woman_(Beverley_Craven_song)",
+      "wikidata": "http://www.wikidata.org/entity/Q8030752",
+      "pageviews": {
+        "total": 46,
+        "days": 27,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "womanforeignersong",
+      "display": "Women (Foreigner song)",
+      "aliases": [],
+      "obscurity": 5,
+      "source": "https://en.wikipedia.org/wiki/Women_(Foreigner_song)",
+      "wikidata": "http://www.wikidata.org/entity/Q8031302",
+      "pageviews": {
+        "total": 218,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "womanamandalearsong",
+      "display": "Women (Amanda Lear song)",
+      "aliases": [],
+      "obscurity": 5,
+      "source": "https://en.wikipedia.org/wiki/Women_(Amanda_Lear_song)",
+      "wikidata": "http://www.wikidata.org/entity/Q8031300",
+      "pageviews": {
+        "total": 17,
+        "days": 26,
+        "start": "2026-10-22",
+        "end": "2026-11-19"
+      }
+    },
+    {
+      "canonical": "wonderwomannamieamurosong",
+      "display": "Wonder Woman (Namie Amuro song)",
+      "aliases": [],
+      "obscurity": 5,
+      "source": "https://en.wikipedia.org/wiki/Wonder_Woman_(Namie_Amuro_song)",
+      "wikidata": "http://www.wikidata.org/entity/Q8031781",
+      "pageviews": {
+        "total": 68,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "wonderlandheidiklumsong",
+      "display": "Wonderland (Heidi Klum song)",
+      "aliases": [],
+      "obscurity": 5,
+      "source": "https://en.wikipedia.org/wiki/Wonderland_(Heidi_Klum_song)",
+      "wikidata": "http://www.wikidata.org/entity/Q8031877",
+      "pageviews": {
+        "total": 65,
+        "days": 29,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "wonderlandxtcsong",
+      "display": "Wonderland (XTC song)",
+      "aliases": [],
+      "obscurity": 5,
+      "source": "https://en.wikipedia.org/wiki/Wonderland_(XTC_song)",
+      "wikidata": "http://www.wikidata.org/entity/Q8031884",
+      "pageviews": {
+        "total": 74,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "wordandmusicsong",
+      "display": "Words and Music (song)",
+      "aliases": [],
+      "obscurity": 5,
+      "source": "https://en.wikipedia.org/wiki/Words_and_Music_(song)",
+      "wikidata": "http://www.wikidata.org/entity/Q8034453",
+      "pageviews": {
+        "total": 121,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "wouldilietoyoueurythmicsong",
+      "display": "Would I Lie to You? (Eurythmics song)",
+      "aliases": [],
+      "obscurity": 4,
+      "source": "https://en.wikipedia.org/wiki/Would_I_Lie_to_You%3F_(Eurythmics_song)",
+      "wikidata": "http://www.wikidata.org/entity/Q8037349",
+      "pageviews": {
+        "total": 1217,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "wouldnitimastar",
+      "display": "Wouldnit (I'm a Star)",
+      "aliases": [],
+      "obscurity": 5,
+      "source": "https://en.wikipedia.org/wiki/Wouldnit_(I%27m_a_Star)",
+      "wikidata": "http://www.wikidata.org/entity/Q8037378",
+      "pageviews": {
+        "total": 22,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "wrongsideofmemphis",
+      "display": "Wrong Side of Memphis",
+      "aliases": [],
+      "obscurity": 5,
+      "source": "https://en.wikipedia.org/wiki/Wrong_Side_of_Memphis",
+      "wikidata": "http://www.wikidata.org/entity/Q8038624",
+      "pageviews": {
+        "total": 96,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "xxxandoooanamericangirl",
+      "display": "XXX's and OOO's (An American Girl)",
+      "aliases": [],
+      "obscurity": 3,
+      "source": "https://en.wikipedia.org/wiki/XXX%27s_and_OOO%27s_(An_American_Girl)",
+      "wikidata": "http://www.wikidata.org/entity/Q8042614",
+      "pageviews": {
+        "total": 2104,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "ytodoquedaennada",
+      "display": "Y Todo Queda en Nada",
+      "aliases": [],
+      "obscurity": 5,
+      "source": "https://en.wikipedia.org/wiki/Y_Todo_Queda_en_Nada",
+      "wikidata": "http://www.wikidata.org/entity/Q8046182",
+      "pageviews": {
+        "total": 48,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "yeahyaknowtaker",
+      "display": "Yeah Ya Know (Takers)",
+      "aliases": [],
+      "obscurity": 5,
+      "source": "https://en.wikipedia.org/wiki/Yeah_Ya_Know_(Takers)",
+      "wikidata": "http://www.wikidata.org/entity/Q8050818",
+      "pageviews": {
+        "total": 109,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "wordofmouthsong",
+      "display": "Word of Mouth (song)",
+      "aliases": [],
+      "obscurity": 5,
+      "source": "https://en.wikipedia.org/wiki/Word_of_Mouth_(song)",
+      "wikidata": "http://www.wikidata.org/entity/Q8034347",
+      "pageviews": {
+        "total": 259,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "whatshecamefor",
+      "display": "What She Came For",
+      "aliases": [],
+      "obscurity": 5,
+      "source": "https://en.wikipedia.org/wiki/What_She_Came_For",
+      "wikidata": "http://www.wikidata.org/entity/Q1219220",
+      "pageviews": {
+        "total": 65,
+        "days": 29,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "whathurtthemost",
+      "display": "What Hurts the Most",
+      "aliases": [],
+      "obscurity": 3,
+      "source": "https://en.wikipedia.org/wiki/What_Hurts_the_Most",
+      "wikidata": "http://www.wikidata.org/entity/Q1223680",
+      "pageviews": {
+        "total": 2047,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "doyoureallywanttohurtme",
+      "display": "Do You Really Want to Hurt Me",
+      "aliases": [],
+      "obscurity": 3,
+      "source": "https://en.wikipedia.org/wiki/Do_You_Really_Want_to_Hurt_Me",
+      "wikidata": "http://www.wikidata.org/entity/Q1233068",
+      "pageviews": {
+        "total": 5159,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "donttakeyourguntotown",
+      "display": "Don't Take Your Guns to Town",
+      "aliases": [],
+      "obscurity": 4,
+      "source": "https://en.wikipedia.org/wiki/Don%27t_Take_Your_Guns_to_Town",
+      "wikidata": "http://www.wikidata.org/entity/Q1242333",
+      "pageviews": {
+        "total": 577,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "queseradeti",
+      "display": "Qué será de ti",
+      "aliases": [],
+      "obscurity": 5,
+      "source": "https://en.wikipedia.org/wiki/Qu%C3%A9_ser%C3%A1_de_ti",
+      "wikidata": "http://www.wikidata.org/entity/Q1243902",
+      "pageviews": {
+        "total": 96,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "lamadraguesong",
+      "display": "La Madrague (song)",
+      "aliases": [],
+      "obscurity": 4,
+      "source": "https://en.wikipedia.org/wiki/La_Madrague_(song)",
+      "wikidata": "http://www.wikidata.org/entity/Q1244169",
+      "pageviews": {
+        "total": 310,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "revolutiontheveronicasong",
+      "display": "Revolution (The Veronicas song)",
+      "aliases": [],
+      "obscurity": 5,
+      "source": "https://en.wikipedia.org/wiki/Revolution_(The_Veronicas_song)",
+      "wikidata": "http://www.wikidata.org/entity/Q1248666",
+      "pageviews": {
+        "total": 66,
+        "days": 28,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "deineschuld",
+      "display": "Deine Schuld",
+      "aliases": [],
+      "obscurity": 5,
+      "source": "https://en.wikipedia.org/wiki/Deine_Schuld",
+      "wikidata": "http://www.wikidata.org/entity/Q1249275",
+      "pageviews": {
+        "total": 41,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "godgonnacutyoudown",
+      "display": "God's Gonna Cut You Down",
+      "aliases": [],
+      "obscurity": 3,
+      "source": "https://en.wikipedia.org/wiki/God%27s_Gonna_Cut_You_Down",
+      "wikidata": "http://www.wikidata.org/entity/Q1251761",
+      "pageviews": {
+        "total": 4309,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "furdichsong",
+      "display": "Für dich (song)",
+      "aliases": [],
+      "obscurity": 5,
+      "source": "https://en.wikipedia.org/wiki/F%C3%BCr_dich_(song)",
+      "wikidata": "http://www.wikidata.org/entity/Q1258825",
+      "pageviews": {
+        "total": 69,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "schreinachliebe",
+      "display": "Schrei nach Liebe",
+      "aliases": [],
+      "obscurity": 5,
+      "source": "https://en.wikipedia.org/wiki/Schrei_nach_Liebe",
+      "wikidata": "http://www.wikidata.org/entity/Q1287050",
+      "pageviews": {
+        "total": 224,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "shakelittlebootsong",
+      "display": "Shake (Little Boots song)",
+      "aliases": [],
+      "obscurity": 5,
+      "source": "https://en.wikipedia.org/wiki/Shake_(Little_Boots_song)",
+      "wikidata": "http://www.wikidata.org/entity/Q1287479",
+      "pageviews": {
+        "total": 27,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "voicealiceinchainsong",
+      "display": "Voices (Alice in Chains song)",
+      "aliases": [],
+      "obscurity": 5,
+      "source": "https://en.wikipedia.org/wiki/Voices_(Alice_in_Chains_song)",
+      "wikidata": "http://www.wikidata.org/entity/Q15620258",
+      "pageviews": {
+        "total": 221,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "locoenriqueiglesiasong",
+      "display": "Loco (Enrique Iglesias song)",
+      "aliases": [],
+      "obscurity": 5,
+      "source": "https://en.wikipedia.org/wiki/Loco_(Enrique_Iglesias_song)",
+      "wikidata": "http://www.wikidata.org/entity/Q15621329",
+      "pageviews": {
+        "total": 211,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "justanothergirlthekillersong",
+      "display": "Just Another Girl (The Killers song)",
+      "aliases": [],
+      "obscurity": 4,
+      "source": "https://en.wikipedia.org/wiki/Just_Another_Girl_(The_Killers_song)",
+      "wikidata": "http://www.wikidata.org/entity/Q15621667",
+      "pageviews": {
+        "total": 522,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "christmainla",
+      "display": "Christmas in L.A.",
+      "aliases": [],
+      "obscurity": 5,
+      "source": "https://en.wikipedia.org/wiki/Christmas_in_L.A.",
+      "wikidata": "http://www.wikidata.org/entity/Q15622024",
+      "pageviews": {
+        "total": 266,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "intothebluekylieminoguesong",
+      "display": "Into the Blue (Kylie Minogue song)",
+      "aliases": [],
+      "obscurity": 4,
+      "source": "https://en.wikipedia.org/wiki/Into_the_Blue_(Kylie_Minogue_song)",
+      "wikidata": "http://www.wikidata.org/entity/Q15622115",
+      "pageviews": {
+        "total": 449,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "airballoonsong",
+      "display": "Air Balloon (song)",
+      "aliases": [],
+      "obscurity": 5,
+      "source": "https://en.wikipedia.org/wiki/Air_Balloon_(song)",
+      "wikidata": "http://www.wikidata.org/entity/Q15623768",
+      "pageviews": {
+        "total": 281,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "lamammasong",
+      "display": "La mamma (song)",
+      "aliases": [],
+      "obscurity": 5,
+      "source": "https://en.wikipedia.org/wiki/La_mamma_(song)",
+      "wikidata": "http://www.wikidata.org/entity/Q15627594",
+      "pageviews": {
+        "total": 186,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "midnightmemorysong",
+      "display": "Midnight Memories (song)",
+      "aliases": [],
+      "obscurity": 4,
+      "source": "https://en.wikipedia.org/wiki/Midnight_Memories_(song)",
+      "wikidata": "http://www.wikidata.org/entity/Q15628579",
+      "pageviews": {
+        "total": 482,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "allbad",
+      "display": "All Bad",
+      "aliases": [],
+      "obscurity": 5,
+      "source": "https://en.wikipedia.org/wiki/All_Bad",
+      "wikidata": "http://www.wikidata.org/entity/Q15630170",
+      "pageviews": {
+        "total": 244,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "slumvillesunrise",
+      "display": "Slumville Sunrise",
+      "aliases": [],
+      "obscurity": 5,
+      "source": "https://en.wikipedia.org/wiki/Slumville_Sunrise",
+      "wikidata": "http://www.wikidata.org/entity/Q15633250",
+      "pageviews": {
+        "total": 43,
+        "days": 28,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "elperdedorenriqueiglesiasong",
+      "display": "El Perdedor (Enrique Iglesias song)",
+      "aliases": [],
+      "obscurity": 5,
+      "source": "https://en.wikipedia.org/wiki/El_Perdedor_(Enrique_Iglesias_song)",
+      "wikidata": "http://www.wikidata.org/entity/Q15634480",
+      "pageviews": {
+        "total": 218,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "dernieredanse",
+      "display": "Dernière danse",
+      "aliases": [],
+      "obscurity": 3,
+      "source": "https://en.wikipedia.org/wiki/Derni%C3%A8re_danse",
+      "wikidata": "http://www.wikidata.org/entity/Q15640702",
+      "pageviews": {
+        "total": 3206,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "endofthelinetravelingwilburysong",
+      "display": "End of the Line (Traveling Wilburys song)",
+      "aliases": [],
+      "obscurity": 3,
+      "source": "https://en.wikipedia.org/wiki/End_of_the_Line_(Traveling_Wilburys_song)",
+      "wikidata": "http://www.wikidata.org/entity/Q3443475",
+      "pageviews": {
+        "total": 4873,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "aestheticofhate",
+      "display": "Aesthetics of Hate",
+      "aliases": [],
+      "obscurity": 4,
+      "source": "https://en.wikipedia.org/wiki/Aesthetics_of_Hate",
+      "wikidata": "http://www.wikidata.org/entity/Q3444278",
+      "pageviews": {
+        "total": 608,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "releasemeohlaurasong",
+      "display": "Release Me (Oh Laura song)",
+      "aliases": [],
+      "obscurity": 5,
+      "source": "https://en.wikipedia.org/wiki/Release_Me_(Oh_Laura_song)",
+      "wikidata": "http://www.wikidata.org/entity/Q3444608",
+      "pageviews": {
+        "total": 111,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "escapeenriqueiglesiasong",
+      "display": "Escape (Enrique Iglesias song)",
+      "aliases": [],
+      "obscurity": 3,
+      "source": "https://en.wikipedia.org/wiki/Escape_(Enrique_Iglesias_song)",
+      "wikidata": "http://www.wikidata.org/entity/Q3457859",
+      "pageviews": {
+        "total": 1540,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "resiste",
+      "display": "Résiste",
+      "aliases": [],
+      "obscurity": 5,
+      "source": "https://en.wikipedia.org/wiki/R%C3%A9siste",
+      "wikidata": "http://www.wikidata.org/entity/Q3457848",
+      "pageviews": {
+        "total": 120,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "sagaafrica",
+      "display": "Saga Africa",
+      "aliases": [],
+      "obscurity": 5,
+      "source": "https://en.wikipedia.org/wiki/Saga_Africa",
+      "wikidata": "http://www.wikidata.org/entity/Q3461316",
+      "pageviews": {
+        "total": 81,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "heroeuropesong",
+      "display": "Hero (Europe song)",
+      "aliases": [],
+      "obscurity": 5,
+      "source": "https://en.wikipedia.org/wiki/Hero_(Europe_song)",
+      "wikidata": "http://www.wikidata.org/entity/Q3463157",
+      "pageviews": {
+        "total": 68,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "sanoulariviere",
+      "display": "San ou (La Rivière)",
+      "aliases": [],
+      "obscurity": 5,
+      "source": "https://en.wikipedia.org/wiki/San_ou_(La_Rivi%C3%A8re)",
+      "wikidata": "http://www.wikidata.org/entity/Q3471652",
+      "pageviews": {
+        "total": 67,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "sauverlamour",
+      "display": "Sauver l'amour",
+      "aliases": [],
+      "obscurity": 5,
+      "source": "https://en.wikipedia.org/wiki/Sauver_l%27amour",
+      "wikidata": "http://www.wikidata.org/entity/Q3474373",
+      "pageviews": {
+        "total": 40,
+        "days": 29,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "savemeshinedownsong",
+      "display": "Save Me (Shinedown song)",
+      "aliases": [],
+      "obscurity": 4,
+      "source": "https://en.wikipedia.org/wiki/Save_Me_(Shinedown_song)",
+      "wikidata": "http://www.wikidata.org/entity/Q3474510",
+      "pageviews": {
+        "total": 318,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "sheltermesong",
+      "display": "Shelter Me (song)",
+      "aliases": [],
+      "obscurity": 5,
+      "source": "https://en.wikipedia.org/wiki/Shelter_Me_(song)",
+      "wikidata": "http://www.wikidata.org/entity/Q3481857",
+      "pageviews": {
+        "total": 180,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "shineonshineallyoursweetloveonme",
+      "display": "Shine On (Shine All Your Sweet Love on Me)",
+      "aliases": [],
+      "obscurity": 5,
+      "source": "https://en.wikipedia.org/wiki/Shine_On_(Shine_All_Your_Sweet_Love_on_Me)",
+      "wikidata": "http://www.wikidata.org/entity/Q3482181",
+      "pageviews": {
+        "total": 24,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "siseulementjepouvaisluimanquer",
+      "display": "Si seulement je pouvais lui manquer",
+      "aliases": [],
+      "obscurity": 5,
+      "source": "https://en.wikipedia.org/wiki/Si_seulement_je_pouvais_lui_manquer",
+      "wikidata": "http://www.wikidata.org/entity/Q3482859",
+      "pageviews": {
+        "total": 21,
+        "days": 29,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "simplesongtheshinsong",
+      "display": "Simple Song (The Shins song)",
+      "aliases": [],
+      "obscurity": 4,
+      "source": "https://en.wikipedia.org/wiki/Simple_Song_(The_Shins_song)",
+      "wikidata": "http://www.wikidata.org/entity/Q3484699",
+      "pageviews": {
+        "total": 549,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "slippingawaymobysong",
+      "display": "Slipping Away (Moby song)",
+      "aliases": [],
+      "obscurity": 5,
+      "source": "https://en.wikipedia.org/wiki/Slipping_Away_(Moby_song)",
+      "wikidata": "http://www.wikidata.org/entity/Q3486719",
+      "pageviews": {
+        "total": 269,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "somethingaboutusdaftpunksong",
+      "display": "Something About Us (Daft Punk song)",
+      "aliases": [],
+      "obscurity": 4,
+      "source": "https://en.wikipedia.org/wiki/Something_About_Us_(Daft_Punk_song)",
+      "wikidata": "http://www.wikidata.org/entity/Q3489819",
+      "pageviews": {
+        "total": 1456,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "dreamthegamesong",
+      "display": "Dreams (The Game song)",
+      "aliases": [],
+      "obscurity": 4,
+      "source": "https://en.wikipedia.org/wiki/Dreams_(The_Game_song)",
+      "wikidata": "http://www.wikidata.org/entity/Q3494521",
+      "pageviews": {
+        "total": 822,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "lottalove",
+      "display": "Lotta Love",
+      "aliases": [],
+      "obscurity": 3,
+      "source": "https://en.wikipedia.org/wiki/Lotta_Love",
+      "wikidata": "http://www.wikidata.org/entity/Q5653875",
+      "pageviews": {
+        "total": 2275,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "cancaodomar",
+      "display": "Canção do Mar",
+      "aliases": [],
+      "obscurity": 4,
+      "source": "https://en.wikipedia.org/wiki/Can%C3%A7%C3%A3o_do_Mar",
+      "wikidata": "http://www.wikidata.org/entity/Q5656854",
+      "pageviews": {
+        "total": 454,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "hastalavistamcsolaarsong",
+      "display": "Hasta la Vista (MC Solaar song)",
+      "aliases": [],
+      "obscurity": 5,
+      "source": "https://en.wikipedia.org/wiki/Hasta_la_Vista_(MC_Solaar_song)",
+      "wikidata": "http://www.wikidata.org/entity/Q5680134",
+      "pageviews": {
+        "total": 72,
+        "days": 29,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "haveigotadealforyousong",
+      "display": "Have I Got a Deal for You (song)",
+      "aliases": [],
+      "obscurity": 5,
+      "source": "https://en.wikipedia.org/wiki/Have_I_Got_a_Deal_for_You_(song)",
+      "wikidata": "http://www.wikidata.org/entity/Q5683237",
+      "pageviews": {
+        "total": 34,
+        "days": 29,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "haveaparty",
+      "display": "Have a Party",
+      "aliases": [],
+      "obscurity": 4,
+      "source": "https://en.wikipedia.org/wiki/Have_a_Party",
+      "wikidata": "http://www.wikidata.org/entity/Q5683498",
+      "pageviews": {
+        "total": 319,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "heliveinyou",
+      "display": "He Lives in You",
+      "aliases": [],
+      "obscurity": 4,
+      "source": "https://en.wikipedia.org/wiki/He_Lives_in_You",
+      "wikidata": "http://www.wikidata.org/entity/Q5688852",
+      "pageviews": {
+        "total": 843,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "hewar",
+      "display": "He War",
+      "aliases": [],
+      "obscurity": 5,
+      "source": "https://en.wikipedia.org/wiki/He_War",
+      "wikidata": "http://www.wikidata.org/entity/Q5688967",
+      "pageviews": {
+        "total": 125,
+        "days": 29,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "hearthalfempty",
+      "display": "Heart Half Empty",
+      "aliases": [],
+      "obscurity": 5,
+      "source": "https://en.wikipedia.org/wiki/Heart_Half_Empty",
+      "wikidata": "http://www.wikidata.org/entity/Q5691988",
+      "pageviews": {
+        "total": 40,
+        "days": 28,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "heavenloslonelyboysong",
+      "display": "Heaven (Los Lonely Boys song)",
+      "aliases": [],
+      "obscurity": 4,
+      "source": "https://en.wikipedia.org/wiki/Heaven_(Los_Lonely_Boys_song)",
+      "wikidata": "http://www.wikidata.org/entity/Q5694583",
+      "pageviews": {
+        "total": 1390,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "heavenlivesong",
+      "display": "Heaven (Live song)",
+      "aliases": [],
+      "obscurity": 5,
+      "source": "https://en.wikipedia.org/wiki/Heaven_(Live_song)",
+      "wikidata": "http://www.wikidata.org/entity/Q5694581",
+      "pageviews": {
+        "total": 163,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "heavenninagiradosong",
+      "display": "Heaven (Nina Girado song)",
+      "aliases": [],
+      "obscurity": 5,
+      "source": "https://en.wikipedia.org/wiki/Heaven_(Nina_Girado_song)",
+      "wikidata": "http://www.wikidata.org/entity/Q5694592",
+      "pageviews": {
+        "total": 22,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "heavenwarrantsong",
+      "display": "Heaven (Warrant song)",
+      "aliases": [],
+      "obscurity": 4,
+      "source": "https://en.wikipedia.org/wiki/Heaven_(Warrant_song)",
+      "wikidata": "http://www.wikidata.org/entity/Q5694623",
+      "pageviews": {
+        "total": 1310,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "hellothecatempiresong",
+      "display": "Hello (The Cat Empire song)",
+      "aliases": [],
+      "obscurity": 5,
+      "source": "https://en.wikipedia.org/wiki/Hello_(The_Cat_Empire_song)",
+      "wikidata": "http://www.wikidata.org/entity/Q5708583",
+      "pageviews": {
+        "total": 128,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "helpimalive",
+      "display": "Help I'm Alive",
+      "aliases": [],
+      "obscurity": 4,
+      "source": "https://en.wikipedia.org/wiki/Help_I%27m_Alive",
+      "wikidata": "http://www.wikidata.org/entity/Q5710044",
+      "pageviews": {
+        "total": 1361,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "herecomethenightthebeachboysong",
+      "display": "Here Comes the Night (The Beach Boys song)",
+      "aliases": [],
+      "obscurity": 4,
+      "source": "https://en.wikipedia.org/wiki/Here_Comes_the_Night_(The_Beach_Boys_song)",
+      "wikidata": "http://www.wikidata.org/entity/Q5737239",
+      "pageviews": {
+        "total": 453,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "hereandnowluthervandrosssong",
+      "display": "Here and Now (Luther Vandross song)",
+      "aliases": [],
+      "obscurity": 4,
+      "source": "https://en.wikipedia.org/wiki/Here_and_Now_(Luther_Vandross_song)",
+      "wikidata": "http://www.wikidata.org/entity/Q5737618",
+      "pageviews": {
+        "total": 912,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "hereandnowseethersong",
+      "display": "Here and Now (Seether song)",
+      "aliases": [],
+      "obscurity": 5,
+      "source": "https://en.wikipedia.org/wiki/Here_and_Now_(Seether_song)",
+      "wikidata": "http://www.wikidata.org/entity/Q5737620",
+      "pageviews": {
+        "total": 59,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "herodavidcrosbysong",
+      "display": "Hero (David Crosby song)",
+      "aliases": [],
+      "obscurity": 4,
+      "source": "https://en.wikipedia.org/wiki/Hero_(David_Crosby_song)",
+      "wikidata": "http://www.wikidata.org/entity/Q5742591",
+      "pageviews": {
+        "total": 446,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "sunshineryeryesong",
+      "display": "Sunshine (Rye Rye song)",
+      "aliases": [],
+      "obscurity": 5,
+      "source": "https://en.wikipedia.org/wiki/Sunshine_(Rye_Rye_song)",
+      "wikidata": "http://www.wikidata.org/entity/Q7641424",
+      "pageviews": {
+        "total": 35,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "sunshinetwistasong",
+      "display": "Sunshine (Twista song)",
+      "aliases": [],
+      "obscurity": 5,
+      "source": "https://en.wikipedia.org/wiki/Sunshine_(Twista_song)",
+      "wikidata": "http://www.wikidata.org/entity/Q7641425",
+      "pageviews": {
+        "total": 265,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "sunshineandsummertime",
+      "display": "Sunshine and Summertime",
+      "aliases": [],
+      "obscurity": 5,
+      "source": "https://en.wikipedia.org/wiki/Sunshine_and_Summertime",
+      "wikidata": "http://www.wikidata.org/entity/Q7641597",
+      "pageviews": {
+        "total": 85,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "super123",
+      "display": "Super (1, 2, 3)",
+      "aliases": [],
+      "obscurity": 5,
+      "source": "https://en.wikipedia.org/wiki/Super_(1,_2,_3)",
+      "wikidata": "http://www.wikidata.org/entity/Q7642088",
+      "pageviews": {
+        "total": 135,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "supermandonnafargosong",
+      "display": "Superman (Donna Fargo song)",
+      "aliases": [],
+      "obscurity": 5,
+      "source": "https://en.wikipedia.org/wiki/Superman_(Donna_Fargo_song)",
+      "wikidata": "http://www.wikidata.org/entity/Q7643823",
+      "pageviews": {
+        "total": 74,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "supermanstereophonicsong",
+      "display": "Superman (Stereophonics song)",
+      "aliases": [],
+      "obscurity": 5,
+      "source": "https://en.wikipedia.org/wiki/Superman_(Stereophonics_song)",
+      "wikidata": "http://www.wikidata.org/entity/Q7643828",
+      "pageviews": {
+        "total": 123,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "surrendercheaptricksong",
+      "display": "Surrender (Cheap Trick song)",
+      "aliases": [],
+      "obscurity": 3,
+      "source": "https://en.wikipedia.org/wiki/Surrender_(Cheap_Trick_song)",
+      "wikidata": "http://www.wikidata.org/entity/Q7646671",
+      "pageviews": {
+        "total": 4060,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "surrenderdianarosssong",
+      "display": "Surrender (Diana Ross song)",
+      "aliases": [],
+      "obscurity": 5,
+      "source": "https://en.wikipedia.org/wiki/Surrender_(Diana_Ross_song)",
+      "wikidata": "http://www.wikidata.org/entity/Q7646673",
+      "pageviews": {
+        "total": 177,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "surrenderswingoutsistersong",
+      "display": "Surrender (Swing Out Sister song)",
+      "aliases": [],
+      "obscurity": 5,
+      "source": "https://en.wikipedia.org/wiki/Surrender_(Swing_Out_Sister_song)",
+      "wikidata": "http://www.wikidata.org/entity/Q7646686",
+      "pageviews": {
+        "total": 272,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "surrenderthecollectivesong",
+      "display": "Surrender (The Collective song)",
+      "aliases": [],
+      "obscurity": 5,
+      "source": "https://en.wikipedia.org/wiki/Surrender_(The_Collective_song)",
+      "wikidata": "http://www.wikidata.org/entity/Q7646688",
+      "pageviews": {
+        "total": 21,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "surrenderyourlove",
+      "display": "Surrender (Your Love)",
+      "aliases": [],
+      "obscurity": 5,
+      "source": "https://en.wikipedia.org/wiki/Surrender_(Your_Love)",
+      "wikidata": "http://www.wikidata.org/entity/Q7646689",
+      "pageviews": {
+        "total": 103,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "sweetmusicman",
+      "display": "Sweet Music Man",
+      "aliases": [],
+      "obscurity": 4,
+      "source": "https://en.wikipedia.org/wiki/Sweet_Music_Man",
+      "wikidata": "http://www.wikidata.org/entity/Q7655428",
+      "pageviews": {
+        "total": 406,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "swingtraceadkinsong",
+      "display": "Swing (Trace Adkins song)",
+      "aliases": [],
+      "obscurity": 5,
+      "source": "https://en.wikipedia.org/wiki/Swing_(Trace_Adkins_song)",
+      "wikidata": "http://www.wikidata.org/entity/Q7658515",
+      "pageviews": {
+        "total": 160,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "swingsavagesong",
+      "display": "Swing (Savage song)",
+      "aliases": [],
+      "obscurity": 4,
+      "source": "https://en.wikipedia.org/wiki/Swing_(Savage_song)",
+      "wikidata": "http://www.wikidata.org/entity/Q7658522",
+      "pageviews": {
+        "total": 578,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "syndicatesong",
+      "display": "Syndicate (song)",
+      "aliases": [],
+      "obscurity": 5,
+      "source": "https://en.wikipedia.org/wiki/Syndicate_(song)",
+      "wikidata": "http://www.wikidata.org/entity/Q7662319",
+      "pageviews": {
+        "total": 79,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "talkthatsecretsong",
+      "display": "Talk That (Secret song)",
+      "aliases": [],
+      "obscurity": 5,
+      "source": "https://en.wikipedia.org/wiki/Talk_That_(Secret_song)",
+      "wikidata": "http://www.wikidata.org/entity/Q7679679",
+      "pageviews": {
+        "total": 47,
+        "days": 29,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "tangerinefeedersong",
+      "display": "Tangerine (Feeder song)",
+      "aliases": [],
+      "obscurity": 5,
+      "source": "https://en.wikipedia.org/wiki/Tangerine_(Feeder_song)",
+      "wikidata": "http://www.wikidata.org/entity/Q7682897",
+      "pageviews": {
+        "total": 94,
+        "days": 29,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "tangodelpecado",
+      "display": "Tango del Pecado",
+      "aliases": [],
+      "obscurity": 5,
+      "source": "https://en.wikipedia.org/wiki/Tango_del_Pecado",
+      "wikidata": "http://www.wikidata.org/entity/Q7683110",
+      "pageviews": {
+        "total": 77,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "taxiharrychapinsong",
+      "display": "Taxi (Harry Chapin song)",
+      "aliases": [],
+      "obscurity": 3,
+      "source": "https://en.wikipedia.org/wiki/Taxi_(Harry_Chapin_song)",
+      "wikidata": "http://www.wikidata.org/entity/Q7689608",
+      "pageviews": {
+        "total": 1878,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "taylorgangsong",
+      "display": "Taylor Gang (song)",
+      "aliases": [],
+      "obscurity": 5,
+      "source": "https://en.wikipedia.org/wiki/Taylor_Gang_(song)",
+      "wikidata": "http://www.wikidata.org/entity/Q7689973",
+      "pageviews": {
+        "total": 77,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "tchouktchoukmusik",
+      "display": "Tchouk tchouk musik",
+      "aliases": [],
+      "obscurity": 5,
+      "source": "https://en.wikipedia.org/wiki/Tchouk_tchouk_musik",
+      "wikidata": "http://www.wikidata.org/entity/Q7690678",
+      "pageviews": {
+        "total": 12,
+        "days": 25,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "teparecetantoael",
+      "display": "Te Pareces Tanto a Él",
+      "aliases": [],
+      "obscurity": 5,
+      "source": "https://en.wikipedia.org/wiki/Te_Pareces_Tanto_a_%C3%89l",
+      "wikidata": "http://www.wikidata.org/entity/Q7690902",
+      "pageviews": {
+        "total": 30,
+        "days": 28,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "tellmebilliemyersong",
+      "display": "Tell Me (Billie Myers song)",
+      "aliases": [],
+      "obscurity": 5,
+      "source": "https://en.wikipedia.org/wiki/Tell_Me_(Billie_Myers_song)",
+      "wikidata": "http://www.wikidata.org/entity/Q7697434",
+      "pageviews": {
+        "total": 77,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "tellmebobbyvalentinosong",
+      "display": "Tell Me (Bobby Valentino song)",
+      "aliases": [],
+      "obscurity": 4,
+      "source": "https://en.wikipedia.org/wiki/Tell_Me_(Bobby_Valentino_song)",
+      "wikidata": "http://www.wikidata.org/entity/Q7697435",
+      "pageviews": {
+        "total": 1106,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "tellmesmilezsouthstarsong",
+      "display": "Tell Me (Smilez & Southstar song)",
+      "aliases": [],
+      "obscurity": 5,
+      "source": "https://en.wikipedia.org/wiki/Tell_Me_(Smilez_%26_Southstar_song)",
+      "wikidata": "http://www.wikidata.org/entity/Q7697439",
+      "pageviews": {
+        "total": 214,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "tellmedruhillsong",
+      "display": "Tell Me (Dru Hill song)",
+      "aliases": [],
+      "obscurity": 4,
+      "source": "https://en.wikipedia.org/wiki/Tell_Me_(Dru_Hill_song)",
+      "wikidata": "http://www.wikidata.org/entity/Q7697436",
+      "pageviews": {
+        "total": 456,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "tellmejakeowensong",
+      "display": "Tell Me (Jake Owen song)",
+      "aliases": [],
+      "obscurity": 5,
+      "source": "https://en.wikipedia.org/wiki/Tell_Me_(Jake_Owen_song)",
+      "wikidata": "http://www.wikidata.org/entity/Q7697437",
+      "pageviews": {
+        "total": 28,
+        "days": 26,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "tellmewondergirlsong",
+      "display": "Tell Me (Wonder Girls song)",
+      "aliases": [],
+      "obscurity": 3,
+      "source": "https://en.wikipedia.org/wiki/Tell_Me_(Wonder_Girls_song)",
+      "wikidata": "http://www.wikidata.org/entity/Q7697442",
+      "pageviews": {
+        "total": 1549,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "tellmewhitelionsong",
+      "display": "Tell Me (White Lion song)",
+      "aliases": [],
+      "obscurity": 5,
+      "source": "https://en.wikipedia.org/wiki/Tell_Me_(White_Lion_song)",
+      "wikidata": "http://www.wikidata.org/entity/Q7697441",
+      "pageviews": {
+        "total": 64,
+        "days": 28,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "tellmehidesong",
+      "display": "Tell Me (hide song)",
+      "aliases": [],
+      "obscurity": 5,
+      "source": "https://en.wikipedia.org/wiki/Tell_Me_(hide_song)",
+      "wikidata": "http://www.wikidata.org/entity/Q7697444",
+      "pageviews": {
+        "total": 56,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "tellmewhy1951song",
+      "display": "Tell Me Why (1951 song)",
+      "aliases": [],
+      "obscurity": 5,
+      "source": "https://en.wikipedia.org/wiki/Tell_Me_Why_(1951_song)",
+      "wikidata": "http://www.wikidata.org/entity/Q7697482",
+      "pageviews": {
+        "total": 217,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "kazewafuiteiru",
+      "display": "Kaze wa Fuite Iru",
+      "aliases": [],
+      "obscurity": 5,
+      "source": "https://en.wikipedia.org/wiki/Kaze_wa_Fuite_Iru",
+      "wikidata": "http://www.wikidata.org/entity/Q1340851",
+      "pageviews": {
+        "total": 36,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "flyingget",
+      "display": "Flying Get",
+      "aliases": [],
+      "obscurity": 5,
+      "source": "https://en.wikipedia.org/wiki/Flying_Get",
+      "wikidata": "http://www.wikidata.org/entity/Q1340881",
+      "pageviews": {
+        "total": 188,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "greenlightbeyoncesong",
+      "display": "Green Light (Beyoncé song)",
+      "aliases": [],
+      "obscurity": 4,
+      "source": "https://en.wikipedia.org/wiki/Green_Light_(Beyonc%C3%A9_song)",
+      "wikidata": "http://www.wikidata.org/entity/Q1342671",
+      "pageviews": {
+        "total": 964,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "supersonicoasissong",
+      "display": "Supersonic (Oasis song)",
+      "aliases": [],
+      "obscurity": 3,
+      "source": "https://en.wikipedia.org/wiki/Supersonic_(Oasis_song)",
+      "wikidata": "http://www.wikidata.org/entity/Q1351488",
+      "pageviews": {
+        "total": 3097,
+        "days": 29,
+        "start": "2026-10-22",
+        "end": "2026-11-19"
+      }
+    },
+    {
+      "canonical": "tienggoithanhnien",
+      "display": "Tiếng gọi thanh niên",
+      "aliases": [],
+      "obscurity": 4,
+      "source": "https://en.wikipedia.org/wiki/Ti%E1%BA%BFng_g%E1%BB%8Di_thanh_ni%C3%AAn",
+      "wikidata": "http://www.wikidata.org/entity/Q1353616",
+      "pageviews": {
+        "total": 896,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "wonderfuldreamholidayarecoming",
+      "display": "Wonderful Dream (Holidays Are Coming)",
+      "aliases": [],
+      "obscurity": 4,
+      "source": "https://en.wikipedia.org/wiki/Wonderful_Dream_(Holidays_Are_Coming)",
+      "wikidata": "http://www.wikidata.org/entity/Q1370847",
+      "pageviews": {
+        "total": 870,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "givemefivesong",
+      "display": "Give Me Five! (song)",
+      "aliases": [],
+      "obscurity": 5,
+      "source": "https://en.wikipedia.org/wiki/Give_Me_Five!_(song)",
+      "wikidata": "http://www.wikidata.org/entity/Q1370891",
+      "pageviews": {
+        "total": 89,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "youngbloodsophieellisbextorsong",
+      "display": "Young Blood (Sophie Ellis-Bextor song)",
+      "aliases": [],
+      "obscurity": 5,
+      "source": "https://en.wikipedia.org/wiki/Young_Blood_(Sophie_Ellis-Bextor_song)",
+      "wikidata": "http://www.wikidata.org/entity/Q15649704",
+      "pageviews": {
+        "total": 78,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "blowinsmoke",
+      "display": "Blowin' Smoke",
+      "aliases": [],
+      "obscurity": 5,
+      "source": "https://en.wikipedia.org/wiki/Blowin%27_Smoke",
+      "wikidata": "http://www.wikidata.org/entity/Q15677263",
+      "pageviews": {
+        "total": 197,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "followyourarrow",
+      "display": "Follow Your Arrow",
+      "aliases": [],
+      "obscurity": 4,
+      "source": "https://en.wikipedia.org/wiki/Follow_Your_Arrow",
+      "wikidata": "http://www.wikidata.org/entity/Q15677499",
+      "pageviews": {
+        "total": 810,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "inyoureyeinnasong",
+      "display": "In Your Eyes (Inna song)",
+      "aliases": [],
+      "obscurity": 5,
+      "source": "https://en.wikipedia.org/wiki/In_Your_Eyes_(Inna_song)",
+      "wikidata": "http://www.wikidata.org/entity/Q15689534",
+      "pageviews": {
+        "total": 119,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "samegirljenniferlopezsong",
+      "display": "Same Girl (Jennifer Lopez song)",
+      "aliases": [],
+      "obscurity": 5,
+      "source": "https://en.wikipedia.org/wiki/Same_Girl_(Jennifer_Lopez_song)",
+      "wikidata": "http://www.wikidata.org/entity/Q15691111",
+      "pageviews": {
+        "total": 131,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "addictedtoyouaviciisong",
+      "display": "Addicted to You (Avicii song)",
+      "aliases": [],
+      "obscurity": 4,
+      "source": "https://en.wikipedia.org/wiki/Addicted_to_You_(Avicii_song)",
+      "wikidata": "http://www.wikidata.org/entity/Q15699757",
+      "pageviews": {
+        "total": 1014,
+        "days": 29,
+        "start": "2026-10-22",
+        "end": "2026-11-19"
+      }
+    },
+    {
+      "canonical": "jmetire",
+      "display": "J'me tire",
+      "aliases": [],
+      "obscurity": 5,
+      "source": "https://en.wikipedia.org/wiki/J%27me_tire",
+      "wikidata": "http://www.wikidata.org/entity/Q15700063",
+      "pageviews": {
+        "total": 126,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "trumpsta",
+      "display": "Trumpsta",
+      "aliases": [],
+      "obscurity": 5,
+      "source": "https://en.wikipedia.org/wiki/Trumpsta",
+      "wikidata": "http://www.wikidata.org/entity/Q15700759",
+      "pageviews": {
+        "total": 60,
+        "days": 28,
+        "start": "2026-10-22",
+        "end": "2026-11-19"
+      }
+    },
+    {
+      "canonical": "hunterofstar",
+      "display": "Hunter of Stars",
+      "aliases": [],
+      "obscurity": 5,
+      "source": "https://en.wikipedia.org/wiki/Hunter_of_Stars",
+      "wikidata": "http://www.wikidata.org/entity/Q15701337",
+      "pageviews": {
+        "total": 42,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "girljenniferlopezsong",
+      "display": "Girls (Jennifer Lopez song)",
+      "aliases": [],
+      "obscurity": 5,
+      "source": "https://en.wikipedia.org/wiki/Girls_(Jennifer_Lopez_song)",
+      "wikidata": "http://www.wikidata.org/entity/Q15702674",
+      "pageviews": {
+        "total": 111,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "jubelsong",
+      "display": "Jubel (song)",
+      "aliases": [],
+      "obscurity": 4,
+      "source": "https://en.wikipedia.org/wiki/Jubel_(song)",
+      "wikidata": "http://www.wikidata.org/entity/Q15702941",
+      "pageviews": {
+        "total": 503,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "soloquedateensilencio",
+      "display": "Sólo Quédate En Silencio",
+      "aliases": [],
+      "obscurity": 5,
+      "source": "https://en.wikipedia.org/wiki/S%C3%B3lo_Qu%C3%A9date_En_Silencio",
+      "wikidata": "http://www.wikidata.org/entity/Q3495339",
+      "pageviews": {
+        "total": 79,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "ihatemyselfandwanttodie",
+      "display": "I Hate Myself and Want to Die",
+      "aliases": [],
+      "obscurity": 3,
+      "source": "https://en.wikipedia.org/wiki/I_Hate_Myself_and_Want_to_Die",
+      "wikidata": "http://www.wikidata.org/entity/Q3495448",
+      "pageviews": {
+        "total": 2134,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "thegreatestmichellewilliamsong",
+      "display": "The Greatest (Michelle Williams song)",
+      "aliases": [],
+      "obscurity": 5,
+      "source": "https://en.wikipedia.org/wiki/The_Greatest_(Michelle_Williams_song)",
+      "wikidata": "http://www.wikidata.org/entity/Q3496046",
+      "pageviews": {
+        "total": 131,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "theshowlenkasong",
+      "display": "The Show (Lenka song)",
+      "aliases": [],
+      "obscurity": 4,
+      "source": "https://en.wikipedia.org/wiki/The_Show_(Lenka_song)",
+      "wikidata": "http://www.wikidata.org/entity/Q3499055",
+      "pageviews": {
+        "total": 1222,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "thesilencesong",
+      "display": "The Silence (song)",
+      "aliases": [],
+      "obscurity": 5,
+      "source": "https://en.wikipedia.org/wiki/The_Silence_(song)",
+      "wikidata": "http://www.wikidata.org/entity/Q3499169",
+      "pageviews": {
+        "total": 179,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "strangerelectriclightorchestrasong",
+      "display": "Stranger (Electric Light Orchestra song)",
+      "aliases": [],
+      "obscurity": 5,
+      "source": "https://en.wikipedia.org/wiki/Stranger_(Electric_Light_Orchestra_song)",
+      "wikidata": "http://www.wikidata.org/entity/Q3500044",
+      "pageviews": {
+        "total": 158,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      }
+    },
+    {
+      "canonical": "dontstopcoloronthewall",
+      "display": "Don't Stop (Color on the Walls)",
+      "aliases": [],
+      "obscurity": 4,
+      "source": "https://en.wikipedia.org/wiki/Don%27t_Stop_(Color_on_the_Walls)",
+      "wikidata": "http://www.wikidata.org/entity/Q3500358",
+      "pageviews": {
+        "total": 494,
         "days": 30,
         "start": "2026-10-22",
         "end": "2026-11-20"
