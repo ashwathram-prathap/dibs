@@ -87,7 +87,7 @@ function time(at: string) {
   );
 }
 function DropTime({ at }: { at: string }) {
-  const value = dropTime(at);
+  const value = localTime(at, viewerZone(), true);
   return (
     <span className="local-drop">
       {value.label} <small>{value.zone}</small>
@@ -351,7 +351,9 @@ export default function App() {
         Skip to registry
       </a>
       <div className={'page ' + (path === '/' ? 'home-page' : '')}>
-        {(today?.practice || location.hostname === 'practice.dibs-7hz.pages.dev') && <div className="practice-banner">PRACTICE — NOT THE PUBLIC RECORD</div>}
+        {(today?.practice || location.hostname === 'practice.dibs-7hz.pages.dev') && (
+          <div className="practice-banner">PRACTICE — NOT THE PUBLIC RECORD</div>
+        )}
         <header className="masthead">
           <Link to="/" className="wordmark" aria-label="Dibs home">
             <Wordmark />
@@ -727,12 +729,13 @@ function Home({
       ) : file?.closed ? (
         <>
           <span className="file-closed-stamp">FILE CLOSED</span>
+          <p className="clerk-aside">{clerkLine('closed', file.dibs + file.strikes)}</p>
           <DaySummary file={file} today={today} />
         </>
       ) : (
         <section className="claim-section" aria-label="Play today's category">
           <div className={'claim-paper stock-' + categoryStyle(today.category.slug).stock}>
-            <div className="play-heading">
+            <div className="play-heading register-arrival">
               <CategoryHeading name={today.category.name} />
               <Plate slug={today.category.slug} />
             </div>
@@ -823,6 +826,7 @@ function Home({
                 )}
               </form>
             )}
+            {taken && <p className="clerk-aside">{clerkLine('strike', file?.strikes || 0)}</p>}
             <div ref={turnstileBox} className="turnstile" />
             {sessionNotice && (
               <p className="session-notice" role="status">
@@ -920,7 +924,7 @@ function InstallHint() {
   });
   return show ? (
     <aside className="install-hint">
-      <p>Keep Dibs handy: browser menu → Add to Home Screen.</p>
+      <p>Keep Dibs handy: browser menu, then Add to Home Screen.</p>
       <button
         onClick={() => {
           try {
@@ -1425,7 +1429,7 @@ function SummaryPage({ id }: { id: string }) {
   return (
     <section className="summary-page">
       <div className="page-heading">
-        <span className="eyebrow">REGISTRY OF CLAIMS / FORM D-3</span>
+        <span className="eyebrow">DAY CERTIFICATE</span>
         <h1>A day on file.</h1>
         <Link to="/">
           Play today’s Dibs <Icon />
@@ -1462,7 +1466,7 @@ function CertificatePage({ id }: { id: string }) {
   return (
     <section className="certificate-page">
       <div className="page-heading">
-        <span className="eyebrow">OFFICIAL COPY / FORM D-1</span>
+        <span className="eyebrow">CERTIFICATE</span>
         <h1>On the record.</h1>
         <p>Temporary ownership. Permanent bragging rights.</p>
       </div>
@@ -1526,7 +1530,7 @@ function Archive() {
   return (
     <>
       <div className="page-heading">
-        <span className="eyebrow">BOUND VOLUMES / FORM A-1</span>
+        <span className="eyebrow">ARCHIVE</span>
         <h1>
           Yesterday
           <br />
@@ -1716,8 +1720,9 @@ function About({ nextDrop }: { nextDrop: string }) {
             record, and a hashed recovery key so you can restore your identity. Network abuse hashes
             rotate daily and are cleared after two days. Anonymous share and arrival counts have no
             names or IP addresses. Missing-answer submissions contain only the normalized answer,
-            category, date and count, and are kept for 90 days. Transient browser sessions expire
-            after 30 days. Backups are kept privately for 30 days. Nothing is sold or used for ads.
+            category, date and count, and are kept for 90 days. Private feedback is kept for 90
+            days. Transient browser sessions expire after 30 days. Backups are kept privately for 30
+            days. Nothing is sold or used for ads.
           </p>
           <p>
             For privacy questions or deletion requests:{' '}

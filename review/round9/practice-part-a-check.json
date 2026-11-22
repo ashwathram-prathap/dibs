@@ -1,0 +1,49 @@
+{
+  "at": "2026-11-22T11:41:20.772Z",
+  "origin": "https://practice.dibs-7hz.pages.dev",
+  "checks": [
+    {
+      "path": "/",
+      "status": 200
+    },
+    {
+      "path": "/about",
+      "status": 200
+    },
+    {
+      "path": "/archive",
+      "status": 200
+    },
+    {
+      "path": "/admin/live",
+      "status": 200
+    },
+    {
+      "path": "/manifest.webmanifest",
+      "status": 200
+    },
+    {
+      "path": "/reminder.ics",
+      "status": 200
+    },
+    {
+      "path": "/theme.js",
+      "status": 200
+    },
+    {
+      "path": "/api/admin/live",
+      "authenticated": 200,
+      "anonymous": 404
+    },
+    {
+      "path": "/api/admin/registers",
+      "authenticated": 200,
+      "anonymous": 404
+    },
+    {
+      "path": "/api/bootstrap",
+      "status": 200,
+      "practice": true
+    }
+  ]
+}

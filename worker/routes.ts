@@ -38,6 +38,8 @@ export interface Env {
   DB: D1Database;
   STAGING?: string;
   NTFY_TOPIC?: string;
+  CF_ANALYTICS_TOKEN?: string;
+  CF_ACCOUNT_ID?: string;
   REGISTRY?: DurableObjectNamespace;
   IMAGE_CACHE?: DurableObjectNamespace;
   PLAYER?: any;

@@ -1,3 +1,4 @@
+import { platformUsage } from './platform-usage';
 import { canReveal, publicCategory, concealClaim, concealSummary } from './visibility';
 import { emptyMinute, alertConditions, freeLimits, type Minute } from './monitoring';
 import { verifyChallenge, verificationToken, verifiedSession } from './turnstile';
@@ -462,6 +463,21 @@ export class Registry extends DurableObject<Env> {
     const usage = (await this.ctx.storage.get<any>(
       'usage:' + new Date(now).toISOString().slice(0, 10),
     )) || { requests: 0, reads: 0, writes: 0 };
+    let platform = await this.ctx.storage.get<any>('platform-usage');
+    let analyticsError = '';
+    if (
+      this.env.CF_ANALYTICS_TOKEN &&
+      (!platform || Date.now() - Date.parse(platform.at) > 60000)
+    ) {
+      try {
+        platform = await platformUsage(this.env);
+        if (platform) await this.ctx.storage.put('platform-usage', platform);
+      } catch (e) {
+        analyticsError = (e as Error).message;
+      }
+    }
+    if (platform && platform.at.slice(0, 10) === new Date().toISOString().slice(0, 10))
+      Object.assign(usage, platform);
     const size = await this.env.DB.prepare('SELECT 1').all();
     usage.storageBytes = Number(size.meta.size_after || 0);
     return {
@@ -477,8 +493,10 @@ export class Registry extends DurableObject<Env> {
       minutes,
       usage,
       limits: freeLimits,
-      usageNote:
-        'Measured API usage since this release. Excludes static Pages traffic, edge cache hits, external D1 jobs and other Workers. Check account totals in Cloudflare.',
+      analyticsError,
+      usageNote: platform
+        ? 'Account-wide Cloudflare analytics; may lag by several minutes. Storage is this database.'
+        : 'Measured API usage since this release. Excludes static Pages traffic, edge cache hits, external D1 jobs and other Workers. Check account totals in Cloudflare.',
       feedback: (
         await this.env.DB.prepare(
           'SELECT id,text,created_at FROM feedback ORDER BY created_at DESC LIMIT 30',
@@ -909,7 +927,7 @@ export class Registry extends DurableObject<Env> {
       return json(
         {
           code: 'COOKIES_BLOCKED',
-          message: 'Cookies are required to keep your place. Tap ••• → Open in browser.',
+          message: 'Cookies are required to keep your place. Tap the menu, then Open in browser.',
         },
         401,
       );

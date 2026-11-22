@@ -1,0 +1,887 @@
+{
+  "at": "2026-11-22T11:42:27.141Z",
+  "total": 176,
+  "passed": 176,
+  "tests": [
+    {
+      "project": "r6-390-light",
+      "test": "one card completes three wins and two strikes, then shares and reveals the ledger",
+      "status": "expected"
+    },
+    {
+      "project": "iPhone-SE-light",
+      "test": "one card completes three wins and two strikes, then shares and reveals the ledger",
+      "status": "expected"
+    },
+    {
+      "project": "iPhone-15-Pro-light",
+      "test": "one card completes three wins and two strikes, then shares and reveals the ledger",
+      "status": "expected"
+    },
+    {
+      "project": "iPhone-15-Pro-Max-light",
+      "test": "one card completes three wins and two strikes, then shares and reveals the ledger",
+      "status": "expected"
+    },
+    {
+      "project": "Pixel-7-light",
+      "test": "one card completes three wins and two strikes, then shares and reveals the ledger",
+      "status": "expected"
+    },
+    {
+      "project": "Galaxy-S9+-light",
+      "test": "one card completes three wins and two strikes, then shares and reveals the ledger",
+      "status": "expected"
+    },
+    {
+      "project": "iPad-Mini-light",
+      "test": "one card completes three wins and two strikes, then shares and reveals the ledger",
+      "status": "expected"
+    },
+    {
+      "project": "iPad-Pro-11-landscape-light",
+      "test": "one card completes three wins and two strikes, then shares and reveals the ledger",
+      "status": "expected"
+    },
+    {
+      "project": "chromium-1280-light",
+      "test": "one card completes three wins and two strikes, then shares and reveals the ledger",
+      "status": "expected"
+    },
+    {
+      "project": "chromium-1440-light",
+      "test": "one card completes three wins and two strikes, then shares and reveals the ledger",
+      "status": "expected"
+    },
+    {
+      "project": "chromium-2560-light",
+      "test": "one card completes three wins and two strikes, then shares and reveals the ledger",
+      "status": "expected"
+    },
+    {
+      "project": "webkit-1280-light",
+      "test": "one card completes three wins and two strikes, then shares and reveals the ledger",
+      "status": "expected"
+    },
+    {
+      "project": "webkit-1440-light",
+      "test": "one card completes three wins and two strikes, then shares and reveals the ledger",
+      "status": "expected"
+    },
+    {
+      "project": "webkit-2560-light",
+      "test": "one card completes three wins and two strikes, then shares and reveals the ledger",
+      "status": "expected"
+    },
+    {
+      "project": "320-small-light",
+      "test": "one card completes three wins and two strikes, then shares and reveals the ledger",
+      "status": "expected"
+    },
+    {
+      "project": "landscape-phone-light",
+      "test": "one card completes three wins and two strikes, then shares and reveals the ledger",
+      "status": "expected"
+    },
+    {
+      "project": "r6-390-dark",
+      "test": "one card completes three wins and two strikes, then shares and reveals the ledger",
+      "status": "expected"
+    },
+    {
+      "project": "iPhone-SE-dark",
+      "test": "one card completes three wins and two strikes, then shares and reveals the ledger",
+      "status": "expected"
+    },
+    {
+      "project": "iPhone-15-Pro-dark",
+      "test": "one card completes three wins and two strikes, then shares and reveals the ledger",
+      "status": "expected"
+    },
+    {
+      "project": "iPhone-15-Pro-Max-dark",
+      "test": "one card completes three wins and two strikes, then shares and reveals the ledger",
+      "status": "expected"
+    },
+    {
+      "project": "Pixel-7-dark",
+      "test": "one card completes three wins and two strikes, then shares and reveals the ledger",
+      "status": "expected"
+    },
+    {
+      "project": "Galaxy-S9+-dark",
+      "test": "one card completes three wins and two strikes, then shares and reveals the ledger",
+      "status": "expected"
+    },
+    {
+      "project": "iPad-Mini-dark",
+      "test": "one card completes three wins and two strikes, then shares and reveals the ledger",
+      "status": "expected"
+    },
+    {
+      "project": "iPad-Pro-11-landscape-dark",
+      "test": "one card completes three wins and two strikes, then shares and reveals the ledger",
+      "status": "expected"
+    },
+    {
+      "project": "chromium-1280-dark",
+      "test": "one card completes three wins and two strikes, then shares and reveals the ledger",
+      "status": "expected"
+    },
+    {
+      "project": "chromium-1440-dark",
+      "test": "one card completes three wins and two strikes, then shares and reveals the ledger",
+      "status": "expected"
+    },
+    {
+      "project": "chromium-2560-dark",
+      "test": "one card completes three wins and two strikes, then shares and reveals the ledger",
+      "status": "expected"
+    },
+    {
+      "project": "webkit-1280-dark",
+      "test": "one card completes three wins and two strikes, then shares and reveals the ledger",
+      "status": "expected"
+    },
+    {
+      "project": "webkit-1440-dark",
+      "test": "one card completes three wins and two strikes, then shares and reveals the ledger",
+      "status": "expected"
+    },
+    {
+      "project": "webkit-2560-dark",
+      "test": "one card completes three wins and two strikes, then shares and reveals the ledger",
+      "status": "expected"
+    },
+    {
+      "project": "320-small-dark",
+      "test": "one card completes three wins and two strikes, then shares and reveals the ledger",
+      "status": "expected"
+    },
+    {
+      "project": "landscape-phone-dark",
+      "test": "one card completes three wins and two strikes, then shares and reveals the ledger",
+      "status": "expected"
+    },
+    {
+      "project": "Instagram-iPhone-15-Pro",
+      "test": "one card completes three wins and two strikes, then shares and reveals the ledger",
+      "status": "expected"
+    },
+    {
+      "project": "Instagram-Pixel-7",
+      "test": "one card completes three wins and two strikes, then shares and reveals the ledger",
+      "status": "expected"
+    },
+    {
+      "project": "TikTok-iPhone-15-Pro",
+      "test": "one card completes three wins and two strikes, then shares and reveals the ledger",
+      "status": "expected"
+    },
+    {
+      "project": "TikTok-Pixel-7",
+      "test": "one card completes three wins and two strikes, then shares and reveals the ledger",
+      "status": "expected"
+    },
+    {
+      "project": "X-iPhone-15-Pro",
+      "test": "one card completes three wins and two strikes, then shares and reveals the ledger",
+      "status": "expected"
+    },
+    {
+      "project": "X-Pixel-7",
+      "test": "one card completes three wins and two strikes, then shares and reveals the ledger",
+      "status": "expected"
+    },
+    {
+      "project": "r6-390-light",
+      "test": "invalid and failed requests preserve the entry, and five strikes close directly",
+      "status": "expected"
+    },
+    {
+      "project": "iPhone-SE-light",
+      "test": "invalid and failed requests preserve the entry, and five strikes close directly",
+      "status": "expected"
+    },
+    {
+      "project": "iPhone-15-Pro-light",
+      "test": "invalid and failed requests preserve the entry, and five strikes close directly",
+      "status": "expected"
+    },
+    {
+      "project": "iPhone-15-Pro-Max-light",
+      "test": "invalid and failed requests preserve the entry, and five strikes close directly",
+      "status": "expected"
+    },
+    {
+      "project": "Pixel-7-light",
+      "test": "invalid and failed requests preserve the entry, and five strikes close directly",
+      "status": "expected"
+    },
+    {
+      "project": "Galaxy-S9+-light",
+      "test": "invalid and failed requests preserve the entry, and five strikes close directly",
+      "status": "expected"
+    },
+    {
+      "project": "iPad-Mini-light",
+      "test": "invalid and failed requests preserve the entry, and five strikes close directly",
+      "status": "expected"
+    },
+    {
+      "project": "iPad-Pro-11-landscape-light",
+      "test": "invalid and failed requests preserve the entry, and five strikes close directly",
+      "status": "expected"
+    },
+    {
+      "project": "chromium-1280-light",
+      "test": "invalid and failed requests preserve the entry, and five strikes close directly",
+      "status": "expected"
+    },
+    {
+      "project": "chromium-1440-light",
+      "test": "invalid and failed requests preserve the entry, and five strikes close directly",
+      "status": "expected"
+    },
+    {
+      "project": "chromium-2560-light",
+      "test": "invalid and failed requests preserve the entry, and five strikes close directly",
+      "status": "expected"
+    },
+    {
+      "project": "webkit-1280-light",
+      "test": "invalid and failed requests preserve the entry, and five strikes close directly",
+      "status": "expected"
+    },
+    {
+      "project": "webkit-1440-light",
+      "test": "invalid and failed requests preserve the entry, and five strikes close directly",
+      "status": "expected"
+    },
+    {
+      "project": "webkit-2560-light",
+      "test": "invalid and failed requests preserve the entry, and five strikes close directly",
+      "status": "expected"
+    },
+    {
+      "project": "320-small-light",
+      "test": "invalid and failed requests preserve the entry, and five strikes close directly",
+      "status": "expected"
+    },
+    {
+      "project": "landscape-phone-light",
+      "test": "invalid and failed requests preserve the entry, and five strikes close directly",
+      "status": "expected"
+    },
+    {
+      "project": "r6-390-dark",
+      "test": "invalid and failed requests preserve the entry, and five strikes close directly",
+      "status": "expected"
+    },
+    {
+      "project": "iPhone-SE-dark",
+      "test": "invalid and failed requests preserve the entry, and five strikes close directly",
+      "status": "expected"
+    },
+    {
+      "project": "iPhone-15-Pro-dark",
+      "test": "invalid and failed requests preserve the entry, and five strikes close directly",
+      "status": "expected"
+    },
+    {
+      "project": "iPhone-15-Pro-Max-dark",
+      "test": "invalid and failed requests preserve the entry, and five strikes close directly",
+      "status": "expected"
+    },
+    {
+      "project": "Pixel-7-dark",
+      "test": "invalid and failed requests preserve the entry, and five strikes close directly",
+      "status": "expected"
+    },
+    {
+      "project": "Galaxy-S9+-dark",
+      "test": "invalid and failed requests preserve the entry, and five strikes close directly",
+      "status": "expected"
+    },
+    {
+      "project": "iPad-Mini-dark",
+      "test": "invalid and failed requests preserve the entry, and five strikes close directly",
+      "status": "expected"
+    },
+    {
+      "project": "iPad-Pro-11-landscape-dark",
+      "test": "invalid and failed requests preserve the entry, and five strikes close directly",
+      "status": "expected"
+    },
+    {
+      "project": "chromium-1280-dark",
+      "test": "invalid and failed requests preserve the entry, and five strikes close directly",
+      "status": "expected"
+    },
+    {
+      "project": "chromium-1440-dark",
+      "test": "invalid and failed requests preserve the entry, and five strikes close directly",
+      "status": "expected"
+    },
+    {
+      "project": "chromium-2560-dark",
+      "test": "invalid and failed requests preserve the entry, and five strikes close directly",
+      "status": "expected"
+    },
+    {
+      "project": "webkit-1280-dark",
+      "test": "invalid and failed requests preserve the entry, and five strikes close directly",
+      "status": "expected"
+    },
+    {
+      "project": "webkit-1440-dark",
+      "test": "invalid and failed requests preserve the entry, and five strikes close directly",
+      "status": "expected"
+    },
+    {
+      "project": "webkit-2560-dark",
+      "test": "invalid and failed requests preserve the entry, and five strikes close directly",
+      "status": "expected"
+    },
+    {
+      "project": "320-small-dark",
+      "test": "invalid and failed requests preserve the entry, and five strikes close directly",
+      "status": "expected"
+    },
+    {
+      "project": "landscape-phone-dark",
+      "test": "invalid and failed requests preserve the entry, and five strikes close directly",
+      "status": "expected"
+    },
+    {
+      "project": "Instagram-iPhone-15-Pro",
+      "test": "invalid and failed requests preserve the entry, and five strikes close directly",
+      "status": "expected"
+    },
+    {
+      "project": "Instagram-Pixel-7",
+      "test": "invalid and failed requests preserve the entry, and five strikes close directly",
+      "status": "expected"
+    },
+    {
+      "project": "TikTok-iPhone-15-Pro",
+      "test": "invalid and failed requests preserve the entry, and five strikes close directly",
+      "status": "expected"
+    },
+    {
+      "project": "TikTok-Pixel-7",
+      "test": "invalid and failed requests preserve the entry, and five strikes close directly",
+      "status": "expected"
+    },
+    {
+      "project": "X-iPhone-15-Pro",
+      "test": "invalid and failed requests preserve the entry, and five strikes close directly",
+      "status": "expected"
+    },
+    {
+      "project": "X-Pixel-7",
+      "test": "invalid and failed requests preserve the entry, and five strikes close directly",
+      "status": "expected"
+    },
+    {
+      "project": "r6-390-light",
+      "test": "theme edges work on every route with consistent header placement",
+      "status": "expected"
+    },
+    {
+      "project": "iPhone-SE-light",
+      "test": "theme edges work on every route with consistent header placement",
+      "status": "expected"
+    },
+    {
+      "project": "iPhone-15-Pro-light",
+      "test": "theme edges work on every route with consistent header placement",
+      "status": "expected"
+    },
+    {
+      "project": "iPhone-15-Pro-Max-light",
+      "test": "theme edges work on every route with consistent header placement",
+      "status": "expected"
+    },
+    {
+      "project": "Pixel-7-light",
+      "test": "theme edges work on every route with consistent header placement",
+      "status": "expected"
+    },
+    {
+      "project": "Galaxy-S9+-light",
+      "test": "theme edges work on every route with consistent header placement",
+      "status": "expected"
+    },
+    {
+      "project": "iPad-Mini-light",
+      "test": "theme edges work on every route with consistent header placement",
+      "status": "expected"
+    },
+    {
+      "project": "iPad-Pro-11-landscape-light",
+      "test": "theme edges work on every route with consistent header placement",
+      "status": "expected"
+    },
+    {
+      "project": "chromium-1280-light",
+      "test": "theme edges work on every route with consistent header placement",
+      "status": "expected"
+    },
+    {
+      "project": "chromium-1440-light",
+      "test": "theme edges work on every route with consistent header placement",
+      "status": "expected"
+    },
+    {
+      "project": "chromium-2560-light",
+      "test": "theme edges work on every route with consistent header placement",
+      "status": "expected"
+    },
+    {
+      "project": "webkit-1280-light",
+      "test": "theme edges work on every route with consistent header placement",
+      "status": "expected"
+    },
+    {
+      "project": "webkit-1440-light",
+      "test": "theme edges work on every route with consistent header placement",
+      "status": "expected"
+    },
+    {
+      "project": "webkit-2560-light",
+      "test": "theme edges work on every route with consistent header placement",
+      "status": "expected"
+    },
+    {
+      "project": "320-small-light",
+      "test": "theme edges work on every route with consistent header placement",
+      "status": "expected"
+    },
+    {
+      "project": "landscape-phone-light",
+      "test": "theme edges work on every route with consistent header placement",
+      "status": "expected"
+    },
+    {
+      "project": "r6-390-dark",
+      "test": "theme edges work on every route with consistent header placement",
+      "status": "expected"
+    },
+    {
+      "project": "iPhone-SE-dark",
+      "test": "theme edges work on every route with consistent header placement",
+      "status": "expected"
+    },
+    {
+      "project": "iPhone-15-Pro-dark",
+      "test": "theme edges work on every route with consistent header placement",
+      "status": "expected"
+    },
+    {
+      "project": "iPhone-15-Pro-Max-dark",
+      "test": "theme edges work on every route with consistent header placement",
+      "status": "expected"
+    },
+    {
+      "project": "Pixel-7-dark",
+      "test": "theme edges work on every route with consistent header placement",
+      "status": "expected"
+    },
+    {
+      "project": "Galaxy-S9+-dark",
+      "test": "theme edges work on every route with consistent header placement",
+      "status": "expected"
+    },
+    {
+      "project": "iPad-Mini-dark",
+      "test": "theme edges work on every route with consistent header placement",
+      "status": "expected"
+    },
+    {
+      "project": "iPad-Pro-11-landscape-dark",
+      "test": "theme edges work on every route with consistent header placement",
+      "status": "expected"
+    },
+    {
+      "project": "chromium-1280-dark",
+      "test": "theme edges work on every route with consistent header placement",
+      "status": "expected"
+    },
+    {
+      "project": "chromium-1440-dark",
+      "test": "theme edges work on every route with consistent header placement",
+      "status": "expected"
+    },
+    {
+      "project": "chromium-2560-dark",
+      "test": "theme edges work on every route with consistent header placement",
+      "status": "expected"
+    },
+    {
+      "project": "webkit-1280-dark",
+      "test": "theme edges work on every route with consistent header placement",
+      "status": "expected"
+    },
+    {
+      "project": "webkit-1440-dark",
+      "test": "theme edges work on every route with consistent header placement",
+      "status": "expected"
+    },
+    {
+      "project": "webkit-2560-dark",
+      "test": "theme edges work on every route with consistent header placement",
+      "status": "expected"
+    },
+    {
+      "project": "320-small-dark",
+      "test": "theme edges work on every route with consistent header placement",
+      "status": "expected"
+    },
+    {
+      "project": "landscape-phone-dark",
+      "test": "theme edges work on every route with consistent header placement",
+      "status": "expected"
+    },
+    {
+      "project": "Instagram-iPhone-15-Pro",
+      "test": "theme edges work on every route with consistent header placement",
+      "status": "expected"
+    },
+    {
+      "project": "Instagram-Pixel-7",
+      "test": "theme edges work on every route with consistent header placement",
+      "status": "expected"
+    },
+    {
+      "project": "TikTok-iPhone-15-Pro",
+      "test": "theme edges work on every route with consistent header placement",
+      "status": "expected"
+    },
+    {
+      "project": "TikTok-Pixel-7",
+      "test": "theme edges work on every route with consistent header placement",
+      "status": "expected"
+    },
+    {
+      "project": "X-iPhone-15-Pro",
+      "test": "theme edges work on every route with consistent header placement",
+      "status": "expected"
+    },
+    {
+      "project": "X-Pixel-7",
+      "test": "theme edges work on every route with consistent header placement",
+      "status": "expected"
+    },
+    {
+      "project": "r6-390-light",
+      "test": "390 phone plays with an emulated keyboard without scrolling",
+      "status": "expected"
+    },
+    {
+      "project": "iPhone-SE-light",
+      "test": "390 phone plays with an emulated keyboard without scrolling",
+      "status": "expected"
+    },
+    {
+      "project": "iPhone-15-Pro-light",
+      "test": "390 phone plays with an emulated keyboard without scrolling",
+      "status": "expected"
+    },
+    {
+      "project": "iPhone-15-Pro-Max-light",
+      "test": "390 phone plays with an emulated keyboard without scrolling",
+      "status": "expected"
+    },
+    {
+      "project": "Pixel-7-light",
+      "test": "390 phone plays with an emulated keyboard without scrolling",
+      "status": "expected"
+    },
+    {
+      "project": "Galaxy-S9+-light",
+      "test": "390 phone plays with an emulated keyboard without scrolling",
+      "status": "expected"
+    },
+    {
+      "project": "iPad-Mini-light",
+      "test": "390 phone plays with an emulated keyboard without scrolling",
+      "status": "expected"
+    },
+    {
+      "project": "iPad-Pro-11-landscape-light",
+      "test": "390 phone plays with an emulated keyboard without scrolling",
+      "status": "expected"
+    },
+    {
+      "project": "chromium-1280-light",
+      "test": "390 phone plays with an emulated keyboard without scrolling",
+      "status": "expected"
+    },
+    {
+      "project": "chromium-1440-light",
+      "test": "390 phone plays with an emulated keyboard without scrolling",
+      "status": "expected"
+    },
+    {
+      "project": "chromium-2560-light",
+      "test": "390 phone plays with an emulated keyboard without scrolling",
+      "status": "expected"
+    },
+    {
+      "project": "webkit-1280-light",
+      "test": "390 phone plays with an emulated keyboard without scrolling",
+      "status": "expected"
+    },
+    {
+      "project": "webkit-1440-light",
+      "test": "390 phone plays with an emulated keyboard without scrolling",
+      "status": "expected"
+    },
+    {
+      "project": "webkit-2560-light",
+      "test": "390 phone plays with an emulated keyboard without scrolling",
+      "status": "expected"
+    },
+    {
+      "project": "320-small-light",
+      "test": "390 phone plays with an emulated keyboard without scrolling",
+      "status": "expected"
+    },
+    {
+      "project": "landscape-phone-light",
+      "test": "390 phone plays with an emulated keyboard without scrolling",
+      "status": "expected"
+    },
+    {
+      "project": "r6-390-dark",
+      "test": "390 phone plays with an emulated keyboard without scrolling",
+      "status": "expected"
+    },
+    {
+      "project": "iPhone-SE-dark",
+      "test": "390 phone plays with an emulated keyboard without scrolling",
+      "status": "expected"
+    },
+    {
+      "project": "iPhone-15-Pro-dark",
+      "test": "390 phone plays with an emulated keyboard without scrolling",
+      "status": "expected"
+    },
+    {
+      "project": "iPhone-15-Pro-Max-dark",
+      "test": "390 phone plays with an emulated keyboard without scrolling",
+      "status": "expected"
+    },
+    {
+      "project": "Pixel-7-dark",
+      "test": "390 phone plays with an emulated keyboard without scrolling",
+      "status": "expected"
+    },
+    {
+      "project": "Galaxy-S9+-dark",
+      "test": "390 phone plays with an emulated keyboard without scrolling",
+      "status": "expected"
+    },
+    {
+      "project": "iPad-Mini-dark",
+      "test": "390 phone plays with an emulated keyboard without scrolling",
+      "status": "expected"
+    },
+    {
+      "project": "iPad-Pro-11-landscape-dark",
+      "test": "390 phone plays with an emulated keyboard without scrolling",
+      "status": "expected"
+    },
+    {
+      "project": "chromium-1280-dark",
+      "test": "390 phone plays with an emulated keyboard without scrolling",
+      "status": "expected"
+    },
+    {
+      "project": "chromium-1440-dark",
+      "test": "390 phone plays with an emulated keyboard without scrolling",
+      "status": "expected"
+    },
+    {
+      "project": "chromium-2560-dark",
+      "test": "390 phone plays with an emulated keyboard without scrolling",
+      "status": "expected"
+    },
+    {
+      "project": "webkit-1280-dark",
+      "test": "390 phone plays with an emulated keyboard without scrolling",
+      "status": "expected"
+    },
+    {
+      "project": "webkit-1440-dark",
+      "test": "390 phone plays with an emulated keyboard without scrolling",
+      "status": "expected"
+    },
+    {
+      "project": "webkit-2560-dark",
+      "test": "390 phone plays with an emulated keyboard without scrolling",
+      "status": "expected"
+    },
+    {
+      "project": "320-small-dark",
+      "test": "390 phone plays with an emulated keyboard without scrolling",
+      "status": "expected"
+    },
+    {
+      "project": "landscape-phone-dark",
+      "test": "390 phone plays with an emulated keyboard without scrolling",
+      "status": "expected"
+    },
+    {
+      "project": "Instagram-iPhone-15-Pro",
+      "test": "390 phone plays with an emulated keyboard without scrolling",
+      "status": "expected"
+    },
+    {
+      "project": "Instagram-Pixel-7",
+      "test": "390 phone plays with an emulated keyboard without scrolling",
+      "status": "expected"
+    },
+    {
+      "project": "TikTok-iPhone-15-Pro",
+      "test": "390 phone plays with an emulated keyboard without scrolling",
+      "status": "expected"
+    },
+    {
+      "project": "TikTok-Pixel-7",
+      "test": "390 phone plays with an emulated keyboard without scrolling",
+      "status": "expected"
+    },
+    {
+      "project": "X-iPhone-15-Pro",
+      "test": "390 phone plays with an emulated keyboard without scrolling",
+      "status": "expected"
+    },
+    {
+      "project": "X-Pixel-7",
+      "test": "390 phone plays with an emulated keyboard without scrolling",
+      "status": "expected"
+    },
+    {
+      "project": "firefox-1280-light",
+      "test": "one card completes three wins and two strikes, then shares and reveals the ledger",
+      "status": "expected"
+    },
+    {
+      "project": "firefox-1440-light",
+      "test": "one card completes three wins and two strikes, then shares and reveals the ledger",
+      "status": "expected"
+    },
+    {
+      "project": "firefox-2560-light",
+      "test": "one card completes three wins and two strikes, then shares and reveals the ledger",
+      "status": "expected"
+    },
+    {
+      "project": "firefox-1280-dark",
+      "test": "one card completes three wins and two strikes, then shares and reveals the ledger",
+      "status": "expected"
+    },
+    {
+      "project": "firefox-1440-dark",
+      "test": "one card completes three wins and two strikes, then shares and reveals the ledger",
+      "status": "expected"
+    },
+    {
+      "project": "firefox-2560-dark",
+      "test": "one card completes three wins and two strikes, then shares and reveals the ledger",
+      "status": "expected"
+    },
+    {
+      "project": "firefox-1280-light",
+      "test": "invalid and failed requests preserve the entry, and five strikes close directly",
+      "status": "expected"
+    },
+    {
+      "project": "firefox-1440-light",
+      "test": "invalid and failed requests preserve the entry, and five strikes close directly",
+      "status": "expected"
+    },
+    {
+      "project": "firefox-2560-light",
+      "test": "invalid and failed requests preserve the entry, and five strikes close directly",
+      "status": "expected"
+    },
+    {
+      "project": "firefox-1280-dark",
+      "test": "invalid and failed requests preserve the entry, and five strikes close directly",
+      "status": "expected"
+    },
+    {
+      "project": "firefox-1440-dark",
+      "test": "invalid and failed requests preserve the entry, and five strikes close directly",
+      "status": "expected"
+    },
+    {
+      "project": "firefox-2560-dark",
+      "test": "invalid and failed requests preserve the entry, and five strikes close directly",
+      "status": "expected"
+    },
+    {
+      "project": "firefox-1280-light",
+      "test": "theme edges work on every route with consistent header placement",
+      "status": "expected"
+    },
+    {
+      "project": "firefox-1440-light",
+      "test": "theme edges work on every route with consistent header placement",
+      "status": "expected"
+    },
+    {
+      "project": "firefox-2560-light",
+      "test": "theme edges work on every route with consistent header placement",
+      "status": "expected"
+    },
+    {
+      "project": "firefox-1280-dark",
+      "test": "theme edges work on every route with consistent header placement",
+      "status": "expected"
+    },
+    {
+      "project": "firefox-1440-dark",
+      "test": "theme edges work on every route with consistent header placement",
+      "status": "expected"
+    },
+    {
+      "project": "firefox-2560-dark",
+      "test": "theme edges work on every route with consistent header placement",
+      "status": "expected"
+    },
+    {
+      "project": "firefox-1280-light",
+      "test": "390 phone plays with an emulated keyboard without scrolling",
+      "status": "expected"
+    },
+    {
+      "project": "firefox-1440-light",
+      "test": "390 phone plays with an emulated keyboard without scrolling",
+      "status": "expected"
+    },
+    {
+      "project": "firefox-2560-light",
+      "test": "390 phone plays with an emulated keyboard without scrolling",
+      "status": "expected"
+    },
+    {
+      "project": "firefox-1280-dark",
+      "test": "390 phone plays with an emulated keyboard without scrolling",
+      "status": "expected"
+    },
+    {
+      "project": "firefox-1440-dark",
+      "test": "390 phone plays with an emulated keyboard without scrolling",
+      "status": "expected"
+    },
+    {
+      "project": "firefox-2560-dark",
+      "test": "390 phone plays with an emulated keyboard without scrolling",
+      "status": "expected"
+    }
+  ]
+}

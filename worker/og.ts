@@ -1,3 +1,4 @@
+import { svgPath } from '../shared/svg-path';
 import { categoryStyle } from '../shared/category-style';
 import { sealMarkup, plateMarkup } from '../shared/engraving.generated';
 import { PUBLIC_HOST, PUBLIC_ORIGIN } from '../shared/config';
@@ -31,7 +32,7 @@ export async function og(claim: any, summary?: any) {
     for (const ch of value) {
       const face = faceFor(ch);
       const glyph = face.charToGlyph(ch);
-      out += `<path fill="${color}" d="${glyph.getPath(x, y, size).toPathData(2)}"/>`;
+      out += `<path fill="${color}" d="${svgPath(glyph.getPath(x, y, size).commands)}"/>`;
       x += ((glyph.advanceWidth || 0) * size) / face.unitsPerEm;
     }
     return out;
