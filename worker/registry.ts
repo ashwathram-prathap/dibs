@@ -755,7 +755,7 @@ export class Registry extends DurableObject<Env> {
       )
         return json({ message: 'Only the answer can be submitted.' }, 422);
       const answer = normalize(b.answer);
-      if (!answer || answer.length > 100) return json({ message: 'Enter an answer first.' }, 422);
+      if (!answer) return json({ message: 'Enter an answer first.' }, 422);
       const day = registryDate();
       const rate =
         'missing-rate:' + day + ':' + (await securityKey(req, env.COOKIE_SECRET, env.LOCAL_TEST));

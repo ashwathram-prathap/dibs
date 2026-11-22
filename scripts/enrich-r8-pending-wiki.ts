@@ -46,7 +46,11 @@ for (const slug of slugs) {
   await new Promise<void>((resolve, reject) => {
     const child = spawn(
       './node_modules/.bin/tsx',
-      ['scripts/enrich-r8-wikipedia-aliases.ts', '--slug=' + slug],
+      [
+        'scripts/enrich-r8-wikipedia-aliases.ts',
+        '--slug=' + slug,
+        ...(process.argv.includes('--incremental') ? ['--incremental'] : []),
+      ],
       { stdio: 'inherit' },
     );
     child.on('error', reject);

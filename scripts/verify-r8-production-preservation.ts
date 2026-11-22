@@ -1,4 +1,4 @@
-import { readFileSync, writeFileSync, mkdirSync } from 'node:fs';
+import { readFileSync, writeFileSync, mkdirSync, unlinkSync } from 'node:fs';
 import { execFileSync } from 'node:child_process';
 import { createHash } from 'node:crypto';
 import assert from 'node:assert/strict';
@@ -90,5 +90,7 @@ if (!verify) {
       2,
     ) + '\n',
   );
+  unlinkSync(beforePath);
+  unlinkSync('.tmp/r8-final-production-after.json');
   console.log('Verified byte-equivalent player rows and unchanged schedule', counts(tables));
 }

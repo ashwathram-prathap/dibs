@@ -1,9 +1,9 @@
 {
   "unit": {
-    "passed": 96,
+    "passed": 97,
     "failed": 0,
     "files": 21,
-    "note": "Full suite refreshed Nov 22 04:48 ET after asset regeneration; includes castle subject-vs-location filtering and translated castle-name aliases."
+    "note": "Full suite passed Nov 22 05:05 ET, including the 120-character clerk regression."
   },
   "browser": {
     "localMatrixPassed": 470,
@@ -16,8 +16,8 @@
       "passed": 42,
       "skipped": 28
     },
-    "firefoxCI": "https://github.com/ashwathram-prathap/dibs/actions/runs/45003527488",
-    "firefoxHead": "1bdecda9cbe907c002744f132232c149433d7f11"
+    "firefoxCI": "https://github.com/ashwathram-prathap/dibs/actions/runs/45009408508",
+    "firefoxHead": "6dbe1e8cc03bebb618ce19191d6341a72301cef6"
   },
   "visualAudit": {
     "states": 168,
@@ -28,7 +28,6 @@
   },
   "emojiSourceCheck": "passed, including canonical display names in all rebuilt catalogs",
   "practiceLive": {
-    "actualClaims": 246,
     "obviousPassed": 246,
     "browserFlows": {
       "chromium": 7,
@@ -37,7 +36,11 @@
     "credentials": "Official Cloudflare testing credentials, guarded to exact practice origin and explicitly compiled test mode",
     "realCredentialsRestored": true,
     "restorationEvidence": "practice-restore.json",
-    "note": "Browser wrapper restoration wait initially expired because Durable Object updates default to deferred (300 seconds); practice now explicitly uses immediate updates and real site key plus zero claims were independently verified."
+    "note": "Browser wrapper restoration wait initially expired because Durable Object updates default to deferred (300 seconds); practice now explicitly uses immediate updates and real site key plus zero claims were independently verified.",
+    "submissions": 246,
+    "successfulClaims": 238,
+    "expectedRegistryHeld": 8,
+    "refreshedAt": "2026-11-22T10:01:54.743Z"
   },
   "headingStress": {
     "categories": 33,

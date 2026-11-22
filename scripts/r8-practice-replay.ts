@@ -222,6 +222,18 @@ try {
   assert.equal(after.data.today.turnstileSiteKey, expected);
   assert.equal(after.data.today.claimed, 0);
   restored = true;
+  writeFileSync(
+    'review/round8/practice-restore.json',
+    JSON.stringify(
+      {
+        checkedAt: new Date().toISOString(),
+        realSiteKeyRestored: true,
+        claims: after.data.today.claimed,
+      },
+      null,
+      2,
+    ) + '\n',
+  );
   console.log('Practice reset and real Turnstile credentials restored');
 }
 console.log({ replayed: rows.length, restored });

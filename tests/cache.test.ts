@@ -515,6 +515,20 @@ it('keeps redirects, cached APIs, and rejected requests inside the security head
   expect(r.headers.get('location')).toBe('https://dibs.here/certificate/example-id?s=x');
   expect(r.headers.get('x-content-type-options')).toBe('nosniff');
 });
+it('accepts the full answer field length for anonymous clerk submissions', async () => {
+  const answer = 'a'.repeat(120);
+  const { cookie } = await account();
+  expect((await call('/missing', { answer }, cookie, 'long-missing-answer')).status).toBe(200);
+  expect(
+    (await call('/missing', { answer: answer + 'a' }, cookie, 'long-missing-answer')).status,
+  ).toBe(422);
+  const stored = await db
+    .prepare('SELECT * FROM missing_answers WHERE answer=?')
+    .bind(answer)
+    .first();
+  expect(stored.count).toBe(1);
+  expect(Object.keys(stored).sort()).toEqual(['answer', 'category_id', 'count', 'day']);
+});
 it('restores the same file with a hashed key, rate limits guesses, and counts anonymous missing answers', async () => {
   const a = await account();
   const claim = await call(

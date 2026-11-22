@@ -1,48 +1,48 @@
 {
-  "at": "2026-11-22T08:04:29.884Z",
+  "at": "2026-11-22T09:53:39.763Z",
   "scope": "Current local production build; deployment versions are recorded separately",
-  "files": 11908,
-  "totalBytes": 538624240,
+  "files": 12997,
+  "totalBytes": 993331300,
   "largest": [
     {
-      "path": "dist/catalog/animals/e3d587202519cd6b/full.json",
-      "bytes": 13829204
+      "path": "dist/catalog/films/5e6d4def4c7b073b/full.json",
+      "bytes": 18386687
+    },
+    {
+      "path": "dist/catalog/albums/7b689f83c1956929/full.json",
+      "bytes": 17434177
+    },
+    {
+      "path": "dist/catalog/animals/10210a86838c8eca/full.json",
+      "bytes": 13828838
     },
     {
       "path": "dist/catalog/cities/00cadebbe95f4404/full.json",
       "bytes": 13098232
     },
     {
-      "path": "dist/catalog/films/20afc554f65eb588/full.json",
-      "bytes": 10617957
+      "path": "dist/catalog/rivers/e848dc5bda64483a/typos-15.json",
+      "bytes": 12565516
     },
     {
-      "path": "dist/catalog/albums/5d6ab8db68593dac/full.json",
-      "bytes": 9248139
+      "path": "dist/catalog/rivers/e848dc5bda64483a/typos-16.json",
+      "bytes": 12366138
     },
     {
-      "path": "dist/catalog/actors/4d5f987545448900/full.json",
-      "bytes": 8849756
+      "path": "dist/catalog/rivers/e848dc5bda64483a/typos-14.json",
+      "bytes": 12209302
     },
     {
-      "path": "dist/catalog/footballers/cac576ad9d8736ef/index-0.bin",
-      "bytes": 8388608
+      "path": "dist/catalog/rivers/e848dc5bda64483a/typos-17.json",
+      "bytes": 11367627
     },
     {
-      "path": "dist/catalog/lakes/98ccbcb30bca1e81/index-0.bin",
-      "bytes": 8388608
+      "path": "dist/catalog/rivers/e848dc5bda64483a/typos-13.json",
+      "bytes": 11250022
     },
     {
-      "path": "dist/catalog/mountains/a34dbd83adb19563/index-0.bin",
-      "bytes": 8388608
-    },
-    {
-      "path": "dist/catalog/mountains/a34dbd83adb19563/index-1.bin",
-      "bytes": 8388608
-    },
-    {
-      "path": "dist/catalog/rivers/da6938505486f683/index-0.bin",
-      "bytes": 8388608
+      "path": "dist/catalog/songs/29ccf58663e2b248/full.json",
+      "bytes": 10615746
     }
   ],
   "limits": {

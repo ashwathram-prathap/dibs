@@ -107,6 +107,11 @@ do {
             if (!response.ok) throw Error('HTTP ' + response.status);
             const data: any = await response.json();
             if (!Array.isArray(data.results?.bindings)) throw Error('Incomplete alias query');
+            const observed = new Set(
+              data.results.bindings.map((row: any) => row.item?.value.split('/').at(-1)),
+            );
+            if (ids.some((id) => !observed.has(id)))
+              throw Error('Alias query omitted a requested ID');
             aliases = Object.fromEntries(ids.map((id: string) => [id, []]));
             for (const row of data.results.bindings)
               if (row.alias?.value) aliases[row.item.value.split('/').at(-1)].push(row.alias.value);
@@ -134,7 +139,7 @@ do {
       }
       done += batch.length;
       report[slug] = {
-        complete: done === targets.length,
+        complete: false,
         checked: done,
         total: targets.length,
         referencePolicy: reference.labelPolicy,
@@ -151,6 +156,16 @@ do {
     // Atomic replacement: readers never see a partial reference JSON.
     writeFileSync(dir + '/' + file + '.next', JSON.stringify(rows));
     renameSync(dir + '/' + file + '.next', dir + '/' + file);
+    if (!blocked) {
+      report[slug] = {
+        complete: true,
+        checked: done,
+        total: targets.length,
+        referencePolicy: reference.labelPolicy,
+        classificationRevision: reference.cacheKey || 'base',
+      };
+      saveReport();
+    }
     processed.set(file, statSync(dir + '/' + file).mtimeMs);
   }
   if (!process.argv.includes('--watch')) break;
