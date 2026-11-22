@@ -1,9 +1,9 @@
 {
   "unit": {
-    "passed": 82,
+    "passed": 86,
     "failed": 0,
     "files": 20,
-    "note": "Full suite refreshed Nov 22 01:15 ET: 82 tests, including actual static-index claims with unknown readership, proper-name separation, plural aliases, and practice-only credential guards."
+    "note": "Full suite refreshed Nov 22 02:09 ET: 86 tests including Wikipedia continuation metadata and work subtitle aliases."
   },
   "browser": {
     "localMatrixPassed": 470,
@@ -26,7 +26,7 @@
     "emojiGlyphViolations": 0,
     "refreshedAt": "2026-11-22T05:42:00Z"
   },
-  "emojiSourceCheck": "passed",
+  "emojiSourceCheck": "passed, including canonical display names in all rebuilt catalogs",
   "practiceLive": {
     "actualClaims": 246,
     "obviousPassed": 246,

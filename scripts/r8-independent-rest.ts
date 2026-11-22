@@ -5,21 +5,25 @@ const pools = JSON.parse(readFileSync('.category-cache/r8/independent-pools.json
 const cache = JSON.parse(readFileSync('.category-cache/r8/pageviews.json', 'utf8'));
 if (existsSync('.category-cache/r8/bulk-pageviews-complete.json')) {
   const titles: string[] = Object.values(pools).flatMap((rows: any) =>
-    rows.map((r: any) => (typeof r === 'string' ? r : r.title || r.name)),
+    rows.flatMap((r: any) => {
+      const title = typeof r === 'string' ? r : r.title || r.name;
+      return [title, cache[title]?.title || title];
+    }),
   );
   const bulk = loadBulkReadership(titles);
   for (const title of titles) {
-    const row = bulk.readings[title];
+    const resolved = cache[title]?.title || title;
+    const row = bulk.readings[resolved];
     cache[title] = row
       ? {
           total: row[0],
           days: 31,
-          title,
+          title: resolved,
           status: 'measured complete month',
           start: '2026-10-01',
           end: '2026-10-31',
         }
-      : { total: null, days: 0, title, status: 'not in complete monthly data' };
+      : { total: null, days: 0, title: resolved, status: 'not in complete monthly data' };
   }
 }
 const metadata = JSON.parse(readFileSync('.category-cache/r8/page-metadata.json', 'utf8'));
@@ -73,9 +77,10 @@ for (const [slug, all] of Object.entries(pools) as [string, any[]][]) {
       reason = 'Use the specifically novel award list, excluding nonfiction and mixed book forms';
     if (
       slug === 'paintings' &&
-      /drawing|etching|engraving|lithograph|sculpture|tapestry|print\b/i.test(description)
+      (!/painting|painted|canvas|fresco|altarpiece|polyptych|triptych/i.test(description) ||
+        /drawing|etching|engraving|lithograph|sculpture|tapestry|print\b/i.test(description))
     )
-      reason = 'Different visual-art medium';
+      reason = 'Different visual-art medium or no separate painting article for readership';
     if (reason) {
       excluded.push({ name: r.name, reason });
       return false;

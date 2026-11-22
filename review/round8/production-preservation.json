@@ -1,5 +1,5 @@
 {
-  "at": "2026-11-22T06:16:00Z",
+  "at": "2026-11-22T07:09:59.109000+00:00",
   "before": [
     {
       "claims": 0,
@@ -45,18 +45,18 @@
       "date": "2026-11-26",
       "status": "approved",
       "drop_at": "2026-11-27T02:00:00.000Z",
-      "static_count": null,
-      "version": null
+      "static_count": 149928,
+      "version": "00cadebbe95f4404"
     },
     {
       "id": "actors",
       "date": "2026-11-27",
       "status": "approved",
       "drop_at": "2026-11-28T02:00:00.000Z",
-      "static_count": null,
-      "version": null
+      "static_count": 137341,
+      "version": "4d5f987545448900"
     }
   ],
-  "workerVersion": "edc96327-2c12-4475-ac44-341d6420d5b8",
-  "pagesDeployment": "15909da1"
+  "workerVersion": "8bbcce12-1da9-4cf2-ab1c-0ad50660a31b",
+  "pagesDeployment": "94024534"
 }

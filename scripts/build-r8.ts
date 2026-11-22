@@ -11,7 +11,7 @@ import {
 import { createHash } from 'node:crypto';
 import { pageMatchesScope } from './catalog-quality';
 import { cleanReferenceRows } from './catalog-cleaning';
-import { commonNamePlurals, conjunctionAliases } from './catalog-aliases';
+import { commonNamePlurals, conjunctionAliases, workSubtitleAliases } from './catalog-aliases';
 import { normalize, normalizeCommonName } from '../worker/domain';
 // Every source row is considered; documented quality filters are applied after popularity assessment.
 const onlySlugs = process.argv
@@ -226,6 +226,9 @@ for (const [slug, unclean] of Object.entries(raw) as any) {
   // A canonical noun owns its inflections before any ambiguous source alias.
   for (const row of rows)
     row.aliases.push(...[row.display, ...row.aliases].flatMap(conjunctionAliases));
+  if (['films', 'albums', 'songs', 'novels', 'video-games', 'television'].includes(slug))
+    for (const row of rows)
+      row.aliases.push(...[row.display, ...row.aliases].flatMap(workSubtitleAliases));
   const inflectionOwners = new Map<string, any>();
   if (commonNames)
     for (const a of rows)
@@ -754,7 +757,7 @@ for (const [slug, answers] of Object.entries(catalogs)) {
           ? 'english-article-title-v3+en-mul-labels-aliases-v3'
           : null,
         classificationRevision: definitions.find((d: any) => d.slug === slug)?.cacheKey || 'base',
-        scopeValidation: 'article-descriptions-v2',
+        scopeValidation: 'article-descriptions-v3',
         reviewRequired: true,
         coverageRequired: true,
         unmeasured: answers.filter((a) => !a.pageviews.days).length,

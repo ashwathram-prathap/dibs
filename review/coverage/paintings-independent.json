@@ -1,0 +1,828 @@
+{
+  "source": "Independent curated Wikipedia lists, extracted by subject column or list label; see source URLs per sample",
+  "seed": 2783814262,
+  "method": "Uniform draw without replacement from the middle half by measured mean daily readership; frozen first draw, all misses retained",
+  "poolSize": 108,
+  "excluded": [
+    {
+      "name": "Anna's Light",
+      "reason": "Different visual-art medium or no separate painting article for readership"
+    },
+    {
+      "name": "Silver Car Crash (Double Disaster)",
+      "reason": "Different visual-art medium or no separate painting article for readership"
+    },
+    {
+      "name": "False Start",
+      "reason": "Different visual-art medium or no separate painting article for readership"
+    },
+    {
+      "name": "Arlequin",
+      "reason": "Different visual-art medium or no separate painting article for readership"
+    }
+  ],
+  "answers": [
+    "Garçon à la pipe",
+    "Orange, Red, Yellow",
+    "Suprematist Composition",
+    "Chop Suey",
+    "Police Gazette",
+    "Nude, Green Leaves and Bust",
+    "Woman III",
+    "Portrait de l'artiste sans barbe",
+    "Three Studies of Lucian Freud",
+    "Dora Maar au Chat",
+    "Twelve Landscape Screens",
+    "Rideau, Cruchon et Compotier",
+    "Young Girl with a Flower Basket",
+    "Les Poseuses, Ensemble (Petite version)",
+    "Nurse",
+    "Portrait of Joseph Roulin",
+    "Massacre of the Innocents",
+    "In This Case",
+    "The Standard Bearer",
+    "Portrait of Juan de Pareja",
+    "Les Femmes d'Alger(\"Version O\")",
+    "No 1 (Royal Red and Blue)",
+    "Benois Madonna",
+    "Nu couché",
+    "Diana and Callisto",
+    "Adoration of the Magi",
+    "Femme au béret et à la robe quadrillée (Marie-Thérèse Walter)",
+    "The Mill",
+    "The Immaculate Conception of Los Venerables",
+    "Masterpiece",
+    "Yo, Picasso",
+    "L’Allée des Alyscamps",
+    "Portrait of George Dyer Talking",
+    "Verger avec cyprès",
+    "Femme à la montre",
+    "Triptych, 1976",
+    "Triple Elvis",
+    "Portrait of Adele Bloch-Bauer II",
+    "Diana and Actaeon",
+    "Le Bassin aux Nymphéas",
+    "A Wheatfield with Cypresses",
+    "Wasserschlangen II",
+    "Lady with a Fan",
+    "Nude Sitting on a Divan",
+    "Study of a Young Woman",
+    "Au Lapin Agile",
+    "Aristotle Contemplating a Bust of Homer",
+    "Darmstadt Madonna",
+    "Small Cowper Madonna",
+    "Pendant portraits of Maerten Soolmans and Oopjen Coppit"
+  ],
+  "samples": [
+    {
+      "answer": "Garçon à la pipe",
+      "source": "https://en.wikipedia.org/wiki/List_of_most_expensive_paintings",
+      "wikipediaTitle": "Garçon à la pipe",
+      "pageviews": {
+        "total": 1896,
+        "days": 31,
+        "title": "Garçon à la pipe",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "Orange, Red, Yellow",
+      "source": "https://en.wikipedia.org/wiki/List_of_most_expensive_paintings",
+      "wikipediaTitle": "Orange, Red, Yellow",
+      "pageviews": {
+        "total": 1248,
+        "days": 31,
+        "title": "Orange, Red, Yellow",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Suprematist Composition",
+      "source": "https://en.wikipedia.org/wiki/List_of_most_expensive_paintings",
+      "wikipediaTitle": "Suprematist Composition",
+      "pageviews": {
+        "total": 778,
+        "days": 31,
+        "title": "Suprematist Composition",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "Chop Suey",
+      "source": "https://en.wikipedia.org/wiki/List_of_most_expensive_paintings",
+      "wikipediaTitle": "Chop Suey (painting)",
+      "pageviews": {
+        "total": 3258,
+        "days": 31,
+        "title": "Chop Suey (Hopper)",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Police Gazette",
+      "source": "https://en.wikipedia.org/wiki/List_of_most_expensive_paintings",
+      "wikipediaTitle": "Police Gazette (painting)",
+      "pageviews": {
+        "total": 515,
+        "days": 31,
+        "title": "Police Gazette (painting)",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Nude, Green Leaves and Bust",
+      "source": "https://en.wikipedia.org/wiki/List_of_most_expensive_paintings",
+      "wikipediaTitle": "Nude, Green Leaves and Bust",
+      "pageviews": {
+        "total": 1565,
+        "days": 31,
+        "title": "Nude, Green Leaves and Bust",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "Woman III",
+      "source": "https://en.wikipedia.org/wiki/List_of_most_expensive_paintings",
+      "wikipediaTitle": "Woman III",
+      "pageviews": {
+        "total": 1592,
+        "days": 31,
+        "title": "Woman III",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Portrait de l'artiste sans barbe",
+      "source": "https://en.wikipedia.org/wiki/List_of_most_expensive_paintings",
+      "wikipediaTitle": "Self-portrait without beard",
+      "pageviews": {
+        "total": 576,
+        "days": 31,
+        "title": "Self-portrait without beard",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Three Studies of Lucian Freud",
+      "source": "https://en.wikipedia.org/wiki/List_of_most_expensive_paintings",
+      "wikipediaTitle": "Three Studies of Lucian Freud",
+      "pageviews": {
+        "total": 2042,
+        "days": 31,
+        "title": "Three Studies of Lucian Freud",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Dora Maar au Chat",
+      "source": "https://en.wikipedia.org/wiki/List_of_most_expensive_paintings",
+      "wikipediaTitle": "Dora Maar au Chat",
+      "pageviews": {
+        "total": 1546,
+        "days": 31,
+        "title": "Dora Maar au Chat",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "Twelve Landscape Screens",
+      "source": "https://en.wikipedia.org/wiki/List_of_most_expensive_paintings",
+      "wikipediaTitle": "Twelve Landscape Screens",
+      "pageviews": {
+        "total": 763,
+        "days": 31,
+        "title": "Twelve Landscape Screens",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Rideau, Cruchon et Compotier",
+      "source": "https://en.wikipedia.org/wiki/List_of_most_expensive_paintings",
+      "wikipediaTitle": "Rideau, Cruchon et Compotier",
+      "pageviews": {
+        "total": 775,
+        "days": 31,
+        "title": "Rideau, Cruchon et Compotier",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Young Girl with a Flower Basket",
+      "source": "https://en.wikipedia.org/wiki/List_of_most_expensive_paintings",
+      "wikipediaTitle": "Young Girl with a Flower Basket",
+      "pageviews": {
+        "total": 1161,
+        "days": 31,
+        "title": "Young Girl with a Flower Basket",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Les Poseuses, Ensemble (Petite version)",
+      "source": "https://en.wikipedia.org/wiki/List_of_most_expensive_paintings",
+      "wikipediaTitle": "Models (painting)",
+      "pageviews": {
+        "total": 850,
+        "days": 31,
+        "title": "Models (painting)",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Nurse",
+      "source": "https://en.wikipedia.org/wiki/List_of_most_expensive_paintings",
+      "wikipediaTitle": "Nurse (Lichtenstein)",
+      "pageviews": {
+        "total": 843,
+        "days": 31,
+        "title": "Nurse (Lichtenstein)",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Portrait of Joseph Roulin",
+      "source": "https://en.wikipedia.org/wiki/List_of_most_expensive_paintings",
+      "wikipediaTitle": "The Roulin Family",
+      "pageviews": {
+        "total": 1854,
+        "days": 31,
+        "title": "The Roulin Family",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Massacre of the Innocents",
+      "source": "https://en.wikipedia.org/wiki/List_of_most_expensive_paintings",
+      "wikipediaTitle": "Massacre of the Innocents (Rubens)",
+      "pageviews": {
+        "total": 2583,
+        "days": 31,
+        "title": "Massacre of the Innocents (Rubens)",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "In This Case",
+      "source": "https://en.wikipedia.org/wiki/List_of_most_expensive_paintings",
+      "wikipediaTitle": "In This Case",
+      "pageviews": {
+        "total": 1038,
+        "days": 31,
+        "title": "In This Case",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "The Standard Bearer",
+      "source": "https://en.wikipedia.org/wiki/List_of_most_expensive_paintings",
+      "wikipediaTitle": "The Standard Bearer (Rembrandt, 1636)",
+      "pageviews": {
+        "total": 1116,
+        "days": 31,
+        "title": "The Standard Bearer (Rembrandt, 1636)",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Portrait of Juan de Pareja",
+      "source": "https://en.wikipedia.org/wiki/List_of_most_expensive_paintings",
+      "wikipediaTitle": "Portrait of Juan de Pareja",
+      "pageviews": {
+        "total": 2154,
+        "days": 31,
+        "title": "Portrait of Juan de Pareja",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Les Femmes d'Alger(\"Version O\")",
+      "source": "https://en.wikipedia.org/wiki/List_of_most_expensive_paintings",
+      "wikipediaTitle": "Les Femmes d'Alger (Picasso)",
+      "pageviews": {
+        "total": 2304,
+        "days": 31,
+        "title": "Les Femmes d'Alger",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "No 1 (Royal Red and Blue)",
+      "source": "https://en.wikipedia.org/wiki/List_of_most_expensive_paintings",
+      "wikipediaTitle": "No 1 (Royal Red and Blue)",
+      "pageviews": {
+        "total": 832,
+        "days": 31,
+        "title": "No 1 (Royal Red and Blue)",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Benois Madonna",
+      "source": "https://en.wikipedia.org/wiki/List_of_most_expensive_paintings",
+      "wikipediaTitle": "Benois Madonna",
+      "pageviews": {
+        "total": 1021,
+        "days": 31,
+        "title": "Benois Madonna",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "Nu couché",
+      "source": "https://en.wikipedia.org/wiki/List_of_most_expensive_paintings",
+      "wikipediaTitle": "Nu couché",
+      "pageviews": {
+        "total": 3042,
+        "days": 31,
+        "title": "Nu couché",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "Diana and Callisto",
+      "source": "https://en.wikipedia.org/wiki/List_of_most_expensive_paintings",
+      "wikipediaTitle": "Diana and Callisto",
+      "pageviews": {
+        "total": 915,
+        "days": 31,
+        "title": "Diana and Callisto",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "Adoration of the Magi",
+      "source": "https://en.wikipedia.org/wiki/List_of_most_expensive_paintings",
+      "wikipediaTitle": "Adoration of the Magi (Mantegna)",
+      "pageviews": {
+        "total": 482,
+        "days": 31,
+        "title": "Adoration of the Magi (Mantegna)",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Femme au béret et à la robe quadrillée (Marie-Thérèse Walter)",
+      "source": "https://en.wikipedia.org/wiki/List_of_most_expensive_paintings",
+      "wikipediaTitle": "Femme au béret et à la robe quadrillée (Marie-Thérèse Walter)",
+      "pageviews": {
+        "total": 930,
+        "days": 31,
+        "title": "Femme au béret et à la robe quadrillée (Marie-Thérèse Walter)",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "The Mill",
+      "source": "https://en.wikipedia.org/wiki/List_of_most_expensive_paintings",
+      "wikipediaTitle": "The Mill (Rembrandt)",
+      "pageviews": {
+        "total": 523,
+        "days": 31,
+        "title": "The Mill (Rembrandt)",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "The Immaculate Conception of Los Venerables",
+      "source": "https://en.wikipedia.org/wiki/List_of_most_expensive_paintings",
+      "wikipediaTitle": "The Immaculate Conception of Los Venerables",
+      "pageviews": {
+        "total": 660,
+        "days": 31,
+        "title": "The Immaculate Conception of Los Venerables",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Masterpiece",
+      "source": "https://en.wikipedia.org/wiki/List_of_most_expensive_paintings",
+      "wikipediaTitle": "Masterpiece (Lichtenstein)",
+      "pageviews": {
+        "total": 3144,
+        "days": 31,
+        "title": "Masterpiece (Lichtenstein)",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Yo, Picasso",
+      "source": "https://en.wikipedia.org/wiki/List_of_most_expensive_paintings",
+      "wikipediaTitle": "Yo, Picasso",
+      "pageviews": {
+        "total": 709,
+        "days": 31,
+        "title": "Yo, Picasso",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "L’Allée des Alyscamps",
+      "source": "https://en.wikipedia.org/wiki/List_of_most_expensive_paintings",
+      "wikipediaTitle": "Les Alyscamps",
+      "pageviews": {
+        "total": 1047,
+        "days": 31,
+        "title": "Les Alyscamps",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Portrait of George Dyer Talking",
+      "source": "https://en.wikipedia.org/wiki/List_of_most_expensive_paintings",
+      "wikipediaTitle": "Portrait of George Dyer Talking",
+      "pageviews": {
+        "total": 578,
+        "days": 31,
+        "title": "Portrait of George Dyer Talking",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Verger avec cyprès",
+      "source": "https://en.wikipedia.org/wiki/List_of_most_expensive_paintings",
+      "wikipediaTitle": "Orchard with Cypresses",
+      "pageviews": {
+        "total": 759,
+        "days": 31,
+        "title": "Orchard with Cypresses",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Femme à la montre",
+      "source": "https://en.wikipedia.org/wiki/List_of_most_expensive_paintings",
+      "wikipediaTitle": "Femme à la montre",
+      "pageviews": {
+        "total": 758,
+        "days": 31,
+        "title": "Femme à la montre",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Triptych, 1976",
+      "source": "https://en.wikipedia.org/wiki/List_of_most_expensive_paintings",
+      "wikipediaTitle": "Triptych, 1976",
+      "pageviews": {
+        "total": 999,
+        "days": 31,
+        "title": "Triptych, 1976",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "Triple Elvis",
+      "source": "https://en.wikipedia.org/wiki/List_of_most_expensive_paintings",
+      "wikipediaTitle": "Triple Elvis",
+      "pageviews": {
+        "total": 875,
+        "days": 31,
+        "title": "Triple Elvis",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Portrait of Adele Bloch-Bauer II",
+      "source": "https://en.wikipedia.org/wiki/List_of_most_expensive_paintings",
+      "wikipediaTitle": "Portrait of Adele Bloch-Bauer II",
+      "pageviews": {
+        "total": 2617,
+        "days": 31,
+        "title": "Portrait of Adele Bloch-Bauer II",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Diana and Actaeon",
+      "source": "https://en.wikipedia.org/wiki/List_of_most_expensive_paintings",
+      "wikipediaTitle": "Diana and Actaeon (Titian)",
+      "pageviews": {
+        "total": 1498,
+        "days": 31,
+        "title": "Diana and Actaeon (Titian)",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Le Bassin aux Nymphéas",
+      "source": "https://en.wikipedia.org/wiki/List_of_most_expensive_paintings",
+      "wikipediaTitle": "Le Bassin Aux Nymphéas",
+      "pageviews": {
+        "total": 752,
+        "days": 31,
+        "title": "Le Bassin aux Nymphéas",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "A Wheatfield with Cypresses",
+      "source": "https://en.wikipedia.org/wiki/List_of_most_expensive_paintings",
+      "wikipediaTitle": "A Wheatfield with Cypresses",
+      "pageviews": {
+        "total": 3175,
+        "days": 31,
+        "title": "Wheat Field with Cypresses",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Wasserschlangen II",
+      "source": "https://en.wikipedia.org/wiki/List_of_most_expensive_paintings",
+      "wikipediaTitle": "Water Serpents II",
+      "pageviews": {
+        "total": 2363,
+        "days": 31,
+        "title": "Water Serpents II",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Lady with a Fan",
+      "source": "https://en.wikipedia.org/wiki/List_of_most_expensive_paintings",
+      "wikipediaTitle": "Lady with a Fan (Klimt)",
+      "pageviews": {
+        "total": 1239,
+        "days": 31,
+        "title": "Lady with a Fan (Klimt)",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Nude Sitting on a Divan",
+      "source": "https://en.wikipedia.org/wiki/List_of_most_expensive_paintings",
+      "wikipediaTitle": "Nude Sitting on a Divan",
+      "pageviews": {
+        "total": 491,
+        "days": 31,
+        "title": "Nude Sitting on a Divan",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "Study of a Young Woman",
+      "source": "https://en.wikipedia.org/wiki/List_of_most_expensive_paintings",
+      "wikipediaTitle": "Study of a Young Woman",
+      "pageviews": {
+        "total": 1776,
+        "days": 31,
+        "title": "Study of a Young Woman",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "Au Lapin Agile",
+      "source": "https://en.wikipedia.org/wiki/List_of_most_expensive_paintings",
+      "wikipediaTitle": "Au Lapin Agile",
+      "pageviews": {
+        "total": 516,
+        "days": 31,
+        "title": "Au Lapin Agile",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Aristotle Contemplating a Bust of Homer",
+      "source": "https://en.wikipedia.org/wiki/List_of_most_expensive_paintings",
+      "wikipediaTitle": "Aristotle Contemplating a Bust of Homer",
+      "pageviews": {
+        "total": 998,
+        "days": 31,
+        "title": "Aristotle with a Bust of Homer",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Darmstadt Madonna",
+      "source": "https://en.wikipedia.org/wiki/List_of_most_expensive_paintings",
+      "wikipediaTitle": "Darmstadt Madonna",
+      "pageviews": {
+        "total": 508,
+        "days": 31,
+        "title": "Darmstadt Madonna",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "Small Cowper Madonna",
+      "source": "https://en.wikipedia.org/wiki/List_of_most_expensive_paintings",
+      "wikipediaTitle": "Small Cowper Madonna",
+      "pageviews": {
+        "total": 478,
+        "days": 31,
+        "title": "Small Cowper Madonna",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Pendant portraits of Maerten Soolmans and Oopjen Coppit",
+      "source": "https://en.wikipedia.org/wiki/List_of_most_expensive_paintings",
+      "wikipediaTitle": "Pendant portraits of Maerten Soolmans and Oopjen Coppit",
+      "pageviews": {
+        "total": 1357,
+        "days": 31,
+        "title": "Pendant portraits of Maerten Soolmans and Oopjen Coppit",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    }
+  ]
+}

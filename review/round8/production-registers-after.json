@@ -206,8 +206,66 @@
     "status": "approved",
     "date": "2026-11-26",
     "drop_at": "2026-11-27T02:00:00.000Z",
-    "total": 2200,
-    "staticCatalog": null
+    "total": 149928,
+    "staticCatalog": {
+      "v": 2,
+      "slug": "cities",
+      "version": "00cadebbe95f4404",
+      "count": 149928,
+      "house": [
+        [
+          0,
+          "New York",
+          1
+        ],
+        [
+          1,
+          "Singapore",
+          1
+        ],
+        [
+          2,
+          "Hong Kong",
+          1
+        ],
+        [
+          3,
+          "Los Angeles",
+          1
+        ],
+        [
+          4,
+          "London",
+          1
+        ],
+        [
+          5,
+          "Washington D.C.",
+          1
+        ],
+        [
+          6,
+          "Milwaukee",
+          1
+        ],
+        [
+          7,
+          "Berlin",
+          1
+        ],
+        [
+          8,
+          "Paris",
+          1
+        ],
+        [
+          9,
+          "Monaco",
+          1
+        ]
+      ],
+      "scope": "Named populated places in GeoNames cities1000: population 1,000+ or administrative seats; one answer per name."
+    }
   },
   {
     "id": "actors",
@@ -215,7 +273,65 @@
     "status": "approved",
     "date": "2026-11-27",
     "drop_at": "2026-11-28T02:00:00.000Z",
-    "total": 2200,
-    "staticCatalog": null
+    "total": 137341,
+    "staticCatalog": {
+      "v": 2,
+      "slug": "actors",
+      "version": "4d5f987545448900",
+      "count": 137341,
+      "house": [
+        [
+          0,
+          "RJ Mitte",
+          1
+        ],
+        [
+          1,
+          "Patrick Stewart",
+          1
+        ],
+        [
+          2,
+          "Nana Patekar",
+          1
+        ],
+        [
+          3,
+          "Mike Ditka",
+          1
+        ],
+        [
+          4,
+          "Nathan Fielder",
+          1
+        ],
+        [
+          5,
+          "Bella Ramsey",
+          1
+        ],
+        [
+          6,
+          "Dakota Johnson",
+          1
+        ],
+        [
+          7,
+          "Florence Pugh",
+          1
+        ],
+        [
+          8,
+          "Sebastian Croft",
+          1
+        ],
+        [
+          9,
+          "Jerry Hall",
+          1
+        ]
+      ],
+      "scope": "Actors classified by Wikidata with English Wikipedia articles; one answer per name."
+    }
   }
 ]

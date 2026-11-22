@@ -5,6 +5,21 @@ export function conjunctionAliases(name: string) {
     ...(/\band\b/i.test(name) ? [name.replace(/\band\b/gi, '&')] : []),
   ];
 }
+export function workSubtitleAliases(name: string) {
+  const afterColon = name.match(/^[^:]+:\s*(.+)$/)?.[1];
+  if (!afterColon) return [];
+  const subtitle = afterColon
+    .replace(/^(?:episode|part|book|volume|vol\.)\s+(?:[ivxlcdm]+|\d+)\s*[-–—:]\s*/i, '')
+    .split(/\s+[–—]\s+/)
+    .at(-1)!
+    .trim();
+  if (
+    subtitle.split(/\s+/).length < 2 ||
+    /^(?:part|episode|season|volume|vol\.)\s+(?:[ivxlcdm]+|\d+)$/i.test(subtitle)
+  )
+    return [];
+  return [subtitle];
+}
 const alternatives: Record<string, string[]> = {
   cactus: ['cacti', 'cactuses'],
   hippopotamus: ['hippopotami', 'hippopotamuses'],

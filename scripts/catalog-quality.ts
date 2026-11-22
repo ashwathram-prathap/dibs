@@ -54,8 +54,13 @@ export function pageMatchesScope(slug: string, description: string, scientificRe
       description,
     );
   if (slug === 'foods')
-    return !/cooking (method|technique)|method of cooking|cooking process|chef|restaurateur|city|town|region of|province|language|ethnic group/i.test(
-      description,
+    return (
+      !/cooking (method|technique)|method of cooking|cooking process|chef|restaurateur|city|town|region of|province|language|ethnic group|military leader|statesman/i.test(
+        description,
+      ) &&
+      /food|dish|drink|cuisine|ingredient|beverage|vegetable|fruit|seed|grain|cereal|spice|herb\b|condiment|sauce|dairy|cheese|milk|meat|fish|mushroom|pasta|noodle|soup|bread|pastry|dessert|cake|candy|chocolate|confection|sweet|sandwich|salad|sausage|meal|water|liquid|oil\b|salt\b|sugar|starch|protein|wine|beer|spirit|liqueur|juice|coffee|tea\b|edible|prepared|cooked|culinary|fermented|baked|roasted|boiled|seasoning|flour|flavor|flavour|yeast|vinegar|gelatin|cocoa|cacao|liver|egg|poultry|cream|potato|nut\b/i.test(
+        description,
+      )
     );
   return true;
 }

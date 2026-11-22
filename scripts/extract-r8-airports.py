@@ -6,7 +6,8 @@ with (root/'airports.csv').open(encoding='utf-8-sig') as source:
  for record in csv.DictReader(source):
   if record['type'] in ['heliport','balloonport'] or re.search(r'heliport|helipad|balloonport',record['name'],re.I):continue
   aliases=[record[key] for key in ['ident','icao_code','iata_code','gps_code','local_code'] if record[key]]
-  aliases += [name.strip() for name in record['keywords'].split(',') if name.strip()]
+  # Free-form keywords include nearby rivers, events and generic aviation tags.
+  # Verified historical names come from the article redirect pass instead.
   short=re.sub(r'\s+(International\s+)?(Airport|Airfield|Aerodrome)$','',record['name'],flags=re.I)
   if short and short!=record['name']:aliases.append(short)
   row={'display':record['name'],'aliases':aliases,'source':'https://ourairports.com/airports/'+record['ident']+'/','airportType':record['type']}

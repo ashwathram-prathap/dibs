@@ -45,7 +45,11 @@ npx tsx scripts/extract-r8-curated.ts
 python3 scripts/extract-r8-geography.py
 npx tsx scripts/extract-r8-asteroids.ts
 npx tsx scripts/extract-r8-wikidata-chunks.ts
+npx tsx scripts/enrich-r8-wikidata-aliases.ts
+python3 scripts/extract-r8-airports.py
 python3 scripts/extract-r8.py
+npx tsx scripts/enrich-r8-wikipedia-aliases.ts --slug=airports
+npx tsx scripts/enrich-r8-wikipedia-aliases.ts --slug=arthropods
 NODE_OPTIONS=--max-old-space-size=8192 npx tsx scripts/build-r8.ts --write-measurement-queue
 npx tsx scripts/prepare-r8-title-inventory.ts
 NODE_OPTIONS=--max-old-space-size=8192 npx tsx scripts/build-r8.ts
@@ -54,6 +58,8 @@ npm run build
 ```
 
 For complete monthly rankings, download Wikimedia's full human-pageview dump and run `python3 scripts/extract-r8-bulk-pageviews.py`, then use `build-r8.ts --bulk`. The extractor sums every access method, including views without a page ID, and records the complete input checksum and row counts. Selection scans the entire extracted index; it never caps candidate membership. Verify sample totals against the monthly REST API with `scripts/verify-r8-bulk-pageviews.ts`. The bulk mode uses October 1–31, 2026 consistently; article existence, redirects and category scope are checked separately. Run only one ranking-cache writer at a time. `--measure-only --bulk` fills metadata, while `--offline --bulk` materializes the measured snapshot. Do not switch back to daily mode without remeasuring metadata-only cache entries.
+
+Wikipedia redirect continuation preserves the original article description and page properties. Airport names and aliases require an airport description before an external article can replace the reference name; unrelated links remain unrated. Food readership likewise requires a food description. The emoji check inspects canonical catalog names as well as UI source; original symbol-bearing titles remain accepted aliases while displayed names use source-backed plain text.
 
 Wikidata extraction first retrieves the entire classification ID set, then uses resumable bounded joins to obtain English article links. Article titles supply common names; English and multilingual labels and aliases supply accepted variants. A mandatory English-only label would wrongly omit entries that use Wikidata's default multilingual label, so it is never an eligibility condition. English Wikipedia article availability is the stated quality filter; batch size never caps membership. Cities, biological and food references retain their full eligible reference set. For the other GeoNames categories, every candidate is considered; only measured articles with matching geographic descriptions pass the stated quality filter. Missing pageview data is recorded as unknown, never fabricated zero views. Geography feature codes and exclusions are recorded in the extraction audit.
 

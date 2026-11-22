@@ -1,0 +1,2104 @@
+{
+  "source": "Independent curated Wikipedia lists, extracted by subject column or list label; see source URLs per sample",
+  "seed": 1578737829,
+  "method": "Uniform draw without replacement from the middle half by measured mean daily readership; frozen first draw, all misses retained",
+  "poolSize": 159,
+  "excluded": [
+    {
+      "name": "Chuck Berry",
+      "reason": "Solo artist or non-group entry from the Hall of Fame list"
+    },
+    {
+      "name": "James Brown",
+      "reason": "Solo artist or non-group entry from the Hall of Fame list"
+    },
+    {
+      "name": "Ray Charles",
+      "reason": "Solo artist or non-group entry from the Hall of Fame list"
+    },
+    {
+      "name": "Sam Cooke",
+      "reason": "Solo artist or non-group entry from the Hall of Fame list"
+    },
+    {
+      "name": "Fats Domino",
+      "reason": "Solo artist or non-group entry from the Hall of Fame list"
+    },
+    {
+      "name": "Buddy Holly",
+      "reason": "Solo artist or non-group entry from the Hall of Fame list"
+    },
+    {
+      "name": "Jerry Lee Lewis",
+      "reason": "Solo artist or non-group entry from the Hall of Fame list"
+    },
+    {
+      "name": "Little Richard",
+      "reason": "Solo artist or non-group entry from the Hall of Fame list"
+    },
+    {
+      "name": "Elvis Presley",
+      "reason": "Solo artist or non-group entry from the Hall of Fame list"
+    },
+    {
+      "name": "Eddie Cochran",
+      "reason": "Solo artist or non-group entry from the Hall of Fame list"
+    },
+    {
+      "name": "Bo Diddley",
+      "reason": "Solo artist or non-group entry from the Hall of Fame list"
+    },
+    {
+      "name": "Aretha Franklin",
+      "reason": "Solo artist or non-group entry from the Hall of Fame list"
+    },
+    {
+      "name": "Marvin Gaye",
+      "reason": "Solo artist or non-group entry from the Hall of Fame list"
+    },
+    {
+      "name": "Bill Haley",
+      "reason": "Solo artist or non-group entry from the Hall of Fame list"
+    },
+    {
+      "name": "B. B. King",
+      "reason": "Solo artist or non-group entry from the Hall of Fame list"
+    },
+    {
+      "name": "Clyde McPhatter",
+      "reason": "Solo artist or non-group entry from the Hall of Fame list"
+    },
+    {
+      "name": "Ricky Nelson",
+      "reason": "Solo artist or non-group entry from the Hall of Fame list"
+    },
+    {
+      "name": "Roy Orbison",
+      "reason": "Solo artist or non-group entry from the Hall of Fame list"
+    },
+    {
+      "name": "Carl Perkins",
+      "reason": "Solo artist or non-group entry from the Hall of Fame list"
+    },
+    {
+      "name": "Smokey Robinson",
+      "reason": "Solo artist or non-group entry from the Hall of Fame list"
+    },
+    {
+      "name": "Big Joe Turner",
+      "reason": "Solo artist or non-group entry from the Hall of Fame list"
+    },
+    {
+      "name": "Muddy Waters",
+      "reason": "Solo artist or non-group entry from the Hall of Fame list"
+    },
+    {
+      "name": "Jackie Wilson",
+      "reason": "Solo artist or non-group entry from the Hall of Fame list"
+    },
+    {
+      "name": "Bob Dylan",
+      "reason": "Solo artist or non-group entry from the Hall of Fame list"
+    },
+    {
+      "name": "The Supremes",
+      "reason": "Solo artist or non-group entry from the Hall of Fame list"
+    },
+    {
+      "name": "Dion",
+      "reason": "Solo artist or non-group entry from the Hall of Fame list"
+    },
+    {
+      "name": "Otis Redding",
+      "reason": "Solo artist or non-group entry from the Hall of Fame list"
+    },
+    {
+      "name": "The Temptations",
+      "reason": "Solo artist or non-group entry from the Hall of Fame list"
+    },
+    {
+      "name": "Stevie Wonder",
+      "reason": "Solo artist or non-group entry from the Hall of Fame list"
+    },
+    {
+      "name": "Hank Ballard",
+      "reason": "Solo artist or non-group entry from the Hall of Fame list"
+    },
+    {
+      "name": "Bobby Darin",
+      "reason": "Solo artist or non-group entry from the Hall of Fame list"
+    },
+    {
+      "name": "LaVern Baker",
+      "reason": "Solo artist or non-group entry from the Hall of Fame list"
+    },
+    {
+      "name": "John Lee Hooker",
+      "reason": "Solo artist or non-group entry from the Hall of Fame list"
+    },
+    {
+      "name": "Wilson Pickett",
+      "reason": "Solo artist or non-group entry from the Hall of Fame list"
+    },
+    {
+      "name": "Jimmy Reed",
+      "reason": "Solo artist or non-group entry from the Hall of Fame list"
+    },
+    {
+      "name": "Bobby \"Blue\" Bland",
+      "reason": "Solo artist or non-group entry from the Hall of Fame list"
+    },
+    {
+      "name": "Johnny Cash",
+      "reason": "Solo artist or non-group entry from the Hall of Fame list"
+    },
+    {
+      "name": "The Jimi Hendrix Experience",
+      "reason": "Solo artist or non-group entry from the Hall of Fame list"
+    },
+    {
+      "name": "Ruth Brown",
+      "reason": "Solo artist or non-group entry from the Hall of Fame list"
+    },
+    {
+      "name": "Cream",
+      "reason": "Solo artist or non-group entry from the Hall of Fame list"
+    },
+    {
+      "name": "Frankie Lymon & The Teenagers",
+      "reason": "Solo artist or non-group entry from the Hall of Fame list"
+    },
+    {
+      "name": "Etta James",
+      "reason": "Solo artist or non-group entry from the Hall of Fame list"
+    },
+    {
+      "name": "Van Morrison",
+      "reason": "Solo artist or non-group entry from the Hall of Fame list"
+    },
+    {
+      "name": "Duane Eddy",
+      "reason": "Solo artist or non-group entry from the Hall of Fame list"
+    },
+    {
+      "name": "Elton John",
+      "reason": "Solo artist or non-group entry from the Hall of Fame list"
+    },
+    {
+      "name": "John Lennon",
+      "reason": "Solo artist or non-group entry from the Hall of Fame list"
+    },
+    {
+      "name": "Bob Marley",
+      "reason": "Solo artist or non-group entry from the Hall of Fame list"
+    },
+    {
+      "name": "Rod Stewart",
+      "reason": "Solo artist or non-group entry from the Hall of Fame list"
+    },
+    {
+      "name": "Al Green",
+      "reason": "Solo artist or non-group entry from the Hall of Fame list"
+    },
+    {
+      "name": "Janis Joplin",
+      "reason": "Solo artist or non-group entry from the Hall of Fame list"
+    },
+    {
+      "name": "Martha and the Vandellas",
+      "reason": "Solo artist or non-group entry from the Hall of Fame list"
+    },
+    {
+      "name": "Neil Young",
+      "reason": "Solo artist or non-group entry from the Hall of Fame list"
+    },
+    {
+      "name": "Frank Zappa",
+      "reason": "Solo artist or non-group entry from the Hall of Fame list"
+    },
+    {
+      "name": "David Bowie",
+      "reason": "Solo artist or non-group entry from the Hall of Fame list"
+    },
+    {
+      "name": "Little Willie John",
+      "reason": "Solo artist or non-group entry from the Hall of Fame list"
+    },
+    {
+      "name": "The Shirelles",
+      "reason": "Solo artist or non-group entry from the Hall of Fame list"
+    },
+    {
+      "name": "Crosby, Stills & Nash",
+      "reason": "Solo artist or non-group entry from the Hall of Fame list"
+    },
+    {
+      "name": "Joni Mitchell",
+      "reason": "Solo artist or non-group entry from the Hall of Fame list"
+    },
+    {
+      "name": "Lloyd Price",
+      "reason": "Solo artist or non-group entry from the Hall of Fame list"
+    },
+    {
+      "name": "Gene Vincent",
+      "reason": "Solo artist or non-group entry from the Hall of Fame list"
+    },
+    {
+      "name": "Billy Joel",
+      "reason": "Solo artist or non-group entry from the Hall of Fame list"
+    },
+    {
+      "name": "Curtis Mayfield",
+      "reason": "Solo artist or non-group entry from the Hall of Fame list"
+    },
+    {
+      "name": "Paul McCartney",
+      "reason": "Solo artist or non-group entry from the Hall of Fame list"
+    },
+    {
+      "name": "Del Shannon",
+      "reason": "Solo artist or non-group entry from the Hall of Fame list"
+    },
+    {
+      "name": "Dusty Springfield",
+      "reason": "Solo artist or non-group entry from the Hall of Fame list"
+    },
+    {
+      "name": "Bruce Springsteen",
+      "reason": "Solo artist or non-group entry from the Hall of Fame list"
+    },
+    {
+      "name": "The Staple Singers",
+      "reason": "Solo artist or non-group entry from the Hall of Fame list"
+    },
+    {
+      "name": "Eric Clapton",
+      "reason": "Solo artist or non-group entry from the Hall of Fame list"
+    },
+    {
+      "name": "The Moonglows",
+      "reason": "Solo artist or non-group entry from the Hall of Fame list"
+    },
+    {
+      "name": "Bonnie Raitt",
+      "reason": "Solo artist or non-group entry from the Hall of Fame list"
+    },
+    {
+      "name": "James Taylor",
+      "reason": "Solo artist or non-group entry from the Hall of Fame list"
+    },
+    {
+      "name": "Solomon Burke",
+      "reason": "Solo artist or non-group entry from the Hall of Fame list"
+    },
+    {
+      "name": "The Flamingos",
+      "reason": "Solo artist or non-group entry from the Hall of Fame list"
+    },
+    {
+      "name": "Michael Jackson",
+      "reason": "Solo artist or non-group entry from the Hall of Fame list"
+    },
+    {
+      "name": "Paul Simon",
+      "reason": "Solo artist or non-group entry from the Hall of Fame list"
+    },
+    {
+      "name": "Ritchie Valens",
+      "reason": "Solo artist or non-group entry from the Hall of Fame list"
+    },
+    {
+      "name": "Isaac Hayes",
+      "reason": "Solo artist or non-group entry from the Hall of Fame list"
+    },
+    {
+      "name": "Brenda Lee",
+      "reason": "Solo artist or non-group entry from the Hall of Fame list"
+    },
+    {
+      "name": "Gene Pitney",
+      "reason": "Solo artist or non-group entry from the Hall of Fame list"
+    },
+    {
+      "name": "Jackson Browne",
+      "reason": "Solo artist or non-group entry from the Hall of Fame list"
+    },
+    {
+      "name": "George Harrison",
+      "reason": "Solo artist or non-group entry from the Hall of Fame list"
+    },
+    {
+      "name": "Prince",
+      "reason": "Solo artist or non-group entry from the Hall of Fame list"
+    },
+    {
+      "name": "Bob Seger",
+      "reason": "Solo artist or non-group entry from the Hall of Fame list"
+    },
+    {
+      "name": "Buddy Guy",
+      "reason": "Solo artist or non-group entry from the Hall of Fame list"
+    },
+    {
+      "name": "The O'Jays",
+      "reason": "Solo artist or non-group entry from the Hall of Fame list"
+    },
+    {
+      "name": "Percy Sledge",
+      "reason": "Solo artist or non-group entry from the Hall of Fame list"
+    },
+    {
+      "name": "Miles Davis",
+      "reason": "Solo artist or non-group entry from the Hall of Fame list"
+    },
+    {
+      "name": "Grandmaster Flash and the Furious Five",
+      "reason": "Solo artist or non-group entry from the Hall of Fame list"
+    },
+    {
+      "name": "The Ronettes",
+      "reason": "Solo artist or non-group entry from the Hall of Fame list"
+    },
+    {
+      "name": "Patti Smith",
+      "reason": "Solo artist or non-group entry from the Hall of Fame list"
+    },
+    {
+      "name": "Leonard Cohen",
+      "reason": "Solo artist or non-group entry from the Hall of Fame list"
+    },
+    {
+      "name": "Madonna",
+      "reason": "Solo artist or non-group entry from the Hall of Fame list"
+    },
+    {
+      "name": "John Mellencamp",
+      "reason": "Solo artist or non-group entry from the Hall of Fame list"
+    },
+    {
+      "name": "Jeff Beck",
+      "reason": "Solo artist or non-group entry from the Hall of Fame list"
+    },
+    {
+      "name": "Run-DMC",
+      "reason": "Solo artist or non-group entry from the Hall of Fame list"
+    },
+    {
+      "name": "Bobby Womack",
+      "reason": "Solo artist or non-group entry from the Hall of Fame list"
+    },
+    {
+      "name": "ABBA",
+      "reason": "Solo artist or non-group entry from the Hall of Fame list"
+    },
+    {
+      "name": "Jimmy Cliff",
+      "reason": "Solo artist or non-group entry from the Hall of Fame list"
+    },
+    {
+      "name": "Neil Diamond",
+      "reason": "Solo artist or non-group entry from the Hall of Fame list"
+    },
+    {
+      "name": "Dr. John",
+      "reason": "Solo artist or non-group entry from the Hall of Fame list"
+    },
+    {
+      "name": "Darlene Love",
+      "reason": "Solo artist or non-group entry from the Hall of Fame list"
+    },
+    {
+      "name": "Tom Waits",
+      "reason": "Solo artist or non-group entry from the Hall of Fame list"
+    },
+    {
+      "name": "Beastie Boys",
+      "reason": "Solo artist or non-group entry from the Hall of Fame list"
+    },
+    {
+      "name": "Donovan",
+      "reason": "Solo artist or non-group entry from the Hall of Fame list"
+    },
+    {
+      "name": "Laura Nyro",
+      "reason": "Solo artist or non-group entry from the Hall of Fame list"
+    },
+    {
+      "name": "Albert King",
+      "reason": "Solo artist or non-group entry from the Hall of Fame list"
+    },
+    {
+      "name": "Randy Newman",
+      "reason": "Solo artist or non-group entry from the Hall of Fame list"
+    },
+    {
+      "name": "Public Enemy",
+      "reason": "Solo artist or non-group entry from the Hall of Fame list"
+    },
+    {
+      "name": "Donna Summer",
+      "reason": "Solo artist or non-group entry from the Hall of Fame list"
+    },
+    {
+      "name": "Peter Gabriel",
+      "reason": "Solo artist or non-group entry from the Hall of Fame list"
+    },
+    {
+      "name": "Linda Ronstadt",
+      "reason": "Solo artist or non-group entry from the Hall of Fame list"
+    },
+    {
+      "name": "Cat Stevens",
+      "reason": "Solo artist or non-group entry from the Hall of Fame list"
+    },
+    {
+      "name": "Lou Reed",
+      "reason": "Solo artist or non-group entry from the Hall of Fame list"
+    },
+    {
+      "name": "Stevie Ray Vaughan",
+      "reason": "Solo artist or non-group entry from the Hall of Fame list"
+    },
+    {
+      "name": "Bill Withers",
+      "reason": "Solo artist or non-group entry from the Hall of Fame list"
+    },
+    {
+      "name": "N.W.A",
+      "reason": "Solo artist or non-group entry from the Hall of Fame list"
+    },
+    {
+      "name": "Steve Miller",
+      "reason": "Solo artist or non-group entry from the Hall of Fame list"
+    },
+    {
+      "name": "Joan Baez",
+      "reason": "Solo artist or non-group entry from the Hall of Fame list"
+    },
+    {
+      "name": "Tupac Shakur",
+      "reason": "Solo artist or non-group entry from the Hall of Fame list"
+    },
+    {
+      "name": "Nina Simone",
+      "reason": "Solo artist or non-group entry from the Hall of Fame list"
+    },
+    {
+      "name": "Janet Jackson",
+      "reason": "Solo artist or non-group entry from the Hall of Fame list"
+    },
+    {
+      "name": "Stevie Nicks",
+      "reason": "Solo artist or non-group entry from the Hall of Fame list"
+    },
+    {
+      "name": "Whitney Houston",
+      "reason": "Solo artist or non-group entry from the Hall of Fame list"
+    },
+    {
+      "name": "The Notorious B.I.G.",
+      "reason": "Solo artist or non-group entry from the Hall of Fame list"
+    },
+    {
+      "name": "Jay-Z",
+      "reason": "Solo artist or non-group entry from the Hall of Fame list"
+    },
+    {
+      "name": "Carole King",
+      "reason": "Solo artist or non-group entry from the Hall of Fame list"
+    },
+    {
+      "name": "Todd Rundgren",
+      "reason": "Solo artist or non-group entry from the Hall of Fame list"
+    },
+    {
+      "name": "Tina Turner",
+      "reason": "Solo artist or non-group entry from the Hall of Fame list"
+    },
+    {
+      "name": "Pat Benatar",
+      "reason": "Solo artist or non-group entry from the Hall of Fame list"
+    },
+    {
+      "name": "Eminem",
+      "reason": "Solo artist or non-group entry from the Hall of Fame list"
+    },
+    {
+      "name": "Dolly Parton",
+      "reason": "Solo artist or non-group entry from the Hall of Fame list"
+    },
+    {
+      "name": "Lionel Richie",
+      "reason": "Solo artist or non-group entry from the Hall of Fame list"
+    },
+    {
+      "name": "Carly Simon",
+      "reason": "Solo artist or non-group entry from the Hall of Fame list"
+    },
+    {
+      "name": "Kate Bush",
+      "reason": "Solo artist or non-group entry from the Hall of Fame list"
+    },
+    {
+      "name": "Sheryl Crow",
+      "reason": "Solo artist or non-group entry from the Hall of Fame list"
+    },
+    {
+      "name": "Missy Elliott",
+      "reason": "Solo artist or non-group entry from the Hall of Fame list"
+    },
+    {
+      "name": "George Michael",
+      "reason": "Solo artist or non-group entry from the Hall of Fame list"
+    },
+    {
+      "name": "Willie Nelson",
+      "reason": "Solo artist or non-group entry from the Hall of Fame list"
+    },
+    {
+      "name": "Mary J. Blige",
+      "reason": "Solo artist or non-group entry from the Hall of Fame list"
+    },
+    {
+      "name": "Cher",
+      "reason": "Solo artist or non-group entry from the Hall of Fame list"
+    },
+    {
+      "name": "Peter Frampton",
+      "reason": "Solo artist or non-group entry from the Hall of Fame list"
+    },
+    {
+      "name": "Ozzy Osbourne",
+      "reason": "Solo artist or non-group entry from the Hall of Fame list"
+    },
+    {
+      "name": "A Tribe Called Quest",
+      "reason": "Solo artist or non-group entry from the Hall of Fame list"
+    },
+    {
+      "name": "Chubby Checker",
+      "reason": "Solo artist or non-group entry from the Hall of Fame list"
+    },
+    {
+      "name": "Joe Cocker",
+      "reason": "Solo artist or non-group entry from the Hall of Fame list"
+    },
+    {
+      "name": "Cyndi Lauper",
+      "reason": "Solo artist or non-group entry from the Hall of Fame list"
+    },
+    {
+      "name": "Phil Collins",
+      "reason": "Solo artist or non-group entry from the Hall of Fame list"
+    },
+    {
+      "name": "Billy Idol",
+      "reason": "Solo artist or non-group entry from the Hall of Fame list"
+    },
+    {
+      "name": "Luther Vandross",
+      "reason": "Solo artist or non-group entry from the Hall of Fame list"
+    },
+    {
+      "name": "Wu-Tang Clan",
+      "reason": "Solo artist or non-group entry from the Hall of Fame list"
+    },
+    {
+      "name": "Jimmie Rodgers",
+      "reason": "Solo artist or non-group entry from the Hall of Fame list"
+    },
+    {
+      "name": "Jimmy Yancey",
+      "reason": "Solo artist or non-group entry from the Hall of Fame list"
+    },
+    {
+      "name": "Robert Johnson",
+      "reason": "Solo artist or non-group entry from the Hall of Fame list"
+    },
+    {
+      "name": "Louis Jordan",
+      "reason": "Solo artist or non-group entry from the Hall of Fame list"
+    },
+    {
+      "name": "T-Bone Walker",
+      "reason": "Solo artist or non-group entry from the Hall of Fame list"
+    },
+    {
+      "name": "Hank Williams",
+      "reason": "Solo artist or non-group entry from the Hall of Fame list"
+    },
+    {
+      "name": "Woody Guthrie",
+      "reason": "Solo artist or non-group entry from the Hall of Fame list"
+    },
+    {
+      "name": "Lead Belly",
+      "reason": "Solo artist or non-group entry from the Hall of Fame list"
+    },
+    {
+      "name": "Les Paul",
+      "reason": "Solo artist or non-group entry from the Hall of Fame list"
+    },
+    {
+      "name": "Bessie Smith",
+      "reason": "Solo artist or non-group entry from the Hall of Fame list"
+    },
+    {
+      "name": "Louis Armstrong",
+      "reason": "Solo artist or non-group entry from the Hall of Fame list"
+    },
+    {
+      "name": "Charlie Christian",
+      "reason": "Solo artist or non-group entry from the Hall of Fame list"
+    },
+    {
+      "name": "Ma Rainey",
+      "reason": "Solo artist or non-group entry from the Hall of Fame list"
+    },
+    {
+      "name": "Howlin' Wolf",
+      "reason": "Solo artist or non-group entry from the Hall of Fame list"
+    },
+    {
+      "name": "Elmore James",
+      "reason": "Solo artist or non-group entry from the Hall of Fame list"
+    },
+    {
+      "name": "Professor Longhair",
+      "reason": "Solo artist or non-group entry from the Hall of Fame list"
+    },
+    {
+      "name": "Dinah Washington",
+      "reason": "Solo artist or non-group entry from the Hall of Fame list"
+    },
+    {
+      "name": "Willie Dixon",
+      "reason": "Solo artist or non-group entry from the Hall of Fame list"
+    },
+    {
+      "name": "Pete Seeger",
+      "reason": "Solo artist or non-group entry from the Hall of Fame list"
+    },
+    {
+      "name": "Mahalia Jackson",
+      "reason": "Solo artist or non-group entry from the Hall of Fame list"
+    },
+    {
+      "name": "Bill Monroe",
+      "reason": "Solo artist or non-group entry from the Hall of Fame list"
+    },
+    {
+      "name": "Jelly Roll Morton",
+      "reason": "Solo artist or non-group entry from the Hall of Fame list"
+    },
+    {
+      "name": "Bob Wills & His Texas Playboys",
+      "reason": "Solo artist or non-group entry from the Hall of Fame list"
+    },
+    {
+      "name": "Charles Brown",
+      "reason": "Solo artist or non-group entry from the Hall of Fame list"
+    },
+    {
+      "name": "Nat King Cole",
+      "reason": "Solo artist or non-group entry from the Hall of Fame list"
+    },
+    {
+      "name": "Billie Holiday",
+      "reason": "Solo artist or non-group entry from the Hall of Fame list"
+    },
+    {
+      "name": "Wanda Jackson",
+      "reason": "Solo artist or non-group entry from the Hall of Fame list"
+    },
+    {
+      "name": "Freddie King",
+      "reason": "Solo artist or non-group entry from the Hall of Fame list"
+    },
+    {
+      "name": "Sister Rosetta Tharpe",
+      "reason": "Solo artist or non-group entry from the Hall of Fame list"
+    },
+    {
+      "name": "Charley Patton",
+      "reason": "Solo artist or non-group entry from the Hall of Fame list"
+    },
+    {
+      "name": "Gil Scott-Heron",
+      "reason": "Solo artist or non-group entry from the Hall of Fame list"
+    },
+    {
+      "name": "Harry Belafonte",
+      "reason": "Solo artist or non-group entry from the Hall of Fame list"
+    },
+    {
+      "name": "Elizabeth Cotten",
+      "reason": "Solo artist or non-group entry from the Hall of Fame list"
+    },
+    {
+      "name": "DJ Kool Herc",
+      "reason": "Solo artist or non-group entry from the Hall of Fame list"
+    },
+    {
+      "name": "Link Wray",
+      "reason": "Solo artist or non-group entry from the Hall of Fame list"
+    },
+    {
+      "name": "Alexis Korner",
+      "reason": "Solo artist or non-group entry from the Hall of Fame list"
+    },
+    {
+      "name": "John Mayall",
+      "reason": "Solo artist or non-group entry from the Hall of Fame list"
+    },
+    {
+      "name": "Big Mama Thornton",
+      "reason": "Solo artist or non-group entry from the Hall of Fame list"
+    },
+    {
+      "name": "Salt-N-Pepa",
+      "reason": "Solo artist or non-group entry from the Hall of Fame list"
+    },
+    {
+      "name": "Warren Zevon",
+      "reason": "Solo artist or non-group entry from the Hall of Fame list"
+    },
+    {
+      "name": "Celia Cruz",
+      "reason": "Solo artist or non-group entry from the Hall of Fame list"
+    },
+    {
+      "name": "Fela Kuti",
+      "reason": "Solo artist or non-group entry from the Hall of Fame list"
+    },
+    {
+      "name": "Queen Latifah",
+      "reason": "Solo artist or non-group entry from the Hall of Fame list"
+    },
+    {
+      "name": "MC Lyte",
+      "reason": "Solo artist or non-group entry from the Hall of Fame list"
+    },
+    {
+      "name": "Gram Parsons",
+      "reason": "Solo artist or non-group entry from the Hall of Fame list"
+    },
+    {
+      "name": "Alan Freed",
+      "reason": "Solo artist or non-group entry from the Hall of Fame list"
+    },
+    {
+      "name": "John Hammond",
+      "reason": "Solo artist or non-group entry from the Hall of Fame list"
+    },
+    {
+      "name": "Sam Phillips",
+      "reason": "Solo artist or non-group entry from the Hall of Fame list"
+    },
+    {
+      "name": "Leonard Chess",
+      "reason": "Solo artist or non-group entry from the Hall of Fame list"
+    },
+    {
+      "name": "Ahmet Ertegun",
+      "reason": "Solo artist or non-group entry from the Hall of Fame list"
+    },
+    {
+      "name": "Jerry Wexler",
+      "reason": "Solo artist or non-group entry from the Hall of Fame list"
+    },
+    {
+      "name": "Berry Gordy, Jr.",
+      "reason": "Solo artist or non-group entry from the Hall of Fame list"
+    },
+    {
+      "name": "Phil Spector",
+      "reason": "Solo artist or non-group entry from the Hall of Fame list"
+    },
+    {
+      "name": "Gerry Goffin",
+      "reason": "Solo artist or non-group entry from the Hall of Fame list"
+    },
+    {
+      "name": "Holland–Dozier–Holland",
+      "reason": "Solo artist or non-group entry from the Hall of Fame list"
+    },
+    {
+      "name": "Dave Bartholomew",
+      "reason": "Solo artist or non-group entry from the Hall of Fame list"
+    },
+    {
+      "name": "Ralph Bass",
+      "reason": "Solo artist or non-group entry from the Hall of Fame list"
+    },
+    {
+      "name": "Nesuhi Ertegun",
+      "reason": "Solo artist or non-group entry from the Hall of Fame list"
+    },
+    {
+      "name": "Leo Fender",
+      "reason": "Solo artist or non-group entry from the Hall of Fame list"
+    },
+    {
+      "name": "Bill Graham",
+      "reason": "Solo artist or non-group entry from the Hall of Fame list"
+    },
+    {
+      "name": "Doc Pomus",
+      "reason": "Solo artist or non-group entry from the Hall of Fame list"
+    },
+    {
+      "name": "Dick Clark",
+      "reason": "Solo artist or non-group entry from the Hall of Fame list"
+    },
+    {
+      "name": "Milt Gabler",
+      "reason": "Solo artist or non-group entry from the Hall of Fame list"
+    },
+    {
+      "name": "Johnny Otis",
+      "reason": "Solo artist or non-group entry from the Hall of Fame list"
+    },
+    {
+      "name": "Paul Ackerman",
+      "reason": "Solo artist or non-group entry from the Hall of Fame list"
+    },
+    {
+      "name": "Tom Donahue",
+      "reason": "Solo artist or non-group entry from the Hall of Fame list"
+    },
+    {
+      "name": "Syd Nathan",
+      "reason": "Solo artist or non-group entry from the Hall of Fame list"
+    },
+    {
+      "name": "Allen Toussaint",
+      "reason": "Solo artist or non-group entry from the Hall of Fame list"
+    },
+    {
+      "name": "George Martin",
+      "reason": "Solo artist or non-group entry from the Hall of Fame list"
+    },
+    {
+      "name": "Clive Davis",
+      "reason": "Solo artist or non-group entry from the Hall of Fame list"
+    },
+    {
+      "name": "Chris Blackwell",
+      "reason": "Solo artist or non-group entry from the Hall of Fame list"
+    },
+    {
+      "name": "Jim Stewart",
+      "reason": "Solo artist or non-group entry from the Hall of Fame list"
+    },
+    {
+      "name": "Mo Ostin",
+      "reason": "Solo artist or non-group entry from the Hall of Fame list"
+    },
+    {
+      "name": "Jann Wenner",
+      "reason": "Solo artist or non-group entry from the Hall of Fame list"
+    },
+    {
+      "name": "Frank Barsalona",
+      "reason": "Solo artist or non-group entry from the Hall of Fame list"
+    },
+    {
+      "name": "Seymour Stein",
+      "reason": "Solo artist or non-group entry from the Hall of Fame list"
+    },
+    {
+      "name": "Herb Alpert",
+      "reason": "Solo artist or non-group entry from the Hall of Fame list"
+    },
+    {
+      "name": "Kenny Gamble and Leon Huff",
+      "reason": "Solo artist or non-group entry from the Hall of Fame list"
+    },
+    {
+      "name": "David Geffen",
+      "reason": "Solo artist or non-group entry from the Hall of Fame list"
+    },
+    {
+      "name": "Otis Blackwell",
+      "reason": "Solo artist or non-group entry from the Hall of Fame list"
+    },
+    {
+      "name": "Jeff Barry",
+      "reason": "Solo artist or non-group entry from the Hall of Fame list"
+    },
+    {
+      "name": "Mort Shuman",
+      "reason": "Solo artist or non-group entry from the Hall of Fame list"
+    },
+    {
+      "name": "Jesse Stone",
+      "reason": "Solo artist or non-group entry from the Hall of Fame list"
+    },
+    {
+      "name": "Barry Mann",
+      "reason": "Solo artist or non-group entry from the Hall of Fame list"
+    },
+    {
+      "name": "Jac Holzman",
+      "reason": "Solo artist or non-group entry from the Hall of Fame list"
+    },
+    {
+      "name": "Art Rupe",
+      "reason": "Solo artist or non-group entry from the Hall of Fame list"
+    },
+    {
+      "name": "Don Kirshner",
+      "reason": "Solo artist or non-group entry from the Hall of Fame list"
+    },
+    {
+      "name": "Lou Adler",
+      "reason": "Solo artist or non-group entry from the Hall of Fame list"
+    },
+    {
+      "name": "Quincy Jones",
+      "reason": "Solo artist or non-group entry from the Hall of Fame list"
+    },
+    {
+      "name": "Brian Epstein",
+      "reason": "Solo artist or non-group entry from the Hall of Fame list"
+    },
+    {
+      "name": "Andrew Loog Oldham",
+      "reason": "Solo artist or non-group entry from the Hall of Fame list"
+    },
+    {
+      "name": "Bert Berns",
+      "reason": "Solo artist or non-group entry from the Hall of Fame list"
+    },
+    {
+      "name": "Irving Azoff",
+      "reason": "Solo artist or non-group entry from the Hall of Fame list"
+    },
+    {
+      "name": "Jon Landau",
+      "reason": "Solo artist or non-group entry from the Hall of Fame list"
+    },
+    {
+      "name": "Clarence Avant",
+      "reason": "Solo artist or non-group entry from the Hall of Fame list"
+    },
+    {
+      "name": "Allen Grubman",
+      "reason": "Solo artist or non-group entry from the Hall of Fame list"
+    },
+    {
+      "name": "Jimmy Iovine",
+      "reason": "Solo artist or non-group entry from the Hall of Fame list"
+    },
+    {
+      "name": "Sylvia Robinson",
+      "reason": "Solo artist or non-group entry from the Hall of Fame list"
+    },
+    {
+      "name": "Don Cornelius",
+      "reason": "Solo artist or non-group entry from the Hall of Fame list"
+    },
+    {
+      "name": "Suzanne de Passe",
+      "reason": "Solo artist or non-group entry from the Hall of Fame list"
+    },
+    {
+      "name": "Lenny Waronker",
+      "reason": "Solo artist or non-group entry from the Hall of Fame list"
+    },
+    {
+      "name": "Ed Sullivan",
+      "reason": "Solo artist or non-group entry from the Hall of Fame list"
+    },
+    {
+      "name": "Hal Blaine",
+      "reason": "Solo artist or non-group entry from the Hall of Fame list"
+    },
+    {
+      "name": "King Curtis",
+      "reason": "Solo artist or non-group entry from the Hall of Fame list"
+    },
+    {
+      "name": "James Jamerson",
+      "reason": "Solo artist or non-group entry from the Hall of Fame list"
+    },
+    {
+      "name": "Scotty Moore",
+      "reason": "Solo artist or non-group entry from the Hall of Fame list"
+    },
+    {
+      "name": "Earl Palmer",
+      "reason": "Solo artist or non-group entry from the Hall of Fame list"
+    },
+    {
+      "name": "James Burton",
+      "reason": "Solo artist or non-group entry from the Hall of Fame list"
+    },
+    {
+      "name": "Johnnie Johnson",
+      "reason": "Solo artist or non-group entry from the Hall of Fame list"
+    },
+    {
+      "name": "Chet Atkins",
+      "reason": "Solo artist or non-group entry from the Hall of Fame list"
+    },
+    {
+      "name": "Benny Benjamin",
+      "reason": "Solo artist or non-group entry from the Hall of Fame list"
+    },
+    {
+      "name": "Floyd Cramer",
+      "reason": "Solo artist or non-group entry from the Hall of Fame list"
+    },
+    {
+      "name": "Steve Douglas",
+      "reason": "Solo artist or non-group entry from the Hall of Fame list"
+    },
+    {
+      "name": "Little Walter",
+      "reason": "Solo artist or non-group entry from the Hall of Fame list"
+    },
+    {
+      "name": "Bill Black",
+      "reason": "Solo artist or non-group entry from the Hall of Fame list"
+    },
+    {
+      "name": "D. J. Fontana",
+      "reason": "Solo artist or non-group entry from the Hall of Fame list"
+    },
+    {
+      "name": "Spooner Oldham",
+      "reason": "Solo artist or non-group entry from the Hall of Fame list"
+    },
+    {
+      "name": "Leon Russell",
+      "reason": "Solo artist or non-group entry from the Hall of Fame list"
+    },
+    {
+      "name": "Cosimo Matassa",
+      "reason": "Solo artist or non-group entry from the Hall of Fame list"
+    },
+    {
+      "name": "Tom Dowd",
+      "reason": "Solo artist or non-group entry from the Hall of Fame list"
+    },
+    {
+      "name": "Glyn Johns",
+      "reason": "Solo artist or non-group entry from the Hall of Fame list"
+    },
+    {
+      "name": "Ringo Starr",
+      "reason": "Solo artist or non-group entry from the Hall of Fame list"
+    },
+    {
+      "name": "Nile Rodgers",
+      "reason": "Solo artist or non-group entry from the Hall of Fame list"
+    },
+    {
+      "name": "LL Cool J",
+      "reason": "Solo artist or non-group entry from the Hall of Fame list"
+    },
+    {
+      "name": "Billy Preston",
+      "reason": "Solo artist or non-group entry from the Hall of Fame list"
+    },
+    {
+      "name": "Randy Rhoads",
+      "reason": "Solo artist or non-group entry from the Hall of Fame list"
+    },
+    {
+      "name": "Jimmy Jam and Terry Lewis",
+      "reason": "Solo artist or non-group entry from the Hall of Fame list"
+    },
+    {
+      "name": "Chaka Khan",
+      "reason": "Solo artist or non-group entry from the Hall of Fame list"
+    },
+    {
+      "name": "Al Kooper",
+      "reason": "Solo artist or non-group entry from the Hall of Fame list"
+    },
+    {
+      "name": "Bernie Taupin",
+      "reason": "Solo artist or non-group entry from the Hall of Fame list"
+    },
+    {
+      "name": "Jimmy Buffett",
+      "reason": "Solo artist or non-group entry from the Hall of Fame list"
+    },
+    {
+      "name": "Dionne Warwick",
+      "reason": "Solo artist or non-group entry from the Hall of Fame list"
+    },
+    {
+      "name": "Norman Whitfield",
+      "reason": "Solo artist or non-group entry from the Hall of Fame list"
+    },
+    {
+      "name": "Thom Bell",
+      "reason": "Solo artist or non-group entry from the Hall of Fame list"
+    },
+    {
+      "name": "Nicky Hopkins",
+      "reason": "Solo artist or non-group entry from the Hall of Fame list"
+    },
+    {
+      "name": "Carol Kaye",
+      "reason": "Solo artist or non-group entry from the Hall of Fame list"
+    },
+    {
+      "name": "Linda Creed",
+      "reason": "Solo artist or non-group entry from the Hall of Fame list"
+    },
+    {
+      "name": "Arif Mardin",
+      "reason": "Solo artist or non-group entry from the Hall of Fame list"
+    },
+    {
+      "name": "Jimmy Miller",
+      "reason": "Solo artist or non-group entry from the Hall of Fame list"
+    },
+    {
+      "name": "Rick Rubin",
+      "reason": "Solo artist or non-group entry from the Hall of Fame list"
+    },
+    {
+      "name": "Matt Cameron",
+      "reason": "Solo artist or non-group entry from the Hall of Fame list"
+    },
+    {
+      "name": "Johnny Carter",
+      "reason": "Solo artist or non-group entry from the Hall of Fame list"
+    },
+    {
+      "name": "David Crosby",
+      "reason": "Solo artist or non-group entry from the Hall of Fame list"
+    },
+    {
+      "name": "Dave Grohl",
+      "reason": "Solo artist or non-group entry from the Hall of Fame list"
+    },
+    {
+      "name": "Graham Nash",
+      "reason": "Solo artist or non-group entry from the Hall of Fame list"
+    },
+    {
+      "name": "Jimmy Page",
+      "reason": "Solo artist or non-group entry from the Hall of Fame list"
+    },
+    {
+      "name": "Gregg Rolie",
+      "reason": "Solo artist or non-group entry from the Hall of Fame list"
+    },
+    {
+      "name": "Stephen Stills",
+      "reason": "Solo artist or non-group entry from the Hall of Fame list"
+    },
+    {
+      "name": "Sammy Strain",
+      "reason": "Solo artist or non-group entry from the Hall of Fame list"
+    },
+    {
+      "name": "Ronnie Wood",
+      "reason": "Solo artist or non-group entry from the Hall of Fame list"
+    },
+    {
+      "name": "Johnny Ace",
+      "reason": "Solo artist or non-group entry from the Hall of Fame list"
+    },
+    {
+      "name": "Afrika Bambaataa",
+      "reason": "Solo artist or non-group entry from the Hall of Fame list"
+    },
+    {
+      "name": "Beck",
+      "reason": "Solo artist or non-group entry from the Hall of Fame list"
+    },
+    {
+      "name": "Jeff Buckley",
+      "reason": "Solo artist or non-group entry from the Hall of Fame list"
+    },
+    {
+      "name": "Mariah Carey",
+      "reason": "Solo artist or non-group entry from the Hall of Fame list"
+    },
+    {
+      "name": "Melissa Etheridge",
+      "reason": "Solo artist or non-group entry from the Hall of Fame list"
+    },
+    {
+      "name": "Lauryn Hill",
+      "reason": "Solo artist or non-group entry from the Hall of Fame list"
+    },
+    {
+      "name": "Ben E. King",
+      "reason": "Solo artist or non-group entry from the Hall of Fame list"
+    },
+    {
+      "name": "Lenny Kravitz",
+      "reason": "Solo artist or non-group entry from the Hall of Fame list"
+    },
+    {
+      "name": "The Marvelettes",
+      "reason": "Solo artist or non-group entry from the Hall of Fame list"
+    },
+    {
+      "name": "New Edition",
+      "reason": "Solo artist or non-group entry from the Hall of Fame list"
+    },
+    {
+      "name": "Sinéad O'Connor",
+      "reason": "Solo artist or non-group entry from the Hall of Fame list"
+    },
+    {
+      "name": "Esther Phillips",
+      "reason": "Solo artist or non-group entry from the Hall of Fame list"
+    },
+    {
+      "name": "Pink",
+      "reason": "Solo artist or non-group entry from the Hall of Fame list"
+    },
+    {
+      "name": "John Prine",
+      "reason": "Solo artist or non-group entry from the Hall of Fame list"
+    },
+    {
+      "name": "Shakira",
+      "reason": "Solo artist or non-group entry from the Hall of Fame list"
+    },
+    {
+      "name": "Steppenwolf",
+      "reason": "Solo artist or non-group entry from the Hall of Fame list"
+    },
+    {
+      "name": "Sting",
+      "reason": "Solo artist or non-group entry from the Hall of Fame list"
+    },
+    {
+      "name": "Joe Tex",
+      "reason": "Solo artist or non-group entry from the Hall of Fame list"
+    },
+    {
+      "name": "Conway Twitty",
+      "reason": "Solo artist or non-group entry from the Hall of Fame list"
+    },
+    {
+      "name": "Mary Wells",
+      "reason": "Solo artist or non-group entry from the Hall of Fame list"
+    },
+    {
+      "name": "Chuck Willis",
+      "reason": "Solo artist or non-group entry from the Hall of Fame list"
+    },
+    {
+      "name": "Steve Winwood",
+      "reason": "Solo artist or non-group entry from the Hall of Fame list"
+    }
+  ],
+  "answers": [
+    "The Four Tops",
+    "Roxy Music",
+    "Blondie",
+    "New York Dolls",
+    "Hall & Oates",
+    "The Righteous Brothers",
+    "The Black Crowes",
+    "The Byrds",
+    "The Zombies",
+    "The Moody Blues",
+    "Dave Matthews Band",
+    "The Replacements",
+    "The Velvet Underground",
+    "Aerosmith",
+    "Ramones",
+    "Chic",
+    "Simon & Garfunkel",
+    "Joy Division",
+    "The Police",
+    "The Go-Go's",
+    "Van Halen",
+    "Def Leppard",
+    "The White Stripes",
+    "Santana",
+    "Earth, Wind & Fire",
+    "The Yardbirds",
+    "Kraftwerk",
+    "Dire Straits",
+    "Soundgarden",
+    "The Pretenders",
+    "Bad Brains",
+    "Nine Inch Nails",
+    "The Cars",
+    "Bad Company",
+    "Heart",
+    "Sly and the Family Stone",
+    "ZZ Top",
+    "Bon Jovi",
+    "E Street Band",
+    "Chicago",
+    "The Grateful Dead",
+    "Traffic",
+    "Jefferson Airplane",
+    "MC5",
+    "Booker T. & the M.G.'s",
+    "Jane's Addiction",
+    "Cheap Trick",
+    "Kool & the Gang",
+    "Tom Petty and the Heartbreakers",
+    "Sade"
+  ],
+  "samples": [
+    {
+      "answer": "The Four Tops",
+      "source": "https://en.wikipedia.org/wiki/List_of_Rock_and_Roll_Hall_of_Fame_inductees",
+      "wikipediaTitle": "Four Tops",
+      "pageviews": {
+        "total": 18332,
+        "days": 31,
+        "title": "Four Tops",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "Roxy Music",
+      "source": "https://en.wikipedia.org/wiki/List_of_Rock_and_Roll_Hall_of_Fame_inductees",
+      "wikipediaTitle": "Roxy Music",
+      "pageviews": {
+        "total": 38799,
+        "days": 31,
+        "title": "Roxy Music",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "Blondie",
+      "source": "https://en.wikipedia.org/wiki/List_of_Rock_and_Roll_Hall_of_Fame_inductees",
+      "wikipediaTitle": "Blondie (band)",
+      "pageviews": {
+        "total": 68479,
+        "days": 31,
+        "title": "Blondie (band)",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "New York Dolls",
+      "source": "https://en.wikipedia.org/wiki/List_of_Rock_and_Roll_Hall_of_Fame_inductees",
+      "wikipediaTitle": "New York Dolls",
+      "pageviews": {
+        "total": 23672,
+        "days": 31,
+        "title": "New York Dolls",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "Hall & Oates",
+      "source": "https://en.wikipedia.org/wiki/List_of_Rock_and_Roll_Hall_of_Fame_inductees",
+      "wikipediaTitle": "Hall & Oates",
+      "pageviews": {
+        "total": 64501,
+        "days": 31,
+        "title": "Hall & Oates",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "The Righteous Brothers",
+      "source": "https://en.wikipedia.org/wiki/List_of_Rock_and_Roll_Hall_of_Fame_inductees",
+      "wikipediaTitle": "The Righteous Brothers",
+      "pageviews": {
+        "total": 33820,
+        "days": 31,
+        "title": "The Righteous Brothers",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "The Black Crowes",
+      "source": "https://en.wikipedia.org/wiki/List_of_Rock_and_Roll_Hall_of_Fame_inductees",
+      "wikipediaTitle": "The Black Crowes",
+      "pageviews": {
+        "total": 20656,
+        "days": 31,
+        "title": "The Black Crowes",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "The Byrds",
+      "source": "https://en.wikipedia.org/wiki/List_of_Rock_and_Roll_Hall_of_Fame_inductees",
+      "wikipediaTitle": "The Byrds",
+      "pageviews": {
+        "total": 44173,
+        "days": 31,
+        "title": "The Byrds",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "The Zombies",
+      "source": "https://en.wikipedia.org/wiki/List_of_Rock_and_Roll_Hall_of_Fame_inductees",
+      "wikipediaTitle": "The Zombies",
+      "pageviews": {
+        "total": 25795,
+        "days": 31,
+        "title": "The Zombies",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "The Moody Blues",
+      "source": "https://en.wikipedia.org/wiki/List_of_Rock_and_Roll_Hall_of_Fame_inductees",
+      "wikipediaTitle": "The Moody Blues",
+      "pageviews": {
+        "total": 41608,
+        "days": 31,
+        "title": "The Moody Blues",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "Dave Matthews Band",
+      "source": "https://en.wikipedia.org/wiki/List_of_Rock_and_Roll_Hall_of_Fame_inductees",
+      "wikipediaTitle": "Dave Matthews Band",
+      "pageviews": {
+        "total": 24207,
+        "days": 31,
+        "title": "Dave Matthews Band",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "The Replacements",
+      "source": "https://en.wikipedia.org/wiki/List_of_Rock_and_Roll_Hall_of_Fame_inductees",
+      "wikipediaTitle": "The Replacements (band)",
+      "pageviews": {
+        "total": 21426,
+        "days": 31,
+        "title": "The Replacements (band)",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "The Velvet Underground",
+      "source": "https://en.wikipedia.org/wiki/List_of_Rock_and_Roll_Hall_of_Fame_inductees",
+      "wikipediaTitle": "The Velvet Underground",
+      "pageviews": {
+        "total": 56006,
+        "days": 31,
+        "title": "The Velvet Underground",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "Aerosmith",
+      "source": "https://en.wikipedia.org/wiki/List_of_Rock_and_Roll_Hall_of_Fame_inductees",
+      "wikipediaTitle": "Aerosmith",
+      "pageviews": {
+        "total": 81934,
+        "days": 31,
+        "title": "Aerosmith",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "Ramones",
+      "source": "https://en.wikipedia.org/wiki/List_of_Rock_and_Roll_Hall_of_Fame_inductees",
+      "wikipediaTitle": "Ramones",
+      "pageviews": {
+        "total": 68428,
+        "days": 31,
+        "title": "Ramones",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "Chic",
+      "source": "https://en.wikipedia.org/wiki/List_of_Rock_and_Roll_Hall_of_Fame_inductees",
+      "wikipediaTitle": "Chic (band)",
+      "pageviews": {
+        "total": 16615,
+        "days": 31,
+        "title": "Chic (band)",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "Simon & Garfunkel",
+      "source": "https://en.wikipedia.org/wiki/List_of_Rock_and_Roll_Hall_of_Fame_inductees",
+      "wikipediaTitle": "Simon & Garfunkel",
+      "pageviews": {
+        "total": 60192,
+        "days": 31,
+        "title": "Simon & Garfunkel",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "Joy Division",
+      "source": "https://en.wikipedia.org/wiki/List_of_Rock_and_Roll_Hall_of_Fame_inductees",
+      "wikipediaTitle": "Joy Division",
+      "pageviews": {
+        "total": 73186,
+        "days": 31,
+        "title": "Joy Division",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "The Police",
+      "source": "https://en.wikipedia.org/wiki/List_of_Rock_and_Roll_Hall_of_Fame_inductees",
+      "wikipediaTitle": "The Police",
+      "pageviews": {
+        "total": 64855,
+        "days": 31,
+        "title": "The Police",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "The Go-Go's",
+      "source": "https://en.wikipedia.org/wiki/List_of_Rock_and_Roll_Hall_of_Fame_inductees",
+      "wikipediaTitle": "The Go-Go's",
+      "pageviews": {
+        "total": 27596,
+        "days": 31,
+        "title": "The Go-Go's",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "Van Halen",
+      "source": "https://en.wikipedia.org/wiki/List_of_Rock_and_Roll_Hall_of_Fame_inductees",
+      "wikipediaTitle": "Van Halen",
+      "pageviews": {
+        "total": 82470,
+        "days": 31,
+        "title": "Van Halen",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "Def Leppard",
+      "source": "https://en.wikipedia.org/wiki/List_of_Rock_and_Roll_Hall_of_Fame_inductees",
+      "wikipediaTitle": "Def Leppard",
+      "pageviews": {
+        "total": 80567,
+        "days": 31,
+        "title": "Def Leppard",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "The White Stripes",
+      "source": "https://en.wikipedia.org/wiki/List_of_Rock_and_Roll_Hall_of_Fame_inductees",
+      "wikipediaTitle": "The White Stripes",
+      "pageviews": {
+        "total": 44854,
+        "days": 31,
+        "title": "The White Stripes",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "Santana",
+      "source": "https://en.wikipedia.org/wiki/List_of_Rock_and_Roll_Hall_of_Fame_inductees",
+      "wikipediaTitle": "Santana (band)",
+      "pageviews": {
+        "total": 35371,
+        "days": 31,
+        "title": "Santana (band)",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "Earth, Wind & Fire",
+      "source": "https://en.wikipedia.org/wiki/List_of_Rock_and_Roll_Hall_of_Fame_inductees",
+      "wikipediaTitle": "Earth, Wind & Fire",
+      "pageviews": {
+        "total": 49147,
+        "days": 31,
+        "title": "Earth, Wind & Fire",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "The Yardbirds",
+      "source": "https://en.wikipedia.org/wiki/List_of_Rock_and_Roll_Hall_of_Fame_inductees",
+      "wikipediaTitle": "The Yardbirds",
+      "pageviews": {
+        "total": 56627,
+        "days": 31,
+        "title": "The Yardbirds",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "Kraftwerk",
+      "source": "https://en.wikipedia.org/wiki/List_of_Rock_and_Roll_Hall_of_Fame_inductees",
+      "wikipediaTitle": "Kraftwerk",
+      "pageviews": {
+        "total": 34173,
+        "days": 31,
+        "title": "Kraftwerk",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "Dire Straits",
+      "source": "https://en.wikipedia.org/wiki/List_of_Rock_and_Roll_Hall_of_Fame_inductees",
+      "wikipediaTitle": "Dire Straits",
+      "pageviews": {
+        "total": 80983,
+        "days": 31,
+        "title": "Dire Straits",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "Soundgarden",
+      "source": "https://en.wikipedia.org/wiki/List_of_Rock_and_Roll_Hall_of_Fame_inductees",
+      "wikipediaTitle": "Soundgarden",
+      "pageviews": {
+        "total": 63993,
+        "days": 31,
+        "title": "Soundgarden",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "The Pretenders",
+      "source": "https://en.wikipedia.org/wiki/List_of_Rock_and_Roll_Hall_of_Fame_inductees",
+      "wikipediaTitle": "The Pretenders",
+      "pageviews": {
+        "total": 36977,
+        "days": 31,
+        "title": "The Pretenders",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "Bad Brains",
+      "source": "https://en.wikipedia.org/wiki/List_of_Rock_and_Roll_Hall_of_Fame_inductees",
+      "wikipediaTitle": "Bad Brains",
+      "pageviews": {
+        "total": 19403,
+        "days": 31,
+        "title": "Bad Brains",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "Nine Inch Nails",
+      "source": "https://en.wikipedia.org/wiki/List_of_Rock_and_Roll_Hall_of_Fame_inductees",
+      "wikipediaTitle": "Nine Inch Nails",
+      "pageviews": {
+        "total": 65714,
+        "days": 31,
+        "title": "Nine Inch Nails",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "The Cars",
+      "source": "https://en.wikipedia.org/wiki/List_of_Rock_and_Roll_Hall_of_Fame_inductees",
+      "wikipediaTitle": "The Cars",
+      "pageviews": {
+        "total": 46896,
+        "days": 31,
+        "title": "The Cars",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "Bad Company",
+      "source": "https://en.wikipedia.org/wiki/List_of_Rock_and_Roll_Hall_of_Fame_inductees",
+      "wikipediaTitle": "Bad Company",
+      "pageviews": {
+        "total": 29762,
+        "days": 31,
+        "title": "Bad Company",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "Heart",
+      "source": "https://en.wikipedia.org/wiki/List_of_Rock_and_Roll_Hall_of_Fame_inductees",
+      "wikipediaTitle": "Heart (band)",
+      "pageviews": {
+        "total": 65347,
+        "days": 31,
+        "title": "Heart (band)",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "Sly and the Family Stone",
+      "source": "https://en.wikipedia.org/wiki/List_of_Rock_and_Roll_Hall_of_Fame_inductees",
+      "wikipediaTitle": "Sly and the Family Stone",
+      "pageviews": {
+        "total": 16427,
+        "days": 31,
+        "title": "Sly and the Family Stone",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "ZZ Top",
+      "source": "https://en.wikipedia.org/wiki/List_of_Rock_and_Roll_Hall_of_Fame_inductees",
+      "wikipediaTitle": "ZZ Top",
+      "pageviews": {
+        "total": 68538,
+        "days": 31,
+        "title": "ZZ Top",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "Bon Jovi",
+      "source": "https://en.wikipedia.org/wiki/List_of_Rock_and_Roll_Hall_of_Fame_inductees",
+      "wikipediaTitle": "Bon Jovi",
+      "pageviews": {
+        "total": 85828,
+        "days": 31,
+        "title": "Bon Jovi",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "E Street Band",
+      "source": "https://en.wikipedia.org/wiki/List_of_Rock_and_Roll_Hall_of_Fame_inductees",
+      "wikipediaTitle": "E Street Band",
+      "pageviews": {
+        "total": 17907,
+        "days": 31,
+        "title": "E Street Band",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "Chicago",
+      "source": "https://en.wikipedia.org/wiki/List_of_Rock_and_Roll_Hall_of_Fame_inductees",
+      "wikipediaTitle": "Chicago (band)",
+      "pageviews": {
+        "total": 65578,
+        "days": 31,
+        "title": "Chicago (band)",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "The Grateful Dead",
+      "source": "https://en.wikipedia.org/wiki/List_of_Rock_and_Roll_Hall_of_Fame_inductees",
+      "wikipediaTitle": "Grateful Dead",
+      "pageviews": {
+        "total": 70716,
+        "days": 31,
+        "title": "Grateful Dead",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "Traffic",
+      "source": "https://en.wikipedia.org/wiki/List_of_Rock_and_Roll_Hall_of_Fame_inductees",
+      "wikipediaTitle": "Traffic (band)",
+      "pageviews": {
+        "total": 22310,
+        "days": 31,
+        "title": "Traffic (band)",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "Jefferson Airplane",
+      "source": "https://en.wikipedia.org/wiki/List_of_Rock_and_Roll_Hall_of_Fame_inductees",
+      "wikipediaTitle": "Jefferson Airplane",
+      "pageviews": {
+        "total": 50142,
+        "days": 31,
+        "title": "Jefferson Airplane",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "MC5",
+      "source": "https://en.wikipedia.org/wiki/List_of_Rock_and_Roll_Hall_of_Fame_inductees",
+      "wikipediaTitle": "MC5",
+      "pageviews": {
+        "total": 17588,
+        "days": 31,
+        "title": "MC5",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "Booker T. & the M.G.'s",
+      "source": "https://en.wikipedia.org/wiki/List_of_Rock_and_Roll_Hall_of_Fame_inductees",
+      "wikipediaTitle": "Booker T. & the M.G.'s",
+      "pageviews": {
+        "total": 17125,
+        "days": 31,
+        "title": "Booker T. & the M.G.'s",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "Jane's Addiction",
+      "source": "https://en.wikipedia.org/wiki/List_of_Rock_and_Roll_Hall_of_Fame_inductees",
+      "wikipediaTitle": "Jane's Addiction",
+      "pageviews": {
+        "total": 25899,
+        "days": 31,
+        "title": "Jane's Addiction",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "Cheap Trick",
+      "source": "https://en.wikipedia.org/wiki/List_of_Rock_and_Roll_Hall_of_Fame_inductees",
+      "wikipediaTitle": "Cheap Trick",
+      "pageviews": {
+        "total": 45331,
+        "days": 31,
+        "title": "Cheap Trick",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "Kool & the Gang",
+      "source": "https://en.wikipedia.org/wiki/List_of_Rock_and_Roll_Hall_of_Fame_inductees",
+      "wikipediaTitle": "Kool & the Gang",
+      "pageviews": {
+        "total": 28629,
+        "days": 31,
+        "title": "Kool & the Gang",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "Tom Petty and the Heartbreakers",
+      "source": "https://en.wikipedia.org/wiki/List_of_Rock_and_Roll_Hall_of_Fame_inductees",
+      "wikipediaTitle": "Tom Petty and the Heartbreakers",
+      "pageviews": {
+        "total": 22441,
+        "days": 31,
+        "title": "Tom Petty and the Heartbreakers",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "Sade",
+      "source": "https://en.wikipedia.org/wiki/List_of_Rock_and_Roll_Hall_of_Fame_inductees",
+      "wikipediaTitle": "Sade (band)",
+      "pageviews": {
+        "total": 45023,
+        "days": 31,
+        "title": "Sade (band)",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    }
+  ]
+}

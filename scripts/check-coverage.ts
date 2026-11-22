@@ -56,7 +56,8 @@ for (const f of readdirSync('categories').filter((f) => f.endsWith('.json'))) {
           (definitions.find((d: any) => d.slug === c.slug)?.cacheKey || 'base')));
   const ready =
     words.length >= 150 &&
-    (c.slug !== 'airports' || c.provenance.scopeValidation === 'article-descriptions-v2') &&
+    (!['airports', 'foods'].includes(c.slug) ||
+      c.provenance.scopeValidation === 'article-descriptions-v3') &&
     score >= (c.slug === 'animals' ? 1 : 0.98) &&
     sourceComplete &&
     !!c.provenance.rankingComplete &&

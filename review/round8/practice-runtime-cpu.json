@@ -1,0 +1,27 @@
+{
+  "at": "2026-11-22T07:08:08.242916+00:00",
+  "note": "Read-only practice check-answers traffic: one cold Animals load, then 30 requests checking 300 uniformly sampled answers (all accepted). The tail delivered 12 events per entrypoint; statistics cover those observed events only. CPU values are per event, not request latency. The complete lookup benchmark is recorded separately.",
+  "groups": [
+    {
+      "entrypoint": "Worker fetch",
+      "events": 12,
+      "cpuP95Ms": 1,
+      "cpuMaxMs": 1,
+      "freeCpuLimitMs": 10
+    },
+    {
+      "entrypoint": "Registry",
+      "events": 12,
+      "cpuP95Ms": 324,
+      "cpuMaxMs": 324,
+      "freeCpuLimitMs": 30000
+    }
+  ],
+  "outcomes": [
+    "ok"
+  ],
+  "sources": [
+    "https://developers.cloudflare.com/workers/platform/limits/",
+    "https://developers.cloudflare.com/durable-objects/platform/limits/"
+  ]
+}

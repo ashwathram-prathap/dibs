@@ -1,6 +1,7 @@
 import { readFileSync, writeFileSync, existsSync, mkdirSync, renameSync } from 'node:fs';
 import { createHash } from 'node:crypto';
 import { pageMatchesScope } from './catalog-quality';
+import { mergeWikipediaPage } from './wiki-pages';
 const slug = process.argv.find((arg) => arg.startsWith('--slug='))?.slice(7) || 'airports';
 if (!['airports', 'arthropods'].includes(slug)) throw Error('Unsupported reference domain');
 const path = '.category-cache/r8/other-references/' + slug + '.json';
@@ -28,6 +29,7 @@ const mappings: Record<
     description: string;
     exists: boolean;
     disambiguation: boolean;
+    descriptionChecked?: boolean;
   }
 > = {};
 const pause = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms));
@@ -39,8 +41,60 @@ await Promise.all(
       const batch = titles.slice(cursor, (cursor += 50));
       const cache =
         dir + '/' + createHash('sha256').update(JSON.stringify(batch)).digest('hex') + '.json';
-      if (existsSync(cache)) Object.assign(mappings, JSON.parse(readFileSync(cache, 'utf8')));
-      else {
+      let network = false;
+      if (existsSync(cache)) {
+        const saved = JSON.parse(readFileSync(cache, 'utf8'));
+        const blank: string[] = [
+          ...new Set<string>(
+            Object.values(saved)
+              .filter((row: any) => row.exists && !row.description && !row.descriptionChecked)
+              .map((row: any) => row.title),
+          ),
+        ];
+        if (blank.length) {
+          network = true;
+          let data: any;
+          for (let attempt = 0; attempt < 3; attempt++) {
+            const response = await fetch(
+              'https://en.wikipedia.org/w/api.php?' +
+                new URLSearchParams({
+                  action: 'query',
+                  format: 'json',
+                  titles: blank.join('|'),
+                  prop: 'description|pageprops',
+                }),
+              {
+                headers: { 'User-Agent': 'DibsCatalog/2.0 (https://dibs.here/about)' },
+                signal: AbortSignal.timeout(30000),
+              },
+            );
+            if (response.status === 429)
+              await pause(
+                Math.max(60000, Number(response.headers.get('retry-after') || 60) * 1000),
+              );
+            if (response.ok) {
+              data = await response.json();
+              if (data.query?.pages) break;
+            }
+            if (attempt === 2) throw Error('Could not verify cached article descriptions');
+            await pause(5000);
+          }
+          const pages = new Map(
+            Object.values(data.query.pages).map((page: any) => [page.title, page]),
+          );
+          for (const row of Object.values(saved) as any[]) {
+            const page: any = pages.get(row.title);
+            if (page) {
+              row.description = page.description || page.pageprops?.['wikibase-shortdesc'] || '';
+              row.disambiguation = page.pageprops?.disambiguation !== undefined;
+              row.descriptionChecked = true;
+            }
+          }
+          writeFileSync(cache, JSON.stringify(saved));
+        }
+        Object.assign(mappings, saved);
+      } else {
+        network = true;
         const pages: Record<string, any> = {};
         const redirects = new Map<string, string>();
         let continuation: any = {};
@@ -82,11 +136,7 @@ await Promise.all(
           for (const row of [...(data.query.normalized || []), ...(data.query.redirects || [])])
             redirects.set(row.from, row.to);
           for (const page of Object.values(data.query.pages) as any[]) {
-            const old = pages[page.title];
-            pages[page.title] = {
-              ...page,
-              redirects: [...(old?.redirects || []), ...(page.redirects || [])],
-            };
+            pages[page.title] = mergeWikipediaPage(pages[page.title], page);
           }
           continuation = data.continue;
         } while (continuation);
@@ -101,6 +151,7 @@ await Promise.all(
             description: page?.description || page?.pageprops?.['wikibase-shortdesc'] || '',
             exists: !!page && page.missing === undefined,
             disambiguation: page?.pageprops?.disambiguation !== undefined,
+            descriptionChecked: true,
           };
         }
         writeFileSync(cache, JSON.stringify(result));
@@ -109,7 +160,7 @@ await Promise.all(
       checked += batch.length;
       if (checked % 500 === 0)
         console.log(slug, 'article names and redirects', checked, '/', titles.length);
-      await pause(2000);
+      if (network) await pause(2000);
     }
   }),
 );
