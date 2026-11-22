@@ -40,6 +40,7 @@ try {
   result.checks.push('Both browsers claimed immediately after opening');
   const monitor = await api('/admin/monitor', {}, undefined, true);
   assert.equal(monitor.response.status, 200);
+  result.notificationDelivery = monitor.data;
   const topic = readFileSync('FIXES-R9.md', 'utf8').match(/using topic `([^`]+)`/)![1];
   const r = await fetch(
     'https://ntfy.sh/' + encodeURIComponent(topic) + '/json?poll=1&since=' + Math.floor(at / 1000),

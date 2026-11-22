@@ -449,11 +449,12 @@ export class Registry extends DurableObject<Env> {
     await this.ctx.storage.transaction(async (tx) => {
       const key = 'metric:' + minute;
       const m = (await tx.get<Minute>(key)) || emptyMinute();
+      for (const k of Object.keys(m) as (keyof Minute)[]) if (!Number.isFinite(m[k])) m[k] = 0;
       m.requests++;
       m.errors += Number(response.status >= 500);
       m.claims += Number(path === '/claim' && response.status === 201 && !data?.replayed);
       m.strikes += Number(path === '/claim' && response.status === 409 && !data?.replayed);
-      m.completed += Number(path === '/claim' && data?.file?.closed && !data?.replayed);
+      m.completed += Number(!!(path === '/claim' && data?.file?.closed && !data?.replayed));
       m.verifications += Number(path === '/verify-session');
       m.verificationFailures += Number(path === '/verify-session' && !response.ok);
       await tx.put(key, m);
@@ -473,7 +474,7 @@ export class Registry extends DurableObject<Env> {
     for (let i = 4; i >= 0; i--)
       minutes.push((await this.ctx.storage.get<Minute>('metric:' + (minute - i))) || emptyMinute());
     const totals = minutes.reduce((a, m) => {
-      for (const k of Object.keys(a) as (keyof Minute)[]) a[k] += m[k];
+      for (const k of Object.keys(a) as (keyof Minute)[]) a[k] += Number.isFinite(m[k]) ? m[k] : 0;
       return a;
     }, emptyMinute());
     const active = [

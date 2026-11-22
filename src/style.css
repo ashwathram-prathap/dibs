@@ -2982,7 +2982,7 @@ html[data-theme='dark'] .founder-handle {
   padding: 10px;
 }
 .admin-live {
-  max-width: 1000px;
+  max-width: none;
   margin: 40px auto;
 }
 .live-metrics {

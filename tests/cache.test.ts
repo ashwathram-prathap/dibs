@@ -724,3 +724,27 @@ it('R11 claim progress survives an empty in-memory snapshot', async () => {
   expect(data.me.file.dibs).toBe(1);
   expect(data.me.claim.id).toBe(data.claim.id);
 });
+it('R11 invalid guesses leave live completion counters numeric', async () => {
+  const a = await account();
+  expect(
+    (
+      await call(
+        '/claim',
+        { answer: 'not-an-animal', turnstileToken: 'test' },
+        a.cookie,
+        'metric-r11',
+      )
+    ).status,
+  ).toBe(422);
+  const response = await mf.dispatchFetch('http://localhost/api/admin/live', {
+    headers: { origin: 'https://dibs.here', authorization: 'Bearer local-admin' },
+  });
+  const stats: any = await response.json();
+  expect(typeof stats.filesCompleted).toBe('number');
+  expect(Number.isFinite(stats.filesCompleted)).toBe(true);
+  expect(
+    stats.minutes.every((m: any) =>
+      Object.values(m).every((v) => typeof v === 'number' && Number.isFinite(v)),
+    ),
+  ).toBe(true);
+});

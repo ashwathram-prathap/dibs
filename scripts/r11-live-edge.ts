@@ -134,9 +134,11 @@ try {
     await context.close();
     const blocked = await browser.newContext();
     await blocked.route('**/api/**', async (route) => {
-      const headers = { ...route.request().headers() };
-      delete headers.cookie;
-      await route.continue({ headers });
+      const response = await route.fetch();
+      const headers = { ...response.headers() };
+      delete headers['set-cookie'];
+      await blocked.clearCookies();
+      await route.fulfill({ response, headers });
     });
     const bp = await blocked.newPage();
     await bp.goto(origin);

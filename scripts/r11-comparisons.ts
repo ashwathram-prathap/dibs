@@ -19,6 +19,8 @@ try {
         'office-expanded',
         'admin-live',
         'calendar',
+        'admin-live-open',
+        'calendar-open',
         'stats',
         'error',
       ]) {

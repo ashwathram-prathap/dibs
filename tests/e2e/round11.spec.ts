@@ -63,6 +63,12 @@ test('R11 every page has legible type, aligned containers, accessible disclosure
       true,
     );
     if (page.viewportSize()!.width >= 900) {
+      const section = page.locator('main > section, main > .notice').first();
+      if (await section.count())
+        expect(
+          (await section.boundingBox())!.width,
+          path + ' uses the shared desktop width',
+        ).toBeGreaterThanOrEqual(page.viewportSize()!.width * 0.6);
       const small = await page.locator('body *').evaluateAll((els) =>
         els
           .filter(
