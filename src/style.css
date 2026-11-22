@@ -4545,3 +4545,14 @@ html.low-power .win-stamp {
     height: 44px;
   }
 }
+@media (max-width: 600px) {
+  .home-page .masthead nav {
+    flex-wrap: wrap;
+  }
+  .home-page .masthead nav .timezone-control {
+    display: flex;
+    flex: 1 0 100%;
+    margin: 0;
+    justify-content: flex-end;
+  }
+}

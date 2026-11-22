@@ -18,7 +18,9 @@ try {
         ['done', '/?r6'],
         ['office', '/about'],
       ]) {
-        await p.goto('http://127.0.0.1:5175' + path);
+        await p.goto(
+          (phase === 'before' ? 'http://127.0.0.1:5176' : 'http://127.0.0.1:5175') + path,
+        );
         await p.locator('.loading').waitFor({ state: 'hidden' });
         if (name === 'done')
           for (const answer of ['Axolotl', 'Okapi', 'Quokka']) {
@@ -37,7 +39,11 @@ try {
           name,
           width,
           theme,
-          words: (await p.locator('body').innerText()).trim().split(/\s+/).length,
+          words: await p.locator('main').evaluate((el) => {
+            const clone = el.cloneNode(true) as HTMLElement;
+            clone.querySelectorAll('select,option,script,style').forEach((n) => n.remove());
+            return (clone.innerText || el.innerText).trim().split(/\s+/).length;
+          }),
           overflow: await p.evaluate(() => document.documentElement.scrollWidth > innerWidth),
         });
       }
