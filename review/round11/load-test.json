@@ -1,0 +1,8 @@
+{
+  "passed": false,
+  "blocked": true,
+  "players": 200,
+  "writeEstimate": 20000,
+  "accountWrites": 98036,
+  "reason": "Account-wide D1 write headroom is insufficient for a safe 200-player load test. No load requests sent."
+}

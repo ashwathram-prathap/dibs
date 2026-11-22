@@ -1,0 +1,2144 @@
+{
+  "method": "Subjective author review of whole-page pairs and contact sheets; not independent user testing. Each criterion is scored separately, 1\u201310. Scores cover the final visible layouts. R7-missing admin routes are explicitly marked shell-only comparisons.",
+  "dimensions": [
+    "brand salience",
+    "not-AI-looking",
+    "alignment",
+    "type scale",
+    "use of space"
+  ],
+  "screens": [
+    {
+      "screen": "closed",
+      "width": 390,
+      "theme": "light",
+      "r7": [
+        8,
+        9,
+        8,
+        8,
+        8
+      ],
+      "r11": [
+        9,
+        9,
+        9,
+        8,
+        8
+      ],
+      "passed": true,
+      "notes": "Large vermilion stamp restored on phone and desktop; explicit drop time and header controls.",
+      "comparison": "vs-r7/closed-390-light-comparison.png"
+    },
+    {
+      "screen": "play",
+      "width": 390,
+      "theme": "light",
+      "r7": [
+        9,
+        9,
+        8,
+        9,
+        7
+      ],
+      "r11": [
+        9,
+        9,
+        9,
+        9,
+        9
+      ],
+      "passed": true,
+      "notes": "Huge Archivo category retained; plain stock, crisp primary action, focused one-card flow.",
+      "comparison": "vs-r7/play-390-light-comparison.png"
+    },
+    {
+      "screen": "mid-round",
+      "width": 390,
+      "theme": "light",
+      "r7": [
+        9,
+        9,
+        8,
+        9,
+        7
+      ],
+      "r11": [
+        9,
+        9,
+        9,
+        9,
+        9
+      ],
+      "passed": true,
+      "notes": "Stable card and explicit progress; no premature ledger clutter.",
+      "comparison": "vs-r7/mid-round-390-light-comparison.png"
+    },
+    {
+      "screen": "day",
+      "width": 390,
+      "theme": "light",
+      "r7": [
+        8,
+        9,
+        7,
+        8,
+        7
+      ],
+      "r11": [
+        9,
+        9,
+        9,
+        9,
+        8
+      ],
+      "passed": true,
+      "notes": "Ink answer names, signature, separate counters; desktop companions use the right column.",
+      "comparison": "vs-r7/day-390-light-comparison.png"
+    },
+    {
+      "screen": "five-strikes",
+      "width": 390,
+      "theme": "light",
+      "r7": [
+        8,
+        9,
+        7,
+        8,
+        7
+      ],
+      "r11": [
+        9,
+        9,
+        9,
+        9,
+        8
+      ],
+      "passed": true,
+      "notes": "Misses are legible and RESERVED is plain; right column balances the completed file.",
+      "comparison": "vs-r7/five-strikes-390-light-comparison.png"
+    },
+    {
+      "screen": "gold",
+      "width": 390,
+      "theme": "light",
+      "r7": [
+        9,
+        9,
+        8,
+        8,
+        6
+      ],
+      "r11": [
+        9,
+        9,
+        9,
+        9,
+        9
+      ],
+      "passed": true,
+      "notes": "Compact physical stamp retains prominence without an empty full-width stamp box.",
+      "comparison": "vs-r7/gold-390-light-comparison.png"
+    },
+    {
+      "screen": "certificate",
+      "width": 390,
+      "theme": "light",
+      "r7": [
+        9,
+        9,
+        8,
+        8,
+        7
+      ],
+      "r11": [
+        9,
+        9,
+        9,
+        9,
+        8
+      ],
+      "passed": true,
+      "notes": "Large answer and original ink rules retained; hand signature adds one restrained mark.",
+      "comparison": "vs-r7/certificate-390-light-comparison.png"
+    },
+    {
+      "screen": "archive",
+      "width": 390,
+      "theme": "light",
+      "r7": [
+        9,
+        9,
+        9,
+        8,
+        8
+      ],
+      "r11": [
+        9,
+        9,
+        9,
+        9,
+        8
+      ],
+      "passed": true,
+      "notes": "Same oversized wordmark and explicitly labelled specimen; larger companion fills the grid.",
+      "comparison": "vs-r7/archive-390-light-comparison.png"
+    },
+    {
+      "screen": "office",
+      "width": 390,
+      "theme": "light",
+      "r7": [
+        8,
+        9,
+        8,
+        8,
+        7
+      ],
+      "r11": [
+        9,
+        9,
+        9,
+        9,
+        8
+      ],
+      "passed": true,
+      "notes": "Stronger Dibs headline; FAQ spacing and sources split into clear sections. Long legal copy remains the weakest mobile section.",
+      "comparison": "vs-r7/office-390-light-comparison.png"
+    },
+    {
+      "screen": "office-expanded",
+      "width": 390,
+      "theme": "light",
+      "r7": [
+        8,
+        9,
+        8,
+        8,
+        7
+      ],
+      "r11": [
+        9,
+        9,
+        9,
+        9,
+        8
+      ],
+      "passed": true,
+      "notes": "Five short rules, baseline-aligned numbers and a padded drawn disclosure chevron.",
+      "comparison": "vs-r7/office-expanded-390-light-comparison.png"
+    },
+    {
+      "screen": "admin-live",
+      "width": 390,
+      "theme": "light",
+      "r7": [
+        7,
+        9,
+        8,
+        8,
+        7
+      ],
+      "r11": [
+        7,
+        9,
+        8,
+        8,
+        7
+      ],
+      "passed": true,
+      "notes": "R7 has no Live route: its 404 shell is the visual reference, not an equivalent feature.",
+      "comparison": "vs-r7/admin-live-390-light-comparison.png"
+    },
+    {
+      "screen": "calendar",
+      "width": 390,
+      "theme": "light",
+      "r7": [
+        7,
+        9,
+        8,
+        8,
+        7
+      ],
+      "r11": [
+        7,
+        9,
+        8,
+        8,
+        7
+      ],
+      "passed": true,
+      "notes": "R7 has no calendar route: compare the shared shell only.",
+      "comparison": "vs-r7/calendar-390-light-comparison.png"
+    },
+    {
+      "screen": "admin-live-open",
+      "width": 390,
+      "theme": "light",
+      "r7": [
+        7,
+        9,
+        8,
+        8,
+        7
+      ],
+      "r11": [
+        8,
+        9,
+        9,
+        9,
+        8
+      ],
+      "passed": true,
+      "notes": "Authenticated practice metrics use aligned rules and large numbers. R7 route absent.",
+      "comparison": "vs-r7/admin-live-open-390-light-comparison.png"
+    },
+    {
+      "screen": "calendar-open",
+      "width": 390,
+      "theme": "light",
+      "r7": [
+        7,
+        9,
+        8,
+        8,
+        7
+      ],
+      "r11": [
+        8,
+        9,
+        9,
+        9,
+        9
+      ],
+      "passed": true,
+      "notes": "Authenticated calendar fills the container with deliberate form boxes. R7 route absent.",
+      "comparison": "vs-r7/calendar-open-390-light-comparison.png"
+    },
+    {
+      "screen": "stats",
+      "width": 390,
+      "theme": "light",
+      "r7": [
+        8,
+        9,
+        8,
+        8,
+        7
+      ],
+      "r11": [
+        8,
+        9,
+        9,
+        9,
+        7
+      ],
+      "passed": true,
+      "notes": "Simple administrative form; header and footer share the same centre line.",
+      "comparison": "vs-r7/stats-390-light-comparison.png"
+    },
+    {
+      "screen": "error",
+      "width": 390,
+      "theme": "light",
+      "r7": [
+        7,
+        9,
+        8,
+        8,
+        7
+      ],
+      "r11": [
+        7,
+        9,
+        9,
+        8,
+        7
+      ],
+      "passed": true,
+      "notes": "Deliberately sparse recovery screen, aligned with the shared container.",
+      "comparison": "vs-r7/error-390-light-comparison.png"
+    },
+    {
+      "screen": "closed",
+      "width": 390,
+      "theme": "dark",
+      "r7": [
+        8,
+        9,
+        8,
+        8,
+        8
+      ],
+      "r11": [
+        9,
+        9,
+        9,
+        8,
+        8
+      ],
+      "passed": true,
+      "notes": "Large vermilion stamp restored on phone and desktop; explicit drop time and header controls.",
+      "comparison": "vs-r7/closed-390-dark-comparison.png"
+    },
+    {
+      "screen": "play",
+      "width": 390,
+      "theme": "dark",
+      "r7": [
+        9,
+        9,
+        8,
+        9,
+        7
+      ],
+      "r11": [
+        9,
+        9,
+        9,
+        9,
+        9
+      ],
+      "passed": true,
+      "notes": "Huge Archivo category retained; plain stock, crisp primary action, focused one-card flow.",
+      "comparison": "vs-r7/play-390-dark-comparison.png"
+    },
+    {
+      "screen": "mid-round",
+      "width": 390,
+      "theme": "dark",
+      "r7": [
+        9,
+        9,
+        8,
+        9,
+        7
+      ],
+      "r11": [
+        9,
+        9,
+        9,
+        9,
+        9
+      ],
+      "passed": true,
+      "notes": "Stable card and explicit progress; no premature ledger clutter.",
+      "comparison": "vs-r7/mid-round-390-dark-comparison.png"
+    },
+    {
+      "screen": "day",
+      "width": 390,
+      "theme": "dark",
+      "r7": [
+        8,
+        9,
+        7,
+        8,
+        7
+      ],
+      "r11": [
+        9,
+        9,
+        9,
+        9,
+        8
+      ],
+      "passed": true,
+      "notes": "Ink answer names, signature, separate counters; desktop companions use the right column.",
+      "comparison": "vs-r7/day-390-dark-comparison.png"
+    },
+    {
+      "screen": "five-strikes",
+      "width": 390,
+      "theme": "dark",
+      "r7": [
+        8,
+        9,
+        7,
+        8,
+        7
+      ],
+      "r11": [
+        9,
+        9,
+        9,
+        9,
+        8
+      ],
+      "passed": true,
+      "notes": "Misses are legible and RESERVED is plain; right column balances the completed file.",
+      "comparison": "vs-r7/five-strikes-390-dark-comparison.png"
+    },
+    {
+      "screen": "gold",
+      "width": 390,
+      "theme": "dark",
+      "r7": [
+        9,
+        9,
+        8,
+        8,
+        6
+      ],
+      "r11": [
+        9,
+        9,
+        9,
+        9,
+        9
+      ],
+      "passed": true,
+      "notes": "Compact physical stamp retains prominence without an empty full-width stamp box.",
+      "comparison": "vs-r7/gold-390-dark-comparison.png"
+    },
+    {
+      "screen": "certificate",
+      "width": 390,
+      "theme": "dark",
+      "r7": [
+        9,
+        9,
+        8,
+        8,
+        7
+      ],
+      "r11": [
+        9,
+        9,
+        9,
+        9,
+        8
+      ],
+      "passed": true,
+      "notes": "Large answer and original ink rules retained; hand signature adds one restrained mark.",
+      "comparison": "vs-r7/certificate-390-dark-comparison.png"
+    },
+    {
+      "screen": "archive",
+      "width": 390,
+      "theme": "dark",
+      "r7": [
+        9,
+        9,
+        9,
+        8,
+        8
+      ],
+      "r11": [
+        9,
+        9,
+        9,
+        9,
+        8
+      ],
+      "passed": true,
+      "notes": "Same oversized wordmark and explicitly labelled specimen; larger companion fills the grid.",
+      "comparison": "vs-r7/archive-390-dark-comparison.png"
+    },
+    {
+      "screen": "office",
+      "width": 390,
+      "theme": "dark",
+      "r7": [
+        8,
+        9,
+        8,
+        8,
+        7
+      ],
+      "r11": [
+        9,
+        9,
+        9,
+        9,
+        8
+      ],
+      "passed": true,
+      "notes": "Stronger Dibs headline; FAQ spacing and sources split into clear sections. Long legal copy remains the weakest mobile section.",
+      "comparison": "vs-r7/office-390-dark-comparison.png"
+    },
+    {
+      "screen": "office-expanded",
+      "width": 390,
+      "theme": "dark",
+      "r7": [
+        8,
+        9,
+        8,
+        8,
+        7
+      ],
+      "r11": [
+        9,
+        9,
+        9,
+        9,
+        8
+      ],
+      "passed": true,
+      "notes": "Five short rules, baseline-aligned numbers and a padded drawn disclosure chevron.",
+      "comparison": "vs-r7/office-expanded-390-dark-comparison.png"
+    },
+    {
+      "screen": "admin-live",
+      "width": 390,
+      "theme": "dark",
+      "r7": [
+        7,
+        9,
+        8,
+        8,
+        7
+      ],
+      "r11": [
+        7,
+        9,
+        8,
+        8,
+        7
+      ],
+      "passed": true,
+      "notes": "R7 has no Live route: its 404 shell is the visual reference, not an equivalent feature.",
+      "comparison": "vs-r7/admin-live-390-dark-comparison.png"
+    },
+    {
+      "screen": "calendar",
+      "width": 390,
+      "theme": "dark",
+      "r7": [
+        7,
+        9,
+        8,
+        8,
+        7
+      ],
+      "r11": [
+        7,
+        9,
+        8,
+        8,
+        7
+      ],
+      "passed": true,
+      "notes": "R7 has no calendar route: compare the shared shell only.",
+      "comparison": "vs-r7/calendar-390-dark-comparison.png"
+    },
+    {
+      "screen": "admin-live-open",
+      "width": 390,
+      "theme": "dark",
+      "r7": [
+        7,
+        9,
+        8,
+        8,
+        7
+      ],
+      "r11": [
+        8,
+        9,
+        9,
+        9,
+        8
+      ],
+      "passed": true,
+      "notes": "Authenticated practice metrics use aligned rules and large numbers. R7 route absent.",
+      "comparison": "vs-r7/admin-live-open-390-dark-comparison.png"
+    },
+    {
+      "screen": "calendar-open",
+      "width": 390,
+      "theme": "dark",
+      "r7": [
+        7,
+        9,
+        8,
+        8,
+        7
+      ],
+      "r11": [
+        8,
+        9,
+        9,
+        9,
+        9
+      ],
+      "passed": true,
+      "notes": "Authenticated calendar fills the container with deliberate form boxes. R7 route absent.",
+      "comparison": "vs-r7/calendar-open-390-dark-comparison.png"
+    },
+    {
+      "screen": "stats",
+      "width": 390,
+      "theme": "dark",
+      "r7": [
+        8,
+        9,
+        8,
+        8,
+        7
+      ],
+      "r11": [
+        8,
+        9,
+        9,
+        9,
+        7
+      ],
+      "passed": true,
+      "notes": "Simple administrative form; header and footer share the same centre line.",
+      "comparison": "vs-r7/stats-390-dark-comparison.png"
+    },
+    {
+      "screen": "error",
+      "width": 390,
+      "theme": "dark",
+      "r7": [
+        7,
+        9,
+        8,
+        8,
+        7
+      ],
+      "r11": [
+        7,
+        9,
+        9,
+        8,
+        7
+      ],
+      "passed": true,
+      "notes": "Deliberately sparse recovery screen, aligned with the shared container.",
+      "comparison": "vs-r7/error-390-dark-comparison.png"
+    },
+    {
+      "screen": "closed",
+      "width": 1440,
+      "theme": "light",
+      "r7": [
+        8,
+        9,
+        8,
+        8,
+        8
+      ],
+      "r11": [
+        9,
+        9,
+        9,
+        8,
+        8
+      ],
+      "passed": true,
+      "notes": "Large vermilion stamp restored on phone and desktop; explicit drop time and header controls.",
+      "comparison": "vs-r7/closed-1440-light-comparison.png"
+    },
+    {
+      "screen": "play",
+      "width": 1440,
+      "theme": "light",
+      "r7": [
+        9,
+        9,
+        8,
+        9,
+        7
+      ],
+      "r11": [
+        9,
+        9,
+        9,
+        9,
+        9
+      ],
+      "passed": true,
+      "notes": "Huge Archivo category retained; plain stock, crisp primary action, focused one-card flow.",
+      "comparison": "vs-r7/play-1440-light-comparison.png"
+    },
+    {
+      "screen": "mid-round",
+      "width": 1440,
+      "theme": "light",
+      "r7": [
+        9,
+        9,
+        8,
+        9,
+        7
+      ],
+      "r11": [
+        9,
+        9,
+        9,
+        9,
+        9
+      ],
+      "passed": true,
+      "notes": "Stable card and explicit progress; no premature ledger clutter.",
+      "comparison": "vs-r7/mid-round-1440-light-comparison.png"
+    },
+    {
+      "screen": "day",
+      "width": 1440,
+      "theme": "light",
+      "r7": [
+        8,
+        9,
+        7,
+        8,
+        6
+      ],
+      "r11": [
+        9,
+        9,
+        9,
+        9,
+        9
+      ],
+      "passed": true,
+      "notes": "Ink answer names, signature, separate counters; desktop companions use the right column.",
+      "comparison": "vs-r7/day-1440-light-comparison.png"
+    },
+    {
+      "screen": "five-strikes",
+      "width": 1440,
+      "theme": "light",
+      "r7": [
+        8,
+        9,
+        7,
+        8,
+        6
+      ],
+      "r11": [
+        9,
+        9,
+        9,
+        9,
+        9
+      ],
+      "passed": true,
+      "notes": "Misses are legible and RESERVED is plain; right column balances the completed file.",
+      "comparison": "vs-r7/five-strikes-1440-light-comparison.png"
+    },
+    {
+      "screen": "gold",
+      "width": 1440,
+      "theme": "light",
+      "r7": [
+        9,
+        9,
+        8,
+        8,
+        6
+      ],
+      "r11": [
+        9,
+        9,
+        9,
+        9,
+        9
+      ],
+      "passed": true,
+      "notes": "Compact physical stamp retains prominence without an empty full-width stamp box.",
+      "comparison": "vs-r7/gold-1440-light-comparison.png"
+    },
+    {
+      "screen": "certificate",
+      "width": 1440,
+      "theme": "light",
+      "r7": [
+        9,
+        9,
+        8,
+        8,
+        7
+      ],
+      "r11": [
+        9,
+        9,
+        9,
+        9,
+        8
+      ],
+      "passed": true,
+      "notes": "Large answer and original ink rules retained; hand signature adds one restrained mark.",
+      "comparison": "vs-r7/certificate-1440-light-comparison.png"
+    },
+    {
+      "screen": "archive",
+      "width": 1440,
+      "theme": "light",
+      "r7": [
+        9,
+        9,
+        9,
+        8,
+        8
+      ],
+      "r11": [
+        9,
+        9,
+        9,
+        9,
+        8
+      ],
+      "passed": true,
+      "notes": "Same oversized wordmark and explicitly labelled specimen; larger companion fills the grid.",
+      "comparison": "vs-r7/archive-1440-light-comparison.png"
+    },
+    {
+      "screen": "office",
+      "width": 1440,
+      "theme": "light",
+      "r7": [
+        8,
+        9,
+        8,
+        8,
+        7
+      ],
+      "r11": [
+        9,
+        9,
+        9,
+        9,
+        8
+      ],
+      "passed": true,
+      "notes": "Stronger Dibs headline; FAQ spacing and sources split into clear sections. Long legal copy remains the weakest mobile section.",
+      "comparison": "vs-r7/office-1440-light-comparison.png"
+    },
+    {
+      "screen": "office-expanded",
+      "width": 1440,
+      "theme": "light",
+      "r7": [
+        8,
+        9,
+        8,
+        8,
+        7
+      ],
+      "r11": [
+        9,
+        9,
+        9,
+        9,
+        8
+      ],
+      "passed": true,
+      "notes": "Five short rules, baseline-aligned numbers and a padded drawn disclosure chevron.",
+      "comparison": "vs-r7/office-expanded-1440-light-comparison.png"
+    },
+    {
+      "screen": "admin-live",
+      "width": 1440,
+      "theme": "light",
+      "r7": [
+        7,
+        9,
+        8,
+        8,
+        7
+      ],
+      "r11": [
+        7,
+        9,
+        8,
+        8,
+        7
+      ],
+      "passed": true,
+      "notes": "R7 has no Live route: its 404 shell is the visual reference, not an equivalent feature.",
+      "comparison": "vs-r7/admin-live-1440-light-comparison.png"
+    },
+    {
+      "screen": "calendar",
+      "width": 1440,
+      "theme": "light",
+      "r7": [
+        7,
+        9,
+        8,
+        8,
+        7
+      ],
+      "r11": [
+        7,
+        9,
+        8,
+        8,
+        7
+      ],
+      "passed": true,
+      "notes": "R7 has no calendar route: compare the shared shell only.",
+      "comparison": "vs-r7/calendar-1440-light-comparison.png"
+    },
+    {
+      "screen": "admin-live-open",
+      "width": 1440,
+      "theme": "light",
+      "r7": [
+        7,
+        9,
+        8,
+        8,
+        7
+      ],
+      "r11": [
+        8,
+        9,
+        9,
+        9,
+        8
+      ],
+      "passed": true,
+      "notes": "Authenticated practice metrics use aligned rules and large numbers. R7 route absent.",
+      "comparison": "vs-r7/admin-live-open-1440-light-comparison.png"
+    },
+    {
+      "screen": "calendar-open",
+      "width": 1440,
+      "theme": "light",
+      "r7": [
+        7,
+        9,
+        8,
+        8,
+        7
+      ],
+      "r11": [
+        8,
+        9,
+        9,
+        9,
+        9
+      ],
+      "passed": true,
+      "notes": "Authenticated calendar fills the container with deliberate form boxes. R7 route absent.",
+      "comparison": "vs-r7/calendar-open-1440-light-comparison.png"
+    },
+    {
+      "screen": "stats",
+      "width": 1440,
+      "theme": "light",
+      "r7": [
+        8,
+        9,
+        8,
+        8,
+        7
+      ],
+      "r11": [
+        8,
+        9,
+        9,
+        9,
+        7
+      ],
+      "passed": true,
+      "notes": "Simple administrative form; header and footer share the same centre line.",
+      "comparison": "vs-r7/stats-1440-light-comparison.png"
+    },
+    {
+      "screen": "error",
+      "width": 1440,
+      "theme": "light",
+      "r7": [
+        7,
+        9,
+        8,
+        8,
+        7
+      ],
+      "r11": [
+        7,
+        9,
+        9,
+        8,
+        7
+      ],
+      "passed": true,
+      "notes": "Deliberately sparse recovery screen, aligned with the shared container.",
+      "comparison": "vs-r7/error-1440-light-comparison.png"
+    },
+    {
+      "screen": "closed",
+      "width": 1440,
+      "theme": "dark",
+      "r7": [
+        8,
+        9,
+        8,
+        8,
+        8
+      ],
+      "r11": [
+        9,
+        9,
+        9,
+        8,
+        8
+      ],
+      "passed": true,
+      "notes": "Large vermilion stamp restored on phone and desktop; explicit drop time and header controls.",
+      "comparison": "vs-r7/closed-1440-dark-comparison.png"
+    },
+    {
+      "screen": "play",
+      "width": 1440,
+      "theme": "dark",
+      "r7": [
+        9,
+        9,
+        8,
+        9,
+        7
+      ],
+      "r11": [
+        9,
+        9,
+        9,
+        9,
+        9
+      ],
+      "passed": true,
+      "notes": "Huge Archivo category retained; plain stock, crisp primary action, focused one-card flow.",
+      "comparison": "vs-r7/play-1440-dark-comparison.png"
+    },
+    {
+      "screen": "mid-round",
+      "width": 1440,
+      "theme": "dark",
+      "r7": [
+        9,
+        9,
+        8,
+        9,
+        7
+      ],
+      "r11": [
+        9,
+        9,
+        9,
+        9,
+        9
+      ],
+      "passed": true,
+      "notes": "Stable card and explicit progress; no premature ledger clutter.",
+      "comparison": "vs-r7/mid-round-1440-dark-comparison.png"
+    },
+    {
+      "screen": "day",
+      "width": 1440,
+      "theme": "dark",
+      "r7": [
+        8,
+        9,
+        7,
+        8,
+        6
+      ],
+      "r11": [
+        9,
+        9,
+        9,
+        9,
+        9
+      ],
+      "passed": true,
+      "notes": "Ink answer names, signature, separate counters; desktop companions use the right column.",
+      "comparison": "vs-r7/day-1440-dark-comparison.png"
+    },
+    {
+      "screen": "five-strikes",
+      "width": 1440,
+      "theme": "dark",
+      "r7": [
+        8,
+        9,
+        7,
+        8,
+        6
+      ],
+      "r11": [
+        9,
+        9,
+        9,
+        9,
+        9
+      ],
+      "passed": true,
+      "notes": "Misses are legible and RESERVED is plain; right column balances the completed file.",
+      "comparison": "vs-r7/five-strikes-1440-dark-comparison.png"
+    },
+    {
+      "screen": "gold",
+      "width": 1440,
+      "theme": "dark",
+      "r7": [
+        9,
+        9,
+        8,
+        8,
+        6
+      ],
+      "r11": [
+        9,
+        9,
+        9,
+        9,
+        9
+      ],
+      "passed": true,
+      "notes": "Compact physical stamp retains prominence without an empty full-width stamp box.",
+      "comparison": "vs-r7/gold-1440-dark-comparison.png"
+    },
+    {
+      "screen": "certificate",
+      "width": 1440,
+      "theme": "dark",
+      "r7": [
+        9,
+        9,
+        8,
+        8,
+        7
+      ],
+      "r11": [
+        9,
+        9,
+        9,
+        9,
+        8
+      ],
+      "passed": true,
+      "notes": "Large answer and original ink rules retained; hand signature adds one restrained mark.",
+      "comparison": "vs-r7/certificate-1440-dark-comparison.png"
+    },
+    {
+      "screen": "archive",
+      "width": 1440,
+      "theme": "dark",
+      "r7": [
+        9,
+        9,
+        9,
+        8,
+        8
+      ],
+      "r11": [
+        9,
+        9,
+        9,
+        9,
+        8
+      ],
+      "passed": true,
+      "notes": "Same oversized wordmark and explicitly labelled specimen; larger companion fills the grid.",
+      "comparison": "vs-r7/archive-1440-dark-comparison.png"
+    },
+    {
+      "screen": "office",
+      "width": 1440,
+      "theme": "dark",
+      "r7": [
+        8,
+        9,
+        8,
+        8,
+        7
+      ],
+      "r11": [
+        9,
+        9,
+        9,
+        9,
+        8
+      ],
+      "passed": true,
+      "notes": "Stronger Dibs headline; FAQ spacing and sources split into clear sections. Long legal copy remains the weakest mobile section.",
+      "comparison": "vs-r7/office-1440-dark-comparison.png"
+    },
+    {
+      "screen": "office-expanded",
+      "width": 1440,
+      "theme": "dark",
+      "r7": [
+        8,
+        9,
+        8,
+        8,
+        7
+      ],
+      "r11": [
+        9,
+        9,
+        9,
+        9,
+        8
+      ],
+      "passed": true,
+      "notes": "Five short rules, baseline-aligned numbers and a padded drawn disclosure chevron.",
+      "comparison": "vs-r7/office-expanded-1440-dark-comparison.png"
+    },
+    {
+      "screen": "admin-live",
+      "width": 1440,
+      "theme": "dark",
+      "r7": [
+        7,
+        9,
+        8,
+        8,
+        7
+      ],
+      "r11": [
+        7,
+        9,
+        8,
+        8,
+        7
+      ],
+      "passed": true,
+      "notes": "R7 has no Live route: its 404 shell is the visual reference, not an equivalent feature.",
+      "comparison": "vs-r7/admin-live-1440-dark-comparison.png"
+    },
+    {
+      "screen": "calendar",
+      "width": 1440,
+      "theme": "dark",
+      "r7": [
+        7,
+        9,
+        8,
+        8,
+        7
+      ],
+      "r11": [
+        7,
+        9,
+        8,
+        8,
+        7
+      ],
+      "passed": true,
+      "notes": "R7 has no calendar route: compare the shared shell only.",
+      "comparison": "vs-r7/calendar-1440-dark-comparison.png"
+    },
+    {
+      "screen": "admin-live-open",
+      "width": 1440,
+      "theme": "dark",
+      "r7": [
+        7,
+        9,
+        8,
+        8,
+        7
+      ],
+      "r11": [
+        8,
+        9,
+        9,
+        9,
+        8
+      ],
+      "passed": true,
+      "notes": "Authenticated practice metrics use aligned rules and large numbers. R7 route absent.",
+      "comparison": "vs-r7/admin-live-open-1440-dark-comparison.png"
+    },
+    {
+      "screen": "calendar-open",
+      "width": 1440,
+      "theme": "dark",
+      "r7": [
+        7,
+        9,
+        8,
+        8,
+        7
+      ],
+      "r11": [
+        8,
+        9,
+        9,
+        9,
+        9
+      ],
+      "passed": true,
+      "notes": "Authenticated calendar fills the container with deliberate form boxes. R7 route absent.",
+      "comparison": "vs-r7/calendar-open-1440-dark-comparison.png"
+    },
+    {
+      "screen": "stats",
+      "width": 1440,
+      "theme": "dark",
+      "r7": [
+        8,
+        9,
+        8,
+        8,
+        7
+      ],
+      "r11": [
+        8,
+        9,
+        9,
+        9,
+        7
+      ],
+      "passed": true,
+      "notes": "Simple administrative form; header and footer share the same centre line.",
+      "comparison": "vs-r7/stats-1440-dark-comparison.png"
+    },
+    {
+      "screen": "error",
+      "width": 1440,
+      "theme": "dark",
+      "r7": [
+        7,
+        9,
+        8,
+        8,
+        7
+      ],
+      "r11": [
+        7,
+        9,
+        9,
+        8,
+        7
+      ],
+      "passed": true,
+      "notes": "Deliberately sparse recovery screen, aligned with the shared container.",
+      "comparison": "vs-r7/error-1440-dark-comparison.png"
+    },
+    {
+      "screen": "closed",
+      "width": 2560,
+      "theme": "light",
+      "r7": [
+        8,
+        9,
+        8,
+        8,
+        7
+      ],
+      "r11": [
+        9,
+        9,
+        9,
+        8,
+        8
+      ],
+      "passed": true,
+      "notes": "Large vermilion stamp restored on phone and desktop; explicit drop time and header controls.",
+      "comparison": "vs-r7/closed-2560-light-comparison.png"
+    },
+    {
+      "screen": "play",
+      "width": 2560,
+      "theme": "light",
+      "r7": [
+        9,
+        9,
+        8,
+        9,
+        6
+      ],
+      "r11": [
+        9,
+        9,
+        9,
+        9,
+        9
+      ],
+      "passed": true,
+      "notes": "Huge Archivo category retained; plain stock, crisp primary action, focused one-card flow.",
+      "comparison": "vs-r7/play-2560-light-comparison.png"
+    },
+    {
+      "screen": "mid-round",
+      "width": 2560,
+      "theme": "light",
+      "r7": [
+        9,
+        9,
+        8,
+        9,
+        6
+      ],
+      "r11": [
+        9,
+        9,
+        9,
+        9,
+        9
+      ],
+      "passed": true,
+      "notes": "Stable card and explicit progress; no premature ledger clutter.",
+      "comparison": "vs-r7/mid-round-2560-light-comparison.png"
+    },
+    {
+      "screen": "day",
+      "width": 2560,
+      "theme": "light",
+      "r7": [
+        8,
+        9,
+        7,
+        8,
+        5
+      ],
+      "r11": [
+        9,
+        9,
+        9,
+        9,
+        9
+      ],
+      "passed": true,
+      "notes": "Ink answer names, signature, separate counters; desktop companions use the right column.",
+      "comparison": "vs-r7/day-2560-light-comparison.png"
+    },
+    {
+      "screen": "five-strikes",
+      "width": 2560,
+      "theme": "light",
+      "r7": [
+        8,
+        9,
+        7,
+        8,
+        5
+      ],
+      "r11": [
+        9,
+        9,
+        9,
+        9,
+        9
+      ],
+      "passed": true,
+      "notes": "Misses are legible and RESERVED is plain; right column balances the completed file.",
+      "comparison": "vs-r7/five-strikes-2560-light-comparison.png"
+    },
+    {
+      "screen": "gold",
+      "width": 2560,
+      "theme": "light",
+      "r7": [
+        9,
+        9,
+        8,
+        8,
+        5
+      ],
+      "r11": [
+        9,
+        9,
+        9,
+        9,
+        9
+      ],
+      "passed": true,
+      "notes": "Compact physical stamp retains prominence without an empty full-width stamp box.",
+      "comparison": "vs-r7/gold-2560-light-comparison.png"
+    },
+    {
+      "screen": "certificate",
+      "width": 2560,
+      "theme": "light",
+      "r7": [
+        9,
+        9,
+        8,
+        8,
+        6
+      ],
+      "r11": [
+        9,
+        9,
+        9,
+        9,
+        8
+      ],
+      "passed": true,
+      "notes": "Large answer and original ink rules retained; hand signature adds one restrained mark.",
+      "comparison": "vs-r7/certificate-2560-light-comparison.png"
+    },
+    {
+      "screen": "archive",
+      "width": 2560,
+      "theme": "light",
+      "r7": [
+        9,
+        9,
+        9,
+        8,
+        7
+      ],
+      "r11": [
+        9,
+        9,
+        9,
+        9,
+        8
+      ],
+      "passed": true,
+      "notes": "Same oversized wordmark and explicitly labelled specimen; larger companion fills the grid.",
+      "comparison": "vs-r7/archive-2560-light-comparison.png"
+    },
+    {
+      "screen": "office",
+      "width": 2560,
+      "theme": "light",
+      "r7": [
+        8,
+        9,
+        8,
+        8,
+        6
+      ],
+      "r11": [
+        9,
+        9,
+        9,
+        9,
+        8
+      ],
+      "passed": true,
+      "notes": "Stronger Dibs headline; FAQ spacing and sources split into clear sections. Long legal copy remains the weakest mobile section.",
+      "comparison": "vs-r7/office-2560-light-comparison.png"
+    },
+    {
+      "screen": "office-expanded",
+      "width": 2560,
+      "theme": "light",
+      "r7": [
+        8,
+        9,
+        8,
+        8,
+        6
+      ],
+      "r11": [
+        9,
+        9,
+        9,
+        9,
+        8
+      ],
+      "passed": true,
+      "notes": "Five short rules, baseline-aligned numbers and a padded drawn disclosure chevron.",
+      "comparison": "vs-r7/office-expanded-2560-light-comparison.png"
+    },
+    {
+      "screen": "admin-live",
+      "width": 2560,
+      "theme": "light",
+      "r7": [
+        7,
+        9,
+        8,
+        8,
+        7
+      ],
+      "r11": [
+        7,
+        9,
+        8,
+        8,
+        7
+      ],
+      "passed": true,
+      "notes": "R7 has no Live route: its 404 shell is the visual reference, not an equivalent feature.",
+      "comparison": "vs-r7/admin-live-2560-light-comparison.png"
+    },
+    {
+      "screen": "calendar",
+      "width": 2560,
+      "theme": "light",
+      "r7": [
+        7,
+        9,
+        8,
+        8,
+        7
+      ],
+      "r11": [
+        7,
+        9,
+        8,
+        8,
+        7
+      ],
+      "passed": true,
+      "notes": "R7 has no calendar route: compare the shared shell only.",
+      "comparison": "vs-r7/calendar-2560-light-comparison.png"
+    },
+    {
+      "screen": "admin-live-open",
+      "width": 2560,
+      "theme": "light",
+      "r7": [
+        7,
+        9,
+        8,
+        8,
+        7
+      ],
+      "r11": [
+        8,
+        9,
+        9,
+        9,
+        8
+      ],
+      "passed": true,
+      "notes": "Authenticated practice metrics use aligned rules and large numbers. R7 route absent.",
+      "comparison": "vs-r7/admin-live-open-2560-light-comparison.png"
+    },
+    {
+      "screen": "calendar-open",
+      "width": 2560,
+      "theme": "light",
+      "r7": [
+        7,
+        9,
+        8,
+        8,
+        7
+      ],
+      "r11": [
+        8,
+        9,
+        9,
+        9,
+        9
+      ],
+      "passed": true,
+      "notes": "Authenticated calendar fills the container with deliberate form boxes. R7 route absent.",
+      "comparison": "vs-r7/calendar-open-2560-light-comparison.png"
+    },
+    {
+      "screen": "stats",
+      "width": 2560,
+      "theme": "light",
+      "r7": [
+        8,
+        9,
+        8,
+        8,
+        7
+      ],
+      "r11": [
+        8,
+        9,
+        9,
+        9,
+        7
+      ],
+      "passed": true,
+      "notes": "Simple administrative form; header and footer share the same centre line.",
+      "comparison": "vs-r7/stats-2560-light-comparison.png"
+    },
+    {
+      "screen": "error",
+      "width": 2560,
+      "theme": "light",
+      "r7": [
+        7,
+        9,
+        8,
+        8,
+        7
+      ],
+      "r11": [
+        7,
+        9,
+        9,
+        8,
+        7
+      ],
+      "passed": true,
+      "notes": "Deliberately sparse recovery screen, aligned with the shared container.",
+      "comparison": "vs-r7/error-2560-light-comparison.png"
+    },
+    {
+      "screen": "closed",
+      "width": 2560,
+      "theme": "dark",
+      "r7": [
+        8,
+        9,
+        8,
+        8,
+        7
+      ],
+      "r11": [
+        9,
+        9,
+        9,
+        8,
+        8
+      ],
+      "passed": true,
+      "notes": "Large vermilion stamp restored on phone and desktop; explicit drop time and header controls.",
+      "comparison": "vs-r7/closed-2560-dark-comparison.png"
+    },
+    {
+      "screen": "play",
+      "width": 2560,
+      "theme": "dark",
+      "r7": [
+        9,
+        9,
+        8,
+        9,
+        6
+      ],
+      "r11": [
+        9,
+        9,
+        9,
+        9,
+        9
+      ],
+      "passed": true,
+      "notes": "Huge Archivo category retained; plain stock, crisp primary action, focused one-card flow.",
+      "comparison": "vs-r7/play-2560-dark-comparison.png"
+    },
+    {
+      "screen": "mid-round",
+      "width": 2560,
+      "theme": "dark",
+      "r7": [
+        9,
+        9,
+        8,
+        9,
+        6
+      ],
+      "r11": [
+        9,
+        9,
+        9,
+        9,
+        9
+      ],
+      "passed": true,
+      "notes": "Stable card and explicit progress; no premature ledger clutter.",
+      "comparison": "vs-r7/mid-round-2560-dark-comparison.png"
+    },
+    {
+      "screen": "day",
+      "width": 2560,
+      "theme": "dark",
+      "r7": [
+        8,
+        9,
+        7,
+        8,
+        5
+      ],
+      "r11": [
+        9,
+        9,
+        9,
+        9,
+        9
+      ],
+      "passed": true,
+      "notes": "Ink answer names, signature, separate counters; desktop companions use the right column.",
+      "comparison": "vs-r7/day-2560-dark-comparison.png"
+    },
+    {
+      "screen": "five-strikes",
+      "width": 2560,
+      "theme": "dark",
+      "r7": [
+        8,
+        9,
+        7,
+        8,
+        5
+      ],
+      "r11": [
+        9,
+        9,
+        9,
+        9,
+        9
+      ],
+      "passed": true,
+      "notes": "Misses are legible and RESERVED is plain; right column balances the completed file.",
+      "comparison": "vs-r7/five-strikes-2560-dark-comparison.png"
+    },
+    {
+      "screen": "gold",
+      "width": 2560,
+      "theme": "dark",
+      "r7": [
+        9,
+        9,
+        8,
+        8,
+        5
+      ],
+      "r11": [
+        9,
+        9,
+        9,
+        9,
+        9
+      ],
+      "passed": true,
+      "notes": "Compact physical stamp retains prominence without an empty full-width stamp box.",
+      "comparison": "vs-r7/gold-2560-dark-comparison.png"
+    },
+    {
+      "screen": "certificate",
+      "width": 2560,
+      "theme": "dark",
+      "r7": [
+        9,
+        9,
+        8,
+        8,
+        6
+      ],
+      "r11": [
+        9,
+        9,
+        9,
+        9,
+        8
+      ],
+      "passed": true,
+      "notes": "Large answer and original ink rules retained; hand signature adds one restrained mark.",
+      "comparison": "vs-r7/certificate-2560-dark-comparison.png"
+    },
+    {
+      "screen": "archive",
+      "width": 2560,
+      "theme": "dark",
+      "r7": [
+        9,
+        9,
+        9,
+        8,
+        7
+      ],
+      "r11": [
+        9,
+        9,
+        9,
+        9,
+        8
+      ],
+      "passed": true,
+      "notes": "Same oversized wordmark and explicitly labelled specimen; larger companion fills the grid.",
+      "comparison": "vs-r7/archive-2560-dark-comparison.png"
+    },
+    {
+      "screen": "office",
+      "width": 2560,
+      "theme": "dark",
+      "r7": [
+        8,
+        9,
+        8,
+        8,
+        6
+      ],
+      "r11": [
+        9,
+        9,
+        9,
+        9,
+        8
+      ],
+      "passed": true,
+      "notes": "Stronger Dibs headline; FAQ spacing and sources split into clear sections. Long legal copy remains the weakest mobile section.",
+      "comparison": "vs-r7/office-2560-dark-comparison.png"
+    },
+    {
+      "screen": "office-expanded",
+      "width": 2560,
+      "theme": "dark",
+      "r7": [
+        8,
+        9,
+        8,
+        8,
+        6
+      ],
+      "r11": [
+        9,
+        9,
+        9,
+        9,
+        8
+      ],
+      "passed": true,
+      "notes": "Five short rules, baseline-aligned numbers and a padded drawn disclosure chevron.",
+      "comparison": "vs-r7/office-expanded-2560-dark-comparison.png"
+    },
+    {
+      "screen": "admin-live",
+      "width": 2560,
+      "theme": "dark",
+      "r7": [
+        7,
+        9,
+        8,
+        8,
+        7
+      ],
+      "r11": [
+        7,
+        9,
+        8,
+        8,
+        7
+      ],
+      "passed": true,
+      "notes": "R7 has no Live route: its 404 shell is the visual reference, not an equivalent feature.",
+      "comparison": "vs-r7/admin-live-2560-dark-comparison.png"
+    },
+    {
+      "screen": "calendar",
+      "width": 2560,
+      "theme": "dark",
+      "r7": [
+        7,
+        9,
+        8,
+        8,
+        7
+      ],
+      "r11": [
+        7,
+        9,
+        8,
+        8,
+        7
+      ],
+      "passed": true,
+      "notes": "R7 has no calendar route: compare the shared shell only.",
+      "comparison": "vs-r7/calendar-2560-dark-comparison.png"
+    },
+    {
+      "screen": "admin-live-open",
+      "width": 2560,
+      "theme": "dark",
+      "r7": [
+        7,
+        9,
+        8,
+        8,
+        7
+      ],
+      "r11": [
+        8,
+        9,
+        9,
+        9,
+        8
+      ],
+      "passed": true,
+      "notes": "Authenticated practice metrics use aligned rules and large numbers. R7 route absent.",
+      "comparison": "vs-r7/admin-live-open-2560-dark-comparison.png"
+    },
+    {
+      "screen": "calendar-open",
+      "width": 2560,
+      "theme": "dark",
+      "r7": [
+        7,
+        9,
+        8,
+        8,
+        7
+      ],
+      "r11": [
+        8,
+        9,
+        9,
+        9,
+        9
+      ],
+      "passed": true,
+      "notes": "Authenticated calendar fills the container with deliberate form boxes. R7 route absent.",
+      "comparison": "vs-r7/calendar-open-2560-dark-comparison.png"
+    },
+    {
+      "screen": "stats",
+      "width": 2560,
+      "theme": "dark",
+      "r7": [
+        8,
+        9,
+        8,
+        8,
+        7
+      ],
+      "r11": [
+        8,
+        9,
+        9,
+        9,
+        7
+      ],
+      "passed": true,
+      "notes": "Simple administrative form; header and footer share the same centre line.",
+      "comparison": "vs-r7/stats-2560-dark-comparison.png"
+    },
+    {
+      "screen": "error",
+      "width": 2560,
+      "theme": "dark",
+      "r7": [
+        7,
+        9,
+        8,
+        8,
+        7
+      ],
+      "r11": [
+        7,
+        9,
+        9,
+        8,
+        7
+      ],
+      "passed": true,
+      "notes": "Deliberately sparse recovery screen, aligned with the shared container.",
+      "comparison": "vs-r7/error-2560-dark-comparison.png"
+    }
+  ],
+  "shareThumbnails": {
+    "width": 200,
+    "r7": [
+      9,
+      9,
+      9,
+      8,
+      8
+    ],
+    "r11": [
+      9,
+      9,
+      9,
+      9,
+      8
+    ],
+    "passed": true,
+    "notes": "Clean, five-strike and gold feed/story exports plus OG cards. Answer and Dibs identity remain clear; tiny legal text is intentionally not readable at thumbnail size."
+  },
+  "passed": true
+}

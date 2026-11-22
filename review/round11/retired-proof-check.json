@@ -1,0 +1,72 @@
+{
+  "checkedAt": "2026-11-22T15:17:39.829Z",
+  "rows": [
+    {
+      "browser": "chromium",
+      "width": 390,
+      "theme": "light",
+      "retiredProofReturns404": true,
+      "homeLoads": true,
+      "passed": true
+    },
+    {
+      "browser": "chromium",
+      "width": 390,
+      "theme": "dark",
+      "retiredProofReturns404": true,
+      "homeLoads": true,
+      "passed": true
+    },
+    {
+      "browser": "chromium",
+      "width": 1440,
+      "theme": "light",
+      "retiredProofReturns404": true,
+      "homeLoads": true,
+      "passed": true
+    },
+    {
+      "browser": "chromium",
+      "width": 1440,
+      "theme": "dark",
+      "retiredProofReturns404": true,
+      "homeLoads": true,
+      "passed": true
+    },
+    {
+      "browser": "webkit",
+      "width": 390,
+      "theme": "light",
+      "retiredProofReturns404": true,
+      "homeLoads": true,
+      "passed": true
+    },
+    {
+      "browser": "webkit",
+      "width": 390,
+      "theme": "dark",
+      "retiredProofReturns404": true,
+      "homeLoads": true,
+      "passed": true
+    },
+    {
+      "browser": "webkit",
+      "width": 1440,
+      "theme": "light",
+      "retiredProofReturns404": true,
+      "homeLoads": true,
+      "passed": true
+    },
+    {
+      "browser": "webkit",
+      "width": 1440,
+      "theme": "dark",
+      "retiredProofReturns404": true,
+      "homeLoads": true,
+      "passed": true
+    }
+  ],
+  "realTurnstile": true,
+  "rehearsalUnchanged": true,
+  "passed": true
+}

@@ -1,0 +1,122 @@
+[
+  {
+    "browser": "chromium",
+    "width": 390,
+    "theme": "light",
+    "checks": [
+      "Initial no-peek and real official test Turnstile session",
+      "Easter eggs, invalid, whitespace, emoji, 200-character input cost no strike",
+      "Mixed case, plurals, RESERVED strike, three wins, certificate, ledger reveal",
+      "Native file-share payload (intercepted; nothing posted)",
+      "Share intents, copy text, feed/story downloads",
+      "Recovery key restores the completed file in a second browser",
+      "Live verified self-serve deletion"
+    ],
+    "passed": true
+  },
+  {
+    "browser": "chromium",
+    "width": 390,
+    "theme": "dark",
+    "checks": [
+      "Initial no-peek and real official test Turnstile session",
+      "Easter eggs, invalid, whitespace, emoji, 200-character input cost no strike",
+      "Mixed case, plurals, RESERVED strike, three wins, certificate, ledger reveal",
+      "Native file-share payload (intercepted; nothing posted)",
+      "Share intents, copy text, feed/story downloads",
+      "Recovery key restores the completed file in a second browser",
+      "Live verified self-serve deletion"
+    ],
+    "passed": true
+  },
+  {
+    "browser": "chromium",
+    "width": 1440,
+    "theme": "light",
+    "checks": [
+      "Initial no-peek and real official test Turnstile session",
+      "Easter eggs, invalid, whitespace, emoji, 200-character input cost no strike",
+      "Mixed case, plurals, RESERVED strike, three wins, certificate, ledger reveal",
+      "Native file-share payload (intercepted; nothing posted)",
+      "Share intents, copy text, feed/story downloads",
+      "Recovery key restores the completed file in a second browser",
+      "Live verified self-serve deletion"
+    ],
+    "passed": true
+  },
+  {
+    "browser": "chromium",
+    "width": 1440,
+    "theme": "dark",
+    "checks": [
+      "Initial no-peek and real official test Turnstile session",
+      "Easter eggs, invalid, whitespace, emoji, 200-character input cost no strike",
+      "Mixed case, plurals, RESERVED strike, three wins, certificate, ledger reveal",
+      "Native file-share payload (intercepted; nothing posted)",
+      "Share intents, copy text, feed/story downloads",
+      "Recovery key restores the completed file in a second browser",
+      "Live verified self-serve deletion"
+    ],
+    "passed": true
+  },
+  {
+    "browser": "webkit",
+    "width": 390,
+    "theme": "light",
+    "checks": [
+      "Initial no-peek and real official test Turnstile session",
+      "Easter eggs, invalid, whitespace, emoji, 200-character input cost no strike",
+      "Mixed case, plurals, RESERVED strike, three wins, certificate, ledger reveal",
+      "Native file-share payload (intercepted; nothing posted)",
+      "Share intents, copy text, feed/story downloads",
+      "Recovery key restores the completed file in a second browser",
+      "Live verified self-serve deletion"
+    ],
+    "passed": true
+  },
+  {
+    "browser": "webkit",
+    "width": 390,
+    "theme": "dark",
+    "checks": [
+      "Initial no-peek and real official test Turnstile session",
+      "Easter eggs, invalid, whitespace, emoji, 200-character input cost no strike",
+      "Mixed case, plurals, RESERVED strike, three wins, certificate, ledger reveal",
+      "Native file-share payload (intercepted; nothing posted)",
+      "Share intents, copy text, feed/story downloads",
+      "Recovery key restores the completed file in a second browser",
+      "Live verified self-serve deletion"
+    ],
+    "passed": true
+  },
+  {
+    "browser": "webkit",
+    "width": 1440,
+    "theme": "light",
+    "checks": [
+      "Initial no-peek and real official test Turnstile session",
+      "Easter eggs, invalid, whitespace, emoji, 200-character input cost no strike",
+      "Mixed case, plurals, RESERVED strike, three wins, certificate, ledger reveal",
+      "Native file-share payload (intercepted; nothing posted)",
+      "Share intents, copy text, feed/story downloads",
+      "Recovery key restores the completed file in a second browser",
+      "Live verified self-serve deletion"
+    ],
+    "passed": true
+  },
+  {
+    "browser": "webkit",
+    "width": 1440,
+    "theme": "dark",
+    "checks": [
+      "Initial no-peek and real official test Turnstile session",
+      "Easter eggs, invalid, whitespace, emoji, 200-character input cost no strike",
+      "Mixed case, plurals, RESERVED strike, three wins, certificate, ledger reveal",
+      "Native file-share payload (intercepted; nothing posted)",
+      "Share intents, copy text, feed/story downloads",
+      "Recovery key restores the completed file in a second browser",
+      "Live verified self-serve deletion"
+    ],
+    "passed": true
+  }
+]

@@ -1,0 +1,14 @@
+{
+  "checkedAt": "2026-11-22T15:03:25.923Z",
+  "pagesDeployment": "db61c5be-dde1-4250-8ca6-0426731019f4",
+  "workerDeployment": "8b28b1b8-2544-427a-bdc9-bc0952c39e9e",
+  "workerVersions": [
+    {
+      "version_id": "31a7a485-a7f8-459d-9b2e-03fc7cc9dcfb",
+      "percentage": 100
+    }
+  ],
+  "unchanged": true,
+  "productionClaimsMade": 0,
+  "productionDataMutations": 0
+}

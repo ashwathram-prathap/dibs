@@ -1,0 +1,110 @@
+[
+  {
+    "route": "live",
+    "width": 390,
+    "theme": "light",
+    "overflow": false,
+    "small": [],
+    "violations": [],
+    "passed": true
+  },
+  {
+    "route": "schedule",
+    "width": 390,
+    "theme": "light",
+    "overflow": false,
+    "small": [],
+    "violations": [],
+    "passed": true
+  },
+  {
+    "route": "live",
+    "width": 390,
+    "theme": "dark",
+    "overflow": false,
+    "small": [],
+    "violations": [],
+    "passed": true
+  },
+  {
+    "route": "schedule",
+    "width": 390,
+    "theme": "dark",
+    "overflow": false,
+    "small": [],
+    "violations": [],
+    "passed": true
+  },
+  {
+    "route": "live",
+    "width": 1440,
+    "theme": "light",
+    "overflow": false,
+    "small": [],
+    "violations": [],
+    "passed": true
+  },
+  {
+    "route": "schedule",
+    "width": 1440,
+    "theme": "light",
+    "overflow": false,
+    "small": [],
+    "violations": [],
+    "passed": true
+  },
+  {
+    "route": "live",
+    "width": 1440,
+    "theme": "dark",
+    "overflow": false,
+    "small": [],
+    "violations": [],
+    "passed": true
+  },
+  {
+    "route": "schedule",
+    "width": 1440,
+    "theme": "dark",
+    "overflow": false,
+    "small": [],
+    "violations": [],
+    "passed": true
+  },
+  {
+    "route": "live",
+    "width": 2560,
+    "theme": "light",
+    "overflow": false,
+    "small": [],
+    "violations": [],
+    "passed": true
+  },
+  {
+    "route": "schedule",
+    "width": 2560,
+    "theme": "light",
+    "overflow": false,
+    "small": [],
+    "violations": [],
+    "passed": true
+  },
+  {
+    "route": "live",
+    "width": 2560,
+    "theme": "dark",
+    "overflow": false,
+    "small": [],
+    "violations": [],
+    "passed": true
+  },
+  {
+    "route": "schedule",
+    "width": 2560,
+    "theme": "dark",
+    "overflow": false,
+    "small": [],
+    "violations": [],
+    "passed": true
+  }
+]

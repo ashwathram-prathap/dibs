@@ -1,0 +1,12 @@
+{
+  "opensAt": "2026-11-22T14:40:39.224Z",
+  "checks": [
+    "Chromium desktop and WebKit phone start with the office closed",
+    "Both open tabs reached zero and opened without reload",
+    "Both browsers claimed immediately after opening"
+  ],
+  "openedAt": "2026-11-22T14:40:41.020Z",
+  "alertReceived": false,
+  "error": "AssertionError [ERR_ASSERTION]: Rehearsal alert not received",
+  "passed": false
+}

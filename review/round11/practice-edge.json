@@ -1,0 +1,20 @@
+{
+  "passed": true,
+  "checks": [
+    "Two simultaneous players: exactly one winner, loser names that winner",
+    "Double-tap idempotency returns one claim",
+    "Retrying a taken request adds no second strike",
+    "Replaying an ID with a different answer is rejected",
+    "Before closure: no claimed answers in ledger API, certificate API or HTML",
+    "Five RESERVED strikes close the file and reveal the ledger",
+    "Known golden answer from private practice draw earns gold",
+    "Accented input resolves to the canonical animal",
+    "Offline claim preserves input; retry wins once",
+    "Stale session after practice reset renews without a strike",
+    "Confirming the spelling suggestion makes the intended claim",
+    "No-peek socket sends no rows to an open file",
+    "Slow claim disables duplicate submission",
+    "Blocked cookies receive actionable clerk guidance"
+  ],
+  "resolvedHarnessIssue": "Playwright ignores request Cookie overrides; retested with response Set-Cookie stripped and the cookie jar cleared."
+}

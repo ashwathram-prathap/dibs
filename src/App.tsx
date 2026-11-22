@@ -3,7 +3,6 @@ import { reminder } from '../shared/reminder';
 import { Calendar } from './Calendar';
 import { categoryStyle, paperStocks } from '../shared/category-style';
 import { clerkLine } from '../shared/clerk-lines';
-import { BrandProof } from './BrandProof';
 import { prepareSound, stampSound, goldSound, soundEnabled } from './sound';
 import { submittedSpelling } from './spelling';
 import { HOME_TITLE, archiveTitle } from '../shared/seo';
@@ -450,8 +449,6 @@ export default function App() {
             <Archive />
           ) : path === '/about' ? (
             <About nextDrop={today.nextDrop} />
-          ) : path === '/brand-proof' && (isDemo || today.practice) ? (
-            <BrandProof />
           ) : path === '/admin/schedule' ? (
             <Calendar />
           ) : path === '/admin/live' ? (

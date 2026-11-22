@@ -1,0 +1,20 @@
+{
+  "checkedAt": "2026-11-22T15:17:52.540163+00:00",
+  "visualVsR7": true,
+  "unitApi": true,
+  "browserMatrix": true,
+  "practiceMatrix": true,
+  "timedRehearsal": false,
+  "publicRehearsalScheduled": true,
+  "loadTest": false,
+  "personas": true,
+  "lighthouse": true,
+  "openHighSeverity": 0,
+  "productionDeployed": false,
+  "productionSmoke": "not_run; practice gates blocked deployment",
+  "blockedReasons": {
+    "timedRehearsal": "Open tabs and immediate claims passed; ntfy returned HTTP 429 daily message quota exhausted.",
+    "loadTest": "Account-wide D1 writes 98,036 / 100,000. Conservative estimated 20,000 additional writes exceeds safe headroom. No deployed load requests sent."
+  },
+  "report": "review/round11/REPORT.md"
+}

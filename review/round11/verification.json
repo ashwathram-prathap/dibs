@@ -1,0 +1,269 @@
+{
+  "at": "2026-11-22T15:09:32.396Z",
+  "unitApi": {
+    "tests": 127,
+    "passed": 127
+  },
+  "localLoad": {
+    "environment": "Isolated local Miniflare practice; no deployed requests and no network latency. This does not satisfy the deployed load gate.",
+    "players": 200,
+    "arrivalWindowSeconds": 59.7,
+    "guesses": 1096,
+    "p50Ms": 3,
+    "p95Ms": 9,
+    "durationSeconds": 59.721,
+    "unexpectedErrors": [],
+    "errorRate": 0,
+    "uniqueWinningClaims": 1,
+    "measuredD1Writes": 617,
+    "passed": true
+  },
+  "main": {
+    "startTime": "2026-11-22T14:58:25.180Z",
+    "duration": 302949.05700000003,
+    "expected": 216,
+    "skipped": 0,
+    "unexpected": 0,
+    "flaky": 0
+  },
+  "edge": {
+    "startTime": "2026-11-22T15:08:38.414Z",
+    "duration": 27806.86,
+    "expected": 40,
+    "skipped": 0,
+    "unexpected": 0,
+    "flaky": 0
+  },
+  "firefox": {
+    "startTime": "2026-11-22T15:04:31.953Z",
+    "duration": 206640.45,
+    "expected": 36,
+    "skipped": 0,
+    "unexpected": 0,
+    "flaky": 0,
+    "run": "https://github.com/ashwathram-prathap/dibs/actions/runs/45035688272",
+    "testedCommit": "842b3008c92d56196ff577ce07cb3567b21895f1"
+  },
+  "projects": {
+    "iPhone-SE-light": {
+      "passed": 6,
+      "failed": 0,
+      "skipped": 0
+    },
+    "iPhone-15-Pro-light": {
+      "passed": 6,
+      "failed": 0,
+      "skipped": 0
+    },
+    "iPhone-15-Pro-Max-light": {
+      "passed": 6,
+      "failed": 0,
+      "skipped": 0
+    },
+    "Pixel-7-light": {
+      "passed": 6,
+      "failed": 0,
+      "skipped": 0
+    },
+    "Galaxy-S9+-light": {
+      "passed": 6,
+      "failed": 0,
+      "skipped": 0
+    },
+    "iPad-Mini-light": {
+      "passed": 6,
+      "failed": 0,
+      "skipped": 0
+    },
+    "iPad-Pro-11-landscape-light": {
+      "passed": 6,
+      "failed": 0,
+      "skipped": 0
+    },
+    "chromium-1280-light": {
+      "passed": 6,
+      "failed": 0,
+      "skipped": 0
+    },
+    "chromium-1440-light": {
+      "passed": 6,
+      "failed": 0,
+      "skipped": 0
+    },
+    "chromium-2560-light": {
+      "passed": 6,
+      "failed": 0,
+      "skipped": 0
+    },
+    "webkit-1280-light": {
+      "passed": 6,
+      "failed": 0,
+      "skipped": 0
+    },
+    "webkit-1440-light": {
+      "passed": 6,
+      "failed": 0,
+      "skipped": 0
+    },
+    "webkit-2560-light": {
+      "passed": 6,
+      "failed": 0,
+      "skipped": 0
+    },
+    "320-small-light": {
+      "passed": 6,
+      "failed": 0,
+      "skipped": 0
+    },
+    "landscape-phone-light": {
+      "passed": 6,
+      "failed": 0,
+      "skipped": 0
+    },
+    "iPhone-SE-dark": {
+      "passed": 6,
+      "failed": 0,
+      "skipped": 0
+    },
+    "iPhone-15-Pro-dark": {
+      "passed": 6,
+      "failed": 0,
+      "skipped": 0
+    },
+    "iPhone-15-Pro-Max-dark": {
+      "passed": 6,
+      "failed": 0,
+      "skipped": 0
+    },
+    "Pixel-7-dark": {
+      "passed": 6,
+      "failed": 0,
+      "skipped": 0
+    },
+    "Galaxy-S9+-dark": {
+      "passed": 6,
+      "failed": 0,
+      "skipped": 0
+    },
+    "iPad-Mini-dark": {
+      "passed": 6,
+      "failed": 0,
+      "skipped": 0
+    },
+    "iPad-Pro-11-landscape-dark": {
+      "passed": 6,
+      "failed": 0,
+      "skipped": 0
+    },
+    "chromium-1280-dark": {
+      "passed": 6,
+      "failed": 0,
+      "skipped": 0
+    },
+    "chromium-1440-dark": {
+      "passed": 6,
+      "failed": 0,
+      "skipped": 0
+    },
+    "chromium-2560-dark": {
+      "passed": 6,
+      "failed": 0,
+      "skipped": 0
+    },
+    "webkit-1280-dark": {
+      "passed": 6,
+      "failed": 0,
+      "skipped": 0
+    },
+    "webkit-1440-dark": {
+      "passed": 6,
+      "failed": 0,
+      "skipped": 0
+    },
+    "webkit-2560-dark": {
+      "passed": 6,
+      "failed": 0,
+      "skipped": 0
+    },
+    "320-small-dark": {
+      "passed": 6,
+      "failed": 0,
+      "skipped": 0
+    },
+    "landscape-phone-dark": {
+      "passed": 6,
+      "failed": 0,
+      "skipped": 0
+    },
+    "Instagram-iPhone-15-Pro": {
+      "passed": 6,
+      "failed": 0,
+      "skipped": 0
+    },
+    "Instagram-Pixel-7": {
+      "passed": 6,
+      "failed": 0,
+      "skipped": 0
+    },
+    "TikTok-iPhone-15-Pro": {
+      "passed": 6,
+      "failed": 0,
+      "skipped": 0
+    },
+    "TikTok-Pixel-7": {
+      "passed": 6,
+      "failed": 0,
+      "skipped": 0
+    },
+    "X-iPhone-15-Pro": {
+      "passed": 6,
+      "failed": 0,
+      "skipped": 0
+    },
+    "X-Pixel-7": {
+      "passed": 6,
+      "failed": 0,
+      "skipped": 0
+    },
+    "firefox-1280-light": {
+      "passed": 6,
+      "failed": 0,
+      "skipped": 0
+    },
+    "firefox-1440-light": {
+      "passed": 6,
+      "failed": 0,
+      "skipped": 0
+    },
+    "firefox-2560-light": {
+      "passed": 6,
+      "failed": 0,
+      "skipped": 0
+    },
+    "firefox-1280-dark": {
+      "passed": 6,
+      "failed": 0,
+      "skipped": 0
+    },
+    "firefox-1440-dark": {
+      "passed": 6,
+      "failed": 0,
+      "skipped": 0
+    },
+    "firefox-2560-dark": {
+      "passed": 6,
+      "failed": 0,
+      "skipped": 0
+    }
+  },
+  "typesPassed": true,
+  "productionUnchanged": true,
+  "finalFollowup": {
+    "change": "Remove obsolete practice-only BrandProof route and component; no gameplay changes",
+    "typecheck": true,
+    "productionBuild": true,
+    "practiceDeployment": "https://af8c9bf8.dibs-7hz.pages.dev",
+    "browserChecks": 8,
+    "evidence": "retired-proof-check.json"
+  }
+}

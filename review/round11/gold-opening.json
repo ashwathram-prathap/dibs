@@ -1,0 +1,72 @@
+{
+  "openings": [
+    {
+      "browser": "webkit",
+      "width": 390,
+      "theme": "dark",
+      "openedWithoutReload": true
+    },
+    {
+      "browser": "webkit",
+      "width": 1440,
+      "theme": "dark",
+      "openedWithoutReload": true
+    },
+    {
+      "browser": "chromium",
+      "width": 1440,
+      "theme": "light",
+      "openedWithoutReload": true
+    },
+    {
+      "browser": "chromium",
+      "width": 390,
+      "theme": "light",
+      "openedWithoutReload": true
+    },
+    {
+      "browser": "chromium",
+      "width": 390,
+      "theme": "dark",
+      "openedWithoutReload": true
+    },
+    {
+      "browser": "webkit",
+      "width": 1440,
+      "theme": "light",
+      "openedWithoutReload": true
+    },
+    {
+      "browser": "webkit",
+      "width": 390,
+      "theme": "light",
+      "openedWithoutReload": true
+    },
+    {
+      "browser": "chromium",
+      "width": 1440,
+      "theme": "dark",
+      "openedWithoutReload": true
+    }
+  ],
+  "gold": [
+    {
+      "browser": "chromium",
+      "width": 1440,
+      "theme": "dark",
+      "stamp": true,
+      "dayCertificate": true,
+      "individualCertificate": true
+    },
+    {
+      "browser": "webkit",
+      "width": 390,
+      "theme": "light",
+      "stamp": true,
+      "dayCertificate": true,
+      "individualCertificate": true
+    }
+  ],
+  "opensAt": "2026-11-22T15:06:55.343Z",
+  "passed": true
+}

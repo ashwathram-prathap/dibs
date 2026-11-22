@@ -1,0 +1,55 @@
+[
+  {
+    "origin": "https://practice.dibs-7hz.pages.dev",
+    "nextDrop": "2026-11-23T02:00:00.000Z",
+    "expected": "Sun 9:00 PM ET",
+    "pages": [
+      {
+        "path": "/",
+        "labels": [
+          "Sun 9:00 PM ET",
+          "Sun 9:00 PM ET",
+          "Sun 9:00 PM ET"
+        ]
+      },
+      {
+        "path": "/about",
+        "labels": [
+          "Sun 9:00 PM ET",
+          "Sun 9:00 PM ET"
+        ]
+      }
+    ],
+    "calendarStart": "20261122T205500",
+    "calendarStartCorrect": true,
+    "daily": true,
+    "productionDeployed": false,
+    "passed": true
+  },
+  {
+    "origin": "https://dibs.here",
+    "nextDrop": "2026-11-24T02:00:00.000Z",
+    "expected": "Mon 9:00 PM ET",
+    "pages": [
+      {
+        "path": "/",
+        "labels": [
+          "Mon 9:00 PM ET",
+          "Mon 9:00 PM ET"
+        ]
+      },
+      {
+        "path": "/about",
+        "labels": [
+          "Mon 9:00 PM ET",
+          "Mon 9:00 PM ET"
+        ]
+      }
+    ],
+    "calendarStart": "20261123T205500",
+    "calendarStartCorrect": true,
+    "daily": true,
+    "productionDeployed": false,
+    "passed": true
+  }
+]

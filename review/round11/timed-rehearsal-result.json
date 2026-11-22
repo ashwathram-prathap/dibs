@@ -1,0 +1,29 @@
+{
+  "opensAt": "2026-11-22T14:59:01.510Z",
+  "checks": [
+    "Chromium desktop and WebKit phone start with the office closed",
+    "Both open tabs reached zero and opened without reload",
+    "Both browsers claimed immediately after opening"
+  ],
+  "openedAt": "2026-11-22T14:59:02.795Z",
+  "notificationDelivery": {
+    "ok": true,
+    "deliveries": [
+      {
+        "type": "drop-live",
+        "status": 429
+      }
+    ],
+    "lastNotification": {
+      "at": "2026-11-22T14:59:06.190Z",
+      "type": "drop-live",
+      "status": 429,
+      "retryAfter": "18760",
+      "rateLimit": "\"requests\";r=59;t=5, \"messages\";r=0;t=18760",
+      "error": "limit reached: daily message quota reached; increase your limits with a paid plan, see https://ntfy.sh"
+    }
+  },
+  "alertReceived": false,
+  "error": "AssertionError [ERR_ASSERTION]: Rehearsal alert not received",
+  "passed": false
+}

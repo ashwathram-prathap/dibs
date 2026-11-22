@@ -1,0 +1,11 @@
+{
+  "method": "Scripted persona walkthroughs on the deployed practice API and browser engine/device emulations. No real social posts or human assistive-technology study.",
+  "personas": [
+    {"persona":"First-timer on an iPhone from Instagram","evidence":["Instagram iPhone project in browser-results.json","WebKit 390 light/dark in practice-matrix.json"],"findings":["Missing mobile closed-office stamp restored","Navigation and action remain visible in the 390x844 and emulated keyboard views","Native share payload and PNG/caption fallback tested without posting"],"passed":true},
+    {"persona":"Impatient player who mashes buttons","evidence":["practice-edge.json"],"findings":["Simultaneous repeated request returns one claim","Retrying a taken request does not add another strike","Slow submission disables the action","Cold coordinator could return an empty private file after a successful claim; fixed and regression-tested"],"passed":true},
+    {"persona":"Screen-reader user","evidence":["edge-browser-results.json","browser-results.json","admin-pages.json"],"findings":["Keyboard-only three-win flow reaches the certificate","ARIA live status announces wins and errors","Axe AA checks, visible focus and 200% zoom pass","Calendar auto-picked label raised to 14px; low-power stamp retains accessible text"],"limitation":"Automated accessibility and keyboard simulation, not a VoiceOver or NVDA listening session.","passed":true},
+    {"persona":"Player in Vancouver","evidence":["practice-matrix.json","schedule-contract.json","tests/r11.test.ts"],"findings":["Live matrix runs in America/Vancouver and renders 7 PM PT for the 9 PM ET opening","Calendar reminder is 8:55 PM ET / 6:55 PM PT and daily","Google opens a composer; Apple download is explicitly labelled; Outlook has a single-event repeat note"],"passed":true},
+    {"persona":"Player trying to peek, script or replay","evidence":["practice-edge.json","tests/cache.test.ts","tests/turnstile.test.ts"],"findings":["Open files receive no claimed answers in ledger, certificate API/HTML or socket messages","Changed-answer request-ID replay is rejected","Two contending players produce one winner and a named loser strike","Deletion requires confirmation, verification and rate limiting; original identity is removed"],"passed":true}
+  ],
+  "knownOpenHighSeverity": 0
+}

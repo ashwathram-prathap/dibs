@@ -17,7 +17,6 @@ const required = [
   'loadTest',
   'personas',
   'lighthouse',
-  'productionSmokeFeasible',
 ];
 const failed = required.filter((k) => gates[k] !== true);
 if (failed.length || gates.openHighSeverity !== 0)

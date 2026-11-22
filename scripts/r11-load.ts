@@ -1,4 +1,5 @@
-import { readFileSync, writeFileSync } from 'node:fs';
+import { writeFileSync } from 'node:fs';
+import { spawnSync } from 'node:child_process';
 import assert from 'node:assert/strict';
 import { api, origin } from './r11-practice';
 const players = 200,
@@ -7,10 +8,52 @@ const players = 200,
 // Upper bound: 1,600 guesses x up to 10 indexed writes + 4,000 identity/metrics writes.
 // Use account-wide D1 analytics, including earlier rounds and both databases.
 // A practice reset clears application counters but does not reset the daily quota.
-const accountInsights = JSON.parse(readFileSync('.tmp/r11/d1-today-insights.json', 'utf8'));
+const now = new Date();
+const minutes = Math.max(
+  1,
+  Math.ceil(
+    (now.getTime() - Date.UTC(now.getUTCFullYear(), now.getUTCMonth(), now.getUTCDate())) / 60000,
+  ),
+);
+const analytics = spawnSync(
+  './node_modules/.bin/wrangler',
+  [
+    'd1',
+    'insights',
+    '-c',
+    'worker/wrangler.staging.jsonc',
+    '--time-period',
+    minutes + 'm',
+    '--sort-by',
+    'writes',
+    '--limit',
+    '1000',
+    '--json',
+  ],
+  { encoding: 'utf8', maxBuffer: 8 * 1024 * 1024 },
+);
+assert.equal(analytics.status, 0, 'Account-wide D1 analytics unavailable; do not load test.');
+const accountInsights = JSON.parse(analytics.stdout);
+assert.ok(accountInsights.length < 1000, 'Analytics query list truncated; write headroom unknown.');
 const accountWrites = accountInsights.reduce(
   (sum: number, row: any) => sum + row.totalRowsWritten,
   0,
+);
+writeFileSync(
+  'review/round11/account-write-budget.json',
+  JSON.stringify(
+    {
+      checkedAt: now.toISOString(),
+      lookbackMinutes: minutes,
+      queryShapes: accountInsights.length,
+      accountWrites,
+      writeEstimate,
+      freeDailyLimit: 100000,
+      safetyCeiling: 90000,
+    },
+    null,
+    2,
+  ),
 );
 if (accountWrites + writeEstimate >= 90000) {
   writeFileSync(

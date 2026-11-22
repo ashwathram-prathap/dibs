@@ -1,0 +1,11 @@
+[
+  { slug: 'foods', checked: 30, missing: [] },
+  { slug: 'cities', checked: 45, missing: [] },
+  { slug: 'animals', checked: 11, missing: [] },
+  { slug: 'birds', checked: 6, missing: [] },
+  { slug: 'lakes', checked: 9, missing: [] },
+  { slug: 'rivers', checked: 7, missing: [] },
+  { slug: 'mountains', checked: 5, missing: [] },
+  { slug: 'countries', checked: 1, missing: [] },
+  { slug: 'islands', checked: 5, missing: [] }
+]
