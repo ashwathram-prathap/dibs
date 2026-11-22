@@ -18,6 +18,7 @@ for (const [engine, name] of [
           viewport: { width, height: width === 390 ? 844 : 1000 },
           colorScheme,
         });
+        const p = await context.newPage();
         await p.goto(origin + '/admin/schedule');
         await p.locator('#schedule-token').fill(token);
         await p.getByRole('button', { name: 'Open calendar', exact: true }).click();

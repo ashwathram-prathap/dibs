@@ -482,6 +482,15 @@ export class Registry extends DurableObject<Env> {
       Object.assign(usage, platform);
     const size = await this.env.DB.prepare('SELECT 1').all();
     usage.storageBytes = Number(size.meta.size_after || 0);
+    const assets = await this.env.DB.prepare(
+      "SELECT value_json FROM rollout_state WHERE key='assets'",
+    ).first<any>();
+    if (assets) {
+      const a = JSON.parse(assets.value_json);
+      usage.staticFiles = a.files;
+      usage.maxAssetBytes = a.maxBytes;
+    }
+
     return {
       at: new Date(now).toISOString(),
       active,

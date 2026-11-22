@@ -1,4 +1,4 @@
-import { PUBLIC_ORIGIN } from '../shared/config';
+import { PUBLIC_ORIGIN, LAUNCH_DATE } from '../shared/config';
 import type { Env } from './routes';
 import { dropAt, registryDate, validDate } from './domain';
 import { closeAt, ensureSpecials } from './specials';
@@ -42,7 +42,12 @@ function readOnly(d: CalendarDay, now = Date.now()) {
   return Date.parse(dropAt(d.date)) <= now || ['live', 'closed', 'archived'].includes(d.status);
 }
 async function mutable(env: Env, date: string, revision?: number, newTopic = false) {
-  if (!validDate(date) || date < registryDate() || date > dayAfter(registryDate(), 60))
+  if (
+    !validDate(date) ||
+    date < LAUNCH_DATE ||
+    date < registryDate() ||
+    date > dayAfter(registryDate() < LAUNCH_DATE ? LAUNCH_DATE : registryDate(), 59)
+  )
     throw Error('Choose a date in the next 60 days.');
   const d = await env.DB.prepare('SELECT * FROM topic_schedule WHERE date=?')
     .bind(date)
@@ -114,7 +119,7 @@ async function assign(
   );
 }
 export async function calendarRead(env: Env) {
-  const today = registryDate(),
+  const today = registryDate() < LAUNCH_DATE ? LAUNCH_DATE : registryDate(),
     all = await rows(env),
     topics = await library(env),
     stored = await env.DB.prepare('SELECT value_json,updated_at FROM rollout_state WHERE key=?')
@@ -202,8 +207,16 @@ async function buildDay(env: Env, d: CalendarDay) {
     'Coverage and upload verified; house words stored and golden commitment sealed.',
   );
 }
+async function importExisting(env: Env) {
+  await env.DB.prepare(
+    `INSERT OR IGNORE INTO topic_schedule(date,slug,status,category_id,reason,build_result,updated_at,built_at) SELECT date,slug,CASE WHEN status='approved' THEN 'ready' ELSE 'requested' END,id,'Preserved the existing Round 8 plan.','Existing catalog; schedule preserved.',?,? FROM categories WHERE date IS NOT NULL`,
+  )
+    .bind(stamp(), stamp())
+    .run();
+}
 export async function calendarTick(env: Env) {
   if (env.STAGING !== 'true' && deploymentBlocked(Date.now(), 'part-b')) return { frozen: true };
+  await importExisting(env);
   const all = await rows(env),
     topics = await library(env),
     now = Date.now();
@@ -234,7 +247,7 @@ export async function calendarTick(env: Env) {
     const date = dayAfter(registryDate(), i),
       d = all.find((x) => x.date === date),
       hours = (Date.parse(dropAt(date)) - now) / 3600000;
-    if (hours <= 0 || hours > 48) continue;
+    if (date < LAUNCH_DATE || hours <= 0 || hours > 48) continue;
     if (!d || ['empty', 'failed', 'needs recipe'].includes(d.status)) {
       const pick = chooseTopic(
         date,

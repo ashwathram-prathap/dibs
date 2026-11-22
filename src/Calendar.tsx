@@ -254,11 +254,28 @@ export function Calendar() {
               )}
             </section>
           )}
+          <div className="calendar-months" aria-label="Jump to month">
+            {[...new Set(data.days.map((d) => d.date.slice(0, 7)))].map((month) => (
+              <button
+                key={month}
+                onClick={() =>
+                  document
+                    .querySelector(`[data-month="${month}"]`)
+                    ?.scrollIntoView({ behavior: 'smooth', block: 'start' })
+                }
+              >
+                {new Intl.DateTimeFormat(undefined, { month: 'long', year: 'numeric' }).format(
+                  new Date(month + '-15T12:00:00'),
+                )}
+              </button>
+            ))}
+          </div>
           <div className="calendar-grid" aria-label="Next 60 days">
             {data.days.map((d) => {
               const t = data.library.find((t) => t.slug === d.slug);
               return (
                 <button
+                  data-month={d.date.slice(0, 7)}
                   className={
                     'calendar-day state-' +
                     d.status.replaceAll(' ', '-') +
@@ -293,7 +310,14 @@ export function Calendar() {
                     {d.status}
                   </span>
                   {!!d.auto_picked && <span className="auto-label">auto-picked</span>}
-                  <small>{d.build_result || d.reason || 'Choose a topic'}</small>
+                  <small>
+                    {d.build_result ||
+                      (d.status === 'requested'
+                        ? 'Queued for build'
+                        : d.status === 'needs recipe'
+                          ? 'Source and coverage needed'
+                          : 'Choose a topic')}
+                  </small>
                 </button>
               );
             })}
@@ -330,6 +354,9 @@ export function Calendar() {
                   {bytes(data.storage.assetMaxFileBytes)}. Pages has a per-file and file-count
                   limit; no total-byte allowance is implied.
                 </p>
+                {data.storage.assets.maxBytes / data.storage.assetMaxFileBytes >= 0.7 && (
+                  <p role="alert">The largest static file is above 70% of the per-file limit.</p>
+                )}
                 {data.storage.assets.files / data.storage.assetFileLimit >= 0.7 && (
                   <p role="alert">Static file count is above 70%.</p>
                 )}

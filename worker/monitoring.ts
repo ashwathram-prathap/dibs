@@ -21,6 +21,8 @@ export const freeLimits = {
   reads: 5000000,
   writes: 100000,
   storageBytes: 500000000,
+  staticFiles: 20000,
+  maxAssetBytes: 25 * 1024 * 1024,
 };
 export function alertConditions(minutes: Minute[], usage: Record<string, number>) {
   const alerts: { type: string; message: string }[] = [];

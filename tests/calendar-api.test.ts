@@ -1,9 +1,11 @@
+import { LAUNCH_DATE } from '../shared/config';
 import { beforeAll, afterAll, it, expect } from 'vitest';
 import { Miniflare, convertV4MiniflareOptions } from 'miniflare';
 import { build } from 'esbuild';
 import { readFileSync, readdirSync } from 'node:fs';
 import { registryDate, dropAt } from '../worker/domain';
 import { dayAfter } from '../shared/calendar';
+const notifications: string[] = [];
 let mf: Miniflare,
   db: any,
   denyAssets = false;
@@ -47,9 +49,14 @@ beforeAll(async () => {
             COOKIE_SECRET: 'calendar-test',
             ADMIN_TOKEN: 'calendar-test',
             TURNSTILE_SITE_KEY: 'test',
+            NTFY_TOPIC: 'test-not-real',
           },
           outboundService: async (req: Request) => {
             if (denyAssets) return new Response('Removed', { status: 404 });
+            if (new URL(req.url).hostname === 'ntfy.sh') {
+              notifications.push(await req.text());
+              return new Response('ok');
+            }
             const path = new URL(req.url).pathname;
             if (path.startsWith('/catalog/')) {
               let bytes = readFileSync('public' + path);
@@ -102,6 +109,24 @@ it('requires the admin token and rejects no-peek metadata leaks', async () => {
   expect(s.days).toHaveLength(60);
   expect(JSON.stringify(s)).not.toContain('manifest_json');
   expect(JSON.stringify(s)).not.toContain('golden_json');
+});
+it('preserves pre-existing dates and never auto-opens a day before launch', async () => {
+  const date = dayAfter(now, 3);
+  await db
+    .prepare(
+      "INSERT INTO categories(id,date,name,slug,total_registrable,drop_at,status) VALUES('existing-plan',?,'Countries','countries',2000,?,'approved')",
+    )
+    .bind(date, dropAt(date))
+    .run();
+  await admin('/tick', {});
+  const d = await db.prepare('SELECT * FROM topic_schedule WHERE date=?').bind(date).first();
+  expect(d.category_id).toBe('existing-plan');
+  expect(d.reason).toContain('Preserved');
+  const pre = await db
+    .prepare("SELECT COUNT(*) n FROM categories WHERE date<? AND id LIKE 'day-%'")
+    .bind(LAUNCH_DATE)
+    .first();
+  expect(pre.n).toBe(0);
 });
 it('picks from the library, requests new topics and enforces lead times and stale edits', async () => {
   const date = dayAfter(now, 5);
@@ -156,7 +181,9 @@ it('auto-picks empty and failed days at 48 hours, builds uploaded recipes and se
     .map((i) => dayAfter(now, i))
     .filter(
       (d) =>
-        Date.parse(dropAt(d)) > Date.now() && Date.parse(dropAt(d)) - Date.now() <= 48 * 3600000,
+        Date.parse(dropAt(d)) > Date.now() &&
+        d >= LAUNCH_DATE &&
+        Date.parse(dropAt(d)) - Date.now() <= 48 * 3600000,
     );
   expect(near.length).toBeGreaterThan(0);
   for (const date of near)
@@ -253,4 +280,18 @@ it('removes an unplayed future day metadata and retains archived claims and cert
   expect(await archive.text()).toContain('Axolotl');
   expect((await db.prepare('SELECT COUNT(*) n FROM claims').first()).n).toBe(1);
   denyAssets = false;
+});
+
+it('sends each usage threshold alert at most once in thirty minutes', async () => {
+  await admin('/assets', { files: 18000, bytes: 1, maxBytes: 1 });
+  const monitor = () =>
+    mf.dispatchFetch('http://localhost/api/admin/monitor', {
+      method: 'POST',
+      headers: { authorization: 'Bearer calendar-test', origin: 'https://dibs.here' },
+    });
+  expect((await monitor()).status).toBe(200);
+  expect((await monitor()).status).toBe(200);
+  expect(notifications.filter((n) => n.includes('staticFiles'))).toHaveLength(2);
+  expect(notifications.filter((n) => n.includes('70%'))).toHaveLength(1);
+  expect(notifications.filter((n) => n.includes('90%'))).toHaveLength(1);
 });

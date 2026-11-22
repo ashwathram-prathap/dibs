@@ -1,0 +1,74 @@
+[
+  {
+    "engine": "chromium",
+    "width": 390,
+    "colorScheme": "light",
+    "days": 60,
+    "noOverflow": true,
+    "axeViolations": 0,
+    "librarySearch": true
+  },
+  {
+    "engine": "chromium",
+    "width": 390,
+    "colorScheme": "dark",
+    "days": 60,
+    "noOverflow": true,
+    "axeViolations": 0,
+    "librarySearch": true
+  },
+  {
+    "engine": "chromium",
+    "width": 1440,
+    "colorScheme": "light",
+    "days": 60,
+    "noOverflow": true,
+    "axeViolations": 0,
+    "librarySearch": true
+  },
+  {
+    "engine": "chromium",
+    "width": 1440,
+    "colorScheme": "dark",
+    "days": 60,
+    "noOverflow": true,
+    "axeViolations": 0,
+    "librarySearch": true
+  },
+  {
+    "engine": "webkit",
+    "width": 390,
+    "colorScheme": "light",
+    "days": 60,
+    "noOverflow": true,
+    "axeViolations": 0,
+    "librarySearch": true
+  },
+  {
+    "engine": "webkit",
+    "width": 390,
+    "colorScheme": "dark",
+    "days": 60,
+    "noOverflow": true,
+    "axeViolations": 0,
+    "librarySearch": true
+  },
+  {
+    "engine": "webkit",
+    "width": 1440,
+    "colorScheme": "light",
+    "days": 60,
+    "noOverflow": true,
+    "axeViolations": 0,
+    "librarySearch": true
+  },
+  {
+    "engine": "webkit",
+    "width": 1440,
+    "colorScheme": "dark",
+    "days": 60,
+    "noOverflow": true,
+    "axeViolations": 0,
+    "librarySearch": true
+  }
+]
