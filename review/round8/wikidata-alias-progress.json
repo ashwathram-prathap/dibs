@@ -2,26 +2,97 @@
   "actors": {
     "complete": true,
     "checked": 138709,
-    "total": 138709
+    "total": 138709,
+    "referencePolicy": "english-article-title-v3",
+    "classificationRevision": "base"
   },
   "films": {
     "complete": true,
     "checked": 183635,
-    "total": 183635
+    "total": 183635,
+    "referencePolicy": "english-article-title-v3",
+    "classificationRevision": "base"
   },
   "bands": {
     "complete": true,
     "checked": 51225,
-    "total": 51225
+    "total": 51225,
+    "referencePolicy": "english-article-title-v3",
+    "classificationRevision": "ensemble-v2"
   },
   "albums": {
     "complete": true,
     "checked": 172562,
-    "total": 172562
+    "total": 172562,
+    "referencePolicy": "english-article-title-v3",
+    "classificationRevision": "albums-ep-v2"
   },
   "songs": {
     "complete": true,
-    "checked": 9696,
-    "total": 9696
+    "checked": 109792,
+    "total": 109792,
+    "referencePolicy": "english-article-title-v3",
+    "classificationRevision": "music-form-v3"
+  },
+  "novels": {
+    "complete": true,
+    "checked": 31236,
+    "total": 31236,
+    "referencePolicy": "english-article-title-v3",
+    "classificationRevision": "novel-form-v2"
+  },
+  "television": {
+    "complete": false,
+    "reason": "Awaiting current full classification",
+    "expectedPolicy": "english-article-title-v3",
+    "classificationRevision": "named-seasons-v2"
+  },
+  "video-games": {
+    "complete": false,
+    "reason": "Awaiting current full classification",
+    "expectedPolicy": "english-article-or-source-label-v4",
+    "classificationRevision": "named-games-groups-v2"
+  },
+  "museums": {
+    "complete": true,
+    "checked": 19340,
+    "total": 19340,
+    "referencePolicy": "english-article-title-v3",
+    "classificationRevision": "base"
+  },
+  "universities": {
+    "complete": true,
+    "checked": 14488,
+    "total": 14488,
+    "referencePolicy": "english-article-title-v3",
+    "classificationRevision": "base"
+  },
+  "castles": {
+    "complete": true,
+    "checked": 6916,
+    "total": 6916,
+    "referencePolicy": "english-article-title-v3",
+    "classificationRevision": "base"
+  },
+  "ships": {
+    "complete": true,
+    "checked": 35102,
+    "total": 35102,
+    "referencePolicy": "english-article-title-v3",
+    "classificationRevision": "base"
+  },
+  "painters": {
+    "complete": true,
+    "checked": 53048,
+    "total": 53048,
+    "referencePolicy": "english-article-title-v3",
+    "classificationRevision": "base"
+  },
+  "architects": {
+    "complete": false,
+    "checked": 5000,
+    "total": 17786,
+    "referencePolicy": "english-article-title-v3",
+    "classificationRevision": "base"
   }
 }

@@ -1,5 +1,13 @@
 import { readFileSync, writeFileSync, existsSync, mkdirSync } from 'node:fs';
 import { createHash } from 'node:crypto';
+export function classificationPath(def: any) {
+  const properties: string[] = def.properties || [def.property === 'P106' ? 'P106' : 'P31'];
+  if (!properties.every((property) => /^P\d+$/.test(property)))
+    throw Error('Invalid classification property');
+  return properties.length === 1
+    ? 'wdt:' + properties[0]
+    : '(' + properties.map((property) => 'wdt:' + property).join('|') + ')';
+}
 // A timeout fallback, not a membership cap: exhaust every subclass and every ordered page,
 // then compare the complete per-class unique set with an independent COUNT query.
 export async function completeIdsByClass(
@@ -35,7 +43,10 @@ export async function completeIdsByClass(
     types = d.results.bindings.map((r: any) => r.type.value.split('/').at(-1));
     writeFileSync(typesFile, JSON.stringify(types));
   }
-  const prop = def.property === 'P106' ? 'P106' : 'P31';
+  const prop = classificationPath(def);
+  const article = def.englishOnlyCandidates
+    ? ' . ?article schema:about ?item; schema:isPartOf <https://en.wikipedia.org/> .'
+    : '';
   const ids = new Set<string>();
   const audit: any[] = [];
   // Bind the complete subclass set in small VALUES groups. This avoids both
@@ -53,7 +64,7 @@ export async function completeIdsByClass(
       audit.push({ types: group, count: saved.expected, cached: true });
       return;
     }
-    const pattern = `VALUES ?type { ${group.map((id) => 'wd:' + id).join(' ')} } ?item wdt:${prop} ?type`;
+    const pattern = `VALUES ?type { ${group.map((id) => 'wd:' + id).join(' ')} } ?item ${prop} ?type ${article}`;
     try {
       let members: string[] = [];
       let expected = -1;
@@ -123,7 +134,7 @@ export async function completeIdsByClass(
       audit.push({ type, count: d.ids.length, cached: true });
       continue;
     }
-    const pattern = `?item wdt:${prop} wd:${type}`;
+    const pattern = `?item ${prop} wd:${type} ${article}`;
     const countData = JSON.parse(
       await ask(
         `SELECT (COUNT(DISTINCT ?item) AS ?count) WHERE { ${pattern} } # snapshot ${Date.now()}`,

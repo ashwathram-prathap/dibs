@@ -51,7 +51,11 @@ for (const f of readdirSync('categories').filter((f) => f.endsWith('.json'))) {
   const sourceComplete =
     !!c.provenance.completeSources &&
     (nonWikidata.has(c.slug) ||
-      (c.provenance.wikidataNamePolicy === 'english-article-title-v3+en-mul-labels-aliases-v3' &&
+      (c.provenance.wikidataNamePolicy ===
+        (definitions.find((d: any) => d.slug === c.slug)?.allowNamedWithoutArticle
+          ? 'english-article-or-source-label-v4'
+          : 'english-article-title-v3') +
+          '+en-mul-labels-aliases-v3' &&
         c.provenance.classificationRevision ===
           (definitions.find((d: any) => d.slug === c.slug)?.cacheKey || 'base')));
   const ready =

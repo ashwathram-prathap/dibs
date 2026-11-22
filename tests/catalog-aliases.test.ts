@@ -3,8 +3,15 @@ import {
   commonNamePlurals,
   conjunctionAliases,
   workSubtitleAliases,
+  titleArticleAliases,
 } from '../scripts/catalog-aliases';
 import { normalize } from '../worker/domain';
+it('accepts natural title variants without a leading article while rejecting an article alone', () => {
+  expect(titleArticleAliases('The Blue Planet')).toEqual(['Blue Planet']);
+  expect(titleArticleAliases('A Clockwork Orange')).toEqual(['Clockwork Orange']);
+  expect(titleArticleAliases('The The')).toEqual([]);
+  expect(titleArticleAliases('Theatre')).toEqual([]);
+});
 it('recognizes named franchise subtitles without accepting generic part numbers', () => {
   expect(workSubtitleAliases('Star Wars: Episode III – Revenge of the Sith')).toContain(
     'Revenge of the Sith',

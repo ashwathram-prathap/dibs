@@ -1,0 +1,54 @@
+{
+  "at": "2026-11-22T07:35:23.421Z",
+  "scope": "Current local production build; deployment versions are recorded separately",
+  "files": 7257,
+  "totalBytes": 240102364,
+  "largest": [
+    {
+      "path": "dist/catalog/animals/e3d587202519cd6b/full.json",
+      "bytes": 13829204
+    },
+    {
+      "path": "dist/catalog/cities/00cadebbe95f4404/full.json",
+      "bytes": 13098232
+    },
+    {
+      "path": "dist/catalog/films/20afc554f65eb588/full.json",
+      "bytes": 10617957
+    },
+    {
+      "path": "dist/catalog/albums/5d6ab8db68593dac/full.json",
+      "bytes": 9248139
+    },
+    {
+      "path": "dist/catalog/actors/4d5f987545448900/full.json",
+      "bytes": 8849756
+    },
+    {
+      "path": "dist/catalog/airports/2a64ebeba6a38cb0/full.json",
+      "bytes": 6487685
+    },
+    {
+      "path": "dist/catalog/plants/f584483f47d38e7d/full.json",
+      "bytes": 6282178
+    },
+    {
+      "path": "dist/catalog/songs/141628c2aff88602/full.json",
+      "bytes": 4937239
+    },
+    {
+      "path": "dist/catalog/arthropods/51bc78890de6c9be/full.json",
+      "bytes": 3916916
+    },
+    {
+      "path": "dist/catalog/television/9b120c9b268976a2/full.json",
+      "bytes": 2871854
+    }
+  ],
+  "limits": {
+    "pagesFreeFiles": 20000,
+    "pagesFileBytes": 26214400
+  },
+  "passed": true,
+  "source": "https://developers.cloudflare.com/pages/platform/limits/"
+}

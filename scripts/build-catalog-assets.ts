@@ -16,7 +16,9 @@ const unchanged =
       try {
         return (
           JSON.parse(readFileSync(`public/catalog/${c.slug}/manifest.json`, 'utf8')).version ===
-            version && existsSync(`public/catalog/${c.slug}/${version}/full.json`)
+            version &&
+          existsSync(`public/catalog/${c.slug}/${version}/full.json`) &&
+          !existsSync(`public/catalog/${c.slug}/${version}/keys-0.json`)
         );
       } catch {
         return false;
@@ -51,7 +53,7 @@ for (const f of readdirSync('categories').filter((f) => f.endsWith('.json'))) {
   if (Buffer.byteLength(complete) > 25 * 1024 * 1024)
     throw Error(c.slug + ' exceeds Pages asset size');
   writeFileSync(`${dir}/full.json`, complete);
-  for (let i = 0; i < 256; i++) writeFileSync(`${dir}/keys-${i}.json`, JSON.stringify(shards[i]));
+  // Only the sorted full index is used at runtime. Do not ship 256 unused key files.
   for (let i = 0; i < rows.length; i += 256)
     writeFileSync(
       `${dir}/rows-${Math.floor(i / 256)}.json`,

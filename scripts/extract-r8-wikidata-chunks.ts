@@ -1,4 +1,4 @@
-import { completeIdsByClass } from './wikidata-complete-ids';
+import { completeIdsByClass, classificationPath } from './wikidata-complete-ids';
 import { readFileSync, writeFileSync, existsSync, mkdirSync, renameSync } from 'node:fs';
 const defs = JSON.parse(readFileSync('scripts/category-sources.json', 'utf8')).filter(
   (d: any) => !['animals', 'plants', 'birds', 'cities', 'arthropods'].includes(d.slug),
@@ -7,8 +7,11 @@ defs.sort((a: any, b: any) => Number(b.slug === 'actors') - Number(a.slug === 'a
 const dir = '.category-cache/r8/wikidata-chunks';
 mkdirSync(dir, { recursive: true });
 const reportFile = 'review/round8/wikidata-reference-progress.json';
-const labelPolicy = 'english-article-title-v3';
 let report: any = existsSync(reportFile) ? JSON.parse(readFileSync(reportFile, 'utf8')) : {};
+function saveReport() {
+  writeFileSync(reportFile + '.next', JSON.stringify(report, null, 2));
+  renameSync(reportFile + '.next', reportFile);
+}
 const pause = (ms: number) => new Promise((r) => setTimeout(r, ms));
 async function query(text: string, format = 'json') {
   const r = await fetch('https://query.wikidata.org/sparql', {
@@ -31,13 +34,16 @@ async function query(text: string, format = 'json') {
   }
   return body;
 }
-for (const def of defs) {
+async function extract(def: any) {
+  const labelPolicy = def.allowNamedWithoutArticle
+    ? 'english-article-or-source-label-v4'
+    : 'english-article-title-v3';
   if (
     ['airports', 'mountains', 'rivers', 'lakes', 'islands', 'stations', 'asteroids'].includes(
       def.slug,
     )
   )
-    continue;
+    return;
   if (
     report[def.slug]?.complete &&
     report[def.slug]?.labelPolicy === labelPolicy &&
@@ -45,7 +51,7 @@ for (const def of defs) {
     existsSync('.category-cache/r8/other-references/' + def.slug + '.json')
   ) {
     console.log(def.slug, 'already complete; preserving enriched aliases');
-    continue;
+    return;
   }
   const folder = dir + '/' + def.slug + (def.cacheKey ? '-' + def.cacheKey : '');
   mkdirSync(folder, { recursive: true });
@@ -59,7 +65,10 @@ for (const def of defs) {
     ids = lines.slice(1).map((s) => s.match(/Q\d+/)![0]);
     writeFileSync(idFile, JSON.stringify(ids));
   } else {
-    const prop = def.property === 'P106' ? 'P106' : 'P31';
+    const prop = classificationPath(def);
+    const article = def.englishOnlyCandidates
+      ? '?article schema:about ?item; schema:isPartOf <https://en.wikipedia.org/> .'
+      : '';
     const roots = def.roots || [def.root];
     const root = roots.length > 1 ? '?root' : 'wd:' + def.root;
     const bind =
@@ -67,13 +76,13 @@ for (const def of defs) {
         ? 'VALUES ?root {' + roots.map((r: string) => 'wd:' + r).join(' ') + '}'
         : '';
     const queries = [
-      `SELECT DISTINCT ?item WHERE { ${bind} ?item wdt:${prop}/wdt:P279* ${root} }`,
-      `SELECT DISTINCT ?item WHERE { ${bind} ?type wdt:P279* ${root}. ?item wdt:${prop} ?type. }`,
-      `SELECT DISTINCT ?item WHERE { ${bind} ?item wdt:${prop} ?type. FILTER EXISTS { ?type wdt:P279* ${root} } }`,
+      `SELECT DISTINCT ?item WHERE { ${bind} ?item ${prop}/wdt:P279* ${root}. ${article} }`,
+      `SELECT DISTINCT ?item WHERE { ${bind} ?type wdt:P279* ${root}. ?item ${prop} ?type. ${article} }`,
+      `SELECT DISTINCT ?item WHERE { ${bind} ?item ${prop} ?type. FILTER EXISTS { ?type wdt:P279* ${root} } ${article} }`,
     ];
     const errors: any[] = [];
-    for (const q of report[def.slug]?.stage === 'full candidate IDs' &&
-    report[def.slug]?.errors?.length >= 3
+    for (const q of def.preferClassGroups ||
+    (report[def.slug]?.stage === 'full candidate IDs' && report[def.slug]?.errors?.length >= 3)
       ? []
       : queries) {
       try {
@@ -110,8 +119,8 @@ for (const def of defs) {
         stage: 'full candidate IDs',
         errors,
       };
-      writeFileSync(reportFile, JSON.stringify(report, null, 2));
-      continue;
+      saveReport();
+      return;
     }
   }
   const priorFile = '.category-cache/r8/other-references/' + def.slug + '.json';
@@ -135,7 +144,10 @@ for (const def of defs) {
       continue;
     }
     const batch = ids.slice(cursor, cursor + batchSize);
-    const q = `SELECT ?item ?article WHERE { VALUES ?item {${batch.map((id) => 'wd:' + id).join(' ')}} ?article schema:about ?item; schema:isPartOf <https://en.wikipedia.org/> }`;
+    const values = `VALUES ?item {${batch.map((id) => 'wd:' + id).join(' ')}}`;
+    const q = def.allowNamedWithoutArticle
+      ? `SELECT ?item ?article ?label ?mul WHERE { ${values} OPTIONAL { ?article schema:about ?item; schema:isPartOf <https://en.wikipedia.org/> } OPTIONAL { ?item rdfs:label ?label FILTER(LANG(?label) = "en") } OPTIONAL { ?item rdfs:label ?mul FILTER(LANG(?mul) = "mul") } FILTER(BOUND(?article) || BOUND(?label) || BOUND(?mul)) }`
+      : `SELECT ?item ?article WHERE { ${values} ?article schema:about ?item; schema:isPartOf <https://en.wikipedia.org/> }`;
     let result: any = null;
     const errors: string[] = [];
     for (let attempt = 0; attempt < 3; attempt++) {
@@ -165,10 +177,14 @@ for (const def of defs) {
       blocked = true;
       break;
     }
-    const entries = result.results.bindings.map((r: any) => {
-      const title = decodeURIComponent(r.article.value.split('/wiki/')[1]).replaceAll('_', ' ');
+    const entries = result.results.bindings.flatMap((r: any) => {
+      const title = r.article
+        ? decodeURIComponent(r.article.value.split('/wiki/')[1]).replaceAll('_', ' ')
+        : undefined;
+      const display = title?.replace(/ \([^)]*\)$/, '') || r.label?.value || r.mul?.value;
+      if (!display || !/[\p{Script=Latin}\d]/u.test(display)) return [];
       return {
-        display: title.replace(/ \([^)]*\)$/, ''),
+        display,
         aliases: [
           ...new Set(
             [
@@ -178,6 +194,7 @@ for (const def of defs) {
           ),
         ],
         wikipediaTitle: title,
+        ...(title ? {} : { wikipediaUnavailable: true }),
         source: r.item.value,
         wikidata: r.item.value.split('/').at(-1),
       };
@@ -191,11 +208,18 @@ for (const def of defs) {
       complete: false,
       candidateCount: ids.length,
       scanned: cursor,
-      englishArticles: rows.length,
+      englishArticles: rows.filter((row: any) => row.wikipediaTitle).length,
+      namedCandidates: rows.length,
+      classificationProperties: def.properties || [def.property || 'P31'],
+      candidatePolicy: def.englishOnlyCandidates
+        ? 'English-article quality filter applied during uncapped, independently counted classification extraction'
+        : def.allowNamedWithoutArticle
+          ? 'Entire uncapped classification ID set; English article title or English/Latin-script source label, with unknown readership when no article exists'
+          : 'Entire uncapped classification ID set; English-article quality filter applied during bounded joins',
       method:
-        'All uncapped classification IDs, complete bounded joins; English Wikipedia article titles provide common names; existing English labels and aliases are retained. Article availability is the quality filter, never a result-count cutoff.',
+        'Complete classification candidates and bounded article joins; English article titles provide common names, and English/multilingual labels and aliases supply variants. Article availability is the quality filter, never a result-count cutoff.',
     };
-    writeFileSync(reportFile, JSON.stringify(report, null, 2));
+    saveReport();
     console.log(def.slug, cursor, '/', ids.length, 'eligible', rows.length);
     await pause(2000);
   }
@@ -216,10 +240,24 @@ for (const def of defs) {
       labelPolicy,
       candidateCount: ids.length,
       scanned: cursor,
-      englishArticles: rows.length,
+      englishArticles: rows.filter((row: any) => row.wikipediaTitle).length,
+      namedCandidates: rows.length,
       license: 'https://www.wikidata.org/wiki/Wikidata:Data_access',
     };
     console.log(def.slug, 'COMPLETE', rows.length);
   }
-  writeFileSync(reportFile, JSON.stringify(report, null, 2));
+  saveReport();
 }
+
+const only = process.argv
+  .find((arg) => arg.startsWith('--only='))
+  ?.slice(7)
+  .split(',');
+const pending = defs.filter((def: any) => !only || only.includes(def.slug));
+let next = 0;
+// Two independent classifications plus the separate alias job stay below the service concurrency limit.
+await Promise.all(
+  Array.from({ length: 2 }, async () => {
+    while (next < pending.length) await extract(pending[next++]);
+  }),
+);

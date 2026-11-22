@@ -1,61 +1,145 @@
 {
-  "runtime": "Node local CPU proxy; not Cloudflare billing measurement",
+  "runtime": "Actual Worker lookup implementation with local file-backed fetch; Node timing proxy, not Cloudflare CPU or network measurement. Typo search runs in the browser Worker in production.",
   "results": [
     {
+      "slug": "actors",
+      "entries": 137341,
+      "keys": 233467,
+      "exactSamples": 200,
+      "initialPassIncludingLocalDiskMs": 100.94720899999999,
+      "warmExactP95Ms": 0.002292000000011285,
+      "warmTypoP95Ms": 14.51579199999992,
+      "parsedTypoBytes": 8323809
+    },
+    {
+      "slug": "airports",
+      "entries": 57109,
+      "keys": 235058,
+      "exactSamples": 200,
+      "initialPassIncludingLocalDiskMs": 50.962541999999985,
+      "warmExactP95Ms": 0.002417000000036751,
+      "warmTypoP95Ms": 3.954917000000023,
+      "parsedTypoBytes": 7563361
+    },
+    {
+      "slug": "albums",
+      "entries": 143941,
+      "keys": 171420,
+      "exactSamples": 200,
+      "initialPassIncludingLocalDiskMs": 54.33658300000002,
+      "warmExactP95Ms": 0.0027079999999841675,
+      "warmTypoP95Ms": 6.887165999999979,
+      "parsedTypoBytes": 6109927
+    },
+    {
       "slug": "animals",
-      "entries": 86664,
-      "keys": 263894,
-      "warmExactCpuP95Ms": 0.002125000000006594,
-      "warmTypoCpuP95Ms": 12.593666999999982,
-      "parsedTypoBytes": 10377029
+      "entries": 89124,
+      "keys": 418555,
+      "exactSamples": 200,
+      "initialPassIncludingLocalDiskMs": 94.50749999999994,
+      "warmExactP95Ms": 0.0019170000000485743,
+      "warmTypoP95Ms": 20.362290999999914,
+      "parsedTypoBytes": 15626266
+    },
+    {
+      "slug": "arthropods",
+      "entries": 23621,
+      "keys": 124052,
+      "exactSamples": 200,
+      "initialPassIncludingLocalDiskMs": 24.891750000000002,
+      "warmExactP95Ms": 0.002208999999993466,
+      "warmTypoP95Ms": 7.998041999999941,
+      "parsedTypoBytes": 4782680
+    },
+    {
+      "slug": "asteroids",
+      "entries": 26637,
+      "keys": 79911,
+      "exactSamples": 200,
+      "initialPassIncludingLocalDiskMs": 17.362333000000035,
+      "warmExactP95Ms": 0.001750000000356522,
+      "warmTypoP95Ms": 3.1491249999999127,
+      "parsedTypoBytes": 2896860
+    },
+    {
+      "slug": "bands",
+      "entries": 49793,
+      "keys": 63656,
+      "exactSamples": 200,
+      "initialPassIncludingLocalDiskMs": 15.026582999999846,
+      "warmExactP95Ms": 0.0018749999999272404,
+      "warmTypoP95Ms": 2.9086670000001504,
+      "parsedTypoBytes": 2075368
     },
     {
       "slug": "birds",
-      "entries": 16608,
-      "keys": 43366,
-      "warmExactCpuP95Ms": 0.00041699999997035775,
-      "warmTypoCpuP95Ms": 1.7825000000000273,
-      "parsedTypoBytes": 1727973
-    },
-    {
-      "slug": "plants",
-      "entries": 49458,
-      "keys": 126744,
-      "warmExactCpuP95Ms": 0.0004999999999881766,
-      "warmTypoCpuP95Ms": 6.522625000000062,
-      "parsedTypoBytes": 4811518
+      "entries": 16189,
+      "keys": 67824,
+      "exactSamples": 200,
+      "initialPassIncludingLocalDiskMs": 22.044624999999996,
+      "warmExactP95Ms": 0.0017499999999017746,
+      "warmTypoP95Ms": 2.4254579999997077,
+      "parsedTypoBytes": 2679119
     },
     {
       "slug": "cities",
-      "entries": 142927,
-      "keys": 512842,
-      "warmExactCpuP95Ms": 0.0017089999998916028,
-      "warmTypoCpuP95Ms": 31.87154200000009,
-      "parsedTypoBytes": 16722332
-    },
-    {
-      "slug": "foods",
-      "entries": 10681,
-      "keys": 14896,
-      "warmExactCpuP95Ms": 0.0005000000001018634,
-      "warmTypoCpuP95Ms": 0.6344169999999849,
-      "parsedTypoBytes": 500155
-    },
-    {
-      "slug": "fruits-vegetables",
-      "entries": 380,
-      "keys": 573,
-      "warmExactCpuP95Ms": 0.00016700000014679972,
-      "warmTypoCpuP95Ms": 0.05862500000012005,
-      "parsedTypoBytes": 14907
+      "entries": 149928,
+      "keys": 519593,
+      "exactSamples": 200,
+      "initialPassIncludingLocalDiskMs": 118.02075000000013,
+      "warmExactP95Ms": 0.002167000000099506,
+      "warmTypoP95Ms": 35.46025000000009,
+      "parsedTypoBytes": 17063992
     },
     {
       "slug": "countries",
       "entries": 249,
-      "keys": 777,
-      "warmExactCpuP95Ms": 0.00016699999991942605,
-      "warmTypoCpuP95Ms": 0.04737499999987449,
-      "parsedTypoBytes": 16433
+      "keys": 1665,
+      "exactSamples": 200,
+      "initialPassIncludingLocalDiskMs": 0.32783299999982773,
+      "warmExactP95Ms": 0.0014169999999467109,
+      "warmTypoP95Ms": 0.10891700000001947,
+      "parsedTypoBytes": 44371
+    },
+    {
+      "slug": "films",
+      "entries": 159646,
+      "keys": 234050,
+      "exactSamples": 200,
+      "initialPassIncludingLocalDiskMs": 67.1314580000003,
+      "warmExactP95Ms": 0.0019170000000485743,
+      "warmTypoP95Ms": 10.529375000000073,
+      "parsedTypoBytes": 7901242
+    },
+    {
+      "slug": "foods",
+      "entries": 13988,
+      "keys": 39741,
+      "exactSamples": 200,
+      "initialPassIncludingLocalDiskMs": 7.262959000000137,
+      "warmExactP95Ms": 0.00179100000013932,
+      "warmTypoP95Ms": 1.5899580000000242,
+      "parsedTypoBytes": 1394477
+    },
+    {
+      "slug": "fruits-vegetables",
+      "entries": 1396,
+      "keys": 5008,
+      "exactSamples": 200,
+      "initialPassIncludingLocalDiskMs": 1.6198749999998654,
+      "warmExactP95Ms": 0.0019999999999527063,
+      "warmTypoP95Ms": 0.2552499999997053,
+      "parsedTypoBytes": 165998
+    },
+    {
+      "slug": "plants",
+      "entries": 43308,
+      "keys": 202023,
+      "exactSamples": 200,
+      "initialPassIncludingLocalDiskMs": 44.244416999999885,
+      "warmExactP95Ms": 0.0018340000001444423,
+      "warmTypoP95Ms": 10.94320800000014,
+      "parsedTypoBytes": 7824076
     }
   ]
 }

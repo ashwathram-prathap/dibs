@@ -1,9 +1,9 @@
 {
   "unit": {
-    "passed": 86,
+    "passed": 87,
     "failed": 0,
     "files": 20,
-    "note": "Full suite refreshed Nov 22 02:09 ET: 86 tests including Wikipedia continuation metadata and work subtitle aliases."
+    "note": "Full suite refreshed Nov 22 02:35 ET: 87 tests, including generic leading-article title aliases."
   },
   "browser": {
     "localMatrixPassed": 470,
@@ -38,5 +38,24 @@
     "realCredentialsRestored": true,
     "restorationEvidence": "practice-restore.json",
     "note": "Browser wrapper restoration wait initially expired because Durable Object updates default to deferred (300 seconds); practice now explicitly uses immediate updates and real site key plus zero claims were independently verified."
+  },
+  "headingStress": {
+    "categories": 33,
+    "checksPerEngine": 198,
+    "engines": [
+      "Chromium",
+      "WebKit"
+    ],
+    "widths": [
+      320,
+      390,
+      1440
+    ],
+    "themes": [
+      "light",
+      "dark"
+    ],
+    "passed": 396,
+    "note": "Content-only heading stress test; underlying fixture remains Animals. Long mobile headings manually inspected."
   }
 }

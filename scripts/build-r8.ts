@@ -11,7 +11,12 @@ import {
 import { createHash } from 'node:crypto';
 import { pageMatchesScope } from './catalog-quality';
 import { cleanReferenceRows } from './catalog-cleaning';
-import { commonNamePlurals, conjunctionAliases, workSubtitleAliases } from './catalog-aliases';
+import {
+  commonNamePlurals,
+  conjunctionAliases,
+  workSubtitleAliases,
+  titleArticleAliases,
+} from './catalog-aliases';
 import { normalize, normalizeCommonName } from '../worker/domain';
 // Every source row is considered; documented quality filters are applied after popularity assessment.
 const onlySlugs = process.argv
@@ -123,7 +128,9 @@ for (const [slug, unclean] of Object.entries(raw) as any) {
     'fruits-vegetables': ['ediblefruit', 'fruit', 'vegetable'],
   };
   const input = cleanReferenceRows(unclean).filter(
-    (r) => !(categoryLabels[slug] || []).includes(normalizeCommonName(r.display)),
+    (r) =>
+      !(categoryLabels[slug] || []).includes(normalizeCommonName(r.display)) &&
+      !(slug === 'television' && /\((?:season|series)\s+[^)]+\)$/i.test(r.wikipediaTitle || '')),
   );
   const commonNames = [
     'animals',
@@ -228,7 +235,12 @@ for (const [slug, unclean] of Object.entries(raw) as any) {
     row.aliases.push(...[row.display, ...row.aliases].flatMap(conjunctionAliases));
   if (['films', 'albums', 'songs', 'novels', 'video-games', 'television'].includes(slug))
     for (const row of rows)
-      row.aliases.push(...[row.display, ...row.aliases].flatMap(workSubtitleAliases));
+      row.aliases.push(
+        ...[row.display, ...row.aliases].flatMap((name) => [
+          ...workSubtitleAliases(name),
+          ...titleArticleAliases(name),
+        ]),
+      );
   const inflectionOwners = new Map<string, any>();
   if (commonNames)
     for (const a of rows)
@@ -278,11 +290,13 @@ const saveRankingCache = () => {
 const title = (s: string) => s[0].toUpperCase() + s.slice(1);
 const titleOverrides = JSON.parse(readFileSync('scripts/r8-page-titles.json', 'utf8'));
 const measurementTitles = (a: any, slug: string): string[] =>
-  titleOverrides[slug]?.[a.display]
-    ? [titleOverrides[slug][a.display]]
-    : a.wikipediaTitles?.length
-      ? a.wikipediaTitles
-      : [a.wikipediaTitle || a.scientificName || title(a.display)];
+  a.wikipediaUnavailable && !a.wikipediaTitle && !a.wikipediaTitles?.length
+    ? []
+    : titleOverrides[slug]?.[a.display]
+      ? [titleOverrides[slug][a.display]]
+      : a.wikipediaTitles?.length
+        ? a.wikipediaTitles
+        : [a.wikipediaTitle || a.scientificName || title(a.display)];
 const measurementTitle = (a: any, slug: string) => measurementTitles(a, slug)[0];
 const priority = new Set(
   readdirSync('review/coverage')
@@ -638,7 +652,11 @@ const scopes: any = {
     ]),
   ),
   songs:
-    'Songs, vocal recordings, singles and instrumental compositions with English Wikipedia articles; one answer per title.',
+    'Songs, singles and musical compositions, including musical theatre and operas, with English Wikipedia articles; one answer per title.',
+  television:
+    'Television series, miniseries and independently named seasons with English Wikipedia articles; numbered season articles are excluded. One answer per title.',
+  'video-games':
+    'Named video games, paired versions, compilations and game series in Wikidata; English article titles or English/Latin-script source names. One answer per title.',
   asteroids:
     'Named asteroids and other minor planets in the complete NASA/JPL Small-Body Database; names and numbered names accepted.',
   arthropods: 'English common names for insects, spiders, crustaceans and other arthropods.',
@@ -702,6 +720,12 @@ for (const [slug, answers] of Object.entries(catalogs)) {
           : { total: null, days: 0, title: reading.title, status: 'scope not verified' };
       }),
     );
+    if (a.wikipediaUnavailable && !measurementTitles(a, slug).length)
+      a.pageviews = {
+        total: null,
+        days: 0,
+        status: 'No English article in the complete source reference',
+      };
     if (geographicQuality && a.pageviews.days) verifiedGeography.add(a);
     const resolvedOwner = articleOwners.get(normalize(a.pageviews.title || ''));
     if (resolvedOwner && resolvedOwner !== a)
@@ -754,7 +778,9 @@ for (const [slug, answers] of Object.entries(catalogs)) {
         builtAt: new Date().toISOString(),
         identityPolicy: 'complete-reference-v2',
         wikidataNamePolicy: raw[slug].some((r: any) => r.wikidata)
-          ? 'english-article-title-v3+en-mul-labels-aliases-v3'
+          ? (definitions.find((d: any) => d.slug === slug)?.allowNamedWithoutArticle
+              ? 'english-article-or-source-label-v4'
+              : 'english-article-title-v3') + '+en-mul-labels-aliases-v3'
           : null,
         classificationRevision: definitions.find((d: any) => d.slug === slug)?.cacheKey || 'base',
         scopeValidation: 'article-descriptions-v3',
@@ -771,7 +797,10 @@ for (const [slug, answers] of Object.entries(catalogs)) {
           ) &&
           (!raw[slug].some((r: any) => r.wikidata) ||
             (referenceProgress[slug]?.complete &&
-              referenceProgress[slug]?.labelPolicy === 'english-article-title-v3' &&
+              referenceProgress[slug]?.labelPolicy ===
+                (definitions.find((d: any) => d.slug === slug)?.allowNamedWithoutArticle
+                  ? 'english-article-or-source-label-v4'
+                  : 'english-article-title-v3') &&
               referenceProgress[slug]?.cacheKey ===
                 definitions.find((d: any) => d.slug === slug)?.cacheKey)),
         candidateCount,

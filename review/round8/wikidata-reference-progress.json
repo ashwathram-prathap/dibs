@@ -38,13 +38,129 @@
     "license": "https://www.wikidata.org/wiki/Wikidata:Data_access"
   },
   "songs": {
-    "cacheKey": "music-v2",
+    "cacheKey": "music-form-v3",
     "labelPolicy": "english-article-title-v3",
     "complete": true,
-    "candidateCount": 407409,
-    "scanned": 407409,
-    "englishArticles": 109619,
+    "candidateCount": 109792,
+    "scanned": 109792,
+    "englishArticles": 109792,
     "method": "All uncapped classification IDs, complete bounded joins; English Wikipedia article titles provide common names; existing English labels and aliases are retained. Article availability is the quality filter, never a result-count cutoff.",
     "license": "https://www.wikidata.org/wiki/Wikidata:Data_access"
+  },
+  "novels": {
+    "cacheKey": "novel-form-v2",
+    "labelPolicy": "english-article-title-v3",
+    "complete": true,
+    "candidateCount": 31236,
+    "scanned": 31236,
+    "englishArticles": 31236,
+    "method": "All uncapped classification IDs, complete bounded joins; English Wikipedia article titles provide common names; existing English labels and aliases are retained. Article availability is the quality filter, never a result-count cutoff.",
+    "license": "https://www.wikidata.org/wiki/Wikidata:Data_access"
+  },
+  "video-games": {
+    "labelPolicy": "english-article-title-v3",
+    "complete": true,
+    "candidateCount": 190729,
+    "scanned": 190729,
+    "englishArticles": 31722,
+    "method": "All uncapped classification IDs, complete bounded joins; English Wikipedia article titles provide common names; existing English labels and aliases are retained. Article availability is the quality filter, never a result-count cutoff.",
+    "license": "https://www.wikidata.org/wiki/Wikidata:Data_access"
+  },
+  "television": {
+    "labelPolicy": "english-article-title-v3",
+    "complete": true,
+    "candidateCount": 106955,
+    "scanned": 106955,
+    "englishArticles": 51184,
+    "method": "All uncapped classification IDs, complete bounded joins; English Wikipedia article titles provide common names; existing English labels and aliases are retained. Article availability is the quality filter, never a result-count cutoff.",
+    "license": "https://www.wikidata.org/wiki/Wikidata:Data_access"
+  },
+  "museums": {
+    "labelPolicy": "english-article-title-v3",
+    "complete": true,
+    "candidateCount": 81144,
+    "scanned": 81144,
+    "englishArticles": 19340,
+    "method": "All uncapped classification IDs, complete bounded joins; English Wikipedia article titles provide common names; existing English labels and aliases are retained. Article availability is the quality filter, never a result-count cutoff.",
+    "license": "https://www.wikidata.org/wiki/Wikidata:Data_access"
+  },
+  "universities": {
+    "labelPolicy": "english-article-title-v3",
+    "complete": true,
+    "candidateCount": 22908,
+    "scanned": 22908,
+    "englishArticles": 14488,
+    "method": "All uncapped classification IDs, complete bounded joins; English Wikipedia article titles provide common names; existing English labels and aliases are retained. Article availability is the quality filter, never a result-count cutoff.",
+    "license": "https://www.wikidata.org/wiki/Wikidata:Data_access"
+  },
+  "ships": {
+    "labelPolicy": "english-article-title-v3",
+    "complete": true,
+    "candidateCount": 157923,
+    "scanned": 157923,
+    "englishArticles": 35102,
+    "method": "All uncapped classification IDs, complete bounded joins; English Wikipedia article titles provide common names; existing English labels and aliases are retained. Article availability is the quality filter, never a result-count cutoff.",
+    "license": "https://www.wikidata.org/wiki/Wikidata:Data_access"
+  },
+  "castles": {
+    "labelPolicy": "english-article-title-v3",
+    "complete": true,
+    "candidateCount": 37068,
+    "scanned": 37068,
+    "englishArticles": 6916,
+    "method": "All uncapped classification IDs, complete bounded joins; English Wikipedia article titles provide common names; existing English labels and aliases are retained. Article availability is the quality filter, never a result-count cutoff.",
+    "license": "https://www.wikidata.org/wiki/Wikidata:Data_access"
+  },
+  "painters": {
+    "labelPolicy": "english-article-title-v3",
+    "complete": true,
+    "candidateCount": 253268,
+    "scanned": 253268,
+    "englishArticles": 53048,
+    "method": "All uncapped classification IDs, complete bounded joins; English Wikipedia article titles provide common names; existing English labels and aliases are retained. Article availability is the quality filter, never a result-count cutoff.",
+    "license": "https://www.wikidata.org/wiki/Wikidata:Data_access"
+  },
+  "poets": {
+    "labelPolicy": "english-article-title-v3",
+    "complete": true,
+    "candidateCount": 144666,
+    "scanned": 144666,
+    "englishArticles": 40902,
+    "method": "All uncapped classification IDs, complete bounded joins; English Wikipedia article titles provide common names; existing English labels and aliases are retained. Article availability is the quality filter, never a result-count cutoff.",
+    "license": "https://www.wikidata.org/wiki/Wikidata:Data_access"
+  },
+  "composers": {
+    "labelPolicy": "english-article-title-v3",
+    "complete": true,
+    "candidateCount": 180899,
+    "scanned": 180899,
+    "englishArticles": 70888,
+    "method": "All uncapped classification IDs, complete bounded joins; English Wikipedia article titles provide common names; existing English labels and aliases are retained. Article availability is the quality filter, never a result-count cutoff.",
+    "license": "https://www.wikidata.org/wiki/Wikidata:Data_access"
+  },
+  "architects": {
+    "labelPolicy": "english-article-title-v3",
+    "complete": true,
+    "candidateCount": 112819,
+    "scanned": 112819,
+    "englishArticles": 17786,
+    "method": "All uncapped classification IDs, complete bounded joins; English Wikipedia article titles provide common names; existing English labels and aliases are retained. Article availability is the quality filter, never a result-count cutoff.",
+    "license": "https://www.wikidata.org/wiki/Wikidata:Data_access"
+  },
+  "footballers": {
+    "labelPolicy": "english-article-title-v3",
+    "complete": false,
+    "candidateCount": 393395,
+    "scanned": 115000,
+    "englishArticles": 90261,
+    "method": "All uncapped classification IDs, complete bounded joins; English Wikipedia article titles provide common names; existing English labels and aliases are retained. Article availability is the quality filter, never a result-count cutoff."
+  },
+  "paintings": {
+    "labelPolicy": "english-article-title-v3",
+    "complete": false,
+    "candidateCount": 1123480,
+    "scanned": 150000,
+    "englishArticles": 7944,
+    "method": "All uncapped classification IDs, complete bounded joins; English Wikipedia article titles provide common names; existing English labels and aliases are retained. Article availability is the quality filter, never a result-count cutoff."
   }
 }

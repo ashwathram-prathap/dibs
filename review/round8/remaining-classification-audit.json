@@ -1,0 +1,360 @@
+{
+  "rows": [
+    {
+      "id": "Q948720",
+      "name": "Indian Institute of Science, Bengaluru",
+      "P31": [
+        "Q31855",
+        "Q38723"
+      ],
+      "P7937": [],
+      "P136": [],
+      "P366": []
+    },
+    {
+      "id": "Q178065",
+      "name": "Centre Georges Pompidou",
+      "P31": [
+        "Q1329623",
+        "Q43229",
+        "Q11812394"
+      ],
+      "P7937": [],
+      "P136": [],
+      "P366": []
+    },
+    {
+      "id": "Q565911",
+      "name": "Anne of Green Gables",
+      "P31": [
+        "Q7725634"
+      ],
+      "P7937": [],
+      "P136": [
+        "Q1312571",
+        "Q56451354"
+      ],
+      "P366": []
+    },
+    {
+      "id": "Q15574",
+      "name": "University of Adelaide",
+      "P31": [
+        "Q108911597",
+        "Q163740"
+      ],
+      "P7937": [],
+      "P136": [],
+      "P366": []
+    },
+    {
+      "id": "Q650314",
+      "name": "The Feast of the Goat",
+      "P31": [
+        "Q47461344"
+      ],
+      "P7937": [],
+      "P136": [
+        "Q1225344"
+      ],
+      "P366": []
+    },
+    {
+      "id": "Q1481050",
+      "name": "London Business School",
+      "P31": [
+        "Q1143635",
+        "Q38723",
+        "Q5341295"
+      ],
+      "P7937": [],
+      "P136": [],
+      "P366": []
+    },
+    {
+      "id": "Q247372",
+      "name": "Tender Is the Night",
+      "P31": [
+        "Q7725634"
+      ],
+      "P7937": [],
+      "P136": [
+        "Q3056541"
+      ],
+      "P366": []
+    },
+    {
+      "id": "Q7373981",
+      "name": "Royal College of Nursing",
+      "P31": [
+        "Q10729872",
+        "Q178790"
+      ],
+      "P7937": [],
+      "P136": [],
+      "P366": []
+    },
+    {
+      "id": "Q3005066",
+      "name": "Noosfera",
+      "P31": [
+        "Q14978"
+      ],
+      "P7937": [],
+      "P136": [],
+      "P366": []
+    },
+    {
+      "id": "Q3878511",
+      "name": "Norstrilia",
+      "P31": [
+        "Q7725634"
+      ],
+      "P7937": [
+        "Q8261"
+      ],
+      "P136": [
+        "Q24925"
+      ],
+      "P366": []
+    },
+    {
+      "id": "Q7393919",
+      "name": "SS Keewatin",
+      "P31": [
+        "Q2055880"
+      ],
+      "P7937": [],
+      "P136": [],
+      "P366": []
+    },
+    {
+      "id": "Q637991",
+      "name": "SS Arctic",
+      "P31": [
+        "Q1121471"
+      ],
+      "P7937": [],
+      "P136": [],
+      "P366": []
+    },
+    {
+      "id": "Q7433553",
+      "name": "Science Gallery",
+      "P31": [
+        "Q3499307"
+      ],
+      "P7937": [],
+      "P136": [],
+      "P366": []
+    },
+    {
+      "id": "Q111169866",
+      "name": "HMS Medusa",
+      "P31": [
+        "Q331795"
+      ],
+      "P7937": [],
+      "P136": [],
+      "P366": []
+    }
+  ],
+  "classes": [
+    {
+      "id": "Q31855",
+      "name": "research institute",
+      "parents": [
+        "Q136410232",
+        "Q1664720"
+      ]
+    },
+    {
+      "id": "Q38723",
+      "name": "higher education institution",
+      "parents": [
+        "Q2385804"
+      ]
+    },
+    {
+      "id": "Q1329623",
+      "name": "cultural center",
+      "parents": [
+        "Q101542346",
+        "Q41176",
+        "Q18674739",
+        "Q43229"
+      ]
+    },
+    {
+      "id": "Q43229",
+      "name": "organization",
+      "parents": [
+        "Q106559804",
+        "Q106668099",
+        "Q1639378",
+        "Q854457",
+        "Q131085629"
+      ]
+    },
+    {
+      "id": "Q11812394",
+      "name": "theatre company",
+      "parents": [
+        "Q3152824",
+        "Q11396960",
+        "Q2416217",
+        "Q105815710"
+      ]
+    },
+    {
+      "id": "Q7725634",
+      "name": "literary work",
+      "parents": [
+        "Q838948",
+        "Q47461344"
+      ]
+    },
+    {
+      "id": "Q1312571",
+      "name": "developmental novel",
+      "parents": [
+        "Q223945",
+        "Q8261"
+      ]
+    },
+    {
+      "id": "Q56451354",
+      "name": "children's fiction",
+      "parents": [
+        "Q8253",
+        "Q131539"
+      ]
+    },
+    {
+      "id": "Q108911597",
+      "name": "closed educational institution",
+      "parents": [
+        "Q55570340"
+      ]
+    },
+    {
+      "id": "Q163740",
+      "name": "nonprofit organization",
+      "parents": [
+        "Q43229"
+      ]
+    },
+    {
+      "id": "Q47461344",
+      "name": "written work",
+      "parents": [
+        "Q15621286"
+      ]
+    },
+    {
+      "id": "Q1225344",
+      "name": "dictator novel",
+      "parents": [
+        "Q11499138"
+      ]
+    },
+    {
+      "id": "Q1143635",
+      "name": "business school",
+      "parents": [
+        "Q3914",
+        "Q38723"
+      ]
+    },
+    {
+      "id": "Q5341295",
+      "name": "educational organization",
+      "parents": [
+        "Q43229"
+      ]
+    },
+    {
+      "id": "Q3056541",
+      "name": "autobiographical novel",
+      "parents": [
+        "Q4914883",
+        "Q4184"
+      ]
+    },
+    {
+      "id": "Q10729872",
+      "name": "medical association",
+      "parents": [
+        "Q1110684",
+        "Q748019",
+        "Q536390",
+        "Q829080",
+        "Q48204",
+        "Q955824",
+        "Q4287745"
+      ]
+    },
+    {
+      "id": "Q178790",
+      "name": "labor union",
+      "parents": [
+        "Q681615",
+        "Q130370871"
+      ]
+    },
+    {
+      "id": "Q14978",
+      "name": "icebreaker",
+      "parents": [
+        "Q628983",
+        "Q117090135"
+      ]
+    },
+    {
+      "id": "Q8261",
+      "name": "novel",
+      "parents": [
+        "Q87482979",
+        "Q3328821",
+        "Q676",
+        "Q116518880"
+      ]
+    },
+    {
+      "id": "Q24925",
+      "name": "science fiction",
+      "parents": [
+        "Q9326077"
+      ]
+    },
+    {
+      "id": "Q2055880",
+      "name": "passenger vessel",
+      "parents": [
+        "Q848944"
+      ]
+    },
+    {
+      "id": "Q1121471",
+      "name": "paddle steamer",
+      "parents": [
+        "Q18392974",
+        "Q1229765"
+      ]
+    },
+    {
+      "id": "Q3499307",
+      "name": "science center",
+      "parents": [
+        "Q588140"
+      ]
+    },
+    {
+      "id": "Q331795",
+      "name": "patrol vessel",
+      "parents": [
+        "Q177597"
+      ]
+    }
+  ]
+}

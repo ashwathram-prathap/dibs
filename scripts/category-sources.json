@@ -61,7 +61,14 @@
       "Q134556",
       "Q55850593"
     ],
-    "cacheKey": "music-v2"
+    "cacheKey": "music-form-v3",
+    "properties": [
+      "P31",
+      "P7937"
+    ],
+    "englishOnlyCandidates": true,
+    "preferClassGroups": true,
+    "note": "Complete instance and form-of-creative-work classifications; English article availability is the quality filter, never a result-count cap."
   },
   {
     "slug": "novels",
@@ -70,17 +77,41 @@
     "roots": [
       "Q8261",
       "Q149537"
-    ]
+    ],
+    "cacheKey": "novel-form-genre-v3",
+    "properties": [
+      "P31",
+      "P7937",
+      "P136"
+    ],
+    "englishOnlyCandidates": true,
+    "preferClassGroups": true,
+    "note": "Complete instance, form-of-creative-work and genre classifications; no arbitrary result cap."
   },
   {
     "slug": "video-games",
-    "name": "Video games",
-    "root": "Q7889"
+    "name": "Video games & series",
+    "root": "Q7889",
+    "roots": [
+      "Q7889",
+      "Q116741534"
+    ],
+    "cacheKey": "named-games-groups-v2",
+    "allowNamedWithoutArticle": true,
+    "note": "Includes paired versions, compilations and series; named English/Latin-script source records without English articles remain accepted with unknown readership."
   },
   {
     "slug": "television",
-    "name": "TV series",
-    "root": "Q5398426"
+    "name": "TV shows",
+    "root": "Q5398426",
+    "roots": [
+      "Q5398426",
+      "Q3464665"
+    ],
+    "cacheKey": "named-seasons-v2",
+    "englishOnlyCandidates": true,
+    "preferClassGroups": true,
+    "note": "Includes independently titled anthology seasons; numbered season articles are removed as a quality filter."
   },
   {
     "slug": "mountains",
@@ -109,8 +140,11 @@
   },
   {
     "slug": "universities",
-    "name": "Universities",
-    "root": "Q3918"
+    "name": "Universities & colleges",
+    "root": "Q38723",
+    "cacheKey": "higher-education-v2",
+    "englishOnlyCandidates": true,
+    "preferClassGroups": true
   },
   {
     "slug": "airports",
@@ -129,8 +163,11 @@
   },
   {
     "slug": "ships",
-    "name": "Ships",
-    "root": "Q11446"
+    "name": "Ships & boats",
+    "root": "Q1229765",
+    "cacheKey": "watercraft-v2",
+    "englishOnlyCandidates": true,
+    "preferClassGroups": true
   },
   {
     "slug": "castles",

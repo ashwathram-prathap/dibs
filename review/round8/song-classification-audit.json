@@ -1,0 +1,97 @@
+{
+  "rows": [
+    {
+      "id": "Q931481",
+      "name": "Johnny B. Goode",
+      "classes": [
+        "Q7302866"
+      ]
+    },
+    {
+      "id": "Q654228",
+      "classes": [
+        "Q7302866"
+      ]
+    },
+    {
+      "id": "Q56023860",
+      "name": "Babooshka",
+      "classes": [
+        "Q3302947"
+      ]
+    },
+    {
+      "id": "Q1508213",
+      "name": "Highway to Hell",
+      "classes": [
+        "Q3302947"
+      ]
+    }
+  ],
+  "classes": [
+    {
+      "id": "Q7302866",
+      "name": "audio track",
+      "parents": [
+        "Q3302947",
+        "Q17537576",
+        "Q2188189",
+        "Q140007694",
+        "Q49017950",
+        "Q115669410"
+      ]
+    },
+    {
+      "id": "Q3302947",
+      "name": "audio recording",
+      "parents": [
+        "Q107435521",
+        "Q60533134"
+      ]
+    },
+    {
+      "id": "Q7366",
+      "name": "song",
+      "parents": [
+        "Q114586269",
+        "Q140007694"
+      ]
+    },
+    {
+      "id": "Q207628",
+      "name": "composed musical work",
+      "parents": [
+        "Q2188189"
+      ]
+    },
+    {
+      "id": "Q105543609",
+      "name": "musical work/composition",
+      "parents": [
+        "Q2188189"
+      ]
+    },
+    {
+      "id": "Q134556",
+      "name": "single",
+      "parents": [
+        "Q108346082",
+        "Q7302866"
+      ]
+    },
+    {
+      "id": "Q55850593",
+      "name": "music track with vocals",
+      "parents": [
+        "Q7302866"
+      ]
+    }
+  ],
+  "formProperty": "P7937",
+  "formValues": {
+    "Q931481": "Q7366",
+    "Q654228": "Q7366",
+    "Q56023860": "Q7366",
+    "Q1508213": "Q7366"
+  }
+}

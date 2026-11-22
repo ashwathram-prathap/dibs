@@ -13,6 +13,10 @@ const cache = '.category-cache/r8/wikidata-names-en-mul-v3';
 mkdirSync(cache, { recursive: true });
 const reportFile = 'review/round8/wikidata-alias-progress.json';
 const report: any = existsSync(reportFile) ? JSON.parse(readFileSync(reportFile, 'utf8')) : {};
+function saveReport() {
+  writeFileSync(reportFile + '.next', JSON.stringify(report, null, 2) + '\n');
+  renameSync(reportFile + '.next', reportFile);
+}
 const sleep = (ms: number) => new Promise((r) => setTimeout(r, ms));
 const processed = new Map<string, number>();
 do {
@@ -21,19 +25,46 @@ do {
     if (processed.get(file) === sourceTime) continue;
     const rows = JSON.parse(readFileSync(dir + '/' + file, 'utf8'));
     const slug = file.slice(0, -5);
+    const definition = JSON.parse(readFileSync('scripts/category-sources.json', 'utf8')).find(
+      (row: any) => row.slug === slug,
+    );
+    const expectedPolicy = definition?.allowNamedWithoutArticle
+      ? 'english-article-or-source-label-v4'
+      : 'english-article-title-v3';
     const reference = JSON.parse(
       readFileSync('review/round8/wikidata-reference-progress.json', 'utf8'),
     )[slug];
     if (
       rows.some((r: any) => r.wikidata) &&
-      (!reference?.complete || reference.labelPolicy !== 'english-article-title-v3')
-    )
+      (!reference?.complete ||
+        reference.labelPolicy !== expectedPolicy ||
+        reference.cacheKey !== definition?.cacheKey)
+    ) {
+      report[slug] = {
+        complete: false,
+        reason: 'Awaiting current full classification',
+        expectedPolicy,
+        classificationRevision: definition?.cacheKey || 'base',
+      };
+      saveReport();
       continue;
+    }
     const targets = rows.filter(
       (r: any) =>
         r.wikidata && (!r.aliasesComplete || r.aliasPolicy !== 'en-mul-labels-aliases-v3'),
     );
     if (!targets.length) {
+      if (rows.some((row: any) => row.wikidata)) {
+        const count = rows.filter((row: any) => row.wikidata).length;
+        report[slug] = {
+          complete: true,
+          checked: count,
+          total: count,
+          referencePolicy: reference.labelPolicy,
+          classificationRevision: reference.cacheKey || 'base',
+        };
+        saveReport();
+      }
       processed.set(file, sourceTime);
       continue;
     }
@@ -90,8 +121,14 @@ do {
         row.aliasPolicy = 'en-mul-labels-aliases-v3';
       }
       done += batch.length;
-      report[slug] = { complete: done === targets.length, checked: done, total: targets.length };
-      writeFileSync(reportFile, JSON.stringify(report, null, 2) + '\n');
+      report[slug] = {
+        complete: done === targets.length,
+        checked: done,
+        total: targets.length,
+        referencePolicy: reference.labelPolicy,
+        classificationRevision: reference.cacheKey || 'base',
+      };
+      saveReport();
       console.log(slug, done, '/', targets.length, 'English aliases');
       await sleep(2000);
     }

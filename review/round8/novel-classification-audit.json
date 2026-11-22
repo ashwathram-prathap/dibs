@@ -1,0 +1,156 @@
+{
+  "rows": [
+    {
+      "id": "Q170583",
+      "name": "Pride and Prejudice",
+      "classes": [
+        "Q7725634"
+      ],
+      "genres": [
+        "Q538812",
+        "Q110540276",
+        "Q101240581",
+        "Q19765983"
+      ]
+    },
+    {
+      "id": "Q74287",
+      "name": "The Hobbit",
+      "classes": [
+        "Q7725634"
+      ],
+      "genres": [
+        "Q3811649",
+        "Q111984153",
+        "Q699",
+        "Q132311",
+        "Q326439"
+      ]
+    },
+    {
+      "id": "Q190192",
+      "name": "Dune",
+      "classes": [
+        "Q7725634"
+      ],
+      "genres": [
+        "Q905770",
+        "Q2630193",
+        "Q944250",
+        "Q24925",
+        "Q21802675"
+      ]
+    }
+  ],
+  "classes": [
+    {
+      "id": "Q538812",
+      "name": "novel of manners",
+      "parents": [
+        "Q1248788"
+      ]
+    },
+    {
+      "id": "Q110540276",
+      "name": "satirical fiction",
+      "parents": [
+        "Q8253",
+        "Q128758"
+      ]
+    },
+    {
+      "id": "Q101240581",
+      "name": "psychological fiction",
+      "parents": [
+        "Q21010853"
+      ]
+    },
+    {
+      "id": "Q19765983",
+      "name": "romantic fiction",
+      "parents": [
+        "Q8253"
+      ]
+    },
+    {
+      "id": "Q3811649",
+      "name": "juvenile fantasy",
+      "parents": [
+        "Q132311",
+        "Q56451354"
+      ]
+    },
+    {
+      "id": "Q111984153",
+      "name": "young adult fiction",
+      "parents": [
+        "Q8253"
+      ]
+    },
+    {
+      "id": "Q699",
+      "name": "fairy tale",
+      "parents": [
+        "Q17991521",
+        "Q3306693",
+        "Q109588548"
+      ]
+    },
+    {
+      "id": "Q132311",
+      "name": "fantasy",
+      "parents": [
+        "Q1057172"
+      ]
+    },
+    {
+      "id": "Q326439",
+      "name": "high fantasy",
+      "parents": [
+        "Q132311"
+      ]
+    },
+    {
+      "id": "Q905770",
+      "name": "soft science fiction",
+      "parents": [
+        "Q24925"
+      ]
+    },
+    {
+      "id": "Q2630193",
+      "name": "planetary romance",
+      "parents": [
+        "Q468478",
+        "Q1080374"
+      ]
+    },
+    {
+      "id": "Q944250",
+      "name": "social science fiction",
+      "parents": [
+        "Q24925"
+      ]
+    },
+    {
+      "id": "Q24925",
+      "name": "science fiction",
+      "parents": [
+        "Q9326077"
+      ]
+    },
+    {
+      "id": "Q21802675",
+      "name": "adventure fiction",
+      "parents": [
+        "Q8253"
+      ]
+    }
+  ],
+  "formProperty": "P7937",
+  "formValues": {
+    "Q170583": "Q8261",
+    "Q74287": "Q8261",
+    "Q190192": "Q8261"
+  }
+}

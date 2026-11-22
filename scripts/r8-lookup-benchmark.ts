@@ -1,13 +1,77 @@
-import {readFileSync,writeFileSync} from 'node:fs';
-import {findTypo,shardFor} from '../shared/catalog';import{normalize}from'../worker/domain';
-const results:any[]=[];
-for(const slug of ['animals','birds','plants','cities','foods','fruits-vegetables','countries']){
- const m=JSON.parse(readFileSync(`public/catalog/${slug}/manifest.json`,'utf8'));const dir=`public/catalog/${slug}/${m.version}`;
- const shards=Array.from({length:256},(_,i)=>JSON.parse(readFileSync(`${dir}/keys-${i}.json`,'utf8')));
- const keys=shards.flatMap(s=>Object.keys(s));const timings:number[]=[];const misses:number[]=[];
- for(let i=0;i<200;i++){const key=keys[Math.floor(i*keys.length/200)];const start=performance.now();if(!shards[shardFor(key)][key])throw Error('miss');timings.push(performance.now()-start);}
- const trees=new Map();let parsedBytes=0;
- for(let i=0;i<30;i++){const query=keys[Math.floor(i*keys.length/30)].slice(0,-1)+'x';for(let n=Math.max(1,query.length-2);n<=Math.min(96,query.length+2);n++)if(!trees.has(n)){const bytes=readFileSync(`${dir}/typos-${n}.json`);parsedBytes+=bytes.length;trees.set(n,JSON.parse(bytes.toString()));}const start=performance.now();for(let n=Math.max(1,query.length-2);n<=Math.min(96,query.length+2);n++)findTypo(trees.get(n),query,2);misses.push(performance.now()-start);}
- const p95=(v:number[])=>v.sort((a,b)=>a-b)[Math.floor(v.length*.95)];results.push({slug,entries:m.count,keys:keys.length,warmExactCpuP95Ms:p95(timings),warmTypoCpuP95Ms:p95(misses),parsedTypoBytes:parsedBytes});
+import { readdirSync, readFileSync, writeFileSync } from 'node:fs';
+import { findTypo } from '../shared/catalog';
+import { lookup } from '../worker/catalog';
+const results: any[] = [];
+globalThis.fetch = (async (input: any) => {
+  const url = new URL(typeof input === 'string' ? input : input.url);
+  if (!url.pathname.startsWith('/catalog/')) throw Error('Unexpected benchmark request');
+  return new Response(readFileSync('public' + url.pathname));
+}) as typeof fetch;
+const p95 = (values: number[]) => values.sort((a, b) => a - b)[Math.floor(values.length * 0.95)];
+for (const slug of readdirSync('public/catalog')) {
+  const manifest = JSON.parse(readFileSync(`public/catalog/${slug}/manifest.json`, 'utf8'));
+  const dir = `public/catalog/${slug}/${manifest.version}`;
+  const keys: string[] = JSON.parse(readFileSync(`${dir}/full.json`, 'utf8')).keys;
+  const category = { source_json: JSON.stringify({ staticCatalog: manifest }) };
+  const samples = Array.from(
+    { length: 200 },
+    (_, i) => keys[Math.floor((keys.length * (i + 0.5)) / 200)],
+  );
+  const timings: number[] = [];
+  const initialStart = performance.now();
+  for (const key of samples)
+    if (!(await lookup(category, key))) throw Error(slug + ': missing key');
+  const initialPassMs = performance.now() - initialStart;
+  for (const key of samples) {
+    const start = performance.now();
+    if (!(await lookup(category, key))) throw Error(slug + ': missing cached key');
+    timings.push(performance.now() - start);
+  }
+  const trees = new Map<number, any>();
+  const typoTimes: number[] = [];
+  let parsedTypoBytes = 0;
+  for (let i = 0; i < 30; i++) {
+    const query = keys[Math.floor((i * keys.length) / 30)].slice(0, -1) + 'x';
+    for (
+      let length = Math.max(1, query.length - 2);
+      length <= Math.min(120, query.length + 2);
+      length++
+    ) {
+      if (trees.has(length)) continue;
+      const bytes = readFileSync(`${dir}/typos-${length}.json`);
+      parsedTypoBytes += bytes.length;
+      trees.set(length, JSON.parse(bytes.toString()));
+    }
+    const start = performance.now();
+    for (
+      let length = Math.max(1, query.length - 2);
+      length <= Math.min(120, query.length + 2);
+      length++
+    )
+      findTypo(trees.get(length), query, 2);
+    typoTimes.push(performance.now() - start);
+  }
+  results.push({
+    slug,
+    entries: manifest.count,
+    keys: keys.length,
+    exactSamples: samples.length,
+    initialPassIncludingLocalDiskMs: initialPassMs,
+    warmExactP95Ms: p95(timings),
+    warmTypoP95Ms: p95(typoTimes),
+    parsedTypoBytes,
+  });
 }
-writeFileSync('review/round8/local-lookup-benchmark.json',JSON.stringify({runtime:'Node local CPU proxy; not Cloudflare billing measurement',results},null,2));console.log(results);
+writeFileSync(
+  'review/round8/local-lookup-benchmark.json',
+  JSON.stringify(
+    {
+      runtime:
+        'Actual Worker lookup implementation with local file-backed fetch; Node timing proxy, not Cloudflare CPU or network measurement. Typo search runs in the browser Worker in production.',
+      results,
+    },
+    null,
+    2,
+  ) + '\n',
+);
+console.log(results);

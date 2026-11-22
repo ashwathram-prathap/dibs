@@ -1,4 +1,8 @@
 import pluralize from 'pluralize';
+export function titleArticleAliases(name: string) {
+  const shorter = name.replace(/^(?:the|an|a)\s+/i, '').trim();
+  return shorter !== name && !/^(?:the|an|a)$/i.test(shorter) ? [shorter] : [];
+}
 export function conjunctionAliases(name: string) {
   return [
     ...(name.includes('&') ? [name.replace(/&/g, ' and ')] : []),

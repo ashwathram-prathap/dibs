@@ -1,8 +1,14 @@
 import { chromium, webkit } from '@playwright/test';
-import { readFileSync, mkdirSync, writeFileSync } from 'node:fs';
-const categories = JSON.parse(readFileSync('scripts/category-sources.json', 'utf8'));
+import { readFileSync, readdirSync, mkdirSync, writeFileSync } from 'node:fs';
+const definitions = JSON.parse(readFileSync('scripts/category-sources.json', 'utf8'));
+const categories = readdirSync('categories')
+  .filter((file) => file.endsWith('.json'))
+  .map((file) => {
+    const category = JSON.parse(readFileSync('categories/' + file, 'utf8'));
+    return definitions.find((definition: any) => definition.slug === category.slug) || category;
+  });
 const engine = process.argv[2] === 'webkit' ? 'webkit' : 'chromium';
-const folder = engine === 'webkit' ? 'review/headings-webkit' : 'review/headings';
+const folder = 'review/round8/ui';
 mkdirSync(folder, { recursive: true });
 const browser = await (engine === 'webkit' ? webkit : chromium).launch();
 const results = [];
@@ -12,7 +18,7 @@ for (const width of [320, 390, 1440])
       viewport: { width, height: width === 1440 ? 900 : 844 },
       colorScheme: theme,
     });
-    await page.goto('http://127.0.0.1:5173');
+    await page.goto('http://127.0.0.1:5174/?r6=1&r8=1');
     await page.locator('h1.category').waitFor();
     await page.evaluate(() => document.fonts.ready);
     for (const c of categories) {
@@ -38,16 +44,16 @@ for (const width of [320, 390, 1440])
         };
       });
       results.push({ name: c.name, width, theme, ...result });
-      if (['Universities', 'Arthropods'].includes(c.name) && width !== 320)
+      if (c.name.length > 18 || c.slug === 'arthropods')
         await page.screenshot({
-          path: `${folder}/${c.slug}-${width}-${theme}.png`,
+          path: `${folder}/heading-${engine}-${c.slug}-${width}-${theme}.png`,
           fullPage: true,
         });
     }
     await page.close();
   }
 await browser.close();
-writeFileSync(folder + '/results.json', JSON.stringify(results, null, 2));
+writeFileSync(`review/round8/heading-results-${engine}.json`, JSON.stringify(results, null, 2));
 if (results.some((r) => !r.fits || !r.singleLine || !r.noOverflow))
   throw new Error('Category heading failed its content stress test');
 console.log('All ' + results.length + ' category, width and theme heading checks passed.');

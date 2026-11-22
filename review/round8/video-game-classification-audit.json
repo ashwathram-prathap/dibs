@@ -1,0 +1,86 @@
+{
+  "pages": {
+    "redirects": [
+      {
+        "from": "Naruto Shippuden: Ultimate Ninja Storm Trilogy",
+        "to": "Naruto: Ultimate Ninja",
+        "tofragment": "Naruto Shippuden: Ultimate Ninja Storm Trilogy/Legacy"
+      },
+      {
+        "from": "Pokémon Red and Blue",
+        "to": "Pokémon Red, Blue, and Yellow"
+      }
+    ],
+    "pages": {
+      "417121": {
+        "pageid": 417121,
+        "ns": 0,
+        "title": "Pokémon Red, Blue, and Yellow",
+        "pageprops": {
+          "defaultsort": "Pokemon Red and Blue",
+          "displaytitle": "<i>Pokémon Red</i>, <i>Blue</i>, and <i>Yellow</i>",
+          "page_image": "Pokémon_Red_and_Blue_cover_art.webp",
+          "wikibase-badge-Q17437798": "",
+          "wikibase-shortdesc": "1996 video games",
+          "wikibase_item": "Q637137"
+        }
+      },
+      "431282": {
+        "pageid": 431282,
+        "ns": 0,
+        "title": "Pokémon FireRed and LeafGreen",
+        "pageprops": {
+          "defaultsort": "Pokémon FireRed and LeafGreen",
+          "displaytitle": "<i>Pokémon FireRed</i> and <i>LeafGreen</i>",
+          "page_image": "Pokemon_LeafGreen_box.jpg",
+          "wikibase-badge-Q17437798": "",
+          "wikibase-shortdesc": "2004 video games",
+          "wikibase_item": "Q609063"
+        }
+      },
+      "12137073": {
+        "pageid": 12137073,
+        "ns": 0,
+        "title": "Naruto: Ultimate Ninja",
+        "pageprops": {
+          "defaultsort": "Naruto: Ultimate Ninja (Series)",
+          "displaytitle": "<i>Naruto: Ultimate Ninja</i>",
+          "page_image": "Narutoultimateninjalogo.jpg",
+          "wikibase-shortdesc": "Video game franchise",
+          "wikibase_item": "Q2623040"
+        }
+      },
+      "-1": {
+        "ns": 0,
+        "title": "Resident Evil: Revelations Collection",
+        "missing": ""
+      }
+    }
+  },
+  "rows": [
+    {
+      "id": "Q637137",
+      "name": "Pokémon Red and Blue",
+      "classes": [
+        "Q116774927"
+      ],
+      "forms": []
+    },
+    {
+      "id": "Q609063",
+      "name": "Pokémon FireRed and LeafGreen",
+      "classes": [
+        "Q116774997"
+      ],
+      "forms": []
+    },
+    {
+      "id": "Q2623040",
+      "name": "Naruto: Ultimate Ninja",
+      "classes": [
+        "Q7058673"
+      ],
+      "forms": []
+    }
+  ]
+}
