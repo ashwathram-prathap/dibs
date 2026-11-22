@@ -128,6 +128,20 @@ it('claims through the complete static register, persists sparse rows, and resto
   expect((await db.prepare('SELECT COUNT(*) n FROM strikes').first()).n).toBe(0);
 }, 30000);
 
+it('files a valid answer whose readership is unknown without inventing an obscurity score', async () => {
+  const start = await call('/bootstrap');
+  const cookie = start.headers.get('set-cookie')!.split(';')[0];
+  const response = await call(
+    '/claim',
+    { answer: 'Pigeon', requestId: crypto.randomUUID(), turnstileToken: 'test' },
+    cookie,
+  );
+  expect(response.status).toBe(201);
+  const result: any = await response.json();
+  expect(result.claim.display).toBe('Pigeon');
+  expect(result.claim.obscurity).toBeNull();
+});
+
 it('loads the entire Cities index in the Worker runtime and stores only the claimed reference', async () => {
   await mf.dispose();
   await startRegistry('cities');

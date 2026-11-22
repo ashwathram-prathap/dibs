@@ -80,7 +80,7 @@ for (const f of readdirSync('categories').filter((f) => f.endsWith('.json'))) {
         at = child;
       }
     }
-  for (let length = 1; length <= 96; length++)
+  for (let length = 1; length <= Math.max(120, ...Object.keys(trees).map(Number)); length++)
     writeFileSync(`${dir}/typos-${length}.json`, JSON.stringify(trees[length] || []));
   const fast: Record<string, CatalogRow> = Object.create(null);
   for (const [i, a] of c.answers.entries())

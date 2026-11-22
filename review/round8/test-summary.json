@@ -1,9 +1,9 @@
 {
   "unit": {
-    "passed": 77,
+    "passed": 82,
     "failed": 0,
-    "files": 17,
-    "note": "Full suite, including real Cloudflare HTML-rewriter SEO tests, refreshed Nov 22 00:00 ET."
+    "files": 20,
+    "note": "Full suite refreshed Nov 22 00:59 ET, including actual static-index claims with unknown readership, proper-name separation, plural aliases, and practice-only credential guards."
   },
   "browser": {
     "localMatrixPassed": 469,
@@ -23,8 +23,8 @@
     "axeViolations": 0,
     "horizontalOverflow": 0,
     "emojiGlyphViolations": 0,
-    "refreshedAt": "2026-11-22T05:04:00Z"
+    "refreshedAt": "2026-11-22T05:42:00Z"
   },
   "emojiSourceCheck": "passed",
-  "practiceLive": "all read-only checks passed; actual Turnstile claim automation blocked in three browser configurations"
+  "practiceLive": "Real-credential read-only checks passed previously. Full 246-answer actual-claim replay with official testing credentials is in progress; final report pending."
 }

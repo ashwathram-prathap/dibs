@@ -1,11 +1,21 @@
 import { describe, it, expect } from 'vitest';
-import { normalize, dropAt, registryDate, nextDrop, streak, validDate } from '../worker/domain';
+import {
+  normalize,
+  normalizeCommonName,
+  dropAt,
+  registryDate,
+  nextDrop,
+  streak,
+  validDate,
+} from '../worker/domain';
 import { hmac, verify } from '../worker/identity';
 describe('registry rules', () => {
-  it('folds case, accents, punctuation, whitespace and simple plurals', () => {
-    expect(normalize('  Café-Axolotls ')).toBe(normalize('cafe axolotl'));
-    expect(normalize('Cities')).toBe('city');
-    expect(normalize('Mice')).toBe('mouse');
+  it('folds case, accents, punctuation and whitespace while preserving proper names', () => {
+    expect(normalize('  Café-Axolotls ')).toBe(normalize('cafe axolotls'));
+    expect(normalize('Cities')).toBe('cities');
+    expect(normalize('Cars')).not.toBe(normalize('Car'));
+    expect(normalize('Dallas')).not.toBe(normalize('Dalla'));
+    expect(normalizeCommonName('Mice')).toBe('mouse');
     expect(normalize('Walrus')).toBe('walrus');
   });
   it('opens at 9 PM Toronto across DST', () => {

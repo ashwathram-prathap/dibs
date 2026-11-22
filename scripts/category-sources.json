@@ -45,8 +45,16 @@
   },
   {
     "slug": "songs",
-    "name": "Songs",
-    "root": "Q7366"
+    "name": "Songs & compositions",
+    "root": "Q7366",
+    "roots": [
+      "Q7366",
+      "Q207628",
+      "Q105543609",
+      "Q134556",
+      "Q55850593"
+    ],
+    "cacheKey": "music-v2"
   },
   {
     "slug": "novels",

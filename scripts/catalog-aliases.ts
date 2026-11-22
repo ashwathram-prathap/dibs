@@ -12,6 +12,15 @@ export function commonNamePlurals(name: string) {
   return [
     ...new Set([
       pluralize(name),
+      pluralize.singular(name),
+      ...(name.match(/^(.*?) (of|in) (.+)$/i)
+        ? [
+            name.replace(
+              /^(.*?) (of|in) (.+)$/i,
+              (_, head, join, tail) => pluralize(head) + ' ' + join + ' ' + tail,
+            ),
+          ]
+        : []),
       ...(Object.hasOwn(alternatives, match[2].toLowerCase())
         ? alternatives[match[2].toLowerCase()]
         : []

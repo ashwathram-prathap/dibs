@@ -6,6 +6,7 @@ export function usableCatalogName(value: unknown): value is string {
     value.trim().length > 0 &&
     value.trim().length <= 120 &&
     !offensive.test(value) &&
+    !value.includes('\uFFFD') &&
     !/^(?:Q\d+|unknown|unnamed|untitled|not known|no name)$/i.test(value.trim())
   );
 }

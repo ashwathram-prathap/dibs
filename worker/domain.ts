@@ -1,5 +1,20 @@
 import { DROP_TIME_LOCAL, DROP_TIME_ZONE } from '../shared/config';
+// Proper names retain their spelling: Cars and Car are different answers.
 export function normalize(value: string) {
+  return value
+    .normalize('NFKD')
+    .replace(/\p{M}/gu, '')
+    .toLowerCase()
+    .replace(/['’]/g, '')
+    .replace(/[^\p{L}\p{N}\s]/gu, ' ')
+    .trim()
+    .split(/\s+/)
+    .map((word) => (word === 'st' ? 'saint' : word))
+    .join('');
+}
+// Existing D1 registers and common-noun source deduplication use the legacy fold.
+// New static registers accept plurals through explicit aliases instead.
+export function normalizeCommonName(value: string) {
   let s = value
     .normalize('NFKD')
     .replace(/\p{M}/gu, '')

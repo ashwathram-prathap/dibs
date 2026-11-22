@@ -1,3 +1,4 @@
+import { bestReadership } from './catalog-ranking';
 import {
   readFileSync,
   writeFileSync,
@@ -10,7 +11,7 @@ import { createHash } from 'node:crypto';
 import { pageMatchesScope } from './catalog-quality';
 import { cleanReferenceRows } from './catalog-cleaning';
 import { commonNamePlurals } from './catalog-aliases';
-import { normalize } from '../worker/domain';
+import { normalize, normalizeCommonName } from '../worker/domain';
 // Every source row is considered; documented quality filters are applied after popularity assessment.
 const onlySlugs = process.argv
   .find((a) => a.startsWith('--only='))
@@ -38,7 +39,7 @@ raw.countries = iso.iso31661.map((r: any) => ({
 if (onlySlugs) for (const slug of Object.keys(raw)) if (!onlySlugs.includes(slug)) delete raw[slug];
 const overrides: Record<string, Record<string, string[]>> = {
   animals: {
-    Cat: ['Domestic cat', 'House cat', 'Felis catus', 'Felis domesticus'],
+    Cat: ['Domestic cat', 'House cat', 'Felis catus', 'Felis domesticus', 'Felis silvestris catus'],
     Dog: ['Domestic dog', 'Pooch', 'Canis familiaris'],
     Chicken: ['Domestic fowl', 'Cockerel', 'Pullet', 'Rooster', 'Hen'],
     Tiger: ['Tigress'],
@@ -111,14 +112,24 @@ const supplement = existsSync('scripts/r8-common-names.json')
 const catalogs: Record<string, any[]> = {};
 for (const [slug, unclean] of Object.entries(raw) as any) {
   const categoryLabels: Record<string, string[]> = {
+    animals: ['animal'],
     birds: ['bird'],
     plants: ['plant'],
     foods: ['food'],
     'fruits-vegetables': ['ediblefruit', 'fruit', 'vegetable'],
   };
   const input = cleanReferenceRows(unclean).filter(
-    (r) => !(categoryLabels[slug] || []).includes(normalize(r.display)),
+    (r) => !(categoryLabels[slug] || []).includes(normalizeCommonName(r.display)),
   );
+  const commonNames = [
+    'animals',
+    'birds',
+    'plants',
+    'foods',
+    'fruits-vegetables',
+    'arthropods',
+  ].includes(slug);
+  const sourceKey = commonNames ? normalizeCommonName : normalize;
   const used = new Set<string>();
   const rows: any[] = [];
   const replacements = Object.entries(overrides[slug] || {}).map(([display, aliases]) => ({
@@ -135,35 +146,46 @@ for (const [slug, unclean] of Object.entries(raw) as any) {
     })),
     ...input.sort((a: any, b: any) => (b.population || 0) - (a.population || 0)),
   ];
+  // Explicit editorial renames identify the same entity; source aliases alone
+  // must never merge two distinct people, places or work titles.
+  const editorialOwners = new Map(
+    replacements.flatMap((row) => row.aliases.map((alias) => [sourceKey(alias), row] as const)),
+  );
+  const exactOwner = new Map<string, any>();
   const byKey = new Map<string, any>();
   const aliasOwner = new Map<string, any>();
   const taxonOwner = new Map<string, any>();
   for (const a of ordered) {
-    const key = normalize(a.display);
+    if (a.wikipediaTitle) a.wikipediaTitles = [a.wikipediaTitle];
+    const key = sourceKey(a.display);
     if (!key) continue;
     const scientific = a.scientificName ? normalize(a.scientificName) : '';
     const prev =
+      exactOwner.get(normalize(a.display)) ||
       byKey.get(key) ||
+      (editorialOwners.has(key) && byKey.get(sourceKey(editorialOwners.get(key)!.display))) ||
       (scientific && taxonOwner.get(scientific)) ||
-      (!['cities', 'mountains', 'rivers', 'lakes', 'islands', 'stations', 'airports'].includes(
-        slug,
-      ) &&
-        aliasOwner.get(key));
+      (commonNames && a.scientificName && aliasOwner.get(sourceKey(a.scientificName)));
     if (prev) {
       if (!prev.wikipediaTitle && a.wikipediaTitle) prev.wikipediaTitle = a.wikipediaTitle;
+      prev.wikipediaTitles = [
+        ...new Set([...(prev.wikipediaTitles || []), ...(a.wikipediaTitles || [])]),
+      ];
       prev.aliases.push(a.display, ...a.aliases);
       byKey.set(key, prev);
+      exactOwner.set(normalize(a.display), prev);
       if (scientific) taxonOwner.set(scientific, prev);
       for (const alias of a.aliases)
-        if (!byKey.has(normalize(alias)) && !aliasOwner.has(normalize(alias)))
-          aliasOwner.set(normalize(alias), prev);
+        if (!byKey.has(sourceKey(alias)) && !aliasOwner.has(sourceKey(alias)))
+          aliasOwner.set(sourceKey(alias), prev);
       continue;
     }
     byKey.set(key, a);
+    exactOwner.set(normalize(a.display), a);
     if (scientific) taxonOwner.set(scientific, a);
     rows.push(a);
     for (const alias of a.aliases)
-      if (!aliasOwner.has(normalize(alias))) aliasOwner.set(normalize(alias), a);
+      if (!aliasOwner.has(sourceKey(alias))) aliasOwner.set(sourceKey(alias), a);
   }
   if (['animals', 'birds', 'plants', 'foods', 'fruits-vegetables', 'arthropods'].includes(slug)) {
     const genera = new Set(
@@ -197,13 +219,22 @@ for (const [slug, unclean] of Object.entries(raw) as any) {
         }
       }
     }
+  // A canonical noun owns its inflections before any ambiguous source alias.
+  const inflectionOwners = new Map<string, any>();
+  if (commonNames)
+    for (const a of rows)
+      for (const name of commonNamePlurals(a.display)) {
+        const key = normalize(name);
+        if (!inflectionOwners.has(key)) inflectionOwners.set(key, a);
+      }
   for (const a of rows) used.add(normalize(a.display));
   for (const a of rows) {
     a.canonical = normalize(a.display);
     a.display = a.display[0].toUpperCase() + a.display.slice(1);
     a.aliases = [...new Set(a.aliases as string[])].filter((x: any) => {
       const key = normalize(x);
-      if (!key || used.has(key)) return false;
+      if (!key || used.has(key) || (inflectionOwners.has(key) && inflectionOwners.get(key) !== a))
+        return false;
       used.add(key);
       return true;
     });
@@ -229,8 +260,13 @@ const saveRankingCache = () => {
 };
 const title = (s: string) => s[0].toUpperCase() + s.slice(1);
 const titleOverrides = JSON.parse(readFileSync('scripts/r8-page-titles.json', 'utf8'));
-const measurementTitle = (a: any, slug: string) =>
-  titleOverrides[slug]?.[a.display] || a.wikipediaTitle || a.scientificName || title(a.display);
+const measurementTitles = (a: any, slug: string): string[] =>
+  titleOverrides[slug]?.[a.display]
+    ? [titleOverrides[slug][a.display]]
+    : a.wikipediaTitles?.length
+      ? a.wikipediaTitles
+      : [a.wikipediaTitle || a.scientificName || title(a.display)];
+const measurementTitle = (a: any, slug: string) => measurementTitles(a, slug)[0];
 const priority = new Set(
   readdirSync('review/coverage')
     .filter((f) => f.endsWith('.txt'))
@@ -244,14 +280,16 @@ const priority = new Set(
 const independentPools = existsSync('.category-cache/r8/independent-pools.json')
   ? JSON.parse(readFileSync('.category-cache/r8/independent-pools.json', 'utf8'))
   : {};
-const extraTitles: string[] = Object.values(independentPools).flatMap((rows: any) =>
-  rows.map((r: any) => (typeof r === 'string' ? r : r.title || r.name)),
-);
+const extraTitles: string[] = Object.entries(independentPools)
+  .filter(([slug]) => !onlySlugs || onlySlugs.includes(slug))
+  .flatMap(([, rows]: any) =>
+    rows.map((r: any) => (typeof r === 'string' ? r : r.title || r.name)),
+  );
 for (const t of extraTitles) priority.add(t);
 const allTitles = [
   ...new Set([
     ...Object.entries(catalogs).flatMap(([slug, rows]) =>
-      rows.map((a) => measurementTitle(a, slug)),
+      rows.flatMap((a) => measurementTitles(a, slug)),
     ),
     ...extraTitles,
   ]),
@@ -283,8 +321,19 @@ if (allTitles.length > 500000 && !knownTitles)
   throw Error(
     'Regenerate the complete measurement queue and title inventory before ranking large reference sets.',
   );
+const confirmedGaps = new Set(
+  JSON.parse(readFileSync('scripts/r8-confirmed-pageview-gaps.json', 'utf8')).titles,
+);
 const pageviewsFor = (t: string) =>
-  cache[t] ||
+  (!cache[t]?.days && (confirmedGaps.has(t) || confirmedGaps.has(cache[t]?.title))
+    ? {
+        total: null,
+        days: 0,
+        title: cache[t]?.title || t,
+        status: 'confirmed no pageview data',
+        evidence: 'review/round8/pageview-gaps.json',
+      }
+    : cache[t]) ||
   (absentFromInventory(t)
     ? {
         total: 0,
@@ -296,8 +345,8 @@ const pageviewsFor = (t: string) =>
 if (process.argv.includes('--status')) {
   for (const [slug, rows] of Object.entries(catalogs)) {
     const pending = rows.filter((r) =>
-      ['unavailable', 'measurement unavailable'].includes(
-        pageviewsFor(measurementTitle(r, slug)).status,
+      measurementTitles(r, slug).some((t) =>
+        ['unavailable', 'measurement unavailable'].includes(pageviewsFor(t).status),
       ),
     );
     console.log(
@@ -519,11 +568,10 @@ const scopes: any = {
 };
 for (const [slug, answers] of Object.entries(catalogs)) {
   const candidateCount = answers.length;
-  const rankingComplete = answers.every(
-    (a) =>
-      !['unavailable', 'measurement unavailable'].includes(
-        pageviewsFor(measurementTitle(a, slug)).status,
-      ),
+  const rankingComplete = answers.every((a) =>
+    measurementTitles(a, slug).every(
+      (t) => !['unavailable', 'measurement unavailable'].includes(pageviewsFor(t).status),
+    ),
   );
   const geographicQuality = ['mountains', 'rivers', 'lakes', 'islands', 'stations'].includes(slug);
   if (slug === 'foods') {
@@ -539,8 +587,28 @@ for (const [slug, answers] of Object.entries(catalogs)) {
         answers.splice(i, 1);
     }
   }
+  const commonDomain = [
+    'animals',
+    'birds',
+    'plants',
+    'foods',
+    'fruits-vegetables',
+    'arthropods',
+  ].includes(slug);
+  const articleOwners = new Map<string, any>();
+  if (commonDomain)
+    for (const a of answers)
+      for (const name of [a.display, ...a.aliases]) articleOwners.set(normalize(name), a);
   for (const a of answers) {
-    a.pageviews = pageviewsFor(measurementTitle(a, slug));
+    a.pageviews = bestReadership(measurementTitles(a, slug).map(pageviewsFor));
+    const resolvedOwner = articleOwners.get(normalize(a.pageviews.title || ''));
+    if (resolvedOwner && resolvedOwner !== a)
+      a.pageviews = {
+        total: null,
+        days: 0,
+        title: a.pageviews.title,
+        status: 'shared article; readership attributed to its own accepted name',
+      };
     const m = metadata[a.pageviews.title];
     if (
       !pageMatchesScope(

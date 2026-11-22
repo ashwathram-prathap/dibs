@@ -8,14 +8,35 @@
     "license": "https://www.wikidata.org/wiki/Wikidata:Data_access"
   },
   "films": {
-    "complete": false,
-    "stage": "full candidate IDs",
-    "errors": [
-      {
-        "stage": "exhaustive subclass and ordered-page fallback",
-        "error": "Error: Truncated ordered ID page Q130232 0"
-      }
-    ],
-    "resolution": "Prior ID requests returned XML despite the TSV format request. JSON content negotiation is now explicit; retrying the complete extraction. This parser failure is not a missing-source block."
+    "complete": true,
+    "candidateCount": 453838,
+    "scanned": 453838,
+    "englishArticles": 181786,
+    "method": "All uncapped classification IDs, complete bounded joins; English Wikipedia article availability is the stated quality filter, never a result-count cutoff.",
+    "license": "https://www.wikidata.org/wiki/Wikidata:Data_access"
+  },
+  "bands": {
+    "complete": true,
+    "candidateCount": 115895,
+    "scanned": 115895,
+    "englishArticles": 47417,
+    "method": "All uncapped classification IDs, complete bounded joins; English Wikipedia article availability is the stated quality filter, never a result-count cutoff.",
+    "license": "https://www.wikidata.org/wiki/Wikidata:Data_access"
+  },
+  "albums": {
+    "complete": true,
+    "candidateCount": 315632,
+    "scanned": 315632,
+    "englishArticles": 161973,
+    "method": "All uncapped classification IDs, complete bounded joins; English Wikipedia article availability is the stated quality filter, never a result-count cutoff.",
+    "license": "https://www.wikidata.org/wiki/Wikidata:Data_access"
+  },
+  "songs": {
+    "complete": true,
+    "candidateCount": 34112,
+    "scanned": 34112,
+    "englishArticles": 9696,
+    "method": "All uncapped classification IDs, complete bounded joins; English Wikipedia article availability is the stated quality filter, never a result-count cutoff.",
+    "license": "https://www.wikidata.org/wiki/Wikidata:Data_access"
   }
 }

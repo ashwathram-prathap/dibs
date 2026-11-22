@@ -16,7 +16,7 @@ self.onmessage = async ({ data }) => {
     const candidates = await Promise.all(
       Array.from({ length: 5 }, async (_, i) => {
         const length = key.length + i - 2;
-        if (length < 1 || length > 96) return null;
+        if (length < 1 || length > 120) return null;
         const response = await fetch(base + `typos-${length}.json`);
         if (!response.ok) return null;
         const tree: TypoNode[] = await response.json();

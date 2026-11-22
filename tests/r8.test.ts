@@ -1,5 +1,5 @@
 import { it, expect } from 'vitest';
-import { normalize } from '../worker/domain';
+import { normalize, normalizeCommonName } from '../worker/domain';
 import { fileKey, normalizeFileKey, hmac } from '../worker/identity';
 import { shardFor, editDistance } from '../shared/catalog';
 import { categoryPlural } from '../shared/category-copy';
@@ -13,7 +13,7 @@ it('normalizes intended plurals, accents and Saint abbreviations', () => {
     ['St. Louis', 'Saint Louis'],
     ['Montréal', 'Montreal'],
   ])
-    expect(normalize(a)).toBe(normalize(b));
+    expect(normalizeCommonName(a)).toBe(normalizeCommonName(b));
 });
 it('creates stable high-entropy file keys and stores only a one-way digest', async () => {
   const a = await fileKey('one', 'test-key'),
@@ -36,4 +36,25 @@ it('uses a proper plural noun for every catalog, including practice Animals', ()
     expect(categoryPlural(c).length).toBeGreaterThan(2);
   }
   expect(categoryPlural({ name: 'PRACTICE', slug: 'animals' })).toBe('animals');
+});
+
+it('accepts explicit plural aliases without conflating proper-name titles', () => {
+  const category = JSON.parse(readFileSync('categories/animals.json', 'utf8'));
+  const owners = new Map(
+    category.answers.flatMap((a: any, i: number) =>
+      [a.display, ...a.aliases].map((s: string) => [normalize(s), i]),
+    ),
+  );
+  for (const [singular, plural] of [
+    ['Wolf', 'Wolves'],
+    ['Mouse', 'Mice'],
+    ['Octopus', 'Octopi'],
+    ['Octopus', 'Octopuses'],
+    ['Kangaroo', 'Kangaroos'],
+  ]) {
+    expect(owners.has(normalize(singular))).toBe(true);
+    expect(owners.get(normalize(singular))).toBe(owners.get(normalize(plural)));
+  }
+  expect(normalize('Cars')).not.toBe(normalize('Car'));
+  expect(normalize('Dreams')).not.toBe(normalize('Dream'));
 });

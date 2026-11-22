@@ -1,0 +1,13 @@
+{
+  "checkedAt": "2026-11-22",
+  "titles": [
+    "Trachylepidia",
+    "Trachylepidia fructicassiella",
+    "Barleeia unifasciata",
+    "Penstemon nanus",
+    "Penstemon wrightii",
+    "Gerrardina foliosa"
+  ],
+  "evidence": "review/round8/pageview-gaps.json",
+  "decision": "The articles exist, but 30-day and 60-day PageViewInfo requests return only nulls and the REST endpoint explicitly reports no data. Keep these answers accepted with unknown popularity, exclude them from house selection, and prefer real readership data if later available. This is completed verification of missing data, not a fabricated zero-view measurement."
+}

@@ -981,6 +981,8 @@ footer {
     0.75rem/2 Plex,
     monospace;
   min-width: 25px;
+  flex-shrink: 0;
+  white-space: nowrap;
 }
 .rules li:last-child {
   border-bottom: 1px solid var(--ink);
@@ -1456,7 +1458,7 @@ footer {
     margin-bottom: 28px;
   }
   .page-heading h1 {
-    font-size: 3.0625rem;
+    font-size: clamp(2rem, 13vw, 3.0625rem);
     margin: 22px 0;
     line-height: 1.02;
   }
@@ -1498,7 +1500,7 @@ footer {
     padding: 23px;
   }
   .office-note h2 {
-    font-size: 2.25rem;
+    font-size: clamp(1.25rem, 7.2vw, 2.25rem);
   }
   .certificate {
     padding: 22px 21px 17px;

@@ -39,13 +39,13 @@
     "Cat",
     "Lamprey",
     "Dog",
+    "Human",
     "Axolotl",
-    "Animals",
     "Squirrel",
     "Capybara",
-    "Greater Capybara",
     "Dinosaur",
-    "Bigg's Killer Whale"
+    "Orca",
+    "Horse"
   ],
   "architects": [
     "Thomas Jefferson",
@@ -63,8 +63,8 @@
     "Tardigrade",
     "Silverfish",
     "Bedbug",
+    "Charcoal Bee Flies",
     "Mantis",
-    "Praying mantis",
     "Spider",
     "Centipede",
     "Barnacle",
@@ -98,14 +98,14 @@
   "birds": [
     "Dodo",
     "Chicken",
-    "Domestic Chicken",
     "Cassowary",
     "Penguin",
     "Shoebill",
     "Moa",
-    "Arctic peregrine falcon",
-    "Eurasian Peregrine Falcon",
-    "Peregrine Falcon (African)"
+    "Peregrine Falcon",
+    "Turkey",
+    "Turkey cock",
+    "Bald eagle"
   ],
   "castles": [
     "Neuschwanstein Castle",
@@ -121,15 +121,15 @@
   ],
   "cities": [
     "New York",
+    "Washington D.C.",
     "Los Angeles",
     "Krakow",
     "London",
     "Chicago",
     "Berlin",
-    "Paris",
-    "Tokyo",
-    "Jerusalem",
-    "Shenzhen"
+    "Brooklyn",
+    "Milwaukee",
+    "Paris"
   ],
   "composers": [
     "Amanda Seyfried",
@@ -171,13 +171,13 @@
     "Persimmon",
     "Quince",
     "Apple",
+    "Coffee",
+    "Ginkgo",
     "Bread",
     "Banana",
     "Ice cream",
     "Chocolate",
-    "Shawarma",
-    "Tea",
-    "Potato"
+    "Shawarma"
   ],
   "footballers": [
     "Cristiano Ronaldo",
@@ -192,16 +192,16 @@
     "David Beckham"
   ],
   "fruits-vegetables": [
-    "Persimmon",
     "Quince",
     "Apple",
     "Ginkgo",
-    "Banana",
     "Potato",
     "Pumpkin",
-    "Pumpkin flower",
     "Cassava",
-    "Corn"
+    "Maize",
+    "Pomegranate",
+    "Tomato",
+    "Avocado"
   ],
   "islands": [
     "Guam",
@@ -288,16 +288,16 @@
     "Nighthawks (Hopper)"
   ],
   "plants": [
-    "Persimmon",
     "Quince",
-    "Apple",
-    "Banana",
-    "Potato",
+    "Marijuana",
     "Pumpkin",
     "Cassava",
-    "Corn",
-    "Pomegranate",
-    "Tomato"
+    "Tomato",
+    "Avocado",
+    "Saffron",
+    "Pomelo",
+    "Tree",
+    "Peanut"
   ],
   "poets": [
     "James Stewart",

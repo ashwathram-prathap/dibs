@@ -39,12 +39,13 @@ for (const def of defs) {
     continue;
   if (
     report[def.slug]?.complete &&
+    report[def.slug]?.cacheKey === def.cacheKey &&
     existsSync('.category-cache/r8/other-references/' + def.slug + '.json')
   ) {
     console.log(def.slug, 'already complete; preserving enriched aliases');
     continue;
   }
-  const folder = dir + '/' + def.slug;
+  const folder = dir + '/' + def.slug + (def.cacheKey ? '-' + def.cacheKey : '');
   mkdirSync(folder, { recursive: true });
   let ids: string[] = [];
   const idFile = folder + '/ids.json';
@@ -101,7 +102,12 @@ for (const def of defs) {
       }
     }
     if (!ids.length) {
-      report[def.slug] = { complete: false, stage: 'full candidate IDs', errors };
+      report[def.slug] = {
+        cacheKey: def.cacheKey,
+        complete: false,
+        stage: 'full candidate IDs',
+        errors,
+      };
       writeFileSync(reportFile, JSON.stringify(report, null, 2));
       continue;
     }
@@ -139,6 +145,7 @@ for (const def of defs) {
         continue;
       }
       report[def.slug] = {
+        cacheKey: def.cacheKey,
         complete: false,
         stage: 'bounded candidate batch',
         candidateCount: ids.length,
@@ -162,6 +169,7 @@ for (const def of defs) {
     writeFileSync(file, JSON.stringify({ scanned: batch.length, rows: entries }));
     cursor += batch.length;
     report[def.slug] = {
+      cacheKey: def.cacheKey,
       complete: false,
       candidateCount: ids.length,
       scanned: cursor,
@@ -180,6 +188,7 @@ for (const def of defs) {
       JSON.stringify(rows),
     );
     report[def.slug] = {
+      cacheKey: def.cacheKey,
       ...report[def.slug],
       complete: true,
       candidateCount: ids.length,

@@ -1,3 +1,4 @@
+import { acceptedVerification } from './turnstile';
 import { catalogMeta, lookup, nearMiss, answerId, persistAnswer } from './catalog';
 import { ensureSpecials, specialStatus } from './specials';
 import {
@@ -16,6 +17,7 @@ import { PUBLIC_ORIGIN } from '../shared/config';
 import { handle, hmac, cookieUser, constantEqual, sessionCookie } from './identity';
 import {
   normalize,
+  normalizeCommonName,
   registryDate,
   nextDrop,
   streak,
@@ -729,11 +731,7 @@ async function claim(req: Request, env: Env, u: any) {
       body: new URLSearchParams({ secret: env.TURNSTILE_SECRET, response: b.turnstileToken }),
     });
     const verified = (await response.json()) as any;
-    if (
-      !verified.success ||
-      verified.hostname !== new URL(PUBLIC_ORIGIN).hostname ||
-      verified.action !== 'claim'
-    )
+    if (!acceptedVerification(verified, env, PUBLIC_ORIGIN))
       return fail(400, 'Verification was not accepted. Please try again.');
   }
   const staticRow = catalogMeta(g) ? await lookup(g, b.answer) : null;
@@ -742,7 +740,7 @@ async function claim(req: Request, env: Env, u: any) {
       ? { answer_id: answerId(g, staticRow) }
       : null
     : await env.DB.prepare('SELECT answer_id FROM answer_keys WHERE category_id=? AND match_key=?')
-        .bind(g.id, normalize(b.answer))
+        .bind(g.id, normalizeCommonName(b.answer))
         .first<any>();
   if (!answer)
     return json(
@@ -874,6 +872,8 @@ async function claim(req: Request, env: Env, u: any) {
 }
 export function safeError(e: unknown, env: Env): Response {
   if (env.LOCAL_TEST === 'true') console.error(e);
+  else if (env.STAGING === 'true')
+    console.error('Practice request failed:', String(e).slice(0, 500));
   if (/free tier daily|daily row read limit|daily row write limit|7500/i.test(String(e))) {
     const reset = new Date();
     reset.setUTCHours(24, 0, 0, 0);

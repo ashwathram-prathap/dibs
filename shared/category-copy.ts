@@ -26,7 +26,7 @@ export function categoryPlural(category: { slug: string; name: string }) {
     bands: 'music groups',
     asteroids: 'asteroids and minor planets',
     museums: 'museums',
-    songs: 'songs',
+    songs: 'songs and compositions',
     universities: 'universities',
     television: 'television shows',
     stations: 'railway stations',

@@ -13,7 +13,12 @@ it('builds the real game title Constructor without treating a prototype property
       JSON.stringify({
         slug: 'video-games',
         provenance: { identityPolicy: 'complete-reference-v2', scopeNote: 'Test fixture' },
-        answers: [{ display: 'Constructor', aliases: [], obscurity: 3, source: 'test' }],
+        answers: ['Constructor', 'Cars', 'Car', 'Dreams', 'Dream'].map((display) => ({
+          display,
+          aliases: [],
+          obscurity: 3,
+          source: 'test',
+        })),
       }),
     );
     execFileSync(
@@ -31,8 +36,14 @@ it('builds the real game title Constructor without treating a prototype property
     const index = JSON.parse(
       readFileSync(dir + '/public/catalog/video-games/' + manifest.version + '/full.json', 'utf8'),
     );
-    expect(index.keys).toEqual(['constructor']);
-    expect(index.rows).toEqual([[0, 'Constructor', 3]]);
+    expect(index.keys).toEqual(['car', 'cars', 'constructor', 'dream', 'dreams']);
+    expect(index.rows.map((row: any[]) => row[1])).toEqual([
+      'Constructor',
+      'Cars',
+      'Car',
+      'Dreams',
+      'Dream',
+    ]);
   } finally {
     rmSync(dir, { recursive: true, force: true });
   }
