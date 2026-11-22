@@ -1,0 +1,47 @@
+{
+  "painters": {
+    "complete": true,
+    "at": "2026-11-22T08:42:56.522Z",
+    "allStatementCandidates": 253617,
+    "additionalCandidates": 350,
+    "eligibleAdditional": 84,
+    "added": 0,
+    "method": "Complete instance occupation statement paths, every uncapped class independently counted; bounded validation of additional IDs excludes deprecated statements and applies the English article quality filter. No global anti-join or result cap."
+  },
+  "poets": {
+    "complete": true,
+    "at": "2026-11-22T08:42:56.596Z",
+    "allStatementCandidates": 144816,
+    "additionalCandidates": 151,
+    "eligibleAdditional": 81,
+    "added": 0,
+    "method": "Complete instance occupation statement paths, every uncapped class independently counted; bounded validation of additional IDs excludes deprecated statements and applies the English article quality filter. No global anti-join or result cap."
+  },
+  "composers": {
+    "complete": true,
+    "at": "2026-11-22T08:43:36.839Z",
+    "allStatementCandidates": 181177,
+    "additionalCandidates": 279,
+    "eligibleAdditional": 125,
+    "added": 125,
+    "method": "Complete instance occupation statement paths, every uncapped class independently counted; bounded validation of additional IDs excludes deprecated statements and applies the English article quality filter. No global anti-join or result cap."
+  },
+  "actors": {
+    "complete": true,
+    "at": "2026-11-22T08:46:26.472Z",
+    "allStatementCandidates": 502908,
+    "additionalCandidates": 781,
+    "eligibleAdditional": 291,
+    "added": 291,
+    "method": "Complete instance occupation statement paths, every uncapped class independently counted; bounded validation of additional IDs excludes deprecated statements and applies the English article quality filter. No global anti-join or result cap."
+  },
+  "architects": {
+    "complete": true,
+    "at": "2026-11-22T08:51:26.938Z",
+    "allStatementCandidates": 112923,
+    "additionalCandidates": 104,
+    "eligibleAdditional": 24,
+    "added": 6,
+    "method": "Complete instance occupation statement paths, every uncapped class independently counted; bounded validation of additional IDs excludes deprecated statements and applies the English article quality filter. No global anti-join or result cap."
+  }
+}

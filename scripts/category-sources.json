@@ -44,28 +44,16 @@
     "slug": "albums",
     "name": "Albums & EPs",
     "root": "Q482994",
-    "roots": [
-      "Q482994",
-      "Q169930"
-    ],
+    "roots": ["Q482994", "Q169930"],
     "cacheKey": "albums-ep-v2"
   },
   {
     "slug": "songs",
     "name": "Songs & compositions",
     "root": "Q7366",
-    "roots": [
-      "Q7366",
-      "Q207628",
-      "Q105543609",
-      "Q134556",
-      "Q55850593"
-    ],
+    "roots": ["Q7366", "Q207628", "Q105543609", "Q134556", "Q55850593"],
     "cacheKey": "music-form-v3",
-    "properties": [
-      "P31",
-      "P7937"
-    ],
+    "properties": ["P31", "P7937"],
     "englishOnlyCandidates": true,
     "preferClassGroups": true,
     "note": "Complete instance and form-of-creative-work classifications; English article availability is the quality filter, never a result-count cap."
@@ -74,16 +62,9 @@
     "slug": "novels",
     "name": "Novels & novellas",
     "root": "Q8261",
-    "roots": [
-      "Q8261",
-      "Q149537"
-    ],
+    "roots": ["Q8261", "Q149537"],
     "cacheKey": "novel-form-genre-v3",
-    "properties": [
-      "P31",
-      "P7937",
-      "P136"
-    ],
+    "properties": ["P31", "P7937", "P136"],
     "englishOnlyCandidates": true,
     "preferClassGroups": true,
     "note": "Complete instance, form-of-creative-work and genre classifications; no arbitrary result cap."
@@ -92,10 +73,7 @@
     "slug": "video-games",
     "name": "Video games & series",
     "root": "Q7889",
-    "roots": [
-      "Q7889",
-      "Q116741534"
-    ],
+    "roots": ["Q7889", "Q116741534"],
     "cacheKey": "named-games-groups-v2",
     "allowNamedWithoutArticle": true,
     "note": "Includes paired versions, compilations and series; named English/Latin-script source records without English articles remain accepted with unknown readership."
@@ -104,10 +82,7 @@
     "slug": "television",
     "name": "TV shows",
     "root": "Q5398426",
-    "roots": [
-      "Q5398426",
-      "Q3464665"
-    ],
+    "roots": ["Q5398426", "Q3464665"],
     "cacheKey": "named-seasons-v2",
     "englishOnlyCandidates": true,
     "preferClassGroups": true,
@@ -117,10 +92,10 @@
     "slug": "mountains",
     "name": "Mountains",
     "root": "Q8502",
-    "cacheKey": "geonames-complement-v1",
+    "cacheKey": "geonames-complement-v2",
     "englishOnlyCandidates": true,
-    "preferClassGroups": true,
-    "referenceSuffix": "-wikidata"
+    "referenceSuffix": "-wikidata",
+    "roots": ["Q8502", "Q8072", "Q46831", "Q207326"]
   },
   {
     "slug": "rivers",
@@ -128,7 +103,6 @@
     "root": "Q4022",
     "cacheKey": "geonames-complement-v1",
     "englishOnlyCandidates": true,
-    "preferClassGroups": true,
     "referenceSuffix": "-wikidata"
   },
   {
@@ -137,7 +111,6 @@
     "root": "Q23397",
     "cacheKey": "geonames-complement-v1",
     "englishOnlyCandidates": true,
-    "preferClassGroups": true,
     "referenceSuffix": "-wikidata"
   },
   {
@@ -146,7 +119,6 @@
     "root": "Q23442",
     "cacheKey": "geonames-complement-v1",
     "englishOnlyCandidates": true,
-    "preferClassGroups": true,
     "referenceSuffix": "-wikidata"
   },
   {
@@ -173,7 +145,6 @@
     "root": "Q55488",
     "cacheKey": "geonames-complement-v1",
     "englishOnlyCandidates": true,
-    "preferClassGroups": true,
     "referenceSuffix": "-wikidata"
   },
   {
@@ -193,12 +164,7 @@
     "slug": "castles",
     "name": "Castles, forts & palaces",
     "root": "Q23413",
-    "roots": [
-      "Q23413",
-      "Q57821",
-      "Q16560",
-      "Q879050"
-    ],
+    "roots": ["Q23413", "Q57821", "Q16560", "Q879050"],
     "cacheKey": "castles-forts-palaces-v2",
     "englishOnlyCandidates": true,
     "preferClassGroups": true
@@ -244,14 +210,8 @@
     "slug": "paintings",
     "name": "Paintings & series",
     "root": "Q3305213",
-    "roots": [
-      "Q3305213",
-      "Q18573970",
-      "Q15727816",
-      "Q16905563"
-    ],
+    "roots": ["Q3305213", "Q18573970", "Q15727816", "Q16905563"],
     "cacheKey": "paintings-series-v2",
-    "englishOnlyCandidates": true,
-    "preferClassGroups": true
+    "englishOnlyCandidates": true
   }
 ]

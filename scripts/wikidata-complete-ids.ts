@@ -149,18 +149,49 @@ export async function completeIdsByClass(
     // A single direct-class query is often cheap even when the transitive union
     // times out. Prefer its consistent snapshot to paging a live, edited set.
     try {
-      const text = await ask(`SELECT DISTINCT ?item WHERE { ${pattern} }`, 'tsv');
+      const text = await ask(
+        `SELECT DISTINCT ?item WHERE { ${pattern} } # snapshot ${Date.now()}`,
+        'tsv',
+      );
       const lines = text.trim().split('\n');
       if (
         lines[0] !== '?item' ||
         !lines.slice(1).every((s) => /^<http:\/\/www.wikidata.org\/entity\/Q\d+>$/.test(s))
       )
         throw Error('Invalid direct-class table');
-      const direct = [...new Set(lines.slice(1).map((s) => s.match(/Q\d+/)![0]))];
-      if (direct.length !== expected) throw Error('Direct-class count changed');
+      let direct = [...new Set(lines.slice(1).map((s) => s.match(/Q\d+/)![0]))];
+      const checkedCount = Number(
+        JSON.parse(
+          await ask(
+            `SELECT (COUNT(DISTINCT ?item) AS ?count) WHERE { ${pattern} } # snapshot ${Date.now()}`,
+          ),
+        ).results?.bindings?.[0]?.count?.value,
+      );
+      if (direct.length !== checkedCount) {
+        // Busy classes can change between two HTTP requests. Keep the uncapped
+        // membership query and an independent COUNT in one database snapshot.
+        const snapshot = JSON.parse(
+          await ask(
+            `SELECT DISTINCT ?item ?expected WHERE { { SELECT (COUNT(DISTINCT ?item) AS ?expected) WHERE { ${pattern} } } ${pattern} } # snapshot ${Date.now()}`,
+          ),
+        );
+        const bindings = snapshot.results?.bindings;
+        if (!Array.isArray(bindings) || !bindings.length)
+          throw Error('Missing counted membership snapshot');
+        direct = [...new Set<string>(bindings.map((row: any) => row.item.value.split('/').at(-1)))];
+        if (
+          !direct.every((id) => /^Q\d+$/.test(id)) ||
+          bindings.some((row: any) => Number(row.expected?.value) !== direct.length)
+        )
+          throw Error('Counted membership snapshot mismatch');
+      }
       writeFileSync(
         file,
-        JSON.stringify({ expected, method: 'uncapped direct-class query', ids: direct }),
+        JSON.stringify({
+          expected: direct.length,
+          method: 'uncapped direct-class query with fresh independent count',
+          ids: direct,
+        }),
       );
       for (const id of direct) ids.add(id);
       audit.push({ type, count: direct.length, method: 'uncapped direct-class query' });

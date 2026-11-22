@@ -1,4 +1,11 @@
-import { readFileSync, writeFileSync, existsSync, mkdirSync, renameSync } from 'node:fs';
+import {
+  readFileSync,
+  writeFileSync,
+  existsSync,
+  mkdirSync,
+  renameSync,
+  unlinkSync,
+} from 'node:fs';
 import { createHash } from 'node:crypto';
 import { pageMatchesScope } from './catalog-quality';
 import { mergeWikipediaPage } from './wiki-pages';
@@ -7,24 +14,71 @@ const definitions = JSON.parse(readFileSync('scripts/category-sources.json', 'ut
 if (!['airports', 'arthropods'].includes(slug) && !definitions.some((d: any) => d.slug === slug))
   throw Error('Unsupported reference domain');
 const path = '.category-cache/r8/other-references/' + slug + '.json';
+const lock = '.category-cache/r8/' + slug + '-wiki-alias.lock';
+while (true) {
+  try {
+    writeFileSync(lock, String(process.pid), { flag: 'wx' });
+    break;
+  } catch (error: any) {
+    if (error.code !== 'EEXIST') throw error;
+    const pid = Number(readFileSync(lock, 'utf8'));
+    let alive = false;
+    try {
+      if (pid > 0) {
+        process.kill(pid, 0);
+        alive = true;
+      }
+    } catch {}
+    if (!alive) {
+      unlinkSync(lock);
+      continue;
+    }
+    await new Promise((resolve) => setTimeout(resolve, 1000));
+  }
+}
+process.on('exit', () => {
+  if (existsSync(lock) && readFileSync(lock, 'utf8') === String(process.pid)) unlinkSync(lock);
+});
 const revision = definitions.find((d: any) => d.slug === slug)?.cacheKey || 'base';
 const basePath =
   '.category-cache/r8/' +
   slug +
   (['airports', 'arthropods'].includes(slug) ? '' : '-' + revision) +
   '-base-reference.json';
-const rows = existsSync(basePath)
-  ? JSON.parse(readFileSync(basePath, 'utf8'))
-  : existsSync(path)
-    ? JSON.parse(readFileSync(path, 'utf8'))
+const incremental = process.argv.includes('--incremental');
+const refreshBase = process.argv.includes('--refresh-base') || incremental;
+// Current references can acquire complete supplemental sources after the first
+// alias pass. Never replace those additions with an older baseline snapshot.
+const rows = existsSync(path)
+  ? JSON.parse(readFileSync(path, 'utf8'))
+  : existsSync(basePath)
+    ? JSON.parse(readFileSync(basePath, 'utf8'))
     : JSON.parse(readFileSync('.category-cache/r8/candidates.json', 'utf8'))[slug];
-if (!existsSync(basePath)) writeFileSync(basePath, JSON.stringify(rows));
+const previousReport = 'review/round8/' + slug + '-alias-extraction.json';
+if (
+  !refreshBase &&
+  existsSync(previousReport) &&
+  JSON.parse(readFileSync(previousReport, 'utf8')).complete &&
+  rows.every((r: any) => !r.wikipediaTitle || r.wikipediaAliasesComplete)
+) {
+  console.log(slug, 'all current reference article aliases already complete');
+  process.exit(0);
+}
+if (!existsSync(basePath) || refreshBase) writeFileSync(basePath, JSON.stringify(rows));
+const previouslyEnriched = rows.filter(
+  (r: any) => r.wikipediaTitle && r.wikipediaAliasesComplete,
+).length;
 if (slug === 'arthropods')
   for (const row of rows)
     row.wikipediaTitle ||=
       row.scientificName || row.display[0].toUpperCase() + row.display.slice(1);
 const titles: string[] = [
-  ...new Set<string>(rows.map((r: any) => r.wikipediaTitle).filter(Boolean)),
+  ...new Set<string>(
+    rows
+      .filter((r: any) => !incremental || !r.wikipediaAliasesComplete)
+      .map((r: any) => r.wikipediaTitle)
+      .filter(Boolean),
+  ),
 ];
 const dir = '.category-cache/r8/' + slug + '-wiki-aliases-scoped-v2';
 mkdirSync(dir, { recursive: true });
@@ -208,7 +262,7 @@ writeFileSync(
   'review/round8/' + slug + '-alias-extraction.json',
   JSON.stringify(
     {
-      complete: true,
+      complete: rows.every((r: any) => !r.wikipediaTitle || r.wikipediaAliasesComplete),
       source:
         'Full ' +
         slug +
@@ -216,6 +270,10 @@ writeFileSync(
       sourceRows: rows.length,
       articleTitles: titles.length,
       checked,
+      incremental,
+      previouslyEnriched,
+      enrichedArticleRows: rows.filter((r: any) => r.wikipediaTitle && r.wikipediaAliasesComplete)
+        .length,
       unrelatedOrMissingArticles: unrelated,
       at: new Date().toISOString(),
     },

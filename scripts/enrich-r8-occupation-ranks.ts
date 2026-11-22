@@ -3,7 +3,10 @@ import { completeIdsByClass } from './wikidata-complete-ids';
 const definitions = JSON.parse(readFileSync('scripts/category-sources.json', 'utf8')).filter(
   (d: any) => d.property === 'P106',
 );
-const report: Record<string, any> = {};
+const reportPath = 'review/round8/occupation-rank-extraction.json';
+const report: Record<string, any> = existsSync(reportPath)
+  ? JSON.parse(readFileSync(reportPath, 'utf8'))
+  : {};
 const sleep = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms));
 async function query(q: string, format = 'json'): Promise<string> {
   let error: unknown;

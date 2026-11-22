@@ -1,8 +1,8 @@
 - main:
   - region "Next drop countdown":
     - text: NEXT DROP
-    - paragraph: "Next drop: 12:01 PM ET"
-    - text: Next drop at 12:01 PM ET. 721 minutes remaining.
+    - paragraph: "Next drop: 3:44 PM ET"
+    - text: Next drop at 3:44 PM ET. 721 minutes remaining.
   - text: "Today's category:"
   - heading "Animals" [level=1]
   - paragraph: Name an animal nobody has claimed yet. First to call it owns it today.
@@ -14,7 +14,7 @@
     - strong: DIBS
     - paragraph: QUOKKA is yours. Your file is closed for today.
     - paragraph: 0 dibs and 3 strikes remaining.
-  - paragraph: 2,386 still up for grabs · last claim just now
+  - paragraph: 2,386 of 2,400 still open · last claim just now
   - list "How it works":
     - listitem: Call dibs on up to 3 animals.
     - listitem: Taken guesses cost a strike. 5 strikes and you’re out.
@@ -28,7 +28,7 @@
     - heading "File closed." [level=2]
     - paragraph:
       - text: 3/3 dibs · 2 strikes · filed
-      - time: 12:01 AM
+      - time: 3:44 AM
     - strong: DIBS 3 / 3
     - img "2 of 5 strikes"
     - text: 2 of 5 strikes used
@@ -37,7 +37,7 @@
       - listitem: 01 DOG Held by the Registry
       - listitem:
         - text: "02 Pangolin Taken by Rust Finch #12 at"
-        - time: 12:01 AM
+        - time: 3:44 AM
       - listitem:
         - text: "03"
         - link "Axolotl":
@@ -58,9 +58,9 @@
     - text: 1 day streak + ALL CLAIMS ENTIRELY CEREMONIAL. dibs.here +
   - button "SHARE"
   - link "X":
-    - /url: https://twitter.com/intent/tweet?text=Dibs+%231+%E2%96%A1%E2%96%A1%E2%96%A0%E2%96%A0%E2%96%A0+3%2F3+dibs+%C2%B7+2+strikes+%C2%B7+filed+12%3A01+AM+ET+%C2%B7+Next+drop%3A+9+PM+ET&url=https%3A%2F%2Fdibs.here%2Fsummary%2Ffixture-summary%3Fs%3Dx
+    - /url: https://twitter.com/intent/tweet?text=Dibs+%231+%E2%96%A1%E2%96%A1%E2%96%A0%E2%96%A0%E2%96%A0+3%2F3+dibs+%C2%B7+2+strikes+%C2%B7+filed+3%3A44+AM+ET+%C2%B7+Next+drop%3A+9+PM+ET&url=https%3A%2F%2Fdibs.here%2Fsummary%2Ffixture-summary%3Fs%3Dx
   - link "WhatsApp":
-    - /url: https://wa.me/?text=Dibs+%231+%E2%96%A1%E2%96%A1%E2%96%A0%E2%96%A0%E2%96%A0+3%2F3+dibs+%C2%B7+2+strikes+%C2%B7+filed+12%3A01+AM+ET+%C2%B7+Next+drop%3A+9+PM+ET+https%3A%2F%2Fdibs.here%2Fsummary%2Ffixture-summary%3Fs%3Dwhatsapp
+    - /url: https://wa.me/?text=Dibs+%231+%E2%96%A1%E2%96%A1%E2%96%A0%E2%96%A0%E2%96%A0+3%2F3+dibs+%C2%B7+2+strikes+%C2%B7+filed+3%3A44+AM+ET+%C2%B7+Next+drop%3A+9+PM+ET+https%3A%2F%2Fdibs.here%2Fsummary%2Ffixture-summary%3Fs%3Dwhatsapp
   - link "Facebook":
     - /url: https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdibs.here%2Fsummary%2Ffixture-summary%3Fs%3Dfacebook
   - button "Instagram / TikTok story"
@@ -74,7 +74,7 @@
   - text: SEARCH THESE FILINGS
   - searchbox "Search the ledger"
   - status: "Golden tickets: 1 of 3 found today"
-  - paragraph: 2,386 animals still unclaimed. Be early.
+  - paragraph: 2,386 of 2,400 animals still unclaimed. Be early.
   - table "Claims in Animals":
     - caption: Claims in Animals
     - rowgroup:
@@ -84,38 +84,38 @@
         - columnheader "HOLDER"
         - columnheader "TIME"
     - rowgroup:
-      - 'row "0004 Quokka Teal Otter #41 12:01 AM ET"':
+      - 'row "0004 Quokka Teal Otter #41 3:44 AM ET"':
         - cell "0004"
         - cell "Quokka":
           - link "Quokka":
             - /url: /certificate/fixture-4
         - 'cell "Teal Otter #41"'
-        - cell "12:01 AM ET":
-          - time: 12:01 AM
-      - 'row "0003 Okapi Teal Otter #41 12:01 AM ET"':
+        - cell "3:44 AM ET":
+          - time: 3:44 AM
+      - 'row "0003 Okapi Teal Otter #41 3:44 AM ET"':
         - cell "0003"
         - cell "Okapi":
           - link "Okapi":
             - /url: /certificate/fixture-3
         - 'cell "Teal Otter #41"'
-        - cell "12:01 AM ET":
-          - time: 12:01 AM
-      - 'row "0002 Axolotl Teal Otter #41 12:01 AM ET"':
+        - cell "3:44 AM ET":
+          - time: 3:44 AM
+      - 'row "0002 Axolotl Teal Otter #41 3:44 AM ET"':
         - cell "0002"
         - cell "Axolotl":
           - link "Axolotl":
             - /url: /certificate/fixture-2
         - 'cell "Teal Otter #41"'
-        - cell "12:01 AM ET":
-          - time: 12:01 AM
-      - 'row "0001 Pangolin Rust Finch #12 12:01 AM ET"':
+        - cell "3:44 AM ET":
+          - time: 3:44 AM
+      - 'row "0001 Pangolin Rust Finch #12 3:44 AM ET"':
         - cell "0001"
         - cell "Pangolin":
           - link "Pangolin":
             - /url: /certificate/fixture-1
         - 'cell "Rust Finch #12"'
-        - cell "12:01 AM ET":
-          - time: 12:01 AM
+        - cell "3:44 AM ET":
+          - time: 3:44 AM
       - row "No. 0005 — open":
         - cell "No. 0005 — open"
       - row "No. 0006 — open":

@@ -1,5 +1,5 @@
 - main:
-  - region "Round countdown": Round closes in Round closes at 12:00 PM ET. 721 minutes remaining.
+  - region "Round countdown": Round closes in Round closes at 3:42 PM ET. 721 minutes remaining.
   - text: "Today's category:"
   - heading "Animals" [level=1]
   - paragraph: Name an animal nobody has claimed yet. First to call it owns it today.
@@ -14,7 +14,7 @@
     - strong: NOT ON THE REGISTER
     - paragraph: Submitted to the clerk. No strike charged.
     - paragraph: 3 dibs and 3 strikes remaining.
-  - paragraph: 2,389 still up for grabs · last claim just now
+  - paragraph: 2,389 of 2,400 still open · last claim just now
   - list "How it works":
     - listitem: Call dibs on up to 3 animals.
     - listitem: Taken guesses cost a strike. 5 strikes and you’re out.
@@ -29,7 +29,7 @@
   - text: SEARCH THESE FILINGS
   - searchbox "Search the ledger"
   - status: "Golden tickets: 0 of 3 found today"
-  - paragraph: 2,389 animals still unclaimed. Be early.
+  - paragraph: 2,389 of 2,400 animals still unclaimed. Be early.
   - table "Claims in Animals":
     - caption: Claims in Animals
     - rowgroup:
@@ -39,14 +39,14 @@
         - columnheader "HOLDER"
         - columnheader "TIME"
     - rowgroup:
-      - 'row "0001 Pangolin Rust Finch #12 12:00 AM ET"':
+      - 'row "0001 Pangolin Rust Finch #12 3:42 AM ET"':
         - cell "0001"
         - cell "Pangolin":
           - link "Pangolin":
             - /url: /certificate/fixture-1
         - 'cell "Rust Finch #12"'
-        - cell "12:00 AM ET":
-          - time: 12:00 AM
+        - cell "3:42 AM ET":
+          - time: 3:42 AM
       - row "No. 0002 — open":
         - cell "No. 0002 — open"
       - row "No. 0003 — open":

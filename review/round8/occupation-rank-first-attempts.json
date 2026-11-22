@@ -1,0 +1,74 @@
+{
+  "painters": {
+    "complete": false,
+    "error": "TimeoutError: The operation was aborted due to timeout"
+  },
+  "poets": {
+    "complete": true,
+    "at": "2026-11-22T08:12:50.887Z",
+    "classes": 134,
+    "normalRankCandidates": 83,
+    "added": 80,
+    "groups": [
+      {
+        "types": 25,
+        "rows": 6
+      },
+      {
+        "types": 25,
+        "rows": 0
+      },
+      {
+        "types": 25,
+        "rows": 6
+      },
+      {
+        "types": 25,
+        "rows": 73
+      },
+      {
+        "types": 25,
+        "rows": 0
+      },
+      {
+        "types": 9,
+        "rows": 0
+      }
+    ],
+    "method": "All normal-rank occupation statements hidden by preferred occupations; deprecated statements excluded; every uncapped class group checked against independent COUNT; complete English-article quality filter."
+  },
+  "composers": {
+    "complete": false,
+    "error": "Error: HTTP 502"
+  },
+  "actors": {
+    "complete": false,
+    "error": "Error: HTTP 502"
+  },
+  "architects": {
+    "complete": true,
+    "at": "2026-11-22T08:22:08.854Z",
+    "classes": 98,
+    "normalRankCandidates": 21,
+    "added": 18,
+    "groups": [
+      {
+        "types": 25,
+        "rows": 4
+      },
+      {
+        "types": 25,
+        "rows": 1
+      },
+      {
+        "types": 25,
+        "rows": 1
+      },
+      {
+        "types": 23,
+        "rows": 15
+      }
+    ],
+    "method": "All normal-rank occupation statements hidden by preferred occupations; deprecated statements excluded; every uncapped class group checked against independent COUNT; complete English-article quality filter."
+  }
+}

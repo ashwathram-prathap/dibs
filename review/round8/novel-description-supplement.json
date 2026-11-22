@@ -1,0 +1,15 @@
+{
+  "complete": true,
+  "at": "2026-11-22T08:38:40.881Z",
+  "candidateCount": 30097,
+  "added": 3144,
+  "definition": {
+    "slug": "novels-description-supplement",
+    "roots": [
+      "Q571",
+      "Q7725634"
+    ],
+    "englishOnlyCandidates": true,
+    "extraPattern": "?item schema:description ?description . FILTER(LANG(?description) = \"en\" && REGEX(?description, \"\\\\b(novel|novella)\\\\b\", \"i\") && !REGEX(?description, \"series|collection|character|film|writer|author|genre|award\", \"i\"))"
+  }
+}

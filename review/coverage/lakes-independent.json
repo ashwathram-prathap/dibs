@@ -370,7 +370,7 @@
         "end": "2026-10-31"
       },
       "initiallyPresent": true,
-      "present": false
+      "present": true
     },
     {
       "answer": "Hornindalsvatnet",
@@ -460,7 +460,7 @@
         "end": "2026-10-31"
       },
       "initiallyPresent": true,
-      "present": false
+      "present": true
     },
     {
       "answer": "Lake Tinn",
@@ -475,7 +475,7 @@
         "end": "2026-10-31"
       },
       "initiallyPresent": false,
-      "present": false
+      "present": true
     },
     {
       "answer": "Lake Argentino",
@@ -685,7 +685,7 @@
         "end": "2026-10-31"
       },
       "initiallyPresent": false,
-      "present": false
+      "present": true
     },
     {
       "answer": "Lake Poso",

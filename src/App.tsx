@@ -693,7 +693,8 @@ function Home({
                 )}
               </div>
               <p className="live-strip">
-                {today.open.toLocaleString()} still up for grabs ·{' '}
+                {today.open.toLocaleString()} of {today.category.total_registrable.toLocaleString()}{' '}
+                still open ·{' '}
                 {today.lastClaimAt
                   ? serverNow() - Date.parse(today.lastClaimAt) < 60000
                     ? 'last claim just now'
@@ -1095,7 +1096,8 @@ function Ledger({
       )}
       {category && open !== undefined && rows.length < 10 && (
         <p className="open-pool">
-          {open.toLocaleString()} {category.name.toLowerCase()} still unclaimed. Be early.
+          {open.toLocaleString()} of {category.total_registrable.toLocaleString()}{' '}
+          {categoryPlural(category)} still unclaimed. Be early.
         </p>
       )}
       <table className={'ledger ' + (rows.length < 10 ? 'first-filings' : '')}>
@@ -1595,6 +1597,7 @@ function About({ nextDrop }: { nextDrop: string }) {
           <p>
             Registers use <a href="https://www.geonames.org/">GeoNames</a> (CC BY), Princeton
             WordNet, Wikipedia contributors (CC BY-SA),{' '}
+            <a href="https://www.wikidata.org/wiki/Wikidata:Licensing">Wikidata</a> (CC0),{' '}
             <a href="https://www.gbif.org/dataset/d7dddbf4-2cf0-4f39-9b2a-bb099caae36c">
               GBIF Backbone Taxonomy
             </a>{' '}

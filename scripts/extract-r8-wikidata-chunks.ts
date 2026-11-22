@@ -83,15 +83,25 @@ async function extract(def: any) {
       ? []
       : queries) {
       try {
-        const text = await query(q, 'tsv');
+        const text = await query(q + ' # snapshot ' + Date.now(), 'tsv');
         const lines = text.trim().split('\n');
         if (
           lines[0] !== '?item' ||
           !lines.slice(1).every((s) => /^<http:\/\/www.wikidata.org\/entity\/Q\d+>$/.test(s))
         )
           throw Error('Incomplete ID table');
-        ids = [...new Set(lines.slice(1).map((s) => s.match(/Q\d+/)![0]))];
-        if (!ids.length) throw Error('Empty candidate set');
+        const found = [...new Set(lines.slice(1).map((s) => s.match(/Q\d+/)![0]))];
+        const counted = JSON.parse(
+          await query(
+            q.replace('SELECT DISTINCT ?item', 'SELECT (COUNT(DISTINCT ?item) AS ?count)') +
+              ' # snapshot ' +
+              Date.now(),
+          ),
+        );
+        if (found.length !== Number(counted.results?.bindings?.[0]?.count?.value))
+          throw Error('Full candidate count changed');
+        if (!found.length) throw Error('Empty candidate set');
+        ids = found;
         writeFileSync(idFile, JSON.stringify(ids));
         break;
       } catch (e) {
@@ -257,7 +267,9 @@ const only = process.argv
   .find((arg) => arg.startsWith('--only='))
   ?.slice(7)
   .split(',');
-const pending = defs.filter((def: any) => !only || only.includes(def.slug));
+const pending = defs
+  .filter((def: any) => !only || only.includes(def.slug))
+  .sort((a: any, b: any) => (only ? only.indexOf(a.slug) - only.indexOf(b.slug) : 0));
 let next = 0;
 // Two independent classifications plus the separate alias job stay below the service concurrency limit.
 await Promise.all(

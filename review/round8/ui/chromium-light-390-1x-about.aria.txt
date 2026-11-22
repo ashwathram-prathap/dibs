@@ -4,7 +4,7 @@
   - paragraph: Welcome to the least consequential office in town.
   - heading "How to play" [level=2]
   - list:
-    - listitem: "A new category opens daily. Next drop: 12:41 PM ET."
+    - listitem: "A new category opens daily. Next drop: 3:45 PM ET."
     - listitem: Call dibs on an answer. First come, first served.
     - listitem: Taken guesses cost a strike. Five strikes close your file.
     - listitem: Up to three dibs per person, per category.
@@ -37,6 +37,9 @@
       - link "GeoNames":
         - /url: https://www.geonames.org/
       - text: (CC BY), Princeton WordNet, Wikipedia contributors (CC BY-SA),
+      - link "Wikidata":
+        - /url: https://www.wikidata.org/wiki/Wikidata:Licensing
+      - text: (CC0),
       - link "GBIF Backbone Taxonomy":
         - /url: https://www.gbif.org/dataset/d7dddbf4-2cf0-4f39-9b2a-bb099caae36c
       - text: (CC BY 4.0),

@@ -1,8 +1,8 @@
 {
   "actors": {
     "complete": true,
-    "checked": 138709,
-    "total": 138709,
+    "checked": 291,
+    "total": 291,
     "referencePolicy": "english-article-title-v3",
     "classificationRevision": "base"
   },
@@ -36,8 +36,8 @@
   },
   "novels": {
     "complete": true,
-    "checked": 32587,
-    "total": 32587,
+    "checked": 3144,
+    "total": 3144,
     "referencePolicy": "english-article-title-v3",
     "classificationRevision": "novel-form-genre-v3"
   },
@@ -49,9 +49,10 @@
     "classificationRevision": "named-seasons-v2"
   },
   "video-games": {
-    "complete": false,
-    "reason": "Awaiting current full classification",
-    "expectedPolicy": "english-article-or-source-label-v4",
+    "complete": true,
+    "checked": 190234,
+    "total": 190234,
+    "referencePolicy": "english-article-or-source-label-v4",
     "classificationRevision": "named-games-groups-v2"
   },
   "museums": {
@@ -75,36 +76,37 @@
     "classificationRevision": "castles-forts-palaces-v2"
   },
   "ships": {
-    "complete": false,
-    "reason": "Awaiting current full classification",
-    "expectedPolicy": "english-article-title-v3",
+    "complete": true,
+    "checked": 40887,
+    "total": 40887,
+    "referencePolicy": "english-article-title-v3",
     "classificationRevision": "watercraft-v2"
   },
   "painters": {
     "complete": true,
-    "checked": 53048,
-    "total": 53048,
+    "checked": 84,
+    "total": 84,
     "referencePolicy": "english-article-title-v3",
     "classificationRevision": "base"
   },
   "architects": {
     "complete": true,
-    "checked": 17786,
-    "total": 17786,
+    "checked": 6,
+    "total": 6,
     "referencePolicy": "english-article-title-v3",
     "classificationRevision": "base"
   },
   "composers": {
     "complete": true,
-    "checked": 70888,
-    "total": 70888,
+    "checked": 125,
+    "total": 125,
     "referencePolicy": "english-article-title-v3",
     "classificationRevision": "base"
   },
   "poets": {
     "complete": true,
-    "checked": 40902,
-    "total": 40902,
+    "checked": 1,
+    "total": 1,
     "referencePolicy": "english-article-title-v3",
     "classificationRevision": "base"
   },
@@ -121,5 +123,26 @@
     "total": 11752,
     "referencePolicy": "english-article-title-v3",
     "classificationRevision": "base"
+  },
+  "mountains": {
+    "complete": true,
+    "checked": 30085,
+    "total": 30085,
+    "referencePolicy": "english-article-title-v3",
+    "classificationRevision": "geonames-complement-v1"
+  },
+  "lakes": {
+    "complete": true,
+    "checked": 17465,
+    "total": 17465,
+    "referencePolicy": "english-article-title-v3",
+    "classificationRevision": "geonames-complement-v1"
+  },
+  "islands": {
+    "complete": true,
+    "checked": 14626,
+    "total": 14626,
+    "referencePolicy": "english-article-title-v3",
+    "classificationRevision": "geonames-complement-v1"
   }
 }

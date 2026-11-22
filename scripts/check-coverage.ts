@@ -13,11 +13,6 @@ const nonWikidata = new Set([
   'fruits-vegetables',
   'countries',
   'airports',
-  'mountains',
-  'rivers',
-  'lakes',
-  'islands',
-  'stations',
   'asteroids',
 ]);
 const scheduled = JSON.parse(

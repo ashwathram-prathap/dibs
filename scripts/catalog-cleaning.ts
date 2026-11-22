@@ -1,5 +1,5 @@
 // Shared by domain imports; this never consults coverage fixtures.
-const offensive = /\b(?:fuck|fucking|shit|cunt|nigger|faggot|kaffir|redskin|rape|nazi)\b/i;
+const offensive = /\b(?:fuck|fucking|shit|cunt|nigger|faggot|kaffir|redskin|rape(?:lay)?|nazi)\b/i;
 const iconGlyph = /[\u2190-\u27bf\u{1f000}-\u{1ffff}]|\p{Extended_Pictographic}/u;
 const writtenGlyphs: Record<string, string> = {
   '\u221e': ' infinity ',

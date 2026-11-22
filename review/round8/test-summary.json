@@ -1,14 +1,14 @@
 {
   "unit": {
-    "passed": 87,
+    "passed": 92,
     "failed": 0,
-    "files": 20,
-    "note": "Full suite refreshed Nov 22 02:35 ET: 87 tests, including generic leading-article title aliases."
+    "files": 21,
+    "note": "Full suite refreshed Nov 22 03:53 ET, including compact binary lookup and source display repairs."
   },
   "browser": {
     "localMatrixPassed": 470,
     "localMatrixFailed": 0,
-    "failuresExplained": "Fresh full Chromium/WebKit matrix passed all 470 at Nov 22 01:37 ET; Firefox separately passed on Linux CI.",
+    "failuresExplained": "Full Chromium/WebKit binary-runtime matrix passed 470 tests at 03:26 ET. Later count/source-copy changes passed the 168-state visual audit; final post-catalog browser refresh remains pending.",
     "targetedClosure": {
       "passed": 4
     },
@@ -16,15 +16,15 @@
       "passed": 42,
       "skipped": 28
     },
-    "firefoxCI": "https://github.com/ashwathram-prathap/dibs/actions/runs/44993299293",
-    "firefoxHead": "be859d0"
+    "firefoxCI": "https://github.com/ashwathram-prathap/dibs/actions/runs/45003527488",
+    "firefoxHead": "1bdecda9cbe907c002744f132232c149433d7f11"
   },
   "visualAudit": {
     "states": 168,
     "axeViolations": 0,
     "horizontalOverflow": 0,
     "emojiGlyphViolations": 0,
-    "refreshedAt": "2026-11-22T05:42:00Z"
+    "refreshedAt": "2026-11-22T08:45:00Z"
   },
   "emojiSourceCheck": "passed, including canonical display names in all rebuilt catalogs",
   "practiceLive": {
@@ -56,6 +56,7 @@
       "dark"
     ],
     "passed": 396,
-    "note": "Content-only heading stress test; underlying fixture remains Animals. Long mobile headings manually inspected."
+    "note": "Content-only heading stress test; underlying fixture remains Animals. Long mobile headings manually inspected.",
+    "refreshedAt": "2026-11-22T08:50:00Z"
   }
 }
