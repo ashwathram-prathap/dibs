@@ -1,6 +1,8 @@
 import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
 const read = (name: string) => JSON.parse(readFileSync('review/round13/' + name, 'utf8'));
+assert.equal(read('unit-summary.json').success, true);
+assert.equal(read('unit-summary.json').numFailedTests, 0);
 for (const file of ['hero-matrix.json', 'done-matrix.json']) {
   const rows = read(file);
   assert.equal(rows.length, 60, file + ' must include all 15 sizes, two themes and two engines');

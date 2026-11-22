@@ -135,3 +135,48 @@ it('mute still works for the session when browser storage is blocked', async () 
   setSoundEnabled(true);
   expect(soundEnabled()).toBe(true);
 });
+
+it('keeps a fast claim sound until its gesture-started audio context has resumed', async () => {
+  vi.resetModules();
+  vi.stubGlobal('localStorage', { getItem: () => null });
+  vi.stubGlobal('window', { dispatchEvent: vi.fn() });
+  vi.stubGlobal('CustomEvent', class {});
+  let ready!: () => void,
+    starts = 0;
+  vi.stubGlobal(
+    'AudioContext',
+    class {
+      state = 'suspended';
+      destination = {};
+      resume() {
+        return new Promise<void>((resolve) => {
+          ready = () => {
+            this.state = 'running';
+            resolve();
+          };
+        });
+      }
+      createBuffer() {
+        return { copyToChannel() {}, duration: 0.145 };
+      }
+      createBufferSource() {
+        return {
+          connect() {},
+          disconnect() {},
+          start() {
+            starts++;
+          },
+        };
+      }
+    },
+  );
+  const { prepareSound, playClaimSound } = await import('../src/sound');
+  const preparing = prepareSound();
+  playClaimSound('stamp', 'fast-claim');
+  playClaimSound('stamp', 'fast-claim');
+  expect(starts).toBe(0);
+  ready();
+  await preparing;
+  await Promise.resolve();
+  expect(starts).toBe(1);
+});

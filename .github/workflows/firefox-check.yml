@@ -21,6 +21,12 @@ jobs:
           node-version: '22'
       - run: npm ci
       - run: npx playwright install --with-deps firefox
+      - name: Provide an audio device for real Web Audio playback
+        run: |
+          sudo apt-get install -y pulseaudio
+          pulseaudio --start --exit-idle-time=-1
+          pactl load-module module-null-sink sink_name=dibs_ci
+          pactl set-default-sink dibs_ci
       - run: npx tsx scripts/build-catalog-assets.ts && npx vite build --mode security-test
       - run: npx playwright test -c playwright.r13.config.ts --project='firefox-*'
       - uses: actions/upload-artifact@v4

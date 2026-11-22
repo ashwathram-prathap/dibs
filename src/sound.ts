@@ -1,5 +1,6 @@
 import { renderDeskSound, SOUND_RATE, type DeskSound } from './sound-synthesis';
 let context: AudioContext | undefined;
+let preparing: Promise<void> | undefined;
 let active: AudioBufferSourceNode | undefined;
 const played = new Set<string>();
 const buffers = new Map<DeskSound, AudioBuffer>();
@@ -22,7 +23,10 @@ export async function prepareSound() {
   if (!soundEnabled()) return;
   try {
     context ||= new AudioContext();
-    if (context.state === 'suspended') await context.resume();
+    if (context.state === 'suspended') {
+      preparing = context.resume();
+      await preparing;
+    }
   } catch {
     /* Audio support must never prevent a claim. */
   }
@@ -53,9 +57,16 @@ function playPreparedClaimSound(kind: DeskSound | null, requestId: string) {
 }
 
 export function playClaimSound(kind: DeskSound | null, requestId: string) {
-  try {
-    playPreparedClaimSound(kind, requestId);
-  } catch {
-    // Audio failure must not interrupt a successful claim or its error message.
-  }
+  const play = () => {
+    try {
+      playPreparedClaimSound(kind, requestId);
+    } catch {
+      // Audio failure must not interrupt a claim or its error message.
+    }
+  };
+  if (context?.state === 'suspended' && preparing) {
+    // A fast response can precede device startup. Wait for the original gesture
+    // without delaying the claim; the normal guards still prevent overlap.
+    void preparing.then(play).catch(() => {});
+  } else play();
 }

@@ -12,10 +12,16 @@ export default defineConfig({
         (!process.env.R13_SKIP_FIREFOX || !p.name?.startsWith('firefox')),
     )
     .map((p) => ({ ...p, testMatch: tests, testIgnore: undefined })),
-  webServer: {
-    command: 'npm run preview -- --mode security-test --port 5173',
-    url: 'http://127.0.0.1:5173',
-    reuseExistingServer: true,
-  },
-  reporter: [['list'], ['json', { outputFile: 'review/round13/browser-results.json' }]],
+  use: { ...base.use, baseURL: process.env.R13_BASE || base.use?.baseURL },
+  webServer: process.env.R13_BASE
+    ? undefined
+    : {
+        command: 'npm run preview -- --mode security-test --port 5173',
+        url: 'http://127.0.0.1:5173',
+        reuseExistingServer: true,
+      },
+  reporter: [
+    ['list'],
+    ['json', { outputFile: process.env.R13_REPORT || 'review/round13/browser-results.json' }],
+  ],
 });
