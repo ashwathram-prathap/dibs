@@ -271,7 +271,7 @@ export class Registry extends DurableObject<Env> {
     }
   }
   async image(id: string, env: Env): Promise<Response> {
-    const key = 'image:' + (id || 'default') + ':r4';
+    const key = 'image:' + (id || 'default') + ':r7';
     const saved = await this.ctx.storage.get<ArrayBuffer>(key);
     if (saved) return this.png(saved);
     let pending = this.flights.get(key);

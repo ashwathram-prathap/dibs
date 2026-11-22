@@ -107,6 +107,14 @@ function Clock({ target, slim = false }: { target: string; slim?: boolean }) {
   const now = useServerNow();
   const remaining = Math.max(0, Date.parse(target) - now);
   const minutes = Math.ceil(remaining / 60000);
+  const [announcement, setAnnouncement] = useState('');
+  const announcedAt = useRef(-Infinity);
+  useEffect(() => {
+    // Server resyncs may straddle a minute boundary; never repeat announcements rapidly.
+    if (performance.now() - announcedAt.current < 60000) return;
+    announcedAt.current = performance.now();
+    setAnnouncement(minutes ? `${minutes} minutes remaining.` : 'Opening…');
+  }, [minutes]);
   return (
     <section
       className={slim ? 'round-countdown' : 'drop-countdown'}
@@ -125,7 +133,7 @@ function Clock({ target, slim = false }: { target: string; slim?: boolean }) {
         {slim ? 'Round closes' : 'Next drop'} at {dropTime(target).full}.
       </span>
       <span className="sr-only" aria-live="polite" aria-atomic="true">
-        {minutes ? `${minutes} minutes remaining.` : 'Opening…'}
+        {announcement}
       </span>
     </section>
   );

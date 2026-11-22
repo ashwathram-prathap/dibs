@@ -317,6 +317,14 @@ it('orders completed real files by dibs, strikes, then completion time', async (
   ]);
   const me = (await (await call('/me', undefined, players[0].cookie)).json()) as any;
   expect(me.file.events.map((e: any) => e.kind)).toEqual(['strike', 'dibs', 'dibs', 'dibs']);
+  expect(me.file.events[0].display).toBe('ANIMAL 0');
+  expect(me.file.events[0].holder).toBeTruthy();
+  expect(me.file.events[0].heldAt).toBeTruthy();
+  expect(me.file.events.slice(1).map((e: any) => e.display)).toEqual([
+    'Animal 30',
+    'Animal 31',
+    'Animal 32',
+  ]);
   expect(me.file.closed).toBe(true);
   summaryId = me.file.summaryId;
   certificateId = me.file.claims[0].id;
@@ -325,6 +333,8 @@ it('orders completed real files by dibs, strikes, then completion time', async (
   expect(shared.file.dibs).toBe(3);
   expect(shared.file.strikes).toBe(1);
   expect(shared.file.summaryId).toBe(summaryId);
+  expect(shared.file.handle).toBe(players[0].me.user.handle);
+  expect(shared.file.events).toEqual(me.file.events);
   expect(JSON.stringify(shared)).not.toContain(players[0].me.user.id);
   expect(
     (await call('/claim', { answer: 'Animal 60', turnstileToken: 'test' }, players[0].cookie))
@@ -428,6 +438,7 @@ it('keeps a zero-dibs five-strike summary across reloads without creating a D1 p
   expect(reloaded.file.strikes).toBe(5);
   const shared = (await (await call('/summary/' + reloaded.file.summaryId)).json()) as any;
   expect(shared.file.claims).toEqual([]);
+  expect(shared.file.handle).toBe(player.me.user.handle);
   expect(shared.file.strikes).toBe(5);
   expect(
     await db.prepare('SELECT id FROM users WHERE id=?').bind(player.me.user.id).first(),

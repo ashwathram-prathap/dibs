@@ -147,3 +147,27 @@ for (const kind of ['clean', 'gold-two-strikes', 'five-strikes'])
     expect(printed).toContain('Teal Otter #41');
     expect(printed).toContain('DAY STREAK');
   });
+
+test('clock pauses when hidden, resyncs on return, and limits announcements', async ({ page }) => {
+  await page.clock.install();
+  await page.goto('/?r7-closed=1');
+  const live = page.locator('.drop-countdown [aria-live]');
+  await expect(live).not.toBeEmpty();
+  const spoken = await live.textContent();
+  await page.clock.runFor(30000);
+  await expect(live).toHaveText(spoken!);
+  const visible = await page.locator('.clock').textContent();
+  await page.evaluate(() => {
+    Object.defineProperty(document, 'hidden', { configurable: true, value: true });
+    document.dispatchEvent(new Event('visibilitychange'));
+  });
+  await page.clock.runFor(90000);
+  await expect(page.locator('.clock')).toHaveText(visible!);
+  await page.evaluate(() => {
+    Object.defineProperty(document, 'hidden', { configurable: true, value: false });
+    document.dispatchEvent(new Event('visibilitychange'));
+  });
+  await page.clock.runFor(1000);
+  await expect(page.locator('.clock')).toHaveText(/03:57:\d\d/);
+  await expect(live).not.toHaveText(spoken!);
+});

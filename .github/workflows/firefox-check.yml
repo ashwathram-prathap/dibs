@@ -14,11 +14,14 @@ jobs:
       - run: npm ci
       - run: npx playwright install --with-deps firefox
       - run: npm run test:e2e -- --project='firefox-*'
+      - run: npx playwright test -c playwright.r7.config.ts --project='r7-firefox-*'
       - uses: actions/upload-artifact@v4
         if: always()
         with:
           name: firefox-regression
           path: |
+            review/round7/browser-results.json
+            review/final/r7-firefox-*
             review/devices/results.json
             review/devices/firefox-*/
           retention-days: 14

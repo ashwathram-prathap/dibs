@@ -781,6 +781,11 @@ const handler = {
               .slice(0, limit),
           });
         }
+        if (path === '/today' && response.ok)
+          return json({
+            ...((await response.json()) as object),
+            serverTime: new Date().toISOString(),
+          });
         return response;
       }
       return await stub.fetch(req);
