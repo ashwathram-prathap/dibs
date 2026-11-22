@@ -24,6 +24,8 @@ export interface Category {
   status?: string;
 }
 export interface Claim {
+  founder?: boolean | number;
+  concealed?: boolean;
   golden?: boolean | number;
   id: string;
   category_id: string;
@@ -53,7 +55,7 @@ export interface Today {
   turnstileSiteKey: string;
   closedReason?: string;
   lastClaimAt?: string | null;
-  board?: { handle: string; dibs: number; strikes: number; completedAt: string }[];
+  board?: { founder?: boolean; handle: string; dibs: number; strikes: number; completedAt: string }[];
 }
 export interface Guess {
   at: string;
@@ -67,6 +69,7 @@ export interface Guess {
   house?: boolean;
 }
 export interface DayFile {
+  founder?: boolean | number;
   handle?: string;
   streak?: number;
   summaryId?: string;

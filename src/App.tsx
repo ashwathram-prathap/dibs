@@ -3,7 +3,7 @@ import { HOME_TITLE, archiveTitle } from '../shared/seo';
 import { Icon } from './Icon';
 import { SHOW_CREATOR_CREDIT, CREATOR_URL, X_URL } from '../shared/creator';
 import { categoryPlural } from '../shared/category-copy';
-import { dropTime, localTime, countdown, edition } from '../shared/time';
+import { dropTime, localTime, countdown, edition, viewerZone } from '../shared/time';
 import { guesses } from '../shared/guesses';
 import { useServerNow, serverNow } from './clock';
 import {
@@ -31,6 +31,14 @@ import { ShareSheet } from './ShareSheet';
 import { summaryUrl, isPlatform } from '../shared/sharing';
 import { exportCertificate, exportSummary, summaryText } from './share';
 import { WORDMARK_WIDTH, WORDMARK_PATH, WORDMARK_BLOCK_X } from '../shared/brand';
+function Handle({ name, founder }: { name: string; founder?: boolean | number }) {
+  return (
+    <span className={founder ? 'founder-handle' : undefined}>
+      {name}
+      {!!founder && <small className="founder-stamp">FOUNDER</small>}
+    </span>
+  );
+}
 function Wordmark() {
   return (
     <svg className="brand-mark" role="img" aria-label="dibs." viewBox={`0 0 ${WORDMARK_WIDTH} 100`}>
@@ -142,6 +150,38 @@ function Clock({ target, slim = false }: { target: string; slim?: boolean }) {
     </section>
   );
 }
+function TimezonePicker() {
+  const [zone, setZone] = useState(viewerZone);
+  const zones: string[] = (Intl as any).supportedValuesOf?.('timeZone') || [
+    zone,
+    'America/Toronto',
+    'America/Vancouver',
+    'Europe/London',
+    'Asia/Kolkata',
+  ];
+  return (
+    <label className="timezone-control">
+      Times in {localTime(new Date().toISOString(), zone).zone} · change
+      <select
+        aria-label="Timezone"
+        value={zone}
+        onChange={(e) => {
+          setZone(e.target.value);
+          try {
+            localStorage.setItem('dibs-timezone', e.target.value);
+          } catch {}
+          window.dispatchEvent(new Event('dibs-zone'));
+        }}
+      >
+        {[...new Set([zone, ...zones])].map((z) => (
+          <option key={z} value={z}>
+            {z.replaceAll('_', ' ')}
+          </option>
+        ))}
+      </select>
+    </label>
+  );
+}
 function Filters() {
   return (
     <svg className="filters" aria-hidden="true">
@@ -162,6 +202,12 @@ function Filters() {
 let arrivalCounted = false;
 export default function App() {
   const path = usePath();
+  const [, updateZone] = useState(0);
+  useEffect(() => {
+    const changed = () => updateZone((n) => n + 1);
+    window.addEventListener('dibs-zone', changed);
+    return () => window.removeEventListener('dibs-zone', changed);
+  }, []);
   useEffect(() => {
     const platform = new URLSearchParams(location.search).get('s');
     if (!isPlatform(platform)) return;
@@ -183,7 +229,7 @@ export default function App() {
         (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light')
       );
     } catch {
-      return 'light';
+      return matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
     }
   });
   const [today, setToday] = useState<Today | null>(null);
@@ -293,7 +339,7 @@ export default function App() {
               {label}
             </Link>
           ))}
-          <span className="nav-edition">EST. 2026</span>
+          <TimezonePicker />
         </nav>
         {isDemo && (
           <div className="demo-label">
@@ -332,6 +378,8 @@ export default function App() {
             <Archive />
           ) : path === '/about' ? (
             <About nextDrop={today.nextDrop} />
+          ) : path === '/admin/live' ? (
+            <LiveAdmin />
           ) : path === '/stats' ? (
             <Stats />
           ) : (
@@ -346,7 +394,7 @@ export default function App() {
             <Wordmark />
           </Link>
           <span>A little claim to call your own.</span>
-          <span className="footer-right">FILED DAILY. HELD BRIEFLY.</span>
+          <Feedback sitekey={today?.turnstileSiteKey || ''} />
         </footer>
       </div>
     </LazyMotion>
@@ -411,7 +459,8 @@ function Home({
   const [houseStrike, setHouseStrike] = useState(false);
   const [claim, setClaim] = useState<Claim | null>(me.claim);
   const file = useMemo(
-    () => (me.file ? { ...me.file, handle: me.user?.handle, streak: me.streak } : null),
+    () =>
+      me.file ? { ...me.file, handle: me.file.handle || me.user?.handle, streak: me.streak } : null,
     [me.file, me.user?.handle, me.streak],
   );
   const [landed, setLanded] = useState(false);
@@ -419,6 +468,34 @@ function Home({
   const reduced = useReducedMotion();
   const input = useRef<HTMLInputElement>(null);
   const turnstileBox = useRef<HTMLDivElement>(null);
+  const verification = useRef<{ token: string; expires: number } | null>(null);
+  const verifying = useRef<Promise<string> | null>(null);
+  const [sessionNotice, setSessionNotice] = useState('');
+  function verifySession(): Promise<string> {
+    if (isDemo) return Promise.resolve('demo');
+    if (verification.current && verification.current.expires > Date.now() + 10000)
+      return Promise.resolve(verification.current.token);
+    if (verifying.current) return verifying.current;
+    verifying.current = runTurnstile(today.turnstileSiteKey, turnstileBox.current!)
+      .then((turnstileToken) =>
+        api<{ sessionToken: string; expires: number; sessionNotice?: string }>('/verify-session', {
+          turnstileToken,
+        }),
+      )
+      .then((data) => {
+        verification.current = { token: data.sessionToken, expires: data.expires };
+        if (data.sessionNotice) setSessionNotice(data.sessionNotice);
+        return data.sessionToken;
+      })
+      .finally(() => {
+        verifying.current = null;
+      });
+    return verifying.current;
+  }
+  useEffect(() => {
+    if (today.category && !file?.closed && turnstileBox.current)
+      void verifySession().catch(() => {});
+  }, [today.category?.id]);
   useEffect(() => setClaim(me.claim), [me.claim]);
   useEffect(() => {
     const viewport = window.visualViewport;
@@ -496,19 +573,27 @@ function Home({
     const value = confirmed || answer;
     const spellingAttempt = ++spellingVersion.current;
     try {
-      const token = isDemo
-        ? 'demo'
-        : await runTurnstile(today.turnstileSiteKey, turnstileBox.current!);
+      const token = await verifySession();
       if (!pendingRequest.current || pendingRequest.current.answer !== value)
         pendingRequest.current = { answer: value, id: crypto.randomUUID() };
-      const result = await api<{ claim: Claim; me?: Me; recoveryKey?: string }>('/claim', {
-        answer: value,
-        requestId: pendingRequest.current.id,
-        turnstileToken: token,
-      });
+      const send = (sessionToken: string) =>
+        api<{ claim: Claim; me?: Me; recoveryKey?: string; sessionNotice?: string }>('/claim', {
+          answer: value,
+          requestId: pendingRequest.current!.id,
+          sessionToken,
+        });
+      let result;
+      try {
+        result = await send(token);
+      } catch (e) {
+        if ((e as ApiError).data?.code !== 'VERIFY_AGAIN') throw e;
+        verification.current = null;
+        result = await send(await verifySession());
+      }
+      if (result.sessionNotice) setSessionNotice(result.sessionNotice);
       pendingRequest.current = null;
       setOutcome(result.claim.golden ? 'GOLD' : 'DIBS');
-      setMessage(result.claim.display.toUpperCase() + ' is yours.');
+      setMessage(result.claim.display.toUpperCase());
       if (result.recoveryKey) setRecoveryKey(result.recoveryKey);
       setAnswer('');
       setTaken(false);
@@ -532,10 +617,10 @@ function Home({
       setOutcome(
         err.status === 409
           ? err.data.house
-            ? 'HOUSE WORD'
+            ? 'HOUSE'
             : 'TAKEN'
           : err.data?.code === 'NOT_REGISTERED'
-            ? 'NOT ON THE REGISTER'
+            ? 'NOT ON THE LIST'
             : err.status === 403
               ? 'FILE CLOSED'
               : 'TRY AGAIN',
@@ -545,317 +630,271 @@ function Home({
       setMessage(
         err.status === 409
           ? err.data.house
-            ? err.data.message
-            : `Someone already called dibs on ${answer.toUpperCase()} (${err.data.takenBy}). Try another.`
-          : `${value.toUpperCase()}: ${err.message}`,
+            ? `Taken: ${value.toUpperCase()} is held by the house.`
+            : `Taken: ${value.toUpperCase()} is ${err.data.takenBy}'s.`
+          : err.data?.code === 'NOT_REGISTERED'
+            ? "Not on today's list. Check spelling."
+            : err.message,
       );
       input.current?.focus();
     } finally {
       setBusy(false);
       requestAnimationFrame(() => {
         input.current?.focus({ preventScroll: true });
-        document
-          .querySelector('.result-panel')
-          ?.scrollIntoView({ block: 'nearest', behavior: 'auto' });
       });
     }
   }
+  const playing = !!today.category && !file?.closed;
   return (
-    <>
-      <Clock target={today.nextDrop} slim={!!today.category && !file?.closed} />
-      {today.category && (
-        <section className="daily-heading register-arrival">
-          <span className="eyebrow">
-            {today.category ? "Today's category:" : 'THE DAILY GAME OF FIRST CLAIMS'}
-          </span>
-          <CategoryHeading name={today.category?.name || 'DIBS'} />
-          {today.category && (
-            <p className="game-rule">
-              Name {today.category.slug === 'animals' ? 'an animal' : 'an item in this category'}{' '}
-              nobody has claimed yet. First to call it owns it today.
-            </p>
-          )}
-        </section>
-      )}
+    <div className={playing ? 'focused-play' : 'completed-play'}>
       {!today.category ? (
         <section className="closed-office">
-          <span className="section-number">01 /</span>
-          <div>
-            <h1>The office is closed.</h1>
-            <p>
-              The next register opens at <DropTime at={today.nextDrop} />. Come back to call dibs.
-            </p>
-
-            <p className="closed-example">
-              EXAMPLE · If the category is Animals, type “axolotl”. If nobody has it, it’s yours.
-              Share your certificate.
-            </p>
-          </div>
-          <div className="closed-seal" aria-hidden="true">
-            DIBS
-            <br />
-            <span>NOT YET FILED</span>
-          </div>
+          <Clock target={today.nextDrop} />
+          <h1>
+            Animals drops <DropTime at={today.nextDrop} />.
+          </h1>
+          <p>Same moment for everyone.</p>
+          <Rules />
+          <Reminder at={today.nextDrop} />
         </section>
-      ) : !me.user ? (
-        <section className="notice">
-          <h2>The clerk is preparing your file.</h2>
-          <p>Please open your filing identity before calling dibs.</p>
-          <button onClick={() => void refresh()}>Open my file</button>
-        </section>
-      ) : (
-        <motion.section
-          className="claim-section"
-          animate={landed && !reduced ? { x: [0, -6, 6, -3, 0] } : {}}
-          transition={{ duration: 0.25 }}
-        >
-          <div className="claim-paper">
-            {(!file?.closed || landed) && (
-              <Progress dibs={file?.dibs || 0} strikes={file?.strikes || 0} />
-            )}
-            <form onSubmit={submit}>
-              <label className="eyebrow" htmlFor="answer">
-                ENTRY:
-              </label>
-              <div className="input-row">
-                <input
-                  ref={input}
-                  id="answer"
-                  name="answer"
-                  value={answer}
-                  placeholder={today.category.slug === 'animals' ? 'try: axolotl' : 'Name an item…'}
-                  onChange={(e) => {
-                    setAnswer(e.target.value);
-                  }}
-                  onFocus={() => input.current?.scrollIntoView({ block: 'nearest' })}
-                  autoComplete="off"
-                  autoCorrect="off"
-                  autoCapitalize="none"
-                  spellCheck={false}
-                  enterKeyHint="go"
-                  maxLength={120}
-                />
-                <button className="primary" disabled={busy || file?.closed}>
-                  {busy ? 'FILING…' : 'CALL DIBS'}
-                  <Icon />
-                </button>
-              </div>
-              <div
-                className={
-                  'result-panel ' +
-                  (houseStrike
-                    ? 'house-strike'
-                    : taken
-                      ? 'taken'
-                      : outcome === 'GOLD'
-                        ? 'gold-result'
-                        : '')
-                }
-                role={taken || outcome === 'DIBS' || outcome === 'GOLD' ? 'alert' : 'status'}
-                aria-live={
-                  taken || outcome === 'DIBS' || outcome === 'GOLD' ? 'assertive' : 'polite'
-                }
-                aria-atomic="true"
-              >
-                <strong className="result-label">
-                  <Icon
-                    name={
-                      taken
-                        ? 'cross'
-                        : outcome === 'GOLD'
-                          ? 'star'
-                          : outcome === 'DIBS'
-                            ? 'check'
-                            : 'info'
-                    }
-                  />
-                  {outcome || 'READY TO FILE'}
-                </strong>
-                <p>
-                  {message || 'Think of an answer. The clerk is ready.'}{' '}
-                  {taken && <strong>Strike {file?.strikes || 0} of 5.</strong>}
-                  {file?.closed && ' Your file is closed for today.'}
-                </p>
-                {outcome && (
-                  <p className="result-counts">
-                    {3 - (file?.dibs || 0)} dibs and {5 - (file?.strikes || 0)} strikes remaining.
-                  </p>
-                )}
-                {suggestion && (
-                  <button type="button" onClick={(e) => void submit(e, suggestion)}>
-                    Did you mean {suggestion.toUpperCase()}?
-                  </button>
-                )}
-                {missing && (
-                  <button type="button" onClick={() => void sendMissing()}>
-                    Submit to the clerk
-                  </button>
-                )}
-              </div>
-              <p className="live-strip">
-                {today.open.toLocaleString()} of {today.category.total_registrable.toLocaleString()}{' '}
-                still open ·{' '}
-                {today.lastClaimAt
-                  ? serverNow() - Date.parse(today.lastClaimAt) < 60000
-                    ? 'last claim just now'
-                    : `last claim ${Math.floor((serverNow() - Date.parse(today.lastClaimAt)) / 60000)} min ago`
-                  : 'be the first to claim'}
-              </p>
-              <ol className="how-it-works" aria-label="How it works">
-                <li>Call dibs on up to 3 {categoryPlural(today.category)}.</li>
-                <li>Taken guesses cost a strike. 5 strikes and you’re out.</li>
-                <li>Fastest clean file wins the day.</li>
-                <li>The 10 most obvious answers are held by the house.</li>
-              </ol>
-              <div ref={turnstileBox} className="turnstile" />
-            </form>
-          </div>
-        </motion.section>
-      )}
-      {recoveryKey && (
-        <section className="file-key-panel">
-          <h2>Your file key</h2>
-          <p>Save this key. It is shown after your first claim.</p>
-          <strong>{recoveryKey}</strong>
-          <p>Switching apps? Use your file key to keep your dibs and streak.</p>
-          <a href={'/#file-key=' + encodeURIComponent(recoveryKey)}>Continue in another browser</a>
-          <button
-            onClick={async () => {
-              try {
-                await navigator.clipboard.writeText(
-                  location.origin + '/#file-key=' + encodeURIComponent(recoveryKey),
-                );
-                setKeyCopyMessage('Continuation link copied.');
-              } catch {
-                setKeyCopyMessage('Press and hold the continuation link to copy it.');
-              }
-            }}
-          >
-            Copy continuation link
-          </button>
-          <p role="status">{keyCopyMessage}</p>
-          <button onClick={() => setRecoveryKey('')}>I saved my key</button>
-        </section>
-      )}
-      <details className="file-key-panel" open={restoreKey ? true : undefined}>
-        <summary>Restore your file in this browser</summary>
-        <p>Switching apps? Use your file key to keep your dibs and streak.</p>
-        <form onSubmit={restore}>
-          <label htmlFor="restore-key">Your file key</label>
-          <input
-            id="restore-key"
-            value={restoreKey}
-            onChange={(e) => setRestoreKey(e.target.value)}
-            autoComplete="off"
-            maxLength={60}
-          />
-          <button>Restore file</button>
-        </form>
-      </details>
-      {file?.closed && !landed && <DaySummary file={file} today={today} />}
-      {claim && landed && (
-        <section className="filed-section">
-          <Certificate claim={claim} animated />
-          <ShareButtons claim={claim} />
-          <button
-            className="primary next-dibs"
-            onClick={() => {
-              setLanded(false);
-              input.current?.focus();
-            }}
-          >
-            {file?.closed ? 'See my file' : 'Next dibs'}
-          </button>
-        </section>
-      )}
-      {file && !file.closed && file.claims.length > 0 && (
-        <section className="file-copies">
-          <span className="eyebrow">YOUR DIBS / CERTIFIED COPIES</span>
-          {file.claims.map((c) => (
-            <Link key={c.id} to={'/certificate/' + c.id}>
-              {c.display} <Icon />
-            </Link>
-          ))}
-        </section>
-      )}
-      {!claim && !file?.closed && me.user && (
-        <section className="identity-section">
-          <span className="eyebrow">YOUR HANDLE · FORM C-1</span>
-          <div className="identity">
-            <div>
-              <span className="eyebrow">FILED UNDER</span>
-              <strong>{me.user.handle}</strong>
-            </div>
-            <button
-              type="button"
-              className="text-button"
-              disabled={me.user.rerolls_used >= 3 || busy}
-              onClick={() => void identity('reroll', {})}
-            >
-              Re-roll ({3 - me.user.rerolls_used} left)
-            </button>
-          </div>
-        </section>
-      )}
-      {today.category && (
+      ) : file?.closed ? (
         <>
+          <span className="file-closed-stamp">FILE CLOSED</span>
+          <DaySummary file={file} today={today} />
+        </>
+      ) : (
+        <section className="claim-section" aria-label="Play today's category">
+          <div className="claim-paper">
+            <CategoryHeading name={today.category.name} />
+            <Progress dibs={file?.dibs || 0} strikes={file?.strikes || 0} />
+            {landed && claim ? (
+              <div
+                className={'result-panel win-beat ' + (claim.golden ? 'gold-result' : '')}
+                role="status"
+              >
+                <strong className="win-stamp">DIBS · {claim.display.toUpperCase()}</strong>
+                <p>
+                  {file?.dibs || 1} of 3 dibs{claim.golden && ' · Golden ticket!'}
+                </p>
+                <div className="win-actions">
+                  <button
+                    className="primary"
+                    onClick={() => {
+                      setLanded(false);
+                      setMessage('');
+                      setOutcome('');
+                      requestAnimationFrame(() => input.current?.focus({ preventScroll: true }));
+                    }}
+                  >
+                    Next dibs <Icon />
+                  </button>
+                  <Link to={'/certificate/' + claim.id}>View certificate</Link>
+                </div>
+              </div>
+            ) : (
+              <form onSubmit={submit}>
+                <label className="sr-only" htmlFor="answer">
+                  Your answer
+                </label>
+                <div className="input-row">
+                  <input
+                    ref={input}
+                    id="answer"
+                    name="answer"
+                    value={answer}
+                    placeholder={
+                      today.category.slug === 'animals' ? 'Name an animal…' : 'Name an answer…'
+                    }
+                    onChange={(e) => setAnswer(e.target.value)}
+                    readOnly={busy}
+                    autoComplete="off"
+                    autoCorrect="off"
+                    autoCapitalize="none"
+                    spellCheck={false}
+                    enterKeyHint="go"
+                    maxLength={120}
+                  />
+                  <button className="primary" disabled={busy || !me.user}>
+                    {busy ? 'Filing…' : 'CALL DIBS'}
+                    <Icon />
+                  </button>
+                </div>
+                {message && (
+                  <div
+                    className={'result-panel ' + (taken ? 'taken' : '')}
+                    role="status"
+                    aria-atomic="true"
+                  >
+                    <p>
+                      {taken && <Icon name="cross" />}
+                      {message}
+                    </p>
+                    {taken && (
+                      <strong className="strike-count">Strike {file?.strikes || 0} of 5</strong>
+                    )}
+                    {suggestion && (
+                      <button type="button" onClick={(e) => void submit(e, suggestion)}>
+                        Did you mean {suggestion.toUpperCase()}?
+                      </button>
+                    )}
+                    {missing && (
+                      <button
+                        type="button"
+                        className="text-button"
+                        onClick={() => void sendMissing()}
+                      >
+                        Tell the clerk
+                      </button>
+                    )}
+                  </div>
+                )}
+              </form>
+            )}
+            <div ref={turnstileBox} className="turnstile" />
+            {sessionNotice && (
+              <p className="session-notice" role="status">
+                {sessionNotice}
+              </p>
+            )}
+            <details className="play-rules">
+              <summary>How it works</summary>
+              <Rules />
+            </details>
+          </div>
+        </section>
+      )}
+      {playing && (
+        <section className="locked-ledger" aria-label="Locked ledger">
+          <p>
+            {today.claimed.toLocaleString()} claimed · {today.open.toLocaleString()} open
+          </p>
+          <span>Ledger opens when your file closes</span>
+        </section>
+      )}
+      {(!playing || sessionNotice || restoreKey) && (
+        <details className="file-key-panel" open={restoreKey ? true : undefined}>
+          <summary>Have a file key? Restore it.</summary>
+          <form onSubmit={restore}>
+            <label htmlFor="restore-key">File key</label>
+            <input
+              id="restore-key"
+              value={restoreKey}
+              onChange={(e) => setRestoreKey(e.target.value)}
+              autoComplete="off"
+              maxLength={60}
+            />
+            <button>Restore file</button>
+          </form>
+        </details>
+      )}
+      {file?.closed && (
+        <>
+          {recoveryKey && (
+            <section className="file-key-panel">
+              <h2>Your file key</h2>
+              <strong>{recoveryKey}</strong>
+              <p>Keep it private. It restores your file.</p>
+            </section>
+          )}
           <Ledger
-            category={today.category}
+            category={today.category!}
             open={today.open}
             goldenFound={today.specials?.goldenFound}
             goldenTotal={today.specials?.goldenTotal}
           />
-          {today.specials && (
-            <section className="daily-specials">
-              {today.specials.houseWords.length > 0 && (
-                <div className="house-record">
-                  <span className="house-stamp">THE REGISTRY · HOUSE</span>
-                  <p>{today.specials.houseWords.map((w) => w.display.toUpperCase()).join(' · ')}</p>
-                </div>
-              )}
-            </section>
-          )}
           <section className="cleanest">
-            <span className="section-number">03 / COMPLETED FILES</span>
             <h2>Today's cleanest files</h2>
-            {(today.board?.length || 0) < 3 ? (
-              <p>Results post as players file.</p>
-            ) : (
+            {today.board?.length ? (
               <ol>
-                {today.board!.map((r, i) => (
+                {today.board.map((r, i) => (
                   <li key={i}>
-                    <strong>{r.handle}</strong>
+                    <strong>
+                      <Handle name={r.handle} founder={r.founder} />
+                    </strong>
                     <span>
-                      {r.dibs}/3 · {r.strikes} {r.strikes === 1 ? 'strike' : 'strikes'} ·{' '}
-                      {time(r.completedAt)}
+                      {r.dibs}/3 · {r.strikes} strikes · {time(r.completedAt)}
                     </span>
                   </li>
                 ))}
               </ol>
+            ) : (
+              <p>Results post as files close.</p>
             )}
           </section>
         </>
       )}
-      <div className="bottom-note">
-        <span className="eyebrow">A NOTE FROM THE CLERK</span>
-        <p>All claims are real. All ownership is entirely ceremonial.</p>
-        <Link to="/about">
-          Read the office notice <Icon />
-        </Link>
-      </div>
-    </>
+    </div>
   );
 }
+function Reminder({ at }: { at: string }) {
+  return (
+    <a className="reminder-button" href="/reminder.ics" download="dibs-reminder.ics">
+      Remind me at {dropTime(at).full}
+    </a>
+  );
+}
+function InstallHint() {
+  const [show, setShow] = useState(() => {
+    try {
+      return (
+        matchMedia('(max-width: 600px)').matches &&
+        !localStorage.getItem('dibs-install-hint') &&
+        !matchMedia('(display-mode: standalone)').matches
+      );
+    } catch {
+      return false;
+    }
+  });
+  return show ? (
+    <aside className="install-hint">
+      <p>Keep Dibs handy: browser menu → Add to Home Screen.</p>
+      <button
+        onClick={() => {
+          try {
+            localStorage.setItem('dibs-install-hint', '1');
+          } catch {}
+          setShow(false);
+        }}
+      >
+        Got it
+      </button>
+    </aside>
+  ) : null;
+}
+function Rules() {
+  return (
+    <ol className="quick-rules" aria-label="How it works">
+      <li>
+        <Icon name="arrow" />
+        <span>
+          <b>Type</b> an answer.
+        </span>
+      </li>
+      <li>
+        <Icon name="check" />
+        <span>
+          <b>Free?</b> It's yours.
+        </span>
+      </li>
+      <li>
+        <Icon name="cross" />
+        <span>
+          <b>Taken?</b> Strike. Five and you're out.
+        </span>
+      </li>
+    </ol>
+  );
+}
+
 function Progress({ dibs, strikes }: { dibs: number; strikes: number }) {
   return (
     <div className="file-progress">
-      <strong>DIBS {dibs} / 3</strong>
+      <strong>DIBS {dibs}/3</strong>
       <span className="strike-row" role="img" aria-label={`${strikes} of 5 strikes`}>
         {Array.from({ length: 5 }, (_, i) => (
           <i key={i} className={i < strikes ? 'used' : ''} />
         ))}
       </span>
-      <span className="eyebrow">{strikes} of 5 strikes used</span>
     </div>
   );
 }
@@ -929,7 +968,12 @@ function DaySummary({ file, today }: { file: DayFile; today: Today }) {
         </ol>
         <div className="day-cert-holder">
           <span className="eyebrow">FILED UNDER</span>
-          <strong>{file.handle || file.claims[0]?.handle || 'Anonymous filer'}</strong>
+          <strong>
+            <Handle
+              name={file.handle || file.claims[0]?.handle || 'Anonymous filer'}
+              founder={file.founder || file.claims.some((c) => c.founder)}
+            />
+          </strong>
           <span>{file.streak || 0} day streak</span>
         </div>
         <div className="cert-footer">
@@ -937,6 +981,8 @@ function DaySummary({ file, today }: { file: DayFile; today: Today }) {
           <span>{PUBLIC_HOST}</span>
         </div>
       </article>
+      <Reminder at={today.nextDrop} />
+      <InstallHint />
       <ShareSheet
         url={summaryUrl(file.summaryId!)}
         text={summaryText(file, today.category!)}
@@ -1121,7 +1167,7 @@ function Ledger({
                 </Link>
               </td>
               <td>
-                {r.handle}
+                <Handle name={r.handle} founder={r.founder} />
                 <span className="mobile-meta">{time(r.created_at)}</span>
               </td>
               <td className="time-col">{time(r.created_at)}</td>
@@ -1222,7 +1268,9 @@ export function Certificate({ claim, animated = false }: { claim: Claim; animate
       </div>
       <div className="cert-holder">
         <span className="eyebrow">HELD BY</span>
-        <strong>{claim.handle}</strong>
+        <strong>
+          <Handle name={claim.handle} founder={claim.founder} />
+        </strong>
       </div>
       <div className="cert-bottom">
         <div>
@@ -1535,25 +1583,31 @@ function About({ nextDrop }: { nextDrop: string }) {
       <div className="about-layout">
         <section>
           <h2>How to play</h2>
-          <ol className="rules">
-            <li>
-              <span>
-                A new category opens daily. Next drop: <DropTime at={nextDrop} />.
-              </span>
-            </li>
-            <li>Call dibs on an answer. First come, first served.</li>
-            <li>Taken guesses cost a strike. Five strikes close your file.</li>
-            <li>Up to three dibs per person, per category.</li>
-            <li>The 10 most obvious answers are held by the house.</li>
-            <li>
-              Ten secret golden tickets per drop November 23–29, then three. The commitment is
-              revealed at close.
-            </li>
-            <li>Most dibs, fewest strikes, earliest completed file wins.</li>
-          </ol>
+          <Rules />
+          <details>
+            <summary>More about the game</summary>
+            <ol className="rules">
+              <li>
+                <span>
+                  A new category opens daily. Next drop: <DropTime at={nextDrop} />.
+                </span>
+              </li>
+              <li>Call dibs on an answer. First come, first served.</li>
+              <li>Taken guesses cost a strike. Five strikes close your file.</li>
+              <li>Up to three dibs per person, per category.</li>
+              <li>The 10 most obvious answers are held by the house.</li>
+              <li>
+                Ten secret golden tickets per drop November 23–29, then three. The commitment is
+                revealed at close.
+              </li>
+              <li>Most dibs, fewest strikes, earliest completed file wins.</li>
+            </ol>
+          </details>
           <h2>Frequently asked questions</h2>
           <h3>When does the category drop?</h3>
-          <p>Every day at 9 PM Eastern time.</p>
+          <p>
+            Next drop: <DropTime at={nextDrop} />. Same moment for everyone.
+          </p>
           <h3>What's a golden ticket?</h3>
           <p>A secret randomly selected answer. Claim it to earn a gold stamp.</p>
           <h3>Is it free?</h3>
@@ -1593,6 +1647,7 @@ function About({ nextDrop }: { nextDrop: string }) {
             <a href="mailto:privacy@dibs.here">privacy@dibs.here</a> (contact mailbox awaiting owner
             setup). Dibs is for players 13 and up.
           </p>
+          <p>The founder plays by the same rules.</p>
           <h2>Sources and attribution</h2>
           <p>
             Registers use <a href="https://www.geonames.org/">GeoNames</a> (CC BY), Princeton
@@ -1740,5 +1795,139 @@ function Stats() {
         </>
       )}
     </>
+  );
+}
+
+function Feedback({ sitekey }: { sitekey: string }) {
+  const [text, setText] = useState(''),
+    [message, setMessage] = useState(''),
+    [busy, setBusy] = useState(false);
+  const box = useRef<HTMLDivElement>(null);
+  return (
+    <details className="feedback">
+      <summary>Tell the clerk</summary>
+      <form
+        onSubmit={async (e) => {
+          e.preventDefault();
+          if (busy) return;
+          setBusy(true);
+          try {
+            const turnstileToken = isDemo ? 'demo' : await runTurnstile(sitekey, box.current!);
+            const data = await api<{ message: string }>('/feedback', { text, turnstileToken });
+            setMessage(data.message);
+            setText('');
+          } catch (e) {
+            setMessage((e as Error).message);
+          } finally {
+            setBusy(false);
+          }
+        }}
+      >
+        <label htmlFor="feedback-note">Private note · 500 characters max</label>
+        <textarea
+          id="feedback-note"
+          maxLength={500}
+          value={text}
+          onChange={(e) => setText(e.target.value)}
+          required
+        />
+        <div ref={box} />
+        <button disabled={busy}>{busy ? 'Sending…' : 'Send note'}</button>
+        <p role="status">{message}</p>
+      </form>
+    </details>
+  );
+}
+function LiveAdmin() {
+  const [draft, setDraft] = useState(''),
+    [token, setToken] = useState(''),
+    [data, setData] = useState<any>(),
+    [error, setError] = useState('');
+  useEffect(() => {
+    if (!token) return;
+    let active = true;
+    const load = async () => {
+      try {
+        const r = await fetch('/api/admin/live', { headers: { authorization: 'Bearer ' + token } });
+        const d = await r.json();
+        if (!r.ok) throw Error(d.message);
+        if (active) {
+          setData(d);
+          setError('');
+        }
+      } catch (e) {
+        if (active) setError((e as Error).message);
+      }
+    };
+    void load();
+    const timer = setInterval(load, 15000);
+    return () => {
+      active = false;
+      clearInterval(timer);
+    };
+  }, [token]);
+  return (
+    <section className="admin-live">
+      <h1>Live office.</h1>
+      <form
+        className="admin-form"
+        onSubmit={(e) => {
+          e.preventDefault();
+          setToken(draft);
+        }}
+      >
+        <label htmlFor="live-token">Admin token</label>
+        <input
+          id="live-token"
+          type="password"
+          autoComplete="off"
+          value={draft}
+          onChange={(e) => setDraft(e.target.value)}
+        />
+        <button>Open Live</button>
+      </form>
+      <p role="status">{error}</p>
+      {data && (
+        <>
+          <p>Last five minutes · updates every 15 seconds</p>
+          <dl className="live-metrics">
+            {Object.entries({
+              'Active players': data.active,
+              'Claims / minute': data.claimsPerMinute,
+              'Strikes / minute': data.strikesPerMinute,
+              'Files completed': data.filesCompleted,
+              Errors: data.errors,
+              'Verification failures': (100 * data.turnstileFailureRate).toFixed(1) + '%',
+            }).map(([label, value]) => (
+              <div key={label}>
+                <dt>{label}</dt>
+                <dd>{String(value)}</dd>
+              </div>
+            ))}
+          </dl>
+          <h2>Free-tier usage</h2>
+          <p>{data.usageNote}</p>
+          <ul>
+            {Object.entries(data.limits).map(([key, limit]) => (
+              <li key={key}>
+                {key}: {(data.usage[key] || 0).toLocaleString()} / {Number(limit).toLocaleString()}{' '}
+                <meter min={0} max={Number(limit)} value={data.usage[key] || 0} />
+              </li>
+            ))}
+          </ul>
+          <h2>Private feedback</h2>
+          {data.feedback.length ? (
+            data.feedback.map((note: any) => (
+              <article key={note.id}>
+                <p>{note.text}</p>
+                <small>{time(note.created_at)}</small>
+              </article>
+            ))
+          ) : (
+            <p>No notes yet.</p>
+          )}
+        </>
+      )}
+    </section>
   );
 }

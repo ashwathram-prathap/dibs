@@ -60,6 +60,14 @@ export const onRequest: PagesFunction = async ({ request, next, env }) => {
         },
       );
     }
+    if (/^\/catalog\/[^/]+\/manifest\.json$/.test(path)) {
+      const asset = await next();
+      if (!asset.ok) return asset;
+      const { house, ...publicManifest } = (await asset.json()) as any;
+      return secureResponse(
+        Response.json(publicManifest, { headers: { 'cache-control': 'public, max-age=300' } }),
+      );
+    }
     let response = secureResponse(await next());
     const personal = /^\/(api|admin|stats|certificate|summary|c)(\/|$)/.test(path);
     if (staging || personal) response.headers.set('X-Robots-Tag', 'noindex, nofollow');

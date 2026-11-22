@@ -6,7 +6,7 @@ import { PUBLIC_ORIGIN } from '../shared/config';
 import { PNG } from 'pngjs';
 import { registryDate, dropAt } from '../worker/domain';
 let mf: Miniflare, db: any;
-let summaryId: string, certificateId: string;
+let summaryId: string, certificateId: string, summaryViewer: string;
 const evidence: any[] = [];
 async function call(path: string, body?: any, cookie?: string, ip?: string) {
   const r = await mf.dispatchFetch('http://localhost/api' + path, {
@@ -119,6 +119,11 @@ beforeAll(async () => {
     );
   await db.exec(
     readFileSync('migrations/0009_r8.sql', 'utf8')
+      .replace(/^--.*$/gm, '')
+      .replace(/\n/g, ' '),
+  );
+  await db.exec(
+    readFileSync('migrations/0010_r9.sql', 'utf8')
       .replace(/^--.*$/gm, '')
       .replace(/\n/g, ' '),
   );
@@ -309,7 +314,7 @@ it('orders completed real files by dibs, strikes, then completion time', async (
         ).status,
       ).toBe(201);
   }
-  const today = (await (await call('/today')).json()) as any;
+  const today = (await (await call('/today', undefined, players[0].cookie)).json()) as any;
   expect(today.board.map((r: any) => r.handle)).toEqual([
     players[1].me.user.handle,
     players[2].me.user.handle,
@@ -332,9 +337,12 @@ it('orders completed real files by dibs, strikes, then completion time', async (
   ]);
   expect(me.file.closed).toBe(true);
   summaryId = me.file.summaryId;
+  summaryViewer = players[0].cookie;
   certificateId = me.file.claims[0].id;
   expect(summaryId).toMatch(/^[a-f0-9]{40}$/);
-  const shared = (await (await call('/summary/' + summaryId)).json()) as any;
+  const shared = (await (
+    await call('/summary/' + summaryId, undefined, summaryViewer)
+  ).json()) as any;
   expect(shared.file.dibs).toBe(3);
   expect(shared.file.strikes).toBe(1);
   expect(shared.file.summaryId).toBe(summaryId);
@@ -450,7 +458,9 @@ it('keeps a zero-dibs five-strike summary across reloads without creating a D1 p
   ).toBeNull();
 });
 it('invalidates public summaries and PNGs after a claim is voided', async () => {
-  const before = (await (await call('/summary/' + summaryId)).json()) as any;
+  const before = (await (
+    await call('/summary/' + summaryId, undefined, summaryViewer)
+  ).json()) as any;
   expect(before.file.claims).toHaveLength(3);
   const response = await mf.dispatchFetch('http://localhost/api/admin/void-claim', {
     method: 'POST',
@@ -462,7 +472,9 @@ it('invalidates public summaries and PNGs after a claim is voided', async () => 
     body: JSON.stringify({ id: certificateId }),
   });
   expect(response.status).toBe(200);
-  const after = (await (await call('/summary/' + summaryId)).json()) as any;
+  const after = (await (
+    await call('/summary/' + summaryId, undefined, summaryViewer)
+  ).json()) as any;
   expect(after.file.claims).toHaveLength(2);
   expect(after.file.claims.map((c: any) => c.id)).not.toContain(certificateId);
   expect(after.file.closed).toBe(true);

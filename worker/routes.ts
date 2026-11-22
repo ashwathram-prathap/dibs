@@ -1,4 +1,5 @@
-import { acceptedVerification } from './turnstile';
+import { canReveal, publicCategory, concealClaim } from './visibility';
+import { verifyChallenge, verifiedSession } from './turnstile';
 import { catalogMeta, lookup, nearMiss, answerId, persistAnswer } from './catalog';
 import { ensureSpecials, specialStatus } from './specials';
 import {
@@ -14,7 +15,14 @@ import {
 import { catalogContent, keyContent } from '../shared/catalog-digest';
 /// <reference types="@cloudflare/workers-types" />
 import { PUBLIC_ORIGIN } from '../shared/config';
-import { handle, hmac, cookieUser, constantEqual, sessionCookie } from './identity';
+import {
+  handle,
+  hmac,
+  cookieUser,
+  constantEqual,
+  sessionCookie,
+  normalizeFileKey,
+} from './identity';
 import {
   normalize,
   normalizeCommonName,
@@ -29,9 +37,11 @@ import { og } from './og';
 export interface Env {
   DB: D1Database;
   STAGING?: string;
+  NTFY_TOPIC?: string;
   REGISTRY?: DurableObjectNamespace;
   IMAGE_CACHE?: DurableObjectNamespace;
   PLAYER?: any;
+  INTERNAL_RECORD?: boolean;
   ATTEMPT_CHECKED?: boolean;
   COOKIE_SECRET: string;
   ADMIN_TOKEN: string;
@@ -39,7 +49,7 @@ export interface Env {
   TURNSTILE_SITE_KEY: string;
   LOCAL_TEST?: string;
 }
-const claimSelect = `SELECT c.id,c.category_id,c.claim_no,c.file_no,c.created_at,a.display,a.obscurity,EXISTS(SELECT 1 FROM daily_specials ds,json_each(ds.golden_json) j WHERE ds.category_id=c.category_id AND j.value=c.answer_id) golden,CASE WHEN u.hidden=1 THEN 'Record withheld' ELSE u.handle END handle,g.name category_name,g.date category_date,COALESCE(json_extract(g.source_json,'$.staticCatalog.count'),g.total_registrable)-(SELECT COUNT(*) FROM house_words hw WHERE hw.category_id=g.id) total_registrable FROM claims c JOIN answers a ON a.id=c.answer_id JOIN users u ON u.id=c.user_id JOIN categories g ON g.id=c.category_id`;
+const claimSelect = `SELECT c.id,c.category_id,c.claim_no,c.file_no,c.created_at,a.display,a.obscurity,EXISTS(SELECT 1 FROM daily_specials ds,json_each(ds.golden_json) j WHERE ds.category_id=c.category_id AND j.value=c.answer_id) golden,CASE WHEN u.hidden=1 THEN 'Record withheld' ELSE COALESCE((SELECT name FROM founder_role WHERE user_id=u.id),u.handle) END handle,EXISTS(SELECT 1 FROM founder_role WHERE user_id=u.id AND u.hidden=0) founder,g.name category_name,g.date category_date,COALESCE(json_extract(g.source_json,'$.staticCatalog.count'),g.total_registrable)-(SELECT COUNT(*) FROM house_words hw WHERE hw.category_id=g.id) total_registrable FROM claims c JOIN answers a ON a.id=c.answer_id JOIN users u ON u.id=c.user_id JOIN categories g ON g.id=c.category_id`;
 export async function fileState(env: Env, category: string, uid: string) {
   const claims = (
     await env.DB.prepare(
@@ -178,7 +188,7 @@ async function admin(req: Request, env: Env, path: string) {
         id,
         entries: staticManifest.count,
         version: staticManifest.version,
-        house: staticManifest.house,
+        houseCount: staticManifest.house.length,
         storage: 'immutable static assets',
       });
     const rows = (
@@ -233,6 +243,31 @@ async function admin(req: Request, env: Env, path: string) {
   }
   if (req.method !== 'POST') return fail(405, 'File changes by POST.');
   const b = await body(req, path === '/admin/category' ? 5_000_000 : 4096);
+  if (path === '/admin/set-founder') {
+    const target = String(b.target || '');
+    const name = String(b.name || 'THE REGISTRAR').trim();
+    if (!/^[A-Za-z0-9 .'-]{2,40}$/.test(name))
+      return fail(422, 'Use a name of 2–40 plain characters.');
+    const hash = await hmac(normalizeFileKey(target), env.COOKIE_SECRET);
+    const found = await env.DB.prepare(
+      'SELECT id FROM users WHERE id=? UNION SELECT user_id id FROM recovery_keys WHERE key_hash=?',
+    )
+      .bind(target, hash)
+      .first<any>();
+    if (!found) return fail(404, 'No account matches that file key or user ID.');
+    await env.DB.batch([
+      env.DB.prepare(
+        'INSERT INTO founder_role(slot,user_id,name) VALUES(1,?,?) ON CONFLICT(slot) DO UPDATE SET user_id=excluded.user_id,name=excluded.name',
+      ).bind(found.id, name),
+      env.DB.prepare('INSERT INTO admin_audit VALUES(?,?,?,?)').bind(
+        crypto.randomUUID(),
+        'set-founder',
+        found.id,
+        new Date().toISOString(),
+      ),
+    ]);
+    return json({ ok: true, userId: found.id, name });
+  }
   if (path === '/admin/hide-user' || path === '/admin/void-claim') {
     if (!validId(b.id)) return fail(422, 'A record ID is required.');
     const hide = path.endsWith('hide-user');
@@ -252,6 +287,7 @@ async function admin(req: Request, env: Env, path: string) {
   if (path === '/admin/practice-reset') {
     if (env.STAGING !== 'true') return fail(404, 'No such clerk procedure.');
     await env.DB.batch([
+      env.DB.prepare('DELETE FROM founder_role'),
       env.DB.prepare('DELETE FROM recovery_keys'),
       env.DB.prepare('DELETE FROM claim_requests'),
       env.DB.prepare('DELETE FROM missing_answers'),
@@ -541,7 +577,7 @@ export async function route(req: Request, env: Env): Promise<Response> {
     const claimed = Number(counts.claimed);
     return json({
       category,
-      specials,
+      specials: specials ? { ...specials, houseWords: [] } : null,
       practice: env.STAGING === 'true',
       claimed,
       lastClaimAt: counts.lastClaimAt || null,
@@ -595,6 +631,10 @@ export async function route(req: Request, env: Env): Promise<Response> {
   }
   if (path === '/ledger') {
     const category = url.searchParams.get('category');
+    const g = await env.DB.prepare('SELECT id,date FROM categories WHERE id=?')
+      .bind(category || '')
+      .first();
+    if (!(await canReveal(req, env, g))) return json({ rows: [], locked: true });
     const since = Number(url.searchParams.get('since') || 0);
     const rows = await env.DB.prepare(
       publicClaim + ' AND c.category_id=? AND c.claim_no>? ORDER BY c.claim_no DESC',
@@ -627,14 +667,32 @@ export async function route(req: Request, env: Env): Promise<Response> {
     const exact = await env.DB.prepare(publicClaim + ' AND c.id=?')
       .bind(id)
       .first();
-    if (exact) return json({ claim: exact });
+    if (exact) {
+      const c = exact as any;
+      return json({
+        claim:
+          env.INTERNAL_RECORD ||
+          (await canReveal(req, env, { id: c.category_id, date: c.category_date }))
+            ? c
+            : concealClaim(c),
+      });
+    }
     if (id.length >= 36) return fail(404, 'That certificate is not on the public record.');
     // A primary-key range supports printed short links without an OR/LIKE table scan.
     const rows = await env.DB.prepare(publicClaim + ' AND c.id>=? AND c.id<? LIMIT 2')
       .bind(id, id + '\uffff')
       .all();
     return rows.results.length === 1
-      ? json({ claim: rows.results[0] })
+      ? json({
+          claim:
+            env.INTERNAL_RECORD ||
+            (await canReveal(req, env, {
+              id: rows.results[0].category_id,
+              date: rows.results[0].category_date,
+            }))
+              ? rows.results[0]
+              : concealClaim(rows.results[0]),
+        })
       : fail(404, 'That certificate is not on the public record.');
   }
   const u = await user(req, env);
@@ -715,24 +773,16 @@ async function claim(req: Request, env: Env, u: any) {
       return fail(429, 'Twelve attempts per minute. Give the ink a moment to dry.');
     throw e;
   }
-  if (
-    !validText(b.answer) ||
-    typeof b.turnstileToken !== 'string' ||
-    !/^[a-zA-Z0-9_.-]{1,2048}$/.test(b.turnstileToken)
-  )
-    return fail(422, 'File an entry and its verification.');
-  // The test bypass only works on a loopback URL and is never configured remotely.
-  const local =
-    env.LOCAL_TEST === 'true' && ['localhost', '127.0.0.1'].includes(new URL(req.url).hostname);
-  if (!local) {
-    if (!env.TURNSTILE_SECRET) return fail(503, 'Verification is not configured.');
-    const response = await fetch('https://challenges.cloudflare.com/turnstile/v0/siteverify', {
-      method: 'POST',
-      body: new URLSearchParams({ secret: env.TURNSTILE_SECRET, response: b.turnstileToken }),
-    });
-    const verified = (await response.json()) as any;
-    if (!acceptedVerification(verified, env, PUBLIC_ORIGIN))
-      return fail(400, 'Verification was not accepted. Please try again.');
+  const local = isLocal(req, env.LOCAL_TEST);
+  if (!validText(b.answer)) return fail(422, 'Enter an answer.');
+  if (b.sessionToken) {
+    if (!(await verifiedSession(req, env, u.id, b.sessionToken)))
+      return json(
+        { code: 'VERIFY_AGAIN', message: 'One quick verification, then try again.' },
+        428,
+      );
+  } else if (!(await verifyChallenge(req, env, b.turnstileToken))) {
+    return fail(400, 'Verification was not accepted. Please try again.');
   }
   const staticRow = catalogMeta(g) ? await lookup(g, b.answer) : null;
   const answer = catalogMeta(g)
@@ -746,7 +796,7 @@ async function claim(req: Request, env: Env, u: any) {
     return json(
       {
         code: 'NOT_REGISTERED',
-        message: 'Not on the register. No strike charged.',
+        message: "Not on today's list. Check spelling.",
         suggestion: catalogMeta(g) ? await nearMiss(g, b.answer) : null,
         spellingCatalog: catalogMeta(g)
           ? {
@@ -923,12 +973,11 @@ const handler = {
       if (
         env.STAGING !== 'true' &&
         req.method === 'GET' &&
-        (path === '/today' || path === '/ledger')
+        path === '/today' &&
+        !req.headers.get('cookie')
       ) {
         // Neither cookies, query order nor the player's cursor fragments the shared cache.
         const key = new URL(PUBLIC_ORIGIN + '/api' + path);
-        if (path === '/ledger')
-          key.searchParams.set('category', url.searchParams.get('category') || '');
         const cache = await caches.open('dibs-public-v2');
         let response = await cache.match(key.toString());
         if (!response) {
@@ -949,17 +998,6 @@ const handler = {
             inflight.delete(key.toString());
           }
         }
-        if (path === '/ledger' && response.ok) {
-          const data = (await response.json()) as any;
-          const since = Math.max(0, Number(url.searchParams.get('since')) || 0);
-          const before = Number(url.searchParams.get('before')) || Infinity;
-          const limit = Math.min(100, Math.max(1, Number(url.searchParams.get('limit')) || 50));
-          return json({
-            rows: data.rows
-              .filter((r: any) => r.claim_no > since && r.claim_no < before)
-              .slice(0, limit),
-          });
-        }
         if (path === '/today' && response.ok)
           return json({
             ...((await response.json()) as object),
@@ -974,10 +1012,18 @@ const handler = {
   },
   async scheduled(_event: ScheduledController, env: Env) {
     await current(env);
+    if (env.REGISTRY)
+      await env.REGISTRY.get(env.REGISTRY.idFromName('public-registry-v1')).fetch(
+        new Request(PUBLIC_ORIGIN + '/api/admin/monitor', {
+          method: 'POST',
+          headers: { origin: PUBLIC_ORIGIN, authorization: 'Bearer ' + env.ADMIN_TOKEN },
+        }),
+      );
     if (_event.cron !== '17 5 * * *') return;
     await ensureMaintenanceIndexes(env);
     await env.DB.batch([
       env.DB.prepare("DELETE FROM missing_answers WHERE day<date('now','-90 day')"),
+      env.DB.prepare("DELETE FROM feedback WHERE created_at<datetime('now','-90 day')"),
       env.DB.prepare('DELETE FROM attempts WHERE at<?').bind(Date.now() - 120000),
       env.DB.prepare("DELETE FROM rate_limits WHERE day<date('now','-2 day')"),
       env.DB.prepare(

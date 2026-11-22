@@ -1,7 +1,11 @@
 import { DROP_TIME_ZONE, LAUNCH_DATE } from './config';
 export function viewerZone() {
+  let saved: string | null = null;
   try {
-    const zone = Intl.DateTimeFormat().resolvedOptions().timeZone;
+    saved = localStorage.getItem('dibs-timezone');
+  } catch {}
+  try {
+    const zone = saved || Intl.DateTimeFormat().resolvedOptions().timeZone;
     if (!zone) return DROP_TIME_ZONE;
     new Intl.DateTimeFormat('en-US', { timeZone: zone }).format();
     return zone;

@@ -95,7 +95,10 @@ export async function exportCertificate(claim: Claim, story: boolean) {
   const holder = y + 120;
   mono('HELD BY', 80, holder, 19);
   c.font = '600 42px Instrument';
+  if (claim.founder) c.fillStyle = '#795700';
   c.fillText(claim.handle, 80, holder + 60);
+  if (claim.founder) mono('FOUNDER', 80, holder + 90, 18);
+  c.fillStyle = '#1A1A17';
   c.font = '400 26px Instrument';
   mono('OBSCURITY', 80, h - 250);
   for (let i = 0; i < 5; i++) {
@@ -275,6 +278,7 @@ export async function exportSummary(file: DayFile, category: Category, story: bo
   const holderTop = 565 + rows.length * rowHeight + 30;
   line(holderTop);
   text('FILED UNDER', 80, holderTop + 38, 18);
+  if (file.founder) c.fillStyle = '#795700';
   fit(
     file.handle || file.claims[0]?.handle || 'Anonymous filer',
     80,
@@ -284,6 +288,8 @@ export async function exportSummary(file: DayFile, category: Category, story: bo
     'Instrument',
     600,
   );
+  if (file.founder) text('FOUNDER', 80, holderTop + 112, 18);
+  c.fillStyle = ink;
   text(`${file.streak || 0} DAY STREAK`, 790, holderTop + 80, 20);
   if (story && h - 100 - (holderTop + 140) > 240) {
     const y = holderTop + 210;

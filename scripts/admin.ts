@@ -23,6 +23,9 @@ if (command === 'upload' || command === 'replace-draft') {
 } else if (command === 'practice-reset') {
   path = '/admin/practice-reset';
   body = {};
+} else if (command === 'set-founder') {
+  path = '/admin/set-founder';
+  body = { target, name: date || 'THE REGISTRAR' };
 } else if (command === 'stats') path = '/admin/stats';
 else
   throw new Error(

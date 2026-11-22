@@ -1,3 +1,6 @@
+import { canReveal, publicCategory, concealClaim, concealSummary } from './visibility';
+import { emptyMinute, alertConditions, freeLimits, type Minute } from './monitoring';
+import { verifyChallenge, verificationToken, verifiedSession } from './turnstile';
 import { specialStatus } from './specials';
 import { dropAt } from './domain';
 import { LAUNCH_DATE } from '../shared/config';
@@ -109,11 +112,13 @@ export class Registry extends DurableObject<Env> {
       this.refreshing = undefined;
     }
   }
-  today(s: Snapshot) {
+  today(s: Snapshot, reveal = false) {
     return {
       serverTime: new Date().toISOString(),
-      category: s.category,
-      specials: s.specials,
+      category: publicCategory(s.category),
+      specials: s.specials
+        ? { ...s.specials, houseWords: reveal ? s.specials.houseWords : [] }
+        : null,
       practice: this.env.STAGING === 'true',
       claimed: s.rows.length,
       open: s.category
@@ -122,7 +127,7 @@ export class Registry extends DurableObject<Env> {
       voided: s.reserved - s.rows.length,
       lastClaimAt: s.rows[0]?.created_at || null,
       nextDrop: s.nextDrop || nextDrop(),
-      board: (s.board || []).map(({ user_id, ...row }) => row),
+      board: (reveal ? s.board || [] : []).map(({ user_id, ...row }) => row),
       turnstileSiteKey: this.env.TURNSTILE_SITE_KEY,
     };
   }
@@ -212,7 +217,11 @@ export class Registry extends DurableObject<Env> {
       await hmac(session.user.id + ':' + session.file.category_id, this.env.COOKIE_SECRET)
     ).slice(0, 40);
     session.file.summaryId = id;
-    session.file.handle = session.user.handle;
+    const founder = await this.env.DB.prepare('SELECT name FROM founder_role WHERE user_id=?')
+      .bind(session.user.id)
+      .first<any>();
+    session.file.handle = founder?.name || session.user.handle;
+    session.file.founder = !!founder;
     session.file.streak = streak(session.streakDates, registryDate());
     const key = 'summary:' + id;
     if (!(await this.ctx.storage.get(key)))
@@ -261,9 +270,12 @@ export class Registry extends DurableObject<Env> {
         ),
         claims: visible,
         summaryId: id,
-        handle: holder?.hidden
-          ? 'Record withheld'
-          : holder?.handle || owner?.user.handle || 'Anonymous filer',
+        founder: visible.some((c: any) => c.founder),
+        handle:
+          visible[0]?.handle ||
+          (holder?.hidden
+            ? 'Record withheld'
+            : holder?.handle || owner?.user.handle || 'Anonymous filer'),
         streak: streak(dates, category.date),
       },
       category,
@@ -406,7 +418,111 @@ export class Registry extends DurableObject<Env> {
     }
     await this.ctx.storage.setAlarm(Date.now() + 86400000);
   }
+  async recordMetric(req: Request, response: Response, totals: { reads: number; writes: number }) {
+    const path = new URL(req.url).pathname.replace(/^\/api/, '');
+    const now = Date.now(),
+      minute = Math.floor(now / 60000),
+      day = new Date(now).toISOString().slice(0, 10);
+    const uid = await cookieUser(req, this.env.COOKIE_SECRET);
+    let data: any;
+    if (path === '/claim' && [201, 409].includes(response.status))
+      data = await response.clone().json();
+    await this.ctx.storage.transaction(async (tx) => {
+      const key = 'metric:' + minute;
+      const m = (await tx.get<Minute>(key)) || emptyMinute();
+      m.requests++;
+      m.errors += Number(response.status >= 500);
+      m.claims += Number(path === '/claim' && response.status === 201 && !data?.replayed);
+      m.strikes += Number(path === '/claim' && response.status === 409 && !data?.replayed);
+      m.completed += Number(path === '/claim' && data?.file?.closed && !data?.replayed);
+      m.verifications += Number(path === '/verify-session');
+      m.verificationFailures += Number(path === '/verify-session' && !response.ok);
+      await tx.put(key, m);
+      const usage = (await tx.get<any>('usage:' + day)) || { requests: 0, reads: 0, writes: 0 };
+      usage.requests++;
+      usage.reads += totals.reads;
+      usage.writes += totals.writes;
+      await tx.put('usage:' + day, usage);
+      if (uid) await tx.put('active:' + uid, now);
+    });
+  }
+  async liveStats() {
+    const now = Date.now(),
+      minute = Math.floor(now / 60000);
+    const minutes: Minute[] = [];
+    for (let i = 4; i >= 0; i--)
+      minutes.push((await this.ctx.storage.get<Minute>('metric:' + (minute - i))) || emptyMinute());
+    const totals = minutes.reduce((a, m) => {
+      for (const k of Object.keys(a) as (keyof Minute)[]) a[k] += m[k];
+      return a;
+    }, emptyMinute());
+    const active = [
+      ...(await this.ctx.storage.list<number>({ prefix: 'active:' })).values(),
+    ].filter((at) => at > now - 300000).length;
+    const usage = (await this.ctx.storage.get<any>(
+      'usage:' + new Date(now).toISOString().slice(0, 10),
+    )) || { requests: 0, reads: 0, writes: 0 };
+    const size = await this.env.DB.prepare(
+      'SELECT page_count * page_size bytes FROM pragma_page_count(), pragma_page_size()',
+    ).first<any>();
+    usage.storageBytes = Number(size?.bytes || 0);
+    return {
+      at: new Date(now).toISOString(),
+      active,
+      claimsPerMinute: totals.claims / 5,
+      strikesPerMinute: totals.strikes / 5,
+      filesCompleted: totals.completed,
+      errors: totals.errors,
+      turnstileFailureRate: totals.verifications
+        ? totals.verificationFailures / totals.verifications
+        : 0,
+      minutes,
+      usage,
+      limits: freeLimits,
+      usageNote:
+        'Measured API usage since this release. Excludes static Pages traffic, edge cache hits, external D1 jobs and other Workers. Check account totals in Cloudflare.',
+      feedback: (
+        await this.env.DB.prepare(
+          'SELECT id,text,created_at FROM feedback ORDER BY created_at DESC LIMIT 30',
+        ).all()
+      ).results,
+    };
+  }
+  async monitor() {
+    const stats = await this.liveStats();
+    const alerts = alertConditions(stats.minutes, stats.usage);
+    const now = Date.now(),
+      at = Date.parse(dropAt(registryDate()));
+    if (now >= at && now < at + 120000) {
+      const g = await current(this.env);
+      alerts.push({
+        type: g ? 'drop-live' : 'drop-missing',
+        message: g ? 'Dibs: Drop is live.' : 'Dibs: the scheduled drop failed to open.',
+      });
+    }
+    for (const alert of alerts) {
+      const key = 'alert:' + alert.type;
+      const previous = (await this.ctx.storage.get<number>(key)) || 0;
+      if (Date.now() - previous < 1800000 || !this.env.NTFY_TOPIC || this.env.STAGING === 'true')
+        continue;
+      const response = await fetch('https://ntfy.sh/' + encodeURIComponent(this.env.NTFY_TOPIC), {
+        method: 'POST',
+        body: alert.message,
+        headers: { Title: 'Dibs office', Priority: 'high' },
+      });
+      if (response.ok) await this.ctx.storage.put(key, Date.now());
+    }
+    for (const [key] of await this.ctx.storage.list({
+      prefix: 'metric:',
+      end: 'metric:' + Math.floor((Date.now() - 86400000) / 60000),
+    }))
+      await this.ctx.storage.delete(key);
+    for (const [key, at] of await this.ctx.storage.list<number>({ prefix: 'active:' }))
+      if (at < Date.now() - 300000) await this.ctx.storage.delete(key);
+    return json({ ok: true });
+  }
   async fetch(req: Request): Promise<Response> {
+    const started = Date.now();
     const meter = metered(this.env.DB);
     const env = { ...this.env, DB: meter.db };
     let response: Response;
@@ -429,6 +545,11 @@ export class Registry extends DurableObject<Env> {
       response = new Response(response.body, response);
       response.headers.set('x-d1-rows-read', String(meter.totals.reads));
       response.headers.set('x-d1-rows-written', String(meter.totals.writes));
+    }
+    if (response.status !== 101) {
+      this.ctx.waitUntil(this.recordMetric(req, response.clone() as Response, meter.totals));
+      response = new Response(response.body, response);
+      response.headers.set('server-timing', `worker;dur=${Date.now() - started}`);
     }
     return response;
   }
@@ -466,11 +587,12 @@ export class Registry extends DurableObject<Env> {
         return json({ message: 'A live connection is required.' }, 426);
       const pair = new WebSocketPair();
       this.ctx.acceptWebSocket(pair[1]);
+      pair[1].serializeAttachment({ uid: await cookieUser(req, env.COOKIE_SECRET), at: 0 });
       return new Response(null, { status: 101, webSocket: pair[0] });
     }
     if (path === '/bootstrap' || path === '/me') {
       const snapshot = await this.fresh(env);
-      const { session, cookie } = await this.session(req, !!snapshot.category);
+      const { session, cookie } = await this.session(req, true);
       if (session && snapshot.category && (session.attempts.length || session.claim)) {
         session.file = await fileState(env, snapshot.category.id, session.user.id);
         session.claim = session.file.claims.at(-1) || null;
@@ -480,23 +602,41 @@ export class Registry extends DurableObject<Env> {
         path === '/me'
           ? this.me(session)
           : {
-              today: this.today(snapshot),
+              today: this.today(snapshot, !!session?.file?.closed),
               me: this.me(session),
-              rows: snapshot.rows.slice(0, 50),
+              rows: session?.file?.closed ? snapshot.rows.slice(0, 50) : [],
               version: snapshot.version,
             };
       return json(data, 200, cookie ? { 'set-cookie': cookie } : {});
     }
-    if (path === '/today') return json(this.today(await this.fresh(env)));
+    if (path === '/today') {
+      const snapshot = await this.fresh(env);
+      const { session } = await this.session(req);
+      return json(
+        this.today(
+          snapshot,
+          session?.file?.category_id === snapshot.category?.id && session?.file?.closed,
+        ),
+      );
+    }
     if (path === '/ledger') {
       const s = await this.fresh(env),
         category = url.searchParams.get('category');
       const since = Math.max(0, Number(url.searchParams.get('since')) || 0);
+      const g =
+        s.category?.id === category
+          ? s.category
+          : await env.DB.prepare('SELECT id,date FROM categories WHERE id=?')
+              .bind(category || '')
+              .first();
+      if (!(await canReveal(req, env, g))) return json({ rows: [], locked: true });
       if (s.category?.id === category)
         return json({ rows: s.rows.filter((r) => r.claim_no > since) });
       const r = await this.cached('ledger:' + category, 600000, () =>
         route(
-          new Request(url.origin + '/api/ledger?category=' + encodeURIComponent(category || '')),
+          new Request(url.origin + '/api/ledger?category=' + encodeURIComponent(category || ''), {
+            headers: req.headers,
+          }),
           env,
         ),
       );
@@ -514,10 +654,25 @@ export class Registry extends DurableObject<Env> {
         this.summary(path.slice(9), env),
       );
       if (!cached.ok) return cached;
-      return json({ ...((await cached.json()) as any), nextDrop: nextDrop() });
+      const data: any = await cached.json();
+      return json(
+        (await canReveal(req, env, data.category))
+          ? { ...data, category: publicCategory(data.category), nextDrop: nextDrop() }
+          : concealSummary(data),
+      );
     }
-    if (path.startsWith('/certificate/'))
-      return this.cached('certificate:' + path.slice(13), 86400000, () => route(req, env));
+    if (path.startsWith('/certificate/')) {
+      // Cache only the unredacted record internally; viewer policy is applied on every read.
+      const cached = await this.cached('certificate:' + path.slice(13), 86400000, () =>
+        route(req, { ...env, INTERNAL_RECORD: true }),
+      );
+      if (!cached.ok) return cached;
+      const data: any = await cached.json();
+      const g = { id: data.claim.category_id, date: data.claim.category_date };
+      return json({
+        claim: (await canReveal(req, env, g)) ? data.claim : concealClaim(data.claim),
+      });
+    }
     if (path === '/og' || path.startsWith('/og/')) return this.image(path.slice(4), env);
     if (path === '/answers') return json({ answers: [] }); // Suggestions are a versioned Pages asset.
     if (path.startsWith('/admin/')) {
@@ -526,6 +681,8 @@ export class Registry extends DurableObject<Env> {
         (await constantEqual(req.headers.get('authorization') || '', 'Bearer ' + env.ADMIN_TOKEN));
       const denied = await this.rateGate(req, env, true, valid);
       if (denied) return denied;
+      if (path === '/admin/live' && req.method === 'GET') return json(await this.liveStats());
+      if (path === '/admin/monitor' && req.method === 'POST') return this.monitor();
       if (
         path === '/admin/upload-budget' ||
         (path === '/admin/category' && env.LOCAL_TEST !== 'true')
@@ -579,6 +736,20 @@ export class Registry extends DurableObject<Env> {
         this.snapshot = undefined;
         for (const ws of this.ctx.getWebSockets()) ws.close(1012, 'Practice reset');
       }
+      if (response.ok && path === '/admin/set-founder') {
+        // Role changes must also refresh boards, sessions, certificate and image caches.
+        const founder = await env.DB.prepare('SELECT user_id,name FROM founder_role').first<any>();
+        for (const [key, board] of await this.ctx.storage.list<any[]>({ prefix: 'board:' })) {
+          for (const row of board) {
+            row.founder = row.user_id === founder.user_id;
+            const user = await env.DB.prepare('SELECT handle FROM users WHERE id=?')
+              .bind(row.user_id)
+              .first<any>();
+            row.handle = row.founder ? founder.name : user?.handle || row.handle;
+          }
+          await this.ctx.storage.put(key, board);
+        }
+      }
       if (response.ok && req.method === 'POST') {
         await this.ctx.storage.put(
           'version',
@@ -591,7 +762,8 @@ export class Registry extends DurableObject<Env> {
         if (
           path.endsWith('hide-user') ||
           path.endsWith('void-claim') ||
-          path === '/admin/practice-reset'
+          path === '/admin/practice-reset' ||
+          path === '/admin/set-founder'
         ) {
           const b = (await req.clone().json()) as any; // caller body is cloned by route below
           if (path.endsWith('hide-user')) {
@@ -715,18 +887,47 @@ export class Registry extends DurableObject<Env> {
       });
     }
     const { session } = await this.session(req);
-    if (!session)
+    if (!session) {
+      // A cookie that survived the browser but lost its server file is not blocked storage.
+      // Replace it and retry the original request once; nothing has been charged yet.
+      if (/(?:^|;\s*)dibs_session=/.test(req.headers.get('cookie') || '')) {
+        const fresh = await this.session(req, true);
+        const headers = new Headers(req.headers);
+        headers.set('cookie', fresh.cookie.split(';')[0]);
+        const result = await this.dispatch(new Request(req, { headers }), env);
+        const data = (await result.json()) as any;
+        return json(
+          {
+            ...data,
+            sessionNotice:
+              env.STAGING === 'true'
+                ? 'Practice was reset. You have a fresh file.'
+                : 'You have a fresh file. Have a file key? Restore it.',
+          },
+          result.status,
+          { 'set-cookie': fresh.cookie },
+        );
+      }
       return json(
         {
-          message:
-            'Cookies are required to keep your place. Please allow cookies or open Dibs in your regular browser.',
+          code: 'COOKIES_BLOCKED',
+          message: 'Cookies are required to keep your place. Tap ••• → Open in browser.',
         },
         401,
       );
+    }
     if (session.user.hidden)
       return json({ message: 'This account is not accepting new filings.' }, 403);
     if (req.method !== 'POST') return json({ message: 'No file at this address.' }, 404);
     if (path === '/session-check') return json({ ok: true });
+    if (path === '/verify-session') {
+      const denied = await this.rateGate(req, env, false, true);
+      if (denied) return denied;
+      const b = await body(req, 3000);
+      if (!(await verifyChallenge(req, env, b.turnstileToken)))
+        return json({ message: 'Verification was not accepted. Please try again.' }, 400);
+      return json(await verificationToken(req, env, session.user.id));
+    }
     if (path === '/me/reroll') {
       if (session.claim || session.user.rerolls_used >= 3)
         return json({ message: 'This handle has been filed. Re-rolls are closed.' }, 403);
@@ -741,6 +942,32 @@ export class Registry extends DurableObject<Env> {
         await this.ctx.storage.put('session:' + latest.user.id, latest);
         return json({ user: latest.user });
       });
+    }
+    if (path === '/feedback') {
+      const b = await body(req, 4000);
+      if (typeof b.text !== 'string' || !b.text.trim() || b.text.length > 500)
+        return json({ message: 'Write up to 500 characters.' }, 422);
+      if (
+        !(await verifiedSession(req, env, session.user.id, b.sessionToken)) &&
+        !(await verifyChallenge(req, env, b.turnstileToken))
+      )
+        return json({ message: 'Please complete verification.' }, 400);
+      const key = 'feedback-rate:' + (await securityKey(req, env.COOKIE_SECRET, env.LOCAL_TEST));
+      const allowed = await this.ctx.storage.transaction(async (tx) => {
+        const r = await tx.get<any>(key);
+        if (r && r.until > Date.now() && r.count >= 3) return false;
+        await tx.put(key, {
+          until: r?.until > Date.now() ? r.until : Date.now() + 3600000,
+          count: r?.until > Date.now() ? r.count + 1 : 1,
+        });
+        return true;
+      });
+      if (!allowed)
+        return json({ message: 'The clerk has your notes. Try again in an hour.' }, 429);
+      await env.DB.prepare('INSERT INTO feedback(id,user_id,text,created_at) VALUES(?,?,?,?)')
+        .bind(crypto.randomUUID(), session.user.id, b.text.trim(), new Date().toISOString())
+        .run();
+      return json({ ok: true, message: 'The clerk has your note.' });
     }
     if (path === '/missing' && req.method === 'POST') {
       const denied = await this.rateGate(req, env, false, true);
@@ -792,8 +1019,14 @@ export class Registry extends DurableObject<Env> {
         // overwrite session progress with an older response.
         await this.ctx.blockConcurrencyWhile(async () => {
           const latest = (await this.ctx.storage.get<Session>('session:' + session.user.id))!;
-          const category = await current(env);
-          latest.file = category ? await fileState(env, category.id, session.user.id) : null;
+          // The claim route reads the authoritative file after committing. Never replace
+          // a newer concurrent response with an older file; avoid reading the same file twice.
+          if (
+            !latest.file ||
+            latest.file.category_id !== data.file.category_id ||
+            latest.file.dibs + latest.file.strikes <= data.file.dibs + data.file.strikes
+          )
+            latest.file = data.file;
           if (data.claim) {
             latest.claim = data.claim;
             latest.streakDates = [
@@ -804,6 +1037,7 @@ export class Registry extends DurableObject<Env> {
               body: JSON.stringify({ claim: data.claim }),
             });
           }
+          await this.ensureSummary(latest);
           if (latest.file?.closed) {
             const key = 'board:' + latest.file.category_id;
             const board = (await this.ctx.storage.get<any[]>(key)) || [];
@@ -811,7 +1045,8 @@ export class Registry extends DurableObject<Env> {
               ...board.filter((r) => r.user_id !== latest.user.id),
               {
                 user_id: latest.user.id,
-                handle: latest.user.handle,
+                handle: latest.file.handle || latest.user.handle,
+                founder: !!latest.file.founder,
                 dibs: latest.file.dibs,
                 strikes: latest.file.strikes,
                 completedAt: latest.file.completedAt,
@@ -869,20 +1104,24 @@ export class Registry extends DurableObject<Env> {
         ['since', 'version'].some((k) => b[k] != null && (!Number.isSafeInteger(b[k]) || b[k] < 0))
       )
         return ws.close(1008, 'That form could not be read');
-      const previous = ws.deserializeAttachment() as { at: number } | null;
+      const previous = ws.deserializeAttachment() as { at: number; uid?: string } | null;
       if (previous && Date.now() - previous.at < 10000) return;
-      ws.serializeAttachment({ at: Date.now() });
+      ws.serializeAttachment({ ...previous, at: Date.now() });
       const closed = await this.ctx.storage.get<{ until: number; body: any }>('quota-closed');
       if (closed && closed.until > Date.now()) {
         ws.send(JSON.stringify({ error: closed.body }));
         return;
       }
       const s = await this.fresh(this.env);
+      const viewer = previous?.uid
+        ? await this.ctx.storage.get<Session>('session:' + previous.uid)
+        : undefined;
+      const reveal = viewer?.file?.category_id === s.category?.id && viewer?.file?.closed;
       const same = b.category === s.category?.id && (b.version || 0) === (s.version || 0);
       ws.send(
         JSON.stringify({
-          today: this.today(s),
-          rows: s.rows.filter((r) => !same || r.claim_no > (Number(b.since) || 0)),
+          today: this.today(s, reveal),
+          rows: reveal ? s.rows.filter((r) => !same || r.claim_no > (Number(b.since) || 0)) : [],
           reset: !same,
           version: s.version,
         }),

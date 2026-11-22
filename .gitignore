@@ -53,3 +53,6 @@ public/catalog/
 review/round8/ui/*.png
 review/round8/certificates/*.png
 review/round8/practice-live-flow-*.png
+# R9 full-resolution review captures and browser recordings stay in the local report.
+review/round9/**/*.png
+review/round9/**/*.webm

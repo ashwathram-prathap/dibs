@@ -1,0 +1,108 @@
+{
+  "label": "before-official-test",
+  "network": "Live practice, local network; not a 4G claim",
+  "samples": [
+    {
+      "ms": 2700.0404590000003,
+      "status": 422,
+      "serverTiming": "cfExtPri"
+    },
+    {
+      "ms": 1937.123125,
+      "status": 422,
+      "serverTiming": "cfExtPri"
+    },
+    {
+      "ms": 1870.005709,
+      "status": 422,
+      "serverTiming": "cfExtPri"
+    },
+    {
+      "ms": 2007.7481670000006,
+      "status": 422,
+      "serverTiming": "cfExtPri"
+    },
+    {
+      "ms": 1945.107,
+      "status": 422,
+      "serverTiming": "cfExtPri"
+    },
+    {
+      "ms": 1891.8512919999994,
+      "status": 422,
+      "serverTiming": "cfExtPri"
+    },
+    {
+      "ms": 1911.2248749999999,
+      "status": 422,
+      "serverTiming": "cfExtPri"
+    },
+    {
+      "ms": 1863.937958999999,
+      "status": 422,
+      "serverTiming": "cfExtPri"
+    },
+    {
+      "ms": 2010.8976249999978,
+      "status": 422,
+      "serverTiming": "cfExtPri"
+    },
+    {
+      "ms": 1943.0756660000006,
+      "status": 422,
+      "serverTiming": "cfExtPri"
+    },
+    {
+      "ms": 2045.9903339999983,
+      "status": 422,
+      "serverTiming": "cfExtPri"
+    },
+    {
+      "ms": 1900.1086670000004,
+      "status": 422,
+      "serverTiming": "cfExtPri"
+    },
+    {
+      "ms": 1896.1017500000016,
+      "status": 422,
+      "serverTiming": "cfExtPri"
+    },
+    {
+      "ms": 1954.7433749999982,
+      "status": 422,
+      "serverTiming": "cfExtPri"
+    },
+    {
+      "ms": 1975.7136250000003,
+      "status": 422,
+      "serverTiming": "cfExtPri"
+    },
+    {
+      "ms": 1952.425000000003,
+      "status": 422,
+      "serverTiming": "cfExtPri"
+    },
+    {
+      "ms": 1881.697208999998,
+      "status": 422,
+      "serverTiming": "cfExtPri"
+    },
+    {
+      "ms": 1874.289208000002,
+      "status": 422,
+      "serverTiming": "cfExtPri"
+    },
+    {
+      "ms": 1882.1419170000008,
+      "status": 422,
+      "serverTiming": "cfExtPri"
+    },
+    {
+      "ms": 2059.7610419999983,
+      "status": 422,
+      "serverTiming": "cfExtPri"
+    }
+  ],
+  "p50": 1943.0756660000006,
+  "p95": 2700.0404590000003
+}

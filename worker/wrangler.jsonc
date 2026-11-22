@@ -19,7 +19,7 @@
     "TURNSTILE_SITE_KEY": "0x4AAAAAAGLNsW8c9WxZVAxQ",
   },
   "triggers": {
-    "crons": ["17 5 * * *", "0 * * * *"],
+    "crons": ["17 5 * * *", "* * * * *"],
   },
   "observability": {
     "enabled": false,
