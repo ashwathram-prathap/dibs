@@ -155,6 +155,7 @@ for (const [name, type] of [
           });
           const restored = await b.newContext(),
             rp = await restored.newPage();
+          debugPage = rp;
           await rp.goto(origin);
           await rp.locator('#file-settings summary').click();
           await rp.locator('#restore-key').fill(key);

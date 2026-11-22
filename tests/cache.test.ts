@@ -698,3 +698,29 @@ it('R11 file-key deletion works from another browser and deletion is rate limite
     ).status;
   expect(status).toBe(429);
 });
+it('R11 claim progress survives an empty in-memory snapshot', async () => {
+  const a = await account();
+  const clear = await mf.dispatchFetch('http://localhost/api/admin/schedule/assets', {
+    method: 'POST',
+    headers: {
+      origin: 'https://dibs.here',
+      authorization: 'Bearer local-admin',
+      'content-type': 'application/json',
+    },
+    body: JSON.stringify({ files: 1, bytes: 1, maxBytes: 1 }),
+  });
+  expect(clear.status).toBe(200);
+  // Calendar invalidation clears the volatile snapshot, as hibernation also does.
+  // A claim must return its authoritative private file without a preceding read.
+  const response = await call(
+    '/claim',
+    { answer: 'Animal 67', turnstileToken: 'test', requestId: crypto.randomUUID() },
+    a.cookie,
+    'cold-r11',
+  );
+  expect(response.status).toBe(201);
+  const data: any = await response.json();
+  expect(data.me.file).toEqual(data.file);
+  expect(data.me.file.dibs).toBe(1);
+  expect(data.me.claim.id).toBe(data.claim.id);
+});

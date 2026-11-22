@@ -206,11 +206,11 @@ export class Registry extends DurableObject<Env> {
       await this.ctx.storage.setAlarm(Date.now() + 86400000);
     return { session, cookie };
   }
-  me(s?: Session) {
+  me(s: Session | undefined, categoryId: string | undefined) {
     return {
       user: s?.user || null,
-      file: s?.file?.category_id === this.snapshot?.category?.id ? s?.file : null,
-      claim: s?.claim?.category_date === registryDate() ? s.claim : null,
+      file: s?.file?.category_id === categoryId ? s?.file : null,
+      claim: s?.claim?.category_id === categoryId ? s?.claim : null,
       streakDates: s?.streakDates.slice(0, 7) || [],
       streak: streak(s?.streakDates || [], registryDate()),
     };
@@ -705,10 +705,10 @@ export class Registry extends DurableObject<Env> {
       if (session) await this.ensureSummary(session);
       const data =
         path === '/me'
-          ? this.me(session)
+          ? this.me(session, snapshot.category?.id)
           : {
               today: this.today(snapshot, !!session?.file?.closed),
-              me: this.me(session),
+              me: this.me(session, snapshot.category?.id),
               rows: session?.file?.closed ? snapshot.rows.slice(0, 50) : [],
               version: snapshot.version,
             };
@@ -1275,7 +1275,7 @@ export class Registry extends DurableObject<Env> {
           if (!issued.meta.changes && !data.replayed) recoveryKey = undefined;
         }
         return json(
-          { ...data, recoveryKey, file: session.file, me: this.me(session) },
+          { ...data, recoveryKey, file: session.file, me: this.me(session, data.file.category_id) },
           response.status,
         );
       }
