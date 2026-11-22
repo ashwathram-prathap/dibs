@@ -1,0 +1,16 @@
+[
+  {
+    "name": "Instagram",
+    "checks": [
+      "Production loads closed"
+    ],
+    "passed": true
+  },
+  {
+    "name": "LinkedIn",
+    "checks": [
+      "Production loads closed"
+    ],
+    "passed": true
+  }
+]
