@@ -77,7 +77,7 @@ export default defineConfig({
   projects: projects.map((p) => ({ ...p, testIgnore: 'round7.spec.ts' })),
   webServer: {
     command:
-      'npx vite build --mode security-test && npm run preview -- --mode security-test --port 5173',
+      'npx tsx scripts/build-catalog-assets.ts && npx vite build --mode security-test && npm run preview -- --mode security-test --port 5173',
     url: 'http://127.0.0.1:5173',
     reuseExistingServer: false,
   },

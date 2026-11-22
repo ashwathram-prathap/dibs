@@ -13,12 +13,22 @@
     "Turkey": "Turkey as food",
     "Dog": "Hot dog",
     "Brazil": "Brazil nut",
-    "Chile": "Chili pepper"
+    "Chile": "Chili pepper",
+    "Chicken": "Chicken as food",
+    "Duck": "Duck as food",
+    "Rabbit": "Rabbit as food",
+    "Octopus": "Octopus as food",
+    "Shark": "Shark meat",
+    "Salmon": "Salmon as food"
   },
   "fruits-vegetables": {
     "Chile": "Chili pepper"
   },
   "cities": {
     "New York": "New York City"
+  },
+  "countries": {
+    "Georgia": "Georgia (country)",
+    "Ireland": "Republic of Ireland"
   }
 }

@@ -199,6 +199,7 @@ export async function request(path: string, body?: any): Promise<any> {
       throw new ApiError(422, {
         message: "Not on today's register. Check the spelling.",
         code: 'NOT_REGISTERED',
+        spellingCatalog: new URLSearchParams(location.search).get('spellingVersion') ? {slug:'animals',version:new URLSearchParams(location.search).get('spellingVersion')} : null,
         suggestion: body.answer.toLowerCase()==='axolot'?'Axolotl':null,
       });
     const taken = claims.find((c) => c.display === entry);

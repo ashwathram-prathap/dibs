@@ -1,0 +1,72 @@
+[
+  {
+    "title": "List of Indian dishes",
+    "passed": true
+  },
+  {
+    "title": "List of Japanese dishes",
+    "passed": true
+  },
+  {
+    "title": "List of Korean dishes",
+    "passed": true
+  },
+  {
+    "title": "List of Thai dishes",
+    "passed": true
+  },
+  {
+    "title": "List of Vietnamese dishes",
+    "passed": true
+  },
+  {
+    "title": "List of Indonesian dishes",
+    "passed": true
+  },
+  {
+    "title": "List of Filipino dishes",
+    "passed": true
+  },
+  {
+    "title": "List of Mexican dishes",
+    "passed": true
+  },
+  {
+    "title": "List of Italian dishes",
+    "passed": true
+  },
+  {
+    "title": "List of French dishes",
+    "passed": true
+  },
+  {
+    "title": "List of Turkish dishes",
+    "passed": true
+  },
+  {
+    "title": "List of Lebanese dishes",
+    "passed": false,
+    "error": "Error: The page you specified doesn't exist."
+  },
+  {
+    "title": "List of Pakistani dishes",
+    "passed": true
+  },
+  {
+    "title": "List of British dishes",
+    "passed": false,
+    "error": "Error: The page you specified doesn't exist."
+  },
+  {
+    "title": "List of German dishes",
+    "passed": true
+  },
+  {
+    "title": "List of Spanish dishes",
+    "passed": true
+  },
+  {
+    "title": "List of vegetables",
+    "passed": true
+  }
+]

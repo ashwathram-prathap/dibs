@@ -47,7 +47,7 @@ export function fullDistance(a: string, b: string) {
   }
   return row[b.length];
 }
-export function findTypo(tree: TypoNode[], key: string, radius = 2) {
+export function findTypoMatch(tree: TypoNode[], key: string, radius = 2) {
   const measure = distanceFrom(key);
   const todo = tree.length ? [0] : [];
   let best: number | null = null,
@@ -63,7 +63,10 @@ export function findTypo(tree: TypoNode[], key: string, radius = 2) {
     for (const edge in children)
       if (+edge >= d - bound && +edge <= d + bound) todo.push(children[edge]);
   }
-  return best;
+  return best === null ? null : { id: best, distance };
+}
+export function findTypo(tree: TypoNode[], key: string, radius = 2) {
+  return findTypoMatch(tree, key, radius)?.id ?? null;
 }
 export function editDistance(a: string, b: string, max = 2) {
   if (Math.abs(a.length - b.length) > max) return max + 1;

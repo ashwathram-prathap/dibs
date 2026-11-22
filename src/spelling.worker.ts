@@ -1,4 +1,4 @@
-import { findTypo, type TypoNode, type CatalogRow } from '../shared/catalog';
+import { findTypoMatch, type TypoNode, type CatalogRow } from '../shared/catalog';
 import { normalize } from '../worker/domain';
 self.onmessage = async ({ data }) => {
   try {
@@ -20,10 +20,12 @@ self.onmessage = async ({ data }) => {
         const response = await fetch(base + `typos-${length}.json`);
         if (!response.ok) return null;
         const tree: TypoNode[] = await response.json();
-        return findTypo(tree, key, 2);
+        return findTypoMatch(tree, key, 2);
       }),
     );
-    const id = candidates.filter((n): n is number => n !== null).sort((a, b) => a - b)[0];
+    const id = candidates
+      .filter((n): n is { id: number; distance: number } => n !== null)
+      .sort((a, b) => a.distance - b.distance || a.id - b.id)[0]?.id;
     if (id === undefined) {
       self.postMessage(null);
       return;

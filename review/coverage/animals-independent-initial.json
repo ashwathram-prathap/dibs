@@ -1,0 +1,609 @@
+{
+  "source": "Pre-R8 independent Wikidata candidate set; sources retained per entry",
+  "seed": 8129,
+  "method": "Uniform draw without replacement from the middle half of measured readership; misses are not replaced.",
+  "answers": [
+    "Commerson's roundleaf bat",
+    "Cape hairy bat",
+    "Aztec fruit-eating bat",
+    "Ultimate shrew",
+    "Long-eared myotis",
+    "Biak naked-backed fruit bat",
+    "Peters's epauletted fruit bat",
+    "Proboscis bat",
+    "Gervais's fruit-eating bat",
+    "Banana serotine",
+    "Ethiopian dwarf mongoose",
+    "Neohylomys vietnamensis",
+    "Natal long-fingered bat",
+    "Orange nectar bat",
+    "Bronze quoll",
+    "Pygmy fruit-eating bat",
+    "Griffin's leaf-nosed bat",
+    "Chilean myotis",
+    "Ashy roundleaf bat",
+    "Velvety fruit-eating bat",
+    "Van Gelder's bat",
+    "Desert pipistrelle",
+    "Insular single leaf bat",
+    "Pancho's monito del monte",
+    "Spilogale yucatanensis",
+    "Handley's short-tailed opossum",
+    "Minor red bat",
+    "Nicobar treeshrew",
+    "Underwood's long-tongued bat",
+    "Brazilian slender opossum",
+    "LaVal's disk-winged bat",
+    "Velvety free-tailed bat",
+    "Yellow-bellied sheath-tailed bat",
+    "Timor roundleaf bat",
+    "Mountain pademelon",
+    "Guahiba gracile opossum",
+    "Ronald's opossum",
+    "Slender treeshrew",
+    "Western rock sengi",
+    "Moluccan flying fox",
+    "Schmidts's big-eared bat",
+    "Tailless fruit bat",
+    "Amazonian red-sided opossum",
+    "Pygmy treeshrew",
+    "Fawn leaf-nosed bat",
+    "Long-toed myotis",
+    "Silky cuscus",
+    "Armenian whiskered bat",
+    "Peruvian short-tailed opossum",
+    "Great bent-winged bat"
+  ],
+  "samples": [
+    {
+      "answer": "Commerson's roundleaf bat",
+      "source": "https://en.wikipedia.org/wiki/Commerson%27s_roundleaf_bat",
+      "pageviews": {
+        "total": 91,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      },
+      "present": true
+    },
+    {
+      "answer": "Cape hairy bat",
+      "source": "https://en.wikipedia.org/wiki/Cape_hairy_bat",
+      "pageviews": {
+        "total": 57,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      },
+      "present": true
+    },
+    {
+      "answer": "Aztec fruit-eating bat",
+      "source": "https://en.wikipedia.org/wiki/Aztec_fruit-eating_bat",
+      "pageviews": {
+        "total": 40,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      },
+      "present": true
+    },
+    {
+      "answer": "Ultimate shrew",
+      "source": "https://en.wikipedia.org/wiki/Ultimate_shrew",
+      "pageviews": {
+        "total": 62,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      },
+      "present": true
+    },
+    {
+      "answer": "Long-eared myotis",
+      "source": "https://en.wikipedia.org/wiki/Long-eared_myotis",
+      "pageviews": {
+        "total": 236,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      },
+      "present": true
+    },
+    {
+      "answer": "Biak naked-backed fruit bat",
+      "source": "https://en.wikipedia.org/wiki/Biak_naked-backed_fruit_bat",
+      "pageviews": {
+        "total": 43,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      },
+      "present": true
+    },
+    {
+      "answer": "Peters's epauletted fruit bat",
+      "source": "https://en.wikipedia.org/wiki/Peters%27s_epauletted_fruit_bat",
+      "pageviews": {
+        "total": 129,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      },
+      "present": true
+    },
+    {
+      "answer": "Proboscis bat",
+      "source": "https://en.wikipedia.org/wiki/Proboscis_bat",
+      "pageviews": {
+        "total": 278,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      },
+      "present": true
+    },
+    {
+      "answer": "Gervais's fruit-eating bat",
+      "source": "https://en.wikipedia.org/wiki/Gervais%27s_fruit-eating_bat",
+      "pageviews": {
+        "total": 38,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      },
+      "present": true
+    },
+    {
+      "answer": "Banana serotine",
+      "source": "https://en.wikipedia.org/wiki/Banana_serotine",
+      "pageviews": {
+        "total": 61,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      },
+      "present": true
+    },
+    {
+      "answer": "Ethiopian dwarf mongoose",
+      "source": "https://en.wikipedia.org/wiki/Ethiopian_dwarf_mongoose",
+      "pageviews": {
+        "total": 205,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      },
+      "present": true
+    },
+    {
+      "answer": "Neohylomys vietnamensis",
+      "source": "https://en.wikipedia.org/wiki/Neohylomys_vietnamensis",
+      "pageviews": {
+        "total": 57,
+        "days": 28,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      },
+      "present": false
+    },
+    {
+      "answer": "Natal long-fingered bat",
+      "source": "https://en.wikipedia.org/wiki/Natal_long-fingered_bat",
+      "pageviews": {
+        "total": 69,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      },
+      "present": true
+    },
+    {
+      "answer": "Orange nectar bat",
+      "source": "https://en.wikipedia.org/wiki/Orange_nectar_bat",
+      "pageviews": {
+        "total": 146,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      },
+      "present": true
+    },
+    {
+      "answer": "Bronze quoll",
+      "source": "https://en.wikipedia.org/wiki/Bronze_quoll",
+      "pageviews": {
+        "total": 258,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      },
+      "present": true
+    },
+    {
+      "answer": "Pygmy fruit-eating bat",
+      "source": "https://en.wikipedia.org/wiki/Pygmy_fruit-eating_bat",
+      "pageviews": {
+        "total": 86,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      },
+      "present": true
+    },
+    {
+      "answer": "Griffin's leaf-nosed bat",
+      "source": "https://en.wikipedia.org/wiki/Griffin%27s_leaf-nosed_bat",
+      "pageviews": {
+        "total": 44,
+        "days": 27,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      },
+      "present": true
+    },
+    {
+      "answer": "Chilean myotis",
+      "source": "https://en.wikipedia.org/wiki/Chilean_myotis",
+      "pageviews": {
+        "total": 37,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      },
+      "present": true
+    },
+    {
+      "answer": "Ashy roundleaf bat",
+      "source": "https://en.wikipedia.org/wiki/Ashy_roundleaf_bat",
+      "pageviews": {
+        "total": 61,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      },
+      "present": true
+    },
+    {
+      "answer": "Velvety fruit-eating bat",
+      "source": "https://en.wikipedia.org/wiki/Velvety_fruit-eating_bat",
+      "pageviews": {
+        "total": 114,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      },
+      "present": true
+    },
+    {
+      "answer": "Van Gelder's bat",
+      "source": "https://en.wikipedia.org/wiki/Van_Gelder%27s_bat",
+      "pageviews": {
+        "total": 95,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      },
+      "present": true
+    },
+    {
+      "answer": "Desert pipistrelle",
+      "source": "https://en.wikipedia.org/wiki/Desert_pipistrelle",
+      "pageviews": {
+        "total": 42,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      },
+      "present": true
+    },
+    {
+      "answer": "Insular single leaf bat",
+      "source": "https://en.wikipedia.org/wiki/Insular_single_leaf_bat",
+      "pageviews": {
+        "total": 45,
+        "days": 29,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      },
+      "present": true
+    },
+    {
+      "answer": "Pancho's monito del monte",
+      "source": "https://en.wikipedia.org/wiki/Pancho%27s_monito_del_monte",
+      "pageviews": {
+        "total": 178,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      },
+      "present": false
+    },
+    {
+      "answer": "Spilogale yucatanensis",
+      "source": "https://en.wikipedia.org/wiki/Spilogale_yucatanensis",
+      "pageviews": {
+        "total": 102,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      },
+      "present": true
+    },
+    {
+      "answer": "Handley's short-tailed opossum",
+      "source": "https://en.wikipedia.org/wiki/Handley%27s_short-tailed_opossum",
+      "pageviews": {
+        "total": 45,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      },
+      "present": true
+    },
+    {
+      "answer": "Minor red bat",
+      "source": "https://en.wikipedia.org/wiki/Minor_red_bat",
+      "pageviews": {
+        "total": 32,
+        "days": 28,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      },
+      "present": true
+    },
+    {
+      "answer": "Nicobar treeshrew",
+      "source": "https://en.wikipedia.org/wiki/Nicobar_treeshrew",
+      "pageviews": {
+        "total": 186,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      },
+      "present": true
+    },
+    {
+      "answer": "Underwood's long-tongued bat",
+      "source": "https://en.wikipedia.org/wiki/Underwood%27s_long-tongued_bat",
+      "pageviews": {
+        "total": 43,
+        "days": 29,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      },
+      "present": true
+    },
+    {
+      "answer": "Brazilian slender opossum",
+      "source": "https://en.wikipedia.org/wiki/Brazilian_slender_opossum",
+      "pageviews": {
+        "total": 119,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      },
+      "present": true
+    },
+    {
+      "answer": "LaVal's disk-winged bat",
+      "source": "https://en.wikipedia.org/wiki/LaVal%27s_disk-winged_bat",
+      "pageviews": {
+        "total": 28,
+        "days": 27,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      },
+      "present": true
+    },
+    {
+      "answer": "Velvety free-tailed bat",
+      "source": "https://en.wikipedia.org/wiki/Velvety_free-tailed_bat",
+      "pageviews": {
+        "total": 323,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      },
+      "present": true
+    },
+    {
+      "answer": "Yellow-bellied sheath-tailed bat",
+      "source": "https://en.wikipedia.org/wiki/Yellow-bellied_sheath-tailed_bat",
+      "pageviews": {
+        "total": 201,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      },
+      "present": true
+    },
+    {
+      "answer": "Timor roundleaf bat",
+      "source": "https://en.wikipedia.org/wiki/Timor_roundleaf_bat",
+      "pageviews": {
+        "total": 39,
+        "days": 26,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      },
+      "present": true
+    },
+    {
+      "answer": "Mountain pademelon",
+      "source": "https://en.wikipedia.org/wiki/Mountain_pademelon",
+      "pageviews": {
+        "total": 128,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      },
+      "present": true
+    },
+    {
+      "answer": "Guahiba gracile opossum",
+      "source": "https://en.wikipedia.org/wiki/Guahiba_gracile_opossum",
+      "pageviews": {
+        "total": 50,
+        "days": 29,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      },
+      "present": true
+    },
+    {
+      "answer": "Ronald's opossum",
+      "source": "https://en.wikipedia.org/wiki/Ronald%27s_opossum",
+      "pageviews": {
+        "total": 49,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      },
+      "present": true
+    },
+    {
+      "answer": "Slender treeshrew",
+      "source": "https://en.wikipedia.org/wiki/Slender_treeshrew",
+      "pageviews": {
+        "total": 139,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      },
+      "present": true
+    },
+    {
+      "answer": "Western rock sengi",
+      "source": "https://en.wikipedia.org/wiki/Western_rock_sengi",
+      "pageviews": {
+        "total": 75,
+        "days": 29,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      },
+      "present": true
+    },
+    {
+      "answer": "Moluccan flying fox",
+      "source": "https://en.wikipedia.org/wiki/Moluccan_flying_fox",
+      "pageviews": {
+        "total": 56,
+        "days": 29,
+        "start": "2026-10-22",
+        "end": "2026-11-19"
+      },
+      "present": true
+    },
+    {
+      "answer": "Schmidts's big-eared bat",
+      "source": "https://en.wikipedia.org/wiki/Schmidts%27s_big-eared_bat",
+      "pageviews": {
+        "total": 46,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      },
+      "present": true
+    },
+    {
+      "answer": "Tailless fruit bat",
+      "source": "https://en.wikipedia.org/wiki/Tailless_fruit_bat",
+      "pageviews": {
+        "total": 37,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      },
+      "present": true
+    },
+    {
+      "answer": "Amazonian red-sided opossum",
+      "source": "https://en.wikipedia.org/wiki/Amazonian_red-sided_opossum",
+      "pageviews": {
+        "total": 77,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      },
+      "present": true
+    },
+    {
+      "answer": "Pygmy treeshrew",
+      "source": "https://en.wikipedia.org/wiki/Pygmy_treeshrew",
+      "pageviews": {
+        "total": 188,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      },
+      "present": true
+    },
+    {
+      "answer": "Fawn leaf-nosed bat",
+      "source": "https://en.wikipedia.org/wiki/Fawn_leaf-nosed_bat",
+      "pageviews": {
+        "total": 73,
+        "days": 28,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      },
+      "present": true
+    },
+    {
+      "answer": "Long-toed myotis",
+      "source": "https://en.wikipedia.org/wiki/Long-toed_myotis",
+      "pageviews": {
+        "total": 33,
+        "days": 29,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      },
+      "present": true
+    },
+    {
+      "answer": "Silky cuscus",
+      "source": "https://en.wikipedia.org/wiki/Silky_cuscus",
+      "pageviews": {
+        "total": 139,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      },
+      "present": true
+    },
+    {
+      "answer": "Armenian whiskered bat",
+      "source": "https://en.wikipedia.org/wiki/Armenian_whiskered_bat",
+      "pageviews": {
+        "total": 47,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      },
+      "present": false
+    },
+    {
+      "answer": "Peruvian short-tailed opossum",
+      "source": "https://en.wikipedia.org/wiki/Peruvian_short-tailed_opossum",
+      "pageviews": {
+        "total": 52,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      },
+      "present": true
+    },
+    {
+      "answer": "Great bent-winged bat",
+      "source": "https://en.wikipedia.org/wiki/Great_bent-winged_bat",
+      "pageviews": {
+        "total": 32,
+        "days": 27,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      },
+      "present": true
+    }
+  ]
+}

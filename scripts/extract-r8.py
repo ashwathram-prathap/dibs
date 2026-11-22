@@ -30,21 +30,27 @@ with zipfile.ZipFile(p/'ioc15.2.xlsx') as z:
  for row in ET.fromstring(z.read('xl/worksheets/sheet1.xml')).findall('s:sheetData/s:row',ns)[1:]:
   vals={re.sub(r'[0-9]','',c.attrib['r']):(strings[int(c.find('s:v',ns).text)] if c.attrib.get('t')=='s' else '') for c in row.findall('s:c',ns) if c.find('s:v',ns) is not None}
   if vals.get('E'):
-   for cat in ['birds','animals']:add(cat,vals['E'],[vals['D']],source='https://www.worldbirdnames.org/Multiling%20IOC%2015.2.xlsx')
+   for cat in ['birds','animals']:add(cat,vals['E'],[vals['D']],source='https://www.worldbirdnames.org/Multiling%20IOC%2015.2.xlsx',scientificName=vals['D'])
 with open(p/'usda.txt',encoding='utf-8-sig') as f:
  for row in csv.DictReader(f):
-  if row['Common Name']:add('plants',row['Common Name'],[' '.join(row['Scientific Name with Author'].split()[:2])],source='https://plants.sc.egov.usda.gov/DocumentLibrary/Txt/plantlst.txt')
+  if row['Common Name']:add('plants',row['Common Name'],[' '.join(row['Scientific Name with Author'].split()[:2])],source='https://plants.sc.egov.usda.gov/DocumentLibrary/Txt/plantlst.txt',scientificName=' '.join(row['Scientific Name with Author'].split()[:2]))
 if (p/'gbif-extracted.json').exists():
  for cat,records in json.loads((p/'gbif-extracted.json').read_text()).items():
-  for row in records:add(cat,row['display'],row['aliases'],row['source'])
+  for row in records:add(cat,row['display'],row['aliases'],row['source'],scientificName=row['aliases'][-1])
 for block in (p/'food.txt').read_text().split('\n\n'):
  names=re.search(r'^en: (.+)$',block,re.M)
  if names:
   names=names[1].split(', ')
   if not re.search(r'\b(products|foods|beverages|supplements|baby|substitutes)\b',names[0],re.I):add('foods',names[0],names[1:],source='https://github.com/openfoodfacts/openfoodfacts-server/blob/main/taxonomies/food/categories.txt')
+geo=json.loads((p/'geonames-en.json').read_text())
 with zipfile.ZipFile(p/'cities1000.zip') as z:
  for line in z.read('cities1000.txt').decode().splitlines():
-  a=line.split('\t'); aliases=[a[2]]+[s for s in a[3].split(',') if s and len(s)<96 and re.fullmatch(r"[A-Za-zÀ-ž .’'\-]+",s)]
-  add('cities',a[1],aliases,source='https://www.geonames.org/'+a[0],population=int(a[14]),country=a[8],admin=a[10])
+  a=line.split('\t'); aliases=[a[1],a[2]]+[s for s in a[3].split(',') if s and len(s)<96 and re.fullmatch(r"[A-Za-zÀ-ž .’'\-]+",s)]
+  add('cities',geo['names'].get(a[0],a[1]),aliases,wikipediaTitle=geo['wiki'].get(a[0]),source='https://www.geonames.org/'+a[0],population=int(a[14]),country=a[8],admin=a[10])
+for cat,records in json.loads(pathlib.Path('scripts/r8-curated-supplements.json').read_text()).items():
+ for row in records:add(cat,row['display'],row['aliases'],row['source'],wikipediaTitle=row['wikipediaTitle'])
+ # Culinary fruit and vegetables are edible ingredients in Foods too.
+ if cat=='fruits-vegetables':
+  for row in records:add('foods',row['display'],row['aliases'],row['source'],wikipediaTitle=row['wikipediaTitle'])
 (p/'candidates.json').write_text(json.dumps(out,ensure_ascii=False))
 print({k:len(v) for k,v in out.items()})

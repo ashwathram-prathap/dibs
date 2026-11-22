@@ -101,7 +101,9 @@ test('five strikes close the file and invalid entries cost nothing', async ({ pa
   const input = page.getByLabel('ENTRY:', { exact: true });
   await input.fill('unknown animal');
   await page.getByRole('button', { name: 'CALL DIBS' }).click();
-  await expect(page.locator('.result-panel')).toContainText("Not on today's register. Check the spelling.");
+  await expect(page.locator('.result-panel')).toContainText(
+    "Not on today's register. Check the spelling.",
+  );
   await expect(page.getByRole('img', { name: '0 of 5 strikes' })).toBeVisible();
   for (let i = 1; i <= 5; i++) {
     await input.fill('Pangolin');
@@ -109,5 +111,7 @@ test('five strikes close the file and invalid entries cost nothing', async ({ pa
     await expect(page.getByRole('img', { name: `${i} of 5 strikes` })).toBeVisible();
   }
   await expect(page.getByRole('article', { name: 'Day summary' })).toBeVisible();
+  await expect(page.locator('.result-panel')).toContainText('Your file is closed for today.');
+  await expect(input).toBeFocused();
   await expect(page.getByRole('button', { name: 'CALL DIBS' })).toBeDisabled();
 });

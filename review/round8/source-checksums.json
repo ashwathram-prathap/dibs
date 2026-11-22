@@ -26,5 +26,13 @@
   "iso.mjs": {
     "sha256": "03fb12d2b9c5e61f99679db75bf5a6c289512bcdf3a9f1b59ea3dcdfe2b4f294",
     "bytes": 28849
+  },
+  "alternateNamesV2.zip": {
+    "sha256": "e2341756f04e053e0b48abece49867d730ffc1c5deea78f2e92b25bc8caca7c0",
+    "bytes": 205205220
+  },
+  "actors-path.tsv": {
+    "sha256": "70fa9008bd12f6e1d039b0f1a84cf1bf986312891de0831a01d39b1754f8372c",
+    "bytes": 21554962
   }
 }

@@ -1,0 +1,53 @@
+{
+  "events": 11,
+  "outcomes": {
+    "ok": 11
+  },
+  "note": "Wrangler tail does not include billed CPU timings if absent here; request headers are retained only in the ignored private diagnostic file.",
+  "timings": [
+    {
+      "wallTime": 124,
+      "cpuTime": 0
+    },
+    {
+      "wallTime": 128,
+      "cpuTime": 0
+    },
+    {
+      "wallTime": 135,
+      "cpuTime": 0
+    },
+    {
+      "wallTime": 123,
+      "cpuTime": 0
+    },
+    {
+      "wallTime": 136,
+      "cpuTime": 0
+    },
+    {
+      "wallTime": 125,
+      "cpuTime": 0
+    },
+    {
+      "wallTime": 123,
+      "cpuTime": 0
+    },
+    {
+      "wallTime": 123,
+      "cpuTime": 0
+    },
+    {
+      "wallTime": 131,
+      "cpuTime": 0
+    },
+    {
+      "wallTime": 139,
+      "cpuTime": 0
+    },
+    {
+      "wallTime": 629,
+      "cpuTime": 0
+    }
+  ]
+}

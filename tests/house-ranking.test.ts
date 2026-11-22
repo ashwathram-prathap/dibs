@@ -35,6 +35,12 @@ it('keeps golden status out of public catalog assets and client code', () => {
         ]);
         continue;
       }
+      if(String(f).endsWith('/full.json')){
+        expect(Object.keys(data).sort()).toEqual(['ids','keys','rows']);
+        expect(Buffer.from(data.ids,'base64').length).toBe(data.keys.length*4);
+        expect(data.rows.every((r:any)=>Array.isArray(r)&&r.length===3)).toBe(true);
+        continue;
+      }
       if (String(f).includes('/typos-')) {
         for (const row of data) {
           expect(row).toHaveLength(3);

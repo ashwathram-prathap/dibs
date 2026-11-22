@@ -81,22 +81,27 @@ for (const [slug, input] of Object.entries(raw) as any) {
   ];
   const byKey = new Map<string, any>();
   const aliasOwner = new Map<string, any>();
+  const taxonOwner = new Map<string, any>();
   for (const a of ordered) {
     const key = normalize(a.display);
     if (!key) continue;
-    if (aliasOwner.has(key)) {
-      const prev = aliasOwner.get(key);
+    const scientific = a.scientificName ? normalize(a.scientificName) : '';
+    const prev =
+      byKey.get(key) || (scientific && taxonOwner.get(scientific)) || aliasOwner.get(key);
+    if (prev) {
       prev.aliases.push(a.display, ...a.aliases);
-      continue;
-    }
-    if (byKey.has(key)) {
-      const prev = byKey.get(key);
-      prev.aliases.push(...a.aliases);
+      byKey.set(key, prev);
+      if (scientific) taxonOwner.set(scientific, prev);
+      for (const alias of a.aliases)
+        if (!byKey.has(normalize(alias)) && !aliasOwner.has(normalize(alias)))
+          aliasOwner.set(normalize(alias), prev);
       continue;
     }
     byKey.set(key, a);
+    if (scientific) taxonOwner.set(scientific, a);
     rows.push(a);
-    for (const alias of a.aliases) aliasOwner.set(normalize(alias), a);
+    for (const alias of a.aliases)
+      if (!aliasOwner.has(normalize(alias))) aliasOwner.set(normalize(alias), a);
   }
   for (const a of rows) used.add(normalize(a.display));
   for (const a of rows) {
@@ -120,6 +125,9 @@ const cache: Record<string, any> = existsSync(cacheFile)
   ? JSON.parse(readFileSync(cacheFile, 'utf8'))
   : {};
 const title = (s: string) => s[0].toUpperCase() + s.slice(1);
+const titleOverrides = JSON.parse(readFileSync('scripts/r8-page-titles.json', 'utf8'));
+const measurementTitle = (a: any, slug: string) =>
+  titleOverrides[slug]?.[a.display] || a.wikipediaTitle || title(a.display);
 const priority = new Set(
   readdirSync('review/coverage')
     .filter((f) => f.endsWith('.txt'))
@@ -130,14 +138,22 @@ const priority = new Set(
         .map(title),
     ),
 );
+const independentPools = existsSync('.category-cache/r8/independent-pools.json')
+  ? JSON.parse(readFileSync('.category-cache/r8/independent-pools.json', 'utf8'))
+  : {};
+const extraTitles: string[] = Object.values(independentPools).flatMap((rows: any) =>
+  rows.map((r: any) => (typeof r === 'string' ? r : r.title || r.name)),
+);
+for (const t of extraTitles) priority.add(t);
 const pending = [
-  ...new Set(
-    Object.values(catalogs)
-      .flat()
-      .map((a) => title(a.display)),
-  ),
+  ...new Set([
+    ...Object.entries(catalogs).flatMap(([slug, rows]) =>
+      rows.map((a) => measurementTitle(a, slug)),
+    ),
+    ...extraTitles,
+  ]),
 ]
-  .filter((t) => !cache[t])
+  .filter((t) => !cache[t] || ['unavailable', 'measurement unavailable'].includes(cache[t].status))
   .sort((a, b) => Number(priority.has(b)) - Number(priority.has(a)));
 // Coverage fixtures influence measurement order only, never membership or acceptance.
 console.log('Measuring', pending.length, 'uncapped candidate titles');
@@ -179,7 +195,15 @@ async function measure(batch: string[]) {
         await new Promise((r) => setTimeout(r, 1000 * (i + 1)));
       }
     }
-    Object.assign(data.query.pages, response.query?.pages);
+    for (const [id, page] of Object.entries(response.query?.pages || {}) as [string, any][]) {
+      const old = data.query.pages[id] || {};
+      data.query.pages[id] = {
+        ...old,
+        ...page,
+        pageprops: { ...old.pageprops, ...page.pageprops },
+        pageviews: { ...old.pageviews, ...page.pageviews },
+      };
+    }
     data.query.redirects.push(...(response.query?.redirects || []));
     data.query.normalized.push(...(response.query?.normalized || []));
     cont = response.continue;
@@ -194,13 +218,23 @@ async function measure(batch: string[]) {
     if (p)
       metadata[p.title] = {
         title: p.title,
-        description: p.pageprops?.['wikibase-shortdesc'] || '',
+        description: p.pageprops?.['wikibase-shortdesc'] || metadata[p.title]?.description || '',
         disambiguation: p.pageprops?.disambiguation !== undefined,
       };
     const points = Object.entries(p?.pageviews || {}).filter(([, n]) => typeof n === 'number');
     cache[t] =
       !p || p.missing !== undefined || p.pageprops?.disambiguation !== undefined || !points.length
-        ? { total: 0, days: 0, status: 'unavailable' }
+        ? {
+            total: 0,
+            days: 0,
+            title: p?.title,
+            status:
+              p?.missing !== undefined
+                ? 'no article'
+                : p?.pageprops?.disambiguation !== undefined
+                  ? 'disambiguation'
+                  : 'measurement unavailable',
+          }
         : {
             total: points.reduce((n, [, v]) => n + (v as number), 0),
             days: points.length,
@@ -233,7 +267,7 @@ if (!process.argv.includes('--offline'))
           writeFileSync(metadataFile, JSON.stringify(metadata));
           console.log('Measured', done, '/', pending.length);
         }
-        await new Promise((r) => setTimeout(r, 1000));
+        await new Promise((r) => setTimeout(r, 2000));
       }
     }),
   );
@@ -241,7 +275,6 @@ if (!process.argv.includes('--offline')) {
   writeFileSync(cacheFile, JSON.stringify(cache));
   writeFileSync(metadataFile, JSON.stringify(metadata));
 }
-const titleOverrides = JSON.parse(readFileSync('scripts/r8-page-titles.json', 'utf8'));
 
 const names: any = {
   animals: 'Animals',
@@ -265,7 +298,7 @@ const scopes: any = {
 };
 for (const [slug, answers] of Object.entries(catalogs)) {
   for (const a of answers) {
-    a.pageviews = cache[titleOverrides[slug]?.[a.display] || title(a.display)] || {
+    a.pageviews = cache[measurementTitle(a, slug)] || {
       total: 0,
       days: 0,
       status: 'unavailable',
@@ -326,7 +359,13 @@ for (const [slug, answers] of Object.entries(catalogs)) {
         completeSources:
           !['animals', 'plants'].includes(slug) ||
           existsSync('.category-cache/r8/gbif-extracted.json'),
-        rankingComplete: answers.every((a) => !!cache[title(a.display)]),
+        rankingComplete: answers.every(
+          (a) =>
+            cache[measurementTitle(a, slug)] &&
+            !['unavailable', 'measurement unavailable'].includes(
+              cache[measurementTitle(a, slug)].status,
+            ),
+        ),
         ranking: '30 available days; unavailable pageviews retained as unknown, never fabricated',
       },
       answers,

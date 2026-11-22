@@ -18,6 +18,13 @@ for (const f of readdirSync('categories').filter((f) => f.endsWith('.json'))) {
       if (shards[shardFor(key)][key]) throw Error('Alias collision ' + c.slug + ': ' + key);
       shards[shardFor(key)][key] = rows[i];
     }
+  const sortedKeys = shards.flatMap((shard) => Object.keys(shard)).sort();
+  const ordinals = Buffer.alloc(sortedKeys.length * 4);
+  sortedKeys.forEach((key, i) => ordinals.writeUInt32LE(shards[shardFor(key)][key][0], i * 4));
+  const complete = JSON.stringify({ keys: sortedKeys, ids: ordinals.toString('base64'), rows });
+  if (Buffer.byteLength(complete) > 25 * 1024 * 1024)
+    throw Error(c.slug + ' exceeds Pages asset size');
+  writeFileSync(`${dir}/full.json`, complete);
   for (let i = 0; i < 256; i++) writeFileSync(`${dir}/keys-${i}.json`, JSON.stringify(shards[i]));
   for (let i = 0; i < rows.length; i += 256)
     writeFileSync(

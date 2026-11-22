@@ -1,0 +1,609 @@
+{
+  "source": "Pre-R8 independent Wikidata candidate set; sources retained per entry",
+  "seed": 8129,
+  "method": "Uniform draw without replacement from the middle half of measured readership; misses are not replaced.",
+  "answers": [
+    "Tawny-faced quail",
+    "Hoary puffleg",
+    "White-throated hummingbird",
+    "White-breasted guinea fowl",
+    "Black imperial pigeon",
+    "Short-crested coquette",
+    "Sand partridge",
+    "Ring-tailed pigeon",
+    "Réunion pink pigeon",
+    "Townsend's storm petrel",
+    "Sirkeer malkoha",
+    "Chinese grouse",
+    "Swinhoe's storm petrel",
+    "Juan Fernández firecrown",
+    "Crested guinea fowl",
+    "Many-coloured fruit dove",
+    "Cinnabar boobook",
+    "Black-breasted wood quail",
+    "Beck's petrel",
+    "Indian courser",
+    "Atoll fruit dove",
+    "Festive coquette",
+    "Himalayan cuckoo",
+    "Buff-tailed coronet",
+    "Highland guan",
+    "Cuban pygmy owl",
+    "Blue-throated goldentail",
+    "Andean potoo",
+    "Sclater's monal",
+    "Rufous nightjar",
+    "Talamanca hummingbird",
+    "Mottled spinetail",
+    "Little crake",
+    "Golden-tailed sapphire",
+    "Monteiro's storm petrel",
+    "Least seedsnipe",
+    "White-browed coucal",
+    "Pinon's imperial pigeon",
+    "Little nightjar",
+    "River lapwing",
+    "Island bronze-naped pigeon",
+    "Canivet's emerald",
+    "Cameroon olive pigeon",
+    "Samoan moorhen",
+    "Christmas frigatebird",
+    "Band-tailed barbthroat",
+    "Solomons frogmouth",
+    "Brown-cheeked rail",
+    "Black tinamou",
+    "Gorgeted wood quail"
+  ],
+  "samples": [
+    {
+      "answer": "Tawny-faced quail",
+      "source": "https://en.wikipedia.org/wiki/Tawny-faced_quail",
+      "pageviews": {
+        "total": 164,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      },
+      "present": true
+    },
+    {
+      "answer": "Hoary puffleg",
+      "source": "https://en.wikipedia.org/wiki/Hoary_puffleg",
+      "pageviews": {
+        "total": 121,
+        "days": 29,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      },
+      "present": true
+    },
+    {
+      "answer": "White-throated hummingbird",
+      "source": "https://en.wikipedia.org/wiki/White-throated_hummingbird",
+      "pageviews": {
+        "total": 90,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      },
+      "present": true
+    },
+    {
+      "answer": "White-breasted guinea fowl",
+      "source": "https://en.wikipedia.org/wiki/White-breasted_guinea_fowl",
+      "pageviews": {
+        "total": 201,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      },
+      "present": true
+    },
+    {
+      "answer": "Black imperial pigeon",
+      "source": "https://en.wikipedia.org/wiki/Black_imperial_pigeon",
+      "pageviews": {
+        "total": 272,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      },
+      "present": true
+    },
+    {
+      "answer": "Short-crested coquette",
+      "source": "https://en.wikipedia.org/wiki/Short-crested_coquette",
+      "pageviews": {
+        "total": 104,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      },
+      "present": true
+    },
+    {
+      "answer": "Sand partridge",
+      "source": "https://en.wikipedia.org/wiki/Sand_partridge",
+      "pageviews": {
+        "total": 240,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      },
+      "present": true
+    },
+    {
+      "answer": "Ring-tailed pigeon",
+      "source": "https://en.wikipedia.org/wiki/Ring-tailed_pigeon",
+      "pageviews": {
+        "total": 145,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      },
+      "present": true
+    },
+    {
+      "answer": "Réunion pink pigeon",
+      "source": "https://en.wikipedia.org/wiki/R%C3%A9union_pink_pigeon",
+      "pageviews": {
+        "total": 166,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      },
+      "present": true
+    },
+    {
+      "answer": "Townsend's storm petrel",
+      "source": "https://en.wikipedia.org/wiki/Townsend%27s_storm_petrel",
+      "pageviews": {
+        "total": 92,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      },
+      "present": true
+    },
+    {
+      "answer": "Sirkeer malkoha",
+      "source": "https://en.wikipedia.org/wiki/Sirkeer_malkoha",
+      "pageviews": {
+        "total": 135,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      },
+      "present": true
+    },
+    {
+      "answer": "Chinese grouse",
+      "source": "https://en.wikipedia.org/wiki/Chinese_grouse",
+      "pageviews": {
+        "total": 173,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      },
+      "present": true
+    },
+    {
+      "answer": "Swinhoe's storm petrel",
+      "source": "https://en.wikipedia.org/wiki/Swinhoe%27s_storm_petrel",
+      "pageviews": {
+        "total": 147,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      },
+      "present": true
+    },
+    {
+      "answer": "Juan Fernández firecrown",
+      "source": "https://en.wikipedia.org/wiki/Juan_Fern%C3%A1ndez_firecrown",
+      "pageviews": {
+        "total": 283,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      },
+      "present": true
+    },
+    {
+      "answer": "Crested guinea fowl",
+      "source": "https://en.wikipedia.org/wiki/Crested_guinea_fowl",
+      "pageviews": {
+        "total": 330,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      },
+      "present": true
+    },
+    {
+      "answer": "Many-coloured fruit dove",
+      "source": "https://en.wikipedia.org/wiki/Many-coloured_fruit_dove",
+      "pageviews": {
+        "total": 314,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      },
+      "present": true
+    },
+    {
+      "answer": "Cinnabar boobook",
+      "source": "https://en.wikipedia.org/wiki/Cinnabar_boobook",
+      "pageviews": {
+        "total": 142,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      },
+      "present": true
+    },
+    {
+      "answer": "Black-breasted wood quail",
+      "source": "https://en.wikipedia.org/wiki/Black-breasted_wood_quail",
+      "pageviews": {
+        "total": 86,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      },
+      "present": true
+    },
+    {
+      "answer": "Beck's petrel",
+      "source": "https://en.wikipedia.org/wiki/Beck%27s_petrel",
+      "pageviews": {
+        "total": 97,
+        "days": 28,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      },
+      "present": true
+    },
+    {
+      "answer": "Indian courser",
+      "source": "https://en.wikipedia.org/wiki/Indian_courser",
+      "pageviews": {
+        "total": 398,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      },
+      "present": true
+    },
+    {
+      "answer": "Atoll fruit dove",
+      "source": "https://en.wikipedia.org/wiki/Atoll_fruit_dove",
+      "pageviews": {
+        "total": 161,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      },
+      "present": true
+    },
+    {
+      "answer": "Festive coquette",
+      "source": "https://en.wikipedia.org/wiki/Festive_coquette",
+      "pageviews": {
+        "total": 97,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      },
+      "present": true
+    },
+    {
+      "answer": "Himalayan cuckoo",
+      "source": "https://en.wikipedia.org/wiki/Himalayan_cuckoo",
+      "pageviews": {
+        "total": 184,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      },
+      "present": true
+    },
+    {
+      "answer": "Buff-tailed coronet",
+      "source": "https://en.wikipedia.org/wiki/Buff-tailed_coronet",
+      "pageviews": {
+        "total": 120,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      },
+      "present": true
+    },
+    {
+      "answer": "Highland guan",
+      "source": "https://en.wikipedia.org/wiki/Highland_guan",
+      "pageviews": {
+        "total": 113,
+        "days": 29,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      },
+      "present": true
+    },
+    {
+      "answer": "Cuban pygmy owl",
+      "source": "https://en.wikipedia.org/wiki/Cuban_pygmy_owl",
+      "pageviews": {
+        "total": 136,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      },
+      "present": true
+    },
+    {
+      "answer": "Blue-throated goldentail",
+      "source": "https://en.wikipedia.org/wiki/Blue-throated_goldentail",
+      "pageviews": {
+        "total": 91,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      },
+      "present": true
+    },
+    {
+      "answer": "Andean potoo",
+      "source": "https://en.wikipedia.org/wiki/Andean_potoo",
+      "pageviews": {
+        "total": 238,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      },
+      "present": true
+    },
+    {
+      "answer": "Sclater's monal",
+      "source": "https://en.wikipedia.org/wiki/Sclater%27s_monal",
+      "pageviews": {
+        "total": 205,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      },
+      "present": true
+    },
+    {
+      "answer": "Rufous nightjar",
+      "source": "https://en.wikipedia.org/wiki/Rufous_nightjar",
+      "pageviews": {
+        "total": 144,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      },
+      "present": true
+    },
+    {
+      "answer": "Talamanca hummingbird",
+      "source": "https://en.wikipedia.org/wiki/Talamanca_hummingbird",
+      "pageviews": {
+        "total": 96,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      },
+      "present": true
+    },
+    {
+      "answer": "Mottled spinetail",
+      "source": "https://en.wikipedia.org/wiki/Mottled_spinetail",
+      "pageviews": {
+        "total": 131,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      },
+      "present": true
+    },
+    {
+      "answer": "Little crake",
+      "source": "https://en.wikipedia.org/wiki/Little_crake",
+      "pageviews": {
+        "total": 361,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      },
+      "present": true
+    },
+    {
+      "answer": "Golden-tailed sapphire",
+      "source": "https://en.wikipedia.org/wiki/Golden-tailed_sapphire",
+      "pageviews": {
+        "total": 289,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      },
+      "present": true
+    },
+    {
+      "answer": "Monteiro's storm petrel",
+      "source": "https://en.wikipedia.org/wiki/Monteiro%27s_storm_petrel",
+      "pageviews": {
+        "total": 196,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      },
+      "present": true
+    },
+    {
+      "answer": "Least seedsnipe",
+      "source": "https://en.wikipedia.org/wiki/Least_seedsnipe",
+      "pageviews": {
+        "total": 113,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      },
+      "present": true
+    },
+    {
+      "answer": "White-browed coucal",
+      "source": "https://en.wikipedia.org/wiki/White-browed_coucal",
+      "pageviews": {
+        "total": 317,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      },
+      "present": true
+    },
+    {
+      "answer": "Pinon's imperial pigeon",
+      "source": "https://en.wikipedia.org/wiki/Pinon%27s_imperial_pigeon",
+      "pageviews": {
+        "total": 82,
+        "days": 29,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      },
+      "present": true
+    },
+    {
+      "answer": "Little nightjar",
+      "source": "https://en.wikipedia.org/wiki/Little_nightjar",
+      "pageviews": {
+        "total": 84,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      },
+      "present": true
+    },
+    {
+      "answer": "River lapwing",
+      "source": "https://en.wikipedia.org/wiki/River_lapwing",
+      "pageviews": {
+        "total": 225,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      },
+      "present": true
+    },
+    {
+      "answer": "Island bronze-naped pigeon",
+      "source": "https://en.wikipedia.org/wiki/Island_bronze-naped_pigeon",
+      "pageviews": {
+        "total": 143,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      },
+      "present": true
+    },
+    {
+      "answer": "Canivet's emerald",
+      "source": "https://en.wikipedia.org/wiki/Canivet%27s_emerald",
+      "pageviews": {
+        "total": 90,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      },
+      "present": true
+    },
+    {
+      "answer": "Cameroon olive pigeon",
+      "source": "https://en.wikipedia.org/wiki/Cameroon_olive_pigeon",
+      "pageviews": {
+        "total": 105,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      },
+      "present": true
+    },
+    {
+      "answer": "Samoan moorhen",
+      "source": "https://en.wikipedia.org/wiki/Samoan_moorhen",
+      "pageviews": {
+        "total": 91,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      },
+      "present": true
+    },
+    {
+      "answer": "Christmas frigatebird",
+      "source": "https://en.wikipedia.org/wiki/Christmas_frigatebird",
+      "pageviews": {
+        "total": 289,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      },
+      "present": true
+    },
+    {
+      "answer": "Band-tailed barbthroat",
+      "source": "https://en.wikipedia.org/wiki/Band-tailed_barbthroat",
+      "pageviews": {
+        "total": 102,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      },
+      "present": true
+    },
+    {
+      "answer": "Solomons frogmouth",
+      "source": "https://en.wikipedia.org/wiki/Solomons_frogmouth",
+      "pageviews": {
+        "total": 143,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      },
+      "present": true
+    },
+    {
+      "answer": "Brown-cheeked rail",
+      "source": "https://en.wikipedia.org/wiki/Brown-cheeked_rail",
+      "pageviews": {
+        "total": 130,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      },
+      "present": true
+    },
+    {
+      "answer": "Black tinamou",
+      "source": "https://en.wikipedia.org/wiki/Black_tinamou",
+      "pageviews": {
+        "total": 102,
+        "days": 29,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      },
+      "present": true
+    },
+    {
+      "answer": "Gorgeted wood quail",
+      "source": "https://en.wikipedia.org/wiki/Gorgeted_wood_quail",
+      "pageviews": {
+        "total": 101,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      },
+      "present": true
+    }
+  ]
+}

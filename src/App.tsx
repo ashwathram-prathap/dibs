@@ -673,6 +673,7 @@ function Home({
                 <p>
                   {message || 'Think of an answer. The clerk is ready.'}{' '}
                   {taken && <strong>Strike {file?.strikes || 0} of 5.</strong>}
+                  {file?.closed && ' Your file is closed for today.'}
                 </p>
                 {outcome && (
                   <p className="result-counts">
@@ -1571,7 +1572,7 @@ function About({ nextDrop }: { nextDrop: string }) {
           <h2>Sources and attribution</h2>
           <p>
             Registers use <a href="https://www.geonames.org/">GeoNames</a> (CC BY), Princeton
-            WordNet,{' '}
+            WordNet, Wikipedia contributors (CC BY-SA),{' '}
             <a href="https://www.gbif.org/dataset/d7dddbf4-2cf0-4f39-9b2a-bb099caae36c">
               GBIF Backbone Taxonomy
             </a>{' '}

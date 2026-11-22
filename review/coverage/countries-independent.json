@@ -1,0 +1,811 @@
+{
+  "source": "UN M49 English country/area table",
+  "seed": 8153,
+  "method": "Uniform draw without replacement from the middle half by measured readership; sources selected before matching; all misses retained.",
+  "poolSize": 246,
+  "excluded": [],
+  "answers": [
+    "Bahamas",
+    "Tonga",
+    "Lebanon",
+    "Greenland",
+    "Bulgaria",
+    "Libya",
+    "Faroe Islands",
+    "Morocco",
+    "Austria",
+    "Djibouti",
+    "Uzbekistan",
+    "Norway",
+    "Pitcairn",
+    "Guam",
+    "Latvia",
+    "Liberia",
+    "Bhutan",
+    "Burkina Faso",
+    "Tunisia",
+    "Trinidad and Tobago",
+    "American Samoa",
+    "North Macedonia",
+    "Bermuda",
+    "Barbados",
+    "Algeria",
+    "Venezuela (Bolivarian Republic of)",
+    "Cambodia",
+    "Samoa",
+    "Nepal",
+    "Jordan",
+    "Kyrgyzstan",
+    "Falkland Islands (Malvinas)",
+    "Somalia",
+    "Cabo Verde",
+    "Angola",
+    "Mozambique",
+    "Colombia",
+    "Grenada",
+    "Paraguay",
+    "Ireland",
+    "Isle of Man",
+    "Luxembourg",
+    "Sierra Leone",
+    "Timor-Leste",
+    "Nicaragua",
+    "Kuwait",
+    "Mauritania",
+    "Uruguay",
+    "Tajikistan",
+    "Madagascar"
+  ],
+  "samples": [
+    {
+      "answer": "Bahamas",
+      "source": "https://unstats.un.org/unsd/methodology/m49/overview/",
+      "wikipediaTitle": "Bahamas",
+      "pageviews": {
+        "total": 103874,
+        "days": 29,
+        "start": "2026-10-23",
+        "end": "2026-11-20",
+        "title": "The Bahamas",
+        "status": "measured"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "Tonga",
+      "source": "https://unstats.un.org/unsd/methodology/m49/overview/",
+      "wikipediaTitle": "Tonga",
+      "pageviews": {
+        "total": 76819,
+        "days": 29,
+        "start": "2026-10-23",
+        "end": "2026-11-20",
+        "title": "Tonga",
+        "status": "measured"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "Lebanon",
+      "source": "https://unstats.un.org/unsd/methodology/m49/overview/",
+      "wikipediaTitle": "Lebanon",
+      "pageviews": {
+        "total": 114052,
+        "days": 29,
+        "start": "2026-10-23",
+        "end": "2026-11-20",
+        "title": "Lebanon",
+        "status": "measured"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "Greenland",
+      "source": "https://unstats.un.org/unsd/methodology/m49/overview/",
+      "wikipediaTitle": "Greenland",
+      "pageviews": {
+        "total": 99372,
+        "days": 29,
+        "start": "2026-10-23",
+        "end": "2026-11-20",
+        "title": "Greenland",
+        "status": "measured"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "Bulgaria",
+      "source": "https://unstats.un.org/unsd/methodology/m49/overview/",
+      "wikipediaTitle": "Bulgaria",
+      "pageviews": {
+        "total": 124830,
+        "days": 29,
+        "start": "2026-10-23",
+        "end": "2026-11-20",
+        "title": "Bulgaria",
+        "status": "measured"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "Libya",
+      "source": "https://unstats.un.org/unsd/methodology/m49/overview/",
+      "wikipediaTitle": "Libya",
+      "pageviews": {
+        "total": 85457,
+        "days": 29,
+        "start": "2026-10-23",
+        "end": "2026-11-20",
+        "title": "Libya",
+        "status": "measured"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "Faroe Islands",
+      "source": "https://unstats.un.org/unsd/methodology/m49/overview/",
+      "wikipediaTitle": "Faroe Islands",
+      "pageviews": {
+        "total": 94028,
+        "days": 29,
+        "start": "2026-10-23",
+        "end": "2026-11-20",
+        "title": "Faroe Islands",
+        "status": "measured"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "Morocco",
+      "source": "https://unstats.un.org/unsd/methodology/m49/overview/",
+      "wikipediaTitle": "Morocco",
+      "pageviews": {
+        "total": 131756,
+        "days": 29,
+        "start": "2026-10-23",
+        "end": "2026-11-20",
+        "title": "Morocco",
+        "status": "measured"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "Austria",
+      "source": "https://unstats.un.org/unsd/methodology/m49/overview/",
+      "wikipediaTitle": "Austria",
+      "pageviews": {
+        "total": 127402,
+        "days": 29,
+        "start": "2026-10-23",
+        "end": "2026-11-20",
+        "title": "Austria",
+        "status": "measured"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "Djibouti",
+      "source": "https://unstats.un.org/unsd/methodology/m49/overview/",
+      "wikipediaTitle": "Djibouti",
+      "pageviews": {
+        "total": 64516,
+        "days": 29,
+        "start": "2026-10-23",
+        "end": "2026-11-20",
+        "title": "Djibouti",
+        "status": "measured"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "Uzbekistan",
+      "source": "https://unstats.un.org/unsd/methodology/m49/overview/",
+      "wikipediaTitle": "Uzbekistan",
+      "pageviews": {
+        "total": 132878,
+        "days": 29,
+        "start": "2026-10-23",
+        "end": "2026-11-20",
+        "title": "Uzbekistan",
+        "status": "measured"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "Norway",
+      "source": "https://unstats.un.org/unsd/methodology/m49/overview/",
+      "wikipediaTitle": "Norway",
+      "pageviews": {
+        "total": 132943,
+        "days": 29,
+        "start": "2026-10-23",
+        "end": "2026-11-20",
+        "title": "Norway",
+        "status": "measured"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "Pitcairn",
+      "source": "https://unstats.un.org/unsd/methodology/m49/overview/",
+      "wikipediaTitle": "Pitcairn",
+      "pageviews": {
+        "total": 64827,
+        "days": 29,
+        "start": "2026-10-23",
+        "end": "2026-11-20",
+        "title": "Pitcairn Islands",
+        "status": "measured"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "Guam",
+      "source": "https://unstats.un.org/unsd/methodology/m49/overview/",
+      "wikipediaTitle": "Guam",
+      "pageviews": {
+        "total": 124587,
+        "days": 29,
+        "start": "2026-10-23",
+        "end": "2026-11-20",
+        "title": "Guam",
+        "status": "measured"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "Latvia",
+      "source": "https://unstats.un.org/unsd/methodology/m49/overview/",
+      "wikipediaTitle": "Latvia",
+      "pageviews": {
+        "total": 95289,
+        "days": 29,
+        "start": "2026-10-23",
+        "end": "2026-11-20",
+        "title": "Latvia",
+        "status": "measured"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "Liberia",
+      "source": "https://unstats.un.org/unsd/methodology/m49/overview/",
+      "wikipediaTitle": "Liberia",
+      "pageviews": {
+        "total": 93699,
+        "days": 29,
+        "start": "2026-10-23",
+        "end": "2026-11-20",
+        "title": "Liberia",
+        "status": "measured"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "Bhutan",
+      "source": "https://unstats.un.org/unsd/methodology/m49/overview/",
+      "wikipediaTitle": "Bhutan",
+      "pageviews": {
+        "total": 104295,
+        "days": 29,
+        "start": "2026-10-23",
+        "end": "2026-11-20",
+        "title": "Bhutan",
+        "status": "measured"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "Burkina Faso",
+      "source": "https://unstats.un.org/unsd/methodology/m49/overview/",
+      "wikipediaTitle": "Burkina Faso",
+      "pageviews": {
+        "total": 113236,
+        "days": 29,
+        "start": "2026-10-23",
+        "end": "2026-11-20",
+        "title": "Burkina Faso",
+        "status": "measured"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "Tunisia",
+      "source": "https://unstats.un.org/unsd/methodology/m49/overview/",
+      "wikipediaTitle": "Tunisia",
+      "pageviews": {
+        "total": 79370,
+        "days": 29,
+        "start": "2026-10-23",
+        "end": "2026-11-20",
+        "title": "Tunisia",
+        "status": "measured"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "Trinidad and Tobago",
+      "source": "https://unstats.un.org/unsd/methodology/m49/overview/",
+      "wikipediaTitle": "Trinidad and Tobago",
+      "pageviews": {
+        "total": 94109,
+        "days": 29,
+        "start": "2026-10-23",
+        "end": "2026-11-20",
+        "title": "Trinidad and Tobago",
+        "status": "measured"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "American Samoa",
+      "source": "https://unstats.un.org/unsd/methodology/m49/overview/",
+      "wikipediaTitle": "American Samoa",
+      "pageviews": {
+        "total": 65535,
+        "days": 29,
+        "start": "2026-10-23",
+        "end": "2026-11-20",
+        "title": "American Samoa",
+        "status": "measured"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "North Macedonia",
+      "source": "https://unstats.un.org/unsd/methodology/m49/overview/",
+      "wikipediaTitle": "North Macedonia",
+      "pageviews": {
+        "total": 110493,
+        "days": 29,
+        "start": "2026-10-23",
+        "end": "2026-11-20",
+        "title": "North Macedonia",
+        "status": "measured"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "Bermuda",
+      "source": "https://unstats.un.org/unsd/methodology/m49/overview/",
+      "wikipediaTitle": "Bermuda",
+      "pageviews": {
+        "total": 74530,
+        "days": 29,
+        "start": "2026-10-23",
+        "end": "2026-11-20",
+        "title": "Bermuda",
+        "status": "measured"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "Barbados",
+      "source": "https://unstats.un.org/unsd/methodology/m49/overview/",
+      "wikipediaTitle": "Barbados",
+      "pageviews": {
+        "total": 71146,
+        "days": 29,
+        "start": "2026-10-23",
+        "end": "2026-11-20",
+        "title": "Barbados",
+        "status": "measured"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "Algeria",
+      "source": "https://unstats.un.org/unsd/methodology/m49/overview/",
+      "wikipediaTitle": "Algeria",
+      "pageviews": {
+        "total": 116960,
+        "days": 29,
+        "start": "2026-10-23",
+        "end": "2026-11-20",
+        "title": "Algeria",
+        "status": "measured"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "Venezuela (Bolivarian Republic of)",
+      "source": "https://unstats.un.org/unsd/methodology/m49/overview/",
+      "wikipediaTitle": "Venezuela (Bolivarian Republic of)",
+      "pageviews": {
+        "total": 105155,
+        "days": 29,
+        "start": "2026-10-23",
+        "end": "2026-11-20",
+        "title": "Venezuela",
+        "status": "measured"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "Cambodia",
+      "source": "https://unstats.un.org/unsd/methodology/m49/overview/",
+      "wikipediaTitle": "Cambodia",
+      "pageviews": {
+        "total": 110481,
+        "days": 29,
+        "start": "2026-10-23",
+        "end": "2026-11-20",
+        "title": "Cambodia",
+        "status": "measured"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "Samoa",
+      "source": "https://unstats.un.org/unsd/methodology/m49/overview/",
+      "wikipediaTitle": "Samoa",
+      "pageviews": {
+        "total": 93755,
+        "days": 29,
+        "start": "2026-10-23",
+        "end": "2026-11-20",
+        "title": "Samoa",
+        "status": "measured"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "Nepal",
+      "source": "https://unstats.un.org/unsd/methodology/m49/overview/",
+      "wikipediaTitle": "Nepal",
+      "pageviews": {
+        "total": 115084,
+        "days": 29,
+        "start": "2026-10-23",
+        "end": "2026-11-20",
+        "title": "Nepal",
+        "status": "measured"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "Jordan",
+      "source": "https://unstats.un.org/unsd/methodology/m49/overview/",
+      "wikipediaTitle": "Jordan",
+      "pageviews": {
+        "total": 122801,
+        "days": 29,
+        "start": "2026-10-23",
+        "end": "2026-11-20",
+        "title": "Jordan",
+        "status": "measured"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "Kyrgyzstan",
+      "source": "https://unstats.un.org/unsd/methodology/m49/overview/",
+      "wikipediaTitle": "Kyrgyzstan",
+      "pageviews": {
+        "total": 122380,
+        "days": 29,
+        "start": "2026-10-23",
+        "end": "2026-11-20",
+        "title": "Kyrgyzstan",
+        "status": "measured"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "Falkland Islands (Malvinas)",
+      "source": "https://unstats.un.org/unsd/methodology/m49/overview/",
+      "wikipediaTitle": "Falkland Islands (Malvinas)",
+      "pageviews": {
+        "total": 81439,
+        "days": 29,
+        "start": "2026-10-23",
+        "end": "2026-11-20",
+        "title": "Falkland Islands",
+        "status": "measured"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "Somalia",
+      "source": "https://unstats.un.org/unsd/methodology/m49/overview/",
+      "wikipediaTitle": "Somalia",
+      "pageviews": {
+        "total": 111639,
+        "days": 29,
+        "start": "2026-10-23",
+        "end": "2026-11-20",
+        "title": "Somalia",
+        "status": "measured"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "Cabo Verde",
+      "source": "https://unstats.un.org/unsd/methodology/m49/overview/",
+      "wikipediaTitle": "Cabo Verde",
+      "pageviews": {
+        "total": 108688,
+        "days": 29,
+        "start": "2026-10-23",
+        "end": "2026-11-20",
+        "title": "Cape Verde",
+        "status": "measured"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "Angola",
+      "source": "https://unstats.un.org/unsd/methodology/m49/overview/",
+      "wikipediaTitle": "Angola",
+      "pageviews": {
+        "total": 75927,
+        "days": 29,
+        "start": "2026-10-23",
+        "end": "2026-11-20",
+        "title": "Angola",
+        "status": "measured"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "Mozambique",
+      "source": "https://unstats.un.org/unsd/methodology/m49/overview/",
+      "wikipediaTitle": "Mozambique",
+      "pageviews": {
+        "total": 73820,
+        "days": 29,
+        "start": "2026-10-23",
+        "end": "2026-11-20",
+        "title": "Mozambique",
+        "status": "measured"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "Colombia",
+      "source": "https://unstats.un.org/unsd/methodology/m49/overview/",
+      "wikipediaTitle": "Colombia",
+      "pageviews": {
+        "total": 112796,
+        "days": 29,
+        "start": "2026-10-23",
+        "end": "2026-11-20",
+        "title": "Colombia",
+        "status": "measured"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "Grenada",
+      "source": "https://unstats.un.org/unsd/methodology/m49/overview/",
+      "wikipediaTitle": "Grenada",
+      "pageviews": {
+        "total": 66214,
+        "days": 29,
+        "start": "2026-10-23",
+        "end": "2026-11-20",
+        "title": "Grenada",
+        "status": "measured"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "Paraguay",
+      "source": "https://unstats.un.org/unsd/methodology/m49/overview/",
+      "wikipediaTitle": "Paraguay",
+      "pageviews": {
+        "total": 132038,
+        "days": 29,
+        "start": "2026-10-23",
+        "end": "2026-11-20",
+        "title": "Paraguay",
+        "status": "measured"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "Ireland",
+      "source": "https://unstats.un.org/unsd/methodology/m49/overview/",
+      "wikipediaTitle": "Ireland",
+      "pageviews": {
+        "total": 117365,
+        "days": 29,
+        "start": "2026-10-23",
+        "end": "2026-11-20",
+        "title": "Ireland",
+        "status": "measured"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "Isle of Man",
+      "source": "https://unstats.un.org/unsd/methodology/m49/overview/",
+      "wikipediaTitle": "Isle of Man",
+      "pageviews": {
+        "total": 105095,
+        "days": 29,
+        "start": "2026-10-23",
+        "end": "2026-11-20",
+        "title": "Isle of Man",
+        "status": "measured"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "Luxembourg",
+      "source": "https://unstats.un.org/unsd/methodology/m49/overview/",
+      "wikipediaTitle": "Luxembourg",
+      "pageviews": {
+        "total": 113305,
+        "days": 29,
+        "start": "2026-10-23",
+        "end": "2026-11-20",
+        "title": "Luxembourg",
+        "status": "measured"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "Sierra Leone",
+      "source": "https://unstats.un.org/unsd/methodology/m49/overview/",
+      "wikipediaTitle": "Sierra Leone",
+      "pageviews": {
+        "total": 71208,
+        "days": 29,
+        "start": "2026-10-23",
+        "end": "2026-11-20",
+        "title": "Sierra Leone",
+        "status": "measured"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "Timor-Leste",
+      "source": "https://unstats.un.org/unsd/methodology/m49/overview/",
+      "wikipediaTitle": "Timor-Leste",
+      "pageviews": {
+        "total": 96597,
+        "days": 29,
+        "start": "2026-10-23",
+        "end": "2026-11-20",
+        "title": "Timor-Leste",
+        "status": "measured"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "Nicaragua",
+      "source": "https://unstats.un.org/unsd/methodology/m49/overview/",
+      "wikipediaTitle": "Nicaragua",
+      "pageviews": {
+        "total": 66280,
+        "days": 29,
+        "start": "2026-10-23",
+        "end": "2026-11-20",
+        "title": "Nicaragua",
+        "status": "measured"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "Kuwait",
+      "source": "https://unstats.un.org/unsd/methodology/m49/overview/",
+      "wikipediaTitle": "Kuwait",
+      "pageviews": {
+        "total": 71002,
+        "days": 29,
+        "start": "2026-10-23",
+        "end": "2026-11-20",
+        "title": "Kuwait",
+        "status": "measured"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "Mauritania",
+      "source": "https://unstats.un.org/unsd/methodology/m49/overview/",
+      "wikipediaTitle": "Mauritania",
+      "pageviews": {
+        "total": 83758,
+        "days": 29,
+        "start": "2026-10-23",
+        "end": "2026-11-20",
+        "title": "Mauritania",
+        "status": "measured"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "Uruguay",
+      "source": "https://unstats.un.org/unsd/methodology/m49/overview/",
+      "wikipediaTitle": "Uruguay",
+      "pageviews": {
+        "total": 97684,
+        "days": 29,
+        "start": "2026-10-23",
+        "end": "2026-11-20",
+        "title": "Uruguay",
+        "status": "measured"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "Tajikistan",
+      "source": "https://unstats.un.org/unsd/methodology/m49/overview/",
+      "wikipediaTitle": "Tajikistan",
+      "pageviews": {
+        "total": 76444,
+        "days": 29,
+        "start": "2026-10-23",
+        "end": "2026-11-20",
+        "title": "Tajikistan",
+        "status": "measured"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "Madagascar",
+      "source": "https://unstats.un.org/unsd/methodology/m49/overview/",
+      "wikipediaTitle": "Madagascar",
+      "pageviews": {
+        "total": 100342,
+        "days": 29,
+        "start": "2026-10-23",
+        "end": "2026-11-20",
+        "title": "Madagascar",
+        "status": "measured"
+      },
+      "initiallyPresent": true,
+      "present": true
+    }
+  ]
+}
