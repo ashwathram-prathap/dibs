@@ -3,12 +3,20 @@ let context: AudioContext | undefined;
 let active: AudioBufferSourceNode | undefined;
 const played = new Set<string>();
 const buffers = new Map<DeskSound, AudioBuffer>();
+let sessionEnabled: boolean | undefined;
 export function soundEnabled() {
+  if (sessionEnabled !== undefined) return sessionEnabled;
   try {
     return localStorage.getItem('dibs-sound') !== 'off';
   } catch {
     return true;
   }
+}
+export function setSoundEnabled(on: boolean) {
+  sessionEnabled = on;
+  try {
+    localStorage.setItem('dibs-sound', on ? 'on' : 'off');
+  } catch {}
 }
 export async function prepareSound() {
   if (!soundEnabled()) return;

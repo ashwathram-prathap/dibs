@@ -22,7 +22,7 @@ import { categoryStyle, paperStocks } from '../shared/category-style';
 import { clerkLine } from '../shared/clerk-lines';
 import { setMusic } from './music';
 import { claimSound } from './sound-synthesis';
-import { prepareSound, playClaimSound, soundEnabled } from './sound';
+import { prepareSound, playClaimSound, soundEnabled, setSoundEnabled } from './sound';
 import { submittedSpelling } from './spelling';
 import { HOME_TITLE, archiveTitle } from '../shared/seo';
 import { Icon } from './Icon';
@@ -261,9 +261,7 @@ function SoundToggle() {
       aria-label={on ? 'Turn stamp sound off' : 'Turn stamp sound on'}
       aria-pressed={on}
       onClick={() => {
-        try {
-          localStorage.setItem('dibs-sound', on ? 'off' : 'on');
-        } catch {}
+        setSoundEnabled(!on);
         setOn(!on);
         void prepareSound();
       }}

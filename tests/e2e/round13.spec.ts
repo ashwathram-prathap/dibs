@@ -83,6 +83,12 @@ test('R13 sound mapping, double tap and music only after tap', async ({ page }) 
     await expect(page.locator('.result-panel')).toBeVisible();
   }
   expect(await page.evaluate(() => (window as any).stamps)).toEqual([]);
+  await page.getByRole('button', { name: 'Turn stamp sound off' }).click();
+  await page.locator('#answer').fill('Dog');
+  await page.locator('#answer').press('Enter');
+  await expect(page.locator('.strike-count')).toHaveText('Strike 1 of 5');
+  expect(await page.evaluate(() => (window as any).stamps)).toEqual([]);
+  await page.getByRole('button', { name: 'Turn stamp sound on' }).click();
   await page.locator('#answer').fill('Dog');
   await page.locator('#answer').press('Enter');
   await expect.poll(() => page.evaluate(() => (window as any).stamps)).toEqual([0.115]);

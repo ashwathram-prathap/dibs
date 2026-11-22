@@ -117,3 +117,21 @@ it('audio device failures never interrupt claim handling', async () => {
   await prepareSound();
   expect(() => playClaimSound('stamp', 'successful-claim')).not.toThrow();
 });
+
+it('mute still works for the session when browser storage is blocked', async () => {
+  vi.resetModules();
+  vi.stubGlobal('localStorage', {
+    getItem() {
+      throw Error('Storage blocked');
+    },
+    setItem() {
+      throw Error('Storage blocked');
+    },
+  });
+  const { soundEnabled, setSoundEnabled } = await import('../src/sound');
+  expect(soundEnabled()).toBe(true);
+  setSoundEnabled(false);
+  expect(soundEnabled()).toBe(false);
+  setSoundEnabled(true);
+  expect(soundEnabled()).toBe(true);
+});
