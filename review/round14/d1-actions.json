@@ -56,7 +56,7 @@
   {
     "action": "/claim",
     "status": 409,
-    "reads": 15,
+    "reads": 14,
     "writes": 3
   },
   {
@@ -80,19 +80,19 @@
   {
     "action": "/claim",
     "status": 201,
-    "reads": 49,
+    "reads": 53,
     "writes": 9
   },
   {
     "action": "/claim",
     "status": 201,
-    "reads": 60,
+    "reads": 64,
     "writes": 9
   },
   {
     "action": "/me",
     "status": 200,
-    "reads": 43,
+    "reads": 44,
     "writes": 0
   },
   {
@@ -108,57 +108,21 @@
     "writes": 0
   },
   {
-    "action": "/certificate/f2327f31-a6b8-4e89-9590-ffd5295165d6",
+    "action": "/certificate/b386ccbc-b181-48f1-92ed-bbd8d7b862fe",
     "status": 200,
     "reads": 0,
     "writes": 0
   },
   {
-    "action": "/summary/3b79d7fd1e232e54e80e8a1ed0c9d26de1a89cdc",
+    "action": "/summary/fb6cbc737800d562f45972c8eada3d7003fc3daf",
     "status": 200,
-    "reads": 52,
+    "reads": 53,
     "writes": 0
   },
   {
     "action": "/bootstrap",
     "status": 200,
     "reads": 0,
-    "writes": 0
-  },
-  {
-    "action": "/claim",
-    "status": 201,
-    "reads": 26,
-    "writes": 18
-  },
-  {
-    "action": "/bootstrap",
-    "status": 200,
-    "reads": 21,
-    "writes": 0
-  },
-  {
-    "action": "/claim",
-    "status": 201,
-    "reads": 26,
-    "writes": 18
-  },
-  {
-    "action": "/bootstrap",
-    "status": 200,
-    "reads": 21,
-    "writes": 0
-  },
-  {
-    "action": "/claim",
-    "status": 201,
-    "reads": 26,
-    "writes": 18
-  },
-  {
-    "action": "/bootstrap",
-    "status": 200,
-    "reads": 21,
     "writes": 0
   },
   {
@@ -308,13 +272,85 @@
   {
     "action": "/claim",
     "status": 201,
+    "reads": 26,
+    "writes": 18
+  },
+  {
+    "action": "/bootstrap",
+    "status": 200,
+    "reads": 21,
+    "writes": 0
+  },
+  {
+    "action": "/claim",
+    "status": 201,
+    "reads": 26,
+    "writes": 18
+  },
+  {
+    "action": "/bootstrap",
+    "status": 200,
+    "reads": 21,
+    "writes": 0
+  },
+  {
+    "action": "/claim",
+    "status": 201,
+    "reads": 26,
+    "writes": 18
+  },
+  {
+    "action": "/bootstrap",
+    "status": 200,
+    "reads": 21,
+    "writes": 0
+  },
+  {
+    "action": "/claim",
+    "status": 201,
+    "reads": 26,
+    "writes": 18
+  },
+  {
+    "action": "/bootstrap",
+    "status": 200,
+    "reads": 21,
+    "writes": 0
+  },
+  {
+    "action": "/claim",
+    "status": 201,
+    "reads": 26,
+    "writes": 18
+  },
+  {
+    "action": "/bootstrap",
+    "status": 200,
+    "reads": 21,
+    "writes": 0
+  },
+  {
+    "action": "/claim",
+    "status": 201,
+    "reads": 26,
+    "writes": 18
+  },
+  {
+    "action": "/bootstrap",
+    "status": 200,
+    "reads": 22,
+    "writes": 0
+  },
+  {
+    "action": "/claim",
+    "status": 201,
     "reads": 24,
     "writes": 18
   },
   {
     "action": "/bootstrap",
     "status": 200,
-    "reads": 21,
+    "reads": 22,
     "writes": 0
   },
   {
@@ -326,7 +362,7 @@
   {
     "action": "/bootstrap",
     "status": 200,
-    "reads": 21,
+    "reads": 22,
     "writes": 0
   },
   {
@@ -338,7 +374,7 @@
   {
     "action": "/bootstrap",
     "status": 200,
-    "reads": 21,
+    "reads": 22,
     "writes": 0
   },
   {
@@ -350,7 +386,7 @@
   {
     "action": "/bootstrap",
     "status": 200,
-    "reads": 21,
+    "reads": 22,
     "writes": 0
   },
   {
@@ -362,7 +398,7 @@
   {
     "action": "/bootstrap",
     "status": 200,
-    "reads": 21,
+    "reads": 22,
     "writes": 0
   },
   {
@@ -374,55 +410,7 @@
   {
     "action": "/bootstrap",
     "status": 200,
-    "reads": 21,
-    "writes": 0
-  },
-  {
-    "action": "/claim",
-    "status": 201,
-    "reads": 26,
-    "writes": 18
-  },
-  {
-    "action": "/bootstrap",
-    "status": 200,
-    "reads": 21,
-    "writes": 0
-  },
-  {
-    "action": "/claim",
-    "status": 201,
-    "reads": 26,
-    "writes": 18
-  },
-  {
-    "action": "/bootstrap",
-    "status": 200,
-    "reads": 21,
-    "writes": 0
-  },
-  {
-    "action": "/claim",
-    "status": 201,
-    "reads": 26,
-    "writes": 18
-  },
-  {
-    "action": "/bootstrap",
-    "status": 200,
-    "reads": 21,
-    "writes": 0
-  },
-  {
-    "action": "/claim",
-    "status": 201,
-    "reads": 26,
-    "writes": 18
-  },
-  {
-    "action": "/bootstrap",
-    "status": 200,
-    "reads": 21,
+    "reads": 22,
     "writes": 0
   },
   {
@@ -572,23 +560,23 @@
   {
     "action": "/leaderboard",
     "status": 200,
-    "reads": 159,
+    "reads": 155,
     "writes": 0
   },
   {
     "action": "/delete-file",
     "status": 200,
-    "reads": 259,
+    "reads": 252,
     "writes": 11
   },
   {
     "action": "/leaderboard",
     "status": 200,
-    "reads": 157,
+    "reads": 153,
     "writes": 0
   },
   {
-    "action": "/certificate/e573d800-2065-40b5-99e9-e2c6efc97c64",
+    "action": "/certificate/223b1bc3-28a3-416a-830e-c5845ad0d70c",
     "status": 200,
     "reads": 5,
     "writes": 0
@@ -596,13 +584,13 @@
   {
     "action": "/leaderboard",
     "status": 200,
-    "reads": 157,
+    "reads": 153,
     "writes": 0
   },
   {
     "action": "/leaderboard",
     "status": 200,
-    "reads": 154,
+    "reads": 150,
     "writes": 0
   },
   {

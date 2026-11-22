@@ -12,7 +12,7 @@ R14 adds server-saved rarity points, immediate claim feedback, a live score-only
 
 ## Verification
 
-Compact result files in this folder record unit/API tests, browser tests, the 60-case hero and done matrices, 40 body-type checks, 12 emulated webview checks, local real-API play, and D1 cost measurements. Full visual captures remain local in this folder and `review/final/round14/`. Practice screenshots with populated scores use test players created by the rehearsal; fixture screenshots are development-only design proofs.
+Local verification passed: 152 unit/API tests, 400 Chromium/WebKit cases, 66 Firefox cases, both 60-case hero/done matrices, 40 body-type checks, and 12 emulated webview flows. The local production frontend scored 92 performance and 100 accessibility on mobile Lighthouse. One PNG download event timeout in an earlier run passed ten focused repetitions and the subsequent complete 400-case run; the history is retained in `share-download-investigation.json`. Local real-API play and D1 cost measurements also passed. Full visual captures remain local in this folder and `review/final/round14/`. Practice screenshots with populated scores use test players created by the rehearsal; fixture screenshots are development-only design proofs.
 
 The final release record will include the guarded practice load, closed-to-live rehearsal, deployed mobile Lighthouse, production smoke, deployment IDs and rollback point. Those remote release checks are pending until the required 7:05 PM ET window. No production test players are created.
 

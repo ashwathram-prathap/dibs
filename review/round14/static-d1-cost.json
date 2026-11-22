@@ -215,35 +215,35 @@
       "player": 2,
       "step": 0,
       "status": 201,
-      "reads": 41,
+      "reads": 43,
       "writes": 22
     },
     {
       "player": 2,
       "step": 1,
       "status": 409,
-      "reads": 39,
+      "reads": 44,
       "writes": 3
     },
     {
       "player": 2,
       "step": 2,
       "status": 409,
-      "reads": 43,
+      "reads": 51,
       "writes": 3
     },
     {
       "player": 2,
       "step": 3,
       "status": 201,
-      "reads": 80,
+      "reads": 89,
       "writes": 13
     },
     {
       "player": 2,
       "step": 4,
       "status": 201,
-      "reads": 109,
+      "reads": 118,
       "writes": 13
     },
     {

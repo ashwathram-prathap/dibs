@@ -1,0 +1,21 @@
+{
+  "initialIssue": "One PNG download event timeout in the final 400-case run; 399 passed. No console or CSP error was recorded.",
+  "followup": "Same test, same source and browser profile, run ten times serially",
+  "followupStats": {
+    "startTime": "2026-11-22T21:32:25.722Z",
+    "duration": 42054.58500000001,
+    "expected": 10,
+    "skipped": 0,
+    "unexpected": 0,
+    "flaky": 0
+  },
+  "sourceChanged": false,
+  "fullMatrixConfirmation": {
+    "startTime": "2026-11-22T21:33:40.035Z",
+    "duration": 444539.342,
+    "expected": 400,
+    "skipped": 0,
+    "unexpected": 0,
+    "flaky": 0
+  }
+}
