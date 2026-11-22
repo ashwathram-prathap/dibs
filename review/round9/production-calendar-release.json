@@ -1,0 +1,296 @@
+{
+  "at": "2026-11-22T12:06:40.151Z",
+  "origin": "https://dibs.here",
+  "days": [
+    {
+      "date": "2026-11-23",
+      "slug": "animals",
+      "status": "ready",
+      "categoryId": "animals",
+      "autoPicked": false
+    },
+    {
+      "date": "2026-11-24",
+      "slug": "plants",
+      "status": "ready",
+      "categoryId": "plants",
+      "autoPicked": false
+    },
+    {
+      "date": "2026-11-25",
+      "slug": "birds",
+      "status": "ready",
+      "categoryId": "birds",
+      "autoPicked": false
+    },
+    {
+      "date": "2026-11-26",
+      "slug": "cities",
+      "status": "ready",
+      "categoryId": "cities",
+      "autoPicked": false
+    },
+    {
+      "date": "2026-11-27",
+      "slug": "actors",
+      "status": "ready",
+      "categoryId": "actors",
+      "autoPicked": false
+    },
+    {
+      "date": "2026-11-28",
+      "slug": "foods",
+      "status": "ready",
+      "categoryId": "day-2026-11-28",
+      "autoPicked": true
+    },
+    {
+      "date": "2026-11-29",
+      "slug": "countries",
+      "status": "requested",
+      "categoryId": null,
+      "autoPicked": true
+    },
+    {
+      "date": "2026-11-30",
+      "slug": "films",
+      "status": "requested",
+      "categoryId": null,
+      "autoPicked": true
+    },
+    {
+      "date": "2026-12-01",
+      "slug": "songs",
+      "status": "requested",
+      "categoryId": null,
+      "autoPicked": true
+    },
+    {
+      "date": "2026-12-02",
+      "slug": "islands",
+      "status": "requested",
+      "categoryId": null,
+      "autoPicked": true
+    },
+    {
+      "date": "2026-12-03",
+      "slug": "bands",
+      "status": "requested",
+      "categoryId": null,
+      "autoPicked": true
+    },
+    {
+      "date": "2026-12-04",
+      "slug": "fruits-vegetables",
+      "status": "requested",
+      "categoryId": null,
+      "autoPicked": true
+    },
+    {
+      "date": "2026-12-05",
+      "slug": "albums",
+      "status": "requested",
+      "categoryId": null,
+      "autoPicked": true
+    },
+    {
+      "date": "2026-12-06",
+      "slug": "television",
+      "status": "requested",
+      "categoryId": null,
+      "autoPicked": true
+    },
+    {
+      "date": "2026-12-07",
+      "slug": "rivers",
+      "status": "requested",
+      "categoryId": null,
+      "autoPicked": true
+    },
+    {
+      "date": "2026-12-08",
+      "slug": "novels",
+      "status": "requested",
+      "categoryId": null,
+      "autoPicked": true
+    },
+    {
+      "date": "2026-12-09",
+      "slug": "airports",
+      "status": "requested",
+      "categoryId": null,
+      "autoPicked": true
+    },
+    {
+      "date": "2026-12-10",
+      "slug": "architects",
+      "status": "requested",
+      "categoryId": null,
+      "autoPicked": true
+    },
+    {
+      "date": "2026-12-11",
+      "slug": "arthropods",
+      "status": "requested",
+      "categoryId": null,
+      "autoPicked": true
+    },
+    {
+      "date": "2026-12-12",
+      "slug": "asteroids",
+      "status": "requested",
+      "categoryId": null,
+      "autoPicked": true
+    },
+    {
+      "date": "2026-12-13",
+      "slug": "composers",
+      "status": "requested",
+      "categoryId": null,
+      "autoPicked": true
+    },
+    {
+      "date": "2026-12-14",
+      "slug": "stations",
+      "status": "requested",
+      "categoryId": null,
+      "autoPicked": true
+    },
+    {
+      "date": "2026-12-15",
+      "slug": "animals",
+      "status": "requested",
+      "categoryId": null,
+      "autoPicked": true
+    },
+    {
+      "date": "2026-12-16",
+      "slug": "universities",
+      "status": "requested",
+      "categoryId": null,
+      "autoPicked": true
+    },
+    {
+      "date": "2026-12-17",
+      "slug": "plants",
+      "status": "requested",
+      "categoryId": null,
+      "autoPicked": true
+    },
+    {
+      "date": "2026-12-18",
+      "slug": "cities",
+      "status": "requested",
+      "categoryId": null,
+      "autoPicked": true
+    },
+    {
+      "date": "2026-12-19",
+      "slug": "birds",
+      "status": "requested",
+      "categoryId": null,
+      "autoPicked": true
+    },
+    {
+      "date": "2026-12-20",
+      "slug": "actors",
+      "status": "requested",
+      "categoryId": null,
+      "autoPicked": true
+    },
+    {
+      "date": "2026-12-21",
+      "slug": "foods",
+      "status": "requested",
+      "categoryId": null,
+      "autoPicked": true
+    },
+    {
+      "date": "2026-12-22",
+      "slug": "countries",
+      "status": "requested",
+      "categoryId": null,
+      "autoPicked": true
+    },
+    {
+      "date": "2026-12-23",
+      "slug": "films",
+      "status": "requested",
+      "categoryId": null,
+      "autoPicked": true
+    },
+    {
+      "date": "2026-12-24",
+      "slug": "songs",
+      "status": "requested",
+      "categoryId": null,
+      "autoPicked": true
+    },
+    {
+      "date": "2026-12-25",
+      "slug": "islands",
+      "status": "requested",
+      "categoryId": null,
+      "autoPicked": true
+    },
+    {
+      "date": "2026-12-26",
+      "slug": "bands",
+      "status": "requested",
+      "categoryId": null,
+      "autoPicked": true
+    },
+    {
+      "date": "2026-12-27",
+      "slug": "fruits-vegetables",
+      "status": "requested",
+      "categoryId": null,
+      "autoPicked": true
+    },
+    {
+      "date": "2026-12-28",
+      "slug": "albums",
+      "status": "requested",
+      "categoryId": null,
+      "autoPicked": true
+    },
+    {
+      "date": "2026-12-29",
+      "slug": "television",
+      "status": "requested",
+      "categoryId": null,
+      "autoPicked": true
+    },
+    {
+      "date": "2026-12-30",
+      "slug": "rivers",
+      "status": "requested",
+      "categoryId": null,
+      "autoPicked": true
+    },
+    {
+      "date": "2026-12-31",
+      "slug": "novels",
+      "status": "requested",
+      "categoryId": null,
+      "autoPicked": true
+    }
+  ],
+  "ready": 6,
+  "requested": 33,
+  "libraryReady": 23,
+  "storage": {
+    "d1Bytes": 3174400,
+    "d1Limit": 500000000,
+    "assets": {
+      "files": 9499,
+      "bytes": 650473433,
+      "maxBytes": 18386687,
+      "at": "2026-11-22T12:05:19.955Z"
+    },
+    "assetFileLimit": 20000,
+    "assetMaxFileBytes": 26214400,
+    "updatedAt": "2026-11-22T12:05:20.843Z"
+  },
+  "originalPlanPreserved": true
+}

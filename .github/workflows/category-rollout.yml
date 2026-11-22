@@ -31,6 +31,7 @@ jobs:
       - name: Respect launch freeze
         run: npx tsx scripts/check-deploy-freeze.ts --production --round9-part-b
       - name: Check credentials
+        id: credentials
         if: ${{ !inputs.validate_only }}
         run: |
           if [ -z "$CLOUDFLARE_API_TOKEN" ]; then
@@ -58,7 +59,7 @@ jobs:
         if: ${{ !inputs.validate_only }}
         run: npx tsx scripts/prune-platform.ts
       - name: Write a failed run back to the calendar
-        if: ${{ failure() && !inputs.validate_only && env.DIBS_ADMIN_TOKEN != '' }}
+        if: ${{ failure() && !inputs.validate_only && steps.credentials.outcome != 'failure' && env.DIBS_ADMIN_TOKEN != '' }}
         run: npx tsx scripts/rollout-status.ts failed 'Rollout failed. Open the private GitHub Actions run for details; existing ready days remain intact.'
       - uses: actions/upload-artifact@v4
         if: always()

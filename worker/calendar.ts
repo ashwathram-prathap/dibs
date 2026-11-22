@@ -34,10 +34,15 @@ export async function library(env: Env): Promise<Topic[]> {
     };
   });
 }
-async function rows(env: Env) {
-  return (await env.DB.prepare('SELECT * FROM topic_schedule ORDER BY date').all<CalendarDay>())
-    .results;
+async function rows(env: Env, full = false) {
+  const query = full
+    ? env.DB.prepare('SELECT * FROM topic_schedule ORDER BY date')
+    : env.DB.prepare('SELECT * FROM topic_schedule WHERE date>=? ORDER BY date').bind(
+        dayAfter(registryDate(), -22),
+      );
+  return (await query.all<CalendarDay>()).results;
 }
+
 function readOnly(d: CalendarDay, now = Date.now()) {
   return Date.parse(dropAt(d.date)) <= now || ['live', 'closed', 'archived'].includes(d.status);
 }
@@ -209,9 +214,9 @@ async function buildDay(env: Env, d: CalendarDay) {
 }
 async function importExisting(env: Env) {
   await env.DB.prepare(
-    `INSERT OR IGNORE INTO topic_schedule(date,slug,status,category_id,reason,build_result,updated_at,built_at) SELECT date,slug,CASE WHEN status='approved' THEN 'ready' ELSE 'requested' END,id,'Preserved the existing Round 8 plan.','Existing catalog; schedule preserved.',?,? FROM categories WHERE date IS NOT NULL`,
+    `INSERT OR IGNORE INTO topic_schedule(date,slug,status,category_id,reason,build_result,updated_at,built_at) SELECT date,slug,CASE WHEN status='approved' THEN 'ready' ELSE 'requested' END,id,'Preserved the existing Round 8 plan.','Existing catalog; schedule preserved.',?,? FROM categories WHERE date>=?`,
   )
-    .bind(stamp(), stamp())
+    .bind(stamp(), stamp(), dayAfter(registryDate(), -1))
     .run();
 }
 export async function calendarTick(env: Env) {
@@ -297,7 +302,7 @@ export async function calendarRoute(req: Request, env: Env, path: string) {
     if (req.method === 'GET' && path === '/admin/schedule') return json(await calendarRead(env));
     if (req.method === 'GET' && path === '/admin/schedule/plan')
       return json({
-        days: await rows(env),
+        days: await rows(env, true),
         library: await library(env),
         categories: (
           await env.DB.prepare('SELECT id,slug,date,drop_at,source_json FROM categories').all()
