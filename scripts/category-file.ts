@@ -23,7 +23,7 @@ export function writeCategory(path: string, category: any) {
   delete category.answersSha256;
   const answers = JSON.stringify(category.answers);
   const companion = basename(path, '.json') + '.answers.json.gz';
-  if (Buffer.byteLength(answers) > 70 * 1024 * 1024) {
+  if (Buffer.byteLength(answers) > 40 * 1024 * 1024) {
     const bytes = gzipSync(answers, { level: 9 });
     writeFileSync(join(dirname(path), companion) + '.next', bytes);
     renameSync(join(dirname(path), companion) + '.next', join(dirname(path), companion));

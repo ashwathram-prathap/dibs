@@ -1,30 +1,30 @@
 import { readFileSync, writeFileSync, renameSync, existsSync, mkdirSync } from 'node:fs';
-import { createHash } from 'node:crypto';
+import { completeIdsByClass } from './wikidata-complete-ids';
 const definitions = JSON.parse(readFileSync('scripts/category-sources.json', 'utf8')).filter(
   (d: any) => d.property === 'P106',
 );
-const folder = '.category-cache/r8/occupation-normal-ranks';
-mkdirSync(folder, { recursive: true });
 const report: Record<string, any> = {};
 const sleep = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms));
-async function query(q: string) {
+async function query(q: string, format = 'json'): Promise<string> {
   let error: unknown;
   for (let attempt = 0; attempt < 3; attempt++) {
     try {
-      const response = await fetch(
-        'https://query.wikidata.org/sparql?' + new URLSearchParams({ query: q, format: 'json' }),
-        {
-          headers: {
-            'User-Agent': 'DibsCatalog/2.0 (https://dibs.here/about)',
-            Accept: 'application/sparql-results+json',
-          },
-          signal: AbortSignal.timeout(90000),
+      const response = await fetch('https://query.wikidata.org/sparql', {
+        method: 'POST',
+        body: new URLSearchParams({ query: q, format: 'json' }),
+        headers: {
+          'User-Agent': 'DibsCatalog/2.0 (https://dibs.here/about)',
+          Accept: 'application/sparql-results+json',
         },
-      );
+        signal: AbortSignal.timeout(90000),
+      });
       if (!response.ok) throw Error('HTTP ' + response.status);
-      const data: any = await response.json();
+      const body = await response.text();
+      const data = JSON.parse(body);
       if (!data.results?.bindings) throw Error('Incomplete occupation response');
-      return data.results.bindings;
+      return format === 'json'
+        ? body
+        : '?item\n' + data.results.bindings.map((r: any) => '<' + r.item.value + '>').join('\n');
     } catch (e) {
       error = e;
       console.log('Occupation query retry', attempt + 1, String(e));
@@ -35,44 +35,62 @@ async function query(q: string) {
 }
 for (const def of definitions) {
   try {
-    const typeRows = await query(`SELECT DISTINCT ?type WHERE { ?type wdt:P279* wd:${def.root} }`);
-    const types: string[] = typeRows.map((r: any) => r.type.value.split('/').at(-1));
-    const entries = new Map<string, any>();
-    const counts = [];
-    for (let offset = 0; offset < types.length; offset += 25) {
-      const batch = types.slice(offset, offset + 25);
-      const pattern = `hint:Query hint:optimizer "None" . VALUES ?type { ${batch.map((id) => 'wd:' + id).join(' ')} } ?statement ps:P106 ?type; wikibase:rank wikibase:NormalRank . ?item p:P106 ?statement . FILTER NOT EXISTS { ?item wdt:P106 ?type } ?article schema:about ?item; schema:isPartOf <https://en.wikipedia.org/> .`;
-      const path = folder + '/' + createHash('sha256').update(pattern).digest('hex') + '.json';
+    const folder = '.category-cache/r8/occupation-all-ranks-v1/' + def.slug;
+    mkdirSync(folder, { recursive: true });
+    const idsPath = folder + '/ids.json';
+    const ids: string[] = existsSync(idsPath)
+      ? JSON.parse(readFileSync(idsPath, 'utf8'))
+      : await completeIdsByClass(
+          { ...def, allStatementRanks: true, englishOnlyCandidates: false },
+          folder,
+          query,
+        );
+    writeFileSync(idsPath, JSON.stringify(ids));
+    // Retrieve complete statement IDs first, avoiding a costly global anti-join.
+    // Then validate only the difference from the original complete truthy IDs.
+    const original = new Set<string>(
+      JSON.parse(
+        readFileSync('.category-cache/r8/wikidata-chunks/' + def.slug + '/ids.json', 'utf8'),
+      ),
+    );
+    const additional = ids.filter((id) => !original.has(id));
+    const entries: any[] = [];
+    for (let offset = 0; offset < additional.length; offset += 1000) {
+      const path = folder + '/additional-' + offset + '.json';
       let rows: any[];
       if (existsSync(path)) rows = JSON.parse(readFileSync(path, 'utf8'));
       else {
-        rows = await query(`SELECT DISTINCT ?item ?article WHERE { ${pattern} }`);
-        const count = await query(`SELECT (COUNT(DISTINCT ?item) AS ?count) WHERE { ${pattern} }`);
-        if (new Set(rows.map((r) => r.item.value)).size !== Number(count[0].count.value))
-          throw Error('Occupation count mismatch');
+        const body = JSON.parse(
+          await query(
+            `SELECT DISTINCT ?item ?article WHERE { VALUES ?item { ${additional
+              .slice(offset, offset + 1000)
+              .map((id) => 'wd:' + id)
+              .join(
+                ' ',
+              )} } ?item p:P106 ?statement . ?statement ps:P106 ?type; wikibase:rank ?rank . FILTER(?rank != wikibase:DeprecatedRank) ?type wdt:P279* wd:${def.root} . ?article schema:about ?item; schema:isPartOf <https://en.wikipedia.org/> . }`,
+          ),
+        );
+        rows = body.results.bindings.map((r: any) => {
+          const title = decodeURIComponent(r.article.value.split('/wiki/')[1]).replaceAll('_', ' ');
+          return {
+            display: title.replace(/ \([^)]*\)$/, ''),
+            aliases: [],
+            wikipediaTitle: title,
+            wikidata: r.item.value.split('/').at(-1),
+            source: r.item.value,
+            occupationRank:
+              'Non-deprecated occupation omitted from the truthy classification snapshot',
+          };
+        });
         writeFileSync(path, JSON.stringify(rows));
         await sleep(1000);
       }
-      console.log(def.slug, 'rank group', offset, '/', types.length, 'rows', rows.length);
-      counts.push({ types: batch.length, rows: rows.length });
-      for (const r of rows) {
-        const title = decodeURIComponent(r.article.value.split('/wiki/')[1]).replaceAll('_', ' ');
-        const id = r.item.value.split('/').at(-1);
-        entries.set(id, {
-          display: title.replace(/ \([^)]*\)$/, ''),
-          aliases: [],
-          wikipediaTitle: title,
-          wikidata: id,
-          source: r.item.value,
-          occupationRank: 'normal, obscured by another preferred occupation',
-        });
-      }
+      entries.push(...rows);
     }
-    // Apply only after every complete class group has been independently counted.
     const path = '.category-cache/r8/other-references/' + def.slug + '.json';
     const current = JSON.parse(readFileSync(path, 'utf8'));
     const present = new Set(current.map((r: any) => r.wikidata));
-    const added = [...entries.values()].filter((r) => !present.has(r.wikidata));
+    const added = entries.filter((r) => !present.has(r.wikidata));
     if (added.length) {
       current.push(...added);
       writeFileSync(path + '.ranks-next', JSON.stringify(current));
@@ -81,12 +99,12 @@ for (const def of definitions) {
     report[def.slug] = {
       complete: true,
       at: new Date().toISOString(),
-      classes: types.length,
-      normalRankCandidates: entries.size,
+      allStatementCandidates: ids.length,
+      additionalCandidates: additional.length,
+      eligibleAdditional: entries.length,
       added: added.length,
-      groups: counts,
       method:
-        'All normal-rank occupation statements hidden by preferred occupations; deprecated statements excluded; every uncapped class group checked against independent COUNT; complete English-article quality filter.',
+        'Complete instance occupation statement paths, every uncapped class independently counted; bounded validation of additional IDs excludes deprecated statements and applies the English article quality filter. No global anti-join or result cap.',
     };
     console.log(def.slug, report[def.slug]);
   } catch (error) {

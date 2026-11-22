@@ -4,6 +4,8 @@ export function classificationPath(def: any) {
   const properties: string[] = def.properties || [def.property === 'P106' ? 'P106' : 'P31'];
   if (!properties.every((property) => /^P\d+$/.test(property)))
     throw Error('Invalid classification property');
+  if (def.allStatementRanks)
+    return '(' + properties.map((property) => `p:${property}/ps:${property}`).join('|') + ')';
   return properties.length === 1
     ? 'wdt:' + properties[0]
     : '(' + properties.map((property) => 'wdt:' + property).join('|') + ')';
@@ -47,6 +49,7 @@ export async function completeIdsByClass(
   const article = def.englishOnlyCandidates
     ? ' . ?article schema:about ?item; schema:isPartOf <https://en.wikipedia.org/> .'
     : '';
+  const extra = def.extraPattern ? (article ? ' ' : ' . ') + def.extraPattern : '';
   const ids = new Set<string>();
   const audit: any[] = [];
   // Bind the complete subclass set in small VALUES groups. This avoids both
@@ -64,7 +67,7 @@ export async function completeIdsByClass(
       audit.push({ types: group, count: saved.expected, cached: true });
       return;
     }
-    const pattern = `VALUES ?type { ${group.map((id) => 'wd:' + id).join(' ')} } ?item ${prop} ?type ${article}`;
+    const pattern = `VALUES ?type { ${group.map((id) => 'wd:' + id).join(' ')} } ?item ${prop} ?type ${article} ${extra}`;
     try {
       let members: string[] = [];
       let expected = -1;
@@ -134,7 +137,7 @@ export async function completeIdsByClass(
       audit.push({ type, count: d.ids.length, cached: true });
       continue;
     }
-    const pattern = `?item ${prop} wd:${type} ${article}`;
+    const pattern = `?item ${prop} wd:${type} ${article} ${extra}`;
     const countData = JSON.parse(
       await ask(
         `SELECT (COUNT(DISTINCT ?item) AS ?count) WHERE { ${pattern} } # snapshot ${Date.now()}`,

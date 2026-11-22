@@ -1,3 +1,4 @@
+import { readCategory } from './category-file';
 // Explicitly targets only the independent staging database and preview service.
 import { readFileSync, writeFileSync } from 'node:fs';
 import { execFileSync } from 'node:child_process';
@@ -6,7 +7,7 @@ import { catalogContent, keyContent } from '../shared/catalog-digest';
 import { normalize } from '../worker/domain';
 const base = 'https://practice.dibs-7hz.pages.dev';
 const token = readFileSync('.dev.vars.staging', 'utf8').match(/^ADMIN_TOKEN=(.+)$/m)![1];
-const category = JSON.parse(readFileSync('categories/animals.json', 'utf8'));
+const category = readCategory('categories/animals.json');
 const api = async (path: string, body?: any) => {
   const r = await fetch(base + '/api' + path, {
     method: body ? 'POST' : 'GET',

@@ -51,10 +51,14 @@ for (const f of readdirSync('categories').filter((f) => f.endsWith('.json'))) {
       shards[shardFor(key)][key] = rows[i];
     }
   const sortedKeys = shards.flatMap((shard) => Object.keys(shard)).sort();
-  const ordinals = Buffer.alloc(sortedKeys.length * 4);
-  sortedKeys.forEach((key, i) => ordinals.writeUInt32LE(shards[shardFor(key)][key][0], i * 4));
-  const complete = JSON.stringify({ keys: sortedKeys, ids: ordinals.toString('base64'), rows });
-  const binary = rows.length > 200000 || Buffer.byteLength(complete) > 20 * 1024 * 1024;
+  let complete = '';
+  let binary = rows.length > 200000;
+  if (!binary) {
+    const ordinals = Buffer.alloc(sortedKeys.length * 4);
+    sortedKeys.forEach((key, i) => ordinals.writeUInt32LE(shards[shardFor(key)][key][0], i * 4));
+    complete = JSON.stringify({ keys: sortedKeys, ids: ordinals.toString('base64'), rows });
+    binary = Buffer.byteLength(complete) > 20 * 1024 * 1024;
+  }
   let indexChunks = 0;
   if (binary) {
     const bytes = buildBinaryCatalog(sortedKeys, (key) => shards[shardFor(key)][key][0], rows);

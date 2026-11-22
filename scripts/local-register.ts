@@ -1,9 +1,10 @@
+import { readCategory } from './category-file';
 // LOCAL ONLY. Opens a real category in the local D1 emulator for end-to-end testing.
 import { readFileSync } from 'node:fs';
 import { execFileSync } from 'node:child_process';
 import { registryDate, dropAt } from '../worker/domain';
 const token = readFileSync('.dev.vars', 'utf8').match(/^ADMIN_TOKEN=(.*)$/m)![1];
-const c = JSON.parse(readFileSync('categories/animals.json', 'utf8'));
+const c = readCategory('categories/animals.json');
 c.date = null;
 c.drop_at = null;
 const r = await fetch('http://127.0.0.1:8787/api/admin/category', {

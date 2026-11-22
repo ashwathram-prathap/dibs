@@ -1,3 +1,4 @@
+import { readCategory } from './category-file';
 import { chromium } from '@playwright/test';
 import { mkdirSync, writeFileSync, readFileSync } from 'node:fs';
 const dir = 'review/round2';
@@ -16,7 +17,7 @@ await page.getByRole('heading', { name: 'Animals', exact: true }).waitFor();
 await page.getByLabel('ENTRY:', { exact: true }).fill('Axolotl');
 await page.getByRole('button', { name: 'CALL DIBS' }).click();
 await page.getByText('Someone already called dibs on AXOLOTL', { exact: false }).waitFor();
-const answers = JSON.parse(readFileSync('categories/animals.json', 'utf8')).answers;
+const answers = readCategory('categories/animals.json').answers;
 const ledger = (await (
   await fetch('http://127.0.0.1:8787/api/ledger?category=animals')
 ).json()) as any;

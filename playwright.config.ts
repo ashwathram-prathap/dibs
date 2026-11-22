@@ -76,6 +76,8 @@ export default defineConfig({
   use: { baseURL: 'http://127.0.0.1:5173', trace: 'retain-on-failure' },
   projects: projects.map((p) => ({ ...p, testIgnore: 'round7.spec.ts' })),
   webServer: {
+    // A fresh CI checkout builds every complete reference index before starting.
+    timeout: 600000,
     command:
       'npx tsx scripts/build-catalog-assets.ts && npx vite build --mode security-test && npm run preview -- --mode security-test --port 5173',
     url: 'http://127.0.0.1:5173',

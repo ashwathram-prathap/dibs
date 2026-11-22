@@ -52,7 +52,7 @@ for (const engine of [chromium, webkit]) {
           .withTags(['wcag2a', 'wcag2aa', 'wcag21aa', 'wcag22aa'])
           .analyze();
         const glyphs = await page.evaluate(() => {
-          const bad = /[\u2190-\u21ff\u2500-\u27bf\u{1f000}-\u{1ffff}]/u;
+          const bad = /[\u2190-\u27bf\u{1f000}-\u{1ffff}]|\p{Extended_Pictographic}/u;
           const hits: string[] = [];
           const w = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT);
           while (w.nextNode())

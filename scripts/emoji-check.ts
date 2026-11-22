@@ -1,6 +1,6 @@
 import { readCategory } from './category-file';
 import { readdirSync, readFileSync } from 'node:fs';
-const bad = /[\u2190-\u21ff\u2500-\u27bf\u{1f000}-\u{1ffff}]/u;
+const bad = /[\u2190-\u27bf\u{1f000}-\u{1ffff}]|\p{Extended_Pictographic}/u;
 const failures: string[] = [];
 for (const dir of ['src', 'shared', 'worker'])
   for (const file of readdirSync(dir).filter((f) => /\.(tsx?|css)$/.test(f))) {

@@ -148,7 +148,7 @@ it('loads the entire Cities index in the Worker runtime and stores only the clai
   await startRegistry('cities');
   const response = await call('/bootstrap');
   const cookie = response.headers.get('set-cookie')!.split(';')[0];
-  const c = JSON.parse(readFileSync('categories/cities.json', 'utf8'));
+  const c = readCategory('categories/cities.json');
   const answer = c.answers[50000].display;
   const claim = await call(
     '/claim',

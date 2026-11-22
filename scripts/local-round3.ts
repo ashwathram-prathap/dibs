@@ -1,3 +1,4 @@
+import { readCategory } from './category-file';
 import { chromium, expect } from '@playwright/test';
 import { readFileSync, writeFileSync, copyFileSync } from 'node:fs';
 const browser = await chromium.launch();
@@ -16,7 +17,7 @@ page.on('pageerror', (e) => errors.push(e.message));
 await page.goto('http://127.0.0.1:5174');
 await page.getByLabel('ENTRY:', { exact: true }).waitFor();
 const initial = await page.evaluate(async () => await (await fetch('/api/bootstrap')).json());
-const answers = JSON.parse(readFileSync('categories/animals.json', 'utf8')).answers;
+const answers = readCategory('categories/animals.json').answers;
 const used = new Set(initial.rows.map((r: any) => r.display));
 const fresh = answers.filter((a: any) => !used.has(a.display)).slice(0, 3);
 const submit = async (answer: string) => {

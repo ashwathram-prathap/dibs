@@ -7,34 +7,44 @@ export function buildBinaryCatalog(
   ordinalFor: (key: string) => number,
   rows: CatalogRow[],
 ) {
-  const records = keys
-    .map((key) => ({
-      hash: createHash('sha256').update(key).digest().subarray(0, 12),
-      ordinal: ordinalFor(key),
-    }))
-    .sort((a, b) => Buffer.compare(a.hash, b.hash));
-  for (let i = 1; i < records.length; i++)
-    if (records[i - 1].hash.equals(records[i].hash)) throw Error('Catalog hash collision');
-  const names = rows.map((r) => Buffer.from(r[1]));
-  if (names.some((name) => name.length > 65535)) throw Error('Catalog name too long');
-  const rowsOffset = 32 + records.length * 16;
+  // Packed records and typed-array ordering keep million-key builds within CI memory.
+  const records = Buffer.alloc(keys.length * 16);
+  keys.forEach((key, i) => {
+    createHash('sha256')
+      .update(key)
+      .digest()
+      .copy(records, i * 16, 0, 12);
+    records.writeUInt32LE(ordinalFor(key), i * 16 + 12);
+  });
+  const compare = (a: number, b: number) =>
+    records.readUInt32BE(a * 16) - records.readUInt32BE(b * 16) ||
+    records.readUInt32BE(a * 16 + 4) - records.readUInt32BE(b * 16 + 4) ||
+    records.readUInt32BE(a * 16 + 8) - records.readUInt32BE(b * 16 + 8);
+  const order = Uint32Array.from({ length: keys.length }, (_, i) => i).sort(compare);
+  for (let i = 1; i < order.length; i++)
+    if (compare(order[i - 1], order[i]) === 0) throw Error('Catalog hash collision');
+  let totalNames = 0;
+  const lengths = Uint16Array.from(rows, (row) => {
+    const length = Buffer.byteLength(row[1]);
+    if (length > 65535) throw Error('Catalog name too long');
+    totalNames += length;
+    return length;
+  });
+  const rowsOffset = 32 + keys.length * 16;
   const namesOffset = rowsOffset + rows.length * 8;
-  const bytes = Buffer.alloc(namesOffset + names.reduce((n, name) => n + name.length, 0));
-  [BINARY_MAGIC, 1, records.length, rows.length, rowsOffset, namesOffset, 0, bytes.length].forEach(
+  const bytes = Buffer.alloc(namesOffset + totalNames);
+  [BINARY_MAGIC, 1, keys.length, rows.length, rowsOffset, namesOffset, 0, bytes.length].forEach(
     (n, i) => bytes.writeUInt32LE(n, i * 4),
   );
-  records.forEach((r, i) => {
-    r.hash.copy(bytes, 32 + i * 16);
-    bytes.writeUInt32LE(r.ordinal, 44 + i * 16);
-  });
+  order.forEach((record, i) => records.copy(bytes, 32 + i * 16, record * 16, record * 16 + 16));
   let nameOffset = 0;
   rows.forEach((row, i) => {
     const offset = rowsOffset + i * 8;
     bytes.writeUInt32LE(nameOffset, offset);
-    bytes.writeUInt16LE(names[i].length, offset + 4);
+    bytes.writeUInt16LE(lengths[i], offset + 4);
     bytes.writeUInt8(row[2] || 0, offset + 6);
-    names[i].copy(bytes, namesOffset + nameOffset);
-    nameOffset += names[i].length;
+    bytes.write(row[1], namesOffset + nameOffset, lengths[i], 'utf8');
+    nameOffset += lengths[i];
   });
   return bytes;
 }

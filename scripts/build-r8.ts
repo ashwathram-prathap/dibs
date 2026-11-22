@@ -11,7 +11,7 @@ import {
 } from 'node:fs';
 import { createHash } from 'node:crypto';
 import { pageMatchesScope } from './catalog-quality';
-import { cleanReferenceRows } from './catalog-cleaning';
+import { cleanReferenceRows, usableLatinReferenceName } from './catalog-cleaning';
 import {
   commonNamePlurals,
   conjunctionAliases,
@@ -140,6 +140,7 @@ for (const [slug, unclean] of Object.entries(raw) as any) {
   };
   const input = cleanReferenceRows(unclean).filter(
     (r) =>
+      !(r.wikipediaUnavailable && !usableLatinReferenceName(r.display)) &&
       !(categoryLabels[slug] || []).includes(normalizeCommonName(r.display)) &&
       !(slug === 'television' && /\((?:season|series)\s+[^)]+\)$/i.test(r.wikipediaTitle || '')),
   );

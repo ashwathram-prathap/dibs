@@ -40,7 +40,7 @@ it('uses a proper plural noun for every catalog, including practice Animals', ()
 });
 
 it('accepts explicit plural aliases without conflating proper-name titles', () => {
-  const category = JSON.parse(readFileSync('categories/animals.json', 'utf8'));
+  const category = readCategory('categories/animals.json');
   const owners = new Map(
     category.answers.flatMap((a: any, i: number) =>
       [a.display, ...a.aliases].map((s: string) => [normalize(s), i]),

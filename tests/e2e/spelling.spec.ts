@@ -1,3 +1,4 @@
+import { readCategory } from '../../scripts/category-file';
 import { test, expect } from './security-fixture';
 import { readFileSync } from 'node:fs';
 import { normalize } from '../../worker/domain';
@@ -9,7 +10,7 @@ test('checks a long-tail submitted typo in a browser worker without revealing su
   await page.goto('/?r6=1&spellingVersion='+manifest.version);
   await page.locator('#answer').fill('chamel');
   await expect(page.getByRole('listbox')).toHaveCount(0);
-  const c = JSON.parse(readFileSync('categories/animals.json', 'utf8'));
+  const c = readCategory('categories/animals.json');
   const row = c.answers.find(
     (a: any, i: number) =>
       i > 10000 && a.display.length > 24 && a.display.length < 31 && a.aliases.length === 1,
