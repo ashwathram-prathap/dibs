@@ -1,0 +1,126 @@
+{
+  "origin": "https://dibs.here",
+  "checkedAt": "2026-11-22T02:38:18.892Z",
+  "checks": [
+    {
+      "name": "fresh server clock",
+      "passed": true,
+      "detail": "2026-11-22T02:38:14.681Z"
+    },
+    {
+      "name": "correct environment",
+      "passed": true
+    },
+    {
+      "name": "launch schedule unchanged",
+      "passed": true,
+      "detail": {
+        "nextDrop": "2026-11-24T02:00:00.000Z",
+        "claimed": 0
+      }
+    },
+    {
+      "name": "no fixture in HTML",
+      "passed": true
+    },
+    {
+      "name": "real OG PNG",
+      "passed": true,
+      "detail": {
+        "bytes": 39032
+      }
+    },
+    {
+      "name": "390 light countdown",
+      "passed": true,
+      "detail": "47:21:44"
+    },
+    {
+      "name": "390 light local drop",
+      "passed": true
+    },
+    {
+      "name": "390 light no overflow",
+      "passed": true
+    },
+    {
+      "name": "390 light accessibility",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "390 light no application errors",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "390 dark countdown",
+      "passed": true,
+      "detail": "47:21:44"
+    },
+    {
+      "name": "390 dark local drop",
+      "passed": true
+    },
+    {
+      "name": "390 dark no overflow",
+      "passed": true
+    },
+    {
+      "name": "390 dark accessibility",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "390 dark no application errors",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "1440 light countdown",
+      "passed": true,
+      "detail": "47:21:43"
+    },
+    {
+      "name": "1440 light local drop",
+      "passed": true
+    },
+    {
+      "name": "1440 light no overflow",
+      "passed": true
+    },
+    {
+      "name": "1440 light accessibility",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "1440 light no application errors",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "1440 dark countdown",
+      "passed": true,
+      "detail": "47:21:42"
+    },
+    {
+      "name": "1440 dark local drop",
+      "passed": true
+    },
+    {
+      "name": "1440 dark no overflow",
+      "passed": true
+    },
+    {
+      "name": "1440 dark accessibility",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "1440 dark no application errors",
+      "passed": true,
+      "detail": []
+    }
+  ]
+}

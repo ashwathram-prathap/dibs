@@ -1,0 +1,981 @@
+{
+  "config": {
+    "argv": [
+      "/opt/hostedtoolcache/node/22.23.5/x64/bin/node",
+      "/home/runner/work/dibs/dibs/node_modules/.bin/playwright",
+      "test",
+      "-c",
+      "playwright.r7.config.ts",
+      "--project=r7-firefox-*"
+    ],
+    "configFile": "/home/runner/work/dibs/dibs/playwright.r7.config.ts",
+    "rootDir": "/home/runner/work/dibs/dibs/tests/e2e",
+    "failOnFlakyTests": false,
+    "forbidOnly": false,
+    "fullyParallel": true,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "ci": {
+        "commitHref": "https://github.com/ashwathram-prathap/dibs/commit/f58020ddd7661cce95d5ba98bf737e68cc5cdf3f",
+        "commitHash": "f58020ddd7661cce95d5ba98bf737e68cc5cdf3f",
+        "buildHref": "https://github.com/ashwathram-prathap/dibs/actions/runs/44976984736"
+      },
+      "gitCommit": {
+        "shortHash": "f58020d",
+        "hash": "f58020ddd7661cce95d5ba98bf737e68cc5cdf3f",
+        "subject": "R7: keep rollover retries alive through server outages",
+        "body": "R7: keep rollover retries alive through server outages\n",
+        "author": {
+          "name": "Ashwathram Prathap",
+          "email": "prathapashwathram@gmail.com",
+          "time": 1795315068000
+        },
+        "committer": {
+          "name": "Ashwathram Prathap",
+          "email": "prathapashwathram@gmail.com",
+          "time": 1795315068000
+        },
+        "branch": "main"
+      },
+      "actualWorkers": 4
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "/home/runner/work/dibs/dibs/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "ci": {
+            "commitHref": "https://github.com/ashwathram-prathap/dibs/commit/f58020ddd7661cce95d5ba98bf737e68cc5cdf3f",
+            "commitHash": "f58020ddd7661cce95d5ba98bf737e68cc5cdf3f",
+            "buildHref": "https://github.com/ashwathram-prathap/dibs/actions/runs/44976984736"
+          },
+          "gitCommit": {
+            "shortHash": "f58020d",
+            "hash": "f58020ddd7661cce95d5ba98bf737e68cc5cdf3f",
+            "subject": "R7: keep rollover retries alive through server outages",
+            "body": "R7: keep rollover retries alive through server outages\n",
+            "author": {
+              "name": "Ashwathram Prathap",
+              "email": "prathapashwathram@gmail.com",
+              "time": 1795315068000
+            },
+            "committer": {
+              "name": "Ashwathram Prathap",
+              "email": "prathapashwathram@gmail.com",
+              "time": 1795315068000
+            },
+            "branch": "main"
+          },
+          "actualWorkers": 4
+        },
+        "id": "r7-chromium-390-light",
+        "name": "r7-chromium-390-light",
+        "testDir": "/home/runner/work/dibs/dibs/tests/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "round7.spec.ts"
+        ],
+        "timeout": 60000
+      },
+      {
+        "outputDir": "/home/runner/work/dibs/dibs/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "ci": {
+            "commitHref": "https://github.com/ashwathram-prathap/dibs/commit/f58020ddd7661cce95d5ba98bf737e68cc5cdf3f",
+            "commitHash": "f58020ddd7661cce95d5ba98bf737e68cc5cdf3f",
+            "buildHref": "https://github.com/ashwathram-prathap/dibs/actions/runs/44976984736"
+          },
+          "gitCommit": {
+            "shortHash": "f58020d",
+            "hash": "f58020ddd7661cce95d5ba98bf737e68cc5cdf3f",
+            "subject": "R7: keep rollover retries alive through server outages",
+            "body": "R7: keep rollover retries alive through server outages\n",
+            "author": {
+              "name": "Ashwathram Prathap",
+              "email": "prathapashwathram@gmail.com",
+              "time": 1795315068000
+            },
+            "committer": {
+              "name": "Ashwathram Prathap",
+              "email": "prathapashwathram@gmail.com",
+              "time": 1795315068000
+            },
+            "branch": "main"
+          },
+          "actualWorkers": 4
+        },
+        "id": "r7-chromium-390-dark",
+        "name": "r7-chromium-390-dark",
+        "testDir": "/home/runner/work/dibs/dibs/tests/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "round7.spec.ts"
+        ],
+        "timeout": 60000
+      },
+      {
+        "outputDir": "/home/runner/work/dibs/dibs/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "ci": {
+            "commitHref": "https://github.com/ashwathram-prathap/dibs/commit/f58020ddd7661cce95d5ba98bf737e68cc5cdf3f",
+            "commitHash": "f58020ddd7661cce95d5ba98bf737e68cc5cdf3f",
+            "buildHref": "https://github.com/ashwathram-prathap/dibs/actions/runs/44976984736"
+          },
+          "gitCommit": {
+            "shortHash": "f58020d",
+            "hash": "f58020ddd7661cce95d5ba98bf737e68cc5cdf3f",
+            "subject": "R7: keep rollover retries alive through server outages",
+            "body": "R7: keep rollover retries alive through server outages\n",
+            "author": {
+              "name": "Ashwathram Prathap",
+              "email": "prathapashwathram@gmail.com",
+              "time": 1795315068000
+            },
+            "committer": {
+              "name": "Ashwathram Prathap",
+              "email": "prathapashwathram@gmail.com",
+              "time": 1795315068000
+            },
+            "branch": "main"
+          },
+          "actualWorkers": 4
+        },
+        "id": "r7-chromium-1440-light",
+        "name": "r7-chromium-1440-light",
+        "testDir": "/home/runner/work/dibs/dibs/tests/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "round7.spec.ts"
+        ],
+        "timeout": 60000
+      },
+      {
+        "outputDir": "/home/runner/work/dibs/dibs/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "ci": {
+            "commitHref": "https://github.com/ashwathram-prathap/dibs/commit/f58020ddd7661cce95d5ba98bf737e68cc5cdf3f",
+            "commitHash": "f58020ddd7661cce95d5ba98bf737e68cc5cdf3f",
+            "buildHref": "https://github.com/ashwathram-prathap/dibs/actions/runs/44976984736"
+          },
+          "gitCommit": {
+            "shortHash": "f58020d",
+            "hash": "f58020ddd7661cce95d5ba98bf737e68cc5cdf3f",
+            "subject": "R7: keep rollover retries alive through server outages",
+            "body": "R7: keep rollover retries alive through server outages\n",
+            "author": {
+              "name": "Ashwathram Prathap",
+              "email": "prathapashwathram@gmail.com",
+              "time": 1795315068000
+            },
+            "committer": {
+              "name": "Ashwathram Prathap",
+              "email": "prathapashwathram@gmail.com",
+              "time": 1795315068000
+            },
+            "branch": "main"
+          },
+          "actualWorkers": 4
+        },
+        "id": "r7-chromium-1440-dark",
+        "name": "r7-chromium-1440-dark",
+        "testDir": "/home/runner/work/dibs/dibs/tests/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "round7.spec.ts"
+        ],
+        "timeout": 60000
+      },
+      {
+        "outputDir": "/home/runner/work/dibs/dibs/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "ci": {
+            "commitHref": "https://github.com/ashwathram-prathap/dibs/commit/f58020ddd7661cce95d5ba98bf737e68cc5cdf3f",
+            "commitHash": "f58020ddd7661cce95d5ba98bf737e68cc5cdf3f",
+            "buildHref": "https://github.com/ashwathram-prathap/dibs/actions/runs/44976984736"
+          },
+          "gitCommit": {
+            "shortHash": "f58020d",
+            "hash": "f58020ddd7661cce95d5ba98bf737e68cc5cdf3f",
+            "subject": "R7: keep rollover retries alive through server outages",
+            "body": "R7: keep rollover retries alive through server outages\n",
+            "author": {
+              "name": "Ashwathram Prathap",
+              "email": "prathapashwathram@gmail.com",
+              "time": 1795315068000
+            },
+            "committer": {
+              "name": "Ashwathram Prathap",
+              "email": "prathapashwathram@gmail.com",
+              "time": 1795315068000
+            },
+            "branch": "main"
+          },
+          "actualWorkers": 4
+        },
+        "id": "r7-webkit-390-light",
+        "name": "r7-webkit-390-light",
+        "testDir": "/home/runner/work/dibs/dibs/tests/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "round7.spec.ts"
+        ],
+        "timeout": 60000
+      },
+      {
+        "outputDir": "/home/runner/work/dibs/dibs/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "ci": {
+            "commitHref": "https://github.com/ashwathram-prathap/dibs/commit/f58020ddd7661cce95d5ba98bf737e68cc5cdf3f",
+            "commitHash": "f58020ddd7661cce95d5ba98bf737e68cc5cdf3f",
+            "buildHref": "https://github.com/ashwathram-prathap/dibs/actions/runs/44976984736"
+          },
+          "gitCommit": {
+            "shortHash": "f58020d",
+            "hash": "f58020ddd7661cce95d5ba98bf737e68cc5cdf3f",
+            "subject": "R7: keep rollover retries alive through server outages",
+            "body": "R7: keep rollover retries alive through server outages\n",
+            "author": {
+              "name": "Ashwathram Prathap",
+              "email": "prathapashwathram@gmail.com",
+              "time": 1795315068000
+            },
+            "committer": {
+              "name": "Ashwathram Prathap",
+              "email": "prathapashwathram@gmail.com",
+              "time": 1795315068000
+            },
+            "branch": "main"
+          },
+          "actualWorkers": 4
+        },
+        "id": "r7-firefox-390-light",
+        "name": "r7-firefox-390-light",
+        "testDir": "/home/runner/work/dibs/dibs/tests/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "round7.spec.ts"
+        ],
+        "timeout": 60000
+      }
+    ],
+    "filteredProjects": [
+      {
+        "grep": {},
+        "grepInvert": null,
+        "outputDir": "/home/runner/work/dibs/dibs/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "ci": {
+            "commitHref": "https://github.com/ashwathram-prathap/dibs/commit/f58020ddd7661cce95d5ba98bf737e68cc5cdf3f",
+            "commitHash": "f58020ddd7661cce95d5ba98bf737e68cc5cdf3f",
+            "buildHref": "https://github.com/ashwathram-prathap/dibs/actions/runs/44976984736"
+          },
+          "gitCommit": {
+            "shortHash": "f58020d",
+            "hash": "f58020ddd7661cce95d5ba98bf737e68cc5cdf3f",
+            "subject": "R7: keep rollover retries alive through server outages",
+            "body": "R7: keep rollover retries alive through server outages\n",
+            "author": {
+              "name": "Ashwathram Prathap",
+              "email": "prathapashwathram@gmail.com",
+              "time": 1795315068000
+            },
+            "committer": {
+              "name": "Ashwathram Prathap",
+              "email": "prathapashwathram@gmail.com",
+              "time": 1795315068000
+            },
+            "branch": "main"
+          },
+          "actualWorkers": 4
+        },
+        "name": "r7-firefox-390-light",
+        "testDir": "/home/runner/work/dibs/dibs/tests/e2e",
+        "snapshotDir": "/home/runner/work/dibs/dibs/tests/e2e",
+        "testIgnore": [],
+        "testMatch": "round7.spec.ts",
+        "timeout": 60000,
+        "use": {
+          "baseURL": "http://127.0.0.1:5173",
+          "trace": "retain-on-failure",
+          "browserName": "firefox",
+          "viewport": {
+            "width": 390,
+            "height": 844
+          },
+          "colorScheme": "light"
+        },
+        "dependencies": [],
+        "ignoreSnapshots": false,
+        "__projectId": "r7-firefox-390-light"
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "list",
+        null
+      ],
+      [
+        "json",
+        {
+          "outputFile": "review/round7/browser-results.json"
+        }
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "default",
+    "updateSourceMethod": "patch",
+    "version": "1.65.1",
+    "workers": 4,
+    "webServer": {
+      "command": "npx vite build --mode security-test && npm run preview -- --mode security-test --port 5173",
+      "url": "http://127.0.0.1:5173",
+      "reuseExistingServer": false
+    }
+  },
+  "suites": [
+    {
+      "title": "round7.spec.ts",
+      "file": "round7.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "local drop in America/Toronto",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [
+                {
+                  "type": "skip",
+                  "location": {
+                    "file": "/home/runner/work/dibs/dibs/tests/e2e/round7.spec.ts",
+                    "line": 19,
+                    "column": 10
+                  }
+                }
+              ],
+              "expectedStatus": "skipped",
+              "projectId": "r7-firefox-390-light",
+              "projectName": "r7-firefox-390-light",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "skipped",
+                  "duration": 2784,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-22T02:38:34.016Z",
+                  "annotations": [
+                    {
+                      "type": "skip",
+                      "location": {
+                        "file": "/home/runner/work/dibs/dibs/tests/e2e/round7.spec.ts",
+                        "line": 19,
+                        "column": 10
+                      }
+                    }
+                  ],
+                  "attachments": []
+                }
+              ],
+              "status": "skipped"
+            }
+          ],
+          "id": "393f56ce4bdf021b5d0a-0892996543e7de3ec408",
+          "file": "round7.spec.ts",
+          "line": 18,
+          "column": 3
+        },
+        {
+          "title": "local drop in America/Vancouver",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [
+                {
+                  "type": "skip",
+                  "location": {
+                    "file": "/home/runner/work/dibs/dibs/tests/e2e/round7.spec.ts",
+                    "line": 19,
+                    "column": 10
+                  }
+                }
+              ],
+              "expectedStatus": "skipped",
+              "projectId": "r7-firefox-390-light",
+              "projectName": "r7-firefox-390-light",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 1,
+                  "status": "skipped",
+                  "duration": 3199,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-22T02:38:33.998Z",
+                  "annotations": [
+                    {
+                      "type": "skip",
+                      "location": {
+                        "file": "/home/runner/work/dibs/dibs/tests/e2e/round7.spec.ts",
+                        "line": 19,
+                        "column": 10
+                      }
+                    }
+                  ],
+                  "attachments": []
+                }
+              ],
+              "status": "skipped"
+            }
+          ],
+          "id": "393f56ce4bdf021b5d0a-ced7c64f3d23445b8dfb",
+          "file": "round7.spec.ts",
+          "line": 18,
+          "column": 3
+        },
+        {
+          "title": "local drop in Europe/London",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [
+                {
+                  "type": "skip",
+                  "location": {
+                    "file": "/home/runner/work/dibs/dibs/tests/e2e/round7.spec.ts",
+                    "line": 19,
+                    "column": 10
+                  }
+                }
+              ],
+              "expectedStatus": "skipped",
+              "projectId": "r7-firefox-390-light",
+              "projectName": "r7-firefox-390-light",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 2,
+                  "status": "skipped",
+                  "duration": 4300,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-22T02:38:34.193Z",
+                  "annotations": [
+                    {
+                      "type": "skip",
+                      "location": {
+                        "file": "/home/runner/work/dibs/dibs/tests/e2e/round7.spec.ts",
+                        "line": 19,
+                        "column": 10
+                      }
+                    }
+                  ],
+                  "attachments": []
+                }
+              ],
+              "status": "skipped"
+            }
+          ],
+          "id": "393f56ce4bdf021b5d0a-d09ff820c7953a20a315",
+          "file": "round7.spec.ts",
+          "line": 18,
+          "column": 3
+        },
+        {
+          "title": "local drop in Asia/Kolkata",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [
+                {
+                  "type": "skip",
+                  "location": {
+                    "file": "/home/runner/work/dibs/dibs/tests/e2e/round7.spec.ts",
+                    "line": 19,
+                    "column": 10
+                  }
+                }
+              ],
+              "expectedStatus": "skipped",
+              "projectId": "r7-firefox-390-light",
+              "projectName": "r7-firefox-390-light",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 3,
+                  "status": "skipped",
+                  "duration": 3327,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-22T02:38:34.238Z",
+                  "annotations": [
+                    {
+                      "type": "skip",
+                      "location": {
+                        "file": "/home/runner/work/dibs/dibs/tests/e2e/round7.spec.ts",
+                        "line": 19,
+                        "column": 10
+                      }
+                    }
+                  ],
+                  "attachments": []
+                }
+              ],
+              "status": "skipped"
+            }
+          ],
+          "id": "393f56ce4bdf021b5d0a-a11f26e34d149016547d",
+          "file": "round7.spec.ts",
+          "line": 18,
+          "column": 3
+        },
+        {
+          "title": "local drop in Australia/Sydney",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [
+                {
+                  "type": "skip",
+                  "location": {
+                    "file": "/home/runner/work/dibs/dibs/tests/e2e/round7.spec.ts",
+                    "line": 19,
+                    "column": 10
+                  }
+                }
+              ],
+              "expectedStatus": "skipped",
+              "projectId": "r7-firefox-390-light",
+              "projectName": "r7-firefox-390-light",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 1,
+                  "status": "skipped",
+                  "duration": 1892,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-22T02:38:38.332Z",
+                  "annotations": [
+                    {
+                      "type": "skip",
+                      "location": {
+                        "file": "/home/runner/work/dibs/dibs/tests/e2e/round7.spec.ts",
+                        "line": 19,
+                        "column": 10
+                      }
+                    }
+                  ],
+                  "attachments": []
+                }
+              ],
+              "status": "skipped"
+            }
+          ],
+          "id": "393f56ce4bdf021b5d0a-d6071c090d97dd923544",
+          "file": "round7.spec.ts",
+          "line": 18,
+          "column": 3
+        },
+        {
+          "title": "local drop in invalid",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [
+                {
+                  "type": "skip",
+                  "location": {
+                    "file": "/home/runner/work/dibs/dibs/tests/e2e/round7.spec.ts",
+                    "line": 19,
+                    "column": 10
+                  }
+                }
+              ],
+              "expectedStatus": "skipped",
+              "projectId": "r7-firefox-390-light",
+              "projectName": "r7-firefox-390-light",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "skipped",
+                  "duration": 1460,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-22T02:38:38.516Z",
+                  "annotations": [
+                    {
+                      "type": "skip",
+                      "location": {
+                        "file": "/home/runner/work/dibs/dibs/tests/e2e/round7.spec.ts",
+                        "line": 19,
+                        "column": 10
+                      }
+                    }
+                  ],
+                  "attachments": []
+                }
+              ],
+              "status": "skipped"
+            }
+          ],
+          "id": "393f56ce4bdf021b5d0a-2eeeae223fc13936de4c",
+          "file": "round7.spec.ts",
+          "line": 18,
+          "column": 3
+        },
+        {
+          "title": "local drop in empty zone",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [
+                {
+                  "type": "skip",
+                  "location": {
+                    "file": "/home/runner/work/dibs/dibs/tests/e2e/round7.spec.ts",
+                    "line": 19,
+                    "column": 10
+                  }
+                }
+              ],
+              "expectedStatus": "skipped",
+              "projectId": "r7-firefox-390-light",
+              "projectName": "r7-firefox-390-light",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "skipped",
+                  "duration": 1576,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-22T02:38:40.067Z",
+                  "annotations": [
+                    {
+                      "type": "skip",
+                      "location": {
+                        "file": "/home/runner/work/dibs/dibs/tests/e2e/round7.spec.ts",
+                        "line": 19,
+                        "column": 10
+                      }
+                    }
+                  ],
+                  "attachments": []
+                }
+              ],
+              "status": "skipped"
+            }
+          ],
+          "id": "393f56ce4bdf021b5d0a-daf5f3b1ba506d27034c",
+          "file": "round7.spec.ts",
+          "line": 18,
+          "column": 3
+        },
+        {
+          "title": "rolls over with -10 minute clock skew and delayed server",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "r7-firefox-390-light",
+              "projectName": "r7-firefox-390-light",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 5546,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-22T02:38:40.295Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "393f56ce4bdf021b5d0a-a81f7bb6b26c7ffe405c",
+          "file": "round7.spec.ts",
+          "line": 41,
+          "column": 3
+        },
+        {
+          "title": "rolls over with 10 minute clock skew and delayed server",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "r7-firefox-390-light",
+              "projectName": "r7-firefox-390-light",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 2,
+                  "status": "passed",
+                  "duration": 6289,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-22T02:38:41.226Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "393f56ce4bdf021b5d0a-f0a818e55de1a546b576",
+          "file": "round7.spec.ts",
+          "line": 41,
+          "column": 3
+        },
+        {
+          "title": "closed office and slim round strip",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "r7-firefox-390-light",
+              "projectName": "r7-firefox-390-light",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 3,
+                  "status": "passed",
+                  "duration": 6649,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-22T02:38:41.398Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "393f56ce4bdf021b5d0a-8295e5b3787e5cdaed18",
+          "file": "round7.spec.ts",
+          "line": 52,
+          "column": 1
+        },
+        {
+          "title": "Day Certificate clean",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "r7-firefox-390-light",
+              "projectName": "r7-firefox-390-light",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 14884,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-22T02:38:41.748Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "393f56ce4bdf021b5d0a-2d038f044c625b918e3b",
+          "file": "round7.spec.ts",
+          "line": 66,
+          "column": 3
+        },
+        {
+          "title": "Day Certificate gold-two-strikes",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "r7-firefox-390-light",
+              "projectName": "r7-firefox-390-light",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 13228,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-22T02:38:45.949Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "393f56ce4bdf021b5d0a-41d317424001e4861c61",
+          "file": "round7.spec.ts",
+          "line": 66,
+          "column": 3
+        },
+        {
+          "title": "Day Certificate five-strikes",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "r7-firefox-390-light",
+              "projectName": "r7-firefox-390-light",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 2,
+                  "status": "passed",
+                  "duration": 7469,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-22T02:38:47.581Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "393f56ce4bdf021b5d0a-e7d8f34bed6a5e8f2a59",
+          "file": "round7.spec.ts",
+          "line": 66,
+          "column": 3
+        },
+        {
+          "title": "clock pauses when hidden, resyncs on return, and limits announcements",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "r7-firefox-390-light",
+              "projectName": "r7-firefox-390-light",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 3,
+                  "status": "passed",
+                  "duration": 3663,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-22T02:38:48.180Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "393f56ce4bdf021b5d0a-735cd32da24d893acef6",
+          "file": "round7.spec.ts",
+          "line": 151,
+          "column": 1
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-11-22T02:38:30.794Z",
+    "duration": 28721.043999999998,
+    "expected": 7,
+    "skipped": 7,
+    "unexpected": 0,
+    "flaky": 0
+  }
+}

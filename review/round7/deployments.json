@@ -1,0 +1,13 @@
+{
+  "codeCommit": "f58020ddd7661cce95d5ba98bf737e68cc5cdf3f",
+  "practice": {
+    "apiVersion": "448a9882-c4c6-4afb-963f-9aaa1df942f2",
+    "pagesDeployment": "https://d00d75a7.dibs-7hz.pages.dev",
+    "origin": "https://practice.dibs-7hz.pages.dev"
+  },
+  "production": {
+    "apiVersion": "9c1f4c62-5ab5-43d3-b716-e3ee36f1a3e5",
+    "pagesDeployment": "https://53707dad.dibs-7hz.pages.dev",
+    "origin": "https://dibs.here"
+  }
+}

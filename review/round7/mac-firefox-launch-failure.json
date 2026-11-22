@@ -1,0 +1,3035 @@
+{
+  "config": {
+    "argv": [
+      "/opt/homebrew/Cellar/node/26.13.1_2/bin/node",
+      "/Users/ashwathram/Projects/dibs/node_modules/.bin/playwright",
+      "test",
+      "-c",
+      "playwright.r7.config.ts"
+    ],
+    "configFile": "/Users/ashwathram/Projects/dibs/playwright.r7.config.ts",
+    "rootDir": "/Users/ashwathram/Projects/dibs/tests/e2e",
+    "failOnFlakyTests": false,
+    "forbidOnly": false,
+    "fullyParallel": true,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 4
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "/Users/ashwathram/Projects/dibs/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 4
+        },
+        "id": "r7-chromium-390-light",
+        "name": "r7-chromium-390-light",
+        "testDir": "/Users/ashwathram/Projects/dibs/tests/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "round7.spec.ts"
+        ],
+        "timeout": 60000
+      },
+      {
+        "outputDir": "/Users/ashwathram/Projects/dibs/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 4
+        },
+        "id": "r7-chromium-390-dark",
+        "name": "r7-chromium-390-dark",
+        "testDir": "/Users/ashwathram/Projects/dibs/tests/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "round7.spec.ts"
+        ],
+        "timeout": 60000
+      },
+      {
+        "outputDir": "/Users/ashwathram/Projects/dibs/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 4
+        },
+        "id": "r7-chromium-1440-light",
+        "name": "r7-chromium-1440-light",
+        "testDir": "/Users/ashwathram/Projects/dibs/tests/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "round7.spec.ts"
+        ],
+        "timeout": 60000
+      },
+      {
+        "outputDir": "/Users/ashwathram/Projects/dibs/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 4
+        },
+        "id": "r7-chromium-1440-dark",
+        "name": "r7-chromium-1440-dark",
+        "testDir": "/Users/ashwathram/Projects/dibs/tests/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "round7.spec.ts"
+        ],
+        "timeout": 60000
+      },
+      {
+        "outputDir": "/Users/ashwathram/Projects/dibs/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 4
+        },
+        "id": "r7-webkit-390-light",
+        "name": "r7-webkit-390-light",
+        "testDir": "/Users/ashwathram/Projects/dibs/tests/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "round7.spec.ts"
+        ],
+        "timeout": 60000
+      },
+      {
+        "outputDir": "/Users/ashwathram/Projects/dibs/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 4
+        },
+        "id": "r7-firefox-390-light",
+        "name": "r7-firefox-390-light",
+        "testDir": "/Users/ashwathram/Projects/dibs/tests/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "round7.spec.ts"
+        ],
+        "timeout": 60000
+      }
+    ],
+    "filteredProjects": [
+      {
+        "grep": {},
+        "grepInvert": null,
+        "outputDir": "/Users/ashwathram/Projects/dibs/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 4
+        },
+        "name": "r7-chromium-390-light",
+        "testDir": "/Users/ashwathram/Projects/dibs/tests/e2e",
+        "snapshotDir": "/Users/ashwathram/Projects/dibs/tests/e2e",
+        "testIgnore": [],
+        "testMatch": "round7.spec.ts",
+        "timeout": 60000,
+        "use": {
+          "baseURL": "http://127.0.0.1:5173",
+          "trace": "retain-on-failure",
+          "browserName": "chromium",
+          "viewport": {
+            "width": 390,
+            "height": 844
+          },
+          "colorScheme": "light"
+        },
+        "dependencies": [],
+        "ignoreSnapshots": false,
+        "__projectId": "r7-chromium-390-light"
+      },
+      {
+        "grep": {},
+        "grepInvert": null,
+        "outputDir": "/Users/ashwathram/Projects/dibs/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 4
+        },
+        "name": "r7-chromium-390-dark",
+        "testDir": "/Users/ashwathram/Projects/dibs/tests/e2e",
+        "snapshotDir": "/Users/ashwathram/Projects/dibs/tests/e2e",
+        "testIgnore": [],
+        "testMatch": "round7.spec.ts",
+        "timeout": 60000,
+        "use": {
+          "baseURL": "http://127.0.0.1:5173",
+          "trace": "retain-on-failure",
+          "browserName": "chromium",
+          "viewport": {
+            "width": 390,
+            "height": 844
+          },
+          "colorScheme": "dark"
+        },
+        "dependencies": [],
+        "ignoreSnapshots": false,
+        "__projectId": "r7-chromium-390-dark"
+      },
+      {
+        "grep": {},
+        "grepInvert": null,
+        "outputDir": "/Users/ashwathram/Projects/dibs/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 4
+        },
+        "name": "r7-chromium-1440-light",
+        "testDir": "/Users/ashwathram/Projects/dibs/tests/e2e",
+        "snapshotDir": "/Users/ashwathram/Projects/dibs/tests/e2e",
+        "testIgnore": [],
+        "testMatch": "round7.spec.ts",
+        "timeout": 60000,
+        "use": {
+          "baseURL": "http://127.0.0.1:5173",
+          "trace": "retain-on-failure",
+          "browserName": "chromium",
+          "viewport": {
+            "width": 1440,
+            "height": 900
+          },
+          "colorScheme": "light"
+        },
+        "dependencies": [],
+        "ignoreSnapshots": false,
+        "__projectId": "r7-chromium-1440-light"
+      },
+      {
+        "grep": {},
+        "grepInvert": null,
+        "outputDir": "/Users/ashwathram/Projects/dibs/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 4
+        },
+        "name": "r7-chromium-1440-dark",
+        "testDir": "/Users/ashwathram/Projects/dibs/tests/e2e",
+        "snapshotDir": "/Users/ashwathram/Projects/dibs/tests/e2e",
+        "testIgnore": [],
+        "testMatch": "round7.spec.ts",
+        "timeout": 60000,
+        "use": {
+          "baseURL": "http://127.0.0.1:5173",
+          "trace": "retain-on-failure",
+          "browserName": "chromium",
+          "viewport": {
+            "width": 1440,
+            "height": 900
+          },
+          "colorScheme": "dark"
+        },
+        "dependencies": [],
+        "ignoreSnapshots": false,
+        "__projectId": "r7-chromium-1440-dark"
+      },
+      {
+        "grep": {},
+        "grepInvert": null,
+        "outputDir": "/Users/ashwathram/Projects/dibs/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 4
+        },
+        "name": "r7-webkit-390-light",
+        "testDir": "/Users/ashwathram/Projects/dibs/tests/e2e",
+        "snapshotDir": "/Users/ashwathram/Projects/dibs/tests/e2e",
+        "testIgnore": [],
+        "testMatch": "round7.spec.ts",
+        "timeout": 60000,
+        "use": {
+          "baseURL": "http://127.0.0.1:5173",
+          "trace": "retain-on-failure",
+          "browserName": "webkit",
+          "viewport": {
+            "width": 390,
+            "height": 844
+          },
+          "colorScheme": "light"
+        },
+        "dependencies": [],
+        "ignoreSnapshots": false,
+        "__projectId": "r7-webkit-390-light"
+      },
+      {
+        "grep": {},
+        "grepInvert": null,
+        "outputDir": "/Users/ashwathram/Projects/dibs/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 4
+        },
+        "name": "r7-firefox-390-light",
+        "testDir": "/Users/ashwathram/Projects/dibs/tests/e2e",
+        "snapshotDir": "/Users/ashwathram/Projects/dibs/tests/e2e",
+        "testIgnore": [],
+        "testMatch": "round7.spec.ts",
+        "timeout": 60000,
+        "use": {
+          "baseURL": "http://127.0.0.1:5173",
+          "trace": "retain-on-failure",
+          "browserName": "firefox",
+          "viewport": {
+            "width": 390,
+            "height": 844
+          },
+          "colorScheme": "light"
+        },
+        "dependencies": [],
+        "ignoreSnapshots": false,
+        "__projectId": "r7-firefox-390-light"
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "list",
+        null
+      ],
+      [
+        "json",
+        {
+          "outputFile": "review/round7/browser-results.json"
+        }
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "default",
+    "updateSourceMethod": "patch",
+    "version": "1.65.1",
+    "workers": 4,
+    "webServer": {
+      "command": "npx vite build --mode security-test && npm run preview -- --mode security-test --port 5173",
+      "url": "http://127.0.0.1:5173",
+      "reuseExistingServer": false
+    }
+  },
+  "suites": [
+    {
+      "title": "round7.spec.ts",
+      "file": "round7.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "local drop in America/Toronto",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "r7-chromium-390-light",
+              "projectName": "r7-chromium-390-light",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1161,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-22T02:30:33.884Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            },
+            {
+              "timeout": 60000,
+              "annotations": [
+                {
+                  "type": "skip",
+                  "location": {
+                    "file": "/Users/ashwathram/Projects/dibs/tests/e2e/round7.spec.ts",
+                    "line": 19,
+                    "column": 10
+                  }
+                }
+              ],
+              "expectedStatus": "skipped",
+              "projectId": "r7-chromium-390-dark",
+              "projectName": "r7-chromium-390-dark",
+              "results": [
+                {
+                  "workerIndex": 4,
+                  "parallelIndex": 0,
+                  "status": "skipped",
+                  "duration": 48,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-22T02:30:38.402Z",
+                  "annotations": [
+                    {
+                      "type": "skip",
+                      "location": {
+                        "file": "/Users/ashwathram/Projects/dibs/tests/e2e/round7.spec.ts",
+                        "line": 19,
+                        "column": 10
+                      }
+                    }
+                  ],
+                  "attachments": []
+                }
+              ],
+              "status": "skipped"
+            },
+            {
+              "timeout": 60000,
+              "annotations": [
+                {
+                  "type": "skip",
+                  "location": {
+                    "file": "/Users/ashwathram/Projects/dibs/tests/e2e/round7.spec.ts",
+                    "line": 19,
+                    "column": 10
+                  }
+                }
+              ],
+              "expectedStatus": "skipped",
+              "projectId": "r7-chromium-1440-light",
+              "projectName": "r7-chromium-1440-light",
+              "results": [
+                {
+                  "workerIndex": 7,
+                  "parallelIndex": 1,
+                  "status": "skipped",
+                  "duration": 43,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-22T02:30:44.976Z",
+                  "annotations": [
+                    {
+                      "type": "skip",
+                      "location": {
+                        "file": "/Users/ashwathram/Projects/dibs/tests/e2e/round7.spec.ts",
+                        "line": 19,
+                        "column": 10
+                      }
+                    }
+                  ],
+                  "attachments": []
+                }
+              ],
+              "status": "skipped"
+            },
+            {
+              "timeout": 60000,
+              "annotations": [
+                {
+                  "type": "skip",
+                  "location": {
+                    "file": "/Users/ashwathram/Projects/dibs/tests/e2e/round7.spec.ts",
+                    "line": 19,
+                    "column": 10
+                  }
+                }
+              ],
+              "expectedStatus": "skipped",
+              "projectId": "r7-chromium-1440-dark",
+              "projectName": "r7-chromium-1440-dark",
+              "results": [
+                {
+                  "workerIndex": 10,
+                  "parallelIndex": 3,
+                  "status": "skipped",
+                  "duration": 49,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-22T02:30:51.039Z",
+                  "annotations": [
+                    {
+                      "type": "skip",
+                      "location": {
+                        "file": "/Users/ashwathram/Projects/dibs/tests/e2e/round7.spec.ts",
+                        "line": 19,
+                        "column": 10
+                      }
+                    }
+                  ],
+                  "attachments": []
+                }
+              ],
+              "status": "skipped"
+            },
+            {
+              "timeout": 60000,
+              "annotations": [
+                {
+                  "type": "skip",
+                  "location": {
+                    "file": "/Users/ashwathram/Projects/dibs/tests/e2e/round7.spec.ts",
+                    "line": 19,
+                    "column": 10
+                  }
+                }
+              ],
+              "expectedStatus": "skipped",
+              "projectId": "r7-webkit-390-light",
+              "projectName": "r7-webkit-390-light",
+              "results": [
+                {
+                  "workerIndex": 13,
+                  "parallelIndex": 0,
+                  "status": "skipped",
+                  "duration": 342,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-22T02:30:57.631Z",
+                  "annotations": [
+                    {
+                      "type": "skip",
+                      "location": {
+                        "file": "/Users/ashwathram/Projects/dibs/tests/e2e/round7.spec.ts",
+                        "line": 19,
+                        "column": 10
+                      }
+                    }
+                  ],
+                  "attachments": []
+                }
+              ],
+              "status": "skipped"
+            },
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "r7-firefox-390-light",
+              "projectName": "r7-firefox-390-light",
+              "results": [
+                {
+                  "workerIndex": 16,
+                  "parallelIndex": 3,
+                  "status": "failed",
+                  "duration": 0,
+                  "error": {
+                    "message": "Error: browserType.launch: Failed to launch the browser process.\nBrowser logs:\n\n<launching> /Users/ashwathram/Library/Caches/ms-playwright/firefox-1572/firefox/Nightly.app/Contents/MacOS/firefox -no-remote -headless -profile /Users/ashwathram/Projects/dibs/.tmp/playwright_firefoxdev_profile-74eteU -juggler-pipe -silent\n<launched> pid=11836\n[pid=11836][err] *** You are running in headless mode.\n[pid=11836][err] Could not find profile folder.\n[pid=11836] <process did exit: exitCode=1, signal=null>\n[pid=11836] starting temporary directories cleanup\nCall log:\n\u001b[2m  - <launching> /Users/ashwathram/Library/Caches/ms-playwright/firefox-1572/firefox/Nightly.app/Contents/MacOS/firefox -no-remote -headless -profile /Users/ashwathram/Projects/dibs/.tmp/playwright_firefoxdev_profile-74eteU -juggler-pipe -silent\u001b[22m\n\u001b[2m  - <launched> pid=11836\u001b[22m\n\u001b[2m  - [pid=11836][err] *** You are running in headless mode.\u001b[22m\n\u001b[2m  - [pid=11836][err] Could not find profile folder.\u001b[22m\n\u001b[2m  - [pid=11836] <process did exit: exitCode=1, signal=null>\u001b[22m\n\u001b[2m  - [pid=11836] starting temporary directories cleanup\u001b[22m\n\u001b[2m  - [pid=11836] <gracefully close start>\u001b[22m\n\u001b[2m  - [pid=11836] <kill>\u001b[22m\n\u001b[2m  - [pid=11836] <skipped force kill spawnedProcess.killed=false processClosed=true>\u001b[22m\n\u001b[2m  - [pid=11836] finished temporary directories cleanup\u001b[22m\n\u001b[2m  - [pid=11836] <gracefully close end>\u001b[22m\n",
+                    "stack": "Error: browserType.launch: Failed to launch the browser process.\nBrowser logs:\n\n<launching> /Users/ashwathram/Library/Caches/ms-playwright/firefox-1572/firefox/Nightly.app/Contents/MacOS/firefox -no-remote -headless -profile /Users/ashwathram/Projects/dibs/.tmp/playwright_firefoxdev_profile-74eteU -juggler-pipe -silent\n<launched> pid=11836\n[pid=11836][err] *** You are running in headless mode.\n[pid=11836][err] Could not find profile folder.\n[pid=11836] <process did exit: exitCode=1, signal=null>\n[pid=11836] starting temporary directories cleanup\nCall log:\n\u001b[2m  - <launching> /Users/ashwathram/Library/Caches/ms-playwright/firefox-1572/firefox/Nightly.app/Contents/MacOS/firefox -no-remote -headless -profile /Users/ashwathram/Projects/dibs/.tmp/playwright_firefoxdev_profile-74eteU -juggler-pipe -silent\u001b[22m\n\u001b[2m  - <launched> pid=11836\u001b[22m\n\u001b[2m  - [pid=11836][err] *** You are running in headless mode.\u001b[22m\n\u001b[2m  - [pid=11836][err] Could not find profile folder.\u001b[22m\n\u001b[2m  - [pid=11836] <process did exit: exitCode=1, signal=null>\u001b[22m\n\u001b[2m  - [pid=11836] starting temporary directories cleanup\u001b[22m\n\u001b[2m  - [pid=11836] <gracefully close start>\u001b[22m\n\u001b[2m  - [pid=11836] <kill>\u001b[22m\n\u001b[2m  - [pid=11836] <skipped force kill spawnedProcess.killed=false processClosed=true>\u001b[22m\n\u001b[2m  - [pid=11836] finished temporary directories cleanup\u001b[22m\n\u001b[2m  - [pid=11836] <gracefully close end>\u001b[22m\n"
+                  },
+                  "errors": [
+                    {
+                      "message": "Error: browserType.launch: Failed to launch the browser process.\nBrowser logs:\n\n<launching> /Users/ashwathram/Library/Caches/ms-playwright/firefox-1572/firefox/Nightly.app/Contents/MacOS/firefox -no-remote -headless -profile /Users/ashwathram/Projects/dibs/.tmp/playwright_firefoxdev_profile-74eteU -juggler-pipe -silent\n<launched> pid=11836\n[pid=11836][err] *** You are running in headless mode.\n[pid=11836][err] Could not find profile folder.\n[pid=11836] <process did exit: exitCode=1, signal=null>\n[pid=11836] starting temporary directories cleanup\nCall log:\n\u001b[2m  - <launching> /Users/ashwathram/Library/Caches/ms-playwright/firefox-1572/firefox/Nightly.app/Contents/MacOS/firefox -no-remote -headless -profile /Users/ashwathram/Projects/dibs/.tmp/playwright_firefoxdev_profile-74eteU -juggler-pipe -silent\u001b[22m\n\u001b[2m  - <launched> pid=11836\u001b[22m\n\u001b[2m  - [pid=11836][err] *** You are running in headless mode.\u001b[22m\n\u001b[2m  - [pid=11836][err] Could not find profile folder.\u001b[22m\n\u001b[2m  - [pid=11836] <process did exit: exitCode=1, signal=null>\u001b[22m\n\u001b[2m  - [pid=11836] starting temporary directories cleanup\u001b[22m\n\u001b[2m  - [pid=11836] <gracefully close start>\u001b[22m\n\u001b[2m  - [pid=11836] <kill>\u001b[22m\n\u001b[2m  - [pid=11836] <skipped force kill spawnedProcess.killed=false processClosed=true>\u001b[22m\n\u001b[2m  - [pid=11836] finished temporary directories cleanup\u001b[22m\n\u001b[2m  - [pid=11836] <gracefully close end>\u001b[22m\n"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-22T02:31:03.183Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "/Users/ashwathram/Projects/dibs/test-results/round7-local-drop-in-America-Toronto-r7-firefox-390-light/error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "/Users/ashwathram/Projects/dibs/test-results/round7-local-drop-in-America-Toronto-r7-firefox-390-light/trace.zip"
+                    }
+                  ]
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "393f56ce4bdf021b5d0a-1aeca85164a0edf346ce",
+          "file": "round7.spec.ts",
+          "line": 18,
+          "column": 3
+        },
+        {
+          "title": "local drop in America/Vancouver",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "r7-chromium-390-light",
+              "projectName": "r7-chromium-390-light",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 1167,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-22T02:30:33.882Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            },
+            {
+              "timeout": 60000,
+              "annotations": [
+                {
+                  "type": "skip",
+                  "location": {
+                    "file": "/Users/ashwathram/Projects/dibs/tests/e2e/round7.spec.ts",
+                    "line": 19,
+                    "column": 10
+                  }
+                }
+              ],
+              "expectedStatus": "skipped",
+              "projectId": "r7-chromium-390-dark",
+              "projectName": "r7-chromium-390-dark",
+              "results": [
+                {
+                  "workerIndex": 4,
+                  "parallelIndex": 0,
+                  "status": "skipped",
+                  "duration": 33,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-22T02:30:38.518Z",
+                  "annotations": [
+                    {
+                      "type": "skip",
+                      "location": {
+                        "file": "/Users/ashwathram/Projects/dibs/tests/e2e/round7.spec.ts",
+                        "line": 19,
+                        "column": 10
+                      }
+                    }
+                  ],
+                  "attachments": []
+                }
+              ],
+              "status": "skipped"
+            },
+            {
+              "timeout": 60000,
+              "annotations": [
+                {
+                  "type": "skip",
+                  "location": {
+                    "file": "/Users/ashwathram/Projects/dibs/tests/e2e/round7.spec.ts",
+                    "line": 19,
+                    "column": 10
+                  }
+                }
+              ],
+              "expectedStatus": "skipped",
+              "projectId": "r7-chromium-1440-light",
+              "projectName": "r7-chromium-1440-light",
+              "results": [
+                {
+                  "workerIndex": 7,
+                  "parallelIndex": 1,
+                  "status": "skipped",
+                  "duration": 30,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-22T02:30:45.084Z",
+                  "annotations": [
+                    {
+                      "type": "skip",
+                      "location": {
+                        "file": "/Users/ashwathram/Projects/dibs/tests/e2e/round7.spec.ts",
+                        "line": 19,
+                        "column": 10
+                      }
+                    }
+                  ],
+                  "attachments": []
+                }
+              ],
+              "status": "skipped"
+            },
+            {
+              "timeout": 60000,
+              "annotations": [
+                {
+                  "type": "skip",
+                  "location": {
+                    "file": "/Users/ashwathram/Projects/dibs/tests/e2e/round7.spec.ts",
+                    "line": 19,
+                    "column": 10
+                  }
+                }
+              ],
+              "expectedStatus": "skipped",
+              "projectId": "r7-chromium-1440-dark",
+              "projectName": "r7-chromium-1440-dark",
+              "results": [
+                {
+                  "workerIndex": 10,
+                  "parallelIndex": 3,
+                  "status": "skipped",
+                  "duration": 33,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-22T02:30:51.153Z",
+                  "annotations": [
+                    {
+                      "type": "skip",
+                      "location": {
+                        "file": "/Users/ashwathram/Projects/dibs/tests/e2e/round7.spec.ts",
+                        "line": 19,
+                        "column": 10
+                      }
+                    }
+                  ],
+                  "attachments": []
+                }
+              ],
+              "status": "skipped"
+            },
+            {
+              "timeout": 60000,
+              "annotations": [
+                {
+                  "type": "skip",
+                  "location": {
+                    "file": "/Users/ashwathram/Projects/dibs/tests/e2e/round7.spec.ts",
+                    "line": 19,
+                    "column": 10
+                  }
+                }
+              ],
+              "expectedStatus": "skipped",
+              "projectId": "r7-webkit-390-light",
+              "projectName": "r7-webkit-390-light",
+              "results": [
+                {
+                  "workerIndex": 13,
+                  "parallelIndex": 0,
+                  "status": "skipped",
+                  "duration": 151,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-22T02:30:58.180Z",
+                  "annotations": [
+                    {
+                      "type": "skip",
+                      "location": {
+                        "file": "/Users/ashwathram/Projects/dibs/tests/e2e/round7.spec.ts",
+                        "line": 19,
+                        "column": 10
+                      }
+                    }
+                  ],
+                  "attachments": []
+                }
+              ],
+              "status": "skipped"
+            },
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "r7-firefox-390-light",
+              "projectName": "r7-firefox-390-light",
+              "results": [
+                {
+                  "workerIndex": 17,
+                  "parallelIndex": 3,
+                  "status": "failed",
+                  "duration": 0,
+                  "error": {
+                    "message": "Error: browserType.launch: Failed to launch the browser process.\nBrowser logs:\n\n<launching> /Users/ashwathram/Library/Caches/ms-playwright/firefox-1572/firefox/Nightly.app/Contents/MacOS/firefox -no-remote -headless -profile /Users/ashwathram/Projects/dibs/.tmp/playwright_firefoxdev_profile-jvOLdg -juggler-pipe -silent\n<launched> pid=11838\n[pid=11838][err] *** You are running in headless mode.\n[pid=11838][err] Could not find profile folder.\n[pid=11838] <process did exit: exitCode=1, signal=null>\n[pid=11838] starting temporary directories cleanup\nCall log:\n\u001b[2m  - <launching> /Users/ashwathram/Library/Caches/ms-playwright/firefox-1572/firefox/Nightly.app/Contents/MacOS/firefox -no-remote -headless -profile /Users/ashwathram/Projects/dibs/.tmp/playwright_firefoxdev_profile-jvOLdg -juggler-pipe -silent\u001b[22m\n\u001b[2m  - <launched> pid=11838\u001b[22m\n\u001b[2m  - [pid=11838][err] *** You are running in headless mode.\u001b[22m\n\u001b[2m  - [pid=11838][err] Could not find profile folder.\u001b[22m\n\u001b[2m  - [pid=11838] <process did exit: exitCode=1, signal=null>\u001b[22m\n\u001b[2m  - [pid=11838] starting temporary directories cleanup\u001b[22m\n\u001b[2m  - [pid=11838] <gracefully close start>\u001b[22m\n\u001b[2m  - [pid=11838] <kill>\u001b[22m\n\u001b[2m  - [pid=11838] <skipped force kill spawnedProcess.killed=false processClosed=true>\u001b[22m\n\u001b[2m  - [pid=11838] finished temporary directories cleanup\u001b[22m\n\u001b[2m  - [pid=11838] <gracefully close end>\u001b[22m\n",
+                    "stack": "Error: browserType.launch: Failed to launch the browser process.\nBrowser logs:\n\n<launching> /Users/ashwathram/Library/Caches/ms-playwright/firefox-1572/firefox/Nightly.app/Contents/MacOS/firefox -no-remote -headless -profile /Users/ashwathram/Projects/dibs/.tmp/playwright_firefoxdev_profile-jvOLdg -juggler-pipe -silent\n<launched> pid=11838\n[pid=11838][err] *** You are running in headless mode.\n[pid=11838][err] Could not find profile folder.\n[pid=11838] <process did exit: exitCode=1, signal=null>\n[pid=11838] starting temporary directories cleanup\nCall log:\n\u001b[2m  - <launching> /Users/ashwathram/Library/Caches/ms-playwright/firefox-1572/firefox/Nightly.app/Contents/MacOS/firefox -no-remote -headless -profile /Users/ashwathram/Projects/dibs/.tmp/playwright_firefoxdev_profile-jvOLdg -juggler-pipe -silent\u001b[22m\n\u001b[2m  - <launched> pid=11838\u001b[22m\n\u001b[2m  - [pid=11838][err] *** You are running in headless mode.\u001b[22m\n\u001b[2m  - [pid=11838][err] Could not find profile folder.\u001b[22m\n\u001b[2m  - [pid=11838] <process did exit: exitCode=1, signal=null>\u001b[22m\n\u001b[2m  - [pid=11838] starting temporary directories cleanup\u001b[22m\n\u001b[2m  - [pid=11838] <gracefully close start>\u001b[22m\n\u001b[2m  - [pid=11838] <kill>\u001b[22m\n\u001b[2m  - [pid=11838] <skipped force kill spawnedProcess.killed=false processClosed=true>\u001b[22m\n\u001b[2m  - [pid=11838] finished temporary directories cleanup\u001b[22m\n\u001b[2m  - [pid=11838] <gracefully close end>\u001b[22m\n"
+                  },
+                  "errors": [
+                    {
+                      "message": "Error: browserType.launch: Failed to launch the browser process.\nBrowser logs:\n\n<launching> /Users/ashwathram/Library/Caches/ms-playwright/firefox-1572/firefox/Nightly.app/Contents/MacOS/firefox -no-remote -headless -profile /Users/ashwathram/Projects/dibs/.tmp/playwright_firefoxdev_profile-jvOLdg -juggler-pipe -silent\n<launched> pid=11838\n[pid=11838][err] *** You are running in headless mode.\n[pid=11838][err] Could not find profile folder.\n[pid=11838] <process did exit: exitCode=1, signal=null>\n[pid=11838] starting temporary directories cleanup\nCall log:\n\u001b[2m  - <launching> /Users/ashwathram/Library/Caches/ms-playwright/firefox-1572/firefox/Nightly.app/Contents/MacOS/firefox -no-remote -headless -profile /Users/ashwathram/Projects/dibs/.tmp/playwright_firefoxdev_profile-jvOLdg -juggler-pipe -silent\u001b[22m\n\u001b[2m  - <launched> pid=11838\u001b[22m\n\u001b[2m  - [pid=11838][err] *** You are running in headless mode.\u001b[22m\n\u001b[2m  - [pid=11838][err] Could not find profile folder.\u001b[22m\n\u001b[2m  - [pid=11838] <process did exit: exitCode=1, signal=null>\u001b[22m\n\u001b[2m  - [pid=11838] starting temporary directories cleanup\u001b[22m\n\u001b[2m  - [pid=11838] <gracefully close start>\u001b[22m\n\u001b[2m  - [pid=11838] <kill>\u001b[22m\n\u001b[2m  - [pid=11838] <skipped force kill spawnedProcess.killed=false processClosed=true>\u001b[22m\n\u001b[2m  - [pid=11838] finished temporary directories cleanup\u001b[22m\n\u001b[2m  - [pid=11838] <gracefully close end>\u001b[22m\n"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-22T02:31:03.644Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "/Users/ashwathram/Projects/dibs/test-results/round7-local-drop-in-America-Vancouver-r7-firefox-390-light/error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "/Users/ashwathram/Projects/dibs/test-results/round7-local-drop-in-America-Vancouver-r7-firefox-390-light/trace.zip"
+                    }
+                  ]
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "393f56ce4bdf021b5d0a-430b640f00eb30f826ca",
+          "file": "round7.spec.ts",
+          "line": 18,
+          "column": 3
+        },
+        {
+          "title": "local drop in Europe/London",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "r7-chromium-390-light",
+              "projectName": "r7-chromium-390-light",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 2,
+                  "status": "passed",
+                  "duration": 1164,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-22T02:30:33.881Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            },
+            {
+              "timeout": 60000,
+              "annotations": [
+                {
+                  "type": "skip",
+                  "location": {
+                    "file": "/Users/ashwathram/Projects/dibs/tests/e2e/round7.spec.ts",
+                    "line": 19,
+                    "column": 10
+                  }
+                }
+              ],
+              "expectedStatus": "skipped",
+              "projectId": "r7-chromium-390-dark",
+              "projectName": "r7-chromium-390-dark",
+              "results": [
+                {
+                  "workerIndex": 4,
+                  "parallelIndex": 0,
+                  "status": "skipped",
+                  "duration": 33,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-22T02:30:38.555Z",
+                  "annotations": [
+                    {
+                      "type": "skip",
+                      "location": {
+                        "file": "/Users/ashwathram/Projects/dibs/tests/e2e/round7.spec.ts",
+                        "line": 19,
+                        "column": 10
+                      }
+                    }
+                  ],
+                  "attachments": []
+                }
+              ],
+              "status": "skipped"
+            },
+            {
+              "timeout": 60000,
+              "annotations": [
+                {
+                  "type": "skip",
+                  "location": {
+                    "file": "/Users/ashwathram/Projects/dibs/tests/e2e/round7.spec.ts",
+                    "line": 19,
+                    "column": 10
+                  }
+                }
+              ],
+              "expectedStatus": "skipped",
+              "projectId": "r7-chromium-1440-light",
+              "projectName": "r7-chromium-1440-light",
+              "results": [
+                {
+                  "workerIndex": 7,
+                  "parallelIndex": 1,
+                  "status": "skipped",
+                  "duration": 32,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-22T02:30:45.119Z",
+                  "annotations": [
+                    {
+                      "type": "skip",
+                      "location": {
+                        "file": "/Users/ashwathram/Projects/dibs/tests/e2e/round7.spec.ts",
+                        "line": 19,
+                        "column": 10
+                      }
+                    }
+                  ],
+                  "attachments": []
+                }
+              ],
+              "status": "skipped"
+            },
+            {
+              "timeout": 60000,
+              "annotations": [
+                {
+                  "type": "skip",
+                  "location": {
+                    "file": "/Users/ashwathram/Projects/dibs/tests/e2e/round7.spec.ts",
+                    "line": 19,
+                    "column": 10
+                  }
+                }
+              ],
+              "expectedStatus": "skipped",
+              "projectId": "r7-chromium-1440-dark",
+              "projectName": "r7-chromium-1440-dark",
+              "results": [
+                {
+                  "workerIndex": 10,
+                  "parallelIndex": 3,
+                  "status": "skipped",
+                  "duration": 36,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-22T02:30:51.192Z",
+                  "annotations": [
+                    {
+                      "type": "skip",
+                      "location": {
+                        "file": "/Users/ashwathram/Projects/dibs/tests/e2e/round7.spec.ts",
+                        "line": 19,
+                        "column": 10
+                      }
+                    }
+                  ],
+                  "attachments": []
+                }
+              ],
+              "status": "skipped"
+            },
+            {
+              "timeout": 60000,
+              "annotations": [
+                {
+                  "type": "skip",
+                  "location": {
+                    "file": "/Users/ashwathram/Projects/dibs/tests/e2e/round7.spec.ts",
+                    "line": 19,
+                    "column": 10
+                  }
+                }
+              ],
+              "expectedStatus": "skipped",
+              "projectId": "r7-webkit-390-light",
+              "projectName": "r7-webkit-390-light",
+              "results": [
+                {
+                  "workerIndex": 13,
+                  "parallelIndex": 0,
+                  "status": "skipped",
+                  "duration": 138,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-22T02:30:58.344Z",
+                  "annotations": [
+                    {
+                      "type": "skip",
+                      "location": {
+                        "file": "/Users/ashwathram/Projects/dibs/tests/e2e/round7.spec.ts",
+                        "line": 19,
+                        "column": 10
+                      }
+                    }
+                  ],
+                  "attachments": []
+                }
+              ],
+              "status": "skipped"
+            },
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "r7-firefox-390-light",
+              "projectName": "r7-firefox-390-light",
+              "results": [
+                {
+                  "workerIndex": 18,
+                  "parallelIndex": 3,
+                  "status": "failed",
+                  "duration": 0,
+                  "error": {
+                    "message": "Error: browserType.launch: Failed to launch the browser process.\nBrowser logs:\n\n<launching> /Users/ashwathram/Library/Caches/ms-playwright/firefox-1572/firefox/Nightly.app/Contents/MacOS/firefox -no-remote -headless -profile /Users/ashwathram/Projects/dibs/.tmp/playwright_firefoxdev_profile-4DJR0P -juggler-pipe -silent\n<launched> pid=11847\n[pid=11847][err] *** You are running in headless mode.\n[pid=11847][err] Could not find profile folder.\n[pid=11847] <process did exit: exitCode=1, signal=null>\n[pid=11847] starting temporary directories cleanup\nCall log:\n\u001b[2m  - <launching> /Users/ashwathram/Library/Caches/ms-playwright/firefox-1572/firefox/Nightly.app/Contents/MacOS/firefox -no-remote -headless -profile /Users/ashwathram/Projects/dibs/.tmp/playwright_firefoxdev_profile-4DJR0P -juggler-pipe -silent\u001b[22m\n\u001b[2m  - <launched> pid=11847\u001b[22m\n\u001b[2m  - [pid=11847][err] *** You are running in headless mode.\u001b[22m\n\u001b[2m  - [pid=11847][err] Could not find profile folder.\u001b[22m\n\u001b[2m  - [pid=11847] <process did exit: exitCode=1, signal=null>\u001b[22m\n\u001b[2m  - [pid=11847] starting temporary directories cleanup\u001b[22m\n\u001b[2m  - [pid=11847] <gracefully close start>\u001b[22m\n\u001b[2m  - [pid=11847] <kill>\u001b[22m\n\u001b[2m  - [pid=11847] <skipped force kill spawnedProcess.killed=false processClosed=true>\u001b[22m\n\u001b[2m  - [pid=11847] finished temporary directories cleanup\u001b[22m\n\u001b[2m  - [pid=11847] <gracefully close end>\u001b[22m\n",
+                    "stack": "Error: browserType.launch: Failed to launch the browser process.\nBrowser logs:\n\n<launching> /Users/ashwathram/Library/Caches/ms-playwright/firefox-1572/firefox/Nightly.app/Contents/MacOS/firefox -no-remote -headless -profile /Users/ashwathram/Projects/dibs/.tmp/playwright_firefoxdev_profile-4DJR0P -juggler-pipe -silent\n<launched> pid=11847\n[pid=11847][err] *** You are running in headless mode.\n[pid=11847][err] Could not find profile folder.\n[pid=11847] <process did exit: exitCode=1, signal=null>\n[pid=11847] starting temporary directories cleanup\nCall log:\n\u001b[2m  - <launching> /Users/ashwathram/Library/Caches/ms-playwright/firefox-1572/firefox/Nightly.app/Contents/MacOS/firefox -no-remote -headless -profile /Users/ashwathram/Projects/dibs/.tmp/playwright_firefoxdev_profile-4DJR0P -juggler-pipe -silent\u001b[22m\n\u001b[2m  - <launched> pid=11847\u001b[22m\n\u001b[2m  - [pid=11847][err] *** You are running in headless mode.\u001b[22m\n\u001b[2m  - [pid=11847][err] Could not find profile folder.\u001b[22m\n\u001b[2m  - [pid=11847] <process did exit: exitCode=1, signal=null>\u001b[22m\n\u001b[2m  - [pid=11847] starting temporary directories cleanup\u001b[22m\n\u001b[2m  - [pid=11847] <gracefully close start>\u001b[22m\n\u001b[2m  - [pid=11847] <kill>\u001b[22m\n\u001b[2m  - [pid=11847] <skipped force kill spawnedProcess.killed=false processClosed=true>\u001b[22m\n\u001b[2m  - [pid=11847] finished temporary directories cleanup\u001b[22m\n\u001b[2m  - [pid=11847] <gracefully close end>\u001b[22m\n"
+                  },
+                  "errors": [
+                    {
+                      "message": "Error: browserType.launch: Failed to launch the browser process.\nBrowser logs:\n\n<launching> /Users/ashwathram/Library/Caches/ms-playwright/firefox-1572/firefox/Nightly.app/Contents/MacOS/firefox -no-remote -headless -profile /Users/ashwathram/Projects/dibs/.tmp/playwright_firefoxdev_profile-4DJR0P -juggler-pipe -silent\n<launched> pid=11847\n[pid=11847][err] *** You are running in headless mode.\n[pid=11847][err] Could not find profile folder.\n[pid=11847] <process did exit: exitCode=1, signal=null>\n[pid=11847] starting temporary directories cleanup\nCall log:\n\u001b[2m  - <launching> /Users/ashwathram/Library/Caches/ms-playwright/firefox-1572/firefox/Nightly.app/Contents/MacOS/firefox -no-remote -headless -profile /Users/ashwathram/Projects/dibs/.tmp/playwright_firefoxdev_profile-4DJR0P -juggler-pipe -silent\u001b[22m\n\u001b[2m  - <launched> pid=11847\u001b[22m\n\u001b[2m  - [pid=11847][err] *** You are running in headless mode.\u001b[22m\n\u001b[2m  - [pid=11847][err] Could not find profile folder.\u001b[22m\n\u001b[2m  - [pid=11847] <process did exit: exitCode=1, signal=null>\u001b[22m\n\u001b[2m  - [pid=11847] starting temporary directories cleanup\u001b[22m\n\u001b[2m  - [pid=11847] <gracefully close start>\u001b[22m\n\u001b[2m  - [pid=11847] <kill>\u001b[22m\n\u001b[2m  - [pid=11847] <skipped force kill spawnedProcess.killed=false processClosed=true>\u001b[22m\n\u001b[2m  - [pid=11847] finished temporary directories cleanup\u001b[22m\n\u001b[2m  - [pid=11847] <gracefully close end>\u001b[22m\n"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-22T02:31:04.008Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "/Users/ashwathram/Projects/dibs/test-results/round7-local-drop-in-Europe-London-r7-firefox-390-light/error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "/Users/ashwathram/Projects/dibs/test-results/round7-local-drop-in-Europe-London-r7-firefox-390-light/trace.zip"
+                    }
+                  ]
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "393f56ce4bdf021b5d0a-d0cecb1101c5361726e2",
+          "file": "round7.spec.ts",
+          "line": 18,
+          "column": 3
+        },
+        {
+          "title": "local drop in Asia/Kolkata",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "r7-chromium-390-light",
+              "projectName": "r7-chromium-390-light",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 3,
+                  "status": "passed",
+                  "duration": 1178,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-22T02:30:33.878Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            },
+            {
+              "timeout": 60000,
+              "annotations": [
+                {
+                  "type": "skip",
+                  "location": {
+                    "file": "/Users/ashwathram/Projects/dibs/tests/e2e/round7.spec.ts",
+                    "line": 19,
+                    "column": 10
+                  }
+                }
+              ],
+              "expectedStatus": "skipped",
+              "projectId": "r7-chromium-390-dark",
+              "projectName": "r7-chromium-390-dark",
+              "results": [
+                {
+                  "workerIndex": 4,
+                  "parallelIndex": 0,
+                  "status": "skipped",
+                  "duration": 30,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-22T02:30:38.591Z",
+                  "annotations": [
+                    {
+                      "type": "skip",
+                      "location": {
+                        "file": "/Users/ashwathram/Projects/dibs/tests/e2e/round7.spec.ts",
+                        "line": 19,
+                        "column": 10
+                      }
+                    }
+                  ],
+                  "attachments": []
+                }
+              ],
+              "status": "skipped"
+            },
+            {
+              "timeout": 60000,
+              "annotations": [
+                {
+                  "type": "skip",
+                  "location": {
+                    "file": "/Users/ashwathram/Projects/dibs/tests/e2e/round7.spec.ts",
+                    "line": 19,
+                    "column": 10
+                  }
+                }
+              ],
+              "expectedStatus": "skipped",
+              "projectId": "r7-chromium-1440-light",
+              "projectName": "r7-chromium-1440-light",
+              "results": [
+                {
+                  "workerIndex": 7,
+                  "parallelIndex": 1,
+                  "status": "skipped",
+                  "duration": 29,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-22T02:30:45.155Z",
+                  "annotations": [
+                    {
+                      "type": "skip",
+                      "location": {
+                        "file": "/Users/ashwathram/Projects/dibs/tests/e2e/round7.spec.ts",
+                        "line": 19,
+                        "column": 10
+                      }
+                    }
+                  ],
+                  "attachments": []
+                }
+              ],
+              "status": "skipped"
+            },
+            {
+              "timeout": 60000,
+              "annotations": [
+                {
+                  "type": "skip",
+                  "location": {
+                    "file": "/Users/ashwathram/Projects/dibs/tests/e2e/round7.spec.ts",
+                    "line": 19,
+                    "column": 10
+                  }
+                }
+              ],
+              "expectedStatus": "skipped",
+              "projectId": "r7-chromium-1440-dark",
+              "projectName": "r7-chromium-1440-dark",
+              "results": [
+                {
+                  "workerIndex": 10,
+                  "parallelIndex": 3,
+                  "status": "skipped",
+                  "duration": 32,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-22T02:30:51.233Z",
+                  "annotations": [
+                    {
+                      "type": "skip",
+                      "location": {
+                        "file": "/Users/ashwathram/Projects/dibs/tests/e2e/round7.spec.ts",
+                        "line": 19,
+                        "column": 10
+                      }
+                    }
+                  ],
+                  "attachments": []
+                }
+              ],
+              "status": "skipped"
+            },
+            {
+              "timeout": 60000,
+              "annotations": [
+                {
+                  "type": "skip",
+                  "location": {
+                    "file": "/Users/ashwathram/Projects/dibs/tests/e2e/round7.spec.ts",
+                    "line": 19,
+                    "column": 10
+                  }
+                }
+              ],
+              "expectedStatus": "skipped",
+              "projectId": "r7-webkit-390-light",
+              "projectName": "r7-webkit-390-light",
+              "results": [
+                {
+                  "workerIndex": 13,
+                  "parallelIndex": 0,
+                  "status": "skipped",
+                  "duration": 139,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-22T02:30:58.488Z",
+                  "annotations": [
+                    {
+                      "type": "skip",
+                      "location": {
+                        "file": "/Users/ashwathram/Projects/dibs/tests/e2e/round7.spec.ts",
+                        "line": 19,
+                        "column": 10
+                      }
+                    }
+                  ],
+                  "attachments": []
+                }
+              ],
+              "status": "skipped"
+            },
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "r7-firefox-390-light",
+              "projectName": "r7-firefox-390-light",
+              "results": [
+                {
+                  "workerIndex": 19,
+                  "parallelIndex": 3,
+                  "status": "failed",
+                  "duration": 0,
+                  "error": {
+                    "message": "Error: browserType.launch: Failed to launch the browser process.\nBrowser logs:\n\n<launching> /Users/ashwathram/Library/Caches/ms-playwright/firefox-1572/firefox/Nightly.app/Contents/MacOS/firefox -no-remote -headless -profile /Users/ashwathram/Projects/dibs/.tmp/playwright_firefoxdev_profile-FoFePp -juggler-pipe -silent\n<launched> pid=11849\n[pid=11849][err] *** You are running in headless mode.\n[pid=11849][err] Could not find profile folder.\n[pid=11849] <process did exit: exitCode=1, signal=null>\n[pid=11849] starting temporary directories cleanup\nCall log:\n\u001b[2m  - <launching> /Users/ashwathram/Library/Caches/ms-playwright/firefox-1572/firefox/Nightly.app/Contents/MacOS/firefox -no-remote -headless -profile /Users/ashwathram/Projects/dibs/.tmp/playwright_firefoxdev_profile-FoFePp -juggler-pipe -silent\u001b[22m\n\u001b[2m  - <launched> pid=11849\u001b[22m\n\u001b[2m  - [pid=11849][err] *** You are running in headless mode.\u001b[22m\n\u001b[2m  - [pid=11849][err] Could not find profile folder.\u001b[22m\n\u001b[2m  - [pid=11849] <process did exit: exitCode=1, signal=null>\u001b[22m\n\u001b[2m  - [pid=11849] starting temporary directories cleanup\u001b[22m\n\u001b[2m  - [pid=11849] <gracefully close start>\u001b[22m\n\u001b[2m  - [pid=11849] <kill>\u001b[22m\n\u001b[2m  - [pid=11849] <skipped force kill spawnedProcess.killed=false processClosed=true>\u001b[22m\n\u001b[2m  - [pid=11849] finished temporary directories cleanup\u001b[22m\n\u001b[2m  - [pid=11849] <gracefully close end>\u001b[22m\n",
+                    "stack": "Error: browserType.launch: Failed to launch the browser process.\nBrowser logs:\n\n<launching> /Users/ashwathram/Library/Caches/ms-playwright/firefox-1572/firefox/Nightly.app/Contents/MacOS/firefox -no-remote -headless -profile /Users/ashwathram/Projects/dibs/.tmp/playwright_firefoxdev_profile-FoFePp -juggler-pipe -silent\n<launched> pid=11849\n[pid=11849][err] *** You are running in headless mode.\n[pid=11849][err] Could not find profile folder.\n[pid=11849] <process did exit: exitCode=1, signal=null>\n[pid=11849] starting temporary directories cleanup\nCall log:\n\u001b[2m  - <launching> /Users/ashwathram/Library/Caches/ms-playwright/firefox-1572/firefox/Nightly.app/Contents/MacOS/firefox -no-remote -headless -profile /Users/ashwathram/Projects/dibs/.tmp/playwright_firefoxdev_profile-FoFePp -juggler-pipe -silent\u001b[22m\n\u001b[2m  - <launched> pid=11849\u001b[22m\n\u001b[2m  - [pid=11849][err] *** You are running in headless mode.\u001b[22m\n\u001b[2m  - [pid=11849][err] Could not find profile folder.\u001b[22m\n\u001b[2m  - [pid=11849] <process did exit: exitCode=1, signal=null>\u001b[22m\n\u001b[2m  - [pid=11849] starting temporary directories cleanup\u001b[22m\n\u001b[2m  - [pid=11849] <gracefully close start>\u001b[22m\n\u001b[2m  - [pid=11849] <kill>\u001b[22m\n\u001b[2m  - [pid=11849] <skipped force kill spawnedProcess.killed=false processClosed=true>\u001b[22m\n\u001b[2m  - [pid=11849] finished temporary directories cleanup\u001b[22m\n\u001b[2m  - [pid=11849] <gracefully close end>\u001b[22m\n"
+                  },
+                  "errors": [
+                    {
+                      "message": "Error: browserType.launch: Failed to launch the browser process.\nBrowser logs:\n\n<launching> /Users/ashwathram/Library/Caches/ms-playwright/firefox-1572/firefox/Nightly.app/Contents/MacOS/firefox -no-remote -headless -profile /Users/ashwathram/Projects/dibs/.tmp/playwright_firefoxdev_profile-FoFePp -juggler-pipe -silent\n<launched> pid=11849\n[pid=11849][err] *** You are running in headless mode.\n[pid=11849][err] Could not find profile folder.\n[pid=11849] <process did exit: exitCode=1, signal=null>\n[pid=11849] starting temporary directories cleanup\nCall log:\n\u001b[2m  - <launching> /Users/ashwathram/Library/Caches/ms-playwright/firefox-1572/firefox/Nightly.app/Contents/MacOS/firefox -no-remote -headless -profile /Users/ashwathram/Projects/dibs/.tmp/playwright_firefoxdev_profile-FoFePp -juggler-pipe -silent\u001b[22m\n\u001b[2m  - <launched> pid=11849\u001b[22m\n\u001b[2m  - [pid=11849][err] *** You are running in headless mode.\u001b[22m\n\u001b[2m  - [pid=11849][err] Could not find profile folder.\u001b[22m\n\u001b[2m  - [pid=11849] <process did exit: exitCode=1, signal=null>\u001b[22m\n\u001b[2m  - [pid=11849] starting temporary directories cleanup\u001b[22m\n\u001b[2m  - [pid=11849] <gracefully close start>\u001b[22m\n\u001b[2m  - [pid=11849] <kill>\u001b[22m\n\u001b[2m  - [pid=11849] <skipped force kill spawnedProcess.killed=false processClosed=true>\u001b[22m\n\u001b[2m  - [pid=11849] finished temporary directories cleanup\u001b[22m\n\u001b[2m  - [pid=11849] <gracefully close end>\u001b[22m\n"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-22T02:31:04.371Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "/Users/ashwathram/Projects/dibs/test-results/round7-local-drop-in-Asia-Kolkata-r7-firefox-390-light/error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "/Users/ashwathram/Projects/dibs/test-results/round7-local-drop-in-Asia-Kolkata-r7-firefox-390-light/trace.zip"
+                    }
+                  ]
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "393f56ce4bdf021b5d0a-7cbcbe9337d1c9bc0839",
+          "file": "round7.spec.ts",
+          "line": 18,
+          "column": 3
+        },
+        {
+          "title": "local drop in Australia/Sydney",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "r7-chromium-390-light",
+              "projectName": "r7-chromium-390-light",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 1032,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-22T02:30:35.166Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            },
+            {
+              "timeout": 60000,
+              "annotations": [
+                {
+                  "type": "skip",
+                  "location": {
+                    "file": "/Users/ashwathram/Projects/dibs/tests/e2e/round7.spec.ts",
+                    "line": 19,
+                    "column": 10
+                  }
+                }
+              ],
+              "expectedStatus": "skipped",
+              "projectId": "r7-chromium-390-dark",
+              "projectName": "r7-chromium-390-dark",
+              "results": [
+                {
+                  "workerIndex": 4,
+                  "parallelIndex": 0,
+                  "status": "skipped",
+                  "duration": 32,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-22T02:30:38.625Z",
+                  "annotations": [
+                    {
+                      "type": "skip",
+                      "location": {
+                        "file": "/Users/ashwathram/Projects/dibs/tests/e2e/round7.spec.ts",
+                        "line": 19,
+                        "column": 10
+                      }
+                    }
+                  ],
+                  "attachments": []
+                }
+              ],
+              "status": "skipped"
+            },
+            {
+              "timeout": 60000,
+              "annotations": [
+                {
+                  "type": "skip",
+                  "location": {
+                    "file": "/Users/ashwathram/Projects/dibs/tests/e2e/round7.spec.ts",
+                    "line": 19,
+                    "column": 10
+                  }
+                }
+              ],
+              "expectedStatus": "skipped",
+              "projectId": "r7-chromium-1440-light",
+              "projectName": "r7-chromium-1440-light",
+              "results": [
+                {
+                  "workerIndex": 7,
+                  "parallelIndex": 1,
+                  "status": "skipped",
+                  "duration": 31,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-22T02:30:45.188Z",
+                  "annotations": [
+                    {
+                      "type": "skip",
+                      "location": {
+                        "file": "/Users/ashwathram/Projects/dibs/tests/e2e/round7.spec.ts",
+                        "line": 19,
+                        "column": 10
+                      }
+                    }
+                  ],
+                  "attachments": []
+                }
+              ],
+              "status": "skipped"
+            },
+            {
+              "timeout": 60000,
+              "annotations": [
+                {
+                  "type": "skip",
+                  "location": {
+                    "file": "/Users/ashwathram/Projects/dibs/tests/e2e/round7.spec.ts",
+                    "line": 19,
+                    "column": 10
+                  }
+                }
+              ],
+              "expectedStatus": "skipped",
+              "projectId": "r7-chromium-1440-dark",
+              "projectName": "r7-chromium-1440-dark",
+              "results": [
+                {
+                  "workerIndex": 10,
+                  "parallelIndex": 3,
+                  "status": "skipped",
+                  "duration": 35,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-22T02:30:51.269Z",
+                  "annotations": [
+                    {
+                      "type": "skip",
+                      "location": {
+                        "file": "/Users/ashwathram/Projects/dibs/tests/e2e/round7.spec.ts",
+                        "line": 19,
+                        "column": 10
+                      }
+                    }
+                  ],
+                  "attachments": []
+                }
+              ],
+              "status": "skipped"
+            },
+            {
+              "timeout": 60000,
+              "annotations": [
+                {
+                  "type": "skip",
+                  "location": {
+                    "file": "/Users/ashwathram/Projects/dibs/tests/e2e/round7.spec.ts",
+                    "line": 19,
+                    "column": 10
+                  }
+                }
+              ],
+              "expectedStatus": "skipped",
+              "projectId": "r7-webkit-390-light",
+              "projectName": "r7-webkit-390-light",
+              "results": [
+                {
+                  "workerIndex": 13,
+                  "parallelIndex": 0,
+                  "status": "skipped",
+                  "duration": 152,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-22T02:30:58.633Z",
+                  "annotations": [
+                    {
+                      "type": "skip",
+                      "location": {
+                        "file": "/Users/ashwathram/Projects/dibs/tests/e2e/round7.spec.ts",
+                        "line": 19,
+                        "column": 10
+                      }
+                    }
+                  ],
+                  "attachments": []
+                }
+              ],
+              "status": "skipped"
+            },
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "r7-firefox-390-light",
+              "projectName": "r7-firefox-390-light",
+              "results": [
+                {
+                  "workerIndex": 20,
+                  "parallelIndex": 3,
+                  "status": "failed",
+                  "duration": 0,
+                  "error": {
+                    "message": "Error: browserType.launch: Failed to launch the browser process.\nBrowser logs:\n\n<launching> /Users/ashwathram/Library/Caches/ms-playwright/firefox-1572/firefox/Nightly.app/Contents/MacOS/firefox -no-remote -headless -profile /Users/ashwathram/Projects/dibs/.tmp/playwright_firefoxdev_profile-WdwcGL -juggler-pipe -silent\n<launched> pid=11851\n[pid=11851][err] *** You are running in headless mode.\n[pid=11851][err] Could not find profile folder.\n[pid=11851] <process did exit: exitCode=1, signal=null>\n[pid=11851] starting temporary directories cleanup\nCall log:\n\u001b[2m  - <launching> /Users/ashwathram/Library/Caches/ms-playwright/firefox-1572/firefox/Nightly.app/Contents/MacOS/firefox -no-remote -headless -profile /Users/ashwathram/Projects/dibs/.tmp/playwright_firefoxdev_profile-WdwcGL -juggler-pipe -silent\u001b[22m\n\u001b[2m  - <launched> pid=11851\u001b[22m\n\u001b[2m  - [pid=11851][err] *** You are running in headless mode.\u001b[22m\n\u001b[2m  - [pid=11851][err] Could not find profile folder.\u001b[22m\n\u001b[2m  - [pid=11851] <process did exit: exitCode=1, signal=null>\u001b[22m\n\u001b[2m  - [pid=11851] starting temporary directories cleanup\u001b[22m\n\u001b[2m  - [pid=11851] <gracefully close start>\u001b[22m\n\u001b[2m  - [pid=11851] <kill>\u001b[22m\n\u001b[2m  - [pid=11851] <skipped force kill spawnedProcess.killed=false processClosed=true>\u001b[22m\n\u001b[2m  - [pid=11851] finished temporary directories cleanup\u001b[22m\n\u001b[2m  - [pid=11851] <gracefully close end>\u001b[22m\n",
+                    "stack": "Error: browserType.launch: Failed to launch the browser process.\nBrowser logs:\n\n<launching> /Users/ashwathram/Library/Caches/ms-playwright/firefox-1572/firefox/Nightly.app/Contents/MacOS/firefox -no-remote -headless -profile /Users/ashwathram/Projects/dibs/.tmp/playwright_firefoxdev_profile-WdwcGL -juggler-pipe -silent\n<launched> pid=11851\n[pid=11851][err] *** You are running in headless mode.\n[pid=11851][err] Could not find profile folder.\n[pid=11851] <process did exit: exitCode=1, signal=null>\n[pid=11851] starting temporary directories cleanup\nCall log:\n\u001b[2m  - <launching> /Users/ashwathram/Library/Caches/ms-playwright/firefox-1572/firefox/Nightly.app/Contents/MacOS/firefox -no-remote -headless -profile /Users/ashwathram/Projects/dibs/.tmp/playwright_firefoxdev_profile-WdwcGL -juggler-pipe -silent\u001b[22m\n\u001b[2m  - <launched> pid=11851\u001b[22m\n\u001b[2m  - [pid=11851][err] *** You are running in headless mode.\u001b[22m\n\u001b[2m  - [pid=11851][err] Could not find profile folder.\u001b[22m\n\u001b[2m  - [pid=11851] <process did exit: exitCode=1, signal=null>\u001b[22m\n\u001b[2m  - [pid=11851] starting temporary directories cleanup\u001b[22m\n\u001b[2m  - [pid=11851] <gracefully close start>\u001b[22m\n\u001b[2m  - [pid=11851] <kill>\u001b[22m\n\u001b[2m  - [pid=11851] <skipped force kill spawnedProcess.killed=false processClosed=true>\u001b[22m\n\u001b[2m  - [pid=11851] finished temporary directories cleanup\u001b[22m\n\u001b[2m  - [pid=11851] <gracefully close end>\u001b[22m\n"
+                  },
+                  "errors": [
+                    {
+                      "message": "Error: browserType.launch: Failed to launch the browser process.\nBrowser logs:\n\n<launching> /Users/ashwathram/Library/Caches/ms-playwright/firefox-1572/firefox/Nightly.app/Contents/MacOS/firefox -no-remote -headless -profile /Users/ashwathram/Projects/dibs/.tmp/playwright_firefoxdev_profile-WdwcGL -juggler-pipe -silent\n<launched> pid=11851\n[pid=11851][err] *** You are running in headless mode.\n[pid=11851][err] Could not find profile folder.\n[pid=11851] <process did exit: exitCode=1, signal=null>\n[pid=11851] starting temporary directories cleanup\nCall log:\n\u001b[2m  - <launching> /Users/ashwathram/Library/Caches/ms-playwright/firefox-1572/firefox/Nightly.app/Contents/MacOS/firefox -no-remote -headless -profile /Users/ashwathram/Projects/dibs/.tmp/playwright_firefoxdev_profile-WdwcGL -juggler-pipe -silent\u001b[22m\n\u001b[2m  - <launched> pid=11851\u001b[22m\n\u001b[2m  - [pid=11851][err] *** You are running in headless mode.\u001b[22m\n\u001b[2m  - [pid=11851][err] Could not find profile folder.\u001b[22m\n\u001b[2m  - [pid=11851] <process did exit: exitCode=1, signal=null>\u001b[22m\n\u001b[2m  - [pid=11851] starting temporary directories cleanup\u001b[22m\n\u001b[2m  - [pid=11851] <gracefully close start>\u001b[22m\n\u001b[2m  - [pid=11851] <kill>\u001b[22m\n\u001b[2m  - [pid=11851] <skipped force kill spawnedProcess.killed=false processClosed=true>\u001b[22m\n\u001b[2m  - [pid=11851] finished temporary directories cleanup\u001b[22m\n\u001b[2m  - [pid=11851] <gracefully close end>\u001b[22m\n"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-22T02:31:04.741Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "/Users/ashwathram/Projects/dibs/test-results/round7-local-drop-in-Australia-Sydney-r7-firefox-390-light/error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "/Users/ashwathram/Projects/dibs/test-results/round7-local-drop-in-Australia-Sydney-r7-firefox-390-light/trace.zip"
+                    }
+                  ]
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "393f56ce4bdf021b5d0a-408cfc29a3e881def416",
+          "file": "round7.spec.ts",
+          "line": 18,
+          "column": 3
+        },
+        {
+          "title": "local drop in invalid",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "r7-chromium-390-light",
+              "projectName": "r7-chromium-390-light",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 2,
+                  "status": "passed",
+                  "duration": 1032,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-22T02:30:35.169Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            },
+            {
+              "timeout": 60000,
+              "annotations": [
+                {
+                  "type": "skip",
+                  "location": {
+                    "file": "/Users/ashwathram/Projects/dibs/tests/e2e/round7.spec.ts",
+                    "line": 19,
+                    "column": 10
+                  }
+                }
+              ],
+              "expectedStatus": "skipped",
+              "projectId": "r7-chromium-390-dark",
+              "projectName": "r7-chromium-390-dark",
+              "results": [
+                {
+                  "workerIndex": 4,
+                  "parallelIndex": 0,
+                  "status": "skipped",
+                  "duration": 30,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-22T02:30:38.661Z",
+                  "annotations": [
+                    {
+                      "type": "skip",
+                      "location": {
+                        "file": "/Users/ashwathram/Projects/dibs/tests/e2e/round7.spec.ts",
+                        "line": 19,
+                        "column": 10
+                      }
+                    }
+                  ],
+                  "attachments": []
+                }
+              ],
+              "status": "skipped"
+            },
+            {
+              "timeout": 60000,
+              "annotations": [
+                {
+                  "type": "skip",
+                  "location": {
+                    "file": "/Users/ashwathram/Projects/dibs/tests/e2e/round7.spec.ts",
+                    "line": 19,
+                    "column": 10
+                  }
+                }
+              ],
+              "expectedStatus": "skipped",
+              "projectId": "r7-chromium-1440-light",
+              "projectName": "r7-chromium-1440-light",
+              "results": [
+                {
+                  "workerIndex": 7,
+                  "parallelIndex": 1,
+                  "status": "skipped",
+                  "duration": 29,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-22T02:30:45.223Z",
+                  "annotations": [
+                    {
+                      "type": "skip",
+                      "location": {
+                        "file": "/Users/ashwathram/Projects/dibs/tests/e2e/round7.spec.ts",
+                        "line": 19,
+                        "column": 10
+                      }
+                    }
+                  ],
+                  "attachments": []
+                }
+              ],
+              "status": "skipped"
+            },
+            {
+              "timeout": 60000,
+              "annotations": [
+                {
+                  "type": "skip",
+                  "location": {
+                    "file": "/Users/ashwathram/Projects/dibs/tests/e2e/round7.spec.ts",
+                    "line": 19,
+                    "column": 10
+                  }
+                }
+              ],
+              "expectedStatus": "skipped",
+              "projectId": "r7-chromium-1440-dark",
+              "projectName": "r7-chromium-1440-dark",
+              "results": [
+                {
+                  "workerIndex": 10,
+                  "parallelIndex": 3,
+                  "status": "skipped",
+                  "duration": 31,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-22T02:30:51.308Z",
+                  "annotations": [
+                    {
+                      "type": "skip",
+                      "location": {
+                        "file": "/Users/ashwathram/Projects/dibs/tests/e2e/round7.spec.ts",
+                        "line": 19,
+                        "column": 10
+                      }
+                    }
+                  ],
+                  "attachments": []
+                }
+              ],
+              "status": "skipped"
+            },
+            {
+              "timeout": 60000,
+              "annotations": [
+                {
+                  "type": "skip",
+                  "location": {
+                    "file": "/Users/ashwathram/Projects/dibs/tests/e2e/round7.spec.ts",
+                    "line": 19,
+                    "column": 10
+                  }
+                }
+              ],
+              "expectedStatus": "skipped",
+              "projectId": "r7-webkit-390-light",
+              "projectName": "r7-webkit-390-light",
+              "results": [
+                {
+                  "workerIndex": 13,
+                  "parallelIndex": 0,
+                  "status": "skipped",
+                  "duration": 161,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-22T02:30:58.794Z",
+                  "annotations": [
+                    {
+                      "type": "skip",
+                      "location": {
+                        "file": "/Users/ashwathram/Projects/dibs/tests/e2e/round7.spec.ts",
+                        "line": 19,
+                        "column": 10
+                      }
+                    }
+                  ],
+                  "attachments": []
+                }
+              ],
+              "status": "skipped"
+            },
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "r7-firefox-390-light",
+              "projectName": "r7-firefox-390-light",
+              "results": [
+                {
+                  "workerIndex": 21,
+                  "parallelIndex": 3,
+                  "status": "failed",
+                  "duration": 0,
+                  "error": {
+                    "message": "Error: browserType.launch: Failed to launch the browser process.\nBrowser logs:\n\n<launching> /Users/ashwathram/Library/Caches/ms-playwright/firefox-1572/firefox/Nightly.app/Contents/MacOS/firefox -no-remote -headless -profile /Users/ashwathram/Projects/dibs/.tmp/playwright_firefoxdev_profile-hNw8mo -juggler-pipe -silent\n<launched> pid=11855\n[pid=11855][err] *** You are running in headless mode.\n[pid=11855][err] Could not find profile folder.\n[pid=11855] <process did exit: exitCode=1, signal=null>\n[pid=11855] starting temporary directories cleanup\nCall log:\n\u001b[2m  - <launching> /Users/ashwathram/Library/Caches/ms-playwright/firefox-1572/firefox/Nightly.app/Contents/MacOS/firefox -no-remote -headless -profile /Users/ashwathram/Projects/dibs/.tmp/playwright_firefoxdev_profile-hNw8mo -juggler-pipe -silent\u001b[22m\n\u001b[2m  - <launched> pid=11855\u001b[22m\n\u001b[2m  - [pid=11855][err] *** You are running in headless mode.\u001b[22m\n\u001b[2m  - [pid=11855][err] Could not find profile folder.\u001b[22m\n\u001b[2m  - [pid=11855] <process did exit: exitCode=1, signal=null>\u001b[22m\n\u001b[2m  - [pid=11855] starting temporary directories cleanup\u001b[22m\n\u001b[2m  - [pid=11855] <gracefully close start>\u001b[22m\n\u001b[2m  - [pid=11855] <kill>\u001b[22m\n\u001b[2m  - [pid=11855] <skipped force kill spawnedProcess.killed=false processClosed=true>\u001b[22m\n\u001b[2m  - [pid=11855] finished temporary directories cleanup\u001b[22m\n\u001b[2m  - [pid=11855] <gracefully close end>\u001b[22m\n",
+                    "stack": "Error: browserType.launch: Failed to launch the browser process.\nBrowser logs:\n\n<launching> /Users/ashwathram/Library/Caches/ms-playwright/firefox-1572/firefox/Nightly.app/Contents/MacOS/firefox -no-remote -headless -profile /Users/ashwathram/Projects/dibs/.tmp/playwright_firefoxdev_profile-hNw8mo -juggler-pipe -silent\n<launched> pid=11855\n[pid=11855][err] *** You are running in headless mode.\n[pid=11855][err] Could not find profile folder.\n[pid=11855] <process did exit: exitCode=1, signal=null>\n[pid=11855] starting temporary directories cleanup\nCall log:\n\u001b[2m  - <launching> /Users/ashwathram/Library/Caches/ms-playwright/firefox-1572/firefox/Nightly.app/Contents/MacOS/firefox -no-remote -headless -profile /Users/ashwathram/Projects/dibs/.tmp/playwright_firefoxdev_profile-hNw8mo -juggler-pipe -silent\u001b[22m\n\u001b[2m  - <launched> pid=11855\u001b[22m\n\u001b[2m  - [pid=11855][err] *** You are running in headless mode.\u001b[22m\n\u001b[2m  - [pid=11855][err] Could not find profile folder.\u001b[22m\n\u001b[2m  - [pid=11855] <process did exit: exitCode=1, signal=null>\u001b[22m\n\u001b[2m  - [pid=11855] starting temporary directories cleanup\u001b[22m\n\u001b[2m  - [pid=11855] <gracefully close start>\u001b[22m\n\u001b[2m  - [pid=11855] <kill>\u001b[22m\n\u001b[2m  - [pid=11855] <skipped force kill spawnedProcess.killed=false processClosed=true>\u001b[22m\n\u001b[2m  - [pid=11855] finished temporary directories cleanup\u001b[22m\n\u001b[2m  - [pid=11855] <gracefully close end>\u001b[22m\n"
+                  },
+                  "errors": [
+                    {
+                      "message": "Error: browserType.launch: Failed to launch the browser process.\nBrowser logs:\n\n<launching> /Users/ashwathram/Library/Caches/ms-playwright/firefox-1572/firefox/Nightly.app/Contents/MacOS/firefox -no-remote -headless -profile /Users/ashwathram/Projects/dibs/.tmp/playwright_firefoxdev_profile-hNw8mo -juggler-pipe -silent\n<launched> pid=11855\n[pid=11855][err] *** You are running in headless mode.\n[pid=11855][err] Could not find profile folder.\n[pid=11855] <process did exit: exitCode=1, signal=null>\n[pid=11855] starting temporary directories cleanup\nCall log:\n\u001b[2m  - <launching> /Users/ashwathram/Library/Caches/ms-playwright/firefox-1572/firefox/Nightly.app/Contents/MacOS/firefox -no-remote -headless -profile /Users/ashwathram/Projects/dibs/.tmp/playwright_firefoxdev_profile-hNw8mo -juggler-pipe -silent\u001b[22m\n\u001b[2m  - <launched> pid=11855\u001b[22m\n\u001b[2m  - [pid=11855][err] *** You are running in headless mode.\u001b[22m\n\u001b[2m  - [pid=11855][err] Could not find profile folder.\u001b[22m\n\u001b[2m  - [pid=11855] <process did exit: exitCode=1, signal=null>\u001b[22m\n\u001b[2m  - [pid=11855] starting temporary directories cleanup\u001b[22m\n\u001b[2m  - [pid=11855] <gracefully close start>\u001b[22m\n\u001b[2m  - [pid=11855] <kill>\u001b[22m\n\u001b[2m  - [pid=11855] <skipped force kill spawnedProcess.killed=false processClosed=true>\u001b[22m\n\u001b[2m  - [pid=11855] finished temporary directories cleanup\u001b[22m\n\u001b[2m  - [pid=11855] <gracefully close end>\u001b[22m\n"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-22T02:31:05.106Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "/Users/ashwathram/Projects/dibs/test-results/round7-local-drop-in-invalid-r7-firefox-390-light/error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "/Users/ashwathram/Projects/dibs/test-results/round7-local-drop-in-invalid-r7-firefox-390-light/trace.zip"
+                    }
+                  ]
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "393f56ce4bdf021b5d0a-af6a6a1747a9cc7eb8e7",
+          "file": "round7.spec.ts",
+          "line": 18,
+          "column": 3
+        },
+        {
+          "title": "local drop in empty zone",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "r7-chromium-390-light",
+              "projectName": "r7-chromium-390-light",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1030,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-22T02:30:35.171Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            },
+            {
+              "timeout": 60000,
+              "annotations": [
+                {
+                  "type": "skip",
+                  "location": {
+                    "file": "/Users/ashwathram/Projects/dibs/tests/e2e/round7.spec.ts",
+                    "line": 19,
+                    "column": 10
+                  }
+                }
+              ],
+              "expectedStatus": "skipped",
+              "projectId": "r7-chromium-390-dark",
+              "projectName": "r7-chromium-390-dark",
+              "results": [
+                {
+                  "workerIndex": 4,
+                  "parallelIndex": 0,
+                  "status": "skipped",
+                  "duration": 33,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-22T02:30:38.695Z",
+                  "annotations": [
+                    {
+                      "type": "skip",
+                      "location": {
+                        "file": "/Users/ashwathram/Projects/dibs/tests/e2e/round7.spec.ts",
+                        "line": 19,
+                        "column": 10
+                      }
+                    }
+                  ],
+                  "attachments": []
+                }
+              ],
+              "status": "skipped"
+            },
+            {
+              "timeout": 60000,
+              "annotations": [
+                {
+                  "type": "skip",
+                  "location": {
+                    "file": "/Users/ashwathram/Projects/dibs/tests/e2e/round7.spec.ts",
+                    "line": 19,
+                    "column": 10
+                  }
+                }
+              ],
+              "expectedStatus": "skipped",
+              "projectId": "r7-chromium-1440-light",
+              "projectName": "r7-chromium-1440-light",
+              "results": [
+                {
+                  "workerIndex": 7,
+                  "parallelIndex": 1,
+                  "status": "skipped",
+                  "duration": 31,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-22T02:30:45.256Z",
+                  "annotations": [
+                    {
+                      "type": "skip",
+                      "location": {
+                        "file": "/Users/ashwathram/Projects/dibs/tests/e2e/round7.spec.ts",
+                        "line": 19,
+                        "column": 10
+                      }
+                    }
+                  ],
+                  "attachments": []
+                }
+              ],
+              "status": "skipped"
+            },
+            {
+              "timeout": 60000,
+              "annotations": [
+                {
+                  "type": "skip",
+                  "location": {
+                    "file": "/Users/ashwathram/Projects/dibs/tests/e2e/round7.spec.ts",
+                    "line": 19,
+                    "column": 10
+                  }
+                }
+              ],
+              "expectedStatus": "skipped",
+              "projectId": "r7-chromium-1440-dark",
+              "projectName": "r7-chromium-1440-dark",
+              "results": [
+                {
+                  "workerIndex": 10,
+                  "parallelIndex": 3,
+                  "status": "skipped",
+                  "duration": 33,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-22T02:30:51.344Z",
+                  "annotations": [
+                    {
+                      "type": "skip",
+                      "location": {
+                        "file": "/Users/ashwathram/Projects/dibs/tests/e2e/round7.spec.ts",
+                        "line": 19,
+                        "column": 10
+                      }
+                    }
+                  ],
+                  "attachments": []
+                }
+              ],
+              "status": "skipped"
+            },
+            {
+              "timeout": 60000,
+              "annotations": [
+                {
+                  "type": "skip",
+                  "location": {
+                    "file": "/Users/ashwathram/Projects/dibs/tests/e2e/round7.spec.ts",
+                    "line": 19,
+                    "column": 10
+                  }
+                }
+              ],
+              "expectedStatus": "skipped",
+              "projectId": "r7-webkit-390-light",
+              "projectName": "r7-webkit-390-light",
+              "results": [
+                {
+                  "workerIndex": 13,
+                  "parallelIndex": 0,
+                  "status": "skipped",
+                  "duration": 155,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-22T02:30:58.963Z",
+                  "annotations": [
+                    {
+                      "type": "skip",
+                      "location": {
+                        "file": "/Users/ashwathram/Projects/dibs/tests/e2e/round7.spec.ts",
+                        "line": 19,
+                        "column": 10
+                      }
+                    }
+                  ],
+                  "attachments": []
+                }
+              ],
+              "status": "skipped"
+            },
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "r7-firefox-390-light",
+              "projectName": "r7-firefox-390-light",
+              "results": [
+                {
+                  "workerIndex": 22,
+                  "parallelIndex": 3,
+                  "status": "failed",
+                  "duration": 0,
+                  "error": {
+                    "message": "Error: browserType.launch: Failed to launch the browser process.\nBrowser logs:\n\n<launching> /Users/ashwathram/Library/Caches/ms-playwright/firefox-1572/firefox/Nightly.app/Contents/MacOS/firefox -no-remote -headless -profile /Users/ashwathram/Projects/dibs/.tmp/playwright_firefoxdev_profile-ggBRRT -juggler-pipe -silent\n<launched> pid=11858\n[pid=11858][err] *** You are running in headless mode.\n[pid=11858][err] Could not find profile folder.\n[pid=11858] <process did exit: exitCode=1, signal=null>\n[pid=11858] starting temporary directories cleanup\nCall log:\n\u001b[2m  - <launching> /Users/ashwathram/Library/Caches/ms-playwright/firefox-1572/firefox/Nightly.app/Contents/MacOS/firefox -no-remote -headless -profile /Users/ashwathram/Projects/dibs/.tmp/playwright_firefoxdev_profile-ggBRRT -juggler-pipe -silent\u001b[22m\n\u001b[2m  - <launched> pid=11858\u001b[22m\n\u001b[2m  - [pid=11858][err] *** You are running in headless mode.\u001b[22m\n\u001b[2m  - [pid=11858][err] Could not find profile folder.\u001b[22m\n\u001b[2m  - [pid=11858] <process did exit: exitCode=1, signal=null>\u001b[22m\n\u001b[2m  - [pid=11858] starting temporary directories cleanup\u001b[22m\n\u001b[2m  - [pid=11858] <gracefully close start>\u001b[22m\n\u001b[2m  - [pid=11858] <kill>\u001b[22m\n\u001b[2m  - [pid=11858] <skipped force kill spawnedProcess.killed=false processClosed=true>\u001b[22m\n\u001b[2m  - [pid=11858] finished temporary directories cleanup\u001b[22m\n\u001b[2m  - [pid=11858] <gracefully close end>\u001b[22m\n",
+                    "stack": "Error: browserType.launch: Failed to launch the browser process.\nBrowser logs:\n\n<launching> /Users/ashwathram/Library/Caches/ms-playwright/firefox-1572/firefox/Nightly.app/Contents/MacOS/firefox -no-remote -headless -profile /Users/ashwathram/Projects/dibs/.tmp/playwright_firefoxdev_profile-ggBRRT -juggler-pipe -silent\n<launched> pid=11858\n[pid=11858][err] *** You are running in headless mode.\n[pid=11858][err] Could not find profile folder.\n[pid=11858] <process did exit: exitCode=1, signal=null>\n[pid=11858] starting temporary directories cleanup\nCall log:\n\u001b[2m  - <launching> /Users/ashwathram/Library/Caches/ms-playwright/firefox-1572/firefox/Nightly.app/Contents/MacOS/firefox -no-remote -headless -profile /Users/ashwathram/Projects/dibs/.tmp/playwright_firefoxdev_profile-ggBRRT -juggler-pipe -silent\u001b[22m\n\u001b[2m  - <launched> pid=11858\u001b[22m\n\u001b[2m  - [pid=11858][err] *** You are running in headless mode.\u001b[22m\n\u001b[2m  - [pid=11858][err] Could not find profile folder.\u001b[22m\n\u001b[2m  - [pid=11858] <process did exit: exitCode=1, signal=null>\u001b[22m\n\u001b[2m  - [pid=11858] starting temporary directories cleanup\u001b[22m\n\u001b[2m  - [pid=11858] <gracefully close start>\u001b[22m\n\u001b[2m  - [pid=11858] <kill>\u001b[22m\n\u001b[2m  - [pid=11858] <skipped force kill spawnedProcess.killed=false processClosed=true>\u001b[22m\n\u001b[2m  - [pid=11858] finished temporary directories cleanup\u001b[22m\n\u001b[2m  - [pid=11858] <gracefully close end>\u001b[22m\n"
+                  },
+                  "errors": [
+                    {
+                      "message": "Error: browserType.launch: Failed to launch the browser process.\nBrowser logs:\n\n<launching> /Users/ashwathram/Library/Caches/ms-playwright/firefox-1572/firefox/Nightly.app/Contents/MacOS/firefox -no-remote -headless -profile /Users/ashwathram/Projects/dibs/.tmp/playwright_firefoxdev_profile-ggBRRT -juggler-pipe -silent\n<launched> pid=11858\n[pid=11858][err] *** You are running in headless mode.\n[pid=11858][err] Could not find profile folder.\n[pid=11858] <process did exit: exitCode=1, signal=null>\n[pid=11858] starting temporary directories cleanup\nCall log:\n\u001b[2m  - <launching> /Users/ashwathram/Library/Caches/ms-playwright/firefox-1572/firefox/Nightly.app/Contents/MacOS/firefox -no-remote -headless -profile /Users/ashwathram/Projects/dibs/.tmp/playwright_firefoxdev_profile-ggBRRT -juggler-pipe -silent\u001b[22m\n\u001b[2m  - <launched> pid=11858\u001b[22m\n\u001b[2m  - [pid=11858][err] *** You are running in headless mode.\u001b[22m\n\u001b[2m  - [pid=11858][err] Could not find profile folder.\u001b[22m\n\u001b[2m  - [pid=11858] <process did exit: exitCode=1, signal=null>\u001b[22m\n\u001b[2m  - [pid=11858] starting temporary directories cleanup\u001b[22m\n\u001b[2m  - [pid=11858] <gracefully close start>\u001b[22m\n\u001b[2m  - [pid=11858] <kill>\u001b[22m\n\u001b[2m  - [pid=11858] <skipped force kill spawnedProcess.killed=false processClosed=true>\u001b[22m\n\u001b[2m  - [pid=11858] finished temporary directories cleanup\u001b[22m\n\u001b[2m  - [pid=11858] <gracefully close end>\u001b[22m\n"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-22T02:31:05.496Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "/Users/ashwathram/Projects/dibs/test-results/round7-local-drop-in-empty-zone-r7-firefox-390-light/error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "/Users/ashwathram/Projects/dibs/test-results/round7-local-drop-in-empty-zone-r7-firefox-390-light/trace.zip"
+                    }
+                  ]
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "393f56ce4bdf021b5d0a-3dbd63f0eaed9a97ad54",
+          "file": "round7.spec.ts",
+          "line": 18,
+          "column": 3
+        },
+        {
+          "title": "rolls over with -10 minute clock skew and delayed server",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "r7-chromium-390-light",
+              "projectName": "r7-chromium-390-light",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 3,
+                  "status": "passed",
+                  "duration": 977,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-22T02:30:35.171Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            },
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "r7-chromium-390-dark",
+              "projectName": "r7-chromium-390-dark",
+              "results": [
+                {
+                  "workerIndex": 4,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 915,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-22T02:30:38.731Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            },
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "r7-chromium-1440-light",
+              "projectName": "r7-chromium-1440-light",
+              "results": [
+                {
+                  "workerIndex": 7,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 917,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-22T02:30:45.291Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            },
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "r7-chromium-1440-dark",
+              "projectName": "r7-chromium-1440-dark",
+              "results": [
+                {
+                  "workerIndex": 10,
+                  "parallelIndex": 3,
+                  "status": "passed",
+                  "duration": 977,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-22T02:30:51.381Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            },
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "r7-webkit-390-light",
+              "projectName": "r7-webkit-390-light",
+              "results": [
+                {
+                  "workerIndex": 13,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1204,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-22T02:30:59.125Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            },
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "r7-firefox-390-light",
+              "projectName": "r7-firefox-390-light",
+              "results": [
+                {
+                  "workerIndex": 23,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 0,
+                  "error": {
+                    "message": "Error: browserType.launch: Failed to launch the browser process.\nBrowser logs:\n\n<launching> /Users/ashwathram/Library/Caches/ms-playwright/firefox-1572/firefox/Nightly.app/Contents/MacOS/firefox -no-remote -headless -profile /Users/ashwathram/Projects/dibs/.tmp/playwright_firefoxdev_profile-VOMm6j -juggler-pipe -silent\n<launched> pid=11862\n[pid=11862][err] *** You are running in headless mode.\n[pid=11862][err] Could not find profile folder.\n[pid=11862] <process did exit: exitCode=1, signal=null>\n[pid=11862] starting temporary directories cleanup\nCall log:\n\u001b[2m  - <launching> /Users/ashwathram/Library/Caches/ms-playwright/firefox-1572/firefox/Nightly.app/Contents/MacOS/firefox -no-remote -headless -profile /Users/ashwathram/Projects/dibs/.tmp/playwright_firefoxdev_profile-VOMm6j -juggler-pipe -silent\u001b[22m\n\u001b[2m  - <launched> pid=11862\u001b[22m\n\u001b[2m  - [pid=11862][err] *** You are running in headless mode.\u001b[22m\n\u001b[2m  - [pid=11862][err] Could not find profile folder.\u001b[22m\n\u001b[2m  - [pid=11862] <process did exit: exitCode=1, signal=null>\u001b[22m\n\u001b[2m  - [pid=11862] starting temporary directories cleanup\u001b[22m\n\u001b[2m  - [pid=11862] <gracefully close start>\u001b[22m\n\u001b[2m  - [pid=11862] <kill>\u001b[22m\n\u001b[2m  - [pid=11862] <skipped force kill spawnedProcess.killed=false processClosed=true>\u001b[22m\n\u001b[2m  - [pid=11862] finished temporary directories cleanup\u001b[22m\n\u001b[2m  - [pid=11862] <gracefully close end>\u001b[22m\n",
+                    "stack": "Error: browserType.launch: Failed to launch the browser process.\nBrowser logs:\n\n<launching> /Users/ashwathram/Library/Caches/ms-playwright/firefox-1572/firefox/Nightly.app/Contents/MacOS/firefox -no-remote -headless -profile /Users/ashwathram/Projects/dibs/.tmp/playwright_firefoxdev_profile-VOMm6j -juggler-pipe -silent\n<launched> pid=11862\n[pid=11862][err] *** You are running in headless mode.\n[pid=11862][err] Could not find profile folder.\n[pid=11862] <process did exit: exitCode=1, signal=null>\n[pid=11862] starting temporary directories cleanup\nCall log:\n\u001b[2m  - <launching> /Users/ashwathram/Library/Caches/ms-playwright/firefox-1572/firefox/Nightly.app/Contents/MacOS/firefox -no-remote -headless -profile /Users/ashwathram/Projects/dibs/.tmp/playwright_firefoxdev_profile-VOMm6j -juggler-pipe -silent\u001b[22m\n\u001b[2m  - <launched> pid=11862\u001b[22m\n\u001b[2m  - [pid=11862][err] *** You are running in headless mode.\u001b[22m\n\u001b[2m  - [pid=11862][err] Could not find profile folder.\u001b[22m\n\u001b[2m  - [pid=11862] <process did exit: exitCode=1, signal=null>\u001b[22m\n\u001b[2m  - [pid=11862] starting temporary directories cleanup\u001b[22m\n\u001b[2m  - [pid=11862] <gracefully close start>\u001b[22m\n\u001b[2m  - [pid=11862] <kill>\u001b[22m\n\u001b[2m  - [pid=11862] <skipped force kill spawnedProcess.killed=false processClosed=true>\u001b[22m\n\u001b[2m  - [pid=11862] finished temporary directories cleanup\u001b[22m\n\u001b[2m  - [pid=11862] <gracefully close end>\u001b[22m\n"
+                  },
+                  "errors": [
+                    {
+                      "message": "Error: browserType.launch: Failed to launch the browser process.\nBrowser logs:\n\n<launching> /Users/ashwathram/Library/Caches/ms-playwright/firefox-1572/firefox/Nightly.app/Contents/MacOS/firefox -no-remote -headless -profile /Users/ashwathram/Projects/dibs/.tmp/playwright_firefoxdev_profile-VOMm6j -juggler-pipe -silent\n<launched> pid=11862\n[pid=11862][err] *** You are running in headless mode.\n[pid=11862][err] Could not find profile folder.\n[pid=11862] <process did exit: exitCode=1, signal=null>\n[pid=11862] starting temporary directories cleanup\nCall log:\n\u001b[2m  - <launching> /Users/ashwathram/Library/Caches/ms-playwright/firefox-1572/firefox/Nightly.app/Contents/MacOS/firefox -no-remote -headless -profile /Users/ashwathram/Projects/dibs/.tmp/playwright_firefoxdev_profile-VOMm6j -juggler-pipe -silent\u001b[22m\n\u001b[2m  - <launched> pid=11862\u001b[22m\n\u001b[2m  - [pid=11862][err] *** You are running in headless mode.\u001b[22m\n\u001b[2m  - [pid=11862][err] Could not find profile folder.\u001b[22m\n\u001b[2m  - [pid=11862] <process did exit: exitCode=1, signal=null>\u001b[22m\n\u001b[2m  - [pid=11862] starting temporary directories cleanup\u001b[22m\n\u001b[2m  - [pid=11862] <gracefully close start>\u001b[22m\n\u001b[2m  - [pid=11862] <kill>\u001b[22m\n\u001b[2m  - [pid=11862] <skipped force kill spawnedProcess.killed=false processClosed=true>\u001b[22m\n\u001b[2m  - [pid=11862] finished temporary directories cleanup\u001b[22m\n\u001b[2m  - [pid=11862] <gracefully close end>\u001b[22m\n"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-22T02:31:05.845Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "/Users/ashwathram/Projects/dibs/test-results/round7-rolls-over-with--10-c190f-ock-skew-and-delayed-server-r7-firefox-390-light/error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "/Users/ashwathram/Projects/dibs/test-results/round7-rolls-over-with--10-c190f-ock-skew-and-delayed-server-r7-firefox-390-light/trace.zip"
+                    }
+                  ]
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "393f56ce4bdf021b5d0a-0597e74639d0531b08ba",
+          "file": "round7.spec.ts",
+          "line": 41,
+          "column": 3
+        },
+        {
+          "title": "rolls over with 10 minute clock skew and delayed server",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "r7-chromium-390-light",
+              "projectName": "r7-chromium-390-light",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 3,
+                  "status": "passed",
+                  "duration": 985,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-22T02:30:36.155Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            },
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "r7-chromium-390-dark",
+              "projectName": "r7-chromium-390-dark",
+              "results": [
+                {
+                  "workerIndex": 4,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 918,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-22T02:30:39.650Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            },
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "r7-chromium-1440-light",
+              "projectName": "r7-chromium-1440-light",
+              "results": [
+                {
+                  "workerIndex": 7,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 916,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-22T02:30:46.212Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            },
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "r7-chromium-1440-dark",
+              "projectName": "r7-chromium-1440-dark",
+              "results": [
+                {
+                  "workerIndex": 11,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 957,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-22T02:30:52.425Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            },
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "r7-webkit-390-light",
+              "projectName": "r7-webkit-390-light",
+              "results": [
+                {
+                  "workerIndex": 14,
+                  "parallelIndex": 2,
+                  "status": "passed",
+                  "duration": 1227,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-22T02:30:59.447Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            },
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "r7-firefox-390-light",
+              "projectName": "r7-firefox-390-light",
+              "results": [
+                {
+                  "workerIndex": 24,
+                  "parallelIndex": 3,
+                  "status": "failed",
+                  "duration": 0,
+                  "error": {
+                    "message": "Error: browserType.launch: Failed to launch the browser process.\nBrowser logs:\n\n<launching> /Users/ashwathram/Library/Caches/ms-playwright/firefox-1572/firefox/Nightly.app/Contents/MacOS/firefox -no-remote -headless -profile /Users/ashwathram/Projects/dibs/.tmp/playwright_firefoxdev_profile-dCiWjJ -juggler-pipe -silent\n<launched> pid=11863\n[pid=11863][err] *** You are running in headless mode.\n[pid=11863][err] Could not find profile folder.\n[pid=11863] <process did exit: exitCode=1, signal=null>\n[pid=11863] starting temporary directories cleanup\nCall log:\n\u001b[2m  - <launching> /Users/ashwathram/Library/Caches/ms-playwright/firefox-1572/firefox/Nightly.app/Contents/MacOS/firefox -no-remote -headless -profile /Users/ashwathram/Projects/dibs/.tmp/playwright_firefoxdev_profile-dCiWjJ -juggler-pipe -silent\u001b[22m\n\u001b[2m  - <launched> pid=11863\u001b[22m\n\u001b[2m  - [pid=11863][err] *** You are running in headless mode.\u001b[22m\n\u001b[2m  - [pid=11863][err] Could not find profile folder.\u001b[22m\n\u001b[2m  - [pid=11863] <process did exit: exitCode=1, signal=null>\u001b[22m\n\u001b[2m  - [pid=11863] starting temporary directories cleanup\u001b[22m\n\u001b[2m  - [pid=11863] <gracefully close start>\u001b[22m\n\u001b[2m  - [pid=11863] <kill>\u001b[22m\n\u001b[2m  - [pid=11863] <skipped force kill spawnedProcess.killed=false processClosed=true>\u001b[22m\n\u001b[2m  - [pid=11863] finished temporary directories cleanup\u001b[22m\n\u001b[2m  - [pid=11863] <gracefully close end>\u001b[22m\n",
+                    "stack": "Error: browserType.launch: Failed to launch the browser process.\nBrowser logs:\n\n<launching> /Users/ashwathram/Library/Caches/ms-playwright/firefox-1572/firefox/Nightly.app/Contents/MacOS/firefox -no-remote -headless -profile /Users/ashwathram/Projects/dibs/.tmp/playwright_firefoxdev_profile-dCiWjJ -juggler-pipe -silent\n<launched> pid=11863\n[pid=11863][err] *** You are running in headless mode.\n[pid=11863][err] Could not find profile folder.\n[pid=11863] <process did exit: exitCode=1, signal=null>\n[pid=11863] starting temporary directories cleanup\nCall log:\n\u001b[2m  - <launching> /Users/ashwathram/Library/Caches/ms-playwright/firefox-1572/firefox/Nightly.app/Contents/MacOS/firefox -no-remote -headless -profile /Users/ashwathram/Projects/dibs/.tmp/playwright_firefoxdev_profile-dCiWjJ -juggler-pipe -silent\u001b[22m\n\u001b[2m  - <launched> pid=11863\u001b[22m\n\u001b[2m  - [pid=11863][err] *** You are running in headless mode.\u001b[22m\n\u001b[2m  - [pid=11863][err] Could not find profile folder.\u001b[22m\n\u001b[2m  - [pid=11863] <process did exit: exitCode=1, signal=null>\u001b[22m\n\u001b[2m  - [pid=11863] starting temporary directories cleanup\u001b[22m\n\u001b[2m  - [pid=11863] <gracefully close start>\u001b[22m\n\u001b[2m  - [pid=11863] <kill>\u001b[22m\n\u001b[2m  - [pid=11863] <skipped force kill spawnedProcess.killed=false processClosed=true>\u001b[22m\n\u001b[2m  - [pid=11863] finished temporary directories cleanup\u001b[22m\n\u001b[2m  - [pid=11863] <gracefully close end>\u001b[22m\n"
+                  },
+                  "errors": [
+                    {
+                      "message": "Error: browserType.launch: Failed to launch the browser process.\nBrowser logs:\n\n<launching> /Users/ashwathram/Library/Caches/ms-playwright/firefox-1572/firefox/Nightly.app/Contents/MacOS/firefox -no-remote -headless -profile /Users/ashwathram/Projects/dibs/.tmp/playwright_firefoxdev_profile-dCiWjJ -juggler-pipe -silent\n<launched> pid=11863\n[pid=11863][err] *** You are running in headless mode.\n[pid=11863][err] Could not find profile folder.\n[pid=11863] <process did exit: exitCode=1, signal=null>\n[pid=11863] starting temporary directories cleanup\nCall log:\n\u001b[2m  - <launching> /Users/ashwathram/Library/Caches/ms-playwright/firefox-1572/firefox/Nightly.app/Contents/MacOS/firefox -no-remote -headless -profile /Users/ashwathram/Projects/dibs/.tmp/playwright_firefoxdev_profile-dCiWjJ -juggler-pipe -silent\u001b[22m\n\u001b[2m  - <launched> pid=11863\u001b[22m\n\u001b[2m  - [pid=11863][err] *** You are running in headless mode.\u001b[22m\n\u001b[2m  - [pid=11863][err] Could not find profile folder.\u001b[22m\n\u001b[2m  - [pid=11863] <process did exit: exitCode=1, signal=null>\u001b[22m\n\u001b[2m  - [pid=11863] starting temporary directories cleanup\u001b[22m\n\u001b[2m  - [pid=11863] <gracefully close start>\u001b[22m\n\u001b[2m  - [pid=11863] <kill>\u001b[22m\n\u001b[2m  - [pid=11863] <skipped force kill spawnedProcess.killed=false processClosed=true>\u001b[22m\n\u001b[2m  - [pid=11863] finished temporary directories cleanup\u001b[22m\n\u001b[2m  - [pid=11863] <gracefully close end>\u001b[22m\n"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-22T02:31:05.884Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "/Users/ashwathram/Projects/dibs/test-results/round7-rolls-over-with-10--8bb39-ock-skew-and-delayed-server-r7-firefox-390-light/error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "/Users/ashwathram/Projects/dibs/test-results/round7-rolls-over-with-10--8bb39-ock-skew-and-delayed-server-r7-firefox-390-light/trace.zip"
+                    }
+                  ]
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "393f56ce4bdf021b5d0a-a9709b13d996707b3003",
+          "file": "round7.spec.ts",
+          "line": 41,
+          "column": 3
+        },
+        {
+          "title": "closed office and slim round strip",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "r7-chromium-390-light",
+              "projectName": "r7-chromium-390-light",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1925,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-22T02:30:36.210Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            },
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "r7-chromium-390-dark",
+              "projectName": "r7-chromium-390-dark",
+              "results": [
+                {
+                  "workerIndex": 5,
+                  "parallelIndex": 3,
+                  "status": "passed",
+                  "duration": 1874,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-22T02:30:40.342Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            },
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "r7-chromium-1440-light",
+              "projectName": "r7-chromium-1440-light",
+              "results": [
+                {
+                  "workerIndex": 7,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 1908,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-22T02:30:47.134Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            },
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "r7-chromium-1440-dark",
+              "projectName": "r7-chromium-1440-dark",
+              "results": [
+                {
+                  "workerIndex": 10,
+                  "parallelIndex": 3,
+                  "status": "passed",
+                  "duration": 1970,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-22T02:30:52.364Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            },
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "r7-webkit-390-light",
+              "projectName": "r7-webkit-390-light",
+              "results": [
+                {
+                  "workerIndex": 13,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1989,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-22T02:31:00.342Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            },
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "r7-firefox-390-light",
+              "projectName": "r7-firefox-390-light",
+              "results": [
+                {
+                  "workerIndex": 25,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 0,
+                  "error": {
+                    "message": "Error: browserType.launch: Failed to launch the browser process.\nBrowser logs:\n\n<launching> /Users/ashwathram/Library/Caches/ms-playwright/firefox-1572/firefox/Nightly.app/Contents/MacOS/firefox -no-remote -headless -profile /Users/ashwathram/Projects/dibs/.tmp/playwright_firefoxdev_profile-afZQr8 -juggler-pipe -silent\n<launched> pid=11866\n[pid=11866][err] *** You are running in headless mode.\n[pid=11866][err] Could not find profile folder.\n[pid=11866] <process did exit: exitCode=1, signal=null>\n[pid=11866] starting temporary directories cleanup\nCall log:\n\u001b[2m  - <launching> /Users/ashwathram/Library/Caches/ms-playwright/firefox-1572/firefox/Nightly.app/Contents/MacOS/firefox -no-remote -headless -profile /Users/ashwathram/Projects/dibs/.tmp/playwright_firefoxdev_profile-afZQr8 -juggler-pipe -silent\u001b[22m\n\u001b[2m  - <launched> pid=11866\u001b[22m\n\u001b[2m  - [pid=11866][err] *** You are running in headless mode.\u001b[22m\n\u001b[2m  - [pid=11866][err] Could not find profile folder.\u001b[22m\n\u001b[2m  - [pid=11866] <process did exit: exitCode=1, signal=null>\u001b[22m\n\u001b[2m  - [pid=11866] starting temporary directories cleanup\u001b[22m\n\u001b[2m  - [pid=11866] <gracefully close start>\u001b[22m\n\u001b[2m  - [pid=11866] <kill>\u001b[22m\n\u001b[2m  - [pid=11866] <skipped force kill spawnedProcess.killed=false processClosed=true>\u001b[22m\n\u001b[2m  - [pid=11866] finished temporary directories cleanup\u001b[22m\n\u001b[2m  - [pid=11866] <gracefully close end>\u001b[22m\n",
+                    "stack": "Error: browserType.launch: Failed to launch the browser process.\nBrowser logs:\n\n<launching> /Users/ashwathram/Library/Caches/ms-playwright/firefox-1572/firefox/Nightly.app/Contents/MacOS/firefox -no-remote -headless -profile /Users/ashwathram/Projects/dibs/.tmp/playwright_firefoxdev_profile-afZQr8 -juggler-pipe -silent\n<launched> pid=11866\n[pid=11866][err] *** You are running in headless mode.\n[pid=11866][err] Could not find profile folder.\n[pid=11866] <process did exit: exitCode=1, signal=null>\n[pid=11866] starting temporary directories cleanup\nCall log:\n\u001b[2m  - <launching> /Users/ashwathram/Library/Caches/ms-playwright/firefox-1572/firefox/Nightly.app/Contents/MacOS/firefox -no-remote -headless -profile /Users/ashwathram/Projects/dibs/.tmp/playwright_firefoxdev_profile-afZQr8 -juggler-pipe -silent\u001b[22m\n\u001b[2m  - <launched> pid=11866\u001b[22m\n\u001b[2m  - [pid=11866][err] *** You are running in headless mode.\u001b[22m\n\u001b[2m  - [pid=11866][err] Could not find profile folder.\u001b[22m\n\u001b[2m  - [pid=11866] <process did exit: exitCode=1, signal=null>\u001b[22m\n\u001b[2m  - [pid=11866] starting temporary directories cleanup\u001b[22m\n\u001b[2m  - [pid=11866] <gracefully close start>\u001b[22m\n\u001b[2m  - [pid=11866] <kill>\u001b[22m\n\u001b[2m  - [pid=11866] <skipped force kill spawnedProcess.killed=false processClosed=true>\u001b[22m\n\u001b[2m  - [pid=11866] finished temporary directories cleanup\u001b[22m\n\u001b[2m  - [pid=11866] <gracefully close end>\u001b[22m\n"
+                  },
+                  "errors": [
+                    {
+                      "message": "Error: browserType.launch: Failed to launch the browser process.\nBrowser logs:\n\n<launching> /Users/ashwathram/Library/Caches/ms-playwright/firefox-1572/firefox/Nightly.app/Contents/MacOS/firefox -no-remote -headless -profile /Users/ashwathram/Projects/dibs/.tmp/playwright_firefoxdev_profile-afZQr8 -juggler-pipe -silent\n<launched> pid=11866\n[pid=11866][err] *** You are running in headless mode.\n[pid=11866][err] Could not find profile folder.\n[pid=11866] <process did exit: exitCode=1, signal=null>\n[pid=11866] starting temporary directories cleanup\nCall log:\n\u001b[2m  - <launching> /Users/ashwathram/Library/Caches/ms-playwright/firefox-1572/firefox/Nightly.app/Contents/MacOS/firefox -no-remote -headless -profile /Users/ashwathram/Projects/dibs/.tmp/playwright_firefoxdev_profile-afZQr8 -juggler-pipe -silent\u001b[22m\n\u001b[2m  - <launched> pid=11866\u001b[22m\n\u001b[2m  - [pid=11866][err] *** You are running in headless mode.\u001b[22m\n\u001b[2m  - [pid=11866][err] Could not find profile folder.\u001b[22m\n\u001b[2m  - [pid=11866] <process did exit: exitCode=1, signal=null>\u001b[22m\n\u001b[2m  - [pid=11866] starting temporary directories cleanup\u001b[22m\n\u001b[2m  - [pid=11866] <gracefully close start>\u001b[22m\n\u001b[2m  - [pid=11866] <kill>\u001b[22m\n\u001b[2m  - [pid=11866] <skipped force kill spawnedProcess.killed=false processClosed=true>\u001b[22m\n\u001b[2m  - [pid=11866] finished temporary directories cleanup\u001b[22m\n\u001b[2m  - [pid=11866] <gracefully close end>\u001b[22m\n"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-22T02:31:06.210Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "/Users/ashwathram/Projects/dibs/test-results/round7-closed-office-and-slim-round-strip-r7-firefox-390-light/error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "/Users/ashwathram/Projects/dibs/test-results/round7-closed-office-and-slim-round-strip-r7-firefox-390-light/trace.zip"
+                    }
+                  ]
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "393f56ce4bdf021b5d0a-b5cf360421cd150ab0d3",
+          "file": "round7.spec.ts",
+          "line": 52,
+          "column": 1
+        },
+        {
+          "title": "Day Certificate clean",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "r7-chromium-390-light",
+              "projectName": "r7-chromium-390-light",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 2,
+                  "status": "passed",
+                  "duration": 7850,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-22T02:30:36.211Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            },
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "r7-chromium-390-dark",
+              "projectName": "r7-chromium-390-dark",
+              "results": [
+                {
+                  "workerIndex": 4,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 7816,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-22T02:30:40.573Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            },
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "r7-chromium-1440-light",
+              "projectName": "r7-chromium-1440-light",
+              "results": [
+                {
+                  "workerIndex": 8,
+                  "parallelIndex": 2,
+                  "status": "passed",
+                  "duration": 7910,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-22T02:30:47.589Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            },
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "r7-chromium-1440-dark",
+              "projectName": "r7-chromium-1440-dark",
+              "results": [
+                {
+                  "workerIndex": 11,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 7937,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-22T02:30:53.471Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            },
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "r7-webkit-390-light",
+              "projectName": "r7-webkit-390-light",
+              "results": [
+                {
+                  "workerIndex": 14,
+                  "parallelIndex": 2,
+                  "status": "passed",
+                  "duration": 8106,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-22T02:31:00.824Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            },
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "r7-firefox-390-light",
+              "projectName": "r7-firefox-390-light",
+              "results": [
+                {
+                  "workerIndex": 26,
+                  "parallelIndex": 3,
+                  "status": "failed",
+                  "duration": 0,
+                  "error": {
+                    "message": "Error: browserType.launch: Failed to launch the browser process.\nBrowser logs:\n\n<launching> /Users/ashwathram/Library/Caches/ms-playwright/firefox-1572/firefox/Nightly.app/Contents/MacOS/firefox -no-remote -headless -profile /Users/ashwathram/Projects/dibs/.tmp/playwright_firefoxdev_profile-ab9qla -juggler-pipe -silent\n<launched> pid=11867\n[pid=11867][err] *** You are running in headless mode.\n[pid=11867][err] Could not find profile folder.\n[pid=11867] <process did exit: exitCode=1, signal=null>\n[pid=11867] starting temporary directories cleanup\nCall log:\n\u001b[2m  - <launching> /Users/ashwathram/Library/Caches/ms-playwright/firefox-1572/firefox/Nightly.app/Contents/MacOS/firefox -no-remote -headless -profile /Users/ashwathram/Projects/dibs/.tmp/playwright_firefoxdev_profile-ab9qla -juggler-pipe -silent\u001b[22m\n\u001b[2m  - <launched> pid=11867\u001b[22m\n\u001b[2m  - [pid=11867][err] *** You are running in headless mode.\u001b[22m\n\u001b[2m  - [pid=11867][err] Could not find profile folder.\u001b[22m\n\u001b[2m  - [pid=11867] <process did exit: exitCode=1, signal=null>\u001b[22m\n\u001b[2m  - [pid=11867] starting temporary directories cleanup\u001b[22m\n\u001b[2m  - [pid=11867] <gracefully close start>\u001b[22m\n\u001b[2m  - [pid=11867] <kill>\u001b[22m\n\u001b[2m  - [pid=11867] <skipped force kill spawnedProcess.killed=false processClosed=true>\u001b[22m\n\u001b[2m  - [pid=11867] finished temporary directories cleanup\u001b[22m\n\u001b[2m  - [pid=11867] <gracefully close end>\u001b[22m\n",
+                    "stack": "Error: browserType.launch: Failed to launch the browser process.\nBrowser logs:\n\n<launching> /Users/ashwathram/Library/Caches/ms-playwright/firefox-1572/firefox/Nightly.app/Contents/MacOS/firefox -no-remote -headless -profile /Users/ashwathram/Projects/dibs/.tmp/playwright_firefoxdev_profile-ab9qla -juggler-pipe -silent\n<launched> pid=11867\n[pid=11867][err] *** You are running in headless mode.\n[pid=11867][err] Could not find profile folder.\n[pid=11867] <process did exit: exitCode=1, signal=null>\n[pid=11867] starting temporary directories cleanup\nCall log:\n\u001b[2m  - <launching> /Users/ashwathram/Library/Caches/ms-playwright/firefox-1572/firefox/Nightly.app/Contents/MacOS/firefox -no-remote -headless -profile /Users/ashwathram/Projects/dibs/.tmp/playwright_firefoxdev_profile-ab9qla -juggler-pipe -silent\u001b[22m\n\u001b[2m  - <launched> pid=11867\u001b[22m\n\u001b[2m  - [pid=11867][err] *** You are running in headless mode.\u001b[22m\n\u001b[2m  - [pid=11867][err] Could not find profile folder.\u001b[22m\n\u001b[2m  - [pid=11867] <process did exit: exitCode=1, signal=null>\u001b[22m\n\u001b[2m  - [pid=11867] starting temporary directories cleanup\u001b[22m\n\u001b[2m  - [pid=11867] <gracefully close start>\u001b[22m\n\u001b[2m  - [pid=11867] <kill>\u001b[22m\n\u001b[2m  - [pid=11867] <skipped force kill spawnedProcess.killed=false processClosed=true>\u001b[22m\n\u001b[2m  - [pid=11867] finished temporary directories cleanup\u001b[22m\n\u001b[2m  - [pid=11867] <gracefully close end>\u001b[22m\n"
+                  },
+                  "errors": [
+                    {
+                      "message": "Error: browserType.launch: Failed to launch the browser process.\nBrowser logs:\n\n<launching> /Users/ashwathram/Library/Caches/ms-playwright/firefox-1572/firefox/Nightly.app/Contents/MacOS/firefox -no-remote -headless -profile /Users/ashwathram/Projects/dibs/.tmp/playwright_firefoxdev_profile-ab9qla -juggler-pipe -silent\n<launched> pid=11867\n[pid=11867][err] *** You are running in headless mode.\n[pid=11867][err] Could not find profile folder.\n[pid=11867] <process did exit: exitCode=1, signal=null>\n[pid=11867] starting temporary directories cleanup\nCall log:\n\u001b[2m  - <launching> /Users/ashwathram/Library/Caches/ms-playwright/firefox-1572/firefox/Nightly.app/Contents/MacOS/firefox -no-remote -headless -profile /Users/ashwathram/Projects/dibs/.tmp/playwright_firefoxdev_profile-ab9qla -juggler-pipe -silent\u001b[22m\n\u001b[2m  - <launched> pid=11867\u001b[22m\n\u001b[2m  - [pid=11867][err] *** You are running in headless mode.\u001b[22m\n\u001b[2m  - [pid=11867][err] Could not find profile folder.\u001b[22m\n\u001b[2m  - [pid=11867] <process did exit: exitCode=1, signal=null>\u001b[22m\n\u001b[2m  - [pid=11867] starting temporary directories cleanup\u001b[22m\n\u001b[2m  - [pid=11867] <gracefully close start>\u001b[22m\n\u001b[2m  - [pid=11867] <kill>\u001b[22m\n\u001b[2m  - [pid=11867] <skipped force kill spawnedProcess.killed=false processClosed=true>\u001b[22m\n\u001b[2m  - [pid=11867] finished temporary directories cleanup\u001b[22m\n\u001b[2m  - [pid=11867] <gracefully close end>\u001b[22m\n"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-22T02:31:06.303Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "/Users/ashwathram/Projects/dibs/test-results/round7-Day-Certificate-clean-r7-firefox-390-light/error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "/Users/ashwathram/Projects/dibs/test-results/round7-Day-Certificate-clean-r7-firefox-390-light/trace.zip"
+                    }
+                  ]
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "393f56ce4bdf021b5d0a-821c4252ed796bd5bbb1",
+          "file": "round7.spec.ts",
+          "line": 66,
+          "column": 3
+        },
+        {
+          "title": "Day Certificate gold-two-strikes",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "r7-chromium-390-light",
+              "projectName": "r7-chromium-390-light",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 8512,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-22T02:30:36.212Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            },
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "r7-chromium-390-dark",
+              "projectName": "r7-chromium-390-dark",
+              "results": [
+                {
+                  "workerIndex": 5,
+                  "parallelIndex": 3,
+                  "status": "passed",
+                  "duration": 8484,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-22T02:30:42.281Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            },
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "r7-chromium-1440-light",
+              "projectName": "r7-chromium-1440-light",
+              "results": [
+                {
+                  "workerIndex": 9,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 8611,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-22T02:30:48.663Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            },
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "r7-chromium-1440-dark",
+              "projectName": "r7-chromium-1440-dark",
+              "results": [
+                {
+                  "workerIndex": 10,
+                  "parallelIndex": 3,
+                  "status": "passed",
+                  "duration": 8583,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-22T02:30:54.345Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            },
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "r7-webkit-390-light",
+              "projectName": "r7-webkit-390-light",
+              "results": [
+                {
+                  "workerIndex": 15,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 8948,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-22T02:31:01.682Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            },
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "r7-firefox-390-light",
+              "projectName": "r7-firefox-390-light",
+              "results": [
+                {
+                  "workerIndex": 27,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 0,
+                  "error": {
+                    "message": "Error: browserType.launch: Failed to launch the browser process.\nBrowser logs:\n\n<launching> /Users/ashwathram/Library/Caches/ms-playwright/firefox-1572/firefox/Nightly.app/Contents/MacOS/firefox -no-remote -headless -profile /Users/ashwathram/Projects/dibs/.tmp/playwright_firefoxdev_profile-JusI5s -juggler-pipe -silent\n<launched> pid=11871\n[pid=11871][err] *** You are running in headless mode.\n[pid=11871][err] Could not find profile folder.\n[pid=11871] <process did exit: exitCode=1, signal=null>\n[pid=11871] starting temporary directories cleanup\nCall log:\n\u001b[2m  - <launching> /Users/ashwathram/Library/Caches/ms-playwright/firefox-1572/firefox/Nightly.app/Contents/MacOS/firefox -no-remote -headless -profile /Users/ashwathram/Projects/dibs/.tmp/playwright_firefoxdev_profile-JusI5s -juggler-pipe -silent\u001b[22m\n\u001b[2m  - <launched> pid=11871\u001b[22m\n\u001b[2m  - [pid=11871][err] *** You are running in headless mode.\u001b[22m\n\u001b[2m  - [pid=11871][err] Could not find profile folder.\u001b[22m\n\u001b[2m  - [pid=11871] <process did exit: exitCode=1, signal=null>\u001b[22m\n\u001b[2m  - [pid=11871] starting temporary directories cleanup\u001b[22m\n\u001b[2m  - [pid=11871] <gracefully close start>\u001b[22m\n\u001b[2m  - [pid=11871] <kill>\u001b[22m\n\u001b[2m  - [pid=11871] <skipped force kill spawnedProcess.killed=false processClosed=true>\u001b[22m\n\u001b[2m  - [pid=11871] finished temporary directories cleanup\u001b[22m\n\u001b[2m  - [pid=11871] <gracefully close end>\u001b[22m\n",
+                    "stack": "Error: browserType.launch: Failed to launch the browser process.\nBrowser logs:\n\n<launching> /Users/ashwathram/Library/Caches/ms-playwright/firefox-1572/firefox/Nightly.app/Contents/MacOS/firefox -no-remote -headless -profile /Users/ashwathram/Projects/dibs/.tmp/playwright_firefoxdev_profile-JusI5s -juggler-pipe -silent\n<launched> pid=11871\n[pid=11871][err] *** You are running in headless mode.\n[pid=11871][err] Could not find profile folder.\n[pid=11871] <process did exit: exitCode=1, signal=null>\n[pid=11871] starting temporary directories cleanup\nCall log:\n\u001b[2m  - <launching> /Users/ashwathram/Library/Caches/ms-playwright/firefox-1572/firefox/Nightly.app/Contents/MacOS/firefox -no-remote -headless -profile /Users/ashwathram/Projects/dibs/.tmp/playwright_firefoxdev_profile-JusI5s -juggler-pipe -silent\u001b[22m\n\u001b[2m  - <launched> pid=11871\u001b[22m\n\u001b[2m  - [pid=11871][err] *** You are running in headless mode.\u001b[22m\n\u001b[2m  - [pid=11871][err] Could not find profile folder.\u001b[22m\n\u001b[2m  - [pid=11871] <process did exit: exitCode=1, signal=null>\u001b[22m\n\u001b[2m  - [pid=11871] starting temporary directories cleanup\u001b[22m\n\u001b[2m  - [pid=11871] <gracefully close start>\u001b[22m\n\u001b[2m  - [pid=11871] <kill>\u001b[22m\n\u001b[2m  - [pid=11871] <skipped force kill spawnedProcess.killed=false processClosed=true>\u001b[22m\n\u001b[2m  - [pid=11871] finished temporary directories cleanup\u001b[22m\n\u001b[2m  - [pid=11871] <gracefully close end>\u001b[22m\n"
+                  },
+                  "errors": [
+                    {
+                      "message": "Error: browserType.launch: Failed to launch the browser process.\nBrowser logs:\n\n<launching> /Users/ashwathram/Library/Caches/ms-playwright/firefox-1572/firefox/Nightly.app/Contents/MacOS/firefox -no-remote -headless -profile /Users/ashwathram/Projects/dibs/.tmp/playwright_firefoxdev_profile-JusI5s -juggler-pipe -silent\n<launched> pid=11871\n[pid=11871][err] *** You are running in headless mode.\n[pid=11871][err] Could not find profile folder.\n[pid=11871] <process did exit: exitCode=1, signal=null>\n[pid=11871] starting temporary directories cleanup\nCall log:\n\u001b[2m  - <launching> /Users/ashwathram/Library/Caches/ms-playwright/firefox-1572/firefox/Nightly.app/Contents/MacOS/firefox -no-remote -headless -profile /Users/ashwathram/Projects/dibs/.tmp/playwright_firefoxdev_profile-JusI5s -juggler-pipe -silent\u001b[22m\n\u001b[2m  - <launched> pid=11871\u001b[22m\n\u001b[2m  - [pid=11871][err] *** You are running in headless mode.\u001b[22m\n\u001b[2m  - [pid=11871][err] Could not find profile folder.\u001b[22m\n\u001b[2m  - [pid=11871] <process did exit: exitCode=1, signal=null>\u001b[22m\n\u001b[2m  - [pid=11871] starting temporary directories cleanup\u001b[22m\n\u001b[2m  - [pid=11871] <gracefully close start>\u001b[22m\n\u001b[2m  - [pid=11871] <kill>\u001b[22m\n\u001b[2m  - [pid=11871] <skipped force kill spawnedProcess.killed=false processClosed=true>\u001b[22m\n\u001b[2m  - [pid=11871] finished temporary directories cleanup\u001b[22m\n\u001b[2m  - [pid=11871] <gracefully close end>\u001b[22m\n"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-22T02:31:06.582Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "/Users/ashwathram/Projects/dibs/test-results/round7-Day-Certificate-gold-two-strikes-r7-firefox-390-light/error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "/Users/ashwathram/Projects/dibs/test-results/round7-Day-Certificate-gold-two-strikes-r7-firefox-390-light/trace.zip"
+                    }
+                  ]
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "393f56ce4bdf021b5d0a-1fe2fcd3f7dabd730e47",
+          "file": "round7.spec.ts",
+          "line": 66,
+          "column": 3
+        },
+        {
+          "title": "Day Certificate five-strikes",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "r7-chromium-390-light",
+              "projectName": "r7-chromium-390-light",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 3,
+                  "status": "passed",
+                  "duration": 2937,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-22T02:30:37.146Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            },
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "r7-chromium-390-dark",
+              "projectName": "r7-chromium-390-dark",
+              "results": [
+                {
+                  "workerIndex": 6,
+                  "parallelIndex": 2,
+                  "status": "passed",
+                  "duration": 2962,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-22T02:30:44.331Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            },
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "r7-chromium-1440-light",
+              "projectName": "r7-chromium-1440-light",
+              "results": [
+                {
+                  "workerIndex": 7,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 3016,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-22T02:30:49.047Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            },
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "r7-chromium-1440-dark",
+              "projectName": "r7-chromium-1440-dark",
+              "results": [
+                {
+                  "workerIndex": 12,
+                  "parallelIndex": 2,
+                  "status": "passed",
+                  "duration": 3253,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-22T02:30:55.833Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            },
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "r7-webkit-390-light",
+              "projectName": "r7-webkit-390-light",
+              "results": [
+                {
+                  "workerIndex": 13,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 3235,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-22T02:31:02.346Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            },
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "r7-firefox-390-light",
+              "projectName": "r7-firefox-390-light",
+              "results": [
+                {
+                  "workerIndex": 28,
+                  "parallelIndex": 3,
+                  "status": "failed",
+                  "duration": 0,
+                  "error": {
+                    "message": "Error: browserType.launch: Failed to launch the browser process.\nBrowser logs:\n\n<launching> /Users/ashwathram/Library/Caches/ms-playwright/firefox-1572/firefox/Nightly.app/Contents/MacOS/firefox -no-remote -headless -profile /Users/ashwathram/Projects/dibs/.tmp/playwright_firefoxdev_profile-oVxbKh -juggler-pipe -silent\n<launched> pid=11872\n[pid=11872][err] *** You are running in headless mode.\n[pid=11872][err] Could not find profile folder.\n[pid=11872] <process did exit: exitCode=1, signal=null>\n[pid=11872] starting temporary directories cleanup\nCall log:\n\u001b[2m  - <launching> /Users/ashwathram/Library/Caches/ms-playwright/firefox-1572/firefox/Nightly.app/Contents/MacOS/firefox -no-remote -headless -profile /Users/ashwathram/Projects/dibs/.tmp/playwright_firefoxdev_profile-oVxbKh -juggler-pipe -silent\u001b[22m\n\u001b[2m  - <launched> pid=11872\u001b[22m\n\u001b[2m  - [pid=11872][err] *** You are running in headless mode.\u001b[22m\n\u001b[2m  - [pid=11872][err] Could not find profile folder.\u001b[22m\n\u001b[2m  - [pid=11872] <process did exit: exitCode=1, signal=null>\u001b[22m\n\u001b[2m  - [pid=11872] starting temporary directories cleanup\u001b[22m\n\u001b[2m  - [pid=11872] <gracefully close start>\u001b[22m\n\u001b[2m  - [pid=11872] <kill>\u001b[22m\n\u001b[2m  - [pid=11872] <skipped force kill spawnedProcess.killed=false processClosed=true>\u001b[22m\n\u001b[2m  - [pid=11872] finished temporary directories cleanup\u001b[22m\n\u001b[2m  - [pid=11872] <gracefully close end>\u001b[22m\n",
+                    "stack": "Error: browserType.launch: Failed to launch the browser process.\nBrowser logs:\n\n<launching> /Users/ashwathram/Library/Caches/ms-playwright/firefox-1572/firefox/Nightly.app/Contents/MacOS/firefox -no-remote -headless -profile /Users/ashwathram/Projects/dibs/.tmp/playwright_firefoxdev_profile-oVxbKh -juggler-pipe -silent\n<launched> pid=11872\n[pid=11872][err] *** You are running in headless mode.\n[pid=11872][err] Could not find profile folder.\n[pid=11872] <process did exit: exitCode=1, signal=null>\n[pid=11872] starting temporary directories cleanup\nCall log:\n\u001b[2m  - <launching> /Users/ashwathram/Library/Caches/ms-playwright/firefox-1572/firefox/Nightly.app/Contents/MacOS/firefox -no-remote -headless -profile /Users/ashwathram/Projects/dibs/.tmp/playwright_firefoxdev_profile-oVxbKh -juggler-pipe -silent\u001b[22m\n\u001b[2m  - <launched> pid=11872\u001b[22m\n\u001b[2m  - [pid=11872][err] *** You are running in headless mode.\u001b[22m\n\u001b[2m  - [pid=11872][err] Could not find profile folder.\u001b[22m\n\u001b[2m  - [pid=11872] <process did exit: exitCode=1, signal=null>\u001b[22m\n\u001b[2m  - [pid=11872] starting temporary directories cleanup\u001b[22m\n\u001b[2m  - [pid=11872] <gracefully close start>\u001b[22m\n\u001b[2m  - [pid=11872] <kill>\u001b[22m\n\u001b[2m  - [pid=11872] <skipped force kill spawnedProcess.killed=false processClosed=true>\u001b[22m\n\u001b[2m  - [pid=11872] finished temporary directories cleanup\u001b[22m\n\u001b[2m  - [pid=11872] <gracefully close end>\u001b[22m\n"
+                  },
+                  "errors": [
+                    {
+                      "message": "Error: browserType.launch: Failed to launch the browser process.\nBrowser logs:\n\n<launching> /Users/ashwathram/Library/Caches/ms-playwright/firefox-1572/firefox/Nightly.app/Contents/MacOS/firefox -no-remote -headless -profile /Users/ashwathram/Projects/dibs/.tmp/playwright_firefoxdev_profile-oVxbKh -juggler-pipe -silent\n<launched> pid=11872\n[pid=11872][err] *** You are running in headless mode.\n[pid=11872][err] Could not find profile folder.\n[pid=11872] <process did exit: exitCode=1, signal=null>\n[pid=11872] starting temporary directories cleanup\nCall log:\n\u001b[2m  - <launching> /Users/ashwathram/Library/Caches/ms-playwright/firefox-1572/firefox/Nightly.app/Contents/MacOS/firefox -no-remote -headless -profile /Users/ashwathram/Projects/dibs/.tmp/playwright_firefoxdev_profile-oVxbKh -juggler-pipe -silent\u001b[22m\n\u001b[2m  - <launched> pid=11872\u001b[22m\n\u001b[2m  - [pid=11872][err] *** You are running in headless mode.\u001b[22m\n\u001b[2m  - [pid=11872][err] Could not find profile folder.\u001b[22m\n\u001b[2m  - [pid=11872] <process did exit: exitCode=1, signal=null>\u001b[22m\n\u001b[2m  - [pid=11872] starting temporary directories cleanup\u001b[22m\n\u001b[2m  - [pid=11872] <gracefully close start>\u001b[22m\n\u001b[2m  - [pid=11872] <kill>\u001b[22m\n\u001b[2m  - [pid=11872] <skipped force kill spawnedProcess.killed=false processClosed=true>\u001b[22m\n\u001b[2m  - [pid=11872] finished temporary directories cleanup\u001b[22m\n\u001b[2m  - [pid=11872] <gracefully close end>\u001b[22m\n"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-22T02:31:06.685Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "/Users/ashwathram/Projects/dibs/test-results/round7-Day-Certificate-five-strikes-r7-firefox-390-light/error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "/Users/ashwathram/Projects/dibs/test-results/round7-Day-Certificate-five-strikes-r7-firefox-390-light/trace.zip"
+                    }
+                  ]
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "393f56ce4bdf021b5d0a-aab12e0bbaa4e14f84f2",
+          "file": "round7.spec.ts",
+          "line": 66,
+          "column": 3
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-11-22T02:30:32.660Z",
+    "duration": 38134.293,
+    "expected": 37,
+    "skipped": 28,
+    "unexpected": 13,
+    "flaky": 0
+  }
+}

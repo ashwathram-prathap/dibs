@@ -1,0 +1,3984 @@
+{
+  "config": {
+    "argv": [
+      "/opt/hostedtoolcache/node/22.23.5/x64/bin/node",
+      "/home/runner/work/dibs/dibs/node_modules/.bin/playwright",
+      "test",
+      "--project=firefox-*"
+    ],
+    "configFile": "/home/runner/work/dibs/dibs/playwright.config.ts",
+    "rootDir": "/home/runner/work/dibs/dibs/tests/e2e",
+    "failOnFlakyTests": false,
+    "forbidOnly": false,
+    "fullyParallel": true,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "ci": {
+        "commitHref": "https://github.com/ashwathram-prathap/dibs/commit/30f46d0ec397e87eea105d573ce1f1a93cc9e6c0",
+        "commitHash": "30f46d0ec397e87eea105d573ce1f1a93cc9e6c0",
+        "buildHref": "https://github.com/ashwathram-prathap/dibs/actions/runs/44976589223"
+      },
+      "gitCommit": {
+        "shortHash": "30f46d0",
+        "hash": "30f46d0ec397e87eea105d573ce1f1a93cc9e6c0",
+        "subject": "R7: harden clock resync and verify ordered filing details",
+        "body": "R7: harden clock resync and verify ordered filing details\n",
+        "author": {
+          "name": "Ashwathram Prathap",
+          "email": "prathapashwathram@gmail.com",
+          "time": 1795314756000
+        },
+        "committer": {
+          "name": "Ashwathram Prathap",
+          "email": "prathapashwathram@gmail.com",
+          "time": 1795314756000
+        },
+        "branch": "main"
+      },
+      "actualWorkers": 4
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "/home/runner/work/dibs/dibs/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "ci": {
+            "commitHref": "https://github.com/ashwathram-prathap/dibs/commit/30f46d0ec397e87eea105d573ce1f1a93cc9e6c0",
+            "commitHash": "30f46d0ec397e87eea105d573ce1f1a93cc9e6c0",
+            "buildHref": "https://github.com/ashwathram-prathap/dibs/actions/runs/44976589223"
+          },
+          "gitCommit": {
+            "shortHash": "30f46d0",
+            "hash": "30f46d0ec397e87eea105d573ce1f1a93cc9e6c0",
+            "subject": "R7: harden clock resync and verify ordered filing details",
+            "body": "R7: harden clock resync and verify ordered filing details\n",
+            "author": {
+              "name": "Ashwathram Prathap",
+              "email": "prathapashwathram@gmail.com",
+              "time": 1795314756000
+            },
+            "committer": {
+              "name": "Ashwathram Prathap",
+              "email": "prathapashwathram@gmail.com",
+              "time": 1795314756000
+            },
+            "branch": "main"
+          },
+          "actualWorkers": 4
+        },
+        "id": "r6-390-light",
+        "name": "r6-390-light",
+        "testDir": "/home/runner/work/dibs/dibs/tests/e2e",
+        "testIgnore": [
+          "round7.spec.ts"
+        ],
+        "testMatch": [
+          "specials.spec.ts"
+        ],
+        "timeout": 60000
+      },
+      {
+        "outputDir": "/home/runner/work/dibs/dibs/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "ci": {
+            "commitHref": "https://github.com/ashwathram-prathap/dibs/commit/30f46d0ec397e87eea105d573ce1f1a93cc9e6c0",
+            "commitHash": "30f46d0ec397e87eea105d573ce1f1a93cc9e6c0",
+            "buildHref": "https://github.com/ashwathram-prathap/dibs/actions/runs/44976589223"
+          },
+          "gitCommit": {
+            "shortHash": "30f46d0",
+            "hash": "30f46d0ec397e87eea105d573ce1f1a93cc9e6c0",
+            "subject": "R7: harden clock resync and verify ordered filing details",
+            "body": "R7: harden clock resync and verify ordered filing details\n",
+            "author": {
+              "name": "Ashwathram Prathap",
+              "email": "prathapashwathram@gmail.com",
+              "time": 1795314756000
+            },
+            "committer": {
+              "name": "Ashwathram Prathap",
+              "email": "prathapashwathram@gmail.com",
+              "time": 1795314756000
+            },
+            "branch": "main"
+          },
+          "actualWorkers": 4
+        },
+        "id": "iPhone-SE-light",
+        "name": "iPhone-SE-light",
+        "testDir": "/home/runner/work/dibs/dibs/tests/e2e",
+        "testIgnore": [
+          "round7.spec.ts"
+        ],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 60000
+      },
+      {
+        "outputDir": "/home/runner/work/dibs/dibs/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "ci": {
+            "commitHref": "https://github.com/ashwathram-prathap/dibs/commit/30f46d0ec397e87eea105d573ce1f1a93cc9e6c0",
+            "commitHash": "30f46d0ec397e87eea105d573ce1f1a93cc9e6c0",
+            "buildHref": "https://github.com/ashwathram-prathap/dibs/actions/runs/44976589223"
+          },
+          "gitCommit": {
+            "shortHash": "30f46d0",
+            "hash": "30f46d0ec397e87eea105d573ce1f1a93cc9e6c0",
+            "subject": "R7: harden clock resync and verify ordered filing details",
+            "body": "R7: harden clock resync and verify ordered filing details\n",
+            "author": {
+              "name": "Ashwathram Prathap",
+              "email": "prathapashwathram@gmail.com",
+              "time": 1795314756000
+            },
+            "committer": {
+              "name": "Ashwathram Prathap",
+              "email": "prathapashwathram@gmail.com",
+              "time": 1795314756000
+            },
+            "branch": "main"
+          },
+          "actualWorkers": 4
+        },
+        "id": "iPhone-15-Pro-light",
+        "name": "iPhone-15-Pro-light",
+        "testDir": "/home/runner/work/dibs/dibs/tests/e2e",
+        "testIgnore": [
+          "round7.spec.ts"
+        ],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 60000
+      },
+      {
+        "outputDir": "/home/runner/work/dibs/dibs/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "ci": {
+            "commitHref": "https://github.com/ashwathram-prathap/dibs/commit/30f46d0ec397e87eea105d573ce1f1a93cc9e6c0",
+            "commitHash": "30f46d0ec397e87eea105d573ce1f1a93cc9e6c0",
+            "buildHref": "https://github.com/ashwathram-prathap/dibs/actions/runs/44976589223"
+          },
+          "gitCommit": {
+            "shortHash": "30f46d0",
+            "hash": "30f46d0ec397e87eea105d573ce1f1a93cc9e6c0",
+            "subject": "R7: harden clock resync and verify ordered filing details",
+            "body": "R7: harden clock resync and verify ordered filing details\n",
+            "author": {
+              "name": "Ashwathram Prathap",
+              "email": "prathapashwathram@gmail.com",
+              "time": 1795314756000
+            },
+            "committer": {
+              "name": "Ashwathram Prathap",
+              "email": "prathapashwathram@gmail.com",
+              "time": 1795314756000
+            },
+            "branch": "main"
+          },
+          "actualWorkers": 4
+        },
+        "id": "iPhone-15-Pro-Max-light",
+        "name": "iPhone-15-Pro-Max-light",
+        "testDir": "/home/runner/work/dibs/dibs/tests/e2e",
+        "testIgnore": [
+          "round7.spec.ts"
+        ],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 60000
+      },
+      {
+        "outputDir": "/home/runner/work/dibs/dibs/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "ci": {
+            "commitHref": "https://github.com/ashwathram-prathap/dibs/commit/30f46d0ec397e87eea105d573ce1f1a93cc9e6c0",
+            "commitHash": "30f46d0ec397e87eea105d573ce1f1a93cc9e6c0",
+            "buildHref": "https://github.com/ashwathram-prathap/dibs/actions/runs/44976589223"
+          },
+          "gitCommit": {
+            "shortHash": "30f46d0",
+            "hash": "30f46d0ec397e87eea105d573ce1f1a93cc9e6c0",
+            "subject": "R7: harden clock resync and verify ordered filing details",
+            "body": "R7: harden clock resync and verify ordered filing details\n",
+            "author": {
+              "name": "Ashwathram Prathap",
+              "email": "prathapashwathram@gmail.com",
+              "time": 1795314756000
+            },
+            "committer": {
+              "name": "Ashwathram Prathap",
+              "email": "prathapashwathram@gmail.com",
+              "time": 1795314756000
+            },
+            "branch": "main"
+          },
+          "actualWorkers": 4
+        },
+        "id": "Pixel-7-light",
+        "name": "Pixel-7-light",
+        "testDir": "/home/runner/work/dibs/dibs/tests/e2e",
+        "testIgnore": [
+          "round7.spec.ts"
+        ],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 60000
+      },
+      {
+        "outputDir": "/home/runner/work/dibs/dibs/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "ci": {
+            "commitHref": "https://github.com/ashwathram-prathap/dibs/commit/30f46d0ec397e87eea105d573ce1f1a93cc9e6c0",
+            "commitHash": "30f46d0ec397e87eea105d573ce1f1a93cc9e6c0",
+            "buildHref": "https://github.com/ashwathram-prathap/dibs/actions/runs/44976589223"
+          },
+          "gitCommit": {
+            "shortHash": "30f46d0",
+            "hash": "30f46d0ec397e87eea105d573ce1f1a93cc9e6c0",
+            "subject": "R7: harden clock resync and verify ordered filing details",
+            "body": "R7: harden clock resync and verify ordered filing details\n",
+            "author": {
+              "name": "Ashwathram Prathap",
+              "email": "prathapashwathram@gmail.com",
+              "time": 1795314756000
+            },
+            "committer": {
+              "name": "Ashwathram Prathap",
+              "email": "prathapashwathram@gmail.com",
+              "time": 1795314756000
+            },
+            "branch": "main"
+          },
+          "actualWorkers": 4
+        },
+        "id": "Galaxy-S9+-light",
+        "name": "Galaxy-S9+-light",
+        "testDir": "/home/runner/work/dibs/dibs/tests/e2e",
+        "testIgnore": [
+          "round7.spec.ts"
+        ],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 60000
+      },
+      {
+        "outputDir": "/home/runner/work/dibs/dibs/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "ci": {
+            "commitHref": "https://github.com/ashwathram-prathap/dibs/commit/30f46d0ec397e87eea105d573ce1f1a93cc9e6c0",
+            "commitHash": "30f46d0ec397e87eea105d573ce1f1a93cc9e6c0",
+            "buildHref": "https://github.com/ashwathram-prathap/dibs/actions/runs/44976589223"
+          },
+          "gitCommit": {
+            "shortHash": "30f46d0",
+            "hash": "30f46d0ec397e87eea105d573ce1f1a93cc9e6c0",
+            "subject": "R7: harden clock resync and verify ordered filing details",
+            "body": "R7: harden clock resync and verify ordered filing details\n",
+            "author": {
+              "name": "Ashwathram Prathap",
+              "email": "prathapashwathram@gmail.com",
+              "time": 1795314756000
+            },
+            "committer": {
+              "name": "Ashwathram Prathap",
+              "email": "prathapashwathram@gmail.com",
+              "time": 1795314756000
+            },
+            "branch": "main"
+          },
+          "actualWorkers": 4
+        },
+        "id": "iPad-Mini-light",
+        "name": "iPad-Mini-light",
+        "testDir": "/home/runner/work/dibs/dibs/tests/e2e",
+        "testIgnore": [
+          "round7.spec.ts"
+        ],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 60000
+      },
+      {
+        "outputDir": "/home/runner/work/dibs/dibs/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "ci": {
+            "commitHref": "https://github.com/ashwathram-prathap/dibs/commit/30f46d0ec397e87eea105d573ce1f1a93cc9e6c0",
+            "commitHash": "30f46d0ec397e87eea105d573ce1f1a93cc9e6c0",
+            "buildHref": "https://github.com/ashwathram-prathap/dibs/actions/runs/44976589223"
+          },
+          "gitCommit": {
+            "shortHash": "30f46d0",
+            "hash": "30f46d0ec397e87eea105d573ce1f1a93cc9e6c0",
+            "subject": "R7: harden clock resync and verify ordered filing details",
+            "body": "R7: harden clock resync and verify ordered filing details\n",
+            "author": {
+              "name": "Ashwathram Prathap",
+              "email": "prathapashwathram@gmail.com",
+              "time": 1795314756000
+            },
+            "committer": {
+              "name": "Ashwathram Prathap",
+              "email": "prathapashwathram@gmail.com",
+              "time": 1795314756000
+            },
+            "branch": "main"
+          },
+          "actualWorkers": 4
+        },
+        "id": "iPad-Pro-11-landscape-light",
+        "name": "iPad-Pro-11-landscape-light",
+        "testDir": "/home/runner/work/dibs/dibs/tests/e2e",
+        "testIgnore": [
+          "round7.spec.ts"
+        ],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 60000
+      },
+      {
+        "outputDir": "/home/runner/work/dibs/dibs/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "ci": {
+            "commitHref": "https://github.com/ashwathram-prathap/dibs/commit/30f46d0ec397e87eea105d573ce1f1a93cc9e6c0",
+            "commitHash": "30f46d0ec397e87eea105d573ce1f1a93cc9e6c0",
+            "buildHref": "https://github.com/ashwathram-prathap/dibs/actions/runs/44976589223"
+          },
+          "gitCommit": {
+            "shortHash": "30f46d0",
+            "hash": "30f46d0ec397e87eea105d573ce1f1a93cc9e6c0",
+            "subject": "R7: harden clock resync and verify ordered filing details",
+            "body": "R7: harden clock resync and verify ordered filing details\n",
+            "author": {
+              "name": "Ashwathram Prathap",
+              "email": "prathapashwathram@gmail.com",
+              "time": 1795314756000
+            },
+            "committer": {
+              "name": "Ashwathram Prathap",
+              "email": "prathapashwathram@gmail.com",
+              "time": 1795314756000
+            },
+            "branch": "main"
+          },
+          "actualWorkers": 4
+        },
+        "id": "chromium-1280-light",
+        "name": "chromium-1280-light",
+        "testDir": "/home/runner/work/dibs/dibs/tests/e2e",
+        "testIgnore": [
+          "round7.spec.ts"
+        ],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 60000
+      },
+      {
+        "outputDir": "/home/runner/work/dibs/dibs/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "ci": {
+            "commitHref": "https://github.com/ashwathram-prathap/dibs/commit/30f46d0ec397e87eea105d573ce1f1a93cc9e6c0",
+            "commitHash": "30f46d0ec397e87eea105d573ce1f1a93cc9e6c0",
+            "buildHref": "https://github.com/ashwathram-prathap/dibs/actions/runs/44976589223"
+          },
+          "gitCommit": {
+            "shortHash": "30f46d0",
+            "hash": "30f46d0ec397e87eea105d573ce1f1a93cc9e6c0",
+            "subject": "R7: harden clock resync and verify ordered filing details",
+            "body": "R7: harden clock resync and verify ordered filing details\n",
+            "author": {
+              "name": "Ashwathram Prathap",
+              "email": "prathapashwathram@gmail.com",
+              "time": 1795314756000
+            },
+            "committer": {
+              "name": "Ashwathram Prathap",
+              "email": "prathapashwathram@gmail.com",
+              "time": 1795314756000
+            },
+            "branch": "main"
+          },
+          "actualWorkers": 4
+        },
+        "id": "chromium-1440-light",
+        "name": "chromium-1440-light",
+        "testDir": "/home/runner/work/dibs/dibs/tests/e2e",
+        "testIgnore": [
+          "round7.spec.ts"
+        ],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 60000
+      },
+      {
+        "outputDir": "/home/runner/work/dibs/dibs/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "ci": {
+            "commitHref": "https://github.com/ashwathram-prathap/dibs/commit/30f46d0ec397e87eea105d573ce1f1a93cc9e6c0",
+            "commitHash": "30f46d0ec397e87eea105d573ce1f1a93cc9e6c0",
+            "buildHref": "https://github.com/ashwathram-prathap/dibs/actions/runs/44976589223"
+          },
+          "gitCommit": {
+            "shortHash": "30f46d0",
+            "hash": "30f46d0ec397e87eea105d573ce1f1a93cc9e6c0",
+            "subject": "R7: harden clock resync and verify ordered filing details",
+            "body": "R7: harden clock resync and verify ordered filing details\n",
+            "author": {
+              "name": "Ashwathram Prathap",
+              "email": "prathapashwathram@gmail.com",
+              "time": 1795314756000
+            },
+            "committer": {
+              "name": "Ashwathram Prathap",
+              "email": "prathapashwathram@gmail.com",
+              "time": 1795314756000
+            },
+            "branch": "main"
+          },
+          "actualWorkers": 4
+        },
+        "id": "chromium-2560-light",
+        "name": "chromium-2560-light",
+        "testDir": "/home/runner/work/dibs/dibs/tests/e2e",
+        "testIgnore": [
+          "round7.spec.ts"
+        ],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 60000
+      },
+      {
+        "outputDir": "/home/runner/work/dibs/dibs/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "ci": {
+            "commitHref": "https://github.com/ashwathram-prathap/dibs/commit/30f46d0ec397e87eea105d573ce1f1a93cc9e6c0",
+            "commitHash": "30f46d0ec397e87eea105d573ce1f1a93cc9e6c0",
+            "buildHref": "https://github.com/ashwathram-prathap/dibs/actions/runs/44976589223"
+          },
+          "gitCommit": {
+            "shortHash": "30f46d0",
+            "hash": "30f46d0ec397e87eea105d573ce1f1a93cc9e6c0",
+            "subject": "R7: harden clock resync and verify ordered filing details",
+            "body": "R7: harden clock resync and verify ordered filing details\n",
+            "author": {
+              "name": "Ashwathram Prathap",
+              "email": "prathapashwathram@gmail.com",
+              "time": 1795314756000
+            },
+            "committer": {
+              "name": "Ashwathram Prathap",
+              "email": "prathapashwathram@gmail.com",
+              "time": 1795314756000
+            },
+            "branch": "main"
+          },
+          "actualWorkers": 4
+        },
+        "id": "webkit-1280-light",
+        "name": "webkit-1280-light",
+        "testDir": "/home/runner/work/dibs/dibs/tests/e2e",
+        "testIgnore": [
+          "round7.spec.ts"
+        ],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 60000
+      },
+      {
+        "outputDir": "/home/runner/work/dibs/dibs/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "ci": {
+            "commitHref": "https://github.com/ashwathram-prathap/dibs/commit/30f46d0ec397e87eea105d573ce1f1a93cc9e6c0",
+            "commitHash": "30f46d0ec397e87eea105d573ce1f1a93cc9e6c0",
+            "buildHref": "https://github.com/ashwathram-prathap/dibs/actions/runs/44976589223"
+          },
+          "gitCommit": {
+            "shortHash": "30f46d0",
+            "hash": "30f46d0ec397e87eea105d573ce1f1a93cc9e6c0",
+            "subject": "R7: harden clock resync and verify ordered filing details",
+            "body": "R7: harden clock resync and verify ordered filing details\n",
+            "author": {
+              "name": "Ashwathram Prathap",
+              "email": "prathapashwathram@gmail.com",
+              "time": 1795314756000
+            },
+            "committer": {
+              "name": "Ashwathram Prathap",
+              "email": "prathapashwathram@gmail.com",
+              "time": 1795314756000
+            },
+            "branch": "main"
+          },
+          "actualWorkers": 4
+        },
+        "id": "webkit-1440-light",
+        "name": "webkit-1440-light",
+        "testDir": "/home/runner/work/dibs/dibs/tests/e2e",
+        "testIgnore": [
+          "round7.spec.ts"
+        ],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 60000
+      },
+      {
+        "outputDir": "/home/runner/work/dibs/dibs/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "ci": {
+            "commitHref": "https://github.com/ashwathram-prathap/dibs/commit/30f46d0ec397e87eea105d573ce1f1a93cc9e6c0",
+            "commitHash": "30f46d0ec397e87eea105d573ce1f1a93cc9e6c0",
+            "buildHref": "https://github.com/ashwathram-prathap/dibs/actions/runs/44976589223"
+          },
+          "gitCommit": {
+            "shortHash": "30f46d0",
+            "hash": "30f46d0ec397e87eea105d573ce1f1a93cc9e6c0",
+            "subject": "R7: harden clock resync and verify ordered filing details",
+            "body": "R7: harden clock resync and verify ordered filing details\n",
+            "author": {
+              "name": "Ashwathram Prathap",
+              "email": "prathapashwathram@gmail.com",
+              "time": 1795314756000
+            },
+            "committer": {
+              "name": "Ashwathram Prathap",
+              "email": "prathapashwathram@gmail.com",
+              "time": 1795314756000
+            },
+            "branch": "main"
+          },
+          "actualWorkers": 4
+        },
+        "id": "webkit-2560-light",
+        "name": "webkit-2560-light",
+        "testDir": "/home/runner/work/dibs/dibs/tests/e2e",
+        "testIgnore": [
+          "round7.spec.ts"
+        ],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 60000
+      },
+      {
+        "outputDir": "/home/runner/work/dibs/dibs/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "ci": {
+            "commitHref": "https://github.com/ashwathram-prathap/dibs/commit/30f46d0ec397e87eea105d573ce1f1a93cc9e6c0",
+            "commitHash": "30f46d0ec397e87eea105d573ce1f1a93cc9e6c0",
+            "buildHref": "https://github.com/ashwathram-prathap/dibs/actions/runs/44976589223"
+          },
+          "gitCommit": {
+            "shortHash": "30f46d0",
+            "hash": "30f46d0ec397e87eea105d573ce1f1a93cc9e6c0",
+            "subject": "R7: harden clock resync and verify ordered filing details",
+            "body": "R7: harden clock resync and verify ordered filing details\n",
+            "author": {
+              "name": "Ashwathram Prathap",
+              "email": "prathapashwathram@gmail.com",
+              "time": 1795314756000
+            },
+            "committer": {
+              "name": "Ashwathram Prathap",
+              "email": "prathapashwathram@gmail.com",
+              "time": 1795314756000
+            },
+            "branch": "main"
+          },
+          "actualWorkers": 4
+        },
+        "id": "firefox-1280-light",
+        "name": "firefox-1280-light",
+        "testDir": "/home/runner/work/dibs/dibs/tests/e2e",
+        "testIgnore": [
+          "round7.spec.ts"
+        ],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 60000
+      },
+      {
+        "outputDir": "/home/runner/work/dibs/dibs/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "ci": {
+            "commitHref": "https://github.com/ashwathram-prathap/dibs/commit/30f46d0ec397e87eea105d573ce1f1a93cc9e6c0",
+            "commitHash": "30f46d0ec397e87eea105d573ce1f1a93cc9e6c0",
+            "buildHref": "https://github.com/ashwathram-prathap/dibs/actions/runs/44976589223"
+          },
+          "gitCommit": {
+            "shortHash": "30f46d0",
+            "hash": "30f46d0ec397e87eea105d573ce1f1a93cc9e6c0",
+            "subject": "R7: harden clock resync and verify ordered filing details",
+            "body": "R7: harden clock resync and verify ordered filing details\n",
+            "author": {
+              "name": "Ashwathram Prathap",
+              "email": "prathapashwathram@gmail.com",
+              "time": 1795314756000
+            },
+            "committer": {
+              "name": "Ashwathram Prathap",
+              "email": "prathapashwathram@gmail.com",
+              "time": 1795314756000
+            },
+            "branch": "main"
+          },
+          "actualWorkers": 4
+        },
+        "id": "firefox-1440-light",
+        "name": "firefox-1440-light",
+        "testDir": "/home/runner/work/dibs/dibs/tests/e2e",
+        "testIgnore": [
+          "round7.spec.ts"
+        ],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 60000
+      },
+      {
+        "outputDir": "/home/runner/work/dibs/dibs/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "ci": {
+            "commitHref": "https://github.com/ashwathram-prathap/dibs/commit/30f46d0ec397e87eea105d573ce1f1a93cc9e6c0",
+            "commitHash": "30f46d0ec397e87eea105d573ce1f1a93cc9e6c0",
+            "buildHref": "https://github.com/ashwathram-prathap/dibs/actions/runs/44976589223"
+          },
+          "gitCommit": {
+            "shortHash": "30f46d0",
+            "hash": "30f46d0ec397e87eea105d573ce1f1a93cc9e6c0",
+            "subject": "R7: harden clock resync and verify ordered filing details",
+            "body": "R7: harden clock resync and verify ordered filing details\n",
+            "author": {
+              "name": "Ashwathram Prathap",
+              "email": "prathapashwathram@gmail.com",
+              "time": 1795314756000
+            },
+            "committer": {
+              "name": "Ashwathram Prathap",
+              "email": "prathapashwathram@gmail.com",
+              "time": 1795314756000
+            },
+            "branch": "main"
+          },
+          "actualWorkers": 4
+        },
+        "id": "firefox-2560-light",
+        "name": "firefox-2560-light",
+        "testDir": "/home/runner/work/dibs/dibs/tests/e2e",
+        "testIgnore": [
+          "round7.spec.ts"
+        ],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 60000
+      },
+      {
+        "outputDir": "/home/runner/work/dibs/dibs/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "ci": {
+            "commitHref": "https://github.com/ashwathram-prathap/dibs/commit/30f46d0ec397e87eea105d573ce1f1a93cc9e6c0",
+            "commitHash": "30f46d0ec397e87eea105d573ce1f1a93cc9e6c0",
+            "buildHref": "https://github.com/ashwathram-prathap/dibs/actions/runs/44976589223"
+          },
+          "gitCommit": {
+            "shortHash": "30f46d0",
+            "hash": "30f46d0ec397e87eea105d573ce1f1a93cc9e6c0",
+            "subject": "R7: harden clock resync and verify ordered filing details",
+            "body": "R7: harden clock resync and verify ordered filing details\n",
+            "author": {
+              "name": "Ashwathram Prathap",
+              "email": "prathapashwathram@gmail.com",
+              "time": 1795314756000
+            },
+            "committer": {
+              "name": "Ashwathram Prathap",
+              "email": "prathapashwathram@gmail.com",
+              "time": 1795314756000
+            },
+            "branch": "main"
+          },
+          "actualWorkers": 4
+        },
+        "id": "320-small-light",
+        "name": "320-small-light",
+        "testDir": "/home/runner/work/dibs/dibs/tests/e2e",
+        "testIgnore": [
+          "round7.spec.ts"
+        ],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 60000
+      },
+      {
+        "outputDir": "/home/runner/work/dibs/dibs/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "ci": {
+            "commitHref": "https://github.com/ashwathram-prathap/dibs/commit/30f46d0ec397e87eea105d573ce1f1a93cc9e6c0",
+            "commitHash": "30f46d0ec397e87eea105d573ce1f1a93cc9e6c0",
+            "buildHref": "https://github.com/ashwathram-prathap/dibs/actions/runs/44976589223"
+          },
+          "gitCommit": {
+            "shortHash": "30f46d0",
+            "hash": "30f46d0ec397e87eea105d573ce1f1a93cc9e6c0",
+            "subject": "R7: harden clock resync and verify ordered filing details",
+            "body": "R7: harden clock resync and verify ordered filing details\n",
+            "author": {
+              "name": "Ashwathram Prathap",
+              "email": "prathapashwathram@gmail.com",
+              "time": 1795314756000
+            },
+            "committer": {
+              "name": "Ashwathram Prathap",
+              "email": "prathapashwathram@gmail.com",
+              "time": 1795314756000
+            },
+            "branch": "main"
+          },
+          "actualWorkers": 4
+        },
+        "id": "landscape-phone-light",
+        "name": "landscape-phone-light",
+        "testDir": "/home/runner/work/dibs/dibs/tests/e2e",
+        "testIgnore": [
+          "round7.spec.ts"
+        ],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 60000
+      },
+      {
+        "outputDir": "/home/runner/work/dibs/dibs/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "ci": {
+            "commitHref": "https://github.com/ashwathram-prathap/dibs/commit/30f46d0ec397e87eea105d573ce1f1a93cc9e6c0",
+            "commitHash": "30f46d0ec397e87eea105d573ce1f1a93cc9e6c0",
+            "buildHref": "https://github.com/ashwathram-prathap/dibs/actions/runs/44976589223"
+          },
+          "gitCommit": {
+            "shortHash": "30f46d0",
+            "hash": "30f46d0ec397e87eea105d573ce1f1a93cc9e6c0",
+            "subject": "R7: harden clock resync and verify ordered filing details",
+            "body": "R7: harden clock resync and verify ordered filing details\n",
+            "author": {
+              "name": "Ashwathram Prathap",
+              "email": "prathapashwathram@gmail.com",
+              "time": 1795314756000
+            },
+            "committer": {
+              "name": "Ashwathram Prathap",
+              "email": "prathapashwathram@gmail.com",
+              "time": 1795314756000
+            },
+            "branch": "main"
+          },
+          "actualWorkers": 4
+        },
+        "id": "r6-390-dark",
+        "name": "r6-390-dark",
+        "testDir": "/home/runner/work/dibs/dibs/tests/e2e",
+        "testIgnore": [
+          "round7.spec.ts"
+        ],
+        "testMatch": [
+          "specials.spec.ts"
+        ],
+        "timeout": 60000
+      },
+      {
+        "outputDir": "/home/runner/work/dibs/dibs/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "ci": {
+            "commitHref": "https://github.com/ashwathram-prathap/dibs/commit/30f46d0ec397e87eea105d573ce1f1a93cc9e6c0",
+            "commitHash": "30f46d0ec397e87eea105d573ce1f1a93cc9e6c0",
+            "buildHref": "https://github.com/ashwathram-prathap/dibs/actions/runs/44976589223"
+          },
+          "gitCommit": {
+            "shortHash": "30f46d0",
+            "hash": "30f46d0ec397e87eea105d573ce1f1a93cc9e6c0",
+            "subject": "R7: harden clock resync and verify ordered filing details",
+            "body": "R7: harden clock resync and verify ordered filing details\n",
+            "author": {
+              "name": "Ashwathram Prathap",
+              "email": "prathapashwathram@gmail.com",
+              "time": 1795314756000
+            },
+            "committer": {
+              "name": "Ashwathram Prathap",
+              "email": "prathapashwathram@gmail.com",
+              "time": 1795314756000
+            },
+            "branch": "main"
+          },
+          "actualWorkers": 4
+        },
+        "id": "iPhone-SE-dark",
+        "name": "iPhone-SE-dark",
+        "testDir": "/home/runner/work/dibs/dibs/tests/e2e",
+        "testIgnore": [
+          "round7.spec.ts"
+        ],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 60000
+      },
+      {
+        "outputDir": "/home/runner/work/dibs/dibs/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "ci": {
+            "commitHref": "https://github.com/ashwathram-prathap/dibs/commit/30f46d0ec397e87eea105d573ce1f1a93cc9e6c0",
+            "commitHash": "30f46d0ec397e87eea105d573ce1f1a93cc9e6c0",
+            "buildHref": "https://github.com/ashwathram-prathap/dibs/actions/runs/44976589223"
+          },
+          "gitCommit": {
+            "shortHash": "30f46d0",
+            "hash": "30f46d0ec397e87eea105d573ce1f1a93cc9e6c0",
+            "subject": "R7: harden clock resync and verify ordered filing details",
+            "body": "R7: harden clock resync and verify ordered filing details\n",
+            "author": {
+              "name": "Ashwathram Prathap",
+              "email": "prathapashwathram@gmail.com",
+              "time": 1795314756000
+            },
+            "committer": {
+              "name": "Ashwathram Prathap",
+              "email": "prathapashwathram@gmail.com",
+              "time": 1795314756000
+            },
+            "branch": "main"
+          },
+          "actualWorkers": 4
+        },
+        "id": "iPhone-15-Pro-dark",
+        "name": "iPhone-15-Pro-dark",
+        "testDir": "/home/runner/work/dibs/dibs/tests/e2e",
+        "testIgnore": [
+          "round7.spec.ts"
+        ],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 60000
+      },
+      {
+        "outputDir": "/home/runner/work/dibs/dibs/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "ci": {
+            "commitHref": "https://github.com/ashwathram-prathap/dibs/commit/30f46d0ec397e87eea105d573ce1f1a93cc9e6c0",
+            "commitHash": "30f46d0ec397e87eea105d573ce1f1a93cc9e6c0",
+            "buildHref": "https://github.com/ashwathram-prathap/dibs/actions/runs/44976589223"
+          },
+          "gitCommit": {
+            "shortHash": "30f46d0",
+            "hash": "30f46d0ec397e87eea105d573ce1f1a93cc9e6c0",
+            "subject": "R7: harden clock resync and verify ordered filing details",
+            "body": "R7: harden clock resync and verify ordered filing details\n",
+            "author": {
+              "name": "Ashwathram Prathap",
+              "email": "prathapashwathram@gmail.com",
+              "time": 1795314756000
+            },
+            "committer": {
+              "name": "Ashwathram Prathap",
+              "email": "prathapashwathram@gmail.com",
+              "time": 1795314756000
+            },
+            "branch": "main"
+          },
+          "actualWorkers": 4
+        },
+        "id": "iPhone-15-Pro-Max-dark",
+        "name": "iPhone-15-Pro-Max-dark",
+        "testDir": "/home/runner/work/dibs/dibs/tests/e2e",
+        "testIgnore": [
+          "round7.spec.ts"
+        ],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 60000
+      },
+      {
+        "outputDir": "/home/runner/work/dibs/dibs/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "ci": {
+            "commitHref": "https://github.com/ashwathram-prathap/dibs/commit/30f46d0ec397e87eea105d573ce1f1a93cc9e6c0",
+            "commitHash": "30f46d0ec397e87eea105d573ce1f1a93cc9e6c0",
+            "buildHref": "https://github.com/ashwathram-prathap/dibs/actions/runs/44976589223"
+          },
+          "gitCommit": {
+            "shortHash": "30f46d0",
+            "hash": "30f46d0ec397e87eea105d573ce1f1a93cc9e6c0",
+            "subject": "R7: harden clock resync and verify ordered filing details",
+            "body": "R7: harden clock resync and verify ordered filing details\n",
+            "author": {
+              "name": "Ashwathram Prathap",
+              "email": "prathapashwathram@gmail.com",
+              "time": 1795314756000
+            },
+            "committer": {
+              "name": "Ashwathram Prathap",
+              "email": "prathapashwathram@gmail.com",
+              "time": 1795314756000
+            },
+            "branch": "main"
+          },
+          "actualWorkers": 4
+        },
+        "id": "Pixel-7-dark",
+        "name": "Pixel-7-dark",
+        "testDir": "/home/runner/work/dibs/dibs/tests/e2e",
+        "testIgnore": [
+          "round7.spec.ts"
+        ],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 60000
+      },
+      {
+        "outputDir": "/home/runner/work/dibs/dibs/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "ci": {
+            "commitHref": "https://github.com/ashwathram-prathap/dibs/commit/30f46d0ec397e87eea105d573ce1f1a93cc9e6c0",
+            "commitHash": "30f46d0ec397e87eea105d573ce1f1a93cc9e6c0",
+            "buildHref": "https://github.com/ashwathram-prathap/dibs/actions/runs/44976589223"
+          },
+          "gitCommit": {
+            "shortHash": "30f46d0",
+            "hash": "30f46d0ec397e87eea105d573ce1f1a93cc9e6c0",
+            "subject": "R7: harden clock resync and verify ordered filing details",
+            "body": "R7: harden clock resync and verify ordered filing details\n",
+            "author": {
+              "name": "Ashwathram Prathap",
+              "email": "prathapashwathram@gmail.com",
+              "time": 1795314756000
+            },
+            "committer": {
+              "name": "Ashwathram Prathap",
+              "email": "prathapashwathram@gmail.com",
+              "time": 1795314756000
+            },
+            "branch": "main"
+          },
+          "actualWorkers": 4
+        },
+        "id": "Galaxy-S9+-dark",
+        "name": "Galaxy-S9+-dark",
+        "testDir": "/home/runner/work/dibs/dibs/tests/e2e",
+        "testIgnore": [
+          "round7.spec.ts"
+        ],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 60000
+      },
+      {
+        "outputDir": "/home/runner/work/dibs/dibs/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "ci": {
+            "commitHref": "https://github.com/ashwathram-prathap/dibs/commit/30f46d0ec397e87eea105d573ce1f1a93cc9e6c0",
+            "commitHash": "30f46d0ec397e87eea105d573ce1f1a93cc9e6c0",
+            "buildHref": "https://github.com/ashwathram-prathap/dibs/actions/runs/44976589223"
+          },
+          "gitCommit": {
+            "shortHash": "30f46d0",
+            "hash": "30f46d0ec397e87eea105d573ce1f1a93cc9e6c0",
+            "subject": "R7: harden clock resync and verify ordered filing details",
+            "body": "R7: harden clock resync and verify ordered filing details\n",
+            "author": {
+              "name": "Ashwathram Prathap",
+              "email": "prathapashwathram@gmail.com",
+              "time": 1795314756000
+            },
+            "committer": {
+              "name": "Ashwathram Prathap",
+              "email": "prathapashwathram@gmail.com",
+              "time": 1795314756000
+            },
+            "branch": "main"
+          },
+          "actualWorkers": 4
+        },
+        "id": "iPad-Mini-dark",
+        "name": "iPad-Mini-dark",
+        "testDir": "/home/runner/work/dibs/dibs/tests/e2e",
+        "testIgnore": [
+          "round7.spec.ts"
+        ],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 60000
+      },
+      {
+        "outputDir": "/home/runner/work/dibs/dibs/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "ci": {
+            "commitHref": "https://github.com/ashwathram-prathap/dibs/commit/30f46d0ec397e87eea105d573ce1f1a93cc9e6c0",
+            "commitHash": "30f46d0ec397e87eea105d573ce1f1a93cc9e6c0",
+            "buildHref": "https://github.com/ashwathram-prathap/dibs/actions/runs/44976589223"
+          },
+          "gitCommit": {
+            "shortHash": "30f46d0",
+            "hash": "30f46d0ec397e87eea105d573ce1f1a93cc9e6c0",
+            "subject": "R7: harden clock resync and verify ordered filing details",
+            "body": "R7: harden clock resync and verify ordered filing details\n",
+            "author": {
+              "name": "Ashwathram Prathap",
+              "email": "prathapashwathram@gmail.com",
+              "time": 1795314756000
+            },
+            "committer": {
+              "name": "Ashwathram Prathap",
+              "email": "prathapashwathram@gmail.com",
+              "time": 1795314756000
+            },
+            "branch": "main"
+          },
+          "actualWorkers": 4
+        },
+        "id": "iPad-Pro-11-landscape-dark",
+        "name": "iPad-Pro-11-landscape-dark",
+        "testDir": "/home/runner/work/dibs/dibs/tests/e2e",
+        "testIgnore": [
+          "round7.spec.ts"
+        ],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 60000
+      },
+      {
+        "outputDir": "/home/runner/work/dibs/dibs/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "ci": {
+            "commitHref": "https://github.com/ashwathram-prathap/dibs/commit/30f46d0ec397e87eea105d573ce1f1a93cc9e6c0",
+            "commitHash": "30f46d0ec397e87eea105d573ce1f1a93cc9e6c0",
+            "buildHref": "https://github.com/ashwathram-prathap/dibs/actions/runs/44976589223"
+          },
+          "gitCommit": {
+            "shortHash": "30f46d0",
+            "hash": "30f46d0ec397e87eea105d573ce1f1a93cc9e6c0",
+            "subject": "R7: harden clock resync and verify ordered filing details",
+            "body": "R7: harden clock resync and verify ordered filing details\n",
+            "author": {
+              "name": "Ashwathram Prathap",
+              "email": "prathapashwathram@gmail.com",
+              "time": 1795314756000
+            },
+            "committer": {
+              "name": "Ashwathram Prathap",
+              "email": "prathapashwathram@gmail.com",
+              "time": 1795314756000
+            },
+            "branch": "main"
+          },
+          "actualWorkers": 4
+        },
+        "id": "chromium-1280-dark",
+        "name": "chromium-1280-dark",
+        "testDir": "/home/runner/work/dibs/dibs/tests/e2e",
+        "testIgnore": [
+          "round7.spec.ts"
+        ],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 60000
+      },
+      {
+        "outputDir": "/home/runner/work/dibs/dibs/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "ci": {
+            "commitHref": "https://github.com/ashwathram-prathap/dibs/commit/30f46d0ec397e87eea105d573ce1f1a93cc9e6c0",
+            "commitHash": "30f46d0ec397e87eea105d573ce1f1a93cc9e6c0",
+            "buildHref": "https://github.com/ashwathram-prathap/dibs/actions/runs/44976589223"
+          },
+          "gitCommit": {
+            "shortHash": "30f46d0",
+            "hash": "30f46d0ec397e87eea105d573ce1f1a93cc9e6c0",
+            "subject": "R7: harden clock resync and verify ordered filing details",
+            "body": "R7: harden clock resync and verify ordered filing details\n",
+            "author": {
+              "name": "Ashwathram Prathap",
+              "email": "prathapashwathram@gmail.com",
+              "time": 1795314756000
+            },
+            "committer": {
+              "name": "Ashwathram Prathap",
+              "email": "prathapashwathram@gmail.com",
+              "time": 1795314756000
+            },
+            "branch": "main"
+          },
+          "actualWorkers": 4
+        },
+        "id": "chromium-1440-dark",
+        "name": "chromium-1440-dark",
+        "testDir": "/home/runner/work/dibs/dibs/tests/e2e",
+        "testIgnore": [
+          "round7.spec.ts"
+        ],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 60000
+      },
+      {
+        "outputDir": "/home/runner/work/dibs/dibs/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "ci": {
+            "commitHref": "https://github.com/ashwathram-prathap/dibs/commit/30f46d0ec397e87eea105d573ce1f1a93cc9e6c0",
+            "commitHash": "30f46d0ec397e87eea105d573ce1f1a93cc9e6c0",
+            "buildHref": "https://github.com/ashwathram-prathap/dibs/actions/runs/44976589223"
+          },
+          "gitCommit": {
+            "shortHash": "30f46d0",
+            "hash": "30f46d0ec397e87eea105d573ce1f1a93cc9e6c0",
+            "subject": "R7: harden clock resync and verify ordered filing details",
+            "body": "R7: harden clock resync and verify ordered filing details\n",
+            "author": {
+              "name": "Ashwathram Prathap",
+              "email": "prathapashwathram@gmail.com",
+              "time": 1795314756000
+            },
+            "committer": {
+              "name": "Ashwathram Prathap",
+              "email": "prathapashwathram@gmail.com",
+              "time": 1795314756000
+            },
+            "branch": "main"
+          },
+          "actualWorkers": 4
+        },
+        "id": "chromium-2560-dark",
+        "name": "chromium-2560-dark",
+        "testDir": "/home/runner/work/dibs/dibs/tests/e2e",
+        "testIgnore": [
+          "round7.spec.ts"
+        ],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 60000
+      },
+      {
+        "outputDir": "/home/runner/work/dibs/dibs/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "ci": {
+            "commitHref": "https://github.com/ashwathram-prathap/dibs/commit/30f46d0ec397e87eea105d573ce1f1a93cc9e6c0",
+            "commitHash": "30f46d0ec397e87eea105d573ce1f1a93cc9e6c0",
+            "buildHref": "https://github.com/ashwathram-prathap/dibs/actions/runs/44976589223"
+          },
+          "gitCommit": {
+            "shortHash": "30f46d0",
+            "hash": "30f46d0ec397e87eea105d573ce1f1a93cc9e6c0",
+            "subject": "R7: harden clock resync and verify ordered filing details",
+            "body": "R7: harden clock resync and verify ordered filing details\n",
+            "author": {
+              "name": "Ashwathram Prathap",
+              "email": "prathapashwathram@gmail.com",
+              "time": 1795314756000
+            },
+            "committer": {
+              "name": "Ashwathram Prathap",
+              "email": "prathapashwathram@gmail.com",
+              "time": 1795314756000
+            },
+            "branch": "main"
+          },
+          "actualWorkers": 4
+        },
+        "id": "webkit-1280-dark",
+        "name": "webkit-1280-dark",
+        "testDir": "/home/runner/work/dibs/dibs/tests/e2e",
+        "testIgnore": [
+          "round7.spec.ts"
+        ],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 60000
+      },
+      {
+        "outputDir": "/home/runner/work/dibs/dibs/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "ci": {
+            "commitHref": "https://github.com/ashwathram-prathap/dibs/commit/30f46d0ec397e87eea105d573ce1f1a93cc9e6c0",
+            "commitHash": "30f46d0ec397e87eea105d573ce1f1a93cc9e6c0",
+            "buildHref": "https://github.com/ashwathram-prathap/dibs/actions/runs/44976589223"
+          },
+          "gitCommit": {
+            "shortHash": "30f46d0",
+            "hash": "30f46d0ec397e87eea105d573ce1f1a93cc9e6c0",
+            "subject": "R7: harden clock resync and verify ordered filing details",
+            "body": "R7: harden clock resync and verify ordered filing details\n",
+            "author": {
+              "name": "Ashwathram Prathap",
+              "email": "prathapashwathram@gmail.com",
+              "time": 1795314756000
+            },
+            "committer": {
+              "name": "Ashwathram Prathap",
+              "email": "prathapashwathram@gmail.com",
+              "time": 1795314756000
+            },
+            "branch": "main"
+          },
+          "actualWorkers": 4
+        },
+        "id": "webkit-1440-dark",
+        "name": "webkit-1440-dark",
+        "testDir": "/home/runner/work/dibs/dibs/tests/e2e",
+        "testIgnore": [
+          "round7.spec.ts"
+        ],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 60000
+      },
+      {
+        "outputDir": "/home/runner/work/dibs/dibs/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "ci": {
+            "commitHref": "https://github.com/ashwathram-prathap/dibs/commit/30f46d0ec397e87eea105d573ce1f1a93cc9e6c0",
+            "commitHash": "30f46d0ec397e87eea105d573ce1f1a93cc9e6c0",
+            "buildHref": "https://github.com/ashwathram-prathap/dibs/actions/runs/44976589223"
+          },
+          "gitCommit": {
+            "shortHash": "30f46d0",
+            "hash": "30f46d0ec397e87eea105d573ce1f1a93cc9e6c0",
+            "subject": "R7: harden clock resync and verify ordered filing details",
+            "body": "R7: harden clock resync and verify ordered filing details\n",
+            "author": {
+              "name": "Ashwathram Prathap",
+              "email": "prathapashwathram@gmail.com",
+              "time": 1795314756000
+            },
+            "committer": {
+              "name": "Ashwathram Prathap",
+              "email": "prathapashwathram@gmail.com",
+              "time": 1795314756000
+            },
+            "branch": "main"
+          },
+          "actualWorkers": 4
+        },
+        "id": "webkit-2560-dark",
+        "name": "webkit-2560-dark",
+        "testDir": "/home/runner/work/dibs/dibs/tests/e2e",
+        "testIgnore": [
+          "round7.spec.ts"
+        ],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 60000
+      },
+      {
+        "outputDir": "/home/runner/work/dibs/dibs/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "ci": {
+            "commitHref": "https://github.com/ashwathram-prathap/dibs/commit/30f46d0ec397e87eea105d573ce1f1a93cc9e6c0",
+            "commitHash": "30f46d0ec397e87eea105d573ce1f1a93cc9e6c0",
+            "buildHref": "https://github.com/ashwathram-prathap/dibs/actions/runs/44976589223"
+          },
+          "gitCommit": {
+            "shortHash": "30f46d0",
+            "hash": "30f46d0ec397e87eea105d573ce1f1a93cc9e6c0",
+            "subject": "R7: harden clock resync and verify ordered filing details",
+            "body": "R7: harden clock resync and verify ordered filing details\n",
+            "author": {
+              "name": "Ashwathram Prathap",
+              "email": "prathapashwathram@gmail.com",
+              "time": 1795314756000
+            },
+            "committer": {
+              "name": "Ashwathram Prathap",
+              "email": "prathapashwathram@gmail.com",
+              "time": 1795314756000
+            },
+            "branch": "main"
+          },
+          "actualWorkers": 4
+        },
+        "id": "firefox-1280-dark",
+        "name": "firefox-1280-dark",
+        "testDir": "/home/runner/work/dibs/dibs/tests/e2e",
+        "testIgnore": [
+          "round7.spec.ts"
+        ],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 60000
+      },
+      {
+        "outputDir": "/home/runner/work/dibs/dibs/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "ci": {
+            "commitHref": "https://github.com/ashwathram-prathap/dibs/commit/30f46d0ec397e87eea105d573ce1f1a93cc9e6c0",
+            "commitHash": "30f46d0ec397e87eea105d573ce1f1a93cc9e6c0",
+            "buildHref": "https://github.com/ashwathram-prathap/dibs/actions/runs/44976589223"
+          },
+          "gitCommit": {
+            "shortHash": "30f46d0",
+            "hash": "30f46d0ec397e87eea105d573ce1f1a93cc9e6c0",
+            "subject": "R7: harden clock resync and verify ordered filing details",
+            "body": "R7: harden clock resync and verify ordered filing details\n",
+            "author": {
+              "name": "Ashwathram Prathap",
+              "email": "prathapashwathram@gmail.com",
+              "time": 1795314756000
+            },
+            "committer": {
+              "name": "Ashwathram Prathap",
+              "email": "prathapashwathram@gmail.com",
+              "time": 1795314756000
+            },
+            "branch": "main"
+          },
+          "actualWorkers": 4
+        },
+        "id": "firefox-1440-dark",
+        "name": "firefox-1440-dark",
+        "testDir": "/home/runner/work/dibs/dibs/tests/e2e",
+        "testIgnore": [
+          "round7.spec.ts"
+        ],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 60000
+      },
+      {
+        "outputDir": "/home/runner/work/dibs/dibs/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "ci": {
+            "commitHref": "https://github.com/ashwathram-prathap/dibs/commit/30f46d0ec397e87eea105d573ce1f1a93cc9e6c0",
+            "commitHash": "30f46d0ec397e87eea105d573ce1f1a93cc9e6c0",
+            "buildHref": "https://github.com/ashwathram-prathap/dibs/actions/runs/44976589223"
+          },
+          "gitCommit": {
+            "shortHash": "30f46d0",
+            "hash": "30f46d0ec397e87eea105d573ce1f1a93cc9e6c0",
+            "subject": "R7: harden clock resync and verify ordered filing details",
+            "body": "R7: harden clock resync and verify ordered filing details\n",
+            "author": {
+              "name": "Ashwathram Prathap",
+              "email": "prathapashwathram@gmail.com",
+              "time": 1795314756000
+            },
+            "committer": {
+              "name": "Ashwathram Prathap",
+              "email": "prathapashwathram@gmail.com",
+              "time": 1795314756000
+            },
+            "branch": "main"
+          },
+          "actualWorkers": 4
+        },
+        "id": "firefox-2560-dark",
+        "name": "firefox-2560-dark",
+        "testDir": "/home/runner/work/dibs/dibs/tests/e2e",
+        "testIgnore": [
+          "round7.spec.ts"
+        ],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 60000
+      },
+      {
+        "outputDir": "/home/runner/work/dibs/dibs/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "ci": {
+            "commitHref": "https://github.com/ashwathram-prathap/dibs/commit/30f46d0ec397e87eea105d573ce1f1a93cc9e6c0",
+            "commitHash": "30f46d0ec397e87eea105d573ce1f1a93cc9e6c0",
+            "buildHref": "https://github.com/ashwathram-prathap/dibs/actions/runs/44976589223"
+          },
+          "gitCommit": {
+            "shortHash": "30f46d0",
+            "hash": "30f46d0ec397e87eea105d573ce1f1a93cc9e6c0",
+            "subject": "R7: harden clock resync and verify ordered filing details",
+            "body": "R7: harden clock resync and verify ordered filing details\n",
+            "author": {
+              "name": "Ashwathram Prathap",
+              "email": "prathapashwathram@gmail.com",
+              "time": 1795314756000
+            },
+            "committer": {
+              "name": "Ashwathram Prathap",
+              "email": "prathapashwathram@gmail.com",
+              "time": 1795314756000
+            },
+            "branch": "main"
+          },
+          "actualWorkers": 4
+        },
+        "id": "320-small-dark",
+        "name": "320-small-dark",
+        "testDir": "/home/runner/work/dibs/dibs/tests/e2e",
+        "testIgnore": [
+          "round7.spec.ts"
+        ],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 60000
+      },
+      {
+        "outputDir": "/home/runner/work/dibs/dibs/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "ci": {
+            "commitHref": "https://github.com/ashwathram-prathap/dibs/commit/30f46d0ec397e87eea105d573ce1f1a93cc9e6c0",
+            "commitHash": "30f46d0ec397e87eea105d573ce1f1a93cc9e6c0",
+            "buildHref": "https://github.com/ashwathram-prathap/dibs/actions/runs/44976589223"
+          },
+          "gitCommit": {
+            "shortHash": "30f46d0",
+            "hash": "30f46d0ec397e87eea105d573ce1f1a93cc9e6c0",
+            "subject": "R7: harden clock resync and verify ordered filing details",
+            "body": "R7: harden clock resync and verify ordered filing details\n",
+            "author": {
+              "name": "Ashwathram Prathap",
+              "email": "prathapashwathram@gmail.com",
+              "time": 1795314756000
+            },
+            "committer": {
+              "name": "Ashwathram Prathap",
+              "email": "prathapashwathram@gmail.com",
+              "time": 1795314756000
+            },
+            "branch": "main"
+          },
+          "actualWorkers": 4
+        },
+        "id": "landscape-phone-dark",
+        "name": "landscape-phone-dark",
+        "testDir": "/home/runner/work/dibs/dibs/tests/e2e",
+        "testIgnore": [
+          "round7.spec.ts"
+        ],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 60000
+      },
+      {
+        "outputDir": "/home/runner/work/dibs/dibs/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "ci": {
+            "commitHref": "https://github.com/ashwathram-prathap/dibs/commit/30f46d0ec397e87eea105d573ce1f1a93cc9e6c0",
+            "commitHash": "30f46d0ec397e87eea105d573ce1f1a93cc9e6c0",
+            "buildHref": "https://github.com/ashwathram-prathap/dibs/actions/runs/44976589223"
+          },
+          "gitCommit": {
+            "shortHash": "30f46d0",
+            "hash": "30f46d0ec397e87eea105d573ce1f1a93cc9e6c0",
+            "subject": "R7: harden clock resync and verify ordered filing details",
+            "body": "R7: harden clock resync and verify ordered filing details\n",
+            "author": {
+              "name": "Ashwathram Prathap",
+              "email": "prathapashwathram@gmail.com",
+              "time": 1795314756000
+            },
+            "committer": {
+              "name": "Ashwathram Prathap",
+              "email": "prathapashwathram@gmail.com",
+              "time": 1795314756000
+            },
+            "branch": "main"
+          },
+          "actualWorkers": 4
+        },
+        "id": "Instagram-iPhone-15-Pro",
+        "name": "Instagram-iPhone-15-Pro",
+        "testDir": "/home/runner/work/dibs/dibs/tests/e2e",
+        "testIgnore": [
+          "round7.spec.ts"
+        ],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 60000
+      },
+      {
+        "outputDir": "/home/runner/work/dibs/dibs/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "ci": {
+            "commitHref": "https://github.com/ashwathram-prathap/dibs/commit/30f46d0ec397e87eea105d573ce1f1a93cc9e6c0",
+            "commitHash": "30f46d0ec397e87eea105d573ce1f1a93cc9e6c0",
+            "buildHref": "https://github.com/ashwathram-prathap/dibs/actions/runs/44976589223"
+          },
+          "gitCommit": {
+            "shortHash": "30f46d0",
+            "hash": "30f46d0ec397e87eea105d573ce1f1a93cc9e6c0",
+            "subject": "R7: harden clock resync and verify ordered filing details",
+            "body": "R7: harden clock resync and verify ordered filing details\n",
+            "author": {
+              "name": "Ashwathram Prathap",
+              "email": "prathapashwathram@gmail.com",
+              "time": 1795314756000
+            },
+            "committer": {
+              "name": "Ashwathram Prathap",
+              "email": "prathapashwathram@gmail.com",
+              "time": 1795314756000
+            },
+            "branch": "main"
+          },
+          "actualWorkers": 4
+        },
+        "id": "Instagram-Pixel-7",
+        "name": "Instagram-Pixel-7",
+        "testDir": "/home/runner/work/dibs/dibs/tests/e2e",
+        "testIgnore": [
+          "round7.spec.ts"
+        ],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 60000
+      },
+      {
+        "outputDir": "/home/runner/work/dibs/dibs/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "ci": {
+            "commitHref": "https://github.com/ashwathram-prathap/dibs/commit/30f46d0ec397e87eea105d573ce1f1a93cc9e6c0",
+            "commitHash": "30f46d0ec397e87eea105d573ce1f1a93cc9e6c0",
+            "buildHref": "https://github.com/ashwathram-prathap/dibs/actions/runs/44976589223"
+          },
+          "gitCommit": {
+            "shortHash": "30f46d0",
+            "hash": "30f46d0ec397e87eea105d573ce1f1a93cc9e6c0",
+            "subject": "R7: harden clock resync and verify ordered filing details",
+            "body": "R7: harden clock resync and verify ordered filing details\n",
+            "author": {
+              "name": "Ashwathram Prathap",
+              "email": "prathapashwathram@gmail.com",
+              "time": 1795314756000
+            },
+            "committer": {
+              "name": "Ashwathram Prathap",
+              "email": "prathapashwathram@gmail.com",
+              "time": 1795314756000
+            },
+            "branch": "main"
+          },
+          "actualWorkers": 4
+        },
+        "id": "TikTok-iPhone-15-Pro",
+        "name": "TikTok-iPhone-15-Pro",
+        "testDir": "/home/runner/work/dibs/dibs/tests/e2e",
+        "testIgnore": [
+          "round7.spec.ts"
+        ],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 60000
+      },
+      {
+        "outputDir": "/home/runner/work/dibs/dibs/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "ci": {
+            "commitHref": "https://github.com/ashwathram-prathap/dibs/commit/30f46d0ec397e87eea105d573ce1f1a93cc9e6c0",
+            "commitHash": "30f46d0ec397e87eea105d573ce1f1a93cc9e6c0",
+            "buildHref": "https://github.com/ashwathram-prathap/dibs/actions/runs/44976589223"
+          },
+          "gitCommit": {
+            "shortHash": "30f46d0",
+            "hash": "30f46d0ec397e87eea105d573ce1f1a93cc9e6c0",
+            "subject": "R7: harden clock resync and verify ordered filing details",
+            "body": "R7: harden clock resync and verify ordered filing details\n",
+            "author": {
+              "name": "Ashwathram Prathap",
+              "email": "prathapashwathram@gmail.com",
+              "time": 1795314756000
+            },
+            "committer": {
+              "name": "Ashwathram Prathap",
+              "email": "prathapashwathram@gmail.com",
+              "time": 1795314756000
+            },
+            "branch": "main"
+          },
+          "actualWorkers": 4
+        },
+        "id": "TikTok-Pixel-7",
+        "name": "TikTok-Pixel-7",
+        "testDir": "/home/runner/work/dibs/dibs/tests/e2e",
+        "testIgnore": [
+          "round7.spec.ts"
+        ],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 60000
+      },
+      {
+        "outputDir": "/home/runner/work/dibs/dibs/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "ci": {
+            "commitHref": "https://github.com/ashwathram-prathap/dibs/commit/30f46d0ec397e87eea105d573ce1f1a93cc9e6c0",
+            "commitHash": "30f46d0ec397e87eea105d573ce1f1a93cc9e6c0",
+            "buildHref": "https://github.com/ashwathram-prathap/dibs/actions/runs/44976589223"
+          },
+          "gitCommit": {
+            "shortHash": "30f46d0",
+            "hash": "30f46d0ec397e87eea105d573ce1f1a93cc9e6c0",
+            "subject": "R7: harden clock resync and verify ordered filing details",
+            "body": "R7: harden clock resync and verify ordered filing details\n",
+            "author": {
+              "name": "Ashwathram Prathap",
+              "email": "prathapashwathram@gmail.com",
+              "time": 1795314756000
+            },
+            "committer": {
+              "name": "Ashwathram Prathap",
+              "email": "prathapashwathram@gmail.com",
+              "time": 1795314756000
+            },
+            "branch": "main"
+          },
+          "actualWorkers": 4
+        },
+        "id": "X-iPhone-15-Pro",
+        "name": "X-iPhone-15-Pro",
+        "testDir": "/home/runner/work/dibs/dibs/tests/e2e",
+        "testIgnore": [
+          "round7.spec.ts"
+        ],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 60000
+      },
+      {
+        "outputDir": "/home/runner/work/dibs/dibs/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "ci": {
+            "commitHref": "https://github.com/ashwathram-prathap/dibs/commit/30f46d0ec397e87eea105d573ce1f1a93cc9e6c0",
+            "commitHash": "30f46d0ec397e87eea105d573ce1f1a93cc9e6c0",
+            "buildHref": "https://github.com/ashwathram-prathap/dibs/actions/runs/44976589223"
+          },
+          "gitCommit": {
+            "shortHash": "30f46d0",
+            "hash": "30f46d0ec397e87eea105d573ce1f1a93cc9e6c0",
+            "subject": "R7: harden clock resync and verify ordered filing details",
+            "body": "R7: harden clock resync and verify ordered filing details\n",
+            "author": {
+              "name": "Ashwathram Prathap",
+              "email": "prathapashwathram@gmail.com",
+              "time": 1795314756000
+            },
+            "committer": {
+              "name": "Ashwathram Prathap",
+              "email": "prathapashwathram@gmail.com",
+              "time": 1795314756000
+            },
+            "branch": "main"
+          },
+          "actualWorkers": 4
+        },
+        "id": "X-Pixel-7",
+        "name": "X-Pixel-7",
+        "testDir": "/home/runner/work/dibs/dibs/tests/e2e",
+        "testIgnore": [
+          "round7.spec.ts"
+        ],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 60000
+      }
+    ],
+    "filteredProjects": [
+      {
+        "grep": {},
+        "grepInvert": null,
+        "outputDir": "/home/runner/work/dibs/dibs/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "ci": {
+            "commitHref": "https://github.com/ashwathram-prathap/dibs/commit/30f46d0ec397e87eea105d573ce1f1a93cc9e6c0",
+            "commitHash": "30f46d0ec397e87eea105d573ce1f1a93cc9e6c0",
+            "buildHref": "https://github.com/ashwathram-prathap/dibs/actions/runs/44976589223"
+          },
+          "gitCommit": {
+            "shortHash": "30f46d0",
+            "hash": "30f46d0ec397e87eea105d573ce1f1a93cc9e6c0",
+            "subject": "R7: harden clock resync and verify ordered filing details",
+            "body": "R7: harden clock resync and verify ordered filing details\n",
+            "author": {
+              "name": "Ashwathram Prathap",
+              "email": "prathapashwathram@gmail.com",
+              "time": 1795314756000
+            },
+            "committer": {
+              "name": "Ashwathram Prathap",
+              "email": "prathapashwathram@gmail.com",
+              "time": 1795314756000
+            },
+            "branch": "main"
+          },
+          "actualWorkers": 4
+        },
+        "name": "firefox-1280-light",
+        "testDir": "/home/runner/work/dibs/dibs/tests/e2e",
+        "snapshotDir": "/home/runner/work/dibs/dibs/tests/e2e",
+        "testIgnore": "round7.spec.ts",
+        "testMatch": "**/*.@(spec|test).?(c|m)[jt]s?(x)",
+        "timeout": 60000,
+        "use": {
+          "baseURL": "http://127.0.0.1:5173",
+          "trace": "retain-on-failure",
+          "browserName": "firefox",
+          "viewport": {
+            "width": 1280,
+            "height": 900
+          },
+          "colorScheme": "light"
+        },
+        "dependencies": [],
+        "ignoreSnapshots": false,
+        "__projectId": "firefox-1280-light"
+      },
+      {
+        "grep": {},
+        "grepInvert": null,
+        "outputDir": "/home/runner/work/dibs/dibs/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "ci": {
+            "commitHref": "https://github.com/ashwathram-prathap/dibs/commit/30f46d0ec397e87eea105d573ce1f1a93cc9e6c0",
+            "commitHash": "30f46d0ec397e87eea105d573ce1f1a93cc9e6c0",
+            "buildHref": "https://github.com/ashwathram-prathap/dibs/actions/runs/44976589223"
+          },
+          "gitCommit": {
+            "shortHash": "30f46d0",
+            "hash": "30f46d0ec397e87eea105d573ce1f1a93cc9e6c0",
+            "subject": "R7: harden clock resync and verify ordered filing details",
+            "body": "R7: harden clock resync and verify ordered filing details\n",
+            "author": {
+              "name": "Ashwathram Prathap",
+              "email": "prathapashwathram@gmail.com",
+              "time": 1795314756000
+            },
+            "committer": {
+              "name": "Ashwathram Prathap",
+              "email": "prathapashwathram@gmail.com",
+              "time": 1795314756000
+            },
+            "branch": "main"
+          },
+          "actualWorkers": 4
+        },
+        "name": "firefox-1440-light",
+        "testDir": "/home/runner/work/dibs/dibs/tests/e2e",
+        "snapshotDir": "/home/runner/work/dibs/dibs/tests/e2e",
+        "testIgnore": "round7.spec.ts",
+        "testMatch": "**/*.@(spec|test).?(c|m)[jt]s?(x)",
+        "timeout": 60000,
+        "use": {
+          "baseURL": "http://127.0.0.1:5173",
+          "trace": "retain-on-failure",
+          "browserName": "firefox",
+          "viewport": {
+            "width": 1440,
+            "height": 900
+          },
+          "colorScheme": "light"
+        },
+        "dependencies": [],
+        "ignoreSnapshots": false,
+        "__projectId": "firefox-1440-light"
+      },
+      {
+        "grep": {},
+        "grepInvert": null,
+        "outputDir": "/home/runner/work/dibs/dibs/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "ci": {
+            "commitHref": "https://github.com/ashwathram-prathap/dibs/commit/30f46d0ec397e87eea105d573ce1f1a93cc9e6c0",
+            "commitHash": "30f46d0ec397e87eea105d573ce1f1a93cc9e6c0",
+            "buildHref": "https://github.com/ashwathram-prathap/dibs/actions/runs/44976589223"
+          },
+          "gitCommit": {
+            "shortHash": "30f46d0",
+            "hash": "30f46d0ec397e87eea105d573ce1f1a93cc9e6c0",
+            "subject": "R7: harden clock resync and verify ordered filing details",
+            "body": "R7: harden clock resync and verify ordered filing details\n",
+            "author": {
+              "name": "Ashwathram Prathap",
+              "email": "prathapashwathram@gmail.com",
+              "time": 1795314756000
+            },
+            "committer": {
+              "name": "Ashwathram Prathap",
+              "email": "prathapashwathram@gmail.com",
+              "time": 1795314756000
+            },
+            "branch": "main"
+          },
+          "actualWorkers": 4
+        },
+        "name": "firefox-2560-light",
+        "testDir": "/home/runner/work/dibs/dibs/tests/e2e",
+        "snapshotDir": "/home/runner/work/dibs/dibs/tests/e2e",
+        "testIgnore": "round7.spec.ts",
+        "testMatch": "**/*.@(spec|test).?(c|m)[jt]s?(x)",
+        "timeout": 60000,
+        "use": {
+          "baseURL": "http://127.0.0.1:5173",
+          "trace": "retain-on-failure",
+          "browserName": "firefox",
+          "viewport": {
+            "width": 2560,
+            "height": 900
+          },
+          "colorScheme": "light"
+        },
+        "dependencies": [],
+        "ignoreSnapshots": false,
+        "__projectId": "firefox-2560-light"
+      },
+      {
+        "grep": {},
+        "grepInvert": null,
+        "outputDir": "/home/runner/work/dibs/dibs/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "ci": {
+            "commitHref": "https://github.com/ashwathram-prathap/dibs/commit/30f46d0ec397e87eea105d573ce1f1a93cc9e6c0",
+            "commitHash": "30f46d0ec397e87eea105d573ce1f1a93cc9e6c0",
+            "buildHref": "https://github.com/ashwathram-prathap/dibs/actions/runs/44976589223"
+          },
+          "gitCommit": {
+            "shortHash": "30f46d0",
+            "hash": "30f46d0ec397e87eea105d573ce1f1a93cc9e6c0",
+            "subject": "R7: harden clock resync and verify ordered filing details",
+            "body": "R7: harden clock resync and verify ordered filing details\n",
+            "author": {
+              "name": "Ashwathram Prathap",
+              "email": "prathapashwathram@gmail.com",
+              "time": 1795314756000
+            },
+            "committer": {
+              "name": "Ashwathram Prathap",
+              "email": "prathapashwathram@gmail.com",
+              "time": 1795314756000
+            },
+            "branch": "main"
+          },
+          "actualWorkers": 4
+        },
+        "name": "firefox-1280-dark",
+        "testDir": "/home/runner/work/dibs/dibs/tests/e2e",
+        "snapshotDir": "/home/runner/work/dibs/dibs/tests/e2e",
+        "testIgnore": "round7.spec.ts",
+        "testMatch": "**/*.@(spec|test).?(c|m)[jt]s?(x)",
+        "timeout": 60000,
+        "use": {
+          "baseURL": "http://127.0.0.1:5173",
+          "trace": "retain-on-failure",
+          "browserName": "firefox",
+          "viewport": {
+            "width": 1280,
+            "height": 900
+          },
+          "colorScheme": "dark"
+        },
+        "dependencies": [],
+        "ignoreSnapshots": false,
+        "__projectId": "firefox-1280-dark"
+      },
+      {
+        "grep": {},
+        "grepInvert": null,
+        "outputDir": "/home/runner/work/dibs/dibs/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "ci": {
+            "commitHref": "https://github.com/ashwathram-prathap/dibs/commit/30f46d0ec397e87eea105d573ce1f1a93cc9e6c0",
+            "commitHash": "30f46d0ec397e87eea105d573ce1f1a93cc9e6c0",
+            "buildHref": "https://github.com/ashwathram-prathap/dibs/actions/runs/44976589223"
+          },
+          "gitCommit": {
+            "shortHash": "30f46d0",
+            "hash": "30f46d0ec397e87eea105d573ce1f1a93cc9e6c0",
+            "subject": "R7: harden clock resync and verify ordered filing details",
+            "body": "R7: harden clock resync and verify ordered filing details\n",
+            "author": {
+              "name": "Ashwathram Prathap",
+              "email": "prathapashwathram@gmail.com",
+              "time": 1795314756000
+            },
+            "committer": {
+              "name": "Ashwathram Prathap",
+              "email": "prathapashwathram@gmail.com",
+              "time": 1795314756000
+            },
+            "branch": "main"
+          },
+          "actualWorkers": 4
+        },
+        "name": "firefox-1440-dark",
+        "testDir": "/home/runner/work/dibs/dibs/tests/e2e",
+        "snapshotDir": "/home/runner/work/dibs/dibs/tests/e2e",
+        "testIgnore": "round7.spec.ts",
+        "testMatch": "**/*.@(spec|test).?(c|m)[jt]s?(x)",
+        "timeout": 60000,
+        "use": {
+          "baseURL": "http://127.0.0.1:5173",
+          "trace": "retain-on-failure",
+          "browserName": "firefox",
+          "viewport": {
+            "width": 1440,
+            "height": 900
+          },
+          "colorScheme": "dark"
+        },
+        "dependencies": [],
+        "ignoreSnapshots": false,
+        "__projectId": "firefox-1440-dark"
+      },
+      {
+        "grep": {},
+        "grepInvert": null,
+        "outputDir": "/home/runner/work/dibs/dibs/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "ci": {
+            "commitHref": "https://github.com/ashwathram-prathap/dibs/commit/30f46d0ec397e87eea105d573ce1f1a93cc9e6c0",
+            "commitHash": "30f46d0ec397e87eea105d573ce1f1a93cc9e6c0",
+            "buildHref": "https://github.com/ashwathram-prathap/dibs/actions/runs/44976589223"
+          },
+          "gitCommit": {
+            "shortHash": "30f46d0",
+            "hash": "30f46d0ec397e87eea105d573ce1f1a93cc9e6c0",
+            "subject": "R7: harden clock resync and verify ordered filing details",
+            "body": "R7: harden clock resync and verify ordered filing details\n",
+            "author": {
+              "name": "Ashwathram Prathap",
+              "email": "prathapashwathram@gmail.com",
+              "time": 1795314756000
+            },
+            "committer": {
+              "name": "Ashwathram Prathap",
+              "email": "prathapashwathram@gmail.com",
+              "time": 1795314756000
+            },
+            "branch": "main"
+          },
+          "actualWorkers": 4
+        },
+        "name": "firefox-2560-dark",
+        "testDir": "/home/runner/work/dibs/dibs/tests/e2e",
+        "snapshotDir": "/home/runner/work/dibs/dibs/tests/e2e",
+        "testIgnore": "round7.spec.ts",
+        "testMatch": "**/*.@(spec|test).?(c|m)[jt]s?(x)",
+        "timeout": 60000,
+        "use": {
+          "baseURL": "http://127.0.0.1:5173",
+          "trace": "retain-on-failure",
+          "browserName": "firefox",
+          "viewport": {
+            "width": 2560,
+            "height": 900
+          },
+          "colorScheme": "dark"
+        },
+        "dependencies": [],
+        "ignoreSnapshots": false,
+        "__projectId": "firefox-2560-dark"
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "list",
+        null
+      ],
+      [
+        "json",
+        {
+          "outputFile": "review/devices/results.json"
+        }
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "default",
+    "updateSourceMethod": "patch",
+    "version": "1.65.1",
+    "workers": 4,
+    "webServer": {
+      "command": "npx vite build --mode security-test && npm run preview -- --mode security-test --port 5173",
+      "url": "http://127.0.0.1:5173",
+      "reuseExistingServer": false
+    }
+  },
+  "suites": [
+    {
+      "title": "first-viewport.spec.ts",
+      "file": "first-viewport.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "a fresh phone explains the game and can call dibs without scrolling",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "firefox-1280-light",
+              "projectName": "firefox-1280-light",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 7156,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-22T02:33:25.140Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            },
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "firefox-1440-light",
+              "projectName": "firefox-1440-light",
+              "results": [
+                {
+                  "workerIndex": 4,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 9325,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-22T02:33:55.601Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            },
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "firefox-2560-light",
+              "projectName": "firefox-2560-light",
+              "results": [
+                {
+                  "workerIndex": 8,
+                  "parallelIndex": 2,
+                  "status": "passed",
+                  "duration": 8216,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-22T02:34:29.709Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            },
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "firefox-1280-dark",
+              "projectName": "firefox-1280-dark",
+              "results": [
+                {
+                  "workerIndex": 12,
+                  "parallelIndex": 3,
+                  "status": "passed",
+                  "duration": 7275,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-22T02:35:10.667Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            },
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "firefox-1440-dark",
+              "projectName": "firefox-1440-dark",
+              "results": [
+                {
+                  "workerIndex": 16,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 9260,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-22T02:35:46.704Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            },
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "firefox-2560-dark",
+              "projectName": "firefox-2560-dark",
+              "results": [
+                {
+                  "workerIndex": 20,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 9225,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-22T02:36:24.353Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "41dd9eae53f26045a5d6-8c7247e9487a517688b3",
+          "file": "first-viewport.spec.ts",
+          "line": 2,
+          "column": 1
+        },
+        {
+          "title": "certificate and canvas export never print the local origin",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "firefox-1280-light",
+              "projectName": "firefox-1280-light",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 10581,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-22T02:33:25.201Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            },
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "firefox-1440-light",
+              "projectName": "firefox-1440-light",
+              "results": [
+                {
+                  "workerIndex": 5,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 7454,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-22T02:34:01.063Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            },
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "firefox-2560-light",
+              "projectName": "firefox-2560-light",
+              "results": [
+                {
+                  "workerIndex": 9,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 8896,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-22T02:34:36.802Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            },
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "firefox-1280-dark",
+              "projectName": "firefox-1280-dark",
+              "results": [
+                {
+                  "workerIndex": 13,
+                  "parallelIndex": 2,
+                  "status": "passed",
+                  "duration": 10233,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-22T02:35:12.054Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            },
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "firefox-1440-dark",
+              "projectName": "firefox-1440-dark",
+              "results": [
+                {
+                  "workerIndex": 17,
+                  "parallelIndex": 3,
+                  "status": "passed",
+                  "duration": 8863,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-22T02:35:50.520Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            },
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "firefox-2560-dark",
+              "projectName": "firefox-2560-dark",
+              "results": [
+                {
+                  "workerIndex": 21,
+                  "parallelIndex": 3,
+                  "status": "passed",
+                  "duration": 8519,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-22T02:36:28.414Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "41dd9eae53f26045a5d6-ca9110474fe8086b34a3",
+          "file": "first-viewport.spec.ts",
+          "line": 21,
+          "column": 1
+        }
+      ]
+    },
+    {
+      "title": "flow.spec.ts",
+      "file": "flow.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "full filing, certificate, sharing and public record",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "firefox-1280-light",
+              "projectName": "firefox-1280-light",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 2,
+                  "status": "passed",
+                  "duration": 36520,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-22T02:33:25.707Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            },
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "firefox-1440-light",
+              "projectName": "firefox-1440-light",
+              "results": [
+                {
+                  "workerIndex": 7,
+                  "parallelIndex": 3,
+                  "status": "passed",
+                  "duration": 36278,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-22T02:34:10.411Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            },
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "firefox-2560-light",
+              "projectName": "firefox-2560-light",
+              "results": [
+                {
+                  "workerIndex": 10,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 37501,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-22T02:34:42.902Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            },
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "firefox-1280-dark",
+              "projectName": "firefox-1280-dark",
+              "results": [
+                {
+                  "workerIndex": 14,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 34594,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-22T02:35:20.692Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            },
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "firefox-1440-dark",
+              "projectName": "firefox-1440-dark",
+              "results": [
+                {
+                  "workerIndex": 18,
+                  "parallelIndex": 2,
+                  "status": "passed",
+                  "duration": 35568,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-22T02:35:58.324Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            },
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "firefox-2560-dark",
+              "projectName": "firefox-2560-dark",
+              "results": [
+                {
+                  "workerIndex": 22,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 29712,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-22T02:36:37.605Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "f353db48c569834dc22b-5a1888698e422f9cdb3b",
+          "file": "flow.spec.ts",
+          "line": 6,
+          "column": 1
+        },
+        {
+          "title": "five strikes close the file and invalid entries cost nothing",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "firefox-1280-light",
+              "projectName": "firefox-1280-light",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 3,
+                  "status": "passed",
+                  "duration": 14591,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-22T02:33:25.268Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            },
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "firefox-1440-light",
+              "projectName": "firefox-1440-light",
+              "results": [
+                {
+                  "workerIndex": 6,
+                  "parallelIndex": 2,
+                  "status": "passed",
+                  "duration": 14575,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-22T02:34:09.453Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            },
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "firefox-2560-light",
+              "projectName": "firefox-2560-light",
+              "results": [
+                {
+                  "workerIndex": 8,
+                  "parallelIndex": 2,
+                  "status": "passed",
+                  "duration": 8707,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-22T02:34:40.409Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            },
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "firefox-1280-dark",
+              "projectName": "firefox-1280-dark",
+              "results": [
+                {
+                  "workerIndex": 12,
+                  "parallelIndex": 3,
+                  "status": "passed",
+                  "duration": 8072,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-22T02:35:20.282Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            },
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "firefox-1440-dark",
+              "projectName": "firefox-1440-dark",
+              "results": [
+                {
+                  "workerIndex": 19,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 15839,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-22T02:36:02.141Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            },
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "firefox-2560-dark",
+              "projectName": "firefox-2560-dark",
+              "results": [
+                {
+                  "workerIndex": 20,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 8065,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-22T02:36:36.541Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "f353db48c569834dc22b-f0c034d3b3d8e60813aa",
+          "file": "flow.spec.ts",
+          "line": 99,
+          "column": 1
+        }
+      ]
+    },
+    {
+      "title": "rollover.spec.ts",
+      "file": "rollover.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "a new daily register clears yesterday’s certificate and form state",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "firefox-1280-light",
+              "projectName": "firefox-1280-light",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 7515,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-22T02:33:33.528Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            },
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "firefox-1440-light",
+              "projectName": "firefox-1440-light",
+              "results": [
+                {
+                  "workerIndex": 4,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 5575,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-22T02:34:06.980Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            },
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "firefox-2560-light",
+              "projectName": "firefox-2560-light",
+              "results": [
+                {
+                  "workerIndex": 9,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 6542,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-22T02:34:47.967Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            },
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "firefox-1280-dark",
+              "projectName": "firefox-1280-dark",
+              "results": [
+                {
+                  "workerIndex": 15,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 12416,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-22T02:35:27.502Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            },
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "firefox-1440-dark",
+              "projectName": "firefox-1440-dark",
+              "results": [
+                {
+                  "workerIndex": 16,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 6355,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-22T02:35:58.178Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            },
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "firefox-2560-dark",
+              "projectName": "firefox-2560-dark",
+              "results": [
+                {
+                  "workerIndex": 23,
+                  "parallelIndex": 2,
+                  "status": "passed",
+                  "duration": 13961,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-22T02:36:40.618Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "46eb6d703ce1bda65862-95771ffd94db7766df37",
+          "file": "rollover.spec.ts",
+          "line": 3,
+          "column": 1
+        }
+      ]
+    },
+    {
+      "title": "sharing.spec.ts",
+      "file": "sharing.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "all share controls, exact intents and anonymous one-tap events",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "firefox-1280-light",
+              "projectName": "firefox-1280-light",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 8108,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-22T02:33:41.302Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            },
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "firefox-1440-light",
+              "projectName": "firefox-1440-light",
+              "results": [
+                {
+                  "workerIndex": 5,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 8460,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-22T02:34:10.787Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            },
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "firefox-2560-light",
+              "projectName": "firefox-2560-light",
+              "results": [
+                {
+                  "workerIndex": 8,
+                  "parallelIndex": 2,
+                  "status": "passed",
+                  "duration": 7146,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-22T02:34:49.289Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            },
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "firefox-1280-dark",
+              "projectName": "firefox-1280-dark",
+              "results": [
+                {
+                  "workerIndex": 13,
+                  "parallelIndex": 2,
+                  "status": "passed",
+                  "duration": 7092,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-22T02:35:25.120Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            },
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "firefox-1440-dark",
+              "projectName": "firefox-1440-dark",
+              "results": [
+                {
+                  "workerIndex": 17,
+                  "parallelIndex": 3,
+                  "status": "passed",
+                  "duration": 8845,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-22T02:36:02.176Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            },
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "firefox-2560-dark",
+              "projectName": "firefox-2560-dark",
+              "results": [
+                {
+                  "workerIndex": 21,
+                  "parallelIndex": 3,
+                  "status": "passed",
+                  "duration": 8722,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-22T02:36:39.701Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "ef7e8b9b487b6f94d7a1-a28c56e28cc63b698cd5",
+          "file": "sharing.spec.ts",
+          "line": 8,
+          "column": 1
+        },
+        {
+          "title": "native sharing sends a prepared story file; cancellation never downloads",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "firefox-1280-light",
+              "projectName": "firefox-1280-light",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 5166,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-22T02:33:41.961Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            },
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "firefox-1440-light",
+              "projectName": "firefox-1440-light",
+              "results": [
+                {
+                  "workerIndex": 4,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 4019,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-22T02:34:12.793Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            },
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "firefox-2560-light",
+              "projectName": "firefox-2560-light",
+              "results": [
+                {
+                  "workerIndex": 11,
+                  "parallelIndex": 3,
+                  "status": "passed",
+                  "duration": 9861,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-22T02:34:54.584Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            },
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "firefox-1280-dark",
+              "projectName": "firefox-1280-dark",
+              "results": [
+                {
+                  "workerIndex": 12,
+                  "parallelIndex": 3,
+                  "status": "passed",
+                  "duration": 4270,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-22T02:35:28.599Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            },
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "firefox-1440-dark",
+              "projectName": "firefox-1440-dark",
+              "results": [
+                {
+                  "workerIndex": 16,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 4760,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-22T02:36:04.788Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            },
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "firefox-2560-dark",
+              "projectName": "firefox-2560-dark",
+              "results": [
+                {
+                  "workerIndex": 20,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 4903,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-22T02:36:44.754Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "ef7e8b9b487b6f94d7a1-925b6f5cd72f6227b014",
+          "file": "sharing.spec.ts",
+          "line": 78,
+          "column": 1
+        },
+        {
+          "title": "text-only native sharing offers the PNG; blocked clipboard keeps selectable text",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "firefox-1280-light",
+              "projectName": "firefox-1280-light",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 3,
+                  "status": "passed",
+                  "duration": 4429,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-22T02:33:41.996Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            },
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "firefox-1440-light",
+              "projectName": "firefox-1440-light",
+              "results": [
+                {
+                  "workerIndex": 4,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 4562,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-22T02:34:16.903Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            },
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "firefox-2560-light",
+              "projectName": "firefox-2560-light",
+              "results": [
+                {
+                  "workerIndex": 9,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 4342,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-22T02:34:54.802Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            },
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "firefox-1280-dark",
+              "projectName": "firefox-1280-dark",
+              "results": [
+                {
+                  "workerIndex": 13,
+                  "parallelIndex": 2,
+                  "status": "passed",
+                  "duration": 3951,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-22T02:35:32.325Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            },
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "firefox-1440-dark",
+              "projectName": "firefox-1440-dark",
+              "results": [
+                {
+                  "workerIndex": 16,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 4164,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-22T02:36:09.650Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            },
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "firefox-2560-dark",
+              "projectName": "firefox-2560-dark",
+              "results": [
+                {
+                  "workerIndex": 21,
+                  "parallelIndex": 3,
+                  "status": "passed",
+                  "duration": 4260,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-22T02:36:48.565Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "ef7e8b9b487b6f94d7a1-d129f123e225a3ce0557",
+          "file": "sharing.spec.ts",
+          "line": 114,
+          "column": 1
+        },
+        {
+          "title": "Instagram and TikTok export keeps a long-press image when the browser blocks downloads",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "firefox-1280-light",
+              "projectName": "firefox-1280-light",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 3,
+                  "status": "passed",
+                  "duration": 4496,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-22T02:33:46.495Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            },
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "firefox-1440-light",
+              "projectName": "firefox-1440-light",
+              "results": [
+                {
+                  "workerIndex": 5,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 4732,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-22T02:34:19.308Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            },
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "firefox-2560-light",
+              "projectName": "firefox-2560-light",
+              "results": [
+                {
+                  "workerIndex": 8,
+                  "parallelIndex": 2,
+                  "status": "passed",
+                  "duration": 4233,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-22T02:34:56.578Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            },
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "firefox-1280-dark",
+              "projectName": "firefox-1280-dark",
+              "results": [
+                {
+                  "workerIndex": 12,
+                  "parallelIndex": 3,
+                  "status": "passed",
+                  "duration": 5586,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-22T02:35:32.926Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            },
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "firefox-1440-dark",
+              "projectName": "firefox-1440-dark",
+              "results": [
+                {
+                  "workerIndex": 17,
+                  "parallelIndex": 3,
+                  "status": "passed",
+                  "duration": 4587,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-22T02:36:11.133Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            },
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "firefox-2560-dark",
+              "projectName": "firefox-2560-dark",
+              "results": [
+                {
+                  "workerIndex": 20,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 4924,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-22T02:36:49.721Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "ef7e8b9b487b6f94d7a1-fa39bc2b582baf8d665f",
+          "file": "sharing.spec.ts",
+          "line": 142,
+          "column": 1
+        },
+        {
+          "title": "native share rejection falls back to a PNG",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "firefox-1280-light",
+              "projectName": "firefox-1280-light",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 4652,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-22T02:33:47.226Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            },
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "firefox-1440-light",
+              "projectName": "firefox-1440-light",
+              "results": [
+                {
+                  "workerIndex": 4,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 3996,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-22T02:34:21.527Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            },
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "firefox-2560-light",
+              "projectName": "firefox-2560-light",
+              "results": [
+                {
+                  "workerIndex": 9,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 4336,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-22T02:34:59.225Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            },
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "firefox-1280-dark",
+              "projectName": "firefox-1280-dark",
+              "results": [
+                {
+                  "workerIndex": 13,
+                  "parallelIndex": 2,
+                  "status": "passed",
+                  "duration": 4530,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-22T02:35:36.354Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            },
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "firefox-1440-dark",
+              "projectName": "firefox-1440-dark",
+              "results": [
+                {
+                  "workerIndex": 16,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 4600,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-22T02:36:13.926Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            },
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "firefox-2560-dark",
+              "projectName": "firefox-2560-dark",
+              "results": [
+                {
+                  "workerIndex": 21,
+                  "parallelIndex": 3,
+                  "status": "passed",
+                  "duration": 4330,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-22T02:36:52.926Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "ef7e8b9b487b6f94d7a1-dbc61abba5d17500c0fe",
+          "file": "sharing.spec.ts",
+          "line": 169,
+          "column": 1
+        },
+        {
+          "title": "first arrival attribution survives reloads and ignores arbitrary sources",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "firefox-1280-light",
+              "projectName": "firefox-1280-light",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 6916,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-22T02:33:49.500Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            },
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "firefox-1440-light",
+              "projectName": "firefox-1440-light",
+              "results": [
+                {
+                  "workerIndex": 5,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 8477,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-22T02:34:24.158Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            },
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "firefox-2560-light",
+              "projectName": "firefox-2560-light",
+              "results": [
+                {
+                  "workerIndex": 8,
+                  "parallelIndex": 2,
+                  "status": "passed",
+                  "duration": 7362,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-22T02:35:00.917Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            },
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "firefox-1280-dark",
+              "projectName": "firefox-1280-dark",
+              "results": [
+                {
+                  "workerIndex": 12,
+                  "parallelIndex": 3,
+                  "status": "passed",
+                  "duration": 8277,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-22T02:35:38.556Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            },
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "firefox-1440-dark",
+              "projectName": "firefox-1440-dark",
+              "results": [
+                {
+                  "workerIndex": 17,
+                  "parallelIndex": 3,
+                  "status": "passed",
+                  "duration": 8599,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-22T02:36:15.846Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            },
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "firefox-2560-dark",
+              "projectName": "firefox-2560-dark",
+              "results": [
+                {
+                  "workerIndex": 20,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 7858,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-22T02:36:54.735Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "ef7e8b9b487b6f94d7a1-d2557feacac438666eed",
+          "file": "sharing.spec.ts",
+          "line": 185,
+          "column": 1
+        }
+      ]
+    },
+    {
+      "title": "specials.spec.ts",
+      "file": "specials.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "house strike, gold stamp, gold certificate and verified archive",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "firefox-1280-light",
+              "projectName": "firefox-1280-light",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 3,
+                  "status": "passed",
+                  "duration": 14078,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-22T02:33:51.084Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            },
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "firefox-1440-light",
+              "projectName": "firefox-1440-light",
+              "results": [
+                {
+                  "workerIndex": 4,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 12458,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-22T02:34:26.115Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            },
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "firefox-2560-light",
+              "projectName": "firefox-2560-light",
+              "results": [
+                {
+                  "workerIndex": 9,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 12203,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-22T02:35:04.281Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            },
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "firefox-1280-dark",
+              "projectName": "firefox-1280-dark",
+              "results": [
+                {
+                  "workerIndex": 13,
+                  "parallelIndex": 2,
+                  "status": "passed",
+                  "duration": 12844,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-22T02:35:41.396Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            },
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "firefox-1440-dark",
+              "projectName": "firefox-1440-dark",
+              "results": [
+                {
+                  "workerIndex": 16,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 13705,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-22T02:36:19.238Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            },
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "firefox-2560-dark",
+              "projectName": "firefox-2560-dark",
+              "results": [
+                {
+                  "workerIndex": 23,
+                  "parallelIndex": 2,
+                  "status": "passed",
+                  "duration": 8348,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-22T02:36:57.839Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "76ace68c0eea93b6b945-ff50480517e02d093c8f",
+          "file": "specials.spec.ts",
+          "line": 4,
+          "column": 1
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-11-22T02:33:21.405Z",
+    "duration": 228411.429,
+    "expected": 72,
+    "skipped": 0,
+    "unexpected": 0,
+    "flaky": 0
+  }
+}
