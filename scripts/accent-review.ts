@@ -50,7 +50,7 @@ for (const [name, engine] of [
           { ...claim, display },
           false,
           'Proof',
-          'https://dibs-7hz.pages.dev',
+          'https://dibs.here',
         );
         URL.createObjectURL = create;
         if (!rendered) throw new Error('No PNG rendered');

@@ -71,8 +71,8 @@ export default defineConfig({
   use: { baseURL: 'http://127.0.0.1:5173', trace: 'retain-on-failure' },
   projects,
   webServer: {
-    command: 'VITE_DEMO=true npm run dev -- --port 5173',
+    command: 'npx vite build --mode security-test && npm run preview -- --mode security-test --port 5173',
     url: 'http://127.0.0.1:5173',
-    reuseExistingServer: true,
+    reuseExistingServer: false,
   },
 });

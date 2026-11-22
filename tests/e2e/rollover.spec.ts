@@ -1,11 +1,12 @@
-import { test, expect } from '@playwright/test';
+import { test, expect } from './security-fixture';
 import { mkdirSync } from 'node:fs';
 test('a new daily register clears yesterday’s certificate and form state', async ({
   page,
 }, info) => {
   let fixtureUrl = '';
   page.on('request', (request) => {
-    if (new URL(request.url()).pathname === '/dev/fixture.ts') fixtureUrl = request.url();
+    if (/\/assets\/fixture-[^/]+\.js$/.test(new URL(request.url()).pathname))
+      fixtureUrl = request.url();
   });
   await page.clock.install();
   await page.goto('/');

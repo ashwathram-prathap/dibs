@@ -45,6 +45,14 @@ export async function cookieUser(req: Request, secret: string) {
   const val = req.headers.get('Cookie')?.match(/(?:^|;\s*)dibs_session=([^;]+)/)?.[1];
   if (!val) return null;
   const [id, sig] = val.split('.');
-  if (!id || !sig || !(await verify(id, sig, secret))) return null;
+  if (!id || !/^[a-f0-9-]{36}$/.test(id) || !sig || !(await verify(id, sig, secret))) return null;
   return id;
+}
+
+export async function constantEqual(a: string, b: string) {
+  return verify(a, await hmac(b, b), b);
+}
+export async function sessionCookie(id: string, secret: string, local = false) {
+  // Host-only: the canonical host receives it, sibling subdomains do not.
+  return `dibs_session=${id}.${await hmac(id, secret)}; HttpOnly; SameSite=Lax; Path=/; Max-Age=31536000${local ? '' : '; Secure'}`;
 }

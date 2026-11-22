@@ -23,7 +23,7 @@ try {
   const response = await page.evaluate(async () => {
     const r = await fetch('/api/claim', {
       method: 'POST',
-      headers: { 'content-type': 'application/json' },
+      headers: { origin: 'https://dibs.here', 'content-type': 'application/json' },
       body: JSON.stringify({ answer: 'Narwhal', turnstileToken: 'local' }),
     });
     return r.status;

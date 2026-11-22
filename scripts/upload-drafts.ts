@@ -20,7 +20,7 @@ const bucket = (state[(remote ? 'remote:' : 'local:') + day] ||= {
   completed: {},
 });
 const budget = 45000; // Leaves more than half of the daily allowance for maintenance/traffic.
-const base = remote ? 'https://dibs-7hz.pages.dev/api' : 'http://127.0.0.1:8787/api';
+const base = remote ? 'https://dibs.here/api' : 'http://127.0.0.1:8787/api';
 const token =
   process.env.ADMIN_TOKEN ||
   (!remote && existsSync('.dev.vars')
@@ -72,7 +72,11 @@ for (const file of files) {
   writeFileSync(stateFile, JSON.stringify(state, null, 2));
   const r = await fetch(base + '/admin/category', {
     method: 'POST',
-    headers: { authorization: 'Bearer ' + token, 'content-type': 'application/json' },
+    headers: {
+      origin: 'https://dibs.here',
+      authorization: 'Bearer ' + token,
+      'content-type': 'application/json',
+    },
     body: JSON.stringify({ ...body, replaceDraft: true }),
   });
   const result = (await r.json()) as any;

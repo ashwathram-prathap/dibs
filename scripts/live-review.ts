@@ -17,7 +17,7 @@ try {
       page.on('response', async (response) => {
         if (response.url().includes('/api/') && response.status() >= 400)
           apiErrors.push({ url: response.url(), status: response.status() });
-        if (response.url() === 'https://dibs-7hz.pages.dev/api/me') {
+        if (response.url() === 'https://dibs.here/api/me') {
           try {
             const data = await response.json();
             if (typeof data.user?.id === 'string') identities.add(data.user.id);
@@ -31,7 +31,7 @@ try {
         ['/stats', 'stats'],
       ]) {
         apiErrors = [];
-        await page.goto('https://dibs-7hz.pages.dev' + route);
+        await page.goto('https://dibs.here' + route);
         await page.locator('main h1').waitFor();
         await page.evaluate(() => document.fonts.ready);
         await page.screenshot({

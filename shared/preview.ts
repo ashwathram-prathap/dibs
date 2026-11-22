@@ -8,7 +8,7 @@ export function preview(kind: 'certificate' | 'summary'): PagesFunction<Env> {
   return async ({ request, env, params }) => {
     const id = encodeURIComponent(String(params.id));
     const origin = new URL(request.url).origin;
-    const response = await env.API.fetch(new Request(`${origin}/api/${kind}/${id}`));
+    const response = await env.API.fetch(new Request(`${PUBLIC_ORIGIN}/api/${kind}/${id}`));
     if (!response.ok)
       return new Response('Dibs: this file is not on record.', { status: response.status });
     const data = (await response.json()) as any;

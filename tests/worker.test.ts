@@ -9,6 +9,7 @@ const request = (path: string, body?: any, cookie?: string, ip?: string) =>
   mf.dispatchFetch('http://localhost/api' + path, {
     method: body === undefined ? 'GET' : 'POST',
     headers: {
+      origin: 'https://dibs.here',
       ...(body !== undefined ? { 'content-type': 'application/json' } : {}),
       ...(cookie ? { cookie } : {}),
       ...(ip ? { 'x-test-ip': ip } : {}),
@@ -201,11 +202,11 @@ describe('Worker with real SQLite/D1 execution', () => {
     expect((await request('/session-check', {})).status).toBe(401);
     const r = await mf.dispatchFetch('http://localhost/api/claim', {
       method: 'POST',
-      headers: { origin: 'https://elsewhere.example' },
+      headers: { origin: 'https://dibs.here', origin: 'https://elsewhere.example' },
       body: '{}',
     });
     expect(r.status).toBe(403);
-    expect((await request('/admin/stats')).status).toBe(401);
+    expect((await request('/admin/stats')).status).toBe(404);
   });
   it('autocomplete never reveals ownership and ledger serials are unique', async () => {
     const r = await request('/answers?q=axo');
@@ -227,7 +228,11 @@ describe('Worker with real SQLite/D1 execution', () => {
     const upload = async (body: any) =>
       mf.dispatchFetch('http://localhost/api/admin/category', {
         method: 'POST',
-        headers: { authorization: 'Bearer test-admin', 'content-type': 'application/json' },
+        headers: {
+          origin: 'https://dibs.here',
+          authorization: 'Bearer test-admin',
+          'content-type': 'application/json',
+        },
         body: JSON.stringify(body),
       });
     const answers = Array.from({ length: 2000 }, (_, i) => ({
@@ -268,7 +273,11 @@ describe('Worker with real SQLite/D1 execution', () => {
     const upload = (body: any) =>
       mf.dispatchFetch('http://localhost/api/admin/category', {
         method: 'POST',
-        headers: { authorization: 'Bearer test-admin', 'content-type': 'application/json' },
+        headers: {
+          origin: 'https://dibs.here',
+          authorization: 'Bearer test-admin',
+          'content-type': 'application/json',
+        },
         body: JSON.stringify(body),
       });
     const draft = {
@@ -321,7 +330,11 @@ describe('Worker with real SQLite/D1 execution', () => {
     const approve = () =>
       mf.dispatchFetch('http://localhost/api/admin/approve', {
         method: 'POST',
-        headers: { authorization: 'Bearer test-admin', 'content-type': 'application/json' },
+        headers: {
+          origin: 'https://dibs.here',
+          authorization: 'Bearer test-admin',
+          'content-type': 'application/json',
+        },
         body: JSON.stringify({ id: 'replace-me', date: '2099-01-01', reviewed: true }),
       });
     expect((await approve()).status).toBe(200);
@@ -333,9 +346,13 @@ describe('Worker with real SQLite/D1 execution', () => {
   });
   it('does not accept the localhost verification bypass on a remote hostname', async () => {
     const a = await account();
-    const r = await mf.dispatchFetch('https://preview.example/api/claim', {
+    const r = await mf.dispatchFetch('https://dibs.here/api/claim', {
       method: 'POST',
-      headers: { cookie: a.cookie, 'content-type': 'application/json' },
+      headers: {
+        origin: 'https://dibs.here',
+        cookie: a.cookie,
+        'content-type': 'application/json',
+      },
       body: JSON.stringify({ answer: 'Axolotl', turnstileToken: 'test' }),
     });
     expect(r.status).toBe(503);
@@ -345,7 +362,11 @@ describe('Worker with real SQLite/D1 execution', () => {
     const post = async (path: string, id: string) =>
       mf.dispatchFetch('http://localhost/api/admin/' + path, {
         method: 'POST',
-        headers: { authorization: 'Bearer test-admin', 'content-type': 'application/json' },
+        headers: {
+          origin: 'https://dibs.here',
+          authorization: 'Bearer test-admin',
+          'content-type': 'application/json',
+        },
         body: JSON.stringify({ id }),
       });
     expect((await post('hide-user', row.user_id)).status).toBe(200);

@@ -41,7 +41,7 @@ try {
   }
   const context = await browser.newContext({ javaScriptEnabled: false });
   const page = await context.newPage();
-  await page.goto('https://dibs-7hz.pages.dev');
+  await page.goto('https://dibs.here');
   if (!(await page.locator('noscript').isVisible()))
     throw new Error('No JavaScript fallback missing');
   checks.push({ scenario: 'javascript-disabled-notice', passed: true });

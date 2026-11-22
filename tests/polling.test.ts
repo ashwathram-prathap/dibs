@@ -18,7 +18,7 @@ it('polls at 15s, backs off at two minutes, pauses hidden tabs, and preserves th
   }
   vi.stubGlobal('document', doc);
   vi.stubGlobal('WebSocket', Socket);
-  vi.stubGlobal('location', { href: 'https://dibs-7hz.pages.dev/', protocol: 'https:' });
+  vi.stubGlobal('location', { href: 'https://dibs.here/', protocol: 'https:' });
   const today: any = { category: { id: 'animals' }, claimed: 1, open: 2199 };
   publish({ today, rows: [{ id: 'one', claim_no: 1 } as any], reset: true });
   const stop = watchRegistry(() => {});

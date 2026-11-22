@@ -1,7 +1,16 @@
+import {
+  canonicalRedirect,
+  corsResponse,
+  isLocal,
+  originFailure,
+  invalidParameters,
+  validId,
+  validText,
+} from '../shared/security';
 import { catalogContent, keyContent } from '../shared/catalog-digest';
 /// <reference types="@cloudflare/workers-types" />
 import { PUBLIC_ORIGIN } from '../shared/config';
-import { handle, hmac, cookieUser } from './identity';
+import { handle, hmac, cookieUser, constantEqual, sessionCookie } from './identity';
 import {
   normalize,
   registryDate,
@@ -84,7 +93,7 @@ async function user(req: Request, env: Env) {
         .first<any>()) || { id, handle: 'Clerk ' + id.slice(0, 8), rerolls_used: 0, hidden: 0 }
     : null;
 }
-async function body(req: Request, limit = 4096) {
+export async function body(req: Request, limit = 4096) {
   if (Number(req.headers.get('content-length') || 0) > limit) throw new Error('BODY_TOO_LARGE');
   const reader = req.body?.getReader();
   if (!reader) throw new SyntaxError('Empty body');
@@ -122,7 +131,8 @@ async function admin(req: Request, env: Env, path: string) {
     !env.ADMIN_TOKEN ||
     !(await constantEqual(req.headers.get('authorization') || '', 'Bearer ' + env.ADMIN_TOKEN))
   )
-    return fail(401, 'The clerk’s key is required.');
+    return fail(404, 'No file at this address.');
+  if (invalidParameters(req)) return fail(422, 'That form could not be read.');
   if (path === '/admin/verify' && req.method === 'GET') {
     const id = new URL(req.url).searchParams.get('id');
     const rows = (
@@ -169,16 +179,16 @@ async function admin(req: Request, env: Env, path: string) {
     ).all();
     const retention = async (n: number) =>
       env.DB.prepare(
-        `WITH firsts AS (SELECT user_id,MIN(g.date) first_day FROM claims c JOIN categories g ON c.category_id=g.id WHERE c.voided=0 GROUP BY user_id), eligible AS (SELECT * FROM firsts WHERE date(first_day,'+${n} day')<=?) SELECT COUNT(*) eligible,COALESCE(SUM(EXISTS(SELECT 1 FROM claims c JOIN categories g ON g.id=c.category_id WHERE c.user_id=e.user_id AND c.voided=0 AND g.date=date(e.first_day,'+${n} day'))),0) retained FROM eligible e`,
+        `WITH firsts AS (SELECT user_id,MIN(g.date) first_day FROM claims c JOIN categories g ON c.category_id=g.id WHERE c.voided=0 GROUP BY user_id), eligible AS (SELECT * FROM firsts WHERE date(first_day,?)<=?) SELECT COUNT(*) eligible,COALESCE(SUM(EXISTS(SELECT 1 FROM claims c JOIN categories g ON g.id=c.category_id WHERE c.user_id=e.user_id AND c.voided=0 AND g.date=date(e.first_day,?))),0) retained FROM eligible e`,
       )
-        .bind(registryDate())
+        .bind('+' + n + ' day', registryDate(), '+' + n + ' day')
         .first();
     return json({ days: days.results, d1: await retention(1), d7: await retention(7) });
   }
   if (req.method !== 'POST') return fail(405, 'File changes by POST.');
   const b = await body(req, path === '/admin/category' ? 5_000_000 : 4096);
   if (path === '/admin/hide-user' || path === '/admin/void-claim') {
-    if (typeof b.id !== 'string') return fail(422, 'A record ID is required.');
+    if (!validId(b.id)) return fail(422, 'A record ID is required.');
     const hide = path.endsWith('hide-user');
     const results = await env.DB.batch([
       env.DB.prepare(
@@ -195,6 +205,7 @@ async function admin(req: Request, env: Env, path: string) {
   }
   if (path === '/admin/category') return uploadCategory(env, b);
   if (path === '/admin/approve') {
+    if (!validId(b.id)) return fail(422, 'A record ID is required.');
     const c = await env.DB.prepare('SELECT * FROM categories WHERE id=?').bind(b.id).first<any>();
     if (!c) return fail(404, 'Register not found.');
     if (c.status !== 'draft')
@@ -235,9 +246,6 @@ async function admin(req: Request, env: Env, path: string) {
   }
   return fail(404, 'No such clerk procedure.');
 }
-async function constantEqual(a: string, b: string) {
-  return (await hmac(a, b)) === (await hmac(b, b));
-}
 function bulkStatements(env: Env, sql: string, rows: any[]) {
   // At most 18 bounded JSON statements per table, under Free's 50-query invocation limit.
   const size = Math.max(1, Math.ceil(rows.length / 18));
@@ -252,8 +260,7 @@ export async function uploadCategory(env: Env, b: any) {
     !Array.isArray(b.answers) ||
     b.answers.length < 2000 ||
     b.answers.length > 2200 ||
-    typeof b.name !== 'string' ||
-    b.name.length > 50 ||
+    !validText(b.name, 50) ||
     typeof b.slug !== 'string' ||
     !/^[a-z0-9-]{2,60}$/.test(b.slug)
   )
@@ -280,14 +287,15 @@ export async function uploadCategory(env: Env, b: any) {
   const keys: any[] = [];
   for (const [i, a] of b.answers.entries()) {
     if (
-      typeof a.display !== 'string' ||
-      a.display.length > 120 ||
+      !a ||
+      !validText(a.display) ||
       !a.display.trim() ||
       !Number.isInteger(a.obscurity) ||
       a.obscurity < 1 ||
       a.obscurity > 5 ||
       !Array.isArray(a.aliases) ||
-      a.aliases.some((s: any) => typeof s !== 'string' || s.length > 120)
+      a.aliases.length > 40 ||
+      a.aliases.some((s: any) => !validText(s))
     )
       return fail(422, 'Each entry needs a display name, aliases and measured obscurity (1–5).');
     const canonical = normalize(a.display);
@@ -360,15 +368,8 @@ export async function route(req: Request, env: Env): Promise<Response> {
   const url = new URL(req.url);
   const path = url.pathname.replace(/^\/api/, '');
   if (!env.COOKIE_SECRET) return fail(503, 'The registry is not configured.');
-  if (req.method === 'POST' && !path.startsWith('/admin/')) {
-    const origin = req.headers.get('origin');
-    if (
-      origin &&
-      origin !== PUBLIC_ORIGIN &&
-      !(env.LOCAL_TEST === 'true' && /^http:\/\/(localhost|127\.0\.0\.1)(:\d+)?$/.test(origin))
-    )
-      return fail(403, 'Please file from the registry’s own window.');
-  }
+  const rejected = originFailure(req, isLocal(req, env.LOCAL_TEST));
+  if (rejected) return rejected;
   if (path.startsWith('/admin/')) return admin(req, env, path);
   if (path === '/og' || path.startsWith('/og/')) {
     const id = path.slice(4);
@@ -417,7 +418,7 @@ export async function route(req: Request, env: Env): Promise<Response> {
     if (!u) {
       const id = crypto.randomUUID();
       u = { id, handle: 'Clerk ' + id.slice(0, 8), rerolls_used: 0, hidden: 0 };
-      cookie = `dibs_session=${id}.${await hmac(id, env.COOKIE_SECRET)}; HttpOnly; SameSite=Lax; Path=/; Max-Age=31536000${url.protocol === 'https:' ? '; Secure' : ''}`;
+      cookie = await sessionCookie(id, env.COOKIE_SECRET, isLocal(req, env.LOCAL_TEST));
     }
     const claim = g
       ? await env.DB.prepare(publicClaim + ' AND c.user_id=? AND c.category_id=?')
@@ -528,10 +529,9 @@ async function claim(req: Request, env: Env, u: any) {
   }
   const b = await body(req);
   if (
-    typeof b.answer !== 'string' ||
-    b.answer.length > 120 ||
+    !validText(b.answer) ||
     typeof b.turnstileToken !== 'string' ||
-    b.turnstileToken.length > 2048
+    !/^[a-zA-Z0-9_.-]{1,2048}$/.test(b.turnstileToken)
   )
     return fail(422, 'File an entry and its verification.');
   // The test bypass only works on a loopback URL and is never configured remotely.
@@ -646,7 +646,7 @@ export function safeError(e: unknown, env: Env): Response {
   return fail(500, 'The filing cabinet is unavailable. Please try again.');
 }
 const inflight = new Map<string, Promise<Response>>();
-export default {
+const handler = {
   async fetch(req: Request, env: Env) {
     try {
       if (!env.REGISTRY)
@@ -713,5 +713,23 @@ export default {
         "UPDATE claims SET ip_hash='' WHERE ip_day<date('now','-2 day') AND ip_hash!=''",
       ),
     ]);
+  },
+} satisfies ExportedHandler<Env>;
+
+export default {
+  ...handler,
+  async fetch(req: Request, env: Env) {
+    const local = isLocal(req, env.LOCAL_TEST);
+    const redirect = canonicalRedirect(req, local);
+    if (redirect) return corsResponse(req, redirect, local);
+    const rejected = originFailure(req, local);
+    const response =
+      rejected ||
+      (invalidParameters(req) && !new URL(req.url).pathname.startsWith('/api/admin/')
+        ? fail(422, 'That form could not be read.')
+        : req.method === 'OPTIONS'
+          ? new Response(null, { status: 204 })
+          : await handler.fetch(req, env));
+    return corsResponse(req, response, local);
   },
 } satisfies ExportedHandler<Env>;

@@ -11,7 +11,7 @@ observer.contexts()[0].on('page', (page) => {
   page.on('response', async (response) => {
     if (response.url().includes('/api/') && response.status() >= 400)
       failures.push(response.url() + ' ' + response.status());
-    if (response.url() === 'https://dibs-7hz.pages.dev/api/me') {
+    if (response.url() === 'https://dibs.here/api/me') {
       try {
         const data = await response.json();
         if (typeof data.user?.id === 'string') identities.add(data.user.id);
@@ -20,7 +20,7 @@ observer.contexts()[0].on('page', (page) => {
   });
 });
 try {
-  const result = await lighthouse(process.argv[2] || 'https://dibs-7hz.pages.dev', {
+  const result = await lighthouse(process.argv[2] || 'https://dibs.here', {
     port: 9222,
     output: ['json', 'html'],
     onlyCategories: ['performance', 'accessibility', 'best-practices', 'seo'],

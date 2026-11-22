@@ -8,7 +8,11 @@ c.date = null;
 c.drop_at = null;
 const r = await fetch('http://127.0.0.1:8787/api/admin/category', {
   method: 'POST',
-  headers: { authorization: 'Bearer ' + token, 'content-type': 'application/json' },
+  headers: {
+    origin: 'https://dibs.here',
+    authorization: 'Bearer ' + token,
+    'content-type': 'application/json',
+  },
   body: JSON.stringify(c),
 });
 if (![201, 409].includes(r.status)) throw new Error(await r.text());

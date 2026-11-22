@@ -3,7 +3,7 @@ import { readFileSync, writeFileSync, existsSync, appendFileSync } from 'node:fs
 import { createHash } from 'node:crypto';
 import { normalize, dropAt, torontoDate } from '../worker/domain';
 import { catalogContent, keyContent } from '../shared/catalog-digest';
-const base = process.env.DIBS_API || 'https://dibs-7hz.pages.dev/api';
+const base = process.env.DIBS_API || 'https://dibs.here/api';
 const token =
   process.env.ADMIN_TOKEN || readFileSync('.dev.vars', 'utf8').match(/^ADMIN_TOKEN=(.+)$/m)?.[1];
 if (!token) throw Error('ADMIN_TOKEN is required.');
@@ -18,7 +18,11 @@ const save = () => writeFileSync('.upload-state.json', JSON.stringify(state, nul
 async function api(path: string, body?: any) {
   const r = await fetch(base + path, {
     method: body ? 'POST' : 'GET',
-    headers: { authorization: 'Bearer ' + token, 'content-type': 'application/json' },
+    headers: {
+      origin: 'https://dibs.here',
+      authorization: 'Bearer ' + token,
+      'content-type': 'application/json',
+    },
     body: body ? JSON.stringify(body) : undefined,
   });
   const data = (await r.json()) as any;

@@ -42,7 +42,7 @@ const second = await page.evaluate(
     (
       await fetch('/api/claim', {
         method: 'POST',
-        headers: { 'content-type': 'application/json' },
+        headers: { origin: 'https://dibs.here', 'content-type': 'application/json' },
         body: JSON.stringify({ answer: 'another', turnstileToken: 'local' }),
       })
     ).status,

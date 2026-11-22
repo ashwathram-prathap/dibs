@@ -1,4 +1,4 @@
-import { test, expect } from '@playwright/test';
+import { test, expect } from './security-fixture';
 import { PUBLIC_ORIGIN } from '../../shared/config';
 
 async function certificate(page: any) {

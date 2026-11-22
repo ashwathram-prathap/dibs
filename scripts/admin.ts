@@ -5,7 +5,7 @@ if (!token)
   throw new Error(
     'Set ADMIN_TOKEN from your local MORNING_REPORT.md. Never put it in a command argument.',
   );
-const base = process.env.DIBS_API || 'https://dibs-7hz.pages.dev/api';
+const base = process.env.DIBS_API || 'https://dibs.here/api';
 let body: any;
 let path = '';
 if (command === 'upload' || command === 'replace-draft') {
@@ -27,7 +27,11 @@ else
   );
 const r = await fetch(base + path, {
   method: body ? 'POST' : 'GET',
-  headers: { authorization: 'Bearer ' + token, 'content-type': 'application/json' },
+  headers: {
+    origin: 'https://dibs.here',
+    authorization: 'Bearer ' + token,
+    'content-type': 'application/json',
+  },
   body: body ? JSON.stringify(body) : undefined,
 });
 console.log(r.status, await r.text());

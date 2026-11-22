@@ -27,6 +27,8 @@ jobs:
       - id: rollout
         run: npx tsx scripts/round3-categories.ts
         env:
+          # Remove this temporary endpoint override after Round 5 domain cutover.
+          DIBS_API: https://dibs-7hz.pages.dev/api
           ADMIN_TOKEN: ${{ secrets.DIBS_ADMIN_TOKEN }}
       - uses: actions/cache/save@v4
         if: always()

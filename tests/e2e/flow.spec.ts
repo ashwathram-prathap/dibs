@@ -1,4 +1,4 @@
-import { test, expect } from '@playwright/test';
+import { test, expect } from './security-fixture';
 import AxeBuilder from '@axe-core/playwright';
 import { mkdirSync } from 'node:fs';
 import { PNG } from 'pngjs';
@@ -15,7 +15,13 @@ test('full filing, certificate, sharing and public record', async ({ page }, inf
   await page.addInitScript(() => {
     Object.defineProperty(navigator, 'canShare', { value: () => false });
     Object.defineProperty(navigator, 'share', { value: undefined });
-    Object.defineProperty(navigator, 'clipboard', { value: { writeText: async (text: string) => { (window as any).copied = text; } } });
+    Object.defineProperty(navigator, 'clipboard', {
+      value: {
+        writeText: async (text: string) => {
+          (window as any).copied = text;
+        },
+      },
+    });
   });
   await page.goto('/');
   await expect(page.getByRole('heading', { name: 'Animals', exact: true })).toBeVisible();
@@ -52,7 +58,9 @@ test('full filing, certificate, sharing and public record', async ({ page }, inf
   await expect(page.locator('.file-progress')).toContainText('DIBS 3 / 3');
   await expect(page.getByRole('img', { name: '1 of 5 strikes' })).toBeVisible();
   await page.getByRole('button', { name: 'Copy link', exact: true }).click();
-  expect(await page.evaluate(() => (window as any).copied)).toBe('https://dibs-7hz.pages.dev/summary/fixture-summary?s=copy-link');
+  expect(await page.evaluate(() => (window as any).copied)).toBe(
+    'https://dibs.here/summary/fixture-summary?s=copy-link',
+  );
   const download = page.waitForEvent('download');
   await page.getByRole('button', { name: 'Feed PNG' }).click();
   const d = await download;

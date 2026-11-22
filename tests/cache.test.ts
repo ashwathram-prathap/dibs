@@ -12,6 +12,7 @@ async function call(path: string, body?: any, cookie?: string, ip?: string) {
   const r = await mf.dispatchFetch('http://localhost/api' + path, {
     method: body === undefined ? 'GET' : 'POST',
     headers: {
+      origin: 'https://dibs.here',
       ...(cookie ? { cookie } : {}),
       ...(body ? { 'content-type': 'application/json' } : {}),
       ...(ip ? { 'x-test-ip': ip } : {}),
@@ -132,8 +133,8 @@ beforeAll(async () => {
   }
 }, 30000);
 afterAll(async () => {
-  mkdirSync('review/round4', { recursive: true });
-  writeFileSync('review/round4/d1-actions.json', JSON.stringify(evidence, null, 2));
+  mkdirSync('review/round5', { recursive: true });
+  writeFileSync('review/round5/d1-actions.json', JSON.stringify(evidence, null, 2));
   await mf?.dispose();
 });
 it('creates no D1 users or writes on page loads and cached polls', async () => {
@@ -205,7 +206,7 @@ it('enforces rerolls and attempts in SQLite DO storage with zero D1 writes', asy
 });
 it('uses one WebSocket connection and returns cursor-filtered real records', async () => {
   const r = await mf.dispatchFetch('http://localhost/api/live', {
-    headers: { upgrade: 'websocket' },
+    headers: { origin: 'https://dibs.here', upgrade: 'websocket' },
   });
   expect(r.status).toBe(101);
   const ws = r.webSocket!;
@@ -245,7 +246,11 @@ it('invalidates cached certificates and every image shard when moderating', asyn
   const admin = (path: string, id: string) =>
     mf.dispatchFetch('http://localhost/api/admin/' + path, {
       method: 'POST',
-      headers: { authorization: 'Bearer local-admin', 'content-type': 'application/json' },
+      headers: {
+        origin: 'https://dibs.here',
+        authorization: 'Bearer local-admin',
+        'content-type': 'application/json',
+      },
       body: JSON.stringify({ id }),
     });
   expect((await admin('hide-user', row.user_id)).status).toBe(200);
@@ -342,7 +347,7 @@ it('counts platform-only taps and arrivals anonymously, with zero D1 writes', as
   expect((await call('/events/share', { platform: 'unknown' })).status).toBe(422);
   expect((await call('/events/share', { platform: 'x', user: 'not allowed' })).status).toBe(422);
   const stats = await mf.dispatchFetch('http://localhost/api/admin/stats', {
-    headers: { authorization: 'Bearer local-admin' },
+    headers: { origin: 'https://dibs.here', authorization: 'Bearer local-admin' },
   });
   const data = (await stats.json()) as any;
   expect(data.platforms).toHaveLength(9);
@@ -368,7 +373,7 @@ it('serves unique cached previews to WhatsApp, X, Facebook, iMessage and Discord
       const page = await pages.fetch(`http://local/${kind}/${id}?s=x`, {
         headers: { 'user-agent': agent },
       });
-      expect(page.status).toBe(200);
+      expect(page.status, await page.clone().text()).toBe(200);
       const html = await page.text();
       expect(html).not.toMatch(/Animal [0-9]|localhost/);
       expect(html).toContain('summary_large_image');
@@ -399,8 +404,8 @@ it('serves unique cached previews to WhatsApp, X, Facebook, iMessage and Discord
       writeFileSync(`review/final/${kind}-og.png`, bytes);
     }
   }
-  mkdirSync('review/round4', { recursive: true });
-  writeFileSync('review/round4/preview-fetches.json', JSON.stringify(results, null, 2));
+  mkdirSync('review/round5', { recursive: true });
+  writeFileSync('review/round5/preview-fetches.json', JSON.stringify(results, null, 2));
 });
 
 it('keeps a zero-dibs five-strike summary across reloads without creating a D1 player', async () => {
@@ -425,7 +430,11 @@ it('invalidates public summaries and PNGs after a claim is voided', async () => 
   expect(before.file.claims).toHaveLength(3);
   const response = await mf.dispatchFetch('http://localhost/api/admin/void-claim', {
     method: 'POST',
-    headers: { authorization: 'Bearer local-admin', 'content-type': 'application/json' },
+    headers: {
+      origin: 'https://dibs.here',
+      authorization: 'Bearer local-admin',
+      'content-type': 'application/json',
+    },
     body: JSON.stringify({ id: certificateId }),
   });
   expect(response.status).toBe(200);
@@ -433,4 +442,30 @@ it('invalidates public summaries and PNGs after a claim is voided', async () => 
   expect(after.file.claims).toHaveLength(2);
   expect(after.file.claims.map((c: any) => c.id)).not.toContain(certificateId);
   expect(after.file.closed).toBe(true);
+});
+
+it('locks admin attempts per IP hash, preserves other IPs, and rate limits event floods', async () => {
+  const adminCall = (ip: string, token: string) =>
+    mf.dispatchFetch('http://localhost/api/admin/stats', {
+      headers: { authorization: 'Bearer ' + token, 'x-test-ip': ip },
+    });
+  const attempts = await Promise.all(
+    Array.from({ length: 10 }, () => adminCall('admin-lock-test', 'wrong')),
+  );
+  expect(attempts.every((r) => r.status === 404)).toBe(true);
+  expect((await adminCall('admin-lock-test', 'local-admin')).status).toBe(404);
+  expect((await adminCall('admin-other-ip', 'local-admin')).status).toBe(200);
+  const floods = await Promise.all(
+    Array.from({ length: 31 }, () =>
+      call('/events/share', { platform: 'copy-link' }, undefined, 'event-limit-test'),
+    ),
+  );
+  expect(floods.filter((r) => r.status === 200)).toHaveLength(30);
+  expect(floods.filter((r) => r.status === 429)).toHaveLength(1);
+  for (const path of ['/api/events/share', '/api/claim', '/api/admin/approve']) {
+    const r = await mf.dispatchFetch('http://localhost' + path, { method: 'POST', body: '{}' });
+    expect(r.status).toBe(path.includes('/admin/') ? 404 : 403);
+    expect(r.headers.get('access-control-allow-origin')).toBeNull();
+    expect(r.headers.get('strict-transport-security')).toBe('max-age=31536000; includeSubDomains');
+  }
 });

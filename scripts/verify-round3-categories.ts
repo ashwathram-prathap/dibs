@@ -4,7 +4,7 @@ import { catalogContent, keyContent } from '../shared/catalog-digest';
 import { normalize } from '../worker/domain';
 const token = readFileSync('.dev.vars', 'utf8').match(/^ADMIN_TOKEN=(.+)$/m)![1];
 const headers = { authorization: 'Bearer ' + token };
-const base = 'https://dibs-7hz.pages.dev/api';
+const base = 'https://dibs.here/api';
 const listing = await fetch(base + '/admin/registers', { headers });
 if (!listing.ok) throw Error('Remote registry unavailable; stop.');
 const categories = ((await listing.json()) as any).categories;

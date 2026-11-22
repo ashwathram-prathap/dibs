@@ -1,6 +1,8 @@
+import { gate, securityKey, type Gate } from './security';
+import { isLocal, originFailure } from '../shared/security';
 import { DurableObject } from 'cloudflare:workers';
-import { route, current, fileState, publicClaim, json, safeError, type Env } from './routes';
-import { cookieUser, handle, hmac } from './identity';
+import { route, current, fileState, publicClaim, json, safeError, body, type Env } from './routes';
+import { cookieUser, handle, hmac, constantEqual, sessionCookie } from './identity';
 import { nextDrop, registryDate, streak, normalize } from './domain';
 import { og } from './og';
 import { metered } from './metrics';
@@ -151,7 +153,7 @@ export class Registry extends DurableObject<Env> {
         lastSeen: Date.now(),
       };
       await this.ctx.storage.put('session:' + id, session);
-      cookie = `dibs_session=${id}.${await hmac(id, this.env.COOKIE_SECRET)}; HttpOnly; SameSite=Lax; Path=/; Max-Age=31536000${new URL(req.url).protocol === 'https:' ? '; Secure' : ''}`;
+      cookie = await sessionCookie(id, this.env.COOKIE_SECRET, isLocal(req, this.env.LOCAL_TEST));
     }
     if (session && create && Date.now() - (session.lastSeen || 0) > 86400000) {
       session.lastSeen = Date.now();
@@ -319,7 +321,7 @@ export class Registry extends DurableObject<Env> {
         });
     }
     // Bound private session and certificate-cache storage without deleting any D1 record.
-    for (const prefix of ['session:', 'cache:']) {
+    for (const prefix of ['session:', 'cache:', 'security:']) {
       let after: string | undefined;
       while (true) {
         const page = await this.ctx.storage.list<any>({
@@ -332,7 +334,8 @@ export class Registry extends DurableObject<Env> {
         for (const [key, value] of page) {
           const at = prefix === 'session:' ? value.lastSeen : value.at;
           const ttl = prefix === 'session:' ? 30 * 86400000 : 86400000;
-          if (!at || at < Date.now() - ttl) obsolete.push(key);
+          if (prefix === 'security:' ? value.expires <= Date.now() : !at || at < Date.now() - ttl)
+            obsolete.push(key);
         }
         if (obsolete.length) await this.ctx.storage.delete(obsolete);
         after = [...page.keys()].at(-1);
@@ -367,18 +370,35 @@ export class Registry extends DurableObject<Env> {
     }
     return response;
   }
+  async rateGate(req: Request, env: Env, admin: boolean, valid: boolean) {
+    const key =
+      'security:' +
+      (admin ? 'admin:' : 'events:') +
+      (await securityKey(req, env.COOKIE_SECRET, env.LOCAL_TEST));
+    const status = await this.ctx.storage.transaction(async (txn) => {
+      const result = gate(await txn.get<Gate>(key), Date.now(), valid, admin);
+      await txn.put(key, result.state);
+      return result.status;
+    });
+    if (!(await this.ctx.storage.getAlarm()))
+      await this.ctx.storage.setAlarm(Date.now() + 86400000);
+    return status === 200
+      ? null
+      : json(
+          {
+            message:
+              status === 404
+                ? 'No file at this address.'
+                : 'Give the clerk a minute before filing again.',
+          },
+          status,
+        );
+  }
   async dispatch(req: Request, env: Env): Promise<Response> {
     const url = new URL(req.url),
       path = url.pathname.replace(/^\/api/, '');
-    const origin = req.headers.get('origin');
-    if ((req.method === 'POST' && !path.startsWith('/admin/')) || path === '/live') {
-      if (
-        origin &&
-        origin !== PUBLIC_ORIGIN &&
-        !(env.LOCAL_TEST === 'true' && /^http:\/\/(localhost|127\.0\.0\.1)(:\d+)?$/.test(origin))
-      )
-        return json({ message: 'Please file from the registry’s own window.' }, 403);
-    }
+    const rejected = originFailure(req, isLocal(req, env.LOCAL_TEST));
+    if (rejected) return rejected;
     if (path === '/live') {
       if (req.headers.get('upgrade')?.toLowerCase() !== 'websocket')
         return json({ message: 'A live connection is required.' }, 426);
@@ -435,23 +455,35 @@ export class Registry extends DurableObject<Env> {
     if (path === '/og' || path.startsWith('/og/')) return this.image(path.slice(4), env);
     if (path === '/answers') return json({ answers: [] }); // Suggestions are a versioned Pages asset.
     if (path.startsWith('/admin/')) {
+      const valid =
+        !!env.ADMIN_TOKEN &&
+        (await constantEqual(req.headers.get('authorization') || '', 'Bearer ' + env.ADMIN_TOKEN));
+      const denied = await this.rateGate(req, env, true, valid);
+      if (denied) return denied;
       if (
         path === '/admin/upload-budget' ||
         (path === '/admin/category' && env.LOCAL_TEST !== 'true')
       ) {
-        if (
-          (await hmac(req.headers.get('authorization') || '', env.ADMIN_TOKEN)) !==
-          (await hmac('Bearer ' + env.ADMIN_TOKEN, env.ADMIN_TOKEN))
-        )
-          return json({ message: 'The clerk’s key is required.' }, 401);
         const key = 'upload-budget:' + new Date().toISOString().slice(0, 10);
         if (path === '/admin/upload-budget')
           return json({
             reservedWrites: (await this.ctx.storage.get<number>(key)) || 0,
             limit: 45000,
           });
-        const b = (await req.clone().json()) as any;
-        if (!Array.isArray(b.answers)) return json({ message: 'Answers are required.' }, 422);
+        const b = await body(req.clone() as Request, 5_000_000);
+        if (
+          !Array.isArray(b.answers) ||
+          b.answers.length > 2200 ||
+          b.answers.some(
+            (a: any) =>
+              !a ||
+              typeof a.display !== 'string' ||
+              !Array.isArray(a.aliases) ||
+              a.aliases.length > 40 ||
+              a.aliases.some((v: any) => typeof v !== 'string'),
+          )
+        )
+          return json({ message: 'Answers are required.' }, 422);
         const keys = b.answers.reduce(
           (n: number, a: any) =>
             n + new Set([normalize(a.display), ...(a.aliases || []).map(normalize)]).size,
@@ -552,10 +584,15 @@ export class Registry extends DurableObject<Env> {
       return response;
     }
     if ((path === '/events/share' || path === '/events/arrival') && req.method === 'POST') {
-      const raw = await req.text();
-      if (raw.length > 100) return json({ message: 'Small forms only.' }, 413);
-      const b = JSON.parse(raw);
-      if (!b || typeof b !== 'object' || !isPlatform(b.platform) || Object.keys(b).some((k) => k !== 'platform'))
+      const denied = await this.rateGate(req, env, false, true);
+      if (denied) return denied;
+      const b = await body(req, 100);
+      if (
+        !b ||
+        typeof b !== 'object' ||
+        !isPlatform(b.platform) ||
+        Object.keys(b).some((k) => k !== 'platform')
+      )
         return json({ message: 'Unknown platform.' }, 422);
       const key = 'platforms:' + new Date().toISOString().slice(0, 10);
       await this.ctx.storage.transaction(async (txn) => {
@@ -666,8 +703,15 @@ export class Registry extends DurableObject<Env> {
     try {
       if (typeof message !== 'string' || message.length > 512)
         return ws.close(1009, 'Small forms only');
-      const b = JSON.parse(message),
-        previous = ws.deserializeAttachment() as { at: number } | null;
+      const b = JSON.parse(message);
+      if (
+        !b ||
+        typeof b !== 'object' ||
+        (b.category != null && !/^[a-zA-Z0-9-]{2,80}$/.test(b.category)) ||
+        ['since', 'version'].some((k) => b[k] != null && (!Number.isSafeInteger(b[k]) || b[k] < 0))
+      )
+        return ws.close(1008, 'That form could not be read');
+      const previous = ws.deserializeAttachment() as { at: number } | null;
       if (previous && Date.now() - previous.at < 10000) return;
       ws.serializeAttachment({ at: Date.now() });
       const closed = await this.ctx.storage.get<{ until: number; body: any }>('quota-closed');

@@ -1,0 +1,7 @@
+[extend]
+useDefault = true
+
+[[allowlists]]
+description = "SHA-256 checksums of answer-key catalogs, not credentials (R5 reviewed)"
+regexTarget = "line"
+regexes = ['''^\s*"keyDigest": "[a-f0-9]{64}",?\s*$''']
