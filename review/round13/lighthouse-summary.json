@@ -1,0 +1,45 @@
+{
+  "reports": [
+    {
+      "state": "closed",
+      "url": "http://127.0.0.1:5176/?r7-closed",
+      "at": "2026-11-22T20:39:51.584Z",
+      "performance": 0.92,
+      "accessibility": 1,
+      "lcp": "2.9 s"
+    },
+    {
+      "state": "live",
+      "url": "http://127.0.0.1:5175/?r6",
+      "at": "2026-11-22T20:01:03.133Z",
+      "performance": 0.95,
+      "accessibility": 1,
+      "lcp": "2.9 s"
+    },
+    {
+      "state": "practice",
+      "url": "https://practice.dibs-7hz.pages.dev/",
+      "at": "2026-11-22T20:27:40.789Z",
+      "performance": 0.87,
+      "accessibility": 1,
+      "lcp": "4.1 s"
+    },
+    {
+      "state": "practice-final",
+      "url": "https://practice.dibs-7hz.pages.dev/",
+      "at": "2026-11-22T20:35:07.129Z",
+      "performance": 0.96,
+      "accessibility": 1,
+      "lcp": "2.5 s"
+    },
+    {
+      "state": "production",
+      "url": "https://dibs.here/",
+      "at": "2026-11-22T20:42:46.761Z",
+      "performance": 0.93,
+      "accessibility": 1,
+      "lcp": "3.2 s"
+    }
+  ],
+  "note": "Practice initial 87 was traced to staging no-transform disabling JS/CSS compression. Restricting no-transform to HTML restored normal asset compression and retained staging analytics-injection protection. Final practice measured with real Turnstile restored."
+}

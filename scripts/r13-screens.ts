@@ -24,7 +24,7 @@ try {
         ['calendar', '/admin/schedule'],
         ['error', '/not-a-page'],
       ]) {
-        await p.goto('http://127.0.0.1:5175' + path);
+        await p.goto('http://127.0.0.1:5176' + path);
         await p.locator('.loading').waitFor({ state: 'hidden' });
         if (name === 'done')
           for (const answer of ['Axolotl', 'Okapi', 'Quokka']) {

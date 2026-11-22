@@ -1,0 +1,29 @@
+{
+  "expected": 60,
+  "unexpected": 0,
+  "skipped": 0,
+  "flaky": 0,
+  "full": {
+    "url": "https://github.com/ashwathram-prathap/dibs/actions/runs/45065447181",
+    "stats": {
+      "startTime": "2026-11-22T20:22:51.334Z",
+      "duration": 362224.057,
+      "expected": 48,
+      "skipped": 0,
+      "unexpected": 6,
+      "flaky": 0
+    }
+  },
+  "final": {
+    "url": "https://github.com/ashwathram-prathap/dibs/actions/runs/45067214703",
+    "stats": {
+      "startTime": "2026-11-22T20:36:15.836Z",
+      "duration": 91134.36499999999,
+      "expected": 18,
+      "skipped": 0,
+      "unexpected": 0,
+      "flaky": 0
+    }
+  },
+  "note": "The full Firefox run passed 48 checks and failed six music visibility checks because Firefox lacks AudioParam.cancelAndHoldAtTime. Explicit gain-envelope tracking fixed that API incompatibility. The final focused run covers all 18 R13 checks (hero, sound/music and overlay keyboard at three desktop widths in both themes). It replaces those six failures and adds six keyboard checks. Audio used a real Web Audio context with a PulseAudio null output device in Linux CI."
+}

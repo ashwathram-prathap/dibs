@@ -4,6 +4,7 @@ const full = read('.tmp/r13/full-browser-results.json');
 const recheck = read('.tmp/r13/recheck-browser-results.json');
 const audio = read('.tmp/r13/final-browser-results.json');
 const keyboard = read('.tmp/r13/keyboard-browser-results.json');
+const hero = read('.tmp/r13/hero-browser-results.json');
 const cases = new Map<string, string>();
 function collect(suites: any[]) {
   for (const suite of suites) {
@@ -17,6 +18,7 @@ collect(full.suites);
 collect(recheck.suites);
 collect(audio.suites);
 collect(keyboard.suites);
+collect(hero.suites);
 const summary = {
   expected: [...cases.values()].filter((x) => x === 'expected').length,
   unexpected: [...cases.values()].filter((x) => x === 'unexpected').length,
@@ -25,6 +27,7 @@ const summary = {
   initial: full.stats,
   recheck: recheck.stats,
   keyboard: keyboard.stats,
+  hero: hero.stats,
   note: 'The four full-run failures were ENOENT trace-artifact cleanup collisions between concurrent Playwright invocations. All nine checks in the affected WebKit project passed when rerun with a separate output directory. Latest audio checks passed in all 36 Chromium/WebKit profiles.',
 };
 writeFileSync('review/round13/browser-summary.json', JSON.stringify(summary, null, 2));

@@ -32,7 +32,7 @@ for (const engine of [chromium, webkit]) {
           reducedMotion: 'reduce',
         });
         const p = await c.newPage();
-        await p.goto('http://127.0.0.1:5175/?r6');
+        await p.goto('http://127.0.0.1:5176/?r6');
         await p.locator('#answer').waitFor();
         for (const answer of ['Axolotl', 'Okapi', 'Quokka']) {
           await p.locator('#answer').fill(answer);

@@ -1,0 +1,25 @@
+{
+  "sourceCommit": "89631f0",
+  "production": {
+    "url": "https://dibs.here",
+    "pages": "7b183b0b-56d9-451e-b06d-355456765434",
+    "workerVersion": "ab8ed32f-391a-40e0-bf1c-1b698743b379",
+    "workerDeployment": "28355e83-b6db-4a2d-9148-bc13322af1b0",
+    "smokePassed": true,
+    "deployedAt": "2026-11-22T20:41:58.962569Z"
+  },
+  "practice": {
+    "url": "https://practice.dibs-7hz.pages.dev",
+    "pages": "7316957f-e638-48ab-8ad2-6bc1b3081275",
+    "workerVersion": "52bd33e5-4bff-44cd-b0eb-74215e7038eb",
+    "realTurnstileRestored": true
+  },
+  "launch": "2026-11-24T02:00:00.000Z",
+  "rollback": {
+    "pages": "e6ee74b7-65f8-43b1-93ee-6b2e824bacc0",
+    "workerVersion": "552aa70f-999f-4c65-88c2-4da89113bbd5",
+    "workerDeployment": "e0d10b8f-8e1d-4402-8f73-6a0c595a50cb",
+    "launch": "2026-11-24T02:00:00.000Z",
+    "recordedAt": "2026-11-22T20:38:28.509Z"
+  }
+}

@@ -27,5 +27,13 @@
     "unexpected": 0,
     "flaky": 0
   },
+  "hero": {
+    "startTime": "2026-11-22T20:34:45.512Z",
+    "duration": 28751.514,
+    "expected": 36,
+    "skipped": 0,
+    "unexpected": 0,
+    "flaky": 0
+  },
   "note": "The four full-run failures were ENOENT trace-artifact cleanup collisions between concurrent Playwright invocations. All nine checks in the affected WebKit project passed when rerun with a separate output directory. Latest audio checks passed in all 36 Chromium/WebKit profiles."
 }
