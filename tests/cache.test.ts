@@ -374,7 +374,9 @@ it('serves unique cached previews to WhatsApp, X, Facebook, iMessage and Discord
       expect(html).toContain('summary_large_image');
       const image = html.match(/property="og:image" content="([^"]+)"/)![1];
       expect(html).toContain(`name="twitter:image" content="${image}"`);
-      expect(image).toBe(`${PUBLIC_ORIGIN}/api/og/${kind === 'summary' ? 'summary/' : ''}${id}`);
+      expect(image).toBe(
+        `${PUBLIC_ORIGIN}/api/og/${kind === 'summary' ? 'summary/' : ''}${id}?v=4`,
+      );
       const started = performance.now();
       const response = await mf.dispatchFetch(image, { headers: { 'user-agent': agent } });
       const bytes = Buffer.from(await response.arrayBuffer());

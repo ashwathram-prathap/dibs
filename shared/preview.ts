@@ -20,7 +20,7 @@ export function preview(kind: 'certificate' | 'summary'): PagesFunction<Env> {
       kind === 'summary'
         ? `A day on file, ${data.category.date}. Three dibs. Five strikes. Play the daily registry.`
         : `One more on file, ${data.claim.category_date}. Call your own Dibs in the daily registry.`;
-    const image = `${PUBLIC_ORIGIN}/api/og/${kind === 'summary' ? 'summary/' : ''}${id}`;
+    const image = `${PUBLIC_ORIGIN}/api/og/${kind === 'summary' ? 'summary/' : ''}${id}?v=4`;
     const canonical = `${PUBLIC_ORIGIN}/${kind}/${id}`;
     const tags: Record<string, string> = {
       'meta[name="description"]': description,

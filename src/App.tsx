@@ -1293,7 +1293,7 @@ function Stats() {
               ))}
             </tbody>
           </table>
-          <table className="record-table">
+          <table className="record-table platform-table">
             <caption>Sharing by platform · all recorded taps and first arrivals</caption>
             <thead>
               <tr>

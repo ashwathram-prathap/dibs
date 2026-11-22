@@ -2149,3 +2149,31 @@ html.low-power .dibs-stamp strong {
   display: inline-block;
   padding-block: 12px;
 }
+.platform-table {
+  margin-top: 28px;
+}
+.platform-table caption {
+  text-align: left;
+  font:
+    12px/1.7 Plex,
+    monospace;
+  padding-bottom: 12px;
+}
+.platform-table th:first-child {
+  width: 50%;
+}
+.platform-table th:nth-child(2),
+.platform-table th:last-child {
+  width: 25%;
+}
+.platform-table th:not(:first-child),
+.platform-table td:not(:first-child) {
+  text-align: right;
+}
+.day-summary {
+  max-width: 760px;
+}
+.day-summary .share-area {
+  max-width: none;
+  margin: 24px 0;
+}
