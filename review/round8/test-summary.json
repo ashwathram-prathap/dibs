@@ -8,7 +8,7 @@
   "browser": {
     "localMatrixPassed": 470,
     "localMatrixFailed": 0,
-    "failuresExplained": "Full Chromium/WebKit matrix refreshed Nov 22 04:34 ET against final UI and launch catalogs: 470 passed. Remaining unscheduled reference additions will receive final unit and live asset checks.",
+    "failuresExplained": "470 Chromium/WebKit tests passed against the final UI and launch catalogs. Subsequent unscheduled catalog changes passed the final 98-unit suite, glyph/type checks, full live asset benchmark, and final Firefox CI.",
     "targetedClosure": {
       "passed": 4
     },
@@ -16,8 +16,8 @@
       "passed": 42,
       "skipped": 28
     },
-    "firefoxCI": "https://github.com/ashwathram-prathap/dibs/actions/runs/45009408508",
-    "firefoxHead": "6dbe1e8cc03bebb618ce19191d6341a72301cef6"
+    "firefoxCI": "https://github.com/ashwathram-prathap/dibs/actions/runs/45014144952",
+    "firefoxHead": "eb78d65b9afc21e4488ebde87078cc825e7935b3"
   },
   "visualAudit": {
     "states": 168,
@@ -41,7 +41,8 @@
     "successfulClaims": 238,
     "expectedRegistryHeld": 7,
     "refreshedAt": "2026-11-22T10:01:54.743Z",
-    "expectedAlreadyTakenAlias": 1
+    "expectedAlreadyTakenAlias": 1,
+    "clerkLengthBrowserChecks": 2
   },
   "headingStress": {
     "categories": 33,
@@ -71,5 +72,34 @@
     "strictApprovalReady": 23,
     "remainingIndependentReview": 10,
     "schedule": "Existing five dates preserved; other categories unscheduled."
+  },
+  "runtime": {
+    "liveSamplesPassed": 6600,
+    "liveSamplesTotal": 6600,
+    "warmP95": "Below Cloudflare timer resolution",
+    "coldMaximumMs": 3346,
+    "localExactWarmP95Ms": 0.113959,
+    "outerWorkerMaxSampledCpuMs": 1,
+    "registryMaxSampledCpuMs": 265,
+    "sampledFailedOutcomes": 0,
+    "startupMs": 307
+  },
+  "scheduledBackup": {
+    "runs": 1,
+    "exitCode": 0,
+    "proof": "scheduled-backup.json"
+  },
+  "productionLighthouse": {
+    "performance": 96,
+    "accessibility": 100,
+    "best-practices": 100,
+    "seo": 100
+  },
+  "production": {
+    "worker": "0e406dca-ed63-4e78-a87c-6bf327ca97cd",
+    "pages": "a03bcfcc",
+    "playerRowsUnchanged": true,
+    "scheduleUnchanged": true,
+    "proof": "production-preservation.json"
   }
 }

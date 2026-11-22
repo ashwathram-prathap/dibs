@@ -1,19 +1,17 @@
 {
-  "at": "2026-11-22T07:09:59.109000+00:00",
-  "before": [
-    {
-      "claims": 0,
-      "strikes": 0,
-      "users": 3
-    }
-  ],
-  "after": [
-    {
-      "claims": 0,
-      "strikes": 0,
-      "users": 3
-    }
-  ],
+  "at": "2026-11-22T10:56:25.074Z",
+  "beforeAt": "2026-11-22T10:08:34.965Z",
+  "before": {
+    "users": 3,
+    "claims": 0,
+    "strikes": 0
+  },
+  "after": {
+    "users": 3,
+    "claims": 0,
+    "strikes": 0
+  },
+  "existingPlayerRowsUnchanged": true,
   "scheduleUnchanged": true,
   "registers": [
     {
@@ -21,8 +19,8 @@
       "date": "2026-11-23",
       "status": "approved",
       "drop_at": "2026-11-24T02:00:00.000Z",
-      "static_count": 89124,
-      "version": "e3d587202519cd6b"
+      "static_count": 89122,
+      "version": "10210a86838c8eca"
     },
     {
       "id": "plants",
@@ -53,10 +51,8 @@
       "date": "2026-11-27",
       "status": "approved",
       "drop_at": "2026-11-28T02:00:00.000Z",
-      "static_count": 137341,
-      "version": "4d5f987545448900"
+      "static_count": 137623,
+      "version": "1f68f6b5340a8880"
     }
-  ],
-  "workerVersion": "8bbcce12-1da9-4cf2-ab1c-0ad50660a31b",
-  "pagesDeployment": "94024534"
+  ]
 }

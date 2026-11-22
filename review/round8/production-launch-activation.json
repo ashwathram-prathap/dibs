@@ -1,18 +1,18 @@
 {
-  "at": "2026-11-22T07:09:46.277Z",
+  "at": "2026-11-22T10:51:11.840Z",
   "checks": [
     {
-      "slug": "cities",
-      "version": "00cadebbe95f4404",
+      "slug": "animals",
+      "version": "10210a86838c8eca",
       "ok": true,
-      "entries": 149928,
+      "entries": 89122,
       "schedulePreserved": true
     },
     {
       "slug": "actors",
-      "version": "4d5f987545448900",
+      "version": "1f68f6b5340a8880",
       "ok": true,
-      "entries": 137341,
+      "entries": 137623,
       "schedulePreserved": true
     }
   ],

@@ -1,13 +1,13 @@
 {
-  "at": "2026-11-22T09:31:52.533456+00:00",
-  "privateExport": "production-20261122T093131Z.sql",
-  "restoredToSeparatePrivateSQLite": true,
-  "foreignKeyViolations": 0,
+  "checkedAt": "2026-11-22T10:53:47.650525+00:00",
+  "backup": ".backups/production-20261122T105320Z.sql",
+  "sha256": "594256ea686deedd2c04f16b5b28fe08aeb6e9c9d9a0342b1a9e5c4bcc04277d",
+  "target": "Separate in-memory SQLite database; production restore never executed",
+  "foreignKeyErrors": 0,
   "counts": {
     "users": 3,
     "claims": 0,
     "strikes": 0
   },
-  "productionRestorePerformed": false,
-  "temporaryRestoredDatabaseRemoved": true
+  "passed": true
 }

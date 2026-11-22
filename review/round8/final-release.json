@@ -1,0 +1,33 @@
+{
+  "checkedAt": "2026-11-22T11:00:37.247127+00:00",
+  "sourceCommit": "eb78d65b9afc21e4488ebde87078cc825e7935b3",
+  "production": {
+    "worker": "0e406dca-ed63-4e78-a87c-6bf327ca97cd",
+    "pages": "a03bcfcc",
+    "playerRowsUnchanged": true,
+    "scheduleUnchanged": true,
+    "proof": "production-preservation.json"
+  },
+  "practice": {
+    "worker": "6e43a1cb-a414-4cfe-aff1-d7e257e0d6da",
+    "pages": "909c8047"
+  },
+  "automatedVerificationPassed": true,
+  "lighthouse": {
+    "performance": 96,
+    "accessibility": 100,
+    "best-practices": 100,
+    "seo": 100
+  },
+  "unitPassed": 98,
+  "chromiumWebKitPassed": 470,
+  "firefox": "https://github.com/ashwathram-prathap/dibs/actions/runs/45014144952",
+  "obviousCoverageTargetsPassed": 33,
+  "independentChecks": 1650,
+  "newScheduleDatesAdded": 0,
+  "remainingOwnerChecks": [
+    "Physical-phone keyboard, native sharing, large text and real in-app Turnstile",
+    "Set up privacy mailbox and Google Search Console",
+    "Review retained independent source/sample gaps before approving unscheduled categories"
+  ]
+}

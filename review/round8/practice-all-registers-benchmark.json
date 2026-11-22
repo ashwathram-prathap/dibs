@@ -11,8 +11,8 @@
           "accepted": 100,
           "samples": 100,
           "p95Ms": 0,
-          "maxMs": 678,
-          "totalRoundTripMs": 1660.668041,
+          "maxMs": 91,
+          "totalRoundTripMs": 1218.3497499999999,
           "rows": [
             {
               "answer": "Rose Byrne",
@@ -24,7 +24,7 @@
               "answer": "Candice Bergen",
               "found": true,
               "display": "Candice Bergen",
-              "ms": 678
+              "ms": 91
             },
             {
               "answer": "June Carter Cash",
@@ -622,7 +622,7 @@
           "samples": 100,
           "p95Ms": 0,
           "maxMs": 0,
-          "totalRoundTripMs": 792.9352920000001,
+          "totalRoundTripMs": 833.8026249999994,
           "rows": [
             {
               "answer": "Rose Byrne",
@@ -1239,8 +1239,8 @@
           "accepted": 100,
           "samples": 100,
           "p95Ms": 0,
-          "maxMs": 75,
-          "totalRoundTripMs": 1034.5998749999999,
+          "maxMs": 68,
+          "totalRoundTripMs": 1026.8780830000005,
           "rows": [
             {
               "answer": "Aden International Airport",
@@ -1258,7 +1258,7 @@
               "answer": "Puebla International Airport",
               "found": true,
               "display": "Puebla International Airport",
-              "ms": 75
+              "ms": 68
             },
             {
               "answer": "Enrique Malek International Airport",
@@ -1850,7 +1850,7 @@
           "samples": 100,
           "p95Ms": 0,
           "maxMs": 0,
-          "totalRoundTripMs": 737.5844579999994,
+          "totalRoundTripMs": 690.241959,
           "rows": [
             {
               "answer": "Aden International Airport",
@@ -2467,8 +2467,8 @@
           "accepted": 100,
           "samples": 100,
           "p95Ms": 0,
-          "maxMs": 824,
-          "totalRoundTripMs": 2063.1350840000014,
+          "maxMs": 184,
+          "totalRoundTripMs": 1455.9919160000009,
           "rows": [
             {
               "answer": "Songs of Experience",
@@ -2480,7 +2480,7 @@
               "answer": "Ohms",
               "found": true,
               "display": "Ohms",
-              "ms": 824
+              "ms": 184
             },
             {
               "answer": "Atrocity Exhibition",
@@ -3078,7 +3078,7 @@
           "samples": 100,
           "p95Ms": 0,
           "maxMs": 0,
-          "totalRoundTripMs": 675.4361250000002,
+          "totalRoundTripMs": 953.3714160000018,
           "rows": [
             {
               "answer": "Songs of Experience",
@@ -3695,8 +3695,8 @@
           "accepted": 100,
           "samples": 100,
           "p95Ms": 0,
-          "maxMs": 889,
-          "totalRoundTripMs": 2025.1017499999998,
+          "maxMs": 131,
+          "totalRoundTripMs": 1402.12975,
           "rows": [
             {
               "answer": "Comb Jelly",
@@ -3708,7 +3708,7 @@
               "answer": "Reticulated Giraffe",
               "found": true,
               "display": "Reticulated Giraffe",
-              "ms": 889
+              "ms": 131
             },
             {
               "answer": "Black Drongo",
@@ -4306,7 +4306,7 @@
           "samples": 100,
           "p95Ms": 0,
           "maxMs": 0,
-          "totalRoundTripMs": 883.0087920000005,
+          "totalRoundTripMs": 830.3121660000015,
           "rows": [
             {
               "answer": "Comb Jelly",
@@ -4923,8 +4923,8 @@
           "accepted": 100,
           "samples": 100,
           "p95Ms": 0,
-          "maxMs": 195,
-          "totalRoundTripMs": 1080.7057080000013,
+          "maxMs": 32,
+          "totalRoundTripMs": 893.9139589999995,
           "rows": [
             {
               "answer": "Ludwig Mies van der Rohe",
@@ -4966,7 +4966,7 @@
               "answer": "Dankmar Adler",
               "found": true,
               "display": "Dankmar Adler",
-              "ms": 195
+              "ms": 32
             },
             {
               "answer": "Patrick Nuttgens",
@@ -5534,7 +5534,7 @@
           "samples": 100,
           "p95Ms": 0,
           "maxMs": 0,
-          "totalRoundTripMs": 914.135624999999,
+          "totalRoundTripMs": 720.1096670000006,
           "rows": [
             {
               "answer": "Ludwig Mies van der Rohe",
@@ -6151,8 +6151,8 @@
           "accepted": 100,
           "samples": 100,
           "p95Ms": 0,
-          "maxMs": 58,
-          "totalRoundTripMs": 870.2949169999993,
+          "maxMs": 51,
+          "totalRoundTripMs": 938.7770000000019,
           "rows": [
             {
               "answer": "Hawkmoth",
@@ -6182,7 +6182,7 @@
               "answer": "Worm And Slug Hunters",
               "found": true,
               "display": "Worm And Slug Hunters",
-              "ms": 58
+              "ms": 51
             },
             {
               "answer": "Muscoid Fly",
@@ -6762,7 +6762,7 @@
           "samples": 100,
           "p95Ms": 0,
           "maxMs": 0,
-          "totalRoundTripMs": 964.106667,
+          "totalRoundTripMs": 702.4019579999986,
           "rows": [
             {
               "answer": "Hawkmoth",
@@ -7379,8 +7379,8 @@
           "accepted": 100,
           "samples": 100,
           "p95Ms": 0,
-          "maxMs": 34,
-          "totalRoundTripMs": 918.4969170000004,
+          "maxMs": 38,
+          "totalRoundTripMs": 874.3626250000016,
           "rows": [
             {
               "answer": "Rosa",
@@ -7410,7 +7410,7 @@
               "answer": "Weringia",
               "found": true,
               "display": "Weringia",
-              "ms": 34
+              "ms": 38
             },
             {
               "answer": "Peraga",
@@ -7990,7 +7990,7 @@
           "samples": 100,
           "p95Ms": 0,
           "maxMs": 0,
-          "totalRoundTripMs": 880.2916670000013,
+          "totalRoundTripMs": 884.0326669999995,
           "rows": [
             {
               "answer": "Rosa",
@@ -8607,8 +8607,8 @@
           "accepted": 100,
           "samples": 100,
           "p95Ms": 0,
-          "maxMs": 359,
-          "totalRoundTripMs": 1253.835167000001,
+          "maxMs": 41,
+          "totalRoundTripMs": 931.4100840000028,
           "rows": [
             {
               "answer": "Village People",
@@ -8626,7 +8626,7 @@
               "answer": "The Statler Brothers",
               "found": true,
               "display": "The Statler Brothers",
-              "ms": 359
+              "ms": 41
             },
             {
               "answer": "Zwan",
@@ -9218,7 +9218,7 @@
           "samples": 100,
           "p95Ms": 0,
           "maxMs": 0,
-          "totalRoundTripMs": 788.4382079999996,
+          "totalRoundTripMs": 681.2381249999999,
           "rows": [
             {
               "answer": "Village People",
@@ -9835,8 +9835,8 @@
           "accepted": 100,
           "samples": 100,
           "p95Ms": 0,
-          "maxMs": 39,
-          "totalRoundTripMs": 921.9196660000016,
+          "maxMs": 31,
+          "totalRoundTripMs": 995.5165000000015,
           "rows": [
             {
               "answer": "Kauai Oo",
@@ -9878,7 +9878,7 @@
               "answer": "Western House Martin",
               "found": true,
               "display": "Western House Martin",
-              "ms": 39
+              "ms": 31
             },
             {
               "answer": "Long-legged Buzzard",
@@ -10446,7 +10446,7 @@
           "samples": 100,
           "p95Ms": 0,
           "maxMs": 0,
-          "totalRoundTripMs": 721.945584000001,
+          "totalRoundTripMs": 761.7006249999977,
           "rows": [
             {
               "answer": "Kauai Oo",
@@ -11063,8 +11063,8 @@
           "accepted": 100,
           "samples": 100,
           "p95Ms": 0,
-          "maxMs": 282,
-          "totalRoundTripMs": 1181.3527919999979,
+          "maxMs": 43,
+          "totalRoundTripMs": 1091.836374999999,
           "rows": [
             {
               "answer": "Château",
@@ -11094,7 +11094,7 @@
               "answer": "Qila Rai Pithora",
               "found": true,
               "display": "Qila Rai Pithora",
-              "ms": 282
+              "ms": 43
             },
             {
               "answer": "Dangan Castle",
@@ -11674,7 +11674,7 @@
           "samples": 100,
           "p95Ms": 0,
           "maxMs": 0,
-          "totalRoundTripMs": 851.4812920000004,
+          "totalRoundTripMs": 804.2426670000023,
           "rows": [
             {
               "answer": "Château",
@@ -12291,8 +12291,8 @@
           "accepted": 100,
           "samples": 100,
           "p95Ms": 0,
-          "maxMs": 109,
-          "totalRoundTripMs": 1505.9124169999996,
+          "maxMs": 140,
+          "totalRoundTripMs": 1289.9017920000006,
           "rows": [
             {
               "answer": "Auroville",
@@ -12304,7 +12304,7 @@
               "answer": "Flensburg",
               "found": true,
               "display": "Flensburg",
-              "ms": 109
+              "ms": 140
             },
             {
               "answer": "Roseburg",
@@ -12902,7 +12902,7 @@
           "samples": 100,
           "p95Ms": 0,
           "maxMs": 0,
-          "totalRoundTripMs": 888.3527499999982,
+          "totalRoundTripMs": 789.432665999997,
           "rows": [
             {
               "answer": "Auroville",
@@ -13519,8 +13519,8 @@
           "accepted": 100,
           "samples": 100,
           "p95Ms": 0,
-          "maxMs": 610,
-          "totalRoundTripMs": 1546.4671669999952,
+          "maxMs": 75,
+          "totalRoundTripMs": 1047.7962079999998,
           "rows": [
             {
               "answer": "Paris Jackson",
@@ -13532,7 +13532,7 @@
               "answer": "Jason Newsted",
               "found": true,
               "display": "Jason Newsted",
-              "ms": 610
+              "ms": 75
             },
             {
               "answer": "Jay Park",
@@ -14130,7 +14130,7 @@
           "samples": 100,
           "p95Ms": 0,
           "maxMs": 0,
-          "totalRoundTripMs": 818.643250000001,
+          "totalRoundTripMs": 780.5448749999996,
           "rows": [
             {
               "answer": "Paris Jackson",
@@ -14748,7 +14748,7 @@
           "samples": 100,
           "p95Ms": 0,
           "maxMs": 0,
-          "totalRoundTripMs": 885.8446249999979,
+          "totalRoundTripMs": 721.7369580000013,
           "rows": [
             {
               "answer": "United Kingdom",
@@ -15358,7 +15358,7 @@
           "samples": 100,
           "p95Ms": 0,
           "maxMs": 0,
-          "totalRoundTripMs": 705.768250000001,
+          "totalRoundTripMs": 667.674291000003,
           "rows": [
             {
               "answer": "United Kingdom",
@@ -15975,8 +15975,8 @@
           "accepted": 100,
           "samples": 100,
           "p95Ms": 0,
-          "maxMs": 813,
-          "totalRoundTripMs": 2194.7058340000003,
+          "maxMs": 158,
+          "totalRoundTripMs": 1442.639916,
           "rows": [
             {
               "answer": "Prahaar: The Final Attack",
@@ -15988,7 +15988,7 @@
               "answer": "Dog Pound",
               "found": true,
               "display": "Dog Pound",
-              "ms": 813
+              "ms": 158
             },
             {
               "answer": "Dolly",
@@ -16586,7 +16586,7 @@
           "samples": 100,
           "p95Ms": 0,
           "maxMs": 0,
-          "totalRoundTripMs": 899.6489169999986,
+          "totalRoundTripMs": 830.7510829999956,
           "rows": [
             {
               "answer": "Prahaar: The Final Attack",
@@ -17203,8 +17203,8 @@
           "accepted": 100,
           "samples": 100,
           "p95Ms": 0,
-          "maxMs": 32,
-          "totalRoundTripMs": 799.5210000000006,
+          "maxMs": 25,
+          "totalRoundTripMs": 855.445249999997,
           "rows": [
             {
               "answer": "Tofu",
@@ -17252,7 +17252,7 @@
               "answer": "Dakos",
               "found": true,
               "display": "Dakos",
-              "ms": 32
+              "ms": 25
             },
             {
               "answer": "Hi-chew",
@@ -17814,7 +17814,7 @@
           "samples": 100,
           "p95Ms": 0,
           "maxMs": 0,
-          "totalRoundTripMs": 757.3745830000043,
+          "totalRoundTripMs": 800.2951660000035,
           "rows": [
             {
               "answer": "Tofu",
@@ -18431,14 +18431,14 @@
           "accepted": 100,
           "samples": 100,
           "p95Ms": 0,
-          "maxMs": 1000,
-          "totalRoundTripMs": 1864.7085420000003,
+          "maxMs": 134,
+          "totalRoundTripMs": 921.439959000003,
           "rows": [
             {
               "answer": "Buster Merryfield",
               "found": true,
               "display": "Buster Merryfield",
-              "ms": 1000
+              "ms": 134
             },
             {
               "answer": "Ashique Kuruniyan",
@@ -19042,7 +19042,7 @@
           "samples": 100,
           "p95Ms": 0,
           "maxMs": 0,
-          "totalRoundTripMs": 843.90625,
+          "totalRoundTripMs": 790.010083000001,
           "rows": [
             {
               "answer": "Buster Merryfield",
@@ -19659,8 +19659,8 @@
           "accepted": 100,
           "samples": 100,
           "p95Ms": 0,
-          "maxMs": 19,
-          "totalRoundTripMs": 907.6580829999948,
+          "maxMs": 18,
+          "totalRoundTripMs": 902.5057919999963,
           "rows": [
             {
               "answer": "Maize",
@@ -20098,7 +20098,7 @@
               "answer": "Wooly abiu",
               "found": true,
               "display": "Wooly abiu",
-              "ms": 19
+              "ms": 18
             },
             {
               "answer": "Wild dilly",
@@ -20270,7 +20270,7 @@
           "samples": 100,
           "p95Ms": 0,
           "maxMs": 0,
-          "totalRoundTripMs": 865.465375000007,
+          "totalRoundTripMs": 667.7029580000017,
           "rows": [
             {
               "answer": "Maize",
@@ -20887,8 +20887,8 @@
           "accepted": 100,
           "samples": 100,
           "p95Ms": 0,
-          "maxMs": 565,
-          "totalRoundTripMs": 1641.8433340000047,
+          "maxMs": 102,
+          "totalRoundTripMs": 1202.385500000004,
           "rows": [
             {
               "answer": "Lubang Island",
@@ -20900,7 +20900,7 @@
               "answer": "Palmaria",
               "found": true,
               "display": "Palmaria",
-              "ms": 565
+              "ms": 102
             },
             {
               "answer": "Bugio Island",
@@ -21498,7 +21498,7 @@
           "samples": 100,
           "p95Ms": 0,
           "maxMs": 0,
-          "totalRoundTripMs": 807.9456659999996,
+          "totalRoundTripMs": 774.5580409999966,
           "rows": [
             {
               "answer": "Lubang Island",
@@ -22115,14 +22115,14 @@
           "accepted": 100,
           "samples": 100,
           "p95Ms": 0,
-          "maxMs": 1551,
-          "totalRoundTripMs": 2376.2912920000017,
+          "maxMs": 256,
+          "totalRoundTripMs": 1193.3072089999987,
           "rows": [
             {
               "answer": "Lexington Reservoir",
               "found": true,
               "display": "Lexington Reservoir",
-              "ms": 1551
+              "ms": 256
             },
             {
               "answer": "Marsh Creek Lake",
@@ -22726,7 +22726,7 @@
           "samples": 100,
           "p95Ms": 0,
           "maxMs": 0,
-          "totalRoundTripMs": 692.7055419999961,
+          "totalRoundTripMs": 672.4760410000017,
           "rows": [
             {
               "answer": "Lexington Reservoir",
@@ -23343,14 +23343,14 @@
           "accepted": 100,
           "samples": 100,
           "p95Ms": 0,
-          "maxMs": 2507,
-          "totalRoundTripMs": 3225.4104579999985,
+          "maxMs": 402,
+          "totalRoundTripMs": 1194.395292000001,
           "rows": [
             {
               "answer": "Mont Aiguille",
               "found": true,
               "display": "Mont Aiguille",
-              "ms": 2507
+              "ms": 402
             },
             {
               "answer": "Monti Cimini",
@@ -23954,7 +23954,7 @@
           "samples": 100,
           "p95Ms": 0,
           "maxMs": 0,
-          "totalRoundTripMs": 827.7847500000062,
+          "totalRoundTripMs": 659.5275419999962,
           "rows": [
             {
               "answer": "Mont Aiguille",
@@ -24571,8 +24571,8 @@
           "accepted": 100,
           "samples": 100,
           "p95Ms": 0,
-          "maxMs": 356,
-          "totalRoundTripMs": 1287.2790840000089,
+          "maxMs": 34,
+          "totalRoundTripMs": 880.6697500000009,
           "rows": [
             {
               "answer": "The Cloisters",
@@ -24608,7 +24608,7 @@
               "answer": "Rector's Palace, Dubrovnik",
               "found": true,
               "display": "Rector's Palace, Dubrovnik",
-              "ms": 356
+              "ms": 34
             },
             {
               "answer": "POLIN Museum of the History of Polish Jews",
@@ -25182,7 +25182,7 @@
           "samples": 100,
           "p95Ms": 0,
           "maxMs": 0,
-          "totalRoundTripMs": 809.8265000000101,
+          "totalRoundTripMs": 660.1658749999988,
           "rows": [
             {
               "answer": "The Cloisters",
@@ -25799,8 +25799,8 @@
           "accepted": 100,
           "samples": 100,
           "p95Ms": 0,
-          "maxMs": 428,
-          "totalRoundTripMs": 1363.3122920000023,
+          "maxMs": 68,
+          "totalRoundTripMs": 889.690333999999,
           "rows": [
             {
               "answer": "Watchmen",
@@ -25824,7 +25824,7 @@
               "answer": "My Side of the Mountain",
               "found": true,
               "display": "My Side of the Mountain",
-              "ms": 428
+              "ms": 68
             },
             {
               "answer": "Crime in the Cards",
@@ -26410,7 +26410,7 @@
           "samples": 100,
           "p95Ms": 0,
           "maxMs": 0,
-          "totalRoundTripMs": 843.8165000000008,
+          "totalRoundTripMs": 853.6519580000022,
           "rows": [
             {
               "answer": "Watchmen",
@@ -27027,8 +27027,8 @@
           "accepted": 100,
           "samples": 100,
           "p95Ms": 0,
-          "maxMs": 415,
-          "totalRoundTripMs": 1494.1540830000013,
+          "maxMs": 68,
+          "totalRoundTripMs": 993.6175410000069,
           "rows": [
             {
               "answer": "Paloma Picasso",
@@ -27046,7 +27046,7 @@
               "answer": "Toshio Saeki",
               "found": true,
               "display": "Toshio Saeki",
-              "ms": 415
+              "ms": 68
             },
             {
               "answer": "Tyrus Wong",
@@ -27638,7 +27638,7 @@
           "samples": 100,
           "p95Ms": 0,
           "maxMs": 0,
-          "totalRoundTripMs": 700.1935000000085,
+          "totalRoundTripMs": 691.6108749999985,
           "rows": [
             {
               "answer": "Paloma Picasso",
@@ -28247,615 +28247,615 @@
     },
     {
       "slug": "paintings",
-      "entries": 10501,
-      "version": "997fc23fb6600847",
+      "entries": 516458,
+      "version": "9959859ce98921b9",
       "passes": [
         {
           "pass": 0,
           "accepted": 100,
           "samples": 100,
           "p95Ms": 0,
-          "maxMs": 502,
-          "totalRoundTripMs": 1477.1084580000024,
+          "maxMs": 3346,
+          "totalRoundTripMs": 4028.542125000007,
           "rows": [
             {
-              "answer": "Napoleon Crossing the Alps",
+              "answer": "Hadleigh Castle",
               "found": true,
-              "display": "Napoleon Crossing the Alps",
-              "ms": 0
+              "display": "Hadleigh Castle",
+              "ms": 3346
             },
             {
-              "answer": "The Meeting on the Turret Stairs",
+              "answer": "Ixion, King of the Lapiths, Deceived by Juno, Who He Wished to Seduce",
               "found": true,
-              "display": "The Meeting on the Turret Stairs",
+              "display": "Ixion, King of the Lapiths, Deceived by Juno, Who He Wished to Seduce",
               "ms": 0
             },
             {
-              "answer": "Triptych of the Temptation of St. Anthony",
+              "answer": "'Wake me with…'",
               "found": true,
-              "display": "Triptych of the Temptation of St. Anthony",
+              "display": "'Wake me with…'",
               "ms": 0
             },
             {
-              "answer": "Bathers at Asnières",
+              "answer": "A Child",
               "found": true,
-              "display": "Bathers at Asnières",
+              "display": "A Child",
               "ms": 0
             },
             {
-              "answer": "Armada Portrait",
+              "answer": "A Keeper Trying To Restrain an Elephant [recto]",
               "found": true,
-              "display": "Armada Portrait",
+              "display": "A Keeper Trying To Restrain an Elephant [recto]",
               "ms": 0
             },
             {
-              "answer": "La Fornarina",
+              "answer": "A Room in the Censor's Office: Neutral Trade Mails",
               "found": true,
-              "display": "La Fornarina",
+              "display": "A Room in the Censor's Office: Neutral Trade Mails",
               "ms": 0
             },
             {
-              "answer": "Open Casket",
+              "answer": "A wet nurse's visit",
               "found": true,
-              "display": "Open Casket",
+              "display": "A wet nurse's visit",
               "ms": 0
             },
             {
-              "answer": "The Judgement of Paris",
+              "answer": "African Violet, 1981",
               "found": true,
-              "display": "The Judgement of Paris",
+              "display": "African Violet, 1981",
               "ms": 0
             },
             {
-              "answer": "Poplars",
+              "answer": "Allegory of Noon",
               "found": true,
-              "display": "Poplars",
+              "display": "Allegory of Noon",
               "ms": 0
             },
             {
-              "answer": "Christ in the House of Martha and Mary",
+              "answer": "Analysis of a Wave Pattern",
               "found": true,
-              "display": "Christ in the House of Martha and Mary",
+              "display": "Analysis of a Wave Pattern",
               "ms": 0
             },
             {
-              "answer": "Triptych, 1976",
+              "answer": "Architectural landscape with figures on a coast",
               "found": true,
-              "display": "Triptych, 1976",
-              "ms": 502
+              "display": "Architectural landscape with figures on a coast",
+              "ms": 0
             },
             {
-              "answer": "The Entombment",
+              "answer": "Aux écoutes ; Souvenir des environs de Tlemcen",
               "found": true,
-              "display": "The Entombment",
+              "display": "Aux écoutes ; Souvenir des environs de Tlemcen",
               "ms": 0
             },
             {
-              "answer": "The Three Dancers",
+              "answer": "Beach Scene 1",
               "found": true,
-              "display": "The Three Dancers",
+              "display": "Beach Scene 1",
               "ms": 0
             },
             {
-              "answer": "Sappho and Erinna in a Garden at Mytilene",
+              "answer": "Black Elegy: Untitled (installation)",
               "found": true,
-              "display": "Sappho and Erinna in a Garden at Mytilene",
+              "display": "Black Elegy: Untitled (installation)",
               "ms": 0
             },
             {
-              "answer": "Portrait of Charles V",
+              "answer": "Boy with cherries",
               "found": true,
-              "display": "Portrait of Charles V",
+              "display": "Boy with cherries",
               "ms": 0
             },
             {
-              "answer": "Portrait of Ambroise Vollard",
+              "answer": "By the Stream, Autumn",
               "found": true,
-              "display": "Portrait of Ambroise Vollard",
+              "display": "By the Stream, Autumn",
               "ms": 0
             },
             {
-              "answer": "The Banquet of Cleopatra",
+              "answer": "Carved retable of the Passion of Christ",
               "found": true,
-              "display": "The Banquet of Cleopatra",
+              "display": "Carved retable of the Passion of Christ",
               "ms": 0
             },
             {
-              "answer": "Manichaean Diagram of the Universe",
+              "answer": "Charles John Vaughan (1816–1897), Fellow and Classical Scholar, Headmaster and Dean of Llandaff",
               "found": true,
-              "display": "Manichaean Diagram of the Universe",
+              "display": "Charles John Vaughan (1816–1897), Fellow and Classical Scholar, Headmaster and Dean of Llandaff",
               "ms": 0
             },
             {
-              "answer": "Tristan and Isolde",
+              "answer": "Church Hill Steps, Hythe, Kent",
               "found": true,
-              "display": "Tristan and Isolde",
+              "display": "Church Hill Steps, Hythe, Kent",
               "ms": 0
             },
             {
-              "answer": "Seaport by Moonlight",
+              "answer": "Comme un oiseau",
               "found": true,
-              "display": "Seaport by Moonlight",
+              "display": "Comme un oiseau",
               "ms": 0
             },
             {
-              "answer": "Synagogue",
+              "answer": "Couple 5",
               "found": true,
-              "display": "Synagogue",
+              "display": "Couple 5",
               "ms": 0
             },
             {
-              "answer": "The Enigma of the Hour",
+              "answer": "Darbar Hall of the Nawab of Bengal",
               "found": true,
-              "display": "The Enigma of the Hour",
+              "display": "Darbar Hall of the Nawab of Bengal",
               "ms": 0
             },
             {
-              "answer": "Young Woman Powdering Herself",
+              "answer": "Dew Wet",
               "found": true,
-              "display": "Young Woman Powdering Herself",
+              "display": "Dew Wet",
               "ms": 0
             },
             {
-              "answer": "Saint Francis of Assisi in His Tomb",
+              "answer": "Dr. Hugo Koller",
               "found": true,
-              "display": "Saint Francis of Assisi in His Tomb",
+              "display": "Dr. Hugo Koller",
               "ms": 0
             },
             {
-              "answer": "Wall of Respect",
+              "answer": "Edward La Zouche, Eleventh Baron Zouche of Harringworth (ca 1556-1625)",
               "found": true,
-              "display": "Wall of Respect",
+              "display": "Edward La Zouche, Eleventh Baron Zouche of Harringworth (ca 1556-1625)",
               "ms": 0
             },
             {
-              "answer": "Femme au Chien",
+              "answer": "Entrance to the Temple at Kobe, Japan",
               "found": true,
-              "display": "Femme au Chien",
+              "display": "Entrance to the Temple at Kobe, Japan",
               "ms": 0
             },
             {
-              "answer": "Suvorov crossing the Alps",
+              "answer": "Family Portrait II",
               "found": true,
-              "display": "Suvorov crossing the Alps",
+              "display": "Family Portrait II",
               "ms": 0
             },
             {
-              "answer": "Cimon and Pero",
+              "answer": "Finer and finer and more gutless",
               "found": true,
-              "display": "Cimon and Pero",
+              "display": "Finer and finer and more gutless",
               "ms": 0
             },
             {
-              "answer": "The Martyrdom of Saint Bartholomew",
+              "answer": "Fogueira em Saint Hubert",
               "found": true,
-              "display": "The Martyrdom of Saint Bartholomew",
+              "display": "Fogueira em Saint Hubert",
               "ms": 0
             },
             {
-              "answer": "Scène d'été",
+              "answer": "French Screen",
               "found": true,
-              "display": "Scène d'été",
+              "display": "French Screen",
               "ms": 0
             },
             {
-              "answer": "Profile Portrait of a Young Lady",
+              "answer": "General on horseback addressing his troops, an infantry battle beyond",
               "found": true,
-              "display": "Profile Portrait of a Young Lady",
+              "display": "General on horseback addressing his troops, an infantry battle beyond",
               "ms": 0
             },
             {
-              "answer": "Evolution",
+              "answer": "Glendaruel",
               "found": true,
-              "display": "Evolution",
+              "display": "Glendaruel",
               "ms": 0
             },
             {
-              "answer": "Landscape with Saint John on Patmos",
+              "answer": "Gulf",
               "found": true,
-              "display": "Landscape with Saint John on Patmos",
+              "display": "Gulf",
               "ms": 0
             },
             {
-              "answer": "Portrait of a Man with Carnation",
+              "answer": "Head Priest Govardhan Lalji (1862–1934) Offers a Lamp to Shri Nathji in Celebration of the Spring Festival",
               "found": true,
-              "display": "Portrait of a Man with Carnation",
+              "display": "Head Priest Govardhan Lalji (1862–1934) Offers a Lamp to Shri Nathji in Celebration of the Spring Festival",
               "ms": 0
             },
             {
-              "answer": "The Circumcision",
+              "answer": "HMS 'Alecto'",
               "found": true,
-              "display": "The Circumcision",
+              "display": "HMS 'Alecto'",
               "ms": 0
             },
             {
-              "answer": "ONE: Union of the Senses",
+              "answer": "Hunting Leopard",
               "found": true,
-              "display": "ONE: Union of the Senses",
+              "display": "Hunting Leopard",
               "ms": 0
             },
             {
-              "answer": "The Seven Ages of Man",
+              "answer": "Indian river scene with men bathing",
               "found": true,
-              "display": "The Seven Ages of Man",
+              "display": "Indian river scene with men bathing",
               "ms": 0
             },
             {
-              "answer": "Mortlake Terrace: Early Summer Morning",
+              "answer": "Ital. landscape",
               "found": true,
-              "display": "Mortlake Terrace: Early Summer Morning",
+              "display": "Ital. landscape",
               "ms": 0
             },
             {
-              "answer": "Samson and the Lion",
+              "answer": "Jeune fille",
               "found": true,
-              "display": "Samson and the Lion",
+              "display": "Jeune fille",
               "ms": 0
             },
             {
-              "answer": "Portrait of Francesco d'Este",
+              "answer": "Joseph before Pharaoh",
               "found": true,
-              "display": "Portrait of Francesco d'Este",
+              "display": "Joseph before Pharaoh",
               "ms": 0
             },
             {
-              "answer": "Prince Balthasar Charles with a Dwarf",
+              "answer": "Kira Te Kanaka (Kiri Te Kanawa)",
               "found": true,
-              "display": "Prince Balthasar Charles with a Dwarf",
+              "display": "Kira Te Kanaka (Kiri Te Kanawa)",
               "ms": 0
             },
             {
-              "answer": "Portrait of Tommaso Inghirami",
+              "answer": "Ladies in a Landscape",
               "found": true,
-              "display": "Portrait of Tommaso Inghirami",
+              "display": "Ladies in a Landscape",
               "ms": 0
             },
             {
-              "answer": "P. S. Krøyer's paintings of Marie",
+              "answer": "Landscape Study: Figures by a Clump of Trees",
               "found": true,
-              "display": "P. S. Krøyer's paintings of Marie",
+              "display": "Landscape Study: Figures by a Clump of Trees",
               "ms": 0
             },
             {
-              "answer": "Venus Disarming Cupid",
+              "answer": "Landscape, near Nice",
               "found": true,
-              "display": "Venus Disarming Cupid",
+              "display": "Landscape, near Nice",
               "ms": 0
             },
             {
-              "answer": "Charles Townley in His Sculpture Gallery",
+              "answer": "Les Noces d'or",
               "found": true,
-              "display": "Charles Townley in His Sculpture Gallery",
+              "display": "Les Noces d'or",
               "ms": 0
             },
             {
-              "answer": "An Academy by Lamplight",
+              "answer": "Los Gallos, Icacos Bay",
               "found": true,
-              "display": "An Academy by Lamplight",
+              "display": "Los Gallos, Icacos Bay",
               "ms": 0
             },
             {
-              "answer": "Effie with Foxgloves in Her Hair",
+              "answer": "Maharaja Surat Singh and his son",
               "found": true,
-              "display": "Effie with Foxgloves in Her Hair",
+              "display": "Maharaja Surat Singh and his son",
               "ms": 0
             },
             {
-              "answer": "Madonna in Glory with Saints",
+              "answer": "Marie Henriette, Archduchess of Austria, Duchess of Brabant, later Queen of the Belgians (1836-1902)",
               "found": true,
-              "display": "Madonna in Glory with Saints",
+              "display": "Marie Henriette, Archduchess of Austria, Duchess of Brabant, later Queen of the Belgians (1836-1902)",
               "ms": 0
             },
             {
-              "answer": "Prophet Joel",
+              "answer": "Melnea Cass, Frieda Garcia, Judy Norsigian and Kip Tiernan",
               "found": true,
-              "display": "Prophet Joel",
+              "display": "Melnea Cass, Frieda Garcia, Judy Norsigian and Kip Tiernan",
               "ms": 0
             },
             {
-              "answer": "Algorithm King",
+              "answer": "Modeling Class",
               "found": true,
-              "display": "Algorithm King",
+              "display": "Modeling Class",
               "ms": 0
             },
             {
-              "answer": "Ira Aldridge as Othello",
+              "answer": "Mourne Abstract IV",
               "found": true,
-              "display": "Ira Aldridge as Othello",
+              "display": "Mourne Abstract IV",
               "ms": 0
             },
             {
-              "answer": "The Meeting Between Abraham and Melchizedek",
+              "answer": "Musketeer with Sword",
               "found": true,
-              "display": "The Meeting Between Abraham and Melchizedek",
+              "display": "Musketeer with Sword",
               "ms": 0
             },
             {
-              "answer": "Laying out the March Dead",
+              "answer": "Night Landscape with Snow*",
               "found": true,
-              "display": "Laying out the March Dead",
+              "display": "Night Landscape with Snow*",
               "ms": 0
             },
             {
-              "answer": "Llyn-y-Cau, Cader Idris",
+              "answer": "Ohne Titel (Mond mit Frau)",
               "found": true,
-              "display": "Llyn-y-Cau, Cader Idris",
+              "display": "Ohne Titel (Mond mit Frau)",
               "ms": 0
             },
             {
-              "answer": "Paradise of Maitreya",
+              "answer": "Orange, Blue, Green, Pink",
               "found": true,
-              "display": "Paradise of Maitreya",
+              "display": "Orange, Blue, Green, Pink",
               "ms": 0
             },
             {
-              "answer": "Portrait of Letizia Bonaparte",
+              "answer": "Pareora riverbed",
               "found": true,
-              "display": "Portrait of Letizia Bonaparte",
+              "display": "Pareora riverbed",
               "ms": 0
             },
             {
-              "answer": "Portrait of Ferdinand Guillemardet",
+              "answer": "Peter Brown, Bailie of Stromness (1833–1837)",
               "found": true,
-              "display": "Portrait of Ferdinand Guillemardet",
+              "display": "Peter Brown, Bailie of Stromness (1833–1837)",
               "ms": 0
             },
             {
-              "answer": "Othello",
+              "answer": "Polyptich with donor portrait and five saints",
               "found": true,
-              "display": "Othello",
+              "display": "Polyptich with donor portrait and five saints",
               "ms": 0
             },
             {
-              "answer": "Fired On",
+              "answer": "Portrait of a lady with a crown of flowers",
               "found": true,
-              "display": "Fired On",
+              "display": "Portrait of a lady with a crown of flowers",
               "ms": 0
             },
             {
-              "answer": "Batalha do Avaí",
+              "answer": "Portrait of Admiral Lord George Rodney, 1st Baron Rodney, (1719-1792)",
               "found": true,
-              "display": "Batalha do Avaí",
+              "display": "Portrait of Admiral Lord George Rodney, 1st Baron Rodney, (1719-1792)",
               "ms": 0
             },
             {
-              "answer": "Fish Market",
+              "answer": "Portrait of Charles Emmanuel III",
               "found": true,
-              "display": "Fish Market",
+              "display": "Portrait of Charles Emmanuel III",
               "ms": 0
             },
             {
-              "answer": "The Rocks at Pourville, Low Tide",
+              "answer": "Portrait of Geertruyd N.N. (?-?)",
               "found": true,
-              "display": "The Rocks at Pourville, Low Tide",
+              "display": "Portrait of Geertruyd N.N. (?-?)",
               "ms": 0
             },
             {
-              "answer": "England's Pride and Glory",
+              "answer": "Portrait of John III Vasa (1537–1592), King of Sweden, father of Sigismund III Vasa",
               "found": true,
-              "display": "England's Pride and Glory",
+              "display": "Portrait of John III Vasa (1537–1592), King of Sweden, father of Sigismund III Vasa",
               "ms": 0
             },
             {
-              "answer": "Portrait of Mary Gainsborough",
+              "answer": "Portrait of Mlle Fiocre in the Ballet \"La Source\"",
               "found": true,
-              "display": "Portrait of Mary Gainsborough",
+              "display": "Portrait of Mlle Fiocre in the Ballet \"La Source\"",
               "ms": 0
             },
             {
-              "answer": "The Gateway to the Great Temple at Baalbec",
+              "answer": "Portrait of Stefano Tomani Amiani",
               "found": true,
-              "display": "The Gateway to the Great Temple at Baalbec",
+              "display": "Portrait of Stefano Tomani Amiani",
               "ms": 0
             },
             {
-              "answer": "Partisan Madonna of Minsk",
+              "answer": "Porträt des Gaspare Raimondi",
               "found": true,
-              "display": "Partisan Madonna of Minsk",
+              "display": "Porträt des Gaspare Raimondi",
               "ms": 0
             },
             {
-              "answer": "The Banquet at the Coronation of George IV",
+              "answer": "Promiscuous Forms in Battersea Park, London",
               "found": true,
-              "display": "The Banquet at the Coronation of George IV",
+              "display": "Promiscuous Forms in Battersea Park, London",
               "ms": 0
             },
             {
-              "answer": "Portrait of a Lady in the Character of Cressida",
+              "answer": "Recanto com mamoneiras",
               "found": true,
-              "display": "Portrait of a Lady in the Character of Cressida",
+              "display": "Recanto com mamoneiras",
               "ms": 0
             },
             {
-              "answer": "Porto San Giorgio Altarpiece",
+              "answer": "Rhododendrons of North India",
               "found": true,
-              "display": "Porto San Giorgio Altarpiece",
+              "display": "Rhododendrons of North India",
               "ms": 0
             },
             {
-              "answer": "The Bromley Family",
+              "answer": "Rocky Landscape with Herdsmen",
               "found": true,
-              "display": "The Bromley Family",
+              "display": "Rocky Landscape with Herdsmen",
               "ms": 0
             },
             {
-              "answer": "Saint John of God Carrying a Sick Man",
+              "answer": "Saint Ansanus",
               "found": true,
-              "display": "Saint John of God Carrying a Sick Man",
+              "display": "Saint Ansanus",
               "ms": 0
             },
             {
-              "answer": "Men of Industry",
+              "answer": "Sarah Gurteen (1806–1860)",
               "found": true,
-              "display": "Men of Industry",
+              "display": "Sarah Gurteen (1806–1860)",
               "ms": 0
             },
             {
-              "answer": "Portrait of William Pitt",
+              "answer": "Second Lieutenant Alfred Victor Smith (1891–1915), VC",
               "found": true,
-              "display": "Portrait of William Pitt",
+              "display": "Second Lieutenant Alfred Victor Smith (1891–1915), VC",
               "ms": 0
             },
             {
-              "answer": "In a Warm Land",
+              "answer": "Shipping off Flushing",
               "found": true,
-              "display": "In a Warm Land",
+              "display": "Shipping off Flushing",
               "ms": 0
             },
             {
-              "answer": "The Family of Sigismund I of Poland",
+              "answer": "Sir John Loveridge (1912–1994), Kt, CBE, Bailiff of Guernsey (1973–1982)",
               "found": true,
-              "display": "The Family of Sigismund I of Poland",
+              "display": "Sir John Loveridge (1912–1994), Kt, CBE, Bailiff of Guernsey (1973–1982)",
               "ms": 0
             },
             {
-              "answer": "Grande fresque de la gare de Lyon",
+              "answer": "Small's Paradise",
               "found": true,
-              "display": "Grande fresque de la gare de Lyon",
+              "display": "Small's Paradise",
               "ms": 0
             },
             {
-              "answer": "The Cloakroom, Clifton Assembly Rooms",
+              "answer": "Squirrels in a Spruce Tree",
               "found": true,
-              "display": "The Cloakroom, Clifton Assembly Rooms",
+              "display": "Squirrels in a Spruce Tree",
               "ms": 0
             },
             {
-              "answer": "The Coliseum at Rome by Moonlight",
+              "answer": "Still life of fruit, mushrooms, potatos and other vegetables on a rocky ledge in a landscape",
               "found": true,
-              "display": "The Coliseum at Rome by Moonlight",
+              "display": "Still life of fruit, mushrooms, potatos and other vegetables on a rocky ledge in a landscape",
               "ms": 0
             },
             {
-              "answer": "Chiayi Park",
+              "answer": "Stilleven met bloemen voor een landschap",
               "found": true,
-              "display": "Chiayi Park",
+              "display": "Stilleven met bloemen voor een landschap",
               "ms": 0
             },
             {
-              "answer": "Portrait of the Earl of Durham",
+              "answer": "Study of Clouds over the Sound",
               "found": true,
-              "display": "Portrait of the Earl of Durham",
+              "display": "Study of Clouds over the Sound",
               "ms": 0
             },
             {
-              "answer": "Allegory of Peace, Art and Abundance",
+              "answer": "T piece No. 1",
               "found": true,
-              "display": "Allegory of Peace, Art and Abundance",
+              "display": "T piece No. 1",
               "ms": 0
             },
             {
-              "answer": "Portrait of Joseph-Marie Vien",
+              "answer": "The Arch of Titus and the Forum, Rome",
               "found": true,
-              "display": "Portrait of Joseph-Marie Vien",
+              "display": "The Arch of Titus and the Forum, Rome",
               "ms": 0
             },
             {
-              "answer": "A Cavalryman",
+              "answer": "The Cardinal and Theological Virtues",
               "found": true,
-              "display": "A Cavalryman",
+              "display": "The Cardinal and Theological Virtues",
               "ms": 0
             },
             {
-              "answer": "Lions in the Desert",
+              "answer": "The Duck Pond at Ennery",
               "found": true,
-              "display": "Lions in the Desert",
+              "display": "The Duck Pond at Ennery",
               "ms": 0
             },
             {
-              "answer": "Portrait of François Langlois",
+              "answer": "The Grasses of Echt",
               "found": true,
-              "display": "Portrait of François Langlois",
+              "display": "The Grasses of Echt",
               "ms": 0
             },
             {
-              "answer": "A Frost Scene",
+              "answer": "The Laundry",
               "found": true,
-              "display": "A Frost Scene",
+              "display": "The Laundry",
               "ms": 0
             },
             {
-              "answer": "Fine Weather, Georgian Bay",
+              "answer": "The Old Homestead, Wyoming Valley",
               "found": true,
-              "display": "Fine Weather, Georgian Bay",
+              "display": "The Old Homestead, Wyoming Valley",
               "ms": 0
             },
             {
-              "answer": "Portrait of Massimo d'Azeglio",
+              "answer": "The returning of David with the head Goliath",
               "found": true,
-              "display": "Portrait of Massimo d'Azeglio",
+              "display": "The returning of David with the head Goliath",
               "ms": 0
             },
             {
-              "answer": "The Palette Game",
+              "answer": "The Story of the Flood",
               "found": true,
-              "display": "The Palette Game",
+              "display": "The Story of the Flood",
               "ms": 0
             },
             {
-              "answer": "Dragon Fusuma",
+              "answer": "The Whaleship 'Brunswick'",
               "found": true,
-              "display": "Dragon Fusuma",
+              "display": "The Whaleship 'Brunswick'",
               "ms": 0
             },
             {
-              "answer": "Portrait of Thomas Oldham Barlow",
+              "answer": "Three women's Dreaming at Lupulnga",
               "found": true,
-              "display": "Portrait of Thomas Oldham Barlow",
+              "display": "Three women's Dreaming at Lupulnga",
               "ms": 0
             },
             {
-              "answer": "The Old Lacemaker",
+              "answer": "Triptych of Crucifixion, Resurrection, Procession of Angels and Saints",
               "found": true,
-              "display": "The Old Lacemaker",
+              "display": "Triptych of Crucifixion, Resurrection, Procession of Angels and Saints",
               "ms": 0
             },
             {
-              "answer": "The Totteridge XI",
+              "answer": "Twyford Lock, Bishop's Stortford, Hertfordshire",
               "found": true,
-              "display": "The Totteridge XI",
+              "display": "Twyford Lock, Bishop's Stortford, Hertfordshire",
               "ms": 0
             },
             {
-              "answer": "Sant'Eufemia Altarpiece",
+              "answer": "Vale of Cwmbowydd, Blaenau Ffestiniog",
               "found": true,
-              "display": "Sant'Eufemia Altarpiece",
+              "display": "Vale of Cwmbowydd, Blaenau Ffestiniog",
               "ms": 0
             },
             {
-              "answer": "Harbour",
+              "answer": "View of a river with sailing vessels",
               "found": true,
-              "display": "Harbour",
+              "display": "View of a river with sailing vessels",
               "ms": 0
             },
             {
-              "answer": "A Market Boat on the Scheldt",
+              "answer": "Village Houses",
               "found": true,
-              "display": "A Market Boat on the Scheldt",
+              "display": "Village Houses",
               "ms": 0
             },
             {
-              "answer": "San Gottardo Altarpiece",
+              "answer": "Water Meadows (possibly the Ouse between St Ives and Huntingdon)",
               "found": true,
-              "display": "San Gottardo Altarpiece",
+              "display": "Water Meadows (possibly the Ouse between St Ives and Huntingdon)",
               "ms": 0
             },
             {
-              "answer": "San Giorgio Maggiore and the Salute, Venice",
+              "answer": "William Ewart Astill (1888–1948)",
               "found": true,
-              "display": "San Giorgio Maggiore and the Salute, Venice",
+              "display": "William Ewart Astill (1888–1948)",
               "ms": 0
             },
             {
-              "answer": "Tenby Fisherwoman",
+              "answer": "Woman in a garden",
               "found": true,
-              "display": "Tenby Fisherwoman",
+              "display": "Woman in a garden",
               "ms": 0
             },
             {
-              "answer": "Bank Holiday, Brighton",
+              "answer": "Yorkshire, January 1960",
               "found": true,
-              "display": "Bank Holiday, Brighton",
+              "display": "Yorkshire, January 1960",
               "ms": 0
             }
           ]
@@ -28866,606 +28866,606 @@
           "samples": 100,
           "p95Ms": 0,
           "maxMs": 0,
-          "totalRoundTripMs": 824.1092920000083,
+          "totalRoundTripMs": 699.4175000000105,
           "rows": [
             {
-              "answer": "Napoleon Crossing the Alps",
+              "answer": "Hadleigh Castle",
               "found": true,
-              "display": "Napoleon Crossing the Alps",
+              "display": "Hadleigh Castle",
               "ms": 0
             },
             {
-              "answer": "The Meeting on the Turret Stairs",
+              "answer": "Ixion, King of the Lapiths, Deceived by Juno, Who He Wished to Seduce",
               "found": true,
-              "display": "The Meeting on the Turret Stairs",
+              "display": "Ixion, King of the Lapiths, Deceived by Juno, Who He Wished to Seduce",
               "ms": 0
             },
             {
-              "answer": "Triptych of the Temptation of St. Anthony",
+              "answer": "'Wake me with…'",
               "found": true,
-              "display": "Triptych of the Temptation of St. Anthony",
+              "display": "'Wake me with…'",
               "ms": 0
             },
             {
-              "answer": "Bathers at Asnières",
+              "answer": "A Child",
               "found": true,
-              "display": "Bathers at Asnières",
+              "display": "A Child",
               "ms": 0
             },
             {
-              "answer": "Armada Portrait",
+              "answer": "A Keeper Trying To Restrain an Elephant [recto]",
               "found": true,
-              "display": "Armada Portrait",
+              "display": "A Keeper Trying To Restrain an Elephant [recto]",
               "ms": 0
             },
             {
-              "answer": "La Fornarina",
+              "answer": "A Room in the Censor's Office: Neutral Trade Mails",
               "found": true,
-              "display": "La Fornarina",
+              "display": "A Room in the Censor's Office: Neutral Trade Mails",
               "ms": 0
             },
             {
-              "answer": "Open Casket",
+              "answer": "A wet nurse's visit",
               "found": true,
-              "display": "Open Casket",
+              "display": "A wet nurse's visit",
               "ms": 0
             },
             {
-              "answer": "The Judgement of Paris",
+              "answer": "African Violet, 1981",
               "found": true,
-              "display": "The Judgement of Paris",
+              "display": "African Violet, 1981",
               "ms": 0
             },
             {
-              "answer": "Poplars",
+              "answer": "Allegory of Noon",
               "found": true,
-              "display": "Poplars",
+              "display": "Allegory of Noon",
               "ms": 0
             },
             {
-              "answer": "Christ in the House of Martha and Mary",
+              "answer": "Analysis of a Wave Pattern",
               "found": true,
-              "display": "Christ in the House of Martha and Mary",
+              "display": "Analysis of a Wave Pattern",
               "ms": 0
             },
             {
-              "answer": "Triptych, 1976",
+              "answer": "Architectural landscape with figures on a coast",
               "found": true,
-              "display": "Triptych, 1976",
+              "display": "Architectural landscape with figures on a coast",
               "ms": 0
             },
             {
-              "answer": "The Entombment",
+              "answer": "Aux écoutes ; Souvenir des environs de Tlemcen",
               "found": true,
-              "display": "The Entombment",
+              "display": "Aux écoutes ; Souvenir des environs de Tlemcen",
               "ms": 0
             },
             {
-              "answer": "The Three Dancers",
+              "answer": "Beach Scene 1",
               "found": true,
-              "display": "The Three Dancers",
+              "display": "Beach Scene 1",
               "ms": 0
             },
             {
-              "answer": "Sappho and Erinna in a Garden at Mytilene",
+              "answer": "Black Elegy: Untitled (installation)",
               "found": true,
-              "display": "Sappho and Erinna in a Garden at Mytilene",
+              "display": "Black Elegy: Untitled (installation)",
               "ms": 0
             },
             {
-              "answer": "Portrait of Charles V",
+              "answer": "Boy with cherries",
               "found": true,
-              "display": "Portrait of Charles V",
+              "display": "Boy with cherries",
               "ms": 0
             },
             {
-              "answer": "Portrait of Ambroise Vollard",
+              "answer": "By the Stream, Autumn",
               "found": true,
-              "display": "Portrait of Ambroise Vollard",
+              "display": "By the Stream, Autumn",
               "ms": 0
             },
             {
-              "answer": "The Banquet of Cleopatra",
+              "answer": "Carved retable of the Passion of Christ",
               "found": true,
-              "display": "The Banquet of Cleopatra",
+              "display": "Carved retable of the Passion of Christ",
               "ms": 0
             },
             {
-              "answer": "Manichaean Diagram of the Universe",
+              "answer": "Charles John Vaughan (1816–1897), Fellow and Classical Scholar, Headmaster and Dean of Llandaff",
               "found": true,
-              "display": "Manichaean Diagram of the Universe",
+              "display": "Charles John Vaughan (1816–1897), Fellow and Classical Scholar, Headmaster and Dean of Llandaff",
               "ms": 0
             },
             {
-              "answer": "Tristan and Isolde",
+              "answer": "Church Hill Steps, Hythe, Kent",
               "found": true,
-              "display": "Tristan and Isolde",
+              "display": "Church Hill Steps, Hythe, Kent",
               "ms": 0
             },
             {
-              "answer": "Seaport by Moonlight",
+              "answer": "Comme un oiseau",
               "found": true,
-              "display": "Seaport by Moonlight",
+              "display": "Comme un oiseau",
               "ms": 0
             },
             {
-              "answer": "Synagogue",
+              "answer": "Couple 5",
               "found": true,
-              "display": "Synagogue",
+              "display": "Couple 5",
               "ms": 0
             },
             {
-              "answer": "The Enigma of the Hour",
+              "answer": "Darbar Hall of the Nawab of Bengal",
               "found": true,
-              "display": "The Enigma of the Hour",
+              "display": "Darbar Hall of the Nawab of Bengal",
               "ms": 0
             },
             {
-              "answer": "Young Woman Powdering Herself",
+              "answer": "Dew Wet",
               "found": true,
-              "display": "Young Woman Powdering Herself",
+              "display": "Dew Wet",
               "ms": 0
             },
             {
-              "answer": "Saint Francis of Assisi in His Tomb",
+              "answer": "Dr. Hugo Koller",
               "found": true,
-              "display": "Saint Francis of Assisi in His Tomb",
+              "display": "Dr. Hugo Koller",
               "ms": 0
             },
             {
-              "answer": "Wall of Respect",
+              "answer": "Edward La Zouche, Eleventh Baron Zouche of Harringworth (ca 1556-1625)",
               "found": true,
-              "display": "Wall of Respect",
+              "display": "Edward La Zouche, Eleventh Baron Zouche of Harringworth (ca 1556-1625)",
               "ms": 0
             },
             {
-              "answer": "Femme au Chien",
+              "answer": "Entrance to the Temple at Kobe, Japan",
               "found": true,
-              "display": "Femme au Chien",
+              "display": "Entrance to the Temple at Kobe, Japan",
               "ms": 0
             },
             {
-              "answer": "Suvorov crossing the Alps",
+              "answer": "Family Portrait II",
               "found": true,
-              "display": "Suvorov crossing the Alps",
+              "display": "Family Portrait II",
               "ms": 0
             },
             {
-              "answer": "Cimon and Pero",
+              "answer": "Finer and finer and more gutless",
               "found": true,
-              "display": "Cimon and Pero",
+              "display": "Finer and finer and more gutless",
               "ms": 0
             },
             {
-              "answer": "The Martyrdom of Saint Bartholomew",
+              "answer": "Fogueira em Saint Hubert",
               "found": true,
-              "display": "The Martyrdom of Saint Bartholomew",
+              "display": "Fogueira em Saint Hubert",
               "ms": 0
             },
             {
-              "answer": "Scène d'été",
+              "answer": "French Screen",
               "found": true,
-              "display": "Scène d'été",
+              "display": "French Screen",
               "ms": 0
             },
             {
-              "answer": "Profile Portrait of a Young Lady",
+              "answer": "General on horseback addressing his troops, an infantry battle beyond",
               "found": true,
-              "display": "Profile Portrait of a Young Lady",
+              "display": "General on horseback addressing his troops, an infantry battle beyond",
               "ms": 0
             },
             {
-              "answer": "Evolution",
+              "answer": "Glendaruel",
               "found": true,
-              "display": "Evolution",
+              "display": "Glendaruel",
               "ms": 0
             },
             {
-              "answer": "Landscape with Saint John on Patmos",
+              "answer": "Gulf",
               "found": true,
-              "display": "Landscape with Saint John on Patmos",
+              "display": "Gulf",
               "ms": 0
             },
             {
-              "answer": "Portrait of a Man with Carnation",
+              "answer": "Head Priest Govardhan Lalji (1862–1934) Offers a Lamp to Shri Nathji in Celebration of the Spring Festival",
               "found": true,
-              "display": "Portrait of a Man with Carnation",
+              "display": "Head Priest Govardhan Lalji (1862–1934) Offers a Lamp to Shri Nathji in Celebration of the Spring Festival",
               "ms": 0
             },
             {
-              "answer": "The Circumcision",
+              "answer": "HMS 'Alecto'",
               "found": true,
-              "display": "The Circumcision",
+              "display": "HMS 'Alecto'",
               "ms": 0
             },
             {
-              "answer": "ONE: Union of the Senses",
+              "answer": "Hunting Leopard",
               "found": true,
-              "display": "ONE: Union of the Senses",
+              "display": "Hunting Leopard",
               "ms": 0
             },
             {
-              "answer": "The Seven Ages of Man",
+              "answer": "Indian river scene with men bathing",
               "found": true,
-              "display": "The Seven Ages of Man",
+              "display": "Indian river scene with men bathing",
               "ms": 0
             },
             {
-              "answer": "Mortlake Terrace: Early Summer Morning",
+              "answer": "Ital. landscape",
               "found": true,
-              "display": "Mortlake Terrace: Early Summer Morning",
+              "display": "Ital. landscape",
               "ms": 0
             },
             {
-              "answer": "Samson and the Lion",
+              "answer": "Jeune fille",
               "found": true,
-              "display": "Samson and the Lion",
+              "display": "Jeune fille",
               "ms": 0
             },
             {
-              "answer": "Portrait of Francesco d'Este",
+              "answer": "Joseph before Pharaoh",
               "found": true,
-              "display": "Portrait of Francesco d'Este",
+              "display": "Joseph before Pharaoh",
               "ms": 0
             },
             {
-              "answer": "Prince Balthasar Charles with a Dwarf",
+              "answer": "Kira Te Kanaka (Kiri Te Kanawa)",
               "found": true,
-              "display": "Prince Balthasar Charles with a Dwarf",
+              "display": "Kira Te Kanaka (Kiri Te Kanawa)",
               "ms": 0
             },
             {
-              "answer": "Portrait of Tommaso Inghirami",
+              "answer": "Ladies in a Landscape",
               "found": true,
-              "display": "Portrait of Tommaso Inghirami",
+              "display": "Ladies in a Landscape",
               "ms": 0
             },
             {
-              "answer": "P. S. Krøyer's paintings of Marie",
+              "answer": "Landscape Study: Figures by a Clump of Trees",
               "found": true,
-              "display": "P. S. Krøyer's paintings of Marie",
+              "display": "Landscape Study: Figures by a Clump of Trees",
               "ms": 0
             },
             {
-              "answer": "Venus Disarming Cupid",
+              "answer": "Landscape, near Nice",
               "found": true,
-              "display": "Venus Disarming Cupid",
+              "display": "Landscape, near Nice",
               "ms": 0
             },
             {
-              "answer": "Charles Townley in His Sculpture Gallery",
+              "answer": "Les Noces d'or",
               "found": true,
-              "display": "Charles Townley in His Sculpture Gallery",
+              "display": "Les Noces d'or",
               "ms": 0
             },
             {
-              "answer": "An Academy by Lamplight",
+              "answer": "Los Gallos, Icacos Bay",
               "found": true,
-              "display": "An Academy by Lamplight",
+              "display": "Los Gallos, Icacos Bay",
               "ms": 0
             },
             {
-              "answer": "Effie with Foxgloves in Her Hair",
+              "answer": "Maharaja Surat Singh and his son",
               "found": true,
-              "display": "Effie with Foxgloves in Her Hair",
+              "display": "Maharaja Surat Singh and his son",
               "ms": 0
             },
             {
-              "answer": "Madonna in Glory with Saints",
+              "answer": "Marie Henriette, Archduchess of Austria, Duchess of Brabant, later Queen of the Belgians (1836-1902)",
               "found": true,
-              "display": "Madonna in Glory with Saints",
+              "display": "Marie Henriette, Archduchess of Austria, Duchess of Brabant, later Queen of the Belgians (1836-1902)",
               "ms": 0
             },
             {
-              "answer": "Prophet Joel",
+              "answer": "Melnea Cass, Frieda Garcia, Judy Norsigian and Kip Tiernan",
               "found": true,
-              "display": "Prophet Joel",
+              "display": "Melnea Cass, Frieda Garcia, Judy Norsigian and Kip Tiernan",
               "ms": 0
             },
             {
-              "answer": "Algorithm King",
+              "answer": "Modeling Class",
               "found": true,
-              "display": "Algorithm King",
+              "display": "Modeling Class",
               "ms": 0
             },
             {
-              "answer": "Ira Aldridge as Othello",
+              "answer": "Mourne Abstract IV",
               "found": true,
-              "display": "Ira Aldridge as Othello",
+              "display": "Mourne Abstract IV",
               "ms": 0
             },
             {
-              "answer": "The Meeting Between Abraham and Melchizedek",
+              "answer": "Musketeer with Sword",
               "found": true,
-              "display": "The Meeting Between Abraham and Melchizedek",
+              "display": "Musketeer with Sword",
               "ms": 0
             },
             {
-              "answer": "Laying out the March Dead",
+              "answer": "Night Landscape with Snow*",
               "found": true,
-              "display": "Laying out the March Dead",
+              "display": "Night Landscape with Snow*",
               "ms": 0
             },
             {
-              "answer": "Llyn-y-Cau, Cader Idris",
+              "answer": "Ohne Titel (Mond mit Frau)",
               "found": true,
-              "display": "Llyn-y-Cau, Cader Idris",
+              "display": "Ohne Titel (Mond mit Frau)",
               "ms": 0
             },
             {
-              "answer": "Paradise of Maitreya",
+              "answer": "Orange, Blue, Green, Pink",
               "found": true,
-              "display": "Paradise of Maitreya",
+              "display": "Orange, Blue, Green, Pink",
               "ms": 0
             },
             {
-              "answer": "Portrait of Letizia Bonaparte",
+              "answer": "Pareora riverbed",
               "found": true,
-              "display": "Portrait of Letizia Bonaparte",
+              "display": "Pareora riverbed",
               "ms": 0
             },
             {
-              "answer": "Portrait of Ferdinand Guillemardet",
+              "answer": "Peter Brown, Bailie of Stromness (1833–1837)",
               "found": true,
-              "display": "Portrait of Ferdinand Guillemardet",
+              "display": "Peter Brown, Bailie of Stromness (1833–1837)",
               "ms": 0
             },
             {
-              "answer": "Othello",
+              "answer": "Polyptich with donor portrait and five saints",
               "found": true,
-              "display": "Othello",
+              "display": "Polyptich with donor portrait and five saints",
               "ms": 0
             },
             {
-              "answer": "Fired On",
+              "answer": "Portrait of a lady with a crown of flowers",
               "found": true,
-              "display": "Fired On",
+              "display": "Portrait of a lady with a crown of flowers",
               "ms": 0
             },
             {
-              "answer": "Batalha do Avaí",
+              "answer": "Portrait of Admiral Lord George Rodney, 1st Baron Rodney, (1719-1792)",
               "found": true,
-              "display": "Batalha do Avaí",
+              "display": "Portrait of Admiral Lord George Rodney, 1st Baron Rodney, (1719-1792)",
               "ms": 0
             },
             {
-              "answer": "Fish Market",
+              "answer": "Portrait of Charles Emmanuel III",
               "found": true,
-              "display": "Fish Market",
+              "display": "Portrait of Charles Emmanuel III",
               "ms": 0
             },
             {
-              "answer": "The Rocks at Pourville, Low Tide",
+              "answer": "Portrait of Geertruyd N.N. (?-?)",
               "found": true,
-              "display": "The Rocks at Pourville, Low Tide",
+              "display": "Portrait of Geertruyd N.N. (?-?)",
               "ms": 0
             },
             {
-              "answer": "England's Pride and Glory",
+              "answer": "Portrait of John III Vasa (1537–1592), King of Sweden, father of Sigismund III Vasa",
               "found": true,
-              "display": "England's Pride and Glory",
+              "display": "Portrait of John III Vasa (1537–1592), King of Sweden, father of Sigismund III Vasa",
               "ms": 0
             },
             {
-              "answer": "Portrait of Mary Gainsborough",
+              "answer": "Portrait of Mlle Fiocre in the Ballet \"La Source\"",
               "found": true,
-              "display": "Portrait of Mary Gainsborough",
+              "display": "Portrait of Mlle Fiocre in the Ballet \"La Source\"",
               "ms": 0
             },
             {
-              "answer": "The Gateway to the Great Temple at Baalbec",
+              "answer": "Portrait of Stefano Tomani Amiani",
               "found": true,
-              "display": "The Gateway to the Great Temple at Baalbec",
+              "display": "Portrait of Stefano Tomani Amiani",
               "ms": 0
             },
             {
-              "answer": "Partisan Madonna of Minsk",
+              "answer": "Porträt des Gaspare Raimondi",
               "found": true,
-              "display": "Partisan Madonna of Minsk",
+              "display": "Porträt des Gaspare Raimondi",
               "ms": 0
             },
             {
-              "answer": "The Banquet at the Coronation of George IV",
+              "answer": "Promiscuous Forms in Battersea Park, London",
               "found": true,
-              "display": "The Banquet at the Coronation of George IV",
+              "display": "Promiscuous Forms in Battersea Park, London",
               "ms": 0
             },
             {
-              "answer": "Portrait of a Lady in the Character of Cressida",
+              "answer": "Recanto com mamoneiras",
               "found": true,
-              "display": "Portrait of a Lady in the Character of Cressida",
+              "display": "Recanto com mamoneiras",
               "ms": 0
             },
             {
-              "answer": "Porto San Giorgio Altarpiece",
+              "answer": "Rhododendrons of North India",
               "found": true,
-              "display": "Porto San Giorgio Altarpiece",
+              "display": "Rhododendrons of North India",
               "ms": 0
             },
             {
-              "answer": "The Bromley Family",
+              "answer": "Rocky Landscape with Herdsmen",
               "found": true,
-              "display": "The Bromley Family",
+              "display": "Rocky Landscape with Herdsmen",
               "ms": 0
             },
             {
-              "answer": "Saint John of God Carrying a Sick Man",
+              "answer": "Saint Ansanus",
               "found": true,
-              "display": "Saint John of God Carrying a Sick Man",
+              "display": "Saint Ansanus",
               "ms": 0
             },
             {
-              "answer": "Men of Industry",
+              "answer": "Sarah Gurteen (1806–1860)",
               "found": true,
-              "display": "Men of Industry",
+              "display": "Sarah Gurteen (1806–1860)",
               "ms": 0
             },
             {
-              "answer": "Portrait of William Pitt",
+              "answer": "Second Lieutenant Alfred Victor Smith (1891–1915), VC",
               "found": true,
-              "display": "Portrait of William Pitt",
+              "display": "Second Lieutenant Alfred Victor Smith (1891–1915), VC",
               "ms": 0
             },
             {
-              "answer": "In a Warm Land",
+              "answer": "Shipping off Flushing",
               "found": true,
-              "display": "In a Warm Land",
+              "display": "Shipping off Flushing",
               "ms": 0
             },
             {
-              "answer": "The Family of Sigismund I of Poland",
+              "answer": "Sir John Loveridge (1912–1994), Kt, CBE, Bailiff of Guernsey (1973–1982)",
               "found": true,
-              "display": "The Family of Sigismund I of Poland",
+              "display": "Sir John Loveridge (1912–1994), Kt, CBE, Bailiff of Guernsey (1973–1982)",
               "ms": 0
             },
             {
-              "answer": "Grande fresque de la gare de Lyon",
+              "answer": "Small's Paradise",
               "found": true,
-              "display": "Grande fresque de la gare de Lyon",
+              "display": "Small's Paradise",
               "ms": 0
             },
             {
-              "answer": "The Cloakroom, Clifton Assembly Rooms",
+              "answer": "Squirrels in a Spruce Tree",
               "found": true,
-              "display": "The Cloakroom, Clifton Assembly Rooms",
+              "display": "Squirrels in a Spruce Tree",
               "ms": 0
             },
             {
-              "answer": "The Coliseum at Rome by Moonlight",
+              "answer": "Still life of fruit, mushrooms, potatos and other vegetables on a rocky ledge in a landscape",
               "found": true,
-              "display": "The Coliseum at Rome by Moonlight",
+              "display": "Still life of fruit, mushrooms, potatos and other vegetables on a rocky ledge in a landscape",
               "ms": 0
             },
             {
-              "answer": "Chiayi Park",
+              "answer": "Stilleven met bloemen voor een landschap",
               "found": true,
-              "display": "Chiayi Park",
+              "display": "Stilleven met bloemen voor een landschap",
               "ms": 0
             },
             {
-              "answer": "Portrait of the Earl of Durham",
+              "answer": "Study of Clouds over the Sound",
               "found": true,
-              "display": "Portrait of the Earl of Durham",
+              "display": "Study of Clouds over the Sound",
               "ms": 0
             },
             {
-              "answer": "Allegory of Peace, Art and Abundance",
+              "answer": "T piece No. 1",
               "found": true,
-              "display": "Allegory of Peace, Art and Abundance",
+              "display": "T piece No. 1",
               "ms": 0
             },
             {
-              "answer": "Portrait of Joseph-Marie Vien",
+              "answer": "The Arch of Titus and the Forum, Rome",
               "found": true,
-              "display": "Portrait of Joseph-Marie Vien",
+              "display": "The Arch of Titus and the Forum, Rome",
               "ms": 0
             },
             {
-              "answer": "A Cavalryman",
+              "answer": "The Cardinal and Theological Virtues",
               "found": true,
-              "display": "A Cavalryman",
+              "display": "The Cardinal and Theological Virtues",
               "ms": 0
             },
             {
-              "answer": "Lions in the Desert",
+              "answer": "The Duck Pond at Ennery",
               "found": true,
-              "display": "Lions in the Desert",
+              "display": "The Duck Pond at Ennery",
               "ms": 0
             },
             {
-              "answer": "Portrait of François Langlois",
+              "answer": "The Grasses of Echt",
               "found": true,
-              "display": "Portrait of François Langlois",
+              "display": "The Grasses of Echt",
               "ms": 0
             },
             {
-              "answer": "A Frost Scene",
+              "answer": "The Laundry",
               "found": true,
-              "display": "A Frost Scene",
+              "display": "The Laundry",
               "ms": 0
             },
             {
-              "answer": "Fine Weather, Georgian Bay",
+              "answer": "The Old Homestead, Wyoming Valley",
               "found": true,
-              "display": "Fine Weather, Georgian Bay",
+              "display": "The Old Homestead, Wyoming Valley",
               "ms": 0
             },
             {
-              "answer": "Portrait of Massimo d'Azeglio",
+              "answer": "The returning of David with the head Goliath",
               "found": true,
-              "display": "Portrait of Massimo d'Azeglio",
+              "display": "The returning of David with the head Goliath",
               "ms": 0
             },
             {
-              "answer": "The Palette Game",
+              "answer": "The Story of the Flood",
               "found": true,
-              "display": "The Palette Game",
+              "display": "The Story of the Flood",
               "ms": 0
             },
             {
-              "answer": "Dragon Fusuma",
+              "answer": "The Whaleship 'Brunswick'",
               "found": true,
-              "display": "Dragon Fusuma",
+              "display": "The Whaleship 'Brunswick'",
               "ms": 0
             },
             {
-              "answer": "Portrait of Thomas Oldham Barlow",
+              "answer": "Three women's Dreaming at Lupulnga",
               "found": true,
-              "display": "Portrait of Thomas Oldham Barlow",
+              "display": "Three women's Dreaming at Lupulnga",
               "ms": 0
             },
             {
-              "answer": "The Old Lacemaker",
+              "answer": "Triptych of Crucifixion, Resurrection, Procession of Angels and Saints",
               "found": true,
-              "display": "The Old Lacemaker",
+              "display": "Triptych of Crucifixion, Resurrection, Procession of Angels and Saints",
               "ms": 0
             },
             {
-              "answer": "The Totteridge XI",
+              "answer": "Twyford Lock, Bishop's Stortford, Hertfordshire",
               "found": true,
-              "display": "The Totteridge XI",
+              "display": "Twyford Lock, Bishop's Stortford, Hertfordshire",
               "ms": 0
             },
             {
-              "answer": "Sant'Eufemia Altarpiece",
+              "answer": "Vale of Cwmbowydd, Blaenau Ffestiniog",
               "found": true,
-              "display": "Sant'Eufemia Altarpiece",
+              "display": "Vale of Cwmbowydd, Blaenau Ffestiniog",
               "ms": 0
             },
             {
-              "answer": "Harbour",
+              "answer": "View of a river with sailing vessels",
               "found": true,
-              "display": "Harbour",
+              "display": "View of a river with sailing vessels",
               "ms": 0
             },
             {
-              "answer": "A Market Boat on the Scheldt",
+              "answer": "Village Houses",
               "found": true,
-              "display": "A Market Boat on the Scheldt",
+              "display": "Village Houses",
               "ms": 0
             },
             {
-              "answer": "San Gottardo Altarpiece",
+              "answer": "Water Meadows (possibly the Ouse between St Ives and Huntingdon)",
               "found": true,
-              "display": "San Gottardo Altarpiece",
+              "display": "Water Meadows (possibly the Ouse between St Ives and Huntingdon)",
               "ms": 0
             },
             {
-              "answer": "San Giorgio Maggiore and the Salute, Venice",
+              "answer": "William Ewart Astill (1888–1948)",
               "found": true,
-              "display": "San Giorgio Maggiore and the Salute, Venice",
+              "display": "William Ewart Astill (1888–1948)",
               "ms": 0
             },
             {
-              "answer": "Tenby Fisherwoman",
+              "answer": "Woman in a garden",
               "found": true,
-              "display": "Tenby Fisherwoman",
+              "display": "Woman in a garden",
               "ms": 0
             },
             {
-              "answer": "Bank Holiday, Brighton",
+              "answer": "Yorkshire, January 1960",
               "found": true,
-              "display": "Bank Holiday, Brighton",
+              "display": "Yorkshire, January 1960",
               "ms": 0
             }
           ]
@@ -29483,8 +29483,8 @@
           "accepted": 100,
           "samples": 100,
           "p95Ms": 0,
-          "maxMs": 67,
-          "totalRoundTripMs": 1107.4064579999977,
+          "maxMs": 69,
+          "totalRoundTripMs": 1044.2144999999873,
           "rows": [
             {
               "answer": "Lavender",
@@ -29502,7 +29502,7 @@
               "answer": "Hairy beggarticks",
               "found": true,
               "display": "Hairy beggarticks",
-              "ms": 67
+              "ms": 69
             },
             {
               "answer": "Pau-rosa",
@@ -30094,7 +30094,7 @@
           "samples": 100,
           "p95Ms": 0,
           "maxMs": 0,
-          "totalRoundTripMs": 842.4500829999888,
+          "totalRoundTripMs": 663.7297909999907,
           "rows": [
             {
               "answer": "Lavender",
@@ -30711,8 +30711,8 @@
           "accepted": 100,
           "samples": 100,
           "p95Ms": 0,
-          "maxMs": 427,
-          "totalRoundTripMs": 1304.6400839999988,
+          "maxMs": 49,
+          "totalRoundTripMs": 1026.48887500001,
           "rows": [
             {
               "answer": "Selim I",
@@ -30730,7 +30730,7 @@
               "answer": "Ingeborg Bachmann",
               "found": true,
               "display": "Ingeborg Bachmann",
-              "ms": 427
+              "ms": 49
             },
             {
               "answer": "John Ashbery",
@@ -31322,7 +31322,7 @@
           "samples": 100,
           "p95Ms": 0,
           "maxMs": 0,
-          "totalRoundTripMs": 685.2439589999994,
+          "totalRoundTripMs": 769.7655000000086,
           "rows": [
             {
               "answer": "Selim I",
@@ -31939,14 +31939,14 @@
           "accepted": 100,
           "samples": 100,
           "p95Ms": 0,
-          "maxMs": 5344,
-          "totalRoundTripMs": 6125.267500000002,
+          "maxMs": 863,
+          "totalRoundTripMs": 1777.176416000002,
           "rows": [
             {
               "answer": "Yi River",
               "found": true,
               "display": "Yi River",
-              "ms": 5344
+              "ms": 863
             },
             {
               "answer": "Areuse",
@@ -32550,7 +32550,7 @@
           "samples": 100,
           "p95Ms": 0,
           "maxMs": 0,
-          "totalRoundTripMs": 758.3964170000108,
+          "totalRoundTripMs": 786.8993749999936,
           "rows": [
             {
               "answer": "Yi River",
@@ -33167,8 +33167,8 @@
           "accepted": 100,
           "samples": 100,
           "p95Ms": 0,
-          "maxMs": 447,
-          "totalRoundTripMs": 1563.6867499999935,
+          "maxMs": 69,
+          "totalRoundTripMs": 946.3610829999961,
           "rows": [
             {
               "answer": "Odyssey of the Seas",
@@ -33192,7 +33192,7 @@
               "answer": "Jadran",
               "found": true,
               "display": "Jadran",
-              "ms": 447
+              "ms": 69
             },
             {
               "answer": "MV Alta",
@@ -33778,7 +33778,7 @@
           "samples": 100,
           "p95Ms": 0,
           "maxMs": 0,
-          "totalRoundTripMs": 710.3194590000057,
+          "totalRoundTripMs": 787.6224999999977,
           "rows": [
             {
               "answer": "Odyssey of the Seas",
@@ -34395,8 +34395,8 @@
           "accepted": 100,
           "samples": 100,
           "p95Ms": 0,
-          "maxMs": 539,
-          "totalRoundTripMs": 1686.6307499999966,
+          "maxMs": 92,
+          "totalRoundTripMs": 1038.839540999994,
           "rows": [
             {
               "answer": "This Land Is Your Land",
@@ -34408,7 +34408,7 @@
               "answer": "Waterloo",
               "found": true,
               "display": "Waterloo",
-              "ms": 539
+              "ms": 92
             },
             {
               "answer": "Alejandro",
@@ -35006,7 +35006,7 @@
           "samples": 100,
           "p95Ms": 0,
           "maxMs": 0,
-          "totalRoundTripMs": 724.7896670000046,
+          "totalRoundTripMs": 782.5673750000133,
           "rows": [
             {
               "answer": "This Land Is Your Land",
@@ -35623,8 +35623,8 @@
           "accepted": 100,
           "samples": 100,
           "p95Ms": 0,
-          "maxMs": 802,
-          "totalRoundTripMs": 1534.682209000006,
+          "maxMs": 174,
+          "totalRoundTripMs": 1049.2588329999999,
           "rows": [
             {
               "answer": "Alewife station",
@@ -35636,7 +35636,7 @@
               "answer": "Airport station",
               "found": true,
               "display": "Airport station",
-              "ms": 802
+              "ms": 174
             },
             {
               "answer": "Wokingham railway station",
@@ -36234,7 +36234,7 @@
           "samples": 100,
           "p95Ms": 0,
           "maxMs": 0,
-          "totalRoundTripMs": 728.2655419999937,
+          "totalRoundTripMs": 816.8781670000026,
           "rows": [
             {
               "answer": "Alewife station",
@@ -36851,8 +36851,8 @@
           "accepted": 100,
           "samples": 100,
           "p95Ms": 0,
-          "maxMs": 541,
-          "totalRoundTripMs": 1516.234792000003,
+          "maxMs": 66,
+          "totalRoundTripMs": 953.9967499999912,
           "rows": [
             {
               "answer": "Bigg Boss (Hindi TV series) season 19",
@@ -36870,7 +36870,7 @@
               "answer": "Link Click",
               "found": true,
               "display": "Link Click",
-              "ms": 541
+              "ms": 66
             },
             {
               "answer": "Harry Hill's TV Burp",
@@ -37462,7 +37462,7 @@
           "samples": 100,
           "p95Ms": 0,
           "maxMs": 0,
-          "totalRoundTripMs": 775.6057080000028,
+          "totalRoundTripMs": 679.0547499999957,
           "rows": [
             {
               "answer": "Bigg Boss (Hindi TV series) season 19",
@@ -38079,8 +38079,8 @@
           "accepted": 100,
           "samples": 100,
           "p95Ms": 0,
-          "maxMs": 496,
-          "totalRoundTripMs": 1302.8807090000046,
+          "maxMs": 40,
+          "totalRoundTripMs": 1106.977458999987,
           "rows": [
             {
               "answer": "ETH Zurich",
@@ -38110,7 +38110,7 @@
               "answer": "Radboud University Nijmegen",
               "found": true,
               "display": "Radboud University Nijmegen",
-              "ms": 496
+              "ms": 40
             },
             {
               "answer": "European University Institute",
@@ -38690,7 +38690,7 @@
           "samples": 100,
           "p95Ms": 0,
           "maxMs": 0,
-          "totalRoundTripMs": 720.7125830000004,
+          "totalRoundTripMs": 683.9262499999895,
           "rows": [
             {
               "answer": "ETH Zurich",
@@ -39307,8 +39307,8 @@
           "accepted": 100,
           "samples": 100,
           "p95Ms": 0,
-          "maxMs": 977,
-          "totalRoundTripMs": 1750.1950420000067,
+          "maxMs": 166,
+          "totalRoundTripMs": 927.2306249999965,
           "rows": [
             {
               "answer": "Ratchet & Clank: Rift Apart",
@@ -39320,7 +39320,7 @@
               "answer": "The Legend of Zelda: Tri Force Heroes",
               "found": true,
               "display": "The Legend of Zelda: Tri Force Heroes",
-              "ms": 977
+              "ms": 166
             },
             {
               "answer": "Tropico: Paradise Island",
@@ -39918,7 +39918,7 @@
           "samples": 100,
           "p95Ms": 0,
           "maxMs": 0,
-          "totalRoundTripMs": 821.1477080000041,
+          "totalRoundTripMs": 684.2077500000014,
           "rows": [
             {
               "answer": "Ratchet & Clank: Rift Apart",
