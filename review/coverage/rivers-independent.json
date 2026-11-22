@@ -1,0 +1,811 @@
+{
+  "source": "Independent curated Wikipedia lists, extracted by subject column or list label; see source URLs per sample",
+  "seed": 2161926400,
+  "method": "Uniform draw without replacement from the middle half by measured mean daily readership; frozen first draw, all misses retained",
+  "poolSize": 316,
+  "excluded": [],
+  "answers": [
+    "Senegal",
+    "Jialing River",
+    "Vaal",
+    "Shebelle",
+    "Ishim",
+    "Souris",
+    "Flinders",
+    "Madeira",
+    "Mantaro",
+    "Omo",
+    "Jubba",
+    "Araguaia",
+    "Desna",
+    "Kuskokwim",
+    "North Saskatchewan",
+    "Uele",
+    "Xi",
+    "Darling",
+    "Shire",
+    "Seversky Donets",
+    "Nen",
+    "Chari",
+    "Sepik",
+    "Padma",
+    "Luapula",
+    "Red Rock",
+    "Tapajós",
+    "Min",
+    "Kama",
+    "Lachlan River",
+    "Draa",
+    "Panj",
+    "Ganges",
+    "Chu",
+    "Awash",
+    "White",
+    "Tongtian",
+    "Breg",
+    "Lerma",
+    "Benue",
+    "Beaverhead",
+    "Tietê",
+    "Barito River",
+    "Finlay",
+    "Cooper",
+    "Tobol",
+    "Mamberamo River",
+    "Nelson",
+    "Vilyuy",
+    "Slave"
+  ],
+  "samples": [
+    {
+      "answer": "Senegal",
+      "source": "https://en.wikipedia.org/wiki/List_of_river_systems_by_length",
+      "wikipediaTitle": "Senegal River",
+      "pageviews": {
+        "total": 2260,
+        "days": 31,
+        "title": "Senegal River",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Jialing River",
+      "source": "https://en.wikipedia.org/wiki/List_of_river_systems_by_length",
+      "wikipediaTitle": "Jialing River",
+      "pageviews": {
+        "total": 417,
+        "days": 31,
+        "title": "Jialing River",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Vaal",
+      "source": "https://en.wikipedia.org/wiki/List_of_river_systems_by_length",
+      "wikipediaTitle": "Vaal River",
+      "pageviews": {
+        "total": 1996,
+        "days": 31,
+        "title": "Vaal River",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Shebelle",
+      "source": "https://en.wikipedia.org/wiki/List_of_river_systems_by_length",
+      "wikipediaTitle": "Shebelle River",
+      "pageviews": {
+        "total": 1103,
+        "days": 31,
+        "title": "Shebelle River",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Ishim",
+      "source": "https://en.wikipedia.org/wiki/List_of_river_systems_by_length",
+      "wikipediaTitle": "Ishim (river)",
+      "pageviews": {
+        "total": 413,
+        "days": 31,
+        "title": "Ishim (river)",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Souris",
+      "source": "https://en.wikipedia.org/wiki/List_of_river_systems_by_length",
+      "wikipediaTitle": "Souris River",
+      "pageviews": {
+        "total": 446,
+        "days": 31,
+        "title": "Souris River",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Flinders",
+      "source": "https://en.wikipedia.org/wiki/List_of_river_systems_by_length",
+      "wikipediaTitle": "Flinders River",
+      "pageviews": {
+        "total": 323,
+        "days": 31,
+        "title": "Flinders River",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Madeira",
+      "source": "https://en.wikipedia.org/wiki/List_of_river_systems_by_length",
+      "wikipediaTitle": "Madeira River",
+      "pageviews": {
+        "total": 1731,
+        "days": 31,
+        "title": "Madeira River",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Mantaro",
+      "source": "https://en.wikipedia.org/wiki/List_of_river_systems_by_length",
+      "wikipediaTitle": "Mantaro River",
+      "pageviews": {
+        "total": 720,
+        "days": 31,
+        "title": "Mantaro River",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Omo",
+      "source": "https://en.wikipedia.org/wiki/List_of_river_systems_by_length",
+      "wikipediaTitle": "Omo River",
+      "pageviews": {
+        "total": 964,
+        "days": 31,
+        "title": "Omo River",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Jubba",
+      "source": "https://en.wikipedia.org/wiki/List_of_river_systems_by_length",
+      "wikipediaTitle": "Jubba River",
+      "pageviews": {
+        "total": 1216,
+        "days": 31,
+        "title": "Jubba River",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Araguaia",
+      "source": "https://en.wikipedia.org/wiki/List_of_river_systems_by_length",
+      "wikipediaTitle": "Araguaia River",
+      "pageviews": {
+        "total": 650,
+        "days": 31,
+        "title": "Araguaia River",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Desna",
+      "source": "https://en.wikipedia.org/wiki/List_of_river_systems_by_length",
+      "wikipediaTitle": "Desna (river)",
+      "pageviews": {
+        "total": 449,
+        "days": 31,
+        "title": "Desna (river)",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Kuskokwim",
+      "source": "https://en.wikipedia.org/wiki/List_of_river_systems_by_length",
+      "wikipediaTitle": "Kuskokwim River",
+      "pageviews": {
+        "total": 1337,
+        "days": 31,
+        "title": "Kuskokwim River",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "North Saskatchewan",
+      "source": "https://en.wikipedia.org/wiki/List_of_river_systems_by_length",
+      "wikipediaTitle": "North Saskatchewan River",
+      "pageviews": {
+        "total": 1942,
+        "days": 31,
+        "title": "North Saskatchewan River",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Uele",
+      "source": "https://en.wikipedia.org/wiki/List_of_river_systems_by_length",
+      "wikipediaTitle": "Uele River",
+      "pageviews": {
+        "total": 432,
+        "days": 31,
+        "title": "Uele River",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Xi",
+      "source": "https://en.wikipedia.org/wiki/List_of_river_systems_by_length",
+      "wikipediaTitle": "Xi River",
+      "pageviews": {
+        "total": 809,
+        "days": 31,
+        "title": "Xi River",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Darling",
+      "source": "https://en.wikipedia.org/wiki/List_of_river_systems_by_length",
+      "wikipediaTitle": "Darling River",
+      "pageviews": {
+        "total": 1797,
+        "days": 31,
+        "title": "Darling River",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Shire",
+      "source": "https://en.wikipedia.org/wiki/List_of_river_systems_by_length",
+      "wikipediaTitle": "Shire River",
+      "pageviews": {
+        "total": 563,
+        "days": 31,
+        "title": "Shire River",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Seversky Donets",
+      "source": "https://en.wikipedia.org/wiki/List_of_river_systems_by_length",
+      "wikipediaTitle": "Donets",
+      "pageviews": {
+        "total": 1289,
+        "days": 31,
+        "title": "Donets",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Nen",
+      "source": "https://en.wikipedia.org/wiki/List_of_river_systems_by_length",
+      "wikipediaTitle": "Nen River",
+      "pageviews": {
+        "total": 235,
+        "days": 31,
+        "title": "Nen River",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Chari",
+      "source": "https://en.wikipedia.org/wiki/List_of_river_systems_by_length",
+      "wikipediaTitle": "Chari River",
+      "pageviews": {
+        "total": 1150,
+        "days": 31,
+        "title": "Chari River",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Sepik",
+      "source": "https://en.wikipedia.org/wiki/List_of_river_systems_by_length",
+      "wikipediaTitle": "Sepik",
+      "pageviews": {
+        "total": 914,
+        "days": 31,
+        "title": "Sepik",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Padma",
+      "source": "https://en.wikipedia.org/wiki/List_of_river_systems_by_length",
+      "wikipediaTitle": "Padma River",
+      "pageviews": {
+        "total": 2172,
+        "days": 31,
+        "title": "Padma River",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Luapula",
+      "source": "https://en.wikipedia.org/wiki/List_of_river_systems_by_length",
+      "wikipediaTitle": "Luapula River",
+      "pageviews": {
+        "total": 476,
+        "days": 31,
+        "title": "Luapula River",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Red Rock",
+      "source": "https://en.wikipedia.org/wiki/List_of_river_systems_by_length",
+      "wikipediaTitle": "Red Rock River (Montana)",
+      "pageviews": {
+        "total": 446,
+        "days": 31,
+        "title": "Red Rock River (Montana)",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Tapajós",
+      "source": "https://en.wikipedia.org/wiki/List_of_river_systems_by_length",
+      "wikipediaTitle": "Tapajós",
+      "pageviews": {
+        "total": 542,
+        "days": 31,
+        "title": "Tapajós",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Min",
+      "source": "https://en.wikipedia.org/wiki/List_of_river_systems_by_length",
+      "wikipediaTitle": "Min River (Sichuan)",
+      "pageviews": {
+        "total": 503,
+        "days": 31,
+        "title": "Min River (Sichuan)",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Kama",
+      "source": "https://en.wikipedia.org/wiki/List_of_river_systems_by_length",
+      "wikipediaTitle": "Kama (river)",
+      "pageviews": {
+        "total": 947,
+        "days": 31,
+        "title": "Kama (river)",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Lachlan River",
+      "source": "https://en.wikipedia.org/wiki/List_of_river_systems_by_length",
+      "wikipediaTitle": "Lachlan River",
+      "pageviews": {
+        "total": 576,
+        "days": 31,
+        "title": "Lachlan River",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Draa",
+      "source": "https://en.wikipedia.org/wiki/List_of_river_systems_by_length",
+      "wikipediaTitle": "Draa River",
+      "pageviews": {
+        "total": 1312,
+        "days": 31,
+        "title": "Draa River",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Panj",
+      "source": "https://en.wikipedia.org/wiki/List_of_river_systems_by_length",
+      "wikipediaTitle": "Panj (river)",
+      "pageviews": {
+        "total": 662,
+        "days": 31,
+        "title": "Panj (river)",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Ganges",
+      "source": "https://en.wikipedia.org/wiki/List_of_river_systems_by_length",
+      "wikipediaTitle": "Ganges River",
+      "pageviews": {
+        "total": 1369,
+        "days": 31,
+        "title": "Ganges River",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "Chu",
+      "source": "https://en.wikipedia.org/wiki/List_of_river_systems_by_length",
+      "wikipediaTitle": "Chu (river)",
+      "pageviews": {
+        "total": 456,
+        "days": 31,
+        "title": "Chu (river)",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Awash",
+      "source": "https://en.wikipedia.org/wiki/List_of_river_systems_by_length",
+      "wikipediaTitle": "Awash River",
+      "pageviews": {
+        "total": 1169,
+        "days": 31,
+        "title": "Awash River",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "White",
+      "source": "https://en.wikipedia.org/wiki/List_of_river_systems_by_length",
+      "wikipediaTitle": "White River (Arkansas)",
+      "pageviews": {
+        "total": 337,
+        "days": 31,
+        "title": "White River (Arkansas)",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Tongtian",
+      "source": "https://en.wikipedia.org/wiki/List_of_river_systems_by_length",
+      "wikipediaTitle": "Tongtian River",
+      "pageviews": {
+        "total": 283,
+        "days": 31,
+        "title": "Tongtian River",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Breg",
+      "source": "https://en.wikipedia.org/wiki/List_of_river_systems_by_length",
+      "wikipediaTitle": "Breg (river)",
+      "pageviews": {
+        "total": 1673,
+        "days": 31,
+        "title": "Breg (river)",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Lerma",
+      "source": "https://en.wikipedia.org/wiki/List_of_river_systems_by_length",
+      "wikipediaTitle": "Lerma River",
+      "pageviews": {
+        "total": 487,
+        "days": 31,
+        "title": "Lerma River",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Benue",
+      "source": "https://en.wikipedia.org/wiki/List_of_river_systems_by_length",
+      "wikipediaTitle": "Benue River",
+      "pageviews": {
+        "total": 1253,
+        "days": 31,
+        "title": "Benue River",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Beaverhead",
+      "source": "https://en.wikipedia.org/wiki/List_of_river_systems_by_length",
+      "wikipediaTitle": "Beaverhead River",
+      "pageviews": {
+        "total": 348,
+        "days": 31,
+        "title": "Beaverhead River",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Tietê",
+      "source": "https://en.wikipedia.org/wiki/List_of_river_systems_by_length",
+      "wikipediaTitle": "Tietê River",
+      "pageviews": {
+        "total": 604,
+        "days": 31,
+        "title": "Tietê River",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Barito River",
+      "source": "https://en.wikipedia.org/wiki/List_of_river_systems_by_length",
+      "wikipediaTitle": "Barito River",
+      "pageviews": {
+        "total": 446,
+        "days": 31,
+        "title": "Barito River",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Finlay",
+      "source": "https://en.wikipedia.org/wiki/List_of_river_systems_by_length",
+      "wikipediaTitle": "Finlay River",
+      "pageviews": {
+        "total": 305,
+        "days": 31,
+        "title": "Finlay River",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Cooper",
+      "source": "https://en.wikipedia.org/wiki/List_of_river_systems_by_length",
+      "wikipediaTitle": "Cooper Creek",
+      "pageviews": {
+        "total": 985,
+        "days": 31,
+        "title": "Cooper Creek",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Tobol",
+      "source": "https://en.wikipedia.org/wiki/List_of_river_systems_by_length",
+      "wikipediaTitle": "Tobol",
+      "pageviews": {
+        "total": 384,
+        "days": 31,
+        "title": "Tobol",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "Mamberamo River",
+      "source": "https://en.wikipedia.org/wiki/List_of_river_systems_by_length",
+      "wikipediaTitle": "Mamberamo River",
+      "pageviews": {
+        "total": 448,
+        "days": 31,
+        "title": "Mamberamo River",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Nelson",
+      "source": "https://en.wikipedia.org/wiki/List_of_river_systems_by_length",
+      "wikipediaTitle": "Nelson River",
+      "pageviews": {
+        "total": 1789,
+        "days": 31,
+        "title": "Nelson River",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Vilyuy",
+      "source": "https://en.wikipedia.org/wiki/List_of_river_systems_by_length",
+      "wikipediaTitle": "Vilyuy",
+      "pageviews": {
+        "total": 298,
+        "days": 31,
+        "title": "Vilyuy",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "Slave",
+      "source": "https://en.wikipedia.org/wiki/List_of_river_systems_by_length",
+      "wikipediaTitle": "Slave River",
+      "pageviews": {
+        "total": 1215,
+        "days": 31,
+        "title": "Slave River",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    }
+  ]
+}

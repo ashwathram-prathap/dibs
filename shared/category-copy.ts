@@ -12,7 +12,7 @@ export function categoryPlural(category: { slug: string; name: string }) {
     novels: 'novels and novellas',
     mountains: 'mountains',
     painters: 'painters',
-    albums: 'albums',
+    albums: 'albums and EPs',
     rivers: 'rivers',
     footballers: 'footballers',
     paintings: 'paintings',

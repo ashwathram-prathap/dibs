@@ -1,0 +1,811 @@
+{
+  "source": "Independent curated Wikipedia lists, extracted by subject column or list label; see source URLs per sample",
+  "seed": 1174887576,
+  "method": "Uniform draw without replacement from the middle half by measured mean daily readership; frozen first draw, all misses retained",
+  "poolSize": 268,
+  "excluded": [],
+  "answers": [
+    "Theydon Bois",
+    "Leicester Square",
+    "Goodge Street",
+    "Morden",
+    "St Paul's",
+    "Parsons Green",
+    "Golders Green",
+    "Harrow-on-the-Hill",
+    "Southgate",
+    "Belsize Park",
+    "East Acton",
+    "Ladbroke Grove",
+    "Tooting Broadway",
+    "Great Portland Street",
+    "Preston Road",
+    "Hanger Lane",
+    "Oakwood",
+    "Greenford",
+    "Chalfont & Latimer",
+    "White City",
+    "Royal Oak",
+    "Clapham North",
+    "Sloane Square",
+    "West Ruislip",
+    "Euston Square",
+    "Upminster",
+    "Kilburn",
+    "Shepherd's Bush Market",
+    "East Ham",
+    "Harlesden",
+    "Barons Court",
+    "Perivale",
+    "Woodford",
+    "Watford",
+    "Notting Hill Gate",
+    "Kennington",
+    "Finchley Road",
+    "St John's Wood",
+    "Maida Vale",
+    "Hillingdon",
+    "West Brompton",
+    "Manor House",
+    "Epping",
+    "Canning Town",
+    "Stamford Brook",
+    "Turnpike Lane",
+    "High Barnet",
+    "Ealing Common",
+    "Rickmansworth",
+    "Queensway"
+  ],
+  "samples": [
+    {
+      "answer": "Theydon Bois",
+      "source": "https://en.wikipedia.org/wiki/List_of_London_Underground_stations",
+      "wikipediaTitle": "Theydon Bois tube station",
+      "pageviews": {
+        "total": 355,
+        "days": 31,
+        "title": "Theydon Bois tube station",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Leicester Square",
+      "source": "https://en.wikipedia.org/wiki/List_of_London_Underground_stations",
+      "wikipediaTitle": "Leicester Square tube station",
+      "pageviews": {
+        "total": 720,
+        "days": 31,
+        "title": "Leicester Square tube station",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Goodge Street",
+      "source": "https://en.wikipedia.org/wiki/List_of_London_Underground_stations",
+      "wikipediaTitle": "Goodge Street tube station",
+      "pageviews": {
+        "total": 631,
+        "days": 31,
+        "title": "Goodge Street tube station",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Morden",
+      "source": "https://en.wikipedia.org/wiki/List_of_London_Underground_stations",
+      "wikipediaTitle": "Morden tube station",
+      "pageviews": {
+        "total": 712,
+        "days": 31,
+        "title": "Morden tube station",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "St Paul's",
+      "source": "https://en.wikipedia.org/wiki/List_of_London_Underground_stations",
+      "wikipediaTitle": "St Paul's tube station",
+      "pageviews": {
+        "total": 470,
+        "days": 31,
+        "title": "St Paul's tube station",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Parsons Green",
+      "source": "https://en.wikipedia.org/wiki/List_of_London_Underground_stations",
+      "wikipediaTitle": "Parsons Green tube station",
+      "pageviews": {
+        "total": 343,
+        "days": 31,
+        "title": "Parsons Green tube station",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Golders Green",
+      "source": "https://en.wikipedia.org/wiki/List_of_London_Underground_stations",
+      "wikipediaTitle": "Golders Green tube station",
+      "pageviews": {
+        "total": 517,
+        "days": 31,
+        "title": "Golders Green tube station",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Harrow-on-the-Hill",
+      "source": "https://en.wikipedia.org/wiki/List_of_London_Underground_stations",
+      "wikipediaTitle": "Harrow-on-the-Hill station",
+      "pageviews": {
+        "total": 646,
+        "days": 31,
+        "title": "Harrow-on-the-Hill station",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Southgate",
+      "source": "https://en.wikipedia.org/wiki/List_of_London_Underground_stations",
+      "wikipediaTitle": "Southgate tube station",
+      "pageviews": {
+        "total": 460,
+        "days": 31,
+        "title": "Southgate tube station",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Belsize Park",
+      "source": "https://en.wikipedia.org/wiki/List_of_London_Underground_stations",
+      "wikipediaTitle": "Belsize Park tube station",
+      "pageviews": {
+        "total": 310,
+        "days": 31,
+        "title": "Belsize Park tube station",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "East Acton",
+      "source": "https://en.wikipedia.org/wiki/List_of_London_Underground_stations",
+      "wikipediaTitle": "East Acton tube station",
+      "pageviews": {
+        "total": 301,
+        "days": 31,
+        "title": "East Acton tube station",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Ladbroke Grove",
+      "source": "https://en.wikipedia.org/wiki/List_of_London_Underground_stations",
+      "wikipediaTitle": "Ladbroke Grove tube station",
+      "pageviews": {
+        "total": 320,
+        "days": 31,
+        "title": "Ladbroke Grove tube station",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Tooting Broadway",
+      "source": "https://en.wikipedia.org/wiki/List_of_London_Underground_stations",
+      "wikipediaTitle": "Tooting Broadway tube station",
+      "pageviews": {
+        "total": 523,
+        "days": 31,
+        "title": "Tooting Broadway tube station",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Great Portland Street",
+      "source": "https://en.wikipedia.org/wiki/List_of_London_Underground_stations",
+      "wikipediaTitle": "Great Portland Street tube station",
+      "pageviews": {
+        "total": 529,
+        "days": 31,
+        "title": "Great Portland Street tube station",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Preston Road",
+      "source": "https://en.wikipedia.org/wiki/List_of_London_Underground_stations",
+      "wikipediaTitle": "Preston Road tube station",
+      "pageviews": {
+        "total": 299,
+        "days": 31,
+        "title": "Preston Road tube station",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Hanger Lane",
+      "source": "https://en.wikipedia.org/wiki/List_of_London_Underground_stations",
+      "wikipediaTitle": "Hanger Lane tube station",
+      "pageviews": {
+        "total": 368,
+        "days": 31,
+        "title": "Hanger Lane tube station",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Oakwood",
+      "source": "https://en.wikipedia.org/wiki/List_of_London_Underground_stations",
+      "wikipediaTitle": "Oakwood tube station",
+      "pageviews": {
+        "total": 313,
+        "days": 31,
+        "title": "Oakwood tube station",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Greenford",
+      "source": "https://en.wikipedia.org/wiki/List_of_London_Underground_stations",
+      "wikipediaTitle": "Greenford station",
+      "pageviews": {
+        "total": 455,
+        "days": 31,
+        "title": "Greenford station",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Chalfont & Latimer",
+      "source": "https://en.wikipedia.org/wiki/List_of_London_Underground_stations",
+      "wikipediaTitle": "Chalfont & Latimer station",
+      "pageviews": {
+        "total": 512,
+        "days": 31,
+        "title": "Chalfont & Latimer station",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "White City",
+      "source": "https://en.wikipedia.org/wiki/List_of_London_Underground_stations",
+      "wikipediaTitle": "White City tube station",
+      "pageviews": {
+        "total": 470,
+        "days": 31,
+        "title": "White City tube station",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Royal Oak",
+      "source": "https://en.wikipedia.org/wiki/List_of_London_Underground_stations",
+      "wikipediaTitle": "Royal Oak tube station",
+      "pageviews": {
+        "total": 438,
+        "days": 31,
+        "title": "Royal Oak tube station",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Clapham North",
+      "source": "https://en.wikipedia.org/wiki/List_of_London_Underground_stations",
+      "wikipediaTitle": "Clapham North tube station",
+      "pageviews": {
+        "total": 357,
+        "days": 31,
+        "title": "Clapham North tube station",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Sloane Square",
+      "source": "https://en.wikipedia.org/wiki/List_of_London_Underground_stations",
+      "wikipediaTitle": "Sloane Square tube station",
+      "pageviews": {
+        "total": 556,
+        "days": 31,
+        "title": "Sloane Square tube station",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "West Ruislip",
+      "source": "https://en.wikipedia.org/wiki/List_of_London_Underground_stations",
+      "wikipediaTitle": "West Ruislip station",
+      "pageviews": {
+        "total": 496,
+        "days": 31,
+        "title": "West Ruislip station",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Euston Square",
+      "source": "https://en.wikipedia.org/wiki/List_of_London_Underground_stations",
+      "wikipediaTitle": "Euston Square tube station",
+      "pageviews": {
+        "total": 736,
+        "days": 31,
+        "title": "Euston Square tube station",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Upminster",
+      "source": "https://en.wikipedia.org/wiki/List_of_London_Underground_stations",
+      "wikipediaTitle": "Upminster station",
+      "pageviews": {
+        "total": 664,
+        "days": 31,
+        "title": "Upminster station",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Kilburn",
+      "source": "https://en.wikipedia.org/wiki/List_of_London_Underground_stations",
+      "wikipediaTitle": "Kilburn tube station",
+      "pageviews": {
+        "total": 319,
+        "days": 31,
+        "title": "Kilburn tube station",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Shepherd's Bush Market",
+      "source": "https://en.wikipedia.org/wiki/List_of_London_Underground_stations",
+      "wikipediaTitle": "Shepherd's Bush Market tube station",
+      "pageviews": {
+        "total": 430,
+        "days": 31,
+        "title": "Shepherd's Bush Market tube station",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "East Ham",
+      "source": "https://en.wikipedia.org/wiki/List_of_London_Underground_stations",
+      "wikipediaTitle": "East Ham tube station",
+      "pageviews": {
+        "total": 421,
+        "days": 31,
+        "title": "East Ham tube station",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Harlesden",
+      "source": "https://en.wikipedia.org/wiki/List_of_London_Underground_stations",
+      "wikipediaTitle": "Harlesden station",
+      "pageviews": {
+        "total": 306,
+        "days": 31,
+        "title": "Harlesden station",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Barons Court",
+      "source": "https://en.wikipedia.org/wiki/List_of_London_Underground_stations",
+      "wikipediaTitle": "Barons Court tube station",
+      "pageviews": {
+        "total": 641,
+        "days": 31,
+        "title": "Barons Court tube station",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Perivale",
+      "source": "https://en.wikipedia.org/wiki/List_of_London_Underground_stations",
+      "wikipediaTitle": "Perivale tube station",
+      "pageviews": {
+        "total": 291,
+        "days": 31,
+        "title": "Perivale tube station",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Woodford",
+      "source": "https://en.wikipedia.org/wiki/List_of_London_Underground_stations",
+      "wikipediaTitle": "Woodford tube station",
+      "pageviews": {
+        "total": 359,
+        "days": 31,
+        "title": "Woodford tube station",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Watford",
+      "source": "https://en.wikipedia.org/wiki/List_of_London_Underground_stations",
+      "wikipediaTitle": "Watford tube station",
+      "pageviews": {
+        "total": 570,
+        "days": 31,
+        "title": "Watford tube station",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Notting Hill Gate",
+      "source": "https://en.wikipedia.org/wiki/List_of_London_Underground_stations",
+      "wikipediaTitle": "Notting Hill Gate tube station",
+      "pageviews": {
+        "total": 613,
+        "days": 31,
+        "title": "Notting Hill Gate tube station",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Kennington",
+      "source": "https://en.wikipedia.org/wiki/List_of_London_Underground_stations",
+      "wikipediaTitle": "Kennington tube station",
+      "pageviews": {
+        "total": 715,
+        "days": 31,
+        "title": "Kennington tube station",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Finchley Road",
+      "source": "https://en.wikipedia.org/wiki/List_of_London_Underground_stations",
+      "wikipediaTitle": "Finchley Road tube station",
+      "pageviews": {
+        "total": 539,
+        "days": 31,
+        "title": "Finchley Road tube station",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "St John's Wood",
+      "source": "https://en.wikipedia.org/wiki/List_of_London_Underground_stations",
+      "wikipediaTitle": "St John's Wood tube station",
+      "pageviews": {
+        "total": 558,
+        "days": 31,
+        "title": "St John's Wood tube station",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Maida Vale",
+      "source": "https://en.wikipedia.org/wiki/List_of_London_Underground_stations",
+      "wikipediaTitle": "Maida Vale tube station",
+      "pageviews": {
+        "total": 406,
+        "days": 31,
+        "title": "Maida Vale tube station",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Hillingdon",
+      "source": "https://en.wikipedia.org/wiki/List_of_London_Underground_stations",
+      "wikipediaTitle": "Hillingdon tube station",
+      "pageviews": {
+        "total": 364,
+        "days": 31,
+        "title": "Hillingdon tube station",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "West Brompton",
+      "source": "https://en.wikipedia.org/wiki/List_of_London_Underground_stations",
+      "wikipediaTitle": "West Brompton station",
+      "pageviews": {
+        "total": 584,
+        "days": 31,
+        "title": "West Brompton station",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Manor House",
+      "source": "https://en.wikipedia.org/wiki/List_of_London_Underground_stations",
+      "wikipediaTitle": "Manor House tube station",
+      "pageviews": {
+        "total": 427,
+        "days": 31,
+        "title": "Manor House tube station",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Epping",
+      "source": "https://en.wikipedia.org/wiki/List_of_London_Underground_stations",
+      "wikipediaTitle": "Epping tube station",
+      "pageviews": {
+        "total": 746,
+        "days": 31,
+        "title": "Epping tube station",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Canning Town",
+      "source": "https://en.wikipedia.org/wiki/List_of_London_Underground_stations",
+      "wikipediaTitle": "Canning Town station",
+      "pageviews": {
+        "total": 652,
+        "days": 31,
+        "title": "Canning Town station",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Stamford Brook",
+      "source": "https://en.wikipedia.org/wiki/List_of_London_Underground_stations",
+      "wikipediaTitle": "Stamford Brook tube station",
+      "pageviews": {
+        "total": 316,
+        "days": 31,
+        "title": "Stamford Brook tube station",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Turnpike Lane",
+      "source": "https://en.wikipedia.org/wiki/List_of_London_Underground_stations",
+      "wikipediaTitle": "Turnpike Lane tube station",
+      "pageviews": {
+        "total": 449,
+        "days": 31,
+        "title": "Turnpike Lane tube station",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "High Barnet",
+      "source": "https://en.wikipedia.org/wiki/List_of_London_Underground_stations",
+      "wikipediaTitle": "High Barnet tube station",
+      "pageviews": {
+        "total": 505,
+        "days": 31,
+        "title": "High Barnet tube station",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Ealing Common",
+      "source": "https://en.wikipedia.org/wiki/List_of_London_Underground_stations",
+      "wikipediaTitle": "Ealing Common tube station",
+      "pageviews": {
+        "total": 292,
+        "days": 31,
+        "title": "Ealing Common tube station",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Rickmansworth",
+      "source": "https://en.wikipedia.org/wiki/List_of_London_Underground_stations",
+      "wikipediaTitle": "Rickmansworth station",
+      "pageviews": {
+        "total": 332,
+        "days": 31,
+        "title": "Rickmansworth station",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Queensway",
+      "source": "https://en.wikipedia.org/wiki/List_of_London_Underground_stations",
+      "wikipediaTitle": "Queensway tube station",
+      "pageviews": {
+        "total": 354,
+        "days": 31,
+        "title": "Queensway tube station",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    }
+  ]
+}

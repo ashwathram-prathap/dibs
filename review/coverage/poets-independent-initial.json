@@ -1,0 +1,811 @@
+{
+  "source": "Independent curated Wikipedia lists, extracted by subject column or list label; see source URLs per sample",
+  "seed": 1592076044,
+  "method": "Uniform draw without replacement from the middle half by measured mean daily readership; frozen first draw, all misses retained",
+  "poolSize": 2604,
+  "excluded": [],
+  "answers": [
+    "Desanka Maksimović",
+    "Kelly Cherry",
+    "Barrett Watten",
+    "Jupiter Hammon",
+    "Khushal Khan Khattak",
+    "Thomas Tickell",
+    "Henry Austin Dobson",
+    "Majeed Amjad",
+    "Michael Palmer",
+    "Ikkyu",
+    "Claudian",
+    "Olga Broumas",
+    "Lawson Fusao Inada",
+    "Aria Aber",
+    "Nedîm",
+    "José Lezama Lima",
+    "Philip Levine",
+    "Charles Bernstein",
+    "Marian Hemar",
+    "Robert Aytoun",
+    "Winthrop Mackworth Praed",
+    "Angelina Weld Grimké",
+    "Michael Hartnett",
+    "A. R. Ammons",
+    "Alan Ross",
+    "Phineas Fletcher",
+    "Tim Dlugos",
+    "Dan Gerber",
+    "Allasani Peddana",
+    "Rosmarie Waldrop",
+    "Philip Whalen",
+    "Odysseus Elytis",
+    "Thomas Edward Brown",
+    "Victor Henry Anderson",
+    "David Baker",
+    "Don Marquis",
+    "Alda Merini",
+    "Vahan Terian",
+    "Aleksander Fredro",
+    "Milton Acorn",
+    "Dezső Kosztolányi",
+    "Tonya Ingram",
+    "Raymond Roussel",
+    "Necati Cumalı",
+    "Duško Trifunović",
+    "Gregory Orr",
+    "Rudolf Maister",
+    "Li Shangyin",
+    "George Moses Horton",
+    "George Gascoigne"
+  ],
+  "samples": [
+    {
+      "answer": "Desanka Maksimović",
+      "source": "https://en.wikipedia.org/wiki/List_of_poets",
+      "wikipediaTitle": "Desanka Maksimović",
+      "pageviews": {
+        "total": 740,
+        "days": 31,
+        "title": "Desanka Maksimović",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Kelly Cherry",
+      "source": "https://en.wikipedia.org/wiki/List_of_poets",
+      "wikipediaTitle": "Kelly Cherry",
+      "pageviews": {
+        "total": 96,
+        "days": 31,
+        "title": "Kelly Cherry",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Barrett Watten",
+      "source": "https://en.wikipedia.org/wiki/List_of_poets",
+      "wikipediaTitle": "Barrett Watten",
+      "pageviews": {
+        "total": 461,
+        "days": 31,
+        "title": "Barrett Watten",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Jupiter Hammon",
+      "source": "https://en.wikipedia.org/wiki/List_of_poets",
+      "wikipediaTitle": "Jupiter Hammon",
+      "pageviews": {
+        "total": 1042,
+        "days": 31,
+        "title": "Jupiter Hammon",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Khushal Khan Khattak",
+      "source": "https://en.wikipedia.org/wiki/List_of_poets",
+      "wikipediaTitle": "Khushal Khan Khattak",
+      "pageviews": {
+        "total": 283,
+        "days": 31,
+        "title": "Khushal Khan Khattak",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Thomas Tickell",
+      "source": "https://en.wikipedia.org/wiki/List_of_poets",
+      "wikipediaTitle": "Thomas Tickell",
+      "pageviews": {
+        "total": 84,
+        "days": 31,
+        "title": "Thomas Tickell",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Henry Austin Dobson",
+      "source": "https://en.wikipedia.org/wiki/List_of_poets",
+      "wikipediaTitle": "Henry Austin Dobson",
+      "pageviews": {
+        "total": 283,
+        "days": 31,
+        "title": "Henry Austin Dobson",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Majeed Amjad",
+      "source": "https://en.wikipedia.org/wiki/List_of_poets",
+      "wikipediaTitle": "Majeed Amjad",
+      "pageviews": {
+        "total": 145,
+        "days": 31,
+        "title": "Majeed Amjad",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Michael Palmer",
+      "source": "https://en.wikipedia.org/wiki/List_of_poets",
+      "wikipediaTitle": "Michael Palmer (poet)",
+      "pageviews": {
+        "total": 190,
+        "days": 31,
+        "title": "Michael Palmer (poet)",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Ikkyu",
+      "source": "https://en.wikipedia.org/wiki/List_of_poets",
+      "wikipediaTitle": "Ikkyu",
+      "pageviews": {
+        "total": 88,
+        "days": 31,
+        "title": "Ikkyu",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Claudian",
+      "source": "https://en.wikipedia.org/wiki/List_of_poets",
+      "wikipediaTitle": "Claudian",
+      "pageviews": {
+        "total": 1012,
+        "days": 31,
+        "title": "Claudian",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "Olga Broumas",
+      "source": "https://en.wikipedia.org/wiki/List_of_poets",
+      "wikipediaTitle": "Olga Broumas",
+      "pageviews": {
+        "total": 109,
+        "days": 31,
+        "title": "Olga Broumas",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Lawson Fusao Inada",
+      "source": "https://en.wikipedia.org/wiki/List_of_poets",
+      "wikipediaTitle": "Lawson Fusao Inada",
+      "pageviews": {
+        "total": 218,
+        "days": 31,
+        "title": "Lawson Fusao Inada",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Aria Aber",
+      "source": "https://en.wikipedia.org/wiki/List_of_poets",
+      "wikipediaTitle": "Aria Aber",
+      "pageviews": {
+        "total": 811,
+        "days": 31,
+        "title": "Aria Aber",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Nedîm",
+      "source": "https://en.wikipedia.org/wiki/List_of_poets",
+      "wikipediaTitle": "Nedîm",
+      "pageviews": {
+        "total": 255,
+        "days": 31,
+        "title": "Nedîm",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "José Lezama Lima",
+      "source": "https://en.wikipedia.org/wiki/List_of_poets",
+      "wikipediaTitle": "José Lezama Lima",
+      "pageviews": {
+        "total": 557,
+        "days": 31,
+        "title": "José Lezama Lima",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Philip Levine",
+      "source": "https://en.wikipedia.org/wiki/List_of_poets",
+      "wikipediaTitle": "Philip Levine (poet)",
+      "pageviews": {
+        "total": 889,
+        "days": 31,
+        "title": "Philip Levine (poet)",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Charles Bernstein",
+      "source": "https://en.wikipedia.org/wiki/List_of_poets",
+      "wikipediaTitle": "Charles Bernstein (poet)",
+      "pageviews": {
+        "total": 692,
+        "days": 31,
+        "title": "Charles Bernstein (poet)",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Marian Hemar",
+      "source": "https://en.wikipedia.org/wiki/List_of_poets",
+      "wikipediaTitle": "Marian Hemar",
+      "pageviews": {
+        "total": 171,
+        "days": 31,
+        "title": "Marian Hemar",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Robert Aytoun",
+      "source": "https://en.wikipedia.org/wiki/List_of_poets",
+      "wikipediaTitle": "Robert Aytoun",
+      "pageviews": {
+        "total": 124,
+        "days": 31,
+        "title": "Robert Aytoun",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Winthrop Mackworth Praed",
+      "source": "https://en.wikipedia.org/wiki/List_of_poets",
+      "wikipediaTitle": "Winthrop Mackworth Praed",
+      "pageviews": {
+        "total": 115,
+        "days": 31,
+        "title": "Winthrop Mackworth Praed",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Angelina Weld Grimké",
+      "source": "https://en.wikipedia.org/wiki/List_of_poets",
+      "wikipediaTitle": "Angelina Weld Grimké",
+      "pageviews": {
+        "total": 913,
+        "days": 31,
+        "title": "Angelina Weld Grimké",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Michael Hartnett",
+      "source": "https://en.wikipedia.org/wiki/List_of_poets",
+      "wikipediaTitle": "Michael Hartnett",
+      "pageviews": {
+        "total": 524,
+        "days": 31,
+        "title": "Michael Hartnett",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "A. R. Ammons",
+      "source": "https://en.wikipedia.org/wiki/List_of_poets",
+      "wikipediaTitle": "A. R. Ammons",
+      "pageviews": {
+        "total": 603,
+        "days": 31,
+        "title": "A. R. Ammons",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Alan Ross",
+      "source": "https://en.wikipedia.org/wiki/List_of_poets",
+      "wikipediaTitle": "Alan Ross",
+      "pageviews": {
+        "total": 300,
+        "days": 31,
+        "title": "Alan Ross",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Phineas Fletcher",
+      "source": "https://en.wikipedia.org/wiki/List_of_poets",
+      "wikipediaTitle": "Phineas Fletcher",
+      "pageviews": {
+        "total": 211,
+        "days": 31,
+        "title": "Phineas Fletcher",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Tim Dlugos",
+      "source": "https://en.wikipedia.org/wiki/List_of_poets",
+      "wikipediaTitle": "Tim Dlugos",
+      "pageviews": {
+        "total": 86,
+        "days": 31,
+        "title": "Tim Dlugos",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Dan Gerber",
+      "source": "https://en.wikipedia.org/wiki/List_of_poets",
+      "wikipediaTitle": "Dan Gerber",
+      "pageviews": {
+        "total": 166,
+        "days": 31,
+        "title": "Dan Gerber",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Allasani Peddana",
+      "source": "https://en.wikipedia.org/wiki/List_of_poets",
+      "wikipediaTitle": "Allasani Peddana",
+      "pageviews": {
+        "total": 900,
+        "days": 31,
+        "title": "Allasani Peddana",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Rosmarie Waldrop",
+      "source": "https://en.wikipedia.org/wiki/List_of_poets",
+      "wikipediaTitle": "Rosmarie Waldrop",
+      "pageviews": {
+        "total": 372,
+        "days": 31,
+        "title": "Rosmarie Waldrop",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Philip Whalen",
+      "source": "https://en.wikipedia.org/wiki/List_of_poets",
+      "wikipediaTitle": "Philip Whalen",
+      "pageviews": {
+        "total": 632,
+        "days": 31,
+        "title": "Philip Whalen",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Odysseus Elytis",
+      "source": "https://en.wikipedia.org/wiki/List_of_poets",
+      "wikipediaTitle": "Odysseus Elytis",
+      "pageviews": {
+        "total": 93,
+        "days": 31,
+        "title": "Odysseus Elytis",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Thomas Edward Brown",
+      "source": "https://en.wikipedia.org/wiki/List_of_poets",
+      "wikipediaTitle": "Thomas Edward Brown",
+      "pageviews": {
+        "total": 205,
+        "days": 31,
+        "title": "Thomas Edward Brown",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Victor Henry Anderson",
+      "source": "https://en.wikipedia.org/wiki/List_of_poets",
+      "wikipediaTitle": "Victor Henry Anderson",
+      "pageviews": {
+        "total": 200,
+        "days": 31,
+        "title": "Victor Henry Anderson",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "David Baker",
+      "source": "https://en.wikipedia.org/wiki/List_of_poets",
+      "wikipediaTitle": "David Baker (poet)",
+      "pageviews": {
+        "total": 120,
+        "days": 31,
+        "title": "David Baker (poet)",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Don Marquis",
+      "source": "https://en.wikipedia.org/wiki/List_of_poets",
+      "wikipediaTitle": "Don Marquis",
+      "pageviews": {
+        "total": 855,
+        "days": 31,
+        "title": "Don Marquis",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "Alda Merini",
+      "source": "https://en.wikipedia.org/wiki/List_of_poets",
+      "wikipediaTitle": "Alda Merini",
+      "pageviews": {
+        "total": 608,
+        "days": 31,
+        "title": "Alda Merini",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Vahan Terian",
+      "source": "https://en.wikipedia.org/wiki/List_of_poets",
+      "wikipediaTitle": "Vahan Terian",
+      "pageviews": {
+        "total": 240,
+        "days": 31,
+        "title": "Vahan Terian",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Aleksander Fredro",
+      "source": "https://en.wikipedia.org/wiki/List_of_poets",
+      "wikipediaTitle": "Aleksander Fredro",
+      "pageviews": {
+        "total": 404,
+        "days": 31,
+        "title": "Aleksander Fredro",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Milton Acorn",
+      "source": "https://en.wikipedia.org/wiki/List_of_poets",
+      "wikipediaTitle": "Milton Acorn",
+      "pageviews": {
+        "total": 204,
+        "days": 31,
+        "title": "Milton Acorn",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Dezső Kosztolányi",
+      "source": "https://en.wikipedia.org/wiki/List_of_poets",
+      "wikipediaTitle": "Dezső Kosztolányi",
+      "pageviews": {
+        "total": 526,
+        "days": 31,
+        "title": "Dezső Kosztolányi",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "Tonya Ingram",
+      "source": "https://en.wikipedia.org/wiki/List_of_poets",
+      "wikipediaTitle": "Tonya Ingram",
+      "pageviews": {
+        "total": 279,
+        "days": 31,
+        "title": "Tonya Ingram",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Raymond Roussel",
+      "source": "https://en.wikipedia.org/wiki/List_of_poets",
+      "wikipediaTitle": "Raymond Roussel",
+      "pageviews": {
+        "total": 984,
+        "days": 31,
+        "title": "Raymond Roussel",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Necati Cumalı",
+      "source": "https://en.wikipedia.org/wiki/List_of_poets",
+      "wikipediaTitle": "Necati Cumalı",
+      "pageviews": {
+        "total": 191,
+        "days": 31,
+        "title": "Necati Cumalı",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Duško Trifunović",
+      "source": "https://en.wikipedia.org/wiki/List_of_poets",
+      "wikipediaTitle": "Duško Trifunović",
+      "pageviews": {
+        "total": 279,
+        "days": 31,
+        "title": "Duško Trifunović",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Gregory Orr",
+      "source": "https://en.wikipedia.org/wiki/List_of_poets",
+      "wikipediaTitle": "Gregory Orr (poet)",
+      "pageviews": {
+        "total": 360,
+        "days": 31,
+        "title": "Gregory Orr (poet)",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Rudolf Maister",
+      "source": "https://en.wikipedia.org/wiki/List_of_poets",
+      "wikipediaTitle": "Rudolf Maister",
+      "pageviews": {
+        "total": 740,
+        "days": 31,
+        "title": "Rudolf Maister",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Li Shangyin",
+      "source": "https://en.wikipedia.org/wiki/List_of_poets",
+      "wikipediaTitle": "Li Shangyin",
+      "pageviews": {
+        "total": 816,
+        "days": 31,
+        "title": "Li Shangyin",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "George Moses Horton",
+      "source": "https://en.wikipedia.org/wiki/List_of_poets",
+      "wikipediaTitle": "George Moses Horton",
+      "pageviews": {
+        "total": 537,
+        "days": 31,
+        "title": "George Moses Horton",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "George Gascoigne",
+      "source": "https://en.wikipedia.org/wiki/List_of_poets",
+      "wikipediaTitle": "George Gascoigne",
+      "pageviews": {
+        "total": 450,
+        "days": 31,
+        "title": "George Gascoigne",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    }
+  ]
+}

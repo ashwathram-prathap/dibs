@@ -1,5 +1,5 @@
 {
-  "checkedAt": "2026-11-22T06:18:43.526Z",
+  "checkedAt": "2026-11-22T06:27:55.496Z",
   "checks": [
     {
       "title": "Bohemian Rhapsody",
@@ -32,6 +32,14 @@
       "status": 200,
       "passed": true,
       "url": "https://wikimedia.org/api/rest_v1/metrics/pageviews/per-article/en.wikipedia.org/all-access/user/The%20Beatles/monthly/2026100100/2026103100"
+    },
+    {
+      "title": "William \"Gentleman\" Smith",
+      "dumpViews": 24,
+      "apiViews": 24,
+      "status": 200,
+      "passed": true,
+      "url": "https://wikimedia.org/api/rest_v1/metrics/pageviews/per-article/en.wikipedia.org/all-access/user/William%20%22Gentleman%22%20Smith/monthly/2026100100/2026103100"
     }
   ]
 }

@@ -7,7 +7,11 @@ export function loadBulkReadership(titles: string[]) {
   if (!proof.complete || proof.days !== 31)
     throw Error('Complete monthly readership proof required');
   const input = JSON.stringify([...new Set(titles)]);
-  const hash = createHash('sha256').update(proof.sha256).update(input).digest('hex');
+  const hash = createHash('sha256')
+    .update('v2-json-title-decoding')
+    .update(proof.sha256)
+    .update(input)
+    .digest('hex');
   const folder = root + 'bulk-selections';
   mkdirSync(folder, { recursive: true });
   const path = folder + '/' + hash + '.json';

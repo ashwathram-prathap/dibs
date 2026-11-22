@@ -1,0 +1,811 @@
+{
+  "source": "Independent curated Wikipedia lists, extracted by subject column or list label; see source URLs per sample",
+  "seed": 2743404442,
+  "method": "Uniform draw without replacement from the middle half by measured mean daily readership; frozen first draw, all misses retained",
+  "poolSize": 5038,
+  "excluded": [],
+  "answers": [
+    "Jean Richafort",
+    "Vyacheslav Artyomov",
+    "Heinrich Finck",
+    "Peter Ablinger",
+    "John Casken",
+    "Antonio Brioschi",
+    "Frédéric Alfred d'Erlanger",
+    "Roman Turovsky-Savchuk",
+    "Friedrich Witt",
+    "Daniel Ayala Pérez",
+    "Elinor Armer",
+    "Joly Braga Santos",
+    "Christoph Nichelmann",
+    "Michael Christian Festing",
+    "Britta Byström",
+    "Robert Paterson",
+    "Abraham Wolfe Binder",
+    "Pasquale Anfossi",
+    "Maurice Greene",
+    "Fini Henriques",
+    "Antonio Rolla",
+    "François-Bernard Mâche",
+    "Juan Allende-Blin",
+    "Giulio Briccialdi",
+    "Antonio Draghi",
+    "Richard Wetz",
+    "Alan Bullard",
+    "Hans-Joachim Hespos",
+    "Salvador Bacarisse",
+    "Jean-François Dandrieu",
+    "Donald Erb",
+    "Jan Brandts Buys",
+    "Enno Poppe",
+    "Nicolas Bernier",
+    "Johann Fischer",
+    "Rosalina Abejo",
+    "Thierry Deleruyelle",
+    "Luigi Ricci",
+    "Victor Hely-Hutchinson",
+    "Jānis Ivanovs",
+    "Willem de Fesch",
+    "Farid Zoland",
+    "Božidar Kantušer",
+    "Thomas Sleeper",
+    "Richard St. Clair",
+    "Luigi Arditi",
+    "Paul Abraham",
+    "Franz Bendel",
+    "Ralph Benatzky",
+    "Johann Christoph Pez"
+  ],
+  "samples": [
+    {
+      "answer": "Jean Richafort",
+      "source": "https://en.wikipedia.org/wiki/List_of_composers_by_name",
+      "wikipediaTitle": "Jean Richafort",
+      "pageviews": {
+        "total": 167,
+        "days": 31,
+        "title": "Jean Richafort",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Vyacheslav Artyomov",
+      "source": "https://en.wikipedia.org/wiki/List_of_composers_by_name",
+      "wikipediaTitle": "Vyacheslav Artyomov",
+      "pageviews": {
+        "total": 100,
+        "days": 31,
+        "title": "Vyacheslav Artyomov",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Heinrich Finck",
+      "source": "https://en.wikipedia.org/wiki/List_of_composers_by_name",
+      "wikipediaTitle": "Heinrich Finck",
+      "pageviews": {
+        "total": 84,
+        "days": 31,
+        "title": "Heinrich Finck",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Peter Ablinger",
+      "source": "https://en.wikipedia.org/wiki/List_of_composers_by_name",
+      "wikipediaTitle": "Peter Ablinger",
+      "pageviews": {
+        "total": 151,
+        "days": 31,
+        "title": "Peter Ablinger",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "John Casken",
+      "source": "https://en.wikipedia.org/wiki/List_of_composers_by_name",
+      "wikipediaTitle": "John Casken",
+      "pageviews": {
+        "total": 134,
+        "days": 31,
+        "title": "John Casken",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Antonio Brioschi",
+      "source": "https://en.wikipedia.org/wiki/List_of_composers_by_name",
+      "wikipediaTitle": "Antonio Brioschi",
+      "pageviews": {
+        "total": 72,
+        "days": 31,
+        "title": "Antonio Brioschi",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Frédéric Alfred d'Erlanger",
+      "source": "https://en.wikipedia.org/wiki/List_of_composers_by_name",
+      "wikipediaTitle": "Frédéric Alfred d'Erlanger",
+      "pageviews": {
+        "total": 142,
+        "days": 31,
+        "title": "Frédéric Alfred d'Erlanger",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Roman Turovsky-Savchuk",
+      "source": "https://en.wikipedia.org/wiki/List_of_composers_by_name",
+      "wikipediaTitle": "Roman Turovsky-Savchuk",
+      "pageviews": {
+        "total": 96,
+        "days": 31,
+        "title": "Roman Turovsky-Savchuk",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Friedrich Witt",
+      "source": "https://en.wikipedia.org/wiki/List_of_composers_by_name",
+      "wikipediaTitle": "Friedrich Witt",
+      "pageviews": {
+        "total": 188,
+        "days": 31,
+        "title": "Friedrich Witt",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Daniel Ayala Pérez",
+      "source": "https://en.wikipedia.org/wiki/List_of_composers_by_name",
+      "wikipediaTitle": "Daniel Ayala Pérez",
+      "pageviews": {
+        "total": 47,
+        "days": 31,
+        "title": "Daniel Ayala Pérez",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Elinor Armer",
+      "source": "https://en.wikipedia.org/wiki/List_of_composers_by_name",
+      "wikipediaTitle": "Elinor Armer",
+      "pageviews": {
+        "total": 52,
+        "days": 31,
+        "title": "Elinor Armer",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Joly Braga Santos",
+      "source": "https://en.wikipedia.org/wiki/List_of_composers_by_name",
+      "wikipediaTitle": "Joly Braga Santos",
+      "pageviews": {
+        "total": 217,
+        "days": 31,
+        "title": "Joly Braga Santos",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Christoph Nichelmann",
+      "source": "https://en.wikipedia.org/wiki/List_of_composers_by_name",
+      "wikipediaTitle": "Christoph Nichelmann",
+      "pageviews": {
+        "total": 94,
+        "days": 31,
+        "title": "Christoph Nichelmann",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Michael Christian Festing",
+      "source": "https://en.wikipedia.org/wiki/List_of_composers_by_name",
+      "wikipediaTitle": "Michael Christian Festing",
+      "pageviews": {
+        "total": 63,
+        "days": 31,
+        "title": "Michael Christian Festing",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Britta Byström",
+      "source": "https://en.wikipedia.org/wiki/List_of_composers_by_name",
+      "wikipediaTitle": "Britta Byström",
+      "pageviews": {
+        "total": 87,
+        "days": 31,
+        "title": "Britta Byström",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Robert Paterson",
+      "source": "https://en.wikipedia.org/wiki/List_of_composers_by_name",
+      "wikipediaTitle": "Robert Paterson (composer)",
+      "pageviews": {
+        "total": 247,
+        "days": 31,
+        "title": "Robert Paterson (composer)",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Abraham Wolfe Binder",
+      "source": "https://en.wikipedia.org/wiki/List_of_composers_by_name",
+      "wikipediaTitle": "Abraham Binder",
+      "pageviews": {
+        "total": 45,
+        "days": 31,
+        "title": "Abraham Binder",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Pasquale Anfossi",
+      "source": "https://en.wikipedia.org/wiki/List_of_composers_by_name",
+      "wikipediaTitle": "Pasquale Anfossi",
+      "pageviews": {
+        "total": 98,
+        "days": 31,
+        "title": "Pasquale Anfossi",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "Maurice Greene",
+      "source": "https://en.wikipedia.org/wiki/List_of_composers_by_name",
+      "wikipediaTitle": "Maurice Greene (composer)",
+      "pageviews": {
+        "total": 325,
+        "days": 31,
+        "title": "Maurice Greene (composer)",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Fini Henriques",
+      "source": "https://en.wikipedia.org/wiki/List_of_composers_by_name",
+      "wikipediaTitle": "Fini Henriques",
+      "pageviews": {
+        "total": 87,
+        "days": 31,
+        "title": "Fini Henriques",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "Antonio Rolla",
+      "source": "https://en.wikipedia.org/wiki/List_of_composers_by_name",
+      "wikipediaTitle": "Antonio Rolla",
+      "pageviews": {
+        "total": 99,
+        "days": 31,
+        "title": "Antonio Rolla",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "François-Bernard Mâche",
+      "source": "https://en.wikipedia.org/wiki/List_of_composers_by_name",
+      "wikipediaTitle": "François-Bernard Mâche",
+      "pageviews": {
+        "total": 90,
+        "days": 31,
+        "title": "François-Bernard Mâche",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Juan Allende-Blin",
+      "source": "https://en.wikipedia.org/wiki/List_of_composers_by_name",
+      "wikipediaTitle": "Juan Allende-Blin",
+      "pageviews": {
+        "total": 54,
+        "days": 31,
+        "title": "Juan Allende-Blin",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Giulio Briccialdi",
+      "source": "https://en.wikipedia.org/wiki/List_of_composers_by_name",
+      "wikipediaTitle": "Giulio Briccialdi",
+      "pageviews": {
+        "total": 111,
+        "days": 31,
+        "title": "Giulio Briccialdi",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Antonio Draghi",
+      "source": "https://en.wikipedia.org/wiki/List_of_composers_by_name",
+      "wikipediaTitle": "Antonio Draghi",
+      "pageviews": {
+        "total": 72,
+        "days": 31,
+        "title": "Antonio Draghi",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Richard Wetz",
+      "source": "https://en.wikipedia.org/wiki/List_of_composers_by_name",
+      "wikipediaTitle": "Richard Wetz",
+      "pageviews": {
+        "total": 121,
+        "days": 31,
+        "title": "Richard Wetz",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Alan Bullard",
+      "source": "https://en.wikipedia.org/wiki/List_of_composers_by_name",
+      "wikipediaTitle": "Alan Bullard",
+      "pageviews": {
+        "total": 115,
+        "days": 31,
+        "title": "Alan Bullard",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Hans-Joachim Hespos",
+      "source": "https://en.wikipedia.org/wiki/List_of_composers_by_name",
+      "wikipediaTitle": "Hans-Joachim Hespos",
+      "pageviews": {
+        "total": 49,
+        "days": 31,
+        "title": "Hans-Joachim Hespos",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Salvador Bacarisse",
+      "source": "https://en.wikipedia.org/wiki/List_of_composers_by_name",
+      "wikipediaTitle": "Salvador Bacarisse",
+      "pageviews": {
+        "total": 102,
+        "days": 31,
+        "title": "Salvador Bacarisse",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "Jean-François Dandrieu",
+      "source": "https://en.wikipedia.org/wiki/List_of_composers_by_name",
+      "wikipediaTitle": "Jean-François Dandrieu",
+      "pageviews": {
+        "total": 180,
+        "days": 31,
+        "title": "Jean-François Dandrieu",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Donald Erb",
+      "source": "https://en.wikipedia.org/wiki/List_of_composers_by_name",
+      "wikipediaTitle": "Donald Erb",
+      "pageviews": {
+        "total": 133,
+        "days": 31,
+        "title": "Donald Erb",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Jan Brandts Buys",
+      "source": "https://en.wikipedia.org/wiki/List_of_composers_by_name",
+      "wikipediaTitle": "Jan Brandts Buys",
+      "pageviews": {
+        "total": 68,
+        "days": 31,
+        "title": "Jan Brandts Buys",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Enno Poppe",
+      "source": "https://en.wikipedia.org/wiki/List_of_composers_by_name",
+      "wikipediaTitle": "Enno Poppe",
+      "pageviews": {
+        "total": 184,
+        "days": 31,
+        "title": "Enno Poppe",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Nicolas Bernier",
+      "source": "https://en.wikipedia.org/wiki/List_of_composers_by_name",
+      "wikipediaTitle": "Nicolas Bernier",
+      "pageviews": {
+        "total": 66,
+        "days": 31,
+        "title": "Nicolas Bernier",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Johann Fischer",
+      "source": "https://en.wikipedia.org/wiki/List_of_composers_by_name",
+      "wikipediaTitle": "Johann Fischer (composer)",
+      "pageviews": {
+        "total": 75,
+        "days": 31,
+        "title": "Johann Fischer (composer)",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Rosalina Abejo",
+      "source": "https://en.wikipedia.org/wiki/List_of_composers_by_name",
+      "wikipediaTitle": "Rosalina Abejo",
+      "pageviews": {
+        "total": 95,
+        "days": 31,
+        "title": "Rosalina Abejo",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Thierry Deleruyelle",
+      "source": "https://en.wikipedia.org/wiki/List_of_composers_by_name",
+      "wikipediaTitle": "Thierry Deleruyelle",
+      "pageviews": {
+        "total": 63,
+        "days": 31,
+        "title": "Thierry Deleruyelle",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Luigi Ricci",
+      "source": "https://en.wikipedia.org/wiki/List_of_composers_by_name",
+      "wikipediaTitle": "Luigi Ricci (composer)",
+      "pageviews": {
+        "total": 260,
+        "days": 31,
+        "title": "Luigi Ricci (composer)",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Victor Hely-Hutchinson",
+      "source": "https://en.wikipedia.org/wiki/List_of_composers_by_name",
+      "wikipediaTitle": "Victor Hely-Hutchinson",
+      "pageviews": {
+        "total": 234,
+        "days": 31,
+        "title": "Victor Hely-Hutchinson",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Jānis Ivanovs",
+      "source": "https://en.wikipedia.org/wiki/List_of_composers_by_name",
+      "wikipediaTitle": "Jānis Ivanovs",
+      "pageviews": {
+        "total": 160,
+        "days": 31,
+        "title": "Jānis Ivanovs",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Willem de Fesch",
+      "source": "https://en.wikipedia.org/wiki/List_of_composers_by_name",
+      "wikipediaTitle": "Willem de Fesch",
+      "pageviews": {
+        "total": 115,
+        "days": 31,
+        "title": "Willem de Fesch",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Farid Zoland",
+      "source": "https://en.wikipedia.org/wiki/List_of_composers_by_name",
+      "wikipediaTitle": "Farid Zoland",
+      "pageviews": {
+        "total": 152,
+        "days": 31,
+        "title": "Farid Zoland",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Božidar Kantušer",
+      "source": "https://en.wikipedia.org/wiki/List_of_composers_by_name",
+      "wikipediaTitle": "Božidar Kantušer",
+      "pageviews": {
+        "total": 152,
+        "days": 31,
+        "title": "Božidar Kantušer",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Thomas Sleeper",
+      "source": "https://en.wikipedia.org/wiki/List_of_composers_by_name",
+      "wikipediaTitle": "Thomas Sleeper",
+      "pageviews": {
+        "total": 83,
+        "days": 31,
+        "title": "Thomas Sleeper",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Richard St. Clair",
+      "source": "https://en.wikipedia.org/wiki/List_of_composers_by_name",
+      "wikipediaTitle": "Richard St. Clair",
+      "pageviews": {
+        "total": 86,
+        "days": 31,
+        "title": "Richard St. Clair",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Luigi Arditi",
+      "source": "https://en.wikipedia.org/wiki/List_of_composers_by_name",
+      "wikipediaTitle": "Luigi Arditi",
+      "pageviews": {
+        "total": 202,
+        "days": 31,
+        "title": "Luigi Arditi",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Paul Abraham",
+      "source": "https://en.wikipedia.org/wiki/List_of_composers_by_name",
+      "wikipediaTitle": "Paul Abraham",
+      "pageviews": {
+        "total": 306,
+        "days": 31,
+        "title": "Paul Abraham",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Franz Bendel",
+      "source": "https://en.wikipedia.org/wiki/List_of_composers_by_name",
+      "wikipediaTitle": "Franz Bendel",
+      "pageviews": {
+        "total": 73,
+        "days": 31,
+        "title": "Franz Bendel",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Ralph Benatzky",
+      "source": "https://en.wikipedia.org/wiki/List_of_composers_by_name",
+      "wikipediaTitle": "Ralph Benatzky",
+      "pageviews": {
+        "total": 167,
+        "days": 31,
+        "title": "Ralph Benatzky",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Johann Christoph Pez",
+      "source": "https://en.wikipedia.org/wiki/List_of_composers_by_name",
+      "wikipediaTitle": "Johann Christoph Pez",
+      "pageviews": {
+        "total": 116,
+        "days": 31,
+        "title": "Johann Christoph Pez",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    }
+  ]
+}

@@ -1,0 +1,811 @@
+{
+  "source": "Independent curated Wikipedia lists, extracted by subject column or list label; see source URLs per sample",
+  "seed": 1936192642,
+  "method": "Uniform draw without replacement from the middle half by measured mean daily readership; frozen first draw, all misses retained",
+  "poolSize": 407,
+  "excluded": [],
+  "answers": [
+    "Harewood Castle",
+    "Hanwell Castle",
+    "Worcester Castle",
+    "Caldwall Castle",
+    "Halnaker House",
+    "Walton Castle",
+    "Callaly Castle",
+    "Saltwood Castle",
+    "Haughton Castle",
+    "Hylton Castle",
+    "Hornby Castle",
+    "Turton Tower",
+    "Tiverton Castle",
+    "Langley Castle",
+    "Dilston Castle",
+    "Canterbury Castle",
+    "Thurland Castle",
+    "Bowes Castle",
+    "Stafford Castle",
+    "Bristol Castle",
+    "Hampton Court",
+    "Otford Palace",
+    "Wingfield Manor",
+    "Somerton Castle",
+    "Stone Castle",
+    "Southampton Castle",
+    "Edlingham Castle",
+    "Sandal Castle",
+    "Pickering Castle",
+    "Appleby Castle",
+    "Bothal Castle",
+    "Portland Castle",
+    "Broughton Tower",
+    "St. Mawes Castle",
+    "Chipchase Castle",
+    "Rufus Castle",
+    "Bishop's Waltham Palace",
+    "Shilbottle Tower",
+    "Starkey Castle",
+    "Kendal Castle",
+    "Bellister Castle",
+    "Clare Castle",
+    "Torksey Castle",
+    "Penrith Castle",
+    "Whittingham Tower",
+    "Eccleshall Castle",
+    "Rose Castle",
+    "Lulworth Castle",
+    "Old Hollinside",
+    "Tickhill Castle"
+  ],
+  "samples": [
+    {
+      "answer": "Harewood Castle",
+      "source": "https://en.wikipedia.org/wiki/List_of_castles_in_England",
+      "wikipediaTitle": "Harewood Castle",
+      "pageviews": {
+        "total": 438,
+        "days": 31,
+        "title": "Harewood Castle",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Hanwell Castle",
+      "source": "https://en.wikipedia.org/wiki/List_of_castles_in_England",
+      "wikipediaTitle": "Hanwell, Oxfordshire",
+      "pageviews": {
+        "total": 151,
+        "days": 31,
+        "title": "Hanwell, Oxfordshire",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Worcester Castle",
+      "source": "https://en.wikipedia.org/wiki/List_of_castles_in_England",
+      "wikipediaTitle": "Worcester Castle",
+      "pageviews": {
+        "total": 274,
+        "days": 31,
+        "title": "Worcester Castle",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Caldwall Castle",
+      "source": "https://en.wikipedia.org/wiki/List_of_castles_in_England",
+      "wikipediaTitle": "Caldwall Castle",
+      "pageviews": {
+        "total": 155,
+        "days": 31,
+        "title": "Caldwall Castle",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Halnaker House",
+      "source": "https://en.wikipedia.org/wiki/List_of_castles_in_England",
+      "wikipediaTitle": "Halnaker",
+      "pageviews": {
+        "total": 217,
+        "days": 31,
+        "title": "Halnaker",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Walton Castle",
+      "source": "https://en.wikipedia.org/wiki/List_of_castles_in_England",
+      "wikipediaTitle": "Walton Castle",
+      "pageviews": {
+        "total": 220,
+        "days": 31,
+        "title": "Walton Castle",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Callaly Castle",
+      "source": "https://en.wikipedia.org/wiki/List_of_castles_in_England",
+      "wikipediaTitle": "Callaly Castle",
+      "pageviews": {
+        "total": 265,
+        "days": 31,
+        "title": "Callaly Castle",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Saltwood Castle",
+      "source": "https://en.wikipedia.org/wiki/List_of_castles_in_England",
+      "wikipediaTitle": "Saltwood Castle",
+      "pageviews": {
+        "total": 708,
+        "days": 31,
+        "title": "Saltwood Castle",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "Haughton Castle",
+      "source": "https://en.wikipedia.org/wiki/List_of_castles_in_England",
+      "wikipediaTitle": "Haughton Castle",
+      "pageviews": {
+        "total": 250,
+        "days": 31,
+        "title": "Haughton Castle",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Hylton Castle",
+      "source": "https://en.wikipedia.org/wiki/List_of_castles_in_England",
+      "wikipediaTitle": "Hylton Castle",
+      "pageviews": {
+        "total": 816,
+        "days": 31,
+        "title": "Hylton Castle",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "Hornby Castle",
+      "source": "https://en.wikipedia.org/wiki/List_of_castles_in_England",
+      "wikipediaTitle": "Hornby Castle, Yorkshire",
+      "pageviews": {
+        "total": 298,
+        "days": 31,
+        "title": "Hornby Castle, Yorkshire",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Turton Tower",
+      "source": "https://en.wikipedia.org/wiki/List_of_castles_in_England",
+      "wikipediaTitle": "Turton Tower",
+      "pageviews": {
+        "total": 157,
+        "days": 31,
+        "title": "Turton Tower",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Tiverton Castle",
+      "source": "https://en.wikipedia.org/wiki/List_of_castles_in_England",
+      "wikipediaTitle": "Tiverton Castle",
+      "pageviews": {
+        "total": 392,
+        "days": 31,
+        "title": "Tiverton Castle",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Langley Castle",
+      "source": "https://en.wikipedia.org/wiki/List_of_castles_in_England",
+      "wikipediaTitle": "Langley Castle",
+      "pageviews": {
+        "total": 486,
+        "days": 31,
+        "title": "Langley Castle",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "Dilston Castle",
+      "source": "https://en.wikipedia.org/wiki/List_of_castles_in_England",
+      "wikipediaTitle": "Dilston Castle",
+      "pageviews": {
+        "total": 245,
+        "days": 31,
+        "title": "Dilston Castle",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Canterbury Castle",
+      "source": "https://en.wikipedia.org/wiki/List_of_castles_in_England",
+      "wikipediaTitle": "Canterbury Castle",
+      "pageviews": {
+        "total": 716,
+        "days": 31,
+        "title": "Canterbury Castle",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Thurland Castle",
+      "source": "https://en.wikipedia.org/wiki/List_of_castles_in_England",
+      "wikipediaTitle": "Thurland Castle",
+      "pageviews": {
+        "total": 295,
+        "days": 31,
+        "title": "Thurland Castle",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Bowes Castle",
+      "source": "https://en.wikipedia.org/wiki/List_of_castles_in_England",
+      "wikipediaTitle": "Bowes Castle",
+      "pageviews": {
+        "total": 253,
+        "days": 31,
+        "title": "Bowes Castle",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Stafford Castle",
+      "source": "https://en.wikipedia.org/wiki/List_of_castles_in_England",
+      "wikipediaTitle": "Stafford Castle",
+      "pageviews": {
+        "total": 710,
+        "days": 31,
+        "title": "Stafford Castle",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "Bristol Castle",
+      "source": "https://en.wikipedia.org/wiki/List_of_castles_in_England",
+      "wikipediaTitle": "Bristol Castle",
+      "pageviews": {
+        "total": 910,
+        "days": 31,
+        "title": "Bristol Castle",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Hampton Court",
+      "source": "https://en.wikipedia.org/wiki/List_of_castles_in_England",
+      "wikipediaTitle": "Hampton Court, Herefordshire",
+      "pageviews": {
+        "total": 207,
+        "days": 31,
+        "title": "Hampton Court, Herefordshire",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Otford Palace",
+      "source": "https://en.wikipedia.org/wiki/List_of_castles_in_England",
+      "wikipediaTitle": "Otford Palace",
+      "pageviews": {
+        "total": 212,
+        "days": 31,
+        "title": "Otford Palace",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Wingfield Manor",
+      "source": "https://en.wikipedia.org/wiki/List_of_castles_in_England",
+      "wikipediaTitle": "Wingfield Manor",
+      "pageviews": {
+        "total": 757,
+        "days": 31,
+        "title": "Wingfield Manor",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Somerton Castle",
+      "source": "https://en.wikipedia.org/wiki/List_of_castles_in_England",
+      "wikipediaTitle": "Somerton Castle",
+      "pageviews": {
+        "total": 194,
+        "days": 31,
+        "title": "Somerton Castle",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Stone Castle",
+      "source": "https://en.wikipedia.org/wiki/List_of_castles_in_England",
+      "wikipediaTitle": "Stone Castle",
+      "pageviews": {
+        "total": 182,
+        "days": 31,
+        "title": "Stone Castle",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Southampton Castle",
+      "source": "https://en.wikipedia.org/wiki/List_of_castles_in_England",
+      "wikipediaTitle": "Southampton Castle",
+      "pageviews": {
+        "total": 238,
+        "days": 31,
+        "title": "Southampton Castle",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Edlingham Castle",
+      "source": "https://en.wikipedia.org/wiki/List_of_castles_in_England",
+      "wikipediaTitle": "Edlingham Castle",
+      "pageviews": {
+        "total": 256,
+        "days": 31,
+        "title": "Edlingham Castle",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Sandal Castle",
+      "source": "https://en.wikipedia.org/wiki/List_of_castles_in_England",
+      "wikipediaTitle": "Sandal Castle",
+      "pageviews": {
+        "total": 731,
+        "days": 31,
+        "title": "Sandal Castle",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "Pickering Castle",
+      "source": "https://en.wikipedia.org/wiki/List_of_castles_in_England",
+      "wikipediaTitle": "Pickering Castle",
+      "pageviews": {
+        "total": 682,
+        "days": 31,
+        "title": "Pickering Castle",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Appleby Castle",
+      "source": "https://en.wikipedia.org/wiki/List_of_castles_in_England",
+      "wikipediaTitle": "Appleby Castle",
+      "pageviews": {
+        "total": 760,
+        "days": 31,
+        "title": "Appleby Castle",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "Bothal Castle",
+      "source": "https://en.wikipedia.org/wiki/List_of_castles_in_England",
+      "wikipediaTitle": "Bothal Castle",
+      "pageviews": {
+        "total": 405,
+        "days": 31,
+        "title": "Bothal Castle",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Portland Castle",
+      "source": "https://en.wikipedia.org/wiki/List_of_castles_in_England",
+      "wikipediaTitle": "Portland Castle",
+      "pageviews": {
+        "total": 333,
+        "days": 31,
+        "title": "Portland Castle",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "Broughton Tower",
+      "source": "https://en.wikipedia.org/wiki/List_of_castles_in_England",
+      "wikipediaTitle": "Broughton-in-Furness",
+      "pageviews": {
+        "total": 369,
+        "days": 31,
+        "title": "Broughton-in-Furness",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "St. Mawes Castle",
+      "source": "https://en.wikipedia.org/wiki/List_of_castles_in_England",
+      "wikipediaTitle": "St Mawes Castle",
+      "pageviews": {
+        "total": 363,
+        "days": 31,
+        "title": "St Mawes Castle",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "Chipchase Castle",
+      "source": "https://en.wikipedia.org/wiki/List_of_castles_in_England",
+      "wikipediaTitle": "Chipchase Castle",
+      "pageviews": {
+        "total": 266,
+        "days": 31,
+        "title": "Chipchase Castle",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Rufus Castle",
+      "source": "https://en.wikipedia.org/wiki/List_of_castles_in_England",
+      "wikipediaTitle": "Rufus Castle",
+      "pageviews": {
+        "total": 220,
+        "days": 31,
+        "title": "Rufus Castle",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Bishop's Waltham Palace",
+      "source": "https://en.wikipedia.org/wiki/List_of_castles_in_England",
+      "wikipediaTitle": "Bishop's Waltham Palace",
+      "pageviews": {
+        "total": 189,
+        "days": 31,
+        "title": "Bishop's Waltham Palace",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Shilbottle Tower",
+      "source": "https://en.wikipedia.org/wiki/List_of_castles_in_England",
+      "wikipediaTitle": "Shilbottle",
+      "pageviews": {
+        "total": 298,
+        "days": 31,
+        "title": "Shilbottle",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Starkey Castle",
+      "source": "https://en.wikipedia.org/wiki/List_of_castles_in_England",
+      "wikipediaTitle": "Wouldham",
+      "pageviews": {
+        "total": 160,
+        "days": 31,
+        "title": "Wouldham",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Kendal Castle",
+      "source": "https://en.wikipedia.org/wiki/List_of_castles_in_England",
+      "wikipediaTitle": "Kendal Castle",
+      "pageviews": {
+        "total": 521,
+        "days": 31,
+        "title": "Kendal Castle",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Bellister Castle",
+      "source": "https://en.wikipedia.org/wiki/List_of_castles_in_England",
+      "wikipediaTitle": "Bellister Castle",
+      "pageviews": {
+        "total": 428,
+        "days": 31,
+        "title": "Bellister Castle",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Clare Castle",
+      "source": "https://en.wikipedia.org/wiki/List_of_castles_in_England",
+      "wikipediaTitle": "Clare Castle",
+      "pageviews": {
+        "total": 474,
+        "days": 31,
+        "title": "Clare Castle",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Torksey Castle",
+      "source": "https://en.wikipedia.org/wiki/List_of_castles_in_England",
+      "wikipediaTitle": "Torksey Castle",
+      "pageviews": {
+        "total": 152,
+        "days": 31,
+        "title": "Torksey Castle",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Penrith Castle",
+      "source": "https://en.wikipedia.org/wiki/List_of_castles_in_England",
+      "wikipediaTitle": "Penrith Castle",
+      "pageviews": {
+        "total": 346,
+        "days": 31,
+        "title": "Penrith Castle",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "Whittingham Tower",
+      "source": "https://en.wikipedia.org/wiki/List_of_castles_in_England",
+      "wikipediaTitle": "Whittingham, Northumberland",
+      "pageviews": {
+        "total": 242,
+        "days": 31,
+        "title": "Whittingham, Northumberland",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Eccleshall Castle",
+      "source": "https://en.wikipedia.org/wiki/List_of_castles_in_England",
+      "wikipediaTitle": "Eccleshall Castle",
+      "pageviews": {
+        "total": 208,
+        "days": 31,
+        "title": "Eccleshall Castle",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Rose Castle",
+      "source": "https://en.wikipedia.org/wiki/List_of_castles_in_England",
+      "wikipediaTitle": "Rose Castle",
+      "pageviews": {
+        "total": 203,
+        "days": 31,
+        "title": "Rose Castle",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Lulworth Castle",
+      "source": "https://en.wikipedia.org/wiki/List_of_castles_in_England",
+      "wikipediaTitle": "Lulworth Castle",
+      "pageviews": {
+        "total": 965,
+        "days": 31,
+        "title": "Lulworth Castle",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Old Hollinside",
+      "source": "https://en.wikipedia.org/wiki/List_of_castles_in_England",
+      "wikipediaTitle": "Whickham",
+      "pageviews": {
+        "total": 513,
+        "days": 31,
+        "title": "Whickham",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Tickhill Castle",
+      "source": "https://en.wikipedia.org/wiki/List_of_castles_in_England",
+      "wikipediaTitle": "Tickhill Castle",
+      "pageviews": {
+        "total": 398,
+        "days": 31,
+        "title": "Tickhill Castle",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    }
+  ]
+}

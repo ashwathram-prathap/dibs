@@ -1,5 +1,16 @@
 import { it, expect } from 'vitest';
-import { commonNamePlurals } from '../scripts/catalog-aliases';
+import { commonNamePlurals, conjunctionAliases } from '../scripts/catalog-aliases';
+import { normalize } from '../worker/domain';
+it('accepts ampersands and written conjunctions in proper titles without truncating names', () => {
+  const title = 'Legend – The Best of Bob Marley and The Wailers';
+  expect(conjunctionAliases(title).map(normalize)).toContain(
+    normalize('Legend: The Best of Bob Marley & The Wailers'),
+  );
+  expect(conjunctionAliases('Simon & Garfunkel').map(normalize)).toContain(
+    normalize('Simon and Garfunkel'),
+  );
+  expect(conjunctionAliases('Indian sandalwood')).toEqual([]);
+});
 it('supplies natural plural aliases that simple suffix stripping misses', () => {
   for (const [singular, plural] of [
     ['iris', 'irises'],

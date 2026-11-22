@@ -1,0 +1,811 @@
+{
+  "source": "Independent curated Wikipedia lists, extracted by subject column or list label; see source URLs per sample",
+  "seed": 1669639735,
+  "method": "Uniform draw without replacement from the middle half by measured mean daily readership; frozen first draw, all misses retained",
+  "poolSize": 1004,
+  "excluded": [],
+  "answers": [
+    "Peter Sellers",
+    "Mary Ure",
+    "Vivien Leigh",
+    "Laurence Fishburne",
+    "Omar Sharif",
+    "James Cagney",
+    "Lee Strasberg",
+    "Shirley Knight",
+    "Laura Linney",
+    "Kim Basinger",
+    "Laurie Metcalf",
+    "America Ferrera",
+    "Danny Aiello",
+    "Marlee Matlin",
+    "Louise Fletcher",
+    "Bing Crosby",
+    "Rip Torn",
+    "George Burns",
+    "Joanne Woodward",
+    "Harvey Keitel",
+    "Rock Hudson",
+    "Eric Roberts",
+    "Lionel Barrymore",
+    "Mira Sorvino",
+    "Sam Shepard",
+    "Jeffrey Wright",
+    "Ray Milland",
+    "Diane Cilento",
+    "Isabelle Adjani",
+    "Orson Welles",
+    "Jessie Buckley",
+    "Hume Cronyn",
+    "LaKeith Stanfield",
+    "Greta Garbo",
+    "Madeline Kahn",
+    "Samantha Morton",
+    "Barkhad Abdi",
+    "Ed Harris",
+    "Brandon deWilde",
+    "Carolyn Jones",
+    "Doris Day",
+    "Danielle Brooks",
+    "Minnie Driver",
+    "Diane Ladd",
+    "Ken Watanabe",
+    "Jackie Gleason",
+    "Julie Christie",
+    "Hong Chau",
+    "Topol",
+    "Loretta Young"
+  ],
+  "samples": [
+    {
+      "answer": "Peter Sellers",
+      "source": "https://en.wikipedia.org/wiki/List_of_actors_with_Academy_Award_nominations",
+      "wikipediaTitle": "Peter Sellers",
+      "pageviews": {
+        "total": 94004,
+        "days": 31,
+        "title": "Peter Sellers",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "Mary Ure",
+      "source": "https://en.wikipedia.org/wiki/List_of_actors_with_Academy_Award_nominations",
+      "wikipediaTitle": "Mary Ure",
+      "pageviews": {
+        "total": 30773,
+        "days": 31,
+        "title": "Mary Ure",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "Vivien Leigh",
+      "source": "https://en.wikipedia.org/wiki/List_of_actors_with_Academy_Award_nominations",
+      "wikipediaTitle": "Vivien Leigh",
+      "pageviews": {
+        "total": 87084,
+        "days": 31,
+        "title": "Vivien Leigh",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "Laurence Fishburne",
+      "source": "https://en.wikipedia.org/wiki/List_of_actors_with_Academy_Award_nominations",
+      "wikipediaTitle": "Laurence Fishburne",
+      "pageviews": {
+        "total": 119266,
+        "days": 31,
+        "title": "Laurence Fishburne",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "Omar Sharif",
+      "source": "https://en.wikipedia.org/wiki/List_of_actors_with_Academy_Award_nominations",
+      "wikipediaTitle": "Omar Sharif",
+      "pageviews": {
+        "total": 59586,
+        "days": 31,
+        "title": "Omar Sharif",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "James Cagney",
+      "source": "https://en.wikipedia.org/wiki/List_of_actors_with_Academy_Award_nominations",
+      "wikipediaTitle": "James Cagney",
+      "pageviews": {
+        "total": 40143,
+        "days": 31,
+        "title": "James Cagney",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "Lee Strasberg",
+      "source": "https://en.wikipedia.org/wiki/List_of_actors_with_Academy_Award_nominations",
+      "wikipediaTitle": "Lee Strasberg",
+      "pageviews": {
+        "total": 31581,
+        "days": 31,
+        "title": "Lee Strasberg",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "Shirley Knight",
+      "source": "https://en.wikipedia.org/wiki/List_of_actors_with_Academy_Award_nominations",
+      "wikipediaTitle": "Shirley Knight",
+      "pageviews": {
+        "total": 16307,
+        "days": 31,
+        "title": "Shirley Knight",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "Laura Linney",
+      "source": "https://en.wikipedia.org/wiki/List_of_actors_with_Academy_Award_nominations",
+      "wikipediaTitle": "Laura Linney",
+      "pageviews": {
+        "total": 114200,
+        "days": 31,
+        "title": "Laura Linney",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "Kim Basinger",
+      "source": "https://en.wikipedia.org/wiki/List_of_actors_with_Academy_Award_nominations",
+      "wikipediaTitle": "Kim Basinger",
+      "pageviews": {
+        "total": 101128,
+        "days": 31,
+        "title": "Kim Basinger",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "Laurie Metcalf",
+      "source": "https://en.wikipedia.org/wiki/List_of_actors_with_Academy_Award_nominations",
+      "wikipediaTitle": "Laurie Metcalf",
+      "pageviews": {
+        "total": 112985,
+        "days": 31,
+        "title": "Laurie Metcalf",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "America Ferrera",
+      "source": "https://en.wikipedia.org/wiki/List_of_actors_with_Academy_Award_nominations",
+      "wikipediaTitle": "America Ferrera",
+      "pageviews": {
+        "total": 61791,
+        "days": 31,
+        "title": "America Ferrera",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "Danny Aiello",
+      "source": "https://en.wikipedia.org/wiki/List_of_actors_with_Academy_Award_nominations",
+      "wikipediaTitle": "Danny Aiello",
+      "pageviews": {
+        "total": 24961,
+        "days": 31,
+        "title": "Danny Aiello",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "Marlee Matlin",
+      "source": "https://en.wikipedia.org/wiki/List_of_actors_with_Academy_Award_nominations",
+      "wikipediaTitle": "Marlee Matlin",
+      "pageviews": {
+        "total": 102934,
+        "days": 31,
+        "title": "Marlee Matlin",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "Louise Fletcher",
+      "source": "https://en.wikipedia.org/wiki/List_of_actors_with_Academy_Award_nominations",
+      "wikipediaTitle": "Louise Fletcher",
+      "pageviews": {
+        "total": 43520,
+        "days": 31,
+        "title": "Louise Fletcher",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "Bing Crosby",
+      "source": "https://en.wikipedia.org/wiki/List_of_actors_with_Academy_Award_nominations",
+      "wikipediaTitle": "Bing Crosby",
+      "pageviews": {
+        "total": 79938,
+        "days": 31,
+        "title": "Bing Crosby",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "Rip Torn",
+      "source": "https://en.wikipedia.org/wiki/List_of_actors_with_Academy_Award_nominations",
+      "wikipediaTitle": "Rip Torn",
+      "pageviews": {
+        "total": 103035,
+        "days": 31,
+        "title": "Rip Torn",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "George Burns",
+      "source": "https://en.wikipedia.org/wiki/List_of_actors_with_Academy_Award_nominations",
+      "wikipediaTitle": "George Burns",
+      "pageviews": {
+        "total": 53735,
+        "days": 31,
+        "title": "George Burns",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "Joanne Woodward",
+      "source": "https://en.wikipedia.org/wiki/List_of_actors_with_Academy_Award_nominations",
+      "wikipediaTitle": "Joanne Woodward",
+      "pageviews": {
+        "total": 70701,
+        "days": 31,
+        "title": "Joanne Woodward",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "Harvey Keitel",
+      "source": "https://en.wikipedia.org/wiki/List_of_actors_with_Academy_Award_nominations",
+      "wikipediaTitle": "Harvey Keitel",
+      "pageviews": {
+        "total": 94493,
+        "days": 31,
+        "title": "Harvey Keitel",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "Rock Hudson",
+      "source": "https://en.wikipedia.org/wiki/List_of_actors_with_Academy_Award_nominations",
+      "wikipediaTitle": "Rock Hudson",
+      "pageviews": {
+        "total": 96729,
+        "days": 31,
+        "title": "Rock Hudson",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "Eric Roberts",
+      "source": "https://en.wikipedia.org/wiki/List_of_actors_with_Academy_Award_nominations",
+      "wikipediaTitle": "Eric Roberts",
+      "pageviews": {
+        "total": 100817,
+        "days": 31,
+        "title": "Eric Roberts",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "Lionel Barrymore",
+      "source": "https://en.wikipedia.org/wiki/List_of_actors_with_Academy_Award_nominations",
+      "wikipediaTitle": "Lionel Barrymore",
+      "pageviews": {
+        "total": 29571,
+        "days": 31,
+        "title": "Lionel Barrymore",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "Mira Sorvino",
+      "source": "https://en.wikipedia.org/wiki/List_of_actors_with_Academy_Award_nominations",
+      "wikipediaTitle": "Mira Sorvino",
+      "pageviews": {
+        "total": 66850,
+        "days": 31,
+        "title": "Mira Sorvino",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "Sam Shepard",
+      "source": "https://en.wikipedia.org/wiki/List_of_actors_with_Academy_Award_nominations",
+      "wikipediaTitle": "Sam Shepard",
+      "pageviews": {
+        "total": 113494,
+        "days": 31,
+        "title": "Sam Shepard",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "Jeffrey Wright",
+      "source": "https://en.wikipedia.org/wiki/List_of_actors_with_Academy_Award_nominations",
+      "wikipediaTitle": "Jeffrey Wright",
+      "pageviews": {
+        "total": 79261,
+        "days": 31,
+        "title": "Jeffrey Wright",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "Ray Milland",
+      "source": "https://en.wikipedia.org/wiki/List_of_actors_with_Academy_Award_nominations",
+      "wikipediaTitle": "Ray Milland",
+      "pageviews": {
+        "total": 23177,
+        "days": 31,
+        "title": "Ray Milland",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "Diane Cilento",
+      "source": "https://en.wikipedia.org/wiki/List_of_actors_with_Academy_Award_nominations",
+      "wikipediaTitle": "Diane Cilento",
+      "pageviews": {
+        "total": 29260,
+        "days": 31,
+        "title": "Diane Cilento",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "Isabelle Adjani",
+      "source": "https://en.wikipedia.org/wiki/List_of_actors_with_Academy_Award_nominations",
+      "wikipediaTitle": "Isabelle Adjani",
+      "pageviews": {
+        "total": 56692,
+        "days": 31,
+        "title": "Isabelle Adjani",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "Orson Welles",
+      "source": "https://en.wikipedia.org/wiki/List_of_actors_with_Academy_Award_nominations",
+      "wikipediaTitle": "Orson Welles",
+      "pageviews": {
+        "total": 116498,
+        "days": 31,
+        "title": "Orson Welles",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "Jessie Buckley",
+      "source": "https://en.wikipedia.org/wiki/List_of_actors_with_Academy_Award_nominations",
+      "wikipediaTitle": "Jessie Buckley",
+      "pageviews": {
+        "total": 127479,
+        "days": 31,
+        "title": "Jessie Buckley",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "Hume Cronyn",
+      "source": "https://en.wikipedia.org/wiki/List_of_actors_with_Academy_Award_nominations",
+      "wikipediaTitle": "Hume Cronyn",
+      "pageviews": {
+        "total": 22181,
+        "days": 31,
+        "title": "Hume Cronyn",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "LaKeith Stanfield",
+      "source": "https://en.wikipedia.org/wiki/List_of_actors_with_Academy_Award_nominations",
+      "wikipediaTitle": "LaKeith Stanfield",
+      "pageviews": {
+        "total": 48029,
+        "days": 31,
+        "title": "LaKeith Stanfield",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "Greta Garbo",
+      "source": "https://en.wikipedia.org/wiki/List_of_actors_with_Academy_Award_nominations",
+      "wikipediaTitle": "Greta Garbo",
+      "pageviews": {
+        "total": 53776,
+        "days": 31,
+        "title": "Greta Garbo",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "Madeline Kahn",
+      "source": "https://en.wikipedia.org/wiki/List_of_actors_with_Academy_Award_nominations",
+      "wikipediaTitle": "Madeline Kahn",
+      "pageviews": {
+        "total": 64272,
+        "days": 31,
+        "title": "Madeline Kahn",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "Samantha Morton",
+      "source": "https://en.wikipedia.org/wiki/List_of_actors_with_Academy_Award_nominations",
+      "wikipediaTitle": "Samantha Morton",
+      "pageviews": {
+        "total": 116364,
+        "days": 31,
+        "title": "Samantha Morton",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "Barkhad Abdi",
+      "source": "https://en.wikipedia.org/wiki/List_of_actors_with_Academy_Award_nominations",
+      "wikipediaTitle": "Barkhad Abdi",
+      "pageviews": {
+        "total": 41293,
+        "days": 31,
+        "title": "Barkhad Abdi",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "Ed Harris",
+      "source": "https://en.wikipedia.org/wiki/List_of_actors_with_Academy_Award_nominations",
+      "wikipediaTitle": "Ed Harris",
+      "pageviews": {
+        "total": 126880,
+        "days": 31,
+        "title": "Ed Harris",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "Brandon deWilde",
+      "source": "https://en.wikipedia.org/wiki/List_of_actors_with_Academy_Award_nominations",
+      "wikipediaTitle": "Brandon deWilde",
+      "pageviews": {
+        "total": 27436,
+        "days": 31,
+        "title": "Brandon deWilde",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "Carolyn Jones",
+      "source": "https://en.wikipedia.org/wiki/List_of_actors_with_Academy_Award_nominations",
+      "wikipediaTitle": "Carolyn Jones",
+      "pageviews": {
+        "total": 67323,
+        "days": 31,
+        "title": "Carolyn Jones",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "Doris Day",
+      "source": "https://en.wikipedia.org/wiki/List_of_actors_with_Academy_Award_nominations",
+      "wikipediaTitle": "Doris Day",
+      "pageviews": {
+        "total": 57824,
+        "days": 31,
+        "title": "Doris Day",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "Danielle Brooks",
+      "source": "https://en.wikipedia.org/wiki/List_of_actors_with_Academy_Award_nominations",
+      "wikipediaTitle": "Danielle Brooks",
+      "pageviews": {
+        "total": 29848,
+        "days": 31,
+        "title": "Danielle Brooks",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "Minnie Driver",
+      "source": "https://en.wikipedia.org/wiki/List_of_actors_with_Academy_Award_nominations",
+      "wikipediaTitle": "Minnie Driver",
+      "pageviews": {
+        "total": 104684,
+        "days": 31,
+        "title": "Minnie Driver",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "Diane Ladd",
+      "source": "https://en.wikipedia.org/wiki/List_of_actors_with_Academy_Award_nominations",
+      "wikipediaTitle": "Diane Ladd",
+      "pageviews": {
+        "total": 54743,
+        "days": 31,
+        "title": "Diane Ladd",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "Ken Watanabe",
+      "source": "https://en.wikipedia.org/wiki/List_of_actors_with_Academy_Award_nominations",
+      "wikipediaTitle": "Ken Watanabe",
+      "pageviews": {
+        "total": 39839,
+        "days": 31,
+        "title": "Ken Watanabe",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "Jackie Gleason",
+      "source": "https://en.wikipedia.org/wiki/List_of_actors_with_Academy_Award_nominations",
+      "wikipediaTitle": "Jackie Gleason",
+      "pageviews": {
+        "total": 63466,
+        "days": 31,
+        "title": "Jackie Gleason",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "Julie Christie",
+      "source": "https://en.wikipedia.org/wiki/List_of_actors_with_Academy_Award_nominations",
+      "wikipediaTitle": "Julie Christie",
+      "pageviews": {
+        "total": 48720,
+        "days": 31,
+        "title": "Julie Christie",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "Hong Chau",
+      "source": "https://en.wikipedia.org/wiki/List_of_actors_with_Academy_Award_nominations",
+      "wikipediaTitle": "Hong Chau",
+      "pageviews": {
+        "total": 50301,
+        "days": 31,
+        "title": "Hong Chau",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "Topol",
+      "source": "https://en.wikipedia.org/wiki/List_of_actors_with_Academy_Award_nominations",
+      "wikipediaTitle": "Chaim Topol",
+      "pageviews": {
+        "total": 17301,
+        "days": 31,
+        "title": "Chaim Topol",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "Loretta Young",
+      "source": "https://en.wikipedia.org/wiki/List_of_actors_with_Academy_Award_nominations",
+      "wikipediaTitle": "Loretta Young",
+      "pageviews": {
+        "total": 35224,
+        "days": 31,
+        "title": "Loretta Young",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    }
+  ]
+}

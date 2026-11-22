@@ -1,0 +1,811 @@
+{
+  "source": "Independent curated Wikipedia lists, extracted by subject column or list label; see source URLs per sample",
+  "seed": 1677420797,
+  "method": "Uniform draw without replacement from the middle half by measured mean daily readership; frozen first draw, all misses retained",
+  "poolSize": 136,
+  "excluded": [],
+  "answers": [
+    "Tracy Chapman",
+    "True Blue",
+    "The Score",
+    "The Greatest Showman",
+    "Curtain Call: The Hits",
+    "Tango in the Night",
+    "Grease: The Original Soundtrack from the Motion Picture",
+    "In-A-Gadda-Da-Vida",
+    "Slippery When Wet",
+    "A Rush of Blood to the Head",
+    "The Bodyguard",
+    "Boston",
+    "Urban Hymns",
+    "The Fame",
+    "The Immaculate Collection",
+    "...Baby One More Time",
+    "Supernatural",
+    "21",
+    "Spice",
+    "Legend: The Best of Bob Marley & The Wailers",
+    "Unplugged",
+    "Tapestry",
+    "The Woman in Me",
+    "Number Ones",
+    "Born in the U.S.A.",
+    "Only by the Night",
+    "Recovery",
+    "Jeff Wayne's Musical Version of The War of the Worlds",
+    "Bridge over Troubled Water",
+    "Come On Over",
+    "Parachutes",
+    "Oops!... I Did It Again",
+    "Their Greatest Hits (1971–1975)",
+    "Map of the Soul: 7",
+    "Frozen",
+    "Come Away with Me",
+    "Hopes and Fears",
+    "Midnight Memories",
+    "I've Been Expecting You",
+    "X&Y",
+    "Millennium",
+    "x",
+    "Dirty Dancing",
+    "Faith",
+    "Hot Fuss",
+    "Hysteria",
+    "19",
+    "Cross Road",
+    "Lemonade",
+    "The Miseducation of Lauryn Hill"
+  ],
+  "samples": [
+    {
+      "answer": "Tracy Chapman",
+      "source": "https://en.wikipedia.org/wiki/List_of_best-selling_albums",
+      "wikipediaTitle": "Tracy Chapman (album)",
+      "pageviews": {
+        "total": 6323,
+        "days": 31,
+        "title": "Tracy Chapman (album)",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "True Blue",
+      "source": "https://en.wikipedia.org/wiki/List_of_best-selling_albums",
+      "wikipediaTitle": "True Blue (album)",
+      "pageviews": {
+        "total": 15553,
+        "days": 31,
+        "title": "True Blue (album)",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "The Score",
+      "source": "https://en.wikipedia.org/wiki/List_of_best-selling_albums",
+      "wikipediaTitle": "The Score (album)",
+      "pageviews": {
+        "total": 6862,
+        "days": 31,
+        "title": "The Score (album)",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "The Greatest Showman",
+      "source": "https://en.wikipedia.org/wiki/List_of_best-selling_albums",
+      "wikipediaTitle": "The Greatest Showman (soundtrack)",
+      "pageviews": {
+        "total": 7936,
+        "days": 31,
+        "title": "The Greatest Showman (soundtrack)",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "Curtain Call: The Hits",
+      "source": "https://en.wikipedia.org/wiki/List_of_best-selling_albums_in_the_United_Kingdom",
+      "wikipediaTitle": "Curtain Call: The Hits",
+      "pageviews": {
+        "total": 8273,
+        "days": 31,
+        "title": "Curtain Call: The Hits",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "Tango in the Night",
+      "source": "https://en.wikipedia.org/wiki/List_of_best-selling_albums_in_the_United_Kingdom",
+      "wikipediaTitle": "Tango in the Night",
+      "pageviews": {
+        "total": 17326,
+        "days": 31,
+        "title": "Tango in the Night",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "Grease: The Original Soundtrack from the Motion Picture",
+      "source": "https://en.wikipedia.org/wiki/List_of_best-selling_albums",
+      "wikipediaTitle": "Grease (soundtrack)",
+      "pageviews": {
+        "total": 10355,
+        "days": 31,
+        "title": "Grease (soundtrack)",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "In-A-Gadda-Da-Vida",
+      "source": "https://en.wikipedia.org/wiki/List_of_best-selling_albums",
+      "wikipediaTitle": "In-A-Gadda-Da-Vida (album)",
+      "pageviews": {
+        "total": 4508,
+        "days": 31,
+        "title": "In-A-Gadda-Da-Vida (album)",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "Slippery When Wet",
+      "source": "https://en.wikipedia.org/wiki/List_of_best-selling_albums",
+      "wikipediaTitle": "Slippery When Wet",
+      "pageviews": {
+        "total": 20558,
+        "days": 31,
+        "title": "Slippery When Wet",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "A Rush of Blood to the Head",
+      "source": "https://en.wikipedia.org/wiki/List_of_best-selling_albums_in_the_United_Kingdom",
+      "wikipediaTitle": "A Rush of Blood to the Head",
+      "pageviews": {
+        "total": 13344,
+        "days": 31,
+        "title": "A Rush of Blood to the Head",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "The Bodyguard",
+      "source": "https://en.wikipedia.org/wiki/List_of_best-selling_albums",
+      "wikipediaTitle": "The Bodyguard (soundtrack)",
+      "pageviews": {
+        "total": 12585,
+        "days": 31,
+        "title": "The Bodyguard (soundtrack)",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "Boston",
+      "source": "https://en.wikipedia.org/wiki/List_of_best-selling_albums",
+      "wikipediaTitle": "Boston (album)",
+      "pageviews": {
+        "total": 15853,
+        "days": 31,
+        "title": "Boston (album)",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "Urban Hymns",
+      "source": "https://en.wikipedia.org/wiki/List_of_best-selling_albums_in_the_United_Kingdom",
+      "wikipediaTitle": "Urban Hymns",
+      "pageviews": {
+        "total": 7796,
+        "days": 31,
+        "title": "Urban Hymns",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "The Fame",
+      "source": "https://en.wikipedia.org/wiki/List_of_best-selling_albums_in_the_United_Kingdom",
+      "wikipediaTitle": "The Fame",
+      "pageviews": {
+        "total": 19966,
+        "days": 31,
+        "title": "The Fame",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "The Immaculate Collection",
+      "source": "https://en.wikipedia.org/wiki/List_of_best-selling_albums",
+      "wikipediaTitle": "The Immaculate Collection",
+      "pageviews": {
+        "total": 9696,
+        "days": 31,
+        "title": "The Immaculate Collection",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "...Baby One More Time",
+      "source": "https://en.wikipedia.org/wiki/List_of_best-selling_albums",
+      "wikipediaTitle": "...Baby One More Time (album)",
+      "pageviews": {
+        "total": 18969,
+        "days": 31,
+        "title": "...Baby One More Time (album)",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "Supernatural",
+      "source": "https://en.wikipedia.org/wiki/List_of_best-selling_albums",
+      "wikipediaTitle": "Supernatural (Santana album)",
+      "pageviews": {
+        "total": 10316,
+        "days": 31,
+        "title": "Supernatural (Santana album)",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "21",
+      "source": "https://en.wikipedia.org/wiki/List_of_best-selling_albums",
+      "wikipediaTitle": "21 (Adele album)",
+      "pageviews": {
+        "total": 21390,
+        "days": 31,
+        "title": "21 (Adele album)",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "Spice",
+      "source": "https://en.wikipedia.org/wiki/List_of_best-selling_albums",
+      "wikipediaTitle": "Spice (album)",
+      "pageviews": {
+        "total": 9830,
+        "days": 31,
+        "title": "Spice (album)",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "Legend: The Best of Bob Marley & The Wailers",
+      "source": "https://en.wikipedia.org/wiki/List_of_best-selling_albums",
+      "wikipediaTitle": "Legend (Bob Marley and the Wailers album)",
+      "pageviews": {
+        "total": 4495,
+        "days": 31,
+        "title": "Legend (Bob Marley and the Wailers album)",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Unplugged",
+      "source": "https://en.wikipedia.org/wiki/List_of_best-selling_albums",
+      "wikipediaTitle": "Unplugged (Eric Clapton album)",
+      "pageviews": {
+        "total": 5242,
+        "days": 31,
+        "title": "Unplugged (Eric Clapton album)",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "Tapestry",
+      "source": "https://en.wikipedia.org/wiki/List_of_best-selling_albums",
+      "wikipediaTitle": "Tapestry (Carole King album)",
+      "pageviews": {
+        "total": 17168,
+        "days": 31,
+        "title": "Tapestry (Carole King album)",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "The Woman in Me",
+      "source": "https://en.wikipedia.org/wiki/List_of_best-selling_albums",
+      "wikipediaTitle": "The Woman in Me (album)",
+      "pageviews": {
+        "total": 5015,
+        "days": 31,
+        "title": "The Woman in Me (album)",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "Number Ones",
+      "source": "https://en.wikipedia.org/wiki/List_of_best-selling_albums_in_the_United_Kingdom",
+      "wikipediaTitle": "Number Ones (Michael Jackson album)",
+      "pageviews": {
+        "total": 6233,
+        "days": 31,
+        "title": "Number Ones (Michael Jackson album)",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "Born in the U.S.A.",
+      "source": "https://en.wikipedia.org/wiki/List_of_best-selling_albums",
+      "wikipediaTitle": "Born in the U.S.A.",
+      "pageviews": {
+        "total": 21903,
+        "days": 31,
+        "title": "Born in the U.S.A.",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "Only by the Night",
+      "source": "https://en.wikipedia.org/wiki/List_of_best-selling_albums_in_the_United_Kingdom",
+      "wikipediaTitle": "Only by the Night",
+      "pageviews": {
+        "total": 7574,
+        "days": 31,
+        "title": "Only by the Night",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "Recovery",
+      "source": "https://en.wikipedia.org/wiki/List_of_best-selling_albums",
+      "wikipediaTitle": "Recovery (Eminem album)",
+      "pageviews": {
+        "total": 15663,
+        "days": 31,
+        "title": "Recovery (Eminem album)",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "Jeff Wayne's Musical Version of The War of the Worlds",
+      "source": "https://en.wikipedia.org/wiki/List_of_best-selling_albums_in_the_United_Kingdom",
+      "wikipediaTitle": "Jeff Wayne's Musical Version of The War of the Worlds",
+      "pageviews": {
+        "total": 16886,
+        "days": 31,
+        "title": "Jeff Wayne's Musical Version of The War of the Worlds",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "Bridge over Troubled Water",
+      "source": "https://en.wikipedia.org/wiki/List_of_best-selling_albums",
+      "wikipediaTitle": "Bridge over Troubled Water",
+      "pageviews": {
+        "total": 18770,
+        "days": 31,
+        "title": "Bridge over Troubled Water",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "Come On Over",
+      "source": "https://en.wikipedia.org/wiki/List_of_best-selling_albums",
+      "wikipediaTitle": "Come On Over",
+      "pageviews": {
+        "total": 11013,
+        "days": 31,
+        "title": "Come On Over",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "Parachutes",
+      "source": "https://en.wikipedia.org/wiki/List_of_best-selling_albums_in_the_United_Kingdom",
+      "wikipediaTitle": "Parachutes (Coldplay album)",
+      "pageviews": {
+        "total": 14727,
+        "days": 31,
+        "title": "Parachutes (Coldplay album)",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "Oops!... I Did It Again",
+      "source": "https://en.wikipedia.org/wiki/List_of_best-selling_albums",
+      "wikipediaTitle": "Oops!... I Did It Again (album)",
+      "pageviews": {
+        "total": 17475,
+        "days": 31,
+        "title": "Oops!... I Did It Again (album)",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "Their Greatest Hits (1971–1975)",
+      "source": "https://en.wikipedia.org/wiki/List_of_best-selling_albums",
+      "wikipediaTitle": "Their Greatest Hits (1971–1975)",
+      "pageviews": {
+        "total": 16999,
+        "days": 31,
+        "title": "Their Greatest Hits (1971–1975)",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "Map of the Soul: 7",
+      "source": "https://en.wikipedia.org/wiki/List_of_best-selling_albums",
+      "wikipediaTitle": "Map of the Soul: 7",
+      "pageviews": {
+        "total": 5577,
+        "days": 31,
+        "title": "Map of the Soul: 7",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "Frozen",
+      "source": "https://en.wikipedia.org/wiki/List_of_best-selling_albums",
+      "wikipediaTitle": "Frozen (soundtrack)",
+      "pageviews": {
+        "total": 4939,
+        "days": 31,
+        "title": "Frozen (soundtrack)",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "Come Away with Me",
+      "source": "https://en.wikipedia.org/wiki/List_of_best-selling_albums",
+      "wikipediaTitle": "Come Away with Me",
+      "pageviews": {
+        "total": 8787,
+        "days": 31,
+        "title": "Come Away with Me",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "Hopes and Fears",
+      "source": "https://en.wikipedia.org/wiki/List_of_best-selling_albums_in_the_United_Kingdom",
+      "wikipediaTitle": "Hopes and Fears",
+      "pageviews": {
+        "total": 4829,
+        "days": 31,
+        "title": "Hopes and Fears",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "Midnight Memories",
+      "source": "https://en.wikipedia.org/wiki/List_of_best-selling_albums",
+      "wikipediaTitle": "Midnight Memories",
+      "pageviews": {
+        "total": 4762,
+        "days": 31,
+        "title": "Midnight Memories",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "I've Been Expecting You",
+      "source": "https://en.wikipedia.org/wiki/List_of_best-selling_albums_in_the_United_Kingdom",
+      "wikipediaTitle": "I've Been Expecting You",
+      "pageviews": {
+        "total": 4941,
+        "days": 31,
+        "title": "I've Been Expecting You",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "X&Y",
+      "source": "https://en.wikipedia.org/wiki/List_of_best-selling_albums",
+      "wikipediaTitle": "X&Y",
+      "pageviews": {
+        "total": 10914,
+        "days": 31,
+        "title": "X&Y",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "Millennium",
+      "source": "https://en.wikipedia.org/wiki/List_of_best-selling_albums",
+      "wikipediaTitle": "Millennium (Backstreet Boys album)",
+      "pageviews": {
+        "total": 17367,
+        "days": 31,
+        "title": "Millennium (Backstreet Boys album)",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "x",
+      "source": "https://en.wikipedia.org/wiki/List_of_best-selling_albums_in_the_United_Kingdom",
+      "wikipediaTitle": "X (Ed Sheeran album)",
+      "pageviews": {
+        "total": 6352,
+        "days": 31,
+        "title": "X (Ed Sheeran album)",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "Dirty Dancing",
+      "source": "https://en.wikipedia.org/wiki/List_of_best-selling_albums",
+      "wikipediaTitle": "Dirty Dancing (soundtrack)",
+      "pageviews": {
+        "total": 11357,
+        "days": 31,
+        "title": "Dirty Dancing (soundtrack)",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "Faith",
+      "source": "https://en.wikipedia.org/wiki/List_of_best-selling_albums",
+      "wikipediaTitle": "Faith (George Michael album)",
+      "pageviews": {
+        "total": 13642,
+        "days": 31,
+        "title": "Faith (George Michael album)",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "Hot Fuss",
+      "source": "https://en.wikipedia.org/wiki/List_of_best-selling_albums_in_the_United_Kingdom",
+      "wikipediaTitle": "Hot Fuss",
+      "pageviews": {
+        "total": 14997,
+        "days": 31,
+        "title": "Hot Fuss",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "Hysteria",
+      "source": "https://en.wikipedia.org/wiki/List_of_best-selling_albums",
+      "wikipediaTitle": "Hysteria (Def Leppard album)",
+      "pageviews": {
+        "total": 19416,
+        "days": 31,
+        "title": "Hysteria (Def Leppard album)",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "19",
+      "source": "https://en.wikipedia.org/wiki/List_of_best-selling_albums_in_the_United_Kingdom",
+      "wikipediaTitle": "19 (Adele album)",
+      "pageviews": {
+        "total": 13119,
+        "days": 31,
+        "title": "19 (Adele album)",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "Cross Road",
+      "source": "https://en.wikipedia.org/wiki/List_of_best-selling_albums",
+      "wikipediaTitle": "Cross Road (album)",
+      "pageviews": {
+        "total": 4981,
+        "days": 31,
+        "title": "Cross Road (album)",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "Lemonade",
+      "source": "https://en.wikipedia.org/wiki/List_of_best-selling_albums",
+      "wikipediaTitle": "Lemonade (album)",
+      "pageviews": {
+        "total": 16730,
+        "days": 31,
+        "title": "Lemonade (album)",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "The Miseducation of Lauryn Hill",
+      "source": "https://en.wikipedia.org/wiki/List_of_best-selling_albums",
+      "wikipediaTitle": "The Miseducation of Lauryn Hill",
+      "pageviews": {
+        "total": 18813,
+        "days": 31,
+        "title": "The Miseducation of Lauryn Hill",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    }
+  ]
+}

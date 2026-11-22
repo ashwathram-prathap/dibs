@@ -1,0 +1,23 @@
+{
+  "at": "2026-11-22T06:31:16.579Z",
+  "entities": [
+    {
+      "id": "Q120544",
+      "label": "vocal group",
+      "parents": [
+        "Q29881373"
+      ]
+    },
+    {
+      "id": "Q2088357",
+      "label": "musical ensemble",
+      "parents": [
+        "Q32178211",
+        "Q105815710",
+        "Q60557909"
+      ]
+    }
+  ],
+  "decision": "Use the full musical-ensemble class, covering vocal trios and other named ensembles as well as bands.",
+  "vocalGroupIncludedByFullPath": true
+}

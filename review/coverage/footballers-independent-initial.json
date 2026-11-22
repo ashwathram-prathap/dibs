@@ -1,0 +1,811 @@
+{
+  "source": "Independent curated Wikipedia lists, extracted by subject column or list label; see source URLs per sample",
+  "seed": 2400500064,
+  "method": "Uniform draw without replacement from the middle half by measured mean daily readership; frozen first draw, all misses retained",
+  "poolSize": 704,
+  "excluded": [],
+  "answers": [
+    "Billy Wright",
+    "Fernando Couto",
+    "Boštjan Cesar",
+    "Younis Mahmoud",
+    "Ruslan Rotan",
+    "Roberto Acuña",
+    "Édison Méndez",
+    "Pat Jennings",
+    "Michał Żewłakow",
+    "Dries Mertens",
+    "Laurent Jans",
+    "Wu Lei",
+    "Aaron Mokoena",
+    "Saud Kariri",
+    "Răzvan Raț",
+    "Maya Yoshida",
+    "Phillip Cocu",
+    "Ivica Olić",
+    "Yuri Zhirkov",
+    "Yousef Nasser",
+    "Carmel Busuttil",
+    "Héctor Herrera",
+    "Vasilis Torosidis",
+    "Celso Borges",
+    "Kasey Keller",
+    "Baihakki Khaizan",
+    "Zainal Abidin Hassan",
+    "Vincent Enyeama",
+    "Matteo Vitaioli",
+    "Konstantin Vassiljev",
+    "Joel Campbell",
+    "Dennis Rommedahl",
+    "Gao Lin",
+    "Marc Pujol",
+    "Gheorghe Popescu",
+    "Shahril Ishak",
+    "Kevin Kilbane",
+    "Luis Advíncula",
+    "Hany Ramzy",
+    "Lee Woon-jae",
+    "Kim Källström",
+    "Peter Pekarík",
+    "Mohamed Elneny",
+    "Ali Karimi",
+    "Datsakorn Thonglao",
+    "Ali Mabkhout",
+    "Amado Guevara",
+    "Arumugan Rengasamy",
+    "Carlos Salcido",
+    "Hossam Hassan"
+  ],
+  "samples": [
+    {
+      "answer": "Billy Wright",
+      "source": "https://en.wikipedia.org/wiki/List_of_men's_footballers_with_100_or_more_international_caps",
+      "wikipediaTitle": "Billy Wright (footballer born 1924)",
+      "pageviews": {
+        "total": 665,
+        "days": 31,
+        "title": "Billy Wright (footballer born 1924)",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Fernando Couto",
+      "source": "https://en.wikipedia.org/wiki/List_of_men's_footballers_with_100_or_more_international_caps",
+      "wikipediaTitle": "Fernando Couto",
+      "pageviews": {
+        "total": 2880,
+        "days": 31,
+        "title": "Fernando Couto",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Boštjan Cesar",
+      "source": "https://en.wikipedia.org/wiki/List_of_men's_footballers_with_100_or_more_international_caps",
+      "wikipediaTitle": "Boštjan Cesar",
+      "pageviews": {
+        "total": 2572,
+        "days": 31,
+        "title": "Boštjan Cesar",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Younis Mahmoud",
+      "source": "https://en.wikipedia.org/wiki/List_of_men's_footballers_with_100_or_more_international_caps",
+      "wikipediaTitle": "Younis Mahmoud",
+      "pageviews": {
+        "total": 2534,
+        "days": 31,
+        "title": "Younis Mahmoud",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Ruslan Rotan",
+      "source": "https://en.wikipedia.org/wiki/List_of_men's_footballers_with_100_or_more_international_caps",
+      "wikipediaTitle": "Ruslan Rotan",
+      "pageviews": {
+        "total": 777,
+        "days": 31,
+        "title": "Ruslan Rotan",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Roberto Acuña",
+      "source": "https://en.wikipedia.org/wiki/List_of_men's_footballers_with_100_or_more_international_caps",
+      "wikipediaTitle": "Roberto Acuña",
+      "pageviews": {
+        "total": 577,
+        "days": 31,
+        "title": "Roberto Acuña",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Édison Méndez",
+      "source": "https://en.wikipedia.org/wiki/List_of_men's_footballers_with_100_or_more_international_caps",
+      "wikipediaTitle": "Édison Méndez",
+      "pageviews": {
+        "total": 590,
+        "days": 31,
+        "title": "Édison Méndez",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Pat Jennings",
+      "source": "https://en.wikipedia.org/wiki/List_of_men's_footballers_with_100_or_more_international_caps",
+      "wikipediaTitle": "Pat Jennings",
+      "pageviews": {
+        "total": 8375,
+        "days": 31,
+        "title": "Pat Jennings",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Michał Żewłakow",
+      "source": "https://en.wikipedia.org/wiki/List_of_men's_footballers_with_100_or_more_international_caps",
+      "wikipediaTitle": "Michał Żewłakow",
+      "pageviews": {
+        "total": 747,
+        "days": 31,
+        "title": "Michał Żewłakow",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Dries Mertens",
+      "source": "https://en.wikipedia.org/wiki/List_of_men's_footballers_with_100_or_more_international_caps",
+      "wikipediaTitle": "Dries Mertens",
+      "pageviews": {
+        "total": 8863,
+        "days": 31,
+        "title": "Dries Mertens",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "Laurent Jans",
+      "source": "https://en.wikipedia.org/wiki/List_of_men's_footballers_with_100_or_more_international_caps",
+      "wikipediaTitle": "Laurent Jans",
+      "pageviews": {
+        "total": 1057,
+        "days": 31,
+        "title": "Laurent Jans",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Wu Lei",
+      "source": "https://en.wikipedia.org/wiki/List_of_men's_footballers_with_100_or_more_international_caps",
+      "wikipediaTitle": "Wu Lei",
+      "pageviews": {
+        "total": 7328,
+        "days": 31,
+        "title": "Wu Lei",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Aaron Mokoena",
+      "source": "https://en.wikipedia.org/wiki/List_of_men's_footballers_with_100_or_more_international_caps",
+      "wikipediaTitle": "Aaron Mokoena",
+      "pageviews": {
+        "total": 2277,
+        "days": 31,
+        "title": "Aaron Mokoena",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Saud Kariri",
+      "source": "https://en.wikipedia.org/wiki/List_of_men's_footballers_with_100_or_more_international_caps",
+      "wikipediaTitle": "Saud Kariri",
+      "pageviews": {
+        "total": 500,
+        "days": 31,
+        "title": "Saud Kariri",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Răzvan Raț",
+      "source": "https://en.wikipedia.org/wiki/List_of_men's_footballers_with_100_or_more_international_caps",
+      "wikipediaTitle": "Răzvan Raț",
+      "pageviews": {
+        "total": 1295,
+        "days": 31,
+        "title": "Răzvan Raț",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Maya Yoshida",
+      "source": "https://en.wikipedia.org/wiki/List_of_men's_footballers_with_100_or_more_international_caps",
+      "wikipediaTitle": "Maya Yoshida",
+      "pageviews": {
+        "total": 5206,
+        "days": 31,
+        "title": "Maya Yoshida",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Phillip Cocu",
+      "source": "https://en.wikipedia.org/wiki/List_of_men's_footballers_with_100_or_more_international_caps",
+      "wikipediaTitle": "Phillip Cocu",
+      "pageviews": {
+        "total": 6524,
+        "days": 31,
+        "title": "Phillip Cocu",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "Ivica Olić",
+      "source": "https://en.wikipedia.org/wiki/List_of_men's_footballers_with_100_or_more_international_caps",
+      "wikipediaTitle": "Ivica Olić",
+      "pageviews": {
+        "total": 5333,
+        "days": 31,
+        "title": "Ivica Olić",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Yuri Zhirkov",
+      "source": "https://en.wikipedia.org/wiki/List_of_men's_footballers_with_100_or_more_international_caps",
+      "wikipediaTitle": "Yuri Zhirkov",
+      "pageviews": {
+        "total": 3867,
+        "days": 31,
+        "title": "Yuri Zhirkov",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Yousef Nasser",
+      "source": "https://en.wikipedia.org/wiki/List_of_men's_footballers_with_100_or_more_international_caps",
+      "wikipediaTitle": "Yousef Nasser",
+      "pageviews": {
+        "total": 1048,
+        "days": 31,
+        "title": "Yousef Nasser",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Carmel Busuttil",
+      "source": "https://en.wikipedia.org/wiki/List_of_men's_footballers_with_100_or_more_international_caps",
+      "wikipediaTitle": "Carmel Busuttil",
+      "pageviews": {
+        "total": 449,
+        "days": 31,
+        "title": "Carmel Busuttil",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Héctor Herrera",
+      "source": "https://en.wikipedia.org/wiki/List_of_men's_footballers_with_100_or_more_international_caps",
+      "wikipediaTitle": "Héctor Herrera",
+      "pageviews": {
+        "total": 4240,
+        "days": 31,
+        "title": "Héctor Herrera",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Vasilis Torosidis",
+      "source": "https://en.wikipedia.org/wiki/List_of_men's_footballers_with_100_or_more_international_caps",
+      "wikipediaTitle": "Vasilis Torosidis",
+      "pageviews": {
+        "total": 1680,
+        "days": 31,
+        "title": "Vasilis Torosidis",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Celso Borges",
+      "source": "https://en.wikipedia.org/wiki/List_of_men's_footballers_with_100_or_more_international_caps",
+      "wikipediaTitle": "Celso Borges",
+      "pageviews": {
+        "total": 2215,
+        "days": 31,
+        "title": "Celso Borges",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Kasey Keller",
+      "source": "https://en.wikipedia.org/wiki/List_of_men's_footballers_with_100_or_more_international_caps",
+      "wikipediaTitle": "Kasey Keller",
+      "pageviews": {
+        "total": 5243,
+        "days": 31,
+        "title": "Kasey Keller",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Baihakki Khaizan",
+      "source": "https://en.wikipedia.org/wiki/List_of_men's_footballers_with_100_or_more_international_caps",
+      "wikipediaTitle": "Baihakki Khaizan",
+      "pageviews": {
+        "total": 1816,
+        "days": 31,
+        "title": "Baihakki Khaizan",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Zainal Abidin Hassan",
+      "source": "https://en.wikipedia.org/wiki/List_of_men's_footballers_with_100_or_more_international_caps",
+      "wikipediaTitle": "Zainal Abidin Hassan",
+      "pageviews": {
+        "total": 623,
+        "days": 31,
+        "title": "Zainal Abidin Hassan",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Vincent Enyeama",
+      "source": "https://en.wikipedia.org/wiki/List_of_men's_footballers_with_100_or_more_international_caps",
+      "wikipediaTitle": "Vincent Enyeama",
+      "pageviews": {
+        "total": 3220,
+        "days": 31,
+        "title": "Vincent Enyeama",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Matteo Vitaioli",
+      "source": "https://en.wikipedia.org/wiki/List_of_men's_footballers_with_100_or_more_international_caps",
+      "wikipediaTitle": "Matteo Vitaioli",
+      "pageviews": {
+        "total": 1971,
+        "days": 31,
+        "title": "Matteo Vitaioli",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Konstantin Vassiljev",
+      "source": "https://en.wikipedia.org/wiki/List_of_men's_footballers_with_100_or_more_international_caps",
+      "wikipediaTitle": "Konstantin Vassiljev",
+      "pageviews": {
+        "total": 1027,
+        "days": 31,
+        "title": "Konstantin Vassiljev",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Joel Campbell",
+      "source": "https://en.wikipedia.org/wiki/List_of_men's_footballers_with_100_or_more_international_caps",
+      "wikipediaTitle": "Joel Campbell",
+      "pageviews": {
+        "total": 4602,
+        "days": 31,
+        "title": "Joel Campbell",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Dennis Rommedahl",
+      "source": "https://en.wikipedia.org/wiki/List_of_men's_footballers_with_100_or_more_international_caps",
+      "wikipediaTitle": "Dennis Rommedahl",
+      "pageviews": {
+        "total": 1924,
+        "days": 31,
+        "title": "Dennis Rommedahl",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Gao Lin",
+      "source": "https://en.wikipedia.org/wiki/List_of_men's_footballers_with_100_or_more_international_caps",
+      "wikipediaTitle": "Gao Lin",
+      "pageviews": {
+        "total": 516,
+        "days": 31,
+        "title": "Gao Lin",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Marc Pujol",
+      "source": "https://en.wikipedia.org/wiki/List_of_men's_footballers_with_100_or_more_international_caps",
+      "wikipediaTitle": "Marc Pujol",
+      "pageviews": {
+        "total": 496,
+        "days": 31,
+        "title": "Marc Pujol",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Gheorghe Popescu",
+      "source": "https://en.wikipedia.org/wiki/List_of_men's_footballers_with_100_or_more_international_caps",
+      "wikipediaTitle": "Gheorghe Popescu (footballer, born 1967)",
+      "pageviews": {
+        "total": 1671,
+        "days": 31,
+        "title": "Gheorghe Popescu (footballer, born 1967)",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Shahril Ishak",
+      "source": "https://en.wikipedia.org/wiki/List_of_men's_footballers_with_100_or_more_international_caps",
+      "wikipediaTitle": "Shahril Ishak",
+      "pageviews": {
+        "total": 960,
+        "days": 31,
+        "title": "Shahril Ishak",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Kevin Kilbane",
+      "source": "https://en.wikipedia.org/wiki/List_of_men's_footballers_with_100_or_more_international_caps",
+      "wikipediaTitle": "Kevin Kilbane",
+      "pageviews": {
+        "total": 3675,
+        "days": 31,
+        "title": "Kevin Kilbane",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Luis Advíncula",
+      "source": "https://en.wikipedia.org/wiki/List_of_men's_footballers_with_100_or_more_international_caps",
+      "wikipediaTitle": "Luis Advíncula",
+      "pageviews": {
+        "total": 1323,
+        "days": 31,
+        "title": "Luis Advíncula",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Hany Ramzy",
+      "source": "https://en.wikipedia.org/wiki/List_of_men's_footballers_with_100_or_more_international_caps",
+      "wikipediaTitle": "Hany Ramzy",
+      "pageviews": {
+        "total": 863,
+        "days": 31,
+        "title": "Hany Ramzy",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Lee Woon-jae",
+      "source": "https://en.wikipedia.org/wiki/List_of_men's_footballers_with_100_or_more_international_caps",
+      "wikipediaTitle": "Lee Woon-jae",
+      "pageviews": {
+        "total": 820,
+        "days": 31,
+        "title": "Lee Woon-jae",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Kim Källström",
+      "source": "https://en.wikipedia.org/wiki/List_of_men's_footballers_with_100_or_more_international_caps",
+      "wikipediaTitle": "Kim Källström",
+      "pageviews": {
+        "total": 5186,
+        "days": 31,
+        "title": "Kim Källström",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "Peter Pekarík",
+      "source": "https://en.wikipedia.org/wiki/List_of_men's_footballers_with_100_or_more_international_caps",
+      "wikipediaTitle": "Peter Pekarík",
+      "pageviews": {
+        "total": 1084,
+        "days": 31,
+        "title": "Peter Pekarík",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Mohamed Elneny",
+      "source": "https://en.wikipedia.org/wiki/List_of_men's_footballers_with_100_or_more_international_caps",
+      "wikipediaTitle": "Mohamed Elneny",
+      "pageviews": {
+        "total": 7142,
+        "days": 31,
+        "title": "Mohamed Elneny",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Ali Karimi",
+      "source": "https://en.wikipedia.org/wiki/List_of_men's_footballers_with_100_or_more_international_caps",
+      "wikipediaTitle": "Ali Karimi",
+      "pageviews": {
+        "total": 1828,
+        "days": 31,
+        "title": "Ali Karimi",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "Datsakorn Thonglao",
+      "source": "https://en.wikipedia.org/wiki/List_of_men's_footballers_with_100_or_more_international_caps",
+      "wikipediaTitle": "Datsakorn Thonglao",
+      "pageviews": {
+        "total": 572,
+        "days": 31,
+        "title": "Datsakorn Thonglao",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Ali Mabkhout",
+      "source": "https://en.wikipedia.org/wiki/List_of_men's_footballers_with_100_or_more_international_caps",
+      "wikipediaTitle": "Ali Mabkhout",
+      "pageviews": {
+        "total": 3330,
+        "days": 31,
+        "title": "Ali Mabkhout",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Amado Guevara",
+      "source": "https://en.wikipedia.org/wiki/List_of_men's_footballers_with_100_or_more_international_caps",
+      "wikipediaTitle": "Amado Guevara",
+      "pageviews": {
+        "total": 743,
+        "days": 31,
+        "title": "Amado Guevara",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Arumugan Rengasamy",
+      "source": "https://en.wikipedia.org/wiki/List_of_men's_footballers_with_100_or_more_international_caps",
+      "wikipediaTitle": "R. Arumugam",
+      "pageviews": {
+        "total": 769,
+        "days": 31,
+        "title": "R. Arumugam",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Carlos Salcido",
+      "source": "https://en.wikipedia.org/wiki/List_of_men's_footballers_with_100_or_more_international_caps",
+      "wikipediaTitle": "Carlos Salcido",
+      "pageviews": {
+        "total": 8495,
+        "days": 31,
+        "title": "Carlos Salcido",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Hossam Hassan",
+      "source": "https://en.wikipedia.org/wiki/List_of_men's_footballers_with_100_or_more_international_caps",
+      "wikipediaTitle": "Hossam Hassan",
+      "pageviews": {
+        "total": 7224,
+        "days": 31,
+        "title": "Hossam Hassan",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    }
+  ]
+}

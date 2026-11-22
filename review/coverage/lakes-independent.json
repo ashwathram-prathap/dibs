@@ -1,0 +1,811 @@
+{
+  "source": "Independent curated Wikipedia lists, extracted by subject column or list label; see source URLs per sample",
+  "seed": 1587970187,
+  "method": "Uniform draw without replacement from the middle half by measured mean daily readership; frozen first draw, all misses retained",
+  "poolSize": 177,
+  "excluded": [],
+  "answers": [
+    "Anderson Lake",
+    "Reindeer Lake",
+    "Lake Peipus",
+    "North Aral Sea",
+    "Kurile Lake",
+    "Karakul",
+    "Jökulsárlón",
+    "Powell Lake",
+    "Lake Athabasca",
+    "Lake Albert",
+    "Lake Mashū",
+    "Lake Khövsgöl",
+    "Lake Iseo",
+    "Lake Lugano",
+    "Öskjuvatn",
+    "Azure Lake",
+    "Mabel Lake",
+    "Kauhakō Crater",
+    "Lake Manapouri",
+    "Lake Viedma",
+    "Lake Shikotsu",
+    "Hornindalsvatnet",
+    "Amadjuak Lake",
+    "Lake Ikeda",
+    "O'Higgins/San Martín Lake",
+    "Harrison Lake",
+    "Lake Khantayskoye",
+    "Lake Tinn",
+    "Lake Argentino",
+    "Slocan Lake",
+    "Lake Brienz",
+    "Great Central Lake",
+    "Issyk Kul",
+    "Redoubt Lake",
+    "Lake Nipigon",
+    "Lake Rukwa",
+    "Caburgua Lake",
+    "Nettilling Lake",
+    "Uvs Lake",
+    "Lake Melville",
+    "Kanas Lake",
+    "Lake General Carrera/Buenos Aires",
+    "Lake Poso",
+    "Lake Singkarak",
+    "Salvatnet",
+    "Saimaa",
+    "Lake Timiskaming",
+    "Murtle Lake",
+    "Dubawnt Lake",
+    "Garibaldi Lake"
+  ],
+  "samples": [
+    {
+      "answer": "Anderson Lake",
+      "source": "https://en.wikipedia.org/wiki/List_of_lakes_by_depth",
+      "wikipediaTitle": "Anderson Lake (British Columbia)",
+      "pageviews": {
+        "total": 104,
+        "days": 31,
+        "title": "Anderson Lake (British Columbia)",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Reindeer Lake",
+      "source": "https://en.wikipedia.org/wiki/List_of_lakes_by_area",
+      "wikipediaTitle": "Reindeer Lake",
+      "pageviews": {
+        "total": 1202,
+        "days": 31,
+        "title": "Reindeer Lake",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "Lake Peipus",
+      "source": "https://en.wikipedia.org/wiki/List_of_lakes_by_area",
+      "wikipediaTitle": "Lake Peipus",
+      "pageviews": {
+        "total": 2288,
+        "days": 31,
+        "title": "Lake Peipus",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "North Aral Sea",
+      "source": "https://en.wikipedia.org/wiki/List_of_lakes_by_area",
+      "wikipediaTitle": "North Aral Sea",
+      "pageviews": {
+        "total": 1665,
+        "days": 31,
+        "title": "North Aral Sea",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Kurile Lake",
+      "source": "https://en.wikipedia.org/wiki/List_of_lakes_by_depth",
+      "wikipediaTitle": "Kurile Lake",
+      "pageviews": {
+        "total": 780,
+        "days": 31,
+        "title": "Kurile Lake",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Karakul",
+      "source": "https://en.wikipedia.org/wiki/List_of_lakes_by_depth",
+      "wikipediaTitle": "Karakul (Tajikistan)",
+      "pageviews": {
+        "total": 2458,
+        "days": 31,
+        "title": "Karakul (Tajikistan)",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Jökulsárlón",
+      "source": "https://en.wikipedia.org/wiki/List_of_lakes_by_depth",
+      "wikipediaTitle": "Jökulsárlón",
+      "pageviews": {
+        "total": 2006,
+        "days": 31,
+        "title": "Jökulsárlón",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Powell Lake",
+      "source": "https://en.wikipedia.org/wiki/List_of_lakes_by_depth",
+      "wikipediaTitle": "Powell Lake",
+      "pageviews": {
+        "total": 210,
+        "days": 31,
+        "title": "Powell Lake",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Lake Athabasca",
+      "source": "https://en.wikipedia.org/wiki/List_of_lakes_by_area",
+      "wikipediaTitle": "Lake Athabasca",
+      "pageviews": {
+        "total": 2633,
+        "days": 31,
+        "title": "Lake Athabasca",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "Lake Albert",
+      "source": "https://en.wikipedia.org/wiki/List_of_lakes_by_area",
+      "wikipediaTitle": "Lake Albert (Uganda)",
+      "pageviews": {
+        "total": 318,
+        "days": 31,
+        "title": "Lake Albert (Uganda)",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Lake Mashū",
+      "source": "https://en.wikipedia.org/wiki/List_of_lakes_by_depth",
+      "wikipediaTitle": "Lake Mashū",
+      "pageviews": {
+        "total": 573,
+        "days": 31,
+        "title": "Lake Mashū",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Lake Khövsgöl",
+      "source": "https://en.wikipedia.org/wiki/List_of_lakes_by_depth",
+      "wikipediaTitle": "Lake Khövsgöl",
+      "pageviews": {
+        "total": 2930,
+        "days": 31,
+        "title": "Lake Khövsgöl",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Lake Iseo",
+      "source": "https://en.wikipedia.org/wiki/List_of_lakes_by_depth",
+      "wikipediaTitle": "Lake Iseo",
+      "pageviews": {
+        "total": 2375,
+        "days": 31,
+        "title": "Lake Iseo",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "Lake Lugano",
+      "source": "https://en.wikipedia.org/wiki/List_of_lakes_by_depth",
+      "wikipediaTitle": "Lake Lugano",
+      "pageviews": {
+        "total": 1742,
+        "days": 31,
+        "title": "Lake Lugano",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "Öskjuvatn",
+      "source": "https://en.wikipedia.org/wiki/List_of_lakes_by_depth",
+      "wikipediaTitle": "Öskjuvatn",
+      "pageviews": {
+        "total": 122,
+        "days": 31,
+        "title": "Öskjuvatn",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Azure Lake",
+      "source": "https://en.wikipedia.org/wiki/List_of_lakes_by_depth",
+      "wikipediaTitle": "Azure Lake",
+      "pageviews": {
+        "total": 100,
+        "days": 31,
+        "title": "Azure Lake",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Mabel Lake",
+      "source": "https://en.wikipedia.org/wiki/List_of_lakes_by_depth",
+      "wikipediaTitle": "Mabel Lake",
+      "pageviews": {
+        "total": 148,
+        "days": 31,
+        "title": "Mabel Lake",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Kauhakō Crater",
+      "source": "https://en.wikipedia.org/wiki/List_of_lakes_by_depth",
+      "wikipediaTitle": "Kauhakō Crater",
+      "pageviews": {
+        "total": 114,
+        "days": 31,
+        "title": "Kauhakō Crater",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Lake Manapouri",
+      "source": "https://en.wikipedia.org/wiki/List_of_lakes_by_depth",
+      "wikipediaTitle": "Lake Manapouri",
+      "pageviews": {
+        "total": 400,
+        "days": 31,
+        "title": "Lake Manapouri",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "Lake Viedma",
+      "source": "https://en.wikipedia.org/wiki/List_of_lakes_by_depth",
+      "wikipediaTitle": "Lake Viedma",
+      "pageviews": {
+        "total": 105,
+        "days": 31,
+        "title": "Lake Viedma",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Lake Shikotsu",
+      "source": "https://en.wikipedia.org/wiki/List_of_lakes_by_depth",
+      "wikipediaTitle": "Lake Shikotsu",
+      "pageviews": {
+        "total": 529,
+        "days": 31,
+        "title": "Lake Shikotsu",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "Hornindalsvatnet",
+      "source": "https://en.wikipedia.org/wiki/List_of_lakes_by_depth",
+      "wikipediaTitle": "Hornindalsvatnet",
+      "pageviews": {
+        "total": 728,
+        "days": 31,
+        "title": "Hornindalsvatnet",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "Amadjuak Lake",
+      "source": "https://en.wikipedia.org/wiki/List_of_lakes_by_area",
+      "wikipediaTitle": "Amadjuak Lake",
+      "pageviews": {
+        "total": 206,
+        "days": 31,
+        "title": "Amadjuak Lake",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "Lake Ikeda",
+      "source": "https://en.wikipedia.org/wiki/List_of_lakes_by_depth",
+      "wikipediaTitle": "Lake Ikeda",
+      "pageviews": {
+        "total": 324,
+        "days": 31,
+        "title": "Lake Ikeda",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "O'Higgins/San Martín Lake",
+      "source": "https://en.wikipedia.org/wiki/List_of_lakes_by_depth",
+      "wikipediaTitle": "O'Higgins/San Martín Lake",
+      "pageviews": {
+        "total": 919,
+        "days": 31,
+        "title": "O'Higgins/San Martín Lake",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "Harrison Lake",
+      "source": "https://en.wikipedia.org/wiki/List_of_lakes_by_depth",
+      "wikipediaTitle": "Harrison Lake",
+      "pageviews": {
+        "total": 616,
+        "days": 31,
+        "title": "Harrison Lake",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "Lake Khantayskoye",
+      "source": "https://en.wikipedia.org/wiki/List_of_lakes_by_depth",
+      "wikipediaTitle": "Lake Khantayskoye",
+      "pageviews": {
+        "total": 92,
+        "days": 31,
+        "title": "Lake Khantayskoye",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "Lake Tinn",
+      "source": "https://en.wikipedia.org/wiki/List_of_lakes_by_depth",
+      "wikipediaTitle": "Lake Tinn",
+      "pageviews": {
+        "total": 257,
+        "days": 31,
+        "title": "Lake Tinn",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Lake Argentino",
+      "source": "https://en.wikipedia.org/wiki/List_of_lakes_by_depth",
+      "wikipediaTitle": "Lake Argentino",
+      "pageviews": {
+        "total": 817,
+        "days": 31,
+        "title": "Lake Argentino",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "Slocan Lake",
+      "source": "https://en.wikipedia.org/wiki/List_of_lakes_by_depth",
+      "wikipediaTitle": "Slocan Lake",
+      "pageviews": {
+        "total": 157,
+        "days": 31,
+        "title": "Slocan Lake",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Lake Brienz",
+      "source": "https://en.wikipedia.org/wiki/List_of_lakes_by_depth",
+      "wikipediaTitle": "Lake Brienz",
+      "pageviews": {
+        "total": 1053,
+        "days": 31,
+        "title": "Lake Brienz",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "Great Central Lake",
+      "source": "https://en.wikipedia.org/wiki/List_of_lakes_by_depth",
+      "wikipediaTitle": "Great Central Lake",
+      "pageviews": {
+        "total": 129,
+        "days": 31,
+        "title": "Great Central Lake",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "Issyk Kul",
+      "source": "https://en.wikipedia.org/wiki/List_of_lakes_by_depth",
+      "wikipediaTitle": "Issyk Kul",
+      "pageviews": {
+        "total": 501,
+        "days": 31,
+        "title": "Issyk Kul",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "Redoubt Lake",
+      "source": "https://en.wikipedia.org/wiki/List_of_lakes_by_depth",
+      "wikipediaTitle": "Redoubt Lake",
+      "pageviews": {
+        "total": 106,
+        "days": 31,
+        "title": "Redoubt Lake",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Lake Nipigon",
+      "source": "https://en.wikipedia.org/wiki/List_of_lakes_by_area",
+      "wikipediaTitle": "Lake Nipigon",
+      "pageviews": {
+        "total": 2050,
+        "days": 31,
+        "title": "Lake Nipigon",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Lake Rukwa",
+      "source": "https://en.wikipedia.org/wiki/List_of_lakes_by_area",
+      "wikipediaTitle": "Lake Rukwa",
+      "pageviews": {
+        "total": 552,
+        "days": 31,
+        "title": "Lake Rukwa",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Caburgua Lake",
+      "source": "https://en.wikipedia.org/wiki/List_of_lakes_by_depth",
+      "wikipediaTitle": "Caburgua Lake",
+      "pageviews": {
+        "total": 109,
+        "days": 31,
+        "title": "Caburgua Lake",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "Nettilling Lake",
+      "source": "https://en.wikipedia.org/wiki/List_of_lakes_by_area",
+      "wikipediaTitle": "Nettilling Lake",
+      "pageviews": {
+        "total": 870,
+        "days": 31,
+        "title": "Nettilling Lake",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "Uvs Lake",
+      "source": "https://en.wikipedia.org/wiki/List_of_lakes_by_area",
+      "wikipediaTitle": "Uvs Lake",
+      "pageviews": {
+        "total": 859,
+        "days": 31,
+        "title": "Uvs Lake",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Lake Melville",
+      "source": "https://en.wikipedia.org/wiki/List_of_lakes_by_area",
+      "wikipediaTitle": "Lake Melville",
+      "pageviews": {
+        "total": 556,
+        "days": 31,
+        "title": "Lake Melville",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "Kanas Lake",
+      "source": "https://en.wikipedia.org/wiki/List_of_lakes_by_depth",
+      "wikipediaTitle": "Kanas Lake",
+      "pageviews": {
+        "total": 876,
+        "days": 31,
+        "title": "Kanas Lake",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "Lake General Carrera/Buenos Aires",
+      "source": "https://en.wikipedia.org/wiki/List_of_lakes_by_depth",
+      "wikipediaTitle": "Lake General Carrera/Buenos Aires",
+      "pageviews": {
+        "total": 133,
+        "days": 31,
+        "title": "Lake General Carrera/Buenos Aires",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Lake Poso",
+      "source": "https://en.wikipedia.org/wiki/List_of_lakes_by_depth",
+      "wikipediaTitle": "Lake Poso",
+      "pageviews": {
+        "total": 192,
+        "days": 31,
+        "title": "Lake Poso",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "Lake Singkarak",
+      "source": "https://en.wikipedia.org/wiki/List_of_lakes_by_depth",
+      "wikipediaTitle": "Lake Singkarak",
+      "pageviews": {
+        "total": 117,
+        "days": 31,
+        "title": "Lake Singkarak",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "Salvatnet",
+      "source": "https://en.wikipedia.org/wiki/List_of_lakes_by_depth",
+      "wikipediaTitle": "Salvatnet",
+      "pageviews": {
+        "total": 150,
+        "days": 31,
+        "title": "Salvatnet",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "Saimaa",
+      "source": "https://en.wikipedia.org/wiki/List_of_lakes_by_area",
+      "wikipediaTitle": "Saimaa",
+      "pageviews": {
+        "total": 2657,
+        "days": 31,
+        "title": "Saimaa",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "Lake Timiskaming",
+      "source": "https://en.wikipedia.org/wiki/List_of_lakes_by_depth",
+      "wikipediaTitle": "Lake Timiskaming",
+      "pageviews": {
+        "total": 509,
+        "days": 31,
+        "title": "Lake Timiskaming",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "Murtle Lake",
+      "source": "https://en.wikipedia.org/wiki/List_of_lakes_by_depth",
+      "wikipediaTitle": "Murtle Lake",
+      "pageviews": {
+        "total": 98,
+        "days": 31,
+        "title": "Murtle Lake",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Dubawnt Lake",
+      "source": "https://en.wikipedia.org/wiki/List_of_lakes_by_area",
+      "wikipediaTitle": "Dubawnt Lake",
+      "pageviews": {
+        "total": 311,
+        "days": 31,
+        "title": "Dubawnt Lake",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "Garibaldi Lake",
+      "source": "https://en.wikipedia.org/wiki/List_of_lakes_by_depth",
+      "wikipediaTitle": "Garibaldi Lake",
+      "pageviews": {
+        "total": 748,
+        "days": 31,
+        "title": "Garibaldi Lake",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    }
+  ]
+}

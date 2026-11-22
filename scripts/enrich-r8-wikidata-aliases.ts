@@ -9,7 +9,7 @@ import {
 } from 'node:fs';
 import { createHash } from 'node:crypto';
 const dir = '.category-cache/r8/other-references';
-const cache = '.category-cache/r8/wikidata-aliases';
+const cache = '.category-cache/r8/wikidata-names-en-mul-v3';
 mkdirSync(cache, { recursive: true });
 const reportFile = 'review/round8/wikidata-alias-progress.json';
 const report: any = existsSync(reportFile) ? JSON.parse(readFileSync(reportFile, 'utf8')) : {};
@@ -20,22 +20,33 @@ do {
     const sourceTime = statSync(dir + '/' + file).mtimeMs;
     if (processed.get(file) === sourceTime) continue;
     const rows = JSON.parse(readFileSync(dir + '/' + file, 'utf8'));
-    const targets = rows.filter((r: any) => r.wikidata && !r.aliasesComplete);
+    const slug = file.slice(0, -5);
+    const reference = JSON.parse(
+      readFileSync('review/round8/wikidata-reference-progress.json', 'utf8'),
+    )[slug];
+    if (
+      rows.some((r: any) => r.wikidata) &&
+      (!reference?.complete || reference.labelPolicy !== 'english-article-title-v3')
+    )
+      continue;
+    const targets = rows.filter(
+      (r: any) =>
+        r.wikidata && (!r.aliasesComplete || r.aliasPolicy !== 'en-mul-labels-aliases-v3'),
+    );
     if (!targets.length) {
       processed.set(file, sourceTime);
       continue;
     }
-    const slug = file.slice(0, -5);
     let done = 0;
     let blocked = false;
-    for (let cursor = 0; cursor < targets.length; cursor += 1000) {
-      const batch = targets.slice(cursor, cursor + 1000);
+    for (let cursor = 0; cursor < targets.length; cursor += 5000) {
+      const batch = targets.slice(cursor, cursor + 5000);
       const ids = batch.map((r: any) => r.wikidata);
       const path = cache + '/' + createHash('sha256').update(ids.join(',')).digest('hex') + '.json';
       let aliases: any;
       if (existsSync(path)) aliases = JSON.parse(readFileSync(path, 'utf8'));
       else {
-        const query = `SELECT ?item ?alias WHERE { VALUES ?item {${ids.map((id: string) => 'wd:' + id).join(' ')}} OPTIONAL { ?item skos:altLabel ?alias FILTER(LANG(?alias)="en") } }`;
+        const query = `SELECT ?item ?alias WHERE { VALUES ?item {${ids.map((id: string) => 'wd:' + id).join(' ')}} OPTIONAL { ?item (rdfs:label|skos:altLabel|wdt:P1476|wdt:P1448|wdt:P1705) ?alias FILTER(LANG(?alias) IN ("en", "mul", "en-gb", "en-ca", "en-us")) } }`;
         for (let attempt = 0; attempt < 3; attempt++) {
           try {
             const response = await fetch('https://query.wikidata.org/sparql', {
@@ -76,6 +87,7 @@ do {
       for (const row of batch) {
         row.aliases = [...new Set([...row.aliases, ...aliases[row.wikidata]])];
         row.aliasesComplete = true;
+        row.aliasPolicy = 'en-mul-labels-aliases-v3';
       }
       done += batch.length;
       report[slug] = { complete: done === targets.length, checked: done, total: targets.length };

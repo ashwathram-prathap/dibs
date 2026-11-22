@@ -1,27 +1,30 @@
 {
   "actors": {
+    "labelPolicy": "english-article-title-v3",
     "complete": true,
     "candidateCount": 502127,
     "scanned": 502127,
-    "englishArticles": 136976,
-    "method": "All uncapped classification IDs, complete bounded joins; English Wikipedia article availability is the stated quality filter, never a result-count cutoff.",
+    "englishArticles": 138709,
+    "method": "All uncapped classification IDs, complete bounded joins; English Wikipedia article titles provide common names; existing English labels and aliases are retained. Article availability is the quality filter, never a result-count cutoff.",
     "license": "https://www.wikidata.org/wiki/Wikidata:Data_access"
   },
   "films": {
+    "labelPolicy": "english-article-title-v3",
     "complete": true,
     "candidateCount": 453838,
     "scanned": 453838,
-    "englishArticles": 181786,
-    "method": "All uncapped classification IDs, complete bounded joins; English Wikipedia article availability is the stated quality filter, never a result-count cutoff.",
+    "englishArticles": 183635,
+    "method": "All uncapped classification IDs, complete bounded joins; English Wikipedia article titles provide common names; existing English labels and aliases are retained. Article availability is the quality filter, never a result-count cutoff.",
     "license": "https://www.wikidata.org/wiki/Wikidata:Data_access"
   },
   "bands": {
-    "complete": true,
-    "candidateCount": 115895,
-    "scanned": 115895,
-    "englishArticles": 47417,
-    "method": "All uncapped classification IDs, complete bounded joins; English Wikipedia article availability is the stated quality filter, never a result-count cutoff.",
-    "license": "https://www.wikidata.org/wiki/Wikidata:Data_access"
+    "labelPolicy": "english-article-title-v3",
+    "cacheKey": "ensemble-v2",
+    "complete": false,
+    "candidateCount": 128506,
+    "scanned": 80000,
+    "englishArticles": 38989,
+    "method": "All uncapped classification IDs, complete bounded joins; English Wikipedia article titles provide common names; existing English labels and aliases are retained. Article availability is the quality filter, never a result-count cutoff."
   },
   "albums": {
     "complete": true,

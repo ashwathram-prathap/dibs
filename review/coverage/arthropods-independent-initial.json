@@ -1,0 +1,811 @@
+{
+  "source": "Independent curated Wikipedia lists, extracted by subject column or list label; see source URLs per sample",
+  "seed": 3593983433,
+  "method": "Uniform draw without replacement from the middle half by measured mean daily readership; frozen first draw, all misses retained",
+  "poolSize": 684,
+  "excluded": [],
+  "answers": [
+    "Dingy purplewing",
+    "Common melwhite",
+    "Zestos skipper",
+    "Gemmed satyr",
+    "Common roadside-skipper",
+    "Sandhill skipper",
+    "Northern checkerspot",
+    "Orange-striped eighty-eight",
+    "Variable cattleheart",
+    "Common streaky-skipper",
+    "Silver emperor",
+    "Pale crescent",
+    "Coppermine sulphur",
+    "Confused cloudywing",
+    "Margined white",
+    "Edward's fritillary",
+    "Red-sided swallowtail",
+    "Frigga fritillary",
+    "White-patched skipper",
+    "Lantana scrub-hairstreak",
+    "Blue-eyed sailor",
+    "Blomfild's beauty",
+    "Carus skipper",
+    "Split-banded owlet",
+    "Obscure skipper",
+    "Chisos skipperling",
+    "Two-barred flasher",
+    "Gray copper",
+    "Western tailed-blue",
+    "Mead's sulphur",
+    "Mournful duskywing",
+    "Python skipper",
+    "Sonoran skipper",
+    "Pavon emperor",
+    "Linda's roadside-skipper",
+    "Spring white",
+    "Gabb's checkerspot",
+    "Ursine giant-skipper",
+    "Nysa roadside-skipper",
+    "Nabokov's satyr",
+    "Northern white-skipper",
+    "Mottled duskywing",
+    "Dusted skipper",
+    "Greenish blue",
+    "Carolina satyr",
+    "Xami hairstreak",
+    "Tawny-edged skipper",
+    "Behr's hairstreak",
+    "Falcate skipper",
+    "Appalachian brown"
+  ],
+  "samples": [
+    {
+      "answer": "Dingy purplewing",
+      "source": "https://en.wikipedia.org/wiki/List_of_butterflies_of_North_America_(Nymphalidae)",
+      "wikipediaTitle": "Eunica monima",
+      "pageviews": {
+        "total": 34,
+        "days": 31,
+        "title": "Eunica monima",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "Common melwhite",
+      "source": "https://en.wikipedia.org/wiki/List_of_butterflies_of_North_America_(Pieridae)",
+      "wikipediaTitle": "Melete lycimnia",
+      "pageviews": {
+        "total": 19,
+        "days": 31,
+        "title": "Melete lycimnia",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "Zestos skipper",
+      "source": "https://en.wikipedia.org/wiki/List_of_butterflies_of_North_America_(Hesperiidae)",
+      "wikipediaTitle": "Epargyreus zestos",
+      "pageviews": {
+        "total": 52,
+        "days": 31,
+        "title": "Epargyreus zestos",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "Gemmed satyr",
+      "source": "https://en.wikipedia.org/wiki/List_of_butterflies_of_North_America_(Nymphalidae)",
+      "wikipediaTitle": "Cyllopsis gemma",
+      "pageviews": {
+        "total": 22,
+        "days": 31,
+        "title": "Cyllopsis gemma",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "Common roadside-skipper",
+      "source": "https://en.wikipedia.org/wiki/List_of_butterflies_of_North_America_(Hesperiidae)",
+      "wikipediaTitle": "Amblyscirtes vialis",
+      "pageviews": {
+        "total": 23,
+        "days": 31,
+        "title": "Amblyscirtes vialis",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "Sandhill skipper",
+      "source": "https://en.wikipedia.org/wiki/List_of_butterflies_of_North_America_(Hesperiidae)",
+      "wikipediaTitle": "Polites sabuleti",
+      "pageviews": {
+        "total": 19,
+        "days": 31,
+        "title": "Polites sabuleti",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "Northern checkerspot",
+      "source": "https://en.wikipedia.org/wiki/List_of_butterflies_of_North_America_(Nymphalidae)",
+      "wikipediaTitle": "Chlosyne palla",
+      "pageviews": {
+        "total": 28,
+        "days": 31,
+        "title": "Chlosyne palla",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "Orange-striped eighty-eight",
+      "source": "https://en.wikipedia.org/wiki/List_of_butterflies_of_North_America_(Nymphalidae)",
+      "wikipediaTitle": "Diaethria pandama",
+      "pageviews": {
+        "total": 27,
+        "days": 31,
+        "title": "Diaethria pandama",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "Variable cattleheart",
+      "source": "https://en.wikipedia.org/wiki/List_of_butterflies_of_North_America_(Papilionidae)",
+      "wikipediaTitle": "Parides erithalion",
+      "pageviews": {
+        "total": 44,
+        "days": 31,
+        "title": "Parides erithalion",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "Common streaky-skipper",
+      "source": "https://en.wikipedia.org/wiki/List_of_butterflies_of_North_America_(Hesperiidae)",
+      "wikipediaTitle": "Celotes nessus",
+      "pageviews": {
+        "total": 17,
+        "days": 31,
+        "title": "Celotes nessus",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "Silver emperor",
+      "source": "https://en.wikipedia.org/wiki/List_of_butterflies_of_North_America_(Nymphalidae)",
+      "wikipediaTitle": "Doxocopa laure",
+      "pageviews": {
+        "total": 48,
+        "days": 31,
+        "title": "Doxocopa laure",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "Pale crescent",
+      "source": "https://en.wikipedia.org/wiki/List_of_butterflies_of_North_America_(Nymphalidae)",
+      "wikipediaTitle": "Phyciodes pallida",
+      "pageviews": {
+        "total": 20,
+        "days": 31,
+        "title": "Phyciodes pallida",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "Coppermine sulphur",
+      "source": "https://en.wikipedia.org/wiki/List_of_butterflies_of_North_America_(Pieridae)",
+      "wikipediaTitle": "Colias johanseni",
+      "pageviews": {
+        "total": 20,
+        "days": 31,
+        "title": "Colias johanseni",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "Confused cloudywing",
+      "source": "https://en.wikipedia.org/wiki/List_of_butterflies_of_North_America_(Hesperiidae)",
+      "wikipediaTitle": "Thorybes confusis",
+      "pageviews": {
+        "total": 12,
+        "days": 31,
+        "title": "Thorybes confusis",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "Margined white",
+      "source": "https://en.wikipedia.org/wiki/List_of_butterflies_of_North_America_(Pieridae)",
+      "wikipediaTitle": "Pieris marginalis",
+      "pageviews": {
+        "total": 35,
+        "days": 31,
+        "title": "Pieris marginalis",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "Edward's fritillary",
+      "source": "https://en.wikipedia.org/wiki/List_of_butterflies_of_North_America_(Nymphalidae)",
+      "wikipediaTitle": "Speyeria edwardsii",
+      "pageviews": {
+        "total": 16,
+        "days": 31,
+        "title": "Speyeria edwardsii",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "Red-sided swallowtail",
+      "source": "https://en.wikipedia.org/wiki/List_of_butterflies_of_North_America_(Papilionidae)",
+      "wikipediaTitle": "Mimoides phaon",
+      "pageviews": {
+        "total": 29,
+        "days": 31,
+        "title": "Mimoides phaon",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Frigga fritillary",
+      "source": "https://en.wikipedia.org/wiki/List_of_butterflies_of_North_America_(Nymphalidae)",
+      "wikipediaTitle": "Boloria frigga",
+      "pageviews": {
+        "total": 37,
+        "days": 31,
+        "title": "Boloria frigga",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "White-patched skipper",
+      "source": "https://en.wikipedia.org/wiki/List_of_butterflies_of_North_America_(Hesperiidae)",
+      "wikipediaTitle": "Chiomara asychis",
+      "pageviews": {
+        "total": 23,
+        "days": 31,
+        "title": "Chiomara asychis",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "Lantana scrub-hairstreak",
+      "source": "https://en.wikipedia.org/wiki/List_of_butterflies_of_North_America_(Lycaenidae)",
+      "wikipediaTitle": "Strymon bazochii",
+      "pageviews": {
+        "total": 27,
+        "days": 31,
+        "title": "Strymon bazochii",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "Blue-eyed sailor",
+      "source": "https://en.wikipedia.org/wiki/List_of_butterflies_of_North_America_(Nymphalidae)",
+      "wikipediaTitle": "Dynamine dyonis",
+      "pageviews": {
+        "total": 22,
+        "days": 31,
+        "title": "Dynamine dyonis",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "Blomfild's beauty",
+      "source": "https://en.wikipedia.org/wiki/List_of_butterflies_of_North_America_(Nymphalidae)",
+      "wikipediaTitle": "Smyrna blomfildia",
+      "pageviews": {
+        "total": 53,
+        "days": 31,
+        "title": "Smyrna blomfildia",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "Carus skipper",
+      "source": "https://en.wikipedia.org/wiki/List_of_butterflies_of_North_America_(Hesperiidae)",
+      "wikipediaTitle": "Polites carus",
+      "pageviews": {
+        "total": 13,
+        "days": 31,
+        "title": "Polites carus",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "Split-banded owlet",
+      "source": "https://en.wikipedia.org/wiki/List_of_butterflies_of_North_America_(Nymphalidae)",
+      "wikipediaTitle": "Opsiphanes cassina",
+      "pageviews": {
+        "total": 48,
+        "days": 31,
+        "title": "Opsiphanes cassina",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Obscure skipper",
+      "source": "https://en.wikipedia.org/wiki/List_of_butterflies_of_North_America_(Hesperiidae)",
+      "wikipediaTitle": "Panoquina panoquinoides",
+      "pageviews": {
+        "total": 12,
+        "days": 31,
+        "title": "Panoquina panoquinoides",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "Chisos skipperling",
+      "source": "https://en.wikipedia.org/wiki/List_of_butterflies_of_North_America_(Hesperiidae)",
+      "wikipediaTitle": "Piruna haferniki",
+      "pageviews": {
+        "total": 12,
+        "days": 31,
+        "title": "Piruna haferniki",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "Two-barred flasher",
+      "source": "https://en.wikipedia.org/wiki/List_of_butterflies_of_North_America_(Hesperiidae)",
+      "wikipediaTitle": "Astraptes fulgerator",
+      "pageviews": {
+        "total": 21,
+        "days": 31,
+        "title": "Astraptes fulgerator",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "Gray copper",
+      "source": "https://en.wikipedia.org/wiki/List_of_butterflies_of_North_America_(Lycaenidae)",
+      "wikipediaTitle": "Lycaena dione",
+      "pageviews": {
+        "total": 23,
+        "days": 31,
+        "title": "Lycaena dione",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "Western tailed-blue",
+      "source": "https://en.wikipedia.org/wiki/List_of_butterflies_of_North_America_(Lycaenidae)",
+      "wikipediaTitle": "Cupido amyntula",
+      "pageviews": {
+        "total": 12,
+        "days": 31,
+        "title": "Cupido amyntula",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "Mead's sulphur",
+      "source": "https://en.wikipedia.org/wiki/List_of_butterflies_of_North_America_(Pieridae)",
+      "wikipediaTitle": "Colias meadii",
+      "pageviews": {
+        "total": 27,
+        "days": 31,
+        "title": "Colias meadii",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "Mournful duskywing",
+      "source": "https://en.wikipedia.org/wiki/List_of_butterflies_of_North_America_(Hesperiidae)",
+      "wikipediaTitle": "Erynnis tristis",
+      "pageviews": {
+        "total": 57,
+        "days": 31,
+        "title": "Erynnis tristis",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "Python skipper",
+      "source": "https://en.wikipedia.org/wiki/List_of_butterflies_of_North_America_(Hesperiidae)",
+      "wikipediaTitle": "Atrytonopsis python",
+      "pageviews": {
+        "total": 14,
+        "days": 31,
+        "title": "Atrytonopsis python",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "Sonoran skipper",
+      "source": "https://en.wikipedia.org/wiki/List_of_butterflies_of_North_America_(Hesperiidae)",
+      "wikipediaTitle": "Polites sonora",
+      "pageviews": {
+        "total": 16,
+        "days": 31,
+        "title": "Polites sonora",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "Pavon emperor",
+      "source": "https://en.wikipedia.org/wiki/List_of_butterflies_of_North_America_(Nymphalidae)",
+      "wikipediaTitle": "Doxocopa pavon",
+      "pageviews": {
+        "total": 28,
+        "days": 31,
+        "title": "Doxocopa pavon",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "Linda's roadside-skipper",
+      "source": "https://en.wikipedia.org/wiki/List_of_butterflies_of_North_America_(Hesperiidae)",
+      "wikipediaTitle": "Amblyscirtes linda",
+      "pageviews": {
+        "total": 11,
+        "days": 31,
+        "title": "Amblyscirtes linda",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "Spring white",
+      "source": "https://en.wikipedia.org/wiki/List_of_butterflies_of_North_America_(Pieridae)",
+      "wikipediaTitle": "Pontia sisymbrii",
+      "pageviews": {
+        "total": 24,
+        "days": 31,
+        "title": "Pontia sisymbrii",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "Gabb's checkerspot",
+      "source": "https://en.wikipedia.org/wiki/List_of_butterflies_of_North_America_(Nymphalidae)",
+      "wikipediaTitle": "Chlosyne gabbii",
+      "pageviews": {
+        "total": 18,
+        "days": 31,
+        "title": "Chlosyne gabbii",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "Ursine giant-skipper",
+      "source": "https://en.wikipedia.org/wiki/List_of_butterflies_of_North_America_(Hesperiidae)",
+      "wikipediaTitle": "Megathymus ursus",
+      "pageviews": {
+        "total": 15,
+        "days": 31,
+        "title": "Megathymus ursus",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "Nysa roadside-skipper",
+      "source": "https://en.wikipedia.org/wiki/List_of_butterflies_of_North_America_(Hesperiidae)",
+      "wikipediaTitle": "Amblyscirtes nysa",
+      "pageviews": {
+        "total": 11,
+        "days": 31,
+        "title": "Amblyscirtes nysa",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "Nabokov's satyr",
+      "source": "https://en.wikipedia.org/wiki/List_of_butterflies_of_North_America_(Nymphalidae)",
+      "wikipediaTitle": "Cyllopsis pyracmon",
+      "pageviews": {
+        "total": 18,
+        "days": 31,
+        "title": "Cyllopsis pyracmon",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "Northern white-skipper",
+      "source": "https://en.wikipedia.org/wiki/List_of_butterflies_of_North_America_(Hesperiidae)",
+      "wikipediaTitle": "Heliopetes ericetorum",
+      "pageviews": {
+        "total": 20,
+        "days": 31,
+        "title": "Heliopetes ericetorum",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "Mottled duskywing",
+      "source": "https://en.wikipedia.org/wiki/List_of_butterflies_of_North_America_(Hesperiidae)",
+      "wikipediaTitle": "Erynnis martialis",
+      "pageviews": {
+        "total": 55,
+        "days": 31,
+        "title": "Erynnis martialis",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "Dusted skipper",
+      "source": "https://en.wikipedia.org/wiki/List_of_butterflies_of_North_America_(Hesperiidae)",
+      "wikipediaTitle": "Atrytonopsis hianna",
+      "pageviews": {
+        "total": 12,
+        "days": 31,
+        "title": "Atrytonopsis hianna",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "Greenish blue",
+      "source": "https://en.wikipedia.org/wiki/List_of_butterflies_of_North_America_(Lycaenidae)",
+      "wikipediaTitle": "Icaricia saepiolus",
+      "pageviews": {
+        "total": 40,
+        "days": 31,
+        "title": "Icaricia saepiolus",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "Carolina satyr",
+      "source": "https://en.wikipedia.org/wiki/List_of_butterflies_of_North_America_(Nymphalidae)",
+      "wikipediaTitle": "Hermeuptychia sosybius",
+      "pageviews": {
+        "total": 39,
+        "days": 31,
+        "title": "Hermeuptychia sosybius",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "Xami hairstreak",
+      "source": "https://en.wikipedia.org/wiki/List_of_butterflies_of_North_America_(Lycaenidae)",
+      "wikipediaTitle": "Callophrys xami",
+      "pageviews": {
+        "total": 47,
+        "days": 31,
+        "title": "Callophrys xami",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "Tawny-edged skipper",
+      "source": "https://en.wikipedia.org/wiki/List_of_butterflies_of_North_America_(Hesperiidae)",
+      "wikipediaTitle": "Polites themistocles",
+      "pageviews": {
+        "total": 28,
+        "days": 31,
+        "title": "Polites themistocles",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "Behr's hairstreak",
+      "source": "https://en.wikipedia.org/wiki/List_of_butterflies_of_North_America_(Lycaenidae)",
+      "wikipediaTitle": "Satyrium behrii",
+      "pageviews": {
+        "total": 13,
+        "days": 31,
+        "title": "Satyrium behrii",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "Falcate skipper",
+      "source": "https://en.wikipedia.org/wiki/List_of_butterflies_of_North_America_(Hesperiidae)",
+      "wikipediaTitle": "Spathilepia",
+      "pageviews": {
+        "total": 16,
+        "days": 31,
+        "title": "Spathilepia",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "Appalachian brown",
+      "source": "https://en.wikipedia.org/wiki/List_of_butterflies_of_North_America_(Nymphalidae)",
+      "wikipediaTitle": "Satyrodes appalachia",
+      "pageviews": {
+        "total": 14,
+        "days": 31,
+        "title": "Satyrodes appalachia",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    }
+  ]
+}

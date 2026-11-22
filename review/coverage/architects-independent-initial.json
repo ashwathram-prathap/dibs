@@ -1,0 +1,811 @@
+{
+  "source": "Independent curated Wikipedia lists, extracted by subject column or list label; see source URLs per sample",
+  "seed": 3777595319,
+  "method": "Uniform draw without replacement from the middle half by measured mean daily readership; frozen first draw, all misses retained",
+  "poolSize": 968,
+  "excluded": [],
+  "answers": [
+    "Wilhelm Ludwig von Eschwege",
+    "Robby Cantarutti",
+    "Mariam Issoufou",
+    "Fernand Pouillon",
+    "Liz Ogbu",
+    "Antoine Predock",
+    "Andrea Alessi",
+    "Clarence H. Johnston Sr.",
+    "Jun Xia",
+    "Frank Hoar",
+    "Max Abramovitz",
+    "Ammi B. Young",
+    "Josef Mocker",
+    "Trdat",
+    "Ineni",
+    "João de Castilho",
+    "Balthasar Neumann",
+    "Andrés Duany",
+    "Claude-Nicolas Ledoux",
+    "Charles Klauder",
+    "Giacomo Barozzi da Vignola",
+    "Edward Maufe",
+    "Antonio Rinaldi",
+    "John Portman",
+    "Eugénio dos Santos",
+    "Frank Shaver Allen",
+    "Adam Kraft",
+    "W. H. Weeks",
+    "Giovanni Michelucci",
+    "Robert Matthew",
+    "George D. Mason",
+    "Paul Saintenoy",
+    "Sebastiano Serlio",
+    "Vlado Milunić",
+    "Thomas Sandby",
+    "Riccardo Morandi",
+    "Jan Wils",
+    "Edward Larrabee Barnes",
+    "Ralph Knott",
+    "Louis Le Vau",
+    "Lise Anne Couture",
+    "Austin Eldon Knowlton",
+    "Fernando Higueras",
+    "Ignazio Gardella",
+    "Ictinus",
+    "Peter Paul Pugin",
+    "Erick van Egeraat",
+    "Keith Griffiths",
+    "Piet Kramer",
+    "Mario Romañach"
+  ],
+  "samples": [
+    {
+      "answer": "Wilhelm Ludwig von Eschwege",
+      "source": "https://en.wikipedia.org/wiki/List_of_architects",
+      "wikipediaTitle": "Wilhelm Ludwig von Eschwege",
+      "pageviews": {
+        "total": 206,
+        "days": 31,
+        "title": "Wilhelm Ludwig von Eschwege",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "Robby Cantarutti",
+      "source": "https://en.wikipedia.org/wiki/List_of_architects",
+      "wikipediaTitle": "Robby Cantarutti",
+      "pageviews": {
+        "total": 60,
+        "days": 31,
+        "title": "Robby Cantarutti",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Mariam Issoufou",
+      "source": "https://en.wikipedia.org/wiki/List_of_architects",
+      "wikipediaTitle": "Mariam Issoufou",
+      "pageviews": {
+        "total": 329,
+        "days": 31,
+        "title": "Mariam Issoufou",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Fernand Pouillon",
+      "source": "https://en.wikipedia.org/wiki/List_of_architects",
+      "wikipediaTitle": "Fernand Pouillon",
+      "pageviews": {
+        "total": 347,
+        "days": 31,
+        "title": "Fernand Pouillon",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "Liz Ogbu",
+      "source": "https://en.wikipedia.org/wiki/List_of_architects",
+      "wikipediaTitle": "Liz Ogbu",
+      "pageviews": {
+        "total": 58,
+        "days": 31,
+        "title": "Liz Ogbu",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Antoine Predock",
+      "source": "https://en.wikipedia.org/wiki/List_of_architects",
+      "wikipediaTitle": "Antoine Predock",
+      "pageviews": {
+        "total": 528,
+        "days": 31,
+        "title": "Antoine Predock",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "Andrea Alessi",
+      "source": "https://en.wikipedia.org/wiki/List_of_architects",
+      "wikipediaTitle": "Andrea Alessi",
+      "pageviews": {
+        "total": 93,
+        "days": 31,
+        "title": "Andrea Alessi",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Clarence H. Johnston Sr.",
+      "source": "https://en.wikipedia.org/wiki/List_of_architects",
+      "wikipediaTitle": "Clarence H. Johnston Sr.",
+      "pageviews": {
+        "total": 159,
+        "days": 31,
+        "title": "Clarence H. Johnston Sr.",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Jun Xia",
+      "source": "https://en.wikipedia.org/wiki/List_of_architects",
+      "wikipediaTitle": "Jun Xia (architect)",
+      "pageviews": {
+        "total": 384,
+        "days": 31,
+        "title": "Jun Xia (architect)",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Frank Hoar",
+      "source": "https://en.wikipedia.org/wiki/List_of_architects",
+      "wikipediaTitle": "Frank Hoar",
+      "pageviews": {
+        "total": 73,
+        "days": 31,
+        "title": "Frank Hoar",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Max Abramovitz",
+      "source": "https://en.wikipedia.org/wiki/List_of_architects",
+      "wikipediaTitle": "Max Abramovitz",
+      "pageviews": {
+        "total": 525,
+        "days": 31,
+        "title": "Max Abramovitz",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Ammi B. Young",
+      "source": "https://en.wikipedia.org/wiki/List_of_architects",
+      "wikipediaTitle": "Ammi B. Young",
+      "pageviews": {
+        "total": 145,
+        "days": 31,
+        "title": "Ammi B. Young",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Josef Mocker",
+      "source": "https://en.wikipedia.org/wiki/List_of_architects",
+      "wikipediaTitle": "Josef Mocker",
+      "pageviews": {
+        "total": 98,
+        "days": 31,
+        "title": "Josef Mocker",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "Trdat",
+      "source": "https://en.wikipedia.org/wiki/List_of_architects",
+      "wikipediaTitle": "Trdat (architect)",
+      "pageviews": {
+        "total": 110,
+        "days": 31,
+        "title": "Trdat (architect)",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Ineni",
+      "source": "https://en.wikipedia.org/wiki/List_of_architects",
+      "wikipediaTitle": "Ineni",
+      "pageviews": {
+        "total": 210,
+        "days": 31,
+        "title": "Ineni",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "João de Castilho",
+      "source": "https://en.wikipedia.org/wiki/List_of_architects",
+      "wikipediaTitle": "João de Castilho",
+      "pageviews": {
+        "total": 77,
+        "days": 31,
+        "title": "João de Castilho",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "Balthasar Neumann",
+      "source": "https://en.wikipedia.org/wiki/List_of_architects",
+      "wikipediaTitle": "Balthasar Neumann",
+      "pageviews": {
+        "total": 511,
+        "days": 31,
+        "title": "Balthasar Neumann",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "Andrés Duany",
+      "source": "https://en.wikipedia.org/wiki/List_of_architects",
+      "wikipediaTitle": "Andrés Duany",
+      "pageviews": {
+        "total": 549,
+        "days": 31,
+        "title": "Andrés Duany",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Claude-Nicolas Ledoux",
+      "source": "https://en.wikipedia.org/wiki/List_of_architects",
+      "wikipediaTitle": "Claude-Nicolas Ledoux",
+      "pageviews": {
+        "total": 70,
+        "days": 31,
+        "title": "Claude-Nicolas Ledoux",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Charles Klauder",
+      "source": "https://en.wikipedia.org/wiki/List_of_architects",
+      "wikipediaTitle": "Charles Klauder",
+      "pageviews": {
+        "total": 324,
+        "days": 31,
+        "title": "Charles Klauder",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Giacomo Barozzi da Vignola",
+      "source": "https://en.wikipedia.org/wiki/List_of_architects",
+      "wikipediaTitle": "Giacomo Barozzi da Vignola",
+      "pageviews": {
+        "total": 530,
+        "days": 31,
+        "title": "Giacomo Barozzi da Vignola",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Edward Maufe",
+      "source": "https://en.wikipedia.org/wiki/List_of_architects",
+      "wikipediaTitle": "Edward Maufe",
+      "pageviews": {
+        "total": 275,
+        "days": 31,
+        "title": "Edward Maufe",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Antonio Rinaldi",
+      "source": "https://en.wikipedia.org/wiki/List_of_architects",
+      "wikipediaTitle": "Antonio Rinaldi (architect)",
+      "pageviews": {
+        "total": 201,
+        "days": 31,
+        "title": "Antonio Rinaldi (architect)",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "John Portman",
+      "source": "https://en.wikipedia.org/wiki/List_of_architects",
+      "wikipediaTitle": "John Portman",
+      "pageviews": {
+        "total": 244,
+        "days": 31,
+        "title": "John Portman",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Eugénio dos Santos",
+      "source": "https://en.wikipedia.org/wiki/List_of_architects",
+      "wikipediaTitle": "Eugénio dos Santos",
+      "pageviews": {
+        "total": 70,
+        "days": 31,
+        "title": "Eugénio dos Santos",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Frank Shaver Allen",
+      "source": "https://en.wikipedia.org/wiki/List_of_architects",
+      "wikipediaTitle": "Frank Shaver Allen",
+      "pageviews": {
+        "total": 90,
+        "days": 31,
+        "title": "Frank Shaver Allen",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Adam Kraft",
+      "source": "https://en.wikipedia.org/wiki/List_of_architects",
+      "wikipediaTitle": "Adam Kraft",
+      "pageviews": {
+        "total": 191,
+        "days": 31,
+        "title": "Adam Kraft",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "W. H. Weeks",
+      "source": "https://en.wikipedia.org/wiki/List_of_architects",
+      "wikipediaTitle": "W. H. Weeks",
+      "pageviews": {
+        "total": 177,
+        "days": 31,
+        "title": "W. H. Weeks",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Giovanni Michelucci",
+      "source": "https://en.wikipedia.org/wiki/List_of_architects",
+      "wikipediaTitle": "Giovanni Michelucci",
+      "pageviews": {
+        "total": 213,
+        "days": 31,
+        "title": "Giovanni Michelucci",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "Robert Matthew",
+      "source": "https://en.wikipedia.org/wiki/List_of_architects",
+      "wikipediaTitle": "Robert Matthew",
+      "pageviews": {
+        "total": 216,
+        "days": 31,
+        "title": "Robert Matthew",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "George D. Mason",
+      "source": "https://en.wikipedia.org/wiki/List_of_architects",
+      "wikipediaTitle": "George D. Mason",
+      "pageviews": {
+        "total": 298,
+        "days": 31,
+        "title": "George D. Mason",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Paul Saintenoy",
+      "source": "https://en.wikipedia.org/wiki/List_of_architects",
+      "wikipediaTitle": "Paul Saintenoy",
+      "pageviews": {
+        "total": 104,
+        "days": 31,
+        "title": "Paul Saintenoy",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Sebastiano Serlio",
+      "source": "https://en.wikipedia.org/wiki/List_of_architects",
+      "wikipediaTitle": "Sebastiano Serlio",
+      "pageviews": {
+        "total": 644,
+        "days": 31,
+        "title": "Sebastiano Serlio",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "Vlado Milunić",
+      "source": "https://en.wikipedia.org/wiki/List_of_architects",
+      "wikipediaTitle": "Vlado Milunić",
+      "pageviews": {
+        "total": 342,
+        "days": 31,
+        "title": "Vlado Milunić",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Thomas Sandby",
+      "source": "https://en.wikipedia.org/wiki/List_of_architects",
+      "wikipediaTitle": "Thomas Sandby",
+      "pageviews": {
+        "total": 102,
+        "days": 31,
+        "title": "Thomas Sandby",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Riccardo Morandi",
+      "source": "https://en.wikipedia.org/wiki/List_of_architects",
+      "wikipediaTitle": "Riccardo Morandi",
+      "pageviews": {
+        "total": 424,
+        "days": 31,
+        "title": "Riccardo Morandi",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Jan Wils",
+      "source": "https://en.wikipedia.org/wiki/List_of_architects",
+      "wikipediaTitle": "Jan Wils",
+      "pageviews": {
+        "total": 162,
+        "days": 31,
+        "title": "Jan Wils",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "Edward Larrabee Barnes",
+      "source": "https://en.wikipedia.org/wiki/List_of_architects",
+      "wikipediaTitle": "Edward Larrabee Barnes",
+      "pageviews": {
+        "total": 483,
+        "days": 31,
+        "title": "Edward Larrabee Barnes",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Ralph Knott",
+      "source": "https://en.wikipedia.org/wiki/List_of_architects",
+      "wikipediaTitle": "Ralph Knott",
+      "pageviews": {
+        "total": 65,
+        "days": 31,
+        "title": "Ralph Knott",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Louis Le Vau",
+      "source": "https://en.wikipedia.org/wiki/List_of_architects",
+      "wikipediaTitle": "Louis Le Vau",
+      "pageviews": {
+        "total": 621,
+        "days": 31,
+        "title": "Louis Le Vau",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Lise Anne Couture",
+      "source": "https://en.wikipedia.org/wiki/List_of_architects",
+      "wikipediaTitle": "Lise Anne Couture",
+      "pageviews": {
+        "total": 103,
+        "days": 31,
+        "title": "Lise Anne Couture",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Austin Eldon Knowlton",
+      "source": "https://en.wikipedia.org/wiki/List_of_architects",
+      "wikipediaTitle": "Austin Eldon Knowlton",
+      "pageviews": {
+        "total": 173,
+        "days": 31,
+        "title": "Austin Eldon Knowlton",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Fernando Higueras",
+      "source": "https://en.wikipedia.org/wiki/List_of_architects",
+      "wikipediaTitle": "Fernando Higueras",
+      "pageviews": {
+        "total": 110,
+        "days": 31,
+        "title": "Fernando Higueras",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Ignazio Gardella",
+      "source": "https://en.wikipedia.org/wiki/List_of_architects",
+      "wikipediaTitle": "Ignazio Gardella",
+      "pageviews": {
+        "total": 132,
+        "days": 31,
+        "title": "Ignazio Gardella",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "Ictinus",
+      "source": "https://en.wikipedia.org/wiki/List_of_architects",
+      "wikipediaTitle": "Ictinus",
+      "pageviews": {
+        "total": 331,
+        "days": 31,
+        "title": "Ictinus",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Peter Paul Pugin",
+      "source": "https://en.wikipedia.org/wiki/List_of_architects",
+      "wikipediaTitle": "Peter Paul Pugin",
+      "pageviews": {
+        "total": 183,
+        "days": 31,
+        "title": "Peter Paul Pugin",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Erick van Egeraat",
+      "source": "https://en.wikipedia.org/wiki/List_of_architects",
+      "wikipediaTitle": "Erick van Egeraat",
+      "pageviews": {
+        "total": 172,
+        "days": 31,
+        "title": "Erick van Egeraat",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Keith Griffiths",
+      "source": "https://en.wikipedia.org/wiki/List_of_architects",
+      "wikipediaTitle": "Keith Griffiths (architect)",
+      "pageviews": {
+        "total": 348,
+        "days": 31,
+        "title": "Keith Griffiths (architect)",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Piet Kramer",
+      "source": "https://en.wikipedia.org/wiki/List_of_architects",
+      "wikipediaTitle": "Piet Kramer",
+      "pageviews": {
+        "total": 151,
+        "days": 31,
+        "title": "Piet Kramer",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "Mario Romañach",
+      "source": "https://en.wikipedia.org/wiki/List_of_architects",
+      "wikipediaTitle": "Mario Romañach",
+      "pageviews": {
+        "total": 59,
+        "days": 31,
+        "title": "Mario Romañach",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    }
+  ]
+}

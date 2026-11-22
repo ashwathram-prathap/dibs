@@ -1,0 +1,811 @@
+{
+  "source": "Independent curated Wikipedia lists, extracted by subject column or list label; see source URLs per sample",
+  "seed": 305650637,
+  "method": "Uniform draw without replacement from the middle half by measured mean daily readership; frozen first draw, all misses retained",
+  "poolSize": 1610,
+  "excluded": [],
+  "answers": [
+    "Mont Pelvoux",
+    "Cilo Dağı",
+    "Chamlang",
+    "Panchchuli",
+    "Mount Hombori",
+    "Trivor",
+    "Redcloud Peak",
+    "Taungthonton Volcano",
+    "Maiella",
+    "Mount Colden",
+    "Bikku Bitti",
+    "Jannu",
+    "Dent du Géant",
+    "Tilicho Peak",
+    "Mount Bona",
+    "Mount Kitchener",
+    "Aiguille Verte",
+    "Skil Brum",
+    "Mount Norquay",
+    "Mount Thielsen",
+    "Silverthrone Mountain",
+    "Pieter Both (mountain)",
+    "Kinnerly Peak",
+    "Crestone Peak",
+    "Mount Washburn",
+    "Pico Humboldt",
+    "Qiajivik Mountain",
+    "Miranjani",
+    "Pisang Peak",
+    "Mount Binalud",
+    "Coma Pedrosa",
+    "Mount Baldy",
+    "Mount Santubong",
+    "Churen Himal",
+    "Corrán Tuathail",
+    "King Peak",
+    "Mount Tyndall",
+    "Piz Badile",
+    "Peñalara",
+    "Mount Tabayoc",
+    "Mount Giluwe",
+    "Coropuna",
+    "Mullayanagiri",
+    "Grande Motte",
+    "Mount Xuebaoding",
+    "Demirkazık Peak",
+    "Nez Perce Peak",
+    "Mount Veve",
+    "Mount Daniel",
+    "Mount Griggs"
+  ],
+  "samples": [
+    {
+      "answer": "Mont Pelvoux",
+      "source": "https://en.wikipedia.org/wiki/List_of_mountains_by_elevation",
+      "wikipediaTitle": "Mont Pelvoux",
+      "pageviews": {
+        "total": 77,
+        "days": 31,
+        "title": "Mont Pelvoux",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "Cilo Dağı",
+      "source": "https://en.wikipedia.org/wiki/List_of_mountains_by_elevation",
+      "wikipediaTitle": "Cilo Dağı",
+      "pageviews": {
+        "total": 77,
+        "days": 31,
+        "title": "Cilo Dağı",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Chamlang",
+      "source": "https://en.wikipedia.org/wiki/List_of_mountains_by_elevation",
+      "wikipediaTitle": "Chamlang",
+      "pageviews": {
+        "total": 208,
+        "days": 31,
+        "title": "Chamlang",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "Panchchuli",
+      "source": "https://en.wikipedia.org/wiki/List_of_mountains_by_elevation",
+      "wikipediaTitle": "Panchchuli",
+      "pageviews": {
+        "total": 180,
+        "days": 31,
+        "title": "Panchchuli",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Mount Hombori",
+      "source": "https://en.wikipedia.org/wiki/List_of_mountains_by_elevation",
+      "wikipediaTitle": "Mount Hombori",
+      "pageviews": {
+        "total": 145,
+        "days": 31,
+        "title": "Mount Hombori",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Trivor",
+      "source": "https://en.wikipedia.org/wiki/List_of_mountains_by_elevation",
+      "wikipediaTitle": "Trivor",
+      "pageviews": {
+        "total": 202,
+        "days": 31,
+        "title": "Trivor",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Redcloud Peak",
+      "source": "https://en.wikipedia.org/wiki/List_of_mountains_by_elevation",
+      "wikipediaTitle": "Redcloud Peak",
+      "pageviews": {
+        "total": 88,
+        "days": 31,
+        "title": "Redcloud Peak",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Taungthonton Volcano",
+      "source": "https://en.wikipedia.org/wiki/List_of_mountains_by_elevation",
+      "wikipediaTitle": "Taungthonton Volcano",
+      "pageviews": {
+        "total": 56,
+        "days": 31,
+        "title": "Taungthonton Volcano",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Maiella",
+      "source": "https://en.wikipedia.org/wiki/List_of_mountains_by_elevation",
+      "wikipediaTitle": "Maiella",
+      "pageviews": {
+        "total": 587,
+        "days": 31,
+        "title": "Maiella",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Mount Colden",
+      "source": "https://en.wikipedia.org/wiki/List_of_mountains_by_elevation",
+      "wikipediaTitle": "Mount Colden",
+      "pageviews": {
+        "total": 374,
+        "days": 31,
+        "title": "Mount Colden",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Bikku Bitti",
+      "source": "https://en.wikipedia.org/wiki/List_of_mountains_by_elevation",
+      "wikipediaTitle": "Bikku Bitti",
+      "pageviews": {
+        "total": 369,
+        "days": 31,
+        "title": "Bikku Bitti",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "Jannu",
+      "source": "https://en.wikipedia.org/wiki/List_of_mountains_by_elevation",
+      "wikipediaTitle": "Jannu",
+      "pageviews": {
+        "total": 130,
+        "days": 31,
+        "title": "Jannu",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Dent du Géant",
+      "source": "https://en.wikipedia.org/wiki/List_of_mountains_by_elevation",
+      "wikipediaTitle": "Dent du Géant",
+      "pageviews": {
+        "total": 423,
+        "days": 31,
+        "title": "Dent du Géant",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Tilicho Peak",
+      "source": "https://en.wikipedia.org/wiki/List_of_mountains_by_elevation",
+      "wikipediaTitle": "Tilicho Peak",
+      "pageviews": {
+        "total": 161,
+        "days": 31,
+        "title": "Tilicho Peak",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Mount Bona",
+      "source": "https://en.wikipedia.org/wiki/List_of_mountains_by_elevation",
+      "wikipediaTitle": "Mount Bona",
+      "pageviews": {
+        "total": 734,
+        "days": 31,
+        "title": "Mount Bona",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "Mount Kitchener",
+      "source": "https://en.wikipedia.org/wiki/List_of_mountains_by_elevation",
+      "wikipediaTitle": "Mount Kitchener",
+      "pageviews": {
+        "total": 113,
+        "days": 31,
+        "title": "Mount Kitchener",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "Aiguille Verte",
+      "source": "https://en.wikipedia.org/wiki/List_of_mountains_by_elevation",
+      "wikipediaTitle": "Aiguille Verte",
+      "pageviews": {
+        "total": 353,
+        "days": 31,
+        "title": "Aiguille Verte",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "Skil Brum",
+      "source": "https://en.wikipedia.org/wiki/List_of_mountains_by_elevation",
+      "wikipediaTitle": "Skil Brum",
+      "pageviews": {
+        "total": 393,
+        "days": 31,
+        "title": "Skil Brum",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Mount Norquay",
+      "source": "https://en.wikipedia.org/wiki/List_of_mountains_by_elevation",
+      "wikipediaTitle": "Mount Norquay",
+      "pageviews": {
+        "total": 394,
+        "days": 31,
+        "title": "Mount Norquay",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Mount Thielsen",
+      "source": "https://en.wikipedia.org/wiki/List_of_mountains_by_elevation",
+      "wikipediaTitle": "Mount Thielsen",
+      "pageviews": {
+        "total": 795,
+        "days": 31,
+        "title": "Mount Thielsen",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "Silverthrone Mountain",
+      "source": "https://en.wikipedia.org/wiki/List_of_mountains_by_elevation",
+      "wikipediaTitle": "Silverthrone Mountain",
+      "pageviews": {
+        "total": 161,
+        "days": 31,
+        "title": "Silverthrone Mountain",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Pieter Both (mountain)",
+      "source": "https://en.wikipedia.org/wiki/List_of_mountains_by_elevation",
+      "wikipediaTitle": "Pieter Both (mountain)",
+      "pageviews": {
+        "total": 497,
+        "days": 31,
+        "title": "Pieter Both (mountain)",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "Kinnerly Peak",
+      "source": "https://en.wikipedia.org/wiki/List_of_mountains_by_elevation",
+      "wikipediaTitle": "Kinnerly Peak",
+      "pageviews": {
+        "total": 125,
+        "days": 31,
+        "title": "Kinnerly Peak",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Crestone Peak",
+      "source": "https://en.wikipedia.org/wiki/List_of_mountains_by_elevation",
+      "wikipediaTitle": "Crestone Peak",
+      "pageviews": {
+        "total": 356,
+        "days": 31,
+        "title": "Crestone Peak",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Mount Washburn",
+      "source": "https://en.wikipedia.org/wiki/List_of_mountains_by_elevation",
+      "wikipediaTitle": "Mount Washburn",
+      "pageviews": {
+        "total": 334,
+        "days": 31,
+        "title": "Mount Washburn",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "Pico Humboldt",
+      "source": "https://en.wikipedia.org/wiki/List_of_mountains_by_elevation",
+      "wikipediaTitle": "Pico Humboldt",
+      "pageviews": {
+        "total": 229,
+        "days": 31,
+        "title": "Pico Humboldt",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "Qiajivik Mountain",
+      "source": "https://en.wikipedia.org/wiki/List_of_mountains_by_elevation",
+      "wikipediaTitle": "Qiajivik Mountain",
+      "pageviews": {
+        "total": 73,
+        "days": 31,
+        "title": "Qiajivik Mountain",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Miranjani",
+      "source": "https://en.wikipedia.org/wiki/List_of_mountains_by_elevation",
+      "wikipediaTitle": "Miranjani",
+      "pageviews": {
+        "total": 355,
+        "days": 31,
+        "title": "Miranjani",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Pisang Peak",
+      "source": "https://en.wikipedia.org/wiki/List_of_mountains_by_elevation",
+      "wikipediaTitle": "Pisang Peak",
+      "pageviews": {
+        "total": 206,
+        "days": 31,
+        "title": "Pisang Peak",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Mount Binalud",
+      "source": "https://en.wikipedia.org/wiki/List_of_mountains_by_elevation",
+      "wikipediaTitle": "Mount Binalud",
+      "pageviews": {
+        "total": 73,
+        "days": 31,
+        "title": "Mount Binalud",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "Coma Pedrosa",
+      "source": "https://en.wikipedia.org/wiki/List_of_mountains_by_elevation",
+      "wikipediaTitle": "Coma Pedrosa",
+      "pageviews": {
+        "total": 592,
+        "days": 31,
+        "title": "Coma Pedrosa",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "Mount Baldy",
+      "source": "https://en.wikipedia.org/wiki/List_of_mountains_by_elevation",
+      "wikipediaTitle": "Mount Baldy (Alberta)",
+      "pageviews": {
+        "total": 67,
+        "days": 31,
+        "title": "Mount Baldy (Alberta)",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Mount Santubong",
+      "source": "https://en.wikipedia.org/wiki/List_of_mountains_by_elevation",
+      "wikipediaTitle": "Mount Santubong",
+      "pageviews": {
+        "total": 337,
+        "days": 31,
+        "title": "Mount Santubong",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Churen Himal",
+      "source": "https://en.wikipedia.org/wiki/List_of_mountains_by_elevation",
+      "wikipediaTitle": "Churen Himal",
+      "pageviews": {
+        "total": 89,
+        "days": 31,
+        "title": "Churen Himal",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Corrán Tuathail",
+      "source": "https://en.wikipedia.org/wiki/List_of_mountains_by_elevation",
+      "wikipediaTitle": "Corrán Tuathail",
+      "pageviews": {
+        "total": 79,
+        "days": 31,
+        "title": "Corrán Tuathail",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "King Peak",
+      "source": "https://en.wikipedia.org/wiki/List_of_mountains_by_elevation",
+      "wikipediaTitle": "King Peak (Yukon)",
+      "pageviews": {
+        "total": 186,
+        "days": 31,
+        "title": "King Peak (Yukon)",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Mount Tyndall",
+      "source": "https://en.wikipedia.org/wiki/List_of_mountains_by_elevation",
+      "wikipediaTitle": "Mount Tyndall",
+      "pageviews": {
+        "total": 167,
+        "days": 31,
+        "title": "Mount Tyndall",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Piz Badile",
+      "source": "https://en.wikipedia.org/wiki/List_of_mountains_by_elevation",
+      "wikipediaTitle": "Piz Badile",
+      "pageviews": {
+        "total": 729,
+        "days": 31,
+        "title": "Piz Badile",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "Peñalara",
+      "source": "https://en.wikipedia.org/wiki/List_of_mountains_by_elevation",
+      "wikipediaTitle": "Peñalara",
+      "pageviews": {
+        "total": 331,
+        "days": 31,
+        "title": "Peñalara",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "Mount Tabayoc",
+      "source": "https://en.wikipedia.org/wiki/List_of_mountains_by_elevation",
+      "wikipediaTitle": "Mount Tabayoc",
+      "pageviews": {
+        "total": 56,
+        "days": 31,
+        "title": "Mount Tabayoc",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Mount Giluwe",
+      "source": "https://en.wikipedia.org/wiki/List_of_mountains_by_elevation",
+      "wikipediaTitle": "Mount Giluwe",
+      "pageviews": {
+        "total": 499,
+        "days": 31,
+        "title": "Mount Giluwe",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Coropuna",
+      "source": "https://en.wikipedia.org/wiki/List_of_mountains_by_elevation",
+      "wikipediaTitle": "Coropuna",
+      "pageviews": {
+        "total": 481,
+        "days": 31,
+        "title": "Coropuna",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Mullayanagiri",
+      "source": "https://en.wikipedia.org/wiki/List_of_mountains_by_elevation",
+      "wikipediaTitle": "Mullayanagiri",
+      "pageviews": {
+        "total": 585,
+        "days": 31,
+        "title": "Mullayanagiri",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Grande Motte",
+      "source": "https://en.wikipedia.org/wiki/List_of_mountains_by_elevation",
+      "wikipediaTitle": "Grande Motte",
+      "pageviews": {
+        "total": 101,
+        "days": 31,
+        "title": "Grande Motte",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "Mount Xuebaoding",
+      "source": "https://en.wikipedia.org/wiki/List_of_mountains_by_elevation",
+      "wikipediaTitle": "Mount Xuebaoding",
+      "pageviews": {
+        "total": 167,
+        "days": 31,
+        "title": "Mount Xuebaoding",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Demirkazık Peak",
+      "source": "https://en.wikipedia.org/wiki/List_of_mountains_by_elevation",
+      "wikipediaTitle": "Demirkazık Peak",
+      "pageviews": {
+        "total": 154,
+        "days": 31,
+        "title": "Demirkazık Peak",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Nez Perce Peak",
+      "source": "https://en.wikipedia.org/wiki/List_of_mountains_by_elevation",
+      "wikipediaTitle": "Nez Perce Peak",
+      "pageviews": {
+        "total": 73,
+        "days": 31,
+        "title": "Nez Perce Peak",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Mount Veve",
+      "source": "https://en.wikipedia.org/wiki/List_of_mountains_by_elevation",
+      "wikipediaTitle": "Mount Veve",
+      "pageviews": {
+        "total": 120,
+        "days": 31,
+        "title": "Mount Veve",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Mount Daniel",
+      "source": "https://en.wikipedia.org/wiki/List_of_mountains_by_elevation",
+      "wikipediaTitle": "Mount Daniel",
+      "pageviews": {
+        "total": 191,
+        "days": 31,
+        "title": "Mount Daniel",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Mount Griggs",
+      "source": "https://en.wikipedia.org/wiki/List_of_mountains_by_elevation",
+      "wikipediaTitle": "Mount Griggs",
+      "pageviews": {
+        "total": 116,
+        "days": 31,
+        "title": "Mount Griggs",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    }
+  ]
+}

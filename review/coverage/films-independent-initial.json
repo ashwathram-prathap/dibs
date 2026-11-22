@@ -1,0 +1,811 @@
+{
+  "source": "Independent curated Wikipedia lists, extracted by subject column or list label; see source URLs per sample",
+  "seed": 1582668598,
+  "method": "Uniform draw without replacement from the middle half by measured mean daily readership; frozen first draw, all misses retained",
+  "poolSize": 1383,
+  "excluded": [],
+  "answers": [
+    "Hustle & Flow",
+    "Stagecoach",
+    "A Star Is Born",
+    "Bound for Glory",
+    "Spellbound",
+    "Written on the Wind",
+    "The Last Command",
+    "Judgment at Nuremberg",
+    "Departures",
+    "Mighty Aphrodite",
+    "Cries and Whispers",
+    "The Music Man",
+    "The Great Gatsby",
+    "Summer of '42",
+    "Geri's Game",
+    "Three Little Pigs",
+    "The Way We Were",
+    "Fiddler on the Roof",
+    "Panic in the Streets",
+    "The Man Who Planted Trees",
+    "The Wrong Trousers",
+    "Reversal of Fortune",
+    "The Barefoot Contessa",
+    "Harvie Krumpet",
+    "Divorce Italian Style",
+    "Gerald McBoing-Boing",
+    "The Naked City",
+    "Pollyanna",
+    "Cromwell",
+    "Nashville",
+    "When We Were Kings",
+    "Leave Her to Heaven",
+    "Tootsie",
+    "Sunrise",
+    "Annie Get Your Gun",
+    "Searching for Sugar Man",
+    "Marooned",
+    "The Circus",
+    "A Fantastic Woman",
+    "The Stratton Story",
+    "The Hurricane",
+    "Funny Girl",
+    "The Grapes of Wrath",
+    "Drive My Car",
+    "The Miracle Worker",
+    "Amour",
+    "Roman Holiday",
+    "The Milky Way",
+    "Titanic",
+    "Bugsy"
+  ],
+  "samples": [
+    {
+      "answer": "Hustle & Flow",
+      "source": "https://en.wikipedia.org/wiki/List_of_Academy_Award–winning_films",
+      "wikipediaTitle": "Hustle & Flow",
+      "pageviews": {
+        "total": 11236,
+        "days": 31,
+        "title": "Hustle & Flow",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "Stagecoach",
+      "source": "https://en.wikipedia.org/wiki/List_of_Academy_Award–winning_films",
+      "wikipediaTitle": "Stagecoach (1939 film)",
+      "pageviews": {
+        "total": 19262,
+        "days": 31,
+        "title": "Stagecoach (1939 film)",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "A Star Is Born",
+      "source": "https://en.wikipedia.org/wiki/List_of_Academy_Award–winning_films",
+      "wikipediaTitle": "A Star Is Born (1937 film)",
+      "pageviews": {
+        "total": 13458,
+        "days": 31,
+        "title": "A Star Is Born (1937 film)",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "Bound for Glory",
+      "source": "https://en.wikipedia.org/wiki/List_of_Academy_Award–winning_films",
+      "wikipediaTitle": "Bound for Glory (1976 film)",
+      "pageviews": {
+        "total": 4164,
+        "days": 31,
+        "title": "Bound for Glory (1976 film)",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "Spellbound",
+      "source": "https://en.wikipedia.org/wiki/List_of_Academy_Award–winning_films",
+      "wikipediaTitle": "Spellbound (1945 film)",
+      "pageviews": {
+        "total": 15845,
+        "days": 31,
+        "title": "Spellbound (1945 film)",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "Written on the Wind",
+      "source": "https://en.wikipedia.org/wiki/List_of_Academy_Award–winning_films",
+      "wikipediaTitle": "Written on the Wind",
+      "pageviews": {
+        "total": 9113,
+        "days": 31,
+        "title": "Written on the Wind",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "The Last Command",
+      "source": "https://en.wikipedia.org/wiki/List_of_Academy_Award–winning_films",
+      "wikipediaTitle": "The Last Command (1928 film)",
+      "pageviews": {
+        "total": 1463,
+        "days": 31,
+        "title": "The Last Command (1928 film)",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "Judgment at Nuremberg",
+      "source": "https://en.wikipedia.org/wiki/List_of_Academy_Award–winning_films",
+      "wikipediaTitle": "Judgment at Nuremberg",
+      "pageviews": {
+        "total": 14145,
+        "days": 31,
+        "title": "Judgment at Nuremberg",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "Departures",
+      "source": "https://en.wikipedia.org/wiki/List_of_Academy_Award–winning_films",
+      "wikipediaTitle": "Departures (2008 film)",
+      "pageviews": {
+        "total": 5603,
+        "days": 31,
+        "title": "Departures (2008 film)",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "Mighty Aphrodite",
+      "source": "https://en.wikipedia.org/wiki/List_of_Academy_Award–winning_films",
+      "wikipediaTitle": "Mighty Aphrodite",
+      "pageviews": {
+        "total": 9752,
+        "days": 31,
+        "title": "Mighty Aphrodite",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "Cries and Whispers",
+      "source": "https://en.wikipedia.org/wiki/List_of_Academy_Award–winning_films",
+      "wikipediaTitle": "Cries and Whispers",
+      "pageviews": {
+        "total": 4896,
+        "days": 31,
+        "title": "Cries and Whispers",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "The Music Man",
+      "source": "https://en.wikipedia.org/wiki/List_of_Academy_Award–winning_films",
+      "wikipediaTitle": "The Music Man (1962 film)",
+      "pageviews": {
+        "total": 9357,
+        "days": 31,
+        "title": "The Music Man (1962 film)",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "The Great Gatsby",
+      "source": "https://en.wikipedia.org/wiki/List_of_Academy_Award–winning_films",
+      "wikipediaTitle": "The Great Gatsby (1974 film)",
+      "pageviews": {
+        "total": 12837,
+        "days": 31,
+        "title": "The Great Gatsby (1974 film)",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "Summer of '42",
+      "source": "https://en.wikipedia.org/wiki/List_of_Academy_Award–winning_films",
+      "wikipediaTitle": "Summer of '42",
+      "pageviews": {
+        "total": 12115,
+        "days": 31,
+        "title": "Summer of '42",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "Geri's Game",
+      "source": "https://en.wikipedia.org/wiki/List_of_Academy_Award–winning_films",
+      "wikipediaTitle": "Geri's Game",
+      "pageviews": {
+        "total": 3604,
+        "days": 31,
+        "title": "Geri's Game",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "Three Little Pigs",
+      "source": "https://en.wikipedia.org/wiki/List_of_Academy_Award–winning_films",
+      "wikipediaTitle": "Three Little Pigs (film)",
+      "pageviews": {
+        "total": 3950,
+        "days": 31,
+        "title": "Three Little Pigs (film)",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "The Way We Were",
+      "source": "https://en.wikipedia.org/wiki/List_of_Academy_Award–winning_films",
+      "wikipediaTitle": "The Way We Were",
+      "pageviews": {
+        "total": 18358,
+        "days": 31,
+        "title": "The Way We Were",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Fiddler on the Roof",
+      "source": "https://en.wikipedia.org/wiki/List_of_Academy_Award–winning_films",
+      "wikipediaTitle": "Fiddler on the Roof (film)",
+      "pageviews": {
+        "total": 21001,
+        "days": 31,
+        "title": "Fiddler on the Roof (film)",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "Panic in the Streets",
+      "source": "https://en.wikipedia.org/wiki/List_of_Academy_Award–winning_films",
+      "wikipediaTitle": "Panic in the Streets (film)",
+      "pageviews": {
+        "total": 1986,
+        "days": 31,
+        "title": "Panic in the Streets (film)",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "The Man Who Planted Trees",
+      "source": "https://en.wikipedia.org/wiki/List_of_Academy_Award–winning_films",
+      "wikipediaTitle": "The Man Who Planted Trees (film)",
+      "pageviews": {
+        "total": 1044,
+        "days": 31,
+        "title": "The Man Who Planted Trees (film)",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "The Wrong Trousers",
+      "source": "https://en.wikipedia.org/wiki/List_of_Academy_Award–winning_films",
+      "wikipediaTitle": "The Wrong Trousers",
+      "pageviews": {
+        "total": 9340,
+        "days": 31,
+        "title": "The Wrong Trousers",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "Reversal of Fortune",
+      "source": "https://en.wikipedia.org/wiki/List_of_Academy_Award–winning_films",
+      "wikipediaTitle": "Reversal of Fortune",
+      "pageviews": {
+        "total": 14210,
+        "days": 31,
+        "title": "Reversal of Fortune",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "The Barefoot Contessa",
+      "source": "https://en.wikipedia.org/wiki/List_of_Academy_Award–winning_films",
+      "wikipediaTitle": "The Barefoot Contessa",
+      "pageviews": {
+        "total": 6642,
+        "days": 31,
+        "title": "The Barefoot Contessa",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "Harvie Krumpet",
+      "source": "https://en.wikipedia.org/wiki/List_of_Academy_Award–winning_films",
+      "wikipediaTitle": "Harvie Krumpet",
+      "pageviews": {
+        "total": 2259,
+        "days": 31,
+        "title": "Harvie Krumpet",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "Divorce Italian Style",
+      "source": "https://en.wikipedia.org/wiki/List_of_Academy_Award–winning_films",
+      "wikipediaTitle": "Divorce Italian Style",
+      "pageviews": {
+        "total": 2352,
+        "days": 31,
+        "title": "Divorce Italian Style",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "Gerald McBoing-Boing",
+      "source": "https://en.wikipedia.org/wiki/List_of_Academy_Award–winning_films",
+      "wikipediaTitle": "Gerald McBoing-Boing",
+      "pageviews": {
+        "total": 3486,
+        "days": 31,
+        "title": "Gerald McBoing-Boing",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "The Naked City",
+      "source": "https://en.wikipedia.org/wiki/List_of_Academy_Award–winning_films",
+      "wikipediaTitle": "The Naked City",
+      "pageviews": {
+        "total": 4353,
+        "days": 31,
+        "title": "The Naked City",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "Pollyanna",
+      "source": "https://en.wikipedia.org/wiki/List_of_Academy_Award–winning_films",
+      "wikipediaTitle": "Pollyanna (1960 film)",
+      "pageviews": {
+        "total": 8156,
+        "days": 31,
+        "title": "Pollyanna (1960 film)",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "Cromwell",
+      "source": "https://en.wikipedia.org/wiki/List_of_Academy_Award–winning_films",
+      "wikipediaTitle": "Cromwell (film)",
+      "pageviews": {
+        "total": 6378,
+        "days": 31,
+        "title": "Cromwell (film)",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "Nashville",
+      "source": "https://en.wikipedia.org/wiki/List_of_Academy_Award–winning_films",
+      "wikipediaTitle": "Nashville (film)",
+      "pageviews": {
+        "total": 13702,
+        "days": 31,
+        "title": "Nashville (film)",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "When We Were Kings",
+      "source": "https://en.wikipedia.org/wiki/List_of_Academy_Award–winning_films",
+      "wikipediaTitle": "When We Were Kings",
+      "pageviews": {
+        "total": 4799,
+        "days": 31,
+        "title": "When We Were Kings",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "Leave Her to Heaven",
+      "source": "https://en.wikipedia.org/wiki/List_of_Academy_Award–winning_films",
+      "wikipediaTitle": "Leave Her to Heaven",
+      "pageviews": {
+        "total": 17538,
+        "days": 31,
+        "title": "Leave Her to Heaven",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "Tootsie",
+      "source": "https://en.wikipedia.org/wiki/List_of_Academy_Award–winning_films",
+      "wikipediaTitle": "Tootsie",
+      "pageviews": {
+        "total": 24490,
+        "days": 31,
+        "title": "Tootsie",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Sunrise",
+      "source": "https://en.wikipedia.org/wiki/List_of_Academy_Award–winning_films",
+      "wikipediaTitle": "Sunrise: A Song of Two Humans",
+      "pageviews": {
+        "total": 8079,
+        "days": 31,
+        "title": "Sunrise: A Song of Two Humans",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "Annie Get Your Gun",
+      "source": "https://en.wikipedia.org/wiki/List_of_Academy_Award–winning_films",
+      "wikipediaTitle": "Annie Get Your Gun (film)",
+      "pageviews": {
+        "total": 4790,
+        "days": 31,
+        "title": "Annie Get Your Gun (film)",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "Searching for Sugar Man",
+      "source": "https://en.wikipedia.org/wiki/List_of_Academy_Award–winning_films",
+      "wikipediaTitle": "Searching for Sugar Man",
+      "pageviews": {
+        "total": 10394,
+        "days": 31,
+        "title": "Searching for Sugar Man",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "Marooned",
+      "source": "https://en.wikipedia.org/wiki/List_of_Academy_Award–winning_films",
+      "wikipediaTitle": "Marooned (1969 film)",
+      "pageviews": {
+        "total": 3158,
+        "days": 31,
+        "title": "Marooned (1969 film)",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "The Circus",
+      "source": "https://en.wikipedia.org/wiki/List_of_Academy_Award–winning_films",
+      "wikipediaTitle": "The Circus (1928 film)",
+      "pageviews": {
+        "total": 3044,
+        "days": 31,
+        "title": "The Circus (1928 film)",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "A Fantastic Woman",
+      "source": "https://en.wikipedia.org/wiki/List_of_Academy_Award–winning_films",
+      "wikipediaTitle": "A Fantastic Woman",
+      "pageviews": {
+        "total": 2748,
+        "days": 31,
+        "title": "A Fantastic Woman",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "The Stratton Story",
+      "source": "https://en.wikipedia.org/wiki/List_of_Academy_Award–winning_films",
+      "wikipediaTitle": "The Stratton Story",
+      "pageviews": {
+        "total": 1525,
+        "days": 31,
+        "title": "The Stratton Story",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "The Hurricane",
+      "source": "https://en.wikipedia.org/wiki/List_of_Academy_Award–winning_films",
+      "wikipediaTitle": "The Hurricane (1937 film)",
+      "pageviews": {
+        "total": 1230,
+        "days": 31,
+        "title": "The Hurricane (1937 film)",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "Funny Girl",
+      "source": "https://en.wikipedia.org/wiki/List_of_Academy_Award–winning_films",
+      "wikipediaTitle": "Funny Girl (film)",
+      "pageviews": {
+        "total": 13094,
+        "days": 31,
+        "title": "Funny Girl (film)",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "The Grapes of Wrath",
+      "source": "https://en.wikipedia.org/wiki/List_of_Academy_Award–winning_films",
+      "wikipediaTitle": "The Grapes of Wrath (film)",
+      "pageviews": {
+        "total": 15929,
+        "days": 31,
+        "title": "The Grapes of Wrath (film)",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "Drive My Car",
+      "source": "https://en.wikipedia.org/wiki/List_of_Academy_Award–winning_films",
+      "wikipediaTitle": "Drive My Car (film)",
+      "pageviews": {
+        "total": 18262,
+        "days": 31,
+        "title": "Drive My Car (film)",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "The Miracle Worker",
+      "source": "https://en.wikipedia.org/wiki/List_of_Academy_Award–winning_films",
+      "wikipediaTitle": "The Miracle Worker (1962 film)",
+      "pageviews": {
+        "total": 8740,
+        "days": 31,
+        "title": "The Miracle Worker (1962 film)",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "Amour",
+      "source": "https://en.wikipedia.org/wiki/List_of_Academy_Award–winning_films",
+      "wikipediaTitle": "Amour (2012 film)",
+      "pageviews": {
+        "total": 8857,
+        "days": 31,
+        "title": "Amour (2012 film)",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "Roman Holiday",
+      "source": "https://en.wikipedia.org/wiki/List_of_Academy_Award–winning_films",
+      "wikipediaTitle": "Roman Holiday",
+      "pageviews": {
+        "total": 23768,
+        "days": 31,
+        "title": "Roman Holiday",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "The Milky Way",
+      "source": "https://en.wikipedia.org/wiki/List_of_Academy_Award–winning_films",
+      "wikipediaTitle": "The Milky Way (1940 film)",
+      "pageviews": {
+        "total": 995,
+        "days": 31,
+        "title": "The Milky Way (1940 film)",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "Titanic",
+      "source": "https://en.wikipedia.org/wiki/List_of_Academy_Award–winning_films",
+      "wikipediaTitle": "Titanic (1953 film)",
+      "pageviews": {
+        "total": 4155,
+        "days": 31,
+        "title": "Titanic (1953 film)",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "Bugsy",
+      "source": "https://en.wikipedia.org/wiki/List_of_Academy_Award–winning_films",
+      "wikipediaTitle": "Bugsy",
+      "pageviews": {
+        "total": 25464,
+        "days": 31,
+        "title": "Bugsy",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    }
+  ]
+}

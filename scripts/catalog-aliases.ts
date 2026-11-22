@@ -1,4 +1,10 @@
 import pluralize from 'pluralize';
+export function conjunctionAliases(name: string) {
+  return [
+    ...(name.includes('&') ? [name.replace(/&/g, ' and ')] : []),
+    ...(/\band\b/i.test(name) ? [name.replace(/\band\b/gi, '&')] : []),
+  ];
+}
 const alternatives: Record<string, string[]> = {
   cactus: ['cacti', 'cactuses'],
   hippopotamus: ['hippopotami', 'hippopotamuses'],

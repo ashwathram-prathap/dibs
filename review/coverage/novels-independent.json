@@ -1,0 +1,1540 @@
+{
+  "source": "Independent curated Wikipedia lists, extracted by subject column or list label; see source URLs per sample",
+  "seed": 2052950736,
+  "method": "Uniform draw without replacement from the middle half by measured mean daily readership; frozen first draw, all misses retained",
+  "poolSize": 374,
+  "excluded": [
+    {
+      "name": "A Tale of Two Cities",
+      "reason": "Use the specifically novel award list, excluding nonfiction and mixed book forms"
+    },
+    {
+      "name": "The Little Prince",
+      "reason": "Use the specifically novel award list, excluding nonfiction and mixed book forms"
+    },
+    {
+      "name": "The Alchemist",
+      "reason": "Use the specifically novel award list, excluding nonfiction and mixed book forms"
+    },
+    {
+      "name": "Harry Potter and the Philosopher's Stone",
+      "reason": "Use the specifically novel award list, excluding nonfiction and mixed book forms"
+    },
+    {
+      "name": "And Then There Were None",
+      "reason": "Use the specifically novel award list, excluding nonfiction and mixed book forms"
+    },
+    {
+      "name": "Dream of the Red Chamber",
+      "reason": "Use the specifically novel award list, excluding nonfiction and mixed book forms"
+    },
+    {
+      "name": "The Hobbit",
+      "reason": "Use the specifically novel award list, excluding nonfiction and mixed book forms"
+    },
+    {
+      "name": "Alice's Adventures in Wonderland",
+      "reason": "Use the specifically novel award list, excluding nonfiction and mixed book forms"
+    },
+    {
+      "name": "She: A History of Adventure",
+      "reason": "Use the specifically novel award list, excluding nonfiction and mixed book forms"
+    },
+    {
+      "name": "The Da Vinci Code",
+      "reason": "Use the specifically novel award list, excluding nonfiction and mixed book forms"
+    },
+    {
+      "name": "Harry Potter and the Chamber of Secrets",
+      "reason": "Use the specifically novel award list, excluding nonfiction and mixed book forms"
+    },
+    {
+      "name": "The Catcher in the Rye",
+      "reason": "Use the specifically novel award list, excluding nonfiction and mixed book forms"
+    },
+    {
+      "name": "Sophie's World",
+      "reason": "Use the specifically novel award list, excluding nonfiction and mixed book forms"
+    },
+    {
+      "name": "The Bridges of Madison County",
+      "reason": "Use the specifically novel award list, excluding nonfiction and mixed book forms"
+    },
+    {
+      "name": "One Hundred Years of Solitude",
+      "reason": "Use the specifically novel award list, excluding nonfiction and mixed book forms"
+    },
+    {
+      "name": "Lolita",
+      "reason": "Use the specifically novel award list, excluding nonfiction and mixed book forms"
+    },
+    {
+      "name": "Heidi",
+      "reason": "Use the specifically novel award list, excluding nonfiction and mixed book forms"
+    },
+    {
+      "name": "The Common Sense Book of Baby and Child Care",
+      "reason": "Use the specifically novel award list, excluding nonfiction and mixed book forms"
+    },
+    {
+      "name": "Anne of Green Gables",
+      "reason": "Use the specifically novel award list, excluding nonfiction and mixed book forms"
+    },
+    {
+      "name": "Black Beauty",
+      "reason": "Use the specifically novel award list, excluding nonfiction and mixed book forms"
+    },
+    {
+      "name": "The Name of the Rose",
+      "reason": "Use the specifically novel award list, excluding nonfiction and mixed book forms"
+    },
+    {
+      "name": "The Eagle Has Landed",
+      "reason": "Use the specifically novel award list, excluding nonfiction and mixed book forms"
+    },
+    {
+      "name": "Watership Down",
+      "reason": "Use the specifically novel award list, excluding nonfiction and mixed book forms"
+    },
+    {
+      "name": "The Hite Report",
+      "reason": "Use the specifically novel award list, excluding nonfiction and mixed book forms"
+    },
+    {
+      "name": "Charlotte's Web",
+      "reason": "Use the specifically novel award list, excluding nonfiction and mixed book forms"
+    },
+    {
+      "name": "The Ginger Man",
+      "reason": "Use the specifically novel award list, excluding nonfiction and mixed book forms"
+    },
+    {
+      "name": "The Purpose Driven Life",
+      "reason": "Use the specifically novel award list, excluding nonfiction and mixed book forms"
+    },
+    {
+      "name": "The Tale of Peter Rabbit",
+      "reason": "Use the specifically novel award list, excluding nonfiction and mixed book forms"
+    },
+    {
+      "name": "Jonathan Livingston Seagull",
+      "reason": "Use the specifically novel award list, excluding nonfiction and mixed book forms"
+    },
+    {
+      "name": "The Very Hungry Caterpillar",
+      "reason": "Use the specifically novel award list, excluding nonfiction and mixed book forms"
+    },
+    {
+      "name": "A Message to Garcia",
+      "reason": "Use the specifically novel award list, excluding nonfiction and mixed book forms"
+    },
+    {
+      "name": "To Kill a Mockingbird",
+      "reason": "Use the specifically novel award list, excluding nonfiction and mixed book forms"
+    },
+    {
+      "name": "Flowers in the Attic",
+      "reason": "Use the specifically novel award list, excluding nonfiction and mixed book forms"
+    },
+    {
+      "name": "Cosmos",
+      "reason": "Use the specifically novel award list, excluding nonfiction and mixed book forms"
+    },
+    {
+      "name": "Angels & Demons",
+      "reason": "Use the specifically novel award list, excluding nonfiction and mixed book forms"
+    },
+    {
+      "name": "How to Win Friends and Influence People",
+      "reason": "Use the specifically novel award list, excluding nonfiction and mixed book forms"
+    },
+    {
+      "name": "Alcoholics Anonymous",
+      "reason": "Use the specifically novel award list, excluding nonfiction and mixed book forms"
+    },
+    {
+      "name": "The BFG",
+      "reason": "Use the specifically novel award list, excluding nonfiction and mixed book forms"
+    },
+    {
+      "name": "Fear of Flying",
+      "reason": "Use the specifically novel award list, excluding nonfiction and mixed book forms"
+    },
+    {
+      "name": "How the Steel Was Tempered",
+      "reason": "Use the specifically novel award list, excluding nonfiction and mixed book forms"
+    },
+    {
+      "name": "War and Peace",
+      "reason": "Use the specifically novel award list, excluding nonfiction and mixed book forms"
+    },
+    {
+      "name": "The Adventures of Pinocchio",
+      "reason": "Use the specifically novel award list, excluding nonfiction and mixed book forms"
+    },
+    {
+      "name": "The Diary of Anne Frank",
+      "reason": "Use the specifically novel award list, excluding nonfiction and mixed book forms"
+    },
+    {
+      "name": "Your Erroneous Zones",
+      "reason": "Use the specifically novel award list, excluding nonfiction and mixed book forms"
+    },
+    {
+      "name": "The Thorn Birds",
+      "reason": "Use the specifically novel award list, excluding nonfiction and mixed book forms"
+    },
+    {
+      "name": "Kane and Abel",
+      "reason": "Use the specifically novel award list, excluding nonfiction and mixed book forms"
+    },
+    {
+      "name": "The Kite Runner",
+      "reason": "Use the specifically novel award list, excluding nonfiction and mixed book forms"
+    },
+    {
+      "name": "Valley of the Dolls",
+      "reason": "Use the specifically novel award list, excluding nonfiction and mixed book forms"
+    },
+    {
+      "name": "The Great Gatsby",
+      "reason": "Use the specifically novel award list, excluding nonfiction and mixed book forms"
+    },
+    {
+      "name": "Gone with the Wind",
+      "reason": "Use the specifically novel award list, excluding nonfiction and mixed book forms"
+    },
+    {
+      "name": "Rebecca",
+      "reason": "Use the specifically novel award list, excluding nonfiction and mixed book forms"
+    },
+    {
+      "name": "The Revolt of Mamie Stover",
+      "reason": "Use the specifically novel award list, excluding nonfiction and mixed book forms"
+    },
+    {
+      "name": "The Girl with the Dragon Tattoo",
+      "reason": "Use the specifically novel award list, excluding nonfiction and mixed book forms"
+    },
+    {
+      "name": "The Lost Symbol",
+      "reason": "Use the specifically novel award list, excluding nonfiction and mixed book forms"
+    },
+    {
+      "name": "The Hunger Games",
+      "reason": "Use the specifically novel award list, excluding nonfiction and mixed book forms"
+    },
+    {
+      "name": "James and the Giant Peach",
+      "reason": "Use the specifically novel award list, excluding nonfiction and mixed book forms"
+    },
+    {
+      "name": "Ben-Hur: A Tale of the Christ",
+      "reason": "Use the specifically novel award list, excluding nonfiction and mixed book forms"
+    },
+    {
+      "name": "The Young Guard",
+      "reason": "Use the specifically novel award list, excluding nonfiction and mixed book forms"
+    },
+    {
+      "name": "Who Moved My Cheese?",
+      "reason": "Use the specifically novel award list, excluding nonfiction and mixed book forms"
+    },
+    {
+      "name": "A Brief History of Time",
+      "reason": "Use the specifically novel award list, excluding nonfiction and mixed book forms"
+    },
+    {
+      "name": "Paul et Virginie",
+      "reason": "Use the specifically novel award list, excluding nonfiction and mixed book forms"
+    },
+    {
+      "name": "Lust for Life",
+      "reason": "Use the specifically novel award list, excluding nonfiction and mixed book forms"
+    },
+    {
+      "name": "The Wind in the Willows",
+      "reason": "Use the specifically novel award list, excluding nonfiction and mixed book forms"
+    },
+    {
+      "name": "The 7 Habits of Highly Effective People",
+      "reason": "Use the specifically novel award list, excluding nonfiction and mixed book forms"
+    },
+    {
+      "name": "Totto-Chan: The Little Girl at the Window",
+      "reason": "Use the specifically novel award list, excluding nonfiction and mixed book forms"
+    },
+    {
+      "name": "Virgin Soil Upturned",
+      "reason": "Use the specifically novel award list, excluding nonfiction and mixed book forms"
+    },
+    {
+      "name": "The Celestine Prophecy",
+      "reason": "Use the specifically novel award list, excluding nonfiction and mixed book forms"
+    },
+    {
+      "name": "The Fault in Our Stars",
+      "reason": "Use the specifically novel award list, excluding nonfiction and mixed book forms"
+    },
+    {
+      "name": "The Girl on the Train",
+      "reason": "Use the specifically novel award list, excluding nonfiction and mixed book forms"
+    },
+    {
+      "name": "The Shack",
+      "reason": "Use the specifically novel award list, excluding nonfiction and mixed book forms"
+    },
+    {
+      "name": "Uncle Styopa",
+      "reason": "Use the specifically novel award list, excluding nonfiction and mixed book forms"
+    },
+    {
+      "name": "The Godfather",
+      "reason": "Use the specifically novel award list, excluding nonfiction and mixed book forms"
+    },
+    {
+      "name": "Love Story",
+      "reason": "Use the specifically novel award list, excluding nonfiction and mixed book forms"
+    },
+    {
+      "name": "Catching Fire",
+      "reason": "Use the specifically novel award list, excluding nonfiction and mixed book forms"
+    },
+    {
+      "name": "Mockingjay",
+      "reason": "Use the specifically novel award list, excluding nonfiction and mixed book forms"
+    },
+    {
+      "name": "Kitchen",
+      "reason": "Use the specifically novel award list, excluding nonfiction and mixed book forms"
+    },
+    {
+      "name": "Andromeda Nebula",
+      "reason": "Use the specifically novel award list, excluding nonfiction and mixed book forms"
+    },
+    {
+      "name": "Gone Girl",
+      "reason": "Use the specifically novel award list, excluding nonfiction and mixed book forms"
+    },
+    {
+      "name": "The Bermuda Triangle",
+      "reason": "Use the specifically novel award list, excluding nonfiction and mixed book forms"
+    },
+    {
+      "name": "Things Fall Apart",
+      "reason": "Use the specifically novel award list, excluding nonfiction and mixed book forms"
+    },
+    {
+      "name": "Wolf Totem",
+      "reason": "Use the specifically novel award list, excluding nonfiction and mixed book forms"
+    },
+    {
+      "name": "The Happy Hooker: My Own Story",
+      "reason": "Use the specifically novel award list, excluding nonfiction and mixed book forms"
+    },
+    {
+      "name": "Jaws",
+      "reason": "Use the specifically novel award list, excluding nonfiction and mixed book forms"
+    },
+    {
+      "name": "Love You Forever",
+      "reason": "Use the specifically novel award list, excluding nonfiction and mixed book forms"
+    },
+    {
+      "name": "The Women's Room",
+      "reason": "Use the specifically novel award list, excluding nonfiction and mixed book forms"
+    },
+    {
+      "name": "What to Expect When You're Expecting",
+      "reason": "Use the specifically novel award list, excluding nonfiction and mixed book forms"
+    },
+    {
+      "name": "Adventures of Huckleberry Finn",
+      "reason": "Use the specifically novel award list, excluding nonfiction and mixed book forms"
+    },
+    {
+      "name": "The Secret Diary of Adrian Mole, Aged 13¾",
+      "reason": "Use the specifically novel award list, excluding nonfiction and mixed book forms"
+    },
+    {
+      "name": "Pride and Prejudice",
+      "reason": "Use the specifically novel award list, excluding nonfiction and mixed book forms"
+    },
+    {
+      "name": "Kon-Tiki: Across the Pacific in a Raft",
+      "reason": "Use the specifically novel award list, excluding nonfiction and mixed book forms"
+    },
+    {
+      "name": "The Good Soldier Švejk",
+      "reason": "Use the specifically novel award list, excluding nonfiction and mixed book forms"
+    },
+    {
+      "name": "Where the Wild Things Are",
+      "reason": "Use the specifically novel award list, excluding nonfiction and mixed book forms"
+    },
+    {
+      "name": "The Power of Positive Thinking",
+      "reason": "Use the specifically novel award list, excluding nonfiction and mixed book forms"
+    },
+    {
+      "name": "The Secret",
+      "reason": "Use the specifically novel award list, excluding nonfiction and mixed book forms"
+    },
+    {
+      "name": "Dune",
+      "reason": "Use the specifically novel award list, excluding nonfiction and mixed book forms"
+    },
+    {
+      "name": "Charlie and the Chocolate Factory",
+      "reason": "Use the specifically novel award list, excluding nonfiction and mixed book forms"
+    },
+    {
+      "name": "The Naked Ape",
+      "reason": "Use the specifically novel award list, excluding nonfiction and mixed book forms"
+    },
+    {
+      "name": "Kokoro",
+      "reason": "Use the specifically novel award list, excluding nonfiction and mixed book forms"
+    },
+    {
+      "name": "Where the Crawdads Sing",
+      "reason": "Use the specifically novel award list, excluding nonfiction and mixed book forms"
+    },
+    {
+      "name": "Follow Your Heart",
+      "reason": "Use the specifically novel award list, excluding nonfiction and mixed book forms"
+    },
+    {
+      "name": "Matilda",
+      "reason": "Use the specifically novel award list, excluding nonfiction and mixed book forms"
+    },
+    {
+      "name": "The Book Thief",
+      "reason": "Use the specifically novel award list, excluding nonfiction and mixed book forms"
+    },
+    {
+      "name": "The Horse Whisperer",
+      "reason": "Use the specifically novel award list, excluding nonfiction and mixed book forms"
+    },
+    {
+      "name": "Goodnight Moon",
+      "reason": "Use the specifically novel award list, excluding nonfiction and mixed book forms"
+    },
+    {
+      "name": "The Neverending Story",
+      "reason": "Use the specifically novel award list, excluding nonfiction and mixed book forms"
+    },
+    {
+      "name": "All the Light We Cannot See",
+      "reason": "Use the specifically novel award list, excluding nonfiction and mixed book forms"
+    },
+    {
+      "name": "Fifty Shades of Grey",
+      "reason": "Use the specifically novel award list, excluding nonfiction and mixed book forms"
+    },
+    {
+      "name": "The Outsiders",
+      "reason": "Use the specifically novel award list, excluding nonfiction and mixed book forms"
+    },
+    {
+      "name": "Guess How Much I Love You",
+      "reason": "Use the specifically novel award list, excluding nonfiction and mixed book forms"
+    },
+    {
+      "name": "Shōgun",
+      "reason": "Use the specifically novel award list, excluding nonfiction and mixed book forms"
+    },
+    {
+      "name": "The Poky Little Puppy",
+      "reason": "Use the specifically novel award list, excluding nonfiction and mixed book forms"
+    },
+    {
+      "name": "The Pillars of the Earth",
+      "reason": "Use the specifically novel award list, excluding nonfiction and mixed book forms"
+    },
+    {
+      "name": "Perfume",
+      "reason": "Use the specifically novel award list, excluding nonfiction and mixed book forms"
+    },
+    {
+      "name": "The Grapes of Wrath",
+      "reason": "Use the specifically novel award list, excluding nonfiction and mixed book forms"
+    },
+    {
+      "name": "The Shadow of the Wind",
+      "reason": "Use the specifically novel award list, excluding nonfiction and mixed book forms"
+    },
+    {
+      "name": "Interpreter of Maladies",
+      "reason": "Use the specifically novel award list, excluding nonfiction and mixed book forms"
+    },
+    {
+      "name": "Becoming",
+      "reason": "Use the specifically novel award list, excluding nonfiction and mixed book forms"
+    },
+    {
+      "name": "The Hitchhiker's Guide to the Galaxy",
+      "reason": "Use the specifically novel award list, excluding nonfiction and mixed book forms"
+    },
+    {
+      "name": "Tuesdays with Morrie",
+      "reason": "Use the specifically novel award list, excluding nonfiction and mixed book forms"
+    },
+    {
+      "name": "God's Little Acre",
+      "reason": "Use the specifically novel award list, excluding nonfiction and mixed book forms"
+    },
+    {
+      "name": "A Wrinkle in Time",
+      "reason": "Use the specifically novel award list, excluding nonfiction and mixed book forms"
+    },
+    {
+      "name": "Long Walk to Freedom",
+      "reason": "Use the specifically novel award list, excluding nonfiction and mixed book forms"
+    },
+    {
+      "name": "The Old Man and the Sea",
+      "reason": "Use the specifically novel award list, excluding nonfiction and mixed book forms"
+    },
+    {
+      "name": "Life After Life",
+      "reason": "Use the specifically novel award list, excluding nonfiction and mixed book forms"
+    },
+    {
+      "name": "Momo",
+      "reason": "Use the specifically novel award list, excluding nonfiction and mixed book forms"
+    },
+    {
+      "name": "Peyton Place",
+      "reason": "Use the specifically novel award list, excluding nonfiction and mixed book forms"
+    },
+    {
+      "name": "The Giver",
+      "reason": "Use the specifically novel award list, excluding nonfiction and mixed book forms"
+    },
+    {
+      "name": "Me Before You",
+      "reason": "Use the specifically novel award list, excluding nonfiction and mixed book forms"
+    },
+    {
+      "name": "Norwegian Wood",
+      "reason": "Use the specifically novel award list, excluding nonfiction and mixed book forms"
+    },
+    {
+      "name": "The Plague",
+      "reason": "Use the specifically novel award list, excluding nonfiction and mixed book forms"
+    },
+    {
+      "name": "No Longer Human",
+      "reason": "Use the specifically novel award list, excluding nonfiction and mixed book forms"
+    },
+    {
+      "name": "Man's Search for Meaning",
+      "reason": "Use the specifically novel award list, excluding nonfiction and mixed book forms"
+    },
+    {
+      "name": "The Subtle Art of Not Giving a Fuck",
+      "reason": "Use the specifically novel award list, excluding nonfiction and mixed book forms"
+    },
+    {
+      "name": "The Divine Comedy",
+      "reason": "Use the specifically novel award list, excluding nonfiction and mixed book forms"
+    },
+    {
+      "name": "Hairy Maclary from Donaldson's Dairy",
+      "reason": "Use the specifically novel award list, excluding nonfiction and mixed book forms"
+    },
+    {
+      "name": "The Prophet",
+      "reason": "Use the specifically novel award list, excluding nonfiction and mixed book forms"
+    },
+    {
+      "name": "The Boy in the Striped Pyjamas",
+      "reason": "Use the specifically novel award list, excluding nonfiction and mixed book forms"
+    },
+    {
+      "name": "The Exorcist",
+      "reason": "Use the specifically novel award list, excluding nonfiction and mixed book forms"
+    },
+    {
+      "name": "The Gruffalo",
+      "reason": "Use the specifically novel award list, excluding nonfiction and mixed book forms"
+    },
+    {
+      "name": "Fifty Shades Darker",
+      "reason": "Use the specifically novel award list, excluding nonfiction and mixed book forms"
+    },
+    {
+      "name": "Tobacco Road",
+      "reason": "Use the specifically novel award list, excluding nonfiction and mixed book forms"
+    },
+    {
+      "name": "Ronia, the Robber's Daughter",
+      "reason": "Use the specifically novel award list, excluding nonfiction and mixed book forms"
+    },
+    {
+      "name": "The Cat in the Hat",
+      "reason": "Use the specifically novel award list, excluding nonfiction and mixed book forms"
+    },
+    {
+      "name": "Diana: Her True Story",
+      "reason": "Use the specifically novel award list, excluding nonfiction and mixed book forms"
+    },
+    {
+      "name": "The Help",
+      "reason": "Use the specifically novel award list, excluding nonfiction and mixed book forms"
+    },
+    {
+      "name": "Catch-22",
+      "reason": "Use the specifically novel award list, excluding nonfiction and mixed book forms"
+    },
+    {
+      "name": "The Stranger",
+      "reason": "Use the specifically novel award list, excluding nonfiction and mixed book forms"
+    },
+    {
+      "name": "Eye of the Needle",
+      "reason": "Use the specifically novel award list, excluding nonfiction and mixed book forms"
+    },
+    {
+      "name": "The Lovely Bones",
+      "reason": "Use the specifically novel award list, excluding nonfiction and mixed book forms"
+    },
+    {
+      "name": "Wild Swans",
+      "reason": "Use the specifically novel award list, excluding nonfiction and mixed book forms"
+    },
+    {
+      "name": "Santa Evita",
+      "reason": "Use the specifically novel award list, excluding nonfiction and mixed book forms"
+    },
+    {
+      "name": "Night",
+      "reason": "Use the specifically novel award list, excluding nonfiction and mixed book forms"
+    },
+    {
+      "name": "Confucius from the Heart",
+      "reason": "Use the specifically novel award list, excluding nonfiction and mixed book forms"
+    },
+    {
+      "name": "The Total Woman",
+      "reason": "Use the specifically novel award list, excluding nonfiction and mixed book forms"
+    },
+    {
+      "name": "Problems in China's Socialist Economy",
+      "reason": "Use the specifically novel award list, excluding nonfiction and mixed book forms"
+    },
+    {
+      "name": "What Color Is Your Parachute?",
+      "reason": "Use the specifically novel award list, excluding nonfiction and mixed book forms"
+    },
+    {
+      "name": "The Dukan Diet",
+      "reason": "Use the specifically novel award list, excluding nonfiction and mixed book forms"
+    },
+    {
+      "name": "The Joy of Sex",
+      "reason": "Use the specifically novel award list, excluding nonfiction and mixed book forms"
+    },
+    {
+      "name": "The Gospel According to Peanuts",
+      "reason": "Use the specifically novel award list, excluding nonfiction and mixed book forms"
+    },
+    {
+      "name": "Life of Pi",
+      "reason": "Use the specifically novel award list, excluding nonfiction and mixed book forms"
+    },
+    {
+      "name": "The Front Runner",
+      "reason": "Use the specifically novel award list, excluding nonfiction and mixed book forms"
+    },
+    {
+      "name": "The Goal",
+      "reason": "Use the specifically novel award list, excluding nonfiction and mixed book forms"
+    },
+    {
+      "name": "Fahrenheit 451",
+      "reason": "Use the specifically novel award list, excluding nonfiction and mixed book forms"
+    },
+    {
+      "name": "Angela's Ashes",
+      "reason": "Use the specifically novel award list, excluding nonfiction and mixed book forms"
+    },
+    {
+      "name": "The Story of My Experiments with Truth",
+      "reason": "Use the specifically novel award list, excluding nonfiction and mixed book forms"
+    },
+    {
+      "name": "Bridget Jones's Diary",
+      "reason": "Use the specifically novel award list, excluding nonfiction and mixed book forms"
+    },
+    {
+      "name": "It Ends with Us",
+      "reason": "Use the specifically novel award list, excluding nonfiction and mixed book forms"
+    },
+    {
+      "name": "My Brilliant Friend",
+      "reason": "Use the specifically novel award list, excluding nonfiction and mixed book forms"
+    },
+    {
+      "name": "Xinhua Zidian",
+      "reason": "Use the specifically novel award list, excluding nonfiction and mixed book forms"
+    },
+    {
+      "name": "Scouting for Boys",
+      "reason": "Use the specifically novel award list, excluding nonfiction and mixed book forms"
+    },
+    {
+      "name": "The McGuffey Readers",
+      "reason": "Use the specifically novel award list, excluding nonfiction and mixed book forms"
+    },
+    {
+      "name": "Guinness World Records",
+      "reason": "Use the specifically novel award list, excluding nonfiction and mixed book forms"
+    },
+    {
+      "name": "American Spelling Book",
+      "reason": "Use the specifically novel award list, excluding nonfiction and mixed book forms"
+    },
+    {
+      "name": "World Almanac",
+      "reason": "Use the specifically novel award list, excluding nonfiction and mixed book forms"
+    },
+    {
+      "name": "Betty Crocker Cookbook",
+      "reason": "Use the specifically novel award list, excluding nonfiction and mixed book forms"
+    },
+    {
+      "name": "Tung Shing",
+      "reason": "Use the specifically novel award list, excluding nonfiction and mixed book forms"
+    },
+    {
+      "name": "Merriam-Webster's Collegiate Dictionary",
+      "reason": "Use the specifically novel award list, excluding nonfiction and mixed book forms"
+    },
+    {
+      "name": "Roget's Thesaurus",
+      "reason": "Use the specifically novel award list, excluding nonfiction and mixed book forms"
+    },
+    {
+      "name": "The Art of Mathematics",
+      "reason": "Use the specifically novel award list, excluding nonfiction and mixed book forms"
+    },
+    {
+      "name": "Oxford Advanced Learner's Dictionary",
+      "reason": "Use the specifically novel award list, excluding nonfiction and mixed book forms"
+    },
+    {
+      "name": "The Michelin Guide",
+      "reason": "Use the specifically novel award list, excluding nonfiction and mixed book forms"
+    },
+    {
+      "name": "Shin Meikai kokugo jiten",
+      "reason": "Use the specifically novel award list, excluding nonfiction and mixed book forms"
+    }
+  ],
+  "answers": [
+    "The Saint of Bright Doors",
+    "Islands in the Net",
+    "Donovan's Brain",
+    "Seventh Son",
+    "Rogue Moon",
+    "Grass",
+    "Babel-17",
+    "Trail of Lightning",
+    "The Rise of Endymion",
+    "Islandia",
+    "Zoe's Tale",
+    "Earth",
+    "The Peace War",
+    "All the Weyrs of Pern",
+    "Lord Valentine's Castle",
+    "More Than Human",
+    "Ancillary Mercy",
+    "The Kaiju Preservation Society",
+    "Man Plus",
+    "The Dark Between the Stars",
+    "Earth's Last Citadel",
+    "Blood Music",
+    "Calculating God",
+    "Little Fuzzy",
+    "The Fountains of Paradise",
+    "Too Like the Lightning",
+    "Children of God",
+    "Saturn's Children",
+    "Middlegame",
+    "Steel Beach",
+    "Queen of Angels",
+    "Witch World",
+    "Beggars in Spain",
+    "Double Star",
+    "The Hundred Thousand Kingdoms",
+    "The Planet Buyer",
+    "When Gravity Fails",
+    "The Integral Trees",
+    "Neptune's Brood",
+    "Protector",
+    "The Einstein Intersection",
+    "Some Desperate Glory",
+    "The Galaxy, and the Ground Within",
+    "Record of a Spaceborn Few",
+    "A Desolation Called Peace",
+    "The Daughter of Doctor Moreau",
+    "Dying Inside",
+    "Little Brother",
+    "Cyteen",
+    "Marooned in Realtime"
+  ],
+  "samples": [
+    {
+      "answer": "The Saint of Bright Doors",
+      "source": "https://en.wikipedia.org/wiki/Hugo_Award_for_Best_Novel",
+      "wikipediaTitle": "The Saint of Bright Doors",
+      "pageviews": {
+        "total": 1669,
+        "days": 31,
+        "title": "The Saint of Bright Doors",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Islands in the Net",
+      "source": "https://en.wikipedia.org/wiki/Hugo_Award_for_Best_Novel",
+      "wikipediaTitle": "Islands in the Net",
+      "pageviews": {
+        "total": 607,
+        "days": 31,
+        "title": "Islands in the Net",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Donovan's Brain",
+      "source": "https://en.wikipedia.org/wiki/Hugo_Award_for_Best_Novel",
+      "wikipediaTitle": "Donovan's Brain",
+      "pageviews": {
+        "total": 993,
+        "days": 31,
+        "title": "Donovan's Brain",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Seventh Son",
+      "source": "https://en.wikipedia.org/wiki/Hugo_Award_for_Best_Novel",
+      "wikipediaTitle": "Seventh Son (novel)",
+      "pageviews": {
+        "total": 1560,
+        "days": 31,
+        "title": "Seventh Son (novel)",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Rogue Moon",
+      "source": "https://en.wikipedia.org/wiki/Hugo_Award_for_Best_Novel",
+      "wikipediaTitle": "Rogue Moon",
+      "pageviews": {
+        "total": 528,
+        "days": 31,
+        "title": "Rogue Moon",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Grass",
+      "source": "https://en.wikipedia.org/wiki/Hugo_Award_for_Best_Novel",
+      "wikipediaTitle": "Grass (Tepper novel)",
+      "pageviews": {
+        "total": 862,
+        "days": 31,
+        "title": "Grass (Tepper novel)",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Babel-17",
+      "source": "https://en.wikipedia.org/wiki/Hugo_Award_for_Best_Novel",
+      "wikipediaTitle": "Babel-17",
+      "pageviews": {
+        "total": 3128,
+        "days": 31,
+        "title": "Babel-17",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Trail of Lightning",
+      "source": "https://en.wikipedia.org/wiki/Hugo_Award_for_Best_Novel",
+      "wikipediaTitle": "Trail of Lightning",
+      "pageviews": {
+        "total": 492,
+        "days": 31,
+        "title": "Trail of Lightning",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "The Rise of Endymion",
+      "source": "https://en.wikipedia.org/wiki/Hugo_Award_for_Best_Novel",
+      "wikipediaTitle": "The Rise of Endymion",
+      "pageviews": {
+        "total": 2650,
+        "days": 31,
+        "title": "The Rise of Endymion",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Islandia",
+      "source": "https://en.wikipedia.org/wiki/Hugo_Award_for_Best_Novel",
+      "wikipediaTitle": "Islandia (novel)",
+      "pageviews": {
+        "total": 636,
+        "days": 31,
+        "title": "Islandia (novel)",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Zoe's Tale",
+      "source": "https://en.wikipedia.org/wiki/Hugo_Award_for_Best_Novel",
+      "wikipediaTitle": "Zoe's Tale",
+      "pageviews": {
+        "total": 888,
+        "days": 31,
+        "title": "Zoe's Tale",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Earth",
+      "source": "https://en.wikipedia.org/wiki/Hugo_Award_for_Best_Novel",
+      "wikipediaTitle": "Earth (Brin novel)",
+      "pageviews": {
+        "total": 669,
+        "days": 31,
+        "title": "Earth (Brin novel)",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "The Peace War",
+      "source": "https://en.wikipedia.org/wiki/Hugo_Award_for_Best_Novel",
+      "wikipediaTitle": "The Peace War",
+      "pageviews": {
+        "total": 644,
+        "days": 31,
+        "title": "The Peace War",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "All the Weyrs of Pern",
+      "source": "https://en.wikipedia.org/wiki/Hugo_Award_for_Best_Novel",
+      "wikipediaTitle": "All the Weyrs of Pern",
+      "pageviews": {
+        "total": 491,
+        "days": 31,
+        "title": "All the Weyrs of Pern",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Lord Valentine's Castle",
+      "source": "https://en.wikipedia.org/wiki/Hugo_Award_for_Best_Novel",
+      "wikipediaTitle": "Majipoor series",
+      "pageviews": {
+        "total": 772,
+        "days": 31,
+        "title": "Majipoor series",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "More Than Human",
+      "source": "https://en.wikipedia.org/wiki/Hugo_Award_for_Best_Novel",
+      "wikipediaTitle": "More Than Human",
+      "pageviews": {
+        "total": 1976,
+        "days": 31,
+        "title": "More Than Human",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Ancillary Mercy",
+      "source": "https://en.wikipedia.org/wiki/Hugo_Award_for_Best_Novel",
+      "wikipediaTitle": "Ancillary Mercy",
+      "pageviews": {
+        "total": 846,
+        "days": 31,
+        "title": "Ancillary Mercy",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "The Kaiju Preservation Society",
+      "source": "https://en.wikipedia.org/wiki/Hugo_Award_for_Best_Novel",
+      "wikipediaTitle": "The Kaiju Preservation Society",
+      "pageviews": {
+        "total": 2459,
+        "days": 31,
+        "title": "The Kaiju Preservation Society",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Man Plus",
+      "source": "https://en.wikipedia.org/wiki/Hugo_Award_for_Best_Novel",
+      "wikipediaTitle": "Man Plus",
+      "pageviews": {
+        "total": 545,
+        "days": 31,
+        "title": "Man Plus",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "The Dark Between the Stars",
+      "source": "https://en.wikipedia.org/wiki/Hugo_Award_for_Best_Novel",
+      "wikipediaTitle": "The Saga of Shadows",
+      "pageviews": {
+        "total": 731,
+        "days": 31,
+        "title": "The Saga of Shadows",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Earth's Last Citadel",
+      "source": "https://en.wikipedia.org/wiki/Hugo_Award_for_Best_Novel",
+      "wikipediaTitle": "Earth's Last Citadel",
+      "pageviews": {
+        "total": 375,
+        "days": 31,
+        "title": "Earth's Last Citadel",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Blood Music",
+      "source": "https://en.wikipedia.org/wiki/Hugo_Award_for_Best_Novel",
+      "wikipediaTitle": "Blood Music (novel)",
+      "pageviews": {
+        "total": 2442,
+        "days": 31,
+        "title": "Blood Music (novel)",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Calculating God",
+      "source": "https://en.wikipedia.org/wiki/Hugo_Award_for_Best_Novel",
+      "wikipediaTitle": "Calculating God",
+      "pageviews": {
+        "total": 516,
+        "days": 31,
+        "title": "Calculating God",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "Little Fuzzy",
+      "source": "https://en.wikipedia.org/wiki/Hugo_Award_for_Best_Novel",
+      "wikipediaTitle": "Little Fuzzy",
+      "pageviews": {
+        "total": 606,
+        "days": 31,
+        "title": "Little Fuzzy",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "The Fountains of Paradise",
+      "source": "https://en.wikipedia.org/wiki/Hugo_Award_for_Best_Novel",
+      "wikipediaTitle": "The Fountains of Paradise",
+      "pageviews": {
+        "total": 2651,
+        "days": 31,
+        "title": "The Fountains of Paradise",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Too Like the Lightning",
+      "source": "https://en.wikipedia.org/wiki/Hugo_Award_for_Best_Novel",
+      "wikipediaTitle": "Too Like the Lightning",
+      "pageviews": {
+        "total": 2070,
+        "days": 31,
+        "title": "Too Like the Lightning",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Children of God",
+      "source": "https://en.wikipedia.org/wiki/Hugo_Award_for_Best_Novel",
+      "wikipediaTitle": "Children of God (novel)",
+      "pageviews": {
+        "total": 1265,
+        "days": 31,
+        "title": "Children of God (novel)",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Saturn's Children",
+      "source": "https://en.wikipedia.org/wiki/Hugo_Award_for_Best_Novel",
+      "wikipediaTitle": "Saturn's Children (novel)",
+      "pageviews": {
+        "total": 457,
+        "days": 31,
+        "title": "Saturn's Children (novel)",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Middlegame",
+      "source": "https://en.wikipedia.org/wiki/Hugo_Award_for_Best_Novel",
+      "wikipediaTitle": "Middlegame",
+      "pageviews": {
+        "total": 799,
+        "days": 31,
+        "title": "Middlegame",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Steel Beach",
+      "source": "https://en.wikipedia.org/wiki/Hugo_Award_for_Best_Novel",
+      "wikipediaTitle": "Steel Beach",
+      "pageviews": {
+        "total": 412,
+        "days": 31,
+        "title": "Steel Beach",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Queen of Angels",
+      "source": "https://en.wikipedia.org/wiki/Hugo_Award_for_Best_Novel",
+      "wikipediaTitle": "Queen of Angels (novel)",
+      "pageviews": {
+        "total": 373,
+        "days": 31,
+        "title": "Queen of Angels (novel)",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Witch World",
+      "source": "https://en.wikipedia.org/wiki/Hugo_Award_for_Best_Novel",
+      "wikipediaTitle": "Witch World (novel)",
+      "pageviews": {
+        "total": 504,
+        "days": 31,
+        "title": "Witch World (novel)",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Beggars in Spain",
+      "source": "https://en.wikipedia.org/wiki/Hugo_Award_for_Best_Novel",
+      "wikipediaTitle": "Beggars in Spain",
+      "pageviews": {
+        "total": 789,
+        "days": 31,
+        "title": "Beggars in Spain",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Double Star",
+      "source": "https://en.wikipedia.org/wiki/Hugo_Award_for_Best_Novel",
+      "wikipediaTitle": "Double Star",
+      "pageviews": {
+        "total": 965,
+        "days": 31,
+        "title": "Double Star",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "The Hundred Thousand Kingdoms",
+      "source": "https://en.wikipedia.org/wiki/Hugo_Award_for_Best_Novel",
+      "wikipediaTitle": "The Hundred Thousand Kingdoms",
+      "pageviews": {
+        "total": 2526,
+        "days": 31,
+        "title": "The Hundred Thousand Kingdoms",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "The Planet Buyer",
+      "source": "https://en.wikipedia.org/wiki/Hugo_Award_for_Best_Novel",
+      "wikipediaTitle": "Norstrilia",
+      "pageviews": {
+        "total": 616,
+        "days": 31,
+        "title": "Norstrilia",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "When Gravity Fails",
+      "source": "https://en.wikipedia.org/wiki/Hugo_Award_for_Best_Novel",
+      "wikipediaTitle": "When Gravity Fails",
+      "pageviews": {
+        "total": 1108,
+        "days": 31,
+        "title": "When Gravity Fails",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "The Integral Trees",
+      "source": "https://en.wikipedia.org/wiki/Hugo_Award_for_Best_Novel",
+      "wikipediaTitle": "The Integral Trees",
+      "pageviews": {
+        "total": 741,
+        "days": 31,
+        "title": "The Integral Trees",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Neptune's Brood",
+      "source": "https://en.wikipedia.org/wiki/Hugo_Award_for_Best_Novel",
+      "wikipediaTitle": "Neptune's Brood",
+      "pageviews": {
+        "total": 370,
+        "days": 31,
+        "title": "Neptune's Brood",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Protector",
+      "source": "https://en.wikipedia.org/wiki/Hugo_Award_for_Best_Novel",
+      "wikipediaTitle": "Protector (novel)",
+      "pageviews": {
+        "total": 647,
+        "days": 31,
+        "title": "Protector (novel)",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "The Einstein Intersection",
+      "source": "https://en.wikipedia.org/wiki/Hugo_Award_for_Best_Novel",
+      "wikipediaTitle": "The Einstein Intersection",
+      "pageviews": {
+        "total": 923,
+        "days": 31,
+        "title": "The Einstein Intersection",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Some Desperate Glory",
+      "source": "https://en.wikipedia.org/wiki/Hugo_Award_for_Best_Novel",
+      "wikipediaTitle": "Some Desperate Glory (novel)",
+      "pageviews": {
+        "total": 2997,
+        "days": 31,
+        "title": "Some Desperate Glory (novel)",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "The Galaxy, and the Ground Within",
+      "source": "https://en.wikipedia.org/wiki/Hugo_Award_for_Best_Novel",
+      "wikipediaTitle": "The Galaxy, and the Ground Within",
+      "pageviews": {
+        "total": 1517,
+        "days": 31,
+        "title": "The Galaxy, and the Ground Within",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Record of a Spaceborn Few",
+      "source": "https://en.wikipedia.org/wiki/Hugo_Award_for_Best_Novel",
+      "wikipediaTitle": "Record of a Spaceborn Few",
+      "pageviews": {
+        "total": 1397,
+        "days": 31,
+        "title": "Record of a Spaceborn Few",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "A Desolation Called Peace",
+      "source": "https://en.wikipedia.org/wiki/Hugo_Award_for_Best_Novel",
+      "wikipediaTitle": "A Desolation Called Peace",
+      "pageviews": {
+        "total": 2771,
+        "days": 31,
+        "title": "A Desolation Called Peace",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "The Daughter of Doctor Moreau",
+      "source": "https://en.wikipedia.org/wiki/Hugo_Award_for_Best_Novel",
+      "wikipediaTitle": "The Daughter of Doctor Moreau",
+      "pageviews": {
+        "total": 890,
+        "days": 31,
+        "title": "The Daughter of Doctor Moreau",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Dying Inside",
+      "source": "https://en.wikipedia.org/wiki/Hugo_Award_for_Best_Novel",
+      "wikipediaTitle": "Dying Inside",
+      "pageviews": {
+        "total": 518,
+        "days": 31,
+        "title": "Dying Inside",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Little Brother",
+      "source": "https://en.wikipedia.org/wiki/Hugo_Award_for_Best_Novel",
+      "wikipediaTitle": "Little Brother (Doctorow novel)",
+      "pageviews": {
+        "total": 1621,
+        "days": 31,
+        "title": "Little Brother (Doctorow novel)",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Cyteen",
+      "source": "https://en.wikipedia.org/wiki/Hugo_Award_for_Best_Novel",
+      "wikipediaTitle": "Cyteen",
+      "pageviews": {
+        "total": 1061,
+        "days": 31,
+        "title": "Cyteen",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Marooned in Realtime",
+      "source": "https://en.wikipedia.org/wiki/Hugo_Award_for_Best_Novel",
+      "wikipediaTitle": "Marooned in Realtime",
+      "pageviews": {
+        "total": 545,
+        "days": 31,
+        "title": "Marooned in Realtime",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    }
+  ]
+}

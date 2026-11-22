@@ -1,0 +1,811 @@
+{
+  "source": "Independent curated Wikipedia lists, extracted by subject column or list label; see source URLs per sample",
+  "seed": 2566233259,
+  "method": "Uniform draw without replacement from the middle half by measured mean daily readership; frozen first draw, all misses retained",
+  "poolSize": 185,
+  "excluded": [],
+  "answers": [
+    "Roseanne",
+    "Charmed",
+    "Cheers",
+    "Black-ish",
+    "American Dad!",
+    "The Facts of Life",
+    "CSI: Crime Scene Investigation",
+    "Dallas",
+    "King of the Hill",
+    "That '70s Show",
+    "30 Rock",
+    "Rules of Engagement",
+    "Will & Grace",
+    "The Andy Griffith Show",
+    "Station 19",
+    "Legends of Tomorrow",
+    "Brooklyn Nine-Nine",
+    "Murder, She Wrote",
+    "One Day at a Time",
+    "Designing Women",
+    "Mad About You",
+    "Who's the Boss?",
+    "Walker, Texas Ranger",
+    "24",
+    "Magnum, P.I.",
+    "Home Improvement",
+    "Step by Step",
+    "New Girl",
+    "The Jeffersons",
+    "Diff'rent Strokes",
+    "The Dukes of Hazzard",
+    "The Goldbergs",
+    "Happy Days",
+    "All in the Family",
+    "The Neighborhood",
+    "7th Heaven",
+    "Elementary",
+    "Barney Miller",
+    "Bob's Burgers",
+    "The 100",
+    "Castle",
+    "Bonanza",
+    "Hawaii Five-O",
+    "Blue Bloods",
+    "Boy Meets World",
+    "Hawaii Five-0",
+    "The Beverly Hillbillies",
+    "The Waltons",
+    "Family Matters",
+    "Three's Company"
+  ],
+  "samples": [
+    {
+      "answer": "Roseanne",
+      "source": "https://en.wikipedia.org/wiki/List_of_longest-running_scripted_American_primetime_television_series",
+      "wikipediaTitle": "Roseanne",
+      "pageviews": {
+        "total": 56377,
+        "days": 31,
+        "title": "Roseanne",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Charmed",
+      "source": "https://en.wikipedia.org/wiki/List_of_longest-running_scripted_American_primetime_television_series",
+      "wikipediaTitle": "Charmed",
+      "pageviews": {
+        "total": 57234,
+        "days": 31,
+        "title": "Charmed",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "Cheers",
+      "source": "https://en.wikipedia.org/wiki/List_of_longest-running_scripted_American_primetime_television_series",
+      "wikipediaTitle": "Cheers",
+      "pageviews": {
+        "total": 70155,
+        "days": 31,
+        "title": "Cheers",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Black-ish",
+      "source": "https://en.wikipedia.org/wiki/List_of_longest-running_scripted_American_primetime_television_series",
+      "wikipediaTitle": "Black-ish",
+      "pageviews": {
+        "total": 21764,
+        "days": 31,
+        "title": "Black-ish",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "American Dad!",
+      "source": "https://en.wikipedia.org/wiki/List_of_longest-running_scripted_American_primetime_television_series",
+      "wikipediaTitle": "American Dad!",
+      "pageviews": {
+        "total": 61831,
+        "days": 31,
+        "title": "American Dad!",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "The Facts of Life",
+      "source": "https://en.wikipedia.org/wiki/List_of_longest-running_scripted_American_primetime_television_series",
+      "wikipediaTitle": "The Facts of Life (TV series)",
+      "pageviews": {
+        "total": 25301,
+        "days": 31,
+        "title": "The Facts of Life (TV series)",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "CSI: Crime Scene Investigation",
+      "source": "https://en.wikipedia.org/wiki/List_of_longest-running_scripted_American_primetime_television_series",
+      "wikipediaTitle": "CSI: Crime Scene Investigation",
+      "pageviews": {
+        "total": 42596,
+        "days": 31,
+        "title": "CSI: Crime Scene Investigation",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "Dallas",
+      "source": "https://en.wikipedia.org/wiki/List_of_longest-running_scripted_American_primetime_television_series",
+      "wikipediaTitle": "Dallas (TV series)",
+      "pageviews": {
+        "total": 39375,
+        "days": 31,
+        "title": "Dallas (TV series)",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "King of the Hill",
+      "source": "https://en.wikipedia.org/wiki/List_of_longest-running_scripted_American_primetime_television_series",
+      "wikipediaTitle": "King of the Hill",
+      "pageviews": {
+        "total": 49840,
+        "days": 31,
+        "title": "King of the Hill",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "That '70s Show",
+      "source": "https://en.wikipedia.org/wiki/List_of_longest-running_scripted_American_primetime_television_series",
+      "wikipediaTitle": "That '70s Show",
+      "pageviews": {
+        "total": 44063,
+        "days": 31,
+        "title": "That '70s Show",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "30 Rock",
+      "source": "https://en.wikipedia.org/wiki/List_of_longest-running_scripted_American_primetime_television_series",
+      "wikipediaTitle": "30 Rock",
+      "pageviews": {
+        "total": 63745,
+        "days": 31,
+        "title": "30 Rock",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "Rules of Engagement",
+      "source": "https://en.wikipedia.org/wiki/List_of_longest-running_scripted_American_primetime_television_series",
+      "wikipediaTitle": "Rules of Engagement (TV series)",
+      "pageviews": {
+        "total": 23087,
+        "days": 31,
+        "title": "Rules of Engagement (TV series)",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Will & Grace",
+      "source": "https://en.wikipedia.org/wiki/List_of_longest-running_scripted_American_primetime_television_series",
+      "wikipediaTitle": "Will & Grace",
+      "pageviews": {
+        "total": 41815,
+        "days": 31,
+        "title": "Will & Grace",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "The Andy Griffith Show",
+      "source": "https://en.wikipedia.org/wiki/List_of_longest-running_scripted_American_primetime_television_series",
+      "wikipediaTitle": "The Andy Griffith Show",
+      "pageviews": {
+        "total": 32912,
+        "days": 31,
+        "title": "The Andy Griffith Show",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Station 19",
+      "source": "https://en.wikipedia.org/wiki/List_of_longest-running_scripted_American_primetime_television_series",
+      "wikipediaTitle": "Station 19",
+      "pageviews": {
+        "total": 29455,
+        "days": 31,
+        "title": "Station 19",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Legends of Tomorrow",
+      "source": "https://en.wikipedia.org/wiki/List_of_longest-running_scripted_American_primetime_television_series",
+      "wikipediaTitle": "Legends of Tomorrow",
+      "pageviews": {
+        "total": 25242,
+        "days": 31,
+        "title": "Legends of Tomorrow",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Brooklyn Nine-Nine",
+      "source": "https://en.wikipedia.org/wiki/List_of_longest-running_scripted_American_primetime_television_series",
+      "wikipediaTitle": "Brooklyn Nine-Nine",
+      "pageviews": {
+        "total": 65055,
+        "days": 31,
+        "title": "Brooklyn Nine-Nine",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Murder, She Wrote",
+      "source": "https://en.wikipedia.org/wiki/List_of_longest-running_scripted_American_primetime_television_series",
+      "wikipediaTitle": "Murder, She Wrote",
+      "pageviews": {
+        "total": 46121,
+        "days": 31,
+        "title": "Murder, She Wrote",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "One Day at a Time",
+      "source": "https://en.wikipedia.org/wiki/List_of_longest-running_scripted_American_primetime_television_series",
+      "wikipediaTitle": "One Day at a Time (1975 TV series)",
+      "pageviews": {
+        "total": 26279,
+        "days": 31,
+        "title": "One Day at a Time (1975 TV series)",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Designing Women",
+      "source": "https://en.wikipedia.org/wiki/List_of_longest-running_scripted_American_primetime_television_series",
+      "wikipediaTitle": "Designing Women",
+      "pageviews": {
+        "total": 22727,
+        "days": 31,
+        "title": "Designing Women",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Mad About You",
+      "source": "https://en.wikipedia.org/wiki/List_of_longest-running_scripted_American_primetime_television_series",
+      "wikipediaTitle": "Mad About You",
+      "pageviews": {
+        "total": 23148,
+        "days": 31,
+        "title": "Mad About You",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Who's the Boss?",
+      "source": "https://en.wikipedia.org/wiki/List_of_longest-running_scripted_American_primetime_television_series",
+      "wikipediaTitle": "Who's the Boss?",
+      "pageviews": {
+        "total": 31467,
+        "days": 31,
+        "title": "Who's the Boss?",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Walker, Texas Ranger",
+      "source": "https://en.wikipedia.org/wiki/List_of_longest-running_scripted_American_primetime_television_series",
+      "wikipediaTitle": "Walker, Texas Ranger",
+      "pageviews": {
+        "total": 22935,
+        "days": 31,
+        "title": "Walker, Texas Ranger",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "24",
+      "source": "https://en.wikipedia.org/wiki/List_of_longest-running_scripted_American_primetime_television_series",
+      "wikipediaTitle": "24 (TV series)",
+      "pageviews": {
+        "total": 51672,
+        "days": 31,
+        "title": "24 (TV series)",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Magnum, P.I.",
+      "source": "https://en.wikipedia.org/wiki/List_of_longest-running_scripted_American_primetime_television_series",
+      "wikipediaTitle": "Magnum, P.I.",
+      "pageviews": {
+        "total": 36857,
+        "days": 31,
+        "title": "Magnum, P.I.",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "Home Improvement",
+      "source": "https://en.wikipedia.org/wiki/List_of_longest-running_scripted_American_primetime_television_series",
+      "wikipediaTitle": "Home Improvement (TV series)",
+      "pageviews": {
+        "total": 39408,
+        "days": 31,
+        "title": "Home Improvement (TV series)",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Step by Step",
+      "source": "https://en.wikipedia.org/wiki/List_of_longest-running_scripted_American_primetime_television_series",
+      "wikipediaTitle": "Step by Step (TV series)",
+      "pageviews": {
+        "total": 31044,
+        "days": 31,
+        "title": "Step by Step (TV series)",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "New Girl",
+      "source": "https://en.wikipedia.org/wiki/List_of_longest-running_scripted_American_primetime_television_series",
+      "wikipediaTitle": "New Girl",
+      "pageviews": {
+        "total": 47310,
+        "days": 31,
+        "title": "New Girl",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "The Jeffersons",
+      "source": "https://en.wikipedia.org/wiki/List_of_longest-running_scripted_American_primetime_television_series",
+      "wikipediaTitle": "The Jeffersons",
+      "pageviews": {
+        "total": 26253,
+        "days": 31,
+        "title": "The Jeffersons",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "Diff'rent Strokes",
+      "source": "https://en.wikipedia.org/wiki/List_of_longest-running_scripted_American_primetime_television_series",
+      "wikipediaTitle": "Diff'rent Strokes",
+      "pageviews": {
+        "total": 29644,
+        "days": 31,
+        "title": "Diff'rent Strokes",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "The Dukes of Hazzard",
+      "source": "https://en.wikipedia.org/wiki/List_of_longest-running_scripted_American_primetime_television_series",
+      "wikipediaTitle": "The Dukes of Hazzard",
+      "pageviews": {
+        "total": 46174,
+        "days": 31,
+        "title": "The Dukes of Hazzard",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "The Goldbergs",
+      "source": "https://en.wikipedia.org/wiki/List_of_longest-running_scripted_American_primetime_television_series",
+      "wikipediaTitle": "The Goldbergs (2013 TV series)",
+      "pageviews": {
+        "total": 37125,
+        "days": 31,
+        "title": "The Goldbergs (2013 TV series)",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Happy Days",
+      "source": "https://en.wikipedia.org/wiki/List_of_longest-running_scripted_American_primetime_television_series",
+      "wikipediaTitle": "Happy Days",
+      "pageviews": {
+        "total": 58717,
+        "days": 31,
+        "title": "Happy Days",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "All in the Family",
+      "source": "https://en.wikipedia.org/wiki/List_of_longest-running_scripted_American_primetime_television_series",
+      "wikipediaTitle": "All in the Family",
+      "pageviews": {
+        "total": 36927,
+        "days": 31,
+        "title": "All in the Family",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "The Neighborhood",
+      "source": "https://en.wikipedia.org/wiki/List_of_longest-running_scripted_American_primetime_television_series",
+      "wikipediaTitle": "The Neighborhood (TV series)",
+      "pageviews": {
+        "total": 28846,
+        "days": 31,
+        "title": "The Neighborhood (TV series)",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "7th Heaven",
+      "source": "https://en.wikipedia.org/wiki/List_of_longest-running_scripted_American_primetime_television_series",
+      "wikipediaTitle": "7th Heaven (TV series)",
+      "pageviews": {
+        "total": 46602,
+        "days": 31,
+        "title": "7th Heaven (TV series)",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Elementary",
+      "source": "https://en.wikipedia.org/wiki/List_of_longest-running_scripted_American_primetime_television_series",
+      "wikipediaTitle": "Elementary (TV series)",
+      "pageviews": {
+        "total": 37526,
+        "days": 31,
+        "title": "Elementary (TV series)",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Barney Miller",
+      "source": "https://en.wikipedia.org/wiki/List_of_longest-running_scripted_American_primetime_television_series",
+      "wikipediaTitle": "Barney Miller",
+      "pageviews": {
+        "total": 28805,
+        "days": 31,
+        "title": "Barney Miller",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Bob's Burgers",
+      "source": "https://en.wikipedia.org/wiki/List_of_longest-running_scripted_American_primetime_television_series",
+      "wikipediaTitle": "Bob's Burgers",
+      "pageviews": {
+        "total": 58783,
+        "days": 31,
+        "title": "Bob's Burgers",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "The 100",
+      "source": "https://en.wikipedia.org/wiki/List_of_longest-running_scripted_American_primetime_television_series",
+      "wikipediaTitle": "The 100 (TV series)",
+      "pageviews": {
+        "total": 46104,
+        "days": 31,
+        "title": "The 100 (TV series)",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Castle",
+      "source": "https://en.wikipedia.org/wiki/List_of_longest-running_scripted_American_primetime_television_series",
+      "wikipediaTitle": "Castle (TV series)",
+      "pageviews": {
+        "total": 54114,
+        "days": 31,
+        "title": "Castle (TV series)",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Bonanza",
+      "source": "https://en.wikipedia.org/wiki/List_of_longest-running_scripted_American_primetime_television_series",
+      "wikipediaTitle": "Bonanza",
+      "pageviews": {
+        "total": 37521,
+        "days": 31,
+        "title": "Bonanza",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Hawaii Five-O",
+      "source": "https://en.wikipedia.org/wiki/List_of_longest-running_scripted_American_primetime_television_series",
+      "wikipediaTitle": "Hawaii Five-O (1968 TV series)",
+      "pageviews": {
+        "total": 28396,
+        "days": 31,
+        "title": "Hawaii Five-O (1968 TV series)",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Blue Bloods",
+      "source": "https://en.wikipedia.org/wiki/List_of_longest-running_scripted_American_primetime_television_series",
+      "wikipediaTitle": "Blue Bloods",
+      "pageviews": {
+        "total": 54286,
+        "days": 31,
+        "title": "Blue Bloods",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "Boy Meets World",
+      "source": "https://en.wikipedia.org/wiki/List_of_longest-running_scripted_American_primetime_television_series",
+      "wikipediaTitle": "Boy Meets World",
+      "pageviews": {
+        "total": 40498,
+        "days": 31,
+        "title": "Boy Meets World",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Hawaii Five-0",
+      "source": "https://en.wikipedia.org/wiki/List_of_longest-running_scripted_American_primetime_television_series",
+      "wikipediaTitle": "Hawaii Five-0 (2010 TV series)",
+      "pageviews": {
+        "total": 59059,
+        "days": 31,
+        "title": "Hawaii Five-0 (2010 TV series)",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "The Beverly Hillbillies",
+      "source": "https://en.wikipedia.org/wiki/List_of_longest-running_scripted_American_primetime_television_series",
+      "wikipediaTitle": "The Beverly Hillbillies",
+      "pageviews": {
+        "total": 34535,
+        "days": 31,
+        "title": "The Beverly Hillbillies",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "The Waltons",
+      "source": "https://en.wikipedia.org/wiki/List_of_longest-running_scripted_American_primetime_television_series",
+      "wikipediaTitle": "The Waltons",
+      "pageviews": {
+        "total": 44735,
+        "days": 31,
+        "title": "The Waltons",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "Family Matters",
+      "source": "https://en.wikipedia.org/wiki/List_of_longest-running_scripted_American_primetime_television_series",
+      "wikipediaTitle": "Family Matters",
+      "pageviews": {
+        "total": 36046,
+        "days": 31,
+        "title": "Family Matters",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "Three's Company",
+      "source": "https://en.wikipedia.org/wiki/List_of_longest-running_scripted_American_primetime_television_series",
+      "wikipediaTitle": "Three's Company",
+      "pageviews": {
+        "total": 39712,
+        "days": 31,
+        "title": "Three's Company",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    }
+  ]
+}

@@ -1,0 +1,811 @@
+{
+  "source": "Independent curated Wikipedia lists, extracted by subject column or list label; see source URLs per sample",
+  "seed": 1594854853,
+  "method": "Uniform draw without replacement from the middle half by measured mean daily readership; frozen first draw, all misses retained",
+  "poolSize": 116,
+  "excluded": [],
+  "answers": [
+    "Firework",
+    "The Monster",
+    "Bad and Boujee",
+    "7 Rings",
+    "Humble",
+    "Timber",
+    "Sorry",
+    "I Like It",
+    "Without Me",
+    "Only Girl (In the World)",
+    "In My Feelings",
+    "Look What You Made Me Do",
+    "Bodak Yellow",
+    "All of Me",
+    "Sicko Mode",
+    "Sad!",
+    "Love Yourself",
+    "Part of Me",
+    "Starboy",
+    "California Gurls",
+    "Teenage Dream",
+    "Black Beatles",
+    "When I Was Your Man",
+    "Someone You Loved",
+    "Cheap Thrills",
+    "Sunflower",
+    "Thank U, Next",
+    "Girls Like You",
+    "Born This Way",
+    "Perfect",
+    "Set Fire to the Rain",
+    "Rude",
+    "What's My Name?",
+    "One Dance",
+    "Havana",
+    "Black and Yellow",
+    "Can't Feel My Face",
+    "We Are Never Ever Getting Back Together",
+    "Work",
+    "Roar",
+    "God's Plan",
+    "Rude Boy",
+    "The Hills",
+    "Grenade",
+    "Fancy",
+    "Stronger (What Doesn't Kill You)",
+    "Cheerleader",
+    "Last Friday Night (T.G.I.F.)",
+    "E.T.",
+    "All About That Bass"
+  ],
+  "samples": [
+    {
+      "answer": "Firework",
+      "source": "https://en.wikipedia.org/wiki/List_of_Billboard_Hot_100_number-one_singles_of_the_2010s",
+      "wikipediaTitle": "Firework (song)",
+      "pageviews": {
+        "total": 6025,
+        "days": 31,
+        "title": "Firework (song)",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "The Monster",
+      "source": "https://en.wikipedia.org/wiki/List_of_Billboard_Hot_100_number-one_singles_of_the_2010s",
+      "wikipediaTitle": "The Monster (song)",
+      "pageviews": {
+        "total": 5286,
+        "days": 31,
+        "title": "The Monster (song)",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Bad and Boujee",
+      "source": "https://en.wikipedia.org/wiki/List_of_Billboard_Hot_100_number-one_singles_of_the_2010s",
+      "wikipediaTitle": "Bad and Boujee",
+      "pageviews": {
+        "total": 3552,
+        "days": 31,
+        "title": "Bad and Boujee",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "7 Rings",
+      "source": "https://en.wikipedia.org/wiki/List_of_Billboard_Hot_100_number-one_singles_of_the_2010s",
+      "wikipediaTitle": "7 Rings",
+      "pageviews": {
+        "total": 4790,
+        "days": 31,
+        "title": "7 Rings",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Humble",
+      "source": "https://en.wikipedia.org/wiki/List_of_Billboard_Hot_100_number-one_singles_of_the_2010s",
+      "wikipediaTitle": "Humble (song)",
+      "pageviews": {
+        "total": 2961,
+        "days": 31,
+        "title": "Humble (song)",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Timber",
+      "source": "https://en.wikipedia.org/wiki/List_of_Billboard_Hot_100_number-one_singles_of_the_2010s",
+      "wikipediaTitle": "Timber (Pitbull song)",
+      "pageviews": {
+        "total": 4367,
+        "days": 31,
+        "title": "Timber (Pitbull song)",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Sorry",
+      "source": "https://en.wikipedia.org/wiki/List_of_Billboard_Hot_100_number-one_singles_of_the_2010s",
+      "wikipediaTitle": "Sorry (Justin Bieber song)",
+      "pageviews": {
+        "total": 6426,
+        "days": 31,
+        "title": "Sorry (Justin Bieber song)",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "I Like It",
+      "source": "https://en.wikipedia.org/wiki/List_of_Billboard_Hot_100_number-one_singles_of_the_2010s",
+      "wikipediaTitle": "I Like It (Cardi B, Bad Bunny and J Balvin song)",
+      "pageviews": {
+        "total": 3658,
+        "days": 31,
+        "title": "I Like It (Cardi B, Bad Bunny and J Balvin song)",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Without Me",
+      "source": "https://en.wikipedia.org/wiki/List_of_Billboard_Hot_100_number-one_singles_of_the_2010s",
+      "wikipediaTitle": "Without Me (Halsey song)",
+      "pageviews": {
+        "total": 3728,
+        "days": 31,
+        "title": "Without Me (Halsey song)",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Only Girl (In the World)",
+      "source": "https://en.wikipedia.org/wiki/List_of_Billboard_Hot_100_number-one_singles_of_the_2010s",
+      "wikipediaTitle": "Only Girl (In the World)",
+      "pageviews": {
+        "total": 5423,
+        "days": 31,
+        "title": "Only Girl (In the World)",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "In My Feelings",
+      "source": "https://en.wikipedia.org/wiki/List_of_Billboard_Hot_100_number-one_singles_of_the_2010s",
+      "wikipediaTitle": "In My Feelings",
+      "pageviews": {
+        "total": 2890,
+        "days": 31,
+        "title": "In My Feelings",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Look What You Made Me Do",
+      "source": "https://en.wikipedia.org/wiki/List_of_Billboard_Hot_100_number-one_singles_of_the_2010s",
+      "wikipediaTitle": "Look What You Made Me Do",
+      "pageviews": {
+        "total": 6498,
+        "days": 31,
+        "title": "Look What You Made Me Do",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Bodak Yellow",
+      "source": "https://en.wikipedia.org/wiki/List_of_Billboard_Hot_100_number-one_singles_of_the_2010s",
+      "wikipediaTitle": "Bodak Yellow",
+      "pageviews": {
+        "total": 4866,
+        "days": 31,
+        "title": "Bodak Yellow",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "All of Me",
+      "source": "https://en.wikipedia.org/wiki/List_of_Billboard_Hot_100_number-one_singles_of_the_2010s",
+      "wikipediaTitle": "All of Me (John Legend song)",
+      "pageviews": {
+        "total": 4764,
+        "days": 31,
+        "title": "All of Me (John Legend song)",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Sicko Mode",
+      "source": "https://en.wikipedia.org/wiki/List_of_Billboard_Hot_100_number-one_singles_of_the_2010s",
+      "wikipediaTitle": "Sicko Mode",
+      "pageviews": {
+        "total": 4013,
+        "days": 31,
+        "title": "Sicko Mode",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Sad!",
+      "source": "https://en.wikipedia.org/wiki/List_of_Billboard_Hot_100_number-one_singles_of_the_2010s",
+      "wikipediaTitle": "Sad!",
+      "pageviews": {
+        "total": 3525,
+        "days": 31,
+        "title": "Sad!",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Love Yourself",
+      "source": "https://en.wikipedia.org/wiki/List_of_Billboard_Hot_100_number-one_singles_of_the_2010s",
+      "wikipediaTitle": "Love Yourself",
+      "pageviews": {
+        "total": 5100,
+        "days": 31,
+        "title": "Love Yourself",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Part of Me",
+      "source": "https://en.wikipedia.org/wiki/List_of_Billboard_Hot_100_number-one_singles_of_the_2010s",
+      "wikipediaTitle": "Part of Me (Katy Perry song)",
+      "pageviews": {
+        "total": 3010,
+        "days": 31,
+        "title": "Part of Me (Katy Perry song)",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Starboy",
+      "source": "https://en.wikipedia.org/wiki/List_of_Billboard_Hot_100_number-one_singles_of_the_2010s",
+      "wikipediaTitle": "Starboy (song)",
+      "pageviews": {
+        "total": 5897,
+        "days": 31,
+        "title": "Starboy (song)",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "California Gurls",
+      "source": "https://en.wikipedia.org/wiki/List_of_Billboard_Hot_100_number-one_singles_of_the_2010s",
+      "wikipediaTitle": "California Gurls",
+      "pageviews": {
+        "total": 6654,
+        "days": 31,
+        "title": "California Gurls",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "Teenage Dream",
+      "source": "https://en.wikipedia.org/wiki/List_of_Billboard_Hot_100_number-one_singles_of_the_2010s",
+      "wikipediaTitle": "Teenage Dream (Katy Perry song)",
+      "pageviews": {
+        "total": 4703,
+        "days": 31,
+        "title": "Teenage Dream (Katy Perry song)",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Black Beatles",
+      "source": "https://en.wikipedia.org/wiki/List_of_Billboard_Hot_100_number-one_singles_of_the_2010s",
+      "wikipediaTitle": "Black Beatles",
+      "pageviews": {
+        "total": 3162,
+        "days": 31,
+        "title": "Black Beatles",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "When I Was Your Man",
+      "source": "https://en.wikipedia.org/wiki/List_of_Billboard_Hot_100_number-one_singles_of_the_2010s",
+      "wikipediaTitle": "When I Was Your Man",
+      "pageviews": {
+        "total": 3497,
+        "days": 31,
+        "title": "When I Was Your Man",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Someone You Loved",
+      "source": "https://en.wikipedia.org/wiki/List_of_Billboard_Hot_100_number-one_singles_of_the_2010s",
+      "wikipediaTitle": "Someone You Loved",
+      "pageviews": {
+        "total": 7022,
+        "days": 31,
+        "title": "Someone You Loved",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Cheap Thrills",
+      "source": "https://en.wikipedia.org/wiki/List_of_Billboard_Hot_100_number-one_singles_of_the_2010s",
+      "wikipediaTitle": "Cheap Thrills (song)",
+      "pageviews": {
+        "total": 5388,
+        "days": 31,
+        "title": "Cheap Thrills (song)",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Sunflower",
+      "source": "https://en.wikipedia.org/wiki/List_of_Billboard_Hot_100_number-one_singles_of_the_2010s",
+      "wikipediaTitle": "Sunflower (Post Malone and Swae Lee song)",
+      "pageviews": {
+        "total": 5632,
+        "days": 31,
+        "title": "Sunflower (Post Malone and Swae Lee song)",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Thank U, Next",
+      "source": "https://en.wikipedia.org/wiki/List_of_Billboard_Hot_100_number-one_singles_of_the_2010s",
+      "wikipediaTitle": "Thank U, Next (song)",
+      "pageviews": {
+        "total": 5709,
+        "days": 31,
+        "title": "Thank U, Next (song)",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Girls Like You",
+      "source": "https://en.wikipedia.org/wiki/List_of_Billboard_Hot_100_number-one_singles_of_the_2010s",
+      "wikipediaTitle": "Girls Like You",
+      "pageviews": {
+        "total": 5977,
+        "days": 31,
+        "title": "Girls Like You",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Born This Way",
+      "source": "https://en.wikipedia.org/wiki/List_of_Billboard_Hot_100_number-one_singles_of_the_2010s",
+      "wikipediaTitle": "Born This Way (song)",
+      "pageviews": {
+        "total": 6840,
+        "days": 31,
+        "title": "Born This Way (song)",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Perfect",
+      "source": "https://en.wikipedia.org/wiki/List_of_Billboard_Hot_100_number-one_singles_of_the_2010s",
+      "wikipediaTitle": "Perfect (Ed Sheeran song)",
+      "pageviews": {
+        "total": 5651,
+        "days": 31,
+        "title": "Perfect (Ed Sheeran song)",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Set Fire to the Rain",
+      "source": "https://en.wikipedia.org/wiki/List_of_Billboard_Hot_100_number-one_singles_of_the_2010s",
+      "wikipediaTitle": "Set Fire to the Rain",
+      "pageviews": {
+        "total": 3909,
+        "days": 31,
+        "title": "Set Fire to the Rain",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Rude",
+      "source": "https://en.wikipedia.org/wiki/List_of_Billboard_Hot_100_number-one_singles_of_the_2010s",
+      "wikipediaTitle": "Rude (song)",
+      "pageviews": {
+        "total": 5483,
+        "days": 31,
+        "title": "Rude (song)",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "What's My Name?",
+      "source": "https://en.wikipedia.org/wiki/List_of_Billboard_Hot_100_number-one_singles_of_the_2010s",
+      "wikipediaTitle": "What's My Name? (Rihanna song)",
+      "pageviews": {
+        "total": 4020,
+        "days": 31,
+        "title": "What's My Name? (Rihanna song)",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "One Dance",
+      "source": "https://en.wikipedia.org/wiki/List_of_Billboard_Hot_100_number-one_singles_of_the_2010s",
+      "wikipediaTitle": "One Dance",
+      "pageviews": {
+        "total": 4811,
+        "days": 31,
+        "title": "One Dance",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Havana",
+      "source": "https://en.wikipedia.org/wiki/List_of_Billboard_Hot_100_number-one_singles_of_the_2010s",
+      "wikipediaTitle": "Havana (Camila Cabello song)",
+      "pageviews": {
+        "total": 5480,
+        "days": 31,
+        "title": "Havana (Camila Cabello song)",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Black and Yellow",
+      "source": "https://en.wikipedia.org/wiki/List_of_Billboard_Hot_100_number-one_singles_of_the_2010s",
+      "wikipediaTitle": "Black and Yellow",
+      "pageviews": {
+        "total": 4633,
+        "days": 31,
+        "title": "Black and Yellow",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Can't Feel My Face",
+      "source": "https://en.wikipedia.org/wiki/List_of_Billboard_Hot_100_number-one_singles_of_the_2010s",
+      "wikipediaTitle": "Can't Feel My Face",
+      "pageviews": {
+        "total": 4163,
+        "days": 31,
+        "title": "Can't Feel My Face",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "We Are Never Ever Getting Back Together",
+      "source": "https://en.wikipedia.org/wiki/List_of_Billboard_Hot_100_number-one_singles_of_the_2010s",
+      "wikipediaTitle": "We Are Never Ever Getting Back Together",
+      "pageviews": {
+        "total": 4761,
+        "days": 31,
+        "title": "We Are Never Ever Getting Back Together",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Work",
+      "source": "https://en.wikipedia.org/wiki/List_of_Billboard_Hot_100_number-one_singles_of_the_2010s",
+      "wikipediaTitle": "Work (Rihanna song)",
+      "pageviews": {
+        "total": 4834,
+        "days": 31,
+        "title": "Work (Rihanna song)",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Roar",
+      "source": "https://en.wikipedia.org/wiki/List_of_Billboard_Hot_100_number-one_singles_of_the_2010s",
+      "wikipediaTitle": "Roar (song)",
+      "pageviews": {
+        "total": 5373,
+        "days": 31,
+        "title": "Roar (song)",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "God's Plan",
+      "source": "https://en.wikipedia.org/wiki/List_of_Billboard_Hot_100_number-one_singles_of_the_2010s",
+      "wikipediaTitle": "God's Plan (song)",
+      "pageviews": {
+        "total": 4135,
+        "days": 31,
+        "title": "God's Plan (song)",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Rude Boy",
+      "source": "https://en.wikipedia.org/wiki/List_of_Billboard_Hot_100_number-one_singles_of_the_2010s",
+      "wikipediaTitle": "Rude Boy (Rihanna song)",
+      "pageviews": {
+        "total": 4247,
+        "days": 31,
+        "title": "Rude Boy (Rihanna song)",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "The Hills",
+      "source": "https://en.wikipedia.org/wiki/List_of_Billboard_Hot_100_number-one_singles_of_the_2010s",
+      "wikipediaTitle": "The Hills (song)",
+      "pageviews": {
+        "total": 3627,
+        "days": 31,
+        "title": "The Hills (song)",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Grenade",
+      "source": "https://en.wikipedia.org/wiki/List_of_Billboard_Hot_100_number-one_singles_of_the_2010s",
+      "wikipediaTitle": "Grenade (song)",
+      "pageviews": {
+        "total": 3253,
+        "days": 31,
+        "title": "Grenade (song)",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Fancy",
+      "source": "https://en.wikipedia.org/wiki/List_of_Billboard_Hot_100_number-one_singles_of_the_2010s",
+      "wikipediaTitle": "Fancy (Iggy Azalea song)",
+      "pageviews": {
+        "total": 5128,
+        "days": 31,
+        "title": "Fancy (Iggy Azalea song)",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Stronger (What Doesn't Kill You)",
+      "source": "https://en.wikipedia.org/wiki/List_of_Billboard_Hot_100_number-one_singles_of_the_2010s",
+      "wikipediaTitle": "Stronger (What Doesn't Kill You)",
+      "pageviews": {
+        "total": 4445,
+        "days": 31,
+        "title": "Stronger (What Doesn't Kill You)",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Cheerleader",
+      "source": "https://en.wikipedia.org/wiki/List_of_Billboard_Hot_100_number-one_singles_of_the_2010s",
+      "wikipediaTitle": "Cheerleader (Omi song)",
+      "pageviews": {
+        "total": 4178,
+        "days": 31,
+        "title": "Cheerleader (Omi song)",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Last Friday Night (T.G.I.F.)",
+      "source": "https://en.wikipedia.org/wiki/List_of_Billboard_Hot_100_number-one_singles_of_the_2010s",
+      "wikipediaTitle": "Last Friday Night (T.G.I.F.)",
+      "pageviews": {
+        "total": 5902,
+        "days": 31,
+        "title": "Last Friday Night (T.G.I.F.)",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "E.T.",
+      "source": "https://en.wikipedia.org/wiki/List_of_Billboard_Hot_100_number-one_singles_of_the_2010s",
+      "wikipediaTitle": "E.T. (song)",
+      "pageviews": {
+        "total": 4783,
+        "days": 31,
+        "title": "E.T. (song)",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "All About That Bass",
+      "source": "https://en.wikipedia.org/wiki/List_of_Billboard_Hot_100_number-one_singles_of_the_2010s",
+      "wikipediaTitle": "All About That Bass",
+      "pageviews": {
+        "total": 4857,
+        "days": 31,
+        "title": "All About That Bass",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    }
+  ]
+}

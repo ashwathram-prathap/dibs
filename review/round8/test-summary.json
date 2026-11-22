@@ -6,9 +6,9 @@
     "note": "Full suite refreshed Nov 22 01:15 ET: 82 tests, including actual static-index claims with unknown readership, proper-name separation, plural aliases, and practice-only credential guards."
   },
   "browser": {
-    "localMatrixPassed": 469,
-    "localMatrixFailed": 79,
-    "failuresExplained": "78 local Firefox launcher failures; 1 WebKit spelling asset setup race. Exact WebKit spelling retest passed. Firefox Linux CI passed all 78.",
+    "localMatrixPassed": 470,
+    "localMatrixFailed": 0,
+    "failuresExplained": "Fresh full Chromium/WebKit matrix passed all 470 at Nov 22 01:37 ET; Firefox separately passed on Linux CI.",
     "targetedClosure": {
       "passed": 4
     },
@@ -16,7 +16,8 @@
       "passed": 42,
       "skipped": 28
     },
-    "firefoxCI": "https://github.com/ashwathram-prathap/dibs/actions/runs/44982931625"
+    "firefoxCI": "https://github.com/ashwathram-prathap/dibs/actions/runs/44993299293",
+    "firefoxHead": "be859d0"
   },
   "visualAudit": {
     "states": 168,

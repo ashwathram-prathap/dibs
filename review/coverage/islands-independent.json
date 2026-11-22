@@ -1,0 +1,811 @@
+{
+  "source": "Independent curated Wikipedia lists, extracted by subject column or list label; see source URLs per sample",
+  "seed": 3474543365,
+  "method": "Uniform draw without replacement from the middle half by measured mean daily readership; frozen first draw, all misses retained",
+  "poolSize": 316,
+  "excluded": [],
+  "answers": [
+    "Santa Isabel Island",
+    "Morotai",
+    "Biak",
+    "Cuba",
+    "Manus Island",
+    "Dawson Island",
+    "Lembata",
+    "Iceland",
+    "Anvers Island",
+    "Paramushir",
+    "Choiseul Island",
+    "Chongming Island",
+    "Siberut",
+    "Bering Island",
+    "Puerto Rico",
+    "Rote Island",
+    "Afognak Island",
+    "Sääminginsalo",
+    "Waigeo",
+    "Karaginsky Island",
+    "Sumba",
+    "North Jutlandic Island",
+    "Chichagof Island",
+    "Belitung",
+    "Mindoro",
+    "Urup",
+    "Yuzhny Island",
+    "Greenland",
+    "Komsomolets Island",
+    "Malaita",
+    "Akimiski Island",
+    "Seram Island",
+    "New Siberia",
+    "Alor Island",
+    "Copper Island",
+    "Admiralty Island",
+    "Malakula",
+    "Nias",
+    "Ross Island",
+    "Berkner Island",
+    "Thurston Island",
+    "New Georgia",
+    "Negros",
+    "Vanua Levu",
+    "Bylot Island",
+    "Resolution Island",
+    "Chiloé Island",
+    "Iturup",
+    "Samar",
+    "Axel Heiberg Island"
+  ],
+  "samples": [
+    {
+      "answer": "Santa Isabel Island",
+      "source": "https://en.wikipedia.org/wiki/List_of_islands_by_area",
+      "wikipediaTitle": "Santa Isabel (island)",
+      "pageviews": {
+        "total": 386,
+        "days": 31,
+        "title": "Santa Isabel (island)",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "Morotai",
+      "source": "https://en.wikipedia.org/wiki/List_of_islands_by_area",
+      "wikipediaTitle": "Morotai Island Regency",
+      "pageviews": {
+        "total": 683,
+        "days": 31,
+        "title": "Morotai Island Regency",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Biak",
+      "source": "https://en.wikipedia.org/wiki/List_of_islands_by_area",
+      "wikipediaTitle": "Biak",
+      "pageviews": {
+        "total": 1436,
+        "days": 31,
+        "title": "Biak",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "Cuba",
+      "source": "https://en.wikipedia.org/wiki/List_of_islands_by_area",
+      "wikipediaTitle": "Geography of Cuba",
+      "pageviews": {
+        "total": 2689,
+        "days": 31,
+        "title": "Geography of Cuba",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Manus Island",
+      "source": "https://en.wikipedia.org/wiki/List_of_islands_by_area",
+      "wikipediaTitle": "Manus Island",
+      "pageviews": {
+        "total": 2093,
+        "days": 31,
+        "title": "Manus Island",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Dawson Island",
+      "source": "https://en.wikipedia.org/wiki/List_of_islands_by_area",
+      "wikipediaTitle": "Dawson Island",
+      "pageviews": {
+        "total": 551,
+        "days": 31,
+        "title": "Dawson Island",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "Lembata",
+      "source": "https://en.wikipedia.org/wiki/List_of_islands_by_area",
+      "wikipediaTitle": "Lembata",
+      "pageviews": {
+        "total": 401,
+        "days": 31,
+        "title": "Lembata",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "Iceland",
+      "source": "https://en.wikipedia.org/wiki/List_of_islands_by_area",
+      "wikipediaTitle": "Geography of Iceland",
+      "pageviews": {
+        "total": 1883,
+        "days": 31,
+        "title": "Geography of Iceland",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Anvers Island",
+      "source": "https://en.wikipedia.org/wiki/List_of_islands_by_area",
+      "wikipediaTitle": "Anvers Island",
+      "pageviews": {
+        "total": 366,
+        "days": 31,
+        "title": "Anvers Island",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Paramushir",
+      "source": "https://en.wikipedia.org/wiki/List_of_islands_by_area",
+      "wikipediaTitle": "Paramushir",
+      "pageviews": {
+        "total": 807,
+        "days": 31,
+        "title": "Paramushir",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "Choiseul Island",
+      "source": "https://en.wikipedia.org/wiki/List_of_islands_by_area",
+      "wikipediaTitle": "Choiseul Island",
+      "pageviews": {
+        "total": 560,
+        "days": 31,
+        "title": "Choiseul Island",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "Chongming Island",
+      "source": "https://en.wikipedia.org/wiki/List_of_islands_by_area",
+      "wikipediaTitle": "Chongming Island",
+      "pageviews": {
+        "total": 1478,
+        "days": 31,
+        "title": "Chongming Island",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "Siberut",
+      "source": "https://en.wikipedia.org/wiki/List_of_islands_by_area",
+      "wikipediaTitle": "Siberut",
+      "pageviews": {
+        "total": 495,
+        "days": 31,
+        "title": "Siberut",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "Bering Island",
+      "source": "https://en.wikipedia.org/wiki/List_of_islands_by_area",
+      "wikipediaTitle": "Bering Island",
+      "pageviews": {
+        "total": 2106,
+        "days": 31,
+        "title": "Bering Island",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "Puerto Rico",
+      "source": "https://en.wikipedia.org/wiki/List_of_islands_by_area",
+      "wikipediaTitle": "Geography of Puerto Rico",
+      "pageviews": {
+        "total": 3361,
+        "days": 31,
+        "title": "Geography of Puerto Rico",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Rote Island",
+      "source": "https://en.wikipedia.org/wiki/List_of_islands_by_area",
+      "wikipediaTitle": "Rote Island",
+      "pageviews": {
+        "total": 1587,
+        "days": 31,
+        "title": "Rote Island",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Afognak Island",
+      "source": "https://en.wikipedia.org/wiki/List_of_islands_by_area",
+      "wikipediaTitle": "Afognak Island",
+      "pageviews": {
+        "total": 530,
+        "days": 31,
+        "title": "Afognak Island",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "Sääminginsalo",
+      "source": "https://en.wikipedia.org/wiki/List_of_islands_by_area",
+      "wikipediaTitle": "Sääminginsalo",
+      "pageviews": {
+        "total": 387,
+        "days": 31,
+        "title": "Sääminginsalo",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "Waigeo",
+      "source": "https://en.wikipedia.org/wiki/List_of_islands_by_area",
+      "wikipediaTitle": "Waigeo",
+      "pageviews": {
+        "total": 599,
+        "days": 31,
+        "title": "Waigeo",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "Karaginsky Island",
+      "source": "https://en.wikipedia.org/wiki/List_of_islands_by_area",
+      "wikipediaTitle": "Karaginsky Island",
+      "pageviews": {
+        "total": 395,
+        "days": 31,
+        "title": "Karaginsky Island",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "Sumba",
+      "source": "https://en.wikipedia.org/wiki/List_of_islands_by_area",
+      "wikipediaTitle": "Sumba",
+      "pageviews": {
+        "total": 3892,
+        "days": 31,
+        "title": "Sumba",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "North Jutlandic Island",
+      "source": "https://en.wikipedia.org/wiki/List_of_islands_by_area",
+      "wikipediaTitle": "North Jutlandic Island",
+      "pageviews": {
+        "total": 1409,
+        "days": 31,
+        "title": "North Jutlandic Island",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "Chichagof Island",
+      "source": "https://en.wikipedia.org/wiki/List_of_islands_by_area",
+      "wikipediaTitle": "Chichagof Island",
+      "pageviews": {
+        "total": 1183,
+        "days": 31,
+        "title": "Chichagof Island",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Belitung",
+      "source": "https://en.wikipedia.org/wiki/List_of_islands_by_area",
+      "wikipediaTitle": "Belitung",
+      "pageviews": {
+        "total": 1548,
+        "days": 31,
+        "title": "Belitung",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "Mindoro",
+      "source": "https://en.wikipedia.org/wiki/List_of_islands_by_area",
+      "wikipediaTitle": "Mindoro",
+      "pageviews": {
+        "total": 3170,
+        "days": 31,
+        "title": "Mindoro",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "Urup",
+      "source": "https://en.wikipedia.org/wiki/List_of_islands_by_area",
+      "wikipediaTitle": "Urup",
+      "pageviews": {
+        "total": 903,
+        "days": 31,
+        "title": "Urup",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "Yuzhny Island",
+      "source": "https://en.wikipedia.org/wiki/List_of_islands_by_area",
+      "wikipediaTitle": "Yuzhny Island",
+      "pageviews": {
+        "total": 1449,
+        "days": 31,
+        "title": "Yuzhny Island",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "Greenland",
+      "source": "https://en.wikipedia.org/wiki/List_of_islands_by_area",
+      "wikipediaTitle": "Geography of Greenland",
+      "pageviews": {
+        "total": 3430,
+        "days": 31,
+        "title": "Geography of Greenland",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Komsomolets Island",
+      "source": "https://en.wikipedia.org/wiki/List_of_islands_by_area",
+      "wikipediaTitle": "Komsomolets Island",
+      "pageviews": {
+        "total": 614,
+        "days": 31,
+        "title": "Komsomolets Island",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "Malaita",
+      "source": "https://en.wikipedia.org/wiki/List_of_islands_by_area",
+      "wikipediaTitle": "Malaita",
+      "pageviews": {
+        "total": 1693,
+        "days": 31,
+        "title": "Malaita",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Akimiski Island",
+      "source": "https://en.wikipedia.org/wiki/List_of_islands_by_area",
+      "wikipediaTitle": "Akimiski Island",
+      "pageviews": {
+        "total": 1256,
+        "days": 31,
+        "title": "Akimiski Island",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "Seram Island",
+      "source": "https://en.wikipedia.org/wiki/List_of_islands_by_area",
+      "wikipediaTitle": "Seram Island",
+      "pageviews": {
+        "total": 1125,
+        "days": 31,
+        "title": "Seram Island",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "New Siberia",
+      "source": "https://en.wikipedia.org/wiki/List_of_islands_by_area",
+      "wikipediaTitle": "New Siberia",
+      "pageviews": {
+        "total": 668,
+        "days": 31,
+        "title": "New Siberia",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "Alor Island",
+      "source": "https://en.wikipedia.org/wiki/List_of_islands_by_area",
+      "wikipediaTitle": "Alor Island",
+      "pageviews": {
+        "total": 1026,
+        "days": 31,
+        "title": "Alor Island",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Copper Island",
+      "source": "https://en.wikipedia.org/wiki/List_of_islands_by_area",
+      "wikipediaTitle": "Copper Island",
+      "pageviews": {
+        "total": 470,
+        "days": 31,
+        "title": "Copper Island",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Admiralty Island",
+      "source": "https://en.wikipedia.org/wiki/List_of_islands_by_area",
+      "wikipediaTitle": "Admiralty Island",
+      "pageviews": {
+        "total": 1018,
+        "days": 31,
+        "title": "Admiralty Island",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "Malakula",
+      "source": "https://en.wikipedia.org/wiki/List_of_islands_by_area",
+      "wikipediaTitle": "Malakula",
+      "pageviews": {
+        "total": 461,
+        "days": 31,
+        "title": "Malakula",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Nias",
+      "source": "https://en.wikipedia.org/wiki/List_of_islands_by_area",
+      "wikipediaTitle": "Nias",
+      "pageviews": {
+        "total": 1939,
+        "days": 31,
+        "title": "Nias",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Ross Island",
+      "source": "https://en.wikipedia.org/wiki/List_of_islands_by_area",
+      "wikipediaTitle": "Ross Island",
+      "pageviews": {
+        "total": 4052,
+        "days": 31,
+        "title": "Ross Island",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "Berkner Island",
+      "source": "https://en.wikipedia.org/wiki/List_of_islands_by_area",
+      "wikipediaTitle": "Berkner Island",
+      "pageviews": {
+        "total": 870,
+        "days": 31,
+        "title": "Berkner Island",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Thurston Island",
+      "source": "https://en.wikipedia.org/wiki/List_of_islands_by_area",
+      "wikipediaTitle": "Thurston Island",
+      "pageviews": {
+        "total": 639,
+        "days": 31,
+        "title": "Thurston Island",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "New Georgia",
+      "source": "https://en.wikipedia.org/wiki/List_of_islands_by_area",
+      "wikipediaTitle": "New Georgia",
+      "pageviews": {
+        "total": 1734,
+        "days": 31,
+        "title": "New Georgia",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Negros",
+      "source": "https://en.wikipedia.org/wiki/List_of_islands_by_area",
+      "wikipediaTitle": "Negros",
+      "pageviews": {
+        "total": 2969,
+        "days": 31,
+        "title": "Negros",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "Vanua Levu",
+      "source": "https://en.wikipedia.org/wiki/List_of_islands_by_area",
+      "wikipediaTitle": "Vanua Levu",
+      "pageviews": {
+        "total": 1567,
+        "days": 31,
+        "title": "Vanua Levu",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "Bylot Island",
+      "source": "https://en.wikipedia.org/wiki/List_of_islands_by_area",
+      "wikipediaTitle": "Bylot Island",
+      "pageviews": {
+        "total": 544,
+        "days": 31,
+        "title": "Bylot Island",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Resolution Island",
+      "source": "https://en.wikipedia.org/wiki/List_of_islands_by_area",
+      "wikipediaTitle": "Resolution Island (Nunavut)",
+      "pageviews": {
+        "total": 504,
+        "days": 31,
+        "title": "Resolution Island (Nunavut)",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Chiloé Island",
+      "source": "https://en.wikipedia.org/wiki/List_of_islands_by_area",
+      "wikipediaTitle": "Chiloé Island",
+      "pageviews": {
+        "total": 2747,
+        "days": 31,
+        "title": "Chiloé Island",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Iturup",
+      "source": "https://en.wikipedia.org/wiki/List_of_islands_by_area",
+      "wikipediaTitle": "Iturup",
+      "pageviews": {
+        "total": 5091,
+        "days": 31,
+        "title": "Iturup",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "Samar",
+      "source": "https://en.wikipedia.org/wiki/List_of_islands_by_area",
+      "wikipediaTitle": "Samar",
+      "pageviews": {
+        "total": 2974,
+        "days": 31,
+        "title": "Samar",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "Axel Heiberg Island",
+      "source": "https://en.wikipedia.org/wiki/List_of_islands_by_area",
+      "wikipediaTitle": "Axel Heiberg Island",
+      "pageviews": {
+        "total": 1217,
+        "days": 31,
+        "title": "Axel Heiberg Island",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    }
+  ]
+}

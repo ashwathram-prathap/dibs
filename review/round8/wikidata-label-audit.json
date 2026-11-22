@@ -1,0 +1,79 @@
+{
+  "at": "2026-11-22T06:29:53.061Z",
+  "url": "https://www.wikidata.org/w/api.php?action=wbgetentities&ids=Q873%7CQ42101%7CQ47703%7CQ17738&props=labels%7Csitelinks&languages=en%7Cmul&sitefilter=enwiki&format=json",
+  "finding": "Mandatory English-only labels omitted real entries that have English Wikipedia articles. Membership now depends on the full classification and article; article titles supply common names, with English and multilingual name aliases.",
+  "entities": {
+    "Q873": {
+      "type": "item",
+      "id": "Q873",
+      "labels": {
+        "mul": {
+          "language": "mul",
+          "value": "Meryl Streep"
+        }
+      },
+      "sitelinks": {
+        "enwiki": {
+          "site": "enwiki",
+          "title": "Meryl Streep",
+          "badges": [
+            "Q17437798"
+          ]
+        }
+      }
+    },
+    "Q42101": {
+      "type": "item",
+      "id": "Q42101",
+      "labels": {
+        "mul": {
+          "language": "mul",
+          "value": "Denzel Washington"
+        }
+      },
+      "sitelinks": {
+        "enwiki": {
+          "site": "enwiki",
+          "title": "Denzel Washington",
+          "badges": []
+        }
+      }
+    },
+    "Q47703": {
+      "type": "item",
+      "id": "Q47703",
+      "labels": {
+        "mul": {
+          "language": "mul",
+          "value": "The Godfather"
+        }
+      },
+      "sitelinks": {
+        "enwiki": {
+          "site": "enwiki",
+          "title": "The Godfather",
+          "badges": [
+            "Q17437798"
+          ]
+        }
+      }
+    },
+    "Q17738": {
+      "type": "item",
+      "id": "Q17738",
+      "labels": {
+        "mul": {
+          "language": "mul",
+          "value": "Star Wars: Episode IV – A New Hope"
+        }
+      },
+      "sitelinks": {
+        "enwiki": {
+          "site": "enwiki",
+          "title": "Star Wars (film)",
+          "badges": []
+        }
+      }
+    }
+  }
+}

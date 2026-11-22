@@ -36,12 +36,19 @@
   {
     "slug": "bands",
     "name": "Music groups",
-    "root": "Q215380"
+    "root": "Q2088357",
+    "cacheKey": "ensemble-v2",
+    "note": "All musical ensembles, including vocal groups, duos, trios, bands, orchestras and choirs; the narrower musical-group class omits some named ensembles."
   },
   {
     "slug": "albums",
-    "name": "Albums",
-    "root": "Q482994"
+    "name": "Albums & EPs",
+    "root": "Q482994",
+    "roots": [
+      "Q482994",
+      "Q169930"
+    ],
+    "cacheKey": "albums-ep-v2"
   },
   {
     "slug": "songs",

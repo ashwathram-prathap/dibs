@@ -1,0 +1,811 @@
+{
+  "source": "Independent curated Wikipedia lists, extracted by subject column or list label; see source URLs per sample",
+  "seed": 2049945439,
+  "method": "Uniform draw without replacement from the middle half by measured mean daily readership; frozen first draw, all misses retained",
+  "poolSize": 1000,
+  "excluded": [],
+  "answers": [
+    "331 Etheridgea",
+    "904 Rockefellia",
+    "691 Lehigh",
+    "248 Lameia",
+    "635 Vundtia",
+    "306 Unitas",
+    "189 Phthia",
+    "287 Nephthys",
+    "276 Adelheid",
+    "696 Leonora",
+    "343 Ostara",
+    "912 Maritima",
+    "378 Holmia",
+    "295 Theresia",
+    "659 Nestor",
+    "213 Lilaea",
+    "653 Berenike",
+    "745 Mauritia",
+    "945 Barcelona",
+    "138 Tolosa",
+    "600 Musa",
+    "206 Hersilia",
+    "454 Mathesis",
+    "688 Melanie",
+    "435 Ella",
+    "605 Juvisia",
+    "742 Edisona",
+    "244 Sita",
+    "340 Eduarda",
+    "178 Belisana",
+    "472 Roma",
+    "169 Zelia",
+    "856 Backlunda",
+    "222 Lucia",
+    "194 Prokne",
+    "700 Auravictrix",
+    "299 Thora",
+    "385 Ilmatar",
+    "428 Monachia",
+    "878 Mildred",
+    "677 Aaltje",
+    "697 Galilea",
+    "263 Dresda",
+    "450 Brigitta",
+    "475 Ocllo",
+    "630 Euphemia",
+    "401 Ottilia",
+    "916 America",
+    "403 Cyane",
+    "622 Esther"
+  ],
+  "samples": [
+    {
+      "answer": "331 Etheridgea",
+      "source": "https://en.wikipedia.org/wiki/List_of_minor_planets:_1–1000",
+      "wikipediaTitle": "331 Etheridgea",
+      "pageviews": {
+        "total": 35,
+        "days": 31,
+        "title": "331 Etheridgea",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "904 Rockefellia",
+      "source": "https://en.wikipedia.org/wiki/List_of_minor_planets:_1–1000",
+      "wikipediaTitle": "904 Rockefellia",
+      "pageviews": {
+        "total": 27,
+        "days": 31,
+        "title": "904 Rockefellia",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "691 Lehigh",
+      "source": "https://en.wikipedia.org/wiki/List_of_minor_planets:_1–1000",
+      "wikipediaTitle": "691 Lehigh",
+      "pageviews": {
+        "total": 32,
+        "days": 31,
+        "title": "691 Lehigh",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "248 Lameia",
+      "source": "https://en.wikipedia.org/wiki/List_of_minor_planets:_1–1000",
+      "wikipediaTitle": "248 Lameia",
+      "pageviews": {
+        "total": 51,
+        "days": 31,
+        "title": "248 Lameia",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "635 Vundtia",
+      "source": "https://en.wikipedia.org/wiki/List_of_minor_planets:_1–1000",
+      "wikipediaTitle": "635 Vundtia",
+      "pageviews": {
+        "total": 32,
+        "days": 31,
+        "title": "635 Vundtia",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "306 Unitas",
+      "source": "https://en.wikipedia.org/wiki/List_of_minor_planets:_1–1000",
+      "wikipediaTitle": "306 Unitas",
+      "pageviews": {
+        "total": 44,
+        "days": 31,
+        "title": "306 Unitas",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "189 Phthia",
+      "source": "https://en.wikipedia.org/wiki/List_of_minor_planets:_1–1000",
+      "wikipediaTitle": "189 Phthia",
+      "pageviews": {
+        "total": 32,
+        "days": 31,
+        "title": "189 Phthia",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "287 Nephthys",
+      "source": "https://en.wikipedia.org/wiki/List_of_minor_planets:_1–1000",
+      "wikipediaTitle": "287 Nephthys",
+      "pageviews": {
+        "total": 55,
+        "days": 31,
+        "title": "287 Nephthys",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "276 Adelheid",
+      "source": "https://en.wikipedia.org/wiki/List_of_minor_planets:_1–1000",
+      "wikipediaTitle": "276 Adelheid",
+      "pageviews": {
+        "total": 61,
+        "days": 31,
+        "title": "276 Adelheid",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "696 Leonora",
+      "source": "https://en.wikipedia.org/wiki/List_of_minor_planets:_1–1000",
+      "wikipediaTitle": "696 Leonora",
+      "pageviews": {
+        "total": 28,
+        "days": 31,
+        "title": "696 Leonora",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "343 Ostara",
+      "source": "https://en.wikipedia.org/wiki/List_of_minor_planets:_1–1000",
+      "wikipediaTitle": "343 Ostara",
+      "pageviews": {
+        "total": 49,
+        "days": 31,
+        "title": "343 Ostara",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "912 Maritima",
+      "source": "https://en.wikipedia.org/wiki/List_of_minor_planets:_1–1000",
+      "wikipediaTitle": "912 Maritima",
+      "pageviews": {
+        "total": 33,
+        "days": 31,
+        "title": "912 Maritima",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "378 Holmia",
+      "source": "https://en.wikipedia.org/wiki/List_of_minor_planets:_1–1000",
+      "wikipediaTitle": "378 Holmia",
+      "pageviews": {
+        "total": 36,
+        "days": 31,
+        "title": "378 Holmia",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "295 Theresia",
+      "source": "https://en.wikipedia.org/wiki/List_of_minor_planets:_1–1000",
+      "wikipediaTitle": "295 Theresia",
+      "pageviews": {
+        "total": 49,
+        "days": 31,
+        "title": "295 Theresia",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "659 Nestor",
+      "source": "https://en.wikipedia.org/wiki/List_of_minor_planets:_1–1000",
+      "wikipediaTitle": "659 Nestor",
+      "pageviews": {
+        "total": 52,
+        "days": 31,
+        "title": "659 Nestor",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "213 Lilaea",
+      "source": "https://en.wikipedia.org/wiki/List_of_minor_planets:_1–1000",
+      "wikipediaTitle": "213 Lilaea",
+      "pageviews": {
+        "total": 34,
+        "days": 31,
+        "title": "213 Lilaea",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "653 Berenike",
+      "source": "https://en.wikipedia.org/wiki/List_of_minor_planets:_1–1000",
+      "wikipediaTitle": "653 Berenike",
+      "pageviews": {
+        "total": 34,
+        "days": 31,
+        "title": "653 Berenike",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "745 Mauritia",
+      "source": "https://en.wikipedia.org/wiki/List_of_minor_planets:_1–1000",
+      "wikipediaTitle": "745 Mauritia",
+      "pageviews": {
+        "total": 34,
+        "days": 31,
+        "title": "745 Mauritia",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "945 Barcelona",
+      "source": "https://en.wikipedia.org/wiki/List_of_minor_planets:_1–1000",
+      "wikipediaTitle": "945 Barcelona",
+      "pageviews": {
+        "total": 37,
+        "days": 31,
+        "title": "945 Barcelona",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "138 Tolosa",
+      "source": "https://en.wikipedia.org/wiki/List_of_minor_planets:_1–1000",
+      "wikipediaTitle": "138 Tolosa",
+      "pageviews": {
+        "total": 49,
+        "days": 31,
+        "title": "138 Tolosa",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "600 Musa",
+      "source": "https://en.wikipedia.org/wiki/List_of_minor_planets:_1–1000",
+      "wikipediaTitle": "600 Musa",
+      "pageviews": {
+        "total": 44,
+        "days": 31,
+        "title": "600 Musa",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "206 Hersilia",
+      "source": "https://en.wikipedia.org/wiki/List_of_minor_planets:_1–1000",
+      "wikipediaTitle": "206 Hersilia",
+      "pageviews": {
+        "total": 44,
+        "days": 31,
+        "title": "206 Hersilia",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "454 Mathesis",
+      "source": "https://en.wikipedia.org/wiki/List_of_minor_planets:_1–1000",
+      "wikipediaTitle": "454 Mathesis",
+      "pageviews": {
+        "total": 37,
+        "days": 31,
+        "title": "454 Mathesis",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "688 Melanie",
+      "source": "https://en.wikipedia.org/wiki/List_of_minor_planets:_1–1000",
+      "wikipediaTitle": "688 Melanie",
+      "pageviews": {
+        "total": 34,
+        "days": 31,
+        "title": "688 Melanie",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "435 Ella",
+      "source": "https://en.wikipedia.org/wiki/List_of_minor_planets:_1–1000",
+      "wikipediaTitle": "435 Ella",
+      "pageviews": {
+        "total": 57,
+        "days": 31,
+        "title": "435 Ella",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "605 Juvisia",
+      "source": "https://en.wikipedia.org/wiki/List_of_minor_planets:_1–1000",
+      "wikipediaTitle": "605 Juvisia",
+      "pageviews": {
+        "total": 34,
+        "days": 31,
+        "title": "605 Juvisia",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "742 Edisona",
+      "source": "https://en.wikipedia.org/wiki/List_of_minor_planets:_1–1000",
+      "wikipediaTitle": "742 Edisona",
+      "pageviews": {
+        "total": 32,
+        "days": 31,
+        "title": "742 Edisona",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "244 Sita",
+      "source": "https://en.wikipedia.org/wiki/List_of_minor_planets:_1–1000",
+      "wikipediaTitle": "244 Sita",
+      "pageviews": {
+        "total": 51,
+        "days": 31,
+        "title": "244 Sita",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "340 Eduarda",
+      "source": "https://en.wikipedia.org/wiki/List_of_minor_planets:_1–1000",
+      "wikipediaTitle": "340 Eduarda",
+      "pageviews": {
+        "total": 32,
+        "days": 31,
+        "title": "340 Eduarda",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "178 Belisana",
+      "source": "https://en.wikipedia.org/wiki/List_of_minor_planets:_1–1000",
+      "wikipediaTitle": "178 Belisana",
+      "pageviews": {
+        "total": 40,
+        "days": 31,
+        "title": "178 Belisana",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "472 Roma",
+      "source": "https://en.wikipedia.org/wiki/List_of_minor_planets:_1–1000",
+      "wikipediaTitle": "472 Roma",
+      "pageviews": {
+        "total": 53,
+        "days": 31,
+        "title": "472 Roma",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "169 Zelia",
+      "source": "https://en.wikipedia.org/wiki/List_of_minor_planets:_1–1000",
+      "wikipediaTitle": "169 Zelia",
+      "pageviews": {
+        "total": 47,
+        "days": 31,
+        "title": "169 Zelia",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "856 Backlunda",
+      "source": "https://en.wikipedia.org/wiki/List_of_minor_planets:_1–1000",
+      "wikipediaTitle": "856 Backlunda",
+      "pageviews": {
+        "total": 33,
+        "days": 31,
+        "title": "856 Backlunda",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "222 Lucia",
+      "source": "https://en.wikipedia.org/wiki/List_of_minor_planets:_1–1000",
+      "wikipediaTitle": "222 Lucia",
+      "pageviews": {
+        "total": 54,
+        "days": 31,
+        "title": "222 Lucia",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "194 Prokne",
+      "source": "https://en.wikipedia.org/wiki/List_of_minor_planets:_1–1000",
+      "wikipediaTitle": "194 Prokne",
+      "pageviews": {
+        "total": 45,
+        "days": 31,
+        "title": "194 Prokne",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "700 Auravictrix",
+      "source": "https://en.wikipedia.org/wiki/List_of_minor_planets:_1–1000",
+      "wikipediaTitle": "700 Auravictrix",
+      "pageviews": {
+        "total": 31,
+        "days": 31,
+        "title": "700 Auravictrix",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "299 Thora",
+      "source": "https://en.wikipedia.org/wiki/List_of_minor_planets:_1–1000",
+      "wikipediaTitle": "299 Thora",
+      "pageviews": {
+        "total": 49,
+        "days": 31,
+        "title": "299 Thora",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "385 Ilmatar",
+      "source": "https://en.wikipedia.org/wiki/List_of_minor_planets:_1–1000",
+      "wikipediaTitle": "385 Ilmatar",
+      "pageviews": {
+        "total": 45,
+        "days": 31,
+        "title": "385 Ilmatar",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "428 Monachia",
+      "source": "https://en.wikipedia.org/wiki/List_of_minor_planets:_1–1000",
+      "wikipediaTitle": "428 Monachia",
+      "pageviews": {
+        "total": 37,
+        "days": 31,
+        "title": "428 Monachia",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "878 Mildred",
+      "source": "https://en.wikipedia.org/wiki/List_of_minor_planets:_1–1000",
+      "wikipediaTitle": "878 Mildred",
+      "pageviews": {
+        "total": 34,
+        "days": 31,
+        "title": "878 Mildred",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "677 Aaltje",
+      "source": "https://en.wikipedia.org/wiki/List_of_minor_planets:_1–1000",
+      "wikipediaTitle": "677 Aaltje",
+      "pageviews": {
+        "total": 45,
+        "days": 31,
+        "title": "677 Aaltje",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "697 Galilea",
+      "source": "https://en.wikipedia.org/wiki/List_of_minor_planets:_1–1000",
+      "wikipediaTitle": "697 Galilea",
+      "pageviews": {
+        "total": 32,
+        "days": 31,
+        "title": "697 Galilea",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "263 Dresda",
+      "source": "https://en.wikipedia.org/wiki/List_of_minor_planets:_1–1000",
+      "wikipediaTitle": "263 Dresda",
+      "pageviews": {
+        "total": 39,
+        "days": 31,
+        "title": "263 Dresda",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "450 Brigitta",
+      "source": "https://en.wikipedia.org/wiki/List_of_minor_planets:_1–1000",
+      "wikipediaTitle": "450 Brigitta",
+      "pageviews": {
+        "total": 27,
+        "days": 31,
+        "title": "450 Brigitta",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "475 Ocllo",
+      "source": "https://en.wikipedia.org/wiki/List_of_minor_planets:_1–1000",
+      "wikipediaTitle": "475 Ocllo",
+      "pageviews": {
+        "total": 29,
+        "days": 31,
+        "title": "475 Ocllo",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "630 Euphemia",
+      "source": "https://en.wikipedia.org/wiki/List_of_minor_planets:_1–1000",
+      "wikipediaTitle": "630 Euphemia",
+      "pageviews": {
+        "total": 50,
+        "days": 31,
+        "title": "630 Euphemia",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "401 Ottilia",
+      "source": "https://en.wikipedia.org/wiki/List_of_minor_planets:_1–1000",
+      "wikipediaTitle": "401 Ottilia",
+      "pageviews": {
+        "total": 30,
+        "days": 31,
+        "title": "401 Ottilia",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "916 America",
+      "source": "https://en.wikipedia.org/wiki/List_of_minor_planets:_1–1000",
+      "wikipediaTitle": "916 America",
+      "pageviews": {
+        "total": 45,
+        "days": 31,
+        "title": "916 America",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "403 Cyane",
+      "source": "https://en.wikipedia.org/wiki/List_of_minor_planets:_1–1000",
+      "wikipediaTitle": "403 Cyane",
+      "pageviews": {
+        "total": 27,
+        "days": 31,
+        "title": "403 Cyane",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "622 Esther",
+      "source": "https://en.wikipedia.org/wiki/List_of_minor_planets:_1–1000",
+      "wikipediaTitle": "622 Esther",
+      "pageviews": {
+        "total": 47,
+        "days": 31,
+        "title": "622 Esther",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    }
+  ]
+}

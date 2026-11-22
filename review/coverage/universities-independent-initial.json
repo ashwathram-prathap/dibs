@@ -1,0 +1,811 @@
+{
+  "source": "Independent curated Wikipedia lists, extracted by subject column or list label; see source URLs per sample",
+  "seed": 1737650693,
+  "method": "Uniform draw without replacement from the middle half by measured mean daily readership; frozen first draw, all misses retained",
+  "poolSize": 156,
+  "excluded": [],
+  "answers": [
+    "York St John University",
+    "University of Northampton",
+    "Sheffield Hallam University",
+    "St Mary's University, Twickenham",
+    "University of Southampton",
+    "Ravensbourne University London",
+    "Cranfield University",
+    "University of Law",
+    "London Metropolitan University",
+    "University of Greenwich",
+    "Lancaster University",
+    "Cardiff University",
+    "Keele University",
+    "University of Leicester",
+    "University of Stirling",
+    "University of Wales Trinity Saint David",
+    "Bath Spa University",
+    "Regent's University London",
+    "Queen Margaret University",
+    "London South Bank University",
+    "University of Aberdeen",
+    "University of Salford",
+    "University of Bradford",
+    "BPP University",
+    "Royal Agricultural University",
+    "University of the West of England",
+    "University of Brighton",
+    "Northumbria University",
+    "Teesside University",
+    "University of Bath",
+    "Glasgow Caledonian University",
+    "Swansea University",
+    "University of Sheffield",
+    "University of Reading",
+    "London Business School",
+    "Leeds Beckett University",
+    "Kingston University",
+    "Ulster University",
+    "University of Portsmouth",
+    "Brunel University of London",
+    "De Montfort University",
+    "University of Huddersfield",
+    "Birmingham City University",
+    "University of East London",
+    "University of Hull",
+    "University of Lincoln",
+    "Royal Academy of Music",
+    "Canterbury Christ Church University",
+    "Edge Hill University",
+    "University of the Arts London"
+  ],
+  "samples": [
+    {
+      "answer": "York St John University",
+      "source": "https://en.wikipedia.org/wiki/List_of_universities_in_the_United_Kingdom",
+      "wikipediaTitle": "York St John University",
+      "pageviews": {
+        "total": 1711,
+        "days": 31,
+        "title": "York St John University",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "University of Northampton",
+      "source": "https://en.wikipedia.org/wiki/List_of_universities_in_the_United_Kingdom",
+      "wikipediaTitle": "University of Northampton",
+      "pageviews": {
+        "total": 2488,
+        "days": 31,
+        "title": "University of Northampton",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Sheffield Hallam University",
+      "source": "https://en.wikipedia.org/wiki/List_of_universities_in_the_United_Kingdom",
+      "wikipediaTitle": "Sheffield Hallam University",
+      "pageviews": {
+        "total": 2332,
+        "days": 31,
+        "title": "Sheffield Hallam University",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "St Mary's University, Twickenham",
+      "source": "https://en.wikipedia.org/wiki/List_of_universities_in_the_United_Kingdom",
+      "wikipediaTitle": "St Mary's University, Twickenham",
+      "pageviews": {
+        "total": 3055,
+        "days": 31,
+        "title": "St Mary's University, Twickenham",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "University of Southampton",
+      "source": "https://en.wikipedia.org/wiki/List_of_universities_in_the_United_Kingdom",
+      "wikipediaTitle": "University of Southampton",
+      "pageviews": {
+        "total": 5249,
+        "days": 31,
+        "title": "University of Southampton",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Ravensbourne University London",
+      "source": "https://en.wikipedia.org/wiki/List_of_universities_in_the_United_Kingdom",
+      "wikipediaTitle": "Ravensbourne University London",
+      "pageviews": {
+        "total": 1711,
+        "days": 31,
+        "title": "Ravensbourne University London",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Cranfield University",
+      "source": "https://en.wikipedia.org/wiki/List_of_universities_in_the_United_Kingdom",
+      "wikipediaTitle": "Cranfield University",
+      "pageviews": {
+        "total": 4343,
+        "days": 31,
+        "title": "Cranfield University",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "University of Law",
+      "source": "https://en.wikipedia.org/wiki/List_of_universities_in_the_United_Kingdom",
+      "wikipediaTitle": "University of Law",
+      "pageviews": {
+        "total": 2797,
+        "days": 31,
+        "title": "University of Law",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "London Metropolitan University",
+      "source": "https://en.wikipedia.org/wiki/List_of_universities_in_the_United_Kingdom",
+      "wikipediaTitle": "London Metropolitan University",
+      "pageviews": {
+        "total": 2725,
+        "days": 31,
+        "title": "London Metropolitan University",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "University of Greenwich",
+      "source": "https://en.wikipedia.org/wiki/List_of_universities_in_the_United_Kingdom",
+      "wikipediaTitle": "University of Greenwich",
+      "pageviews": {
+        "total": 4272,
+        "days": 31,
+        "title": "University of Greenwich",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "Lancaster University",
+      "source": "https://en.wikipedia.org/wiki/List_of_universities_in_the_United_Kingdom",
+      "wikipediaTitle": "Lancaster University",
+      "pageviews": {
+        "total": 4950,
+        "days": 31,
+        "title": "Lancaster University",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "Cardiff University",
+      "source": "https://en.wikipedia.org/wiki/List_of_universities_in_the_United_Kingdom",
+      "wikipediaTitle": "Cardiff University",
+      "pageviews": {
+        "total": 4909,
+        "days": 31,
+        "title": "Cardiff University",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Keele University",
+      "source": "https://en.wikipedia.org/wiki/List_of_universities_in_the_United_Kingdom",
+      "wikipediaTitle": "Keele University",
+      "pageviews": {
+        "total": 3411,
+        "days": 31,
+        "title": "Keele University",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "University of Leicester",
+      "source": "https://en.wikipedia.org/wiki/List_of_universities_in_the_United_Kingdom",
+      "wikipediaTitle": "University of Leicester",
+      "pageviews": {
+        "total": 3219,
+        "days": 31,
+        "title": "University of Leicester",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "University of Stirling",
+      "source": "https://en.wikipedia.org/wiki/List_of_universities_in_the_United_Kingdom",
+      "wikipediaTitle": "University of Stirling",
+      "pageviews": {
+        "total": 2276,
+        "days": 31,
+        "title": "University of Stirling",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "University of Wales Trinity Saint David",
+      "source": "https://en.wikipedia.org/wiki/List_of_universities_in_the_United_Kingdom",
+      "wikipediaTitle": "University of Wales Trinity Saint David",
+      "pageviews": {
+        "total": 1733,
+        "days": 31,
+        "title": "University of Wales Trinity Saint David",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Bath Spa University",
+      "source": "https://en.wikipedia.org/wiki/List_of_universities_in_the_United_Kingdom",
+      "wikipediaTitle": "Bath Spa University",
+      "pageviews": {
+        "total": 2187,
+        "days": 31,
+        "title": "Bath Spa University",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Regent's University London",
+      "source": "https://en.wikipedia.org/wiki/List_of_universities_in_the_United_Kingdom",
+      "wikipediaTitle": "Regent's University London",
+      "pageviews": {
+        "total": 4254,
+        "days": 31,
+        "title": "Regent's University London",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Queen Margaret University",
+      "source": "https://en.wikipedia.org/wiki/List_of_universities_in_the_United_Kingdom",
+      "wikipediaTitle": "Queen Margaret University",
+      "pageviews": {
+        "total": 2696,
+        "days": 31,
+        "title": "Queen Margaret University",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "London South Bank University",
+      "source": "https://en.wikipedia.org/wiki/List_of_universities_in_the_United_Kingdom",
+      "wikipediaTitle": "London South Bank University",
+      "pageviews": {
+        "total": 1654,
+        "days": 31,
+        "title": "London South Bank University",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "University of Aberdeen",
+      "source": "https://en.wikipedia.org/wiki/List_of_universities_in_the_United_Kingdom",
+      "wikipediaTitle": "University of Aberdeen",
+      "pageviews": {
+        "total": 5581,
+        "days": 31,
+        "title": "University of Aberdeen",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "University of Salford",
+      "source": "https://en.wikipedia.org/wiki/List_of_universities_in_the_United_Kingdom",
+      "wikipediaTitle": "University of Salford",
+      "pageviews": {
+        "total": 3158,
+        "days": 31,
+        "title": "University of Salford",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "University of Bradford",
+      "source": "https://en.wikipedia.org/wiki/List_of_universities_in_the_United_Kingdom",
+      "wikipediaTitle": "University of Bradford",
+      "pageviews": {
+        "total": 4317,
+        "days": 31,
+        "title": "University of Bradford",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "BPP University",
+      "source": "https://en.wikipedia.org/wiki/List_of_universities_in_the_United_Kingdom",
+      "wikipediaTitle": "BPP University",
+      "pageviews": {
+        "total": 3300,
+        "days": 31,
+        "title": "BPP University",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Royal Agricultural University",
+      "source": "https://en.wikipedia.org/wiki/List_of_universities_in_the_United_Kingdom",
+      "wikipediaTitle": "Royal Agricultural University",
+      "pageviews": {
+        "total": 2958,
+        "days": 31,
+        "title": "Royal Agricultural University",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "University of the West of England",
+      "source": "https://en.wikipedia.org/wiki/List_of_universities_in_the_United_Kingdom",
+      "wikipediaTitle": "University of the West of England",
+      "pageviews": {
+        "total": 3232,
+        "days": 31,
+        "title": "University of the West of England",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "University of Brighton",
+      "source": "https://en.wikipedia.org/wiki/List_of_universities_in_the_United_Kingdom",
+      "wikipediaTitle": "University of Brighton",
+      "pageviews": {
+        "total": 1797,
+        "days": 31,
+        "title": "University of Brighton",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Northumbria University",
+      "source": "https://en.wikipedia.org/wiki/List_of_universities_in_the_United_Kingdom",
+      "wikipediaTitle": "Northumbria University",
+      "pageviews": {
+        "total": 3454,
+        "days": 31,
+        "title": "Northumbria University",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Teesside University",
+      "source": "https://en.wikipedia.org/wiki/List_of_universities_in_the_United_Kingdom",
+      "wikipediaTitle": "Teesside University",
+      "pageviews": {
+        "total": 1882,
+        "days": 31,
+        "title": "Teesside University",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "University of Bath",
+      "source": "https://en.wikipedia.org/wiki/List_of_universities_in_the_United_Kingdom",
+      "wikipediaTitle": "University of Bath",
+      "pageviews": {
+        "total": 5210,
+        "days": 31,
+        "title": "University of Bath",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Glasgow Caledonian University",
+      "source": "https://en.wikipedia.org/wiki/List_of_universities_in_the_United_Kingdom",
+      "wikipediaTitle": "Glasgow Caledonian University",
+      "pageviews": {
+        "total": 1958,
+        "days": 31,
+        "title": "Glasgow Caledonian University",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Swansea University",
+      "source": "https://en.wikipedia.org/wiki/List_of_universities_in_the_United_Kingdom",
+      "wikipediaTitle": "Swansea University",
+      "pageviews": {
+        "total": 2393,
+        "days": 31,
+        "title": "Swansea University",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "University of Sheffield",
+      "source": "https://en.wikipedia.org/wiki/List_of_universities_in_the_United_Kingdom",
+      "wikipediaTitle": "University of Sheffield",
+      "pageviews": {
+        "total": 4814,
+        "days": 31,
+        "title": "University of Sheffield",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "University of Reading",
+      "source": "https://en.wikipedia.org/wiki/List_of_universities_in_the_United_Kingdom",
+      "wikipediaTitle": "University of Reading",
+      "pageviews": {
+        "total": 4773,
+        "days": 31,
+        "title": "University of Reading",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "London Business School",
+      "source": "https://en.wikipedia.org/wiki/List_of_universities_in_the_United_Kingdom",
+      "wikipediaTitle": "London Business School",
+      "pageviews": {
+        "total": 3663,
+        "days": 31,
+        "title": "London Business School",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Leeds Beckett University",
+      "source": "https://en.wikipedia.org/wiki/List_of_universities_in_the_United_Kingdom",
+      "wikipediaTitle": "Leeds Beckett University",
+      "pageviews": {
+        "total": 2432,
+        "days": 31,
+        "title": "Leeds Beckett University",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Kingston University",
+      "source": "https://en.wikipedia.org/wiki/List_of_universities_in_the_United_Kingdom",
+      "wikipediaTitle": "Kingston University",
+      "pageviews": {
+        "total": 3792,
+        "days": 31,
+        "title": "Kingston University",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Ulster University",
+      "source": "https://en.wikipedia.org/wiki/List_of_universities_in_the_United_Kingdom",
+      "wikipediaTitle": "Ulster University",
+      "pageviews": {
+        "total": 3338,
+        "days": 31,
+        "title": "Ulster University",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "University of Portsmouth",
+      "source": "https://en.wikipedia.org/wiki/List_of_universities_in_the_United_Kingdom",
+      "wikipediaTitle": "University of Portsmouth",
+      "pageviews": {
+        "total": 2311,
+        "days": 31,
+        "title": "University of Portsmouth",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Brunel University of London",
+      "source": "https://en.wikipedia.org/wiki/List_of_universities_in_the_United_Kingdom",
+      "wikipediaTitle": "Brunel University of London",
+      "pageviews": {
+        "total": 4114,
+        "days": 31,
+        "title": "Brunel University of London",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "De Montfort University",
+      "source": "https://en.wikipedia.org/wiki/List_of_universities_in_the_United_Kingdom",
+      "wikipediaTitle": "De Montfort University",
+      "pageviews": {
+        "total": 3970,
+        "days": 31,
+        "title": "De Montfort University",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "University of Huddersfield",
+      "source": "https://en.wikipedia.org/wiki/List_of_universities_in_the_United_Kingdom",
+      "wikipediaTitle": "University of Huddersfield",
+      "pageviews": {
+        "total": 4190,
+        "days": 31,
+        "title": "University of Huddersfield",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Birmingham City University",
+      "source": "https://en.wikipedia.org/wiki/List_of_universities_in_the_United_Kingdom",
+      "wikipediaTitle": "Birmingham City University",
+      "pageviews": {
+        "total": 2027,
+        "days": 31,
+        "title": "Birmingham City University",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "University of East London",
+      "source": "https://en.wikipedia.org/wiki/List_of_universities_in_the_United_Kingdom",
+      "wikipediaTitle": "University of East London",
+      "pageviews": {
+        "total": 2857,
+        "days": 31,
+        "title": "University of East London",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "University of Hull",
+      "source": "https://en.wikipedia.org/wiki/List_of_universities_in_the_United_Kingdom",
+      "wikipediaTitle": "University of Hull",
+      "pageviews": {
+        "total": 5338,
+        "days": 31,
+        "title": "University of Hull",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "University of Lincoln",
+      "source": "https://en.wikipedia.org/wiki/List_of_universities_in_the_United_Kingdom",
+      "wikipediaTitle": "University of Lincoln",
+      "pageviews": {
+        "total": 2411,
+        "days": 31,
+        "title": "University of Lincoln",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Royal Academy of Music",
+      "source": "https://en.wikipedia.org/wiki/List_of_universities_in_the_United_Kingdom",
+      "wikipediaTitle": "Royal Academy of Music",
+      "pageviews": {
+        "total": 3614,
+        "days": 31,
+        "title": "Royal Academy of Music",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Canterbury Christ Church University",
+      "source": "https://en.wikipedia.org/wiki/List_of_universities_in_the_United_Kingdom",
+      "wikipediaTitle": "Canterbury Christ Church University",
+      "pageviews": {
+        "total": 3277,
+        "days": 31,
+        "title": "Canterbury Christ Church University",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Edge Hill University",
+      "source": "https://en.wikipedia.org/wiki/List_of_universities_in_the_United_Kingdom",
+      "wikipediaTitle": "Edge Hill University",
+      "pageviews": {
+        "total": 2108,
+        "days": 31,
+        "title": "Edge Hill University",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "University of the Arts London",
+      "source": "https://en.wikipedia.org/wiki/List_of_universities_in_the_United_Kingdom",
+      "wikipediaTitle": "University of the Arts London",
+      "pageviews": {
+        "total": 3696,
+        "days": 31,
+        "title": "University of the Arts London",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    }
+  ]
+}

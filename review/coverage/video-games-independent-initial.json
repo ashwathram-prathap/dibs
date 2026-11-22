@@ -1,0 +1,811 @@
+{
+  "source": "Independent curated Wikipedia lists, extracted by subject column or list label; see source URLs per sample",
+  "seed": 86933878,
+  "method": "Uniform draw without replacement from the middle half by measured mean daily readership; frozen first draw, all misses retained",
+  "poolSize": 212,
+  "excluded": [],
+  "answers": [
+    "New Super Mario Bros. Wii",
+    "Paper Mario: The Thousand-Year Door",
+    "Mario Kart 8",
+    "Super Mario 3D All-Stars",
+    "Mario + Rabbids Sparks of Hope",
+    "Knack",
+    "Uncharted: The Lost Legacy",
+    "New Super Mario Bros.",
+    "Splatoon 3",
+    "Wii Play",
+    "Clubhouse Games: 51 Worldwide Classics",
+    "Human: Fall Flat",
+    "Monster Hunter Rise",
+    "Wii Fit",
+    "Rhythm Heaven Groove",
+    "LittleBigPlanet 3",
+    "Tomodachi Life: Living the Dream",
+    "Kingdom Hearts HD 2.8 Final Chapter Prologue",
+    "FIFA 17",
+    "Pokémon Sun / Moon",
+    "Bayonetta",
+    "Resident Evil: Revelations Collection",
+    "Xenoblade Chronicles 3",
+    "Captain Toad: Treasure Tracker",
+    "Super Mario Bros. Wonder",
+    "Monster Hunter: World",
+    "Paper Mario: The Origami King",
+    "Naruto Shippudden: Ultimate Ninja Storm Trilogy",
+    "Pokémon Gold / Silver",
+    "Hyrule Warriors: Age of Calamity",
+    "Uncharted: The Nathan Drake Collection",
+    "Pokémon FireRed and LeafGreen",
+    "Astral Chain",
+    "Super Mario Maker 2",
+    "Sonic the Hedgehog",
+    "Mario Kart Wii",
+    "Payday 2",
+    "Naruto Shippuden: Ultimate Ninja Storm 4",
+    "Donkey Kong Country Returns HD",
+    "FIFA 19",
+    "Tekken 7",
+    "Kirby Star Allies",
+    "Mario vs. Donkey Kong",
+    "Suika Game",
+    "The Legend of Zelda: Link's Awakening",
+    "The Sims",
+    "Infamous Second Son",
+    "Mario & Luigi: Brothership",
+    "Borderlands 2",
+    "Pokémon Sword / Shield"
+  ],
+  "samples": [
+    {
+      "answer": "New Super Mario Bros. Wii",
+      "source": "https://en.wikipedia.org/wiki/List_of_best-selling_video_games",
+      "wikipediaTitle": "New Super Mario Bros. Wii",
+      "pageviews": {
+        "total": 6066,
+        "days": 31,
+        "title": "New Super Mario Bros. Wii",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "Paper Mario: The Thousand-Year Door",
+      "source": "https://en.wikipedia.org/wiki/List_of_best-selling_Nintendo_Switch_video_games",
+      "wikipediaTitle": "Paper Mario: The Thousand-Year Door",
+      "pageviews": {
+        "total": 10633,
+        "days": 31,
+        "title": "Paper Mario: The Thousand-Year Door",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Mario Kart 8",
+      "source": "https://en.wikipedia.org/wiki/List_of_best-selling_video_games",
+      "wikipediaTitle": "Mario Kart 8",
+      "pageviews": {
+        "total": 12304,
+        "days": 31,
+        "title": "Mario Kart 8",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Super Mario 3D All-Stars",
+      "source": "https://en.wikipedia.org/wiki/List_of_best-selling_Nintendo_Switch_video_games",
+      "wikipediaTitle": "Super Mario 3D All-Stars",
+      "pageviews": {
+        "total": 3631,
+        "days": 31,
+        "title": "Super Mario 3D All-Stars",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Mario + Rabbids Sparks of Hope",
+      "source": "https://en.wikipedia.org/wiki/List_of_best-selling_Nintendo_Switch_video_games",
+      "wikipediaTitle": "Mario + Rabbids Sparks of Hope",
+      "pageviews": {
+        "total": 5679,
+        "days": 31,
+        "title": "Mario + Rabbids Sparks of Hope",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Knack",
+      "source": "https://en.wikipedia.org/wiki/List_of_best-selling_PlayStation_4_video_games",
+      "wikipediaTitle": "Knack (video game)",
+      "pageviews": {
+        "total": 3613,
+        "days": 31,
+        "title": "Knack (video game)",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Uncharted: The Lost Legacy",
+      "source": "https://en.wikipedia.org/wiki/List_of_best-selling_PlayStation_4_video_games",
+      "wikipediaTitle": "Uncharted: The Lost Legacy",
+      "pageviews": {
+        "total": 14453,
+        "days": 31,
+        "title": "Uncharted: The Lost Legacy",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "New Super Mario Bros.",
+      "source": "https://en.wikipedia.org/wiki/List_of_best-selling_video_games",
+      "wikipediaTitle": "New Super Mario Bros.",
+      "pageviews": {
+        "total": 8737,
+        "days": 31,
+        "title": "New Super Mario Bros.",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "Splatoon 3",
+      "source": "https://en.wikipedia.org/wiki/List_of_best-selling_Nintendo_Switch_video_games",
+      "wikipediaTitle": "Splatoon 3",
+      "pageviews": {
+        "total": 4153,
+        "days": 31,
+        "title": "Splatoon 3",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Wii Play",
+      "source": "https://en.wikipedia.org/wiki/List_of_best-selling_video_games",
+      "wikipediaTitle": "Wii Play",
+      "pageviews": {
+        "total": 3694,
+        "days": 31,
+        "title": "Wii Play",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "Clubhouse Games: 51 Worldwide Classics",
+      "source": "https://en.wikipedia.org/wiki/List_of_best-selling_Nintendo_Switch_video_games",
+      "wikipediaTitle": "Clubhouse Games: 51 Worldwide Classics",
+      "pageviews": {
+        "total": 3374,
+        "days": 31,
+        "title": "Clubhouse Games: 51 Worldwide Classics",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Human: Fall Flat",
+      "source": "https://en.wikipedia.org/wiki/List_of_best-selling_video_games",
+      "wikipediaTitle": "Human: Fall Flat",
+      "pageviews": {
+        "total": 10217,
+        "days": 31,
+        "title": "Human: Fall Flat",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Monster Hunter Rise",
+      "source": "https://en.wikipedia.org/wiki/List_of_best-selling_Nintendo_Switch_video_games",
+      "wikipediaTitle": "Monster Hunter Rise",
+      "pageviews": {
+        "total": 11735,
+        "days": 31,
+        "title": "Monster Hunter Rise",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Wii Fit",
+      "source": "https://en.wikipedia.org/wiki/List_of_best-selling_video_games",
+      "wikipediaTitle": "Wii Fit",
+      "pageviews": {
+        "total": 3240,
+        "days": 31,
+        "title": "Wii Fit",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "Rhythm Heaven Groove",
+      "source": "https://en.wikipedia.org/wiki/List_of_best-selling_Nintendo_Switch_video_games",
+      "wikipediaTitle": "Rhythm Heaven Groove",
+      "pageviews": {
+        "total": 6289,
+        "days": 31,
+        "title": "Rhythm Heaven Groove",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "LittleBigPlanet 3",
+      "source": "https://en.wikipedia.org/wiki/List_of_best-selling_PlayStation_4_video_games",
+      "wikipediaTitle": "LittleBigPlanet 3",
+      "pageviews": {
+        "total": 4264,
+        "days": 31,
+        "title": "LittleBigPlanet 3",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Tomodachi Life: Living the Dream",
+      "source": "https://en.wikipedia.org/wiki/List_of_best-selling_Nintendo_Switch_video_games",
+      "wikipediaTitle": "Tomodachi Life: Living the Dream",
+      "pageviews": {
+        "total": 11086,
+        "days": 31,
+        "title": "Tomodachi Life: Living the Dream",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Kingdom Hearts HD 2.8 Final Chapter Prologue",
+      "source": "https://en.wikipedia.org/wiki/List_of_best-selling_PlayStation_4_video_games",
+      "wikipediaTitle": "Kingdom Hearts HD 2.8 Final Chapter Prologue",
+      "pageviews": {
+        "total": 10647,
+        "days": 31,
+        "title": "Kingdom Hearts HD 2.8 Final Chapter Prologue",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "FIFA 17",
+      "source": "https://en.wikipedia.org/wiki/List_of_best-selling_PlayStation_4_video_games",
+      "wikipediaTitle": "FIFA 17",
+      "pageviews": {
+        "total": 3794,
+        "days": 31,
+        "title": "FIFA 17",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Pokémon Sun / Moon",
+      "source": "https://en.wikipedia.org/wiki/List_of_best-selling_video_games",
+      "wikipediaTitle": "Pokémon Sun and Moon",
+      "pageviews": {
+        "total": 12453,
+        "days": 31,
+        "title": "Pokémon Sun and Moon",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Bayonetta",
+      "source": "https://en.wikipedia.org/wiki/List_of_best-selling_Nintendo_Switch_video_games",
+      "wikipediaTitle": "Bayonetta (video game)",
+      "pageviews": {
+        "total": 14866,
+        "days": 31,
+        "title": "Bayonetta (video game)",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Resident Evil: Revelations Collection",
+      "source": "https://en.wikipedia.org/wiki/List_of_best-selling_Nintendo_Switch_video_games",
+      "wikipediaTitle": "Resident Evil: Revelations",
+      "pageviews": {
+        "total": 18450,
+        "days": 31,
+        "title": "Resident Evil: Revelations",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Xenoblade Chronicles 3",
+      "source": "https://en.wikipedia.org/wiki/List_of_best-selling_Nintendo_Switch_video_games",
+      "wikipediaTitle": "Xenoblade Chronicles 3",
+      "pageviews": {
+        "total": 8166,
+        "days": 31,
+        "title": "Xenoblade Chronicles 3",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Captain Toad: Treasure Tracker",
+      "source": "https://en.wikipedia.org/wiki/List_of_best-selling_Nintendo_Switch_video_games",
+      "wikipediaTitle": "Captain Toad: Treasure Tracker",
+      "pageviews": {
+        "total": 3528,
+        "days": 31,
+        "title": "Captain Toad: Treasure Tracker",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Super Mario Bros. Wonder",
+      "source": "https://en.wikipedia.org/wiki/List_of_best-selling_Nintendo_Switch_video_games",
+      "wikipediaTitle": "Super Mario Bros. Wonder",
+      "pageviews": {
+        "total": 13750,
+        "days": 31,
+        "title": "Super Mario Bros. Wonder",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Monster Hunter: World",
+      "source": "https://en.wikipedia.org/wiki/List_of_best-selling_video_games",
+      "wikipediaTitle": "Monster Hunter: World",
+      "pageviews": {
+        "total": 9814,
+        "days": 31,
+        "title": "Monster Hunter: World",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Paper Mario: The Origami King",
+      "source": "https://en.wikipedia.org/wiki/List_of_best-selling_Nintendo_Switch_video_games",
+      "wikipediaTitle": "Paper Mario: The Origami King",
+      "pageviews": {
+        "total": 4374,
+        "days": 31,
+        "title": "Paper Mario: The Origami King",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Naruto Shippudden: Ultimate Ninja Storm Trilogy",
+      "source": "https://en.wikipedia.org/wiki/List_of_best-selling_Nintendo_Switch_video_games",
+      "wikipediaTitle": "Naruto: Ultimate Ninja",
+      "pageviews": {
+        "total": 7810,
+        "days": 31,
+        "title": "Naruto: Ultimate Ninja",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Pokémon Gold / Silver",
+      "source": "https://en.wikipedia.org/wiki/List_of_best-selling_video_games",
+      "wikipediaTitle": "Pokémon Gold and Silver",
+      "pageviews": {
+        "total": 15658,
+        "days": 31,
+        "title": "Pokémon Gold and Silver",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Hyrule Warriors: Age of Calamity",
+      "source": "https://en.wikipedia.org/wiki/List_of_best-selling_Nintendo_Switch_video_games",
+      "wikipediaTitle": "Hyrule Warriors: Age of Calamity",
+      "pageviews": {
+        "total": 7801,
+        "days": 31,
+        "title": "Hyrule Warriors: Age of Calamity",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Uncharted: The Nathan Drake Collection",
+      "source": "https://en.wikipedia.org/wiki/List_of_best-selling_PlayStation_4_video_games",
+      "wikipediaTitle": "Uncharted: The Nathan Drake Collection",
+      "pageviews": {
+        "total": 11771,
+        "days": 31,
+        "title": "Uncharted: The Nathan Drake Collection",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Pokémon FireRed and LeafGreen",
+      "source": "https://en.wikipedia.org/wiki/List_of_best-selling_Nintendo_Switch_video_games",
+      "wikipediaTitle": "Pokémon FireRed and LeafGreen",
+      "pageviews": {
+        "total": 18061,
+        "days": 31,
+        "title": "Pokémon FireRed and LeafGreen",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Astral Chain",
+      "source": "https://en.wikipedia.org/wiki/List_of_best-selling_Nintendo_Switch_video_games",
+      "wikipediaTitle": "Astral Chain",
+      "pageviews": {
+        "total": 5425,
+        "days": 31,
+        "title": "Astral Chain",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Super Mario Maker 2",
+      "source": "https://en.wikipedia.org/wiki/List_of_best-selling_Nintendo_Switch_video_games",
+      "wikipediaTitle": "Super Mario Maker 2",
+      "pageviews": {
+        "total": 4081,
+        "days": 31,
+        "title": "Super Mario Maker 2",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Sonic the Hedgehog",
+      "source": "https://en.wikipedia.org/wiki/List_of_best-selling_video_games",
+      "wikipediaTitle": "Sonic the Hedgehog (1991 video game)",
+      "pageviews": {
+        "total": 17698,
+        "days": 31,
+        "title": "Sonic the Hedgehog (1991 video game)",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Mario Kart Wii",
+      "source": "https://en.wikipedia.org/wiki/List_of_best-selling_video_games",
+      "wikipediaTitle": "Mario Kart Wii",
+      "pageviews": {
+        "total": 6582,
+        "days": 31,
+        "title": "Mario Kart Wii",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "Payday 2",
+      "source": "https://en.wikipedia.org/wiki/List_of_best-selling_video_games",
+      "wikipediaTitle": "Payday 2",
+      "pageviews": {
+        "total": 8946,
+        "days": 31,
+        "title": "Payday 2",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Naruto Shippuden: Ultimate Ninja Storm 4",
+      "source": "https://en.wikipedia.org/wiki/List_of_best-selling_PlayStation_4_video_games",
+      "wikipediaTitle": "Naruto Shippuden: Ultimate Ninja Storm 4",
+      "pageviews": {
+        "total": 7256,
+        "days": 31,
+        "title": "Naruto Shippuden: Ultimate Ninja Storm 4",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Donkey Kong Country Returns HD",
+      "source": "https://en.wikipedia.org/wiki/List_of_best-selling_Nintendo_Switch_video_games",
+      "wikipediaTitle": "Donkey Kong Country Returns",
+      "pageviews": {
+        "total": 5445,
+        "days": 31,
+        "title": "Donkey Kong Country Returns",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "FIFA 19",
+      "source": "https://en.wikipedia.org/wiki/List_of_best-selling_PlayStation_4_video_games",
+      "wikipediaTitle": "FIFA 19",
+      "pageviews": {
+        "total": 3968,
+        "days": 31,
+        "title": "FIFA 19",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Tekken 7",
+      "source": "https://en.wikipedia.org/wiki/List_of_best-selling_PlayStation_4_video_games",
+      "wikipediaTitle": "Tekken 7",
+      "pageviews": {
+        "total": 9875,
+        "days": 31,
+        "title": "Tekken 7",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Kirby Star Allies",
+      "source": "https://en.wikipedia.org/wiki/List_of_best-selling_Nintendo_Switch_video_games",
+      "wikipediaTitle": "Kirby Star Allies",
+      "pageviews": {
+        "total": 4687,
+        "days": 31,
+        "title": "Kirby Star Allies",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Mario vs. Donkey Kong",
+      "source": "https://en.wikipedia.org/wiki/List_of_best-selling_Nintendo_Switch_video_games",
+      "wikipediaTitle": "Mario vs. Donkey Kong",
+      "pageviews": {
+        "total": 3337,
+        "days": 31,
+        "title": "Mario vs. Donkey Kong",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Suika Game",
+      "source": "https://en.wikipedia.org/wiki/List_of_best-selling_Nintendo_Switch_video_games",
+      "wikipediaTitle": "Suika Game",
+      "pageviews": {
+        "total": 3918,
+        "days": 31,
+        "title": "Suika Game",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "The Legend of Zelda: Link's Awakening",
+      "source": "https://en.wikipedia.org/wiki/List_of_best-selling_Nintendo_Switch_video_games",
+      "wikipediaTitle": "The Legend of Zelda: Link's Awakening (2019 video game)",
+      "pageviews": {
+        "total": 9601,
+        "days": 31,
+        "title": "The Legend of Zelda: Link's Awakening (2019 video game)",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "The Sims",
+      "source": "https://en.wikipedia.org/wiki/List_of_best-selling_video_games",
+      "wikipediaTitle": "The Sims (video game)",
+      "pageviews": {
+        "total": 10031,
+        "days": 31,
+        "title": "The Sims (video game)",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Infamous Second Son",
+      "source": "https://en.wikipedia.org/wiki/List_of_best-selling_PlayStation_4_video_games",
+      "wikipediaTitle": "Infamous Second Son",
+      "pageviews": {
+        "total": 14446,
+        "days": 31,
+        "title": "Infamous Second Son",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Mario & Luigi: Brothership",
+      "source": "https://en.wikipedia.org/wiki/List_of_best-selling_Nintendo_Switch_video_games",
+      "wikipediaTitle": "Mario & Luigi: Brothership",
+      "pageviews": {
+        "total": 6297,
+        "days": 31,
+        "title": "Mario & Luigi: Brothership",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Borderlands 2",
+      "source": "https://en.wikipedia.org/wiki/List_of_best-selling_video_games",
+      "wikipediaTitle": "Borderlands 2",
+      "pageviews": {
+        "total": 8913,
+        "days": 31,
+        "title": "Borderlands 2",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "Pokémon Sword / Shield",
+      "source": "https://en.wikipedia.org/wiki/List_of_best-selling_video_games",
+      "wikipediaTitle": "Pokémon Sword and Shield",
+      "pageviews": {
+        "total": 13710,
+        "days": 31,
+        "title": "Pokémon Sword and Shield",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    }
+  ]
+}

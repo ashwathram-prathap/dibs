@@ -7,6 +7,7 @@ defs.sort((a: any, b: any) => Number(b.slug === 'actors') - Number(a.slug === 'a
 const dir = '.category-cache/r8/wikidata-chunks';
 mkdirSync(dir, { recursive: true });
 const reportFile = 'review/round8/wikidata-reference-progress.json';
+const labelPolicy = 'english-article-title-v3';
 let report: any = existsSync(reportFile) ? JSON.parse(readFileSync(reportFile, 'utf8')) : {};
 const pause = (ms: number) => new Promise((r) => setTimeout(r, ms));
 async function query(text: string, format = 'json') {
@@ -39,6 +40,7 @@ for (const def of defs) {
     continue;
   if (
     report[def.slug]?.complete &&
+    report[def.slug]?.labelPolicy === labelPolicy &&
     report[def.slug]?.cacheKey === def.cacheKey &&
     existsSync('.category-cache/r8/other-references/' + def.slug + '.json')
   ) {
@@ -112,12 +114,20 @@ for (const def of defs) {
       continue;
     }
   }
+  const priorFile = '.category-cache/r8/other-references/' + def.slug + '.json';
+  const priorNames = new Map<string, any>(
+    existsSync(priorFile)
+      ? JSON.parse(readFileSync(priorFile, 'utf8')).map((r: any) => [r.wikidata, r])
+      : [],
+  );
+  const labelFolder = folder + '/article-titles-v3';
+  mkdirSync(labelFolder, { recursive: true });
   let cursor = 0;
-  let batchSize = 2000;
+  let batchSize = 5000;
   const rows: any[] = [];
   let blocked = false;
   while (cursor < ids.length) {
-    const file = folder + '/' + cursor + '.json';
+    const file = labelFolder + '/' + cursor + '.json';
     if (existsSync(file)) {
       const d = JSON.parse(readFileSync(file, 'utf8'));
       rows.push(...d.rows);
@@ -125,7 +135,7 @@ for (const def of defs) {
       continue;
     }
     const batch = ids.slice(cursor, cursor + batchSize);
-    const q = `SELECT ?item ?name ?article WHERE { VALUES ?item {${batch.map((id) => 'wd:' + id).join(' ')}} ?article schema:about ?item; schema:isPartOf <https://en.wikipedia.org/> . ?item rdfs:label ?name FILTER(LANG(?name)="en") }`;
+    const q = `SELECT ?item ?article WHERE { VALUES ?item {${batch.map((id) => 'wd:' + id).join(' ')}} ?article schema:about ?item; schema:isPartOf <https://en.wikipedia.org/> }`;
     let result: any = null;
     const errors: string[] = [];
     for (let attempt = 0; attempt < 3; attempt++) {
@@ -158,8 +168,15 @@ for (const def of defs) {
     const entries = result.results.bindings.map((r: any) => {
       const title = decodeURIComponent(r.article.value.split('/wiki/')[1]).replaceAll('_', ' ');
       return {
-        display: r.name.value,
-        aliases: [title.replace(/ \([^)]*\)$/, '')],
+        display: title.replace(/ \([^)]*\)$/, ''),
+        aliases: [
+          ...new Set(
+            [
+              priorNames.get(r.item.value.split('/').at(-1))?.display,
+              ...(priorNames.get(r.item.value.split('/').at(-1))?.aliases || []),
+            ].filter(Boolean),
+          ),
+        ],
         wikipediaTitle: title,
         source: r.item.value,
         wikidata: r.item.value.split('/').at(-1),
@@ -169,13 +186,14 @@ for (const def of defs) {
     writeFileSync(file, JSON.stringify({ scanned: batch.length, rows: entries }));
     cursor += batch.length;
     report[def.slug] = {
+      labelPolicy,
       cacheKey: def.cacheKey,
       complete: false,
       candidateCount: ids.length,
       scanned: cursor,
       englishArticles: rows.length,
       method:
-        'All uncapped classification IDs, complete bounded joins; English Wikipedia article availability is the stated quality filter, never a result-count cutoff.',
+        'All uncapped classification IDs, complete bounded joins; English Wikipedia article titles provide common names; existing English labels and aliases are retained. Article availability is the quality filter, never a result-count cutoff.',
     };
     writeFileSync(reportFile, JSON.stringify(report, null, 2));
     console.log(def.slug, cursor, '/', ids.length, 'eligible', rows.length);
@@ -195,6 +213,7 @@ for (const def of defs) {
       cacheKey: def.cacheKey,
       ...report[def.slug],
       complete: true,
+      labelPolicy,
       candidateCount: ids.length,
       scanned: cursor,
       englishArticles: rows.length,

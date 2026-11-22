@@ -11,7 +11,7 @@ import {
 import { createHash } from 'node:crypto';
 import { pageMatchesScope } from './catalog-quality';
 import { cleanReferenceRows } from './catalog-cleaning';
-import { commonNamePlurals } from './catalog-aliases';
+import { commonNamePlurals, conjunctionAliases } from './catalog-aliases';
 import { normalize, normalizeCommonName } from '../worker/domain';
 // Every source row is considered; documented quality filters are applied after popularity assessment.
 const onlySlugs = process.argv
@@ -224,6 +224,8 @@ for (const [slug, unclean] of Object.entries(raw) as any) {
       }
     }
   // A canonical noun owns its inflections before any ambiguous source alias.
+  for (const row of rows)
+    row.aliases.push(...[row.display, ...row.aliases].flatMap(conjunctionAliases));
   const inflectionOwners = new Map<string, any>();
   if (commonNames)
     for (const a of rows)
@@ -250,6 +252,14 @@ const metadataFile = '.category-cache/r8/page-metadata.json';
 const metadata: Record<string, any> = existsSync(metadataFile)
   ? JSON.parse(readFileSync(metadataFile, 'utf8'))
   : {};
+const referenceMetadata = Object.fromEntries(
+  Object.values(raw).flatMap((rows: any) =>
+    rows
+      .filter((row: any) => row.wikipediaTitle && typeof row.wikipediaDescription === 'string')
+      .map((row: any) => [row.wikipediaTitle, { description: row.wikipediaDescription }]),
+  ),
+);
+const metadataFor = (title: string) => referenceMetadata[title] || metadata[title];
 const cache: Record<string, any> = existsSync(cacheFile)
   ? JSON.parse(readFileSync(cacheFile, 'utf8'))
   : {};
@@ -348,14 +358,11 @@ const scopeDomains = new Set([
   'lakes',
   'islands',
   'stations',
+  'airports',
 ]);
 for (const [slug, rows] of Object.entries(catalogs))
   for (const a of rows) {
-    const qualified =
-      !scopeDomains.has(slug) ||
-      a.wikidata ||
-      (a.wikipediaTitle &&
-        /^(https:\/\/www.geonames.org\/|https:\/\/ourairports.com\/)/.test(a.source));
+    const qualified = !scopeDomains.has(slug) || a.wikidata;
     for (const t of measurementTitles(a, slug)) {
       if (qualified) qualifiedTitles.add(slug + ':' + t);
       else unqualifiedTitles.add(t);
@@ -410,14 +417,14 @@ const needsMetadata = (t: string) =>
   !!bulk &&
   pageviewsFor(t).days > 0 &&
   (unqualifiedTitles.has(t) || poolMetadata.has(t)) &&
-  !Object.hasOwn(metadata, cache[t]?.title || t);
+  !metadataFor(cache[t]?.title || t);
 if (process.argv.includes('--status')) {
   for (const [slug, rows] of Object.entries(catalogs)) {
     const pending = rows.filter((r) =>
       measurementTitles(r, slug).some(
         (t) =>
           ['unavailable', 'measurement unavailable'].includes(pageviewsFor(t).status) ||
-          needsMetadata(t),
+          (needsMetadata(t) && !qualifiedTitles.has(slug + ':' + t)),
       ),
     );
     console.log(
@@ -660,7 +667,7 @@ for (const [slug, answers] of Object.entries(catalogs)) {
     measurementTitles(a, slug).every(
       (t) =>
         !['unavailable', 'measurement unavailable'].includes(pageviewsFor(t).status) &&
-        !needsMetadata(t),
+        (!needsMetadata(t) || qualifiedTitles.has(slug + ':' + t)),
     ),
   );
   const geographicQuality = ['mountains', 'rivers', 'lakes', 'islands', 'stations'].includes(slug);
@@ -677,29 +684,22 @@ for (const [slug, answers] of Object.entries(catalogs)) {
         answers.splice(i, 1);
     }
   }
-  const commonDomain = [
-    'animals',
-    'birds',
-    'plants',
-    'foods',
-    'fruits-vegetables',
-    'arthropods',
-  ].includes(slug);
   const articleOwners = new Map<string, any>();
-  if (commonDomain)
-    for (const a of answers)
-      for (const name of [a.display, ...a.aliases]) articleOwners.set(normalize(name), a);
+  for (const a of answers)
+    for (const name of [a.display, ...a.aliases]) articleOwners.set(normalize(name), a);
+  const verifiedGeography = new Set<any>();
   for (const a of answers) {
     a.pageviews = bestReadership(
       measurementTitles(a, slug).map((t) => {
         const reading = pageviewsFor(t);
-        const m = metadata[reading.title];
+        const m = metadataFor(reading.title);
         return qualifiedTitles.has(slug + ':' + t) ||
           pageMatchesScope(slug, m?.description || '', !!a.scientificName && t === a.scientificName)
           ? reading
           : { total: null, days: 0, title: reading.title, status: 'scope not verified' };
       }),
     );
+    if (geographicQuality && a.pageviews.days) verifiedGeography.add(a);
     const resolvedOwner = articleOwners.get(normalize(a.pageviews.title || ''));
     if (resolvedOwner && resolvedOwner !== a)
       a.pageviews = {
@@ -723,7 +723,7 @@ for (const [slug, answers] of Object.entries(catalogs)) {
   }
   if (geographicQuality) {
     for (let i = answers.length - 1; i >= 0; i--)
-      if (!answers[i].pageviews.days) answers.splice(i, 1);
+      if (!verifiedGeography.has(answers[i])) answers.splice(i, 1);
   }
   answers.sort(
     (a, b) =>
@@ -744,10 +744,17 @@ for (const [slug, answers] of Object.entries(catalogs)) {
       date: old.date || null,
       total_registrable: answers.length,
       provenance: {
-        source: 'Full reference extraction, editorial common names, Wikipedia PageViewInfo',
+        source:
+          'Full reference extraction, editorial common names, ' +
+          (bulk ? 'Wikimedia complete monthly human pageviews' : 'Wikipedia PageViewInfo'),
         scopeNote: scopes[slug],
         builtAt: new Date().toISOString(),
         identityPolicy: 'complete-reference-v2',
+        wikidataNamePolicy: raw[slug].some((r: any) => r.wikidata)
+          ? 'english-article-title-v3+en-mul-labels-aliases-v3'
+          : null,
+        classificationRevision: definitions.find((d: any) => d.slug === slug)?.cacheKey || 'base',
+        scopeValidation: 'article-descriptions-v2',
         reviewRequired: true,
         coverageRequired: true,
         unmeasured: answers.filter((a) => !a.pageviews.days).length,
@@ -755,15 +762,19 @@ for (const [slug, answers] of Object.entries(catalogs)) {
         completeSources:
           (!['animals', 'plants', 'arthropods'].includes(slug) ||
             existsSync('.category-cache/r8/gbif-extracted.json')) &&
-          raw[slug].every((r: any) => !r.wikidata || r.aliasesComplete) &&
+          raw[slug].every(
+            (r: any) =>
+              !r.wikidata || (r.aliasesComplete && r.aliasPolicy === 'en-mul-labels-aliases-v3'),
+          ) &&
           (!raw[slug].some((r: any) => r.wikidata) ||
             (referenceProgress[slug]?.complete &&
+              referenceProgress[slug]?.labelPolicy === 'english-article-title-v3' &&
               referenceProgress[slug]?.cacheKey ===
                 definitions.find((d: any) => d.slug === slug)?.cacheKey)),
         candidateCount,
         rankingComplete,
         qualityFilter: geographicQuality
-          ? 'Full GeoNames candidate set checked against the complete English Wikipedia title inventory, then measured; retains only an English article whose description verifies this geographic kind. No result-count cap.'
+          ? 'Full GeoNames candidate set considered; retains measured English Wikipedia articles whose descriptions verify this geographic kind. No result-count cap.'
           : null,
         ranking: bulk
           ? 'Complete October 2026 human pageviews, all access methods, divided by 31 days; absent data remains unknown'

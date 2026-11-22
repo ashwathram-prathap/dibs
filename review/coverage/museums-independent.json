@@ -1,0 +1,811 @@
+{
+  "source": "Independent curated Wikipedia lists, extracted by subject column or list label; see source URLs per sample",
+  "seed": 2793439912,
+  "method": "Uniform draw without replacement from the middle half by measured mean daily readership; frozen first draw, all misses retained",
+  "poolSize": 336,
+  "excluded": [],
+  "answers": [
+    "Pushkin House",
+    "2 Willow Road",
+    "Stephens Collection",
+    "Institute of Archaeology Collections",
+    "Guards Museum",
+    "Petrie Museum of Egyptian Archaeology",
+    "South London Gallery",
+    "Danson House",
+    "Dennis Severs' House",
+    "Valentines Mansion",
+    "Westminster Abbey Museum",
+    "Museum of Immigration and Diversity",
+    "575 Wandsworth Road",
+    "Science Gallery London",
+    "Golden Hinde",
+    "Museum of Homelessness",
+    "artsdepot",
+    "Jack the Ripper Museum",
+    "Burgh House & Hampstead Museum",
+    "Osterley Park and House",
+    "Bow Street Museum of Crime and Justice",
+    "City of London Police Museum",
+    "Opium War Museum",
+    "Centro Cultural Banco do Brasil",
+    "Southside House",
+    "Honourable Artillery Company Museum",
+    "Royal College of Nursing",
+    "Walthamstow Pumphouse Museum",
+    "Pollock's Toy Museum",
+    "Museum of London",
+    "Fan Museum",
+    "Bethlem Museum of the Mind",
+    "Wiener Library",
+    "Banqueting House, Whitehall",
+    "Whitechapel Gallery",
+    "Galleria degli Uffizi",
+    "Courtauld Gallery",
+    "Crossness Pumping Station",
+    "Garrick's Temple to Shakespeare",
+    "Carlyle's House",
+    "National Gallery Singapore",
+    "Heath Robinson Museum",
+    "Crofton Roman Villa",
+    "Twinings Museum",
+    "Bank of England Museum",
+    "Design Museum",
+    "Wellcome Collection",
+    "Hogarth's House",
+    "Museum of Science",
+    "Cuming Museum"
+  ],
+  "samples": [
+    {
+      "answer": "Pushkin House",
+      "source": "https://en.wikipedia.org/wiki/List_of_museums_in_London",
+      "wikipediaTitle": "Pushkin House, London",
+      "pageviews": {
+        "total": 260,
+        "days": 31,
+        "title": "Pushkin House, London",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "2 Willow Road",
+      "source": "https://en.wikipedia.org/wiki/List_of_museums_in_London",
+      "wikipediaTitle": "2 Willow Road",
+      "pageviews": {
+        "total": 1798,
+        "days": 31,
+        "title": "2 Willow Road",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Stephens Collection",
+      "source": "https://en.wikipedia.org/wiki/List_of_museums_in_London",
+      "wikipediaTitle": "Avenue House",
+      "pageviews": {
+        "total": 145,
+        "days": 31,
+        "title": "Avenue House",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Institute of Archaeology Collections",
+      "source": "https://en.wikipedia.org/wiki/List_of_museums_in_London",
+      "wikipediaTitle": "UCL Institute of Archaeology",
+      "pageviews": {
+        "total": 305,
+        "days": 31,
+        "title": "UCL Institute of Archaeology",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Guards Museum",
+      "source": "https://en.wikipedia.org/wiki/List_of_museums_in_London",
+      "wikipediaTitle": "The Guards Museum",
+      "pageviews": {
+        "total": 160,
+        "days": 31,
+        "title": "The Guards Museum",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Petrie Museum of Egyptian Archaeology",
+      "source": "https://en.wikipedia.org/wiki/List_of_museums_in_London",
+      "wikipediaTitle": "Petrie Museum of Egyptian Archaeology",
+      "pageviews": {
+        "total": 673,
+        "days": 31,
+        "title": "Petrie Museum of Egyptian Archaeology",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "South London Gallery",
+      "source": "https://en.wikipedia.org/wiki/List_of_museums_in_London",
+      "wikipediaTitle": "South London Gallery",
+      "pageviews": {
+        "total": 143,
+        "days": 31,
+        "title": "South London Gallery",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Danson House",
+      "source": "https://en.wikipedia.org/wiki/List_of_museums_in_London",
+      "wikipediaTitle": "Danson House",
+      "pageviews": {
+        "total": 313,
+        "days": 31,
+        "title": "Danson House",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Dennis Severs' House",
+      "source": "https://en.wikipedia.org/wiki/List_of_museums_in_London",
+      "wikipediaTitle": "Dennis Severs' House",
+      "pageviews": {
+        "total": 2001,
+        "days": 31,
+        "title": "Dennis Severs' House",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "Valentines Mansion",
+      "source": "https://en.wikipedia.org/wiki/List_of_museums_in_London",
+      "wikipediaTitle": "Valentines Mansion",
+      "pageviews": {
+        "total": 744,
+        "days": 31,
+        "title": "Valentines Mansion",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Westminster Abbey Museum",
+      "source": "https://en.wikipedia.org/wiki/List_of_museums_in_London",
+      "wikipediaTitle": "Westminster Abbey Museum",
+      "pageviews": {
+        "total": 108,
+        "days": 31,
+        "title": "Westminster Abbey Museum",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "Museum of Immigration and Diversity",
+      "source": "https://en.wikipedia.org/wiki/List_of_museums_in_London",
+      "wikipediaTitle": "Museum of Immigration and Diversity",
+      "pageviews": {
+        "total": 120,
+        "days": 31,
+        "title": "Museum of Immigration and Diversity",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "575 Wandsworth Road",
+      "source": "https://en.wikipedia.org/wiki/List_of_museums_in_London",
+      "wikipediaTitle": "575 Wandsworth Road",
+      "pageviews": {
+        "total": 229,
+        "days": 31,
+        "title": "575 Wandsworth Road",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Science Gallery London",
+      "source": "https://en.wikipedia.org/wiki/List_of_museums_in_London",
+      "wikipediaTitle": "Science Gallery",
+      "pageviews": {
+        "total": 131,
+        "days": 31,
+        "title": "Science Gallery",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Golden Hinde",
+      "source": "https://en.wikipedia.org/wiki/List_of_museums_in_London",
+      "wikipediaTitle": "Golden Hinde (1973)",
+      "pageviews": {
+        "total": 778,
+        "days": 31,
+        "title": "Golden Hinde (1973)",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Museum of Homelessness",
+      "source": "https://en.wikipedia.org/wiki/List_of_museums_in_London",
+      "wikipediaTitle": "Museum of Homelessness",
+      "pageviews": {
+        "total": 215,
+        "days": 31,
+        "title": "Museum of Homelessness",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "artsdepot",
+      "source": "https://en.wikipedia.org/wiki/List_of_museums_in_London",
+      "wikipediaTitle": "Artsdepot",
+      "pageviews": {
+        "total": 106,
+        "days": 31,
+        "title": "Artsdepot",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Jack the Ripper Museum",
+      "source": "https://en.wikipedia.org/wiki/List_of_museums_in_London",
+      "wikipediaTitle": "Jack the Ripper Museum",
+      "pageviews": {
+        "total": 863,
+        "days": 31,
+        "title": "Jack the Ripper Museum",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Burgh House & Hampstead Museum",
+      "source": "https://en.wikipedia.org/wiki/List_of_museums_in_London",
+      "wikipediaTitle": "Burgh House",
+      "pageviews": {
+        "total": 556,
+        "days": 31,
+        "title": "Burgh House",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Osterley Park and House",
+      "source": "https://en.wikipedia.org/wiki/List_of_museums_in_London",
+      "wikipediaTitle": "Osterley Park",
+      "pageviews": {
+        "total": 1369,
+        "days": 31,
+        "title": "Osterley Park",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Bow Street Museum of Crime and Justice",
+      "source": "https://en.wikipedia.org/wiki/List_of_museums_in_London",
+      "wikipediaTitle": "Bow Street Museum of Crime and Justice",
+      "pageviews": {
+        "total": 304,
+        "days": 31,
+        "title": "Bow Street Museum of Crime and Justice",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "City of London Police Museum",
+      "source": "https://en.wikipedia.org/wiki/List_of_museums_in_London",
+      "wikipediaTitle": "City of London Police Museum",
+      "pageviews": {
+        "total": 109,
+        "days": 31,
+        "title": "City of London Police Museum",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Opium War Museum",
+      "source": "https://en.wikipedia.org/wiki/List_of_most-visited_museums",
+      "wikipediaTitle": "Opium War Museum",
+      "pageviews": {
+        "total": 263,
+        "days": 31,
+        "title": "Opium War Museum",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Centro Cultural Banco do Brasil",
+      "source": "https://en.wikipedia.org/wiki/List_of_most-visited_museums",
+      "wikipediaTitle": "Centro Cultural Banco do Brasil",
+      "pageviews": {
+        "total": 150,
+        "days": 31,
+        "title": "Centro Cultural Banco do Brasil",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Southside House",
+      "source": "https://en.wikipedia.org/wiki/List_of_museums_in_London",
+      "wikipediaTitle": "Southside House",
+      "pageviews": {
+        "total": 152,
+        "days": 31,
+        "title": "Southside House",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Honourable Artillery Company Museum",
+      "source": "https://en.wikipedia.org/wiki/List_of_museums_in_London",
+      "wikipediaTitle": "Honourable Artillery Company Museum",
+      "pageviews": {
+        "total": 171,
+        "days": 31,
+        "title": "Honourable Artillery Company Museum",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Royal College of Nursing",
+      "source": "https://en.wikipedia.org/wiki/List_of_museums_in_London",
+      "wikipediaTitle": "Royal College of Nursing",
+      "pageviews": {
+        "total": 726,
+        "days": 31,
+        "title": "Royal College of Nursing",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Walthamstow Pumphouse Museum",
+      "source": "https://en.wikipedia.org/wiki/List_of_museums_in_London",
+      "wikipediaTitle": "Walthamstow Pumphouse Museum",
+      "pageviews": {
+        "total": 112,
+        "days": 31,
+        "title": "Walthamstow Pumphouse Museum",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Pollock's Toy Museum",
+      "source": "https://en.wikipedia.org/wiki/List_of_museums_in_London",
+      "wikipediaTitle": "Pollock's Toy Museum",
+      "pageviews": {
+        "total": 383,
+        "days": 31,
+        "title": "Pollock's Toy Museum",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Museum of London",
+      "source": "https://en.wikipedia.org/wiki/List_of_museums_in_London",
+      "wikipediaTitle": "Museum of London",
+      "pageviews": {
+        "total": 961,
+        "days": 31,
+        "title": "Museum of London",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Fan Museum",
+      "source": "https://en.wikipedia.org/wiki/List_of_museums_in_London",
+      "wikipediaTitle": "Fan Museum",
+      "pageviews": {
+        "total": 136,
+        "days": 31,
+        "title": "Fan Museum",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Bethlem Museum of the Mind",
+      "source": "https://en.wikipedia.org/wiki/List_of_museums_in_London",
+      "wikipediaTitle": "Bethlem Museum of the Mind",
+      "pageviews": {
+        "total": 630,
+        "days": 31,
+        "title": "Bethlem Museum of the Mind",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Wiener Library",
+      "source": "https://en.wikipedia.org/wiki/List_of_museums_in_London",
+      "wikipediaTitle": "Wiener Library",
+      "pageviews": {
+        "total": 124,
+        "days": 31,
+        "title": "Wiener Library",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Banqueting House, Whitehall",
+      "source": "https://en.wikipedia.org/wiki/List_of_museums_in_London",
+      "wikipediaTitle": "Banqueting House, Whitehall",
+      "pageviews": {
+        "total": 1251,
+        "days": 31,
+        "title": "Banqueting House, Whitehall",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Whitechapel Gallery",
+      "source": "https://en.wikipedia.org/wiki/List_of_museums_in_London",
+      "wikipediaTitle": "Whitechapel Gallery",
+      "pageviews": {
+        "total": 470,
+        "days": 31,
+        "title": "Whitechapel Gallery",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Galleria degli Uffizi",
+      "source": "https://en.wikipedia.org/wiki/List_of_most-visited_museums",
+      "wikipediaTitle": "Galleria degli Uffizi",
+      "pageviews": {
+        "total": 192,
+        "days": 31,
+        "title": "Galleria degli Uffizi",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Courtauld Gallery",
+      "source": "https://en.wikipedia.org/wiki/List_of_museums_in_London",
+      "wikipediaTitle": "Courtauld Gallery",
+      "pageviews": {
+        "total": 1963,
+        "days": 31,
+        "title": "Courtauld Gallery",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Crossness Pumping Station",
+      "source": "https://en.wikipedia.org/wiki/List_of_museums_in_London",
+      "wikipediaTitle": "Crossness Pumping Station",
+      "pageviews": {
+        "total": 1855,
+        "days": 31,
+        "title": "Crossness Pumping Station",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Garrick's Temple to Shakespeare",
+      "source": "https://en.wikipedia.org/wiki/List_of_museums_in_London",
+      "wikipediaTitle": "Garrick's Temple to Shakespeare",
+      "pageviews": {
+        "total": 272,
+        "days": 31,
+        "title": "Garrick's Temple to Shakespeare",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Carlyle's House",
+      "source": "https://en.wikipedia.org/wiki/List_of_museums_in_London",
+      "wikipediaTitle": "Carlyle's House",
+      "pageviews": {
+        "total": 112,
+        "days": 31,
+        "title": "Carlyle's House",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "National Gallery Singapore",
+      "source": "https://en.wikipedia.org/wiki/List_of_most-visited_museums",
+      "wikipediaTitle": "National Gallery Singapore",
+      "pageviews": {
+        "total": 1106,
+        "days": 31,
+        "title": "National Gallery Singapore",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Heath Robinson Museum",
+      "source": "https://en.wikipedia.org/wiki/List_of_museums_in_London",
+      "wikipediaTitle": "Heath Robinson Museum",
+      "pageviews": {
+        "total": 166,
+        "days": 31,
+        "title": "Heath Robinson Museum",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Crofton Roman Villa",
+      "source": "https://en.wikipedia.org/wiki/List_of_museums_in_London",
+      "wikipediaTitle": "Crofton Roman Villa",
+      "pageviews": {
+        "total": 181,
+        "days": 31,
+        "title": "Crofton Roman Villa",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Twinings Museum",
+      "source": "https://en.wikipedia.org/wiki/List_of_museums_in_London",
+      "wikipediaTitle": "Twinings Museum",
+      "pageviews": {
+        "total": 198,
+        "days": 31,
+        "title": "Twinings Museum",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Bank of England Museum",
+      "source": "https://en.wikipedia.org/wiki/List_of_museums_in_London",
+      "wikipediaTitle": "Bank of England Museum",
+      "pageviews": {
+        "total": 260,
+        "days": 31,
+        "title": "Bank of England Museum",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Design Museum",
+      "source": "https://en.wikipedia.org/wiki/List_of_museums_in_London",
+      "wikipediaTitle": "Design Museum",
+      "pageviews": {
+        "total": 1049,
+        "days": 31,
+        "title": "Design Museum",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Wellcome Collection",
+      "source": "https://en.wikipedia.org/wiki/List_of_museums_in_London",
+      "wikipediaTitle": "Wellcome Collection",
+      "pageviews": {
+        "total": 1587,
+        "days": 31,
+        "title": "Wellcome Collection",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Hogarth's House",
+      "source": "https://en.wikipedia.org/wiki/List_of_museums_in_London",
+      "wikipediaTitle": "Hogarth's House",
+      "pageviews": {
+        "total": 383,
+        "days": 31,
+        "title": "Hogarth's House",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Museum of Science",
+      "source": "https://en.wikipedia.org/wiki/List_of_most-visited_museums",
+      "wikipediaTitle": "Museum of Science (Boston)",
+      "pageviews": {
+        "total": 1185,
+        "days": 31,
+        "title": "Museum of Science (Boston)",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Cuming Museum",
+      "source": "https://en.wikipedia.org/wiki/List_of_museums_in_London",
+      "wikipediaTitle": "Cuming Museum",
+      "pageviews": {
+        "total": 171,
+        "days": 31,
+        "title": "Cuming Museum",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    }
+  ]
+}

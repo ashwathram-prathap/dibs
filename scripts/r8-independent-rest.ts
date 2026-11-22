@@ -48,7 +48,11 @@ for (const [slug, all] of Object.entries(pools) as [string, any[]][]) {
   }
   const pending = all.filter(
     (r) =>
-      !cache[r.title] || ['unavailable', 'measurement unavailable'].includes(cache[r.title].status),
+      !cache[r.title] ||
+      ['unavailable', 'measurement unavailable'].includes(cache[r.title].status) ||
+      (['bands', 'paintings'].includes(slug) &&
+        cache[r.title]?.days > 0 &&
+        !Object.hasOwn(metadata, cache[r.title]?.title || r.title)),
   );
   if (pending.length) {
     console.log(slug, 'waiting for complete independent pool measurements', pending.length);

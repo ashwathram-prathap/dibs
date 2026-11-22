@@ -1,0 +1,811 @@
+{
+  "source": "Independent curated Wikipedia lists, extracted by subject column or list label; see source URLs per sample",
+  "seed": 3474617313,
+  "method": "Uniform draw without replacement from the middle half by measured mean daily readership; frozen first draw, all misses retained",
+  "poolSize": 117,
+  "excluded": [],
+  "answers": [
+    "Charleston International Airport",
+    "Calgary International Airport",
+    "Dallas Love Field",
+    "Milwaukee Mitchell International Airport",
+    "John Glenn Columbus International Airport",
+    "Gander International Airport",
+    "Louisville Muhammad Ali International Airport",
+    "Daniel K. Inouye International Airport",
+    "Billy Bishop Toronto City Airport",
+    "John C. Munro Hamilton International Airport",
+    "Winnipeg Richardson International Airport",
+    "Kelowna International Airport",
+    "Eppley Airfield",
+    "Cleveland Hopkins International Airport",
+    "Ottawa Macdonald–Cartier International Airport",
+    "Baltimore/Washington International Airport",
+    "Edmonton International Airport",
+    "Saskatoon John G. Diefenbaker International Airport",
+    "Oakland San Francisco Bay Airport",
+    "San Antonio International Airport",
+    "St. John's International Airport",
+    "Sacramento International Airport",
+    "Yellowknife Airport",
+    "Pittsburgh International Airport",
+    "Halifax Stanfield International Airport",
+    "Québec City Jean Lesage International Airport",
+    "Antonio B. Won Pat International Airport",
+    "Boise Airport",
+    "President Donald J. Trump International Airport",
+    "Indianapolis International Airport",
+    "Kahului Airport",
+    "Southwest Florida International Airport",
+    "Richmond International Airport",
+    "Raleigh–Durham International Airport",
+    "Erik Nielsen Whitehorse International Airport",
+    "Minneapolis–Saint Paul International Airport",
+    "London International Airport",
+    "Albuquerque International Sunport",
+    "Louis Armstrong New Orleans International Airport",
+    "Tampa International Airport",
+    "Jacksonville International Airport",
+    "Montréal–Mirabel International Airport",
+    "Bradley International Airport",
+    "Memphis International Airport",
+    "Luis Muñoz Marín International Airport",
+    "Abbotsford International Airport",
+    "Norfolk International Airport",
+    "Kansas City International Airport",
+    "Victoria International Airport",
+    "Salt Lake City International Airport"
+  ],
+  "samples": [
+    {
+      "answer": "Charleston International Airport",
+      "source": "https://en.wikipedia.org/wiki/List_of_the_busiest_airports_in_the_United_States",
+      "wikipediaTitle": "Charleston International Airport",
+      "pageviews": {
+        "total": 5678,
+        "days": 31,
+        "title": "Charleston International Airport",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "Calgary International Airport",
+      "source": "https://en.wikipedia.org/wiki/List_of_the_busiest_airports_in_Canada",
+      "wikipediaTitle": "Calgary International Airport",
+      "pageviews": {
+        "total": 13275,
+        "days": 31,
+        "title": "Calgary International Airport",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "Dallas Love Field",
+      "source": "https://en.wikipedia.org/wiki/List_of_the_busiest_airports_in_the_United_States",
+      "wikipediaTitle": "Dallas Love Field",
+      "pageviews": {
+        "total": 9734,
+        "days": 31,
+        "title": "Dallas Love Field",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "Milwaukee Mitchell International Airport",
+      "source": "https://en.wikipedia.org/wiki/List_of_the_busiest_airports_in_the_United_States",
+      "wikipediaTitle": "Milwaukee Mitchell International Airport",
+      "pageviews": {
+        "total": 6732,
+        "days": 31,
+        "title": "Milwaukee Mitchell International Airport",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "John Glenn Columbus International Airport",
+      "source": "https://en.wikipedia.org/wiki/List_of_the_busiest_airports_in_the_United_States",
+      "wikipediaTitle": "John Glenn Columbus International Airport",
+      "pageviews": {
+        "total": 10763,
+        "days": 31,
+        "title": "John Glenn Columbus International Airport",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "Gander International Airport",
+      "source": "https://en.wikipedia.org/wiki/List_of_the_busiest_airports_in_Canada",
+      "wikipediaTitle": "Gander International Airport",
+      "pageviews": {
+        "total": 6584,
+        "days": 31,
+        "title": "Gander International Airport",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "Louisville Muhammad Ali International Airport",
+      "source": "https://en.wikipedia.org/wiki/List_of_the_busiest_airports_in_the_United_States",
+      "wikipediaTitle": "Louisville Muhammad Ali International Airport",
+      "pageviews": {
+        "total": 9723,
+        "days": 31,
+        "title": "Louisville Muhammad Ali International Airport",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "Daniel K. Inouye International Airport",
+      "source": "https://en.wikipedia.org/wiki/List_of_the_busiest_airports_in_the_United_States",
+      "wikipediaTitle": "Daniel K. Inouye International Airport",
+      "pageviews": {
+        "total": 13542,
+        "days": 31,
+        "title": "Daniel K. Inouye International Airport",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "Billy Bishop Toronto City Airport",
+      "source": "https://en.wikipedia.org/wiki/List_of_the_busiest_airports_in_Canada",
+      "wikipediaTitle": "Billy Bishop Toronto City Airport",
+      "pageviews": {
+        "total": 7145,
+        "days": 31,
+        "title": "Billy Bishop Toronto City Airport",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "John C. Munro Hamilton International Airport",
+      "source": "https://en.wikipedia.org/wiki/List_of_the_busiest_airports_in_Canada",
+      "wikipediaTitle": "John C. Munro Hamilton International Airport",
+      "pageviews": {
+        "total": 2870,
+        "days": 31,
+        "title": "John C. Munro Hamilton International Airport",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "Winnipeg Richardson International Airport",
+      "source": "https://en.wikipedia.org/wiki/List_of_the_busiest_airports_in_Canada",
+      "wikipediaTitle": "Winnipeg Richardson International Airport",
+      "pageviews": {
+        "total": 2785,
+        "days": 31,
+        "title": "Winnipeg Richardson International Airport",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Kelowna International Airport",
+      "source": "https://en.wikipedia.org/wiki/List_of_the_busiest_airports_in_Canada",
+      "wikipediaTitle": "Kelowna International Airport",
+      "pageviews": {
+        "total": 2233,
+        "days": 31,
+        "title": "Kelowna International Airport",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "Eppley Airfield",
+      "source": "https://en.wikipedia.org/wiki/List_of_the_busiest_airports_in_the_United_States",
+      "wikipediaTitle": "Eppley Airfield",
+      "pageviews": {
+        "total": 3759,
+        "days": 31,
+        "title": "Eppley Airfield",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "Cleveland Hopkins International Airport",
+      "source": "https://en.wikipedia.org/wiki/List_of_the_busiest_airports_in_the_United_States",
+      "wikipediaTitle": "Cleveland Hopkins International Airport",
+      "pageviews": {
+        "total": 8682,
+        "days": 31,
+        "title": "Cleveland Hopkins International Airport",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "Ottawa Macdonald–Cartier International Airport",
+      "source": "https://en.wikipedia.org/wiki/List_of_the_busiest_airports_in_Canada",
+      "wikipediaTitle": "Ottawa Macdonald–Cartier International Airport",
+      "pageviews": {
+        "total": 7791,
+        "days": 31,
+        "title": "Ottawa Macdonald–Cartier International Airport",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "Baltimore/Washington International Airport",
+      "source": "https://en.wikipedia.org/wiki/List_of_the_busiest_airports_in_the_United_States",
+      "wikipediaTitle": "Baltimore/Washington International Airport",
+      "pageviews": {
+        "total": 9809,
+        "days": 31,
+        "title": "Baltimore/Washington International Airport",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "Edmonton International Airport",
+      "source": "https://en.wikipedia.org/wiki/List_of_the_busiest_airports_in_Canada",
+      "wikipediaTitle": "Edmonton International Airport",
+      "pageviews": {
+        "total": 9260,
+        "days": 31,
+        "title": "Edmonton International Airport",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "Saskatoon John G. Diefenbaker International Airport",
+      "source": "https://en.wikipedia.org/wiki/List_of_the_busiest_airports_in_Canada",
+      "wikipediaTitle": "Saskatoon John G. Diefenbaker International Airport",
+      "pageviews": {
+        "total": 1914,
+        "days": 31,
+        "title": "Saskatoon John G. Diefenbaker International Airport",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "Oakland San Francisco Bay Airport",
+      "source": "https://en.wikipedia.org/wiki/List_of_the_busiest_airports_in_the_United_States",
+      "wikipediaTitle": "Oakland San Francisco Bay Airport",
+      "pageviews": {
+        "total": 6233,
+        "days": 31,
+        "title": "Oakland San Francisco Bay Airport",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "San Antonio International Airport",
+      "source": "https://en.wikipedia.org/wiki/List_of_the_busiest_airports_in_the_United_States",
+      "wikipediaTitle": "San Antonio International Airport",
+      "pageviews": {
+        "total": 5418,
+        "days": 31,
+        "title": "San Antonio International Airport",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "St. John's International Airport",
+      "source": "https://en.wikipedia.org/wiki/List_of_the_busiest_airports_in_Canada",
+      "wikipediaTitle": "St. John's International Airport",
+      "pageviews": {
+        "total": 5862,
+        "days": 31,
+        "title": "St. John's International Airport",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "Sacramento International Airport",
+      "source": "https://en.wikipedia.org/wiki/List_of_the_busiest_airports_in_the_United_States",
+      "wikipediaTitle": "Sacramento International Airport",
+      "pageviews": {
+        "total": 6817,
+        "days": 31,
+        "title": "Sacramento International Airport",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "Yellowknife Airport",
+      "source": "https://en.wikipedia.org/wiki/List_of_the_busiest_airports_in_Canada",
+      "wikipediaTitle": "Yellowknife Airport",
+      "pageviews": {
+        "total": 3108,
+        "days": 31,
+        "title": "Yellowknife Airport",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "Pittsburgh International Airport",
+      "source": "https://en.wikipedia.org/wiki/List_of_the_busiest_airports_in_the_United_States",
+      "wikipediaTitle": "Pittsburgh International Airport",
+      "pageviews": {
+        "total": 10844,
+        "days": 31,
+        "title": "Pittsburgh International Airport",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "Halifax Stanfield International Airport",
+      "source": "https://en.wikipedia.org/wiki/List_of_the_busiest_airports_in_Canada",
+      "wikipediaTitle": "Halifax Stanfield International Airport",
+      "pageviews": {
+        "total": 7187,
+        "days": 31,
+        "title": "Halifax Stanfield International Airport",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "Québec City Jean Lesage International Airport",
+      "source": "https://en.wikipedia.org/wiki/List_of_the_busiest_airports_in_Canada",
+      "wikipediaTitle": "Québec City Jean Lesage International Airport",
+      "pageviews": {
+        "total": 4893,
+        "days": 31,
+        "title": "Québec City Jean Lesage International Airport",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Antonio B. Won Pat International Airport",
+      "source": "https://en.wikipedia.org/wiki/List_of_the_busiest_airports_in_the_United_States",
+      "wikipediaTitle": "Antonio B. Won Pat International Airport",
+      "pageviews": {
+        "total": 7800,
+        "days": 31,
+        "title": "Antonio B. Won Pat International Airport",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "Boise Airport",
+      "source": "https://en.wikipedia.org/wiki/List_of_the_busiest_airports_in_the_United_States",
+      "wikipediaTitle": "Boise Airport",
+      "pageviews": {
+        "total": 4310,
+        "days": 31,
+        "title": "Boise Airport",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "President Donald J. Trump International Airport",
+      "source": "https://en.wikipedia.org/wiki/List_of_the_busiest_airports_in_the_United_States",
+      "wikipediaTitle": "Palm Beach International Airport",
+      "pageviews": {
+        "total": 3366,
+        "days": 31,
+        "title": "Palm Beach International Airport",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "Indianapolis International Airport",
+      "source": "https://en.wikipedia.org/wiki/List_of_the_busiest_airports_in_the_United_States",
+      "wikipediaTitle": "Indianapolis International Airport",
+      "pageviews": {
+        "total": 8419,
+        "days": 31,
+        "title": "Indianapolis International Airport",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "Kahului Airport",
+      "source": "https://en.wikipedia.org/wiki/List_of_the_busiest_airports_in_the_United_States",
+      "wikipediaTitle": "Kahului Airport",
+      "pageviews": {
+        "total": 5150,
+        "days": 31,
+        "title": "Kahului Airport",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "Southwest Florida International Airport",
+      "source": "https://en.wikipedia.org/wiki/List_of_the_busiest_airports_in_the_United_States",
+      "wikipediaTitle": "Southwest Florida International Airport",
+      "pageviews": {
+        "total": 6821,
+        "days": 31,
+        "title": "Southwest Florida International Airport",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "Richmond International Airport",
+      "source": "https://en.wikipedia.org/wiki/List_of_the_busiest_airports_in_the_United_States",
+      "wikipediaTitle": "Richmond International Airport",
+      "pageviews": {
+        "total": 4495,
+        "days": 31,
+        "title": "Richmond International Airport",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "Raleigh–Durham International Airport",
+      "source": "https://en.wikipedia.org/wiki/List_of_the_busiest_airports_in_the_United_States",
+      "wikipediaTitle": "Raleigh–Durham International Airport",
+      "pageviews": {
+        "total": 12705,
+        "days": 31,
+        "title": "Raleigh–Durham International Airport",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "Erik Nielsen Whitehorse International Airport",
+      "source": "https://en.wikipedia.org/wiki/List_of_the_busiest_airports_in_Canada",
+      "wikipediaTitle": "Erik Nielsen Whitehorse International Airport",
+      "pageviews": {
+        "total": 2288,
+        "days": 31,
+        "title": "Erik Nielsen Whitehorse International Airport",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Minneapolis–Saint Paul International Airport",
+      "source": "https://en.wikipedia.org/wiki/List_of_the_busiest_airports_in_the_United_States",
+      "wikipediaTitle": "Minneapolis–Saint Paul International Airport",
+      "pageviews": {
+        "total": 13378,
+        "days": 31,
+        "title": "Minneapolis–Saint Paul International Airport",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "London International Airport",
+      "source": "https://en.wikipedia.org/wiki/List_of_the_busiest_airports_in_Canada",
+      "wikipediaTitle": "London International Airport",
+      "pageviews": {
+        "total": 3312,
+        "days": 31,
+        "title": "London International Airport",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "Albuquerque International Sunport",
+      "source": "https://en.wikipedia.org/wiki/List_of_the_busiest_airports_in_the_United_States",
+      "wikipediaTitle": "Albuquerque International Sunport",
+      "pageviews": {
+        "total": 4986,
+        "days": 31,
+        "title": "Albuquerque International Sunport",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "Louis Armstrong New Orleans International Airport",
+      "source": "https://en.wikipedia.org/wiki/List_of_the_busiest_airports_in_the_United_States",
+      "wikipediaTitle": "Louis Armstrong New Orleans International Airport",
+      "pageviews": {
+        "total": 8874,
+        "days": 31,
+        "title": "Louis Armstrong New Orleans International Airport",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "Tampa International Airport",
+      "source": "https://en.wikipedia.org/wiki/List_of_the_busiest_airports_in_the_United_States",
+      "wikipediaTitle": "Tampa International Airport",
+      "pageviews": {
+        "total": 10274,
+        "days": 31,
+        "title": "Tampa International Airport",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "Jacksonville International Airport",
+      "source": "https://en.wikipedia.org/wiki/List_of_the_busiest_airports_in_the_United_States",
+      "wikipediaTitle": "Jacksonville International Airport",
+      "pageviews": {
+        "total": 4729,
+        "days": 31,
+        "title": "Jacksonville International Airport",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "Montréal–Mirabel International Airport",
+      "source": "https://en.wikipedia.org/wiki/List_of_the_busiest_airports_in_Canada",
+      "wikipediaTitle": "Montréal–Mirabel International Airport",
+      "pageviews": {
+        "total": 5947,
+        "days": 31,
+        "title": "Montréal–Mirabel International Airport",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "Bradley International Airport",
+      "source": "https://en.wikipedia.org/wiki/List_of_the_busiest_airports_in_the_United_States",
+      "wikipediaTitle": "Bradley International Airport",
+      "pageviews": {
+        "total": 9753,
+        "days": 31,
+        "title": "Bradley International Airport",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "Memphis International Airport",
+      "source": "https://en.wikipedia.org/wiki/List_of_the_busiest_airports_in_the_United_States",
+      "wikipediaTitle": "Memphis International Airport",
+      "pageviews": {
+        "total": 7154,
+        "days": 31,
+        "title": "Memphis International Airport",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "Luis Muñoz Marín International Airport",
+      "source": "https://en.wikipedia.org/wiki/List_of_the_busiest_airports_in_the_United_States",
+      "wikipediaTitle": "Luis Muñoz Marín International Airport",
+      "pageviews": {
+        "total": 9438,
+        "days": 31,
+        "title": "Luis Muñoz Marín International Airport",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "Abbotsford International Airport",
+      "source": "https://en.wikipedia.org/wiki/List_of_the_busiest_airports_in_Canada",
+      "wikipediaTitle": "Abbotsford International Airport",
+      "pageviews": {
+        "total": 1975,
+        "days": 31,
+        "title": "Abbotsford International Airport",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "Norfolk International Airport",
+      "source": "https://en.wikipedia.org/wiki/List_of_the_busiest_airports_in_the_United_States",
+      "wikipediaTitle": "Norfolk International Airport",
+      "pageviews": {
+        "total": 4373,
+        "days": 31,
+        "title": "Norfolk International Airport",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "Kansas City International Airport",
+      "source": "https://en.wikipedia.org/wiki/List_of_the_busiest_airports_in_the_United_States",
+      "wikipediaTitle": "Kansas City International Airport",
+      "pageviews": {
+        "total": 8382,
+        "days": 31,
+        "title": "Kansas City International Airport",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "Victoria International Airport",
+      "source": "https://en.wikipedia.org/wiki/List_of_the_busiest_airports_in_Canada",
+      "wikipediaTitle": "Victoria International Airport",
+      "pageviews": {
+        "total": 3058,
+        "days": 31,
+        "title": "Victoria International Airport",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "Salt Lake City International Airport",
+      "source": "https://en.wikipedia.org/wiki/List_of_the_busiest_airports_in_the_United_States",
+      "wikipediaTitle": "Salt Lake City International Airport",
+      "pageviews": {
+        "total": 10676,
+        "days": 31,
+        "title": "Salt Lake City International Airport",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    }
+  ]
+}

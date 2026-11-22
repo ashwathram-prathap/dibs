@@ -1,0 +1,811 @@
+{
+  "source": "Independent curated Wikipedia lists, extracted by subject column or list label; see source URLs per sample",
+  "seed": 782533409,
+  "method": "Uniform draw without replacement from the middle half by measured mean daily readership; frozen first draw, all misses retained",
+  "poolSize": 194,
+  "excluded": [],
+  "answers": [
+    "Marie Angel",
+    "John Macdonald Aiken",
+    "Dennis Ashbaugh",
+    "Lizzy Ansingh",
+    "Anton Ažbe",
+    "John Armleder",
+    "Salomon van Abbé",
+    "Edgar Ainsworth",
+    "Avigdor Arikha",
+    "Jan Asselijn",
+    "Chiho Aoshima",
+    "Tadeusz Ajdukiewicz",
+    "Jacopo Amigoni",
+    "Tivadar Alconiere",
+    "Étienne Aubry",
+    "Rodolfo Amoedo",
+    "David Annand",
+    "Awataguchi Takamitsu",
+    "Robert Adamson",
+    "L. Alcopley",
+    "Fyodor Alekseyev",
+    "Balthasar van der Ast",
+    "John Clayton Adams",
+    "Gyula Aggházy",
+    "Nikolaj Abraham Abildgaard",
+    "Edmond Aman-Jean",
+    "John Alexander",
+    "Giuseppe Abbati",
+    "Willem van Aelst",
+    "John Armstrong",
+    "Ras Akyem",
+    "Niccolò dell' Abbate",
+    "Christoph Ludwig Agricola",
+    "Ásgrímur Jónsson",
+    "J. Ottis Adams",
+    "Lubna Agha",
+    "George Aleef",
+    "Ai Xuan",
+    "Giocondo Albertolli",
+    "Joseph Ignaz Appiani",
+    "Constantine Andreou",
+    "Johann Ludwig Aberli",
+    "Hermenegildo Anglada Camarasa",
+    "Rick Amor",
+    "Shigeru Aoki",
+    "Cosmo Alexander",
+    "Edward Ben Avram",
+    "Pat Adams",
+    "Mary Adshead",
+    "Altichiero"
+  ],
+  "samples": [
+    {
+      "answer": "Marie Angel",
+      "source": "https://en.wikipedia.org/wiki/List_of_painters_by_name_beginning_with_\"A\"",
+      "wikipediaTitle": "Marie Angel (artist)",
+      "pageviews": {
+        "total": 53,
+        "days": 31,
+        "title": "Marie Angel (artist)",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "John Macdonald Aiken",
+      "source": "https://en.wikipedia.org/wiki/List_of_painters_by_name_beginning_with_\"A\"",
+      "wikipediaTitle": "John Macdonald Aiken",
+      "pageviews": {
+        "total": 64,
+        "days": 31,
+        "title": "John Macdonald Aiken",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Dennis Ashbaugh",
+      "source": "https://en.wikipedia.org/wiki/List_of_painters_by_name_beginning_with_\"A\"",
+      "wikipediaTitle": "Dennis Ashbaugh",
+      "pageviews": {
+        "total": 202,
+        "days": 31,
+        "title": "Dennis Ashbaugh",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Lizzy Ansingh",
+      "source": "https://en.wikipedia.org/wiki/List_of_painters_by_name_beginning_with_\"A\"",
+      "wikipediaTitle": "Lizzy Ansingh",
+      "pageviews": {
+        "total": 101,
+        "days": 31,
+        "title": "Lizzy Ansingh",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Anton Ažbe",
+      "source": "https://en.wikipedia.org/wiki/List_of_painters_by_name_beginning_with_\"A\"",
+      "wikipediaTitle": "Anton Ažbe",
+      "pageviews": {
+        "total": 358,
+        "days": 31,
+        "title": "Anton Ažbe",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "John Armleder",
+      "source": "https://en.wikipedia.org/wiki/List_of_painters_by_name_beginning_with_\"A\"",
+      "wikipediaTitle": "John Armleder",
+      "pageviews": {
+        "total": 169,
+        "days": 31,
+        "title": "John Armleder",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Salomon van Abbé",
+      "source": "https://en.wikipedia.org/wiki/List_of_painters_by_name_beginning_with_\"A\"",
+      "wikipediaTitle": "Salomon van Abbé",
+      "pageviews": {
+        "total": 108,
+        "days": 31,
+        "title": "Salomon van Abbé",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Edgar Ainsworth",
+      "source": "https://en.wikipedia.org/wiki/List_of_painters_by_name_beginning_with_\"A\"",
+      "wikipediaTitle": "Edgar Ainsworth (artist)",
+      "pageviews": {
+        "total": 50,
+        "days": 31,
+        "title": "Edgar Ainsworth (artist)",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Avigdor Arikha",
+      "source": "https://en.wikipedia.org/wiki/List_of_painters_by_name_beginning_with_\"A\"",
+      "wikipediaTitle": "Avigdor Arikha",
+      "pageviews": {
+        "total": 346,
+        "days": 31,
+        "title": "Avigdor Arikha",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Jan Asselijn",
+      "source": "https://en.wikipedia.org/wiki/List_of_painters_by_name_beginning_with_\"A\"",
+      "wikipediaTitle": "Jan Asselijn",
+      "pageviews": {
+        "total": 329,
+        "days": 31,
+        "title": "Jan Asselijn",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Chiho Aoshima",
+      "source": "https://en.wikipedia.org/wiki/List_of_painters_by_name_beginning_with_\"A\"",
+      "wikipediaTitle": "Chiho Aoshima",
+      "pageviews": {
+        "total": 287,
+        "days": 31,
+        "title": "Chiho Aoshima",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Tadeusz Ajdukiewicz",
+      "source": "https://en.wikipedia.org/wiki/List_of_painters_by_name_beginning_with_\"A\"",
+      "wikipediaTitle": "Tadeusz Ajdukiewicz",
+      "pageviews": {
+        "total": 144,
+        "days": 31,
+        "title": "Tadeusz Ajdukiewicz",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Jacopo Amigoni",
+      "source": "https://en.wikipedia.org/wiki/List_of_painters_by_name_beginning_with_\"A\"",
+      "wikipediaTitle": "Jacopo Amigoni",
+      "pageviews": {
+        "total": 290,
+        "days": 31,
+        "title": "Jacopo Amigoni",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Tivadar Alconiere",
+      "source": "https://en.wikipedia.org/wiki/List_of_painters_by_name_beginning_with_\"A\"",
+      "wikipediaTitle": "Tivadar Alconiere",
+      "pageviews": {
+        "total": 58,
+        "days": 31,
+        "title": "Tivadar Alconiere",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Étienne Aubry",
+      "source": "https://en.wikipedia.org/wiki/List_of_painters_by_name_beginning_with_\"A\"",
+      "wikipediaTitle": "Étienne Aubry",
+      "pageviews": {
+        "total": 65,
+        "days": 31,
+        "title": "Étienne Aubry",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Rodolfo Amoedo",
+      "source": "https://en.wikipedia.org/wiki/List_of_painters_by_name_beginning_with_\"A\"",
+      "wikipediaTitle": "Rodolfo Amoedo",
+      "pageviews": {
+        "total": 227,
+        "days": 31,
+        "title": "Rodolfo Amoedo",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "David Annand",
+      "source": "https://en.wikipedia.org/wiki/List_of_painters_by_name_beginning_with_\"A\"",
+      "wikipediaTitle": "David Annand",
+      "pageviews": {
+        "total": 126,
+        "days": 31,
+        "title": "David Annand",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Awataguchi Takamitsu",
+      "source": "https://en.wikipedia.org/wiki/List_of_painters_by_name_beginning_with_\"A\"",
+      "wikipediaTitle": "Awataguchi Takamitsu",
+      "pageviews": {
+        "total": 54,
+        "days": 31,
+        "title": "Awataguchi Takamitsu",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Robert Adamson",
+      "source": "https://en.wikipedia.org/wiki/List_of_painters_by_name_beginning_with_\"A\"",
+      "wikipediaTitle": "Robert Adamson (photographer)",
+      "pageviews": {
+        "total": 223,
+        "days": 31,
+        "title": "Robert Adamson (photographer)",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "L. Alcopley",
+      "source": "https://en.wikipedia.org/wiki/List_of_painters_by_name_beginning_with_\"A\"",
+      "wikipediaTitle": "Alfred L. Copley",
+      "pageviews": {
+        "total": 94,
+        "days": 31,
+        "title": "Alfred L. Copley",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Fyodor Alekseyev",
+      "source": "https://en.wikipedia.org/wiki/List_of_painters_by_name_beginning_with_\"A\"",
+      "wikipediaTitle": "Fyodor Alekseyev",
+      "pageviews": {
+        "total": 163,
+        "days": 31,
+        "title": "Fyodor Alekseyev",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Balthasar van der Ast",
+      "source": "https://en.wikipedia.org/wiki/List_of_painters_by_name_beginning_with_\"A\"",
+      "wikipediaTitle": "Balthasar van der Ast",
+      "pageviews": {
+        "total": 252,
+        "days": 31,
+        "title": "Balthasar van der Ast",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "John Clayton Adams",
+      "source": "https://en.wikipedia.org/wiki/List_of_painters_by_name_beginning_with_\"A\"",
+      "wikipediaTitle": "John Clayton Adams",
+      "pageviews": {
+        "total": 86,
+        "days": 31,
+        "title": "John Clayton Adams",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Gyula Aggházy",
+      "source": "https://en.wikipedia.org/wiki/List_of_painters_by_name_beginning_with_\"A\"",
+      "wikipediaTitle": "Gyula Aggházy",
+      "pageviews": {
+        "total": 69,
+        "days": 31,
+        "title": "Gyula Aggházy",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "Nikolaj Abraham Abildgaard",
+      "source": "https://en.wikipedia.org/wiki/List_of_painters_by_name_beginning_with_\"A\"",
+      "wikipediaTitle": "Nikolaj Abraham Abildgaard",
+      "pageviews": {
+        "total": 53,
+        "days": 31,
+        "title": "Nikolaj Abraham Abildgaard",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Edmond Aman-Jean",
+      "source": "https://en.wikipedia.org/wiki/List_of_painters_by_name_beginning_with_\"A\"",
+      "wikipediaTitle": "Edmond Aman-Jean",
+      "pageviews": {
+        "total": 255,
+        "days": 31,
+        "title": "Edmond Aman-Jean",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "John Alexander",
+      "source": "https://en.wikipedia.org/wiki/List_of_painters_by_name_beginning_with_\"A\"",
+      "wikipediaTitle": "John Alexander (painter)",
+      "pageviews": {
+        "total": 70,
+        "days": 31,
+        "title": "John Alexander (painter)",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Giuseppe Abbati",
+      "source": "https://en.wikipedia.org/wiki/List_of_painters_by_name_beginning_with_\"A\"",
+      "wikipediaTitle": "Giuseppe Abbati",
+      "pageviews": {
+        "total": 238,
+        "days": 31,
+        "title": "Giuseppe Abbati",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Willem van Aelst",
+      "source": "https://en.wikipedia.org/wiki/List_of_painters_by_name_beginning_with_\"A\"",
+      "wikipediaTitle": "Willem van Aelst",
+      "pageviews": {
+        "total": 414,
+        "days": 31,
+        "title": "Willem van Aelst",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "John Armstrong",
+      "source": "https://en.wikipedia.org/wiki/List_of_painters_by_name_beginning_with_\"A\"",
+      "wikipediaTitle": "John Armstrong (artist)",
+      "pageviews": {
+        "total": 151,
+        "days": 31,
+        "title": "John Armstrong (artist)",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Ras Akyem",
+      "source": "https://en.wikipedia.org/wiki/List_of_painters_by_name_beginning_with_\"A\"",
+      "wikipediaTitle": "Ras Akyem",
+      "pageviews": {
+        "total": 60,
+        "days": 31,
+        "title": "Ras Akyem",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Niccolò dell' Abbate",
+      "source": "https://en.wikipedia.org/wiki/List_of_painters_by_name_beginning_with_\"A\"",
+      "wikipediaTitle": "Niccolò dell'Abbate",
+      "pageviews": {
+        "total": 249,
+        "days": 31,
+        "title": "Niccolò dell'Abbate",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "Christoph Ludwig Agricola",
+      "source": "https://en.wikipedia.org/wiki/List_of_painters_by_name_beginning_with_\"A\"",
+      "wikipediaTitle": "Christoph Ludwig Agricola",
+      "pageviews": {
+        "total": 124,
+        "days": 31,
+        "title": "Christoph Ludwig Agricola",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Ásgrímur Jónsson",
+      "source": "https://en.wikipedia.org/wiki/List_of_painters_by_name_beginning_with_\"A\"",
+      "wikipediaTitle": "Ásgrímur Jónsson",
+      "pageviews": {
+        "total": 119,
+        "days": 31,
+        "title": "Ásgrímur Jónsson",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "J. Ottis Adams",
+      "source": "https://en.wikipedia.org/wiki/List_of_painters_by_name_beginning_with_\"A\"",
+      "wikipediaTitle": "J. Ottis Adams",
+      "pageviews": {
+        "total": 120,
+        "days": 31,
+        "title": "J. Ottis Adams",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Lubna Agha",
+      "source": "https://en.wikipedia.org/wiki/List_of_painters_by_name_beginning_with_\"A\"",
+      "wikipediaTitle": "Lubna Agha",
+      "pageviews": {
+        "total": 109,
+        "days": 31,
+        "title": "Lubna Agha",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "George Aleef",
+      "source": "https://en.wikipedia.org/wiki/List_of_painters_by_name_beginning_with_\"A\"",
+      "wikipediaTitle": "George Aleef",
+      "pageviews": {
+        "total": 92,
+        "days": 31,
+        "title": "George Aleef",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Ai Xuan",
+      "source": "https://en.wikipedia.org/wiki/List_of_painters_by_name_beginning_with_\"A\"",
+      "wikipediaTitle": "Ai Xuan",
+      "pageviews": {
+        "total": 162,
+        "days": 31,
+        "title": "Ai Xuan",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "Giocondo Albertolli",
+      "source": "https://en.wikipedia.org/wiki/List_of_painters_by_name_beginning_with_\"A\"",
+      "wikipediaTitle": "Giocondo Albertolli",
+      "pageviews": {
+        "total": 53,
+        "days": 31,
+        "title": "Giocondo Albertolli",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": true,
+      "present": true
+    },
+    {
+      "answer": "Joseph Ignaz Appiani",
+      "source": "https://en.wikipedia.org/wiki/List_of_painters_by_name_beginning_with_\"A\"",
+      "wikipediaTitle": "Joseph Ignaz Appiani",
+      "pageviews": {
+        "total": 54,
+        "days": 31,
+        "title": "Joseph Ignaz Appiani",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Constantine Andreou",
+      "source": "https://en.wikipedia.org/wiki/List_of_painters_by_name_beginning_with_\"A\"",
+      "wikipediaTitle": "Constantine Andreou",
+      "pageviews": {
+        "total": 192,
+        "days": 31,
+        "title": "Constantine Andreou",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Johann Ludwig Aberli",
+      "source": "https://en.wikipedia.org/wiki/List_of_painters_by_name_beginning_with_\"A\"",
+      "wikipediaTitle": "Johann Ludwig Aberli",
+      "pageviews": {
+        "total": 78,
+        "days": 31,
+        "title": "Johann Ludwig Aberli",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Hermenegildo Anglada Camarasa",
+      "source": "https://en.wikipedia.org/wiki/List_of_painters_by_name_beginning_with_\"A\"",
+      "wikipediaTitle": "Hermenegildo Anglada Camarasa",
+      "pageviews": {
+        "total": 189,
+        "days": 31,
+        "title": "Hermenegildo Anglada Camarasa",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Rick Amor",
+      "source": "https://en.wikipedia.org/wiki/List_of_painters_by_name_beginning_with_\"A\"",
+      "wikipediaTitle": "Rick Amor",
+      "pageviews": {
+        "total": 131,
+        "days": 31,
+        "title": "Rick Amor",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Shigeru Aoki",
+      "source": "https://en.wikipedia.org/wiki/List_of_painters_by_name_beginning_with_\"A\"",
+      "wikipediaTitle": "Shigeru Aoki",
+      "pageviews": {
+        "total": 106,
+        "days": 31,
+        "title": "Shigeru Aoki",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Cosmo Alexander",
+      "source": "https://en.wikipedia.org/wiki/List_of_painters_by_name_beginning_with_\"A\"",
+      "wikipediaTitle": "Cosmo Alexander",
+      "pageviews": {
+        "total": 140,
+        "days": 31,
+        "title": "Cosmo Alexander",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Edward Ben Avram",
+      "source": "https://en.wikipedia.org/wiki/List_of_painters_by_name_beginning_with_\"A\"",
+      "wikipediaTitle": "Ben Avram",
+      "pageviews": {
+        "total": 252,
+        "days": 31,
+        "title": "Ben Avram",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Pat Adams",
+      "source": "https://en.wikipedia.org/wiki/List_of_painters_by_name_beginning_with_\"A\"",
+      "wikipediaTitle": "Pat Adams",
+      "pageviews": {
+        "total": 153,
+        "days": 31,
+        "title": "Pat Adams",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Mary Adshead",
+      "source": "https://en.wikipedia.org/wiki/List_of_painters_by_name_beginning_with_\"A\"",
+      "wikipediaTitle": "Mary Adshead",
+      "pageviews": {
+        "total": 141,
+        "days": 31,
+        "title": "Mary Adshead",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    },
+    {
+      "answer": "Altichiero",
+      "source": "https://en.wikipedia.org/wiki/List_of_painters_by_name_beginning_with_\"A\"",
+      "wikipediaTitle": "Altichiero",
+      "pageviews": {
+        "total": 263,
+        "days": 31,
+        "title": "Altichiero",
+        "status": "measured complete month",
+        "start": "2026-10-01",
+        "end": "2026-10-31"
+      },
+      "initiallyPresent": false,
+      "present": false
+    }
+  ]
+}
