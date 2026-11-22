@@ -40,3 +40,6 @@ review/integration/
 review/m1-refined/
 review/motion/
 review/rollover/
+
+# Audit identity cleanup lists stay local, including future review rounds.
+review/**/qa-identities.json

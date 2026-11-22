@@ -6,6 +6,7 @@ import {
   invalidParameters,
   validId,
   validText,
+  validMetadata,
 } from '../shared/security';
 import { catalogContent, keyContent } from '../shared/catalog-digest';
 /// <reference types="@cloudflare/workers-types" />
@@ -265,6 +266,13 @@ export async function uploadCategory(env: Env, b: any) {
     !/^[a-z0-9-]{2,60}$/.test(b.slug)
   )
     return fail(422, 'A register needs 2,000–2,200 valid entries, a name and a slug.');
+  if (
+    b.provenance !== undefined &&
+    (!validMetadata(b.provenance) || JSON.stringify(b.provenance).length > 32768)
+  )
+    return fail(422, 'Keep the source notes brief and readable.');
+  if (b.replaceDraft !== undefined && typeof b.replaceDraft !== 'boolean')
+    return fail(422, 'Mark draft replacement with true or false.');
   if (b.status && b.status !== 'draft')
     return fail(422, 'Uploads enter as drafts. Approve separately after review.');
   if (b.date && !validDate(b.date))

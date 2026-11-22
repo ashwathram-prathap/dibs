@@ -52,10 +52,11 @@ beforeAll(async () => {
   const pages = await build({
     stdin: {
       contents: `import { preview } from './shared/preview';
+      import { onRequest } from './functions/_middleware';
       const html = ${JSON.stringify(readFileSync('index.html', 'utf8').replaceAll('__PUBLIC_ORIGIN__', PUBLIC_ORIGIN))};
       export default { fetch(request, env) {
         const [, kind, id] = new URL(request.url).pathname.split('/');
-        return preview(kind)({ request, params: { id }, env: { API: env.API, ASSETS: { fetch: () => new Response(html, { headers: { 'content-type': 'text/html' } }) } } });
+        return onRequest({ request, next: () => preview(kind)({ request, params: { id }, env: { API: env.API, ASSETS: { fetch: () => new Response(html, { headers: { 'content-type': 'text/html' } }) } } }) });
       } };`,
       resolveDir: process.cwd(),
     },
@@ -370,10 +371,14 @@ it('serves unique cached previews to WhatsApp, X, Facebook, iMessage and Discord
   ]) {
     let original: Buffer | undefined;
     for (const [platform, agent] of Object.entries(agents)) {
-      const page = await pages.fetch(`http://local/${kind}/${id}?s=x`, {
+      const page = await pages.fetch(`${PUBLIC_ORIGIN}/${kind}/${id}?s=x`, {
         headers: { 'user-agent': agent },
       });
       expect(page.status, await page.clone().text()).toBe(200);
+      expect(page.headers.get('content-security-policy')).toContain("style-src 'self'");
+      expect(page.headers.get('strict-transport-security')).toBe(
+        'max-age=31536000; includeSubDomains',
+      );
       const html = await page.text();
       expect(html).not.toMatch(/Animal [0-9]|localhost/);
       expect(html).toContain('summary_large_image');
@@ -468,4 +473,26 @@ it('locks admin attempts per IP hash, preserves other IPs, and rate limits event
     expect(r.headers.get('access-control-allow-origin')).toBeNull();
     expect(r.headers.get('strict-transport-security')).toBe('max-age=31536000; includeSubDomains');
   }
+});
+
+it('keeps redirects, cached APIs, and rejected requests inside the security headers', async () => {
+  for (const origin of ['http://dibs.here', 'https://dibs-api.dibs-registry.workers.dev']) {
+    const r = await mf.dispatchFetch(origin + '/api/today?v=5', { redirect: 'manual' });
+    expect(r.status).toBe(301);
+    expect(r.headers.get('location')).toBe('https://dibs.here/api/today?v=5');
+    expect(r.headers.get('cross-origin-opener-policy')).toBe('same-origin');
+  }
+  for (let i = 0; i < 2; i++) {
+    const r = await call('/today');
+    expect(r.status).toBe(200);
+    expect(r.headers.get('content-security-policy')).toContain("frame-ancestors 'none'");
+    expect(r.headers.get('permissions-policy')).toContain('usb=()');
+  }
+  const pages = await mf.getWorker('pages-test');
+  const r = await pages.fetch('https://www.dibs.here/certificate/example-id?s=x', {
+    redirect: 'manual',
+  });
+  expect(r.status).toBe(301);
+  expect(r.headers.get('location')).toBe('https://dibs.here/certificate/example-id?s=x');
+  expect(r.headers.get('x-content-type-options')).toBe('nosniff');
 });

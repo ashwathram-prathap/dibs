@@ -93,3 +93,22 @@ export function invalidParameters(req: Request) {
   const id = u.pathname.match(/^\/api\/(?:certificate|summary|og(?:\/summary)?)\/(.*)$/)?.[1];
   return id !== undefined && !validId(id);
 }
+
+// Provenance is descriptive JSON, never executable markup or query text.
+export function validMetadata(value: unknown, depth = 0): boolean {
+  if (depth > 5) return false;
+  if (value === null || typeof value === 'boolean') return true;
+  if (typeof value === 'number') return Number.isFinite(value);
+  if (typeof value === 'string')
+    return value.length <= 4096 && !/[\u0000-\u0008\u000B\u000C\u000E-\u001F\u007F]/.test(value);
+  if (Array.isArray(value))
+    return value.length <= 100 && value.every((v) => validMetadata(v, depth + 1));
+  if (typeof value !== 'object') return false;
+  const entries = Object.entries(value);
+  return (
+    entries.length <= 100 &&
+    entries.every(
+      ([key, v]) => /^[a-zA-Z][a-zA-Z0-9_-]{0,60}$/.test(key) && validMetadata(v, depth + 1),
+    )
+  );
+}

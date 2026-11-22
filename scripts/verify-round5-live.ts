@@ -26,9 +26,11 @@ for (const host of hosts)
         location,
         passed:
           host === 'dibs.here' && protocol === 'https'
-            ? status !== 301
+            ? status === 404
             : status === 301 &&
-              location === 'https://dibs.here/certificate/round5-check?s=copy-link',
+              (location === 'https://dibs.here/certificate/round5-check?s=copy-link' ||
+                (protocol === 'http' &&
+                  location === `https://${host}/certificate/round5-check?s=copy-link`)),
       });
     } catch (e: any) {
       checks.push({ url, passed: false, error: String(e.stderr || e.message).trim() });
@@ -45,7 +47,9 @@ for (const path of ['/', '/certificate/round5-check', '/api/today']) {
       url,
       status: response.status,
       headers,
-      passed: Object.entries(SECURITY_HEADERS).every(([k, v]) => headers[k] === v),
+      passed:
+        response.status === (path.includes('certificate') ? 404 : 200) &&
+        Object.entries(SECURITY_HEADERS).every(([k, v]) => headers[k] === v),
       note: path.includes('certificate')
         ? 'Unknown record: verifies error-page headers; real certificate needed after launch.'
         : undefined,

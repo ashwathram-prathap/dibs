@@ -1,5 +1,5 @@
 import { gate, securityKey, type Gate } from './security';
-import { isLocal, originFailure } from '../shared/security';
+import { isLocal, originFailure, validId } from '../shared/security';
 import { DurableObject } from 'cloudflare:workers';
 import { route, current, fileState, publicClaim, json, safeError, body, type Env } from './routes';
 import { cookieUser, handle, hmac, constantEqual, sessionCookie } from './identity';
@@ -489,6 +489,7 @@ export class Registry extends DurableObject<Env> {
             n + new Set([normalize(a.display), ...(a.aliases || []).map(normalize)]).size,
           0,
         );
+        if (!validId(b.id || b.slug)) return json({ message: 'A register ID is required.' }, 422);
         const exists = await env.DB.prepare('SELECT id FROM categories WHERE id=?')
           .bind(b.id || b.slug)
           .first();

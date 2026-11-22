@@ -5,6 +5,7 @@ import { readFileSync } from 'node:fs';
 import { registryDate, dropAt, normalize } from '../worker/domain';
 let mf: Miniflare;
 let db: any;
+let verification = { success: false, hostname: 'dibs.here', action: 'claim' };
 const request = (path: string, body?: any, cookie?: string, ip?: string) =>
   mf.dispatchFetch('http://localhost/api' + path, {
     method: body === undefined ? 'GET' : 'POST',
@@ -39,12 +40,20 @@ beforeAll(async () => {
           script: result.outputFiles[0].text,
           compatibilityDate: '2026-11-20',
           d1Databases: ['DB'],
+          outboundService: async (req: Request) => {
+            if (
+              new URL(req.url).href !== 'https://challenges.cloudflare.com/turnstile/v0/siteverify'
+            )
+              throw Error('Unexpected outbound request');
+            return Response.json(verification);
+          },
           bindings: {
             COOKIE_SECRET: 'test-secret-not-for-production',
             ADMIN_TOKEN: 'test-admin',
             LOCAL_TEST: 'true',
             SITE_URL: 'http://localhost',
             TURNSTILE_SITE_KEY: 'test',
+            TURNSTILE_SECRET: 'test-verification-only',
           },
         },
       ],
@@ -355,7 +364,28 @@ describe('Worker with real SQLite/D1 execution', () => {
       },
       body: JSON.stringify({ answer: 'Axolotl', turnstileToken: 'test' }),
     });
-    expect(r.status).toBe(503);
+    expect(r.status).toBe(400);
+  });
+  it('rejects siteverify hostname/action mismatches and accepts the canonical result', async () => {
+    const a = await account();
+    const submit = () =>
+      mf.dispatchFetch('https://dibs.here/api/claim', {
+        method: 'POST',
+        headers: {
+          origin: 'https://dibs.here',
+          cookie: a.cookie,
+          'content-type': 'application/json',
+          'cf-connecting-ip': 'turnstile-test',
+        },
+        body: JSON.stringify({ answer: 'Test animal 69', turnstileToken: 'test' }),
+      });
+    verification = { success: true, hostname: 'evil.example', action: 'claim' };
+    expect((await submit()).status).toBe(400);
+    verification = { success: true, hostname: 'dibs.here', action: 'other' };
+    expect((await submit()).status).toBe(400);
+    verification = { success: true, hostname: 'dibs.here', action: 'claim' };
+    expect((await submit()).status).toBe(201);
+    verification.success = false;
   });
   it('moderation hides holders and voids certificates without reusing ownership', async () => {
     const row = await db.prepare('SELECT id,user_id FROM claims ORDER BY claim_no LIMIT 1').first();
