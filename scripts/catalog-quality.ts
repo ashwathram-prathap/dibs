@@ -66,3 +66,18 @@ export function pageMatchesScope(slug: string, description: string, scientificRe
     );
   return true;
 }
+
+// A castle in a school's location does not make the school itself a castle.
+export function castleTitleDescriptionMatches(description: string) {
+  const subject = description.split(
+    /\b(?:in|at|near|overlooking|within|around|located|surrounding|containing|with)\b/i,
+  )[0];
+  return (
+    /castle|fortress|fortification|palace|manor|historic house|country house|stately home|mansion|estate|historic landmark|royal residence|château|chateau|\bfort\b/i.test(
+      subject,
+    ) &&
+    !/fictional|mythological|legendary|film|album|novel|actor|actress|singer|musician|song|video game|television|band\b|composer|football club|rock formation|geological|natural landmark|railway station|bridge|battle|siege|treaty|painting|sculpture|drawing|postage|poem|opera|ballet/i.test(
+      subject,
+    )
+  );
+}

@@ -194,19 +194,18 @@
     "license": "https://www.wikidata.org/wiki/Wikidata:Data_access"
   },
   "paintings": {
-    "cacheKey": "paintings-series-v2",
-    "labelPolicy": "english-article-title-v3",
-    "complete": true,
-    "candidateCount": 12219,
-    "scanned": 12219,
-    "englishArticles": 12219,
-    "namedCandidates": 12219,
+    "labelPolicy": "english-article-or-source-label-v4",
+    "cacheKey": "paintings-named-all-ranks-v3",
+    "complete": false,
+    "candidateCount": 1125346,
+    "scanned": 205000,
+    "englishArticles": 1002,
+    "namedCandidates": 120663,
     "classificationProperties": [
       "P31"
     ],
-    "candidatePolicy": "English-article quality filter applied during uncapped, independently counted classification extraction",
-    "method": "Complete classification candidates and bounded article joins; English article titles provide common names, and English/multilingual labels and aliases supply variants. Article availability is the quality filter, never a result-count cutoff.",
-    "license": "https://www.wikidata.org/wiki/Wikidata:Data_access"
+    "candidatePolicy": "Entire uncapped classification ID set; English article title or English/Latin-script source label, with unknown readership when no article exists",
+    "method": "Complete classification candidates and bounded article joins; English article titles provide common names, and English/multilingual labels and aliases supply variants. Article availability is the quality filter, never a result-count cutoff."
   },
   "mountains": {
     "cacheKey": "geonames-complement-v2",

@@ -1,4 +1,3 @@
-import { readCategory } from './category-file';
 import { readFileSync, writeFileSync, readdirSync } from 'node:fs';
 const base = 'https://practice.dibs-7hz.pages.dev';
 const token = readFileSync('.dev.vars.staging', 'utf8').match(/^ADMIN_TOKEN=(.+)$/m)![1];
@@ -24,7 +23,7 @@ const api = async (path: string, body: any) => {
 };
 const install = async (slug: string) => {
   await api('/admin/practice-reset', {});
-  const c = readCategory('categories/' + slug + '.json');
+  const c = JSON.parse(readFileSync('categories/' + slug + '.json', 'utf8'));
   const manifest = JSON.parse(readFileSync('public/catalog/' + slug + '/manifest.json', 'utf8'));
   await api('/admin/static-catalog', {
     id: 'practice',
@@ -33,16 +32,24 @@ const install = async (slug: string) => {
     manifest,
     coverage: coverage.find((row: any) => row.slug === slug),
   });
-  return c;
+  return { category: c, manifest };
 };
 const report: any[] = [];
 try {
   for (const slug of slugs) {
-    const c = await install(slug);
-    const words = Array.from(
-      { length: 100 },
-      (_, i) => c.answers[Math.floor((c.answers.length * (i + 0.5)) / 100)].display,
-    );
+    const { manifest } = await install(slug);
+    const size = manifest.rowChunkSize || 256;
+    const prefix = size === 256 ? 'rows' : 'rows-' + size;
+    const words = Array.from({ length: 100 }, (_, i) => {
+      const ordinal = Math.floor((manifest.count * (i + 0.5)) / 100);
+      const rows = JSON.parse(
+        readFileSync(
+          `public/catalog/${slug}/${manifest.version}/${prefix}-${Math.floor(ordinal / size)}.json`,
+          'utf8',
+        ),
+      );
+      return rows[ordinal % size][1];
+    });
     const passes: any[] = [];
     for (let pass = 0; pass < 2; pass++) {
       const rows: any[] = [];
@@ -71,7 +78,7 @@ try {
           ...(await api('/admin/check-answers', { answers: answers.slice(i, i + 20) })).rows,
         );
     }
-    report.push({ slug, entries: c.answers.length, passes, obvious });
+    report.push({ slug, entries: manifest.count, version: manifest.version, passes, obvious });
     if (obvious.some((row) => !row.found)) throw Error(slug + ': obvious answer missing');
     console.log(
       slug,

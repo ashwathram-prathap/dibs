@@ -1,6 +1,7 @@
 import { it, expect } from 'vitest';
 import {
   commonNamePlurals,
+  castleNameAliases,
   conjunctionAliases,
   workSubtitleAliases,
   titleArticleAliases,
@@ -63,4 +64,11 @@ it('supplies natural plural aliases that simple suffix stripping misses', () => 
     ['great horned owl', 'great horned owls'],
   ])
     expect(commonNamePlurals(singular)).toContain(plural);
+});
+
+it('accepts source castle names with ordinary translated type words and name order', () => {
+  expect(castleNameAliases('Castelo de Marvão')).toContain('Marvão Castle');
+  expect(castleNameAliases('Peyrepertuse Castle')).toContain('Chateau de Peyrepertuse');
+  expect(castleNameAliases('Alcázar de Toledo')).toContain('Alcazar of Toledo');
+  expect(castleNameAliases('Castleford')).toEqual([]);
 });

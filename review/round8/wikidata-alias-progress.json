@@ -106,8 +106,8 @@
   },
   "poets": {
     "complete": true,
-    "checked": 1,
-    "total": 1,
+    "checked": 40983,
+    "total": 40983,
     "referencePolicy": "english-article-title-v3",
     "classificationRevision": "base"
   },
@@ -119,11 +119,10 @@
     "classificationRevision": "base"
   },
   "paintings": {
-    "complete": true,
-    "checked": 12219,
-    "total": 12219,
-    "referencePolicy": "english-article-title-v3",
-    "classificationRevision": "paintings-series-v2"
+    "complete": false,
+    "reason": "Awaiting current full classification",
+    "expectedPolicy": "english-article-or-source-label-v4",
+    "classificationRevision": "paintings-named-all-ranks-v3"
   },
   "mountains": {
     "complete": true,

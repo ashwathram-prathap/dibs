@@ -1,0 +1,12 @@
+{
+  "at": "2026-11-22T09:31:52.533456+00:00",
+  "privateExport": "production-20261122T093131Z.sql",
+  "restoredToSeparatePrivateSQLite": true,
+  "foreignKeyViolations": 0,
+  "counts": {
+    "users": 3,
+    "claims": 0,
+    "strikes": 0
+  },
+  "productionRestorePerformed": false
+}

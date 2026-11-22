@@ -8,6 +8,10 @@ import {
   statSync,
 } from 'node:fs';
 import { createHash } from 'node:crypto';
+const only = process.argv
+  .find((a) => a.startsWith('--only='))
+  ?.slice(7)
+  .split(',');
 const dir = '.category-cache/r8/other-references';
 const cache = '.category-cache/r8/wikidata-names-en-mul-v3';
 mkdirSync(cache, { recursive: true });
@@ -21,6 +25,7 @@ const sleep = (ms: number) => new Promise((r) => setTimeout(r, ms));
 const processed = new Map<string, number>();
 do {
   for (const file of readdirSync(dir).filter((f) => f.endsWith('.json'))) {
+    if (only && !only.includes(file.slice(0, -5).replace(/-wikidata$/, ''))) continue;
     const sourceTime = statSync(dir + '/' + file).mtimeMs;
     if (processed.get(file) === sourceTime) continue;
     const rows = JSON.parse(readFileSync(dir + '/' + file, 'utf8'));
@@ -73,11 +78,17 @@ do {
     for (let cursor = 0; cursor < targets.length; cursor += 5000) {
       const batch = targets.slice(cursor, cursor + 5000);
       const ids = batch.map((r: any) => r.wikidata);
-      const path = cache + '/' + createHash('sha256').update(ids.join(',')).digest('hex') + '.json';
+      const path =
+        cache +
+        '/' +
+        createHash('sha256')
+          .update((slug === 'paintings' ? 'all-native-titles-v1:' : '') + ids.join(','))
+          .digest('hex') +
+        '.json';
       let aliases: any;
       if (existsSync(path)) aliases = JSON.parse(readFileSync(path, 'utf8'));
       else {
-        const query = `SELECT ?item ?alias WHERE { VALUES ?item {${ids.map((id: string) => 'wd:' + id).join(' ')}} OPTIONAL { ?item (rdfs:label|skos:altLabel|wdt:P1476|wdt:P1448|wdt:P1705) ?alias FILTER(LANG(?alias) IN ("en", "mul", "en-gb", "en-ca", "en-us")) } }`;
+        const query = `SELECT ?item ?alias WHERE { VALUES ?item {${ids.map((id: string) => 'wd:' + id).join(' ')}} OPTIONAL { { ?item (rdfs:label|skos:altLabel|wdt:P1476|wdt:P1448|wdt:P1705) ?alias FILTER(LANG(?alias) IN ("en", "mul", "en-gb", "en-ca", "en-us")) } ${slug === 'paintings' ? 'UNION { ?item (wdt:P1476|wdt:P1705) ?alias }' : ''} } }`;
         for (let attempt = 0; attempt < 3; attempt++) {
           try {
             const response = await fetch('https://query.wikidata.org/sparql', {
@@ -119,6 +130,7 @@ do {
         row.aliases = [...new Set([...row.aliases, ...aliases[row.wikidata]])];
         row.aliasesComplete = true;
         row.aliasPolicy = 'en-mul-labels-aliases-v3';
+        if (slug === 'paintings') row.nativeTitlePropertiesComplete = true;
       }
       done += batch.length;
       report[slug] = {

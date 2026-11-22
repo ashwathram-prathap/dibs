@@ -1,0 +1,31 @@
+{
+  "at": "2026-11-22T09:26:26.855633+00:00",
+  "from": "2026-11-22T09:24:00Z",
+  "sampling": "Filtered wrangler tail, not every request. Includes practice deploy and river benchmark; no headers, bodies or identities retained.",
+  "entries": {
+    "dibs-api-staging": {
+      "events": 13,
+      "maxCpuMs": 1,
+      "maxWallMs": 5367,
+      "outcomes": {
+        "ok": 13
+      }
+    },
+    "ImageCache": {
+      "events": 13,
+      "maxCpuMs": 1,
+      "maxWallMs": 2,
+      "outcomes": {
+        "ok": 13
+      }
+    },
+    "Registry": {
+      "events": 12,
+      "maxCpuMs": 158,
+      "maxWallMs": 5341,
+      "outcomes": {
+        "ok": 12
+      }
+    }
+  }
+}

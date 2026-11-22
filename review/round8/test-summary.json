@@ -1,14 +1,14 @@
 {
   "unit": {
-    "passed": 94,
+    "passed": 96,
     "failed": 0,
     "files": 21,
-    "note": "Full suite refreshed Nov 22 04:21 ET after regenerating catalog assets; includes honorific and naval alias tests."
+    "note": "Full suite refreshed Nov 22 04:48 ET after asset regeneration; includes castle subject-vs-location filtering and translated castle-name aliases."
   },
   "browser": {
     "localMatrixPassed": 470,
     "localMatrixFailed": 0,
-    "failuresExplained": "Full Chromium/WebKit binary-runtime matrix passed 470 tests at 03:26 ET. Later count/source-copy changes passed the 168-state visual audit; final post-catalog browser refresh remains pending.",
+    "failuresExplained": "Full Chromium/WebKit matrix refreshed Nov 22 04:34 ET against final UI and launch catalogs: 470 passed. Remaining unscheduled reference additions will receive final unit and live asset checks.",
     "targetedClosure": {
       "passed": 4
     },

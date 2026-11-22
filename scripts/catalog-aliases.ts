@@ -8,7 +8,35 @@ export function personNameAliases(name: string) {
     .trim();
   return plain && plain !== name ? [plain] : [];
 }
+export function castleNameAliases(name: string) {
+  const kinds =
+    'castle|château|chateau|castillo|castelo|castell|schloss|burg|fortress|fort|fortaleza|festung|palace|palacio|palácio|palais|alcázar|alcazar';
+  const prefix = name.match(
+    new RegExp('^(' + kinds + ')\\s+(?:(?:of|de|do|da|du|des)\\s+)?(.+)$', 'i'),
+  );
+  const suffix = name.match(new RegExp('^(.+?)\\s+(' + kinds + ')$', 'i'));
+  if (!prefix && !suffix) return [];
+  const kind = (prefix?.[1] || suffix![2]).toLowerCase();
+  const base = (prefix?.[2] || suffix![1]).trim();
+  if (base.length < 3) return [];
+  const english = /^(fortress|fort|fortaleza|festung)$/.test(kind)
+    ? 'Fortress'
+    : /^(palace|palacio|palácio|palais)$/.test(kind)
+      ? 'Palace'
+      : /^(alcázar|alcazar)$/.test(kind)
+        ? 'Alcazar'
+        : 'Castle';
+  return [
+    ...new Set([
+      base,
+      base + ' ' + english,
+      english + ' of ' + base,
+      ...(english === 'Castle' ? ['Chateau de ' + base] : []),
+    ]),
+  ].filter((value) => value !== name);
+}
 export function geographicAliases(slug: string, name: string) {
+  if (slug === 'castles') return castleNameAliases(name);
   const patterns: Record<string, RegExp> = {
     rivers: /^(?:river)\s+|\s+(?:river)$/gi,
     lakes: /^(?:lake)\s+|\s+(?:lake)$/gi,

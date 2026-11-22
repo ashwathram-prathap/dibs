@@ -3,6 +3,7 @@ import { spawn } from 'node:child_process';
 import assert from 'node:assert/strict';
 const base = 'https://practice.dibs-7hz.pages.dev';
 const browserOnly = process.argv.includes('--browser-only');
+const withBrowser = process.argv.includes('--with-browser');
 const vars = Object.fromEntries(
   readFileSync('.dev.vars.staging', 'utf8')
     .split('\n')
@@ -190,7 +191,7 @@ try {
         2,
       ) + '\n',
     );
-  if (browserOnly)
+  if (browserOnly || withBrowser)
     for (const engine of ['chromium', 'webkit']) {
       await new Promise<void>((resolve, reject) => {
         const child = spawn(

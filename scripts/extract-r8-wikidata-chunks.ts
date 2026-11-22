@@ -137,6 +137,9 @@ async function extract(def: any) {
       ? JSON.parse(readFileSync(priorFile, 'utf8')).map((r: any) => [r.wikidata, r])
       : [],
   );
+  const statementTypes: string[] = def.allStatementRanks
+    ? JSON.parse(readFileSync(folder + '/complete-types.json', 'utf8'))
+    : [];
   const labelFolder = folder + '/article-titles-v3';
   mkdirSync(labelFolder, { recursive: true });
   let cursor = 0;
@@ -153,9 +156,12 @@ async function extract(def: any) {
     }
     const batch = ids.slice(cursor, cursor + batchSize);
     const values = `VALUES ?item {${batch.map((id) => 'wd:' + id).join(' ')}}`;
+    const rankFilter = def.allStatementRanks
+      ? `FILTER EXISTS { ?item p:${def.property || 'P31'} ?statement . ?statement ps:${def.property || 'P31'} ?rankType; wikibase:rank ?rank . FILTER(?rank != wikibase:DeprecatedRank && ?rankType IN (${statementTypes.map((type) => 'wd:' + type).join(',')})) }`
+      : '';
     const q = def.allowNamedWithoutArticle
-      ? `SELECT ?item ?article ?label ?mul WHERE { ${values} OPTIONAL { ?article schema:about ?item; schema:isPartOf <https://en.wikipedia.org/> } OPTIONAL { ?item rdfs:label ?label FILTER(LANG(?label) = "en") } OPTIONAL { ?item rdfs:label ?mul FILTER(LANG(?mul) = "mul") } FILTER(BOUND(?article) || BOUND(?label) || BOUND(?mul)) }`
-      : `SELECT ?item ?article WHERE { ${values} ?article schema:about ?item; schema:isPartOf <https://en.wikipedia.org/> }`;
+      ? `SELECT ?item ?article ?label ?mul WHERE { ${values} ${rankFilter} OPTIONAL { ?article schema:about ?item; schema:isPartOf <https://en.wikipedia.org/> } OPTIONAL { ?item rdfs:label ?label FILTER(LANG(?label) = "en") } OPTIONAL { ?item rdfs:label ?mul FILTER(LANG(?mul) = "mul") } FILTER(BOUND(?article) || BOUND(?label) || BOUND(?mul)) }`
+      : `SELECT ?item ?article WHERE { ${values} ${rankFilter} ?article schema:about ?item; schema:isPartOf <https://en.wikipedia.org/> }`;
     let result: any = null;
     const errors: string[] = [];
     for (let attempt = 0; attempt < 3; attempt++) {
@@ -191,7 +197,15 @@ async function extract(def: any) {
         : undefined;
       const display = title?.replace(/ \([^)]*\)$/, '') || r.label?.value || r.mul?.value;
       if (!display || !/[\p{Script=Latin}\d]/u.test(display)) return [];
+      const prior = priorNames.get(r.item.value.split('/').at(-1));
       return {
+        ...(prior && prior.wikipediaTitle === title
+          ? {
+              wikipediaDescription: prior.wikipediaDescription,
+              wikipediaAliasesComplete: prior.wikipediaAliasesComplete,
+              originalTitlesComplete: prior.originalTitlesComplete,
+            }
+          : {}),
         display,
         aliases: [
           ...new Set(

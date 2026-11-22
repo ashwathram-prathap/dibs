@@ -1,0 +1,1233 @@
+{
+  "note": "First rare lookup includes the lazy catalog download; p95 covers uniformly spaced full-register samples. Cloudflare clock reports zero for sub-tick cached work. No claims are made; practice reset and restored to Animals.",
+  "report": [
+    {
+      "slug": "rivers",
+      "entries": 836650,
+      "version": "afad80560253eab7",
+      "passes": [
+        {
+          "pass": 0,
+          "accepted": 100,
+          "samples": 100,
+          "p95Ms": 0,
+          "maxMs": 5221,
+          "totalRoundTripMs": 6015.141458,
+          "rows": [
+            {
+              "answer": "Panay River",
+              "found": true,
+              "display": "Panay River",
+              "ms": 5221
+            },
+            {
+              "answer": "Virgin Creek",
+              "found": true,
+              "display": "Virgin Creek",
+              "ms": 0
+            },
+            {
+              "answer": "Iauna",
+              "found": true,
+              "display": "Iauna",
+              "ms": 0
+            },
+            {
+              "answer": "Rantzau",
+              "found": true,
+              "display": "Rantzau",
+              "ms": 0
+            },
+            {
+              "answer": "Agletohoui",
+              "found": true,
+              "display": "Agletohoui",
+              "ms": 0
+            },
+            {
+              "answer": "Alue Guloh",
+              "found": true,
+              "display": "Alue Guloh",
+              "ms": 0
+            },
+            {
+              "answer": "Arroio Balsa de Santa Laura",
+              "found": true,
+              "display": "Arroio Balsa de Santa Laura",
+              "ms": 0
+            },
+            {
+              "answer": "Arroyo del Correoso",
+              "found": true,
+              "display": "Arroyo del Correoso",
+              "ms": 0
+            },
+            {
+              "answer": "Arroyo Pato Cuá",
+              "found": true,
+              "display": "Arroyo Pato Cuá",
+              "ms": 0
+            },
+            {
+              "answer": "Awatuna Creek",
+              "found": true,
+              "display": "Awatuna Creek",
+              "ms": 0
+            },
+            {
+              "answer": "Barachnyy",
+              "found": true,
+              "display": "Barachnyy",
+              "ms": 0
+            },
+            {
+              "answer": "Bendékoyé",
+              "found": true,
+              "display": "Bendékoyé",
+              "ms": 0
+            },
+            {
+              "answer": "Blästerbäck",
+              "found": true,
+              "display": "Blästerbäck",
+              "ms": 0
+            },
+            {
+              "answer": "Boždin Dol",
+              "found": true,
+              "display": "Boždin Dol",
+              "ms": 0
+            },
+            {
+              "answer": "Butt Creek",
+              "found": true,
+              "display": "Butt Creek",
+              "ms": 0
+            },
+            {
+              "answer": "Cañada Toledo",
+              "found": true,
+              "display": "Cañada Toledo",
+              "ms": 0
+            },
+            {
+              "answer": "Cataloba",
+              "found": true,
+              "display": "Cataloba",
+              "ms": 0
+            },
+            {
+              "answer": "Chamālang Rūd",
+              "found": true,
+              "display": "Chamālang Rūd",
+              "ms": 0
+            },
+            {
+              "answer": "Chontalcoatlán",
+              "found": true,
+              "display": "Chontalcoatlán",
+              "ms": 0
+            },
+            {
+              "answer": "Coróndiro",
+              "found": true,
+              "display": "Coróndiro",
+              "ms": 0
+            },
+            {
+              "answer": "Córrego Itapuca do Patizal",
+              "found": true,
+              "display": "Córrego Itapuca do Patizal",
+              "ms": 0
+            },
+            {
+              "answer": "Critter Creek",
+              "found": true,
+              "display": "Critter Creek",
+              "ms": 0
+            },
+            {
+              "answer": "Darranmbri Kaur",
+              "found": true,
+              "display": "Darranmbri Kaur",
+              "ms": 0
+            },
+            {
+              "answer": "Djupskora",
+              "found": true,
+              "display": "Djupskora",
+              "ms": 0
+            },
+            {
+              "answer": "Dzhogdzho",
+              "found": true,
+              "display": "Dzhogdzho",
+              "ms": 0
+            },
+            {
+              "answer": "El Ranchero",
+              "found": true,
+              "display": "El Ranchero",
+              "ms": 0
+            },
+            {
+              "answer": "Falamikha",
+              "found": true,
+              "display": "Falamikha",
+              "ms": 0
+            },
+            {
+              "answer": "Gado Kreek",
+              "found": true,
+              "display": "Gado Kreek",
+              "ms": 0
+            },
+            {
+              "answer": "Gisikoni",
+              "found": true,
+              "display": "Gisikoni",
+              "ms": 0
+            },
+            {
+              "answer": "Guasamal",
+              "found": true,
+              "display": "Guasamal",
+              "ms": 0
+            },
+            {
+              "answer": "Hay Hollow Wash",
+              "found": true,
+              "display": "Hay Hollow Wash",
+              "ms": 0
+            },
+            {
+              "answer": "Houay Phoulai",
+              "found": true,
+              "display": "Houay Phoulai",
+              "ms": 0
+            },
+            {
+              "answer": "Huai Phaet But",
+              "found": true,
+              "display": "Huai Phaet But",
+              "ms": 0
+            },
+            {
+              "answer": "Igarapé Boca Larga",
+              "found": true,
+              "display": "Igarapé Boca Larga",
+              "ms": 0
+            },
+            {
+              "answer": "Iondiu",
+              "found": true,
+              "display": "Iondiu",
+              "ms": 0
+            },
+            {
+              "answer": "Jhitur Gol",
+              "found": true,
+              "display": "Jhitur Gol",
+              "ms": 0
+            },
+            {
+              "answer": "Kala Sher Gal",
+              "found": true,
+              "display": "Kala Sher Gal",
+              "ms": 0
+            },
+            {
+              "answer": "Kamashor",
+              "found": true,
+              "display": "Kamashor",
+              "ms": 0
+            },
+            {
+              "answer": "Kastbekken",
+              "found": true,
+              "display": "Kastbekken",
+              "ms": 0
+            },
+            {
+              "answer": "Kharlanova",
+              "found": true,
+              "display": "Kharlanova",
+              "ms": 0
+            },
+            {
+              "answer": "Khor Hamashindiyēt",
+              "found": true,
+              "display": "Khor Hamashindiyēt",
+              "ms": 0
+            },
+            {
+              "answer": "Kishanga",
+              "found": true,
+              "display": "Kishanga",
+              "ms": 0
+            },
+            {
+              "answer": "Koro Kanino",
+              "found": true,
+              "display": "Koro Kanino",
+              "ms": 0
+            },
+            {
+              "answer": "Kungi",
+              "found": true,
+              "display": "Kungi",
+              "ms": 0
+            },
+            {
+              "answer": "Laguna Khañu Kkota",
+              "found": true,
+              "display": "Laguna Khañu Kkota",
+              "ms": 0
+            },
+            {
+              "answer": "Left Fork Webb Creek",
+              "found": true,
+              "display": "Left Fork Webb Creek",
+              "ms": 0
+            },
+            {
+              "answer": "Little Linton",
+              "found": true,
+              "display": "Little Linton",
+              "ms": 0
+            },
+            {
+              "answer": "Lowo Lewa",
+              "found": true,
+              "display": "Lowo Lewa",
+              "ms": 0
+            },
+            {
+              "answer": "Mäentauspuro",
+              "found": true,
+              "display": "Mäentauspuro",
+              "ms": 0
+            },
+            {
+              "answer": "Mandago River",
+              "found": true,
+              "display": "Mandago River",
+              "ms": 0
+            },
+            {
+              "answer": "Mauato",
+              "found": true,
+              "display": "Mauato",
+              "ms": 0
+            },
+            {
+              "answer": "Metalmeí",
+              "found": true,
+              "display": "Metalmeí",
+              "ms": 0
+            },
+            {
+              "answer": "Molevnitsa",
+              "found": true,
+              "display": "Molevnitsa",
+              "ms": 0
+            },
+            {
+              "answer": "Muka Air",
+              "found": true,
+              "display": "Muka Air",
+              "ms": 0
+            },
+            {
+              "answer": "Naẖal Daniyyel",
+              "found": true,
+              "display": "Naẖal Daniyyel",
+              "ms": 0
+            },
+            {
+              "answer": "Naparaca",
+              "found": true,
+              "display": "Naparaca",
+              "ms": 0
+            },
+            {
+              "answer": "Ngounougué",
+              "found": true,
+              "display": "Ngounougué",
+              "ms": 0
+            },
+            {
+              "answer": "North Channel Yakataga River",
+              "found": true,
+              "display": "North Channel Yakataga River",
+              "ms": 0
+            },
+            {
+              "answer": "Obinskiy",
+              "found": true,
+              "display": "Obinskiy",
+              "ms": 0
+            },
+            {
+              "answer": "Ou L’ang Tuek",
+              "found": true,
+              "display": "Ou L’ang Tuek",
+              "ms": 0
+            },
+            {
+              "answer": "Oued el Hanachir",
+              "found": true,
+              "display": "Oued el Hanachir",
+              "ms": 0
+            },
+            {
+              "answer": "Oufadin",
+              "found": true,
+              "display": "Oufadin",
+              "ms": 0
+            },
+            {
+              "answer": "Pasta Landai",
+              "found": true,
+              "display": "Pasta Landai",
+              "ms": 0
+            },
+            {
+              "answer": "Piza",
+              "found": true,
+              "display": "Piza",
+              "ms": 0
+            },
+            {
+              "answer": "Pullkkūttār",
+              "found": true,
+              "display": "Pullkkūttār",
+              "ms": 0
+            },
+            {
+              "answer": "Quebrada Chilamate",
+              "found": true,
+              "display": "Quebrada Chilamate",
+              "ms": 0
+            },
+            {
+              "answer": "Quebrada Guastipa",
+              "found": true,
+              "display": "Quebrada Guastipa",
+              "ms": 0
+            },
+            {
+              "answer": "Quebrada Mitimbón",
+              "found": true,
+              "display": "Quebrada Mitimbón",
+              "ms": 0
+            },
+            {
+              "answer": "Quebrada Torre Gaga",
+              "found": true,
+              "display": "Quebrada Torre Gaga",
+              "ms": 0
+            },
+            {
+              "answer": "Rauschenbach",
+              "found": true,
+              "display": "Rauschenbach",
+              "ms": 0
+            },
+            {
+              "answer": "Riacho Tupinanbá",
+              "found": true,
+              "display": "Riacho Tupinanbá",
+              "ms": 0
+            },
+            {
+              "answer": "Right Fork Beards Fork",
+              "found": true,
+              "display": "Right Fork Beards Fork",
+              "ms": 0
+            },
+            {
+              "answer": "Rio Cuntuma",
+              "found": true,
+              "display": "Rio Cuntuma",
+              "ms": 0
+            },
+            {
+              "answer": "Rio Lunguena",
+              "found": true,
+              "display": "Rio Lunguena",
+              "ms": 0
+            },
+            {
+              "answer": "Río Salla Mayu",
+              "found": true,
+              "display": "Río Salla Mayu",
+              "ms": 0
+            },
+            {
+              "answer": "River Langido",
+              "found": true,
+              "display": "River Langido",
+              "ms": 0
+            },
+            {
+              "answer": "Rovački Potok",
+              "found": true,
+              "display": "Rovački Potok",
+              "ms": 0
+            },
+            {
+              "answer": "Ruisseau Atikamekw",
+              "found": true,
+              "display": "Ruisseau Atikamekw",
+              "ms": 0
+            },
+            {
+              "answer": "Saairivier",
+              "found": true,
+              "display": "Saairivier",
+              "ms": 0
+            },
+            {
+              "answer": "Sandgraben",
+              "found": true,
+              "display": "Sandgraben",
+              "ms": 0
+            },
+            {
+              "answer": "Sehb Oued",
+              "found": true,
+              "display": "Sehb Oued",
+              "ms": 0
+            },
+            {
+              "answer": "Sheshli-Aynch",
+              "found": true,
+              "display": "Sheshli-Aynch",
+              "ms": 0
+            },
+            {
+              "answer": "Sishka",
+              "found": true,
+              "display": "Sishka",
+              "ms": 0
+            },
+            {
+              "answer": "Souadabscook Stream",
+              "found": true,
+              "display": "Souadabscook Stream",
+              "ms": 0
+            },
+            {
+              "answer": "Størrtjednbekken",
+              "found": true,
+              "display": "Størrtjednbekken",
+              "ms": 0
+            },
+            {
+              "answer": "Sungai Garang",
+              "found": true,
+              "display": "Sungai Garang",
+              "ms": 0
+            },
+            {
+              "answer": "Sungai Pelan",
+              "found": true,
+              "display": "Sungai Pelan",
+              "ms": 0
+            },
+            {
+              "answer": "Suối Dung",
+              "found": true,
+              "display": "Suối Dung",
+              "ms": 0
+            },
+            {
+              "answer": "Tangawhinau Stream",
+              "found": true,
+              "display": "Tangawhinau Stream",
+              "ms": 0
+            },
+            {
+              "answer": "Tessa-n-Taggart",
+              "found": true,
+              "display": "Tessa-n-Taggart",
+              "ms": 0
+            },
+            {
+              "answer": "Tornower Fließ",
+              "found": true,
+              "display": "Tornower Fließ",
+              "ms": 0
+            },
+            {
+              "answer": "Tusa",
+              "found": true,
+              "display": "Tusa",
+              "ms": 0
+            },
+            {
+              "answer": "Üyench Gol",
+              "found": true,
+              "display": "Üyench Gol",
+              "ms": 0
+            },
+            {
+              "answer": "Vetlefossgrova",
+              "found": true,
+              "display": "Vetlefossgrova",
+              "ms": 0
+            },
+            {
+              "answer": "Wādī al ‘Assālīn",
+              "found": true,
+              "display": "Wādī al ‘Assālīn",
+              "ms": 0
+            },
+            {
+              "answer": "Wādī Fa‘ī",
+              "found": true,
+              "display": "Wādī Fa‘ī",
+              "ms": 0
+            },
+            {
+              "answer": "Wādī Umm al Kharrūbah",
+              "found": true,
+              "display": "Wādī Umm al Kharrūbah",
+              "ms": 0
+            },
+            {
+              "answer": "Warhouse Creek",
+              "found": true,
+              "display": "Warhouse Creek",
+              "ms": 0
+            },
+            {
+              "answer": "Workhouse Bayou",
+              "found": true,
+              "display": "Workhouse Bayou",
+              "ms": 0
+            },
+            {
+              "answer": "Zanjón de Aguirre",
+              "found": true,
+              "display": "Zanjón de Aguirre",
+              "ms": 0
+            }
+          ]
+        },
+        {
+          "pass": 1,
+          "accepted": 100,
+          "samples": 100,
+          "p95Ms": 0,
+          "maxMs": 0,
+          "totalRoundTripMs": 836.784040999999,
+          "rows": [
+            {
+              "answer": "Panay River",
+              "found": true,
+              "display": "Panay River",
+              "ms": 0
+            },
+            {
+              "answer": "Virgin Creek",
+              "found": true,
+              "display": "Virgin Creek",
+              "ms": 0
+            },
+            {
+              "answer": "Iauna",
+              "found": true,
+              "display": "Iauna",
+              "ms": 0
+            },
+            {
+              "answer": "Rantzau",
+              "found": true,
+              "display": "Rantzau",
+              "ms": 0
+            },
+            {
+              "answer": "Agletohoui",
+              "found": true,
+              "display": "Agletohoui",
+              "ms": 0
+            },
+            {
+              "answer": "Alue Guloh",
+              "found": true,
+              "display": "Alue Guloh",
+              "ms": 0
+            },
+            {
+              "answer": "Arroio Balsa de Santa Laura",
+              "found": true,
+              "display": "Arroio Balsa de Santa Laura",
+              "ms": 0
+            },
+            {
+              "answer": "Arroyo del Correoso",
+              "found": true,
+              "display": "Arroyo del Correoso",
+              "ms": 0
+            },
+            {
+              "answer": "Arroyo Pato Cuá",
+              "found": true,
+              "display": "Arroyo Pato Cuá",
+              "ms": 0
+            },
+            {
+              "answer": "Awatuna Creek",
+              "found": true,
+              "display": "Awatuna Creek",
+              "ms": 0
+            },
+            {
+              "answer": "Barachnyy",
+              "found": true,
+              "display": "Barachnyy",
+              "ms": 0
+            },
+            {
+              "answer": "Bendékoyé",
+              "found": true,
+              "display": "Bendékoyé",
+              "ms": 0
+            },
+            {
+              "answer": "Blästerbäck",
+              "found": true,
+              "display": "Blästerbäck",
+              "ms": 0
+            },
+            {
+              "answer": "Boždin Dol",
+              "found": true,
+              "display": "Boždin Dol",
+              "ms": 0
+            },
+            {
+              "answer": "Butt Creek",
+              "found": true,
+              "display": "Butt Creek",
+              "ms": 0
+            },
+            {
+              "answer": "Cañada Toledo",
+              "found": true,
+              "display": "Cañada Toledo",
+              "ms": 0
+            },
+            {
+              "answer": "Cataloba",
+              "found": true,
+              "display": "Cataloba",
+              "ms": 0
+            },
+            {
+              "answer": "Chamālang Rūd",
+              "found": true,
+              "display": "Chamālang Rūd",
+              "ms": 0
+            },
+            {
+              "answer": "Chontalcoatlán",
+              "found": true,
+              "display": "Chontalcoatlán",
+              "ms": 0
+            },
+            {
+              "answer": "Coróndiro",
+              "found": true,
+              "display": "Coróndiro",
+              "ms": 0
+            },
+            {
+              "answer": "Córrego Itapuca do Patizal",
+              "found": true,
+              "display": "Córrego Itapuca do Patizal",
+              "ms": 0
+            },
+            {
+              "answer": "Critter Creek",
+              "found": true,
+              "display": "Critter Creek",
+              "ms": 0
+            },
+            {
+              "answer": "Darranmbri Kaur",
+              "found": true,
+              "display": "Darranmbri Kaur",
+              "ms": 0
+            },
+            {
+              "answer": "Djupskora",
+              "found": true,
+              "display": "Djupskora",
+              "ms": 0
+            },
+            {
+              "answer": "Dzhogdzho",
+              "found": true,
+              "display": "Dzhogdzho",
+              "ms": 0
+            },
+            {
+              "answer": "El Ranchero",
+              "found": true,
+              "display": "El Ranchero",
+              "ms": 0
+            },
+            {
+              "answer": "Falamikha",
+              "found": true,
+              "display": "Falamikha",
+              "ms": 0
+            },
+            {
+              "answer": "Gado Kreek",
+              "found": true,
+              "display": "Gado Kreek",
+              "ms": 0
+            },
+            {
+              "answer": "Gisikoni",
+              "found": true,
+              "display": "Gisikoni",
+              "ms": 0
+            },
+            {
+              "answer": "Guasamal",
+              "found": true,
+              "display": "Guasamal",
+              "ms": 0
+            },
+            {
+              "answer": "Hay Hollow Wash",
+              "found": true,
+              "display": "Hay Hollow Wash",
+              "ms": 0
+            },
+            {
+              "answer": "Houay Phoulai",
+              "found": true,
+              "display": "Houay Phoulai",
+              "ms": 0
+            },
+            {
+              "answer": "Huai Phaet But",
+              "found": true,
+              "display": "Huai Phaet But",
+              "ms": 0
+            },
+            {
+              "answer": "Igarapé Boca Larga",
+              "found": true,
+              "display": "Igarapé Boca Larga",
+              "ms": 0
+            },
+            {
+              "answer": "Iondiu",
+              "found": true,
+              "display": "Iondiu",
+              "ms": 0
+            },
+            {
+              "answer": "Jhitur Gol",
+              "found": true,
+              "display": "Jhitur Gol",
+              "ms": 0
+            },
+            {
+              "answer": "Kala Sher Gal",
+              "found": true,
+              "display": "Kala Sher Gal",
+              "ms": 0
+            },
+            {
+              "answer": "Kamashor",
+              "found": true,
+              "display": "Kamashor",
+              "ms": 0
+            },
+            {
+              "answer": "Kastbekken",
+              "found": true,
+              "display": "Kastbekken",
+              "ms": 0
+            },
+            {
+              "answer": "Kharlanova",
+              "found": true,
+              "display": "Kharlanova",
+              "ms": 0
+            },
+            {
+              "answer": "Khor Hamashindiyēt",
+              "found": true,
+              "display": "Khor Hamashindiyēt",
+              "ms": 0
+            },
+            {
+              "answer": "Kishanga",
+              "found": true,
+              "display": "Kishanga",
+              "ms": 0
+            },
+            {
+              "answer": "Koro Kanino",
+              "found": true,
+              "display": "Koro Kanino",
+              "ms": 0
+            },
+            {
+              "answer": "Kungi",
+              "found": true,
+              "display": "Kungi",
+              "ms": 0
+            },
+            {
+              "answer": "Laguna Khañu Kkota",
+              "found": true,
+              "display": "Laguna Khañu Kkota",
+              "ms": 0
+            },
+            {
+              "answer": "Left Fork Webb Creek",
+              "found": true,
+              "display": "Left Fork Webb Creek",
+              "ms": 0
+            },
+            {
+              "answer": "Little Linton",
+              "found": true,
+              "display": "Little Linton",
+              "ms": 0
+            },
+            {
+              "answer": "Lowo Lewa",
+              "found": true,
+              "display": "Lowo Lewa",
+              "ms": 0
+            },
+            {
+              "answer": "Mäentauspuro",
+              "found": true,
+              "display": "Mäentauspuro",
+              "ms": 0
+            },
+            {
+              "answer": "Mandago River",
+              "found": true,
+              "display": "Mandago River",
+              "ms": 0
+            },
+            {
+              "answer": "Mauato",
+              "found": true,
+              "display": "Mauato",
+              "ms": 0
+            },
+            {
+              "answer": "Metalmeí",
+              "found": true,
+              "display": "Metalmeí",
+              "ms": 0
+            },
+            {
+              "answer": "Molevnitsa",
+              "found": true,
+              "display": "Molevnitsa",
+              "ms": 0
+            },
+            {
+              "answer": "Muka Air",
+              "found": true,
+              "display": "Muka Air",
+              "ms": 0
+            },
+            {
+              "answer": "Naẖal Daniyyel",
+              "found": true,
+              "display": "Naẖal Daniyyel",
+              "ms": 0
+            },
+            {
+              "answer": "Naparaca",
+              "found": true,
+              "display": "Naparaca",
+              "ms": 0
+            },
+            {
+              "answer": "Ngounougué",
+              "found": true,
+              "display": "Ngounougué",
+              "ms": 0
+            },
+            {
+              "answer": "North Channel Yakataga River",
+              "found": true,
+              "display": "North Channel Yakataga River",
+              "ms": 0
+            },
+            {
+              "answer": "Obinskiy",
+              "found": true,
+              "display": "Obinskiy",
+              "ms": 0
+            },
+            {
+              "answer": "Ou L’ang Tuek",
+              "found": true,
+              "display": "Ou L’ang Tuek",
+              "ms": 0
+            },
+            {
+              "answer": "Oued el Hanachir",
+              "found": true,
+              "display": "Oued el Hanachir",
+              "ms": 0
+            },
+            {
+              "answer": "Oufadin",
+              "found": true,
+              "display": "Oufadin",
+              "ms": 0
+            },
+            {
+              "answer": "Pasta Landai",
+              "found": true,
+              "display": "Pasta Landai",
+              "ms": 0
+            },
+            {
+              "answer": "Piza",
+              "found": true,
+              "display": "Piza",
+              "ms": 0
+            },
+            {
+              "answer": "Pullkkūttār",
+              "found": true,
+              "display": "Pullkkūttār",
+              "ms": 0
+            },
+            {
+              "answer": "Quebrada Chilamate",
+              "found": true,
+              "display": "Quebrada Chilamate",
+              "ms": 0
+            },
+            {
+              "answer": "Quebrada Guastipa",
+              "found": true,
+              "display": "Quebrada Guastipa",
+              "ms": 0
+            },
+            {
+              "answer": "Quebrada Mitimbón",
+              "found": true,
+              "display": "Quebrada Mitimbón",
+              "ms": 0
+            },
+            {
+              "answer": "Quebrada Torre Gaga",
+              "found": true,
+              "display": "Quebrada Torre Gaga",
+              "ms": 0
+            },
+            {
+              "answer": "Rauschenbach",
+              "found": true,
+              "display": "Rauschenbach",
+              "ms": 0
+            },
+            {
+              "answer": "Riacho Tupinanbá",
+              "found": true,
+              "display": "Riacho Tupinanbá",
+              "ms": 0
+            },
+            {
+              "answer": "Right Fork Beards Fork",
+              "found": true,
+              "display": "Right Fork Beards Fork",
+              "ms": 0
+            },
+            {
+              "answer": "Rio Cuntuma",
+              "found": true,
+              "display": "Rio Cuntuma",
+              "ms": 0
+            },
+            {
+              "answer": "Rio Lunguena",
+              "found": true,
+              "display": "Rio Lunguena",
+              "ms": 0
+            },
+            {
+              "answer": "Río Salla Mayu",
+              "found": true,
+              "display": "Río Salla Mayu",
+              "ms": 0
+            },
+            {
+              "answer": "River Langido",
+              "found": true,
+              "display": "River Langido",
+              "ms": 0
+            },
+            {
+              "answer": "Rovački Potok",
+              "found": true,
+              "display": "Rovački Potok",
+              "ms": 0
+            },
+            {
+              "answer": "Ruisseau Atikamekw",
+              "found": true,
+              "display": "Ruisseau Atikamekw",
+              "ms": 0
+            },
+            {
+              "answer": "Saairivier",
+              "found": true,
+              "display": "Saairivier",
+              "ms": 0
+            },
+            {
+              "answer": "Sandgraben",
+              "found": true,
+              "display": "Sandgraben",
+              "ms": 0
+            },
+            {
+              "answer": "Sehb Oued",
+              "found": true,
+              "display": "Sehb Oued",
+              "ms": 0
+            },
+            {
+              "answer": "Sheshli-Aynch",
+              "found": true,
+              "display": "Sheshli-Aynch",
+              "ms": 0
+            },
+            {
+              "answer": "Sishka",
+              "found": true,
+              "display": "Sishka",
+              "ms": 0
+            },
+            {
+              "answer": "Souadabscook Stream",
+              "found": true,
+              "display": "Souadabscook Stream",
+              "ms": 0
+            },
+            {
+              "answer": "Størrtjednbekken",
+              "found": true,
+              "display": "Størrtjednbekken",
+              "ms": 0
+            },
+            {
+              "answer": "Sungai Garang",
+              "found": true,
+              "display": "Sungai Garang",
+              "ms": 0
+            },
+            {
+              "answer": "Sungai Pelan",
+              "found": true,
+              "display": "Sungai Pelan",
+              "ms": 0
+            },
+            {
+              "answer": "Suối Dung",
+              "found": true,
+              "display": "Suối Dung",
+              "ms": 0
+            },
+            {
+              "answer": "Tangawhinau Stream",
+              "found": true,
+              "display": "Tangawhinau Stream",
+              "ms": 0
+            },
+            {
+              "answer": "Tessa-n-Taggart",
+              "found": true,
+              "display": "Tessa-n-Taggart",
+              "ms": 0
+            },
+            {
+              "answer": "Tornower Fließ",
+              "found": true,
+              "display": "Tornower Fließ",
+              "ms": 0
+            },
+            {
+              "answer": "Tusa",
+              "found": true,
+              "display": "Tusa",
+              "ms": 0
+            },
+            {
+              "answer": "Üyench Gol",
+              "found": true,
+              "display": "Üyench Gol",
+              "ms": 0
+            },
+            {
+              "answer": "Vetlefossgrova",
+              "found": true,
+              "display": "Vetlefossgrova",
+              "ms": 0
+            },
+            {
+              "answer": "Wādī al ‘Assālīn",
+              "found": true,
+              "display": "Wādī al ‘Assālīn",
+              "ms": 0
+            },
+            {
+              "answer": "Wādī Fa‘ī",
+              "found": true,
+              "display": "Wādī Fa‘ī",
+              "ms": 0
+            },
+            {
+              "answer": "Wādī Umm al Kharrūbah",
+              "found": true,
+              "display": "Wādī Umm al Kharrūbah",
+              "ms": 0
+            },
+            {
+              "answer": "Warhouse Creek",
+              "found": true,
+              "display": "Warhouse Creek",
+              "ms": 0
+            },
+            {
+              "answer": "Workhouse Bayou",
+              "found": true,
+              "display": "Workhouse Bayou",
+              "ms": 0
+            },
+            {
+              "answer": "Zanjón de Aguirre",
+              "found": true,
+              "display": "Zanjón de Aguirre",
+              "ms": 0
+            }
+          ]
+        }
+      ],
+      "obvious": []
+    }
+  ]
+}

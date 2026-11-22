@@ -690,6 +690,8 @@ const scopes: any = {
   ),
   castles:
     'Castles, forts and palaces in GeoNames, complemented by Wikidata castles, fortifications, palaces and manor houses; one answer per name.',
+  paintings:
+    'Named paintings, groups and series in Wikidata; English article titles or English/default source names, including works without an English article. One answer per title.',
   songs:
     'Songs, singles and musical compositions, including musical theatre and operas, with English Wikipedia articles; one answer per title.',
   television:

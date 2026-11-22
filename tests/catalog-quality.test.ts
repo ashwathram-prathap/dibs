@@ -1,5 +1,5 @@
 import { expect, it } from 'vitest';
-import { pageMatchesScope } from '../scripts/catalog-quality';
+import { pageMatchesScope, castleTitleDescriptionMatches } from '../scripts/catalog-quality';
 import { mergeWikipediaPage } from '../scripts/wiki-pages';
 it('preserves article scope and aliases across Wikipedia property continuation', () => {
   const page = mergeWikipediaPage(
@@ -38,4 +38,21 @@ it('does not rank biological homonyms using unrelated popular articles', () => {
     false,
   );
   expect(pageMatchesScope('foods', 'French puff pastry dessert')).toBe(true);
+});
+
+it('distinguishes castle buildings from unrelated subjects at castle locations', () => {
+  for (const description of [
+    'Castle in the town of Bolsover, England',
+    'National Historic Landmark located in California',
+    'Canadian historic mansion',
+  ])
+    expect(castleTitleDescriptionMatches(description)).toBe(true);
+  for (const description of [
+    'School in Castle Hill, Australia',
+    'Battle at Osowiec Fortress',
+    'Village with castle in Ireland',
+    'Defensive ditch surrounding a fortification',
+    'Fictional castle in a fantasy novel',
+  ])
+    expect(castleTitleDescriptionMatches(description)).toBe(false);
 });

@@ -1,0 +1,7 @@
+{
+  "source": "https://dumps.wikimedia.org/enwiki/latest/enwiki-latest-all-titles-in-ns0.gz",
+  "scanned": 19359925,
+  "candidateTitles": 29933,
+  "sha256": "045c5561399d3947e02eb014f6f8889498681b3a949ba2c66248efaa1c2ace46",
+  "method": "Complete namespace-zero title dump; domain keywords and namespace/list exclusions only. Description verification occurs in the following enrichment step."
+}
