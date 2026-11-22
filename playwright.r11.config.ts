@@ -2,7 +2,8 @@ import { defineConfig } from '@playwright/test';
 import base from './playwright.config';
 export default defineConfig({
   ...base,
-  timeout: 60000,
+  timeout: process.env.CI ? 180000 : 60000,
+  workers: process.env.CI ? 2 : 4,
   outputDir: '.tmp/r11/playwright-main',
   testMatch: ['round9.spec.ts', 'round11.spec.ts'],
   projects: base

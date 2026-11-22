@@ -70,9 +70,10 @@ try {
   assert.equal(golden.response.status, 201);
   assert.equal(golden.data.claim.golden, 1);
   checks.push('Known golden answer from private practice draw earns gold');
-  const accented = await claim(await account(), 'áxólótl');
+  const accentedName = name === 'Okapi' ? 'Quokka' : 'Okapi';
+  const accented = await claim(await account(), accentedName === 'Okapi' ? 'Ókápi' : 'Qúókká');
   assert.equal(accented.response.status, 201);
-  assert.equal(accented.data.claim.display, 'Axolotl');
+  assert.equal(accented.data.claim.display, accentedName);
   checks.push('Accented input resolves to the canonical animal');
   const browser = await chromium.launch();
   try {
@@ -99,10 +100,10 @@ try {
     await expect(p.locator('.session-notice')).toContainText('Practice was reset');
     checks.push('Stale session after practice reset renews without a strike');
     await p.getByRole('button', { name: 'Next dibs' }).click();
-    await p.locator('#answer').fill('axolot');
+    await p.locator('#answer').fill('pangoln');
     await p.getByRole('button', { name: 'CALL DIBS', exact: true }).click();
-    await p.getByRole('button', { name: 'Did you mean AXOLOTL?' }).click();
-    await expect(p.locator('.win-stamp')).toContainText('AXOLOTL');
+    await p.getByRole('button', { name: 'Did you mean PANGOLIN?' }).click();
+    await expect(p.locator('.win-stamp')).toContainText('PANGOLIN');
     checks.push('Confirming the spelling suggestion makes the intended claim');
     const socket = await p.evaluate(
       async () =>

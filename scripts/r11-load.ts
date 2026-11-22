@@ -1,10 +1,36 @@
-import { writeFileSync } from 'node:fs';
+import { readFileSync, writeFileSync } from 'node:fs';
 import assert from 'node:assert/strict';
 import { api, origin } from './r11-practice';
 const players = 200,
   maxGuesses = 8,
   writeEstimate = 20000;
 // Upper bound: 1,600 guesses x up to 10 indexed writes + 4,000 identity/metrics writes.
+// Use account-wide D1 analytics, including earlier rounds and both databases.
+// A practice reset clears application counters but does not reset the daily quota.
+const accountInsights = JSON.parse(readFileSync('.tmp/r11/d1-today-insights.json', 'utf8'));
+const accountWrites = accountInsights.reduce(
+  (sum: number, row: any) => sum + row.totalRowsWritten,
+  0,
+);
+if (accountWrites + writeEstimate >= 90000) {
+  writeFileSync(
+    'review/round11/load-test.json',
+    JSON.stringify(
+      {
+        passed: false,
+        blocked: true,
+        players,
+        writeEstimate,
+        accountWrites,
+        reason:
+          'Account-wide D1 write headroom is insufficient for a safe 200-player load test. No load requests sent.',
+      },
+      null,
+      2,
+    ),
+  );
+  throw Error('Load test blocked by account-wide free-tier write headroom.');
+}
 const usage = await api('/admin/live', undefined, undefined, true);
 assert.ok(usage.response.ok);
 assert.ok(usage.data.usage.writes + writeEstimate < 60000, 'Practice write headroom too small');

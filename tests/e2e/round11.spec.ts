@@ -37,6 +37,7 @@ test('R11 rules, free guesses, explicit counters, reminders, settings and deleti
   await expect(page.getByRole('button', { name: 'Yes, permanently delete my file' })).toBeVisible();
   await page.getByRole('button', { name: 'Keep my file' }).click();
   await page.goto('/about');
+  await page.locator('main h1').waitFor();
   await expect(page.locator('body')).not.toContainText('privacy@');
   await page.locator('#feedback summary').click();
   await page.locator('#feedback-topic').selectOption('privacy');
@@ -55,29 +56,28 @@ test('R11 every page has legible type, aligned containers, accessible disclosure
     '/not-a-page',
   ]) {
     await page.goto(path);
+    await page.locator('main h1').waitFor();
     await page.locator('.loading').waitFor({ state: 'hidden' });
     await page.evaluate(() => document.fonts.ready);
     expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(
       true,
     );
     if (page.viewportSize()!.width >= 900) {
-      const small = await page
-        .locator('body *')
-        .evaluateAll((els) =>
-          els
-            .filter(
-              (el) =>
-                el.getClientRects().length &&
-                [...el.childNodes].some((n) => n.nodeType === 3 && n.textContent?.trim()) &&
-                parseFloat(getComputedStyle(el).fontSize) < 14,
-            )
-            .map((el) => ({
-              tag: el.tagName,
-              class: el.className,
-              text: el.textContent?.slice(0, 70),
-              px: getComputedStyle(el).fontSize,
-            })),
-        );
+      const small = await page.locator('body *').evaluateAll((els) =>
+        els
+          .filter(
+            (el) =>
+              el.getClientRects().length &&
+              [...el.childNodes].some((n) => n.nodeType === 3 && n.textContent?.trim()) &&
+              parseFloat(getComputedStyle(el).fontSize) < 14,
+          )
+          .map((el) => ({
+            tag: el.tagName,
+            class: el.className,
+            text: el.textContent?.slice(0, 70),
+            px: getComputedStyle(el).fontSize,
+          })),
+      );
       expect(small, path).toEqual([]);
     }
     const issues = await new AxeBuilder({ page })
