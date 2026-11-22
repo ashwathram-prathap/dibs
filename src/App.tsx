@@ -650,8 +650,8 @@ function Home({
       await api('/recover', { key: restoreKey });
       setRestoreKey('');
       await refresh();
-      setMessage('Your file is restored.');
-      setOutcome('FILE RESTORED');
+      setMessage('Your claims are restored.');
+      setOutcome('CLAIMS RESTORED');
     } catch (e) {
       setMessage((e as Error).message);
       setOutcome('BACKUP CODE');
@@ -741,7 +741,7 @@ function Home({
             : err.data?.code === 'NOT_REGISTERED'
               ? 'NOT ON THE LIST'
               : err.status === 403
-                ? 'FILE CLOSED'
+                ? 'DONE FOR TODAY'
                 : 'TRY AGAIN',
       );
       setTaken(err.status === 409);
@@ -1215,7 +1215,7 @@ function DaySummary({
           ))}
         </ol>
         <div className="day-cert-holder">
-          <span className="eyebrow">FILED UNDER</span>
+          <span className="eyebrow">YOUR NAME</span>
           <strong>
             <Handle
               name={file.handle || file.claims[0]?.handle || 'Anonymous filer'}
@@ -1262,7 +1262,7 @@ function DaySummary({
                   ))}
                 </ol>
               ) : (
-                <p>Results post as files close.</p>
+                <p>Results appear as players finish.</p>
               )}
             </section>
           </>
@@ -1382,7 +1382,7 @@ function Ledger({
           if (alive) setRows(d.rows);
         })
         .catch(() => {
-          if (alive) setError('The ledger could not be refreshed. Please try again shortly.');
+          if (alive) setError('Results could not refresh; try again shortly.');
         });
     const off = subscribe(accept);
     return () => {
@@ -1432,8 +1432,8 @@ function Ledger({
         <thead>
           <tr>
             <th>No.</th>
-            <th>ENTRY</th>
-            <th>HOLDER</th>
+            <th>ANSWER</th>
+            <th>PLAYER</th>
             <th className="time-col">TIME</th>
           </tr>
         </thead>
@@ -2114,7 +2114,7 @@ function DeleteFile({ sitekey, initialKey = '' }: { sitekey: string; initialKey?
         <button onClick={() => setConfirm(true)}>Delete my data</button>
       ) : (
         <>
-          <p>Remove this file permanently?</p>
+          <p>Delete your data permanently?</p>
           <button
             disabled={busy}
             onClick={async () => {

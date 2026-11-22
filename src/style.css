@@ -4556,3 +4556,9 @@ html.low-power .win-stamp {
     justify-content: flex-end;
   }
 }
+
+.file-closed-stamp {
+  color: var(--ink);
+  opacity: 1;
+  border-color: var(--red);
+}

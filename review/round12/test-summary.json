@@ -1,0 +1,209 @@
+{
+  "unit": {
+    "passed": 130,
+    "failed": 0,
+    "suites": 31
+  },
+  "browsers": {
+    "passed": 252,
+    "failed": 0,
+    "flaky": 0,
+    "devices": [
+      {
+        "project": "iPhone-SE-light",
+        "passed": 7,
+        "failed": 0
+      },
+      {
+        "project": "iPhone-15-Pro-light",
+        "passed": 7,
+        "failed": 0
+      },
+      {
+        "project": "iPhone-15-Pro-Max-light",
+        "passed": 7,
+        "failed": 0
+      },
+      {
+        "project": "Pixel-7-light",
+        "passed": 7,
+        "failed": 0
+      },
+      {
+        "project": "Galaxy-S9+-light",
+        "passed": 7,
+        "failed": 0
+      },
+      {
+        "project": "iPad-Mini-light",
+        "passed": 7,
+        "failed": 0
+      },
+      {
+        "project": "iPad-Pro-11-landscape-light",
+        "passed": 7,
+        "failed": 0
+      },
+      {
+        "project": "chromium-1280-light",
+        "passed": 7,
+        "failed": 0
+      },
+      {
+        "project": "chromium-1440-light",
+        "passed": 7,
+        "failed": 0
+      },
+      {
+        "project": "chromium-2560-light",
+        "passed": 7,
+        "failed": 0
+      },
+      {
+        "project": "webkit-1280-light",
+        "passed": 7,
+        "failed": 0
+      },
+      {
+        "project": "webkit-1440-light",
+        "passed": 7,
+        "failed": 0
+      },
+      {
+        "project": "webkit-2560-light",
+        "passed": 7,
+        "failed": 0
+      },
+      {
+        "project": "320-small-light",
+        "passed": 7,
+        "failed": 0
+      },
+      {
+        "project": "landscape-phone-light",
+        "passed": 7,
+        "failed": 0
+      },
+      {
+        "project": "iPhone-SE-dark",
+        "passed": 7,
+        "failed": 0
+      },
+      {
+        "project": "iPhone-15-Pro-dark",
+        "passed": 7,
+        "failed": 0
+      },
+      {
+        "project": "iPhone-15-Pro-Max-dark",
+        "passed": 7,
+        "failed": 0
+      },
+      {
+        "project": "Pixel-7-dark",
+        "passed": 7,
+        "failed": 0
+      },
+      {
+        "project": "Galaxy-S9+-dark",
+        "passed": 7,
+        "failed": 0
+      },
+      {
+        "project": "iPad-Mini-dark",
+        "passed": 7,
+        "failed": 0
+      },
+      {
+        "project": "iPad-Pro-11-landscape-dark",
+        "passed": 7,
+        "failed": 0
+      },
+      {
+        "project": "chromium-1280-dark",
+        "passed": 7,
+        "failed": 0
+      },
+      {
+        "project": "chromium-1440-dark",
+        "passed": 7,
+        "failed": 0
+      },
+      {
+        "project": "chromium-2560-dark",
+        "passed": 7,
+        "failed": 0
+      },
+      {
+        "project": "webkit-1280-dark",
+        "passed": 7,
+        "failed": 0
+      },
+      {
+        "project": "webkit-1440-dark",
+        "passed": 7,
+        "failed": 0
+      },
+      {
+        "project": "webkit-2560-dark",
+        "passed": 7,
+        "failed": 0
+      },
+      {
+        "project": "320-small-dark",
+        "passed": 7,
+        "failed": 0
+      },
+      {
+        "project": "landscape-phone-dark",
+        "passed": 7,
+        "failed": 0
+      },
+      {
+        "project": "Instagram-iPhone-15-Pro",
+        "passed": 7,
+        "failed": 0
+      },
+      {
+        "project": "Instagram-Pixel-7",
+        "passed": 7,
+        "failed": 0
+      },
+      {
+        "project": "TikTok-iPhone-15-Pro",
+        "passed": 7,
+        "failed": 0
+      },
+      {
+        "project": "TikTok-Pixel-7",
+        "passed": 7,
+        "failed": 0
+      },
+      {
+        "project": "X-iPhone-15-Pro",
+        "passed": 7,
+        "failed": 0
+      },
+      {
+        "project": "X-Pixel-7",
+        "passed": 7,
+        "failed": 0
+      }
+    ]
+  },
+  "firefox": {
+    "passed": 42,
+    "failed": 0,
+    "flaky": 0,
+    "url": "https://github.com/ashwathram-prathap/dibs/actions/runs/45060852009",
+    "testedCommit": "8c02242"
+  },
+  "lighthouse": {
+    "closedPerformance": 98,
+    "livePerformance": 90,
+    "accessibility": 100,
+    "consoleErrors": 0
+  },
+  "practice": true,
+  "inApp": true
+}

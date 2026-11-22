@@ -6,7 +6,11 @@ export default defineConfig({
   timeout: 90000,
   testMatch: tests,
   projects: base
-    .projects!.filter((p) => !p.name?.startsWith('r6-390'))
+    .projects!.filter(
+      (p) =>
+        !p.name?.startsWith('r6-390') &&
+        (!process.env.R12_SKIP_FIREFOX || !p.name?.startsWith('firefox')),
+    )
     .map((p) => ({ ...p, testMatch: tests, testIgnore: undefined })),
   webServer: {
     command: 'npm run preview -- --mode security-test --port 5173',

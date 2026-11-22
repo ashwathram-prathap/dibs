@@ -14,6 +14,8 @@ if (status.data.category || Date.parse(at) < Date.now() + 20000) {
   at = next;
 }
 result.opensAt = at;
+const verified: boolean[] = [];
+const challengeLoaded: boolean[] = [];
 const browsers = await Promise.all([chromium.launch(), webkit.launch()]);
 try {
   const pages = await Promise.all(
@@ -21,6 +23,12 @@ try {
       const p = await b.newPage({
         viewport: { width: i ? 390 : 1440, height: i ? 844 : 900 },
         timezoneId: 'America/Toronto',
+      });
+      p.on('response', (r) => {
+        if (r.url().endsWith('/api/verify-session') && r.ok()) verified[i] = true;
+      });
+      p.on('request', (r) => {
+        if (r.url().includes('challenges.cloudflare.com')) challengeLoaded[i] = true;
       });
       await p.goto(origin);
       await p.locator('.closed-office').waitFor();
@@ -43,7 +51,8 @@ try {
   result.openedAt = new Date().toISOString();
   result.checks.push('Both tabs opened automatically at zero without reloading');
   for (const [i, p] of pages.entries()) {
-    await expect(p.locator('.turnstile iframe')).toBeVisible({ timeout: 30000 });
+    await expect.poll(() => verified[i], { timeout: 30000 }).toBe(true);
+    assert.ok(challengeLoaded[i], 'Turnstile loaded from Cloudflare');
     await p.locator('#answer').fill(i ? 'Quokka' : 'Okapi');
     const response = p.waitForResponse((r) => r.url().endsWith('/api/claim'));
     await p.getByRole('button', { name: 'CALL DIBS', exact: true }).click();

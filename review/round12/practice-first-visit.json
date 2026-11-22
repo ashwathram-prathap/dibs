@@ -1,0 +1,11 @@
+{
+  "checks": [
+    "First visit: Chromium desktop and WebKit phone start closed with the new explanation",
+    "Both tabs opened automatically at zero without reloading",
+    "Both claimed successfully with official test Turnstile"
+  ],
+  "errors": [],
+  "opensAt": "2026-11-22T19:33:10.472Z",
+  "openedAt": "2026-11-22T19:33:12.002Z",
+  "passed": true
+}

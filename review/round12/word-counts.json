@@ -1,0 +1,25 @@
+{
+  "method": "Words in the main screen; shared navigation, timezone option lists and footer excluded; disclosures counted consistently.",
+  "screens": [
+    {
+      "screen": "closed",
+      "before": 105,
+      "after": 171
+    },
+    {
+      "screen": "live",
+      "before": 62,
+      "after": 201
+    },
+    {
+      "screen": "done",
+      "before": 192,
+      "after": 274
+    },
+    {
+      "screen": "office",
+      "before": 476,
+      "after": 441
+    }
+  ]
+}

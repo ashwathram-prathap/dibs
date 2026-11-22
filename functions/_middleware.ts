@@ -85,6 +85,7 @@ export const onRequest: PagesFunction = async ({ request, next, env }) => {
     const personal = /^\/(api|admin|stats|certificate|summary|c)(\/|$)/.test(path);
     if (staging || personal) response.headers.set('X-Robots-Tag', 'noindex, nofollow');
     else response.headers.delete('X-Robots-Tag');
+    if (staging) response.headers.set('Cache-Control', 'no-store, no-transform');
     if (staging)
       response.headers.set(
         'Content-Security-Policy',
@@ -204,6 +205,12 @@ export const onRequest: PagesFunction = async ({ request, next, env }) => {
                 '</script>',
               { html: true },
             );
+        },
+      });
+    if (staging)
+      rewrite.on('script[src^="https://static.cloudflareinsights.com/"]', {
+        element(e) {
+          e.remove();
         },
       });
     for (const [selector, value] of Object.entries(tags))

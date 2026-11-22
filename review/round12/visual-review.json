@@ -1,0 +1,15 @@
+{
+  "passed": true,
+  "sizes": [390, 1440],
+  "themes": ["light", "dark"],
+  "screens": ["closed", "live", "done", "office"],
+  "checks": [
+    "Plain introduction and three-line full-sentence worked example lead every home state",
+    "Desktop introduction is 20px; phone introduction is 18px",
+    "Vermilion YOURS and grey TAKEN stamps have accessible contrast",
+    "No horizontal overflow in the captured states",
+    "Paper/ink palette, squared forms and original type remain; no gradients, decorative blobs or rounded cards added",
+    "Finished-state stamp contrast corrected in dark mode"
+  ],
+  "notes": "Local screenshots use explicitly labelled development fixtures; production asset audit rejects fixture identifiers. Full browser accessibility results are separate."
+}

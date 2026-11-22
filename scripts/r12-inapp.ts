@@ -13,16 +13,29 @@ for (const [name, engine, device, suffix, answer] of [
       userAgent: devices[device].userAgent + ' ' + suffix,
     });
     const p = await c.newPage();
-    await p.goto('https://dibs.here');
-    await p.locator('.closed-office').waitFor();
-    await expect(p.locator('.game-explanation')).toContainText('One category a day.');
-    row.checks.push('Production loads closed');
-    await p.screenshot({ path: `review/round12/${name}-production.png`, fullPage: true });
+    let verified = false,
+      challengeLoaded = false;
+    p.on('response', (r) => {
+      if (r.url().endsWith('/api/verify-session') && r.ok()) verified = true;
+    });
+    p.on('request', (r) => {
+      if (r.url().includes('challenges.cloudflare.com')) challengeLoaded = true;
+    });
+    if (process.argv.includes('--production-only')) {
+      await p.goto('https://dibs.here');
+      await p.locator('.closed-office').waitFor();
+      await expect(p.locator('.game-explanation')).toContainText('One category a day.');
+      row.checks.push('Production loads closed');
+      await p.screenshot({ path: `review/round12/${name}-production.png`, fullPage: true });
+      row.passed = true;
+      continue;
+    }
     // Production must stay closed: exercise the same deployed game on practice.
     await p.goto('https://practice.dibs-7hz.pages.dev');
     await p.locator('#answer').waitFor();
-    await expect(p.locator('.turnstile iframe')).toBeVisible({ timeout: 30000 });
-    row.checks.push('Turnstile appears on practice');
+    await expect.poll(() => verified, { timeout: 30000 }).toBe(true);
+    if (!challengeLoaded) throw Error('Turnstile did not load');
+    row.checks.push('Cloudflare Turnstile loads and verifies on practice');
     await p.locator('#answer').fill(answer);
     const response = p.waitForResponse((r) => r.url().endsWith('/api/claim'));
     await p.getByRole('button', { name: 'CALL DIBS', exact: true }).click();
@@ -40,6 +53,11 @@ for (const [name, engine, device, suffix, answer] of [
     results.push(row);
   }
 }
-writeFileSync('review/round12/in-app.json', JSON.stringify(results, null, 2));
+writeFileSync(
+  process.argv.includes('--production-only')
+    ? 'review/round12/in-app-production.json'
+    : 'review/round12/in-app-practice.json',
+  JSON.stringify(results, null, 2),
+);
 console.log(results);
 if (results.some((r) => !r.passed)) process.exitCode = 1;

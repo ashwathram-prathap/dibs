@@ -1,0 +1,13 @@
+{
+  "status": "skipped",
+  "reason": "This short release round finishes before the authorized Nov 22 7:05 PM ET window; no load requests sent.",
+  "accountWritesAtPreflight": 98040,
+  "freeDailyWriteLimit": 100000,
+  "estimatedLoadWrites": 20000,
+  "minimumProductionReserve": 30000,
+  "guardedCommand": "npx tsx scripts/r12-load.ts",
+  "p50Ms": null,
+  "p95Ms": null,
+  "errors": null,
+  "oneWinner": null
+}
