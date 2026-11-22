@@ -21,6 +21,8 @@ async function query(q: string, format = 'json'): Promise<string> {
         },
         signal: AbortSignal.timeout(90000),
       });
+      if (response.status === 429)
+        await sleep(Math.max(60000, Number(response.headers.get('retry-after') || 60) * 1000));
       if (!response.ok) throw Error('HTTP ' + response.status);
       const body = await response.text();
       const data = JSON.parse(body);

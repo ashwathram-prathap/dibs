@@ -1,0 +1,40 @@
+{
+  "source": "GeoNames allCountries and alternateNamesV2; CC BY 4.0",
+  "scanned": 13484370,
+  "alternateRows": 19254910,
+  "categories": {
+    "lakes": {
+      "complete": true,
+      "rows": 2698,
+      "featureCodes": [
+        "LKC",
+        "LKO",
+        "LKOI",
+        "LKSB",
+        "LKSC",
+        "LKSI",
+        "LKSN",
+        "LKSNI"
+      ]
+    },
+    "rivers": {
+      "complete": true,
+      "rows": 12742,
+      "featureCodes": [
+        "STMA",
+        "STMC",
+        "STMD",
+        "STMSB"
+      ]
+    },
+    "islands": {
+      "complete": true,
+      "rows": 17003,
+      "featureCodes": [
+        "ISLET",
+        "ISLF",
+        "ISLM"
+      ]
+    }
+  }
+}

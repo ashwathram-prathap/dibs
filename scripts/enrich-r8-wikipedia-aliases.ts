@@ -13,8 +13,15 @@ const slug = process.argv.find((arg) => arg.startsWith('--slug='))?.slice(7) || 
 const definitions = JSON.parse(readFileSync('scripts/category-sources.json', 'utf8'));
 if (!['airports', 'arthropods'].includes(slug) && !definitions.some((d: any) => d.slug === slug))
   throw Error('Unsupported reference domain');
-const path = '.category-cache/r8/other-references/' + slug + '.json';
-const lock = '.category-cache/r8/' + slug + '-wiki-alias.lock';
+const referenceName =
+  slug +
+  (process.argv.includes('--wikidata-supplement')
+    ? '-wikidata'
+    : process.argv.includes('--geonames-extra')
+      ? '-geonames-extra'
+      : '');
+const path = '.category-cache/r8/other-references/' + referenceName + '.json';
+const lock = '.category-cache/r8/' + referenceName + '-wiki-alias.lock';
 while (true) {
   try {
     writeFileSync(lock, String(process.pid), { flag: 'wx' });
@@ -42,7 +49,7 @@ process.on('exit', () => {
 const revision = definitions.find((d: any) => d.slug === slug)?.cacheKey || 'base';
 const basePath =
   '.category-cache/r8/' +
-  slug +
+  referenceName +
   (['airports', 'arthropods'].includes(slug) ? '' : '-' + revision) +
   '-base-reference.json';
 const incremental = process.argv.includes('--incremental');
@@ -54,7 +61,7 @@ const rows = existsSync(path)
   : existsSync(basePath)
     ? JSON.parse(readFileSync(basePath, 'utf8'))
     : JSON.parse(readFileSync('.category-cache/r8/candidates.json', 'utf8'))[slug];
-const previousReport = 'review/round8/' + slug + '-alias-extraction.json';
+const previousReport = 'review/round8/' + referenceName + '-alias-extraction.json';
 if (
   !refreshBase &&
   existsSync(previousReport) &&
@@ -259,7 +266,7 @@ for (const row of rows) {
 writeFileSync(path + '.next', JSON.stringify(rows));
 renameSync(path + '.next', path);
 writeFileSync(
-  'review/round8/' + slug + '-alias-extraction.json',
+  'review/round8/' + referenceName + '-alias-extraction.json',
   JSON.stringify(
     {
       complete: rows.every((r: any) => !r.wikipediaTitle || r.wikipediaAliasesComplete),

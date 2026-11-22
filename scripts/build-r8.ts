@@ -19,6 +19,7 @@ import {
   titleArticleAliases,
   geographicAliases,
   shipNameAliases,
+  personNameAliases,
 } from './catalog-aliases';
 import { normalize, normalizeCommonName } from '../worker/domain';
 // Every source row is considered; documented quality filters are applied after popularity assessment.
@@ -37,13 +38,16 @@ if (existsSync(otherDir))
     (f) =>
       f.endsWith('.json') &&
       !f.endsWith('-wikidata.json') &&
+      !f.endsWith('-geonames-extra.json') &&
       (!onlySlugs || onlySlugs.includes(f.slice(0, -5))),
   ))
     raw[f.slice(0, -5)] = JSON.parse(readFileSync(otherDir + '/' + f, 'utf8'));
-for (const slug of ['mountains', 'rivers', 'lakes', 'islands', 'stations']) {
-  const supplementPath = otherDir + '/' + slug + '-wikidata.json';
-  if (raw[slug] && existsSync(supplementPath))
-    raw[slug].push(...JSON.parse(readFileSync(supplementPath, 'utf8')));
+for (const slug of ['mountains', 'rivers', 'lakes', 'islands', 'stations', 'castles']) {
+  for (const suffix of ['-wikidata', '-geonames-extra']) {
+    const supplementPath = otherDir + '/' + slug + suffix + '.json';
+    if (raw[slug] && existsSync(supplementPath))
+      raw[slug].push(...JSON.parse(readFileSync(supplementPath, 'utf8')));
+  }
 }
 const countryAliasPath = '.category-cache/r8/iso-aliases.json';
 const countryAliases = existsSync(countryAliasPath)
@@ -254,6 +258,9 @@ for (const [slug, unclean] of Object.entries(raw) as any) {
   if (slug === 'ships')
     for (const row of rows)
       row.aliases.push(...[row.display, ...row.aliases].flatMap(shipNameAliases));
+  if (definitions.find((definition: any) => definition.slug === slug)?.property === 'P106')
+    for (const row of rows)
+      row.aliases.push(...[row.display, ...row.aliases].flatMap(personNameAliases));
   if (
     ['films', 'albums', 'songs', 'novels', 'video-games', 'television', 'paintings'].includes(slug)
   )
@@ -682,7 +689,7 @@ const scopes: any = {
     ]),
   ),
   castles:
-    'Castles, forts, palaces and manor houses classified by Wikidata with English Wikipedia articles; one answer per name.',
+    'Castles, forts and palaces in GeoNames, complemented by Wikidata castles, fortifications, palaces and manor houses; one answer per name.',
   songs:
     'Songs, singles and musical compositions, including musical theatre and operas, with English Wikipedia articles; one answer per title.',
   television:
@@ -723,7 +730,14 @@ for (const [slug, answers] of Object.entries(catalogs)) {
         (!needsMetadata(t) || qualifiedTitles.has(slug + ':' + t)),
     ),
   );
-  const geographicQuality = ['mountains', 'rivers', 'lakes', 'islands', 'stations'].includes(slug);
+  const geographicQuality = [
+    'mountains',
+    'rivers',
+    'lakes',
+    'islands',
+    'stations',
+    'castles',
+  ].includes(slug);
   if (slug === 'foods') {
     for (let i = answers.length - 1; i >= 0; i--) {
       const a = answers[i];

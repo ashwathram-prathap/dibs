@@ -36,8 +36,8 @@
   },
   "novels": {
     "complete": true,
-    "checked": 3144,
-    "total": 3144,
+    "checked": 35731,
+    "total": 35731,
     "referencePolicy": "english-article-title-v3",
     "classificationRevision": "novel-form-genre-v3"
   },
@@ -70,9 +70,10 @@
     "classificationRevision": "higher-education-v2"
   },
   "castles": {
-    "complete": false,
-    "reason": "Awaiting current full classification",
-    "expectedPolicy": "english-article-title-v3",
+    "complete": true,
+    "checked": 18003,
+    "total": 18003,
+    "referencePolicy": "english-article-title-v3",
     "classificationRevision": "castles-forts-palaces-v2"
   },
   "ships": {
@@ -112,24 +113,24 @@
   },
   "footballers": {
     "complete": true,
-    "checked": 221578,
-    "total": 221578,
+    "checked": 57,
+    "total": 57,
     "referencePolicy": "english-article-title-v3",
     "classificationRevision": "base"
   },
   "paintings": {
     "complete": true,
-    "checked": 11752,
-    "total": 11752,
+    "checked": 12219,
+    "total": 12219,
     "referencePolicy": "english-article-title-v3",
-    "classificationRevision": "base"
+    "classificationRevision": "paintings-series-v2"
   },
   "mountains": {
     "complete": true,
-    "checked": 30085,
-    "total": 30085,
+    "checked": 35469,
+    "total": 35469,
     "referencePolicy": "english-article-title-v3",
-    "classificationRevision": "geonames-complement-v1"
+    "classificationRevision": "geonames-complement-v2"
   },
   "lakes": {
     "complete": true,
@@ -144,5 +145,19 @@
     "total": 14626,
     "referencePolicy": "english-article-title-v3",
     "classificationRevision": "geonames-complement-v1"
+  },
+  "stations": {
+    "complete": true,
+    "checked": 57465,
+    "total": 57465,
+    "referencePolicy": "english-article-title-v3",
+    "classificationRevision": "geonames-complement-raw-v2"
+  },
+  "rivers": {
+    "complete": true,
+    "checked": 41275,
+    "total": 41275,
+    "referencePolicy": "english-article-title-v3",
+    "classificationRevision": "geonames-complement-raw-v2"
   }
 }

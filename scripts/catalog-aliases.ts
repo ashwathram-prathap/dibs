@@ -1,4 +1,13 @@
 import pluralize from 'pluralize';
+export function personNameAliases(name: string) {
+  const plain = name
+    .replace(
+      /^(?:(?:sir|dame|dr\.?|prof\.?|professor|datuk(?: seri)?|dato[’']?(?: seri)?|tan sri|tun)\s+)+/i,
+      '',
+    )
+    .trim();
+  return plain && plain !== name ? [plain] : [];
+}
 export function geographicAliases(slug: string, name: string) {
   const patterns: Record<string, RegExp> = {
     rivers: /^(?:river)\s+|\s+(?:river)$/gi,
@@ -30,13 +39,30 @@ export function titleArticleAliases(name: string) {
   return shorter !== name ? [shorter] : ['The ' + name];
 }
 export function shipNameAliases(name: string) {
+  const variants = new Set<string>();
+  const withoutQualifier = (value: string) => value.replace(/\s+\([^)]*\)$/, '').trim();
+  variants.add(withoutQualifier(name));
   const short = name
     .replace(
-      /^(?:(?:HMS|HMAS|HMCS|HMNZS|HNLMS|HSwMS|USS|USNS|SS|RMS|RRS|MS|MV|RV|TS|TSS|PS|HMY|INS|SMS|IJN|ARA|HNoMS|HDMS|ORP|ROKS|ROCS|USCGC)\s+)+/i,
+      /^(?:(?:HMS|HMAS|HMCS|HMNZS|HNLMS|HSwMS|USS|USNS|SS|RMS|RRS|MS|MV|RV|TS|TSS|PS|HMY|INS|SMS|IJN|ARA|ARC|ARM|ARP|BAP|BRP|BNS|CNS|EML|FGS|FNS|FS|HNoMS|HDMS|HTMS|IRIS|ITS|JDS|JS|KD|KRI|NNS|NRP|ORP|PNS|RFS|ROKS|ROCS|RSS|SAS|ST|STS|TCG|USCGC)\s+)+/i,
       '',
     )
     .trim();
-  return short !== name && short.length >= 3 ? [short, short.replace(/\s+\([^)]*\)$/, '')] : [];
+  if (short !== name) {
+    variants.add(short);
+    variants.add(withoutQualifier(short));
+  }
+  const named = name
+    .replace(
+      /^.+?\b(?:aircraft carrier|battleship|destroyer|cruiser|frigate|corvette|submarine|gunboat|torpedo boat|ship|boat|icebreaker|sloop|steamship|tugboat|tug|cutter|minesweeper|survey vessel|ferry)\s+/i,
+      '',
+    )
+    .trim();
+  if (named !== name) {
+    variants.add(named);
+    variants.add(withoutQualifier(named));
+  }
+  return [...variants].filter((variant) => variant !== name && variant.length >= 3);
 }
 export function conjunctionAliases(name: string) {
   return [

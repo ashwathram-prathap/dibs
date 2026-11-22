@@ -1,5 +1,5 @@
 """Uncapped domain extracts. Run after downloading allCountries/alternateNamesV2 and OurAirports."""
-import csv, io, json, pathlib, re, urllib.parse, zipfile
+import csv, io, json, pathlib, re, sys, urllib.parse, zipfile
 p=pathlib.Path('.category-cache/r8'); target=p/'other-references'; target.mkdir(exist_ok=True)
 codes={
  'mountains':{'MT','MTS','PK','PKS','VLC'},
@@ -7,7 +7,23 @@ codes={
  'lakes':{'LK','LKS','LKI','LKN','LKNI','RSV','RSVI'},
  'islands':{'ISL','ISLS','ISLT'},
  'stations':{'RSTN','RSTNQ','RSTP','RSTPQ','MTRO'},
+ 'castles':{'CSTL','FORT','PAL'},
 }
+extra= '--extra' in sys.argv
+extra_codes={
+  'lakes':{'LKC','LKO','LKOI','LKSB','LKSC','LKSI','LKSN','LKSNI'},
+  'rivers':{'STMA','STMC','STMD','STMSB'},
+  'islands':{'ISLET','ISLF','ISLM'},
+ }
+if extra:
+ codes=extra_codes
+else:
+ for slug, additional in extra_codes.items():codes[slug] |= additional
+suffix='-geonames-extra' if extra else ''
+only=next((set(a.split('=',1)[1].split(',')) for a in sys.argv[1:] if a.startswith('--only=')),None)
+if only:
+ if only-set(codes)-{'airports'}:raise ValueError('Unknown reference domain')
+ codes={k:v for k,v in codes.items() if k in only}
 rows={}; scanned=0
 with zipfile.ZipFile(p/'allCountries.zip') as z:
  for a in csv.reader(io.TextIOWrapper(z.open('allCountries.txt'),encoding='utf8'),delimiter='\t',quoting=csv.QUOTE_NONE):
@@ -30,11 +46,18 @@ with zipfile.ZipFile(p/'alternateNamesV2.zip') as z:
    r['wikipediaTitle']=urllib.parse.unquote(a[3].split('/wiki/',1)[1]).replace('_',' ')
    r['aliases'].append(re.sub(r' \([^)]*\)$','',r['wikipediaTitle']))
 audit={'source':'GeoNames allCountries and alternateNamesV2; CC BY 4.0','scanned':scanned,'alternateRows':alternate_count,'categories':{}}
+audit_path=pathlib.Path('review/round8/geography-extra-reference-extraction.json' if extra else 'review/round8/geography-reference-extraction.json')
+if only and audit_path.exists():audit['categories']=json.loads(audit_path.read_text())['categories']
 for slug,feature in codes.items():
  output=[{k:v for k,v in r.items() if k!='slug'} for r in rows.values() if r['slug']==slug]
- (target/(slug+'.json')).write_text(json.dumps(output,ensure_ascii=False))
+ next_path=target/(slug+suffix+'.json.next')
+ next_path.write_text(json.dumps(output,ensure_ascii=False))
+ next_path.replace(target/(slug+suffix+'.json'))
  audit['categories'][slug]={'complete':True,'rows':len(output),'featureCodes':sorted(feature)}
  print(slug,len(output),flush=True)
+if extra or (only and 'airports' not in only):
+ audit_path.write_text(json.dumps(audit,indent=2)+'\n')
+ sys.exit(0)
 airports=[]
 with open(p/'airports.csv',encoding='utf-8-sig') as f:
  for r in csv.DictReader(f):
@@ -49,5 +72,5 @@ with open(p/'airports.csv',encoding='utf-8-sig') as f:
   airports.append(row)
 (target/'airports.json').write_text(json.dumps(airports,ensure_ascii=False))
 audit['categories']['airports']={'complete':True,'rows':len(airports),'source':'OurAirports public-domain full CSV; excludes heliports and balloonports; includes closed airports and seaplane bases'}
-pathlib.Path('review/round8/geography-reference-extraction.json').write_text(json.dumps(audit,indent=2)+'\n')
+pathlib.Path('review/round8/geography-extra-reference-extraction.json' if extra else 'review/round8/geography-reference-extraction.json').write_text(json.dumps(audit,indent=2)+'\n')
 print('airports',len(airports),flush=True)

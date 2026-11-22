@@ -134,12 +134,18 @@
     "license": "https://www.wikidata.org/wiki/Wikidata:Data_access"
   },
   "castles": {
+    "cacheKey": "castles-forts-palaces-v2",
     "labelPolicy": "english-article-title-v3",
     "complete": true,
-    "candidateCount": 37068,
-    "scanned": 37068,
-    "englishArticles": 6916,
-    "method": "All uncapped classification IDs, complete bounded joins; English Wikipedia article titles provide common names; existing English labels and aliases are retained. Article availability is the quality filter, never a result-count cutoff.",
+    "candidateCount": 18003,
+    "scanned": 18003,
+    "englishArticles": 18003,
+    "namedCandidates": 18003,
+    "classificationProperties": [
+      "P31"
+    ],
+    "candidatePolicy": "English-article quality filter applied during uncapped, independently counted classification extraction",
+    "method": "Complete classification candidates and bounded article joins; English article titles provide common names, and English/multilingual labels and aliases supply variants. Article availability is the quality filter, never a result-count cutoff.",
     "license": "https://www.wikidata.org/wiki/Wikidata:Data_access"
   },
   "painters": {
@@ -188,22 +194,28 @@
     "license": "https://www.wikidata.org/wiki/Wikidata:Data_access"
   },
   "paintings": {
+    "cacheKey": "paintings-series-v2",
     "labelPolicy": "english-article-title-v3",
     "complete": true,
-    "candidateCount": 1123480,
-    "scanned": 1123480,
-    "englishArticles": 11752,
-    "method": "All uncapped classification IDs, complete bounded joins; English Wikipedia article titles provide common names; existing English labels and aliases are retained. Article availability is the quality filter, never a result-count cutoff.",
+    "candidateCount": 12219,
+    "scanned": 12219,
+    "englishArticles": 12219,
+    "namedCandidates": 12219,
+    "classificationProperties": [
+      "P31"
+    ],
+    "candidatePolicy": "English-article quality filter applied during uncapped, independently counted classification extraction",
+    "method": "Complete classification candidates and bounded article joins; English article titles provide common names, and English/multilingual labels and aliases supply variants. Article availability is the quality filter, never a result-count cutoff.",
     "license": "https://www.wikidata.org/wiki/Wikidata:Data_access"
   },
   "mountains": {
-    "cacheKey": "geonames-complement-v1",
+    "cacheKey": "geonames-complement-v2",
     "labelPolicy": "english-article-title-v3",
     "complete": true,
-    "candidateCount": 30085,
-    "scanned": 30085,
-    "englishArticles": 30085,
-    "namedCandidates": 30085,
+    "candidateCount": 35469,
+    "scanned": 35469,
+    "englishArticles": 35469,
+    "namedCandidates": 35469,
     "classificationProperties": [
       "P31"
     ],
@@ -238,6 +250,36 @@
       "P31"
     ],
     "candidatePolicy": "English-article quality filter applied during uncapped, independently counted classification extraction",
+    "method": "Complete classification candidates and bounded article joins; English article titles provide common names, and English/multilingual labels and aliases supply variants. Article availability is the quality filter, never a result-count cutoff.",
+    "license": "https://www.wikidata.org/wiki/Wikidata:Data_access"
+  },
+  "rivers": {
+    "cacheKey": "geonames-complement-raw-v2",
+    "labelPolicy": "english-article-title-v3",
+    "complete": true,
+    "candidateCount": 509002,
+    "scanned": 509002,
+    "englishArticles": 41275,
+    "namedCandidates": 41275,
+    "classificationProperties": [
+      "P31"
+    ],
+    "candidatePolicy": "Entire uncapped classification ID set; English-article quality filter applied during bounded joins",
+    "method": "Complete classification candidates and bounded article joins; English article titles provide common names, and English/multilingual labels and aliases supply variants. Article availability is the quality filter, never a result-count cutoff.",
+    "license": "https://www.wikidata.org/wiki/Wikidata:Data_access"
+  },
+  "stations": {
+    "cacheKey": "geonames-complement-raw-v2",
+    "labelPolicy": "english-article-title-v3",
+    "complete": true,
+    "candidateCount": 141910,
+    "scanned": 141910,
+    "englishArticles": 57465,
+    "namedCandidates": 57465,
+    "classificationProperties": [
+      "P31"
+    ],
+    "candidatePolicy": "Entire uncapped classification ID set; English-article quality filter applied during bounded joins",
     "method": "Complete classification candidates and bounded article joins; English article titles provide common names, and English/multilingual labels and aliases supply variants. Article availability is the quality filter, never a result-count cutoff.",
     "license": "https://www.wikidata.org/wiki/Wikidata:Data_access"
   }

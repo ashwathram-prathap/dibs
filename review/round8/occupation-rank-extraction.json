@@ -43,5 +43,14 @@
     "eligibleAdditional": 24,
     "added": 6,
     "method": "Complete instance occupation statement paths, every uncapped class independently counted; bounded validation of additional IDs excludes deprecated statements and applies the English article quality filter. No global anti-join or result cap."
+  },
+  "footballers": {
+    "complete": true,
+    "at": "2026-11-22T08:55:06.734Z",
+    "allStatementCandidates": 393506,
+    "additionalCandidates": 111,
+    "eligibleAdditional": 57,
+    "added": 57,
+    "method": "Complete instance occupation statement paths, every uncapped class independently counted; bounded validation of additional IDs excludes deprecated statements and applies the English article quality filter. No global anti-join or result cap."
   }
 }

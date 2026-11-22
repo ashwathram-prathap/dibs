@@ -2,6 +2,8 @@
 // domain-qualified by the reference record; their redirect may be a common-name page.
 export function pageMatchesScope(slug: string, description: string, scientificRequest = false) {
   const geography: Record<string, RegExp> = {
+    castles:
+      /castle|fortress|fortification|\bfort\b|palace|manor|country house|mansion|château|chateau|historic house|stately home|tower house/i,
     airports:
       /airport|airfield|airbase|air base|airstrip|aerodrome|seaplane|air station|air force (?:base|facility)|aviation facility/i,
     mountains: /mountain|peak|summit|volcano|massif|ridge|range|hill/i,

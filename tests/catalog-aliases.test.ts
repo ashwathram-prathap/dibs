@@ -4,8 +4,23 @@ import {
   conjunctionAliases,
   workSubtitleAliases,
   titleArticleAliases,
+  personNameAliases,
+  shipNameAliases,
 } from '../scripts/catalog-aliases';
 import { normalize } from '../worker/domain';
+it('accepts ship names without descriptive type prefixes or trailing hull qualifiers', () => {
+  expect(shipNameAliases('Chinese destroyer Zhuhai (166)')).toContain('Zhuhai (166)');
+  expect(shipNameAliases('TCG Ege (F256)')).toContain('TCG Ege');
+  expect(shipNameAliases('TCG Ege (F256)')).toContain('Ege');
+  expect(shipNameAliases('Queen Mary')).toEqual([]);
+});
+it('accepts personal names without source honorifics while preserving name boundaries', () => {
+  expect(personNameAliases('Professor Sir John Example')).toEqual(['John Example']);
+  expect(personNameAliases('Datuk Arumugam Rengasamy')).toEqual(['Arumugam Rengasamy']);
+  expect(personNameAliases('Dame Judi Dench')).toEqual(['Judi Dench']);
+  expect(personNameAliases('Siri Hustvedt')).toEqual([]);
+  expect(personNameAliases('Dame')).toEqual([]);
+});
 it('accepts optional leading articles while preserving word boundaries and rejecting an article alone', () => {
   expect(titleArticleAliases('The Blue Planet')).toEqual(['Blue Planet']);
   expect(titleArticleAliases('A Clockwork Orange')).toEqual(['Clockwork Orange']);

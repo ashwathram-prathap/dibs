@@ -63,6 +63,15 @@
       "complete": true,
       "rows": 61438,
       "source": "OurAirports public-domain full CSV; excludes heliports and balloonports; includes closed airports and seaplane bases"
+    },
+    "castles": {
+      "complete": true,
+      "rows": 7799,
+      "featureCodes": [
+        "CSTL",
+        "FORT",
+        "PAL"
+      ]
     }
   }
 }
