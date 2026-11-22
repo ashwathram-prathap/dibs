@@ -1,0 +1,15 @@
+HTTP/2 301
+date: Sun, 22 Nov 2026 01:12:25 GMT
+content-length: 0
+location: https://dibs.here/certificate/round5-check?s=copy-link
+strict-transport-security: max-age=31536000; includeSubDomains
+content-security-policy: default-src 'self'; script-src 'self' https://challenges.cloudflare.com https://static.cloudflareinsights.com; frame-src https://challenges.cloudflare.com; connect-src 'self' wss://dibs.here https://cloudflareinsights.com; style-src 'self'; img-src 'self' data: blob:; font-src 'self'; object-src 'none'; frame-ancestors 'none'; base-uri 'self'; form-action 'self'
+cross-origin-opener-policy: same-origin
+permissions-policy: camera=(), microphone=(), geolocation=(), payment=(), usb=()
+referrer-policy: strict-origin-when-cross-origin
+x-content-type-options: nosniff
+report-to: {"group":"cf-nel","max_age":604800,"endpoints":[{"url":"https://a.nel.cloudflare.com/report/v4?s=otmf1ll9us2m2%2B0hhkonDaBDI%2BBbHCB8iSfrA0TRdBvDn75voWX%2B7wOxVyAVpLu2JHMyLfaoPaKZBbTY0MnGcq%2FYsIlCZWkuEETFUaWDNKWmeSGTcYK7ach0cwRgTNfvFR77o%2BOq%2FZPU8Mjs2WzR5Ls%3D"}]}
+nel: {"report_to":"cf-nel","success_fraction":0.0,"max_age":604800}
+server: cloudflare
+cf-ray: a5e410d37bf11341-YYZ
+alt-svc: h3=":443"; ma=86400

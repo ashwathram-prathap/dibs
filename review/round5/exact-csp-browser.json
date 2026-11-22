@@ -1,0 +1,32 @@
+[
+  {
+    "engine": "Chromium",
+    "check": "exact production CSP: filing, fonts, certificate, PNG download",
+    "passed": true,
+    "violations": []
+  },
+  {
+    "engine": "Chromium",
+    "check": "real Cloudflare Turnstile script and iframe with official dummy key; exact production CSP",
+    "passed": true,
+    "diagnostics": [],
+    "violations": []
+  },
+  {
+    "engine": "WebKit",
+    "check": "exact production CSP: filing, fonts, certificate, PNG download",
+    "passed": true,
+    "violations": []
+  },
+  {
+    "engine": "WebKit",
+    "check": "real Cloudflare Turnstile script and iframe with official dummy key; exact production CSP",
+    "passed": true,
+    "diagnostics": [
+      "This document is not cross-origin isolated because the Cross-Origin-Embedder-Policy header is missing (it must be 'require-corp'). window.crossOriginIsolated is false and SharedArrayBuffer is unavailable.",
+      "blob:https://challenges.cloudflare.com/4f9ba437-3ebd-4c22-aef4-77ee18295d62 The operation couldn’t be completed. (WebKitBlobResource error 1.)",
+      "Failed to load resource: The operation couldn’t be completed. (WebKitBlobResource error 1.)"
+    ],
+    "violations": []
+  }
+]

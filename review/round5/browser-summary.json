@@ -1,0 +1,54 @@
+{
+  "distinctChecks": 462,
+  "passed": 462,
+  "failed": 0,
+  "local": {
+    "startTime": "2026-11-22T01:10:32.993Z",
+    "duration": 284923.315,
+    "expected": 396,
+    "skipped": 0,
+    "unexpected": 66,
+    "flaky": 0
+  },
+  "firefox": {
+    "startTime": "2026-11-22T01:12:36.998Z",
+    "duration": 158115.931,
+    "expected": 66,
+    "skipped": 0,
+    "unexpected": 0,
+    "flaky": 0
+  },
+  "firefoxRun": "https://github.com/ashwathram-prathap/dibs/actions/runs/44970303143",
+  "exactProductionCsp": [
+    {
+      "engine": "Chromium",
+      "check": "exact production CSP: filing, fonts, certificate, PNG download",
+      "passed": true,
+      "violations": []
+    },
+    {
+      "engine": "Chromium",
+      "check": "real Cloudflare Turnstile script and iframe with official dummy key; exact production CSP",
+      "passed": true,
+      "diagnostics": [],
+      "violations": []
+    },
+    {
+      "engine": "WebKit",
+      "check": "exact production CSP: filing, fonts, certificate, PNG download",
+      "passed": true,
+      "violations": []
+    },
+    {
+      "engine": "WebKit",
+      "check": "real Cloudflare Turnstile script and iframe with official dummy key; exact production CSP",
+      "passed": true,
+      "diagnostics": [
+        "This document is not cross-origin isolated because the Cross-Origin-Embedder-Policy header is missing (it must be 'require-corp'). window.crossOriginIsolated is false and SharedArrayBuffer is unavailable.",
+        "blob:https://challenges.cloudflare.com/4f9ba437-3ebd-4c22-aef4-77ee18295d62 The operation couldn’t be completed. (WebKitBlobResource error 1.)",
+        "Failed to load resource: The operation couldn’t be completed. (WebKitBlobResource error 1.)"
+      ],
+      "violations": []
+    }
+  ]
+}

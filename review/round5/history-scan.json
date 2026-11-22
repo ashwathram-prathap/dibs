@@ -1,0 +1,14 @@
+{
+  "tool": "gitleaks 8.30.1",
+  "commits": 79,
+  "genericFindings": 5,
+  "confirmedSecrets": 0,
+  "falsePositives": "Five keyDigest SHA-256 catalog content checksums in review/round3/remote-verification.json",
+  "exactSecretNamesChecked": [
+    "COOKIE_SECRET",
+    "ADMIN_TOKEN",
+    "TURNSTILE_SECRET"
+  ],
+  "finalReviewedCommits": "81",
+  "reviewedScan": "No leaks found; exact-line checksum allowlist in .gitleaks.toml"
+}

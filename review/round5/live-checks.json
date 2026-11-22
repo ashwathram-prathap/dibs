@@ -1,0 +1,63 @@
+{
+  "checkedAt": "2026-11-22T01:15:46.330Z",
+  "checks": [
+    {
+      "url": "http://dibs.here/certificate/round5-check?s=copy-link",
+      "status": 307,
+      "location": "http://dibs.here/",
+      "passed": false
+    },
+    {
+      "url": "https://dibs.here/certificate/round5-check?s=copy-link",
+      "passed": false,
+      "error": "curl: (35) LibreSSL/3.3.6: error:1404B410:SSL routines:ST_CONNECT:sslv3 alert handshake failure"
+    },
+    {
+      "url": "http://www.dibs.here/certificate/round5-check?s=copy-link",
+      "status": 301,
+      "location": "http://dibs.here",
+      "passed": false
+    },
+    {
+      "url": "https://www.dibs.here/certificate/round5-check?s=copy-link",
+      "passed": false,
+      "error": "curl: (35) LibreSSL/3.3.6: error:1404B410:SSL routines:ST_CONNECT:sslv3 alert handshake failure"
+    },
+    {
+      "url": "http://dibs-7hz.pages.dev/certificate/round5-check?s=copy-link",
+      "status": 301,
+      "location": "https://dibs-7hz.pages.dev/certificate/round5-check?s=copy-link",
+      "passed": true
+    },
+    {
+      "url": "https://dibs-7hz.pages.dev/certificate/round5-check?s=copy-link",
+      "status": 404,
+      "passed": false
+    },
+    {
+      "url": "http://dibs-api.dibs-registry.workers.dev/certificate/round5-check?s=copy-link",
+      "status": 404,
+      "passed": false
+    },
+    {
+      "url": "https://dibs-api.dibs-registry.workers.dev/certificate/round5-check?s=copy-link",
+      "status": 404,
+      "passed": false
+    },
+    {
+      "url": "https://dibs.here/",
+      "passed": false,
+      "error": "ERR_SSL_TLS_ALERT_HANDSHAKE_FAILURE"
+    },
+    {
+      "url": "https://dibs.here/certificate/round5-check",
+      "passed": false,
+      "error": "ERR_SSL_TLS_ALERT_HANDSHAKE_FAILURE"
+    },
+    {
+      "url": "https://dibs.here/api/today",
+      "passed": false,
+      "error": "ERR_SSL_TLS_ALERT_HANDSHAKE_FAILURE"
+    }
+  ]
+}
