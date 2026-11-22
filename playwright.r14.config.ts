@@ -17,7 +17,17 @@ export default defineConfig({
         !p.name?.startsWith('r6-390') &&
         (!process.env.R14_SKIP_FIREFOX || !p.name?.startsWith('firefox')),
     )
-    .map((p) => ({ ...p, testMatch: tests, testIgnore: undefined })),
+    .map((p) => ({ ...p, testMatch: tests, testIgnore: undefined }))
+    .concat(
+      ['chromium', 'webkit'].flatMap((browserName) =>
+        ['light', 'dark'].map((colorScheme) => ({
+          name: `r14-payoff-${browserName}-${colorScheme}`,
+          testMatch: ['round14.spec.ts'],
+          testIgnore: undefined,
+          use: { browserName, colorScheme, viewport: { width: 390, height: 844 } },
+        })),
+      ),
+    ) as any,
   use: { ...base.use, baseURL: process.env.R14_BASE || base.use?.baseURL },
   webServer: process.env.R14_BASE
     ? undefined

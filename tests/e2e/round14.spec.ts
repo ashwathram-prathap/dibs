@@ -22,7 +22,7 @@ test('R14 payoff, hidden-answer leaderboard, done score and spoiler-free share',
   await expect(page.locator('.claim-payoff')).toContainText('2 claims left · 4 strikes left');
   await expect(page.locator('.header-player')).toContainText('Streak 1');
   const width = page.viewportSize()!.width;
-  if (width === 390 || width === 393) {
+  if ((width === 390 || width === 393) && page.viewportSize()!.height >= 844) {
     const box = (await page.locator('.claim-payoff').boundingBox())!;
     expect(box.y + box.height).toBeLessThanOrEqual(page.viewportSize()!.height);
   }

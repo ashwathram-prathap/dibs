@@ -217,8 +217,21 @@ export class Registry extends DurableObject<Env> {
       file: s?.file?.category_id === categoryId ? s?.file : null,
       claim: s?.claim?.category_id === categoryId ? s?.claim : null,
       streakDates: s?.streakDates.slice(0, 7) || [],
-      streak: streak(s?.streakDates || [], registryDate()),
+      streak: streak(
+        s?.streakDates || [],
+        this.snapshot?.category && this.snapshot.category.id === categoryId
+          ? this.snapshot.category.date
+          : registryDate(),
+      ),
     };
+  }
+  async founderFor(session: Session) {
+    const claim = session.file?.claims?.[0];
+    if (claim) return claim.founder ? { name: claim.handle } : null;
+    if (!session.streakDates.length) return null;
+    return this.env.DB.prepare('SELECT name FROM founder_role WHERE user_id=?')
+      .bind(session.user.id)
+      .first<any>();
   }
   async ensureSummary(session: Session) {
     if (!session.file?.closed) return;
@@ -226,9 +239,7 @@ export class Registry extends DurableObject<Env> {
       await hmac(session.user.id + ':' + session.file.category_id, this.env.COOKIE_SECRET)
     ).slice(0, 40);
     session.file.summaryId = id;
-    const founder = await this.env.DB.prepare('SELECT name FROM founder_role WHERE user_id=?')
-      .bind(session.user.id)
-      .first<any>();
+    const founder = await this.founderFor(session);
     session.file.handle = founder?.name || session.user.handle;
     session.file.founder = !!founder;
     session.file.streak = streak(
@@ -754,7 +765,10 @@ export class Registry extends DurableObject<Env> {
       return json(this.today(snapshot));
     }
     if (path === '/leaderboard') {
-      const currentDay = await this.fresh(env);
+      const currentDay =
+        this.snapshot?.category && this.snapshot.day === registryDate()
+          ? this.snapshot
+          : await this.fresh(env);
       const id = url.searchParams.get('category') || currentDay.category?.id;
       if (!id) return json({ rows: [], own: null, total: 0 });
       const category =
@@ -1167,18 +1181,35 @@ export class Registry extends DurableObject<Env> {
       return json(await verificationToken(req, env, session.user.id));
     }
     if (path === '/me/reroll') {
-      if (session.claim || session.user.rerolls_used >= 3)
+      if (session.claim || session.streakDates.length || session.user.rerolls_used >= 3)
         return json({ message: 'This handle has been filed. Re-rolls are closed.' }, 403);
       const nextHandle = await this.newHandle();
       // Serialize this small state mutation so simultaneous rerolls cannot exceed three.
       return this.ctx.blockConcurrencyWhile(async () => {
         const latest = (await this.ctx.storage.get<Session>('session:' + session.user.id))!;
-        if (latest.claim || latest.user.rerolls_used >= 3)
+        if (latest.claim || latest.streakDates.length || latest.user.rerolls_used >= 3)
           return json({ message: 'This handle has been filed. Re-rolls are closed.' }, 403);
         latest.user.handle = nextHandle;
         latest.user.rerolls_used++;
+        if (latest.file?.strikes) {
+          latest.file.handle = nextHandle;
+          await this.scores.update(
+            latest.file.category_id,
+            {
+              user_id: latest.user.id,
+              handle: nextHandle,
+              founder: false,
+              points: latest.file.points,
+              reachedAt: latest.file.reachedAt,
+              dibs: 0,
+              golden: false,
+              events: latest.file.strikes,
+            },
+            !latest.user.hidden && latest.file.eligible,
+          );
+        }
         await this.ctx.storage.put('session:' + latest.user.id, latest);
-        return json({ user: latest.user });
+        return json({ user: latest.user, file: latest.file });
       });
     }
     if (path === '/feedback') {
@@ -1283,15 +1314,14 @@ export class Registry extends DurableObject<Env> {
               body: JSON.stringify({ claim: data.claim }),
             });
           }
-          await this.ensureSummary(latest);
-          const founder = await env.DB.prepare('SELECT name FROM founder_role WHERE user_id=?')
-            .bind(latest.user.id)
-            .first<any>();
+          const founder = await this.founderFor(latest);
+          latest.file.handle = founder?.name || latest.file.claims[0]?.handle || latest.user.handle;
+          latest.file.founder = !!founder;
           await this.scores.update(
             latest.file.category_id,
             {
               user_id: latest.user.id,
-              handle: founder?.name || latest.user.handle,
+              handle: latest.file.handle,
               founder: !!founder,
               points: latest.file.points,
               reachedAt: latest.file.reachedAt,

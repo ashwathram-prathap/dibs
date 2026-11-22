@@ -1,3 +1,4 @@
+import { Handle } from './Handle';
 import { useEffect, useState } from 'react';
 import { api } from './api';
 import { getSnapshot, subscribe } from './live';
@@ -90,8 +91,7 @@ export function Leaderboard({
               <tr key={r.rank} className={r.own ? 'own-score' : ''}>
                 <td>#{r.rank}</td>
                 <th scope="row">
-                  {r.handle}
-                  {r.founder && <span className="leaderboard-badge">Founder</span>}
+                  <Handle name={r.handle} founder={r.founder} />
                   {r.own && <span className="leaderboard-badge">You</span>}
                   {r.golden && (
                     <span className="gold-marker" aria-label="Golden ticket" title="Golden ticket">

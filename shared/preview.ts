@@ -1,5 +1,4 @@
 import { GAME_DESCRIPTION } from './copy';
-import { MAX_CLAIMS } from './config';
 import { PUBLIC_ORIGIN } from './config';
 interface Env {
   STAGING?: string;

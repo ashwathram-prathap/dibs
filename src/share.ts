@@ -1,5 +1,4 @@
-import { GAME_DESCRIPTION } from '../shared/copy';
-import { MAX_CLAIMS, DROP_TIME_LABEL } from '../shared/config';
+import { MAX_CLAIMS } from '../shared/config';
 import { REGISTRAR_STROKE } from '../shared/moments';
 import { edition, localTime } from '../shared/time';
 import { guesses } from '../shared/guesses';

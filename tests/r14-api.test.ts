@@ -237,6 +237,12 @@ it('deducts taken and reserved strikes, floors at zero, and gives a live row to 
   expect(r.data.file.points).toBe(0);
   const board: any = await (await call('/leaderboard', undefined, loser.cookie)).json();
   expect(board.own).toMatchObject({ points: 0, claims: 0 });
+  const reroll = await call('/me/reroll', {}, loser.cookie);
+  expect(reroll.status).toBe(200);
+  const renamed: any = await reroll.json();
+  const after: any = await (await call('/leaderboard', undefined, loser.cookie)).json();
+  expect(after.own.handle).toBe(renamed.user.handle);
+  expect(after.own.points).toBe(0);
 });
 it('never leaks other answers through leaderboard, completed-viewer ledger, socket, summary or HTML', async () => {
   for (const n of [60, 61]) {
@@ -340,8 +346,26 @@ it('returns an archived final top 10 with the same score order and unlocks the p
       "INSERT INTO categories(id,date,name,slug,total_registrable,drop_at,status) VALUES('past','2020-01-01','Past practice','practice',2200,'2020-01-02T02:00:00Z','approved')",
     )
     .run();
+  const players = await db
+    .prepare('SELECT id FROM users WHERE hidden=0 ORDER BY id LIMIT 12')
+    .all();
+  for (const [i, player] of players.results.entries()) {
+    await db
+      .prepare('INSERT INTO answers(id,category_id,canonical,display) VALUES(?,?,?,?)')
+      .bind('past-' + i, 'past', 'past answer ' + i, 'Past answer ' + i)
+      .run();
+    await db
+      .prepare(
+        `INSERT INTO claims(id,category_id,answer_id,user_id,claim_no,created_at,ip_hash,ip_day,points)
+      VALUES(?,?,?,?,?,'2020-01-02T02:01:00Z',?,'2020-01-01',?)`,
+      )
+      .bind('past-claim-' + i, 'past', 'past-' + i, player.id, i + 1, 'past-ip-' + i, 50 + i * 5)
+      .run();
+  }
   const r: any = await (await call('/leaderboard?category=past&limit=10')).json();
-  expect(r).toMatchObject({ rows: [], total: 0, final: true });
+  expect(r).toMatchObject({ total: 12, final: true });
+  expect(r.rows).toHaveLength(10);
+  expect(r.rows.map((row: any) => row.points)).toEqual([105, 100, 95, 90, 85, 80, 75, 70, 65, 60]);
   const ledger: any = await (await call('/ledger?category=past')).json();
   expect(ledger.locked).toBeUndefined();
 });

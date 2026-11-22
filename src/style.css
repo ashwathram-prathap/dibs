@@ -4947,3 +4947,14 @@ body {
     margin-bottom: 12px;
   }
 }
+.leaderboard-heading {
+  flex-wrap: wrap;
+}
+.leaderboard {
+  font-size: 20px;
+}
+@media (max-width: 600px) {
+  .leaderboard {
+    font-size: 18px;
+  }
+}

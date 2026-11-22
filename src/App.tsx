@@ -1,3 +1,4 @@
+import { Handle } from './Handle';
 import { Leaderboard } from './Leaderboard';
 import {
   GAME_EXPLANATION,
@@ -72,14 +73,6 @@ function Signature() {
         />
       </svg>
       <span>The Registrar</span>
-    </span>
-  );
-}
-function Handle({ name, founder }: { name: string; founder?: boolean | number }) {
-  return (
-    <span className={founder ? 'founder-handle' : undefined}>
-      {name}
-      {!!founder && <small className="founder-stamp">FOUNDER</small>}
     </span>
   );
 }
@@ -755,8 +748,8 @@ function Home({
   }
   async function identity(action: string, body: unknown) {
     try {
-      const data = await api<{ user: Me['user'] }>('/me/' + action, body);
-      setMe({ ...me, user: data.user });
+      const data = await api<{ user: Me['user']; file?: DayFile }>('/me/' + action, body);
+      setMe({ ...me, user: data.user, file: data.file || me.file });
     } catch (e) {
       setMessage((e as Error).message);
     }
@@ -2012,7 +2005,6 @@ function About({ nextDrop }: { nextDrop: string }) {
               <li>
                 The golden list is published when the day ends, so you can check it wasn't changed.
               </li>
-              <li>Rarer answers score more. Golden tickets +100. Strikes −10.</li>
               <li>Ties go to whoever reached that score first.</li>
             </ol>
           </details>
@@ -2023,6 +2015,10 @@ function About({ nextDrop }: { nextDrop: string }) {
           </p>
           <h3>Can I check the golden draw?</h3>
           <p>The answers and original draw are published after the category closes.</p>
+          <h3>How do points work?</h3>
+          <p>Rarer answers score more. Golden tickets +100. Strikes −10.</p>
+          <h3>What counts toward a streak?</h3>
+          <p>Make a claim on consecutive drops. Missing a drop resets your streak.</p>
           <h3>Is it free?</h3>
           <p>Yes. Dibs is free to play.</p>
           <div className="about-stamp">
