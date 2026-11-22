@@ -399,8 +399,9 @@ function Home({
   const [missing, setMissing] = useState(false);
   const [outcome, setOutcome] = useState('');
   const [recoveryKey, setRecoveryKey] = useState('');
-  const [restoreKey, setRestoreKey] = useState(() =>
-    decodeURIComponent(location.hash.match(/^#file-key=(.+)$/)?.[1] || ''),
+  const [keyCopyMessage, setKeyCopyMessage] = useState('');
+  const [restoreKey, setRestoreKey] = useState(
+    () => new URLSearchParams(location.hash.slice(1)).get('file-key') || '',
   );
   const spellingVersion = useRef(0);
   const pendingRequest = useRef<{ answer: string; id: string } | null>(null);
@@ -718,14 +719,20 @@ function Home({
           <p>Switching apps? Use your file key to keep your dibs and streak.</p>
           <a href={'/#file-key=' + encodeURIComponent(recoveryKey)}>Continue in another browser</a>
           <button
-            onClick={() =>
-              void navigator.clipboard.writeText(
-                location.origin + '/#file-key=' + encodeURIComponent(recoveryKey),
-              )
-            }
+            onClick={async () => {
+              try {
+                await navigator.clipboard.writeText(
+                  location.origin + '/#file-key=' + encodeURIComponent(recoveryKey),
+                );
+                setKeyCopyMessage('Continuation link copied.');
+              } catch {
+                setKeyCopyMessage('Press and hold the continuation link to copy it.');
+              }
+            }}
           >
             Copy continuation link
           </button>
+          <p role="status">{keyCopyMessage}</p>
           <button onClick={() => setRecoveryKey('')}>I saved my key</button>
         </section>
       )}
@@ -1037,7 +1044,13 @@ function Ledger({
     const snapshot = getSnapshot();
     if (snapshot && snapshot.today.category?.id === category?.id) accept(snapshot);
     else if (category)
-      api<{ rows: Claim[] }>('/ledger?category=' + category.id)
+      api<{ rows: Claim[] }>(
+        '/ledger?category=' +
+          category.id +
+          (location.pathname === '/archive' && new URLSearchParams(location.search).get('before')
+            ? '&before=' + encodeURIComponent(new URLSearchParams(location.search).get('before')!)
+            : ''),
+      )
         .then((d) => {
           if (alive) setRows(d.rows);
         })
@@ -1358,10 +1371,17 @@ function Archive() {
   }, []);
   useEffect(() => {
     if (selected) {
-      document.title = archiveTitle(selected);
+      const before = Math.max(
+        0,
+        Math.floor(Number(new URLSearchParams(location.search).get('before')) || 0),
+      );
+      document.title = archiveTitle(selected) + (before ? ' | Filings before #' + before : '');
       document
         .querySelector('link[rel="canonical"]')
-        ?.setAttribute('href', PUBLIC_ORIGIN + '/archive?date=' + selected.date);
+        ?.setAttribute(
+          'href',
+          PUBLIC_ORIGIN + '/archive?date=' + selected.date + (before ? '&before=' + before : ''),
+        );
     }
     if (!selected || selected.specials) return;
     let alive = true;
@@ -1577,7 +1597,8 @@ function About({ nextDrop }: { nextDrop: string }) {
               GBIF Backbone Taxonomy
             </a>{' '}
             (CC BY 4.0), <a href="https://plants.usda.gov/">USDA NRCS PLANTS</a> (public plant
-            data), <a href="https://www.worldbirdnames.org/">IOC World Bird List</a> (CC BY 3.0),{' '}
+            data), <a href="https://www.mammaldiversity.org/">Mammal Diversity Database</a> (CC BY
+            4.0), <a href="https://www.worldbirdnames.org/">IOC World Bird List</a> (CC BY 3.0),{' '}
             <a href="https://world.openfoodfacts.org/">Open Food Facts</a> (ODbL), and ISO 3166 data
             (MIT). Wikipedia pageviews rank measured answers.{' '}
             <a href="/data/licenses.txt">Full licenses and source notes</a>.

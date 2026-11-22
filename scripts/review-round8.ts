@@ -17,7 +17,7 @@ for (const engine of [chromium, webkit]) {
         colorScheme: theme,
       });
       const page = await context.newPage();
-      await page.goto('http://127.0.0.1:5174/?r6=1');
+      await page.goto('http://127.0.0.1:5174/?r6=1&r8=1');
       await page.locator('#answer').waitFor();
       if (size.zoom === 2)
         await page.evaluate(() => (document.documentElement.style.fontSize = '200%'));
@@ -82,6 +82,10 @@ for (const engine of [chromium, webkit]) {
         writeFileSync('review/round8/ui-results.json', JSON.stringify(results, null, 2));
       };
       await shot('ready');
+      await page.locator('#answer').fill('offline proof');
+      await page.locator('#answer').press('Enter');
+      await page.getByText('OFFLINE PROOF: The clerk didn’t get that. Try again.').waitFor();
+      await shot('network-failure');
       for (const [answer, state] of [
         ['Dog', 'house'],
         ['Pangolin', 'taken'],
@@ -92,10 +96,18 @@ for (const engine of [chromium, webkit]) {
         await page.locator('#answer').press('Enter');
         await page.waitForTimeout(500);
         await shot(state);
+        if (state === 'invalid') {
+          await page.getByRole('button', { name: 'Submit to the clerk' }).click();
+          await page.getByText('Submitted to the clerk. No strike charged.').waitFor();
+          await shot('clerk-submission');
+        }
       }
       await page.getByRole('button', { name: 'Did you mean AXOLOTL?' }).click();
       await page.locator('.gold-stamp').waitFor();
       await shot('gold');
+      await page.getByRole('button', { name: 'Copy continuation link' }).click();
+      await shot('file-key');
+      await page.getByRole('button', { name: 'I saved my key' }).click();
       await page.getByRole('button', { name: 'Next dibs', exact: true }).click();
       await page.locator('#answer').fill('Okapi');
       await page.locator('#answer').press('Enter');

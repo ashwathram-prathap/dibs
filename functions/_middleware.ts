@@ -111,10 +111,18 @@ export const onRequest: PagesFunction = async ({ request, next, env }) => {
           .join(' · ') +
         '</nav>';
       if (selected) {
-        const ledger = await api('/ledger?category=' + encodeURIComponent(selected.id));
+        const before = Math.max(0, Math.floor(Number(url.searchParams.get('before')) || 0));
+        const ledger = await api(
+          '/ledger?category=' +
+            encodeURIComponent(selected.id) +
+            (before ? '&before=' + before : ''),
+        );
+        const nextBefore =
+          ledger.rows?.length === 50 ? Math.min(...ledger.rows.map((r: any) => r.claim_no)) : 0;
         title = archiveTitle(selected);
         description = `Who claimed what in ${selected.name} on ${selected.date}. The closed Dibs register and golden-ticket verification.`;
-        canonical = origin + '/archive?date=' + selected.date;
+        canonical = origin + '/archive?date=' + selected.date + (before ? '&before=' + before : '');
+        if (before) title += ' | Filings before #' + before;
         content +=
           `<h2>${escapeHtml(selected.name)} · ${selected.date}</h2><p>${selected.total_registrable} registered answers.</p><table><caption>Who claimed what</caption><thead><tr><th>Answer</th><th>Holder</th><th>Time</th></tr></thead><tbody>` +
           (ledger.rows || [])
@@ -123,7 +131,10 @@ export const onRequest: PagesFunction = async ({ request, next, env }) => {
                 `<tr><td>${escapeHtml(r.display)}</td><td>${escapeHtml(r.handle)}</td><td>${escapeHtml(r.created_at)}</td></tr>`,
             )
             .join('') +
-          '</tbody></table>';
+          '</tbody></table>' +
+          (nextBefore
+            ? `<p><a href="/archive?date=${selected.date}&amp;before=${nextBefore}">Earlier filings</a></p>`
+            : '');
         structured.push({
           '@type': 'BreadcrumbList',
           itemListElement: [

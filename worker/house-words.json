@@ -37,15 +37,15 @@
   ],
   "animals": [
     "Cat",
+    "Lamprey",
     "Dog",
     "Axolotl",
+    "Animals",
     "Squirrel",
     "Capybara",
-    "Orca",
-    "Horse",
-    "Hippopotamus",
-    "Lion",
-    "Tiger"
+    "Greater Capybara",
+    "Dinosaur",
+    "Bigg's Killer Whale"
   ],
   "architects": [
     "Thomas Jefferson",
@@ -101,11 +101,11 @@
     "Cassowary",
     "Penguin",
     "Shoebill",
+    "Moa",
     "Turkey",
     "Turkey cock",
     "Bald eagle",
-    "Owl",
-    "Duck"
+    "Owl"
   ],
   "castles": [
     "Neuschwanstein Castle",
@@ -122,14 +122,14 @@
   "cities": [
     "New York",
     "Los Angeles",
-    "Kraków",
+    "Krakow",
     "London",
     "Chicago",
     "Berlin",
+    "Paris",
+    "Tokyo",
     "Jerusalem",
-    "Shenzhen",
-    "Vatican City",
-    "Toronto"
+    "Shenzhen"
   ],
   "composers": [
     "Amanda Seyfried",
@@ -149,11 +149,11 @@
     "Israel",
     "India",
     "China",
+    "Aruba",
     "Russia",
     "Canada",
     "Brazil",
-    "Japan",
-    "Singapore"
+    "Japan"
   ],
   "films": [
     "XXX (2002 film)",
@@ -168,16 +168,16 @@
     "Contact (1997 American film)"
   ],
   "foods": [
+    "Persimmon",
+    "Quince",
     "Apple",
     "Bread",
-    "Chicken",
     "Banana",
     "Ice cream",
-    "Octopus",
-    "Rabbit",
     "Chocolate",
+    "Shawarma",
     "Tea",
-    "Shark"
+    "Potato"
   ],
   "footballers": [
     "Cristiano Ronaldo",
@@ -192,16 +192,16 @@
     "David Beckham"
   ],
   "fruits-vegetables": [
+    "Persimmon",
+    "Quince",
     "Apple",
+    "Ginkgo",
     "Banana",
     "Potato",
+    "Pumpkin",
+    "Pumpkin flower",
     "Cassava",
-    "Corn",
-    "Pomegranate",
-    "Tomato",
-    "Avocado",
-    "Fig",
-    "Rutabaga"
+    "Corn"
   ],
   "islands": [
     "Guam",
@@ -288,12 +288,12 @@
     "Nighthawks (Hopper)"
   ],
   "plants": [
-    "Panda",
+    "Persimmon",
+    "Quince",
     "Apple",
-    "Dodo",
     "Banana",
-    "Tea",
     "Potato",
+    "Pumpkin",
     "Cassava",
     "Corn",
     "Pomegranate",

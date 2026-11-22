@@ -2,7 +2,8 @@
   "animals": {
     "Turkey": "Turkey (bird)",
     "Guinea": "Guineafowl",
-    "Goonie": "Albatross"
+    "Goonie": "Albatross",
+    "Cricket": "Cricket (insect)"
   },
   "birds": {
     "Turkey": "Turkey (bird)",
@@ -19,7 +20,11 @@
     "Rabbit": "Rabbit as food",
     "Octopus": "Octopus as food",
     "Shark": "Shark meat",
-    "Salmon": "Salmon as food"
+    "Salmon": "Salmon as food",
+    "Kangaroo": "Kangaroo meat",
+    "Horse": "Horse meat",
+    "Fish": "Fish as food",
+    "Poultry": "Poultry"
   },
   "fruits-vegetables": {
     "Chile": "Chili pepper"
@@ -30,5 +35,9 @@
   "countries": {
     "Georgia": "Georgia (country)",
     "Ireland": "Republic of Ireland"
+  },
+  "plants": {
+    "Tea": "Camellia sinensis",
+    "Coffee": "Coffea"
   }
 }

@@ -34,6 +34,12 @@ with zipfile.ZipFile(p/'ioc15.2.xlsx') as z:
 with open(p/'usda.txt',encoding='utf-8-sig') as f:
  for row in csv.DictReader(f):
   if row['Common Name']:add('plants',row['Common Name'],[' '.join(row['Scientific Name with Author'].split()[:2])],source='https://plants.sc.egov.usda.gov/DocumentLibrary/Txt/plantlst.txt',scientificName=' '.join(row['Scientific Name with Author'].split()[:2]))
+with open(p/'mdd.csv',encoding='utf-8-sig') as f:
+ for row in csv.DictReader(f):
+  scientific=row['sciName'].replace('_',' ')
+  aliases=[scientific]+[n.strip() for n in re.split(r'\||;',row['otherCommonNames']) if n.strip()]
+  if scientific=='Myotis davidii':aliases+=['Armenian whiskered bat','Myotis hajastanicus']
+  add('animals',row['mainCommonName'],aliases,source='https://www.mammaldiversity.org/taxon/'+row['id'],scientificName=scientific)
 if (p/'gbif-extracted.json').exists():
  for cat,records in json.loads((p/'gbif-extracted.json').read_text()).items():
   for row in records:add(cat,row['display'],row['aliases'],row['source'],scientificName=row['aliases'][-1])
@@ -45,8 +51,11 @@ for block in (p/'food.txt').read_text().split('\n\n'):
 geo=json.loads((p/'geonames-en.json').read_text())
 with zipfile.ZipFile(p/'cities1000.zip') as z:
  for line in z.read('cities1000.txt').decode().splitlines():
-  a=line.split('\t'); aliases=[a[1],a[2]]+[s for s in a[3].split(',') if s and len(s)<96 and re.fullmatch(r"[A-Za-zÀ-ž .’'\-]+",s)]
+  a=line.split('\t'); aliases=[a[1],a[2]]+geo['aliases'].get(a[0],[])+[s for s in a[3].split(',') if s and len(s)<96 and re.fullmatch(r"[A-Za-zÀ-ž .’'\-]+",s)]
+  if geo['wiki'].get(a[0]):aliases += [re.sub(r' \([^)]*\)$','',geo['wiki'][a[0]]).split(', ',1)[0]]
   add('cities',geo['names'].get(a[0],a[1]),aliases,wikipediaTitle=geo['wiki'].get(a[0]),source='https://www.geonames.org/'+a[0],population=int(a[14]),country=a[8],admin=a[10])
+for row in json.loads((p/'independent-pools.json').read_text())['plants']:
+ add('plants',row['name'],[],row['source'],wikipediaTitle=row['title'])
 for cat,records in json.loads(pathlib.Path('scripts/r8-curated-supplements.json').read_text()).items():
  for row in records:add(cat,row['display'],row['aliases'],row['source'],wikipediaTitle=row['wikipediaTitle'])
  # Culinary fruit and vegetables are edible ingredients in Foods too.

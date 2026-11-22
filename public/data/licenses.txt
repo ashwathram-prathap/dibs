@@ -31,3 +31,5 @@ Complete plant list, https://plants.sc.egov.usda.gov/DocumentLibrary/Txt/plantls
 
 Wikipedia contributors: culinary dish, fruit and vegetable lists; CC BY-SA 4.0, https://creativecommons.org/licenses/by-sa/4.0/ . Each supplemental row retains its source page and article title; full lists are extracted, normalized and deduplicated. Pageviews use Wikimedia PageViewInfo. Lists and their extraction audit are recorded in review/round8/curated-source-extraction.json.
 GeoNames alternateNamesV2: full English alternate-name and English Wikipedia-link extraction, same CC BY 4.0 attribution as cities1000.
+
+Mammal Diversity Database (2026), Version 2.5, 6,904 species, American Society of Mammalogists. CC BY 4.0. https://www.mammaldiversity.org/about/ and https://zenodo.org/records/17033774 . Complete CSV mirrored by the project's official GitHub repository; English main/other common names merged, scientific names retained as aliases, normalized and deduplicated. Myotis hajastanicus is treated as a synonym of Myotis davidii per the MDD taxonomy notes; its documented common name Armenian whiskered bat is also accepted.

@@ -1,11 +1,79 @@
 {
-  "source": "Wikipedia List of culinary fruits (independent of WordNet and OFF builders)",
+  "source": "Wikipedia List of culinary fruits: English common names (original independent probe preserved before broad source expansion)",
   "seed": 8153,
   "method": "Uniform draw without replacement from the middle half by measured readership; sources selected before matching; all misses retained.",
-  "poolSize": 917,
+  "poolSize": 889,
   "excluded": [
     {
+      "name": "Amelanchier parviflora",
+      "reason": "Scientific name, not a common-name answer"
+    },
+    {
+      "name": "Pyrus glabra",
+      "reason": "Scientific name, not a common-name answer"
+    },
+    {
+      "name": "Butia matogrossensis",
+      "reason": "Scientific name, not a common-name answer"
+    },
+    {
+      "name": "Prunus alaica",
+      "reason": "Scientific name, not a common-name answer"
+    },
+    {
+      "name": "Prunus bifrons",
+      "reason": "Scientific name, not a common-name answer"
+    },
+    {
+      "name": "Prunus cortapico",
+      "reason": "Scientific name, not a common-name answer"
+    },
+    {
+      "name": "Syzygium alternifolium",
+      "reason": "Scientific name, not a common-name answer"
+    },
+    {
+      "name": "Syzygium calophyllifolium",
+      "reason": "Scientific name, not a common-name answer"
+    },
+    {
       "name": "Syzygium eucalyptoides",
+      "reason": "Scientific name, not a common-name answer"
+    },
+    {
+      "name": "Syzygium scortechinii",
+      "reason": "Scientific name, not a common-name answer"
+    },
+    {
+      "name": "Syzygium simile",
+      "reason": "Scientific name, not a common-name answer"
+    },
+    {
+      "name": "Syzygium xanthophyllum",
+      "reason": "Scientific name, not a common-name answer"
+    },
+    {
+      "name": "Ziziphus budhensis",
+      "reason": "Scientific name, not a common-name answer"
+    },
+    {
+      "name": "Passiflora ampullacea",
+      "reason": "Scientific name, not a common-name answer"
+    },
+    {
+      "name": "Passiflora platyloba",
+      "reason": "Scientific name, not a common-name answer"
+    },
+    {
+      "name": "Planchonella maclayana",
+      "reason": "Scientific name, not a common-name answer"
+    },
+    {
+      "name": "Annona aurantiaca",
+      "reason": "Scientific name, not a common-name answer"
+    },
+    {
+      "name": "Annona conica",
       "reason": "Scientific name, not a common-name answer"
     },
     {
@@ -13,7 +81,51 @@
       "reason": "Scientific name, not a common-name answer"
     },
     {
+      "name": "Annona paludosa",
+      "reason": "Scientific name, not a common-name answer"
+    },
+    {
+      "name": "Rubus adenophorus",
+      "reason": "Scientific name, not a common-name answer"
+    },
+    {
+      "name": "Rubus biflorus",
+      "reason": "Scientific name, not a common-name answer"
+    },
+    {
+      "name": "Rubus roseus",
+      "reason": "Scientific name, not a common-name answer"
+    },
+    {
+      "name": "Rubus xanthocarpus",
+      "reason": "Scientific name, not a common-name answer"
+    },
+    {
+      "name": "Artocarpus glaucus",
+      "reason": "Scientific name, not a common-name answer"
+    },
+    {
+      "name": "Ficus neriifolia",
+      "reason": "Scientific name, not a common-name answer"
+    },
+    {
+      "name": "Ficus wassa",
+      "reason": "Scientific name, not a common-name answer"
+    },
+    {
+      "name": "Aglaia teysmanniana",
+      "reason": "Scientific name, not a common-name answer"
+    },
+    {
       "name": "Garcinia afzelii",
+      "reason": "Scientific name, not a common-name answer"
+    },
+    {
+      "name": "Garcinia costata",
+      "reason": "Scientific name, not a common-name answer"
+    },
+    {
+      "name": "Trichosanthes beccariana",
       "reason": "Scientific name, not a common-name answer"
     },
     {
@@ -22,416 +134,296 @@
     }
   ],
   "answers": [
-    "Silverberry",
-    "Desert peach",
-    "Oriental melon",
-    "Ōgonkan",
-    "Kumquat",
-    "Muntrie",
-    "Oleaster-leafed pear",
-    "Brush cherry",
-    "Greek juniper berry",
-    "Desert lime",
-    "Red-checked crab apple",
-    "Kahikatea",
-    "Kolkhoznitsa melon",
-    "Ussurian pear",
-    "Sourplum",
-    "Wild service tree fruit",
-    "Plymouth pear",
-    "Ramontchi",
-    "Honeysuckle",
-    "Native cherry",
-    "Jackal jujube",
-    "Blackberry jam fruit",
-    "Magenta lilly pilly",
-    "Sweet calabash",
+    "Creeping juniper berry",
+    "Nokaidō",
+    "Rocky Mountain juniper berry",
+    "Briançon apricot",
+    "Youngberry",
+    "Purple-flowered raspberry",
+    "White passionfruit",
+    "Huckleberry",
+    "Elmleaf blackberry",
+    "Maqui berry",
+    "Creeping raspberry",
+    "Brazil cherry",
+    "Small-leaved tamarind",
+    "Asam gelugur",
+    "Blue tongue",
+    "Prickly juniper berry",
     "Nageia",
-    "Cranberry",
-    "Winter-flowering cherry",
-    "Syzygium calophyllifolium",
-    "Manchurian apricot",
+    "Limequat",
+    "Phalsa",
+    "Chickasaw plum",
     "Utu",
-    "Red huckleberry",
-    "Blackberry",
+    "Bolivian fuchsia fruit",
+    "Yellow dragon fruit",
+    "Mirza melon",
+    "Binjai",
+    "Velvet apple",
+    "Hawthorn",
+    "Guinea sour pod",
+    "Curuba",
+    "Yatay palm fruit",
+    "Bignay",
+    "Melogold",
+    "Salal",
+    "Tayberry",
+    "Honeysuckle",
+    "Charichuelo",
+    "Oleaster-leafed pear",
+    "Brown gardenia",
     "Durian",
-    "Yoshino cherry",
-    "Silver date palm fruit",
-    "Velvet tamarind",
-    "Desert passionfruit",
-    "Emu apple",
-    "Ponderosa lemon",
-    "Blueberry",
-    "Kola nut",
-    "Ber",
-    "Darwin's barberry",
-    "Wineberry",
-    "Little gooseberry",
-    "Almond-leaved pear",
-    "Armenian blackberry",
-    "Ceylon gooseberry",
-    "Mountain soursop",
-    "Utah serviceberry"
+    "Chokeberry",
+    "Mysore raspberry",
+    "Toringo crabapple",
+    "Chupa-chupa",
+    "Partridgeberry",
+    "Bolwarra",
+    "Rambai",
+    "Pear",
+    "Japanese bush cherry",
+    "Borneo olive",
+    "Xiao pu tao"
   ],
   "samples": [
     {
-      "answer": "Silverberry",
-      "source": "https://en.wikipedia.org/wiki/Elaeagnus_commutata",
-      "wikipediaTitle": "Elaeagnus commutata",
+      "answer": "Creeping juniper berry",
+      "source": "https://en.wikipedia.org/wiki/Juniperus_horizontalis",
+      "wikipediaTitle": "Juniperus horizontalis",
       "pageviews": {
-        "total": 787,
+        "total": 848,
         "days": 29,
         "start": "2026-10-23",
         "end": "2026-11-20",
-        "title": "Elaeagnus commutata",
+        "title": "Juniperus horizontalis",
         "status": "measured"
       },
-      "initiallyPresent": false,
-      "present": false
+      "initiallyPresent": null,
+      "present": true
     },
     {
-      "answer": "Desert peach",
-      "source": "https://en.wikipedia.org/wiki/Prunus_andersonii",
-      "wikipediaTitle": "Prunus andersonii",
+      "answer": "Nokaidō",
+      "source": "https://en.wikipedia.org/wiki/Malus_spontanea",
+      "wikipediaTitle": "Malus spontanea",
+      "pageviews": {
+        "total": 137,
+        "days": 29,
+        "start": "2026-10-23",
+        "end": "2026-11-20",
+        "title": "Malus spontanea",
+        "status": "measured"
+      },
+      "initiallyPresent": null,
+      "present": true
+    },
+    {
+      "answer": "Rocky Mountain juniper berry",
+      "source": "https://en.wikipedia.org/wiki/Juniperus_scopulorum",
+      "wikipediaTitle": "Juniperus scopulorum",
+      "pageviews": {
+        "total": 1212,
+        "days": 29,
+        "start": "2026-10-23",
+        "end": "2026-11-20",
+        "title": "Juniperus scopulorum",
+        "status": "measured"
+      },
+      "initiallyPresent": null,
+      "present": true
+    },
+    {
+      "answer": "Briançon apricot",
+      "source": "https://en.wikipedia.org/wiki/Prunus_brigantina",
+      "wikipediaTitle": "Prunus brigantina",
+      "pageviews": {
+        "total": 274,
+        "days": 29,
+        "start": "2026-10-23",
+        "end": "2026-11-20",
+        "title": "Prunus brigantina",
+        "status": "measured"
+      },
+      "initiallyPresent": null,
+      "present": true
+    },
+    {
+      "answer": "Youngberry",
+      "source": "https://en.wikipedia.org/wiki/Youngberry",
+      "wikipediaTitle": "Youngberry",
+      "pageviews": {
+        "total": 647,
+        "days": 30,
+        "start": "2026-10-23",
+        "end": "2026-11-21",
+        "title": "Youngberry",
+        "status": "measured"
+      },
+      "initiallyPresent": null,
+      "present": true
+    },
+    {
+      "answer": "Purple-flowered raspberry",
+      "source": "https://en.wikipedia.org/wiki/Rubus_odoratus",
+      "wikipediaTitle": "Rubus odoratus",
+      "pageviews": {
+        "total": 370,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20",
+        "title": "Rubus odoratus",
+        "status": "measured"
+      },
+      "initiallyPresent": null,
+      "present": true
+    },
+    {
+      "answer": "White passionfruit",
+      "source": "https://en.wikipedia.org/wiki/Passiflora_subpeltata",
+      "wikipediaTitle": "Passiflora subpeltata",
+      "pageviews": {
+        "total": 168,
+        "days": 29,
+        "start": "2026-10-23",
+        "end": "2026-11-20",
+        "title": "Passiflora subpeltata",
+        "status": "measured"
+      },
+      "initiallyPresent": null,
+      "present": true
+    },
+    {
+      "answer": "Huckleberry",
+      "source": "https://en.wikipedia.org/wiki/Vaccinium_ovatum",
+      "wikipediaTitle": "Vaccinium ovatum",
+      "pageviews": {
+        "total": 823,
+        "days": 29,
+        "start": "2026-10-23",
+        "end": "2026-11-20",
+        "title": "Vaccinium ovatum",
+        "status": "measured"
+      },
+      "initiallyPresent": null,
+      "present": true
+    },
+    {
+      "answer": "Elmleaf blackberry",
+      "source": "https://en.wikipedia.org/wiki/Rubus_ulmifolius",
+      "wikipediaTitle": "Rubus ulmifolius",
+      "pageviews": {
+        "total": 646,
+        "days": 29,
+        "start": "2026-10-23",
+        "end": "2026-11-20",
+        "title": "Rubus ulmifolius",
+        "status": "measured"
+      },
+      "initiallyPresent": null,
+      "present": true
+    },
+    {
+      "answer": "Maqui berry",
+      "source": "https://en.wikipedia.org/wiki/Aristotelia_chilensis",
+      "wikipediaTitle": "Aristotelia chilensis",
+      "pageviews": {
+        "total": 823,
+        "days": 29,
+        "start": "2026-10-23",
+        "end": "2026-11-20",
+        "title": "Aristotelia chilensis",
+        "status": "measured"
+      },
+      "initiallyPresent": null,
+      "present": true
+    },
+    {
+      "answer": "Creeping raspberry",
+      "source": "https://en.wikipedia.org/wiki/Rubus_hayata-koidzumii",
+      "wikipediaTitle": "Rubus hayata-koidzumii",
+      "pageviews": {
+        "total": 170,
+        "days": 30,
+        "start": "2026-10-23",
+        "end": "2026-11-21",
+        "title": "Rubus rolfei",
+        "status": "measured"
+      },
+      "initiallyPresent": null,
+      "present": true
+    },
+    {
+      "answer": "Brazil cherry",
+      "source": "https://en.wikipedia.org/wiki/Eugenia_brasiliensis",
+      "wikipediaTitle": "Eugenia brasiliensis",
+      "pageviews": {
+        "total": 913,
+        "days": 29,
+        "start": "2026-10-23",
+        "end": "2026-11-20",
+        "title": "Grumichama",
+        "status": "measured"
+      },
+      "initiallyPresent": null,
+      "present": true
+    },
+    {
+      "answer": "Small-leaved tamarind",
+      "source": "https://en.wikipedia.org/wiki/Diploglottis_campbellii",
+      "wikipediaTitle": "Diploglottis campbellii",
       "pageviews": {
         "total": 126,
         "days": 29,
         "start": "2026-10-23",
         "end": "2026-11-20",
-        "title": "Prunus andersonii",
+        "title": "Diploglottis campbellii",
         "status": "measured"
       },
-      "initiallyPresent": false,
-      "present": false
-    },
-    {
-      "answer": "Oriental melon",
-      "source": "https://en.wikipedia.org/wiki/Cucumis_melo_var._makuwa",
-      "wikipediaTitle": "Cucumis melo var. makuwa",
-      "pageviews": {
-        "total": 1138,
-        "days": 29,
-        "start": "2026-10-23",
-        "end": "2026-11-20",
-        "title": "Oriental melon",
-        "status": "measured"
-      },
-      "initiallyPresent": false,
-      "present": false
-    },
-    {
-      "answer": "Ōgonkan",
-      "source": "https://en.wikipedia.org/wiki/%C5%8Cgonkan",
-      "wikipediaTitle": "Ōgonkan",
-      "pageviews": {
-        "total": 246,
-        "days": 29,
-        "start": "2026-10-23",
-        "end": "2026-11-20",
-        "title": "Ōgonkan",
-        "status": "measured"
-      },
-      "initiallyPresent": false,
-      "present": false
-    },
-    {
-      "answer": "Kumquat",
-      "source": "https://en.wikipedia.org/wiki/Citrus_japonica",
-      "wikipediaTitle": "Citrus japonica",
-      "pageviews": {
-        "total": 534,
-        "days": 29,
-        "start": "2026-10-23",
-        "end": "2026-11-20",
-        "title": "Citrus japonica",
-        "status": "measured"
-      },
-      "initiallyPresent": true,
+      "initiallyPresent": null,
       "present": true
     },
     {
-      "answer": "Muntrie",
-      "source": "https://en.wikipedia.org/wiki/Kunzea_pomifera",
-      "wikipediaTitle": "Kunzea pomifera",
+      "answer": "Asam gelugur",
+      "source": "https://en.wikipedia.org/wiki/Garcinia_atroviridis",
+      "wikipediaTitle": "Garcinia atroviridis",
       "pageviews": {
-        "total": 320,
-        "days": 29,
-        "start": "2026-10-23",
-        "end": "2026-11-20",
-        "title": "Kunzea pomifera",
-        "status": "measured"
-      },
-      "initiallyPresent": false,
-      "present": false
-    },
-    {
-      "answer": "Oleaster-leafed pear",
-      "source": "https://en.wikipedia.org/wiki/Pyrus_elaeagrifolia",
-      "wikipediaTitle": "Pyrus elaeagrifolia",
-      "pageviews": {
-        "total": 161,
+        "total": 644,
         "days": 30,
         "start": "2026-10-23",
         "end": "2026-11-21",
-        "title": "Pyrus elaeagrifolia",
+        "title": "Garcinia atroviridis",
         "status": "measured"
       },
-      "initiallyPresent": false,
-      "present": false
+      "initiallyPresent": null,
+      "present": true
     },
     {
-      "answer": "Brush cherry",
-      "source": "https://en.wikipedia.org/wiki/Syzygium_australe",
-      "wikipediaTitle": "Syzygium australe",
+      "answer": "Blue tongue",
+      "source": "https://en.wikipedia.org/wiki/Melastoma_affine",
+      "wikipediaTitle": "Melastoma affine",
       "pageviews": {
-        "total": 779,
-        "days": 29,
-        "start": "2026-10-23",
-        "end": "2026-11-20",
-        "title": "Syzygium australe",
-        "status": "measured"
-      },
-      "initiallyPresent": false,
-      "present": false
-    },
-    {
-      "answer": "Greek juniper berry",
-      "source": "https://en.wikipedia.org/wiki/Juniperus_excelsa",
-      "wikipediaTitle": "Juniperus excelsa",
-      "pageviews": {
-        "total": 596,
+        "total": 250,
         "days": 30,
         "start": "2026-10-23",
         "end": "2026-11-21",
-        "title": "Juniperus excelsa",
+        "title": "Melastoma affine",
         "status": "measured"
       },
-      "initiallyPresent": false,
-      "present": false
+      "initiallyPresent": null,
+      "present": true
     },
     {
-      "answer": "Desert lime",
-      "source": "https://en.wikipedia.org/wiki/Citrus_glauca",
-      "wikipediaTitle": "Citrus glauca",
+      "answer": "Prickly juniper berry",
+      "source": "https://en.wikipedia.org/wiki/Juniperus_oxycedrus",
+      "wikipediaTitle": "Juniperus oxycedrus",
       "pageviews": {
-        "total": 785,
-        "days": 29,
-        "start": "2026-10-23",
-        "end": "2026-11-20",
-        "title": "Citrus glauca",
-        "status": "measured"
-      },
-      "initiallyPresent": false,
-      "present": false
-    },
-    {
-      "answer": "Red-checked crab apple",
-      "source": "https://en.wikipedia.org/wiki/Malus_toringoides",
-      "wikipediaTitle": "Malus toringoides",
-      "pageviews": {
-        "total": 152,
-        "days": 29,
-        "start": "2026-10-23",
-        "end": "2026-11-20",
-        "title": "Malus toringoides",
-        "status": "measured"
-      },
-      "initiallyPresent": false,
-      "present": false
-    },
-    {
-      "answer": "Kahikatea",
-      "source": "https://en.wikipedia.org/wiki/Dacrycarpus_dacrydioides",
-      "wikipediaTitle": "Dacrycarpus dacrydioides",
-      "pageviews": {
-        "total": 904,
-        "days": 30,
-        "start": "2026-10-23",
-        "end": "2026-11-21",
-        "title": "Dacrycarpus dacrydioides",
-        "status": "measured"
-      },
-      "initiallyPresent": false,
-      "present": false
-    },
-    {
-      "answer": "Kolkhoznitsa melon",
-      "source": "https://en.wikipedia.org/wiki/Kolkhoznitsa_melon",
-      "wikipediaTitle": "Kolkhoznitsa melon",
-      "pageviews": {
-        "total": 119,
-        "days": 29,
-        "start": "2026-10-23",
-        "end": "2026-11-20",
-        "title": "Kolkhoznitsa melon",
-        "status": "measured"
-      },
-      "initiallyPresent": false,
-      "present": false
-    },
-    {
-      "answer": "Ussurian pear",
-      "source": "https://en.wikipedia.org/wiki/Pyrus_ussuriensis",
-      "wikipediaTitle": "Pyrus ussuriensis",
-      "pageviews": {
-        "total": 532,
-        "days": 29,
-        "start": "2026-10-23",
-        "end": "2026-11-20",
-        "title": "Pyrus ussuriensis",
-        "status": "measured"
-      },
-      "initiallyPresent": false,
-      "present": false
-    },
-    {
-      "answer": "Sourplum",
-      "source": "https://en.wikipedia.org/wiki/Ximenia_afra",
-      "wikipediaTitle": "Ximenia afra",
-      "pageviews": {
-        "total": 217,
-        "days": 29,
-        "start": "2026-10-23",
-        "end": "2026-11-20",
-        "title": "Ximenia afra",
-        "status": "measured"
-      },
-      "initiallyPresent": false,
-      "present": false
-    },
-    {
-      "answer": "Wild service tree fruit",
-      "source": "https://en.wikipedia.org/wiki/Sorbus_torminalis",
-      "wikipediaTitle": "Sorbus torminalis",
-      "pageviews": {
-        "total": 705,
-        "days": 29,
-        "start": "2026-10-23",
-        "end": "2026-11-20",
-        "title": "Aria torminalis",
-        "status": "measured"
-      },
-      "initiallyPresent": false,
-      "present": false
-    },
-    {
-      "answer": "Plymouth pear",
-      "source": "https://en.wikipedia.org/wiki/Pyrus_cordata",
-      "wikipediaTitle": "Pyrus cordata",
-      "pageviews": {
-        "total": 353,
-        "days": 29,
-        "start": "2026-10-23",
-        "end": "2026-11-20",
-        "title": "Pyrus cordata",
-        "status": "measured"
-      },
-      "initiallyPresent": false,
-      "present": false
-    },
-    {
-      "answer": "Ramontchi",
-      "source": "https://en.wikipedia.org/wiki/Flacourtia_indica",
-      "wikipediaTitle": "Flacourtia indica",
-      "pageviews": {
-        "total": 614,
-        "days": 29,
-        "start": "2026-10-23",
-        "end": "2026-11-20",
-        "title": "Flacourtia indica",
-        "status": "measured"
-      },
-      "initiallyPresent": false,
-      "present": false
-    },
-    {
-      "answer": "Honeysuckle",
-      "source": "https://en.wikipedia.org/wiki/Lonicera_periclymenum",
-      "wikipediaTitle": "Lonicera periclymenum",
-      "pageviews": {
-        "total": 963,
+        "total": 803,
         "days": 30,
         "start": "2026-10-22",
         "end": "2026-11-20",
-        "title": "Lonicera periclymenum",
+        "title": "Juniperus oxycedrus",
         "status": "measured"
       },
-      "initiallyPresent": false,
-      "present": false
-    },
-    {
-      "answer": "Native cherry",
-      "source": "https://en.wikipedia.org/wiki/Exocarpos_cupressiformis",
-      "wikipediaTitle": "Exocarpos cupressiformis",
-      "pageviews": {
-        "total": 659,
-        "days": 29,
-        "start": "2026-10-23",
-        "end": "2026-11-20",
-        "title": "Exocarpos cupressiformis",
-        "status": "measured"
-      },
-      "initiallyPresent": false,
-      "present": false
-    },
-    {
-      "answer": "Jackal jujube",
-      "source": "https://en.wikipedia.org/wiki/Ziziphus_oenopolia",
-      "wikipediaTitle": "Ziziphus oenopolia",
-      "pageviews": {
-        "total": 331,
-        "days": 29,
-        "start": "2026-10-23",
-        "end": "2026-11-20",
-        "title": "Ziziphus oenopolia",
-        "status": "measured"
-      },
-      "initiallyPresent": false,
-      "present": false
-    },
-    {
-      "answer": "Blackberry jam fruit",
-      "source": "https://en.wikipedia.org/wiki/Rosenbergiodendron_formosum",
-      "wikipediaTitle": "Rosenbergiodendron formosum",
-      "pageviews": {
-        "total": 169,
-        "days": 29,
-        "start": "2026-10-23",
-        "end": "2026-11-20",
-        "title": "Rosenbergiodendron formosum",
-        "status": "measured"
-      },
-      "initiallyPresent": false,
-      "present": false
-    },
-    {
-      "answer": "Magenta lilly pilly",
-      "source": "https://en.wikipedia.org/wiki/Syzygium_paniculatum",
-      "wikipediaTitle": "Syzygium paniculatum",
-      "pageviews": {
-        "total": 1046,
-        "days": 29,
-        "start": "2026-10-23",
-        "end": "2026-11-20",
-        "title": "Syzygium paniculatum",
-        "status": "measured"
-      },
-      "initiallyPresent": false,
-      "present": false
-    },
-    {
-      "answer": "Sweet calabash",
-      "source": "https://en.wikipedia.org/wiki/Passiflora_maliformis",
-      "wikipediaTitle": "Passiflora maliformis",
-      "pageviews": {
-        "total": 178,
-        "days": 30,
-        "start": "2026-10-22",
-        "end": "2026-11-20",
-        "title": "Passiflora maliformis",
-        "status": "measured"
-      },
-      "initiallyPresent": true,
+      "initiallyPresent": null,
       "present": true
     },
     {
@@ -447,67 +439,52 @@
         "status": "measured"
       },
       "initiallyPresent": false,
-      "present": false
-    },
-    {
-      "answer": "Cranberry",
-      "source": "https://en.wikipedia.org/wiki/Vaccinium_macrocarpon",
-      "wikipediaTitle": "Vaccinium macrocarpon",
-      "pageviews": {
-        "total": 1639,
-        "days": 29,
-        "start": "2026-10-23",
-        "end": "2026-11-20",
-        "title": "Vaccinium macrocarpon",
-        "status": "measured"
-      },
-      "initiallyPresent": true,
       "present": true
     },
     {
-      "answer": "Winter-flowering cherry",
-      "source": "https://en.wikipedia.org/wiki/Prunus_%C3%97_subhirtella",
-      "wikipediaTitle": "Prunus × subhirtella",
+      "answer": "Limequat",
+      "source": "https://en.wikipedia.org/wiki/Limequat",
+      "wikipediaTitle": "Limequat",
       "pageviews": {
-        "total": 428,
+        "total": 687,
         "days": 30,
         "start": "2026-10-23",
         "end": "2026-11-21",
-        "title": "Prunus × subhirtella",
+        "title": "Limequat",
         "status": "measured"
       },
-      "initiallyPresent": false,
-      "present": false
+      "initiallyPresent": null,
+      "present": true
     },
     {
-      "answer": "Syzygium calophyllifolium",
-      "source": "https://en.wikipedia.org/wiki/Syzygium_calophyllifolium",
-      "wikipediaTitle": "Syzygium calophyllifolium",
+      "answer": "Phalsa",
+      "source": "https://en.wikipedia.org/wiki/Grewia_asiatica",
+      "wikipediaTitle": "Grewia asiatica",
       "pageviews": {
-        "total": 112,
-        "days": 18,
-        "start": "2026-11-03",
+        "total": 998,
+        "days": 29,
+        "start": "2026-10-23",
         "end": "2026-11-20",
-        "title": "Syzygium calophyllifolium",
+        "title": "Grewia asiatica",
         "status": "measured"
       },
-      "initiallyPresent": false,
-      "present": false
+      "initiallyPresent": null,
+      "present": true
     },
     {
-      "answer": "Manchurian apricot",
-      "source": "https://en.wikipedia.org/wiki/Prunus_mandshurica",
-      "wikipediaTitle": "Prunus mandshurica",
+      "answer": "Chickasaw plum",
+      "source": "https://en.wikipedia.org/wiki/Prunus_angustifolia",
+      "wikipediaTitle": "Prunus angustifolia",
       "pageviews": {
-        "total": 165,
-        "days": 30,
+        "total": 697,
+        "days": 29,
         "start": "2026-10-23",
-        "end": "2026-11-21",
-        "title": "Prunus mandshurica",
+        "end": "2026-11-20",
+        "title": "Prunus angustifolia",
         "status": "measured"
       },
-      "initiallyPresent": false,
-      "present": false
+      "initiallyPresent": null,
+      "present": true
     },
     {
       "answer": "Utu",
@@ -522,36 +499,261 @@
         "status": "measured"
       },
       "initiallyPresent": false,
-      "present": false
+      "present": true
     },
     {
-      "answer": "Red huckleberry",
-      "source": "https://en.wikipedia.org/wiki/Vaccinium_parvifolium",
-      "wikipediaTitle": "Vaccinium parvifolium",
+      "answer": "Bolivian fuchsia fruit",
+      "source": "https://en.wikipedia.org/wiki/Fuchsia_boliviana",
+      "wikipediaTitle": "Fuchsia boliviana",
       "pageviews": {
-        "total": 649,
+        "total": 180,
+        "days": 29,
+        "start": "2026-10-23",
+        "end": "2026-11-20",
+        "title": "Fuchsia boliviana",
+        "status": "measured"
+      },
+      "initiallyPresent": null,
+      "present": true
+    },
+    {
+      "answer": "Yellow dragon fruit",
+      "source": "https://en.wikipedia.org/wiki/Selenicereus_megalanthus",
+      "wikipediaTitle": "Selenicereus megalanthus",
+      "pageviews": {
+        "total": 1141,
+        "days": 29,
+        "start": "2026-10-23",
+        "end": "2026-11-20",
+        "title": "Selenicereus megalanthus",
+        "status": "measured"
+      },
+      "initiallyPresent": null,
+      "present": true
+    },
+    {
+      "answer": "Mirza melon",
+      "source": "https://en.wikipedia.org/wiki/Mirza_melon",
+      "wikipediaTitle": "Mirza melon",
+      "pageviews": {
+        "total": 183,
+        "days": 29,
+        "start": "2026-10-23",
+        "end": "2026-11-20",
+        "title": "Mirza melon",
+        "status": "measured"
+      },
+      "initiallyPresent": null,
+      "present": true
+    },
+    {
+      "answer": "Binjai",
+      "source": "https://en.wikipedia.org/wiki/Mangifera_caesia",
+      "wikipediaTitle": "Mangifera caesia",
+      "pageviews": {
+        "total": 421,
+        "days": 29,
+        "start": "2026-10-23",
+        "end": "2026-11-20",
+        "title": "Mangifera caesia",
+        "status": "measured"
+      },
+      "initiallyPresent": null,
+      "present": true
+    },
+    {
+      "answer": "Velvet apple",
+      "source": "https://en.wikipedia.org/wiki/Diospyros_blancoi",
+      "wikipediaTitle": "Diospyros blancoi",
+      "pageviews": {
+        "total": 1807,
+        "days": 29,
+        "start": "2026-10-23",
+        "end": "2026-11-20",
+        "title": "Diospyros blancoi",
+        "status": "measured"
+      },
+      "initiallyPresent": null,
+      "present": true
+    },
+    {
+      "answer": "Hawthorn",
+      "source": "https://en.wikipedia.org/wiki/Crataegus_rhipidophylla",
+      "wikipediaTitle": "Crataegus rhipidophylla",
+      "pageviews": {
+        "total": 446,
         "days": 30,
         "start": "2026-10-23",
         "end": "2026-11-21",
-        "title": "Vaccinium parvifolium",
+        "title": "Crataegus rhipidophylla",
+        "status": "measured"
+      },
+      "initiallyPresent": null,
+      "present": true
+    },
+    {
+      "answer": "Guinea sour pod",
+      "source": "https://en.wikipedia.org/wiki/Dialium_guineense",
+      "wikipediaTitle": "Dialium guineense",
+      "pageviews": {
+        "total": 208,
+        "days": 30,
+        "start": "2026-10-23",
+        "end": "2026-11-21",
+        "title": "Dialium guineense",
+        "status": "measured"
+      },
+      "initiallyPresent": null,
+      "present": true
+    },
+    {
+      "answer": "Curuba",
+      "source": "https://en.wikipedia.org/wiki/Passiflora_mixta",
+      "wikipediaTitle": "Passiflora mixta",
+      "pageviews": {
+        "total": 174,
+        "days": 29,
+        "start": "2026-10-23",
+        "end": "2026-11-20",
+        "title": "Passiflora mixta",
+        "status": "measured"
+      },
+      "initiallyPresent": null,
+      "present": true
+    },
+    {
+      "answer": "Yatay palm fruit",
+      "source": "https://en.wikipedia.org/wiki/Butia_yatay",
+      "wikipediaTitle": "Butia yatay",
+      "pageviews": {
+        "total": 414,
+        "days": 29,
+        "start": "2026-10-23",
+        "end": "2026-11-20",
+        "title": "Butia yatay",
+        "status": "measured"
+      },
+      "initiallyPresent": null,
+      "present": true
+    },
+    {
+      "answer": "Bignay",
+      "source": "https://en.wikipedia.org/wiki/Antidesma_bunius",
+      "wikipediaTitle": "Antidesma bunius",
+      "pageviews": {
+        "total": 678,
+        "days": 29,
+        "start": "2026-10-23",
+        "end": "2026-11-20",
+        "title": "Antidesma bunius",
+        "status": "measured"
+      },
+      "initiallyPresent": null,
+      "present": true
+    },
+    {
+      "answer": "Melogold",
+      "source": "https://en.wikipedia.org/wiki/Melogold",
+      "wikipediaTitle": "Melogold",
+      "pageviews": {
+        "total": 881,
+        "days": 30,
+        "start": "2026-10-23",
+        "end": "2026-11-21",
+        "title": "Melogold",
+        "status": "measured"
+      },
+      "initiallyPresent": null,
+      "present": true
+    },
+    {
+      "answer": "Salal",
+      "source": "https://en.wikipedia.org/wiki/Gaultheria_shallon",
+      "wikipediaTitle": "Gaultheria shallon",
+      "pageviews": {
+        "total": 1579,
+        "days": 29,
+        "start": "2026-10-23",
+        "end": "2026-11-20",
+        "title": "Gaultheria shallon",
+        "status": "measured"
+      },
+      "initiallyPresent": null,
+      "present": true
+    },
+    {
+      "answer": "Tayberry",
+      "source": "https://en.wikipedia.org/wiki/Tayberry",
+      "wikipediaTitle": "Tayberry",
+      "pageviews": {
+        "total": 1580,
+        "days": 30,
+        "start": "2026-10-23",
+        "end": "2026-11-21",
+        "title": "Tayberry",
+        "status": "measured"
+      },
+      "initiallyPresent": null,
+      "present": true
+    },
+    {
+      "answer": "Honeysuckle",
+      "source": "https://en.wikipedia.org/wiki/Lonicera_periclymenum",
+      "wikipediaTitle": "Lonicera periclymenum",
+      "pageviews": {
+        "total": 963,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20",
+        "title": "Lonicera periclymenum",
         "status": "measured"
       },
       "initiallyPresent": false,
-      "present": false
+      "present": true
     },
     {
-      "answer": "Blackberry",
-      "source": "https://en.wikipedia.org/wiki/Rubus_allegheniensis",
-      "wikipediaTitle": "Rubus allegheniensis",
+      "answer": "Charichuelo",
+      "source": "https://en.wikipedia.org/wiki/Garcinia_madruno",
+      "wikipediaTitle": "Garcinia madruno",
       "pageviews": {
-        "total": 820,
+        "total": 316,
         "days": 30,
         "start": "2026-10-23",
         "end": "2026-11-21",
-        "title": "Rubus allegheniensis",
+        "title": "Garcinia madruno",
         "status": "measured"
       },
-      "initiallyPresent": true,
+      "initiallyPresent": null,
+      "present": true
+    },
+    {
+      "answer": "Oleaster-leafed pear",
+      "source": "https://en.wikipedia.org/wiki/Pyrus_elaeagrifolia",
+      "wikipediaTitle": "Pyrus elaeagrifolia",
+      "pageviews": {
+        "total": 161,
+        "days": 30,
+        "start": "2026-10-23",
+        "end": "2026-11-21",
+        "title": "Pyrus elaeagrifolia",
+        "status": "measured"
+      },
+      "initiallyPresent": false,
+      "present": true
+    },
+    {
+      "answer": "Brown gardenia",
+      "source": "https://en.wikipedia.org/wiki/Atractocarpus_fitzalanii",
+      "wikipediaTitle": "Atractocarpus fitzalanii",
+      "pageviews": {
+        "total": 300,
+        "days": 29,
+        "start": "2026-10-23",
+        "end": "2026-11-20",
+        "title": "Atractocarpus fitzalanii",
+        "status": "measured"
+      },
+      "initiallyPresent": null,
       "present": true
     },
     {
@@ -570,259 +772,169 @@
       "present": true
     },
     {
-      "answer": "Yoshino cherry",
-      "source": "https://en.wikipedia.org/wiki/Prunus_%C3%97_yedoensis",
-      "wikipediaTitle": "Prunus × yedoensis",
+      "answer": "Chokeberry",
+      "source": "https://en.wikipedia.org/wiki/Aronia_melanocarpa",
+      "wikipediaTitle": "Aronia melanocarpa",
       "pageviews": {
-        "total": 1490,
+        "total": 2265,
         "days": 30,
         "start": "2026-10-23",
         "end": "2026-11-21",
-        "title": "Prunus × yedoensis",
+        "title": "Aronia melanocarpa",
         "status": "measured"
       },
-      "initiallyPresent": false,
-      "present": false
-    },
-    {
-      "answer": "Silver date palm fruit",
-      "source": "https://en.wikipedia.org/wiki/Phoenix_sylvestris",
-      "wikipediaTitle": "Phoenix sylvestris",
-      "pageviews": {
-        "total": 929,
-        "days": 30,
-        "start": "2026-10-22",
-        "end": "2026-11-20",
-        "title": "Phoenix sylvestris",
-        "status": "measured"
-      },
-      "initiallyPresent": false,
-      "present": false
-    },
-    {
-      "answer": "Velvet tamarind",
-      "source": "https://en.wikipedia.org/wiki/Dialium_cochinchinense",
-      "wikipediaTitle": "Dialium cochinchinense",
-      "pageviews": {
-        "total": 278,
-        "days": 29,
-        "start": "2026-10-23",
-        "end": "2026-11-20",
-        "title": "Dialium cochinchinense",
-        "status": "measured"
-      },
-      "initiallyPresent": false,
-      "present": false
-    },
-    {
-      "answer": "Desert passionfruit",
-      "source": "https://en.wikipedia.org/wiki/Passiflora_pentaschista",
-      "wikipediaTitle": "Passiflora pentaschista",
-      "pageviews": {
-        "total": 88,
-        "days": 18,
-        "start": "2026-11-03",
-        "end": "2026-11-20",
-        "title": "Passiflora pentaschista",
-        "status": "measured"
-      },
-      "initiallyPresent": false,
-      "present": false
-    },
-    {
-      "answer": "Emu apple",
-      "source": "https://en.wikipedia.org/wiki/Owenia_acidula",
-      "wikipediaTitle": "Owenia acidula",
-      "pageviews": {
-        "total": 267,
-        "days": 29,
-        "start": "2026-10-23",
-        "end": "2026-11-20",
-        "title": "Owenia acidula",
-        "status": "measured"
-      },
-      "initiallyPresent": false,
-      "present": false
-    },
-    {
-      "answer": "Ponderosa lemon",
-      "source": "https://en.wikipedia.org/wiki/Ponderosa_lemon",
-      "wikipediaTitle": "Ponderosa lemon",
-      "pageviews": {
-        "total": 1403,
-        "days": 29,
-        "start": "2026-10-23",
-        "end": "2026-11-20",
-        "title": "Ponderosa lemon",
-        "status": "measured"
-      },
-      "initiallyPresent": false,
-      "present": false
-    },
-    {
-      "answer": "Blueberry",
-      "source": "https://en.wikipedia.org/wiki/Vaccinium_corymbosum",
-      "wikipediaTitle": "Vaccinium corymbosum",
-      "pageviews": {
-        "total": 2125,
-        "days": 30,
-        "start": "2026-10-23",
-        "end": "2026-11-21",
-        "title": "Vaccinium corymbosum",
-        "status": "measured"
-      },
-      "initiallyPresent": true,
+      "initiallyPresent": null,
       "present": true
     },
     {
-      "answer": "Kola nut",
-      "source": "https://en.wikipedia.org/wiki/Cola_nitida",
-      "wikipediaTitle": "Cola nitida",
+      "answer": "Mysore raspberry",
+      "source": "https://en.wikipedia.org/wiki/Rubus_niveus",
+      "wikipediaTitle": "Rubus niveus",
       "pageviews": {
-        "total": 318,
+        "total": 357,
         "days": 29,
         "start": "2026-10-23",
         "end": "2026-11-20",
-        "title": "Cola nitida",
+        "title": "Rubus niveus",
         "status": "measured"
       },
-      "initiallyPresent": false,
-      "present": false
+      "initiallyPresent": null,
+      "present": true
     },
     {
-      "answer": "Ber",
-      "source": "https://en.wikipedia.org/wiki/Ziziphus_nummularia",
-      "wikipediaTitle": "Ziziphus nummularia",
+      "answer": "Toringo crabapple",
+      "source": "https://en.wikipedia.org/wiki/Malus_toringo",
+      "wikipediaTitle": "Malus toringo",
       "pageviews": {
-        "total": 437,
-        "days": 29,
-        "start": "2026-10-23",
-        "end": "2026-11-20",
-        "title": "Ziziphus nummularia",
-        "status": "measured"
-      },
-      "initiallyPresent": false,
-      "present": false
-    },
-    {
-      "answer": "Darwin's barberry",
-      "source": "https://en.wikipedia.org/wiki/Berberis_darwinii",
-      "wikipediaTitle": "Berberis darwinii",
-      "pageviews": {
-        "total": 414,
+        "total": 496,
         "days": 30,
         "start": "2026-10-23",
         "end": "2026-11-21",
-        "title": "Berberis darwinii",
+        "title": "Malus sieboldii",
         "status": "measured"
       },
-      "initiallyPresent": false,
-      "present": false
+      "initiallyPresent": null,
+      "present": true
     },
     {
-      "answer": "Wineberry",
-      "source": "https://en.wikipedia.org/wiki/Rubus_phoenicolasius",
-      "wikipediaTitle": "Rubus phoenicolasius",
+      "answer": "Chupa-chupa",
+      "source": "https://en.wikipedia.org/wiki/Matisia_cordata",
+      "wikipediaTitle": "Matisia cordata",
       "pageviews": {
-        "total": 1454,
+        "total": 426,
         "days": 29,
         "start": "2026-10-23",
         "end": "2026-11-20",
-        "title": "Rubus phoenicolasius",
+        "title": "Matisia cordata",
         "status": "measured"
       },
-      "initiallyPresent": false,
-      "present": false
+      "initiallyPresent": null,
+      "present": true
     },
     {
-      "answer": "Little gooseberry",
-      "source": "https://en.wikipedia.org/wiki/Buchanania_arborescens",
-      "wikipediaTitle": "Buchanania arborescens",
+      "answer": "Partridgeberry",
+      "source": "https://en.wikipedia.org/wiki/Mitchella_repens",
+      "wikipediaTitle": "Mitchella repens",
       "pageviews": {
-        "total": 159,
+        "total": 1600,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20",
+        "title": "Mitchella repens",
+        "status": "measured"
+      },
+      "initiallyPresent": null,
+      "present": true
+    },
+    {
+      "answer": "Bolwarra",
+      "source": "https://en.wikipedia.org/wiki/Eupomatia_laurina",
+      "wikipediaTitle": "Eupomatia laurina",
+      "pageviews": {
+        "total": 171,
         "days": 30,
         "start": "2026-10-23",
         "end": "2026-11-21",
-        "title": "Buchanania arborescens",
+        "title": "Eupomatia laurina",
         "status": "measured"
       },
-      "initiallyPresent": false,
-      "present": false
+      "initiallyPresent": null,
+      "present": true
     },
     {
-      "answer": "Almond-leaved pear",
-      "source": "https://en.wikipedia.org/wiki/Pyrus_spinosa",
-      "wikipediaTitle": "Pyrus spinosa",
+      "answer": "Rambai",
+      "source": "https://en.wikipedia.org/wiki/Baccaurea_motleyana",
+      "wikipediaTitle": "Baccaurea motleyana",
       "pageviews": {
-        "total": 316,
-        "days": 29,
-        "start": "2026-10-23",
-        "end": "2026-11-20",
-        "title": "Pyrus spinosa",
-        "status": "measured"
-      },
-      "initiallyPresent": false,
-      "present": false
-    },
-    {
-      "answer": "Armenian blackberry",
-      "source": "https://en.wikipedia.org/wiki/Rubus_armeniacus",
-      "wikipediaTitle": "Rubus armeniacus",
-      "pageviews": {
-        "total": 1796,
-        "days": 29,
-        "start": "2026-10-23",
-        "end": "2026-11-20",
-        "title": "Rubus armeniacus",
-        "status": "measured"
-      },
-      "initiallyPresent": false,
-      "present": false
-    },
-    {
-      "answer": "Ceylon gooseberry",
-      "source": "https://en.wikipedia.org/wiki/Dovyalis_hebecarpa",
-      "wikipediaTitle": "Dovyalis hebecarpa",
-      "pageviews": {
-        "total": 220,
-        "days": 29,
-        "start": "2026-10-23",
-        "end": "2026-11-20",
-        "title": "Dovyalis hebecarpa",
-        "status": "measured"
-      },
-      "initiallyPresent": false,
-      "present": false
-    },
-    {
-      "answer": "Mountain soursop",
-      "source": "https://en.wikipedia.org/wiki/Annona_montana",
-      "wikipediaTitle": "Annona montana",
-      "pageviews": {
-        "total": 314,
-        "days": 29,
-        "start": "2026-10-23",
-        "end": "2026-11-20",
-        "title": "Annona montana",
-        "status": "measured"
-      },
-      "initiallyPresent": false,
-      "present": false
-    },
-    {
-      "answer": "Utah serviceberry",
-      "source": "https://en.wikipedia.org/wiki/Amelanchier_utahensis",
-      "wikipediaTitle": "Amelanchier utahensis",
-      "pageviews": {
-        "total": 157,
+        "total": 359,
         "days": 30,
         "start": "2026-10-23",
         "end": "2026-11-21",
-        "title": "Amelanchier utahensis",
+        "title": "Baccaurea motleyana",
         "status": "measured"
       },
-      "initiallyPresent": false,
-      "present": false
+      "initiallyPresent": null,
+      "present": true
+    },
+    {
+      "answer": "Pear",
+      "source": "https://en.wikipedia.org/wiki/Pyrus_communis",
+      "wikipediaTitle": "Pyrus communis",
+      "pageviews": {
+        "total": 2011,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20",
+        "title": "Pyrus communis",
+        "status": "measured"
+      },
+      "initiallyPresent": null,
+      "present": true
+    },
+    {
+      "answer": "Japanese bush cherry",
+      "source": "https://en.wikipedia.org/wiki/Prunus_japonica",
+      "wikipediaTitle": "Prunus japonica",
+      "pageviews": {
+        "total": 252,
+        "days": 30,
+        "start": "2026-10-23",
+        "end": "2026-11-21",
+        "title": "Prunus japonica",
+        "status": "measured"
+      },
+      "initiallyPresent": null,
+      "present": true
+    },
+    {
+      "answer": "Borneo olive",
+      "source": "https://en.wikipedia.org/wiki/Canarium_odontophyllum",
+      "wikipediaTitle": "Canarium odontophyllum",
+      "pageviews": {
+        "total": 342,
+        "days": 29,
+        "start": "2026-10-23",
+        "end": "2026-11-20",
+        "title": "Canarium odontophyllum",
+        "status": "measured"
+      },
+      "initiallyPresent": null,
+      "present": true
+    },
+    {
+      "answer": "Xiao pu tao",
+      "source": "https://en.wikipedia.org/wiki/Syzygium_acuminatissimum",
+      "wikipediaTitle": "Syzygium acuminatissimum",
+      "pageviews": {
+        "total": 89,
+        "days": 16,
+        "start": "2026-11-05",
+        "end": "2026-11-20",
+        "title": "Syzygium acuminatissimum",
+        "status": "measured"
+      },
+      "initiallyPresent": null,
+      "present": true
     }
   ]
 }

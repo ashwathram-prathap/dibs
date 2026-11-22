@@ -1,4 +1,5 @@
 import { readFileSync, writeFileSync, readdirSync, existsSync, mkdirSync } from 'node:fs';
+import { pageMatchesScope } from './catalog-quality';
 import { normalize } from '../worker/domain';
 // All source rows are considered. Missing Wikipedia articles never exclude a real reference answer.
 const raw = JSON.parse(readFileSync('.category-cache/r8/candidates.json', 'utf8'));
@@ -10,6 +11,11 @@ raw.countries = iso.iso31661.map((r: any) => ({
 }));
 const overrides: Record<string, Record<string, string[]>> = {
   animals: {
+    Cat: ['Domestic cat', 'House cat', 'Felis catus', 'Felis domesticus'],
+    Dog: ['Domestic dog', 'Pooch', 'Canis familiaris'],
+    Chicken: ['Domestic fowl', 'Cockerel', 'Pullet', 'Rooster', 'Hen'],
+    Tiger: ['Tigress'],
+    Peacock: ['Peafowl', 'Peahen', 'Peachick'],
     Wolf: ['wolves'],
     Mouse: ['mice'],
     Octopus: ['octopi', 'octopuses'],
@@ -18,7 +24,14 @@ const overrides: Record<string, Record<string, string[]>> = {
     Orca: ['killer whale'],
     Ladybug: ['ladybird'],
   },
+  birds: {
+    Chicken: ['Domestic fowl', 'Cockerel', 'Pullet', 'Rooster', 'Hen'],
+    Peacock: ['Peafowl', 'Peahen', 'Peachick'],
+  },
+  foods: { Poultry: ['Bird', 'Fowl'] },
   cities: {
+    "Al Majma'ah": ['Majmaah'],
+    'Inda Silasē': ['Shire', 'Shire Inda Selassie'],
     'New York': ['NYC', 'New York City'],
     'Saint Petersburg': ['St Petersburg'],
     'St. John’s': ['Saint Johns'],
@@ -87,7 +100,9 @@ for (const [slug, input] of Object.entries(raw) as any) {
     if (!key) continue;
     const scientific = a.scientificName ? normalize(a.scientificName) : '';
     const prev =
-      byKey.get(key) || (scientific && taxonOwner.get(scientific)) || aliasOwner.get(key);
+      byKey.get(key) ||
+      (scientific && taxonOwner.get(scientific)) ||
+      (slug !== 'cities' && aliasOwner.get(key));
     if (prev) {
       prev.aliases.push(a.display, ...a.aliases);
       byKey.set(key, prev);
@@ -127,7 +142,7 @@ const cache: Record<string, any> = existsSync(cacheFile)
 const title = (s: string) => s[0].toUpperCase() + s.slice(1);
 const titleOverrides = JSON.parse(readFileSync('scripts/r8-page-titles.json', 'utf8'));
 const measurementTitle = (a: any, slug: string) =>
-  titleOverrides[slug]?.[a.display] || a.wikipediaTitle || title(a.display);
+  titleOverrides[slug]?.[a.display] || a.wikipediaTitle || a.scientificName || title(a.display);
 const priority = new Set(
   readdirSync('review/coverage')
     .filter((f) => f.endsWith('.txt'))
@@ -153,8 +168,20 @@ const pending = [
     ...extraTitles,
   ]),
 ]
-  .filter((t) => !cache[t] || ['unavailable', 'measurement unavailable'].includes(cache[t].status))
+  .filter(
+    (t) =>
+      !cache[t] ||
+      ['unavailable', 'measurement unavailable'].includes(cache[t].status) ||
+      (cache[t].days > 0 && !metadata[cache[t].title]?.description),
+  )
   .sort((a, b) => Number(priority.has(b)) - Number(priority.has(a)));
+process.on('SIGTERM', () => {
+  if (!process.argv.includes('--offline')) {
+    writeFileSync(cacheFile, JSON.stringify(cache));
+    writeFileSync(metadataFile, JSON.stringify(metadata));
+  }
+  process.exit(0);
+});
 // Coverage fixtures influence measurement order only, never membership or acceptance.
 console.log('Measuring', pending.length, 'uncapped candidate titles');
 let cursor = 0,
@@ -164,7 +191,7 @@ async function measure(batch: string[]) {
   const params = {
     action: 'query',
     format: 'json',
-    prop: 'pageviews|pageprops',
+    prop: 'pageviews|pageprops|description',
     pvipdays: '30',
     titles: batch.join('|'),
     redirects: '1',
@@ -218,7 +245,11 @@ async function measure(batch: string[]) {
     if (p)
       metadata[p.title] = {
         title: p.title,
-        description: p.pageprops?.['wikibase-shortdesc'] || metadata[p.title]?.description || '',
+        description:
+          p.description ||
+          p.pageprops?.['wikibase-shortdesc'] ||
+          metadata[p.title]?.description ||
+          '',
         disambiguation: p.pageprops?.disambiguation !== undefined,
       };
     const points = Object.entries(p?.pageviews || {}).filter(([, n]) => typeof n === 'number');
@@ -290,13 +321,26 @@ const scopes: any = {
     'English common names for animals of every kind, including general groups and bird species.',
   birds: 'Bird species and general bird names.',
   plants: 'English common names for plants, including trees, flowers, herbs and crops.',
-  foods: 'Foods, dishes and edible ingredients.',
+  foods: 'Foods, dishes, drinks and edible ingredients.',
   cities:
     'Named populated places in GeoNames cities1000: population 1,000+ or administrative seats; one answer per name.',
   countries: 'ISO 3166 countries and territories, with common alternate names.',
   'fruits-vegetables': 'Culinary fruits and vegetables, including varieties.',
 };
 for (const [slug, answers] of Object.entries(catalogs)) {
+  if (slug === 'foods') {
+    for (let i = answers.length - 1; i >= 0; i--) {
+      const a = answers[i];
+      const description = metadata[cache[measurementTitle(a, slug)]?.title]?.description || '';
+      if (
+        a.source.startsWith('https://en.wikipedia.org/wiki/') &&
+        /cooking (method|technique)|method of cooking|chef|restaurateur|actor|politician|region of|province|language|ethnic group|city in|town in/i.test(
+          description,
+        )
+      )
+        answers.splice(i, 1);
+    }
+  }
   for (const a of answers) {
     a.pageviews = cache[measurementTitle(a, slug)] || {
       total: 0,
@@ -305,15 +349,11 @@ for (const [slug, answers] of Object.entries(catalogs)) {
     };
     const m = metadata[a.pageviews.title];
     if (
-      (slug === 'cities' &&
-        !/city|town|village|municipality|settlement|suburb|capital|commune|borough|district/i.test(
-          m?.description || '',
-        )) ||
-      (slug !== 'countries' &&
-        slug !== 'cities' &&
-        /country|sovereign state|film|television|album|band|software|company|novel|actor|politician/i.test(
-          m?.description || '',
-        ))
+      !pageMatchesScope(
+        slug,
+        m?.description || '',
+        !!a.scientificName && measurementTitle(a, slug) === a.scientificName,
+      )
     )
       a.pageviews = { total: 0, days: 0, status: 'scope not verified' };
     const mean = a.pageviews.days ? a.pageviews.total / a.pageviews.days : 0;

@@ -35,27 +35,33 @@ it('keeps golden status out of public catalog assets and client code', () => {
         ]);
         continue;
       }
-      if(String(f).endsWith('/full.json')){
-        expect(Object.keys(data).sort()).toEqual(['ids','keys','rows']);
-        expect(Buffer.from(data.ids,'base64').length).toBe(data.keys.length*4);
-        expect(data.rows.every((r:any)=>Array.isArray(r)&&r.length===3)).toBe(true);
+      if (String(f).endsWith('/full.json')) {
+        expect(Object.keys(data).sort()).toEqual(['ids', 'keys', 'rows']);
+        expect(Buffer.from(data.ids, 'base64').length).toBe(data.keys.length * 4);
+        expect(data.rows.every((r: any) => Array.isArray(r) && r.length === 3)).toBe(true);
         continue;
       }
       if (String(f).includes('/typos-')) {
-        for (const row of data) {
-          expect(row).toHaveLength(3);
-          expect(typeof row[0]).toBe('string');
-          expect(Number.isInteger(row[1])).toBe(true);
-          expect(typeof row[2]).toBe('object');
-        }
+        expect(
+          data.every(
+            (row: any) =>
+              row.length === 3 &&
+              typeof row[0] === 'string' &&
+              Number.isInteger(row[1]) &&
+              typeof row[2] === 'object',
+          ),
+        ).toBe(true);
         continue;
       }
-      for (const row of Array.isArray(data) ? data : Object.values(data)) {
-        expect(row).toHaveLength(3);
-        expect(typeof row[0]).toBe('number');
-        expect(typeof row[1]).toBe('string');
-        expect(row[2] === null || Number.isInteger(row[2])).toBe(true);
-      }
+      expect(
+        (Array.isArray(data) ? data : Object.values(data)).every(
+          (row: any) =>
+            row.length === 3 &&
+            typeof row[0] === 'number' &&
+            typeof row[1] === 'string' &&
+            (row[2] === null || Number.isInteger(row[2])),
+        ),
+      ).toBe(true);
     }
   for (const f of readdirSync('src').filter((f) => /\.tsx?$/.test(f)))
     expect(readFileSync('src/' + f, 'utf8')).not.toMatch(/house-words|daily_specials|golden_json/);

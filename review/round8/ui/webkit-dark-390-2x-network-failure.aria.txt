@@ -1,0 +1,61 @@
+- main:
+  - region "Round countdown": Round closes in Round closes at 11:13 AM ET. 721 minutes remaining.
+  - text: "Today's category:"
+  - heading "Animals" [level=1]
+  - paragraph: Name an animal nobody has claimed yet. First to call it owns it today.
+  - strong: DIBS 0 / 3
+  - img "0 of 5 strikes"
+  - text: "0 of 5 strikes used ENTRY:"
+  - textbox "ENTRY:":
+    - /placeholder: "try: axolotl"
+    - text: offline proof
+  - button "CALL DIBS"
+  - status:
+    - strong: TRY AGAIN
+    - paragraph: "OFFLINE PROOF: The clerk didn’t get that. Try again."
+    - paragraph: 3 dibs and 5 strikes remaining.
+  - paragraph: 2,389 still up for grabs · last claim just now
+  - list "How it works":
+    - listitem: Call dibs on up to 3 animals.
+    - listitem: Taken guesses cost a strike. 5 strikes and you’re out.
+    - listitem: Fastest clean file wins the day.
+    - listitem: The 10 most obvious answers are held by the house.
+  - group: Restore your file in this browser
+  - text: YOUR HANDLE · FORM C-1 FILED UNDER
+  - strong: "Teal Otter #41"
+  - button "Re-roll (3 left)"
+  - text: 02 / PUBLIC RECORD
+  - heading "First filings" [level=2]
+  - text: SEARCH THESE FILINGS
+  - searchbox "Search the ledger"
+  - status: "Golden tickets: 0 of 3 found today"
+  - paragraph: 2,389 animals still unclaimed. Be early.
+  - table "Claims in Animals":
+    - caption: Claims in Animals
+    - rowgroup:
+      - row "No. ENTRY HOLDER":
+        - columnheader "No."
+        - columnheader "ENTRY"
+        - columnheader "HOLDER"
+    - rowgroup:
+      - 'row "0001 Pangolin Rust Finch #12 11:13 PM ET"':
+        - cell "0001"
+        - cell "Pangolin":
+          - link "Pangolin":
+            - /url: /certificate/fixture-1
+        - 'cell "Rust Finch #12 11:13 PM ET"':
+          - text: "Rust Finch #12"
+          - time: 11:13 PM
+      - row "No. 0002 — open":
+        - cell "No. 0002 — open"
+      - row "No. 0003 — open":
+        - cell "No. 0003 — open"
+      - row "No. 0004 — open":
+        - cell "No. 0004 — open"
+  - text: END OF ENTRIES / 1 ON FILE LIVE / 15s, THEN 60s · PAUSED IN BACKGROUND 03 / COMPLETED FILES
+  - heading "Today's cleanest files" [level=2]
+  - paragraph: Results post as players file.
+  - text: A NOTE FROM THE CLERK
+  - paragraph: All claims are real. All ownership is entirely ceremonial.
+  - link "Read the office notice":
+    - /url: /about

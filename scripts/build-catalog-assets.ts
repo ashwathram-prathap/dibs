@@ -1,7 +1,31 @@
-import { mkdirSync, readdirSync, readFileSync, writeFileSync, rmSync } from 'node:fs';
+import { mkdirSync, readdirSync, readFileSync, writeFileSync, rmSync, existsSync } from 'node:fs';
 import { createHash } from 'node:crypto';
 import { normalize } from '../worker/domain';
 import { shardFor, distanceFrom, type TypoNode, type CatalogRow } from '../shared/catalog';
+const unchanged =
+  existsSync('worker/catalog-hot.generated.ts') &&
+  readdirSync('categories')
+    .filter((f) => f.endsWith('.json'))
+    .every((f) => {
+      const c = JSON.parse(readFileSync('categories/' + f, 'utf8'));
+      if (c.provenance?.identityPolicy !== 'complete-reference-v2') return true;
+      const version = createHash('sha256')
+        .update(JSON.stringify(c.answers))
+        .digest('hex')
+        .slice(0, 16);
+      try {
+        return (
+          JSON.parse(readFileSync(`public/catalog/${c.slug}/manifest.json`, 'utf8')).version ===
+            version && existsSync(`public/catalog/${c.slug}/${version}/full.json`)
+        );
+      } catch {
+        return false;
+      }
+    });
+if (unchanged && !process.argv.includes('--force')) {
+  console.log('Catalog assets already current');
+  process.exit(0);
+}
 rmSync('public/catalog', { recursive: true, force: true });
 mkdirSync('public/catalog', { recursive: true });
 const hot: Record<string, any> = {};

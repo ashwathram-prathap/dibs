@@ -1,0 +1,54 @@
+[
+  {
+    "slug": "actors",
+    "source": "Wikidata CC0 full English-labelled classification set",
+    "license": "https://www.wikidata.org/wiki/Wikidata:Data_access",
+    "complete": false,
+    "attempts": [
+      {
+        "query": "SELECT DISTINCT ?item ?name WHERE { ?item wdt:P106/wdt:P279* wd:Q33999 . ?item rdfs:label ?name . FILTER(LANG(?name)=\"en\") }",
+        "passed": false,
+        "error": "SyntaxError: Expected double-quoted property name in JSON at position 2324734 (line 99893 column 1)",
+        "ms": 70884
+      },
+      {
+        "query": "SELECT ?item ?name WHERE { { SELECT DISTINCT ?item WHERE { ?item wdt:P106/wdt:P279* wd:Q33999 } } ?item rdfs:label ?name . FILTER(LANG(?name)=\"en\") }",
+        "passed": false,
+        "error": "Error: HTTP 504",
+        "ms": 65281
+      },
+      {
+        "query": "SELECT ?item ?name WHERE { { SELECT DISTINCT ?item WHERE { ?item wdt:P106/wdt:P279* wd:Q33999 } } SERVICE wikibase:label { bd:serviceParam wikibase:language \"en\". ?item rdfs:label ?name. } FILTER(!REGEX(?name,\"^Q[0-9]+$\")) }",
+        "passed": false,
+        "error": "SyntaxError: Expected ',' or '}' after property value in JSON at position 49386311 (line 2110459 column 234)",
+        "ms": 63572
+      }
+    ]
+  },
+  {
+    "slug": "films",
+    "source": "Wikidata CC0 full English-labelled classification set",
+    "license": "https://www.wikidata.org/wiki/Wikidata:Data_access",
+    "complete": false,
+    "attempts": [
+      {
+        "query": "SELECT DISTINCT ?item ?name WHERE { ?item wdt:P31/wdt:P279* wd:Q11424 . ?item rdfs:label ?name . FILTER(LANG(?name)=\"en\") }",
+        "passed": false,
+        "error": "SyntaxError: Unterminated string in JSON at position 17628096 (line 743269 column 57)",
+        "ms": 66279
+      },
+      {
+        "query": "SELECT ?item ?name WHERE { { SELECT DISTINCT ?item WHERE { ?item wdt:P31/wdt:P279* wd:Q11424 } } ?item rdfs:label ?name . FILTER(LANG(?name)=\"en\") }",
+        "passed": false,
+        "error": "Error: HTTP 504",
+        "ms": 65152
+      },
+      {
+        "query": "SELECT ?item ?name WHERE { { SELECT DISTINCT ?item WHERE { ?item wdt:P31/wdt:P279* wd:Q11424 } } SERVICE wikibase:label { bd:serviceParam wikibase:language \"en\". ?item rdfs:label ?name. } FILTER(!REGEX(?name,\"^Q[0-9]+$\")) }",
+        "passed": false,
+        "error": "SyntaxError: Expected ':' after property name in JSON at position 4192746 (line 174998 column 16)",
+        "ms": 63369
+      }
+    ]
+  }
+]

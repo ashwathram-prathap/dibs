@@ -1,5 +1,5 @@
 - main:
-  - region "Round countdown": Round closes in Round closes at 10:23 AM ET. 721 minutes remaining.
+  - region "Round countdown": Round closes in Round closes at 11:11 AM ET. 721 minutes remaining.
   - text: "Today's category:"
   - heading "Animals" [level=1]
   - paragraph: Name an animal nobody has claimed yet. First to call it owns it today.
@@ -64,30 +64,30 @@
         - columnheader "ENTRY"
         - columnheader "HOLDER"
     - rowgroup:
-      - 'row "0003 Okapi Teal Otter #41 10:23 PM ET"':
+      - 'row "0003 Okapi Teal Otter #41 11:11 PM ET"':
         - cell "0003"
         - cell "Okapi":
           - link "Okapi":
             - /url: /certificate/fixture-3
-        - 'cell "Teal Otter #41 10:23 PM ET"':
+        - 'cell "Teal Otter #41 11:11 PM ET"':
           - text: "Teal Otter #41"
-          - time: 10:23 PM
-      - 'row "0002 Axolotl Teal Otter #41 10:23 PM ET"':
+          - time: 11:11 PM
+      - 'row "0002 Axolotl Teal Otter #41 11:11 PM ET"':
         - cell "0002"
         - cell "Axolotl":
           - link "Axolotl":
             - /url: /certificate/fixture-2
-        - 'cell "Teal Otter #41 10:23 PM ET"':
+        - 'cell "Teal Otter #41 11:11 PM ET"':
           - text: "Teal Otter #41"
-          - time: 10:23 PM
-      - 'row "0001 Pangolin Rust Finch #12 10:23 PM ET"':
+          - time: 11:11 PM
+      - 'row "0001 Pangolin Rust Finch #12 11:11 PM ET"':
         - cell "0001"
         - cell "Pangolin":
           - link "Pangolin":
             - /url: /certificate/fixture-1
-        - 'cell "Rust Finch #12 10:23 PM ET"':
+        - 'cell "Rust Finch #12 11:11 PM ET"':
           - text: "Rust Finch #12"
-          - time: 10:23 PM
+          - time: 11:11 PM
       - row "No. 0004 — open":
         - cell "No. 0004 — open"
       - row "No. 0005 — open":

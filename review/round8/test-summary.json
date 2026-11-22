@@ -1,0 +1,28 @@
+{
+  "unit": {
+    "passed": 72,
+    "failed": 0,
+    "note": "Three additional real Cloudflare HTML-rewriter SEO tests passed separately."
+  },
+  "browser": {
+    "localMatrixPassed": 469,
+    "localMatrixFailed": 79,
+    "failuresExplained": "78 local Firefox launcher failures; 1 WebKit spelling asset setup race. Exact WebKit spelling retest passed. Firefox Linux CI passed all 78.",
+    "targetedClosure": {
+      "passed": 4
+    },
+    "certificateChromiumWebKit": {
+      "passed": 42,
+      "skipped": 28
+    },
+    "firefoxCI": "https://github.com/ashwathram-prathap/dibs/actions/runs/44982931625"
+  },
+  "visualAudit": {
+    "states": 168,
+    "axeViolations": 0,
+    "horizontalOverflow": 0,
+    "emojiGlyphViolations": 0
+  },
+  "emojiSourceCheck": "passed",
+  "practiceLive": "all read-only checks passed; actual Turnstile claim automation blocked in three browser configurations"
+}

@@ -1,5 +1,5 @@
 - main:
-  - region "Round countdown": Round closes in Round closes at 10:24 AM ET. 721 minutes remaining.
+  - region "Round countdown": Round closes in Round closes at 11:13 AM ET. 721 minutes remaining.
   - text: "Today's category:"
   - heading "Animals" [level=1]
   - paragraph: Name an animal nobody has claimed yet. First to call it owns it today.
@@ -19,6 +19,15 @@
     - listitem: Taken guesses cost a strike. 5 strikes and you’re out.
     - listitem: Fastest clean file wins the day.
     - listitem: The 10 most obvious answers are held by the house.
+  - heading "Your file key" [level=2]
+  - paragraph: Save this key. It is shown after your first claim.
+  - strong: DIBS-01234-56789-ABCDE-F0123
+  - paragraph: Switching apps? Use your file key to keep your dibs and streak.
+  - link "Continue in another browser":
+    - /url: /#file-key=DIBS-01234-56789-ABCDE-F0123
+  - button "Copy continuation link"
+  - status
+  - button "I saved my key"
   - group: Restore your file in this browser
   - article "Certificate of Dibs for Axolotl":
     - text: + REGISTRY OF CLAIMS FORM D-1 CERTIFICATE OF DIBS No. 0002
@@ -63,22 +72,22 @@
         - columnheader "HOLDER"
         - columnheader "TIME"
     - rowgroup:
-      - 'row "0002 Axolotl Teal Otter #41 10:24 PM ET"':
+      - 'row "0002 Axolotl Teal Otter #41 11:13 PM ET"':
         - cell "0002"
         - cell "Axolotl":
           - link "Axolotl":
             - /url: /certificate/fixture-2
         - 'cell "Teal Otter #41"'
-        - cell "10:24 PM ET":
-          - time: 10:24 PM
-      - 'row "0001 Pangolin Rust Finch #12 10:24 PM ET"':
+        - cell "11:13 PM ET":
+          - time: 11:13 PM
+      - 'row "0001 Pangolin Rust Finch #12 11:13 PM ET"':
         - cell "0001"
         - cell "Pangolin":
           - link "Pangolin":
             - /url: /certificate/fixture-1
         - 'cell "Rust Finch #12"'
-        - cell "10:24 PM ET":
-          - time: 10:24 PM
+        - cell "11:13 PM ET":
+          - time: 11:13 PM
       - row "No. 0003 — open":
         - cell "No. 0003 — open"
       - row "No. 0004 — open":

@@ -180,9 +180,12 @@ export async function request(path: string, body?: any): Promise<any> {
     };
   if (path.startsWith('/certificate/'))
     return { claim: claims.find((c) => c.id === path.split('/').pop()) || mine };
-  if(path==='/missing')return {ok:true,message:'Submitted to the clerk. No strike charged.'};
-  if(path==='/recover')return {ok:true};
+  if (path === '/missing')
+    return { ok: true, message: 'Submitted to the clerk. No strike charged.' };
+  if (path === '/recover') return { ok: true };
   if (path === '/claim') {
+    if (r7.has('r8') && body.answer === 'offline proof')
+      throw new Error('The clerk didn’t get that. Try again.');
     if (file().closed) throw new ApiError(403, { message: 'Your file is closed for today.' });
     if (r6 && body.answer.toLowerCase() === 'dog') {
       events.push({ at: new Date().toISOString(), kind: 'strike', display: 'DOG', house: true });
@@ -199,8 +202,13 @@ export async function request(path: string, body?: any): Promise<any> {
       throw new ApiError(422, {
         message: "Not on today's register. Check the spelling.",
         code: 'NOT_REGISTERED',
-        spellingCatalog: new URLSearchParams(location.search).get('spellingVersion') ? {slug:'animals',version:new URLSearchParams(location.search).get('spellingVersion')} : null,
-        suggestion: body.answer.toLowerCase()==='axolot'?'Axolotl':null,
+        spellingCatalog: new URLSearchParams(location.search).get('spellingVersion')
+          ? {
+              slug: 'animals',
+              version: new URLSearchParams(location.search).get('spellingVersion'),
+            }
+          : null,
+        suggestion: body.answer.toLowerCase() === 'axolot' ? 'Axolotl' : null,
       });
     const taken = claims.find((c) => c.display === entry);
     if (taken) {
@@ -246,7 +254,13 @@ export async function request(path: string, body?: any): Promise<any> {
       claimId: mine.id,
       obscurity: mine.obscurity,
     });
-    return { claim: mine, me: await request('/me') };
+    return {
+      claim: mine,
+      me: await request('/me'),
+      ...(r7.has('r8') && myClaims.length === 1
+        ? { recoveryKey: 'DIBS-01234-56789-ABCDE-F0123' }
+        : {}),
+    };
   }
   if (path.startsWith('/summary/'))
     return {

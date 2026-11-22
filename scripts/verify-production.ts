@@ -25,7 +25,8 @@ const allowed = new Set([
   '#e4ddcf',
   '#1a1a17',
   '#5c5a53',
-  '#e1462b',
+  '#b93420', // AA vermilion on paper.
+  '#ff836b', // AA vermilion on carbon.
   '#22408f',
   '#16150f',
   '#b8902f',

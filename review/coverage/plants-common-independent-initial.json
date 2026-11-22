@@ -1,0 +1,811 @@
+{
+  "source": "Wikipedia garden plants: only parenthetical English common names, excluding taxonomy notes",
+  "seed": 8153,
+  "method": "Uniform draw without replacement from the middle half by measured readership; sources selected before matching; all misses retained.",
+  "poolSize": 601,
+  "excluded": [],
+  "answers": [
+    "bottlebrush",
+    "heavenly bamboo",
+    "boxwood",
+    "wood fern",
+    "evening primrose",
+    "oil palm",
+    "jacob's ladder",
+    "rue",
+    "madrone",
+    "water hyssop",
+    "spatterdock",
+    "primrose",
+    "goldenseal",
+    "milkwort",
+    "rose apple",
+    "ironweed",
+    "cinquefoil",
+    "sedge",
+    "pineapple",
+    "strawberry",
+    "hens and chicks",
+    "fameflower",
+    "sundrops",
+    "flowering quince",
+    "hollyhock",
+    "stock",
+    "olive",
+    "traveler's tree",
+    "hops",
+    "day flower",
+    "sago palm",
+    "hiba",
+    "soapwort",
+    "waterlily",
+    "lungwort",
+    "watercress",
+    "knotweed",
+    "doum palm",
+    "shield fern",
+    "smallweed",
+    "cord grass",
+    "sea lavender",
+    "rosemary",
+    "dill",
+    "maidenhair fern",
+    "raffia",
+    "toadflax",
+    "butterwort",
+    "stonecrop",
+    "bee balm"
+  ],
+  "samples": [
+    {
+      "answer": "bottlebrush",
+      "source": "https://en.wikipedia.org/wiki/Callistemon",
+      "wikipediaTitle": "Callistemon",
+      "pageviews": {
+        "total": 4612,
+        "days": 29,
+        "start": "2026-10-23",
+        "end": "2026-11-20",
+        "title": "Callistemon",
+        "status": "measured"
+      },
+      "initiallyPresent": null,
+      "present": true
+    },
+    {
+      "answer": "heavenly bamboo",
+      "source": "https://en.wikipedia.org/wiki/Nandina",
+      "wikipediaTitle": "Nandina",
+      "pageviews": {
+        "total": 3989,
+        "days": 29,
+        "start": "2026-10-23",
+        "end": "2026-11-20",
+        "title": "Nandina",
+        "status": "measured"
+      },
+      "initiallyPresent": null,
+      "present": true
+    },
+    {
+      "answer": "boxwood",
+      "source": "https://en.wikipedia.org/wiki/Buxus",
+      "wikipediaTitle": "Buxus",
+      "pageviews": {
+        "total": 3134,
+        "days": 29,
+        "start": "2026-10-23",
+        "end": "2026-11-20",
+        "title": "Buxus",
+        "status": "measured"
+      },
+      "initiallyPresent": null,
+      "present": true
+    },
+    {
+      "answer": "wood fern",
+      "source": "https://en.wikipedia.org/wiki/Dryopteris",
+      "wikipediaTitle": "Dryopteris",
+      "pageviews": {
+        "total": 759,
+        "days": 30,
+        "start": "2026-10-23",
+        "end": "2026-11-21",
+        "title": "Dryopteris",
+        "status": "measured"
+      },
+      "initiallyPresent": null,
+      "present": true
+    },
+    {
+      "answer": "evening primrose",
+      "source": "https://en.wikipedia.org/wiki/Oenothera",
+      "wikipediaTitle": "Oenothera",
+      "pageviews": {
+        "total": 1861,
+        "days": 30,
+        "start": "2026-10-23",
+        "end": "2026-11-21",
+        "title": "Oenothera",
+        "status": "measured"
+      },
+      "initiallyPresent": null,
+      "present": true
+    },
+    {
+      "answer": "oil palm",
+      "source": "https://en.wikipedia.org/wiki/Elaeis",
+      "wikipediaTitle": "Elaeis",
+      "pageviews": {
+        "total": 1103,
+        "days": 30,
+        "start": "2026-10-23",
+        "end": "2026-11-21",
+        "title": "Elaeis",
+        "status": "measured"
+      },
+      "initiallyPresent": null,
+      "present": true
+    },
+    {
+      "answer": "jacob's ladder",
+      "source": "https://en.wikipedia.org/wiki/Polemonium",
+      "wikipediaTitle": "Polemonium",
+      "pageviews": {
+        "total": 391,
+        "days": 29,
+        "start": "2026-10-23",
+        "end": "2026-11-20",
+        "title": "Polemonium",
+        "status": "measured"
+      },
+      "initiallyPresent": null,
+      "present": true
+    },
+    {
+      "answer": "rue",
+      "source": "https://en.wikipedia.org/wiki/Ruta",
+      "wikipediaTitle": "Ruta",
+      "pageviews": {
+        "total": 1797,
+        "days": 29,
+        "start": "2026-10-23",
+        "end": "2026-11-20",
+        "title": "Ruta",
+        "status": "measured"
+      },
+      "initiallyPresent": null,
+      "present": true
+    },
+    {
+      "answer": "madrone",
+      "source": "https://en.wikipedia.org/wiki/Arbutus",
+      "wikipediaTitle": "Arbutus",
+      "pageviews": {
+        "total": 4049,
+        "days": 30,
+        "start": "2026-10-23",
+        "end": "2026-11-21",
+        "title": "Arbutus",
+        "status": "measured"
+      },
+      "initiallyPresent": null,
+      "present": true
+    },
+    {
+      "answer": "water hyssop",
+      "source": "https://en.wikipedia.org/wiki/Bacopa",
+      "wikipediaTitle": "Bacopa",
+      "pageviews": {
+        "total": 1729,
+        "days": 29,
+        "start": "2026-10-23",
+        "end": "2026-11-20",
+        "title": "Bacopa",
+        "status": "measured"
+      },
+      "initiallyPresent": null,
+      "present": true
+    },
+    {
+      "answer": "spatterdock",
+      "source": "https://en.wikipedia.org/wiki/Nuphar",
+      "wikipediaTitle": "Nuphar",
+      "pageviews": {
+        "total": 731,
+        "days": 30,
+        "start": "2026-10-23",
+        "end": "2026-11-21",
+        "title": "Nuphar",
+        "status": "measured"
+      },
+      "initiallyPresent": null,
+      "present": true
+    },
+    {
+      "answer": "primrose",
+      "source": "https://en.wikipedia.org/wiki/Primula",
+      "wikipediaTitle": "Primula",
+      "pageviews": {
+        "total": 2106,
+        "days": 29,
+        "start": "2026-10-23",
+        "end": "2026-11-20",
+        "title": "Primula",
+        "status": "measured"
+      },
+      "initiallyPresent": null,
+      "present": true
+    },
+    {
+      "answer": "goldenseal",
+      "source": "https://en.wikipedia.org/wiki/Hydrastis",
+      "wikipediaTitle": "Hydrastis",
+      "pageviews": {
+        "total": 2719,
+        "days": 30,
+        "start": "2026-10-23",
+        "end": "2026-11-21",
+        "title": "Goldenseal",
+        "status": "measured"
+      },
+      "initiallyPresent": null,
+      "present": true
+    },
+    {
+      "answer": "milkwort",
+      "source": "https://en.wikipedia.org/wiki/Polygala",
+      "wikipediaTitle": "Polygala",
+      "pageviews": {
+        "total": 689,
+        "days": 29,
+        "start": "2026-10-23",
+        "end": "2026-11-20",
+        "title": "Polygala",
+        "status": "measured"
+      },
+      "initiallyPresent": null,
+      "present": true
+    },
+    {
+      "answer": "rose apple",
+      "source": "https://en.wikipedia.org/wiki/Syzygium",
+      "wikipediaTitle": "Syzygium",
+      "pageviews": {
+        "total": 2154,
+        "days": 29,
+        "start": "2026-10-23",
+        "end": "2026-11-20",
+        "title": "Syzygium",
+        "status": "measured"
+      },
+      "initiallyPresent": null,
+      "present": true
+    },
+    {
+      "answer": "ironweed",
+      "source": "https://en.wikipedia.org/wiki/Vernonia",
+      "wikipediaTitle": "Vernonia",
+      "pageviews": {
+        "total": 770,
+        "days": 30,
+        "start": "2026-10-23",
+        "end": "2026-11-21",
+        "title": "Vernonia",
+        "status": "measured"
+      },
+      "initiallyPresent": null,
+      "present": true
+    },
+    {
+      "answer": "cinquefoil",
+      "source": "https://en.wikipedia.org/wiki/Potentilla",
+      "wikipediaTitle": "Potentilla",
+      "pageviews": {
+        "total": 1958,
+        "days": 30,
+        "start": "2026-10-23",
+        "end": "2026-11-21",
+        "title": "Potentilla",
+        "status": "measured"
+      },
+      "initiallyPresent": null,
+      "present": true
+    },
+    {
+      "answer": "sedge",
+      "source": "https://en.wikipedia.org/wiki/Carex",
+      "wikipediaTitle": "Carex",
+      "pageviews": {
+        "total": 2825,
+        "days": 30,
+        "start": "2026-10-23",
+        "end": "2026-11-21",
+        "title": "Carex",
+        "status": "measured"
+      },
+      "initiallyPresent": null,
+      "present": true
+    },
+    {
+      "answer": "pineapple",
+      "source": "https://en.wikipedia.org/wiki/Ananas",
+      "wikipediaTitle": "Ananas",
+      "pageviews": {
+        "total": 2766,
+        "days": 29,
+        "start": "2026-10-23",
+        "end": "2026-11-20",
+        "title": "Ananas",
+        "status": "measured"
+      },
+      "initiallyPresent": null,
+      "present": true
+    },
+    {
+      "answer": "strawberry",
+      "source": "https://en.wikipedia.org/wiki/Fragaria",
+      "wikipediaTitle": "Fragaria",
+      "pageviews": {
+        "total": 3100,
+        "days": 30,
+        "start": "2026-10-23",
+        "end": "2026-11-21",
+        "title": "Fragaria",
+        "status": "measured"
+      },
+      "initiallyPresent": null,
+      "present": true
+    },
+    {
+      "answer": "hens and chicks",
+      "source": "https://en.wikipedia.org/wiki/Sempervivum",
+      "wikipediaTitle": "Sempervivum",
+      "pageviews": {
+        "total": 1444,
+        "days": 29,
+        "start": "2026-10-23",
+        "end": "2026-11-20",
+        "title": "Sempervivum",
+        "status": "measured"
+      },
+      "initiallyPresent": null,
+      "present": false
+    },
+    {
+      "answer": "fameflower",
+      "source": "https://en.wikipedia.org/wiki/Talinum",
+      "wikipediaTitle": "Talinum",
+      "pageviews": {
+        "total": 516,
+        "days": 29,
+        "start": "2026-10-23",
+        "end": "2026-11-20",
+        "title": "Talinum",
+        "status": "measured"
+      },
+      "initiallyPresent": null,
+      "present": true
+    },
+    {
+      "answer": "sundrops",
+      "source": "https://en.wikipedia.org/wiki/Oenothera",
+      "wikipediaTitle": "Oenothera",
+      "pageviews": {
+        "total": 1861,
+        "days": 30,
+        "start": "2026-10-23",
+        "end": "2026-11-21",
+        "title": "Oenothera",
+        "status": "measured"
+      },
+      "initiallyPresent": null,
+      "present": true
+    },
+    {
+      "answer": "flowering quince",
+      "source": "https://en.wikipedia.org/wiki/Chaenomeles",
+      "wikipediaTitle": "Chaenomeles",
+      "pageviews": {
+        "total": 1825,
+        "days": 30,
+        "start": "2026-10-23",
+        "end": "2026-11-21",
+        "title": "Chaenomeles",
+        "status": "measured"
+      },
+      "initiallyPresent": null,
+      "present": true
+    },
+    {
+      "answer": "hollyhock",
+      "source": "https://en.wikipedia.org/wiki/Alcea",
+      "wikipediaTitle": "Alcea",
+      "pageviews": {
+        "total": 2355,
+        "days": 29,
+        "start": "2026-10-23",
+        "end": "2026-11-20",
+        "title": "Alcea",
+        "status": "measured"
+      },
+      "initiallyPresent": null,
+      "present": true
+    },
+    {
+      "answer": "stock",
+      "source": "https://en.wikipedia.org/wiki/Matthiola",
+      "wikipediaTitle": "Matthiola",
+      "pageviews": {
+        "total": 887,
+        "days": 29,
+        "start": "2026-10-23",
+        "end": "2026-11-20",
+        "title": "Matthiola",
+        "status": "measured"
+      },
+      "initiallyPresent": null,
+      "present": true
+    },
+    {
+      "answer": "olive",
+      "source": "https://en.wikipedia.org/wiki/Olea",
+      "wikipediaTitle": "Olea",
+      "pageviews": {
+        "total": 1252,
+        "days": 30,
+        "start": "2026-10-23",
+        "end": "2026-11-21",
+        "title": "Olea",
+        "status": "measured"
+      },
+      "initiallyPresent": null,
+      "present": true
+    },
+    {
+      "answer": "traveler's tree",
+      "source": "https://en.wikipedia.org/wiki/Ravenala",
+      "wikipediaTitle": "Ravenala",
+      "pageviews": {
+        "total": 571,
+        "days": 29,
+        "start": "2026-10-23",
+        "end": "2026-11-20",
+        "title": "Ravenala",
+        "status": "measured"
+      },
+      "initiallyPresent": null,
+      "present": true
+    },
+    {
+      "answer": "hops",
+      "source": "https://en.wikipedia.org/wiki/Humulus",
+      "wikipediaTitle": "Humulus",
+      "pageviews": {
+        "total": 1344,
+        "days": 29,
+        "start": "2026-10-23",
+        "end": "2026-11-20",
+        "title": "Humulus",
+        "status": "measured"
+      },
+      "initiallyPresent": null,
+      "present": true
+    },
+    {
+      "answer": "day flower",
+      "source": "https://en.wikipedia.org/wiki/Commelina",
+      "wikipediaTitle": "Commelina",
+      "pageviews": {
+        "total": 875,
+        "days": 29,
+        "start": "2026-10-23",
+        "end": "2026-11-20",
+        "title": "Commelina",
+        "status": "measured"
+      },
+      "initiallyPresent": null,
+      "present": true
+    },
+    {
+      "answer": "sago palm",
+      "source": "https://en.wikipedia.org/wiki/Cycas",
+      "wikipediaTitle": "Cycas",
+      "pageviews": {
+        "total": 2584,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20",
+        "title": "Cycas",
+        "status": "measured"
+      },
+      "initiallyPresent": null,
+      "present": true
+    },
+    {
+      "answer": "hiba",
+      "source": "https://en.wikipedia.org/wiki/Thujopsis",
+      "wikipediaTitle": "Thujopsis",
+      "pageviews": {
+        "total": 532,
+        "days": 29,
+        "start": "2026-10-23",
+        "end": "2026-11-20",
+        "title": "Thujopsis",
+        "status": "measured"
+      },
+      "initiallyPresent": null,
+      "present": true
+    },
+    {
+      "answer": "soapwort",
+      "source": "https://en.wikipedia.org/wiki/Saponaria",
+      "wikipediaTitle": "Saponaria",
+      "pageviews": {
+        "total": 814,
+        "days": 30,
+        "start": "2026-10-23",
+        "end": "2026-11-21",
+        "title": "Saponaria",
+        "status": "measured"
+      },
+      "initiallyPresent": null,
+      "present": true
+    },
+    {
+      "answer": "waterlily",
+      "source": "https://en.wikipedia.org/wiki/Nymphaea",
+      "wikipediaTitle": "Nymphaea",
+      "pageviews": {
+        "total": 3200,
+        "days": 30,
+        "start": "2026-10-23",
+        "end": "2026-11-21",
+        "title": "Nymphaea",
+        "status": "measured"
+      },
+      "initiallyPresent": null,
+      "present": true
+    },
+    {
+      "answer": "lungwort",
+      "source": "https://en.wikipedia.org/wiki/Pulmonaria",
+      "wikipediaTitle": "Pulmonaria",
+      "pageviews": {
+        "total": 1107,
+        "days": 30,
+        "start": "2026-10-23",
+        "end": "2026-11-21",
+        "title": "Pulmonaria",
+        "status": "measured"
+      },
+      "initiallyPresent": null,
+      "present": true
+    },
+    {
+      "answer": "watercress",
+      "source": "https://en.wikipedia.org/wiki/Nasturtium_(crucifer)",
+      "wikipediaTitle": "Nasturtium (crucifer)",
+      "pageviews": {
+        "total": 1241,
+        "days": 30,
+        "start": "2026-10-23",
+        "end": "2026-11-21",
+        "title": "Nasturtium (plant genus)",
+        "status": "measured"
+      },
+      "initiallyPresent": null,
+      "present": true
+    },
+    {
+      "answer": "knotweed",
+      "source": "https://en.wikipedia.org/wiki/Persicaria",
+      "wikipediaTitle": "Persicaria",
+      "pageviews": {
+        "total": 1250,
+        "days": 30,
+        "start": "2026-10-23",
+        "end": "2026-11-21",
+        "title": "Persicaria",
+        "status": "measured"
+      },
+      "initiallyPresent": null,
+      "present": true
+    },
+    {
+      "answer": "doum palm",
+      "source": "https://en.wikipedia.org/wiki/Hyphaene",
+      "wikipediaTitle": "Hyphaene",
+      "pageviews": {
+        "total": 432,
+        "days": 29,
+        "start": "2026-10-23",
+        "end": "2026-11-20",
+        "title": "Hyphaene",
+        "status": "measured"
+      },
+      "initiallyPresent": null,
+      "present": true
+    },
+    {
+      "answer": "shield fern",
+      "source": "https://en.wikipedia.org/wiki/Dryopteris",
+      "wikipediaTitle": "Dryopteris",
+      "pageviews": {
+        "total": 759,
+        "days": 30,
+        "start": "2026-10-23",
+        "end": "2026-11-21",
+        "title": "Dryopteris",
+        "status": "measured"
+      },
+      "initiallyPresent": null,
+      "present": true
+    },
+    {
+      "answer": "smallweed",
+      "source": "https://en.wikipedia.org/wiki/Calamagrostis",
+      "wikipediaTitle": "Calamagrostis",
+      "pageviews": {
+        "total": 405,
+        "days": 29,
+        "start": "2026-10-23",
+        "end": "2026-11-20",
+        "title": "Calamagrostis",
+        "status": "measured"
+      },
+      "initiallyPresent": null,
+      "present": false
+    },
+    {
+      "answer": "cord grass",
+      "source": "https://en.wikipedia.org/wiki/Spartina",
+      "wikipediaTitle": "Spartina",
+      "pageviews": {
+        "total": 698,
+        "days": 30,
+        "start": "2026-10-23",
+        "end": "2026-11-21",
+        "title": "Spartina",
+        "status": "measured"
+      },
+      "initiallyPresent": null,
+      "present": true
+    },
+    {
+      "answer": "sea lavender",
+      "source": "https://en.wikipedia.org/wiki/Limonium",
+      "wikipediaTitle": "Limonium",
+      "pageviews": {
+        "total": 2075,
+        "days": 30,
+        "start": "2026-10-23",
+        "end": "2026-11-21",
+        "title": "Limonium",
+        "status": "measured"
+      },
+      "initiallyPresent": null,
+      "present": true
+    },
+    {
+      "answer": "rosemary",
+      "source": "https://en.wikipedia.org/wiki/Rosmarinus",
+      "wikipediaTitle": "Rosmarinus",
+      "pageviews": {
+        "total": 574,
+        "days": 29,
+        "start": "2026-10-23",
+        "end": "2026-11-20",
+        "title": "Rosmarinus",
+        "status": "measured"
+      },
+      "initiallyPresent": null,
+      "present": true
+    },
+    {
+      "answer": "dill",
+      "source": "https://en.wikipedia.org/wiki/Anethum",
+      "wikipediaTitle": "Anethum",
+      "pageviews": {
+        "total": 412,
+        "days": 30,
+        "start": "2026-10-23",
+        "end": "2026-11-21",
+        "title": "Anethum",
+        "status": "measured"
+      },
+      "initiallyPresent": null,
+      "present": true
+    },
+    {
+      "answer": "maidenhair fern",
+      "source": "https://en.wikipedia.org/wiki/Adiantum",
+      "wikipediaTitle": "Adiantum",
+      "pageviews": {
+        "total": 1624,
+        "days": 30,
+        "start": "2026-10-23",
+        "end": "2026-11-21",
+        "title": "Adiantum",
+        "status": "measured"
+      },
+      "initiallyPresent": null,
+      "present": true
+    },
+    {
+      "answer": "raffia",
+      "source": "https://en.wikipedia.org/wiki/Raphia_(palm)",
+      "wikipediaTitle": "Raphia (palm)",
+      "pageviews": {
+        "total": 2809,
+        "days": 30,
+        "start": "2026-10-23",
+        "end": "2026-11-21",
+        "title": "Raffia palm",
+        "status": "measured"
+      },
+      "initiallyPresent": null,
+      "present": false
+    },
+    {
+      "answer": "toadflax",
+      "source": "https://en.wikipedia.org/wiki/Linaria",
+      "wikipediaTitle": "Linaria",
+      "pageviews": {
+        "total": 799,
+        "days": 29,
+        "start": "2026-10-23",
+        "end": "2026-11-20",
+        "title": "Linaria",
+        "status": "measured"
+      },
+      "initiallyPresent": null,
+      "present": true
+    },
+    {
+      "answer": "butterwort",
+      "source": "https://en.wikipedia.org/wiki/Pinguicula",
+      "wikipediaTitle": "Pinguicula",
+      "pageviews": {
+        "total": 3749,
+        "days": 29,
+        "start": "2026-10-23",
+        "end": "2026-11-20",
+        "title": "Pinguicula",
+        "status": "measured"
+      },
+      "initiallyPresent": null,
+      "present": true
+    },
+    {
+      "answer": "stonecrop",
+      "source": "https://en.wikipedia.org/wiki/Sedum",
+      "wikipediaTitle": "Sedum",
+      "pageviews": {
+        "total": 2842,
+        "days": 30,
+        "start": "2026-10-23",
+        "end": "2026-11-21",
+        "title": "Sedum",
+        "status": "measured"
+      },
+      "initiallyPresent": null,
+      "present": true
+    },
+    {
+      "answer": "bee balm",
+      "source": "https://en.wikipedia.org/wiki/Monarda",
+      "wikipediaTitle": "Monarda",
+      "pageviews": {
+        "total": 1984,
+        "days": 30,
+        "start": "2026-10-23",
+        "end": "2026-11-21",
+        "title": "Monarda",
+        "status": "measured"
+      },
+      "initiallyPresent": null,
+      "present": true
+    }
+  ]
+}

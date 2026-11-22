@@ -2,7 +2,7 @@
   "source": "Wikipedia lists of Chinese and Greek dishes (independent of WordNet and OFF builders)",
   "seed": 8153,
   "method": "Uniform draw without replacement from the middle half by measured readership; sources selected before matching; all misses retained.",
-  "poolSize": 213,
+  "poolSize": 211,
   "excluded": [
     {
       "name": "Double steaming",
@@ -45,7 +45,19 @@
       "reason": "Beverage or cooking process outside the selected food scope"
     },
     {
+      "name": "Tentura",
+      "reason": "Beverage or cooking process outside the selected food scope"
+    },
+    {
+      "name": "Tsikoudia",
+      "reason": "Beverage or cooking process outside the selected food scope"
+    },
+    {
       "name": "Tsipouro",
+      "reason": "Beverage or cooking process outside the selected food scope"
+    },
+    {
+      "name": "Zivania",
       "reason": "Beverage or cooking process outside the selected food scope"
     },
     {
@@ -54,87 +66,102 @@
     }
   ],
   "answers": [
-    "Hot and sour soup",
-    "Khash",
+    "Pastitsio",
+    "Tea egg",
+    "Faki",
     "Bougatsa",
-    "Zhajiangmian",
-    "White rice",
-    "Tirokafteri",
-    "Guilinggao",
-    "Escabeche",
+    "Chinese noodles",
+    "Gigandes plaki",
+    "Sachima",
+    "Hot and sour soup",
     "Tsoureki",
-    "Dakos",
-    "Tangyuan",
+    "Braised pork",
+    "Buddha jumps over the wall",
     "White cut chicken",
-    "Buddha's delight",
+    "Stuffed tofu",
     "Fuqi Feipian",
     "Graviera",
     "Lakerda",
-    "Greek salad",
-    "Octopus as food",
-    "Stuffed peppers",
-    "Chicken soup",
-    "Dao xiao mian",
-    "Snow fungus",
-    "Pastafrola",
-    "Oyster omelette",
-    "Zongzi",
-    "Lamian",
-    "Mantou",
-    "Spoon sweets",
-    "Liangpi",
-    "Noodle soup",
-    "Horta",
-    "Sweet and sour pork",
-    "Buddha jumps over the wall",
-    "Kokoretsi",
-    "Melomakarona",
-    "Chicken with chilies",
-    "Sachima",
-    "Gigandes plaki",
-    "Crossing the bridge noodles",
-    "Stuffed tofu",
+    "Yeung Chow fried rice",
+    "Skordalia",
     "Portokalopita",
+    "Tangyuan",
+    "Tirokafteri",
+    "Luosifen",
+    "Pastafrola",
+    "Yusheng",
+    "Saganaki",
+    "Trahanas",
+    "Garides",
+    "Spoon sweets",
+    "Myzithra",
+    "Guilinggao",
+    "Kreatopita",
+    "Safridia",
+    "Savoro",
+    "Avgolemono",
+    "Finikia",
+    "Sea cucumber",
+    "Tong sui",
+    "Siu Yuk",
+    "Liangpi",
+    "Sweet and sour pork",
+    "Kokoretsi",
     "Crispy fried chicken",
-    "Twice cooked pork",
-    "Pancetta",
-    "Cha siu bao",
-    "Breadstick",
-    "Strapatsada",
-    "Loukaniko",
-    "Pastitsio",
-    "Trahanas"
+    "Buddha's delight",
+    "Fried squid",
+    "Wonton noodles",
+    "Crossing the bridge noodles",
+    "Kasseri",
+    "Melomakarona",
+    "Zongzi",
+    "Kotosoupa"
   ],
   "samples": [
     {
-      "answer": "Hot and sour soup",
-      "source": "https://en.wikipedia.org/wiki/Hot_and_sour_soup#China",
-      "wikipediaTitle": "Hot and sour soup",
+      "answer": "Pastitsio",
+      "source": "https://en.wikipedia.org/wiki/Pastitsio",
+      "wikipediaTitle": "Pastitsio",
       "pageviews": {
-        "total": 4885,
-        "days": 29,
-        "start": "2026-10-23",
-        "end": "2026-11-20",
-        "title": "Hot and sour soup",
-        "status": "measured"
-      },
-      "initiallyPresent": false,
-      "present": false
-    },
-    {
-      "answer": "Khash",
-      "source": "https://en.wikipedia.org/wiki/Khash_(dish)",
-      "wikipediaTitle": "Khash (dish)",
-      "pageviews": {
-        "total": 3224,
+        "total": 5244,
         "days": 30,
         "start": "2026-10-23",
         "end": "2026-11-21",
-        "title": "Khash (dish)",
+        "title": "Pastitsio",
         "status": "measured"
       },
       "initiallyPresent": false,
-      "present": false
+      "present": true
+    },
+    {
+      "answer": "Tea egg",
+      "source": "https://en.wikipedia.org/wiki/Tea_egg",
+      "wikipediaTitle": "Tea egg",
+      "pageviews": {
+        "total": 3598,
+        "days": 30,
+        "start": "2026-10-23",
+        "end": "2026-11-21",
+        "title": "Tea egg",
+        "status": "measured"
+      },
+      "initiallyPresent": null,
+      "present": true
+    },
+    {
+      "answer": "Faki",
+      "source": "https://en.wikipedia.org/wiki/Lentil_soup",
+      "wikipediaTitle": "Lentil soup",
+      "pageviews": {
+        "total": 5020,
+        "days": 29,
+        "start": "2026-10-23",
+        "end": "2026-11-20",
+        "title": "Lentil soup",
+        "status": "measured"
+      },
+      "initiallyPresent": null,
+      "present": true
     },
     {
       "answer": "Bougatsa",
@@ -149,82 +176,67 @@
         "status": "measured"
       },
       "initiallyPresent": false,
-      "present": false
-    },
-    {
-      "answer": "Zhajiangmian",
-      "source": "https://en.wikipedia.org/wiki/Zhajiangmian",
-      "wikipediaTitle": "Zhajiangmian",
-      "pageviews": {
-        "total": 4733,
-        "days": 29,
-        "start": "2026-10-23",
-        "end": "2026-11-20",
-        "title": "Zhajiangmian",
-        "status": "measured"
-      },
-      "initiallyPresent": false,
-      "present": false
-    },
-    {
-      "answer": "White rice",
-      "source": "https://en.wikipedia.org/wiki/White_rice",
-      "wikipediaTitle": "White rice",
-      "pageviews": {
-        "total": 3615,
-        "days": 29,
-        "start": "2026-10-23",
-        "end": "2026-11-20",
-        "title": "White rice",
-        "status": "measured"
-      },
-      "initiallyPresent": true,
       "present": true
     },
     {
-      "answer": "Tirokafteri",
-      "source": "https://en.wikipedia.org/wiki/Tirokafteri",
-      "wikipediaTitle": "Tirokafteri",
+      "answer": "Chinese noodles",
+      "source": "https://en.wikipedia.org/wiki/Chinese_noodles",
+      "wikipediaTitle": "Chinese noodles",
       "pageviews": {
-        "total": 1404,
+        "total": 3824,
+        "days": 29,
+        "start": "2026-10-23",
+        "end": "2026-11-20",
+        "title": "Chinese noodles",
+        "status": "measured"
+      },
+      "initiallyPresent": null,
+      "present": true
+    },
+    {
+      "answer": "Gigandes plaki",
+      "source": "https://en.wikipedia.org/wiki/Gigandes_plaki",
+      "wikipediaTitle": "Gigandes plaki",
+      "pageviews": {
+        "total": 1553,
         "days": 30,
         "start": "2026-10-23",
         "end": "2026-11-21",
-        "title": "Tirokafteri",
+        "title": "Gigantes plaki",
         "status": "measured"
       },
-      "initiallyPresent": true,
+      "initiallyPresent": false,
       "present": true
     },
     {
-      "answer": "Guilinggao",
-      "source": "https://en.wikipedia.org/wiki/Guilinggao",
-      "wikipediaTitle": "Guilinggao",
+      "answer": "Sachima",
+      "source": "https://en.wikipedia.org/wiki/Sachima",
+      "wikipediaTitle": "Sachima",
       "pageviews": {
-        "total": 2207,
-        "days": 29,
+        "total": 2413,
+        "days": 30,
         "start": "2026-10-23",
-        "end": "2026-11-20",
-        "title": "Guilinggao",
+        "end": "2026-11-21",
+        "title": "Sachima",
         "status": "measured"
       },
       "initiallyPresent": false,
-      "present": false
+      "present": true
     },
     {
-      "answer": "Escabeche",
-      "source": "https://en.wikipedia.org/wiki/Escabeche",
-      "wikipediaTitle": "Escabeche",
+      "answer": "Hot and sour soup",
+      "source": "https://en.wikipedia.org/wiki/Hot_and_sour_soup#China",
+      "wikipediaTitle": "Hot and sour soup",
       "pageviews": {
-        "total": 4807,
+        "total": 4885,
         "days": 29,
         "start": "2026-10-23",
         "end": "2026-11-20",
-        "title": "Escabeche",
+        "title": "Hot and sour soup",
         "status": "measured"
       },
       "initiallyPresent": false,
-      "present": false
+      "present": true
     },
     {
       "answer": "Tsoureki",
@@ -239,37 +251,37 @@
         "status": "measured"
       },
       "initiallyPresent": false,
-      "present": false
+      "present": true
     },
     {
-      "answer": "Dakos",
-      "source": "https://en.wikipedia.org/wiki/Dakos",
-      "wikipediaTitle": "Dakos",
+      "answer": "Braised pork",
+      "source": "https://en.wikipedia.org/wiki/Dongpo_pork",
+      "wikipediaTitle": "Dongpo pork",
       "pageviews": {
-        "total": 2468,
+        "total": 2537,
         "days": 29,
         "start": "2026-10-23",
         "end": "2026-11-20",
-        "title": "Dakos",
+        "title": "Dongpo pork",
         "status": "measured"
       },
-      "initiallyPresent": false,
-      "present": false
+      "initiallyPresent": null,
+      "present": true
     },
     {
-      "answer": "Tangyuan",
-      "source": "https://en.wikipedia.org/wiki/Tangyuan",
-      "wikipediaTitle": "Tangyuan",
+      "answer": "Buddha jumps over the wall",
+      "source": "https://en.wikipedia.org/wiki/Buddha_jumps_over_the_wall",
+      "wikipediaTitle": "Buddha jumps over the wall",
       "pageviews": {
-        "total": 4355,
-        "days": 29,
+        "total": 4774,
+        "days": 30,
         "start": "2026-10-23",
-        "end": "2026-11-20",
-        "title": "Tangyuan",
+        "end": "2026-11-21",
+        "title": "Buddha Jumps Over the Wall",
         "status": "measured"
       },
       "initiallyPresent": false,
-      "present": false
+      "present": true
     },
     {
       "answer": "White cut chicken",
@@ -284,22 +296,22 @@
         "status": "measured"
       },
       "initiallyPresent": false,
-      "present": false
+      "present": true
     },
     {
-      "answer": "Buddha's delight",
-      "source": "https://en.wikipedia.org/wiki/Buddha%27s_delight",
-      "wikipediaTitle": "Buddha's delight",
+      "answer": "Stuffed tofu",
+      "source": "https://en.wikipedia.org/wiki/Stuffed_tofu",
+      "wikipediaTitle": "Stuffed tofu",
       "pageviews": {
-        "total": 1844,
+        "total": 1893,
         "days": 29,
         "start": "2026-10-23",
         "end": "2026-11-20",
-        "title": "Buddha's delight",
+        "title": "Yong tau foo",
         "status": "measured"
       },
       "initiallyPresent": false,
-      "present": false
+      "present": true
     },
     {
       "answer": "Fuqi Feipian",
@@ -314,7 +326,7 @@
         "status": "measured"
       },
       "initiallyPresent": false,
-      "present": false
+      "present": true
     },
     {
       "answer": "Graviera",
@@ -344,97 +356,97 @@
         "status": "measured"
       },
       "initiallyPresent": false,
-      "present": false
-    },
-    {
-      "answer": "Greek salad",
-      "source": "https://en.wikipedia.org/wiki/Greek_salad",
-      "wikipediaTitle": "Greek salad",
-      "pageviews": {
-        "total": 6673,
-        "days": 29,
-        "start": "2026-10-23",
-        "end": "2026-11-20",
-        "title": "Greek salad",
-        "status": "measured"
-      },
-      "initiallyPresent": true,
       "present": true
     },
     {
-      "answer": "Octopus as food",
-      "source": "https://en.wikipedia.org/wiki/Octopus_as_food",
-      "wikipediaTitle": "Octopus as food",
+      "answer": "Yeung Chow fried rice",
+      "source": "https://en.wikipedia.org/wiki/Yeung_Chow_fried_rice",
+      "wikipediaTitle": "Yeung Chow fried rice",
       "pageviews": {
-        "total": 2264,
+        "total": 7239,
         "days": 30,
         "start": "2026-10-23",
         "end": "2026-11-21",
-        "title": "Octopus as food",
+        "title": "Yangzhou fried rice",
         "status": "measured"
       },
-      "initiallyPresent": false,
-      "present": false
+      "initiallyPresent": null,
+      "present": true
     },
     {
-      "answer": "Stuffed peppers",
-      "source": "https://en.wikipedia.org/wiki/Stuffed_peppers",
-      "wikipediaTitle": "Stuffed peppers",
+      "answer": "Skordalia",
+      "source": "https://en.wikipedia.org/wiki/Skordalia",
+      "wikipediaTitle": "Skordalia",
       "pageviews": {
-        "total": 2981,
+        "total": 2250,
         "days": 29,
         "start": "2026-10-23",
         "end": "2026-11-20",
-        "title": "Stuffed peppers",
+        "title": "Skordalia",
+        "status": "measured"
+      },
+      "initiallyPresent": null,
+      "present": true
+    },
+    {
+      "answer": "Portokalopita",
+      "source": "https://en.wikipedia.org/wiki/Portokalopita",
+      "wikipediaTitle": "Portokalopita",
+      "pageviews": {
+        "total": 3138,
+        "days": 30,
+        "start": "2026-10-23",
+        "end": "2026-11-21",
+        "title": "Portokalopita",
+        "status": "measured"
+      },
+      "initiallyPresent": false,
+      "present": true
+    },
+    {
+      "answer": "Tangyuan",
+      "source": "https://en.wikipedia.org/wiki/Tangyuan",
+      "wikipediaTitle": "Tangyuan",
+      "pageviews": {
+        "total": 4355,
+        "days": 29,
+        "start": "2026-10-23",
+        "end": "2026-11-20",
+        "title": "Tangyuan",
+        "status": "measured"
+      },
+      "initiallyPresent": false,
+      "present": true
+    },
+    {
+      "answer": "Tirokafteri",
+      "source": "https://en.wikipedia.org/wiki/Tirokafteri",
+      "wikipediaTitle": "Tirokafteri",
+      "pageviews": {
+        "total": 1404,
+        "days": 30,
+        "start": "2026-10-23",
+        "end": "2026-11-21",
+        "title": "Tirokafteri",
         "status": "measured"
       },
       "initiallyPresent": true,
       "present": true
     },
     {
-      "answer": "Chicken soup",
-      "source": "https://en.wikipedia.org/wiki/Chicken_soup",
-      "wikipediaTitle": "Chicken soup",
+      "answer": "Luosifen",
+      "source": "https://en.wikipedia.org/wiki/Luosifen",
+      "wikipediaTitle": "Luosifen",
       "pageviews": {
-        "total": 4170,
-        "days": 29,
+        "total": 4061,
+        "days": 30,
         "start": "2026-10-23",
-        "end": "2026-11-20",
-        "title": "Chicken soup",
+        "end": "2026-11-21",
+        "title": "Luosifen",
         "status": "measured"
       },
-      "initiallyPresent": true,
+      "initiallyPresent": null,
       "present": true
-    },
-    {
-      "answer": "Dao xiao mian",
-      "source": "https://en.wikipedia.org/wiki/Dao_xiao_mian",
-      "wikipediaTitle": "Dao xiao mian",
-      "pageviews": {
-        "total": 1355,
-        "days": 29,
-        "start": "2026-10-23",
-        "end": "2026-11-20",
-        "title": "Knife-cut noodles",
-        "status": "measured"
-      },
-      "initiallyPresent": false,
-      "present": false
-    },
-    {
-      "answer": "Snow fungus",
-      "source": "https://en.wikipedia.org/wiki/Snow_fungus",
-      "wikipediaTitle": "Snow fungus",
-      "pageviews": {
-        "total": 3854,
-        "days": 29,
-        "start": "2026-10-23",
-        "end": "2026-11-20",
-        "title": "Tremella fuciformis",
-        "status": "measured"
-      },
-      "initiallyPresent": false,
-      "present": false
     },
     {
       "answer": "Pastafrola",
@@ -449,22 +461,382 @@
         "status": "measured"
       },
       "initiallyPresent": false,
-      "present": false
+      "present": true
     },
     {
-      "answer": "Oyster omelette",
-      "source": "https://en.wikipedia.org/wiki/Oyster_omelette",
-      "wikipediaTitle": "Oyster omelette",
+      "answer": "Yusheng",
+      "source": "https://en.wikipedia.org/wiki/Yusheng",
+      "wikipediaTitle": "Yusheng",
       "pageviews": {
-        "total": 1539,
+        "total": 1557,
         "days": 29,
         "start": "2026-10-23",
         "end": "2026-11-20",
-        "title": "Oyster omelette",
+        "title": "Yusheng",
+        "status": "measured"
+      },
+      "initiallyPresent": null,
+      "present": true
+    },
+    {
+      "answer": "Saganaki",
+      "source": "https://en.wikipedia.org/wiki/Saganaki",
+      "wikipediaTitle": "Saganaki",
+      "pageviews": {
+        "total": 5851,
+        "days": 30,
+        "start": "2026-10-23",
+        "end": "2026-11-21",
+        "title": "Saganaki",
+        "status": "measured"
+      },
+      "initiallyPresent": null,
+      "present": true
+    },
+    {
+      "answer": "Trahanas",
+      "source": "https://en.wikipedia.org/wiki/Trahanas",
+      "wikipediaTitle": "Trahanas",
+      "pageviews": {
+        "total": 4258,
+        "days": 30,
+        "start": "2026-10-23",
+        "end": "2026-11-21",
+        "title": "Tarhana",
         "status": "measured"
       },
       "initiallyPresent": false,
-      "present": false
+      "present": true
+    },
+    {
+      "answer": "Garides",
+      "source": "https://en.wikipedia.org/wiki/Shrimps_as_food",
+      "wikipediaTitle": "Shrimps as food",
+      "pageviews": {
+        "total": 5974,
+        "days": 30,
+        "start": "2026-10-23",
+        "end": "2026-11-21",
+        "title": "Shrimp and prawn as food",
+        "status": "measured"
+      },
+      "initiallyPresent": null,
+      "present": true
+    },
+    {
+      "answer": "Spoon sweets",
+      "source": "https://en.wikipedia.org/wiki/Spoon_sweets",
+      "wikipediaTitle": "Spoon sweets",
+      "pageviews": {
+        "total": 1183,
+        "days": 29,
+        "start": "2026-10-23",
+        "end": "2026-11-20",
+        "title": "Spoon sweets",
+        "status": "measured"
+      },
+      "initiallyPresent": false,
+      "present": true
+    },
+    {
+      "answer": "Myzithra",
+      "source": "https://en.wikipedia.org/wiki/Myzithra",
+      "wikipediaTitle": "Myzithra",
+      "pageviews": {
+        "total": 2028,
+        "days": 30,
+        "start": "2026-10-23",
+        "end": "2026-11-21",
+        "title": "Mizithra",
+        "status": "measured"
+      },
+      "initiallyPresent": null,
+      "present": true
+    },
+    {
+      "answer": "Guilinggao",
+      "source": "https://en.wikipedia.org/wiki/Guilinggao",
+      "wikipediaTitle": "Guilinggao",
+      "pageviews": {
+        "total": 2207,
+        "days": 29,
+        "start": "2026-10-23",
+        "end": "2026-11-20",
+        "title": "Guilinggao",
+        "status": "measured"
+      },
+      "initiallyPresent": false,
+      "present": true
+    },
+    {
+      "answer": "Kreatopita",
+      "source": "https://en.wikipedia.org/wiki/Kreatopita",
+      "wikipediaTitle": "Kreatopita",
+      "pageviews": {
+        "total": 4596,
+        "days": 29,
+        "start": "2026-10-23",
+        "end": "2026-11-20",
+        "title": "Meat pie",
+        "status": "measured"
+      },
+      "initiallyPresent": null,
+      "present": true
+    },
+    {
+      "answer": "Safridia",
+      "source": "https://en.wikipedia.org/wiki/Mackerel_(food)",
+      "wikipediaTitle": "Mackerel (food)",
+      "pageviews": {
+        "total": 2046,
+        "days": 30,
+        "start": "2026-10-23",
+        "end": "2026-11-21",
+        "title": "Mackerel as food",
+        "status": "measured"
+      },
+      "initiallyPresent": null,
+      "present": true
+    },
+    {
+      "answer": "Savoro",
+      "source": "https://en.wikipedia.org/wiki/Escabeche",
+      "wikipediaTitle": "Escabeche",
+      "pageviews": {
+        "total": 4807,
+        "days": 29,
+        "start": "2026-10-23",
+        "end": "2026-11-20",
+        "title": "Escabeche",
+        "status": "measured"
+      },
+      "initiallyPresent": null,
+      "present": true
+    },
+    {
+      "answer": "Avgolemono",
+      "source": "https://en.wikipedia.org/wiki/Avgolemono",
+      "wikipediaTitle": "Avgolemono",
+      "pageviews": {
+        "total": 3109,
+        "days": 29,
+        "start": "2026-10-23",
+        "end": "2026-11-20",
+        "title": "Avgolemono",
+        "status": "measured"
+      },
+      "initiallyPresent": null,
+      "present": true
+    },
+    {
+      "answer": "Finikia",
+      "source": "https://en.wikipedia.org/wiki/Finikia",
+      "wikipediaTitle": "Finikia",
+      "pageviews": {
+        "total": 1296,
+        "days": 29,
+        "start": "2026-10-23",
+        "end": "2026-11-20",
+        "title": "Melomakarono",
+        "status": "measured"
+      },
+      "initiallyPresent": null,
+      "present": true
+    },
+    {
+      "answer": "Sea cucumber",
+      "source": "https://en.wikipedia.org/wiki/Sea_cucumber_(food)",
+      "wikipediaTitle": "Sea cucumber (food)",
+      "pageviews": {
+        "total": 3049,
+        "days": 29,
+        "start": "2026-10-23",
+        "end": "2026-11-20",
+        "title": "Sea cucumbers as food",
+        "status": "measured"
+      },
+      "initiallyPresent": null,
+      "present": true
+    },
+    {
+      "answer": "Tong sui",
+      "source": "https://en.wikipedia.org/wiki/Tong_sui",
+      "wikipediaTitle": "Tong sui",
+      "pageviews": {
+        "total": 2356,
+        "days": 29,
+        "start": "2026-10-23",
+        "end": "2026-11-20",
+        "title": "Tong sui",
+        "status": "measured"
+      },
+      "initiallyPresent": null,
+      "present": true
+    },
+    {
+      "answer": "Siu Yuk",
+      "source": "https://en.wikipedia.org/wiki/Siu_yuk",
+      "wikipediaTitle": "Siu yuk",
+      "pageviews": {
+        "total": 1595,
+        "days": 30,
+        "start": "2026-10-23",
+        "end": "2026-11-21",
+        "title": "Siu yuk",
+        "status": "measured"
+      },
+      "initiallyPresent": null,
+      "present": true
+    },
+    {
+      "answer": "Liangpi",
+      "source": "https://en.wikipedia.org/wiki/Liangpi",
+      "wikipediaTitle": "Liangpi",
+      "pageviews": {
+        "total": 1927,
+        "days": 29,
+        "start": "2026-10-23",
+        "end": "2026-11-20",
+        "title": "Liangpi",
+        "status": "measured"
+      },
+      "initiallyPresent": false,
+      "present": true
+    },
+    {
+      "answer": "Sweet and sour pork",
+      "source": "https://en.wikipedia.org/wiki/Sweet_and_sour_pork",
+      "wikipediaTitle": "Sweet and sour pork",
+      "pageviews": {
+        "total": 2015,
+        "days": 30,
+        "start": "2026-10-23",
+        "end": "2026-11-21",
+        "title": "Sweet and sour pork",
+        "status": "measured"
+      },
+      "initiallyPresent": false,
+      "present": true
+    },
+    {
+      "answer": "Kokoretsi",
+      "source": "https://en.wikipedia.org/wiki/Kokoretsi",
+      "wikipediaTitle": "Kokoretsi",
+      "pageviews": {
+        "total": 3059,
+        "days": 29,
+        "start": "2026-10-23",
+        "end": "2026-11-20",
+        "title": "Kokoretsi",
+        "status": "measured"
+      },
+      "initiallyPresent": false,
+      "present": true
+    },
+    {
+      "answer": "Crispy fried chicken",
+      "source": "https://en.wikipedia.org/wiki/Crispy_fried_chicken",
+      "wikipediaTitle": "Crispy fried chicken",
+      "pageviews": {
+        "total": 901,
+        "days": 30,
+        "start": "2026-10-23",
+        "end": "2026-11-21",
+        "title": "Crispy fried chicken",
+        "status": "measured"
+      },
+      "initiallyPresent": false,
+      "present": true
+    },
+    {
+      "answer": "Buddha's delight",
+      "source": "https://en.wikipedia.org/wiki/Buddha%27s_delight",
+      "wikipediaTitle": "Buddha's delight",
+      "pageviews": {
+        "total": 1844,
+        "days": 29,
+        "start": "2026-10-23",
+        "end": "2026-11-20",
+        "title": "Buddha's delight",
+        "status": "measured"
+      },
+      "initiallyPresent": false,
+      "present": true
+    },
+    {
+      "answer": "Fried squid",
+      "source": "https://en.wikipedia.org/wiki/Squid_(food)#Fried_squid",
+      "wikipediaTitle": "Squid (food)",
+      "pageviews": {
+        "total": 8021,
+        "days": 29,
+        "start": "2026-10-23",
+        "end": "2026-11-20",
+        "title": "Squid as food",
+        "status": "measured"
+      },
+      "initiallyPresent": null,
+      "present": true
+    },
+    {
+      "answer": "Wonton noodles",
+      "source": "https://en.wikipedia.org/wiki/Wonton_noodles",
+      "wikipediaTitle": "Wonton noodles",
+      "pageviews": {
+        "total": 2161,
+        "days": 30,
+        "start": "2026-10-23",
+        "end": "2026-11-21",
+        "title": "Wonton noodles",
+        "status": "measured"
+      },
+      "initiallyPresent": null,
+      "present": true
+    },
+    {
+      "answer": "Crossing the bridge noodles",
+      "source": "https://en.wikipedia.org/wiki/Crossing_the_bridge_noodles",
+      "wikipediaTitle": "Crossing the bridge noodles",
+      "pageviews": {
+        "total": 1871,
+        "days": 29,
+        "start": "2026-10-23",
+        "end": "2026-11-20",
+        "title": "Crossing-the-bridge noodles",
+        "status": "measured"
+      },
+      "initiallyPresent": false,
+      "present": true
+    },
+    {
+      "answer": "Kasseri",
+      "source": "https://en.wikipedia.org/wiki/Kasseri",
+      "wikipediaTitle": "Kasseri",
+      "pageviews": {
+        "total": 1316,
+        "days": 29,
+        "start": "2026-10-23",
+        "end": "2026-11-20",
+        "title": "Kasseri",
+        "status": "measured"
+      },
+      "initiallyPresent": null,
+      "present": true
+    },
+    {
+      "answer": "Melomakarona",
+      "source": "https://en.wikipedia.org/wiki/Melomakarona",
+      "wikipediaTitle": "Melomakarona",
+      "pageviews": {
+        "total": 1296,
+        "days": 29,
+        "start": "2026-10-23",
+        "end": "2026-11-20",
+        "title": "Melomakarono",
+        "status": "measured"
+      },
+      "initiallyPresent": false,
+      "present": true
     },
     {
       "answer": "Zongzi",
@@ -482,379 +854,19 @@
       "present": true
     },
     {
-      "answer": "Lamian",
-      "source": "https://en.wikipedia.org/wiki/Lamian",
-      "wikipediaTitle": "Lamian",
+      "answer": "Kotosoupa",
+      "source": "https://en.wikipedia.org/wiki/Chicken_soup",
+      "wikipediaTitle": "Chicken soup",
       "pageviews": {
-        "total": 4012,
-        "days": 30,
-        "start": "2026-10-23",
-        "end": "2026-11-21",
-        "title": "Lamian",
-        "status": "measured"
-      },
-      "initiallyPresent": false,
-      "present": false
-    },
-    {
-      "answer": "Mantou",
-      "source": "https://en.wikipedia.org/wiki/Mantou",
-      "wikipediaTitle": "Mantou",
-      "pageviews": {
-        "total": 5352,
+        "total": 4170,
         "days": 29,
         "start": "2026-10-23",
         "end": "2026-11-20",
-        "title": "Mantou",
+        "title": "Chicken soup",
         "status": "measured"
       },
-      "initiallyPresent": false,
-      "present": false
-    },
-    {
-      "answer": "Spoon sweets",
-      "source": "https://en.wikipedia.org/wiki/Spoon_sweets",
-      "wikipediaTitle": "Spoon sweets",
-      "pageviews": {
-        "total": 1183,
-        "days": 29,
-        "start": "2026-10-23",
-        "end": "2026-11-20",
-        "title": "Spoon sweets",
-        "status": "measured"
-      },
-      "initiallyPresent": false,
-      "present": false
-    },
-    {
-      "answer": "Liangpi",
-      "source": "https://en.wikipedia.org/wiki/Liangpi",
-      "wikipediaTitle": "Liangpi",
-      "pageviews": {
-        "total": 1927,
-        "days": 29,
-        "start": "2026-10-23",
-        "end": "2026-11-20",
-        "title": "Liangpi",
-        "status": "measured"
-      },
-      "initiallyPresent": false,
-      "present": false
-    },
-    {
-      "answer": "Noodle soup",
-      "source": "https://en.wikipedia.org/wiki/Noodle_soup",
-      "wikipediaTitle": "Noodle soup",
-      "pageviews": {
-        "total": 2239,
-        "days": 30,
-        "start": "2026-10-23",
-        "end": "2026-11-21",
-        "title": "Noodle soup",
-        "status": "measured"
-      },
-      "initiallyPresent": false,
-      "present": false
-    },
-    {
-      "answer": "Horta",
-      "source": "https://en.wikipedia.org/wiki/Horta_(food)",
-      "wikipediaTitle": "Horta (food)",
-      "pageviews": {
-        "total": 4486,
-        "days": 30,
-        "start": "2026-10-23",
-        "end": "2026-11-21",
-        "title": "Leaf vegetable",
-        "status": "measured"
-      },
-      "initiallyPresent": false,
-      "present": false
-    },
-    {
-      "answer": "Sweet and sour pork",
-      "source": "https://en.wikipedia.org/wiki/Sweet_and_sour_pork",
-      "wikipediaTitle": "Sweet and sour pork",
-      "pageviews": {
-        "total": 2015,
-        "days": 30,
-        "start": "2026-10-23",
-        "end": "2026-11-21",
-        "title": "Sweet and sour pork",
-        "status": "measured"
-      },
-      "initiallyPresent": false,
-      "present": false
-    },
-    {
-      "answer": "Buddha jumps over the wall",
-      "source": "https://en.wikipedia.org/wiki/Buddha_jumps_over_the_wall",
-      "wikipediaTitle": "Buddha jumps over the wall",
-      "pageviews": {
-        "total": 4774,
-        "days": 30,
-        "start": "2026-10-23",
-        "end": "2026-11-21",
-        "title": "Buddha Jumps Over the Wall",
-        "status": "measured"
-      },
-      "initiallyPresent": false,
-      "present": false
-    },
-    {
-      "answer": "Kokoretsi",
-      "source": "https://en.wikipedia.org/wiki/Kokoretsi",
-      "wikipediaTitle": "Kokoretsi",
-      "pageviews": {
-        "total": 3059,
-        "days": 29,
-        "start": "2026-10-23",
-        "end": "2026-11-20",
-        "title": "Kokoretsi",
-        "status": "measured"
-      },
-      "initiallyPresent": false,
-      "present": false
-    },
-    {
-      "answer": "Melomakarona",
-      "source": "https://en.wikipedia.org/wiki/Melomakarona",
-      "wikipediaTitle": "Melomakarona",
-      "pageviews": {
-        "total": 1296,
-        "days": 29,
-        "start": "2026-10-23",
-        "end": "2026-11-20",
-        "title": "Melomakarono",
-        "status": "measured"
-      },
-      "initiallyPresent": false,
-      "present": false
-    },
-    {
-      "answer": "Chicken with chilies",
-      "source": "https://en.wikipedia.org/wiki/Chicken_with_chilies",
-      "wikipediaTitle": "Chicken with chilies",
-      "pageviews": {
-        "total": 3090,
-        "days": 30,
-        "start": "2026-10-23",
-        "end": "2026-11-21",
-        "title": "Laziji",
-        "status": "measured"
-      },
-      "initiallyPresent": false,
-      "present": false
-    },
-    {
-      "answer": "Sachima",
-      "source": "https://en.wikipedia.org/wiki/Sachima",
-      "wikipediaTitle": "Sachima",
-      "pageviews": {
-        "total": 2413,
-        "days": 30,
-        "start": "2026-10-23",
-        "end": "2026-11-21",
-        "title": "Sachima",
-        "status": "measured"
-      },
-      "initiallyPresent": false,
-      "present": false
-    },
-    {
-      "answer": "Gigandes plaki",
-      "source": "https://en.wikipedia.org/wiki/Gigandes_plaki",
-      "wikipediaTitle": "Gigandes plaki",
-      "pageviews": {
-        "total": 1553,
-        "days": 30,
-        "start": "2026-10-23",
-        "end": "2026-11-21",
-        "title": "Gigantes plaki",
-        "status": "measured"
-      },
-      "initiallyPresent": false,
-      "present": false
-    },
-    {
-      "answer": "Crossing the bridge noodles",
-      "source": "https://en.wikipedia.org/wiki/Crossing_the_bridge_noodles",
-      "wikipediaTitle": "Crossing the bridge noodles",
-      "pageviews": {
-        "total": 1871,
-        "days": 29,
-        "start": "2026-10-23",
-        "end": "2026-11-20",
-        "title": "Crossing-the-bridge noodles",
-        "status": "measured"
-      },
-      "initiallyPresent": false,
-      "present": false
-    },
-    {
-      "answer": "Stuffed tofu",
-      "source": "https://en.wikipedia.org/wiki/Stuffed_tofu",
-      "wikipediaTitle": "Stuffed tofu",
-      "pageviews": {
-        "total": 1893,
-        "days": 29,
-        "start": "2026-10-23",
-        "end": "2026-11-20",
-        "title": "Yong tau foo",
-        "status": "measured"
-      },
-      "initiallyPresent": false,
-      "present": false
-    },
-    {
-      "answer": "Portokalopita",
-      "source": "https://en.wikipedia.org/wiki/Portokalopita",
-      "wikipediaTitle": "Portokalopita",
-      "pageviews": {
-        "total": 3138,
-        "days": 30,
-        "start": "2026-10-23",
-        "end": "2026-11-21",
-        "title": "Portokalopita",
-        "status": "measured"
-      },
-      "initiallyPresent": false,
-      "present": false
-    },
-    {
-      "answer": "Crispy fried chicken",
-      "source": "https://en.wikipedia.org/wiki/Crispy_fried_chicken",
-      "wikipediaTitle": "Crispy fried chicken",
-      "pageviews": {
-        "total": 901,
-        "days": 30,
-        "start": "2026-10-23",
-        "end": "2026-11-21",
-        "title": "Crispy fried chicken",
-        "status": "measured"
-      },
-      "initiallyPresent": false,
-      "present": false
-    },
-    {
-      "answer": "Twice cooked pork",
-      "source": "https://en.wikipedia.org/wiki/Twice_cooked_pork",
-      "wikipediaTitle": "Twice cooked pork",
-      "pageviews": {
-        "total": 1673,
-        "days": 29,
-        "start": "2026-10-23",
-        "end": "2026-11-20",
-        "title": "Twice-cooked pork",
-        "status": "measured"
-      },
-      "initiallyPresent": false,
-      "present": false
-    },
-    {
-      "answer": "Pancetta",
-      "source": "https://en.wikipedia.org/wiki/Pancetta",
-      "wikipediaTitle": "Pancetta",
-      "pageviews": {
-        "total": 7944,
-        "days": 30,
-        "start": "2026-10-23",
-        "end": "2026-11-21",
-        "title": "Pancetta",
-        "status": "measured"
-      },
-      "initiallyPresent": true,
+      "initiallyPresent": null,
       "present": true
-    },
-    {
-      "answer": "Cha siu bao",
-      "source": "https://en.wikipedia.org/wiki/Cha_siu_bao",
-      "wikipediaTitle": "Cha siu bao",
-      "pageviews": {
-        "total": 2019,
-        "days": 29,
-        "start": "2026-10-23",
-        "end": "2026-11-20",
-        "title": "Cha siu bao",
-        "status": "measured"
-      },
-      "initiallyPresent": false,
-      "present": false
-    },
-    {
-      "answer": "Breadstick",
-      "source": "https://en.wikipedia.org/wiki/Breadstick",
-      "wikipediaTitle": "Breadstick",
-      "pageviews": {
-        "total": 1868,
-        "days": 30,
-        "start": "2026-10-23",
-        "end": "2026-11-21",
-        "title": "Breadstick",
-        "status": "measured"
-      },
-      "initiallyPresent": true,
-      "present": true
-    },
-    {
-      "answer": "Strapatsada",
-      "source": "https://en.wikipedia.org/wiki/Strapatsada",
-      "wikipediaTitle": "Strapatsada",
-      "pageviews": {
-        "total": 1301,
-        "days": 29,
-        "start": "2026-10-23",
-        "end": "2026-11-20",
-        "title": "Strapatsada",
-        "status": "measured"
-      },
-      "initiallyPresent": false,
-      "present": false
-    },
-    {
-      "answer": "Loukaniko",
-      "source": "https://en.wikipedia.org/wiki/Loukaniko",
-      "wikipediaTitle": "Loukaniko",
-      "pageviews": {
-        "total": 1292,
-        "days": 29,
-        "start": "2026-10-23",
-        "end": "2026-11-20",
-        "title": "Loukaniko",
-        "status": "measured"
-      },
-      "initiallyPresent": false,
-      "present": false
-    },
-    {
-      "answer": "Pastitsio",
-      "source": "https://en.wikipedia.org/wiki/Pastitsio",
-      "wikipediaTitle": "Pastitsio",
-      "pageviews": {
-        "total": 5244,
-        "days": 30,
-        "start": "2026-10-23",
-        "end": "2026-11-21",
-        "title": "Pastitsio",
-        "status": "measured"
-      },
-      "initiallyPresent": false,
-      "present": false
-    },
-    {
-      "answer": "Trahanas",
-      "source": "https://en.wikipedia.org/wiki/Trahanas",
-      "wikipediaTitle": "Trahanas",
-      "pageviews": {
-        "total": 4258,
-        "days": 30,
-        "start": "2026-10-23",
-        "end": "2026-11-21",
-        "title": "Tarhana",
-        "status": "measured"
-      },
-      "initiallyPresent": false,
-      "present": false
     }
   ]
 }

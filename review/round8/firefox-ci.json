@@ -1,0 +1,23 @@
+{
+  "run": "https://github.com/ashwathram-prathap/dibs/actions/runs/44982931625",
+  "commit": "750fe66",
+  "conclusion": "success",
+  "reports": {
+    "round7/browser-results.json": {
+      "startTime": "2026-11-22T04:02:27.317Z",
+      "duration": 44293.497,
+      "expected": 7,
+      "skipped": 7,
+      "unexpected": 0,
+      "flaky": 0
+    },
+    "devices/results.json": {
+      "startTime": "2026-11-22T03:58:51.408Z",
+      "duration": 215133.89899999998,
+      "expected": 78,
+      "skipped": 0,
+      "unexpected": 0,
+      "flaky": 0
+    }
+  }
+}

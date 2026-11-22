@@ -34,5 +34,13 @@
   "actors-path.tsv": {
     "sha256": "70fa9008bd12f6e1d039b0f1a84cf1bf986312891de0831a01d39b1754f8372c",
     "bytes": 21554962
+  },
+  "mdd.csv": {
+    "sha256": "0d07a7e9409712fa86c1e3afadcf4c67bf4f9e16d5693a878e11ec1bf6860493",
+    "bytes": 9303589
+  },
+  "mdd-LICENSE.txt": {
+    "sha256": "a2a170851fe3a3318a0cf8a48a35be33b8d864da5ac2a70a00868854a9084566",
+    "bytes": 1086
   }
 }
