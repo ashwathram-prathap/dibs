@@ -1,0 +1,90 @@
+{
+  "before": [
+    {
+      "path": "node_modules",
+      "allocatedBytes": 620642304
+    },
+    {
+      "path": "dist",
+      "allocatedBytes": 4968448
+    },
+    {
+      "path": ".tmp",
+      "allocatedBytes": 41984000
+    },
+    {
+      "path": "test-results",
+      "allocatedBytes": 249856
+    },
+    {
+      "path": ".playwright",
+      "allocatedBytes": 355295232
+    },
+    {
+      "path": "review/devices",
+      "allocatedBytes": 411705344
+    },
+    {
+      "path": "review/final/video",
+      "allocatedBytes": 57192448
+    },
+    {
+      "path": "review/rollover",
+      "allocatedBytes": 53919744
+    },
+    {
+      "path": "/Users/ashwathram/Library/Caches/ms-playwright",
+      "allocatedBytes": 1263214592
+    }
+  ],
+  "beforeBytes": 2809171968,
+  "after": [
+    {
+      "path": "node_modules",
+      "allocatedBytes": 0
+    },
+    {
+      "path": "dist",
+      "allocatedBytes": 0
+    },
+    {
+      "path": ".tmp",
+      "allocatedBytes": 0
+    },
+    {
+      "path": "test-results",
+      "allocatedBytes": 0
+    },
+    {
+      "path": ".playwright",
+      "allocatedBytes": 0
+    },
+    {
+      "path": "review/devices",
+      "allocatedBytes": 0
+    },
+    {
+      "path": "review/final/video",
+      "allocatedBytes": 0
+    },
+    {
+      "path": "review/rollover",
+      "allocatedBytes": 0
+    },
+    {
+      "path": "/Users/ashwathram/Library/Caches/ms-playwright",
+      "allocatedBytes": 0
+    }
+  ],
+  "afterBytes": 0,
+  "freedBytes": 2809171968,
+  "preserved": [
+    ".upload-state.json",
+    "MORNING_REPORT.md",
+    "ignored secrets",
+    "local D1 state",
+    "source catalogs",
+    "final screenshots, exports and video",
+    "compact test evidence"
+  ]
+}

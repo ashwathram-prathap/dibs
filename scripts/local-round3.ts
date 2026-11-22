@@ -27,6 +27,17 @@ const submit = async (answer: string) => {
   if (![201, 409].includes(r.status())) throw Error(await r.text());
   await page.waitForTimeout(1500);
 };
+await page.evaluate(
+  "window.turnstile={render:function(el,o){setTimeout(function(){o['error-callback']()},10);return 'error'},remove:function(){}}",
+);
+await page.getByLabel('ENTRY:', { exact: true }).fill(fresh[0].display);
+await page.getByRole('button', { name: 'CALL DIBS' }).click();
+await expect(page.getByRole('status')).toHaveText('Verification failed. Please try again.');
+await expect(page.getByRole('img', { name: '0 of 5 strikes' })).toBeVisible();
+await page.screenshot({ path: 'review/round3/verification-error.png', fullPage: true });
+await page.evaluate(
+  "window.turnstile={render:function(el,o){setTimeout(function(){o.callback('local')},10);return 'local'},remove:function(){}}",
+);
 await submit(fresh[0].display);
 await submit(fresh[0].display); // Own prior answer is taken too.
 await expect(page.getByRole('img', { name: '1 of 5 strikes' })).toBeVisible();
@@ -78,6 +89,7 @@ writeFileSync(
     {
       passed: true,
       checks: [
+        'verification failure is explained without a strike or unhandled error',
         'real D1 3 dibs plus strike',
         'server event order',
         'reload persists 3/1 and 0/5',

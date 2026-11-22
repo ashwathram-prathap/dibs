@@ -403,8 +403,8 @@ function Home({
       setTimeout(() => setLanded(false), (result.me?.file?.dibs || 1) === 1 ? 1300 : 1050);
     } catch (e) {
       const err = e as ApiError;
-      if (err.data.me) setMe(err.data.me);
-      else if (err.data.file) setMe({ ...me, file: err.data.file });
+      if (err.data?.me) setMe(err.data.me);
+      else if (err.data?.file) setMe({ ...me, file: err.data.file });
       setTaken(err.status === 409);
       setMessage(
         err.status === 409
