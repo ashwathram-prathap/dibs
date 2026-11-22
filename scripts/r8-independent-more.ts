@@ -1,3 +1,4 @@
+import { readCategory } from './category-file';
 import { readFileSync, writeFileSync, existsSync } from 'node:fs';
 import { normalize } from '../worker/domain';
 const pools = JSON.parse(readFileSync('.category-cache/r8/independent-pools.json', 'utf8'));
@@ -12,7 +13,7 @@ for (const slug of ['countries', 'foods', 'fruits-vegetables', 'plants']) {
   const frozenPath = 'review/coverage/' + slug + '-independent.json';
   if (existsSync(frozenPath)) {
     const frozen = JSON.parse(readFileSync(frozenPath, 'utf8'));
-    const current = JSON.parse(readFileSync('categories/' + slug + '.json', 'utf8'));
+    const current = readCategory('categories/' + slug + '.json');
     const keys = new Set(
       current.answers.flatMap((a: any) => [normalize(a.display), ...a.aliases.map(normalize)]),
     );
@@ -64,7 +65,7 @@ for (const slug of ['countries', 'foods', 'fruits-vegetables', 'plants']) {
   const selected: any[] = [];
   while (selected.length < 50)
     selected.push(middle.splice(Math.floor(random() * middle.length), 1)[0]);
-  const c = JSON.parse(readFileSync('categories/' + slug + '.json', 'utf8'));
+  const c = readCategory('categories/' + slug + '.json');
   const keys = new Set(
     c.answers.flatMap((r: any) => [normalize(r.display), ...r.aliases.map(normalize)]),
   );

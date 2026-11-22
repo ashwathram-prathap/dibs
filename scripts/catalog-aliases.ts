@@ -1,7 +1,42 @@
 import pluralize from 'pluralize';
+export function geographicAliases(slug: string, name: string) {
+  const patterns: Record<string, RegExp> = {
+    rivers: /^(?:river)\s+|\s+(?:river)$/gi,
+    lakes: /^(?:lake)\s+|\s+(?:lake)$/gi,
+    mountains: /^(?:mount|mt\.?|mountain)\s+|\s+(?:mountain)$/gi,
+    islands: /^(?:island of)\s+|\s+(?:island)$/gi,
+    stations:
+      /\s+(?:(?:underground|tube|subway|metro|railway|railroad|rail|train)\s+)?(?:station|terminus|terminal)$/gi,
+  };
+  const pattern = patterns[slug];
+  if (!pattern) return [];
+  const short = name.replace(pattern, '').trim();
+  const variants = short && short !== name ? [short] : [];
+  if (short) {
+    if (slug === 'rivers') variants.push(short + ' River', 'River ' + short);
+    if (slug === 'lakes') variants.push('Lake ' + short, short + ' Lake');
+    if (
+      slug === 'mountains' &&
+      !/\b(?:mount|mt|mountain|peak|range|volcano|mountains)\b/i.test(short)
+    )
+      variants.push('Mount ' + short, 'Mt ' + short);
+    if (slug === 'stations') variants.push(short + ' Station', short + ' railway station');
+  }
+  return [...new Set(variants)].filter((variant) => variant !== name);
+}
 export function titleArticleAliases(name: string) {
   const shorter = name.replace(/^(?:the|an|a)\s+/i, '').trim();
-  return shorter !== name && !/^(?:the|an|a)$/i.test(shorter) ? [shorter] : [];
+  if (/^(?:the|an|a)$/i.test(shorter)) return [];
+  return shorter !== name ? [shorter] : ['The ' + name];
+}
+export function shipNameAliases(name: string) {
+  const short = name
+    .replace(
+      /^(?:(?:HMS|HMAS|HMCS|HMNZS|HNLMS|HSwMS|USS|USNS|SS|RMS|RRS|MS|MV|RV|TS|TSS|PS|HMY|INS|SMS|IJN|ARA|HNoMS|HDMS|ORP|ROKS|ROCS|USCGC)\s+)+/i,
+      '',
+    )
+    .trim();
+  return short !== name && short.length >= 3 ? [short, short.replace(/\s+\([^)]*\)$/, '')] : [];
 }
 export function conjunctionAliases(name: string) {
   return [

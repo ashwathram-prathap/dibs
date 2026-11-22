@@ -1,3 +1,4 @@
+import { readCategory } from './category-file';
 import { readFileSync, writeFileSync } from 'node:fs';
 const origin = 'https://dibs.here';
 const token = readFileSync('.dev.vars', 'utf8').match(/^ADMIN_TOKEN=(.+)$/m)![1];
@@ -33,7 +34,7 @@ for (const slug of slugs) {
   const current = before.find((r: any) => r.id === slug);
   const gate = coverage.find((r: any) => r.slug === slug);
   if (!current || !current.date || !gate?.ready) throw Error('Unverified launch register: ' + slug);
-  const category = JSON.parse(readFileSync('categories/' + slug + '.json', 'utf8'));
+  const category = readCategory('categories/' + slug + '.json');
   const manifest = JSON.parse(readFileSync('public/catalog/' + slug + '/manifest.json', 'utf8'));
   if (JSON.parse(current.source_json || '{}').staticCatalog?.version === manifest.version) {
     checks.push({ slug, version: manifest.version, unchanged: true });

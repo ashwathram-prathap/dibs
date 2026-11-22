@@ -1,10 +1,16 @@
-import { readFileSync, writeFileSync } from 'node:fs';
+import { readCategory } from './category-file';
+import { readFileSync, writeFileSync, readdirSync } from 'node:fs';
 const base = 'https://practice.dibs-7hz.pages.dev';
 const token = readFileSync('.dev.vars.staging', 'utf8').match(/^ADMIN_TOKEN=(.+)$/m)![1];
-const slugs = process.argv
-  .find((arg) => arg.startsWith('--slugs='))
-  ?.slice(8)
-  .split(',') || ['animals', 'cities'];
+const slugs = process.argv.includes('--all')
+  ? readdirSync('public/catalog')
+  : process.argv
+      .find((arg) => arg.startsWith('--slugs='))
+      ?.slice(8)
+      .split(',') || ['animals', 'cities'];
+const reportPath =
+  process.argv.find((arg) => arg.startsWith('--report='))?.slice(9) ||
+  'review/round8/practice-large-index-benchmark.json';
 const coverage = JSON.parse(readFileSync('review/coverage/results.json', 'utf8'));
 const api = async (path: string, body: any) => {
   const r = await fetch(base + '/api' + path, {
@@ -18,7 +24,7 @@ const api = async (path: string, body: any) => {
 };
 const install = async (slug: string) => {
   await api('/admin/practice-reset', {});
-  const c = JSON.parse(readFileSync('categories/' + slug + '.json', 'utf8'));
+  const c = readCategory('categories/' + slug + '.json');
   const manifest = JSON.parse(readFileSync('public/catalog/' + slug + '/manifest.json', 'utf8'));
   await api('/admin/static-catalog', {
     id: 'practice',
@@ -75,7 +81,7 @@ try {
 } finally {
   await install('animals');
   writeFileSync(
-    'review/round8/practice-large-index-benchmark.json',
+    reportPath,
     JSON.stringify(
       {
         note: 'First rare lookup includes the lazy catalog download; p95 covers uniformly spaced full-register samples. Cloudflare clock reports zero for sub-tick cached work. No claims are made; practice reset and restored to Animals.',

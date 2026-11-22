@@ -14,7 +14,12 @@
         "endpoint": "https://overpass.private.coffee/api/interpreter",
         "error": "TimeoutError: The operation was aborted due to timeout"
       }
-    ]
+    ],
+    "partitionAttempt": {
+      "complete": false,
+      "parts": [],
+      "at": "2026-11-22T08:03:23.866Z"
+    }
   },
   "universities": {
     "complete": false,
@@ -31,6 +36,11 @@
         "endpoint": "https://overpass.private.coffee/api/interpreter",
         "error": "TimeoutError: The operation was aborted due to timeout"
       }
-    ]
+    ],
+    "partitionAttempt": {
+      "complete": false,
+      "parts": [],
+      "at": "2026-11-22T08:08:53.957Z"
+    }
   }
 }

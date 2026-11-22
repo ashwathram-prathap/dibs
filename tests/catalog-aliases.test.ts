@@ -6,11 +6,12 @@ import {
   titleArticleAliases,
 } from '../scripts/catalog-aliases';
 import { normalize } from '../worker/domain';
-it('accepts natural title variants without a leading article while rejecting an article alone', () => {
+it('accepts optional leading articles while preserving word boundaries and rejecting an article alone', () => {
   expect(titleArticleAliases('The Blue Planet')).toEqual(['Blue Planet']);
   expect(titleArticleAliases('A Clockwork Orange')).toEqual(['Clockwork Orange']);
   expect(titleArticleAliases('The The')).toEqual([]);
-  expect(titleArticleAliases('Theatre')).toEqual([]);
+  expect(titleArticleAliases('Theatre')).toEqual(['The Theatre']);
+  expect(titleArticleAliases('Luncheon of the Boating Party')).toEqual(['The Luncheon of the Boating Party']);
 });
 it('recognizes named franchise subtitles without accepting generic part numbers', () => {
   expect(workSubtitleAliases('Star Wars: Episode III – Revenge of the Sith')).toContain(

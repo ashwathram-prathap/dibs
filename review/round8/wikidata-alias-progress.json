@@ -36,15 +36,16 @@
   },
   "novels": {
     "complete": true,
-    "checked": 31236,
-    "total": 31236,
+    "checked": 32587,
+    "total": 32587,
     "referencePolicy": "english-article-title-v3",
-    "classificationRevision": "novel-form-v2"
+    "classificationRevision": "novel-form-genre-v3"
   },
   "television": {
-    "complete": false,
-    "reason": "Awaiting current full classification",
-    "expectedPolicy": "english-article-title-v3",
+    "complete": true,
+    "checked": 62253,
+    "total": 62253,
+    "referencePolicy": "english-article-title-v3",
     "classificationRevision": "named-seasons-v2"
   },
   "video-games": {
@@ -62,24 +63,22 @@
   },
   "universities": {
     "complete": true,
-    "checked": 14488,
-    "total": 14488,
+    "checked": 24829,
+    "total": 24829,
     "referencePolicy": "english-article-title-v3",
-    "classificationRevision": "base"
+    "classificationRevision": "higher-education-v2"
   },
   "castles": {
-    "complete": true,
-    "checked": 6916,
-    "total": 6916,
-    "referencePolicy": "english-article-title-v3",
-    "classificationRevision": "base"
+    "complete": false,
+    "reason": "Awaiting current full classification",
+    "expectedPolicy": "english-article-title-v3",
+    "classificationRevision": "castles-forts-palaces-v2"
   },
   "ships": {
-    "complete": true,
-    "checked": 35102,
-    "total": 35102,
-    "referencePolicy": "english-article-title-v3",
-    "classificationRevision": "base"
+    "complete": false,
+    "reason": "Awaiting current full classification",
+    "expectedPolicy": "english-article-title-v3",
+    "classificationRevision": "watercraft-v2"
   },
   "painters": {
     "complete": true,
@@ -113,6 +112,13 @@
     "complete": true,
     "checked": 221578,
     "total": 221578,
+    "referencePolicy": "english-article-title-v3",
+    "classificationRevision": "base"
+  },
+  "paintings": {
+    "complete": true,
+    "checked": 11752,
+    "total": 11752,
     "referencePolicy": "english-article-title-v3",
     "classificationRevision": "base"
   }

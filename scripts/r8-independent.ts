@@ -1,3 +1,4 @@
+import { readCategory } from './category-file';
 import { readFileSync, writeFileSync } from 'node:fs';
 import { normalize } from '../worker/domain';
 // Recheck the original seeded samples. Do not swap out a miss for an easier answer.
@@ -5,7 +6,7 @@ for (const slug of ['animals', 'birds', 'cities']) {
   const initial = JSON.parse(
     readFileSync(`review/coverage/${slug}-independent-initial.json`, 'utf8'),
   );
-  const current = JSON.parse(readFileSync('categories/' + slug + '.json', 'utf8'));
+  const current = readCategory('categories/' + slug + '.json');
   const keys = new Set(
     current.answers.flatMap((a: any) => [normalize(a.display), ...a.aliases.map(normalize)]),
   );

@@ -48,16 +48,16 @@
     "Horse"
   ],
   "architects": [
-    "Thomas Jefferson",
     "Leonardo da Vinci",
+    "Thomas Jefferson",
+    "John Stewart",
+    "Martha Stewart",
+    "Eric Villency",
+    "Bianca Censori",
     "Michelangelo",
+    "Boris Yeltsin",
     "Frank Lloyd Wright",
-    "Antoni Gaudí",
-    "Ludwig Wittgenstein",
-    "Prince Richard, Duke of Gloucester",
-    "Raphael",
-    "Marcus Vipsanius Agrippa",
-    "Zaha Hadid"
+    "Yolanda Hadid"
   ],
   "arthropods": [
     "Palm Thief",
@@ -109,15 +109,15 @@
   ],
   "castles": [
     "Neuschwanstein Castle",
-    "Tower of London",
     "Windsor Castle",
+    "Tower of London",
+    "Lullingstone Castle",
     "Bran Castle",
-    "Camelot",
-    "Edinburgh Castle",
     "Bastille",
-    "Vaduz Castle",
-    "Bamburgh Castle",
-    "Hohenzollern Castle"
+    "Castel Sant'Angelo",
+    "Edinburgh Castle",
+    "Himeji Castle",
+    "Osaka Castle"
   ],
   "cities": [
     "New York",
@@ -132,16 +132,16 @@
     "Monaco"
   ],
   "composers": [
+    "Florence Pugh",
+    "Sebastian Croft",
+    "James Blunt",
+    "Sunny Ozell",
     "Amanda Seyfried",
-    "Katy Perry",
     "Michael Jackson",
-    "Avril Lavigne",
-    "Clint Eastwood",
-    "Bob Dylan",
-    "Henry VIII",
-    "Taylor Swift",
-    "David Bowie",
-    "Amy Winehouse"
+    "Nicki Minaj",
+    "John Anderson",
+    "Hailee Steinfeld",
+    "Anirudh Ravichander"
   ],
   "countries": [
     "United States",
@@ -180,16 +180,16 @@
     "Pumpkin"
   ],
   "footballers": [
+    "Harry Kane",
     "Cristiano Ronaldo",
-    "Michael Carrick",
     "Lionel Messi",
-    "Sean Connery",
-    "Ronaldinho",
-    "Jason Statham",
+    "Lamine Yamal",
+    "Shaun Wright-Phillips",
+    "Kylian Mbappé",
     "O. J. Simpson",
-    "Scott Parker",
-    "Cesc Fàbregas",
-    "David Beckham"
+    "Alexia Putellas",
+    "Erling Haaland",
+    "Nico Paz"
   ],
   "fruits-vegetables": [
     "Quince",
@@ -204,40 +204,40 @@
     "Pawpaw"
   ],
   "islands": [
-    "Guam",
-    "Easter Island",
-    "Ireland",
-    "North Sentinel Island",
-    "Borneo",
-    "Great Britain",
-    "Saint Helena",
-    "Réunion",
-    "Hispaniola",
-    "Newfoundland (island)"
+    "New Zealand",
+    "Mauritius",
+    "Cyprus",
+    "Iceland",
+    "Maldive Islands",
+    "Isle of Man",
+    "Newfoundland Island",
+    "Seychelles",
+    "Greenland",
+    "Faroe Islands"
   ],
   "lakes": [
     "Lake Baikal",
-    "Caspian Sea",
     "Lake Ontario",
+    "Great Lakes",
+    "Salton Sea",
+    "Dead Sea",
+    "Lake Tahoe",
     "Lake Superior",
     "Lake Peigneur",
-    "Lake Titicaca",
-    "Lake Michigan",
-    "Lake Victoria",
-    "Loch Ness",
-    "Lake Erie"
+    "Lake Como",
+    "Lake Titicaca"
   ],
   "mountains": [
     "Mount Everest",
-    "Mount Rushmore",
     "K2",
-    "Mount St. Helens",
+    "Nub Peak",
+    "Mount Rushmore",
+    "Appalachian Mountains",
+    "Mount Kilimanjaro",
     "Mount Fuji",
-    "Denali",
-    "Kangchenjunga",
     "Mount Vesuvius",
-    "Mount Rainier",
-    "Matterhorn"
+    "Himalayas",
+    "Mount Saint Helens"
   ],
   "museums": [
     "Colosseum",
@@ -264,28 +264,28 @@
     "Whalefall"
   ],
   "painters": [
+    "Paul McCartney",
+    "Freddie Mercury",
+    "Jim Carrey",
+    "David Bowie",
     "George W. Bush",
     "Bob Dylan",
-    "David Bowie",
-    "Freddie Mercury",
-    "Paul McCartney",
-    "Jim Carrey",
-    "David Lynch",
+    "John Wayne Gacy",
+    "Martin Mull",
     "Vincent van Gogh",
-    "Leonardo da Vinci",
-    "Frida Kahlo"
+    "David Lynch"
   ],
   "paintings": [
-    "Saturn Devouring His Son",
     "Mona Lisa",
-    "Children's Games (Bruegel)",
+    "Beauty Revealed",
+    "Woman with a Horse",
     "The Starry Night",
-    "The Garden of Earthly Delights",
-    "Guernica (Picasso)",
+    "Saturn Devouring His Son",
+    "The Last Supper",
     "American Gothic",
-    "The Kiss (Klimt)",
-    "Girl with a Pearl Earring",
-    "Nighthawks (Hopper)"
+    "Guernica",
+    "The Garden of Earthly Delights",
+    "The Creation of Adam"
   ],
   "plants": [
     "Quince",
@@ -300,28 +300,28 @@
     "Peanut"
   ],
   "poets": [
-    "James Stewart",
-    "Bob Dylan",
-    "Mao Zedong",
+    "Anne Carson",
+    "Russell Brand",
     "Freddie Mercury",
     "Madonna",
+    "Mao Zedong",
     "John Lennon",
-    "J. R. R. Tolkien",
-    "William Shakespeare",
-    "Tim Burton",
-    "George Harrison"
+    "Mick Jagger",
+    "Johnny Flynn",
+    "George Harrison",
+    "Tupac Shakur"
   ],
   "rivers": [
-    "Mississippi River",
     "Danube",
+    "Mississippi River",
     "Nile",
-    "Rhine",
+    "Congo River",
+    "Amazone River",
+    "Chimacum Creek",
     "Ganges",
-    "Amazon River",
+    "Yangtze River",
     "River Thames",
-    "Rio Grande",
-    "Colorado River",
-    "Congo River"
+    "Río Grande"
   ],
   "ships": [
     "Titanic",
@@ -348,16 +348,16 @@
     "Hot Sex"
   ],
   "stations": [
-    "Gare Montparnasse",
+    "Chhatrapati Shivaji Terminus",
+    "St Pancras International Railway Station",
+    "Gare de Paris-Montparnasse",
+    "Shinjuku Eki",
     "Tokyo Station",
-    "London King's Cross railway station",
-    "Chennai Central railway station",
-    "Liverpool Street station",
-    "London Paddington station",
-    "Madrid Atocha railway station",
-    "Howrah railway station",
-    "Euston railway station",
-    "Old Oak Common railway station"
+    "Kings Cross Railway Station",
+    "London Liverpool Street",
+    "London Paddington railway station",
+    "Lonavala",
+    "Krantivira Sangolli Rayanna railway station"
   ],
   "television": [
     "East of Eden",

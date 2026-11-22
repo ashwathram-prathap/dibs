@@ -1,10 +1,11 @@
+import { readCategory } from './category-file';
 import { chromium, webkit } from '@playwright/test';
 import { readFileSync, readdirSync, mkdirSync, writeFileSync } from 'node:fs';
 const definitions = JSON.parse(readFileSync('scripts/category-sources.json', 'utf8'));
 const categories = readdirSync('categories')
   .filter((file) => file.endsWith('.json'))
   .map((file) => {
-    const category = JSON.parse(readFileSync('categories/' + file, 'utf8'));
+    const category = readCategory('categories/' + file);
     return definitions.find((definition: any) => definition.slug === category.slug) || category;
   });
 const engine = process.argv[2] === 'webkit' ? 'webkit' : 'chromium';

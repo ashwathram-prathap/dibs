@@ -1,0 +1,31 @@
+{
+  "deployment": {
+    "worker": "3e9714f1-3b11-41a3-af9c-97ee43f137be",
+    "pages": "f3464ccf"
+  },
+  "at": "2026-11-22T08:09:09.561364+00:00",
+  "note": "Sanitized sampled Cloudflare tail during the 6,600-lookup benchmark; not every request was emitted. No request URLs, headers or tokens retained. Concurrent image-cache activity is reported separately. The outer Worker and SQLite Durable Object have different CPU limits; initial full-index downloads are included in cold timings in the benchmark report.",
+  "summary": [
+    {
+      "entrypoint": "ImageCache",
+      "events": 243,
+      "maxCpuMs": 1,
+      "p95CpuMs": 0,
+      "failedOutcomes": 0
+    },
+    {
+      "entrypoint": "Registry",
+      "events": 44,
+      "maxCpuMs": 211,
+      "p95CpuMs": 35,
+      "failedOutcomes": 0
+    },
+    {
+      "entrypoint": "Worker",
+      "events": 100,
+      "maxCpuMs": 1,
+      "p95CpuMs": 0,
+      "failedOutcomes": 0
+    }
+  ]
+}

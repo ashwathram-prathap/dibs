@@ -30,13 +30,15 @@ self.onmessage = async ({ data }) => {
       self.postMessage(null);
       return;
     }
-    const response = await fetch(base + `rows-${Math.floor(id / 256)}.json`);
+    const size = catalog.rowChunkSize || 256;
+    const prefix = size === 256 ? 'rows' : `rows-${size}`;
+    const response = await fetch(base + `${prefix}-${Math.floor(id / size)}.json`);
     if (!response.ok) {
       self.postMessage(null);
       return;
     }
     const rows: CatalogRow[] = await response.json();
-    self.postMessage(rows[id % 256][1]);
+    self.postMessage(rows[id % size][1]);
   } catch {
     self.postMessage(null);
   }

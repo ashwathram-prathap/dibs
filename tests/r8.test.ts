@@ -1,3 +1,4 @@
+import { readCategory } from '../scripts/category-file';
 import { it, expect } from 'vitest';
 import { normalize, normalizeCommonName } from '../worker/domain';
 import { fileKey, normalizeFileKey, hmac } from '../worker/identity';
@@ -30,7 +31,7 @@ it('bounds static shards and distinguishes near misses from random guesses', () 
 });
 it('uses a proper plural noun for every catalog, including practice Animals', () => {
   for (const f of readdirSync('categories').filter((f) => f.endsWith('.json'))) {
-    const c = JSON.parse(readFileSync('categories/' + f, 'utf8'));
+    const c = readCategory('categories/' + f);
     const copy = `Call dibs on up to 3 ${categoryPlural(c)}.`;
     expect(copy).not.toMatch(/3 practice|3 television\.|3 animal\./i);
     expect(categoryPlural(c).length).toBeGreaterThan(2);

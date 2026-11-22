@@ -6,140 +6,290 @@
       "entries": 137341,
       "keys": 233467,
       "exactSamples": 200,
-      "initialPassIncludingLocalDiskMs": 100.94720899999999,
-      "warmExactP95Ms": 0.002292000000011285,
-      "warmTypoP95Ms": 14.51579199999992,
-      "parsedTypoBytes": 8323809
+      "initialPassIncludingLocalDiskMs": 69.78170799999998,
+      "warmExactP95Ms": 0.003417000000013104,
+      "warmTypoP95Ms": 13.879625000000033,
+      "parsedTypoBytes": 8530124
     },
     {
       "slug": "airports",
       "entries": 57109,
-      "keys": 235058,
+      "keys": 217851,
       "exactSamples": 200,
-      "initialPassIncludingLocalDiskMs": 50.962541999999985,
-      "warmExactP95Ms": 0.002417000000036751,
-      "warmTypoP95Ms": 3.954917000000023,
-      "parsedTypoBytes": 7563361
+      "initialPassIncludingLocalDiskMs": 51.07941699999992,
+      "warmExactP95Ms": 0.0024160000000392756,
+      "warmTypoP95Ms": 4.432749999999942,
+      "parsedTypoBytes": 7030646
     },
     {
       "slug": "albums",
       "entries": 143941,
-      "keys": 171420,
+      "keys": 187924,
       "exactSamples": 200,
-      "initialPassIncludingLocalDiskMs": 54.33658300000002,
-      "warmExactP95Ms": 0.0027079999999841675,
-      "warmTypoP95Ms": 6.887165999999979,
-      "parsedTypoBytes": 6109927
+      "initialPassIncludingLocalDiskMs": 52.731083000000126,
+      "warmExactP95Ms": 0.001958000000058746,
+      "warmTypoP95Ms": 7.148625000000038,
+      "parsedTypoBytes": 6129889
     },
     {
       "slug": "animals",
       "entries": 89124,
       "keys": 418555,
       "exactSamples": 200,
-      "initialPassIncludingLocalDiskMs": 94.50749999999994,
+      "initialPassIncludingLocalDiskMs": 100.04366700000014,
       "warmExactP95Ms": 0.0019170000000485743,
-      "warmTypoP95Ms": 20.362290999999914,
-      "parsedTypoBytes": 15626266
+      "warmTypoP95Ms": 20.81254200000012,
+      "parsedTypoBytes": 16821050
+    },
+    {
+      "slug": "architects",
+      "entries": 17721,
+      "keys": 37709,
+      "exactSamples": 200,
+      "initialPassIncludingLocalDiskMs": 9.95699999999988,
+      "warmExactP95Ms": 0.0019170000000485743,
+      "warmTypoP95Ms": 1.6251250000000255,
+      "parsedTypoBytes": 1302128
     },
     {
       "slug": "arthropods",
       "entries": 23621,
       "keys": 124052,
       "exactSamples": 200,
-      "initialPassIncludingLocalDiskMs": 24.891750000000002,
-      "warmExactP95Ms": 0.002208999999993466,
-      "warmTypoP95Ms": 7.998041999999941,
-      "parsedTypoBytes": 4782680
+      "initialPassIncludingLocalDiskMs": 28.613749999999982,
+      "warmExactP95Ms": 0.0019999999999527063,
+      "warmTypoP95Ms": 4.9269170000002305,
+      "parsedTypoBytes": 4735408
     },
     {
       "slug": "asteroids",
       "entries": 26637,
       "keys": 79911,
       "exactSamples": 200,
-      "initialPassIncludingLocalDiskMs": 17.362333000000035,
-      "warmExactP95Ms": 0.001750000000356522,
-      "warmTypoP95Ms": 3.1491249999999127,
-      "parsedTypoBytes": 2896860
+      "initialPassIncludingLocalDiskMs": 19.25416600000017,
+      "warmExactP95Ms": 0.0017920000000231084,
+      "warmTypoP95Ms": 2.8827080000000933,
+      "parsedTypoBytes": 2939698
     },
     {
       "slug": "bands",
       "entries": 49793,
       "keys": 63656,
       "exactSamples": 200,
-      "initialPassIncludingLocalDiskMs": 15.026582999999846,
-      "warmExactP95Ms": 0.0018749999999272404,
-      "warmTypoP95Ms": 2.9086670000001504,
-      "parsedTypoBytes": 2075368
+      "initialPassIncludingLocalDiskMs": 17.52970899999991,
+      "warmExactP95Ms": 0.001708000000235188,
+      "warmTypoP95Ms": 2.946875000000091,
+      "parsedTypoBytes": 2067283
     },
     {
       "slug": "birds",
       "entries": 16189,
       "keys": 67824,
       "exactSamples": 200,
-      "initialPassIncludingLocalDiskMs": 22.044624999999996,
-      "warmExactP95Ms": 0.0017499999999017746,
-      "warmTypoP95Ms": 2.4254579999997077,
-      "parsedTypoBytes": 2679119
+      "initialPassIncludingLocalDiskMs": 17.08958399999983,
+      "warmExactP95Ms": 0.0020410000001902517,
+      "warmTypoP95Ms": 2.986750000000029,
+      "parsedTypoBytes": 2679619
+    },
+    {
+      "slug": "castles",
+      "entries": 6744,
+      "keys": 10613,
+      "exactSamples": 200,
+      "initialPassIncludingLocalDiskMs": 4.460708000000068,
+      "warmExactP95Ms": 0.0017909999996845727,
+      "warmTypoP95Ms": 0.3927920000000995,
+      "parsedTypoBytes": 353449
     },
     {
       "slug": "cities",
       "entries": 149928,
       "keys": 519593,
       "exactSamples": 200,
-      "initialPassIncludingLocalDiskMs": 118.02075000000013,
-      "warmExactP95Ms": 0.002167000000099506,
-      "warmTypoP95Ms": 35.46025000000009,
-      "parsedTypoBytes": 17063992
+      "initialPassIncludingLocalDiskMs": 117.5225419999997,
+      "warmExactP95Ms": 0.002124999999978172,
+      "warmTypoP95Ms": 32.48349999999937,
+      "parsedTypoBytes": 16653356
     },
     {
       "slug": "countries",
       "entries": 249,
       "keys": 1665,
       "exactSamples": 200,
-      "initialPassIncludingLocalDiskMs": 0.32783299999982773,
-      "warmExactP95Ms": 0.0014169999999467109,
-      "warmTypoP95Ms": 0.10891700000001947,
-      "parsedTypoBytes": 44371
+      "initialPassIncludingLocalDiskMs": 0.6077080000004571,
+      "warmExactP95Ms": 0.0014170000004014582,
+      "warmTypoP95Ms": 0.08816699999988487,
+      "parsedTypoBytes": 45679
     },
     {
       "slug": "films",
       "entries": 159646,
-      "keys": 234050,
+      "keys": 243793,
       "exactSamples": 200,
-      "initialPassIncludingLocalDiskMs": 67.1314580000003,
-      "warmExactP95Ms": 0.0019170000000485743,
-      "warmTypoP95Ms": 10.529375000000073,
-      "parsedTypoBytes": 7901242
+      "initialPassIncludingLocalDiskMs": 68.14704200000051,
+      "warmExactP95Ms": 0.001833000000260654,
+      "warmTypoP95Ms": 10.515250000000378,
+      "parsedTypoBytes": 8946167
     },
     {
       "slug": "foods",
       "entries": 13988,
       "keys": 39741,
       "exactSamples": 200,
-      "initialPassIncludingLocalDiskMs": 7.262959000000137,
-      "warmExactP95Ms": 0.00179100000013932,
-      "warmTypoP95Ms": 1.5899580000000242,
-      "parsedTypoBytes": 1394477
+      "initialPassIncludingLocalDiskMs": 10.579875000000357,
+      "warmExactP95Ms": 0.001833000000260654,
+      "warmTypoP95Ms": 1.5802089999997406,
+      "parsedTypoBytes": 1299106
     },
     {
       "slug": "fruits-vegetables",
       "entries": 1396,
       "keys": 5008,
       "exactSamples": 200,
-      "initialPassIncludingLocalDiskMs": 1.6198749999998654,
-      "warmExactP95Ms": 0.0019999999999527063,
-      "warmTypoP95Ms": 0.2552499999997053,
-      "parsedTypoBytes": 165998
+      "initialPassIncludingLocalDiskMs": 2.6681250000001455,
+      "warmExactP95Ms": 0.0017090000001189765,
+      "warmTypoP95Ms": 0.24404199999935372,
+      "parsedTypoBytes": 162346
+    },
+    {
+      "slug": "islands",
+      "entries": 115471,
+      "keys": 252057,
+      "exactSamples": 200,
+      "initialPassIncludingLocalDiskMs": 61.99924999999985,
+      "warmExactP95Ms": 0.0027079999999841675,
+      "warmTypoP95Ms": 12.413416000000325,
+      "parsedTypoBytes": 8309952
+    },
+    {
+      "slug": "lakes",
+      "entries": 266970,
+      "keys": 411769,
+      "exactSamples": 200,
+      "initialPassIncludingLocalDiskMs": 122.03562500000044,
+      "warmExactP95Ms": 0.0025829999995039543,
+      "warmTypoP95Ms": 14.984167000000525,
+      "parsedTypoBytes": 14773480
+    },
+    {
+      "slug": "mountains",
+      "entries": 378633,
+      "keys": 638774,
+      "exactSamples": 200,
+      "initialPassIncludingLocalDiskMs": 27.591083000000253,
+      "warmExactP95Ms": 0.01749999999992724,
+      "warmTypoP95Ms": 33.75041599999986,
+      "parsedTypoBytes": 22665573
+    },
+    {
+      "slug": "museums",
+      "entries": 19180,
+      "keys": 37288,
+      "exactSamples": 200,
+      "initialPassIncludingLocalDiskMs": 10.236417000000074,
+      "warmExactP95Ms": 0.0020839999997406267,
+      "warmTypoP95Ms": 1.9422079999994821,
+      "parsedTypoBytes": 1531927
+    },
+    {
+      "slug": "novels",
+      "entries": 30237,
+      "keys": 49757,
+      "exactSamples": 200,
+      "initialPassIncludingLocalDiskMs": 14.456000000000131,
+      "warmExactP95Ms": 0.001833000000260654,
+      "warmTypoP95Ms": 2.079583000000639,
+      "parsedTypoBytes": 1797219
+    },
+    {
+      "slug": "painters",
+      "entries": 52882,
+      "keys": 195900,
+      "exactSamples": 200,
+      "initialPassIncludingLocalDiskMs": 46.6645410000001,
+      "warmExactP95Ms": 0.0018749999999272404,
+      "warmTypoP95Ms": 10.685833999999886,
+      "parsedTypoBytes": 7003882
     },
     {
       "slug": "plants",
       "entries": 43308,
       "keys": 202023,
       "exactSamples": 200,
-      "initialPassIncludingLocalDiskMs": 44.244416999999885,
-      "warmExactP95Ms": 0.0018340000001444423,
-      "warmTypoP95Ms": 10.94320800000014,
-      "parsedTypoBytes": 7824076
+      "initialPassIncludingLocalDiskMs": 53.24933400000009,
+      "warmExactP95Ms": 0.0020830000012210803,
+      "warmTypoP95Ms": 10.17279199999939,
+      "parsedTypoBytes": 7908113
+    },
+    {
+      "slug": "rivers",
+      "entries": 824366,
+      "keys": 1213674,
+      "exactSamples": 200,
+      "initialPassIncludingLocalDiskMs": 44.51141600000119,
+      "warmExactP95Ms": 0.12458300000071176,
+      "warmTypoP95Ms": 56.789584000000104,
+      "parsedTypoBytes": 43387552
+    },
+    {
+      "slug": "ships",
+      "entries": 28710,
+      "keys": 47650,
+      "exactSamples": 200,
+      "initialPassIncludingLocalDiskMs": 15.207540999999765,
+      "warmExactP95Ms": 0.0029169999997975538,
+      "warmTypoP95Ms": 1.5724579999987327,
+      "parsedTypoBytes": 1529063
+    },
+    {
+      "slug": "songs",
+      "entries": 86352,
+      "keys": 110168,
+      "exactSamples": 200,
+      "initialPassIncludingLocalDiskMs": 30.841542000000118,
+      "warmExactP95Ms": 0.0027919999993173406,
+      "warmTypoP95Ms": 5.653999999998632,
+      "parsedTypoBytes": 3933045
+    },
+    {
+      "slug": "stations",
+      "entries": 78100,
+      "keys": 194744,
+      "exactSamples": 200,
+      "initialPassIncludingLocalDiskMs": 53.560333999999784,
+      "warmExactP95Ms": 0.002166999998735264,
+      "warmTypoP95Ms": 7.88550000000032,
+      "parsedTypoBytes": 6956907
+    },
+    {
+      "slug": "television",
+      "entries": 47788,
+      "keys": 64000,
+      "exactSamples": 200,
+      "initialPassIncludingLocalDiskMs": 18.382790999999997,
+      "warmExactP95Ms": 0.0019999999985884642,
+      "warmTypoP95Ms": 3.1774590000004537,
+      "parsedTypoBytes": 2183490
+    },
+    {
+      "slug": "universities",
+      "entries": 14340,
+      "keys": 35393,
+      "exactSamples": 200,
+      "initialPassIncludingLocalDiskMs": 12.46979100000135,
+      "warmExactP95Ms": 0.003042000000277767,
+      "warmTypoP95Ms": 1.2961670000004233,
+      "parsedTypoBytes": 1480211
+    },
+    {
+      "slug": "video-games",
+      "entries": 30824,
+      "keys": 55839,
+      "exactSamples": 200,
+      "initialPassIncludingLocalDiskMs": 18.06012499999997,
+      "warmExactP95Ms": 0.009125000000494765,
+      "warmTypoP95Ms": 3.2741660000010597,
+      "parsedTypoBytes": 2114169
     }
   ]
 }

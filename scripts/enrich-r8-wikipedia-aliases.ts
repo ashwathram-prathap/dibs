@@ -3,9 +3,16 @@ import { createHash } from 'node:crypto';
 import { pageMatchesScope } from './catalog-quality';
 import { mergeWikipediaPage } from './wiki-pages';
 const slug = process.argv.find((arg) => arg.startsWith('--slug='))?.slice(7) || 'airports';
-if (!['airports', 'arthropods'].includes(slug)) throw Error('Unsupported reference domain');
+const definitions = JSON.parse(readFileSync('scripts/category-sources.json', 'utf8'));
+if (!['airports', 'arthropods'].includes(slug) && !definitions.some((d: any) => d.slug === slug))
+  throw Error('Unsupported reference domain');
 const path = '.category-cache/r8/other-references/' + slug + '.json';
-const basePath = '.category-cache/r8/' + slug + '-base-reference.json';
+const revision = definitions.find((d: any) => d.slug === slug)?.cacheKey || 'base';
+const basePath =
+  '.category-cache/r8/' +
+  slug +
+  (['airports', 'arthropods'].includes(slug) ? '' : '-' + revision) +
+  '-base-reference.json';
 const rows = existsSync(basePath)
   ? JSON.parse(readFileSync(basePath, 'utf8'))
   : existsSync(path)
@@ -36,7 +43,7 @@ const pause = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms));
 let cursor = 0,
   checked = 0;
 await Promise.all(
-  Array.from({ length: slug === 'airports' ? 2 : 1 }, async () => {
+  Array.from({ length: 2 }, async () => {
     while (cursor < titles.length) {
       const batch = titles.slice(cursor, (cursor += 50));
       const cache =
@@ -190,7 +197,8 @@ for (const row of rows) {
       ...article.aliases,
     ]),
   ];
-  if (slug === 'airports') row.display = article.title.replace(/ \([^)]*\)$/, '');
+  if (['airports', 'stations', 'lakes', 'mountains', 'rivers', 'islands'].includes(slug))
+    row.display = article.title.replace(/ \([^)]*\)$/, '');
   row.wikipediaTitle = article.title;
   row.wikipediaAliasesComplete = true;
 }

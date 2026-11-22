@@ -24,7 +24,7 @@ do {
     const sourceTime = statSync(dir + '/' + file).mtimeMs;
     if (processed.get(file) === sourceTime) continue;
     const rows = JSON.parse(readFileSync(dir + '/' + file, 'utf8'));
-    const slug = file.slice(0, -5);
+    const slug = file.slice(0, -5).replace(/-wikidata$/, '');
     const definition = JSON.parse(readFileSync('scripts/category-sources.json', 'utf8')).find(
       (row: any) => row.slug === slug,
     );

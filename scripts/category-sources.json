@@ -116,22 +116,38 @@
   {
     "slug": "mountains",
     "name": "Mountains",
-    "root": "Q8502"
+    "root": "Q8502",
+    "cacheKey": "geonames-complement-v1",
+    "englishOnlyCandidates": true,
+    "preferClassGroups": true,
+    "referenceSuffix": "-wikidata"
   },
   {
     "slug": "rivers",
     "name": "Rivers",
-    "root": "Q4022"
+    "root": "Q4022",
+    "cacheKey": "geonames-complement-v1",
+    "englishOnlyCandidates": true,
+    "preferClassGroups": true,
+    "referenceSuffix": "-wikidata"
   },
   {
     "slug": "lakes",
     "name": "Lakes",
-    "root": "Q23397"
+    "root": "Q23397",
+    "cacheKey": "geonames-complement-v1",
+    "englishOnlyCandidates": true,
+    "preferClassGroups": true,
+    "referenceSuffix": "-wikidata"
   },
   {
     "slug": "islands",
     "name": "Islands",
-    "root": "Q23442"
+    "root": "Q23442",
+    "cacheKey": "geonames-complement-v1",
+    "englishOnlyCandidates": true,
+    "preferClassGroups": true,
+    "referenceSuffix": "-wikidata"
   },
   {
     "slug": "museums",
@@ -154,7 +170,11 @@
   {
     "slug": "stations",
     "name": "Rail stations",
-    "root": "Q55488"
+    "root": "Q55488",
+    "cacheKey": "geonames-complement-v1",
+    "englishOnlyCandidates": true,
+    "preferClassGroups": true,
+    "referenceSuffix": "-wikidata"
   },
   {
     "slug": "asteroids",
@@ -171,8 +191,17 @@
   },
   {
     "slug": "castles",
-    "name": "Castles",
-    "root": "Q23413"
+    "name": "Castles, forts & palaces",
+    "root": "Q23413",
+    "roots": [
+      "Q23413",
+      "Q57821",
+      "Q16560",
+      "Q879050"
+    ],
+    "cacheKey": "castles-forts-palaces-v2",
+    "englishOnlyCandidates": true,
+    "preferClassGroups": true
   },
   {
     "slug": "painters",
@@ -213,7 +242,16 @@
   },
   {
     "slug": "paintings",
-    "name": "Paintings",
-    "root": "Q3305213"
+    "name": "Paintings & series",
+    "root": "Q3305213",
+    "roots": [
+      "Q3305213",
+      "Q18573970",
+      "Q15727816",
+      "Q16905563"
+    ],
+    "cacheKey": "paintings-series-v2",
+    "englishOnlyCandidates": true,
+    "preferClassGroups": true
   }
 ]

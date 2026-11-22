@@ -1,10 +1,11 @@
+import { readCategory } from '../scripts/category-file';
 import { it, expect } from 'vitest';
 import { readFileSync, readdirSync, existsSync } from 'node:fs';
 import house from '../worker/house-words.json';
 import { summaryText } from '../src/share';
 it('holds exactly the ten highest measured daily pageview entries in every approved catalog', () => {
   for (const file of readdirSync('categories').filter((f) => f.endsWith('.json'))) {
-    const c = JSON.parse(readFileSync('categories/' + file, 'utf8'));
+    const c = readCategory('categories/' + file);
     const expected = c.answers
       .filter((a: any) => a.pageviews?.days > 0)
       .sort(
@@ -25,18 +26,19 @@ it('keeps golden status out of public catalog assets and client code', () => {
     )) {
       const data = JSON.parse(readFileSync('public/catalog/' + f, 'utf8'));
       if (String(f).endsWith('manifest.json')) {
-        expect(Object.keys(data).sort()).toEqual([
-          'count',
-          'house',
-          'scope',
-          'slug',
-          'v',
-          'version',
-        ]);
+        expect(
+          Object.keys(data)
+            .filter((key) => !['indexFormat', 'indexChunks', 'rowChunkSize'].includes(key))
+            .sort(),
+        ).toEqual(['count', 'house', 'scope', 'slug', 'v', 'version']);
         continue;
       }
       if (String(f).endsWith('/full.json')) {
-        expect(Object.keys(data).sort()).toEqual(['ids', 'keys', 'rows']);
+        expect(
+          Object.keys(data)
+            .filter((key) => !['indexFormat', 'indexChunks', 'rowChunkSize'].includes(key))
+            .sort(),
+        ).toEqual(['ids', 'keys', 'rows']);
         expect(Buffer.from(data.ids, 'base64').length).toBe(data.keys.length * 4);
         expect(data.rows.every((r: any) => Array.isArray(r) && r.length === 3)).toBe(true);
         continue;

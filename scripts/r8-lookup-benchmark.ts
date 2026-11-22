@@ -1,3 +1,5 @@
+import { readCategory } from './category-file';
+import { normalize } from '../worker/domain';
 import { readdirSync, readFileSync, writeFileSync } from 'node:fs';
 import { findTypo } from '../shared/catalog';
 import { lookup } from '../worker/catalog';
@@ -11,7 +13,11 @@ const p95 = (values: number[]) => values.sort((a, b) => a - b)[Math.floor(values
 for (const slug of readdirSync('public/catalog')) {
   const manifest = JSON.parse(readFileSync(`public/catalog/${slug}/manifest.json`, 'utf8'));
   const dir = `public/catalog/${slug}/${manifest.version}`;
-  const keys: string[] = JSON.parse(readFileSync(`${dir}/full.json`, 'utf8')).keys;
+  const source = readCategory('categories/' + slug + '.json');
+  const keys: string[] = source.answers.flatMap((a: any) => [
+    normalize(a.display),
+    ...a.aliases.map(normalize),
+  ]);
   const category = { source_json: JSON.stringify({ staticCatalog: manifest }) };
   const samples = Array.from(
     { length: 200 },

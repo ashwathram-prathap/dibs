@@ -1,3 +1,4 @@
+import { readCategory } from './category-file';
 import { readFileSync, readdirSync, writeFileSync } from 'node:fs';
 import opentype from 'opentype.js';
 const fonts = [
@@ -13,7 +14,7 @@ const missing = new Set<string>();
 const characters = new Set<string>();
 let entries = 0;
 for (const name of readdirSync('categories').filter((name) => name.endsWith('.json'))) {
-  for (const answer of JSON.parse(readFileSync('categories/' + name, 'utf8')).answers) {
+  for (const answer of readCategory('categories/' + name).answers) {
     entries++;
     for (const c of answer.display + answer.display.toUpperCase()) {
       characters.add(c);

@@ -1,8 +1,8 @@
 {
-  "at": "2026-11-22T07:35:23.421Z",
+  "at": "2026-11-22T08:04:29.884Z",
   "scope": "Current local production build; deployment versions are recorded separately",
-  "files": 7257,
-  "totalBytes": 240102364,
+  "files": 11908,
+  "totalBytes": 538624240,
   "largest": [
     {
       "path": "dist/catalog/animals/e3d587202519cd6b/full.json",
@@ -25,24 +25,24 @@
       "bytes": 8849756
     },
     {
-      "path": "dist/catalog/airports/2a64ebeba6a38cb0/full.json",
-      "bytes": 6487685
+      "path": "dist/catalog/footballers/cac576ad9d8736ef/index-0.bin",
+      "bytes": 8388608
     },
     {
-      "path": "dist/catalog/plants/f584483f47d38e7d/full.json",
-      "bytes": 6282178
+      "path": "dist/catalog/lakes/98ccbcb30bca1e81/index-0.bin",
+      "bytes": 8388608
     },
     {
-      "path": "dist/catalog/songs/141628c2aff88602/full.json",
-      "bytes": 4937239
+      "path": "dist/catalog/mountains/a34dbd83adb19563/index-0.bin",
+      "bytes": 8388608
     },
     {
-      "path": "dist/catalog/arthropods/51bc78890de6c9be/full.json",
-      "bytes": 3916916
+      "path": "dist/catalog/mountains/a34dbd83adb19563/index-1.bin",
+      "bytes": 8388608
     },
     {
-      "path": "dist/catalog/television/9b120c9b268976a2/full.json",
-      "bytes": 2871854
+      "path": "dist/catalog/rivers/da6938505486f683/index-0.bin",
+      "bytes": 8388608
     }
   ],
   "limits": {

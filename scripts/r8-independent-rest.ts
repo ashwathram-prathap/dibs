@@ -1,3 +1,4 @@
+import { readCategory } from './category-file';
 import { loadBulkReadership } from './bulk-readership';
 import { readFileSync, writeFileSync, existsSync } from 'node:fs';
 import { normalize } from '../worker/domain';
@@ -35,7 +36,7 @@ for (const [slug, all] of Object.entries(pools) as [string, any[]][]) {
   )
     continue;
   const path = 'review/coverage/' + slug + '-independent.json';
-  const c = JSON.parse(readFileSync('categories/' + slug + '.json', 'utf8'));
+  const c = readCategory('categories/' + slug + '.json');
   const keys = new Set(
     c.answers.flatMap((a: any) => [normalize(a.display), ...a.aliases.map(normalize)]),
   );

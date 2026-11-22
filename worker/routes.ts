@@ -749,7 +749,11 @@ async function claim(req: Request, env: Env, u: any) {
         message: 'Not on the register. No strike charged.',
         suggestion: catalogMeta(g) ? await nearMiss(g, b.answer) : null,
         spellingCatalog: catalogMeta(g)
-          ? { slug: catalogMeta(g).slug, version: catalogMeta(g).version }
+          ? {
+              slug: catalogMeta(g).slug,
+              version: catalogMeta(g).version,
+              rowChunkSize: catalogMeta(g).rowChunkSize,
+            }
           : null,
       },
       422,

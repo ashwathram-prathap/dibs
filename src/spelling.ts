@@ -1,6 +1,6 @@
 // Only invoked for a submitted answer rejected by the server, never while typing.
 export async function submittedSpelling(
-  catalog: { slug: string; version: string },
+  catalog: { slug: string; version: string; rowChunkSize?: number },
   answer: string,
 ): Promise<string | null> {
   return new Promise((resolve) => {

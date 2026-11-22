@@ -48,31 +48,49 @@
     "license": "https://www.wikidata.org/wiki/Wikidata:Data_access"
   },
   "novels": {
-    "cacheKey": "novel-form-v2",
+    "cacheKey": "novel-form-genre-v3",
     "labelPolicy": "english-article-title-v3",
     "complete": true,
-    "candidateCount": 31236,
-    "scanned": 31236,
-    "englishArticles": 31236,
-    "method": "All uncapped classification IDs, complete bounded joins; English Wikipedia article titles provide common names; existing English labels and aliases are retained. Article availability is the quality filter, never a result-count cutoff.",
+    "candidateCount": 32588,
+    "scanned": 32588,
+    "englishArticles": 32587,
+    "namedCandidates": 32587,
+    "classificationProperties": [
+      "P31",
+      "P7937",
+      "P136"
+    ],
+    "candidatePolicy": "English-article quality filter applied during uncapped, independently counted classification extraction",
+    "method": "Complete classification candidates and bounded article joins; English article titles provide common names, and English/multilingual labels and aliases supply variants. Article availability is the quality filter, never a result-count cutoff.",
     "license": "https://www.wikidata.org/wiki/Wikidata:Data_access"
   },
   "video-games": {
-    "labelPolicy": "english-article-title-v3",
-    "complete": true,
-    "candidateCount": 190729,
-    "scanned": 190729,
-    "englishArticles": 31722,
-    "method": "All uncapped classification IDs, complete bounded joins; English Wikipedia article titles provide common names; existing English labels and aliases are retained. Article availability is the quality filter, never a result-count cutoff.",
-    "license": "https://www.wikidata.org/wiki/Wikidata:Data_access"
+    "labelPolicy": "english-article-or-source-label-v4",
+    "cacheKey": "named-games-groups-v2",
+    "complete": false,
+    "candidateCount": 194927,
+    "scanned": 70000,
+    "englishArticles": 29407,
+    "namedCandidates": 66823,
+    "classificationProperties": [
+      "P31"
+    ],
+    "candidatePolicy": "Entire uncapped classification ID set; English article title or English/Latin-script source label, with unknown readership when no article exists",
+    "method": "Complete classification candidates and bounded article joins; English article titles provide common names, and English/multilingual labels and aliases supply variants. Article availability is the quality filter, never a result-count cutoff."
   },
   "television": {
+    "cacheKey": "named-seasons-v2",
     "labelPolicy": "english-article-title-v3",
     "complete": true,
-    "candidateCount": 106955,
-    "scanned": 106955,
-    "englishArticles": 51184,
-    "method": "All uncapped classification IDs, complete bounded joins; English Wikipedia article titles provide common names; existing English labels and aliases are retained. Article availability is the quality filter, never a result-count cutoff.",
+    "candidateCount": 62254,
+    "scanned": 62254,
+    "englishArticles": 62253,
+    "namedCandidates": 62253,
+    "classificationProperties": [
+      "P31"
+    ],
+    "candidatePolicy": "English-article quality filter applied during uncapped, independently counted classification extraction",
+    "method": "Complete classification candidates and bounded article joins; English article titles provide common names, and English/multilingual labels and aliases supply variants. Article availability is the quality filter, never a result-count cutoff.",
     "license": "https://www.wikidata.org/wiki/Wikidata:Data_access"
   },
   "museums": {
@@ -85,12 +103,18 @@
     "license": "https://www.wikidata.org/wiki/Wikidata:Data_access"
   },
   "universities": {
+    "cacheKey": "higher-education-v2",
     "labelPolicy": "english-article-title-v3",
     "complete": true,
-    "candidateCount": 22908,
-    "scanned": 22908,
-    "englishArticles": 14488,
-    "method": "All uncapped classification IDs, complete bounded joins; English Wikipedia article titles provide common names; existing English labels and aliases are retained. Article availability is the quality filter, never a result-count cutoff.",
+    "candidateCount": 24829,
+    "scanned": 24829,
+    "englishArticles": 24829,
+    "namedCandidates": 24829,
+    "classificationProperties": [
+      "P31"
+    ],
+    "candidatePolicy": "English-article quality filter applied during uncapped, independently counted classification extraction",
+    "method": "Complete classification candidates and bounded article joins; English article titles provide common names, and English/multilingual labels and aliases supply variants. Article availability is the quality filter, never a result-count cutoff.",
     "license": "https://www.wikidata.org/wiki/Wikidata:Data_access"
   },
   "ships": {

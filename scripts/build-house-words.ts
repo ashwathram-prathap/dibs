@@ -1,10 +1,11 @@
+import { readCategory } from './category-file';
 // Deterministic house ranking for legacy registers; static manifests carry the same top ten.
 import { readdirSync, readFileSync, writeFileSync } from 'node:fs';
 const house: Record<string, string[]> = {};
 for (const name of readdirSync('categories')
   .filter((n) => n.endsWith('.json'))
   .sort()) {
-  const category = JSON.parse(readFileSync('categories/' + name, 'utf8'));
+  const category = readCategory('categories/' + name);
   house[category.slug] = category.answers
     .filter((a: any) => a.pageviews?.days > 0)
     .sort(

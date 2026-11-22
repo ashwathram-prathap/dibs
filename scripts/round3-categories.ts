@@ -1,3 +1,4 @@
+import { readCategory } from './category-file';
 // R8 supersedes the legacy scheduled uploader. Existing live dates are preserved.
 throw new Error('Legacy rollout stopped: use coverage-gated static catalogs; do not change the live schedule.');
 import { LAUNCH_DATE, DROP_TIME_LABEL } from '../shared/config';
@@ -45,7 +46,7 @@ const busy = stats.days.some(
     d.active_claimers >= 1000,
 );
 for (const [i, id] of plan.entries()) {
-  const local = JSON.parse(readFileSync(`categories/${id}.json`, 'utf8'));
+  const local = readCategory(`categories/${id}.json`);
   let remote = registers.find((r: any) => r.id === id);
   const record = (progress.categories[id] ||= {
     status: 'pending',

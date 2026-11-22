@@ -7,9 +7,9 @@ export function pageMatchesScope(slug: string, description: string, scientificRe
     mountains: /mountain|peak|summit|volcano|massif|ridge|range|hill/i,
     rivers: /river|stream|watercourse|tributary|wadi|creek/i,
     lakes: /lake|reservoir|body of water|saltwater lagoon/i,
-    islands: /island|islet|archipelago|atoll/i,
+    islands: /island|islet|archipelago|atoll|crown dependency|autonomous territory/i,
     stations:
-      /railway station|railroad station|metro station|subway station|tube station|rail station|train station|tram stop|tramway stop|transport.*station|station (?:in|on)/i,
+      /(?:railway|railroad|rail|train|metro|subway|tube|commuter rail) (?:station|terminal|terminus)|tram stop|tramway stop|transport.*station|station (?:in|on)/i,
   };
   if (geography[slug])
     return (

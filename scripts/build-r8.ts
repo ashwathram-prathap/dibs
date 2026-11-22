@@ -1,3 +1,4 @@
+import { writeCategory } from './category-file';
 import { loadBulkReadership } from './bulk-readership';
 import { bestReadership } from './catalog-ranking';
 import {
@@ -16,6 +17,8 @@ import {
   conjunctionAliases,
   workSubtitleAliases,
   titleArticleAliases,
+  geographicAliases,
+  shipNameAliases,
 } from './catalog-aliases';
 import { normalize, normalizeCommonName } from '../worker/domain';
 // Every source row is considered; documented quality filters are applied after popularity assessment.
@@ -31,9 +34,17 @@ const referenceProgress = JSON.parse(
 const otherDir = '.category-cache/r8/other-references';
 if (existsSync(otherDir))
   for (const f of readdirSync(otherDir).filter(
-    (f) => f.endsWith('.json') && (!onlySlugs || onlySlugs.includes(f.slice(0, -5))),
+    (f) =>
+      f.endsWith('.json') &&
+      !f.endsWith('-wikidata.json') &&
+      (!onlySlugs || onlySlugs.includes(f.slice(0, -5))),
   ))
     raw[f.slice(0, -5)] = JSON.parse(readFileSync(otherDir + '/' + f, 'utf8'));
+for (const slug of ['mountains', 'rivers', 'lakes', 'islands', 'stations']) {
+  const supplementPath = otherDir + '/' + slug + '-wikidata.json';
+  if (raw[slug] && existsSync(supplementPath))
+    raw[slug].push(...JSON.parse(readFileSync(supplementPath, 'utf8')));
+}
 const countryAliasPath = '.category-cache/r8/iso-aliases.json';
 const countryAliases = existsSync(countryAliasPath)
   ? JSON.parse(readFileSync(countryAliasPath, 'utf8'))
@@ -167,6 +178,7 @@ for (const [slug, unclean] of Object.entries(raw) as any) {
   const aliasOwner = new Map<string, any>();
   const taxonOwner = new Map<string, any>();
   for (const a of ordered) {
+    if (a.wikidata && a.wikipediaTitle) a.aliases.push(a.wikipediaTitle);
     if (a.wikipediaTitle) a.wikipediaTitles = [a.wikipediaTitle];
     const key = sourceKey(a.display);
     if (!key) continue;
@@ -232,8 +244,18 @@ for (const [slug, unclean] of Object.entries(raw) as any) {
     }
   // A canonical noun owns its inflections before any ambiguous source alias.
   for (const row of rows)
-    row.aliases.push(...[row.display, ...row.aliases].flatMap(conjunctionAliases));
-  if (['films', 'albums', 'songs', 'novels', 'video-games', 'television'].includes(slug))
+    row.aliases.push(
+      ...[row.display, ...row.aliases].flatMap((name) => [
+        ...conjunctionAliases(name),
+        ...geographicAliases(slug, name),
+      ]),
+    );
+  if (slug === 'ships')
+    for (const row of rows)
+      row.aliases.push(...[row.display, ...row.aliases].flatMap(shipNameAliases));
+  if (
+    ['films', 'albums', 'songs', 'novels', 'video-games', 'television', 'paintings'].includes(slug)
+  )
     for (const row of rows)
       row.aliases.push(
         ...[row.display, ...row.aliases].flatMap((name) => [
@@ -449,7 +471,12 @@ if (process.argv.includes('--status')) {
       JSON.stringify({
         candidates: rows.length,
         keys: rows.reduce((sum, row) => sum + 1 + row.aliases.length, 0),
-        binaryIndexEstimateBytes: 32 + rows.reduce((sum, row) => sum + 16 * (1 + row.aliases.length) + 8 + Buffer.byteLength(row.display), 0),
+        binaryIndexEstimateBytes:
+          32 +
+          rows.reduce(
+            (sum, row) => sum + 16 * (1 + row.aliases.length) + 8 + Buffer.byteLength(row.display),
+            0,
+          ),
         pending: pending.length,
         examples: pending.slice(0, 10).map((r) => measurementTitle(r, slug)),
       }),
@@ -653,6 +680,8 @@ const scopes: any = {
       d.name + ' classified by Wikidata with English Wikipedia articles; one answer per name.',
     ]),
   ),
+  castles:
+    'Castles, forts, palaces and manor houses classified by Wikidata with English Wikipedia articles; one answer per name.',
   songs:
     'Songs, singles and musical compositions, including musical theatre and operas, with English Wikipedia articles; one answer per title.',
   television:
@@ -663,15 +692,15 @@ const scopes: any = {
     'Named asteroids and other minor planets in the complete NASA/JPL Small-Body Database; names and numbered names accepted.',
   arthropods: 'English common names for insects, spiders, crustaceans and other arthropods.',
   mountains:
-    'Mountains, ranges, peaks and volcanoes in GeoNames with verified English Wikipedia articles; one answer per name.',
+    'Mountains, ranges, peaks and volcanoes in the full GeoNames reference, complemented by Wikidata; one answer per name.',
   rivers:
-    'Rivers, streams and wadis in GeoNames with verified English Wikipedia articles; one answer per name.',
+    'Rivers, streams and wadis in the full GeoNames reference, complemented by Wikidata; one answer per name.',
   lakes:
-    'Lakes and reservoirs in GeoNames with verified English Wikipedia articles; one answer per name.',
+    'Lakes and reservoirs in the full GeoNames reference, complemented by Wikidata; one answer per name.',
   islands:
-    'Islands, groups and islets in GeoNames with verified English Wikipedia articles; one answer per name.',
+    'Islands, groups and islets in the full GeoNames reference, complemented by Wikidata; one answer per name.',
   stations:
-    'Current and former railway and metro stations and stops in GeoNames with verified English Wikipedia articles; one answer per name.',
+    'Current and former railway and metro stations and stops in the full GeoNames reference, complemented by Wikidata; one answer per name.',
   airports:
     'Current and former airports, airfields and seaplane bases in OurAirports; excludes heliports and balloonports.',
   animals:
@@ -710,7 +739,6 @@ for (const [slug, answers] of Object.entries(catalogs)) {
   const articleOwners = new Map<string, any>();
   for (const a of answers)
     for (const name of [a.display, ...a.aliases]) articleOwners.set(normalize(name), a);
-  const verifiedGeography = new Set<any>();
   for (const a of answers) {
     a.pageviews = bestReadership(
       measurementTitles(a, slug).map((t) => {
@@ -728,7 +756,6 @@ for (const [slug, answers] of Object.entries(catalogs)) {
         days: 0,
         status: 'No English article in the complete source reference',
       };
-    if (geographicQuality && a.pageviews.days) verifiedGeography.add(a);
     const resolvedOwner = articleOwners.get(normalize(a.pageviews.title || ''));
     if (resolvedOwner && resolvedOwner !== a)
       a.pageviews = {
@@ -750,10 +777,6 @@ for (const [slug, answers] of Object.entries(catalogs)) {
               : 5
       : null;
   }
-  if (geographicQuality) {
-    for (let i = answers.length - 1; i >= 0; i--)
-      if (!verifiedGeography.has(answers[i])) answers.splice(i, 1);
-  }
   answers.sort(
     (a, b) =>
       b.pageviews.total / (b.pageviews.days || 1) - a.pageviews.total / (a.pageviews.days || 1) ||
@@ -762,60 +785,57 @@ for (const [slug, answers] of Object.entries(catalogs)) {
   const old = existsSync('categories/' + slug + '.json')
     ? JSON.parse(readFileSync('categories/' + slug + '.json', 'utf8'))
     : {};
-  writeFileSync(
-    'categories/' + slug + '.json',
-    JSON.stringify({
-      ...old,
-      id: slug,
-      slug,
-      name: names[slug],
-      status: 'draft',
-      date: old.date || null,
-      total_registrable: answers.length,
-      provenance: {
-        source:
-          'Full reference extraction, editorial common names, ' +
-          (bulk ? 'Wikimedia complete monthly human pageviews' : 'Wikipedia PageViewInfo'),
-        scopeNote: scopes[slug],
-        builtAt: new Date().toISOString(),
-        identityPolicy: 'complete-reference-v2',
-        wikidataNamePolicy: raw[slug].some((r: any) => r.wikidata)
-          ? (definitions.find((d: any) => d.slug === slug)?.allowNamedWithoutArticle
-              ? 'english-article-or-source-label-v4'
-              : 'english-article-title-v3') + '+en-mul-labels-aliases-v3'
-          : null,
-        classificationRevision: definitions.find((d: any) => d.slug === slug)?.cacheKey || 'base',
-        scopeValidation: 'article-descriptions-v3',
-        reviewRequired: true,
-        coverageRequired: true,
-        unmeasured: answers.filter((a) => !a.pageviews.days).length,
-        license: 'See /data/licenses.txt',
-        completeSources:
-          (!['animals', 'plants', 'arthropods'].includes(slug) ||
-            existsSync('.category-cache/r8/gbif-extracted.json')) &&
-          raw[slug].every(
-            (r: any) =>
-              !r.wikidata || (r.aliasesComplete && r.aliasPolicy === 'en-mul-labels-aliases-v3'),
-          ) &&
-          (!raw[slug].some((r: any) => r.wikidata) ||
-            (referenceProgress[slug]?.complete &&
-              referenceProgress[slug]?.labelPolicy ===
-                (definitions.find((d: any) => d.slug === slug)?.allowNamedWithoutArticle
-                  ? 'english-article-or-source-label-v4'
-                  : 'english-article-title-v3') &&
-              referenceProgress[slug]?.cacheKey ===
-                definitions.find((d: any) => d.slug === slug)?.cacheKey)),
-        candidateCount,
-        rankingComplete,
-        qualityFilter: geographicQuality
-          ? 'Full GeoNames candidate set considered; retains measured English Wikipedia articles whose descriptions verify this geographic kind. No result-count cap.'
-          : null,
-        ranking: bulk
-          ? 'Complete October 2026 human pageviews, all access methods, divided by 31 days; absent data remains unknown'
-          : '30 available days; unavailable pageviews retained as unknown, never fabricated',
-      },
-      answers,
-    }) + '\n',
-  );
+  writeCategory('categories/' + slug + '.json', {
+    ...old,
+    id: slug,
+    slug,
+    name: names[slug],
+    status: 'draft',
+    date: old.date || null,
+    total_registrable: answers.length,
+    provenance: {
+      source:
+        'Full reference extraction, editorial common names, ' +
+        (bulk ? 'Wikimedia complete monthly human pageviews' : 'Wikipedia PageViewInfo'),
+      scopeNote: scopes[slug],
+      builtAt: new Date().toISOString(),
+      identityPolicy: 'complete-reference-v2',
+      wikidataNamePolicy: raw[slug].some((r: any) => r.wikidata)
+        ? (definitions.find((d: any) => d.slug === slug)?.allowNamedWithoutArticle
+            ? 'english-article-or-source-label-v4'
+            : 'english-article-title-v3') + '+en-mul-labels-aliases-v3'
+        : null,
+      classificationRevision: definitions.find((d: any) => d.slug === slug)?.cacheKey || 'base',
+      scopeValidation: 'article-descriptions-v3',
+      reviewRequired: true,
+      coverageRequired: true,
+      unmeasured: answers.filter((a) => !a.pageviews.days).length,
+      license: 'See /data/licenses.txt',
+      completeSources:
+        (!['animals', 'plants', 'arthropods'].includes(slug) ||
+          existsSync('.category-cache/r8/gbif-extracted.json')) &&
+        raw[slug].every(
+          (r: any) =>
+            !r.wikidata || (r.aliasesComplete && r.aliasPolicy === 'en-mul-labels-aliases-v3'),
+        ) &&
+        (!raw[slug].some((r: any) => r.wikidata) ||
+          (referenceProgress[slug]?.complete &&
+            referenceProgress[slug]?.labelPolicy ===
+              (definitions.find((d: any) => d.slug === slug)?.allowNamedWithoutArticle
+                ? 'english-article-or-source-label-v4'
+                : 'english-article-title-v3') &&
+            referenceProgress[slug]?.cacheKey ===
+              definitions.find((d: any) => d.slug === slug)?.cacheKey)),
+      candidateCount,
+      rankingComplete,
+      qualityFilter: geographicQuality
+        ? 'All cleaned GeoNames names retained. Wikipedia descriptions qualify readership only; absent or unrelated articles leave obscurity unknown. No result-count cap.'
+        : null,
+      ranking: bulk
+        ? 'Complete October 2026 human pageviews, all access methods, divided by 31 days; absent data remains unknown'
+        : '30 available days; unavailable pageviews retained as unknown, never fabricated',
+    },
+    answers,
+  });
   console.log('BUILT', slug, answers.length);
 }

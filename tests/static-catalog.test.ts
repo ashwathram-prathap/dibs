@@ -1,3 +1,4 @@
+import { readCategory } from '../scripts/category-file';
 import { it, expect, beforeAll, afterAll } from 'vitest';
 import { Miniflare, convertV4MiniflareOptions } from 'miniflare';
 import { build } from 'esbuild';
@@ -17,7 +18,7 @@ const call = (path: string, body?: any, cookie?: string) =>
   });
 async function startRegistry(slug: string) {
   manifest = JSON.parse(readFileSync('public/catalog/' + slug + '/manifest.json', 'utf8'));
-  const category = JSON.parse(readFileSync('categories/' + slug + '.json', 'utf8'));
+  const category = readCategory('categories/' + slug + '.json');
   const code = await build({
     entryPoints: ['worker/index.ts'],
     bundle: true,
@@ -157,4 +158,38 @@ it('loads the entire Cities index in the Worker runtime and stores only the clai
   expect(claim.status).toBe(201);
   expect(((await claim.json()) as any).claim.display).toBe(answer);
   expect((await db.prepare('SELECT COUNT(*) n FROM answers').first()).n).toBeLessThanOrEqual(21);
+}, 30000);
+
+it('claims a deep binary-index entry and publishes the correct typo row layout', async () => {
+  await mf.dispose();
+  await startRegistry('rivers');
+  expect(manifest.indexFormat).toBe('sha256-96-v1');
+  const response = await call('/bootstrap');
+  const cookie = response.headers.get('set-cookie')!.split(';')[0];
+  const c = readCategory('categories/rivers.json');
+  const answer = c.answers[Math.floor(c.answers.length * 0.8)];
+  const claim = await call(
+    '/claim',
+    {
+      answer: answer.aliases[0] || answer.display,
+      requestId: crypto.randomUUID(),
+      turnstileToken: 'test',
+    },
+    cookie,
+  );
+  expect(claim.status).toBe(201);
+  expect(((await claim.json()) as any).claim.display).toBe(answer.display);
+  const missing = await call(
+    '/claim',
+    {
+      answer: 'qzxzzxnotriver',
+      requestId: crypto.randomUUID(),
+      turnstileToken: 'test',
+    },
+    cookie,
+  );
+  expect(missing.status).toBe(422);
+  expect(((await missing.json()) as any).spellingCatalog.rowChunkSize).toBe(1024);
+  expect((await db.prepare('SELECT COUNT(*) n FROM answers').first()).n).toBeLessThanOrEqual(21);
+  expect((await db.prepare('SELECT COUNT(*) n FROM strikes').first()).n).toBe(0);
 }, 30000);

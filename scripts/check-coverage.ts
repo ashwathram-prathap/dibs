@@ -1,3 +1,4 @@
+import { readCategory } from './category-file';
 import { readdirSync, readFileSync, writeFileSync, existsSync } from 'node:fs';
 import { normalize } from '../worker/domain';
 const report: any[] = [];
@@ -23,7 +24,7 @@ const scheduled = JSON.parse(
   readFileSync('review/round8/production-registers-before.json', 'utf8'),
 );
 for (const f of readdirSync('categories').filter((f) => f.endsWith('.json'))) {
-  const c = JSON.parse(readFileSync('categories/' + f, 'utf8'));
+  const c = readCategory('categories/' + f);
   const path = 'review/coverage/' + c.slug + '.txt';
   const words = existsSync(path)
     ? [

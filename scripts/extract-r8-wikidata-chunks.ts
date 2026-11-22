@@ -38,17 +38,14 @@ async function extract(def: any) {
   const labelPolicy = def.allowNamedWithoutArticle
     ? 'english-article-or-source-label-v4'
     : 'english-article-title-v3';
-  if (
-    ['airports', 'mountains', 'rivers', 'lakes', 'islands', 'stations', 'asteroids'].includes(
-      def.slug,
-    )
-  )
-    return;
+  if (['airports', 'asteroids'].includes(def.slug)) return;
   if (
     report[def.slug]?.complete &&
     report[def.slug]?.labelPolicy === labelPolicy &&
     report[def.slug]?.cacheKey === def.cacheKey &&
-    existsSync('.category-cache/r8/other-references/' + def.slug + '.json')
+    existsSync(
+      '.category-cache/r8/other-references/' + def.slug + (def.referenceSuffix || '') + '.json',
+    )
   ) {
     console.log(def.slug, 'already complete; preserving enriched aliases');
     return;
@@ -123,7 +120,8 @@ async function extract(def: any) {
       return;
     }
   }
-  const priorFile = '.category-cache/r8/other-references/' + def.slug + '.json';
+  const priorFile =
+    '.category-cache/r8/other-references/' + def.slug + (def.referenceSuffix || '') + '.json';
   const priorNames = new Map<string, any>(
     existsSync(priorFile)
       ? JSON.parse(readFileSync(priorFile, 'utf8')).map((r: any) => [r.wikidata, r])
@@ -226,12 +224,18 @@ async function extract(def: any) {
   if (!blocked) {
     mkdirSync('.category-cache/r8/other-references', { recursive: true });
     writeFileSync(
-      '.category-cache/r8/other-references/' + def.slug + '.json.next',
+      '.category-cache/r8/other-references/' +
+        def.slug +
+        (def.referenceSuffix || '') +
+        '.json.next',
       JSON.stringify(rows),
     );
     renameSync(
-      '.category-cache/r8/other-references/' + def.slug + '.json.next',
-      '.category-cache/r8/other-references/' + def.slug + '.json',
+      '.category-cache/r8/other-references/' +
+        def.slug +
+        (def.referenceSuffix || '') +
+        '.json.next',
+      '.category-cache/r8/other-references/' + def.slug + (def.referenceSuffix || '') + '.json',
     );
     report[def.slug] = {
       cacheKey: def.cacheKey,

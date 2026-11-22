@@ -1,3 +1,6 @@
+import { buildBinaryCatalog } from './binary-catalog';
+import { BINARY_CHUNK_BYTES } from '../shared/binary-catalog';
+import { readCategory } from './category-file';
 import { mkdirSync, readdirSync, readFileSync, writeFileSync, rmSync, existsSync } from 'node:fs';
 import { createHash } from 'node:crypto';
 import { normalize } from '../worker/domain';
@@ -7,7 +10,7 @@ const unchanged =
   readdirSync('categories')
     .filter((f) => f.endsWith('.json'))
     .every((f) => {
-      const c = JSON.parse(readFileSync('categories/' + f, 'utf8'));
+      const c = readCategory('categories/' + f);
       if (c.provenance?.identityPolicy !== 'complete-reference-v2') return true;
       const version = createHash('sha256')
         .update(JSON.stringify(c.answers))
@@ -17,7 +20,8 @@ const unchanged =
         return (
           JSON.parse(readFileSync(`public/catalog/${c.slug}/manifest.json`, 'utf8')).version ===
             version &&
-          existsSync(`public/catalog/${c.slug}/${version}/full.json`) &&
+          (existsSync(`public/catalog/${c.slug}/${version}/full.json`) ||
+            existsSync(`public/catalog/${c.slug}/${version}/index-0.bin`)) &&
           !existsSync(`public/catalog/${c.slug}/${version}/keys-0.json`)
         );
       } catch {
@@ -32,7 +36,7 @@ rmSync('public/catalog', { recursive: true, force: true });
 mkdirSync('public/catalog', { recursive: true });
 const hot: Record<string, any> = {};
 for (const f of readdirSync('categories').filter((f) => f.endsWith('.json'))) {
-  const c = JSON.parse(readFileSync('categories/' + f, 'utf8'));
+  const c = readCategory('categories/' + f);
   if (c.provenance?.identityPolicy !== 'complete-reference-v2') continue;
   const rows: CatalogRow[] = c.answers.map((a: any, i: number) => [i, a.display, a.obscurity]);
   const version = createHash('sha256').update(JSON.stringify(c.answers)).digest('hex').slice(0, 16);
@@ -50,14 +54,23 @@ for (const f of readdirSync('categories').filter((f) => f.endsWith('.json'))) {
   const ordinals = Buffer.alloc(sortedKeys.length * 4);
   sortedKeys.forEach((key, i) => ordinals.writeUInt32LE(shards[shardFor(key)][key][0], i * 4));
   const complete = JSON.stringify({ keys: sortedKeys, ids: ordinals.toString('base64'), rows });
-  if (Buffer.byteLength(complete) > 25 * 1024 * 1024)
-    throw Error(c.slug + ' exceeds Pages asset size');
-  writeFileSync(`${dir}/full.json`, complete);
+  const binary = rows.length > 200000 || Buffer.byteLength(complete) > 20 * 1024 * 1024;
+  let indexChunks = 0;
+  if (binary) {
+    const bytes = buildBinaryCatalog(sortedKeys, (key) => shards[shardFor(key)][key][0], rows);
+    if (bytes.length > 80 * 1024 * 1024)
+      throw Error(c.slug + ' exceeds isolate index memory budget');
+    for (let i = 0; i < bytes.length; i += BINARY_CHUNK_BYTES) {
+      writeFileSync(`${dir}/index-${indexChunks++}.bin`, bytes.subarray(i, i + BINARY_CHUNK_BYTES));
+    }
+  } else writeFileSync(`${dir}/full.json`, complete);
+  const rowChunkSize = rows.length > 200000 ? 1024 : 256;
+  const rowPrefix = rowChunkSize === 256 ? 'rows' : `rows-${rowChunkSize}`;
   // Only the sorted full index is used at runtime. Do not ship 256 unused key files.
-  for (let i = 0; i < rows.length; i += 256)
+  for (let i = 0; i < rows.length; i += rowChunkSize)
     writeFileSync(
-      `${dir}/rows-${Math.floor(i / 256)}.json`,
-      JSON.stringify(rows.slice(i, i + 256)),
+      `${dir}/${rowPrefix}-${Math.floor(i / rowChunkSize)}.json`,
+      JSON.stringify(rows.slice(i, i + rowChunkSize)),
     );
   // A complete metric tree covers every accepted name and alias, without a popularity cap.
   const trees: Record<number, TypoNode[]> = {};
@@ -127,13 +140,17 @@ for (const f of readdirSync('categories').filter((f) => f.endsWith('.json'))) {
     count: rows.length,
     house: rows.slice(0, 10),
     scope: c.provenance.scopeNote,
+    ...(binary ? { indexFormat: 'sha256-96-v1', indexChunks } : {}),
+    ...(rowChunkSize !== 256 ? { rowChunkSize } : {}),
   };
   writeFileSync(`public/catalog/${c.slug}/manifest.json`, JSON.stringify(manifest));
 }
 
 writeFileSync(
   'worker/catalog-hot.generated.ts',
-  'export default JSON.parse(' +
-    JSON.stringify(JSON.stringify(hot)) +
-    ') as Record<string, any>;\n',
+  'export default ' +
+    JSON.stringify(
+      Object.fromEntries(Object.entries(hot).map(([slug, data]) => [slug, JSON.stringify(data)])),
+    ) +
+    ' as Record<string, string>;\n',
 );

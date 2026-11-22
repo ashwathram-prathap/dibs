@@ -1,10 +1,11 @@
+import { readCategory } from './category-file';
 import { readFileSync, readdirSync, writeFileSync } from 'node:fs';
 import { normalize, dropAt } from '../worker/domain';
 const files = readdirSync('categories').filter((x) => x.endsWith('.json'));
 if (files.length !== 30) throw new Error(`Expected 30 registers, found ${files.length}`);
 const rows = [];
 for (const name of files) {
-  const c = JSON.parse(readFileSync('categories/' + name, 'utf8'));
+  const c = readCategory('categories/' + name);
   if (c.status !== 'draft' || c.answers.length < 2000 || c.total_registrable !== c.answers.length)
     throw new Error('Invalid draft ' + name);
   if (c.provenance?.identityPolicy !== 'exclude-cross-title-redirects-v1')

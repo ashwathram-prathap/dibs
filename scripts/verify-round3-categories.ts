@@ -1,3 +1,4 @@
+import { readCategory } from './category-file';
 import { readFileSync, writeFileSync } from 'node:fs';
 import { createHash } from 'node:crypto';
 import { catalogContent, keyContent } from '../shared/catalog-digest';
@@ -13,7 +14,7 @@ for (const c of categories) {
   const r = await fetch(base + '/admin/verify?id=' + c.id, { headers });
   if (!r.ok) throw Error('Remote verification unavailable; stop.');
   const data = (await r.json()) as any;
-  const local = JSON.parse(readFileSync(`categories/${c.id}.json`, 'utf8'));
+  const local = readCategory(`categories/${c.id}.json`);
   const digest = createHash('sha256').update(catalogContent(local.answers)).digest('hex');
   const keys = local.answers.flatMap((a: any) =>
     [...new Set([normalize(a.display), ...a.aliases.map(normalize)])].map((match_key) => ({
