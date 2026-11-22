@@ -1,0 +1,609 @@
+{
+  "source": "Pre-R8 independent Wikidata candidate set; sources retained per entry",
+  "seed": 8129,
+  "method": "Uniform draw without replacement from the middle half of measured readership; misses are not replaced.",
+  "answers": [
+    "Tébessa",
+    "Sar-e-Pol, Afghanistan",
+    "Morogoro",
+    "Les Cayes",
+    "Rapperswil",
+    "Tirano",
+    "Sønderborg",
+    "Esna",
+    "Chestermere",
+    "Concón",
+    "Wadi Halfa",
+    "Huehuetenango",
+    "Cërrik",
+    "Porirua",
+    "Faridkot, India",
+    "Radzymin",
+    "Daraa",
+    "Piran",
+    "Knyszyn",
+    "Petroșani",
+    "Koidu",
+    "Shire, Ethiopia",
+    "Nawa, Daraa",
+    "Kulpahar",
+    "Santa Ana del Yacuma",
+    "Lerum",
+    "Foumban",
+    "Næstved",
+    "Gokak",
+    "Majmaah",
+    "Lae",
+    "Atacames",
+    "Milicz",
+    "Shëngjin",
+    "Oğuz (city)",
+    "Minna",
+    "Chililabombwe",
+    "Gambela (city)",
+    "Kenscoff",
+    "Olesno",
+    "Skuodas",
+    "Singrauli",
+    "Rurrenabaque",
+    "Özgön",
+    "Barquisimeto",
+    "Caesarea (modern town)",
+    "Gode",
+    "Savona",
+    "Samawah",
+    "Mohammedia"
+  ],
+  "samples": [
+    {
+      "answer": "Tébessa",
+      "source": "https://en.wikipedia.org/wiki/T%C3%A9bessa",
+      "pageviews": {
+        "total": 804,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      },
+      "present": true
+    },
+    {
+      "answer": "Sar-e-Pol, Afghanistan",
+      "source": "https://en.wikipedia.org/wiki/Sar-e-Pol,_Afghanistan",
+      "pageviews": {
+        "total": 212,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      },
+      "present": false
+    },
+    {
+      "answer": "Morogoro",
+      "source": "https://en.wikipedia.org/wiki/Morogoro",
+      "pageviews": {
+        "total": 1491,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      },
+      "present": true
+    },
+    {
+      "answer": "Les Cayes",
+      "source": "https://en.wikipedia.org/wiki/Les_Cayes",
+      "pageviews": {
+        "total": 1367,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      },
+      "present": true
+    },
+    {
+      "answer": "Rapperswil",
+      "source": "https://en.wikipedia.org/wiki/Rapperswil",
+      "pageviews": {
+        "total": 750,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      },
+      "present": true
+    },
+    {
+      "answer": "Tirano",
+      "source": "https://en.wikipedia.org/wiki/Tirano",
+      "pageviews": {
+        "total": 1362,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      },
+      "present": true
+    },
+    {
+      "answer": "Sønderborg",
+      "source": "https://en.wikipedia.org/wiki/S%C3%B8nderborg",
+      "pageviews": {
+        "total": 1568,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      },
+      "present": true
+    },
+    {
+      "answer": "Esna",
+      "source": "https://en.wikipedia.org/wiki/Esna",
+      "pageviews": {
+        "total": 1839,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      },
+      "present": true
+    },
+    {
+      "answer": "Chestermere",
+      "source": "https://en.wikipedia.org/wiki/Chestermere",
+      "pageviews": {
+        "total": 1026,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      },
+      "present": true
+    },
+    {
+      "answer": "Concón",
+      "source": "https://en.wikipedia.org/wiki/Conc%C3%B3n",
+      "pageviews": {
+        "total": 914,
+        "days": 29,
+        "start": "2026-10-22",
+        "end": "2026-11-19"
+      },
+      "present": true
+    },
+    {
+      "answer": "Wadi Halfa",
+      "source": "https://en.wikipedia.org/wiki/Wadi_Halfa",
+      "pageviews": {
+        "total": 1922,
+        "days": 29,
+        "start": "2026-10-22",
+        "end": "2026-11-19"
+      },
+      "present": true
+    },
+    {
+      "answer": "Huehuetenango",
+      "source": "https://en.wikipedia.org/wiki/Huehuetenango",
+      "pageviews": {
+        "total": 1114,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      },
+      "present": true
+    },
+    {
+      "answer": "Cërrik",
+      "source": "https://en.wikipedia.org/wiki/C%C3%ABrrik",
+      "pageviews": {
+        "total": 249,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      },
+      "present": true
+    },
+    {
+      "answer": "Porirua",
+      "source": "https://en.wikipedia.org/wiki/Porirua",
+      "pageviews": {
+        "total": 1798,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      },
+      "present": true
+    },
+    {
+      "answer": "Faridkot, India",
+      "source": "https://en.wikipedia.org/wiki/Faridkot,_India",
+      "pageviews": {
+        "total": 1527,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      },
+      "present": false
+    },
+    {
+      "answer": "Radzymin",
+      "source": "https://en.wikipedia.org/wiki/Radzymin",
+      "pageviews": {
+        "total": 259,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      },
+      "present": true
+    },
+    {
+      "answer": "Daraa",
+      "source": "https://en.wikipedia.org/wiki/Daraa",
+      "pageviews": {
+        "total": 2964,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      },
+      "present": true
+    },
+    {
+      "answer": "Piran",
+      "source": "https://en.wikipedia.org/wiki/Piran",
+      "pageviews": {
+        "total": 2131,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      },
+      "present": true
+    },
+    {
+      "answer": "Knyszyn",
+      "source": "https://en.wikipedia.org/wiki/Knyszyn",
+      "pageviews": {
+        "total": 249,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      },
+      "present": true
+    },
+    {
+      "answer": "Petroșani",
+      "source": "https://en.wikipedia.org/wiki/Petro%C8%99ani",
+      "pageviews": {
+        "total": 693,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      },
+      "present": true
+    },
+    {
+      "answer": "Koidu",
+      "source": "https://en.wikipedia.org/wiki/Koidu",
+      "pageviews": {
+        "total": 327,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      },
+      "present": true
+    },
+    {
+      "answer": "Shire, Ethiopia",
+      "source": "https://en.wikipedia.org/wiki/Shire,_Ethiopia",
+      "pageviews": {
+        "total": 486,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      },
+      "present": false
+    },
+    {
+      "answer": "Nawa, Daraa",
+      "source": "https://en.wikipedia.org/wiki/Nawa,_Daraa",
+      "pageviews": {
+        "total": 268,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      },
+      "present": false
+    },
+    {
+      "answer": "Kulpahar",
+      "source": "https://en.wikipedia.org/wiki/Kulpahar",
+      "pageviews": {
+        "total": 262,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      },
+      "present": true
+    },
+    {
+      "answer": "Santa Ana del Yacuma",
+      "source": "https://en.wikipedia.org/wiki/Santa_Ana_del_Yacuma",
+      "pageviews": {
+        "total": 245,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      },
+      "present": false
+    },
+    {
+      "answer": "Lerum",
+      "source": "https://en.wikipedia.org/wiki/Lerum",
+      "pageviews": {
+        "total": 271,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      },
+      "present": true
+    },
+    {
+      "answer": "Foumban",
+      "source": "https://en.wikipedia.org/wiki/Foumban",
+      "pageviews": {
+        "total": 290,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      },
+      "present": true
+    },
+    {
+      "answer": "Næstved",
+      "source": "https://en.wikipedia.org/wiki/N%C3%A6stved",
+      "pageviews": {
+        "total": 776,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      },
+      "present": true
+    },
+    {
+      "answer": "Gokak",
+      "source": "https://en.wikipedia.org/wiki/Gokak",
+      "pageviews": {
+        "total": 490,
+        "days": 29,
+        "start": "2026-10-22",
+        "end": "2026-11-19"
+      },
+      "present": true
+    },
+    {
+      "answer": "Majmaah",
+      "source": "https://en.wikipedia.org/wiki/Majmaah",
+      "pageviews": {
+        "total": 532,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      },
+      "present": false
+    },
+    {
+      "answer": "Lae",
+      "source": "https://en.wikipedia.org/wiki/Lae",
+      "pageviews": {
+        "total": 2871,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      },
+      "present": true
+    },
+    {
+      "answer": "Atacames",
+      "source": "https://en.wikipedia.org/wiki/Atacames",
+      "pageviews": {
+        "total": 367,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      },
+      "present": true
+    },
+    {
+      "answer": "Milicz",
+      "source": "https://en.wikipedia.org/wiki/Milicz",
+      "pageviews": {
+        "total": 332,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      },
+      "present": true
+    },
+    {
+      "answer": "Shëngjin",
+      "source": "https://en.wikipedia.org/wiki/Sh%C3%ABngjin",
+      "pageviews": {
+        "total": 1369,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      },
+      "present": true
+    },
+    {
+      "answer": "Oğuz (city)",
+      "source": "https://en.wikipedia.org/wiki/O%C4%9Fuz_(city)",
+      "pageviews": {
+        "total": 314,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      },
+      "present": false
+    },
+    {
+      "answer": "Minna",
+      "source": "https://en.wikipedia.org/wiki/Minna",
+      "pageviews": {
+        "total": 854,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      },
+      "present": true
+    },
+    {
+      "answer": "Chililabombwe",
+      "source": "https://en.wikipedia.org/wiki/Chililabombwe",
+      "pageviews": {
+        "total": 226,
+        "days": 29,
+        "start": "2026-10-22",
+        "end": "2026-11-19"
+      },
+      "present": true
+    },
+    {
+      "answer": "Gambela (city)",
+      "source": "https://en.wikipedia.org/wiki/Gambela_(city)",
+      "pageviews": {
+        "total": 702,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      },
+      "present": false
+    },
+    {
+      "answer": "Kenscoff",
+      "source": "https://en.wikipedia.org/wiki/Kenscoff",
+      "pageviews": {
+        "total": 919,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      },
+      "present": true
+    },
+    {
+      "answer": "Olesno",
+      "source": "https://en.wikipedia.org/wiki/Olesno",
+      "pageviews": {
+        "total": 208,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      },
+      "present": true
+    },
+    {
+      "answer": "Skuodas",
+      "source": "https://en.wikipedia.org/wiki/Skuodas",
+      "pageviews": {
+        "total": 197,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      },
+      "present": true
+    },
+    {
+      "answer": "Singrauli",
+      "source": "https://en.wikipedia.org/wiki/Singrauli",
+      "pageviews": {
+        "total": 1659,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      },
+      "present": true
+    },
+    {
+      "answer": "Rurrenabaque",
+      "source": "https://en.wikipedia.org/wiki/Rurrenabaque",
+      "pageviews": {
+        "total": 854,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      },
+      "present": true
+    },
+    {
+      "answer": "Özgön",
+      "source": "https://en.wikipedia.org/wiki/%C3%96zg%C3%B6n",
+      "pageviews": {
+        "total": 517,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      },
+      "present": true
+    },
+    {
+      "answer": "Barquisimeto",
+      "source": "https://en.wikipedia.org/wiki/Barquisimeto",
+      "pageviews": {
+        "total": 2039,
+        "days": 29,
+        "start": "2026-10-22",
+        "end": "2026-11-19"
+      },
+      "present": true
+    },
+    {
+      "answer": "Caesarea (modern town)",
+      "source": "https://en.wikipedia.org/wiki/Caesarea_(modern_town)",
+      "pageviews": {
+        "total": 3158,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      },
+      "present": false
+    },
+    {
+      "answer": "Gode",
+      "source": "https://en.wikipedia.org/wiki/Gode",
+      "pageviews": {
+        "total": 601,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      },
+      "present": true
+    },
+    {
+      "answer": "Savona",
+      "source": "https://en.wikipedia.org/wiki/Savona",
+      "pageviews": {
+        "total": 3092,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      },
+      "present": true
+    },
+    {
+      "answer": "Samawah",
+      "source": "https://en.wikipedia.org/wiki/Samawah",
+      "pageviews": {
+        "total": 942,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      },
+      "present": true
+    },
+    {
+      "answer": "Mohammedia",
+      "source": "https://en.wikipedia.org/wiki/Mohammedia",
+      "pageviews": {
+        "total": 990,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      },
+      "present": true
+    }
+  ]
+}

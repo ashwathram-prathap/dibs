@@ -1,0 +1,1546 @@
+{
+  "date": "2026-11-22T03:13:13.438Z",
+  "catalog": {
+    "v": 2,
+    "slug": "animals",
+    "version": "774c80b3db2ace24",
+    "count": 16799,
+    "house": [
+      [
+        0,
+        "Cat",
+        1
+      ],
+      [
+        1,
+        "Turkey",
+        1
+      ],
+      [
+        2,
+        "Dog",
+        1
+      ],
+      [
+        3,
+        "Axolotl",
+        1
+      ],
+      [
+        4,
+        "Squirrel",
+        1
+      ],
+      [
+        5,
+        "Capybara",
+        1
+      ],
+      [
+        6,
+        "Orca",
+        1
+      ],
+      [
+        7,
+        "Horse",
+        1
+      ],
+      [
+        8,
+        "Hippopotamus",
+        1
+      ],
+      [
+        9,
+        "Lion",
+        1
+      ]
+    ],
+    "scope": "English common names for animals of every kind, including general groups and bird species."
+  },
+  "entries": 16799,
+  "obvious": 246,
+  "accepted": 246,
+  "missing": [],
+  "lookupColdP95": 154,
+  "lookupWarmP95": 25,
+  "rows": [
+    {
+      "answer": "cat",
+      "found": true,
+      "display": "Cat",
+      "ms": 119
+    },
+    {
+      "answer": "dog",
+      "found": true,
+      "display": "Dog",
+      "ms": 141
+    },
+    {
+      "answer": "horse",
+      "found": true,
+      "display": "Horse",
+      "ms": 93
+    },
+    {
+      "answer": "cow",
+      "found": true,
+      "display": "Cow",
+      "ms": 107
+    },
+    {
+      "answer": "pig",
+      "found": true,
+      "display": "Pig",
+      "ms": 139
+    },
+    {
+      "answer": "sheep",
+      "found": true,
+      "display": "Sheep",
+      "ms": 103
+    },
+    {
+      "answer": "goat",
+      "found": true,
+      "display": "Goat",
+      "ms": 90
+    },
+    {
+      "answer": "donkey",
+      "found": true,
+      "display": "Donkey",
+      "ms": 138
+    },
+    {
+      "answer": "mule",
+      "found": true,
+      "display": "Mule",
+      "ms": 83
+    },
+    {
+      "answer": "rabbit",
+      "found": true,
+      "display": "Rabbit",
+      "ms": 115
+    },
+    {
+      "answer": "hare",
+      "found": true,
+      "display": "Hare",
+      "ms": 128
+    },
+    {
+      "answer": "mouse",
+      "found": true,
+      "display": "Mouse",
+      "ms": 157
+    },
+    {
+      "answer": "rat",
+      "found": true,
+      "display": "Rat",
+      "ms": 113
+    },
+    {
+      "answer": "hamster",
+      "found": true,
+      "display": "Hamster",
+      "ms": 103
+    },
+    {
+      "answer": "gerbil",
+      "found": true,
+      "display": "Gerbil",
+      "ms": 70
+    },
+    {
+      "answer": "guinea pig",
+      "found": true,
+      "display": "Guinea pig",
+      "ms": 102
+    },
+    {
+      "answer": "chinchilla",
+      "found": true,
+      "display": "Chinchilla",
+      "ms": 80
+    },
+    {
+      "answer": "ferret",
+      "found": true,
+      "display": "Ferret",
+      "ms": 100
+    },
+    {
+      "answer": "hedgehog",
+      "found": true,
+      "display": "Hedgehog",
+      "ms": 148
+    },
+    {
+      "answer": "squirrel",
+      "found": true,
+      "display": "Squirrel",
+      "ms": 101
+    },
+    {
+      "answer": "chipmunk",
+      "found": true,
+      "display": "Chipmunk",
+      "ms": 92
+    },
+    {
+      "answer": "beaver",
+      "found": true,
+      "display": "Beaver",
+      "ms": 129
+    },
+    {
+      "answer": "otter",
+      "found": true,
+      "display": "Otter",
+      "ms": 104
+    },
+    {
+      "answer": "badger",
+      "found": true,
+      "display": "Badger",
+      "ms": 99
+    },
+    {
+      "answer": "weasel",
+      "found": true,
+      "display": "Weasel",
+      "ms": 103
+    },
+    {
+      "answer": "stoat",
+      "found": true,
+      "display": "Stoat",
+      "ms": 120
+    },
+    {
+      "answer": "mink",
+      "found": true,
+      "display": "Mink",
+      "ms": 81
+    },
+    {
+      "answer": "wolverine",
+      "found": true,
+      "display": "Wolverine",
+      "ms": 98
+    },
+    {
+      "answer": "skunk",
+      "found": true,
+      "display": "Skunk",
+      "ms": 160
+    },
+    {
+      "answer": "raccoon",
+      "found": true,
+      "display": "Raccoon",
+      "ms": 128
+    },
+    {
+      "answer": "fox",
+      "found": true,
+      "display": "Fox",
+      "ms": 144
+    },
+    {
+      "answer": "wolf",
+      "found": true,
+      "display": "Wolf",
+      "ms": 125
+    },
+    {
+      "answer": "coyote",
+      "found": true,
+      "display": "Coyote",
+      "ms": 0
+    },
+    {
+      "answer": "jackal",
+      "found": true,
+      "display": "Jackal",
+      "ms": 138
+    },
+    {
+      "answer": "lion",
+      "found": true,
+      "display": "Lion",
+      "ms": 136
+    },
+    {
+      "answer": "tiger",
+      "found": true,
+      "display": "Tiger",
+      "ms": 128
+    },
+    {
+      "answer": "leopard",
+      "found": true,
+      "display": "Leopard",
+      "ms": 123
+    },
+    {
+      "answer": "cheetah",
+      "found": true,
+      "display": "Cheetah",
+      "ms": 139
+    },
+    {
+      "answer": "jaguar",
+      "found": true,
+      "display": "Jaguar",
+      "ms": 112
+    },
+    {
+      "answer": "puma",
+      "found": true,
+      "display": "Puma",
+      "ms": 105
+    },
+    {
+      "answer": "lynx",
+      "found": true,
+      "display": "Lynx",
+      "ms": 124
+    },
+    {
+      "answer": "bobcat",
+      "found": true,
+      "display": "Bobcat",
+      "ms": 0
+    },
+    {
+      "answer": "snow leopard",
+      "found": true,
+      "display": "Snow leopard",
+      "ms": 98
+    },
+    {
+      "answer": "bear",
+      "found": true,
+      "display": "Bear",
+      "ms": 139
+    },
+    {
+      "answer": "polar bear",
+      "found": true,
+      "display": "Polar bear",
+      "ms": 88
+    },
+    {
+      "answer": "panda",
+      "found": true,
+      "display": "Panda",
+      "ms": 126
+    },
+    {
+      "answer": "red panda",
+      "found": true,
+      "display": "Red panda",
+      "ms": 107
+    },
+    {
+      "answer": "koala",
+      "found": true,
+      "display": "Koala",
+      "ms": 140
+    },
+    {
+      "answer": "kangaroo",
+      "found": true,
+      "display": "Kangaroo",
+      "ms": 74
+    },
+    {
+      "answer": "wallaby",
+      "found": true,
+      "display": "Wallaby",
+      "ms": 122
+    },
+    {
+      "answer": "wombat",
+      "found": true,
+      "display": "Wombat",
+      "ms": 135
+    },
+    {
+      "answer": "platypus",
+      "found": true,
+      "display": "Platypus",
+      "ms": 104
+    },
+    {
+      "answer": "echidna",
+      "found": true,
+      "display": "Echidna",
+      "ms": 133
+    },
+    {
+      "answer": "opossum",
+      "found": true,
+      "display": "Opossum",
+      "ms": 97
+    },
+    {
+      "answer": "possum",
+      "found": true,
+      "display": "Possum",
+      "ms": 117
+    },
+    {
+      "answer": "sloth",
+      "found": true,
+      "display": "Sloth",
+      "ms": 78
+    },
+    {
+      "answer": "armadillo",
+      "found": true,
+      "display": "Armadillo",
+      "ms": 405
+    },
+    {
+      "answer": "anteater",
+      "found": true,
+      "display": "Anteater",
+      "ms": 170
+    },
+    {
+      "answer": "aardvark",
+      "found": true,
+      "display": "Aardvark",
+      "ms": 107
+    },
+    {
+      "answer": "pangolin",
+      "found": true,
+      "display": "Pangolin",
+      "ms": 121
+    },
+    {
+      "answer": "elephant",
+      "found": true,
+      "display": "Elephant",
+      "ms": 137
+    },
+    {
+      "answer": "rhinoceros",
+      "found": true,
+      "display": "Rhinoceros",
+      "ms": 84
+    },
+    {
+      "answer": "hippopotamus",
+      "found": true,
+      "display": "Hippopotamus",
+      "ms": 122
+    },
+    {
+      "answer": "giraffe",
+      "found": true,
+      "display": "Giraffe",
+      "ms": 94
+    },
+    {
+      "answer": "zebra",
+      "found": true,
+      "display": "Zebra",
+      "ms": 0
+    },
+    {
+      "answer": "camel",
+      "found": true,
+      "display": "Camel",
+      "ms": 129
+    },
+    {
+      "answer": "llama",
+      "found": true,
+      "display": "Llama",
+      "ms": 159
+    },
+    {
+      "answer": "alpaca",
+      "found": true,
+      "display": "Alpaca",
+      "ms": 0
+    },
+    {
+      "answer": "deer",
+      "found": true,
+      "display": "Deer",
+      "ms": 107
+    },
+    {
+      "answer": "elk",
+      "found": true,
+      "display": "Elk",
+      "ms": 118
+    },
+    {
+      "answer": "moose",
+      "found": true,
+      "display": "Moose",
+      "ms": 0
+    },
+    {
+      "answer": "reindeer",
+      "found": true,
+      "display": "Reindeer",
+      "ms": 127
+    },
+    {
+      "answer": "antelope",
+      "found": true,
+      "display": "Antelope",
+      "ms": 140
+    },
+    {
+      "answer": "gazelle",
+      "found": true,
+      "display": "Gazelle",
+      "ms": 0
+    },
+    {
+      "answer": "bison",
+      "found": true,
+      "display": "Bison",
+      "ms": 183
+    },
+    {
+      "answer": "buffalo",
+      "found": true,
+      "display": "Buffalo",
+      "ms": 92
+    },
+    {
+      "answer": "yak",
+      "found": true,
+      "display": "Yak",
+      "ms": 0
+    },
+    {
+      "answer": "gnu",
+      "found": true,
+      "display": "Gnu",
+      "ms": 124
+    },
+    {
+      "answer": "warthog",
+      "found": true,
+      "display": "Warthog",
+      "ms": 124
+    },
+    {
+      "answer": "meerkat",
+      "found": true,
+      "display": "Meerkat",
+      "ms": 92
+    },
+    {
+      "answer": "mongoose",
+      "found": true,
+      "display": "Mongoose",
+      "ms": 0
+    },
+    {
+      "answer": "hyena",
+      "found": true,
+      "display": "Hyena",
+      "ms": 0
+    },
+    {
+      "answer": "bat",
+      "found": true,
+      "display": "Bat",
+      "ms": 0
+    },
+    {
+      "answer": "monkey",
+      "found": true,
+      "display": "Monkey",
+      "ms": 0
+    },
+    {
+      "answer": "ape",
+      "found": true,
+      "display": "Ape",
+      "ms": 99
+    },
+    {
+      "answer": "gorilla",
+      "found": true,
+      "display": "Gorilla",
+      "ms": 15
+    },
+    {
+      "answer": "chimpanzee",
+      "found": true,
+      "display": "Chimpanzee",
+      "ms": 104
+    },
+    {
+      "answer": "orangutan",
+      "found": true,
+      "display": "Orangutan",
+      "ms": 0
+    },
+    {
+      "answer": "gibbon",
+      "found": true,
+      "display": "Gibbon",
+      "ms": 139
+    },
+    {
+      "answer": "baboon",
+      "found": true,
+      "display": "Baboon",
+      "ms": 134
+    },
+    {
+      "answer": "lemur",
+      "found": true,
+      "display": "Lemur",
+      "ms": 112
+    },
+    {
+      "answer": "tarsier",
+      "found": true,
+      "display": "Tarsier",
+      "ms": 97
+    },
+    {
+      "answer": "marmoset",
+      "found": true,
+      "display": "Marmoset",
+      "ms": 104
+    },
+    {
+      "answer": "capybara",
+      "found": true,
+      "display": "Capybara",
+      "ms": 0
+    },
+    {
+      "answer": "tapir",
+      "found": true,
+      "display": "Tapir",
+      "ms": 0
+    },
+    {
+      "answer": "okapi",
+      "found": true,
+      "display": "Okapi",
+      "ms": 99
+    },
+    {
+      "answer": "quokka",
+      "found": true,
+      "display": "Quokka",
+      "ms": 124
+    },
+    {
+      "answer": "narwhal",
+      "found": true,
+      "display": "Narwhal",
+      "ms": 137
+    },
+    {
+      "answer": "whale",
+      "found": true,
+      "display": "Whale",
+      "ms": 148
+    },
+    {
+      "answer": "dolphin",
+      "found": true,
+      "display": "Dolphin",
+      "ms": 95
+    },
+    {
+      "answer": "porpoise",
+      "found": true,
+      "display": "Porpoise",
+      "ms": 118
+    },
+    {
+      "answer": "orca",
+      "found": true,
+      "display": "Orca",
+      "ms": 94
+    },
+    {
+      "answer": "seal",
+      "found": true,
+      "display": "Seal",
+      "ms": 115
+    },
+    {
+      "answer": "sea lion",
+      "found": true,
+      "display": "Sea lion",
+      "ms": 124
+    },
+    {
+      "answer": "walrus",
+      "found": true,
+      "display": "Walrus",
+      "ms": 126
+    },
+    {
+      "answer": "manatee",
+      "found": true,
+      "display": "Manatee",
+      "ms": 0
+    },
+    {
+      "answer": "dugong",
+      "found": true,
+      "display": "Dugong",
+      "ms": 99
+    },
+    {
+      "answer": "shark",
+      "found": true,
+      "display": "Shark",
+      "ms": 92
+    },
+    {
+      "answer": "ray",
+      "found": true,
+      "display": "Ray",
+      "ms": 0
+    },
+    {
+      "answer": "stingray",
+      "found": true,
+      "display": "Stingray",
+      "ms": 119
+    },
+    {
+      "answer": "manta ray",
+      "found": true,
+      "display": "Manta ray",
+      "ms": 19
+    },
+    {
+      "answer": "salmon",
+      "found": true,
+      "display": "Salmon",
+      "ms": 145
+    },
+    {
+      "answer": "trout",
+      "found": true,
+      "display": "Trout",
+      "ms": 119
+    },
+    {
+      "answer": "tuna",
+      "found": true,
+      "display": "Tuna",
+      "ms": 105
+    },
+    {
+      "answer": "cod",
+      "found": true,
+      "display": "Cod",
+      "ms": 154
+    },
+    {
+      "answer": "herring",
+      "found": true,
+      "display": "Herring",
+      "ms": 17
+    },
+    {
+      "answer": "sardine",
+      "found": true,
+      "display": "Sardine",
+      "ms": 125
+    },
+    {
+      "answer": "anchovy",
+      "found": true,
+      "display": "Anchovy",
+      "ms": 124
+    },
+    {
+      "answer": "eel",
+      "found": true,
+      "display": "Eel",
+      "ms": 27
+    },
+    {
+      "answer": "carp",
+      "found": true,
+      "display": "Carp",
+      "ms": 0
+    },
+    {
+      "answer": "goldfish",
+      "found": true,
+      "display": "Goldfish",
+      "ms": 110
+    },
+    {
+      "answer": "piranha",
+      "found": true,
+      "display": "Piranha",
+      "ms": 19
+    },
+    {
+      "answer": "seahorse",
+      "found": true,
+      "display": "Seahorse",
+      "ms": 0
+    },
+    {
+      "answer": "clownfish",
+      "found": true,
+      "display": "Clownfish",
+      "ms": 27
+    },
+    {
+      "answer": "swordfish",
+      "found": true,
+      "display": "Swordfish",
+      "ms": 170
+    },
+    {
+      "answer": "pufferfish",
+      "found": true,
+      "display": "Pufferfish",
+      "ms": 0
+    },
+    {
+      "answer": "lionfish",
+      "found": true,
+      "display": "Lionfish",
+      "ms": 101
+    },
+    {
+      "answer": "jellyfish",
+      "found": true,
+      "display": "Jellyfish",
+      "ms": 91
+    },
+    {
+      "answer": "octopus",
+      "found": true,
+      "display": "Octopus",
+      "ms": 106
+    },
+    {
+      "answer": "squid",
+      "found": true,
+      "display": "Squid",
+      "ms": 134
+    },
+    {
+      "answer": "cuttlefish",
+      "found": true,
+      "display": "Cuttlefish",
+      "ms": 22
+    },
+    {
+      "answer": "nautilus",
+      "found": true,
+      "display": "Nautilus",
+      "ms": 21
+    },
+    {
+      "answer": "snail",
+      "found": true,
+      "display": "Snail",
+      "ms": 118
+    },
+    {
+      "answer": "slug",
+      "found": true,
+      "display": "Slug",
+      "ms": 24
+    },
+    {
+      "answer": "clam",
+      "found": true,
+      "display": "Clam",
+      "ms": 0
+    },
+    {
+      "answer": "oyster",
+      "found": true,
+      "display": "Oyster",
+      "ms": 154
+    },
+    {
+      "answer": "mussel",
+      "found": true,
+      "display": "Mussel",
+      "ms": 116
+    },
+    {
+      "answer": "scallop",
+      "found": true,
+      "display": "Scallop",
+      "ms": 0
+    },
+    {
+      "answer": "crab",
+      "found": true,
+      "display": "Crab",
+      "ms": 109
+    },
+    {
+      "answer": "lobster",
+      "found": true,
+      "display": "Lobster",
+      "ms": 86
+    },
+    {
+      "answer": "shrimp",
+      "found": true,
+      "display": "Shrimp",
+      "ms": 91
+    },
+    {
+      "answer": "prawn",
+      "found": true,
+      "display": "Prawn",
+      "ms": 0
+    },
+    {
+      "answer": "crayfish",
+      "found": true,
+      "display": "Crayfish",
+      "ms": 134
+    },
+    {
+      "answer": "barnacle",
+      "found": true,
+      "display": "Barnacle",
+      "ms": 108
+    },
+    {
+      "answer": "starfish",
+      "found": true,
+      "display": "Starfish",
+      "ms": 125
+    },
+    {
+      "answer": "sea urchin",
+      "found": true,
+      "display": "Sea urchin",
+      "ms": 155
+    },
+    {
+      "answer": "sea cucumber",
+      "found": true,
+      "display": "Sea cucumber",
+      "ms": 21
+    },
+    {
+      "answer": "sponge",
+      "found": true,
+      "display": "Sponge",
+      "ms": 96
+    },
+    {
+      "answer": "coral",
+      "found": true,
+      "display": "Coral",
+      "ms": 142
+    },
+    {
+      "answer": "anemone",
+      "found": true,
+      "display": "Anemone",
+      "ms": 107
+    },
+    {
+      "answer": "worm",
+      "found": true,
+      "display": "Worm",
+      "ms": 139
+    },
+    {
+      "answer": "leech",
+      "found": true,
+      "display": "Leech",
+      "ms": 0
+    },
+    {
+      "answer": "centipede",
+      "found": true,
+      "display": "Centipede",
+      "ms": 0
+    },
+    {
+      "answer": "millipede",
+      "found": true,
+      "display": "Millipede",
+      "ms": 0
+    },
+    {
+      "answer": "spider",
+      "found": true,
+      "display": "Spider",
+      "ms": 23
+    },
+    {
+      "answer": "scorpion",
+      "found": true,
+      "display": "Scorpion",
+      "ms": 105
+    },
+    {
+      "answer": "tick",
+      "found": true,
+      "display": "Tick",
+      "ms": 21
+    },
+    {
+      "answer": "mite",
+      "found": true,
+      "display": "Mite",
+      "ms": 21
+    },
+    {
+      "answer": "ant",
+      "found": true,
+      "display": "Ant",
+      "ms": 100
+    },
+    {
+      "answer": "bee",
+      "found": true,
+      "display": "Bee",
+      "ms": 28
+    },
+    {
+      "answer": "wasp",
+      "found": true,
+      "display": "Wasp",
+      "ms": 0
+    },
+    {
+      "answer": "hornet",
+      "found": true,
+      "display": "Hornet",
+      "ms": 24
+    },
+    {
+      "answer": "butterfly",
+      "found": true,
+      "display": "Butterfly",
+      "ms": 98
+    },
+    {
+      "answer": "moth",
+      "found": true,
+      "display": "Moth",
+      "ms": 150
+    },
+    {
+      "answer": "beetle",
+      "found": true,
+      "display": "Beetle",
+      "ms": 0
+    },
+    {
+      "answer": "ladybug",
+      "found": true,
+      "display": "Ladybug",
+      "ms": 33
+    },
+    {
+      "answer": "dragonfly",
+      "found": true,
+      "display": "Dragonfly",
+      "ms": 132
+    },
+    {
+      "answer": "damselfly",
+      "found": true,
+      "display": "Damselfly",
+      "ms": 0
+    },
+    {
+      "answer": "mosquito",
+      "found": true,
+      "display": "Mosquito",
+      "ms": 22
+    },
+    {
+      "answer": "fly",
+      "found": true,
+      "display": "Fly",
+      "ms": 120
+    },
+    {
+      "answer": "flea",
+      "found": true,
+      "display": "Flea",
+      "ms": 120
+    },
+    {
+      "answer": "louse",
+      "found": true,
+      "display": "Louse",
+      "ms": 130
+    },
+    {
+      "answer": "cockroach",
+      "found": true,
+      "display": "Cockroach",
+      "ms": 17
+    },
+    {
+      "answer": "termite",
+      "found": true,
+      "display": "Termite",
+      "ms": 123
+    },
+    {
+      "answer": "grasshopper",
+      "found": true,
+      "display": "Grasshopper",
+      "ms": 20
+    },
+    {
+      "answer": "cricket",
+      "found": true,
+      "display": "Cricket",
+      "ms": 0
+    },
+    {
+      "answer": "locust",
+      "found": true,
+      "display": "Locust",
+      "ms": 20
+    },
+    {
+      "answer": "mantis",
+      "found": true,
+      "display": "Mantis",
+      "ms": 0
+    },
+    {
+      "answer": "cicada",
+      "found": true,
+      "display": "Cicada",
+      "ms": 0
+    },
+    {
+      "answer": "aphid",
+      "found": true,
+      "display": "Aphid",
+      "ms": 89
+    },
+    {
+      "answer": "stick insect",
+      "found": true,
+      "display": "Stick insect",
+      "ms": 21
+    },
+    {
+      "answer": "frog",
+      "found": true,
+      "display": "Frog",
+      "ms": 92
+    },
+    {
+      "answer": "toad",
+      "found": true,
+      "display": "Toad",
+      "ms": 19
+    },
+    {
+      "answer": "salamander",
+      "found": true,
+      "display": "Salamander",
+      "ms": 147
+    },
+    {
+      "answer": "newt",
+      "found": true,
+      "display": "Newt",
+      "ms": 0
+    },
+    {
+      "answer": "axolotl",
+      "found": true,
+      "display": "Axolotl",
+      "ms": 23
+    },
+    {
+      "answer": "snake",
+      "found": true,
+      "display": "Snake",
+      "ms": 27
+    },
+    {
+      "answer": "cobra",
+      "found": true,
+      "display": "Cobra",
+      "ms": 127
+    },
+    {
+      "answer": "python",
+      "found": true,
+      "display": "Python",
+      "ms": 133
+    },
+    {
+      "answer": "boa",
+      "found": true,
+      "display": "Boa",
+      "ms": 21
+    },
+    {
+      "answer": "viper",
+      "found": true,
+      "display": "Viper",
+      "ms": 22
+    },
+    {
+      "answer": "rattlesnake",
+      "found": true,
+      "display": "Rattlesnake",
+      "ms": 0
+    },
+    {
+      "answer": "lizard",
+      "found": true,
+      "display": "Lizard",
+      "ms": 23
+    },
+    {
+      "answer": "gecko",
+      "found": true,
+      "display": "Gecko",
+      "ms": 154
+    },
+    {
+      "answer": "iguana",
+      "found": true,
+      "display": "Iguana",
+      "ms": 76
+    },
+    {
+      "answer": "chameleon",
+      "found": true,
+      "display": "Chameleon",
+      "ms": 94
+    },
+    {
+      "answer": "monitor lizard",
+      "found": true,
+      "display": "Monitor lizard",
+      "ms": 22
+    },
+    {
+      "answer": "crocodile",
+      "found": true,
+      "display": "Crocodile",
+      "ms": 21
+    },
+    {
+      "answer": "alligator",
+      "found": true,
+      "display": "Alligator",
+      "ms": 21
+    },
+    {
+      "answer": "turtle",
+      "found": true,
+      "display": "Turtle",
+      "ms": 156
+    },
+    {
+      "answer": "tortoise",
+      "found": true,
+      "display": "Tortoise",
+      "ms": 90
+    },
+    {
+      "answer": "penguin",
+      "found": true,
+      "display": "Penguin",
+      "ms": 0
+    },
+    {
+      "answer": "ostrich",
+      "found": true,
+      "display": "Ostrich",
+      "ms": 145
+    },
+    {
+      "answer": "emu",
+      "found": true,
+      "display": "Emu",
+      "ms": 33
+    },
+    {
+      "answer": "chicken",
+      "found": true,
+      "display": "Chicken",
+      "ms": 105
+    },
+    {
+      "answer": "rooster",
+      "found": true,
+      "display": "Rooster",
+      "ms": 107
+    },
+    {
+      "answer": "turkey",
+      "found": true,
+      "display": "Turkey",
+      "ms": 24
+    },
+    {
+      "answer": "duck",
+      "found": true,
+      "display": "Duck",
+      "ms": 109
+    },
+    {
+      "answer": "goose",
+      "found": true,
+      "display": "Goose",
+      "ms": 27
+    },
+    {
+      "answer": "swan",
+      "found": true,
+      "display": "Swan",
+      "ms": 24
+    },
+    {
+      "answer": "eagle",
+      "found": true,
+      "display": "Eagle",
+      "ms": 0
+    },
+    {
+      "answer": "hawk",
+      "found": true,
+      "display": "Hawk",
+      "ms": 28
+    },
+    {
+      "answer": "falcon",
+      "found": true,
+      "display": "Falcon",
+      "ms": 24
+    },
+    {
+      "answer": "owl",
+      "found": true,
+      "display": "Owl",
+      "ms": 25
+    },
+    {
+      "answer": "parrot",
+      "found": true,
+      "display": "Parrot",
+      "ms": 31
+    },
+    {
+      "answer": "pigeon",
+      "found": true,
+      "display": "Pigeon",
+      "ms": 27
+    },
+    {
+      "answer": "dove",
+      "found": true,
+      "display": "Dove",
+      "ms": 24
+    },
+    {
+      "answer": "crow",
+      "found": true,
+      "display": "Crow",
+      "ms": 25
+    },
+    {
+      "answer": "raven",
+      "found": true,
+      "display": "Raven",
+      "ms": 135
+    },
+    {
+      "answer": "robin",
+      "found": true,
+      "display": "Robin",
+      "ms": 198
+    },
+    {
+      "answer": "sparrow",
+      "found": true,
+      "display": "Sparrow",
+      "ms": 0
+    },
+    {
+      "answer": "finch",
+      "found": true,
+      "display": "Finch",
+      "ms": 26
+    },
+    {
+      "answer": "canary",
+      "found": true,
+      "display": "Canary",
+      "ms": 19
+    },
+    {
+      "answer": "peacock",
+      "found": true,
+      "display": "Peacock",
+      "ms": 0
+    },
+    {
+      "answer": "flamingo",
+      "found": true,
+      "display": "Flamingo",
+      "ms": 20
+    },
+    {
+      "answer": "pelican",
+      "found": true,
+      "display": "Pelican",
+      "ms": 0
+    },
+    {
+      "answer": "heron",
+      "found": true,
+      "display": "Heron",
+      "ms": 29
+    },
+    {
+      "answer": "stork",
+      "found": true,
+      "display": "Stork",
+      "ms": 123
+    },
+    {
+      "answer": "crane",
+      "found": true,
+      "display": "Crane",
+      "ms": 18
+    },
+    {
+      "answer": "kingfisher",
+      "found": true,
+      "display": "Kingfisher",
+      "ms": 0
+    },
+    {
+      "answer": "woodpecker",
+      "found": true,
+      "display": "Woodpecker",
+      "ms": 0
+    },
+    {
+      "answer": "hummingbird",
+      "found": true,
+      "display": "Hummingbird",
+      "ms": 0
+    },
+    {
+      "answer": "toucan",
+      "found": true,
+      "display": "Toucan",
+      "ms": 24
+    },
+    {
+      "answer": "puffin",
+      "found": true,
+      "display": "Puffin",
+      "ms": 0
+    },
+    {
+      "answer": "albatross",
+      "found": true,
+      "display": "Albatross",
+      "ms": 25
+    },
+    {
+      "answer": "gull",
+      "found": true,
+      "display": "Gull",
+      "ms": 126
+    },
+    {
+      "answer": "swallow",
+      "found": true,
+      "display": "Swallow",
+      "ms": 126
+    },
+    {
+      "answer": "swift",
+      "found": true,
+      "display": "Swift",
+      "ms": 105
+    },
+    {
+      "answer": "wren",
+      "found": true,
+      "display": "Wren",
+      "ms": 22
+    },
+    {
+      "answer": "magpie",
+      "found": true,
+      "display": "Magpie",
+      "ms": 129
+    },
+    {
+      "answer": "blue jay",
+      "found": true,
+      "display": "Blue jay",
+      "ms": 0
+    },
+    {
+      "answer": "cardinal",
+      "found": true,
+      "display": "Cardinal",
+      "ms": 0
+    },
+    {
+      "answer": "quail",
+      "found": true,
+      "display": "Quail",
+      "ms": 0
+    },
+    {
+      "answer": "pheasant",
+      "found": true,
+      "display": "Pheasant",
+      "ms": 119
+    },
+    {
+      "answer": "kiwi",
+      "found": true,
+      "display": "Kiwi",
+      "ms": 0
+    },
+    {
+      "answer": "dodo",
+      "found": true,
+      "display": "Dodo",
+      "ms": 148
+    }
+  ]
+}

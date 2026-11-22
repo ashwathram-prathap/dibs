@@ -837,7 +837,7 @@ export class Registry extends DurableObject<Env> {
         let recoveryKey: string | undefined;
         if (data.claim && session.file?.dibs === 1) {
           recoveryKey = await fileKey(session.user.id, env.COOKIE_SECRET);
-          const issued=await env.DB.prepare(
+          const issued = await env.DB.prepare(
             'INSERT OR IGNORE INTO recovery_keys(key_hash,user_id,created_at) VALUES(?,?,?)',
           )
             .bind(
@@ -846,6 +846,7 @@ export class Registry extends DurableObject<Env> {
               new Date().toISOString(),
             )
             .run();
+          if (!issued.meta.changes && !data.replayed) recoveryKey = undefined;
         }
         return json(
           { ...data, recoveryKey, file: session.file, me: this.me(session) },

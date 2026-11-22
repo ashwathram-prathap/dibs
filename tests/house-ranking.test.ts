@@ -35,6 +35,15 @@ it('keeps golden status out of public catalog assets and client code', () => {
         ]);
         continue;
       }
+      if (String(f).includes('/typos-')) {
+        for (const row of data) {
+          expect(row).toHaveLength(3);
+          expect(typeof row[0]).toBe('string');
+          expect(Number.isInteger(row[1])).toBe(true);
+          expect(typeof row[2]).toBe('object');
+        }
+        continue;
+      }
       for (const row of Array.isArray(data) ? data : Object.values(data)) {
         expect(row).toHaveLength(3);
         expect(typeof row[0]).toBe('number');

@@ -1,0 +1,14 @@
+{
+  "applied": false,
+  "reason": "FIXES-R8 ends with 'Don't change the schedule'. The existing live dates are preserved. Only entries whose complete coverage gate is ready can be newly scheduled.",
+  "proposal": [
+    {"date":"2026-11-23","category":"animals"},
+    {"date":"2026-11-24","category":"foods"},
+    {"date":"2026-11-25","category":"countries"},
+    {"date":"2026-11-26","category":"birds"},
+    {"date":"2026-11-27","category":"fruits-vegetables"},
+    {"date":"2026-11-28","category":"cities"},
+    {"date":"2026-11-29","category":"plants"}
+  ],
+  "afterNov29": "No additional dates proposed. Existing live schedule unchanged."
+}

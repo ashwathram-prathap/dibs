@@ -8,7 +8,9 @@
     "missing": [],
     "ready": false,
     "independentChecked": 0,
+    "independentMissing": [],
     "sourceComplete": false,
+    "rankingComplete": false,
     "house": [
       "Patrick Stewart",
       "Robert Pattinson",
@@ -21,8 +23,8 @@
       "Johnny Depp",
       "Anne Hathaway"
     ],
-    "status": "unscheduled proposal; live schedule preserved",
-    "date": null
+    "status": "scheduled (existing, unchanged)",
+    "date": "2026-11-27"
   },
   {
     "slug": "airports",
@@ -33,7 +35,9 @@
     "missing": [],
     "ready": false,
     "independentChecked": 0,
+    "independentMissing": [],
     "sourceComplete": false,
+    "rankingComplete": false,
     "house": [
       "O'Hare International Airport",
       "Los Angeles International Airport",
@@ -46,7 +50,7 @@
       "Changi Airport",
       "Toronto Pearson International Airport"
     ],
-    "status": "unscheduled proposal; live schedule preserved",
+    "status": "unscheduled",
     "date": null
   },
   {
@@ -58,7 +62,9 @@
     "missing": [],
     "ready": false,
     "independentChecked": 0,
+    "independentMissing": [],
     "sourceComplete": false,
+    "rankingComplete": false,
     "house": [
       "Abbey Road",
       "Thriller (album)",
@@ -71,22 +77,28 @@
       "The Wall",
       "Led Zeppelin IV"
     ],
-    "status": "unscheduled proposal; live schedule preserved",
+    "status": "unscheduled",
     "date": null
   },
   {
     "slug": "animals",
-    "entries": 16799,
+    "entries": 86664,
     "scope": "English common names for animals of every kind, including general groups and bird species.",
     "obvious": 246,
     "score": 1,
     "missing": [],
     "ready": false,
-    "independentChecked": 0,
-    "sourceComplete": false,
+    "independentChecked": 50,
+    "independentMissing": [
+      "Neohylomys vietnamensis",
+      "Pancho's monito del monte",
+      "Armenian whiskered bat"
+    ],
+    "sourceComplete": true,
+    "rankingComplete": false,
+    "unmeasured": 84612,
     "house": [
       "Cat",
-      "Turkey",
       "Dog",
       "Axolotl",
       "Squirrel",
@@ -94,10 +106,11 @@
       "Orca",
       "Horse",
       "Hippopotamus",
-      "Lion"
+      "Lion",
+      "Tiger"
     ],
-    "status": "unscheduled proposal; live schedule preserved",
-    "date": null
+    "status": "scheduled (existing, unchanged)",
+    "date": "2026-11-23"
   },
   {
     "slug": "architects",
@@ -108,7 +121,9 @@
     "missing": [],
     "ready": false,
     "independentChecked": 0,
+    "independentMissing": [],
     "sourceComplete": false,
+    "rankingComplete": false,
     "house": [
       "Thomas Jefferson",
       "Leonardo da Vinci",
@@ -121,7 +136,7 @@
       "Marcus Vipsanius Agrippa",
       "Zaha Hadid"
     ],
-    "status": "unscheduled proposal; live schedule preserved",
+    "status": "unscheduled",
     "date": null
   },
   {
@@ -133,7 +148,9 @@
     "missing": [],
     "ready": false,
     "independentChecked": 0,
+    "independentMissing": [],
     "sourceComplete": false,
+    "rankingComplete": false,
     "house": [
       "Silverfish",
       "Cockchafer",
@@ -146,7 +163,7 @@
       "Luna moth",
       "Housefly"
     ],
-    "status": "unscheduled proposal; live schedule preserved",
+    "status": "unscheduled",
     "date": null
   },
   {
@@ -158,7 +175,9 @@
     "missing": [],
     "ready": false,
     "independentChecked": 0,
+    "independentMissing": [],
     "sourceComplete": false,
+    "rankingComplete": false,
     "house": [
       "Ceres (dwarf planet)",
       "1998 KY26",
@@ -171,7 +190,7 @@
       "10 Hygiea",
       "243 Ida"
     ],
-    "status": "unscheduled proposal; live schedule preserved",
+    "status": "unscheduled",
     "date": null
   },
   {
@@ -183,7 +202,9 @@
     "missing": [],
     "ready": false,
     "independentChecked": 0,
+    "independentMissing": [],
     "sourceComplete": false,
+    "rankingComplete": false,
     "house": [
       "The Beatles",
       "Fleetwood Mac",
@@ -196,33 +217,36 @@
       "Metallica",
       "Kings of Leon"
     ],
-    "status": "unscheduled proposal; live schedule preserved",
+    "status": "unscheduled",
     "date": null
   },
   {
     "slug": "birds",
-    "entries": 12056,
+    "entries": 16608,
     "scope": "Bird species and general bird names.",
     "obvious": 224,
     "score": 1,
     "missing": [],
     "ready": false,
-    "independentChecked": 0,
+    "independentChecked": 50,
+    "independentMissing": [],
     "sourceComplete": true,
+    "rankingComplete": false,
+    "unmeasured": 15068,
     "house": [
-      "Turkey",
-      "Goonie",
       "Dodo",
       "Chicken",
-      "Rooster",
       "Cassowary",
-      "Guinea",
       "Penguin",
       "Shoebill",
-      "Peregrine falcon"
+      "Turkey",
+      "Turkey cock",
+      "Bald eagle",
+      "Owl",
+      "Duck"
     ],
-    "status": "unscheduled proposal; live schedule preserved",
-    "date": null
+    "status": "scheduled (existing, unchanged)",
+    "date": "2026-11-25"
   },
   {
     "slug": "castles",
@@ -233,7 +257,9 @@
     "missing": [],
     "ready": false,
     "independentChecked": 0,
+    "independentMissing": [],
     "sourceComplete": false,
+    "rankingComplete": false,
     "house": [
       "Neuschwanstein Castle",
       "Tower of London",
@@ -246,33 +272,46 @@
       "Bamburgh Castle",
       "Hohenzollern Castle"
     ],
-    "status": "unscheduled proposal; live schedule preserved",
+    "status": "unscheduled",
     "date": null
   },
   {
     "slug": "cities",
-    "entries": 149096,
+    "entries": 142927,
     "scope": "Named populated places in GeoNames cities1000: population 1,000+ or administrative seats; one answer per name.",
     "obvious": 210,
     "score": 1,
     "missing": [],
     "ready": false,
-    "independentChecked": 0,
-    "sourceComplete": true,
-    "house": [
-      "China",
-      "New York City",
-      "Brazil",
-      "Japan",
-      "Singapore",
-      "Australia",
-      "Poland",
-      "Hong Kong",
-      "Mexico",
-      "Los Angeles"
+    "independentChecked": 50,
+    "independentMissing": [
+      "Sar-e-Pol, Afghanistan",
+      "Faridkot, India",
+      "Shire, Ethiopia",
+      "Nawa, Daraa",
+      "Santa Ana del Yacuma",
+      "Majmaah",
+      "Oğuz (city)",
+      "Gambela (city)",
+      "Caesarea (modern town)"
     ],
-    "status": "unscheduled proposal; live schedule preserved",
-    "date": null
+    "sourceComplete": true,
+    "rankingComplete": false,
+    "unmeasured": 141688,
+    "house": [
+      "New York",
+      "Los Angeles",
+      "Kraków",
+      "London",
+      "Chicago",
+      "Berlin",
+      "Jerusalem",
+      "Shenzhen",
+      "Vatican City",
+      "Toronto"
+    ],
+    "status": "scheduled (existing, unchanged)",
+    "date": "2026-11-26"
   },
   {
     "slug": "composers",
@@ -283,7 +322,9 @@
     "missing": [],
     "ready": false,
     "independentChecked": 0,
+    "independentMissing": [],
     "sourceComplete": false,
+    "rankingComplete": false,
     "house": [
       "Amanda Seyfried",
       "Katy Perry",
@@ -296,19 +337,22 @@
       "David Bowie",
       "Amy Winehouse"
     ],
-    "status": "unscheduled proposal; live schedule preserved",
+    "status": "unscheduled",
     "date": null
   },
   {
     "slug": "countries",
-    "entries": 271,
+    "entries": 249,
     "scope": "ISO 3166 countries and territories, with common alternate names.",
     "obvious": 195,
     "score": 1,
     "missing": [],
     "ready": false,
     "independentChecked": 0,
+    "independentMissing": [],
     "sourceComplete": true,
+    "rankingComplete": false,
+    "unmeasured": 53,
     "house": [
       "United States",
       "United Kingdom",
@@ -321,7 +365,7 @@
       "Japan",
       "Singapore"
     ],
-    "status": "unscheduled proposal; live schedule preserved",
+    "status": "unscheduled",
     "date": null
   },
   {
@@ -333,7 +377,9 @@
     "missing": [],
     "ready": false,
     "independentChecked": 0,
+    "independentMissing": [],
     "sourceComplete": false,
+    "rankingComplete": false,
     "house": [
       "XXX (2002 film)",
       "I, Robot (film)",
@@ -346,32 +392,35 @@
       "The Silence of the Lambs (film)",
       "Contact (1997 American film)"
     ],
-    "status": "unscheduled proposal; live schedule preserved",
+    "status": "unscheduled",
     "date": null
   },
   {
     "slug": "foods",
-    "entries": 11623,
+    "entries": 10681,
     "scope": "Foods, dishes and edible ingredients.",
     "obvious": 212,
     "score": 1,
     "missing": [],
     "ready": false,
     "independentChecked": 0,
-    "sourceComplete": false,
+    "independentMissing": [],
+    "sourceComplete": true,
+    "rankingComplete": false,
+    "unmeasured": 10448,
     "house": [
-      "Brazil",
-      "Turkey",
-      "Dog",
-      "Chile",
       "Apple",
       "Bread",
       "Chicken",
       "Banana",
       "Ice cream",
-      "Octopus"
+      "Octopus",
+      "Rabbit",
+      "Chocolate",
+      "Tea",
+      "Shark"
     ],
-    "status": "unscheduled proposal; live schedule preserved",
+    "status": "unscheduled",
     "date": null
   },
   {
@@ -383,7 +432,9 @@
     "missing": [],
     "ready": false,
     "independentChecked": 0,
+    "independentMissing": [],
     "sourceComplete": false,
+    "rankingComplete": false,
     "house": [
       "Cristiano Ronaldo",
       "Michael Carrick",
@@ -396,32 +447,35 @@
       "Cesc Fàbregas",
       "David Beckham"
     ],
-    "status": "unscheduled proposal; live schedule preserved",
+    "status": "unscheduled",
     "date": null
   },
   {
     "slug": "fruits-vegetables",
-    "entries": 573,
+    "entries": 380,
     "scope": "Culinary fruits and vegetables, including varieties.",
     "obvious": 204,
     "score": 1,
     "missing": [],
     "ready": false,
     "independentChecked": 0,
-    "sourceComplete": false,
+    "independentMissing": [],
+    "sourceComplete": true,
+    "rankingComplete": false,
+    "unmeasured": 298,
     "house": [
-      "Chile",
       "Apple",
       "Banana",
       "Potato",
       "Cassava",
       "Corn",
       "Pomegranate",
+      "Tomato",
       "Avocado",
-      "Okra",
-      "Fig"
+      "Fig",
+      "Rutabaga"
     ],
-    "status": "unscheduled proposal; live schedule preserved",
+    "status": "unscheduled",
     "date": null
   },
   {
@@ -433,7 +487,9 @@
     "missing": [],
     "ready": false,
     "independentChecked": 0,
+    "independentMissing": [],
     "sourceComplete": false,
+    "rankingComplete": false,
     "house": [
       "Guam",
       "Easter Island",
@@ -446,7 +502,7 @@
       "Hispaniola",
       "Newfoundland (island)"
     ],
-    "status": "unscheduled proposal; live schedule preserved",
+    "status": "unscheduled",
     "date": null
   },
   {
@@ -458,7 +514,9 @@
     "missing": [],
     "ready": false,
     "independentChecked": 0,
+    "independentMissing": [],
     "sourceComplete": false,
+    "rankingComplete": false,
     "house": [
       "Lake Baikal",
       "Caspian Sea",
@@ -471,7 +529,7 @@
       "Loch Ness",
       "Lake Erie"
     ],
-    "status": "unscheduled proposal; live schedule preserved",
+    "status": "unscheduled",
     "date": null
   },
   {
@@ -483,7 +541,9 @@
     "missing": [],
     "ready": false,
     "independentChecked": 0,
+    "independentMissing": [],
     "sourceComplete": false,
+    "rankingComplete": false,
     "house": [
       "Mount Everest",
       "Mount Rushmore",
@@ -496,7 +556,7 @@
       "Mount Rainier",
       "Matterhorn"
     ],
-    "status": "unscheduled proposal; live schedule preserved",
+    "status": "unscheduled",
     "date": null
   },
   {
@@ -508,7 +568,9 @@
     "missing": [],
     "ready": false,
     "independentChecked": 0,
+    "independentMissing": [],
     "sourceComplete": false,
+    "rankingComplete": false,
     "house": [
       "Hagia Sophia",
       "Auschwitz concentration camp",
@@ -521,7 +583,7 @@
       "Mausoleum at Halicarnassus",
       "Florence Cathedral"
     ],
-    "status": "unscheduled proposal; live schedule preserved",
+    "status": "unscheduled",
     "date": null
   },
   {
@@ -533,7 +595,9 @@
     "missing": [],
     "ready": false,
     "independentChecked": 0,
+    "independentMissing": [],
     "sourceComplete": false,
+    "rankingComplete": false,
     "house": [
       "JoJo's Bizarre Adventure",
       "House of Leaves",
@@ -546,7 +610,7 @@
       "The Lovely Bones",
       "Life of Pi"
     ],
-    "status": "unscheduled proposal; live schedule preserved",
+    "status": "unscheduled",
     "date": null
   },
   {
@@ -558,7 +622,9 @@
     "missing": [],
     "ready": false,
     "independentChecked": 0,
+    "independentMissing": [],
     "sourceComplete": false,
+    "rankingComplete": false,
     "house": [
       "George W. Bush",
       "Bob Dylan",
@@ -571,7 +637,7 @@
       "Leonardo da Vinci",
       "Frida Kahlo"
     ],
-    "status": "unscheduled proposal; live schedule preserved",
+    "status": "unscheduled",
     "date": null
   },
   {
@@ -583,7 +649,9 @@
     "missing": [],
     "ready": false,
     "independentChecked": 0,
+    "independentMissing": [],
     "sourceComplete": false,
+    "rankingComplete": false,
     "house": [
       "Saturn Devouring His Son",
       "Mona Lisa",
@@ -596,33 +664,42 @@
       "Girl with a Pearl Earring",
       "Nighthawks (Hopper)"
     ],
-    "status": "unscheduled proposal; live schedule preserved",
+    "status": "unscheduled",
     "date": null
   },
   {
     "slug": "plants",
-    "entries": 7591,
+    "entries": 49458,
     "scope": "English common names for plants, including trees, flowers, herbs and crops.",
     "obvious": 201,
     "score": 1,
     "missing": [],
     "ready": false,
-    "independentChecked": 0,
-    "sourceComplete": false,
+    "independentChecked": 50,
+    "independentMissing": [
+      "Rhynchostylis retusa",
+      "Anemonoides apennina",
+      "Bruguiera cylindrica",
+      "Marcgravia umbellata",
+      "Cynanchica pyrenaica"
+    ],
+    "sourceComplete": true,
+    "rankingComplete": false,
+    "unmeasured": 49303,
     "house": [
+      "Panda",
       "Apple",
+      "Dodo",
       "Banana",
+      "Tea",
       "Potato",
       "Cassava",
-      "Maize",
       "Corn",
       "Pomegranate",
-      "Avocado",
-      "Peanut",
-      "Cashew"
+      "Tomato"
     ],
-    "status": "unscheduled proposal; live schedule preserved",
-    "date": null
+    "status": "scheduled (existing, unchanged)",
+    "date": "2026-11-24"
   },
   {
     "slug": "poets",
@@ -633,7 +710,9 @@
     "missing": [],
     "ready": false,
     "independentChecked": 0,
+    "independentMissing": [],
     "sourceComplete": false,
+    "rankingComplete": false,
     "house": [
       "James Stewart",
       "Bob Dylan",
@@ -646,7 +725,7 @@
       "Tim Burton",
       "George Harrison"
     ],
-    "status": "unscheduled proposal; live schedule preserved",
+    "status": "unscheduled",
     "date": null
   },
   {
@@ -658,7 +737,9 @@
     "missing": [],
     "ready": false,
     "independentChecked": 0,
+    "independentMissing": [],
     "sourceComplete": false,
+    "rankingComplete": false,
     "house": [
       "Mississippi River",
       "Danube",
@@ -671,7 +752,7 @@
       "Colorado River",
       "Congo River"
     ],
-    "status": "unscheduled proposal; live schedule preserved",
+    "status": "unscheduled",
     "date": null
   },
   {
@@ -683,7 +764,9 @@
     "missing": [],
     "ready": false,
     "independentChecked": 0,
+    "independentMissing": [],
     "sourceComplete": false,
+    "rankingComplete": false,
     "house": [
       "Andrea Gail",
       "SS Daniel J. Morrell",
@@ -696,7 +779,7 @@
       "SS William Clay Ford",
       "HMT Empire Windrush"
     ],
-    "status": "unscheduled proposal; live schedule preserved",
+    "status": "unscheduled",
     "date": null
   },
   {
@@ -708,7 +791,9 @@
     "missing": [],
     "ready": false,
     "independentChecked": 0,
+    "independentMissing": [],
     "sourceComplete": false,
+    "rankingComplete": false,
     "house": [
       "Que Sera, Sera (Whatever Will Be, Will Be)",
       "In the Air Tonight",
@@ -721,7 +806,7 @@
       "Nothing's Gonna Stop Us Now",
       "Nothing Compares 2 U"
     ],
-    "status": "unscheduled proposal; live schedule preserved",
+    "status": "unscheduled",
     "date": null
   },
   {
@@ -733,7 +818,9 @@
     "missing": [],
     "ready": false,
     "independentChecked": 0,
+    "independentMissing": [],
     "sourceComplete": false,
+    "rankingComplete": false,
     "house": [
       "Gare Montparnasse",
       "Tokyo Station",
@@ -746,7 +833,7 @@
       "Euston railway station",
       "Old Oak Common railway station"
     ],
-    "status": "unscheduled proposal; live schedule preserved",
+    "status": "unscheduled",
     "date": null
   },
   {
@@ -758,7 +845,9 @@
     "missing": [],
     "ready": false,
     "independentChecked": 0,
+    "independentMissing": [],
     "sourceComplete": false,
+    "rankingComplete": false,
     "house": [
       "Star Trek: The Next Generation",
       "American Horror Story",
@@ -771,7 +860,7 @@
       "Game of Thrones",
       "Star Trek: The Original Series"
     ],
-    "status": "unscheduled proposal; live schedule preserved",
+    "status": "unscheduled",
     "date": null
   },
   {
@@ -783,7 +872,9 @@
     "missing": [],
     "ready": false,
     "independentChecked": 0,
+    "independentMissing": [],
     "sourceComplete": false,
+    "rankingComplete": false,
     "house": [
       "Massachusetts Institute of Technology",
       "Duke University",
@@ -796,7 +887,7 @@
       "Tsinghua University",
       "University of London"
     ],
-    "status": "unscheduled proposal; live schedule preserved",
+    "status": "unscheduled",
     "date": null
   },
   {
@@ -808,7 +899,9 @@
     "missing": [],
     "ready": false,
     "independentChecked": 0,
+    "independentMissing": [],
     "sourceComplete": false,
+    "rankingComplete": false,
     "house": [
       "Grand Theft Auto V",
       "The Legend of Zelda: Ocarina of Time",
@@ -821,7 +914,7 @@
       "Minecraft",
       "Call of Duty 4: Modern Warfare"
     ],
-    "status": "unscheduled proposal; live schedule preserved",
+    "status": "unscheduled",
     "date": null
   }
 ]

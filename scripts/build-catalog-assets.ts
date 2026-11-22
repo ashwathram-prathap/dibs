@@ -1,9 +1,10 @@
 import { mkdirSync, readdirSync, readFileSync, writeFileSync, rmSync } from 'node:fs';
 import { createHash } from 'node:crypto';
 import { normalize } from '../worker/domain';
-import { shardFor, type CatalogRow } from '../shared/catalog';
+import { shardFor, distanceFrom, type TypoNode, type CatalogRow } from '../shared/catalog';
 rmSync('public/catalog', { recursive: true, force: true });
 mkdirSync('public/catalog', { recursive: true });
+const hot: Record<string, any> = {};
 for (const f of readdirSync('categories').filter((f) => f.endsWith('.json'))) {
   const c = JSON.parse(readFileSync('categories/' + f, 'utf8'));
   if (c.provenance?.identityPolicy !== 'complete-reference-v2') continue;
@@ -23,11 +24,67 @@ for (const f of readdirSync('categories').filter((f) => f.endsWith('.json'))) {
       `${dir}/rows-${Math.floor(i / 256)}.json`,
       JSON.stringify(rows.slice(i, i + 256)),
     );
-  // Typo candidates are a modest popularity-ranked common-name list, fetched only on a miss.
-  writeFileSync(
-    `${dir}/typos.json`,
-    JSON.stringify(rows.filter(([i]) => c.answers[i].pageviews.days > 0).slice(0, 3000)),
-  );
+  // A complete metric tree covers every accepted name and alias, without a popularity cap.
+  const trees: Record<number, TypoNode[]> = {};
+  for (const shard of shards)
+    for (const [key, row] of Object.entries(shard)) {
+      const tree = (trees[key.length] ||= []);
+      const node: TypoNode = [key, row[0], {}];
+      if (!tree.length) {
+        tree.push(node);
+        continue;
+      }
+      const distance = distanceFrom(key);
+      let at = 0;
+      while (true) {
+        const d = distance(tree[at][0]);
+        const child = tree[at][2][d];
+        if (child === undefined) {
+          tree[at][2][d] = tree.length;
+          tree.push(node);
+          break;
+        }
+        at = child;
+      }
+    }
+  for (let length = 1; length <= 96; length++)
+    writeFileSync(`${dir}/typos-${length}.json`, JSON.stringify(trees[length] || []));
+  const fast: Record<string, CatalogRow> = {};
+  for (const [i, a] of c.answers.entries())
+    if (
+      i < 1000 ||
+      a.source === 'https://wordnet.princeton.edu/' ||
+      a.source === 'Dibs common-name editorial supplement'
+    )
+      for (const key of new Set<string>([normalize(a.display), ...a.aliases.map(normalize)]))
+        fast[key] = rows[i];
+  const fastTree: TypoNode[] = [];
+  for (const [key, row] of Object.entries(fast)) {
+    if (key !== normalize(row[1])) continue;
+    const node: TypoNode = [key, row[0], {}];
+    if (!fastTree.length) {
+      fastTree.push(node);
+      continue;
+    }
+    const distance = distanceFrom(key);
+    let at = 0;
+    while (true) {
+      const d = distance(fastTree[at][0]);
+      const child = fastTree[at][2][d];
+      if (child === undefined) {
+        fastTree[at][2][d] = fastTree.length;
+        fastTree.push(node);
+        break;
+      }
+      at = child;
+    }
+  }
+  hot[c.slug] = {
+    version,
+    keys: fast,
+    tree: fastTree,
+    names: Object.fromEntries(Object.values(fast).map((row) => [row[0], row[1]])),
+  };
   const manifest = {
     v: 2,
     slug: c.slug,
@@ -38,3 +95,10 @@ for (const f of readdirSync('categories').filter((f) => f.endsWith('.json'))) {
   };
   writeFileSync(`public/catalog/${c.slug}/manifest.json`, JSON.stringify(manifest));
 }
+
+writeFileSync(
+  'worker/catalog-hot.generated.ts',
+  'export default JSON.parse(' +
+    JSON.stringify(JSON.stringify(hot)) +
+    ') as Record<string, any>;\n',
+);

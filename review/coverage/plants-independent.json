@@ -1,0 +1,609 @@
+{
+  "source": "Pre-R8 independent Wikidata candidate set; sources retained per entry",
+  "seed": 8129,
+  "method": "Uniform draw without replacement from the middle half of measured readership; misses are not replaced.",
+  "answers": [
+    "Rhynchostylis retusa",
+    "Eriocaulon",
+    "Citharexylum spinosum",
+    "Campanula medium",
+    "Crataegus coccinea",
+    "Anemonoides apennina",
+    "Guaiacum sanctum",
+    "Cyperus haspan",
+    "Crambe maritima",
+    "Ambrosia trifida",
+    "Echium italicum",
+    "Colutea arborescens",
+    "Narcissus pseudonarcissus",
+    "Galearis spectabilis",
+    "Orchis militaris",
+    "Althaea cannabina",
+    "Ranunculus flammula",
+    "Convolvulus cneorum",
+    "Juniperus oxycedrus",
+    "Pulsatilla vulgaris",
+    "Astragalus cicer",
+    "Hypericum kalmianum",
+    "Lantana trifolia",
+    "Narcissus tazetta",
+    "Cruciata laevipes",
+    "Bocconia frutescens",
+    "Geranium sanguineum",
+    "Ionactis linariifolia",
+    "Eutrochium purpureum",
+    "Lycopodium annotinum",
+    "Epilobium tetragonum",
+    "Achillea nobilis",
+    "Asclepias purpurascens",
+    "Kadsura japonica",
+    "Lathraea squamaria",
+    "Oxalis purpurea",
+    "Bruguiera cylindrica",
+    "Marcgravia umbellata",
+    "Cynanchica pyrenaica",
+    "Malva alcea",
+    "Celastrus",
+    "Fumaria officinalis",
+    "Dioscorea oppositifolia",
+    "Bunias orientalis",
+    "Geranium pratense",
+    "Cyperus compressus",
+    "Eryngium planum",
+    "Rosa pendulina",
+    "Rhynchospora alba",
+    "Asperula tinctoria"
+  ],
+  "samples": [
+    {
+      "answer": "Rhynchostylis retusa",
+      "source": "https://en.wikipedia.org/wiki/Rhynchostylis_retusa",
+      "pageviews": {
+        "total": 517,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      },
+      "present": false
+    },
+    {
+      "answer": "Eriocaulon",
+      "source": "https://en.wikipedia.org/wiki/Eriocaulon",
+      "pageviews": {
+        "total": 217,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      },
+      "present": true
+    },
+    {
+      "answer": "Citharexylum spinosum",
+      "source": "https://en.wikipedia.org/wiki/Citharexylum_spinosum",
+      "pageviews": {
+        "total": 416,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      },
+      "present": true
+    },
+    {
+      "answer": "Campanula medium",
+      "source": "https://en.wikipedia.org/wiki/Campanula_medium",
+      "pageviews": {
+        "total": 829,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      },
+      "present": true
+    },
+    {
+      "answer": "Crataegus coccinea",
+      "source": "https://en.wikipedia.org/wiki/Crataegus_coccinea",
+      "pageviews": {
+        "total": 198,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      },
+      "present": true
+    },
+    {
+      "answer": "Anemonoides apennina",
+      "source": "https://en.wikipedia.org/wiki/Anemonoides_apennina",
+      "pageviews": {
+        "total": 116,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      },
+      "present": false
+    },
+    {
+      "answer": "Guaiacum sanctum",
+      "source": "https://en.wikipedia.org/wiki/Guaiacum_sanctum",
+      "pageviews": {
+        "total": 731,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      },
+      "present": true
+    },
+    {
+      "answer": "Cyperus haspan",
+      "source": "https://en.wikipedia.org/wiki/Cyperus_haspan",
+      "pageviews": {
+        "total": 309,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      },
+      "present": true
+    },
+    {
+      "answer": "Crambe maritima",
+      "source": "https://en.wikipedia.org/wiki/Crambe_maritima",
+      "pageviews": {
+        "total": 1026,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      },
+      "present": true
+    },
+    {
+      "answer": "Ambrosia trifida",
+      "source": "https://en.wikipedia.org/wiki/Ambrosia_trifida",
+      "pageviews": {
+        "total": 854,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      },
+      "present": true
+    },
+    {
+      "answer": "Echium italicum",
+      "source": "https://en.wikipedia.org/wiki/Echium_italicum",
+      "pageviews": {
+        "total": 93,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      },
+      "present": true
+    },
+    {
+      "answer": "Colutea arborescens",
+      "source": "https://en.wikipedia.org/wiki/Colutea_arborescens",
+      "pageviews": {
+        "total": 292,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      },
+      "present": true
+    },
+    {
+      "answer": "Narcissus pseudonarcissus",
+      "source": "https://en.wikipedia.org/wiki/Narcissus_pseudonarcissus",
+      "pageviews": {
+        "total": 883,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      },
+      "present": true
+    },
+    {
+      "answer": "Galearis spectabilis",
+      "source": "https://en.wikipedia.org/wiki/Galearis_spectabilis",
+      "pageviews": {
+        "total": 94,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      },
+      "present": true
+    },
+    {
+      "answer": "Orchis militaris",
+      "source": "https://en.wikipedia.org/wiki/Orchis_militaris",
+      "pageviews": {
+        "total": 294,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      },
+      "present": true
+    },
+    {
+      "answer": "Althaea cannabina",
+      "source": "https://en.wikipedia.org/wiki/Althaea_cannabina",
+      "pageviews": {
+        "total": 231,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      },
+      "present": true
+    },
+    {
+      "answer": "Ranunculus flammula",
+      "source": "https://en.wikipedia.org/wiki/Ranunculus_flammula",
+      "pageviews": {
+        "total": 130,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      },
+      "present": true
+    },
+    {
+      "answer": "Convolvulus cneorum",
+      "source": "https://en.wikipedia.org/wiki/Convolvulus_cneorum",
+      "pageviews": {
+        "total": 490,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      },
+      "present": true
+    },
+    {
+      "answer": "Juniperus oxycedrus",
+      "source": "https://en.wikipedia.org/wiki/Juniperus_oxycedrus",
+      "pageviews": {
+        "total": 803,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      },
+      "present": true
+    },
+    {
+      "answer": "Pulsatilla vulgaris",
+      "source": "https://en.wikipedia.org/wiki/Pulsatilla_vulgaris",
+      "pageviews": {
+        "total": 356,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      },
+      "present": true
+    },
+    {
+      "answer": "Astragalus cicer",
+      "source": "https://en.wikipedia.org/wiki/Astragalus_cicer",
+      "pageviews": {
+        "total": 109,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      },
+      "present": true
+    },
+    {
+      "answer": "Hypericum kalmianum",
+      "source": "https://en.wikipedia.org/wiki/Hypericum_kalmianum",
+      "pageviews": {
+        "total": 90,
+        "days": 29,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      },
+      "present": true
+    },
+    {
+      "answer": "Lantana trifolia",
+      "source": "https://en.wikipedia.org/wiki/Lantana_trifolia",
+      "pageviews": {
+        "total": 147,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      },
+      "present": true
+    },
+    {
+      "answer": "Narcissus tazetta",
+      "source": "https://en.wikipedia.org/wiki/Narcissus_tazetta",
+      "pageviews": {
+        "total": 612,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      },
+      "present": true
+    },
+    {
+      "answer": "Cruciata laevipes",
+      "source": "https://en.wikipedia.org/wiki/Cruciata_laevipes",
+      "pageviews": {
+        "total": 132,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      },
+      "present": true
+    },
+    {
+      "answer": "Bocconia frutescens",
+      "source": "https://en.wikipedia.org/wiki/Bocconia_frutescens",
+      "pageviews": {
+        "total": 143,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      },
+      "present": true
+    },
+    {
+      "answer": "Geranium sanguineum",
+      "source": "https://en.wikipedia.org/wiki/Geranium_sanguineum",
+      "pageviews": {
+        "total": 550,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      },
+      "present": true
+    },
+    {
+      "answer": "Ionactis linariifolia",
+      "source": "https://en.wikipedia.org/wiki/Ionactis_linariifolia",
+      "pageviews": {
+        "total": 94,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      },
+      "present": true
+    },
+    {
+      "answer": "Eutrochium purpureum",
+      "source": "https://en.wikipedia.org/wiki/Eutrochium_purpureum",
+      "pageviews": {
+        "total": 630,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      },
+      "present": true
+    },
+    {
+      "answer": "Lycopodium annotinum",
+      "source": "https://en.wikipedia.org/wiki/Lycopodium_annotinum",
+      "pageviews": {
+        "total": 261,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      },
+      "present": true
+    },
+    {
+      "answer": "Epilobium tetragonum",
+      "source": "https://en.wikipedia.org/wiki/Epilobium_tetragonum",
+      "pageviews": {
+        "total": 256,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      },
+      "present": true
+    },
+    {
+      "answer": "Achillea nobilis",
+      "source": "https://en.wikipedia.org/wiki/Achillea_nobilis",
+      "pageviews": {
+        "total": 142,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      },
+      "present": true
+    },
+    {
+      "answer": "Asclepias purpurascens",
+      "source": "https://en.wikipedia.org/wiki/Asclepias_purpurascens",
+      "pageviews": {
+        "total": 203,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      },
+      "present": true
+    },
+    {
+      "answer": "Kadsura japonica",
+      "source": "https://en.wikipedia.org/wiki/Kadsura_japonica",
+      "pageviews": {
+        "total": 205,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      },
+      "present": true
+    },
+    {
+      "answer": "Lathraea squamaria",
+      "source": "https://en.wikipedia.org/wiki/Lathraea_squamaria",
+      "pageviews": {
+        "total": 205,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      },
+      "present": true
+    },
+    {
+      "answer": "Oxalis purpurea",
+      "source": "https://en.wikipedia.org/wiki/Oxalis_purpurea",
+      "pageviews": {
+        "total": 109,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      },
+      "present": true
+    },
+    {
+      "answer": "Bruguiera cylindrica",
+      "source": "https://en.wikipedia.org/wiki/Bruguiera_cylindrica",
+      "pageviews": {
+        "total": 114,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      },
+      "present": false
+    },
+    {
+      "answer": "Marcgravia umbellata",
+      "source": "https://en.wikipedia.org/wiki/Marcgravia_umbellata",
+      "pageviews": {
+        "total": 109,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      },
+      "present": false
+    },
+    {
+      "answer": "Cynanchica pyrenaica",
+      "source": "https://en.wikipedia.org/wiki/Cynanchica_pyrenaica",
+      "pageviews": {
+        "total": 84,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      },
+      "present": false
+    },
+    {
+      "answer": "Malva alcea",
+      "source": "https://en.wikipedia.org/wiki/Malva_alcea",
+      "pageviews": {
+        "total": 234,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      },
+      "present": true
+    },
+    {
+      "answer": "Celastrus",
+      "source": "https://en.wikipedia.org/wiki/Celastrus",
+      "pageviews": {
+        "total": 794,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      },
+      "present": true
+    },
+    {
+      "answer": "Fumaria officinalis",
+      "source": "https://en.wikipedia.org/wiki/Fumaria_officinalis",
+      "pageviews": {
+        "total": 603,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      },
+      "present": true
+    },
+    {
+      "answer": "Dioscorea oppositifolia",
+      "source": "https://en.wikipedia.org/wiki/Dioscorea_oppositifolia",
+      "pageviews": {
+        "total": 160,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      },
+      "present": true
+    },
+    {
+      "answer": "Bunias orientalis",
+      "source": "https://en.wikipedia.org/wiki/Bunias_orientalis",
+      "pageviews": {
+        "total": 271,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      },
+      "present": true
+    },
+    {
+      "answer": "Geranium pratense",
+      "source": "https://en.wikipedia.org/wiki/Geranium_pratense",
+      "pageviews": {
+        "total": 285,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      },
+      "present": true
+    },
+    {
+      "answer": "Cyperus compressus",
+      "source": "https://en.wikipedia.org/wiki/Cyperus_compressus",
+      "pageviews": {
+        "total": 92,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      },
+      "present": true
+    },
+    {
+      "answer": "Eryngium planum",
+      "source": "https://en.wikipedia.org/wiki/Eryngium_planum",
+      "pageviews": {
+        "total": 733,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      },
+      "present": true
+    },
+    {
+      "answer": "Rosa pendulina",
+      "source": "https://en.wikipedia.org/wiki/Rosa_pendulina",
+      "pageviews": {
+        "total": 373,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      },
+      "present": true
+    },
+    {
+      "answer": "Rhynchospora alba",
+      "source": "https://en.wikipedia.org/wiki/Rhynchospora_alba",
+      "pageviews": {
+        "total": 123,
+        "days": 29,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      },
+      "present": true
+    },
+    {
+      "answer": "Asperula tinctoria",
+      "source": "https://en.wikipedia.org/wiki/Asperula_tinctoria",
+      "pageviews": {
+        "total": 81,
+        "days": 30,
+        "start": "2026-10-22",
+        "end": "2026-11-20"
+      },
+      "present": true
+    }
+  ]
+}

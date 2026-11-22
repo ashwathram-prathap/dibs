@@ -2,7 +2,8 @@
 import csv,io,json,zipfile,xml.etree.ElementTree as ET,re,pathlib
 p=pathlib.Path('.category-cache/r8'); out={k:[] for k in ['animals','birds','plants','foods','fruits-vegetables','cities']}
 def add(k,name,aliases=[],source='',**kw):
- if len(name)>1 and len(name)<96 and not re.search(r'\b(fuck|shit|cunt|nigger|faggot|rape|nazi)\b',name,re.I): out[k].append(dict(display=name,aliases=aliases,source=source,**kw))
+ bad=r'\b(fuck|shit|cunt|nigger|faggot|rape|nazi|kaffir|redskin)\b'
+ if len(name)>1 and len(name)<96 and not re.search(bad,name,re.I): out[k].append(dict(display=name,aliases=[a for a in aliases if not re.search(bad,a,re.I)],source=source,**kw))
 rows={}
 for line in (p/'wordnet/data.noun').read_text().splitlines():
  if not line[:1].isdigit():continue
@@ -21,7 +22,7 @@ for key,(lex,words,ptr,gloss) in rows.items():
  common=[w.replace('_',' ') for w in words if w[0].islower() and not w.startswith(('genus_','family_','order_','class_','phylum_','subclass_','suborder_','subfamily_','superfamily_','division_','subphylum_')) and not w.endswith(('idae','aceae','ales'))]
  if not common:continue
  for cat in cats:
-  for w in common:add(cat,w,source='https://wordnet.princeton.edu/',synset=key)
+  add(cat,common[0],common[1:],source='https://wordnet.princeton.edu/',synset=key)
 # IOC 15.2 current complete master list (English and scientific-name columns).
 with zipfile.ZipFile(p/'ioc15.2.xlsx') as z:
  ns={'s':'http://schemas.openxmlformats.org/spreadsheetml/2006/main'}
@@ -32,7 +33,10 @@ with zipfile.ZipFile(p/'ioc15.2.xlsx') as z:
    for cat in ['birds','animals']:add(cat,vals['E'],[vals['D']],source='https://www.worldbirdnames.org/Multiling%20IOC%2015.2.xlsx')
 with open(p/'usda.txt',encoding='utf-8-sig') as f:
  for row in csv.DictReader(f):
-  if row['Common Name']:add('plants',row['Common Name'],[re.sub(r' \(.*','',row['Scientific Name with Author'])],source='https://plants.sc.egov.usda.gov/DocumentLibrary/Txt/plantlst.txt')
+  if row['Common Name']:add('plants',row['Common Name'],[' '.join(row['Scientific Name with Author'].split()[:2])],source='https://plants.sc.egov.usda.gov/DocumentLibrary/Txt/plantlst.txt')
+if (p/'gbif-extracted.json').exists():
+ for cat,records in json.loads((p/'gbif-extracted.json').read_text()).items():
+  for row in records:add(cat,row['display'],row['aliases'],row['source'])
 for block in (p/'food.txt').read_text().split('\n\n'):
  names=re.search(r'^en: (.+)$',block,re.M)
  if names:

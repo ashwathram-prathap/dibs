@@ -1,7 +1,7 @@
 import { test, expect } from './security-fixture';
 import { mkdirSync } from 'node:fs';
 import AxeBuilder from '@axe-core/playwright';
-const root = 'review/final';
+const root = 'review/round8/certificates';
 const submit = async (page: any, answer: string) => {
   await page.getByLabel('ENTRY:', { exact: true }).fill(answer);
   await page.getByRole('button', { name: 'CALL DIBS', exact: true }).click();
@@ -104,7 +104,7 @@ for (const kind of ['clean', 'gold-two-strikes', 'five-strikes'])
         // A certificate must survive well beyond every former auto-dismiss timeout.
         await page.waitForTimeout(1800);
         await expect(page.locator('.certificate')).toBeVisible();
-        await expect(page.locator('.claim-imprint')).toBeVisible();
+        await expect(page.locator('.result-panel')).toBeVisible();
         await page
           .getByRole('button', {
             name: answer === 'Quokka' ? 'See my file' : 'Next dibs',

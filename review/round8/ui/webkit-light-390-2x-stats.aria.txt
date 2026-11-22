@@ -1,0 +1,8 @@
+- main:
+  - text: CLERK ACCESS / FORM X-1
+  - heading "Office figures." [level=1]
+  - paragraph: Actual counts from the registry. No decorative numbers.
+  - text: Admin token
+  - textbox "Admin token"
+  - button "Read the record"
+  - status

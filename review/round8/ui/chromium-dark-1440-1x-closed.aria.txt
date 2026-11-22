@@ -1,0 +1,131 @@
+- main:
+  - region "Next drop countdown":
+    - text: NEXT DROP
+    - paragraph: "Next drop: 10:23 AM ET"
+    - text: Next drop at 10:23 AM ET. 721 minutes remaining.
+  - text: "Today's category:"
+  - heading "Animals" [level=1]
+  - paragraph: Name an animal nobody has claimed yet. First to call it owns it today.
+  - text: "ENTRY:"
+  - textbox "ENTRY:":
+    - /placeholder: "try: axolotl"
+  - button "CALL DIBS" [disabled]
+  - alert:
+    - strong: DIBS
+    - paragraph: QUOKKA is yours.
+    - paragraph: 0 dibs and 3 strikes remaining.
+  - paragraph: 2,386 still up for grabs · last claim just now
+  - list "How it works":
+    - listitem: Call dibs on up to 3 animals.
+    - listitem: Taken guesses cost a strike. 5 strikes and you’re out.
+    - listitem: Fastest clean file wins the day.
+    - listitem: The 10 most obvious answers are held by the house.
+  - group: Restore your file in this browser
+  - article "Day summary":
+    - text: "REGISTRY OF CLAIMS FORM D-3 DAY CERTIFICATE dibs #1"
+    - img "dibs."
+    - paragraph: November 22, 2026 / Animals
+    - heading "File closed." [level=2]
+    - paragraph:
+      - text: 3/3 dibs · 2 strikes · filed
+      - time: 10:23 PM
+    - strong: DIBS 3 / 3
+    - img "2 of 5 strikes"
+    - text: 2 of 5 strikes used
+    - paragraph: Accepted & rejected filings / in order
+    - list:
+      - listitem: 01 DOG Held by the Registry
+      - listitem:
+        - text: "02 Pangolin Taken by Rust Finch #12 at"
+        - time: 10:23 PM
+      - listitem:
+        - text: "03"
+        - link "Axolotl":
+          - /url: /certificate/fixture-2
+        - text: DIBS / GOLD / DEEP CUT
+      - listitem:
+        - text: "04"
+        - link "Okapi":
+          - /url: /certificate/fixture-3
+        - text: DIBS / DEEP CUT
+      - listitem:
+        - text: "05"
+        - link "Quokka":
+          - /url: /certificate/fixture-4
+        - text: DIBS / DEEP CUT
+    - text: FILED UNDER
+    - strong: "Teal Otter #41"
+    - text: 1 day streak + ALL CLAIMS ENTIRELY CEREMONIAL. dibs.here +
+  - button "SHARE"
+  - link "X":
+    - /url: https://twitter.com/intent/tweet?text=Dibs+%231+%E2%96%A1%E2%96%A1%E2%96%A0%E2%96%A0%E2%96%A0+3%2F3+dibs+%C2%B7+2+strikes+%C2%B7+filed+10%3A23+PM+ET+%C2%B7+Next+drop%3A+9+PM+ET&url=https%3A%2F%2Fdibs.here%2Fsummary%2Ffixture-summary%3Fs%3Dx
+  - link "WhatsApp":
+    - /url: https://wa.me/?text=Dibs+%231+%E2%96%A1%E2%96%A1%E2%96%A0%E2%96%A0%E2%96%A0+3%2F3+dibs+%C2%B7+2+strikes+%C2%B7+filed+10%3A23+PM+ET+%C2%B7+Next+drop%3A+9+PM+ET+https%3A%2F%2Fdibs.here%2Fsummary%2Ffixture-summary%3Fs%3Dwhatsapp
+  - link "Facebook":
+    - /url: https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdibs.here%2Fsummary%2Ffixture-summary%3Fs%3Dfacebook
+  - button "Instagram / TikTok story"
+  - button "Copy link"
+  - button "Story PNG"
+  - button "Feed PNG"
+  - button "Copy text"
+  - status: Your copy, ready to travel. Story 1080 × 1920 / feed 1080 × 1350.
+  - text: 02 / PUBLIC RECORD
+  - heading "First filings" [level=2]
+  - text: SEARCH THESE FILINGS
+  - searchbox "Search the ledger"
+  - status: "Golden tickets: 1 of 3 found today"
+  - paragraph: 2,386 animals still unclaimed. Be early.
+  - table "Claims in Animals":
+    - caption: Claims in Animals
+    - rowgroup:
+      - row "No. ENTRY HOLDER TIME":
+        - columnheader "No."
+        - columnheader "ENTRY"
+        - columnheader "HOLDER"
+        - columnheader "TIME"
+    - rowgroup:
+      - 'row "0004 Quokka Teal Otter #41 10:23 PM ET"':
+        - cell "0004"
+        - cell "Quokka":
+          - link "Quokka":
+            - /url: /certificate/fixture-4
+        - 'cell "Teal Otter #41"'
+        - cell "10:23 PM ET":
+          - time: 10:23 PM
+      - 'row "0003 Okapi Teal Otter #41 10:23 PM ET"':
+        - cell "0003"
+        - cell "Okapi":
+          - link "Okapi":
+            - /url: /certificate/fixture-3
+        - 'cell "Teal Otter #41"'
+        - cell "10:23 PM ET":
+          - time: 10:23 PM
+      - 'row "0002 Axolotl Teal Otter #41 10:23 PM ET"':
+        - cell "0002"
+        - cell "Axolotl":
+          - link "Axolotl":
+            - /url: /certificate/fixture-2
+        - 'cell "Teal Otter #41"'
+        - cell "10:23 PM ET":
+          - time: 10:23 PM
+      - 'row "0001 Pangolin Rust Finch #12 10:23 PM ET"':
+        - cell "0001"
+        - cell "Pangolin":
+          - link "Pangolin":
+            - /url: /certificate/fixture-1
+        - 'cell "Rust Finch #12"'
+        - cell "10:23 PM ET":
+          - time: 10:23 PM
+      - row "No. 0005 — open":
+        - cell "No. 0005 — open"
+      - row "No. 0006 — open":
+        - cell "No. 0006 — open"
+      - row "No. 0007 — open":
+        - cell "No. 0007 — open"
+  - text: END OF ENTRIES / 4 ON FILE LIVE / 15s, THEN 60s · PAUSED IN BACKGROUND 03 / COMPLETED FILES
+  - heading "Today's cleanest files" [level=2]
+  - paragraph: Results post as players file.
+  - text: A NOTE FROM THE CLERK
+  - paragraph: All claims are real. All ownership is entirely ceremonial.
+  - link "Read the office notice":
+    - /url: /about

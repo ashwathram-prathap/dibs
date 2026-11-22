@@ -180,6 +180,8 @@ export async function request(path: string, body?: any): Promise<any> {
     };
   if (path.startsWith('/certificate/'))
     return { claim: claims.find((c) => c.id === path.split('/').pop()) || mine };
+  if(path==='/missing')return {ok:true,message:'Submitted to the clerk. No strike charged.'};
+  if(path==='/recover')return {ok:true};
   if (path === '/claim') {
     if (file().closed) throw new ApiError(403, { message: 'Your file is closed for today.' });
     if (r6 && body.answer.toLowerCase() === 'dog') {
@@ -196,6 +198,8 @@ export async function request(path: string, body?: any): Promise<any> {
     if (!entry)
       throw new ApiError(422, {
         message: "Not on today's register. Check the spelling.",
+        code: 'NOT_REGISTERED',
+        suggestion: body.answer.toLowerCase()==='axolot'?'Axolotl':null,
       });
     const taken = claims.find((c) => c.display === entry);
     if (taken) {

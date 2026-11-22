@@ -1,0 +1,104 @@
+- main:
+  - region "Round countdown": Round closes in Round closes at 10:23 AM ET. 721 minutes remaining.
+  - text: "Today's category:"
+  - heading "Animals" [level=1]
+  - paragraph: Name an animal nobody has claimed yet. First to call it owns it today.
+  - strong: DIBS 2 / 3
+  - img "2 of 5 strikes"
+  - text: "2 of 5 strikes used ENTRY:"
+  - textbox "ENTRY:":
+    - /placeholder: "try: axolotl"
+  - button "CALL DIBS"
+  - alert:
+    - strong: DIBS
+    - paragraph: OKAPI is yours.
+    - paragraph: 1 dibs and 3 strikes remaining.
+  - paragraph: 2,387 still up for grabs · last claim just now
+  - list "How it works":
+    - listitem: Call dibs on up to 3 animals.
+    - listitem: Taken guesses cost a strike. 5 strikes and you’re out.
+    - listitem: Fastest clean file wins the day.
+    - listitem: The 10 most obvious answers are held by the house.
+  - group: Restore your file in this browser
+  - article "Certificate of Dibs for Okapi":
+    - text: + REGISTRY OF CLAIMS FORM D-1 CERTIFICATE OF DIBS No. 0003
+    - paragraph: Let the record show. I called dibs on
+    - heading "Okapi" [level=2]
+    - text: ANIMALS November 22, 2026 HELD BY
+    - strong: "Teal Otter #41"
+    - text: OBSCURITY
+    - img "4 out of 5"
+    - text: Wikipedia pageviews
+    - strong: DIBS
+    - text: DEEP CUT + ONE OF 2,400. ONLY ONE YOURS. dibs.here/c/fixture-3 + +
+  - button "SHARE"
+  - link "X":
+    - /url: https://twitter.com/intent/tweet?text=Dibs+%C2%B7+one+more+on+file.&url=https%3A%2F%2Fdibs.here%2Fcertificate%2Ffixture-3%3Fs%3Dx
+  - link "WhatsApp":
+    - /url: https://wa.me/?text=Dibs+%C2%B7+one+more+on+file.+https%3A%2F%2Fdibs.here%2Fcertificate%2Ffixture-3%3Fs%3Dwhatsapp
+  - link "Facebook":
+    - /url: https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdibs.here%2Fcertificate%2Ffixture-3%3Fs%3Dfacebook
+  - button "Instagram / TikTok story"
+  - button "Copy link"
+  - button "Story PNG"
+  - button "Feed PNG"
+  - button "Copy text"
+  - status: Your copy, ready to travel. Story 1080 × 1920 / feed 1080 × 1350.
+  - button "Next dibs"
+  - text: YOUR DIBS / CERTIFIED COPIES
+  - link "Axolotl":
+    - /url: /certificate/fixture-2
+  - link "Okapi":
+    - /url: /certificate/fixture-3
+  - text: 02 / PUBLIC RECORD
+  - heading "First filings" [level=2]
+  - text: SEARCH THESE FILINGS
+  - searchbox "Search the ledger"
+  - status: "Golden tickets: 1 of 3 found today"
+  - paragraph: 2,387 animals still unclaimed. Be early.
+  - table "Claims in Animals":
+    - caption: Claims in Animals
+    - rowgroup:
+      - row "No. ENTRY HOLDER TIME":
+        - columnheader "No."
+        - columnheader "ENTRY"
+        - columnheader "HOLDER"
+        - columnheader "TIME"
+    - rowgroup:
+      - 'row "0003 Okapi Teal Otter #41 10:23 PM ET"':
+        - cell "0003"
+        - cell "Okapi":
+          - link "Okapi":
+            - /url: /certificate/fixture-3
+        - 'cell "Teal Otter #41"'
+        - cell "10:23 PM ET":
+          - time: 10:23 PM
+      - 'row "0002 Axolotl Teal Otter #41 10:23 PM ET"':
+        - cell "0002"
+        - cell "Axolotl":
+          - link "Axolotl":
+            - /url: /certificate/fixture-2
+        - 'cell "Teal Otter #41"'
+        - cell "10:23 PM ET":
+          - time: 10:23 PM
+      - 'row "0001 Pangolin Rust Finch #12 10:23 PM ET"':
+        - cell "0001"
+        - cell "Pangolin":
+          - link "Pangolin":
+            - /url: /certificate/fixture-1
+        - 'cell "Rust Finch #12"'
+        - cell "10:23 PM ET":
+          - time: 10:23 PM
+      - row "No. 0004 — open":
+        - cell "No. 0004 — open"
+      - row "No. 0005 — open":
+        - cell "No. 0005 — open"
+      - row "No. 0006 — open":
+        - cell "No. 0006 — open"
+  - text: END OF ENTRIES / 3 ON FILE LIVE / 15s, THEN 60s · PAUSED IN BACKGROUND 03 / COMPLETED FILES
+  - heading "Today's cleanest files" [level=2]
+  - paragraph: Results post as players file.
+  - text: A NOTE FROM THE CLERK
+  - paragraph: All claims are real. All ownership is entirely ceremonial.
+  - link "Read the office notice":
+    - /url: /about

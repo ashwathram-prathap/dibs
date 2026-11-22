@@ -1,0 +1,60 @@
+- main:
+  - text: BOUND VOLUMES / FORM A-1
+  - heading "Yesterday belongs here." [level=1]
+  - paragraph: A record of who called what. No revisions to history.
+  - complementary:
+    - text: SELECT A REGISTER
+    - combobox "Archive date":
+      - option "2026-11-22 / Animals" [selected]
+  - text: REG. 2026-11-22
+  - heading "Animals" [level=2]
+  - text: 02 / PUBLIC RECORD
+  - heading "First filings" [level=2]
+  - text: SEARCH THESE FILINGS
+  - searchbox "Search the ledger"
+  - status: "Golden tickets: 0 of 3 found today"
+  - table "Claims in Animals":
+    - caption: Claims in Animals
+    - rowgroup:
+      - row "No. ENTRY HOLDER TIME":
+        - columnheader "No."
+        - columnheader "ENTRY"
+        - columnheader "HOLDER"
+        - columnheader "TIME"
+    - rowgroup:
+      - 'row "0001 Pangolin Rust Finch #12 10:24 PM ET"':
+        - cell "0001"
+        - cell "Pangolin":
+          - link "Pangolin":
+            - /url: /certificate/fixture-1
+        - 'cell "Rust Finch #12"'
+        - cell "10:24 PM ET":
+          - time: 10:24 PM
+      - row "No. 0002 — open":
+        - cell "No. 0002 — open"
+      - row "No. 0003 — open":
+        - cell "No. 0003 — open"
+      - row "No. 0004 — open":
+        - cell "No. 0004 — open"
+  - text: END OF ENTRIES / 1 ON FILE LIVE / 15s, THEN 60s · PAUSED IN BACKGROUND THE REGISTRY · HOUSE
+  - heading "Reserved by the house." [level=2]
+  - paragraph: These entries never counted as player claims.
+  - list:
+    - listitem: DOG
+    - listitem: CAT
+    - listitem: LION
+    - listitem: TIGER
+    - listitem: ELEPHANT
+    - listitem: HORSE
+    - listitem: WOLF
+    - listitem: BEAR
+    - listitem: RABBIT
+    - listitem: FOX
+  - heading "Golden tickets." [level=2]
+  - paragraph: "Golden tickets: 0 of 3 found"
+  - paragraph: Verified
+  - list:
+    - listitem: Axolotl
+    - listitem: Okapi
+    - listitem: Quokka
+  - group: Verify the commitment

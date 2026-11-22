@@ -167,6 +167,18 @@ async function admin(req: Request, env: Env, path: string) {
   if (invalidParameters(req)) return fail(422, 'That form could not be read.');
   if (path === '/admin/verify' && req.method === 'GET') {
     const id = new URL(req.url).searchParams.get('id');
+    const category = await env.DB.prepare('SELECT * FROM categories WHERE id=?')
+      .bind(id)
+      .first<any>();
+    const staticManifest = category && catalogMeta(category);
+    if (staticManifest)
+      return json({
+        id,
+        entries: staticManifest.count,
+        version: staticManifest.version,
+        house: staticManifest.house,
+        storage: 'immutable static assets',
+      });
     const rows = (
       await env.DB.prepare('SELECT display,aliases_json,obscurity FROM answers WHERE category_id=?')
         .bind(id)
@@ -200,7 +212,7 @@ async function admin(req: Request, env: Env, path: string) {
     return json({
       categories: (
         await env.DB.prepare(
-          `SELECT g.id,g.name,g.status,g.date,g.drop_at,g.total_registrable,g.source_json,(SELECT COUNT(*) FROM answers a WHERE a.category_id=g.id) answer_count,(SELECT COUNT(*) FROM answer_keys k WHERE k.category_id=g.id) key_count FROM categories g ORDER BY g.date,g.id`,
+          `SELECT g.id,g.name,g.status,g.date,g.drop_at,COALESCE(json_extract(g.source_json,'$.staticCatalog.count'),g.total_registrable) total_registrable,g.source_json,(SELECT COUNT(*) FROM answers a WHERE a.category_id=g.id) answer_count,(SELECT COUNT(*) FROM answer_keys k WHERE k.category_id=g.id) key_count FROM categories g ORDER BY g.date,g.id`,
         ).all()
       ).results,
     });
@@ -250,6 +262,25 @@ async function admin(req: Request, env: Env, path: string) {
       env.DB.prepare('UPDATE house_words SET revealed=0'),
     ]);
     return json({ ok: true, practice: true });
+  }
+  if (path === '/admin/check-answers') {
+    if (env.STAGING !== 'true') return fail(404, 'No such clerk procedure.');
+    const category = await current(env);
+    if (
+      !category ||
+      !catalogMeta(category) ||
+      !Array.isArray(b.answers) ||
+      b.answers.length > 20 ||
+      b.answers.some((a: any) => !validText(a))
+    )
+      return fail(422, 'Check up to twenty practice answers.');
+    const rows = [];
+    for (const answer of b.answers) {
+      const start = performance.now();
+      const row = await lookup(category, answer);
+      rows.push({ answer, found: !!row, display: row?.[1], ms: performance.now() - start });
+    }
+    return json({ rows });
   }
   if (path === '/admin/static-catalog') {
     if (
@@ -719,6 +750,9 @@ async function claim(req: Request, env: Env, u: any) {
         code: 'NOT_REGISTERED',
         message: 'Not on the register. No strike charged.',
         suggestion: catalogMeta(g) ? await nearMiss(g, b.answer) : null,
+        spellingCatalog: catalogMeta(g)
+          ? { slug: catalogMeta(g).slug, version: catalogMeta(g).version }
+          : null,
       },
       422,
     );

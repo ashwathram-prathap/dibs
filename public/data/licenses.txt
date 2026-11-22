@@ -22,3 +22,9 @@ https://github.com/wooorm/iso-3166
 
 Wikipedia PageViewInfo measurements: https://en.wikipedia.org/w/api.php
 Article titles and measured pageviews only; common names remain the answer, even when a popularity measurement resolves a redirect. Unavailable readership is recorded as unknown, not a fabricated observation. Editorial common-name supplements by Dibs.
+
+GBIF Secretariat (2023). GBIF Backbone Taxonomy. Checklist dataset https://doi.org/10.15468/39omei accessed 2026-11-22. CC BY 4.0: https://creativecommons.org/licenses/by/4.0/
+Full 2023 backbone Darwin Core archive, https://hosted-datasets.gbif.org/datasets/backbone/current/backbone.zip . All English VernacularName records were joined to Taxon kingdom/class. Changes: common-name selection, normalization, synonym deduplication and unsuitable-term filtering. The legacy backbone is frozen at 2023; it is merged with current IOC 15.2 and USDA PLANTS rather than represented as a current taxonomic authority. Scientific names are lookup aliases. GBIF's current taxonomic authority is Catalogue of Life XR.
+
+USDA, NRCS. 2026. The PLANTS Database (https://plants.usda.gov, accessed 22 November 2026). National Plant Data Team, Greensboro, NC USA.
+Complete plant list, https://plants.sc.egov.usda.gov/DocumentLibrary/Txt/plantlst.txt . Plant lists and text are not copyrighted and are free for any use; no images are included. Conditions: https://plants.usda.gov/assets/docs/PLANTS_Help_Document.pdf (Plant Data Use).

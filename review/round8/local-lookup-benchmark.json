@@ -1,0 +1,61 @@
+{
+  "runtime": "Node local CPU proxy; not Cloudflare billing measurement",
+  "results": [
+    {
+      "slug": "animals",
+      "entries": 86664,
+      "keys": 263894,
+      "warmExactCpuP95Ms": 0.002125000000006594,
+      "warmTypoCpuP95Ms": 12.593666999999982,
+      "parsedTypoBytes": 10377029
+    },
+    {
+      "slug": "birds",
+      "entries": 16608,
+      "keys": 43366,
+      "warmExactCpuP95Ms": 0.00041699999997035775,
+      "warmTypoCpuP95Ms": 1.7825000000000273,
+      "parsedTypoBytes": 1727973
+    },
+    {
+      "slug": "plants",
+      "entries": 49458,
+      "keys": 126744,
+      "warmExactCpuP95Ms": 0.0004999999999881766,
+      "warmTypoCpuP95Ms": 6.522625000000062,
+      "parsedTypoBytes": 4811518
+    },
+    {
+      "slug": "cities",
+      "entries": 142927,
+      "keys": 512842,
+      "warmExactCpuP95Ms": 0.0017089999998916028,
+      "warmTypoCpuP95Ms": 31.87154200000009,
+      "parsedTypoBytes": 16722332
+    },
+    {
+      "slug": "foods",
+      "entries": 10681,
+      "keys": 14896,
+      "warmExactCpuP95Ms": 0.0005000000001018634,
+      "warmTypoCpuP95Ms": 0.6344169999999849,
+      "parsedTypoBytes": 500155
+    },
+    {
+      "slug": "fruits-vegetables",
+      "entries": 380,
+      "keys": 573,
+      "warmExactCpuP95Ms": 0.00016700000014679972,
+      "warmTypoCpuP95Ms": 0.05862500000012005,
+      "parsedTypoBytes": 14907
+    },
+    {
+      "slug": "countries",
+      "entries": 249,
+      "keys": 777,
+      "warmExactCpuP95Ms": 0.00016699999991942605,
+      "warmTypoCpuP95Ms": 0.04737499999987449,
+      "parsedTypoBytes": 16433
+    }
+  ]
+}

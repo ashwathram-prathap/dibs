@@ -1,3 +1,4 @@
+import { submittedSpelling } from './spelling';
 import { HOME_TITLE, archiveTitle } from '../shared/seo';
 import { Icon } from './Icon';
 import { SHOW_CREATOR_CREDIT, CREATOR_URL, X_URL } from '../shared/creator';
@@ -401,6 +402,7 @@ function Home({
   const [restoreKey, setRestoreKey] = useState(() =>
     decodeURIComponent(location.hash.match(/^#file-key=(.+)$/)?.[1] || ''),
   );
+  const spellingVersion = useRef(0);
   const pendingRequest = useRef<{ answer: string; id: string } | null>(null);
   const [busy, setBusy] = useState(false);
   const [message, setMessage] = useState('');
@@ -490,11 +492,12 @@ function Home({
     setMessage('');
     setSuggestion(null);
     setMissing(false);
+    const value = confirmed || answer;
+    const spellingAttempt = ++spellingVersion.current;
     try {
       const token = isDemo
         ? 'demo'
         : await runTurnstile(today.turnstileSiteKey, turnstileBox.current!);
-      const value = confirmed || answer;
       if (!pendingRequest.current || pendingRequest.current.answer !== value)
         pendingRequest.current = { answer: value, id: crypto.randomUUID() };
       const result = await api<{ claim: Claim; me?: Me; recoveryKey?: string }>('/claim', {
@@ -519,6 +522,11 @@ function Home({
       else if (err.data?.file) setMe({ ...me, file: err.data.file });
       if (err.status && err.status < 500) pendingRequest.current = null;
       setSuggestion(err.data?.suggestion || null);
+      if (!err.data?.suggestion && err.data?.spellingCatalog) {
+        void submittedSpelling(err.data.spellingCatalog, value).then((suggested) => {
+          if (spellingVersion.current === spellingAttempt) setSuggestion(suggested);
+        });
+      }
       setMissing(err.data?.code === 'NOT_REGISTERED');
       setOutcome(
         err.status === 409
@@ -538,7 +546,7 @@ function Home({
           ? err.data.house
             ? err.data.message
             : `Someone already called dibs on ${answer.toUpperCase()} (${err.data.takenBy}). Try another.`
-          : err.message,
+          : `${value.toUpperCase()}: ${err.message}`,
       );
       input.current?.focus();
     } finally {
@@ -1563,7 +1571,12 @@ function About({ nextDrop }: { nextDrop: string }) {
           <h2>Sources and attribution</h2>
           <p>
             Registers use <a href="https://www.geonames.org/">GeoNames</a> (CC BY), Princeton
-            WordNet, <a href="https://www.worldbirdnames.org/">IOC World Bird List</a> (CC BY 3.0),{' '}
+            WordNet,{' '}
+            <a href="https://www.gbif.org/dataset/d7dddbf4-2cf0-4f39-9b2a-bb099caae36c">
+              GBIF Backbone Taxonomy
+            </a>{' '}
+            (CC BY 4.0), <a href="https://plants.usda.gov/">USDA NRCS PLANTS</a> (public plant
+            data), <a href="https://www.worldbirdnames.org/">IOC World Bird List</a> (CC BY 3.0),{' '}
             <a href="https://world.openfoodfacts.org/">Open Food Facts</a> (ODbL), and ISO 3166 data
             (MIT). Wikipedia pageviews rank measured answers.{' '}
             <a href="/data/licenses.txt">Full licenses and source notes</a>.

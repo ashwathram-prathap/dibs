@@ -1,5 +1,6 @@
+import hotCatalog from './catalog-hot.generated';
 import { PUBLIC_ORIGIN } from '../shared/config';
-import { shardFor, editDistance, type CatalogRow } from '../shared/catalog';
+import { shardFor, findTypo, type TypoNode, type CatalogRow } from '../shared/catalog';
 import { normalize } from './domain';
 import type { Env } from './routes';
 const cache = new Map<string, Promise<any>>();
@@ -32,6 +33,8 @@ async function asset(path: string) {
 export async function lookup(category: any, text: string): Promise<CatalogRow | null> {
   const meta = catalogMeta(category);
   const key = normalize(text);
+  const hot = (hotCatalog as any)[meta.slug];
+  if (hot?.version === meta.version && hot.keys[key]) return hot.keys[key];
   const shard = await asset(`${meta.slug}/${meta.version}/keys-${shardFor(key)}.json`);
   return shard[key] || null;
 }
@@ -43,18 +46,11 @@ export async function rowAt(category: any, index: number): Promise<CatalogRow> {
 export async function nearMiss(category: any, text: string) {
   const meta = catalogMeta(category);
   const key = normalize(text);
-  if (key.length < 4) return null;
-  const rows: CatalogRow[] = await asset(`${meta.slug}/${meta.version}/typos.json`);
-  let best: CatalogRow | null = null,
-    distance = 3;
-  for (const row of rows) {
-    const d = editDistance(key, normalize(row[1]), key.length < 6 ? 1 : 2);
-    if (d < distance && d <= (key.length < 6 ? 1 : 2)) {
-      distance = d;
-      best = row;
-    }
-  }
-  return best?.[1] || null;
+  if (key.length < 3) return null;
+  const hot = (hotCatalog as any)[meta.slug];
+  if (hot?.version !== meta.version || !hot.tree) return null;
+  const id = findTypo(hot.tree, key, 2);
+  return id === null ? null : hot.names[id];
 }
 export function answerId(category: any, row: CatalogRow) {
   return `${category.id}:v2:${catalogMeta(category).version}:${row[0]}`;

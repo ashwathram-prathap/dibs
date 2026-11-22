@@ -28,7 +28,7 @@ jobs:
           name: firefox-regression
           path: |
             review/round7/browser-results.json
-            review/final/r7-firefox-*
+            review/round8/certificates/r7-firefox-*
             review/devices/results.json
             review/devices/firefox-*/
           retention-days: 14

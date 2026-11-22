@@ -1,7 +1,88 @@
-import {readdirSync,readFileSync,writeFileSync,existsSync} from 'node:fs';
-import {normalize} from '../worker/domain';
-const report:any[]=[];
-for(const f of readdirSync('categories').filter(f=>f.endsWith('.json'))){const c=JSON.parse(readFileSync('categories/'+f,'utf8'));const path='review/coverage/'+c.slug+'.txt';const words=existsSync(path)?[...new Set(readFileSync(path,'utf8').trim().split('\n').map(s=>s.trim()).filter(Boolean))]:[];const keys=new Set(c.answers.flatMap((a:any)=>[normalize(a.display),...a.aliases.map(normalize)]));const missing=words.filter(w=>!keys.has(normalize(w)));const score=words.length?(words.length-missing.length)/words.length:0;const independentPath='review/coverage/'+c.slug+'-independent.json';const independent=existsSync(independentPath)?JSON.parse(readFileSync(independentPath,'utf8')):null;const ready=words.length>=150&&score>=(c.slug==='animals'?1:.98)&&!!c.provenance.completeSources&&independent?.answers?.length>=50&&independent.answers.every((w:string)=>keys.has(normalize(w)));report.push({slug:c.slug,entries:c.answers.length,scope:c.provenance.scopeNote,obvious:words.length,score,missing,ready,independentChecked:independent?.answers?.length||0,sourceComplete:!!c.provenance.completeSources,house:c.answers.filter((a:any)=>a.pageviews?.days>0).sort((a:any,b:any)=>b.pageviews.total/b.pageviews.days-a.pageviews.total/a.pageviews.days).slice(0,10).map((a:any)=>a.display),status:'unscheduled proposal; live schedule preserved',date:null});}
-writeFileSync('review/coverage/results.json',JSON.stringify(report,null,2)+'\n');
-writeFileSync('review/coverage/catalog-report.md','# R8 catalog gates\n\nLive schedule preserved per the final R8 instruction. No failing category may be newly approved. Entries are reference candidates, not a completeness claim. Unknown pageviews are not invented.\n\n| Category | Entries | Scope | Obvious coverage | Independent check | Ready | House words |\n|---|---:|---|---|---:|---|---|\n'+report.map(r=>`| ${r.slug} | ${r.entries} | ${r.scope||'Legacy subset; unverified'} | ${r.obvious?((r.score*100).toFixed(1)+'% / '+r.obvious):'MISSING'} | ${r.independentChecked}/50 | ${r.ready?'yes':'NO'} | ${r.house.join(', ')} |`).join('\n')+'\n');
-console.log(report.filter(r=>r.obvious).map(r=>({slug:r.slug,score:r.score,missing:r.missing})));
+import { readdirSync, readFileSync, writeFileSync, existsSync } from 'node:fs';
+import { normalize } from '../worker/domain';
+const report: any[] = [];
+const scheduled = JSON.parse(
+  readFileSync('review/round8/production-registers-before.json', 'utf8'),
+);
+for (const f of readdirSync('categories').filter((f) => f.endsWith('.json'))) {
+  const c = JSON.parse(readFileSync('categories/' + f, 'utf8'));
+  const path = 'review/coverage/' + c.slug + '.txt';
+  const words = existsSync(path)
+    ? [
+        ...new Set(
+          readFileSync(path, 'utf8')
+            .trim()
+            .split('\n')
+            .map((s) => s.trim())
+            .filter(Boolean),
+        ),
+      ]
+    : [];
+  const keys = new Set(
+    c.answers.flatMap((a: any) => [normalize(a.display), ...a.aliases.map(normalize)]),
+  );
+  const missing = words.filter((w) => !keys.has(normalize(w)));
+  const score = words.length ? (words.length - missing.length) / words.length : 0;
+  const independentPath = 'review/coverage/' + c.slug + '-independent.json';
+  const independent = existsSync(independentPath)
+    ? JSON.parse(readFileSync(independentPath, 'utf8'))
+    : null;
+  const independentMissing = (independent?.answers || []).filter(
+    (w: string) => !keys.has(normalize(w)),
+  );
+  const ready =
+    words.length >= 150 &&
+    score >= (c.slug === 'animals' ? 1 : 0.98) &&
+    !!c.provenance.completeSources &&
+    !!c.provenance.rankingComplete &&
+    independent?.answers?.length >= 50 &&
+    !independentMissing.length;
+  const live = scheduled.find((r: any) => r.id === c.id);
+  report.push({
+    slug: c.slug,
+    entries: c.answers.length,
+    scope: c.provenance.scopeNote,
+    obvious: words.length,
+    score,
+    missing,
+    ready,
+    independentChecked: independent?.answers?.length || 0,
+    independentMissing,
+    sourceComplete: !!c.provenance.completeSources,
+    rankingComplete: !!c.provenance.rankingComplete,
+    unmeasured: c.provenance.unmeasured,
+    house: c.answers
+      .filter((a: any) => a.pageviews?.days > 0)
+      .sort(
+        (a: any, b: any) =>
+          b.pageviews.total / b.pageviews.days - a.pageviews.total / a.pageviews.days,
+      )
+      .slice(0, 10)
+      .map((a: any) => a.display),
+    status: live?.status === 'approved' ? 'scheduled (existing, unchanged)' : 'unscheduled',
+    date: live?.date || null,
+  });
+}
+writeFileSync('review/coverage/results.json', JSON.stringify(report, null, 2) + '\n');
+writeFileSync(
+  'review/coverage/catalog-report.md',
+  '# R8 catalog gates\n\nLive dates and approval status are preserved per the final R8 instruction. A scheduled row can still FAIL the new gate: existing approval is not new certification. No failing category may be newly approved. Unknown pageviews are not invented. Countries contains the complete 249 ISO countries and territories rather than fabricated entries to reach 300.\n\n| Category | Entries | Scope | Obvious coverage | Independent matches | Ranking complete | Ready | Status / date | House words |\n|---|---:|---|---|---:|---|---|---|---|\n' +
+    report
+      .map(
+        (r) =>
+          `| ${r.slug} | ${r.entries} | ${r.scope || 'Legacy subset; unverified'} | ${r.obvious ? (r.score * 100).toFixed(1) + '% / ' + r.obvious : 'MISSING'} | ${r.independentChecked - r.independentMissing.length}/${r.independentChecked || 50} | ${r.rankingComplete ? 'yes' : 'NO'} | ${r.ready ? 'yes' : 'NO'} | ${r.status}${r.date ? ' / ' + r.date : ''} | ${r.house.join(', ')} |`,
+      )
+      .join('\n') +
+    '\n',
+);
+console.log(
+  report
+    .filter((r) => r.obvious)
+    .map((r) => ({
+      slug: r.slug,
+      score: r.score,
+      missing: r.missing,
+      independentMissing: r.independentMissing.length,
+      rankingComplete: r.rankingComplete,
+    })),
+);

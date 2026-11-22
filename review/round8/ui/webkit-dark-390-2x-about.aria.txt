@@ -1,0 +1,55 @@
+- main:
+  - text: PLEASE READ BEFORE FILING / NOTICE 001
+  - heading "Dibs. A small claim. A public record." [level=1]
+  - paragraph: Welcome to the least consequential office in town.
+  - heading "How to play" [level=2]
+  - list:
+    - listitem: "A new category opens daily. Next drop: 10:24 AM ET ."
+    - listitem: Call dibs on an answer. First come, first served.
+    - listitem: Taken guesses cost a strike. Five strikes close your file.
+    - listitem: Up to three dibs per person, per category.
+    - listitem: The 10 most obvious answers are held by the house.
+    - listitem: Ten secret golden tickets per drop November 23–29, then three. The commitment is revealed at close.
+    - listitem: Most dibs, fewest strikes, earliest completed file wins.
+  - heading "Frequently asked questions" [level=2]
+  - heading "When does the category drop?" [level=3]
+  - paragraph: Every day at 9 PM Eastern time.
+  - heading "What's a golden ticket?" [level=3]
+  - paragraph: A secret randomly selected answer. Claim it to earn a gold stamp.
+  - heading "Is it free?" [level=3]
+  - paragraph: Yes. Dibs is free to play.
+  - text: NO ACTUAL PROPERTY RIGHTS
+  - complementary:
+    - text: A NOTE ON THE RECORD
+    - heading "Privacy" [level=2]
+    - paragraph: We store a randomly generated handle and your claims. An anonymous, signed cookie keeps your place. No email. No password. No public names to type.
+    - paragraph: For abuse prevention, an IP address becomes a daily rotating hash. We do not store raw IPs. We count share-button taps and first arrivals by platform only and use cookieless traffic analytics when configured. Nothing is sold.
+    - paragraph: "Your file key restores access after switching browsers or clearing cookies. Keep it private: anyone with it can use your file. Your handle locks after your first claim."
+    - paragraph: We keep your random ID cookie for one year, claims and strikes as the public game record, and a hashed recovery key so you can restore your identity. Network abuse hashes rotate daily and are cleared after two days. Anonymous share and arrival counts have no names or IP addresses. Missing-answer submissions contain only the normalized answer, category, date and count, and are kept for 90 days. Transient browser sessions expire after 30 days. Backups are kept privately for 30 days. Nothing is sold or used for ads.
+    - paragraph:
+      - text: "For privacy questions or deletion requests:"
+      - link "privacy@dibs.here":
+        - /url: mailto:privacy@dibs.here
+      - text: (contact mailbox awaiting owner setup). Dibs is for players 13 and up.
+    - heading "Sources and attribution" [level=2]
+    - paragraph:
+      - text: Registers use
+      - link "GeoNames":
+        - /url: https://www.geonames.org/
+      - text: (CC BY), Princeton WordNet,
+      - link "IOC World Bird List":
+        - /url: https://www.worldbirdnames.org/
+      - text: (CC BY 3.0),
+      - link "Open Food Facts":
+        - /url: https://world.openfoodfacts.org/
+      - text: (ODbL), and ISO 3166 data (MIT). Wikipedia pageviews rank measured answers.
+      - link "Full licenses and source notes":
+        - /url: /data/licenses.txt
+      - text: .
+    - heading "Golden-ticket commitment" [level=2]
+    - paragraph:
+      - text: Before a register opens, the clerk publishes a SHA-256 commitment. Once it closes, the archive reveals the seed and answer IDs so anyone can check the draw.
+      - link "Read the archive":
+        - /url: /archive
+      - text: .
+    - paragraph: Obscurity uses Wikipedia pageviews, grouped from 1 (familiar) to 5 (less read). It describes the article’s readership, not your intelligence.

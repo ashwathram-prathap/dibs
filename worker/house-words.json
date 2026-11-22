@@ -37,7 +37,6 @@
   ],
   "animals": [
     "Cat",
-    "Turkey",
     "Dog",
     "Axolotl",
     "Squirrel",
@@ -45,7 +44,8 @@
     "Orca",
     "Horse",
     "Hippopotamus",
-    "Lion"
+    "Lion",
+    "Tiger"
   ],
   "architects": [
     "Thomas Jefferson",
@@ -96,16 +96,16 @@
     "Kings of Leon"
   ],
   "birds": [
-    "Turkey",
-    "Goonie",
     "Dodo",
     "Chicken",
-    "Rooster",
     "Cassowary",
-    "Guinea",
     "Penguin",
     "Shoebill",
-    "Peregrine falcon"
+    "Turkey",
+    "Turkey cock",
+    "Bald eagle",
+    "Owl",
+    "Duck"
   ],
   "castles": [
     "Neuschwanstein Castle",
@@ -120,16 +120,16 @@
     "Hohenzollern Castle"
   ],
   "cities": [
-    "China",
-    "New York City",
-    "Brazil",
-    "Japan",
-    "Singapore",
-    "Australia",
-    "Poland",
-    "Hong Kong",
-    "Mexico",
-    "Los Angeles"
+    "New York",
+    "Los Angeles",
+    "Kraków",
+    "London",
+    "Chicago",
+    "Berlin",
+    "Jerusalem",
+    "Shenzhen",
+    "Vatican City",
+    "Toronto"
   ],
   "composers": [
     "Amanda Seyfried",
@@ -168,16 +168,16 @@
     "Contact (1997 American film)"
   ],
   "foods": [
-    "Brazil",
-    "Turkey",
-    "Dog",
-    "Chile",
     "Apple",
     "Bread",
     "Chicken",
     "Banana",
     "Ice cream",
-    "Octopus"
+    "Octopus",
+    "Rabbit",
+    "Chocolate",
+    "Tea",
+    "Shark"
   ],
   "footballers": [
     "Cristiano Ronaldo",
@@ -192,16 +192,16 @@
     "David Beckham"
   ],
   "fruits-vegetables": [
-    "Chile",
     "Apple",
     "Banana",
     "Potato",
     "Cassava",
     "Corn",
     "Pomegranate",
+    "Tomato",
     "Avocado",
-    "Okra",
-    "Fig"
+    "Fig",
+    "Rutabaga"
   ],
   "islands": [
     "Guam",
@@ -288,16 +288,16 @@
     "Nighthawks (Hopper)"
   ],
   "plants": [
+    "Panda",
     "Apple",
+    "Dodo",
     "Banana",
+    "Tea",
     "Potato",
     "Cassava",
-    "Maize",
     "Corn",
     "Pomegranate",
-    "Avocado",
-    "Peanut",
-    "Cashew"
+    "Tomato"
   ],
   "poets": [
     "James Stewart",

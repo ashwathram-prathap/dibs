@@ -117,7 +117,11 @@ beforeAll(async () => {
         .replace(/CREATE TRIGGER[\s\S]*?\nEND;/g, (m) => m.replace(/\n/g, ' '))
         .replace(/\n/g, ' '),
     );
-  await db.exec(readFileSync('migrations/0009_r8.sql','utf8').replace(/^--.*$/gm,'').replace(/\n/g,' '));
+  await db.exec(
+    readFileSync('migrations/0009_r8.sql', 'utf8')
+      .replace(/^--.*$/gm, '')
+      .replace(/\n/g, ' '),
+  );
   const date = registryDate();
   await db
     .prepare(
@@ -510,4 +514,56 @@ it('keeps redirects, cached APIs, and rejected requests inside the security head
   expect(r.status).toBe(301);
   expect(r.headers.get('location')).toBe('https://dibs.here/certificate/example-id?s=x');
   expect(r.headers.get('x-content-type-options')).toBe('nosniff');
+});
+it('restores the same file with a hashed key, rate limits guesses, and counts anonymous missing answers', async () => {
+  const a = await account();
+  const claim = await call(
+    '/claim',
+    { answer: 'Animal 68', turnstileToken: 'test', requestId: crypto.randomUUID() },
+    a.cookie,
+    'recovery-owner',
+  );
+  expect(claim.status).toBe(201);
+  const issued: any = await claim.json();
+  expect(issued.recoveryKey).toMatch(/^DIBS-/);
+  const stored = await db
+    .prepare('SELECT * FROM recovery_keys WHERE user_id=?')
+    .bind(a.me.user.id)
+    .first();
+  expect(stored.key_hash).not.toBe(issued.recoveryKey);
+  expect(stored.key_hash).toMatch(/^[a-f0-9]{64}$/);
+  const restored = await call(
+    '/recover',
+    { key: issued.recoveryKey },
+    undefined,
+    'recovery-new-browser',
+  );
+  expect(restored.status).toBe(200);
+  const cookie = restored.headers.get('set-cookie')!.split(';')[0];
+  const same: any = await (await call('/bootstrap', undefined, cookie)).json();
+  expect(same.me.user.id).toBe(a.me.user.id);
+  expect(same.me.file.dibs).toBe(1);
+  for (let i = 0; i < 5; i++)
+    expect((await call('/recover', { key: 'wrong' }, undefined, 'recovery-attacker')).status).toBe(
+      422,
+    );
+  expect(
+    (await call('/recover', { key: issued.recoveryKey }, undefined, 'recovery-attacker')).status,
+  ).toBe(429);
+  for (let i = 0; i < 10; i++)
+    expect(
+      (await call('/missing', { answer: 'Missing sea horse' }, cookie, 'missing-suggestions'))
+        .status,
+    ).toBe(200);
+  expect(
+    (await call('/missing', { answer: 'Other missing' }, cookie, 'missing-suggestions')).status,
+  ).toBe(429);
+  const missing = await db
+    .prepare('SELECT * FROM missing_answers WHERE answer=?')
+    .bind('missingseahorse')
+    .first();
+  expect(missing.count).toBe(10);
+  expect(Object.keys(missing).sort()).toEqual(['answer', 'category_id', 'count', 'day']);
+  const after: any = await (await call('/me', undefined, cookie)).json();
+  expect(after.file.strikes).toBe(0);
 });

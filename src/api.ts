@@ -26,9 +26,7 @@ export async function api<T>(path: string, body?: unknown): Promise<T> {
       body: body === undefined ? undefined : JSON.stringify(body),
     });
   } catch {
-    throw new Error(
-      'The clerk didn’t get that. Try again.',
-    );
+    throw new Error('The clerk didn’t get that. Try again.');
   }
   let data: any;
   try {
