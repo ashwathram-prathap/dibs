@@ -107,7 +107,11 @@ export async function exportCertificate(claim: Claim, story: boolean) {
   if (claim.founder) mono('FOUNDER', 80, holder + 90, 18);
   c.fillStyle = '#1A1A17';
   c.font = '400 26px Instrument';
-  c.drawImage(await artwork('/art/seal.svg'), 430, h - 320, 150, 150);
+  c.save();
+  c.translate(890, h - 240);
+  c.rotate((-7 * Math.PI) / 180);
+  c.drawImage(await artwork('/art/seal.svg'), -100, -100, 200, 200);
+  c.restore();
   mono('OBSCURITY', 80, h - 250);
   for (let i = 0; i < 5; i++) {
     c.beginPath();
@@ -117,7 +121,7 @@ export async function exportCertificate(claim: Claim, story: boolean) {
   }
   mono(claim.obscurity ? 'Wikipedia pageviews' : 'Unrated: pageviews unavailable', 80, h - 165, 16);
   c.save();
-  c.translate(795, h - 247);
+  c.translate(550, h - 247);
   c.rotate(((((claim.claim_no * 7.31) % 7) - 4) * Math.PI) / 180);
   c.strokeStyle = claim.golden ? '#B8902F' : '#E1462B';
   c.fillStyle = claim.golden ? '#B8902F' : '#E1462B';
@@ -227,7 +231,7 @@ export async function exportSummary(file: DayFile, category: Category, story: bo
   );
   text('FORM D-3', 885, 105, 19);
   line(132);
-  c.drawImage(await artwork('/art/seal.svg'), 855, 310, 135, 135);
+
   text('DAY CERTIFICATE', 80, 198);
   text('dibs #' + edition(category.date), 80, 235);
   c.save();
@@ -248,7 +252,7 @@ export async function exportSummary(file: DayFile, category: Category, story: bo
   );
   text('ACCEPTED & REJECTED FILINGS / IN ORDER', 80, 538, 18);
   const rows = guesses(file),
-    rowHeight = Math.min(105, (h - 790) / Math.max(1, rows.length));
+    rowHeight = Math.min(105, (h - 940) / Math.max(1, rows.length));
   rows.forEach((event, i) => {
     const y = 565 + i * rowHeight;
     c.fillStyle = ink;
@@ -268,7 +272,7 @@ export async function exportSummary(file: DayFile, category: Category, story: bo
           ? `Taken by ${event.holder}${event.holderFounder ? ' / FOUNDER' : ''}${event.heldAt ? ' at ' + localTime(event.heldAt).full : ''}`
           : 'Holder details were not retained';
       if (event.holderFounder) c.fillStyle = '#795700';
-      fit(held, 132, y + 65, 850, 20, 'Plex', 400);
+      fit(held, 132, y + rowHeight * 0.82, 850, Math.min(20, rowHeight * 0.27), 'Plex', 400);
     } else {
       c.save();
       c.translate(866, y + 32);
@@ -280,18 +284,11 @@ export async function exportSummary(file: DayFile, category: Category, story: bo
       text(event.golden ? 'DIBS / GOLD' : 'DIBS', -98, 9, 26, 'Archivo', 900);
       c.restore();
       c.fillStyle = ink;
-      if ((event.obscurity || 0) >= 4) text('DEEP CUT', 755, y + 82, 17);
+      if ((event.obscurity || 0) >= 4) text('DEEP CUT', 755, y + rowHeight * 0.85, 17);
     }
   });
   c.fillStyle = ink;
   c.strokeStyle = ink;
-  c.drawImage(
-    await artwork('/art/' + categoryStyle(category.slug).plate.replace('seal-b', 'seal') + '.svg'),
-    800,
-    460,
-    190,
-    105,
-  );
   const holderTop = 565 + rows.length * rowHeight + 30;
   line(holderTop);
   text('FILED UNDER', 80, holderTop + 38, 18);
@@ -307,16 +304,12 @@ export async function exportSummary(file: DayFile, category: Category, story: bo
   );
   if (file.founder) text('FOUNDER', 80, holderTop + 112, 18);
   c.fillStyle = ink;
-  text(`${file.streak || 0} DAY STREAK`, 790, holderTop + 80, 20);
-  if (story && h - 100 - (holderTop + 140) > 240) {
-    const y = holderTop + 210;
-    c.setLineDash([6, 6]);
-    line(y - 28);
-    c.setLineDash([]);
-    text('FILED DAILY.', 80, y + 90, 88, 'Archivo', 900);
-    text('HELD BRIEFLY.', 80, y + 185, 88, 'Archivo', 900);
-    text('NEXT DROP: 9 PM EASTERN', 80, y + 245, 24);
-  }
+  text(`${file.streak || 0} DAY STREAK`, 80, holderTop + 145, 20);
+  c.save();
+  c.translate(890, h - 220);
+  c.rotate((-7 * Math.PI) / 180);
+  c.drawImage(await artwork('/art/seal.svg'), -100, -100, 200, 200);
+  c.restore();
   line(h - 100);
   text('ALL CLAIMS ENTIRELY CEREMONIAL.', 80, h - 66, 16);
   text(PUBLIC_HOST, 825, h - 66, 18);

@@ -23,10 +23,10 @@ END:VTIMEZONE
 BEGIN:VEVENT
 UID:daily-drop@dibs.here
 DTSTAMP:20261122T110000Z
-DTSTART;TZID=America/Toronto:20261123T205500
+DTSTART;TZID=America/Toronto:20261123T210000
 DURATION:PT5M
 RRULE:FREQ=DAILY
-SUMMARY:Dibs drops in 5 minutes
+SUMMARY:Dibs daily drop
 DESCRIPTION:Three dibs. Five strikes. https://dibs.here/
 URL:https://dibs.here/
 BEGIN:VALARM

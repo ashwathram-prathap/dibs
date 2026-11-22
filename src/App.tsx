@@ -46,15 +46,23 @@ function Seal({ className = '' }: { className?: string }) {
   );
 }
 function Plate({ slug }: { slug: string }) {
-  const plate = categoryStyle(slug).plate;
+  if (slug !== 'animals') return null;
   return (
-    <img
-      className="category-plate"
-      src={'/art/' + (plate === 'seal-b' ? 'seal' : plate) + '.svg'}
-      alt=""
-    />
+    <figure className="engraving-plate stock-sage">
+      <img
+        src="/art/animals-plate.jpg"
+        alt="Rhinoceros woodcut by Albrecht Dürer"
+        width="1127"
+        height="893"
+      />
+      <figcaption>
+        <span>Plate I. Animals</span>
+        <span>Dürer, 1515</span>
+      </figcaption>
+    </figure>
   );
 }
+
 function Handle({ name, founder }: { name: string; founder?: boolean | number }) {
   return (
     <span className={founder ? 'founder-handle' : undefined}>
@@ -91,7 +99,7 @@ function DropTime({ at }: { at: string }) {
   const value = localTime(at, viewerZone(), true);
   return (
     <span className="local-drop">
-      {value.label} <small>{value.zone}</small>
+      {value.label} {value.zone}
     </span>
   );
 }
@@ -730,14 +738,16 @@ function Home({
     <div className={playing ? 'focused-play' : 'completed-play'}>
       {!today.category ? (
         <section className="closed-office">
-          <Seal />
-          <Clock target={today.nextDrop} />
-          <h1>
-            Animals drops <DropTime at={today.nextDrop} />.
-          </h1>
-          <p>Same moment for everyone.</p>
-          <Rules />
-          <Reminder at={today.nextDrop} />
+          <div className="closed-copy">
+            <Clock target={today.nextDrop} />
+            <h1>
+              Animals drops <DropTime at={today.nextDrop} />.
+            </h1>
+            <p>Same moment for everyone.</p>
+            <Rules />
+            <Reminder at={today.nextDrop} />
+          </div>
+          <Plate slug="animals" />
         </section>
       ) : file?.closed ? (
         <>
@@ -747,11 +757,10 @@ function Home({
         </>
       ) : (
         <section className="claim-section" aria-label="Play today's category">
+          <div className="play-heading register-arrival">
+            <CategoryHeading name={today.category.name} />
+          </div>
           <div className={'claim-paper stock-' + categoryStyle(today.category.slug).stock}>
-            <div className="play-heading register-arrival">
-              <CategoryHeading name={today.category.name} />
-              <Plate slug={today.category.slug} />
-            </div>
             <Progress dibs={file?.dibs || 0} strikes={file?.strikes || 0} />
             {landed && claim ? (
               <div
@@ -858,6 +867,7 @@ function Home({
               <Rules />
             </details>
           </div>
+          <Plate slug={today.category.slug} />
         </section>
       )}
       {playing && (
@@ -1014,7 +1024,6 @@ function DaySummary({ file, today }: { file: DayFile; today: Today }) {
         </div>
         <div className="day-category">
           <h2>{today.category!.name}</h2>
-          <Plate slug={today.category!.slug} />
         </div>
         <p className="postmark-date">{dateLabel(today.category!.date)}</p>
         <p className="file-tally">
@@ -1372,7 +1381,6 @@ export function Certificate({ claim, animated = false }: { claim: Claim; animate
           <Handle name={claim.handle} founder={claim.founder} />
         </strong>
       </div>
-      <Seal className="certificate-seal" />
       <div className="cert-bottom">
         <div>
           <span className="eyebrow">OBSCURITY</span>
@@ -1415,6 +1423,9 @@ export function Certificate({ claim, animated = false }: { claim: Claim; animate
             )}
           </span>
         </motion.div>
+      </div>
+      <div className="certificate-registration">
+        <Seal className="certificate-seal" />
       </div>
       <div className="cert-footer">
         <span>ONE OF {claim.total_registrable.toLocaleString()}. ONLY ONE YOURS.</span>

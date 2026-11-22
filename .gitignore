@@ -62,3 +62,9 @@ review/round9/firefox-ci/
 review/round9/browser-results.json
 
 review/final/round9/*.png
+
+# R10 full-size visual evidence and recordings remain in the local handoff.
+review/round10/**/*.png
+review/round10/**/*.webm
+review/round10/lighthouse*/
+review/round10/browser-results.json

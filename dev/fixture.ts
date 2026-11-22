@@ -1,3 +1,4 @@
+import { nextDrop } from '../worker/domain';
 const r7 = new URLSearchParams(location.search);
 const clockStart = performance.now();
 const fixtureNow = () =>
@@ -115,7 +116,7 @@ export async function request(path: string, body?: any): Promise<any> {
           ? category.id === 'fixture-animals'
             ? fixtureDrop
             : '2026-11-25T02:00:00.000Z'
-          : new Date(Date.now() + 3600000 * 12).toISOString(),
+          : nextDrop(),
       turnstileSiteKey: 'demo',
     };
   }
@@ -267,7 +268,7 @@ export async function request(path: string, body?: any): Promise<any> {
       ...(r6 ? { specials: specials() } : {}),
       file: { ...file(), summaryId: 'fixture-summary' },
       category,
-      nextDrop: new Date(Date.now() + 43200000).toISOString(),
+      nextDrop: nextDrop(),
     };
   if (path === '/events/arrival' || path === '/events/share') {
     window.dispatchEvent(new CustomEvent('dibs-fixture-event', { detail: { path, body } }));
