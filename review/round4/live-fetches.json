@@ -1,0 +1,72 @@
+[
+  {
+    "platform": "WhatsApp",
+    "scope": "live generic preview",
+    "status": 200,
+    "bytes": 38292,
+    "milliseconds": 162,
+    "width": 1200,
+    "height": 630
+  },
+  {
+    "platform": "X",
+    "scope": "live generic preview",
+    "status": 200,
+    "bytes": 38292,
+    "milliseconds": 71,
+    "width": 1200,
+    "height": 630
+  },
+  {
+    "platform": "Facebook",
+    "scope": "live generic preview",
+    "status": 200,
+    "bytes": 38292,
+    "milliseconds": 60,
+    "width": 1200,
+    "height": 630
+  },
+  {
+    "platform": "iMessage",
+    "scope": "live generic preview",
+    "status": 200,
+    "bytes": 38292,
+    "milliseconds": 73,
+    "width": 1200,
+    "height": 630
+  },
+  {
+    "platform": "Discord",
+    "scope": "live generic preview",
+    "status": 200,
+    "bytes": 38292,
+    "milliseconds": 57,
+    "width": 1200,
+    "height": 630
+  },
+  {
+    "path": "/api/today",
+    "status": 200,
+    "body": "{\"category\":null,\"claimed\":0,\"open\":0,\"voided\":0,\"lastClaimAt\":null,\"nextDrop\":\"2026-11-25T02:00:00.000Z\",\"board\":[],\"turnstileSiteKey\":\"0x4AAAAAAGLNsW8c9WxZVAxQ\"}"
+  },
+  {
+    "path": "/api/archive",
+    "status": 200,
+    "body": "{\"categories\":[]}"
+  },
+  {
+    "path": "/api/ledger?category=not-an-open-register",
+    "status": 200,
+    "body": "{\"rows\":[]}"
+  },
+  {
+    "path": "/certificate/not-a-record",
+    "status": 404,
+    "body": "Dibs: this file is not on record."
+  },
+  {
+    "path": "/summary/not-a-record",
+    "status": 404,
+    "body": "Dibs: this file is not on record."
+  }
+]

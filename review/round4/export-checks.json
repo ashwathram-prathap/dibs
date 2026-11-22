@@ -1,0 +1,36 @@
+[
+  {
+    "kind": "story",
+    "width": 1080,
+    "height": 1920
+  },
+  {
+    "kind": "feed",
+    "width": 1080,
+    "height": 1350
+  },
+  {
+    "artifact": "certificate-story",
+    "width": 1080,
+    "height": 1920,
+    "storySafeArea": "160 top / 260 bottom: clear"
+  },
+  {
+    "artifact": "day-summary-story",
+    "width": 1080,
+    "height": 1920,
+    "storySafeArea": "160 top / 260 bottom: clear"
+  },
+  {
+    "artifact": "certificate-feed",
+    "width": 1080,
+    "height": 1350,
+    "storySafeArea": "not applicable"
+  },
+  {
+    "artifact": "day-summary-feed",
+    "width": 1080,
+    "height": 1350,
+    "storySafeArea": "not applicable"
+  }
+]

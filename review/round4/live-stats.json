@@ -1,0 +1,50 @@
+{
+  "status": 200,
+  "platforms": [
+    {
+      "platform": "native",
+      "shares": 0,
+      "arrivals": 0
+    },
+    {
+      "platform": "x",
+      "shares": 0,
+      "arrivals": 0
+    },
+    {
+      "platform": "whatsapp",
+      "shares": 0,
+      "arrivals": 0
+    },
+    {
+      "platform": "facebook",
+      "shares": 0,
+      "arrivals": 0
+    },
+    {
+      "platform": "instagram-tiktok",
+      "shares": 0,
+      "arrivals": 0
+    },
+    {
+      "platform": "copy-link",
+      "shares": 0,
+      "arrivals": 0
+    },
+    {
+      "platform": "copy-text",
+      "shares": 0,
+      "arrivals": 0
+    },
+    {
+      "platform": "story",
+      "shares": 0,
+      "arrivals": 0
+    },
+    {
+      "platform": "feed",
+      "shares": 0,
+      "arrivals": 0
+    }
+  ]
+}
