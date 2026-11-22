@@ -47,12 +47,29 @@ let claims: any[] = [
 ];
 const originalClaim = claims[0];
 let mine: any = null;
+let myClaims: any[] = [];
+let events: { at: string; kind: string }[] = [];
+function file() {
+  const strikes = events.filter((e) => e.kind === 'strike').length;
+  const closed = myClaims.length === 3 || strikes === 5;
+  return {
+    category_id: category.id,
+    claims: myClaims,
+    dibs: myClaims.length,
+    strikes,
+    events,
+    closed,
+    completedAt: closed ? events.at(-1)?.at : null,
+  };
+}
+
 export async function request(path: string, body?: any): Promise<any> {
   await new Promise((r) => setTimeout(r, 120));
-  if (path === '/bootstrap') return {today: await request('/today'), me:await request('/me'), rows:claims};
+  if (path === '/bootstrap')
+    return { today: await request('/today'), me: await request('/me'), rows: claims };
   if (path === '/today')
     return {
-      category: {...category},
+      category: { ...category },
       claimed: claims.length,
       lastClaimAt: claims[0]?.created_at || null,
       open: 2400 - claims.length,
@@ -60,7 +77,13 @@ export async function request(path: string, body?: any): Promise<any> {
       turnstileSiteKey: 'demo',
     };
   if (path === '/me')
-    return { user, claim: mine, streak: mine ? 1 : 0, streakDates: mine ? [date] : [] };
+    return {
+      user,
+      claim: mine,
+      file: file(),
+      streak: mine ? 1 : 0,
+      streakDates: mine ? [date] : [],
+    };
   if (path === '/me/reroll') {
     if (user.rerolls_used >= 3 || mine)
       throw new ApiError(403, { message: 'This handle is filed.' });
@@ -77,20 +100,32 @@ export async function request(path: string, body?: any): Promise<any> {
         e.toLowerCase().includes(decodeURIComponent(path.split('q=')[1] || '').toLowerCase()),
       ),
     };
-  if (path.startsWith('/ledger')) { const u = new URL(path, 'http://fixture'); return {rows:claims.filter(r=>r.category_id===u.searchParams.get('category') && r.claim_no>Number(u.searchParams.get('since')||0))}; }
+  if (path.startsWith('/ledger')) {
+    const u = new URL(path, 'http://fixture');
+    return {
+      rows: claims.filter(
+        (r) =>
+          r.category_id === u.searchParams.get('category') &&
+          r.claim_no > Number(u.searchParams.get('since') || 0),
+      ),
+    };
+  }
   if (path === '/archive') return { categories: [] };
   if (path.startsWith('/certificate/'))
     return { claim: claims.find((c) => c.id === path.split('/').pop()) || mine };
   if (path === '/claim') {
-    if (mine) throw new ApiError(403, { message: 'One claim per day. Yours is already on file.' });
+    if (file().closed) throw new ApiError(403, { message: 'Your file is closed for today.' });
     const entry = entries.find((e) => e.toLowerCase() === body.answer.trim().toLowerCase());
     if (!entry)
       throw new ApiError(422, {
-        message: 'That entry is not in this register. Please try another.',
+        message: "Not on today's register. Check the spelling.",
       });
     const taken = claims.find((c) => c.display === entry);
-    if (taken)
+    if (taken) {
+      events.push({ at: new Date().toISOString(), kind: 'strike' });
       throw new ApiError(409, {
+        file: file(),
+        me: await request('/me'),
         takenBy: taken.handle,
         at: taken.created_at,
         message:
@@ -99,20 +134,23 @@ export async function request(path: string, body?: any): Promise<any> {
           taken.handle +
           '. Please call dibs on something else.',
       });
+    }
     mine = {
       ...originalClaim,
       category_id: category.id,
       category_name: category.name,
       category_date: category.date,
-      id: 'fixture-2',
-      claim_no: 2,
+      id: 'fixture-' + (claims.length + 1),
+      claim_no: claims.length + 1,
       display: entry,
       handle: user.handle,
       created_at: new Date().toISOString(),
       obscurity: 4,
     };
     claims = [mine, ...claims];
-    return { claim: mine, me:await request('/me') };
+    myClaims.push(mine);
+    events.push({ at: mine.created_at, kind: 'dibs' });
+    return { claim: mine, me: await request('/me') };
   }
   if (path === '/events/share') return { ok: true };
   throw new ApiError(404, { message: 'No file at this address.' });
@@ -128,5 +166,7 @@ export function advanceFixtureDay() {
     .slice(0, 10);
   category.drop_at = new Date().toISOString();
   mine = null;
+  myClaims = [];
+  events = [];
   claims = [];
 }

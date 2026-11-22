@@ -1,5 +1,5 @@
 import { DurableObject } from 'cloudflare:workers';
-import { route, current, publicClaim, json, safeError, type Env } from './routes';
+import { route, current, fileState, publicClaim, json, safeError, type Env } from './routes';
 import { cookieUser, handle, hmac } from './identity';
 import { nextDrop, registryDate, streak } from './domain';
 import { og } from './og';
@@ -12,10 +12,13 @@ type Snapshot = {
   checkedAt: number;
   day: string;
   version: number;
+  board?: any[];
+  nextDrop?: string;
 };
 type Session = {
   user: any;
   claim: any;
+  file?: any;
   streakDates: string[];
   attempts: number[];
   lastSeen?: number;
@@ -65,6 +68,16 @@ export class Registry extends DurableObject<Env> {
       const rows = [...added, ...(previous?.rows || [])];
       this.snapshot = {
         category,
+        nextDrop: category
+          ? nextDrop()
+          : (
+              await env.DB.prepare(
+                "SELECT MIN(drop_at) at FROM categories WHERE status='approved' AND drop_at>?",
+              )
+                .bind(new Date().toISOString())
+                .first<any>()
+            )?.at || '2026-11-25T02:00:00.000Z',
+        board: category ? (await this.ctx.storage.get<any[]>('board:' + category.id)) || [] : [],
         rows,
         reserved,
         checkedAt: Date.now(),
@@ -87,7 +100,8 @@ export class Registry extends DurableObject<Env> {
       open: s.category ? s.category.total_registrable - s.reserved : 0,
       voided: s.reserved - s.rows.length,
       lastClaimAt: s.rows[0]?.created_at || null,
-      nextDrop: nextDrop(),
+      nextDrop: s.nextDrop || nextDrop(),
+      board: (s.board || []).map(({ user_id, ...row }) => row),
       turnstileSiteKey: this.env.TURNSTILE_SITE_KEY,
     };
   }
@@ -115,6 +129,9 @@ export class Registry extends DurableObject<Env> {
         session = {
           user: u,
           claim,
+          file: (await current(this.env))
+            ? await fileState(this.env, (await current(this.env)).id, id)
+            : null,
           streakDates: dates.slice(0, 370),
           attempts: [],
           lastSeen: Date.now(),
@@ -146,6 +163,7 @@ export class Registry extends DurableObject<Env> {
   me(s?: Session) {
     return {
       user: s?.user || null,
+      file: s?.file?.category_id === this.snapshot?.category?.id ? s?.file : null,
       claim: s?.claim?.category_date === registryDate() ? s.claim : null,
       streakDates: s?.streakDates.slice(0, 7) || [],
       streak: streak(s?.streakDates || [], registryDate()),
@@ -371,6 +389,14 @@ export class Registry extends DurableObject<Env> {
             const s = await this.ctx.storage.get<Session>('session:' + b.id);
             if (s) {
               s.user.hidden = 1;
+              if (s.file) {
+                const key = 'board:' + s.file.category_id;
+                const board = (await this.ctx.storage.get<any[]>(key)) || [];
+                await this.ctx.storage.put(
+                  key,
+                  board.map((r) => (r.user_id === b.id ? { ...r, handle: 'Record withheld' } : r)),
+                );
+              }
               await this.ctx.storage.put('session:' + b.id, s);
             }
           }
@@ -445,33 +471,66 @@ export class Registry extends DurableObject<Env> {
       return json({ ok: true });
     }
     if (path === '/claim') {
+      if (this.me(session).file?.closed)
+        return json({ message: 'Your file is closed for today.' }, 403);
       const allowed = await this.ctx.blockConcurrencyWhile(async () => {
         const latest = (await this.ctx.storage.get<Session>('session:' + session.user.id))!;
         latest.attempts = latest.attempts.filter((t) => t > Date.now() - 60000);
-        if (latest.attempts.length >= 3) return false;
+        if (latest.attempts.length >= 12) return false;
         latest.attempts.push(Date.now());
         await this.ctx.storage.put('session:' + latest.user.id, latest);
         return true;
       });
       if (!allowed)
-        return json({ message: 'Three attempts per minute. Give the ink a moment to dry.' }, 429);
+        return json({ message: 'Twelve attempts per minute. Give the ink a moment to dry.' }, 429);
       const response = await route(req, { ...env, PLAYER: session.user, ATTEMPT_CHECKED: true });
-      if (response.status === 201) {
-        const { claim } = (await response.clone().json()) as any;
-        session.claim = claim;
-        session.streakDates = [...new Set([claim.category_date, ...session.streakDates])].slice(
-          0,
-          370,
-        );
-        const latest = await this.ctx.storage.get<Session>('session:' + session.user.id);
-        session.attempts = latest?.attempts || [];
-        await this.ctx.storage.put('session:' + session.user.id, session);
-        await this.ctx.storage.put('cache:certificate:' + claim.id, {
-          at: Date.now(),
-          body: JSON.stringify({ claim }),
+      if (response.status === 201 || response.status === 409) {
+        const data = (await response.clone().json()) as any;
+        // Read authoritative D1 progress after every mutation. Concurrent requests cannot
+        // overwrite session progress with an older response.
+        await this.ctx.blockConcurrencyWhile(async () => {
+          const latest = (await this.ctx.storage.get<Session>('session:' + session.user.id))!;
+          const category = await current(env);
+          latest.file = category ? await fileState(env, category.id, session.user.id) : null;
+          if (data.claim) {
+            latest.claim = data.claim;
+            latest.streakDates = [
+              ...new Set([data.claim.category_date, ...latest.streakDates]),
+            ].slice(0, 370);
+            await this.ctx.storage.put('cache:certificate:' + data.claim.id, {
+              at: Date.now(),
+              body: JSON.stringify({ claim: data.claim }),
+            });
+          }
+          if (latest.file?.closed) {
+            const key = 'board:' + latest.file.category_id;
+            const board = (await this.ctx.storage.get<any[]>(key)) || [];
+            const updated = [
+              ...board.filter((r) => r.user_id !== latest.user.id),
+              {
+                user_id: latest.user.id,
+                handle: latest.user.handle,
+                dibs: latest.file.dibs,
+                strikes: latest.file.strikes,
+                completedAt: latest.file.completedAt,
+              },
+            ]
+              .sort(
+                (a, b) =>
+                  b.dibs - a.dibs ||
+                  a.strikes - b.strikes ||
+                  a.completedAt.localeCompare(b.completedAt) ||
+                  a.user_id.localeCompare(b.user_id),
+              )
+              .slice(0, 10);
+            await this.ctx.storage.put(key, updated);
+            if (this.snapshot && this.snapshot.category?.id === latest.file.category_id)
+              this.snapshot.board = updated;
+          }
+          await this.ctx.storage.put('session:' + latest.user.id, latest);
+          Object.assign(session, latest);
         });
-        // Own claim is returned immediately; shared snapshots stay on their ten-second refresh clock.
-        return json({ claim, me: this.me(session) }, 201);
+        return json({ ...data, file: session.file, me: this.me(session) }, response.status);
       }
       return response;
     }

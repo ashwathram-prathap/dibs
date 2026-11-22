@@ -39,8 +39,19 @@ test('full filing, certificate, sharing and public record', async ({ page }, inf
   await expect(page.getByRole('row').filter({ hasText: 'Axolotl' })).toBeVisible({ timeout: 8000 });
   await page.getByRole('searchbox').fill('Axolotl');
   await shot('04-ledger');
+  for (const answer of ['Okapi', 'Quokka']) {
+    await input.fill(answer);
+    await page.getByRole('button', { name: 'CALL DIBS' }).click();
+    await expect(
+      page.getByRole('article', { name: 'Certificate of Dibs for ' + answer }),
+    ).toBeVisible();
+    await page.waitForTimeout(1200);
+  }
+  await expect(page.getByRole('article', { name: 'Day summary' })).toBeVisible();
+  await expect(page.locator('.file-progress')).toContainText('DIBS 3 / 3');
+  await expect(page.getByRole('img', { name: '1 of 5 strikes' })).toBeVisible();
   const download = page.waitForEvent('download');
-  await page.getByRole('button', { name: 'SHARE CERTIFICATE' }).click();
+  await page.getByRole('button', { name: 'SHARE DAY SUMMARY' }).click();
   const d = await download;
   await d.saveAs(dir + '/certificate-feed.png');
   const png = PNG.sync.read(readFileSync(dir + '/certificate-feed.png'));
@@ -72,4 +83,20 @@ test('full filing, certificate, sharing and public record', async ({ page }, inf
     await page.waitForTimeout(250);
     await shot(name);
   }
+});
+
+test('five strikes close the file and invalid entries cost nothing', async ({ page }) => {
+  await page.goto('/');
+  const input = page.getByLabel('ENTRY:', { exact: true });
+  await input.fill('unknown animal');
+  await page.getByRole('button', { name: 'CALL DIBS' }).click();
+  await expect(page.getByRole('status')).toHaveText("Not on today's register. Check the spelling.");
+  await expect(page.getByRole('img', { name: '0 of 5 strikes' })).toBeVisible();
+  for (let i = 1; i <= 5; i++) {
+    await input.fill('Pangolin');
+    await page.getByRole('button', { name: 'CALL DIBS' }).click();
+    await expect(page.getByRole('img', { name: `${i} of 5 strikes` })).toBeVisible();
+  }
+  await expect(page.getByRole('article', { name: 'Day summary' })).toBeVisible();
+  await expect(page.getByRole('button', { name: 'CALL DIBS' })).toHaveCount(0);
 });

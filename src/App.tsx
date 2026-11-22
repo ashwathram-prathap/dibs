@@ -1,7 +1,7 @@
 import { useEffect, useLayoutEffect, useState, useRef, type FormEvent } from 'react';
 import { m as motion, LazyMotion, domAnimation, useReducedMotion } from 'framer-motion';
 import { api, ApiError, isDemo } from './api';
-import { type Category, type Claim, type Me, type Today, serial } from './types';
+import { type Category, type Claim, type DayFile, type Me, type Today, serial } from './types';
 import {
   getSnapshot,
   publish,
@@ -11,8 +11,8 @@ import {
   type Snapshot,
 } from './live';
 import { suggestions as catalogSuggestions } from './suggestions';
-import { PUBLIC_HOST, certificateUrl } from '../shared/config';
-import { exportCertificate } from './share';
+import { PUBLIC_HOST, PUBLIC_ORIGIN, certificateUrl } from '../shared/config';
+import { exportCertificate, exportSummary, summaryText } from './share';
 import { WORDMARK_WIDTH, WORDMARK_PATH, WORDMARK_BLOCK_X } from '../shared/brand';
 function Wordmark() {
   return (
@@ -142,6 +142,7 @@ export default function App() {
             ? {
                 ...previous,
                 claim: previous.claim?.category_id === s.today.category?.id ? previous.claim : null,
+                file: previous.file?.category_id === s.today.category?.id ? previous.file : null,
               }
             : null),
       );
@@ -314,6 +315,7 @@ function Home({
   const [message, setMessage] = useState('');
   const [taken, setTaken] = useState(false);
   const [claim, setClaim] = useState<Claim | null>(me.claim);
+  const file = me.file;
   const [landed, setLanded] = useState(false);
   const [active, setActive] = useState(-1);
   const reduced = useReducedMotion();
@@ -392,13 +394,17 @@ function Home({
         answer,
         turnstileToken: token,
       });
+      setAnswer('');
+      setTaken(false);
       setClaim(result.claim);
       setLanded(true);
       if (result.me) setMe(result.me);
       publishClaim(result.claim, result.me);
-      setTimeout(() => setLanded(false), 1300);
+      setTimeout(() => setLanded(false), (result.me?.file?.dibs || 1) === 1 ? 1300 : 1050);
     } catch (e) {
       const err = e as ApiError;
+      if (err.data.me) setMe(err.data.me);
+      else if (err.data.file) setMe({ ...me, file: err.data.file });
       setTaken(err.status === 409);
       setMessage(
         err.status === 409
@@ -428,8 +434,10 @@ function Home({
         <section className="closed-office">
           <span className="section-number">01 /</span>
           <div>
-            <h2>The office opens tonight.</h2>
-            <p>The next category drops tonight at 9 PM ET. Come back to call dibs.</p>
+            <h2>The office is closed.</h2>
+            <p>
+              The first register opens November 24 at 9 PM, Toronto time. Come back to call dibs.
+            </p>
             <p className="eyebrow">
               NEXT DROP <Clock target={today.nextDrop} />
             </p>
@@ -444,7 +452,9 @@ function Home({
             <span>NOT YET FILED</span>
           </div>
         </section>
-      ) : claim ? (
+      ) : file?.closed && !landed ? (
+        <DaySummary file={file} today={today} />
+      ) : claim && landed ? (
         <motion.section
           className="filed-section"
           animate={landed && !reduced && innerWidth < 600 ? { x: [0, -6, 6, -3, 0] } : { x: 0 }}
@@ -458,7 +468,10 @@ function Home({
                 aria-hidden="true"
                 initial={{ scale: 1.4, opacity: 0, rotate: ((claim.claim_no * 7.31) % 7) - 4 }}
                 animate={{ scale: [1.4, 1, 1, 1], opacity: [0, 1, 1, 0] }}
-                transition={{ duration: 1.15, times: [0, 0.15, 0.58, 1] }}
+                transition={{
+                  duration: (file?.dibs || 1) === 1 ? 1.15 : 0.95,
+                  times: [0, 0.15, 0.58, 1],
+                }}
               >
                 <strong>DIBS</strong>
                 <span>{claim.display}</span>
@@ -483,6 +496,7 @@ function Home({
           transition={{ duration: 0.25 }}
         >
           <div className="claim-paper">
+            <Progress dibs={file?.dibs || 0} strikes={file?.strikes || 0} />
             <form onSubmit={submit}>
               <label className="eyebrow" htmlFor="answer">
                 ENTRY:
@@ -562,13 +576,15 @@ function Home({
               <p className="live-strip">
                 {today.open.toLocaleString()} still up for grabs ·{' '}
                 {today.lastClaimAt
-                  ? `last claim ${Math.max(0, Math.floor((Date.now() - Date.parse(today.lastClaimAt)) / 60000))} min ago`
+                  ? Date.now() - Date.parse(today.lastClaimAt) < 60000
+                    ? 'last claim just now'
+                    : `last claim ${Math.floor((Date.now() - Date.parse(today.lastClaimAt)) / 60000)} min ago`
                   : 'be the first to claim'}
               </p>
               <ol className="how-it-works" aria-label="How it works">
-                <li>Type {today.category.slug === 'animals' ? 'an animal' : 'a category item'}.</li>
-                <li>If nobody has it, it's yours.</li>
-                <li>Share your certificate.</li>
+                <li>Call dibs on up to 3 {today.category.name.toLowerCase()}.</li>
+                <li>Taken guesses cost a strike. 5 strikes and you’re out.</li>
+                <li>Fastest clean file wins the day.</li>
               </ol>
               <div ref={turnstileBox} className="turnstile" />
               <p className={'clerk-message ' + (taken ? 'taken' : '')} role="status">
@@ -577,6 +593,16 @@ function Home({
             </form>
           </div>
         </motion.section>
+      )}
+      {file && !file.closed && !landed && file.claims.length > 0 && (
+        <section className="file-copies">
+          <span className="eyebrow">YOUR DIBS / CERTIFIED COPIES</span>
+          {file.claims.map((c) => (
+            <Link key={c.id} to={'/certificate/' + c.id}>
+              {c.display} ↗
+            </Link>
+          ))}
+        </section>
       )}
       {!claim && me.user && (
         <section className="identity-section">
@@ -597,13 +623,120 @@ function Home({
           </div>
         </section>
       )}
-      {today.category && <Ledger category={today.category} open={today.open} />}
+      {today.category && (
+        <>
+          <Ledger category={today.category} open={today.open} />
+          <section className="cleanest">
+            <span className="section-number">03 / COMPLETED FILES</span>
+            <h2>Today's cleanest files</h2>
+            {(today.board?.length || 0) < 3 ? (
+              <p>Results post as players file.</p>
+            ) : (
+              <ol>
+                {today.board!.map((r, i) => (
+                  <li key={i}>
+                    <strong>{r.handle}</strong>
+                    <span>
+                      {r.dibs}/3 · {r.strikes} {r.strikes === 1 ? 'strike' : 'strikes'} ·{' '}
+                      {time(r.completedAt)}
+                    </span>
+                  </li>
+                ))}
+              </ol>
+            )}
+          </section>
+        </>
+      )}
       <div className="bottom-note">
         <span className="eyebrow">A NOTE FROM THE CLERK</span>
         <p>All claims are real. All ownership is entirely ceremonial.</p>
         <Link to="/about">Read the office notice ↗</Link>
       </div>
     </>
+  );
+}
+function Progress({ dibs, strikes }: { dibs: number; strikes: number }) {
+  return (
+    <div className="file-progress">
+      <strong>DIBS {dibs} / 3</strong>
+      <span className="strike-row" role="img" aria-label={`${strikes} of 5 strikes`}>
+        {Array.from({ length: 5 }, (_, i) => (
+          <i key={i} className={i < strikes ? 'used' : ''} />
+        ))}
+      </span>
+      <span className="eyebrow">{strikes} / 5 STRIKES</span>
+    </div>
+  );
+}
+function DaySummary({ file, today }: { file: DayFile; today: Today }) {
+  const [status, setStatus] = useState('');
+  const [busy, setBusy] = useState(false);
+  const text = summaryText(file, today.category!);
+  async function share(story: boolean) {
+    setBusy(true);
+    try {
+      setStatus(await exportSummary(file, today.category!, story, text));
+      void api('/events/share', { format: story ? 'story' : 'feed' }).catch(() => {});
+    } catch {
+      setStatus('The copy could not be printed. Try Copy text.');
+    } finally {
+      setBusy(false);
+    }
+  }
+  return (
+    <section className="day-summary">
+      <article className="summary-paper" aria-label="Day summary">
+        <div className="cert-rule">
+          <span>REGISTRY OF CLAIMS</span>
+          <span>FORM D-3</span>
+        </div>
+        <span className="eyebrow">
+          {dateLabel(today.category!.date)} / {today.category!.name}
+        </span>
+        <h2>File closed.</h2>
+        <Progress dibs={file.dibs} strikes={file.strikes} />
+        <ol className="summary-answers">
+          {Array.from({ length: 3 }, (_, i) => (
+            <li key={i}>
+              {file.claims[i] ? (
+                <Link to={'/certificate/' + file.claims[i].id}>{file.claims[i].display} ↗</Link>
+              ) : (
+                <span>— Unclaimed</span>
+              )}
+            </li>
+          ))}
+        </ol>
+        <p className="eyebrow">FILED {time(file.completedAt!)} · TORONTO</p>
+        <p className="next-drop">
+          Next drop <Clock target={today.nextDrop} />
+        </p>
+      </article>
+      <div className="share-area">
+        <div className="share-buttons">
+          <button className="primary" disabled={busy} onClick={() => void share(false)}>
+            {busy ? 'PRINTING…' : 'SHARE DAY SUMMARY'} ↗
+          </button>
+          <button disabled={busy} onClick={() => void share(true)}>
+            Story PNG
+          </button>
+          <button
+            onClick={async () => {
+              try {
+                await navigator.clipboard.writeText(text);
+                setStatus('Copied. The record travels with you.');
+              } catch {
+                setStatus(text);
+              }
+            }}
+          >
+            Copy text
+          </button>
+        </div>
+        <p className="share-hint" role="status">
+          {status || '1080 × 1350 feed / 1080 × 1920 story. Spoiler-free caption.'}
+        </p>
+      </div>
+    </section>
   );
 }
 async function runTurnstile(sitekey: string, container: HTMLElement): Promise<string> {
@@ -893,7 +1026,7 @@ function ShareButtons({ claim }: { claim: Claim }) {
   const [status, setStatus] = useState('');
   const [busy, setBusy] = useState(false);
   const url = certificateUrl(claim.id);
-  const text = `I called dibs on ${claim.display.toUpperCase()}. Dibs No. ${claim.claim_no} of ${claim.total_registrable.toLocaleString()} ${claim.category_name.toLowerCase()}. ${url}`;
+  const text = `dibs · one more on file · ${PUBLIC_ORIGIN}`;
   async function share(story: boolean) {
     setBusy(true);
     try {
@@ -1069,9 +1202,9 @@ function About() {
           <ol className="rules">
             <li>A new category opens at 9 PM, Toronto time.</li>
             <li>Call dibs on an answer. First come, first served.</li>
-            <li>If it’s taken, try another. The clerk has patience.</li>
-            <li>One successful claim per person, per day.</li>
-            <li>Keep the certificate. Come back tomorrow.</li>
+            <li>Taken guesses cost a strike. Five strikes close your file.</li>
+            <li>Up to three dibs per person, per category.</li>
+            <li>Most dibs, fewest strikes, earliest completed file wins.</li>
           </ol>
           <div className="about-stamp">
             NO ACTUAL

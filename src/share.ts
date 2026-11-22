@@ -1,5 +1,5 @@
-import { PUBLIC_HOST } from '../shared/config';
-import { type Claim, serial } from './types';
+import { PUBLIC_HOST, PUBLIC_ORIGIN } from '../shared/config';
+import { type Claim, type DayFile, type Category, serial } from './types';
 import { WORDMARK_WIDTH, WORDMARK_PATH, WORDMARK_BLOCK_X } from '../shared/brand';
 import { fitText } from '../shared/typography';
 // Canvas avoids Safari's SVG foreignObject restrictions. Font faces are self-hosted.
@@ -81,7 +81,7 @@ export async function exportCertificate(claim: Claim, story: boolean, text: stri
   mono(claim.category_name.toUpperCase(), 80, y + 38, 20);
   mono(claim.category_date, 820, y + 38, 20);
   line(y + 65);
-  const holder = Math.max(y + 120, story ? 1100 : 850);
+  const holder = y + 120;
   mono('HELD BY', 80, holder, 19);
   c.font = '600 42px Instrument';
   c.fillText(claim.handle, 80, holder + 60);
@@ -107,25 +107,25 @@ export async function exportCertificate(claim: Claim, story: boolean, text: stri
   c.fillText('DIBS', 0, 32);
   c.fillStyle = '#1A1A17';
   c.font = '400 22px Plex';
-  c.fillText(
-    claim.obscurity && claim.obscurity >= 4 ? 'DEEP CUT' : 'REGISTERED',
-    0,
-    61,
-  );
+  c.fillText(claim.obscurity && claim.obscurity >= 4 ? 'DEEP CUT' : 'REGISTERED', 0, 61);
   c.restore();
   c.setLineDash([6, 6]);
   line(h - 120);
   c.setLineDash([]);
   mono(`ONE OF ${claim.total_registrable.toLocaleString()}. ONLY ONE YOURS.`, 80, h - 80, 17);
   mono(PUBLIC_HOST, 740, h - 80, 17);
+  return saveCanvas(
+    canvas,
+    `dibs-${claim.display.toLowerCase().replace(/[^a-z0-9]+/g, '-')}-${story ? 'story' : 'feed'}.png`,
+    text,
+    url,
+  );
+}
+async function saveCanvas(canvas: HTMLCanvasElement, name: string, text: string, url: string) {
   const blob = await new Promise<Blob>((resolve, reject) =>
     canvas.toBlob((b) => (b ? resolve(b) : reject(new Error('PNG failed'))), 'image/png'),
   );
-  const file = new File(
-    [blob],
-    `dibs-${claim.display.toLowerCase().replace(/[^a-z0-9]+/g, '-')}-${story ? 'story' : 'feed'}.png`,
-    { type: 'image/png' },
-  );
+  const file = new File([blob], name, { type: 'image/png' });
   if (navigator.canShare?.({ files: [file] })) {
     try {
       await navigator.share({ files: [file], title: 'Certificate of Dibs', text, url });
@@ -162,4 +162,95 @@ export async function exportCertificate(claim: Claim, story: boolean, text: stri
   a.click();
   a.remove();
   return 'PNG prepared. If the download is blocked, open the PNG and press and hold to save.';
+}
+
+export function summaryText(file: DayFile, category: Category) {
+  const edition = Math.max(
+    1,
+    Math.round(
+      (Date.parse(category.date + 'T12:00:00Z') - Date.parse('2026-11-24T12:00:00Z')) / 86400000,
+    ) + 1,
+  );
+  const time = new Date(file.completedAt!).toLocaleTimeString('en-US', {
+    timeZone: 'America/Toronto',
+    hour: 'numeric',
+    minute: '2-digit',
+  });
+  return `dibs #${edition} ${file.events.map((e) => (e.kind === 'dibs' ? '■' : '□')).join('')} ${file.dibs}/3 · ${file.strikes} ${file.strikes === 1 ? 'strike' : 'strikes'} · filed ${time} · ${PUBLIC_ORIGIN}`;
+}
+export async function exportSummary(
+  file: DayFile,
+  category: Category,
+  story: boolean,
+  text: string,
+) {
+  await document.fonts.ready;
+  await document.fonts.load(
+    '900 100px Archivo, ArchivoSupplement',
+    file.claims.map((c) => c.display).join(' '),
+  );
+  const canvas = document.createElement('canvas');
+  canvas.width = 1080;
+  canvas.height = story ? 1920 : 1350;
+  const c = canvas.getContext('2d')!,
+    h = canvas.height;
+  c.fillStyle = '#F1ECE2';
+  c.fillRect(0, 0, 1080, h);
+  c.fillStyle = '#1A1A17';
+  c.strokeStyle = '#1A1A17';
+  c.lineWidth = 3;
+  c.strokeRect(40, 40, 1000, h - 80);
+  const mono = (s: string, y: number, size = 24) => {
+    c.font = `400 ${size}px Plex`;
+    c.fillText(s, 80, y);
+  };
+  mono('DIBS / REGISTRY OF CLAIMS — FORM D-3', 110);
+  mono(category.date + ' / ' + category.name.toUpperCase(), 190);
+  c.font = '900 120px Archivo';
+  c.fillText('FILE CLOSED.', 80, 350);
+  c.font = '900 90px Archivo';
+  c.fillText(`${file.dibs} / 3 DIBS`, 80, 480);
+  mono(`${file.strikes} / 5 STRIKES`, 560);
+  for (let i = 0; i < 5; i++) {
+    c.strokeRect(80 + i * 72, 590, 48, 48);
+    if (i < file.strikes) c.fillRect(84 + i * 72, 594, 40, 40);
+  }
+  let y = story ? 850 : 745;
+  for (let i = 0; i < 3; i++) {
+    const label = file.claims[i]?.display.toUpperCase() || '— UNCLAIMED';
+    const fitted = fitText(
+      label,
+      (t, size) => {
+        c.font = `900 ${size}px Archivo, ArchivoSupplement`;
+        return c.measureText(t).width;
+      },
+      850,
+      { startSize: 54, minSize: 18, maxLines: 2, maxHeight: 95, lineHeight: 1 },
+    );
+    c.beginPath();
+    c.moveTo(80, y - 40);
+    c.lineTo(1000, y - 40);
+    c.stroke();
+    c.font = `900 ${fitted.size}px Archivo, ArchivoSupplement`;
+    for (const [j, line] of fitted.lines.entries()) c.fillText(line, 80, y + j * fitted.size);
+    y += 120;
+  }
+  mono(
+    'FILED ' +
+      new Date(file.completedAt!).toLocaleTimeString('en-US', {
+        timeZone: 'America/Toronto',
+        hour: 'numeric',
+        minute: '2-digit',
+      }) +
+      ' / TORONTO',
+    h - 150,
+  );
+  mono('NEXT DROP / 9 PM TORONTO', h - 105, 22);
+  mono(PUBLIC_HOST, h - 65, 20);
+  return saveCanvas(
+    canvas,
+    `dibs-day-${category.date}-${story ? 'story' : 'feed'}.png`,
+    text,
+    PUBLIC_ORIGIN,
+  );
 }

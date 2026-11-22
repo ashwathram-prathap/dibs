@@ -80,6 +80,7 @@ beforeAll(async () => {
     '0002_foreign_key_indexes.sql',
     '0003_remove_schools.sql',
     '0004_privacy_cleanup_index.sql',
+    '0005_three_dibs.sql',
   ])
     await db.exec(
       readFileSync('migrations/' + file, 'utf8')
@@ -106,8 +107,8 @@ beforeAll(async () => {
   }
 }, 30000);
 afterAll(async () => {
-  mkdirSync('review/round2', { recursive: true });
-  writeFileSync('review/round2/d1-actions.json', JSON.stringify(evidence, null, 2));
+  mkdirSync('review/round3', { recursive: true });
+  writeFileSync('review/round3/d1-actions.json', JSON.stringify(evidence, null, 2));
   await mf?.dispose();
 });
 it('creates no D1 users or writes on page loads and cached polls', async () => {
@@ -143,7 +144,7 @@ it('keeps the claim race safe behind the coordinator', async () => {
     accounts[winner].cookie,
     'race-winner',
   );
-  expect(second.status).toBe(403);
+  expect(second.status).toBe(201);
   expect((await db.prepare('SELECT COUNT(*) n FROM users').first()).n).toBeLessThanOrEqual(50);
   const png = await call('/og/' + data.claim.id);
   expect(png.headers.get('content-type')).toBe('image/png');
@@ -162,11 +163,11 @@ it('enforces rerolls and attempts in SQLite DO storage with zero D1 writes', asy
   expect(rolls.filter((r) => r.status === 200)).toHaveLength(3);
   expect(rolls.filter((r) => r.status === 403)).toHaveLength(2);
   const rs = await Promise.all(
-    Array.from({ length: 4 }, () =>
+    Array.from({ length: 13 }, () =>
       call('/claim', { answer: 'missing', turnstileToken: 'test' }, a.cookie),
     ),
   );
-  expect(rs.filter((r) => r.status === 422)).toHaveLength(3);
+  expect(rs.filter((r) => r.status === 422)).toHaveLength(12);
   expect(rs.filter((r) => r.status === 429)).toHaveLength(1);
   expect(evidence.slice(-9).every((r) => r.writes === 0)).toBe(true);
 });
@@ -204,7 +205,7 @@ it('indexes privacy cleanup and measures its eventual writes', async () => {
     reads: results.reduce((n: number, r: any) => n + r.meta.rows_read, 0),
     writes: results.reduce((n: number, r: any) => n + r.meta.rows_written, 0),
   });
-  expect(results.reduce((n: number, r: any) => n + r.meta.rows_written, 0)).toBeLessThanOrEqual(4);
+  expect(results.reduce((n: number, r: any) => n + r.meta.rows_written, 0)).toBeLessThanOrEqual(8);
 });
 it('invalidates cached certificates and every image shard when moderating', async () => {
   const row = await db.prepare('SELECT id,user_id FROM claims LIMIT 1').first();
@@ -235,7 +236,7 @@ it('bounds cold full-ID and printed-prefix certificate reads', async () => {
     .prepare(
       'INSERT INTO claims(id,category_id,answer_id,user_id,claim_no,created_at,ip_hash,ip_day) VALUES(?,?,?,?,?,?,?,?)',
     )
-    .bind(id, 'test', 'a69', 'cold-user', 2, new Date().toISOString(), 'cold-hash', '2026-11-21')
+    .bind(id, 'test', 'a69', 'cold-user', 3, new Date().toISOString(), 'cold-hash', '2026-11-21')
     .run();
   expect((await call('/certificate/' + id)).status).toBe(200);
   expect(evidence.at(-1).reads).toBeLessThanOrEqual(10);

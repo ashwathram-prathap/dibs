@@ -33,8 +33,19 @@ export interface Today {
   turnstileSiteKey: string;
   closedReason?: string;
   lastClaimAt?: string | null;
+  board?: { handle: string; dibs: number; strikes: number; completedAt: string }[];
+}
+export interface DayFile {
+  category_id: string;
+  claims: Claim[];
+  dibs: number;
+  strikes: number;
+  events: { at: string; kind: 'dibs' | 'strike' }[];
+  closed: boolean;
+  completedAt: string | null;
 }
 export interface Me {
+  file?: DayFile | null;
   user: User | null;
   claim: Claim | null;
   streak: number;

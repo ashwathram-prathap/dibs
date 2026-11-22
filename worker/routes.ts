@@ -24,6 +24,36 @@ export interface Env {
   LOCAL_TEST?: string;
 }
 const claimSelect = `SELECT c.id,c.category_id,c.claim_no,c.created_at,a.display,a.obscurity,CASE WHEN u.hidden=1 THEN 'Record withheld' ELSE u.handle END handle,g.name category_name,g.date category_date,g.total_registrable FROM claims c JOIN answers a ON a.id=c.answer_id JOIN users u ON u.id=c.user_id JOIN categories g ON g.id=c.category_id`;
+export async function fileState(env: Env, category: string, uid: string) {
+  const claims = (
+    await env.DB.prepare(
+      claimSelect + ' WHERE c.category_id=? AND c.user_id=? ORDER BY c.created_at,c.claim_no',
+    )
+      .bind(category, uid)
+      .all()
+  ).results as any[];
+  const strikes = (
+    await env.DB.prepare(
+      'SELECT created_at,seq FROM strikes WHERE category_id=? AND user_id=? ORDER BY seq',
+    )
+      .bind(category, uid)
+      .all()
+  ).results as any[];
+  const events = [
+    ...claims.map((c) => ({ at: c.created_at, kind: 'dibs' })),
+    ...strikes.map((s) => ({ at: s.created_at, kind: 'strike' })),
+  ].sort((a, b) => a.at.localeCompare(b.at));
+  const closed = claims.length >= 3 || strikes.length >= 5;
+  return {
+    category_id: category,
+    claims,
+    dibs: claims.length,
+    strikes: strikes.length,
+    events,
+    closed,
+    completedAt: closed ? events.at(-1)?.at : null,
+  };
+}
 export const publicClaim = claimSelect + ` WHERE c.voided=0 AND g.status='approved'`;
 export const json = (data: unknown, status = 200, extra: Record<string, string> = {}) =>
   new Response(JSON.stringify(data), {
@@ -48,9 +78,9 @@ async function user(req: Request, env: Env) {
   if (env.PLAYER) return env.PLAYER;
   const id = await cookieUser(req, env.COOKIE_SECRET);
   return id
-    ? env.DB.prepare('SELECT id,handle,rerolls_used,hidden FROM users WHERE id=?')
+    ? (await env.DB.prepare('SELECT id,handle,rerolls_used,hidden FROM users WHERE id=?')
         .bind(id)
-        .first<any>()
+        .first<any>()) || { id, handle: 'Clerk ' + id.slice(0, 8), rerolls_used: 0, hidden: 0 }
     : null;
 }
 async function body(req: Request, limit = 4096) {
@@ -341,23 +371,11 @@ export async function route(req: Request, env: Env): Promise<Response> {
     let u = await user(req, env);
     const g = await current(env);
     // A closed office does not need to create an identity or spend a database write.
-    if (!u && !g) return json({ user: null, claim: null, streak: 0, streakDates: [] });
+    if (!u && !g) return json({ user: null, claim: null, file: null, streak: 0, streakDates: [] });
     let cookie = '';
     if (!u) {
       const id = crypto.randomUUID();
-      for (let i = 0; i < 4; i++) {
-        try {
-          await env.DB.prepare('INSERT INTO users(id,handle,created_at) VALUES(?,?,?)')
-            .bind(id, handle(), new Date().toISOString())
-            .run();
-          break;
-        } catch (e) {
-          if (i === 3) throw e;
-        }
-      }
-      u = await env.DB.prepare('SELECT id,handle,rerolls_used,hidden FROM users WHERE id=?')
-        .bind(id)
-        .first<any>();
+      u = { id, handle: 'Clerk ' + id.slice(0, 8), rerolls_used: 0, hidden: 0 };
       cookie = `dibs_session=${id}.${await hmac(id, env.COOKIE_SECRET)}; HttpOnly; SameSite=Lax; Path=/; Max-Age=31536000${url.protocol === 'https:' ? '; Secure' : ''}`;
     }
     const claim = g
@@ -375,6 +393,7 @@ export async function route(req: Request, env: Env): Promise<Response> {
       {
         user: u,
         claim,
+        file: g ? await fileState(env, g.id, u.id) : null,
         streak: streak(streakDates, registryDate()),
         streakDates: streakDates.slice(0, 7),
       },
@@ -470,6 +489,9 @@ export async function route(req: Request, env: Env): Promise<Response> {
   return fail(404, 'No file at this address.');
 }
 async function claim(req: Request, env: Env, u: any) {
+  const g = await current(env);
+  if (!g) return fail(422, 'This register is not open.');
+  if ((await fileState(env, g.id, u.id)).closed) return fail(403, 'Your file is closed for today.');
   try {
     if (!env.ATTEMPT_CHECKED)
       await env.DB.prepare('INSERT INTO attempts VALUES(?,?,?)')
@@ -477,7 +499,7 @@ async function claim(req: Request, env: Env, u: any) {
         .run();
   } catch (e) {
     if (String(e).includes('USER_RATE_LIMIT'))
-      return fail(429, 'Three attempts per minute. Give the ink a moment to dry.');
+      return fail(429, 'Twelve attempts per minute. Give the ink a moment to dry.');
     throw e;
   }
   const b = await body(req);
@@ -505,25 +527,31 @@ async function claim(req: Request, env: Env, u: any) {
     )
       return fail(400, 'Verification was not accepted. Please try again.');
   }
-  const g = await current(env);
-  if (!g) return fail(422, 'This register is not open.');
-  if (
-    await env.DB.prepare('SELECT id FROM claims WHERE category_id=? AND user_id=?')
-      .bind(g.id, u.id)
-      .first()
-  )
-    return fail(403, 'One claim per day. Yours is already on file.');
   const answer = await env.DB.prepare(
     'SELECT answer_id FROM answer_keys WHERE category_id=? AND match_key=?',
   )
     .bind(g.id, normalize(b.answer))
     .first<any>();
-  if (!answer) return fail(422, 'That entry is not in this register. Please try another.');
+  if (!answer) return fail(422, "Not on today's register. Check the spelling.");
   const taken = async () => {
     const r = await env.DB.prepare(claimSelect + ' WHERE c.category_id=? AND c.answer_id=?')
       .bind(g.id, answer.answer_id)
       .first<any>();
-    return r ? json({ takenBy: r.handle, at: r.created_at }, 409) : null;
+    if (!r) return null;
+    try {
+      await env.DB.prepare(
+        'INSERT INTO strikes SELECT ?,?,COALESCE(MAX(seq),0)+1,? FROM strikes WHERE category_id=? AND user_id=?',
+      )
+        .bind(g.id, u.id, new Date().toISOString(), g.id, u.id)
+        .run();
+    } catch (e) {
+      if (String(e).includes('FILE_CLOSED')) return fail(403, 'Your file is closed for today.');
+      throw e;
+    }
+    return json(
+      { takenBy: r.handle, at: r.created_at, file: await fileState(env, g.id, u.id) },
+      409,
+    );
   };
   const existing = await taken();
   if (existing) return existing;
@@ -547,10 +575,7 @@ async function claim(req: Request, env: Env, u: any) {
       .bind(id, g.id, answer.answer_id, u.id, new Date().toISOString(), hash, day, g.id)
       .run();
   } catch (e) {
-    const won = await env.DB.prepare('SELECT id FROM claims WHERE category_id=? AND user_id=?')
-      .bind(g.id, u.id)
-      .first();
-    if (won) return fail(403, 'One claim per day. Yours is already on file.');
+    if (String(e).includes('FILE_CLOSED')) return fail(403, 'Your file is closed for today.');
     const conflict = await taken();
     if (conflict) return conflict;
     if (String(e).includes('IP_LIMIT'))
@@ -561,6 +586,7 @@ async function claim(req: Request, env: Env, u: any) {
   }
   return json(
     {
+      file: await fileState(env, g.id, u.id),
       claim: await env.DB.prepare(publicClaim + ' AND c.id=?')
         .bind(id)
         .first(),

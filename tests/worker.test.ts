@@ -61,6 +61,11 @@ beforeAll(async () => {
       .replace(/^--.*$/gm, '')
       .replace(/\n/g, ' '),
   );
+  await db.exec(
+    readFileSync('migrations/0005_three_dibs.sql', 'utf8')
+      .replace(/^--.*$/gm, '')
+      .replace(/\n/g, ' '),
+  );
   const date = registryDate();
   await db
     .prepare(
@@ -102,10 +107,10 @@ describe('Worker with real SQLite/D1 execution', () => {
     expect(rows.results).toHaveLength(1);
     expect(rows.results[0].claim_no).toBe(1);
   }, 30000);
-  it('one user cannot successfully claim twice, including concurrently', async () => {
+  it('one user can claim at most three times, including concurrently', async () => {
     const a = await account();
     const rs = await Promise.all(
-      [1, 2].map((i) =>
+      [1, 2, 3, 4, 60, 61, 62, 63].map((i) =>
         request(
           '/claim',
           { answer: 'Test animal ' + i, turnstileToken: 'test' },
@@ -114,10 +119,41 @@ describe('Worker with real SQLite/D1 execution', () => {
         ),
       ),
     );
-    expect(rs.map((r) => r.status).sort()).toEqual([201, 403]);
+    expect(rs.filter((r) => r.status === 201)).toHaveLength(3);
+    expect(rs.filter((r) => r.status === 403)).toHaveLength(5);
     expect(
       (await db.prepare('SELECT COUNT(*) n FROM claims WHERE user_id=?').bind(a.user.id).first()).n,
-    ).toBe(1);
+    ).toBe(3);
+    const reload = (await (await request('/me', undefined, a.cookie)).json()) as any;
+    expect(reload.file.dibs).toBe(3);
+    expect(reload.file.closed).toBe(true);
+  });
+  it('atomic taken strikes cap at five, persist, and close the file', async () => {
+    const a = await account();
+    const invalid = await request(
+      '/claim',
+      { answer: 'not in register', turnstileToken: 'test' },
+      a.cookie,
+    );
+    expect(invalid.status).toBe(422);
+    expect(((await invalid.json()) as any).message).toBe(
+      "Not on today's register. Check the spelling.",
+    );
+    const rs = await Promise.all(
+      Array.from({ length: 10 }, () =>
+        request('/claim', { answer: 'Axolotl', turnstileToken: 'test' }, a.cookie),
+      ),
+    );
+    expect(rs.filter((r) => r.status === 409)).toHaveLength(5);
+    expect(rs.filter((r) => r.status === 403)).toHaveLength(5);
+    const me = (await (await request('/me', undefined, a.cookie)).json()) as any;
+    expect(me.file.strikes).toBe(5);
+    expect(me.file.dibs).toBe(0);
+    expect(me.file.closed).toBe(true);
+    expect(
+      (await request('/claim', { answer: 'Test animal 59', turnstileToken: 'test' }, a.cookie))
+        .status,
+    ).toBe(403);
   });
   it('enforces five successful accounts per daily IP atomically', async () => {
     const accounts = await Promise.all(Array.from({ length: 8 }, account));
@@ -139,15 +175,19 @@ describe('Worker with real SQLite/D1 execution', () => {
   it('limits attempts to three in a rolling minute', async () => {
     const a = await account();
     const rs = await Promise.all(
-      Array.from({ length: 4 }, () =>
+      Array.from({ length: 13 }, () =>
         request('/claim', { answer: 'missing', turnstileToken: 'test' }, a.cookie),
       ),
     );
-    expect(rs.filter((r) => r.status === 422)).toHaveLength(3);
+    expect(rs.filter((r) => r.status === 422)).toHaveLength(12);
     expect(rs.filter((r) => r.status === 429)).toHaveLength(1);
   });
   it('locks re-rolls at three', async () => {
     const a = await account();
+    await db
+      .prepare('INSERT INTO users(id,handle,created_at) VALUES(?,?,?)')
+      .bind(a.user.id, a.user.handle, new Date().toISOString())
+      .run();
     for (let i = 0; i < 3; i++)
       expect((await request('/me/reroll', {}, a.cookie)).status).toBe(200);
     expect((await request('/me/reroll', {}, a.cookie)).status).toBe(403);
@@ -254,7 +294,7 @@ describe('Worker with real SQLite/D1 execution', () => {
     expect((await upload(revised)).status).toBe(201);
     const unchanged = await upload(revised);
     expect(unchanged.status).toBe(200);
-    expect((await unchanged.json() as any).unchanged).toBe(true);
+    expect(((await unchanged.json()) as any).unchanged).toBe(true);
     const plan = await db
       .prepare(
         "EXPLAIN QUERY PLAN SELECT answer_id FROM answer_keys WHERE answer_id='replace-me:0'",

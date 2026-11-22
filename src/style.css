@@ -1796,50 +1796,310 @@ html.low-power .claim-imprint strong {
   pointer-events: none;
 }
 /* Round 2: the game is the first form on the page. */
-.home-page { display: flex; flex-direction: column; }
-.home-page > nav { order: 2; margin-top: 36px; }
-.home-page > footer { order: 3; }
-.home-page .mast-note, .home-page .theme-toggle { display: none; }
-.home-page .demo-label { display: none; }
-.home-page .daily-heading { padding-top: 24px; }
-.home-page .category { margin: 12px 0 20px; }
-.game-rule { font-size: 20px; max-width: 650px; margin-bottom: 24px; line-height: 1.4; }
-.home-page .claim-section { display: block; padding: 0; border: 0; }
-.home-page .claim-paper { padding: 20px; }
-.live-strip { font: 11px/1.7 Plex, monospace; margin: 22px 0 16px; }
-.how-it-works { list-style: none; padding: 0; margin: 0; counter-reset: steps; }
-.how-it-works li { border: 1px solid var(--ink); padding: 12px; font-size: 14px; }
-.how-it-works li + li { border-top: 0; }
-.how-it-works li:before { counter-increment: steps; content: '0' counter(steps) ' / '; font: 11px Plex, monospace; margin-right: 10px; }
-.home-page .clerk-message { margin-bottom: 0; }
-.identity-section { margin-top: 70px; }
-@media(max-width: 600px) {
-  .home-page .masthead { min-height: 92px; padding: 16px 0; }
-  .home-page .daily-heading { padding-top: 22px; }
-  .home-page .category { margin: 12px 0 18px; }
-  .game-rule { font-size: 18px; margin-bottom: 24px; }
-  .home-page .claim-paper { padding: 16px; }
-  .home-page .identity-section { margin-top: max(70px, calc(844px - 640px)); }
+.home-page {
+  display: flex;
+  flex-direction: column;
 }
-.open-pool { font-size: 26px; font-weight: 600; max-width: 600px; line-height: 1.2; }
-.first-filings { border: 1px solid var(--ink); }
-.first-filings .open-filing td { height: 44px; font: 12px Plex, monospace; color: var(--muted); }
-.archive-specimen { position: relative; overflow: hidden; border: 2px solid var(--ink); padding: 32px; background: var(--panel); }
-.archive-specimen h2 { margin-top: 30px; font-size: 42px; }
-.archive-specimen p { max-width: 380px; }
-.specimen-line { padding: 18px 0; border-top: 1px solid var(--ink); font: 12px/1.5 Plex, monospace; }
-.specimen-watermark { position: absolute; top: 49%; left: 0; width: 100%; text-align: center; transform: rotate(-18deg); font: 900 clamp(36px, 7vw, 100px) Archivo; color: var(--ink); opacity: .15; pointer-events: none; }
-.archive-specimen > .eyebrow:last-child { margin: 30px 0 0; }
-.dibs-stamp { filter: none; }
-.dibs-stamp strong { filter: url('#ink'); }
-.dibs-stamp span { font-size: 11px; letter-spacing: .05em; line-height: 1.5; }
-@media (max-width: 600px) { .dibs-stamp span { font-size: 10px; } }
-.brand-mark { display: block; width: 100%; height: auto; }
-.wordmark { width: 212px; }
-.footer-logo { display: block; width: 72px; color: var(--ink); }
-.cert-emblem { width: 88px; height: auto; border: 0; padding: 0; }
-@media(max-width:600px) { .wordmark { width: 178px; } .cert-emblem { width: 66px; } }
-html.low-power .dibs-stamp strong { filter: none; }
+.home-page > nav {
+  order: 2;
+  margin-top: 36px;
+}
+.home-page > footer {
+  order: 3;
+}
+.home-page .mast-note,
+.home-page .theme-toggle {
+  display: none;
+}
+.home-page .demo-label {
+  display: none;
+}
+.home-page .daily-heading {
+  padding-top: 24px;
+}
+.home-page .category {
+  margin: 12px 0 20px;
+}
+.game-rule {
+  font-size: 20px;
+  max-width: 650px;
+  margin-bottom: 24px;
+  line-height: 1.4;
+}
+.home-page .claim-section {
+  display: block;
+  padding: 0;
+  border: 0;
+}
+.home-page .claim-paper {
+  padding: 20px;
+}
+.live-strip {
+  font:
+    11px/1.7 Plex,
+    monospace;
+  margin: 22px 0 16px;
+}
+.how-it-works {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  counter-reset: steps;
+}
+.how-it-works li {
+  border: 1px solid var(--ink);
+  padding: 12px;
+  font-size: 14px;
+}
+.how-it-works li + li {
+  border-top: 0;
+}
+.how-it-works li:before {
+  counter-increment: steps;
+  content: '0' counter(steps) ' / ';
+  font:
+    11px Plex,
+    monospace;
+  margin-right: 10px;
+}
+.home-page .clerk-message {
+  margin-bottom: 0;
+}
+.identity-section {
+  margin-top: 70px;
+}
+@media (max-width: 600px) {
+  .home-page .masthead {
+    min-height: 92px;
+    padding: 16px 0;
+  }
+  .home-page .daily-heading {
+    padding-top: 22px;
+  }
+  .home-page .category {
+    margin: 12px 0 18px;
+  }
+  .game-rule {
+    font-size: 18px;
+    margin-bottom: 24px;
+  }
+  .home-page .claim-paper {
+    padding: 16px;
+  }
+  .home-page .identity-section {
+    margin-top: 24px;
+  }
+}
+.open-pool {
+  font-size: 26px;
+  font-weight: 600;
+  max-width: 600px;
+  line-height: 1.2;
+}
+.first-filings {
+  border: 1px solid var(--ink);
+}
+.first-filings .open-filing td {
+  height: 44px;
+  font:
+    12px Plex,
+    monospace;
+  color: var(--muted);
+}
+.archive-specimen {
+  position: relative;
+  overflow: hidden;
+  border: 2px solid var(--ink);
+  padding: 32px;
+  background: var(--panel);
+}
+.archive-specimen h2 {
+  margin-top: 30px;
+  font-size: 42px;
+}
+.archive-specimen p {
+  max-width: 380px;
+}
+.specimen-line {
+  padding: 18px 0;
+  border-top: 1px solid var(--ink);
+  font:
+    12px/1.5 Plex,
+    monospace;
+}
+.specimen-watermark {
+  position: absolute;
+  top: 49%;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  transform: rotate(-18deg);
+  font: 900 clamp(36px, 7vw, 100px) Archivo;
+  color: var(--ink);
+  opacity: 0.15;
+  pointer-events: none;
+}
+.archive-specimen > .eyebrow:last-child {
+  margin: 30px 0 0;
+}
+.dibs-stamp {
+  filter: none;
+}
+.dibs-stamp strong {
+  filter: url('#ink');
+}
+.dibs-stamp span {
+  font-size: 11px;
+  letter-spacing: 0.05em;
+  line-height: 1.5;
+}
+@media (max-width: 600px) {
+  .dibs-stamp span {
+    font-size: 10px;
+  }
+}
+.brand-mark {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.wordmark {
+  width: 212px;
+}
+.footer-logo {
+  display: block;
+  width: 72px;
+  color: var(--ink);
+}
+.cert-emblem {
+  width: 88px;
+  height: auto;
+  border: 0;
+  padding: 0;
+}
+@media (max-width: 600px) {
+  .wordmark {
+    width: 178px;
+  }
+  .cert-emblem {
+    width: 66px;
+  }
+}
+html.low-power .dibs-stamp strong {
+  filter: none;
+}
 /* Keep the lower navigation outside the viewport while the first register loads. */
-.home-page .loading { min-height: calc(100dvh - 92px); }
-.load-older { margin-top: 16px; }
+.home-page .loading {
+  min-height: calc(100dvh - 92px);
+}
+.load-older {
+  margin-top: 16px;
+}
+
+/* Round 3: file progress and the main take-home record. */
+.file-progress {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin: 0 0 22px;
+  font:
+    14px Plex,
+    monospace;
+}
+.strike-row {
+  display: flex;
+  gap: 5px;
+}
+.strike-row i {
+  display: block;
+  width: 17px;
+  height: 19px;
+  border: 2px solid var(--ink);
+  transform: rotate(-2deg);
+}
+.strike-row i.used {
+  background: var(--ink);
+}
+.summary-paper {
+  border: 2px solid var(--ink);
+  padding: clamp(20px, 5vw, 50px);
+  background: var(--panel);
+  max-width: 760px;
+}
+.summary-paper > .eyebrow {
+  display: block;
+  margin-top: 24px;
+}
+.summary-paper h2 {
+  font:
+    900 clamp(44px, 9vw, 92px)/0.95 Archivo,
+    sans-serif;
+  letter-spacing: -0.055em;
+  text-transform: uppercase;
+  margin: 32px 0;
+}
+.summary-answers {
+  padding: 0;
+  list-style: none;
+  margin: 24px 0;
+}
+.summary-answers li {
+  border-top: 1px solid var(--ink);
+  padding: 16px 0;
+  font:
+    900 clamp(20px, 4vw, 34px)/1.15 Archivo,
+    sans-serif;
+  overflow-wrap: anywhere;
+}
+.summary-answers a {
+  display: block;
+  min-height: 44px;
+}
+.next-drop {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 12px;
+  border-top: 1px solid var(--ink);
+  padding-top: 20px;
+}
+.file-copies {
+  margin-top: 24px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  align-items: center;
+}
+.file-copies a {
+  padding: 12px 0;
+}
+.cleanest {
+  margin-top: 40px;
+  border-top: 2px solid var(--ink);
+  padding-top: 20px;
+}
+.cleanest h2 {
+  font-size: 28px;
+}
+.cleanest ol {
+  padding-left: 24px;
+}
+.cleanest li {
+  padding: 14px 0;
+  border-bottom: 1px solid var(--ink);
+}
+.cleanest li span {
+  display: block;
+  font:
+    12px Plex,
+    monospace;
+  margin-top: 8px;
+}
+.new-row .time-col,
+.new-row .mobile-meta {
+  color: var(--ink);
+}
+.cert-holder {
+  padding: 18px 0 24px;
+}
