@@ -20,7 +20,9 @@ import { reminder } from '../shared/reminder';
 import { Calendar } from './Calendar';
 import { categoryStyle, paperStocks } from '../shared/category-style';
 import { clerkLine } from '../shared/clerk-lines';
-import { prepareSound, stampSound, goldSound, soundEnabled } from './sound';
+import { setMusic } from './music';
+import { claimSound } from './sound-synthesis';
+import { prepareSound, playClaimSound, soundEnabled } from './sound';
 import { submittedSpelling } from './spelling';
 import { HOME_TITLE, archiveTitle } from '../shared/seo';
 import { Icon } from './Icon';
@@ -30,6 +32,7 @@ import { dropTime, localTime, countdown, edition, viewerZone } from '../shared/t
 import { guesses } from '../shared/guesses';
 import { useServerNow, serverNow } from './clock';
 import {
+  Fragment,
   useEffect,
   useLayoutEffect,
   useState,
@@ -185,9 +188,18 @@ function Clock({ target, slim = false }: { target: string; slim?: boolean }) {
       className={slim ? 'round-countdown' : 'drop-countdown'}
       aria-label={slim ? 'Round countdown' : 'Next drop countdown'}
     >
-      <span className="eyebrow">{slim ? 'Round closes in' : 'NEXT DROP'}</span>
+      <span className="eyebrow">{slim ? 'Round closes in' : 'Opens in'}</span>
       <span className="clock" aria-hidden="true">
-        {remaining ? countdown(target, now) : 'Opening…'}
+        {remaining
+          ? countdown(target, now)
+              .split(' ')
+              .map((part, i) => (
+                <Fragment key={i}>
+                  {i > 0 && ' '}
+                  <span className="clock-part">{part}</span>
+                </Fragment>
+              ))
+          : 'Opening…'}
       </span>
       {!slim && (
         <p>
@@ -201,6 +213,44 @@ function Clock({ target, slim = false }: { target: string; slim?: boolean }) {
         {announcement}
       </span>
     </section>
+  );
+}
+function MusicToggle() {
+  const [on, setOn] = useState(false);
+  const [saved, setSaved] = useState(() => {
+    try {
+      return localStorage.getItem('dibs-music') === 'on';
+    } catch {
+      return false;
+    }
+  });
+  const [failed, setFailed] = useState(false);
+  const choice = useRef(0);
+  return (
+    <button
+      className="music-toggle"
+      aria-pressed={on}
+      aria-label={on ? 'Turn music off' : saved ? 'Resume music' : 'Turn music on'}
+      onClick={() => {
+        const next = !on,
+          version = ++choice.current;
+        setOn(next);
+        setSaved(next);
+        setFailed(false);
+        try {
+          localStorage.setItem('dibs-music', next ? 'on' : 'off');
+        } catch {}
+        void setMusic(next).catch(() => {
+          if (version === choice.current) {
+            setOn(false);
+            setFailed(true);
+          }
+        });
+      }}
+      title={failed ? 'Music unavailable; tap to retry' : undefined}
+    >
+      {saved && !on ? 'Music · resume' : 'Music'}
+    </button>
   );
 }
 function SoundToggle() {
@@ -395,13 +445,14 @@ export default function App() {
           </p>
           <div className="header-controls">
             <SoundToggle />
+            <MusicToggle />
             <button
               className="theme-toggle"
               onClick={() => setTheme(theme === 'light' ? 'dark' : 'light')}
-              aria-label={theme === 'light' ? 'Use dark mode' : 'Use light mode'}
+              aria-label={theme === 'light' ? 'Switch to dark mode' : 'Switch to light mode'}
             >
               <span className="theme-swatch" />
-              {theme === 'light' ? 'DARK MODE' : 'LIGHT MODE'}
+              {theme === 'light' ? 'CARBON COPY' : 'PAPER COPY'}
             </button>
           </div>
           <nav aria-label="Main navigation">
@@ -435,7 +486,6 @@ export default function App() {
           </div>
         )}
         <main id="main">
-          {path === '/' && <Introduction />}
           {error ? (
             <div className="notice" role="alert">
               <span className="eyebrow">OFFICE NOTICE</span>
@@ -499,10 +549,17 @@ function CategoryHeading({ name }: { name: string }) {
     const fit = () => {
       if (!alive || !heading.isConnected) return;
       heading.style.fontSize = '';
+      heading.style.fontStretch = '';
       const size = parseFloat(getComputedStyle(heading).fontSize);
       const range = document.createRange();
       range.selectNodeContents(heading);
-      const width = range.getBoundingClientRect().width;
+      let width = range.getBoundingClientRect().width;
+      if (width > heading.clientWidth) {
+        const stretch = parseFloat(getComputedStyle(heading).fontStretch) || 125;
+        heading.style.fontStretch =
+          Math.max(62.5, (stretch * (heading.clientWidth - 1)) / width) + '%';
+        width = range.getBoundingClientRect().width;
+      }
       if (width > heading.clientWidth)
         heading.style.fontSize =
           Math.floor(((size * (heading.clientWidth - 1)) / width) * 10) / 10 + 'px';
@@ -543,8 +600,10 @@ function Home({
     () => new URLSearchParams(location.hash.slice(1)).get('file-key') || '',
   );
   const spellingVersion = useRef(0);
+  const submitting = useRef(false);
   const pendingRequest = useRef<{ answer: string; id: string } | null>(null);
   const [busy, setBusy] = useState(false);
+  const [guessed, setGuessed] = useState(false);
   const [message, setMessage] = useState('');
   const [taken, setTaken] = useState(false);
   const [houseStrike, setHouseStrike] = useState(false);
@@ -676,9 +735,11 @@ function Home({
   }
   async function submit(e: FormEvent, confirmed?: string) {
     e.preventDefault();
-    if (busy || !answer.trim()) return;
+    if (submitting.current || busy || !answer.trim()) return;
+    submitting.current = true;
     void prepareSound();
     setBusy(true);
+    setGuessed(true);
     setMessage('');
     setSuggestion(null);
     setMissing(false);
@@ -705,9 +766,8 @@ function Home({
         result = await send(await verifySession());
       }
       if (result.sessionNotice) setSessionNotice(result.sessionNotice);
+      playClaimSound(claimSound(201, result), pendingRequest.current!.id);
       pendingRequest.current = null;
-      stampSound(true);
-      if (result.claim.golden) goldSound();
       setOutcome(result.claim.golden ? 'GOLD' : 'DIBS');
       setMessage(result.claim.display.toUpperCase());
       if (result.recoveryKey) setRecoveryKey(result.recoveryKey);
@@ -720,7 +780,7 @@ function Home({
       publishClaim(result.claim, result.me);
     } catch (e) {
       const err = e as ApiError;
-      if (err.status === 409) stampSound(false);
+      playClaimSound(claimSound(err.status, err.data), pendingRequest.current?.id || '');
       if (err.data?.me) setMe(err.data.me);
       else if (err.data?.file) setMe({ ...me, file: err.data.file });
       if (err.status && err.status < 500) pendingRequest.current = null;
@@ -762,6 +822,7 @@ function Home({
       );
       input.current?.focus();
     } finally {
+      submitting.current = false;
       setBusy(false);
       requestAnimationFrame(() => {
         input.current?.focus({ preventScroll: true });
@@ -777,6 +838,8 @@ function Home({
       {!today.category ? (
         <section className="closed-office">
           <div className="closed-copy">
+            <Clock target={today.nextDrop} />
+            <Reminder at={today.nextDrop} />
             <OpeningTime
               at={today.nextDrop}
               first={
@@ -785,9 +848,8 @@ function Home({
                 ) === LAUNCH_DATE
               }
             />
-            <Clock target={today.nextDrop} />
-            <Reminder at={today.nextDrop} />
           </div>
+          <Introduction />
         </section>
       ) : file?.closed ? (
         <>
@@ -797,6 +859,7 @@ function Home({
           <p>Your certificate is ready below.</p>
           <p className="clerk-aside">{categoryNote(today.category.slug)}</p>
           <DaySummary file={file} today={today} showLedger />
+          <Introduction />
         </>
       ) : (
         <section className="claim-section" aria-label="Play today's category">
@@ -923,6 +986,17 @@ function Home({
                 )}
               </form>
             )}
+            <details
+              className="play-introduction play-rules"
+              key={String(guessed) + ':' + message}
+              open={!guessed && !file?.dibs && !file?.strikes}
+            >
+              <summary>
+                How it works <Icon name="chevron" />
+              </summary>
+              <Introduction />
+              <Rules />
+            </details>
             {taken && <p className="clerk-aside">{clerkLine('strike', file?.strikes || 0)}</p>}
             <div ref={turnstileBox} className="turnstile" />
             {sessionNotice && (
@@ -930,15 +1004,6 @@ function Home({
                 {sessionNotice}
               </p>
             )}
-            <details
-              key={String(file?.dibs || 0) + ':' + String(file?.strikes || 0) + ':' + message}
-              className="play-rules"
-            >
-              <summary>
-                How it works <Icon name="chevron" />
-              </summary>
-              <Rules />
-            </details>
           </div>
         </section>
       )}

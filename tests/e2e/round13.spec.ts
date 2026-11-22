@@ -1,0 +1,95 @@
+import { test, expect } from './security-fixture';
+import AxeBuilder from '@axe-core/playwright';
+test('R13 hero first, R7 scale, phone action visible, explanation collapses', async ({ page }) => {
+  await page.goto('/?r6');
+  await page.evaluate(() => document.fonts.ready);
+  const hero = page.locator('h1.category'),
+    input = page.locator('#answer'),
+    intro = page.locator('.game-intro');
+  await expect(input).toBeVisible();
+  expect((await hero.boundingBox())!.y).toBeLessThan((await input.boundingBox())!.y);
+  expect((await input.boundingBox())!.y).toBeLessThan((await intro.boundingBox())!.y);
+  const width = page.viewportSize()!.width;
+  if (width === 390 || width === 393) {
+    const button = (await page
+      .getByRole('button', { name: 'CALL DIBS', exact: true })
+      .boundingBox())!;
+    expect(button.y + button.height).toBeLessThan(844);
+  }
+  expect(
+    await hero.evaluate((e) => parseFloat(getComputedStyle(e).fontSize)),
+  ).toBeGreaterThanOrEqual(width <= 600 ? width * 0.154 - 1 : Math.min(192, width * 0.134) - 1);
+  await input.fill('dibs');
+  await input.press('Enter');
+  await expect(page.locator('.play-introduction')).not.toHaveAttribute('open', '');
+  await page.locator('.play-introduction summary').click();
+  await expect(intro).toBeVisible();
+  await page.goto('/?r7-closed');
+  await expect(page.locator('.closed-office .clock')).toBeVisible();
+  expect((await page.locator('.closed-office .clock').boundingBox())!.y).toBeLessThan(
+    (await page.locator('.game-intro').boundingBox())!.y,
+  );
+  await expect(page.locator('.closed-office .drop-countdown > p')).toBeVisible();
+  await expect(page.locator('.theme-toggle')).toHaveText(/CARBON COPY|PAPER COPY/);
+  const initial = await page.locator('html').getAttribute('data-theme');
+  await page
+    .getByRole('button', {
+      name: initial === 'light' ? 'Switch to dark mode' : 'Switch to light mode',
+    })
+    .click();
+  await expect(page.locator('.theme-toggle')).toHaveText(
+    initial === 'light' ? 'PAPER COPY' : 'CARBON COPY',
+  );
+  expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
+  const issues = await new AxeBuilder({ page })
+    .withTags(['wcag2a', 'wcag2aa', 'wcag21aa'])
+    .analyze();
+  expect(issues.violations.map((v) => ({ id: v.id, nodes: v.nodes.map((n) => n.target) }))).toEqual(
+    [],
+  );
+});
+test('R13 sound mapping, double tap and music only after tap', async ({ page }) => {
+  const audioRequests: string[] = [];
+  page.on('request', (r) => {
+    if (r.url().includes('/audio/')) audioRequests.push(r.url());
+  });
+  await page.addInitScript(() => {
+    (window as any).stamps = [];
+    window.addEventListener('dibs-stamp', (e: any) => (window as any).stamps.push(e.detail));
+  });
+  await page.goto('/?r6');
+  await page.locator('#answer').waitFor();
+  expect(audioRequests).toEqual([]);
+  for (const answer of ['dibs', 'axolot', 'notarealword']) {
+    await page.locator('#answer').fill(answer);
+    await page.locator('#answer').press('Enter');
+    await expect(page.locator('.result-panel')).toBeVisible();
+  }
+  expect(await page.evaluate(() => (window as any).stamps)).toEqual([]);
+  await page.locator('#answer').fill('Dog');
+  await page.locator('#answer').press('Enter');
+  await expect.poll(() => page.evaluate(() => (window as any).stamps)).toEqual([0.115]);
+  await page.locator('#answer').fill('Axolotl');
+  await page
+    .getByRole('button', { name: 'CALL DIBS', exact: true })
+    .evaluate((b: HTMLButtonElement) => {
+      b.click();
+      b.click();
+    });
+  await expect.poll(() => page.evaluate(() => (window as any).stamps)).toEqual([0.115, 0.48]);
+  // The gold tail lasts 480 ms; separate the next intentional claim from overlap suppression.
+  await page.waitForTimeout(500);
+  await page.getByRole('button', { name: 'Next claim', exact: true }).click();
+  await page.locator('#answer').fill('Okapi');
+  await page.locator('#answer').press('Enter');
+  await expect
+    .poll(() => page.evaluate(() => (window as any).stamps))
+    .toEqual([0.115, 0.48, 0.145]);
+  await page.getByRole('button', { name: 'Turn music on', exact: true }).click();
+  await expect.poll(() => audioRequests.length).toBe(1);
+  await expect(page.locator('.music-toggle')).toHaveAttribute('aria-pressed', 'true');
+  await page.reload();
+  await page.locator('#answer').waitFor();
+  expect(audioRequests.length).toBe(1);
+  await expect(page.getByRole('button', { name: 'Resume music', exact: true })).toBeVisible();
+});

@@ -1,4 +1,8 @@
+import { renderDeskSound, SOUND_RATE, type DeskSound } from './sound-synthesis';
 let context: AudioContext | undefined;
+let active: AudioBufferSourceNode | undefined;
+const played = new Set<string>();
+const buffers = new Map<DeskSound, AudioBuffer>();
 export function soundEnabled() {
   try {
     return localStorage.getItem('dibs-sound') !== 'off';
@@ -8,37 +12,34 @@ export function soundEnabled() {
 }
 export async function prepareSound() {
   if (!soundEnabled()) return;
-  context ||= new AudioContext();
-  if (context.state === 'suspended') await context.resume();
+  try {
+    context ||= new AudioContext();
+    if (context.state === 'suspended') await context.resume();
+  } catch {
+    /* Audio support must never prevent a claim. */
+  }
 }
-export function stampSound(win: boolean, gold = false) {
-  if (!soundEnabled() || !context || context.state !== 'running') return;
-  const oscillator = context.createOscillator(),
-    gain = context.createGain(),
-    at = context.currentTime;
-  oscillator.type = 'triangle';
-  oscillator.frequency.setValueAtTime(win ? 140 : 100, at);
-  oscillator.frequency.exponentialRampToValueAtTime(45, at + 0.09);
-  gain.gain.setValueAtTime(win ? 0.1 : 0.045, at);
-  gain.gain.exponentialRampToValueAtTime(0.001, at + 0.12);
-  oscillator.connect(gain);
-  gain.connect(context.destination);
-  oscillator.start(at);
-  oscillator.stop(at + 0.13);
-}
-
-export function goldSound() {
-  if (!soundEnabled() || !context || context.state !== 'running') return;
-  const o = context.createOscillator(),
-    g = context.createGain(),
-    t = context.currentTime;
-  o.type = 'sine';
-  o.frequency.setValueAtTime(880, t);
-  o.frequency.setValueAtTime(1320, t + 0.09);
-  g.gain.setValueAtTime(0.025, t);
-  g.gain.exponentialRampToValueAtTime(0.001, t + 0.25);
-  o.connect(g);
-  g.connect(context.destination);
-  o.start(t);
-  o.stop(t + 0.26);
+export function playClaimSound(kind: DeskSound | null, requestId: string) {
+  if (!kind || !soundEnabled() || !context || context.state !== 'running' || played.has(requestId))
+    return;
+  played.add(requestId);
+  if (played.size > 64) played.delete(played.values().next().value!);
+  if (active) return; // Never layer copies, even if two responses arrive together.
+  let buffer = buffers.get(kind);
+  if (!buffer) {
+    const samples = renderDeskSound(kind);
+    buffer = context.createBuffer(1, samples.length, SOUND_RATE);
+    buffer.copyToChannel(samples, 0);
+    buffers.set(kind, buffer);
+  }
+  const source = context.createBufferSource();
+  source.buffer = buffer;
+  source.connect(context.destination);
+  active = source;
+  source.onended = () => {
+    source.disconnect();
+    if (active === source) active = undefined;
+  };
+  window.dispatchEvent(new CustomEvent('dibs-stamp', { detail: buffer.duration }));
+  source.start();
 }

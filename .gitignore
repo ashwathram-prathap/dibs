@@ -85,3 +85,9 @@ review/round12/lighthouse/
 review/round12/browser-results.json
 review/final/round12/
 review/round12/lighthouse*/
+
+# R13 full-resolution captures and verbose runner output remain local.
+review/round13/**/*.png
+review/round13/lighthouse*/
+review/round13/browser-results.json
+review/final/round13/

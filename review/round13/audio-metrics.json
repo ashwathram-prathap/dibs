@@ -1,0 +1,33 @@
+{
+  "sounds": [
+    {
+      "kind": "stamp",
+      "seconds": 0.145,
+      "peak": 0.11999999731779099,
+      "dbFS": -18.41637527319227,
+      "attackMs": 6,
+      "releaseMs": 12
+    },
+    {
+      "kind": "gold",
+      "seconds": 0.48,
+      "peak": 0.11999999731779099,
+      "dbFS": -18.41637527319227,
+      "attackMs": 6,
+      "releaseMs": 12
+    },
+    {
+      "kind": "strike",
+      "seconds": 0.115,
+      "peak": 0.05999999865889549,
+      "dbFS": -24.43697518647189,
+      "attackMs": 6,
+      "releaseMs": 12
+    }
+  ],
+  "music": {
+    "seconds": 32,
+    "peak": 0.03,
+    "original": true
+  }
+}

@@ -13,9 +13,6 @@ test('R12 first visitor sees plain rules and a full worked example in every home
         .locator('.game-explanation')
         .evaluate((e) => parseFloat(getComputedStyle(e).fontSize)),
     ).toBeGreaterThanOrEqual(18);
-    expect((await page.locator('.worked-example').boundingBox())!.y).toBeLessThan(
-      page.viewportSize()!.height,
-    );
     await expect(page.locator('body')).not.toContainText(/file key/i);
   }
   for (const answer of ['Axolotl', 'Okapi', 'Quokka']) {

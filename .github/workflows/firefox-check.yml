@@ -22,13 +22,13 @@ jobs:
       - run: npm ci
       - run: npx playwright install --with-deps firefox
       - run: npx tsx scripts/build-catalog-assets.ts && npx vite build --mode security-test
-      - run: npx playwright test -c playwright.r12.config.ts --project='firefox-*'
+      - run: npx playwright test -c playwright.r13.config.ts --project='firefox-*'
       - uses: actions/upload-artifact@v4
         if: always()
         with:
           name: firefox-regression
           path: |
-            review/round12/browser-results.json
+            review/round13/browser-results.json
             review/round9/devices/firefox-*/
             review/round9/headers/firefox-*/
             review/round11/devices/firefox-*/
