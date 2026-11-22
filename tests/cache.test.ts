@@ -2,8 +2,11 @@ import { beforeAll, afterAll, it, expect } from 'vitest';
 import { Miniflare, convertV4MiniflareOptions } from 'miniflare';
 import { build } from 'esbuild';
 import { readFileSync, writeFileSync, mkdirSync } from 'node:fs';
+import { PUBLIC_ORIGIN } from '../shared/config';
+import { PNG } from 'pngjs';
 import { registryDate, dropAt } from '../worker/domain';
 let mf: Miniflare, db: any;
+let summaryId: string, certificateId: string;
 const evidence: any[] = [];
 async function call(path: string, body?: any, cookie?: string, ip?: string) {
   const r = await mf.dispatchFetch('http://localhost/api' + path, {
@@ -45,6 +48,21 @@ beforeAll(async () => {
       },
     ],
   });
+  const pages = await build({
+    stdin: {
+      contents: `import { preview } from './functions/preview';
+      const html = ${JSON.stringify(readFileSync('index.html', 'utf8').replaceAll('__PUBLIC_ORIGIN__', PUBLIC_ORIGIN))};
+      export default { fetch(request, env) {
+        const [, kind, id] = new URL(request.url).pathname.split('/');
+        return preview(kind)({ request, params: { id }, env: { API: env.API, ASSETS: { fetch: () => new Response(html, { headers: { 'content-type': 'text/html' } }) } } });
+      } };`,
+      resolveDir: process.cwd(),
+    },
+    bundle: true,
+    write: false,
+    format: 'esm',
+    platform: 'browser',
+  });
   mf = new Miniflare(
     convertV4MiniflareOptions({
       workers: [
@@ -70,6 +88,12 @@ beforeAll(async () => {
             LOCAL_TEST: 'true',
             TURNSTILE_SITE_KEY: 'test',
           },
+        },
+        {
+          name: 'pages-test',
+          modules: [{ type: 'ESModule', path: 'pages.mjs', contents: pages.outputFiles[0].text }],
+          compatibilityDate: '2026-11-20',
+          serviceBindings: { API: 'cache-test' },
         },
       ],
     }),
@@ -285,8 +309,94 @@ it('orders completed real files by dibs, strikes, then completion time', async (
   const me = (await (await call('/me', undefined, players[0].cookie)).json()) as any;
   expect(me.file.events.map((e: any) => e.kind)).toEqual(['strike', 'dibs', 'dibs', 'dibs']);
   expect(me.file.closed).toBe(true);
+  summaryId = me.file.summaryId;
+  certificateId = me.file.claims[0].id;
+  expect(summaryId).toMatch(/^[a-f0-9]{40}$/);
+  const shared = (await (await call('/summary/' + summaryId)).json()) as any;
+  expect(shared.file.dibs).toBe(3);
+  expect(shared.file.strikes).toBe(1);
+  expect(shared.file.summaryId).toBe(summaryId);
+  expect(JSON.stringify(shared)).not.toContain(players[0].me.user.id);
   expect(
     (await call('/claim', { answer: 'Animal 60', turnstileToken: 'test' }, players[0].cookie))
       .status,
   ).toBe(403);
+});
+
+it('counts platform-only taps and arrivals anonymously, with zero D1 writes', async () => {
+  for (const platform of [
+    'native',
+    'x',
+    'whatsapp',
+    'facebook',
+    'instagram-tiktok',
+    'copy-link',
+    'copy-text',
+    'story',
+    'feed',
+  ]) {
+    expect((await call('/events/share', { platform })).status).toBe(200);
+    expect((await call('/events/arrival', { platform })).status).toBe(200);
+    expect(evidence.at(-1).writes).toBe(0);
+  }
+  expect((await call('/events/share', { platform: 'unknown' })).status).toBe(422);
+  expect((await call('/events/share', { platform: 'x', user: 'not allowed' })).status).toBe(422);
+  const stats = await mf.dispatchFetch('http://localhost/api/admin/stats', {
+    headers: { authorization: 'Bearer local-admin' },
+  });
+  const data = (await stats.json()) as any;
+  expect(data.platforms).toHaveLength(9);
+  expect(data.platforms.every((p: any) => p.shares === 1 && p.arrivals === 1)).toBe(true);
+});
+it('serves unique cached previews to WhatsApp, X, Facebook, iMessage and Discord fetchers', async () => {
+  const agents = {
+    WhatsApp: 'WhatsApp/2.24.22.79 A',
+    X: 'Twitterbot/1.0',
+    Facebook: 'facebookexternalhit/1.1 (+http://www.facebook.com/externalhit_uatext.php)',
+    iMessage:
+      'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.0 Safari/605.1.15',
+    Discord: 'Mozilla/5.0 (compatible; Discordbot/2.0; +https://discordapp.com)',
+  };
+  const results: any[] = [];
+  const pages = await mf.getWorker('pages-test');
+  for (const [kind, id] of [
+    ['certificate', certificateId],
+    ['summary', summaryId],
+  ]) {
+    let original: Buffer | undefined;
+    for (const [platform, agent] of Object.entries(agents)) {
+      const page = await pages.fetch(`http://local/${kind}/${id}?s=x`, {
+        headers: { 'user-agent': agent },
+      });
+      expect(page.status).toBe(200);
+      const html = await page.text();
+      expect(html).not.toMatch(/Animal [0-9]|localhost/);
+      expect(html).toContain('summary_large_image');
+      const image = html.match(/property="og:image" content="([^"]+)"/)![1];
+      expect(html).toContain(`name="twitter:image" content="${image}"`);
+      expect(image).toBe(`${PUBLIC_ORIGIN}/api/og/${kind === 'summary' ? 'summary/' : ''}${id}`);
+      const started = performance.now();
+      const response = await mf.dispatchFetch(image, { headers: { 'user-agent': agent } });
+      const bytes = Buffer.from(await response.arrayBuffer());
+      const elapsed = performance.now() - started;
+      expect(response.status).toBe(200);
+      expect(bytes.length).toBeLessThan(300000);
+      expect(elapsed).toBeLessThan(2000);
+      const png = PNG.sync.read(bytes);
+      expect([png.width, png.height]).toEqual([1200, 630]);
+      if (original) expect(bytes.equals(original)).toBe(true);
+      original = bytes;
+      results.push({
+        kind,
+        platform,
+        bytes: bytes.length,
+        milliseconds: Math.round(elapsed),
+        status: response.status,
+      });
+      mkdirSync('review/final', { recursive: true });
+      writeFileSync(`review/final/${kind}-og.png`, bytes);
+    }
+  }
+  mkdirSync('review/round4', { recursive: true });
+  writeFileSync('review/round4/preview-fetches.json', JSON.stringify(results, null, 2));
 });

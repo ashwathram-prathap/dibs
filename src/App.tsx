@@ -1,4 +1,4 @@
-import { useEffect, useLayoutEffect, useState, useRef, type FormEvent } from 'react';
+import { useEffect, useLayoutEffect, useState, useRef, useCallback, type FormEvent } from 'react';
 import { m as motion, LazyMotion, domAnimation, useReducedMotion } from 'framer-motion';
 import { api, ApiError, isDemo } from './api';
 import { type Category, type Claim, type DayFile, type Me, type Today, serial } from './types';
@@ -12,6 +12,8 @@ import {
 } from './live';
 import { suggestions as catalogSuggestions } from './suggestions';
 import { PUBLIC_HOST, PUBLIC_ORIGIN, certificateUrl } from '../shared/config';
+import { ShareSheet } from './ShareSheet';
+import { summaryUrl, isPlatform } from '../shared/sharing';
 import { exportCertificate, exportSummary, summaryText } from './share';
 import { WORDMARK_WIDTH, WORDMARK_PATH, WORDMARK_BLOCK_X } from '../shared/brand';
 function Wordmark() {
@@ -105,8 +107,23 @@ function Filters() {
     </svg>
   );
 }
+let arrivalCounted = false;
 export default function App() {
   const path = usePath();
+  useEffect(() => {
+    const platform = new URLSearchParams(location.search).get('s');
+    if (!isPlatform(platform)) return;
+    try {
+      // A first arrival per browser, with no visitor ID or attribution cookie.
+      if (localStorage.getItem('dibs-arrived')) return;
+      localStorage.setItem('dibs-arrived', '1');
+    } catch {
+      // Without storage, count once for this page lifetime; do not fingerprint.
+      if (arrivalCounted) return;
+    }
+    arrivalCounted = true;
+    void api('/events/arrival', { platform }).catch(() => {});
+  }, []);
   const [theme, setTheme] = useState(() => {
     try {
       return (
@@ -241,6 +258,8 @@ export default function App() {
               refresh={refresh}
               setMe={setMe}
             />
+          ) : path.startsWith('/summary/') ? (
+            <SummaryPage key={path} id={decodeURIComponent(path.split('/').pop()!)} />
           ) : path.startsWith('/certificate/') ? (
             <CertificatePage id={decodeURIComponent(path.split('/').pop()!)} />
           ) : path.startsWith('/archive') ? (
@@ -669,20 +688,10 @@ function Progress({ dibs, strikes }: { dibs: number; strikes: number }) {
   );
 }
 function DaySummary({ file, today }: { file: DayFile; today: Today }) {
-  const [status, setStatus] = useState('');
-  const [busy, setBusy] = useState(false);
-  const text = summaryText(file, today.category!);
-  async function share(story: boolean) {
-    setBusy(true);
-    try {
-      setStatus(await exportSummary(file, today.category!, story, text));
-      void api('/events/share', { format: story ? 'story' : 'feed' }).catch(() => {});
-    } catch {
-      setStatus('The copy could not be printed. Try Copy text.');
-    } finally {
-      setBusy(false);
-    }
-  }
+  const render = useCallback(
+    (story: boolean) => exportSummary(file, today.category!, story),
+    [file, today.category],
+  );
   return (
     <section className="day-summary">
       <article className="summary-paper" aria-label="Day summary">
@@ -711,31 +720,11 @@ function DaySummary({ file, today }: { file: DayFile; today: Today }) {
           Next drop <Clock target={today.nextDrop} />
         </p>
       </article>
-      <div className="share-area">
-        <div className="share-buttons">
-          <button className="primary" disabled={busy} onClick={() => void share(false)}>
-            {busy ? 'PRINTING…' : 'SHARE DAY SUMMARY'} ↗
-          </button>
-          <button disabled={busy} onClick={() => void share(true)}>
-            Story PNG
-          </button>
-          <button
-            onClick={async () => {
-              try {
-                await navigator.clipboard.writeText(text);
-                setStatus('Copied. The record travels with you.');
-              } catch {
-                setStatus(text);
-              }
-            }}
-          >
-            Copy text
-          </button>
-        </div>
-        <p className="share-hint" role="status">
-          {status || '1080 × 1350 feed / 1080 × 1920 story. Spoiler-free caption.'}
-        </p>
-      </div>
+      <ShareSheet
+        url={summaryUrl(file.summaryId!)}
+        text={summaryText(file, today.category!)}
+        render={render}
+      />
     </section>
   );
 }
@@ -1023,53 +1012,45 @@ export function Certificate({ claim, animated = false }: { claim: Claim; animate
   );
 }
 function ShareButtons({ claim }: { claim: Claim }) {
-  const [status, setStatus] = useState('');
-  const [busy, setBusy] = useState(false);
-  const url = certificateUrl(claim.id);
-  const text = `dibs · one more on file · ${PUBLIC_ORIGIN}`;
-  async function share(story: boolean) {
-    setBusy(true);
-    try {
-      const result = await exportCertificate(claim, story, text, url);
-      setStatus(result);
-      void api('/events/share', { claimId: claim.id, format: story ? 'story' : 'feed' }).catch(
-        () => {},
-      );
-    } catch {
-      setStatus(
-        'The copy could not be printed. Try Copy text, or open this page in your regular browser.',
-      );
-    } finally {
-      setBusy(false);
-    }
-  }
+  const render = useCallback((story: boolean) => exportCertificate(claim, story), [claim]);
   return (
-    <div className="share-area">
-      <div className="share-buttons">
-        <button className="primary" onClick={() => void share(false)} disabled={busy}>
-          {busy ? 'PRINTING…' : 'SHARE CERTIFICATE'}
-          <span>↗</span>
-        </button>
-        <button onClick={() => void share(true)} disabled={busy}>
-          Story PNG
-        </button>
-        <button
-          onClick={async () => {
-            try {
-              await navigator.clipboard.writeText(text);
-              setStatus('Copied. The record travels with you.');
-            } catch {
-              setStatus(text);
-            }
-          }}
-        >
-          Copy text
-        </button>
+    <ShareSheet url={certificateUrl(claim.id)} text="Dibs · one more on file." render={render} />
+  );
+}
+function SummaryPage({ id }: { id: string }) {
+  const [data, setData] = useState<{ file: DayFile; category: Category; nextDrop: string }>();
+  const [error, setError] = useState('');
+  useEffect(() => {
+    api<{ file: DayFile; category: Category; nextDrop: string }>(
+      '/summary/' + encodeURIComponent(id),
+    )
+      .then(setData)
+      .catch((e) => setError(e.message));
+  }, [id]);
+  return (
+    <section className="summary-page">
+      <div className="page-heading">
+        <span className="eyebrow">REGISTRY OF CLAIMS / FORM D-3</span>
+        <h1>A day on file.</h1>
+        <Link to="/">Play today’s Dibs ↗</Link>
       </div>
-      <p className="share-hint" role="status">
-        {status || '1080 × 1350 feed / 1080 × 1920 story. Yours to keep.'}
-      </p>
-    </div>
+      {error ? (
+        <p role="alert">{error}</p>
+      ) : data ? (
+        <DaySummary
+          file={data.file}
+          today={{
+            category: data.category,
+            nextDrop: data.nextDrop,
+            claimed: 0,
+            open: 0,
+            turnstileSiteKey: '',
+          }}
+        />
+      ) : (
+        <p role="status">Opening the file…</p>
+      )}
+    </section>
   );
 }
 function CertificatePage({ id }: { id: string }) {
@@ -1225,8 +1206,8 @@ function About() {
           </p>
           <p>
             For abuse prevention, an IP address becomes a daily rotating hash. We do not store raw
-            IPs. We count share-button taps without their content and use cookieless traffic
-            analytics when configured. Nothing is sold.
+            IPs. We count share-button taps and first arrivals by platform only and use cookieless
+            traffic analytics when configured. Nothing is sold.
           </p>
           <p>
             Clearing cookies loses access to your anonymous account. Claims stay in the public
@@ -1308,6 +1289,25 @@ function Stats() {
                     {d.active_claimers} / {d.claims}
                   </td>
                   <td>{d.shares}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+          <table className="record-table">
+            <caption>Sharing by platform · all recorded taps and first arrivals</caption>
+            <thead>
+              <tr>
+                <th>PLATFORM</th>
+                <th>SHARE TAPS</th>
+                <th>ARRIVALS</th>
+              </tr>
+            </thead>
+            <tbody>
+              {(data.platforms || []).map((row: any) => (
+                <tr key={row.platform}>
+                  <td>{row.platform}</td>
+                  <td>{row.shares}</td>
+                  <td>{row.arrivals}</td>
                 </tr>
               ))}
             </tbody>

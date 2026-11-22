@@ -36,6 +36,7 @@ export interface Today {
   board?: { handle: string; dibs: number; strikes: number; completedAt: string }[];
 }
 export interface DayFile {
+  summaryId?: string;
   category_id: string;
   claims: Claim[];
   dibs: number;

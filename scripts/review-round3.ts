@@ -45,7 +45,7 @@ for (const width of [390, 1440])
     await shot('day-summary');
     if (width === 390 && theme === 'light')
       for (const [button, kind] of [
-        ['SHARE DAY SUMMARY', 'feed'],
+        ['Feed PNG', 'feed'],
         ['Story PNG', 'story'],
       ]) {
         const downloaded = page.waitForEvent('download');

@@ -44,6 +44,19 @@ for (const theme of ['light', 'dark']) {
     },
   });
 }
+for (const [app, suffix] of [
+  ['Instagram', 'Instagram 360.0.0.0'],
+  ['TikTok', 'BytedanceWebview/1.0 TikTok/37.0.0'],
+  ['X', 'Twitter for iPhone/10.0'],
+]) {
+  for (const device of ['iPhone 15 Pro', 'Pixel 7']) {
+    const profile = devices[device];
+    projects.push({ name: `${app}-${device.replaceAll(' ', '-')}`, use: {
+      ...profile, browserName: device.startsWith('iPhone') ? 'webkit' : 'chromium',
+      userAgent: profile.userAgent + ' ' + suffix,
+    } });
+  }
+}
 export default defineConfig({
   testDir: 'tests/e2e',
   fullyParallel: true,

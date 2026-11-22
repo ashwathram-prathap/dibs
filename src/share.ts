@@ -1,9 +1,9 @@
-import { PUBLIC_HOST, PUBLIC_ORIGIN } from '../shared/config';
+import { PUBLIC_HOST } from '../shared/config';
 import { type Claim, type DayFile, type Category, serial } from './types';
 import { WORDMARK_WIDTH, WORDMARK_PATH, WORDMARK_BLOCK_X } from '../shared/brand';
 import { fitText } from '../shared/typography';
 // Canvas avoids Safari's SVG foreignObject restrictions. Font faces are self-hosted.
-export async function exportCertificate(claim: Claim, story: boolean, text: string, url: string) {
+export async function exportCertificate(claim: Claim, story: boolean) {
   await document.fonts.ready;
   await Promise.all([
     document.fonts.load(
@@ -14,13 +14,18 @@ export async function exportCertificate(claim: Claim, story: boolean, text: stri
     document.fonts.load('400 30px Instrument'),
     document.fonts.load('400 20px Plex'),
   ]);
+  await Promise.all([
+    document.fonts.load('400 24px Plex'),
+    document.fonts.load('900 100px ArchivoSupplement'),
+  ]);
   const canvas = document.createElement('canvas');
   canvas.width = 1080;
   canvas.height = story ? 1920 : 1350;
   const c = canvas.getContext('2d')!;
-  const h = canvas.height;
+  const h = story ? 1500 : 1350;
   c.fillStyle = '#F1ECE2';
-  c.fillRect(0, 0, 1080, h);
+  c.fillRect(0, 0, 1080, canvas.height);
+  if (story) c.translate(0, 160);
   c.strokeStyle = '#1A1A17';
   c.fillStyle = '#1A1A17';
   c.lineWidth = 2;
@@ -57,7 +62,7 @@ export async function exportCertificate(claim: Claim, story: boolean, text: stri
   c.fillStyle = '#E1462B';
   c.fillRect(WORDMARK_BLOCK_X, 67, 18, 18);
   c.restore();
-  const top = story ? 420 : 340;
+  const top = 340;
   c.font = '400 34px Instrument';
   c.fillText('Let the record show.', 80, top);
   c.fillText('I called dibs on', 80, top + 48);
@@ -68,7 +73,7 @@ export async function exportCertificate(claim: Claim, story: boolean, text: stri
       return c.measureText(text).width;
     },
     910,
-    { startSize: 145, minSize: 20, maxLines: 3, maxHeight: story ? 400 : 270, lineHeight: 0.9 },
+    { startSize: 145, minSize: 20, maxLines: 3, maxHeight: 270, lineHeight: 0.9 },
   );
   c.font = `900 ${size}px Archivo, ArchivoSupplement`;
   let y = top + 110;
@@ -114,54 +119,16 @@ export async function exportCertificate(claim: Claim, story: boolean, text: stri
   c.setLineDash([]);
   mono(`ONE OF ${claim.total_registrable.toLocaleString()}. ONLY ONE YOURS.`, 80, h - 80, 17);
   mono(PUBLIC_HOST, 740, h - 80, 17);
-  return saveCanvas(
+  return canvasFile(
     canvas,
     `dibs-${claim.display.toLowerCase().replace(/[^a-z0-9]+/g, '-')}-${story ? 'story' : 'feed'}.png`,
-    text,
-    url,
   );
 }
-async function saveCanvas(canvas: HTMLCanvasElement, name: string, text: string, url: string) {
+async function canvasFile(canvas: HTMLCanvasElement, name: string) {
   const blob = await new Promise<Blob>((resolve, reject) =>
     canvas.toBlob((b) => (b ? resolve(b) : reject(new Error('PNG failed'))), 'image/png'),
   );
-  const file = new File([blob], name, { type: 'image/png' });
-  if (navigator.canShare?.({ files: [file] })) {
-    try {
-      await navigator.share({ files: [file], title: 'Dibs', text, url });
-      return 'A certified copy has left the office.';
-    } catch (e) {
-      if ((e as Error).name === 'AbortError') return 'Copy retained at the office.';
-    }
-  }
-  const previous = document.getElementById('manual-png') as HTMLAnchorElement | null;
-  if (previous) {
-    URL.revokeObjectURL(previous.href);
-    previous.remove();
-  }
-  const object = URL.createObjectURL(blob);
-  const a = document.createElement('a');
-  a.href = object;
-  a.download = file.name;
-  a.textContent = 'Open your certificate image';
-  a.target = '_blank';
-  a.rel = 'noopener';
-  const manual = a.cloneNode(true) as HTMLAnchorElement;
-  manual.id = 'manual-png';
-  manual.removeAttribute('download');
-  manual.textContent = 'Open PNG to save manually ↗';
-  document.querySelector('.share-area')?.append(manual);
-  if (/Instagram|FBAN|FBAV|TikTok|Bytedance/i.test(navigator.userAgent)) {
-    const opened = window.open(object, '_blank');
-    if (!opened) {
-      document.querySelector('.share-area')?.append(a);
-    }
-    return 'Open the image, then press and hold to save. Copy text supplies the caption.';
-  }
-  document.body.append(a);
-  a.click();
-  a.remove();
-  return 'PNG prepared. If the download is blocked, open the PNG and press and hold to save.';
+  return new File([blob], name, { type: 'image/png' });
 }
 
 export function summaryText(file: DayFile, category: Category) {
@@ -176,26 +143,26 @@ export function summaryText(file: DayFile, category: Category) {
     hour: 'numeric',
     minute: '2-digit',
   });
-  return `dibs #${edition} ${file.events.map((e) => (e.kind === 'dibs' ? '■' : '□')).join('')} ${file.dibs}/3 · ${file.strikes} ${file.strikes === 1 ? 'strike' : 'strikes'} · filed ${time} · ${PUBLIC_ORIGIN}`;
+  return `Dibs #${edition} ${file.events.map((e) => (e.kind === 'dibs' ? '■' : '□')).join('')} ${file.dibs}/3 · ${file.strikes} ${file.strikes === 1 ? 'strike' : 'strikes'} · filed ${time}`;
 }
-export async function exportSummary(
-  file: DayFile,
-  category: Category,
-  story: boolean,
-  text: string,
-) {
+export async function exportSummary(file: DayFile, category: Category, story: boolean) {
   await document.fonts.ready;
   await document.fonts.load(
     '900 100px Archivo, ArchivoSupplement',
     file.claims.map((c) => c.display).join(' '),
   );
+  await Promise.all([
+    document.fonts.load('400 24px Plex'),
+    document.fonts.load('900 100px ArchivoSupplement'),
+  ]);
   const canvas = document.createElement('canvas');
   canvas.width = 1080;
   canvas.height = story ? 1920 : 1350;
   const c = canvas.getContext('2d')!,
-    h = canvas.height;
+    h = story ? 1500 : 1350;
   c.fillStyle = '#F1ECE2';
-  c.fillRect(0, 0, 1080, h);
+  c.fillRect(0, 0, 1080, canvas.height);
+  if (story) c.translate(0, 160);
   c.fillStyle = '#1A1A17';
   c.strokeStyle = '#1A1A17';
   c.lineWidth = 3;
@@ -247,10 +214,5 @@ export async function exportSummary(
   );
   mono('NEXT DROP / 9 PM TORONTO', h - 105, 22);
   mono(PUBLIC_HOST, h - 65, 20);
-  return saveCanvas(
-    canvas,
-    `dibs-day-${category.date}-${story ? 'story' : 'feed'}.png`,
-    text,
-    PUBLIC_ORIGIN,
-  );
+  return canvasFile(canvas, `dibs-day-${category.date}-${story ? 'story' : 'feed'}.png`);
 }

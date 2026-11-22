@@ -4,6 +4,7 @@ import { cookieUser, handle, hmac } from './identity';
 import { nextDrop, registryDate, streak, normalize } from './domain';
 import { og } from './og';
 import { metered } from './metrics';
+import { isPlatform, platforms } from '../shared/sharing';
 
 type Snapshot = {
   category: any;
@@ -169,6 +170,43 @@ export class Registry extends DurableObject<Env> {
       streak: streak(s?.streakDates || [], registryDate()),
     };
   }
+  async ensureSummary(session: Session) {
+    if (!session.file?.closed) return;
+    const id = (
+      await hmac(session.user.id + ':' + session.file.category_id, this.env.COOKIE_SECRET)
+    ).slice(0, 40);
+    session.file.summaryId = id;
+    const key = 'summary:' + id;
+    if (!(await this.ctx.storage.get(key)))
+      await this.ctx.storage.put(key, {
+        category: session.file.category_id,
+        user: session.user.id,
+      });
+  }
+  async summary(id: string, env: Env) {
+    const ref = await this.ctx.storage.get<{ category: string; user: string }>('summary:' + id);
+    if (!ref) return json({ message: 'No day summary on file.' }, 404);
+    const category = await env.DB.prepare(
+      "SELECT * FROM categories WHERE id=? AND status='approved'",
+    )
+      .bind(ref.category)
+      .first<any>();
+    if (!category) return json({ message: 'No day summary on file.' }, 404);
+    const file = await fileState(env, ref.category, ref.user);
+    // Keep the completed score, but never expose a voided claim in a shared file.
+    const visible = (
+      await env.DB.prepare(
+        publicClaim + ' AND c.category_id=? AND c.user_id=? ORDER BY c.created_at,c.claim_no',
+      )
+        .bind(ref.category, ref.user)
+        .all()
+    ).results;
+    return json({
+      file: { ...file, claims: visible, summaryId: id },
+      category,
+      nextDrop: nextDrop(),
+    });
+  }
   async cached(key: string, ttl: number, produce: () => Promise<Response>) {
     const stored = await this.ctx.storage.get<{ at: number; body: string }>('cache:' + key);
     if (stored && Date.now() - stored.at < ttl)
@@ -193,7 +231,7 @@ export class Registry extends DurableObject<Env> {
     }
   }
   async image(id: string, env: Env): Promise<Response> {
-    const key = 'image:' + (id || 'default-r3');
+    const key = 'image:' + (id || 'default') + ':r4';
     const saved = await this.ctx.storage.get<ArrayBuffer>(key);
     if (saved) return this.png(saved);
     let pending = this.flights.get(key);
@@ -203,15 +241,27 @@ export class Registry extends DurableObject<Env> {
           ? null
           : env.REGISTRY
             ? await env.REGISTRY.get(env.REGISTRY.idFromName('public-registry-v1')).fetch(
-                new Request('https://registry/api/certificate/' + id),
+                new Request(
+                  'https://registry/api/' + (id.startsWith('summary/') ? id : 'certificate/' + id),
+                ),
               )
-            : await route(new Request('https://registry/api/certificate/' + id), env);
+            : await route(
+                new Request(
+                  'https://registry/api/' + (id.startsWith('summary/') ? id : 'certificate/' + id),
+                ),
+                env,
+              );
         if (r && !r.ok) return r;
-        const claim = r ? ((await r.json()) as any).claim : null;
+        const data = r ? ((await r.json()) as any) : null;
+        const claim = data?.claim || null;
+        const summary = data?.file ? data : null;
         // Old certificates keep their HTML/PNG export; their social preview becomes the common wordmark.
-        if (claim && Date.now() - Date.parse(claim.created_at) > 30 * 86400000)
+        if (
+          (claim || summary) &&
+          Date.now() - Date.parse(claim?.created_at || summary.file.completedAt) > 30 * 86400000
+        )
           return this.image('', env);
-        const rendered = await og(claim);
+        const rendered = await og(claim, summary);
         const bytes = await rendered.arrayBuffer();
         const stored = await this.ctx.storage.transaction(async (txn) => {
           const used = (await txn.get<number>('image-bytes')) || 0;
@@ -219,7 +269,7 @@ export class Registry extends DurableObject<Env> {
           await txn.put(key, bytes);
           if (id) {
             await txn.put('image-bytes', used + bytes.byteLength);
-            await txn.put('image-expiry:' + id, {
+            await txn.put('image-expiry:' + id + ':r4', {
               at: Date.now() + 30 * 86400000,
               size: bytes.byteLength,
             });
@@ -343,6 +393,7 @@ export class Registry extends DurableObject<Env> {
         session.file = await fileState(env, snapshot.category.id, session.user.id);
         session.claim = session.file.claims.at(-1) || null;
       }
+      if (session) await this.ensureSummary(session);
       const data =
         path === '/me'
           ? this.me(session)
@@ -372,6 +423,10 @@ export class Registry extends DurableObject<Env> {
     }
     if (path === '/archive')
       return this.cached('archive:' + registryDate(), 600000, () => route(req, env));
+    if (path.startsWith('/summary/') && req.method === 'GET')
+      return this.cached('summary:' + path.slice(9), 86400000, () =>
+        this.summary(path.slice(9), env),
+      );
     if (path.startsWith('/certificate/'))
       return this.cached('certificate:' + path.slice(13), 86400000, () => route(req, env));
     if (path === '/og' || path.startsWith('/og/')) return this.image(path.slice(4), env);
@@ -471,10 +526,43 @@ export class Registry extends DurableObject<Env> {
           }
           row.shares += count;
         }
+        data.platforms = platforms.map((platform) => ({ platform, shares: 0, arrivals: 0 }));
+        const counters = await this.ctx.storage.list<
+          Record<string, { shares: number; arrivals: number }>
+        >({ prefix: 'platforms:' });
+        for (const [key, counts] of counters) {
+          const day = key.slice(10);
+          let row = data.days.find((d: any) => d.day === day);
+          if (!row) {
+            row = { day, new_users: 0, claims: 0, active_claimers: 0, shares: 0 };
+            data.days.push(row);
+          }
+          for (const total of data.platforms) {
+            total.shares += counts[total.platform]?.shares || 0;
+            total.arrivals += counts[total.platform]?.arrivals || 0;
+            row.shares += counts[total.platform]?.shares || 0;
+          }
+        }
         data.days.sort((a: any, b: any) => b.day.localeCompare(a.day));
         return json(data);
       }
       return response;
+    }
+    if ((path === '/events/share' || path === '/events/arrival') && req.method === 'POST') {
+      const raw = await req.text();
+      if (raw.length > 100) return json({ message: 'Small forms only.' }, 413);
+      const b = JSON.parse(raw);
+      if (!isPlatform(b.platform) || Object.keys(b).some((k) => k !== 'platform'))
+        return json({ message: 'Unknown platform.' }, 422);
+      const key = 'platforms:' + new Date().toISOString().slice(0, 10);
+      await this.ctx.storage.transaction(async (txn) => {
+        const counts =
+          (await txn.get<Record<string, { shares: number; arrivals: number }>>(key)) || {};
+        counts[b.platform] ||= { shares: 0, arrivals: 0 };
+        counts[b.platform][path === '/events/share' ? 'shares' : 'arrivals']++;
+        await txn.put(key, counts);
+      });
+      return json({ ok: true });
     }
     const { session } = await this.session(req);
     if (!session)
@@ -502,16 +590,6 @@ export class Registry extends DurableObject<Env> {
         await this.ctx.storage.put('session:' + latest.user.id, latest);
         return json({ user: latest.user });
       });
-    }
-    if (path === '/events/share') {
-      const b = (await req.json()) as any;
-      if (!['feed', 'story'].includes(b.format))
-        return json({ message: 'Unknown copy format.' }, 422);
-      const day = new Date().toISOString().slice(0, 10);
-      await this.ctx.storage.transaction(async (txn) => {
-        await txn.put('shares:' + day, ((await txn.get<number>('shares:' + day)) || 0) + 1);
-      });
-      return json({ ok: true });
     }
     if (path === '/claim') {
       if (this.me(session).file?.closed)
@@ -570,7 +648,8 @@ export class Registry extends DurableObject<Env> {
             if (this.snapshot && this.snapshot.category?.id === latest.file.category_id)
               this.snapshot.board = updated;
           }
-          if (data.claim) await this.ctx.storage.put('session:' + latest.user.id, latest);
+          await this.ensureSummary(latest);
+          await this.ctx.storage.put('session:' + latest.user.id, latest);
           Object.assign(session, latest);
         });
         return json({ ...data, file: session.file, me: this.me(session) }, response.status);

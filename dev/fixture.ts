@@ -53,6 +53,7 @@ function file() {
   const strikes = events.filter((e) => e.kind === 'strike').length;
   const closed = myClaims.length === 3 || strikes === 5;
   return {
+    summaryId: 'fixture-summary',
     category_id: category.id,
     claims: myClaims,
     dibs: myClaims.length,
@@ -152,7 +153,16 @@ export async function request(path: string, body?: any): Promise<any> {
     events.push({ at: mine.created_at, kind: 'dibs' });
     return { claim: mine, me: await request('/me') };
   }
-  if (path === '/events/share') return { ok: true };
+  if (path.startsWith('/summary/'))
+    return {
+      file: { ...file(), summaryId: 'fixture-summary' },
+      category,
+      nextDrop: new Date(Date.now() + 43200000).toISOString(),
+    };
+  if (path === '/events/arrival' || path === '/events/share') {
+    window.dispatchEvent(new CustomEvent('dibs-fixture-event', { detail: { path, body } }));
+    return { ok: true };
+  }
   throw new ApiError(404, { message: 'No file at this address.' });
 }
 

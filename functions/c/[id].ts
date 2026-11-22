@@ -9,5 +9,8 @@ export const onRequest: PagesFunction<Env> = async ({ request, env, params }) =>
   );
   if (!r.ok) return new Response('Dibs: this certificate is not on file.', { status: 404 });
   const { claim } = (await r.json()) as any;
-  return Response.redirect(PUBLIC_ORIGIN + '/certificate/' + claim.id, 302);
+  const target = new URL(PUBLIC_ORIGIN + '/certificate/' + claim.id);
+  const source = url.searchParams.get('s');
+  if (source) target.searchParams.set('s', source);
+  return Response.redirect(target.href, 302);
 };

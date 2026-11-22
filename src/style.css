@@ -2103,3 +2103,49 @@ html.low-power .dibs-stamp strong {
 .cert-holder {
   padding: 18px 0 24px;
 }
+
+/* Round 4: small ink form boxes, with a full-size touch surface. */
+.share-platforms,
+.share-formats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 12px;
+}
+.share-platforms > a,
+.share-platforms > button,
+.share-formats > button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--ink);
+  background: transparent;
+  color: var(--ink);
+  min-height: 44px;
+  padding: 10px 14px;
+  font:
+    12px/1.4 Plex,
+    monospace;
+  text-decoration: none;
+  border-radius: 0;
+}
+.share-formats > button {
+  border-style: dashed;
+}
+.share-manual img {
+  display: block;
+  width: min(100%, 270px);
+  margin-top: 12px;
+}
+.share-area textarea {
+  width: 100%;
+  min-height: 100px;
+  font-size: 16px;
+}
+.share-area .primary {
+  min-width: 190px;
+}
+.share-manual a {
+  display: inline-block;
+  padding-block: 12px;
+}

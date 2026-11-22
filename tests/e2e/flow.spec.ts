@@ -51,7 +51,7 @@ test('full filing, certificate, sharing and public record', async ({ page }, inf
   await expect(page.locator('.file-progress')).toContainText('DIBS 3 / 3');
   await expect(page.getByRole('img', { name: '1 of 5 strikes' })).toBeVisible();
   const download = page.waitForEvent('download');
-  await page.getByRole('button', { name: 'SHARE DAY SUMMARY' }).click();
+  await page.getByRole('button', { name: 'Feed PNG' }).click();
   const d = await download;
   await d.saveAs(dir + '/certificate-feed.png');
   const png = PNG.sync.read(readFileSync(dir + '/certificate-feed.png'));
