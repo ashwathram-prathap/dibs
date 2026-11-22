@@ -42,9 +42,6 @@ const busy = stats.days.some(
     d.day >= new Date(Date.now() - 86400000).toISOString().slice(0, 10) &&
     d.active_claimers >= 1000,
 );
-let lastDate = new Date(Date.parse(LAUNCH_DATE + 'T12:00:00Z') - 86400000)
-  .toISOString()
-  .slice(0, 10);
 for (const [i, id] of plan.entries()) {
   const local = JSON.parse(readFileSync(`categories/${id}.json`, 'utf8'));
   let remote = registers.find((r: any) => r.id === id);
@@ -60,7 +57,6 @@ for (const [i, id] of plan.entries()) {
   if (remote?.status === 'approved') {
     record.status = 'approved';
     record.date = remote.date;
-    lastDate = remote.date;
     save();
     continue;
   }
@@ -119,20 +115,31 @@ for (const [i, id] of plan.entries()) {
   record.status = 'verified';
   save();
   let date = record.plannedDate;
-  const afterPrevious = new Date(Date.parse(lastDate + 'T12:00:00Z') + 86400000)
-    .toISOString()
-    .slice(0, 10);
-  if (date < afterPrevious) date = afterPrevious;
-  while (dropAt(date) <= new Date().toISOString())
+  // Protect every other planned date: a late upload moves only its own category.
+  const occupied = new Set([
+    ...registers.filter((g: any) => g.id !== id && g.status === 'approved').map((g: any) => g.date),
+    ...plan.flatMap((other, index) =>
+      other === id
+        ? []
+        : [
+            new Date(Date.parse(LAUNCH_DATE + 'T12:00:00Z') + index * 86400000)
+              .toISOString()
+              .slice(0, 10),
+          ],
+    ),
+    ...Object.entries(progress.categories)
+      .filter(([other, r]: any) => other !== id && r.status === 'approved')
+      .map(([, r]: any) => r.date),
+  ]);
+  while (dropAt(date) <= record.verifiedAt || occupied.has(date))
     date = new Date(Date.parse(date + 'T12:00:00Z') + 86400000).toISOString().slice(0, 10);
   if (date !== record.plannedDate)
     progress.decisions.push(
-      `${id}: moved ${record.plannedDate} to ${date} because upload/previous register finished later.`,
+      `${id}: moved ${record.plannedDate} to ${date} because its verified upload missed the planned drop; all other planned dates were preserved.`,
     );
   await api('/admin/approve', { id, date, reviewed: true });
   record.status = 'approved';
   record.date = date;
-  lastDate = date;
   budget.reservedWrites += 8;
   save();
   console.log(`${id}: verified and approved for ${date}, ${DROP_TIME_LABEL} Toronto`);

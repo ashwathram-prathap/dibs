@@ -195,7 +195,9 @@ it('reveals every reserved word and verifies the original salted commitment only
   // A cached empty archive can live ten minutes, so use an independent direct route for the close boundary.
   // Advance the archive cache key without exposing private state: isolate a fresh coordinator via admin invalidation.
   const filed = await db.prepare('SELECT id FROM claims LIMIT 1').first();
-  expect((await call('/admin/void-claim',{id:filed.id},undefined,false,true)).status).toBe(200);
+  expect((await call('/admin/void-claim', { id: filed.id }, undefined, false, true)).status).toBe(
+    200,
+  );
   const closed = (await (await call('/archive')).json()) as any;
   const s = closed.categories[0].specials;
   expect(s.houseWords).toHaveLength(10);

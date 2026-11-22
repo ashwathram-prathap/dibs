@@ -51,7 +51,11 @@ export async function exportCertificate(claim: Claim, story: boolean) {
       c.lineTo(x, y + 13);
       c.stroke();
     }
-  mono('REGISTRY OF CLAIMS', 80, 105);
+  mono(
+    claim.category_id === 'practice' ? 'PRACTICE — NOT THE PUBLIC RECORD' : 'REGISTRY OF CLAIMS',
+    80,
+    105,
+  );
   mono('FORM D-1', 890, 105);
   line(135);
   mono('CERTIFICATE OF DIBS', 80, 200, 22);
@@ -182,7 +186,12 @@ export async function exportSummary(file: DayFile, category: Category, story: bo
     c.font = `400 ${size}px Plex`;
     c.fillText(s, 80, y);
   };
-  mono('DIBS / REGISTRY OF CLAIMS — FORM D-3', 110);
+  mono(
+    category.id === 'practice'
+      ? 'PRACTICE — NOT THE PUBLIC RECORD'
+      : 'DIBS / REGISTRY OF CLAIMS — FORM D-3',
+    110,
+  );
   mono(category.date + ' / ' + category.name.toUpperCase(), 190);
   c.font = '900 120px Archivo';
   c.fillText('FILE CLOSED.', 80, 350);

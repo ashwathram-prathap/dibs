@@ -2259,7 +2259,7 @@ html.low-power .dibs-stamp strong {
   border-color: #b8902f;
 }
 .gold-stamp {
-  border-color: #B8902F;
+  border-color: #b8902f;
   color: #b8902f;
   position: relative;
   overflow: hidden;
@@ -2301,5 +2301,9 @@ html.low-power .gold-stamp strong {
   }
 }
 
-.gold-imprint { border-color: #B8902F; }
-.gold-imprint strong { color: #B8902F; }
+.gold-imprint {
+  border-color: #b8902f;
+}
+.gold-imprint strong {
+  color: #b8902f;
+}

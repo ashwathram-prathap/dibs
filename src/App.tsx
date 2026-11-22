@@ -656,15 +656,14 @@ function Home({
       )}
       {today.category && (
         <>
-          <Ledger category={today.category} open={today.open} />
+          <Ledger
+            category={today.category}
+            open={today.open}
+            goldenFound={today.specials?.goldenFound}
+          />
           {today.specials && (
             <section className="daily-specials">
               <p>Golden tickets found: {today.specials.goldenFound} / 3</p>
-              {today.specials.goldenFound > 0 && (
-                <p className="gold-announcement">
-                  Golden ticket found: {today.specials.goldenFound} of 3
-                </p>
-              )}
               {today.specials.houseWords.length > 0 && (
                 <div className="house-record">
                   <span className="house-stamp">THE REGISTRY · HOUSE</span>
@@ -829,7 +828,15 @@ function Streak({ me }: { me: Me }) {
     </div>
   );
 }
-function Ledger({ category, open }: { category: Category | null; open?: number }) {
+function Ledger({
+  category,
+  open,
+  goldenFound,
+}: {
+  category: Category | null;
+  open?: number;
+  goldenFound?: number;
+}) {
   const [rows, setRows] = useState<Claim[]>([]);
   const [query, setQuery] = useState('');
   const [error, setError] = useState('');
@@ -896,6 +903,11 @@ function Ledger({ category, open }: { category: Category | null; open?: number }
         </label>
       </div>
       {error && <p role="status">{error}</p>}
+      {!!goldenFound && (
+        <p className="gold-announcement" role="status">
+          Golden ticket found: {goldenFound} of 3
+        </p>
+      )}
       {category && open !== undefined && rows.length < 10 && (
         <p className="open-pool">
           {open.toLocaleString()} {category.name.toLowerCase()} still unclaimed. Be early.
@@ -916,7 +928,10 @@ function Ledger({ category, open }: { category: Category | null; open?: number }
             <tr key={r.id} className={newIds.has(r.id) ? 'new-row' : ''}>
               <td>{serial(r.claim_no)}</td>
               <td>
-                <Link to={'/certificate/' + r.id}>{r.display}</Link>
+                <Link to={'/certificate/' + r.id}>
+                  {r.golden ? '★ ' : ''}
+                  {r.display}
+                </Link>
               </td>
               <td>
                 {r.handle}
@@ -990,7 +1005,11 @@ export function Certificate({ claim, animated = false }: { claim: Claim; animate
       aria-label={'Certificate of Dibs for ' + claim.display}
     >
       <div className="cert-rule">
-        <span>REGISTRY OF CLAIMS</span>
+        <span>
+          {claim.category_id === 'practice'
+            ? 'PRACTICE — NOT THE PUBLIC RECORD'
+            : 'REGISTRY OF CLAIMS'}
+        </span>
         <span>FORM D-1</span>
       </div>
       <div className="cert-top">
@@ -1196,7 +1215,7 @@ function Archive() {
           )}
           {selected ? (
             <>
-              <Ledger category={selected} />
+              <Ledger category={selected} goldenFound={selected.specials?.goldenFound} />
               {selected.specials && (
                 <section className="archive-specials">
                   <span className="house-stamp">THE REGISTRY · HOUSE</span>
@@ -1208,6 +1227,9 @@ function Archive() {
                     ))}
                   </ul>
                   <h2>Golden tickets.</h2>
+                  {!selected.specials.commitment && (
+                    <p>No commitment was filed before this register closed.</p>
+                  )}
                   <p className="gold-summary">
                     Golden tickets found: {selected.specials.goldenFound} / 3
                   </p>

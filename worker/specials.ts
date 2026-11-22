@@ -66,7 +66,25 @@ export async function ensureSpecials(env: Env, category: any) {
     .first<any>();
 }
 export async function specialStatus(env: Env, category: any, reveal = false) {
-  const saved = await ensureSpecials(env, category);
+  const closed = reveal && env.STAGING !== 'true' && closeAt(category) <= new Date().toISOString();
+  // A missed drop must never manufacture a retrospective proof.
+  const saved = closed
+    ? await env.DB.prepare('SELECT * FROM daily_specials WHERE category_id=?')
+        .bind(category.id)
+        .first<any>()
+    : await ensureSpecials(env, category);
+  if (!saved)
+    return {
+      houseCount: ((houseWords as Record<string, string[]>)[category.slug] || []).length,
+      houseWords: ((houseWords as Record<string, string[]>)[category.slug] || []).map(
+        (display) => ({ display, handle: 'THE REGISTRY' }),
+      ),
+      goldenFound: 0,
+      goldenTotal: 3,
+      commitment: '',
+      committedAt: '',
+      verified: false,
+    };
   const house = (
     await env.DB.prepare(
       'SELECT a.display,h.revealed FROM house_words h JOIN answers a ON a.id=h.answer_id WHERE h.category_id=? ORDER BY a.display',
@@ -79,7 +97,6 @@ export async function specialStatus(env: Env, category: any, reveal = false) {
   )
     .bind(category.id)
     .first<any>();
-  const closed = reveal && env.STAGING !== 'true' && closeAt(category) <= new Date().toISOString();
   const base = {
     houseCount: house.length,
     houseWords: house

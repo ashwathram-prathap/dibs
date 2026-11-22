@@ -10,6 +10,11 @@ const mobile = [
 ];
 const projects: any[] = [];
 for (const theme of ['light', 'dark']) {
+  projects.push({
+    name: 'r6-390-' + theme,
+    testMatch: 'specials.spec.ts',
+    use: { browserName: 'chromium', viewport: { width: 390, height: 844 }, colorScheme: theme },
+  });
   for (const name of mobile) {
     const browserName = name.startsWith('i') ? 'webkit' : 'chromium';
     projects.push({
@@ -71,7 +76,8 @@ export default defineConfig({
   use: { baseURL: 'http://127.0.0.1:5173', trace: 'retain-on-failure' },
   projects,
   webServer: {
-    command: 'npx vite build --mode security-test && npm run preview -- --mode security-test --port 5173',
+    command:
+      'npx vite build --mode security-test && npm run preview -- --mode security-test --port 5173',
     url: 'http://127.0.0.1:5173',
     reuseExistingServer: false,
   },

@@ -454,7 +454,7 @@ export class Registry extends DurableObject<Env> {
     if (path === '/archive')
       return this.cached('archive:' + registryDate(), 600000, () => route(req, env));
     if (path.startsWith('/summary/') && req.method === 'GET') {
-      const cached = await this.cached('summary:' + path.slice(9), 86400000, () =>
+      const cached = await this.cached('summary:' + path.slice(9), 10000, () =>
         this.summary(path.slice(9), env),
       );
       if (!cached.ok) return cached;

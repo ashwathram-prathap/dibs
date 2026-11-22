@@ -36,7 +36,7 @@ export interface Env {
   TURNSTILE_SITE_KEY: string;
   LOCAL_TEST?: string;
 }
-const claimSelect = `SELECT c.id,c.category_id,c.claim_no,c.file_no,c.created_at,a.display,a.obscurity,EXISTS(SELECT 1 FROM daily_specials ds,json_each(ds.golden_json) j WHERE ds.category_id=c.category_id AND j.value=c.answer_id) golden,CASE WHEN u.hidden=1 THEN 'Record withheld' ELSE u.handle END handle,g.name category_name,g.date category_date,g.total_registrable FROM claims c JOIN answers a ON a.id=c.answer_id JOIN users u ON u.id=c.user_id JOIN categories g ON g.id=c.category_id`;
+const claimSelect = `SELECT c.id,c.category_id,c.claim_no,c.file_no,c.created_at,a.display,a.obscurity,EXISTS(SELECT 1 FROM daily_specials ds,json_each(ds.golden_json) j WHERE ds.category_id=c.category_id AND j.value=c.answer_id) golden,CASE WHEN u.hidden=1 THEN 'Record withheld' ELSE u.handle END handle,g.name category_name,g.date category_date,g.total_registrable-(SELECT COUNT(*) FROM house_words hw WHERE hw.category_id=g.id) total_registrable FROM claims c JOIN answers a ON a.id=c.answer_id JOIN users u ON u.id=c.user_id JOIN categories g ON g.id=c.category_id`;
 export async function fileState(env: Env, category: string, uid: string) {
   const claims = (
     await env.DB.prepare(
@@ -497,6 +497,7 @@ export async function route(req: Request, env: Env): Promise<Response> {
     return json({ rows: rows.results });
   }
   if (path === '/archive') {
+    if (env.STAGING === 'true') return json({ categories: [] });
     const rows = await env.DB.prepare(
       "SELECT id,date,name,slug,total_registrable,drop_at FROM categories g WHERE date<? AND status='approved' AND drop_at<=? ORDER BY date DESC",
     )

@@ -17,6 +17,12 @@ test('house strike, gold stamp, gold certificate and verified archive', async ({
   await input.fill('Axolotl');
   await page.getByRole('button', { name: 'CALL DIBS' }).click();
   await expect(page.locator('.gold-stamp')).toBeVisible();
+  await page.screenshot({ path: dir + '/r6-gold-animation.png' });
+  await page.evaluate(() => {
+    history.pushState({}, '', '/certificate/fixture-2');
+    dispatchEvent(new PopStateEvent('popstate'));
+  });
+  await expect(page.locator('.gold-certificate')).toBeVisible();
   await page.locator('.gold-stamp').screenshot({ path: dir + '/r6-gold-stamp.png' });
   await page.locator('.gold-certificate').screenshot({ path: dir + '/r6-gold-certificate.png' });
   const goldA11y = await new AxeBuilder({ page })
