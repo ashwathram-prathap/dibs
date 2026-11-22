@@ -89,9 +89,30 @@
     "classificationRevision": "base"
   },
   "architects": {
-    "complete": false,
-    "checked": 5000,
+    "complete": true,
+    "checked": 17786,
     "total": 17786,
+    "referencePolicy": "english-article-title-v3",
+    "classificationRevision": "base"
+  },
+  "composers": {
+    "complete": true,
+    "checked": 70888,
+    "total": 70888,
+    "referencePolicy": "english-article-title-v3",
+    "classificationRevision": "base"
+  },
+  "poets": {
+    "complete": true,
+    "checked": 40902,
+    "total": 40902,
+    "referencePolicy": "english-article-title-v3",
+    "classificationRevision": "base"
+  },
+  "footballers": {
+    "complete": true,
+    "checked": 221578,
+    "total": 221578,
     "referencePolicy": "english-article-title-v3",
     "classificationRevision": "base"
   }

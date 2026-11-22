@@ -448,6 +448,8 @@ if (process.argv.includes('--status')) {
       slug,
       JSON.stringify({
         candidates: rows.length,
+        keys: rows.reduce((sum, row) => sum + 1 + row.aliases.length, 0),
+        binaryIndexEstimateBytes: 32 + rows.reduce((sum, row) => sum + 16 * (1 + row.aliases.length) + 8 + Buffer.byteLength(row.display), 0),
         pending: pending.length,
         examples: pending.slice(0, 10).map((r) => measurementTitle(r, slug)),
       }),

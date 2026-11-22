@@ -149,18 +149,20 @@
   },
   "footballers": {
     "labelPolicy": "english-article-title-v3",
-    "complete": false,
+    "complete": true,
     "candidateCount": 393395,
-    "scanned": 115000,
-    "englishArticles": 90261,
-    "method": "All uncapped classification IDs, complete bounded joins; English Wikipedia article titles provide common names; existing English labels and aliases are retained. Article availability is the quality filter, never a result-count cutoff."
+    "scanned": 393395,
+    "englishArticles": 221578,
+    "method": "All uncapped classification IDs, complete bounded joins; English Wikipedia article titles provide common names; existing English labels and aliases are retained. Article availability is the quality filter, never a result-count cutoff.",
+    "license": "https://www.wikidata.org/wiki/Wikidata:Data_access"
   },
   "paintings": {
     "labelPolicy": "english-article-title-v3",
-    "complete": false,
+    "complete": true,
     "candidateCount": 1123480,
-    "scanned": 150000,
-    "englishArticles": 7944,
-    "method": "All uncapped classification IDs, complete bounded joins; English Wikipedia article titles provide common names; existing English labels and aliases are retained. Article availability is the quality filter, never a result-count cutoff."
+    "scanned": 1123480,
+    "englishArticles": 11752,
+    "method": "All uncapped classification IDs, complete bounded joins; English Wikipedia article titles provide common names; existing English labels and aliases are retained. Article availability is the quality filter, never a result-count cutoff.",
+    "license": "https://www.wikidata.org/wiki/Wikidata:Data_access"
   }
 }
