@@ -315,7 +315,18 @@ export class Registry extends DurableObject<Env> {
     }
   }
   async image(id: string, env: Env): Promise<Response> {
-    const key = 'image:' + (id || 'default') + ':r7';
+    if ((await this.ctx.storage.get('image-format')) !== 11) {
+      await this.ctx.blockConcurrencyWhile(async () => {
+        if ((await this.ctx.storage.get('image-format')) === 11) return;
+        for (const prefix of ['image:', 'image-expiry:']) {
+          const rows = await this.ctx.storage.list({ prefix });
+          if (rows.size) await this.ctx.storage.delete([...rows.keys()]);
+        }
+        await this.ctx.storage.put('image-bytes', 0);
+        await this.ctx.storage.put('image-format', 11);
+      });
+    }
+    const key = 'image:' + (id || 'default') + ':r11';
     const saved = await this.ctx.storage.get<ArrayBuffer>(key);
     if (saved) return this.png(saved);
     let pending = this.flights.get(key);
@@ -353,7 +364,7 @@ export class Registry extends DurableObject<Env> {
           await txn.put(key, bytes);
           if (id) {
             await txn.put('image-bytes', used + bytes.byteLength);
-            await txn.put('image-expiry:' + id + ':r4', {
+            await txn.put('image-expiry:' + id + ':r11', {
               at: Date.now() + 30 * 86400000,
               size: bytes.byteLength,
             });

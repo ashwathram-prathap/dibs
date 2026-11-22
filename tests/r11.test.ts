@@ -30,3 +30,16 @@ it('all reminder formats use five minutes before the supplied schedule, with Tor
   expect(practice.start).toBe('2026-11-22T20:13:00.000Z');
   expect(practice.ics).toContain('practice.dibs-7hz.pages.dev');
 });
+it('all scheduled category slugs have a short clerk note and eggs are free-form notes', async () => {
+  const { categoryNote, clerkReply } = await import('../shared/moments');
+  const { readdirSync } = await import('node:fs');
+  for (const path of readdirSync('categories').filter((f) => f.endsWith('.json'))) {
+    const c = JSON.parse(readFileSync('categories/' + path, 'utf8'));
+    expect(categoryNote(c.slug)).not.toBe('A fresh register. The same old ink.');
+    expect(categoryNote(c.slug).length).toBeLessThan(85);
+  }
+  expect(clerkReply(' DiBs ', 'Animals')).toBe('The clerk appreciates the enthusiasm.');
+  expect(clerkReply('REGISTRAR', 'Animals')).toBe('Flattery will get you nowhere.');
+  expect(clerkReply('Animals', 'Animals')).toBe('Very funny.');
+  expect(clerkReply('Okapi', 'Animals')).toBeNull();
+});

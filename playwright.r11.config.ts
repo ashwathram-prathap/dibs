@@ -3,9 +3,14 @@ import base from './playwright.config';
 export default defineConfig({
   ...base,
   timeout: 60000,
+  outputDir: '.tmp/r11/playwright-main',
   testMatch: ['round9.spec.ts', 'round11.spec.ts'],
   projects: base
-    .projects!.filter((p) => !p.name?.startsWith('r6-390') && (!process.env.R11_SKIP_FIREFOX || !p.name?.startsWith('firefox')))
+    .projects!.filter(
+      (p) =>
+        !p.name?.startsWith('r6-390') &&
+        (!process.env.R11_SKIP_FIREFOX || !p.name?.startsWith('firefox')),
+    )
     .map((p) => ({
       ...p,
       testMatch: ['round9.spec.ts', 'round11.spec.ts'],

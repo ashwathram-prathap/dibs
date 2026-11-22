@@ -73,3 +73,7 @@ review/round10/browser-results.json
 review/round11/**/*.png
 review/round11/**/*.webm
 review/round11/browser-results.json
+
+review/round11/lighthouse/
+review/round11/firefox-ci/
+review/round11/*browser-results.json
