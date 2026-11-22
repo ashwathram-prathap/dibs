@@ -1,7 +1,8 @@
 import { chromium } from '@playwright/test';
 import lighthouse from 'lighthouse';
 import { writeFileSync, mkdirSync } from 'node:fs';
-mkdirSync('review/lighthouse', { recursive: true });
+const reportDir = process.argv[3] || 'review/lighthouse';
+mkdirSync(reportDir, { recursive: true });
 const browser = await chromium.launch({ args: ['--remote-debugging-port=9222'] });
 // Observe only identities created or loaded by this audit, so QA cleanup never guesses by time.
 const observer = await chromium.connectOverCDP('http://127.0.0.1:9222');
@@ -45,8 +46,8 @@ try {
   if (result) {
     if (failures.length || result.lhr.audits['errors-in-console']?.score === 0)
       throw new Error('Invalid audit: failed API/console errors: ' + failures.join(', '));
-    writeFileSync('review/lighthouse/mobile.json', result.report[0]);
-    writeFileSync('review/lighthouse/mobile.html', result.report[1]);
+    writeFileSync(reportDir + '/mobile.json', result.report[0]);
+    writeFileSync(reportDir + '/mobile.html', result.report[1]);
     console.log(
       JSON.stringify(
         Object.fromEntries(Object.entries(result.lhr.categories).map(([k, v]) => [k, v.score])),
@@ -55,7 +56,7 @@ try {
     console.log(result.lhr.audits['largest-contentful-paint'].displayValue);
   }
 } finally {
-  writeFileSync('review/lighthouse/qa-identities.json', JSON.stringify([...identities]));
+  writeFileSync(reportDir + '/qa-identities.json', JSON.stringify([...identities]));
   await observer.close();
   await browser.close();
 }

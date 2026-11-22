@@ -45,7 +45,7 @@ for (const skew of [-10, 10])
     await expect(page.locator('.clock')).toHaveText(/00:00:0[1-5]/);
     await page.clock.runFor(5000);
     await expect(page.locator('.clock')).toHaveText('Opening…');
-    await page.clock.runFor(10000);
+    await page.clock.runFor(30000);
     await expect(page.locator('h1.category')).toHaveText('Universities');
     await expect(page.locator('.clock')).toHaveText(/23:59:\d\d/);
   });

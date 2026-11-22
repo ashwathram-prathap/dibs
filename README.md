@@ -140,3 +140,15 @@ npx tsx scripts/verify-golden.ts animals
 All public autocomplete catalogs were removed because they contained unclaimed golden answers. The input still accepts the full verified answer set and aliases. Golden claims carry a star through events, reload, summary share text and the ledger; certificate and PNG stamps use the gold palette, with reduced-motion and static SVG fallbacks.
 
 Validation and screenshots: `review/round6/`, `review/final/r6-*`. Use `npm test`, `npm run test:e2e`, and `npx tsx scripts/verify-round6-live.ts`. Live phone verification still requires a human to complete Turnstile when it requests interaction. Never bypass the widget or create test players in production.
+
+## Round 7: local clocks and Day Certificates
+
+The schedule remains 21:00 America/Toronto. The browser detects its own IANA timezone with `Intl`, never stores or transmits it, and formats the next drop with a zone label and weekday when the local date differs. Detection failures use ET. Ledger/filing labels expose the zone on focus/tap or hover. Captions and OG previews use 9 PM ET; completed Day Certificate PNGs include local filing labels and their zones.
+
+One visible-tab interval drives the clock from a server-time/performance-clock anchor. Bootstrap and live messages supply `serverTime`; cached `/today` responses receive a fresh clock at delivery. Visibility return resyncs with bootstrap. The zero boundary keeps “Opening…” visible while bootstrap retries with 1–30 second backoff; a new category remounts the form with a reduced-motion-aware stamp entrance. Screen-reader updates are throttled to a minute.
+
+A successful filing remains until **Next dibs** or **See my file**. Completed files show all accepted/rejected guesses in their original transaction order and default to the Day Certificate when sharing. Story/feed PNGs include answers; captions and OG previews retain the result-square row. Individual certificates remain linked from the file. The schema-only `0008_guess_details.sql` migration retains details for future misses without changing existing player rows. Historical missing details are explicitly marked as unrecorded. Holder lookup respects moderation and public summaries suppress voided wins.
+
+`GOLDEN_PER_DAY` is the normal count (3); `goldenPerDay(date)` returns 10 for November 23–29, 2026. Selection still uses a cryptographic seed, rejection sampling without replacement, the existing commitment payload, and close-time reveal. Existing committed sets are retained and their actual length is displayed, including the older practice set.
+
+Verification: `npm test`, `npx playwright test -c playwright.r7.config.ts`, and the full device matrix. Firefox runs through `.github/workflows/firefox-check.yml` on Linux because the bundled browser cannot open a profile on this Mac. R7 captures and live checks are in `review/final/r7-*` and `review/round7/`. Use `npx tsx scripts/verify-round7-live.ts practice` before production, then the same command without the argument for production. These live checks do not file claims or reset player data.

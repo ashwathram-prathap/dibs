@@ -85,12 +85,19 @@ function file() {
 
 export async function request(path: string, body?: any): Promise<any> {
   await new Promise((r) => setTimeout(r, 120));
+  if (
+    (path === '/bootstrap' || path === '/today') &&
+    r7.has('r7-rollover') &&
+    fixtureNow() >= Date.parse(fixtureDrop) &&
+    fixtureNow() < Date.parse(fixtureDrop) + 18000
+  )
+    throw new ApiError(503, { message: 'The next register is still being prepared.' });
   if (path === '/bootstrap')
     return { today: await request('/today'), me: await request('/me'), rows: claims };
   if (path === '/today') {
     if (
       r7.has('r7-rollover') &&
-      fixtureNow() >= Date.parse(fixtureDrop) + 3000 &&
+      fixtureNow() >= Date.parse(fixtureDrop) + 18000 &&
       category.id === 'fixture-animals'
     )
       advanceFixtureDay();

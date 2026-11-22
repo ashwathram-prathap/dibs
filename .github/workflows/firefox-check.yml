@@ -1,5 +1,11 @@
 name: Firefox regression check
-on: workflow_dispatch
+on:
+  workflow_dispatch:
+    inputs:
+      round7_only:
+        description: Run only the targeted clock and Day Certificate checks
+        type: boolean
+        default: false
 permissions:
   contents: read
 jobs:
@@ -13,7 +19,8 @@ jobs:
           node-version: '22'
       - run: npm ci
       - run: npx playwright install --with-deps firefox
-      - run: npm run test:e2e -- --project='firefox-*'
+      - if: ${{ !inputs.round7_only }}
+        run: npm run test:e2e -- --project='firefox-*'
       - run: npx playwright test -c playwright.r7.config.ts --project='r7-firefox-*'
       - uses: actions/upload-artifact@v4
         if: always()

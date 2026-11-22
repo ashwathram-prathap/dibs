@@ -213,7 +213,15 @@ export default function App() {
       );
     });
     void refresh();
-    const stop = path === '/' ? watchRegistry(setError) : () => {};
+    const stop =
+      path === '/'
+        ? watchRegistry((message) => {
+            const snapshot = getSnapshot();
+            // At the boundary, retain Opening… and its retry loop through transient server failures.
+            if (snapshot && serverNow() >= Date.parse(snapshot.today.nextDrop)) return;
+            setError(message);
+          })
+        : () => {};
     return () => {
       off();
       stop();
@@ -525,7 +533,7 @@ function Home({
         <section className="closed-office">
           <span className="section-number">01 /</span>
           <div>
-            <h2>The office is closed.</h2>
+            <h1>The office is closed.</h1>
             <p>
               The next register opens at <DropTime at={today.nextDrop} />. Come back to call dibs.
             </p>

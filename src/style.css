@@ -1024,7 +1024,7 @@ footer {
   border-bottom: 1px solid var(--ink);
   align-items: start;
 }
-.closed-office h2 {
+.closed-office h1 {
   font-size: 48px;
 }
 .closed-office p {
@@ -1196,7 +1196,7 @@ footer {
   .ledger th:nth-child(2) {
     width: 32%;
   }
-  .closed-office h2 {
+  .closed-office h1 {
     font-size: 40px;
   }
   .closed-seal {
@@ -1602,7 +1602,7 @@ footer {
   .closed-office > div {
     grid-column: 1/-1;
   }
-  .closed-office h2 {
+  .closed-office h1 {
     font-size: 36px;
   }
   .closed-office p {

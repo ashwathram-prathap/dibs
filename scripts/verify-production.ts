@@ -30,6 +30,7 @@ const allowed = new Set([
   '#16150f',
   '#b8902f',
   '#7a5c14',
+  '#dec078', // Accessible gold mark on the carbon copy.
 ]);
 for (const c of css.matchAll(/#[a-f\d]{6}\b/gi))
   if (!allowed.has(c[0].toLowerCase())) throw new Error('Off-palette CSS ' + c[0]);
@@ -41,7 +42,7 @@ if (
 )
   throw new Error('Art-direction violation');
 writeFileSync(
-  'review/production-audit.json',
+  process.argv[2] || 'review/production-audit.json',
   JSON.stringify(
     {
       passed: true,
