@@ -1,0 +1,111 @@
+{
+  "label": "after-4g",
+  "network": "Live practice, Chromium emulated 4G: 150ms latency, 1.6Mbps down, 720Kbps up",
+  "samples": [
+    {
+      "ms": 1136.310708,
+      "status": 422,
+      "serverTiming": "worker;dur=380, cfExtPri"
+    },
+    {
+      "ms": 509.9874580000005,
+      "status": 422,
+      "serverTiming": "worker;dur=250, cfExtPri"
+    },
+    {
+      "ms": 400.60100000000057,
+      "status": 422,
+      "serverTiming": "worker;dur=244, cfExtPri"
+    },
+    {
+      "ms": 271.9452079999992,
+      "status": 422,
+      "serverTiming": "worker;dur=218, cfExtPri"
+    },
+    {
+      "ms": 309.855458,
+      "status": 422,
+      "serverTiming": "worker;dur=218, cfExtPri"
+    },
+    {
+      "ms": 299.0161250000001,
+      "status": 422,
+      "serverTiming": "worker;dur=210, cfExtPri"
+    },
+    {
+      "ms": 305.82174999999916,
+      "status": 422,
+      "serverTiming": "worker;dur=207, cfExtPri"
+    },
+    {
+      "ms": 279.9514999999992,
+      "status": 422,
+      "serverTiming": "worker;dur=200, cfExtPri"
+    },
+    {
+      "ms": 310.7884159999994,
+      "status": 422,
+      "serverTiming": "worker;dur=197, cfExtPri"
+    },
+    {
+      "ms": 296.87275000000045,
+      "status": 422,
+      "serverTiming": "worker;dur=201, cfExtPri"
+    },
+    {
+      "ms": 290.41583300000275,
+      "status": 422,
+      "serverTiming": "worker;dur=182, cfExtPri"
+    },
+    {
+      "ms": 321.30004100000224,
+      "status": 422,
+      "serverTiming": "worker;dur=182, cfExtPri"
+    },
+    {
+      "ms": 385.7957920000008,
+      "status": 422,
+      "serverTiming": "worker;dur=183, cfExtPri"
+    },
+    {
+      "ms": 284.68329200000153,
+      "status": 422,
+      "serverTiming": "worker;dur=184, cfExtPri"
+    },
+    {
+      "ms": 335.4835830000011,
+      "status": 422,
+      "serverTiming": "worker;dur=189, cfExtPri"
+    },
+    {
+      "ms": 412.5451670000002,
+      "status": 422,
+      "serverTiming": "worker;dur=191, cfExtPri"
+    },
+    {
+      "ms": 442.1512500000026,
+      "status": 422,
+      "serverTiming": "worker;dur=186, cfExtPri"
+    },
+    {
+      "ms": 308.6743749999987,
+      "status": 422,
+      "serverTiming": "worker;dur=186, cfExtPri"
+    },
+    {
+      "ms": 364.2067500000012,
+      "status": 422,
+      "serverTiming": "worker;dur=187, cfExtPri"
+    },
+    {
+      "ms": 411.45808300000135,
+      "status": 422,
+      "serverTiming": "worker;dur=191, cfExtPri"
+    }
+  ],
+  "p50": 310.7884159999994,
+  "p95": 509.9874580000005,
+  "percentileMethod": "nearest-rank: ceil(n*p)-1",
+  "serverP50Ms": 191.0,
+  "serverP95Ms": 250.0
+}

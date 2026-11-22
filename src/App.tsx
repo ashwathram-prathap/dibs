@@ -351,7 +351,7 @@ export default function App() {
         Skip to registry
       </a>
       <div className={'page ' + (path === '/' ? 'home-page' : '')}>
-        {today?.practice && <div className="practice-banner">PRACTICE — NOT THE PUBLIC RECORD</div>}
+        {(today?.practice || location.hostname === 'practice.dibs-7hz.pages.dev') && <div className="practice-banner">PRACTICE — NOT THE PUBLIC RECORD</div>}
         <header className="masthead">
           <Link to="/" className="wordmark" aria-label="Dibs home">
             <Wordmark />

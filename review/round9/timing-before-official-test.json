@@ -103,6 +103,7 @@
       "serverTiming": "cfExtPri"
     }
   ],
-  "p50": 1943.0756660000006,
-  "p95": 2700.0404590000003
+  "p50": 1937.123125,
+  "p95": 2059.7610419999983,
+  "percentileMethod": "nearest-rank: ceil(n*p)-1"
 }

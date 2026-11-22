@@ -30,7 +30,7 @@ it('keeps golden status out of public catalog assets and client code', () => {
           Object.keys(data)
             .filter((key) => !['indexFormat', 'indexChunks', 'rowChunkSize'].includes(key))
             .sort(),
-        ).toEqual(['count', 'house', 'scope', 'slug', 'v', 'version']);
+        ).toEqual(['count', 'house', 'paper', 'scope', 'slug', 'v', 'version']);
         continue;
       }
       if (String(f).endsWith('/full.json')) {

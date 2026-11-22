@@ -1,6 +1,7 @@
-import { readFileSync } from 'node:fs';
+import { readFileSync, existsSync } from 'node:fs';
 const [command, target, date] = process.argv.slice(2);
-const token = process.env.ADMIN_TOKEN;
+const localSecrets = process.env.DIBS_API?.includes('practice') ? '.dev.vars.staging' : '.dev.vars';
+const token = process.env.ADMIN_TOKEN || (existsSync(localSecrets) ? readFileSync(localSecrets,'utf8').match(/^ADMIN_TOKEN=(.+)$/m)?.[1].trim().replace(/^['"]|['"]$/g,'') : undefined);
 if (!token)
   throw new Error(
     'Set ADMIN_TOKEN from your local MORNING_REPORT.md. Never put it in a command argument.',

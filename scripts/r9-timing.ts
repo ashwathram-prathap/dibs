@@ -43,8 +43,8 @@ try {
     label: process.argv[2] || 'before',
     network: (process.argv[2] || '').includes('4g') ? 'Live practice, Chromium emulated 4G: 150ms latency, 1.6Mbps down, 720Kbps up' : 'Live practice, local network; not a 4G claim',
     samples,
-    p50: values[Math.floor(values.length * 0.5)],
-    p95: values[Math.min(values.length - 1, Math.floor(values.length * 0.95))],
+    p50: values[Math.ceil(values.length * 0.5) - 1],
+    p95: values[Math.ceil(values.length * 0.95) - 1],
   };
   writeFileSync('review/round9/timing-' + result.label + '.json', JSON.stringify(result, null, 2));
   console.log(JSON.stringify(result));

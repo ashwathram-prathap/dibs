@@ -1,0 +1,107 @@
+[
+  {
+    "zone": "America/Vancouver",
+    "path": "/",
+    "passed": true
+  },
+  {
+    "zone": "America/Vancouver",
+    "path": "/?r7-closed",
+    "passed": true
+  },
+  {
+    "zone": "America/Vancouver",
+    "path": "/certificate/fixture-1",
+    "passed": true
+  },
+  {
+    "zone": "America/Vancouver",
+    "path": "/archive",
+    "passed": true
+  },
+  {
+    "zone": "America/Vancouver",
+    "path": "/about",
+    "passed": true
+  },
+  {
+    "zone": "America/Vancouver",
+    "path": "/admin/live",
+    "passed": true
+  },
+  {
+    "zone": "America/Vancouver",
+    "path": "/missing",
+    "passed": true
+  },
+  {
+    "zone": "Europe/London",
+    "path": "/",
+    "passed": true
+  },
+  {
+    "zone": "Europe/London",
+    "path": "/?r7-closed",
+    "passed": true
+  },
+  {
+    "zone": "Europe/London",
+    "path": "/certificate/fixture-1",
+    "passed": true
+  },
+  {
+    "zone": "Europe/London",
+    "path": "/archive",
+    "passed": true
+  },
+  {
+    "zone": "Europe/London",
+    "path": "/about",
+    "passed": true
+  },
+  {
+    "zone": "Europe/London",
+    "path": "/admin/live",
+    "passed": true
+  },
+  {
+    "zone": "Europe/London",
+    "path": "/missing",
+    "passed": true
+  },
+  {
+    "zone": "Asia/Kolkata",
+    "path": "/",
+    "passed": true
+  },
+  {
+    "zone": "Asia/Kolkata",
+    "path": "/?r7-closed",
+    "passed": true
+  },
+  {
+    "zone": "Asia/Kolkata",
+    "path": "/certificate/fixture-1",
+    "passed": true
+  },
+  {
+    "zone": "Asia/Kolkata",
+    "path": "/archive",
+    "passed": true
+  },
+  {
+    "zone": "Asia/Kolkata",
+    "path": "/about",
+    "passed": true
+  },
+  {
+    "zone": "Asia/Kolkata",
+    "path": "/admin/live",
+    "passed": true
+  },
+  {
+    "zone": "Asia/Kolkata",
+    "path": "/missing",
+    "passed": true
+  }
+]

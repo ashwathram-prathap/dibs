@@ -1,2 +1,3 @@
-const now=Date.now();
-if(process.argv.includes('--production')&&now>=Date.parse('2026-11-23T18:00:00-05:00')&&now<Date.parse('2026-11-24T00:00:00-05:00'))throw Error('Launch freeze: no production deploys between Nov 23 6 PM and Nov 24 midnight ET.');
+import { deploymentBlocked } from '../shared/deploy-window';
+const stage=process.argv.includes('--round9-brand')?'brand':process.argv.includes('--round9-part-b')?'part-b':process.argv.includes('--round9-part-a')?'part-a':'base';
+if(process.argv.includes('--production')&&deploymentBlocked(Date.now(),stage))throw Error(`Launch freeze: ${stage} production releases are paused until Nov 24 midnight ET.`);
