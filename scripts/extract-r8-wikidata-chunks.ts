@@ -24,6 +24,7 @@ async function query(text: string, format = 'json') {
   return r.text();
 }
 for (const def of defs) {
+  if (['airports','mountains','rivers','lakes','islands','stations'].includes(def.slug)) continue;
   const folder = dir + '/' + def.slug;
   mkdirSync(folder, { recursive: true });
   let ids: string[] = [];

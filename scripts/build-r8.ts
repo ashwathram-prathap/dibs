@@ -1,8 +1,15 @@
 import { readFileSync, writeFileSync, readdirSync, existsSync, mkdirSync } from 'node:fs';
+import { createHash } from 'node:crypto';
 import { pageMatchesScope } from './catalog-quality';
+import { commonNamePlurals } from './catalog-aliases';
 import { normalize } from '../worker/domain';
 // All source rows are considered. Missing Wikipedia articles never exclude a real reference answer.
 const raw = JSON.parse(readFileSync('.category-cache/r8/candidates.json', 'utf8'));
+const definitions = JSON.parse(readFileSync('scripts/category-sources.json', 'utf8'));
+const otherDir = '.category-cache/r8/other-references';
+if (existsSync(otherDir))
+  for (const f of readdirSync(otherDir).filter((f) => f.endsWith('.json')))
+    raw[f.slice(0, -5)] = JSON.parse(readFileSync(otherDir + '/' + f, 'utf8'));
 const iso = await import('../.category-cache/r8/iso.mjs');
 raw.countries = iso.iso31661.map((r: any) => ({
   display: r.name,
@@ -102,7 +109,10 @@ for (const [slug, input] of Object.entries(raw) as any) {
     const prev =
       byKey.get(key) ||
       (scientific && taxonOwner.get(scientific)) ||
-      (slug !== 'cities' && aliasOwner.get(key));
+      (!['cities', 'mountains', 'rivers', 'lakes', 'islands', 'stations', 'airports'].includes(
+        slug,
+      ) &&
+        aliasOwner.get(key));
     if (prev) {
       prev.aliases.push(a.display, ...a.aliases);
       byKey.set(key, prev);
@@ -117,6 +127,20 @@ for (const [slug, input] of Object.entries(raw) as any) {
     rows.push(a);
     for (const alias of a.aliases)
       if (!aliasOwner.has(normalize(alias))) aliasOwner.set(normalize(alias), a);
+  }
+  if (['animals', 'birds', 'plants', 'foods', 'fruits-vegetables', 'arthropods'].includes(slug)) {
+    const genera = new Set(
+      input
+        .filter((r: any) => r.scientificName)
+        .map((r: any) => r.scientificName.split(' ')[0].toLowerCase()),
+    );
+    for (const a of rows) {
+      const names = [a.display, ...a.aliases].filter(
+        (name: string) =>
+          name.trim() && !(name.includes(' ') && genera.has(name.split(' ')[0].toLowerCase())),
+      );
+      a.aliases.push(...names.flatMap(commonNamePlurals));
+    }
   }
   for (const a of rows) used.add(normalize(a.display));
   for (const a of rows) {
@@ -160,14 +184,43 @@ const extraTitles: string[] = Object.values(independentPools).flatMap((rows: any
   rows.map((r: any) => (typeof r === 'string' ? r : r.title || r.name)),
 );
 for (const t of extraTitles) priority.add(t);
-const pending = [
+const allTitles = [
   ...new Set([
     ...Object.entries(catalogs).flatMap(([slug, rows]) =>
       rows.map((a) => measurementTitle(a, slug)),
     ),
     ...extraTitles,
   ]),
-]
+];
+const queueText = JSON.stringify(allTitles);
+const queueHash = createHash('sha256').update(queueText).digest('hex');
+if (process.argv.includes('--write-measurement-queue')) {
+  writeFileSync('.category-cache/r8/measurement-queue.json', queueText);
+  console.log('Wrote complete measurement queue', allTitles.length, queueHash);
+  process.exit(0);
+}
+const inventoryPath = '.category-cache/r8/wiki-title-presence.json';
+const inventory = existsSync(inventoryPath)
+  ? JSON.parse(readFileSync(inventoryPath, 'utf8'))
+  : null;
+const knownTitles: Set<string> | null =
+  inventory?.queueHash === queueHash ? new Set(inventory.present) : null;
+if (allTitles.length > 500000 && !knownTitles)
+  throw Error(
+    'Regenerate the complete measurement queue and title inventory before ranking large reference sets.',
+  );
+const pageviewsFor = (t: string) =>
+  cache[t] ||
+  (knownTitles && !knownTitles.has(t)
+    ? {
+        total: 0,
+        days: 0,
+        status: 'not in complete title inventory',
+        inventoryDate: inventory.asOf,
+      }
+    : { total: 0, days: 0, status: 'unavailable' });
+const pending = allTitles
+  .filter((t) => !knownTitles || knownTitles.has(t) || cache[t])
   .filter(
     (t) =>
       !cache[t] ||
@@ -308,6 +361,7 @@ if (!process.argv.includes('--offline')) {
 }
 
 const names: any = {
+  ...Object.fromEntries(definitions.map((d: any) => [d.slug, d.name])),
   animals: 'Animals',
   birds: 'Birds',
   plants: 'Plants',
@@ -317,6 +371,25 @@ const names: any = {
   'fruits-vegetables': 'Fruits & vegetables',
 };
 const scopes: any = {
+  ...Object.fromEntries(
+    definitions.map((d: any) => [
+      d.slug,
+      d.name + ' classified by Wikidata with English Wikipedia articles; one answer per name.',
+    ]),
+  ),
+  arthropods: 'English common names for insects, spiders, crustaceans and other arthropods.',
+  mountains:
+    'Mountains, ranges, peaks and volcanoes in GeoNames with verified English Wikipedia articles; one answer per name.',
+  rivers:
+    'Rivers, streams and wadis in GeoNames with verified English Wikipedia articles; one answer per name.',
+  lakes:
+    'Lakes and reservoirs in GeoNames with verified English Wikipedia articles; one answer per name.',
+  islands:
+    'Islands, groups and islets in GeoNames with verified English Wikipedia articles; one answer per name.',
+  stations:
+    'Current and former railway and metro stations and stops in GeoNames with verified English Wikipedia articles; one answer per name.',
+  airports:
+    'Current and former airports, airfields and seaplane bases in OurAirports; excludes heliports and balloonports.',
   animals:
     'English common names for animals of every kind, including general groups and bird species.',
   birds: 'Bird species and general bird names.',
@@ -328,6 +401,14 @@ const scopes: any = {
   'fruits-vegetables': 'Culinary fruits and vegetables, including varieties.',
 };
 for (const [slug, answers] of Object.entries(catalogs)) {
+  const candidateCount = answers.length;
+  const rankingComplete = answers.every(
+    (a) =>
+      !['unavailable', 'measurement unavailable'].includes(
+        pageviewsFor(measurementTitle(a, slug)).status,
+      ),
+  );
+  const geographicQuality = ['mountains', 'rivers', 'lakes', 'islands', 'stations'].includes(slug);
   if (slug === 'foods') {
     for (let i = answers.length - 1; i >= 0; i--) {
       const a = answers[i];
@@ -342,11 +423,7 @@ for (const [slug, answers] of Object.entries(catalogs)) {
     }
   }
   for (const a of answers) {
-    a.pageviews = cache[measurementTitle(a, slug)] || {
-      total: 0,
-      days: 0,
-      status: 'unavailable',
-    };
+    a.pageviews = pageviewsFor(measurementTitle(a, slug));
     const m = metadata[a.pageviews.title];
     if (
       !pageMatchesScope(
@@ -368,6 +445,10 @@ for (const [slug, answers] of Object.entries(catalogs)) {
               ? 4
               : 5
       : null;
+  }
+  if (geographicQuality) {
+    for (let i = answers.length - 1; i >= 0; i--)
+      if (!answers[i].pageviews.days) answers.splice(i, 1);
   }
   answers.sort(
     (a, b) =>
@@ -399,13 +480,11 @@ for (const [slug, answers] of Object.entries(catalogs)) {
         completeSources:
           !['animals', 'plants'].includes(slug) ||
           existsSync('.category-cache/r8/gbif-extracted.json'),
-        rankingComplete: answers.every(
-          (a) =>
-            cache[measurementTitle(a, slug)] &&
-            !['unavailable', 'measurement unavailable'].includes(
-              cache[measurementTitle(a, slug)].status,
-            ),
-        ),
+        candidateCount,
+        rankingComplete,
+        qualityFilter: geographicQuality
+          ? 'Full GeoNames candidate set checked against the complete English Wikipedia title inventory, then measured; retains only an English article whose description verifies this geographic kind. No result-count cap.'
+          : null,
         ranking: '30 available days; unavailable pageviews retained as unknown, never fabricated',
       },
       answers,

@@ -1,6 +1,8 @@
 import { expect, it } from 'vitest';
 import { pageMatchesScope } from '../scripts/catalog-quality';
 it('does not rank biological homonyms using unrelated popular articles', () => {
+  expect(pageMatchesScope('actors', 'American actor')).toBe(true);
+  expect(pageMatchesScope('films', 'American comedy film')).toBe(true);
   expect(pageMatchesScope('plants', 'Species of bear')).toBe(false);
   expect(pageMatchesScope('plants', 'Arboreal herbivorous marsupial native to Australia')).toBe(
     false,

@@ -2,8 +2,8 @@
   "actors": {
     "complete": false,
     "candidateCount": 502127,
-    "scanned": 16000,
-    "englishArticles": 9886,
+    "scanned": 204000,
+    "englishArticles": 94958,
     "method": "All uncapped classification IDs, complete bounded joins; English Wikipedia article availability is the stated quality filter, never a result-count cutoff."
   }
 }

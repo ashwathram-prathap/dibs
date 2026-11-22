@@ -1,6 +1,32 @@
 // Reject popularity from an unrelated homonym. Scientific-name requests are already
 // domain-qualified by the reference record; their redirect may be a common-name page.
 export function pageMatchesScope(slug: string, description: string, scientificRequest = false) {
+  const geography: Record<string, RegExp> = {
+    mountains: /mountain|peak|summit|volcano|massif|ridge|range|hill/i,
+    rivers: /river|stream|watercourse|tributary|wadi|creek/i,
+    lakes: /lake|reservoir|body of water|saltwater lagoon/i,
+    islands: /island|islet|archipelago|atoll/i,
+    stations:
+      /railway station|railroad station|metro station|subway station|tube station|rail station|train station|tram stop|tramway stop|transport.*station|station (?:in|on)/i,
+  };
+  if (geography[slug])
+    return (
+      geography[slug].test(description) &&
+      !/film|album|novel|actor|company|video game/i.test(description)
+    );
+  if (
+    ![
+      'animals',
+      'birds',
+      'arthropods',
+      'plants',
+      'fruits-vegetables',
+      'foods',
+      'cities',
+      'countries',
+    ].includes(slug)
+  )
+    return true;
   if (
     /film|television|album|rock band|software|company|novel|actor|politician|team sport|sovereign state|country in|country primarily/i.test(
       description,
@@ -13,7 +39,7 @@ export function pageMatchesScope(slug: string, description: string, scientificRe
     );
   if (slug === 'countries') return true;
   if (scientificRequest) return true;
-  if (slug === 'animals')
+  if (slug === 'animals' || slug === 'arthropods')
     return /animal|mammal|bird|fish|insect|reptile|amphibian|arachnid|mollusc|crustacean|worm|rodent|salamander|canid|canine|feline|cat\b|bear|dolphin|whale|primate|snake|lizard|beetle|butterfl|moth|bee\b|spider|ungulate|marsupial|fauna|bat\b|bats\b|turtle|tortoise|crocodil|sponge|coral|polychaete|annelid|gastropod|clam|oyster|scorpion|arthropod|dragonfl|damselfl/i.test(
       description,
     );

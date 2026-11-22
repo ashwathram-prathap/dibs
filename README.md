@@ -35,18 +35,24 @@ The browser matrix covers both themes, 320–2560px, phone landscape, tablets, k
 
 ## Complete catalogs
 
-The R8 pipeline merges full reference extracts: WordNet, GBIF English vernacular names, IOC, USDA PLANTS, GeoNames cities1000 plus English alternate names, ISO 3166, Open Food Facts, and supplementary culinary lists. See [source attribution](public/data/licenses.txt). Reference downloads and pageview caches are private build inputs under `.category-cache/r8/`; source checksums are recorded in `review/round8/source-checksums.json`.
+The R8 pipeline merges full reference extracts: WordNet, GBIF English vernacular names, IOC, USDA PLANTS, GeoNames cities1000 and allCountries plus English alternate names, the Mammal Diversity Database, OurAirports, ISO 3166, Open Food Facts, supplementary culinary lists, and uncapped Wikidata classifications. See [source attribution](public/data/licenses.txt). Reference downloads and pageview caches are private build inputs under `.category-cache/r8/`; source checksums are recorded in `review/round8/source-checksums.json`.
 
 ```sh
 # After downloading the documented complete reference inputs:
 python3 scripts/extract-gbif-r8.py
 python3 scripts/extract-geonames-en-r8.py
 npx tsx scripts/extract-r8-curated.ts
+python3 scripts/extract-r8-geography.py
+npx tsx scripts/extract-r8-wikidata-chunks.ts
 python3 scripts/extract-r8.py
-npx tsx scripts/build-r8.ts
+NODE_OPTIONS=--max-old-space-size=8192 npx tsx scripts/build-r8.ts --write-measurement-queue
+npx tsx scripts/prepare-r8-title-inventory.ts
+NODE_OPTIONS=--max-old-space-size=8192 npx tsx scripts/build-r8.ts
 npm run catalog:coverage
 npm run build
 ```
+
+Wikidata extraction first retrieves the entire classification ID set, then uses resumable bounded joins to obtain English labels and article links. English Wikipedia article availability is its stated quality filter; batch size never caps membership. Cities, biological and food references retain their full eligible reference set. For the other GeoNames categories, every candidate is checked against the complete English Wikipedia title dump plus subsequent new-page and move logs; only measured articles with matching geographic descriptions pass the stated quality filter. Absence from that dated title inventory is recorded as unknown readership, never fabricated zero views. Geography feature codes and exclusions are recorded in the extraction audit.
 
 The builder considers every source row, merges common names and aliases, and measures English Wikipedia readership without a query-order cap. Unknown measurements remain unknown. Source completeness, completed ranking, at least 150 independently authored obvious examples (98%, Animals 100%), and 50 independent mid-popularity checks gate new approval. Legacy catalogs remain unverified until they pass. Countries uses all 249 ISO countries and territories; artificial entries are not added to reach 300.
 

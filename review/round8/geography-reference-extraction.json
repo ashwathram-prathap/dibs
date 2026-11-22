@@ -1,0 +1,68 @@
+{
+  "source": "GeoNames allCountries and alternateNamesV2; CC BY 4.0",
+  "scanned": 13484370,
+  "alternateRows": 19254910,
+  "categories": {
+    "mountains": {
+      "complete": true,
+      "rows": 506857,
+      "featureCodes": [
+        "MT",
+        "MTS",
+        "PK",
+        "PKS",
+        "VLC"
+      ]
+    },
+    "rivers": {
+      "complete": true,
+      "rows": 1330238,
+      "featureCodes": [
+        "STM",
+        "STMI",
+        "STMS",
+        "WAD",
+        "WADI",
+        "WADS"
+      ]
+    },
+    "lakes": {
+      "complete": true,
+      "rows": 439858,
+      "featureCodes": [
+        "LK",
+        "LKI",
+        "LKN",
+        "LKNI",
+        "LKS",
+        "RSV",
+        "RSVI"
+      ]
+    },
+    "islands": {
+      "complete": true,
+      "rows": 175781,
+      "featureCodes": [
+        "ISL",
+        "ISLS",
+        "ISLT"
+      ]
+    },
+    "stations": {
+      "complete": true,
+      "rows": 81327,
+      "featureCodes": [
+        "MTRO",
+        "RSTN",
+        "RSTNQ",
+        "RSTP",
+        "RSTPQ"
+      ]
+    },
+    "airports": {
+      "complete": true,
+      "rows": 61438,
+      "source": "OurAirports public-domain full CSV; excludes heliports and balloonports; includes closed airports and seaplane bases"
+    }
+  }
+}

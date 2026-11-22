@@ -1,7 +1,15 @@
 """Extract full downloaded reference lists; no query-order limits."""
 import csv,io,json,zipfile,xml.etree.ElementTree as ET,re,pathlib
-p=pathlib.Path('.category-cache/r8'); out={k:[] for k in ['animals','birds','plants','foods','fruits-vegetables','cities']}
+cleaning=[]
+p=pathlib.Path('.category-cache/r8'); out={k:[] for k in ['animals','arthropods','birds','plants','foods','fruits-vegetables','cities']}
 def add(k,name,aliases=[],source='',**kw):
+ scientific=kw.get('scientificName','')
+ if len(scientific.split())>1 and name.casefold()==scientific.casefold():
+  alternatives=[a for a in aliases if a.strip() and a.casefold()!=scientific.casefold() and a.split()[0].casefold()!=scientific.split()[0].casefold()]
+  if alternatives:name=alternatives[0]
+  else:
+   cleaning.append({'category':k,'name':name,'source':source,'reason':'Scientific binomial or hybrid label supplied as an English vernacular; no distinct English common name available'})
+   return
  bad=r'\b(fuck|shit|cunt|nigger|faggot|rape|nazi|kaffir|redskin)\b'
  if len(name)>1 and len(name)<96 and not re.search(bad,name,re.I): out[k].append(dict(display=name,aliases=[a for a in aliases if not re.search(bad,a,re.I)],source=source,**kw))
 rows={}
@@ -15,9 +23,9 @@ def descend(root):
   if key in seen:continue
   seen.add(key); todo += [ptr[1] for ptr in rows[key][2] if ptr[0]=='~' and ptr[2]=='n']
  return seen
-animals=descend('animal'); plants=descend('plant'); birds=descend('bird'); fruits=descend('edible_fruit')|descend('vegetable')
+arthropods=descend('arthropod'); animals=descend('animal'); plants=descend('plant'); birds=descend('bird'); fruits=descend('edible_fruit')|descend('vegetable')
 for key,(lex,words,ptr,gloss) in rows.items():
- cats=(['animals'] if lex=='05' and key in animals else ['plants'] if lex=='20' and key in plants else ['foods'] if lex=='13' else []) + (['birds'] if key in birds and lex=='05' else []) + (['fruits-vegetables'] if key in fruits and lex in ['13','20'] else [])
+ cats=(['animals'] if lex=='05' and key in animals else ['plants'] if lex=='20' and key in plants else ['foods'] if lex=='13' else []) + (['arthropods'] if key in arthropods and lex=='05' else []) + (['birds'] if key in birds and lex=='05' else []) + (['fruits-vegetables'] if key in fruits and lex in ['13','20'] else [])
  # WordNet capitalized taxonomy (genus/family/Latin) is not a player common name.
  common=[w.replace('_',' ') for w in words if w[0].islower() and not w.startswith(('genus_','family_','order_','class_','phylum_','subclass_','suborder_','subfamily_','superfamily_','division_','subphylum_')) and not w.endswith(('idae','aceae','ales'))]
  if not common:continue
@@ -63,3 +71,5 @@ for cat,records in json.loads(pathlib.Path('scripts/r8-curated-supplements.json'
   for row in records:add('foods',row['display'],row['aliases'],row['source'],wikipediaTitle=row['wikipediaTitle'])
 (p/'candidates.json').write_text(json.dumps(out,ensure_ascii=False))
 print({k:len(v) for k,v in out.items()})
+
+pathlib.Path('review/round8/reference-cleaning.json').write_text(json.dumps(cleaning,indent=2)+'\n')

@@ -1600,7 +1600,8 @@ function About({ nextDrop }: { nextDrop: string }) {
             data), <a href="https://www.mammaldiversity.org/">Mammal Diversity Database</a> (CC BY
             4.0), <a href="https://www.worldbirdnames.org/">IOC World Bird List</a> (CC BY 3.0),{' '}
             <a href="https://world.openfoodfacts.org/">Open Food Facts</a> (ODbL), and ISO 3166 data
-            (MIT). Wikipedia pageviews rank measured answers.{' '}
+            (MIT), plus <a href="https://ourairports.com/">OurAirports</a> (public domain).
+            Wikipedia pageviews rank measured answers.{' '}
             <a href="/data/licenses.txt">Full licenses and source notes</a>.
           </p>
           <h2>Golden-ticket commitment</h2>
