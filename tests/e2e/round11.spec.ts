@@ -20,7 +20,7 @@ test('R11 rules, free guesses, explicit counters, reminders, settings and deleti
   await page.locator('#answer').fill('Dog');
   await page.locator('#answer').press('Enter');
   await expect(page.locator('.result-panel')).toContainText(
-    'reserved (too obvious, nobody can claim it); try another answer.',
+    'Reserved (too obvious). −10 points.',
   );
   await expect(page.locator('.play-rules')).not.toHaveAttribute('open', '');
   await page.goto('/?r7-closed');

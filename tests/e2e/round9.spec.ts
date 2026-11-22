@@ -1,7 +1,7 @@
 import { test, expect } from './security-fixture';
 import AxeBuilder from '@axe-core/playwright';
 import { mkdirSync } from 'node:fs';
-test('one card completes three wins and two strikes, then shares and reveals the ledger', async ({
+test('one card completes three wins and two strikes, then shares while other answers stay hidden', async ({
   page,
 }, info) => {
   const dir = 'review/round9/devices/' + info.project.name;
@@ -46,7 +46,8 @@ test('one card completes three wins and two strikes, then shares and reveals the
   }
   await expect(page.locator('.day-certificate')).toBeVisible();
   await expect(page.locator('.file-tally')).toContainText('3/3 claims · 2 strikes');
-  await expect(page.locator('table.ledger')).toBeVisible();
+  await expect(page.locator('table.ledger')).toHaveCount(0);
+  await expect(page.locator('#leaderboard')).toBeVisible();
   await screenshot('closed');
   await page.getByText('More ways to share', { exact: true }).click();
   const download = page.waitForEvent('download');

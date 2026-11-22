@@ -6,6 +6,10 @@ on:
         description: Run only the targeted clock and Day Certificate checks
         type: boolean
         default: false
+      r14_ui_only:
+        description: Verify R14 UI plus prior UI regression checks
+        type: boolean
+        default: false
       r13_ui_only:
         description: Verify only R13 UI and audio (fixtures do not need catalog generation)
         type: boolean
@@ -32,14 +36,17 @@ jobs:
           pactl load-module module-null-sink sink_name=dibs_ci
           pactl set-default-sink dibs_ci
       - name: Build complete indexes for the full regression suite
-        if: ${{ !inputs.r13_ui_only }}
+        if: ${{ !inputs.r13_ui_only && !inputs.r14_ui_only }}
         run: npx tsx scripts/build-catalog-assets.ts
       - run: npx vite build --mode security-test
       - name: Run Firefox checks
         env:
           R13_UI_ONLY: ${{ inputs.r13_ui_only }}
+          R14_UI_ONLY: ${{ inputs.r14_ui_only }}
         run: |
-          if [ "$R13_UI_ONLY" = "true" ]; then
+          if [ "$R14_UI_ONLY" = "true" ]; then
+            npx playwright test -c playwright.r14.config.ts --project='firefox-*'
+          elif [ "$R13_UI_ONLY" = "true" ]; then
             npx playwright test -c playwright.r13.config.ts round13.spec.ts --project='firefox-*'
           else
             npx playwright test -c playwright.r13.config.ts --project='firefox-*'
@@ -50,6 +57,7 @@ jobs:
           name: firefox-regression
           path: |
             review/round13/browser-results.json
+            review/round14/browser-results.json
             test-results/
             review/round9/devices/firefox-*/
             review/round9/headers/firefox-*/

@@ -1,3 +1,4 @@
+import { Leaderboard } from './Leaderboard';
 import {
   GAME_EXPLANATION,
   LIMIT_EXPLANATION,
@@ -388,7 +389,15 @@ export default function App() {
             ? {
                 ...previous,
                 claim: previous.claim?.category_id === s.today.category?.id ? previous.claim : null,
-                file: previous.file?.category_id === s.today.category?.id ? previous.file : null,
+                file:
+                  previous.file && previous.file.category_id === s.today.category?.id
+                    ? {
+                        ...previous.file,
+                        ...(s.leaderboard
+                          ? { rank: s.leaderboard.own?.rank || null, players: s.leaderboard.total }
+                          : {}),
+                      }
+                    : null,
               }
             : null),
       );
@@ -457,7 +466,7 @@ export default function App() {
             {[
               ['/', 'Today'],
               ['/archive', 'Archive'],
-              ['/about', 'Office notice'],
+              ['/about', 'Office'],
             ].map(([url, label]) => (
               <Link
                 key={url}
@@ -475,7 +484,13 @@ export default function App() {
                 {label}
               </Link>
             ))}
+            <a href="/#leaderboard">Leaderboard</a>
             <TimezonePicker />
+            {me?.user && (
+              <span className="header-player">
+                {me.user.handle} <span>Streak {me.streak}</span>
+              </span>
+            )}
           </nav>
         </header>
         {isDemo && (
@@ -763,7 +778,13 @@ function Home({
       if (!pendingRequest.current || pendingRequest.current.answer !== value)
         pendingRequest.current = { answer: value, id: crypto.randomUUID() };
       const send = (sessionToken: string) =>
-        api<{ claim: Claim; me?: Me; recoveryKey?: string; sessionNotice?: string }>('/claim', {
+        api<{
+          claim: Claim;
+          me?: Me;
+          leaderboard?: import('./types').Standings;
+          recoveryKey?: string;
+          sessionNotice?: string;
+        }>('/claim', {
           answer: value,
           requestId: pendingRequest.current!.id,
           sessionToken,
@@ -790,12 +811,24 @@ function Home({
       setClaim(result.claim);
       setLanded(true);
       if (result.me) setMe(result.me);
-      publishClaim(result.claim, result.me);
+      publishClaim(result.claim, result.me, result.leaderboard);
     } catch (e) {
       const err = e as ApiError;
       playClaimSound(claimSound(err.status, err.data), pendingRequest.current?.id || '');
-      if (err.data?.me) setMe(err.data.me);
-      else if (err.data?.file) setMe({ ...me, file: err.data.file });
+      if (err.data?.me) {
+        setMe(err.data.me);
+        const snapshot = getSnapshot();
+        if (snapshot)
+          publish(
+            {
+              ...snapshot,
+              rows: [],
+              me: err.data.me,
+              leaderboard: err.data.leaderboard || snapshot.leaderboard,
+            },
+            true,
+          );
+      } else if (err.data?.file) setMe({ ...me, file: err.data.file });
       if (err.status && err.status < 500) pendingRequest.current = null;
       setSuggestion(err.data?.suggestion || null);
       if (!err.data?.suggestion && err.data?.spellingCatalog) {
@@ -869,17 +902,23 @@ function Home({
           <span className="file-closed-stamp" role="status">
             DONE FOR TODAY
           </span>
-          <p>Your certificate is ready below.</p>
+          <p className="done-score">
+            {file.points ?? 0} points{file.rank ? ` · #${file.rank} of ${file.players} today` : ''}
+          </p>
+          <RevealTime today={today} />
           <p className="clerk-aside">{categoryNote(today.category.slug)}</p>
           <DaySummary file={file} today={today} showLedger />
         </>
       ) : (
-        <section className="claim-section" aria-label="Play today's category">
+        <section
+          className={'claim-section' + (landed ? ' has-payoff' : '')}
+          aria-label="Play today's category"
+        >
           <div className="play-heading register-arrival">
             <CategoryHeading name={today.category.name} />
           </div>
           <div className={'claim-paper stock-' + categoryStyle(today.category.slug).stock}>
-            <Progress dibs={file?.dibs || 0} strikes={file?.strikes || 0} />
+            {!landed && <Progress dibs={file?.dibs || 0} strikes={file?.strikes || 0} />}
             {landed && claim ? (
               <div
                 className={'result-panel win-beat ' + (claim.golden ? 'gold-result' : '')}
@@ -891,12 +930,21 @@ function Home({
                 >
                   DIBS<span>{claim.display.toUpperCase()}</span>
                 </strong>
-                <p>
-                  {file?.dibs || 1} of {MAX_CLAIMS} claims{!!claim.golden && ' · Golden ticket'}
-                </p>
-                <p className="clerk-aside">
-                  {clerkLine(claim.golden ? 'gold' : 'win', claim.claim_no)}
-                </p>
+                <div className="claim-payoff">
+                  <p>Yours. {claim.display} has your name on it for good.</p>
+                  <p className="points-earned">
+                    +{claim.points ?? 0} points
+                    {claim.percentile != null
+                      ? ` · rarer than ${Math.round(claim.percentile * 100)}% of ${today.category.name.toLowerCase()}`
+                      : ' · popularity unknown'}
+                    {!!claim.golden && ' · Golden ticket +100'}
+                  </p>
+                  <p>
+                    {MAX_CLAIMS - (file?.dibs || 1)} claims left ·{' '}
+                    {MAX_STRIKES - (file?.strikes || 0)} strikes left
+                  </p>
+                  <RevealTime today={today} />
+                </div>
                 <div className="win-actions">
                   <button
                     className="primary"
@@ -959,7 +1007,13 @@ function Home({
                   >
                     <p>
                       {taken && <Icon name="cross" />}
-                      {taken && takenHolder?.founder ? (
+                      {taken ? (
+                        <>
+                          {houseStrike
+                            ? 'Reserved (too obvious). −10 points.'
+                            : `Taken. −10 points. ${MAX_STRIKES - (file?.strikes || 0)} strikes left.`}
+                        </>
+                      ) : takenHolder?.founder ? (
                         <>
                           Taken: {takenHolder.answer} is <Handle name={takenHolder.name} founder />
                           ’s.
@@ -1024,13 +1078,14 @@ function Home({
         </section>
       )}
       {playing && (
-        <section className="locked-ledger" aria-label="Results hidden until you finish">
+        <section className="locked-ledger" aria-label="Answers hidden until the day closes">
           <p>
             {today.claimed.toLocaleString()} claimed · {today.open.toLocaleString()} open
           </p>
-          <span>Today's results appear when you finish</span>
+          <span>Answers appear when the day closes</span>
         </section>
       )}
+      <Leaderboard category={today.category?.id} practice={today.practice} />
       {true && (
         <details id="file-settings" className="file-key-panel" open={restoreKey ? true : undefined}>
           <summary>
@@ -1103,6 +1158,19 @@ function Reminder({ at }: { at: string }) {
         <small>Outlook opens one event. Set Repeat to Daily.</small>
       </div>
     </details>
+  );
+}
+
+function RevealTime({ today }: { today: Today }) {
+  const at = today.closesAt || today.nextDrop;
+  return (
+    <div className="reveal-time">
+      <p>The full board and golden tickets reveal when the day closes.</p>
+      <div>
+        <span>Closes {dropTime(at).full} your time.</span>
+        <Reminder at={at} />
+      </div>
+    </div>
   );
 }
 
@@ -1246,6 +1314,10 @@ function DaySummary({
           <p className="postmark-date">{dateLabel(today.category!.date)}</p>
           <Signature />
         </div>
+        <p className="certificate-score">
+          {file.points ?? 0} points{file.rank ? ` · #${file.rank} of ${file.players}` : ''} · Streak{' '}
+          {file.streak || 0}
+        </p>
         <p className="file-tally">
           {file.dibs}/{MAX_CLAIMS} claims · {file.strikes}{' '}
           {file.strikes === 1 ? 'strike' : 'strikes'} · filed {time(file.completedAt!)}
@@ -1303,7 +1375,7 @@ function DaySummary({
               founder={file.founder || file.claims.some((c) => c.founder)}
             />
           </strong>
-          <span>{file.streak || 0} day streak</span>
+          <span>Streak {file.streak || 0}</span>
         </div>
         <div className="cert-footer">
           <span>ALL CLAIMS ENTIRELY CEREMONIAL.</span>
@@ -1320,7 +1392,7 @@ function DaySummary({
         <Reminder at={today.nextDrop} />
         <Clock target={today.nextDrop} />
         <InstallHint />
-        {showLedger && (
+        {showLedger && today.revealed && (
           <>
             <Ledger
               category={today.category!}
@@ -1328,25 +1400,6 @@ function DaySummary({
               goldenFound={today.specials?.goldenFound}
               goldenTotal={today.specials?.goldenTotal}
             />
-            <section className="cleanest">
-              <h2>Today's results</h2>
-              {today.board?.length ? (
-                <ol>
-                  {today.board.map((r, i) => (
-                    <li key={i}>
-                      <strong>
-                        <Handle name={r.handle} founder={r.founder} />
-                      </strong>
-                      <span>
-                        {r.dibs}/{MAX_CLAIMS} · {r.strikes} strikes · {time(r.completedAt)}
-                      </span>
-                    </li>
-                  ))}
-                </ol>
-              ) : (
-                <p>Results appear as players finish.</p>
-              )}
-            </section>
           </>
         )}
       </aside>
@@ -1861,6 +1914,7 @@ function Archive() {
           )}
           {selected ? (
             <>
+              <Leaderboard category={selected.id} final />
               <Ledger
                 category={selected}
                 goldenFound={selected.specials?.goldenFound}
@@ -1916,20 +1970,9 @@ function Archive() {
             </>
           ) : (
             !error && (
-              <section
-                className="archive-specimen"
-                aria-label="Specimen example, not a real record"
-              >
-                <span className="eyebrow">SPECIMEN — how a filed day looks</span>
-                <h2>A day of first claims.</h2>
-                <p>This sample shows the layout. These are examples, not player records.</p>
-                <div className="specimen-watermark" aria-hidden="true">
-                  SPECIMEN
-                </div>
-                <div className="specimen-line">EXAMPLE ENTRY / AXOLOTL</div>
-                <div className="specimen-line">HELD BY / Example holder</div>
-                <div className="specimen-line">DATE / A completed day</div>
-                <p>The first real page arrives after a claimed day closes.</p>
+              <section className="archive-specimen">
+                <h2>No past days yet.</h2>
+                <p>The first results appear after a day closes.</p>
               </section>
             )
           )}
@@ -1969,7 +2012,8 @@ function About({ nextDrop }: { nextDrop: string }) {
               <li>
                 The golden list is published when the day ends, so you can check it wasn't changed.
               </li>
-              <li>Results rank by claims, then fewest strikes, then finish time.</li>
+              <li>Rarer answers score more. Golden tickets +100. Strikes −10.</li>
+              <li>Ties go to whoever reached that score first.</li>
             </ol>
           </details>
           <h2 className="faq-heading">Frequently asked questions</h2>

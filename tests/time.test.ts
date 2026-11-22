@@ -47,21 +47,23 @@ it('selects ten unique committed beta tickets, then three', async () => {
   expect(await selectGolden(ids.reverse(), 'seed', 10)).toEqual(chosen);
   expect(await sha256(commitmentText('beta', 'seed', chosen))).toMatch(/^[0-9a-f]{64}$/);
 });
-it('share text contains only result squares, never answers or holders', () => {
+it('share text contains scores, rank and streak, never answers or holders', () => {
   const result = summaryText(
     {
       dibs: 1,
       strikes: 1,
+      points: 140,
+      rank: 3,
+      players: 27,
+      streak: 3,
       completedAt: '2026-11-24T02:06:00Z',
       events: [
         { kind: 'dibs', display: 'Axolotl', golden: true },
         { kind: 'strike', display: 'DOG', holder: 'Secret Holder' },
       ],
     } as any,
-    { date: '2026-11-23' } as any,
+    { date: '2026-11-23', name: 'Animals' } as any,
   );
-  expect(result).toContain('■□');
-  expect(result).toContain('9:06 PM ET');
-  expect(result).toContain('9:00 PM ET');
+  expect(result).toBe('Dibs, Animals: 140 pts, #3 of 27, streak 3.');
   expect(result).not.toMatch(/Axolotl|DOG|Secret Holder/);
 });

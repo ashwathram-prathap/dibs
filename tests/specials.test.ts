@@ -170,9 +170,7 @@ it('charges house strikes without creating players, claims or ledger rows; caps 
   const today = (await (await call('/bootstrap', undefined, a.cookie)).json()) as any;
   expect(today.today.open).toBe(1990);
   expect(today.rows).toEqual([]);
-  expect(today.today.specials.houseWords).toEqual([
-    { display: houseWords.animals[0], handle: 'RESERVED' },
-  ]);
+  expect(today.today.specials.houseWords).toEqual([]);
 });
 it('reveals a golden answer only after its successful claim and retains stars on reload', async () => {
   const a = await account();

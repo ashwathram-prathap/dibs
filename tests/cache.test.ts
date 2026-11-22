@@ -128,6 +128,11 @@ beforeAll(async () => {
       .replace(/\n/g, ' '),
   );
   await db.exec(readFileSync('migrations/0011_calendar.sql', 'utf8').replace(/\n/g, ' '));
+  await db.exec(
+    readFileSync('migrations/0013_points.sql', 'utf8')
+      .replace(/^--.*$/gm, '')
+      .replace(/\n/g, ' '),
+  );
   const date = registryDate();
   await db
     .prepare(
@@ -295,7 +300,7 @@ it('bounds cold full-ID and printed-prefix certificate reads', async () => {
   expect((await call('/certificate/' + id.slice(0, 16))).status).toBe(200);
   expect(evidence.at(-1).reads).toBeLessThanOrEqual(10);
 });
-it('orders completed real files by dibs, strikes, then completion time', async () => {
+it('orders real players by saved points and keeps completed files spoiler-free', async () => {
   const players = await Promise.all(Array.from({ length: 3 }, account));
   for (let p = 0; p < 3; p++) {
     if (p === 0)
@@ -315,17 +320,12 @@ it('orders completed real files by dibs, strikes, then completion time', async (
         ).status,
       ).toBe(201);
   }
-  const today = (await (await call('/today', undefined, players[0].cookie)).json()) as any;
-  expect(today.board.map((r: any) => r.handle)).toEqual([
-    players[1].me.user.handle,
-    players[2].me.user.handle,
-    players[0].me.user.handle,
-  ]);
-  expect(today.board.map((r: any) => [r.dibs, r.strikes])).toEqual([
-    [3, 0],
-    [3, 0],
-    [3, 1],
-  ]);
+  const board = (await (await call('/leaderboard', undefined, players[0].cookie)).json()) as any;
+  expect(board.rows.length).toBeGreaterThanOrEqual(3);
+  expect(
+    board.rows.every((r: any, i: number) => i === 0 || board.rows[i - 1].points >= r.points),
+  ).toBe(true);
+  expect(board.own).toMatchObject({ claims: 3, own: true });
   const me = (await (await call('/me', undefined, players[0].cookie)).json()) as any;
   expect(me.file.events.map((e: any) => e.kind)).toEqual(['strike', 'dibs', 'dibs', 'dibs']);
   expect(me.file.events[0].display).toBe('ANIMAL 0');
@@ -348,7 +348,10 @@ it('orders completed real files by dibs, strikes, then completion time', async (
   expect(shared.file.strikes).toBe(1);
   expect(shared.file.summaryId).toBe(summaryId);
   expect(shared.file.handle).toBe(players[0].me.user.handle);
-  expect(shared.file.events).toEqual(me.file.events);
+  expect(shared.file.events.every((e: any) => e.display === 'Revealed when the day closes')).toBe(
+    true,
+  );
+  expect(shared.file.points).toBe(me.file.points);
   expect(JSON.stringify(shared)).not.toContain(players[0].me.user.id);
   expect(
     (await call('/claim', { answer: 'Animal 60', turnstileToken: 'test' }, players[0].cookie))
@@ -412,7 +415,7 @@ it('serves unique cached previews to WhatsApp, X, Facebook, iMessage and Discord
       const image = html.match(/property="og:image" content="([^"]+)"/)![1];
       expect(html).toContain(`name="twitter:image" content="${image}"`);
       expect(image).toBe(
-        `${PUBLIC_ORIGIN}/api/og/${kind === 'summary' ? 'summary/' : ''}${id}?v=11`,
+        `${PUBLIC_ORIGIN}/api/og/${kind === 'summary' ? 'summary/' : ''}${id}?v=14`,
       );
       const started = performance.now();
       const response = await mf.dispatchFetch(image, { headers: { 'user-agent': agent } });

@@ -4791,3 +4791,159 @@ body {
 .home-page:has(#answer:focus) {
   padding-bottom: max(var(--keyboard-inset, 0px), env(safe-area-inset-bottom));
 }
+
+/* R14: the reward sits directly below the stamp; scores never reveal answers. */
+.header-player {
+  display: inline-flex;
+  flex-wrap: wrap;
+  gap: 0.35em 1em;
+  font-size: 18px;
+  align-items: center;
+}
+.header-player > span {
+  white-space: nowrap;
+}
+.claim-payoff p {
+  margin: 8px 0;
+}
+.points-earned,
+.certificate-score {
+  font-weight: 650;
+}
+.done-score {
+  font-family: Archivo, sans-serif;
+  font-size: clamp(28px, 5vw, 64px);
+  line-height: 1.1;
+  margin: 18px 0;
+}
+.reveal-time {
+  margin: 12px 0;
+  font-size: 18px;
+}
+.reveal-time p {
+  margin: 6px 0;
+}
+.reveal-time > div {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 6px 18px;
+}
+.reveal-time .reminder-menu {
+  margin: 0;
+}
+.leaderboard-section {
+  margin: 48px 0;
+  padding-top: 24px;
+  border-top: 2px solid var(--ink);
+  scroll-margin-top: 20px;
+}
+.leaderboard-heading {
+  display: flex;
+  gap: 12px;
+  align-items: baseline;
+  justify-content: space-between;
+}
+.leaderboard-heading h2 {
+  margin: 0 0 20px;
+  font-size: clamp(26px, 4vw, 44px);
+}
+.leaderboard-heading > span {
+  font-family: Plex, monospace;
+  font-size: 18px;
+}
+.leaderboard {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;
+  font-size: 18px;
+}
+.leaderboard th,
+.leaderboard td {
+  padding: 14px 8px;
+  border-bottom: 1px solid var(--ink);
+  text-align: left;
+  overflow-wrap: anywhere;
+}
+.leaderboard th:first-child {
+  width: 15%;
+}
+.leaderboard th:nth-child(2) {
+  width: 45%;
+}
+.leaderboard th:nth-child(n + 3),
+.leaderboard td:nth-child(n + 3) {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+.leaderboard .own-score {
+  background: color-mix(in srgb, var(--ink) 7%, transparent);
+}
+.leaderboard-badge {
+  display: inline-block;
+  margin-left: 8px;
+  font-size: 18px;
+  font-weight: 400;
+}
+.gold-marker {
+  color: #886410;
+  margin-left: 8px;
+}
+[data-theme='dark'] .gold-marker {
+  color: #dfbd61;
+}
+.leaderboard-note {
+  font-size: 18px;
+}
+@media (max-width: 600px) {
+  .header-player {
+    font-size: 18px;
+  }
+  .claim-payoff,
+  .claim-payoff .reveal-time {
+    text-align: left;
+  }
+  .claim-payoff .reveal-time > div {
+    gap: 2px 12px;
+  }
+  .claim-payoff .reminder-button {
+    padding-top: 6px;
+    padding-bottom: 6px;
+  }
+  .leaderboard th,
+  .leaderboard td {
+    padding: 12px 4px;
+  }
+  .leaderboard th:first-child {
+    width: 16%;
+  }
+  .leaderboard th:nth-child(2) {
+    width: 40%;
+  }
+}
+.page .done-score {
+  font-size: clamp(28px, 5vw, 64px);
+  line-height: 1.1;
+}
+.focused-play .result-panel .claim-payoff p {
+  font-weight: 400;
+}
+.focused-play .result-panel .claim-payoff .points-earned {
+  font-weight: 650;
+}
+@media (max-width: 600px) {
+  .masthead nav {
+    column-gap: 8px;
+    row-gap: 0;
+  }
+  .masthead .header-player {
+    width: 100%;
+    justify-content: space-between;
+    padding: 4px 8px 10px;
+  }
+}
+@media (max-width: 600px) {
+  .focused-play .has-payoff .play-heading .category {
+    margin-bottom: 12px;
+  }
+}

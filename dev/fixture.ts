@@ -76,6 +76,10 @@ function file() {
     streak: myClaims.length ? 1 : 0,
     summaryId: 'fixture-summary',
     category_id: category.id,
+    points: Math.max(0, myClaims.reduce((n, c) => n + c.points, 0) - strikes * 10),
+    rank: myClaims.length ? 1 : null,
+    players: myClaims.length ? 1 : 0,
+    revealed: false,
     claims: myClaims,
     dibs: myClaims.length,
     strikes,
@@ -145,6 +149,7 @@ export async function request(path: string, body?: any): Promise<any> {
         e.toLowerCase().includes(decodeURIComponent(path.split('q=')[1] || '').toLowerCase()),
       ),
     };
+  if (path.startsWith('/leaderboard')) return { rows: [], own: null, total: 0 };
   if (path.startsWith('/ledger')) {
     const u = new URL(path, 'http://fixture');
     return {
@@ -241,6 +246,9 @@ export async function request(path: string, body?: any): Promise<any> {
       category_id: category.id,
       category_name: category.name,
       category_date: category.date,
+      points: entry === 'Axolotl' ? 160 : 60,
+      percentile: .6,
+      bonus: entry === 'Axolotl' ? 100 : 0,
       id: 'fixture-' + (claims.length + 1),
       claim_no: claims.length + 1,
       display: entry,

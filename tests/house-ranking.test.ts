@@ -69,7 +69,7 @@ it('keeps golden status out of public catalog assets and client code', () => {
   for (const f of readdirSync('src').filter((f) => /\.tsx?$/.test(f)))
     expect(readFileSync('src/' + f, 'utf8')).not.toMatch(/house-words|daily_specials|golden_json/);
 });
-it('prints a spoiler-free square for each claimed event and numbers Monday as the first drop', () => {
+it('prints plain spoiler-free points, rank and streak', () => {
   expect(
     summaryText(
       {
@@ -81,9 +81,13 @@ it('prints a spoiler-free square for each claimed event and numbers Monday as th
         ],
         dibs: 3,
         strikes: 1,
+        points: 140,
+        rank: 3,
+        players: 27,
+        streak: 3,
         completedAt: '2026-11-24T02:04:00Z',
       } as any,
-      { date: '2026-11-23' } as any,
+      { date: '2026-11-23', name: 'Animals' } as any,
     ),
-  ).toBe(GAME_DESCRIPTION + '\nDibs #1 ■■■□ 3/3 claims · 1 strike · filed 9:04 PM ET · Next drop: 9:00 PM ET');
+  ).toBe('Dibs, Animals: 140 pts, #3 of 27, streak 3.');
 });

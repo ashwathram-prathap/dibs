@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite --host 127.0.0.1",
-    "build": "tsx scripts/configure-drop.ts && tsx scripts/build-house-words.ts && tsx scripts/build-catalog-assets.ts && tsc -b && vite build",
+    "build": "tsx scripts/configure-drop.ts && tsx scripts/build-house-words.ts && tsx scripts/build-catalog-assets.ts && tsx scripts/build-scores.ts && tsc -b && vite build",
     "preview": "vite preview --host 127.0.0.1",
     "worker:dev": "wrangler dev --local -c worker/wrangler.jsonc --port 8787 --env-file .dev.vars",
     "test": "vitest run",

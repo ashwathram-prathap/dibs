@@ -129,6 +129,11 @@ beforeAll(async () => {
       .replace(/\n/g, ' '),
   );
   await db.exec(readFileSync('migrations/0011_calendar.sql', 'utf8').replace(/\n/g, ' '));
+  await db.exec(
+    readFileSync('migrations/0013_points.sql', 'utf8')
+      .replace(/^--.*$/gm, '')
+      .replace(/\n/g, ' '),
+  );
   const date = registryDate();
   await db
     .prepare(
@@ -218,7 +223,7 @@ it('binds a short-lived verification token to the session and network', async ()
   expect(state.file.dibs).toBe(1);
   expect(state.file.strikes).toBe(0);
 });
-it('redacts live records across bootstrap, ledger, certificates, summaries and sockets until the viewer closes', async () => {
+it('redacts live records across bootstrap, ledger, certificates, summaries and sockets until the day closes, even for a finished viewer', async () => {
   const owner = await account();
   let result: any;
   for (const answer of ['Animal 31', 'Animal 32', 'Animal 33']) {
@@ -261,12 +266,12 @@ it('redacts live records across bootstrap, ledger, certificates, summaries and s
   for (const word of forbidden) expect(message).not.toContain(word);
   ws.close(1000);
   const full = await (await call('/ledger?category=practice', undefined, owner.cookie)).text();
-  expect(full).toContain('Animal 31');
+  expect(full).not.toContain('Animal 31');
   const closedSummary: any = await (
     await call('/summary/' + result.file.summaryId, undefined, owner.cookie)
   ).json();
   expect(closedSummary.file.claims).toHaveLength(3);
-  expect(closedSummary.file.claims[0].display).toBe('Animal 31');
+  expect(closedSummary.file.claims[0].display).toBe('Revealed when the day closes');
 });
 it('makes records public after the category closes without relying on the viewer identity', async () => {
   const { canReveal } = await import('../worker/visibility');

@@ -91,3 +91,10 @@ review/round13/**/*.png
 review/round13/lighthouse*/
 review/round13/browser-results.json
 review/final/round13/
+
+# R14 full-size visual captures and verbose runners remain in the local handoff.
+review/round14/**/*.png
+review/round14/lighthouse*/
+review/round14/browser-results.json
+review/round14/firefox-ci/
+review/final/round14/

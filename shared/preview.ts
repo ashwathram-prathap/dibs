@@ -19,10 +19,10 @@ export function preview(kind: 'certificate' | 'summary'): PagesFunction<Env> {
     const data = (await response.json()) as any;
     const title =
       kind === 'summary'
-        ? `Dibs · ${data.file.dibs}/${MAX_CLAIMS} · ${data.file.strikes} ${data.file.strikes === 1 ? 'strike' : 'strikes'}`
+        ? `Dibs, ${data.category.name}: ${data.file.points ?? 0} pts, ${data.file.rank ? '#' + data.file.rank + ' of ' + data.file.players : 'unranked'}, streak ${data.file.streak || 0}.`
         : `Dibs · Certificate No. ${data.claim.claim_no}`;
     const description = GAME_DESCRIPTION;
-    const image = `${publicOrigin}/api/og/${kind === 'summary' ? 'summary/' : ''}${id}?v=11`;
+    const image = `${publicOrigin}/api/og/${kind === 'summary' ? 'summary/' : ''}${id}?v=14`;
     const canonical = `${publicOrigin}/${kind}/${id}`;
     const tags: Record<string, string> = {
       'meta[name="robots"]': 'noindex,nofollow',

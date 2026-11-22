@@ -24,6 +24,10 @@ export interface Category {
   status?: string;
 }
 export interface Claim {
+  revealed?: boolean;
+  points?: number;
+  percentile?: number | null;
+  bonus?: number;
   founder?: boolean | number;
   concealed?: boolean;
   golden?: boolean | number;
@@ -44,6 +48,8 @@ export interface User {
   rerolls_used: number;
 }
 export interface Today {
+  revealed?: boolean;
+  closesAt?: string;
   serverTime?: string;
   practice?: boolean;
   specials?: Specials;
@@ -76,6 +82,10 @@ export interface Guess {
   house?: boolean;
 }
 export interface DayFile {
+  points?: number;
+  rank?: number | null;
+  players?: number;
+  revealed?: boolean;
   founder?: boolean | number;
   handle?: string;
   streak?: number;
@@ -96,3 +106,19 @@ export interface Me {
   streakDates: string[];
 }
 export const serial = (n: number) => String(n).padStart(4, '0');
+
+export interface Standing {
+  rank: number;
+  handle: string;
+  founder: boolean;
+  points: number;
+  claims: number;
+  golden: boolean;
+  own: boolean;
+}
+export interface Standings {
+  rows: Standing[];
+  own: Standing | null;
+  total: number;
+  final?: boolean;
+}

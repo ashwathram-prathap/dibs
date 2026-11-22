@@ -1,7 +1,14 @@
 import { syncClock } from './clock';
 import { api, isDemo } from './api';
 import type { Claim, Today, Me } from './types';
-export type Snapshot = { today: Today; rows: Claim[]; me?: Me; reset?: boolean; version?: number };
+export type Snapshot = {
+  leaderboard?: import('./types').Standings;
+  today: Today;
+  rows: Claim[];
+  me?: Me;
+  reset?: boolean;
+  version?: number;
+};
 let latest: Snapshot | null = null;
 let cursor = 0;
 const listeners = new Set<(s: Snapshot) => void>();
@@ -22,13 +29,14 @@ export function subscribe(fn: (s: Snapshot) => void) {
     listeners.delete(fn);
   };
 }
-export function publishClaim(claim: Claim, me?: Me) {
+export function publishClaim(claim: Claim, me?: Me, leaderboard?: import('./types').Standings) {
   if (!latest) return;
   const exists = latest.rows.some((r) => r.id === claim.id);
   publish(
     {
       ...latest,
       me,
+      leaderboard: leaderboard || latest.leaderboard,
       rows: [claim],
       today: {
         ...latest.today,

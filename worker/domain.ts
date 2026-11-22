@@ -95,7 +95,7 @@ export function nextDrop(now = new Date()) {
     : dropAt(new Date(Date.parse(d + 'T12:00:00Z') + 86400000).toISOString().slice(0, 10));
 }
 export function streak(dates: string[], current: string) {
-  const ordered = [...new Set(dates)].sort().reverse();
+  const ordered = [...new Set(dates.filter((day) => day <= current))].sort().reverse();
   const prior = new Date(Date.parse(current + 'T12:00:00Z') - 86400000).toISOString().slice(0, 10);
   if (![current, prior].includes(ordered[0])) return 0;
   let n = 0,

@@ -9,6 +9,8 @@ import { WORDMARK_WIDTH, WORDMARK_PATH, WORDMARK_BLOCK_X } from '../shared/brand
 import { fitText } from '../shared/typography';
 // Canvas avoids Safari's SVG foreignObject restrictions. Font faces are self-hosted.
 export async function exportCertificate(claim: Claim, story: boolean) {
+  if (!claim.revealed)
+    claim = { ...claim, display: 'Revealed when the day closes', obscurity: null, golden: false };
   await document.fonts.ready;
   await Promise.all([
     document.fonts.load(
@@ -160,7 +162,7 @@ async function canvasFile(canvas: HTMLCanvasElement, name: string) {
 }
 
 export function summaryText(file: DayFile, category: Category) {
-  return `${GAME_DESCRIPTION}\nDibs #${edition(category.date)} ${file.events.map((e) => (e.kind === 'dibs' ? '■' : '□')).join('')} ${file.dibs}/${MAX_CLAIMS} claims · ${file.strikes} ${file.strikes === 1 ? 'strike' : 'strikes'} · filed ${localTime(file.completedAt!, 'America/Toronto').full} · Next drop: ${DROP_TIME_LABEL} ET`;
+  return `Dibs, ${category.name}: ${file.points ?? 0} pts, ${file.rank ? `#${file.rank} of ${file.players}` : 'unranked'}, streak ${file.streak || 0}.`;
 }
 export async function exportSummary(file: DayFile, category: Category, story: boolean) {
   await document.fonts.ready;
@@ -248,8 +250,24 @@ export async function exportSummary(file: DayFile, category: Category, story: bo
     480,
     22,
   );
-  text('ACCEPTED & REJECTED FILINGS / IN ORDER', 80, 538, 18);
-  const rows = guesses(file),
+  text(
+    `${file.points ?? 0} POINTS${file.rank ? ` · #${file.rank} OF ${file.players}` : ''} · STREAK ${file.streak || 0}`,
+    80,
+    538,
+    24,
+  );
+  const rows = guesses(file).map((e) =>
+      file.revealed
+        ? e
+        : {
+            ...e,
+            display: 'Revealed when the day closes',
+            holder: undefined,
+            heldAt: undefined,
+            house: false,
+            golden: false,
+          },
+    ),
     rowHeight = Math.min(105, (h - 940) / Math.max(1, rows.length));
   rows.forEach((event, i) => {
     const y = 565 + i * rowHeight;
@@ -302,7 +320,7 @@ export async function exportSummary(file: DayFile, category: Category, story: bo
   );
   if (file.founder) text('FOUNDER', 80, holderTop + 112, 18);
   c.fillStyle = ink;
-  text(`${file.streak || 0} DAY STREAK`, 80, holderTop + 145, 20);
+  text(`STREAK ${file.streak || 0}`, 80, holderTop + 145, 20);
   c.save();
   c.translate(780, h - 210);
   c.lineWidth = 1.4;

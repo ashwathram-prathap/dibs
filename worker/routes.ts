@@ -1,3 +1,4 @@
+import { scoreAnswer, scoreFile } from './scoring';
 import { MAX_CLAIMS, MAX_STRIKES } from '../shared/config';
 import { clerkReply } from '../shared/moments';
 import { canReveal, publicCategory, concealClaim } from './visibility';
@@ -53,7 +54,7 @@ export interface Env {
   TURNSTILE_SITE_KEY: string;
   LOCAL_TEST?: string;
 }
-const claimSelect = `SELECT c.id,c.category_id,c.claim_no,c.file_no,c.created_at,a.display,a.obscurity,EXISTS(SELECT 1 FROM daily_specials ds,json_each(ds.golden_json) j WHERE ds.category_id=c.category_id AND j.value=c.answer_id) golden,CASE WHEN u.provider_subject LIKE 'withdrawn:%' THEN 'Withdrawn player' WHEN u.hidden=1 THEN 'Record withheld' ELSE COALESCE((SELECT name FROM founder_role WHERE user_id=u.id),u.handle) END handle,EXISTS(SELECT 1 FROM founder_role WHERE user_id=u.id AND u.hidden=0) founder,g.name category_name,g.date category_date,COALESCE(json_extract(g.source_json,'$.staticCatalog.count'),g.total_registrable)-(SELECT COUNT(*) FROM house_words hw WHERE hw.category_id=g.id) total_registrable FROM claims c JOIN answers a ON a.id=c.answer_id JOIN users u ON u.id=c.user_id JOIN categories g ON g.id=c.category_id`;
+const claimSelect = `SELECT c.id,c.category_id,c.claim_no,c.file_no,c.created_at,c.points,c.percentile,c.bonus,c.voided,a.display,a.obscurity,(c.bonus=100) golden,CASE WHEN u.provider_subject LIKE 'withdrawn:%' THEN 'Withdrawn player' WHEN u.hidden=1 THEN 'Record withheld' ELSE COALESCE((SELECT name FROM founder_role WHERE user_id=u.id),u.handle) END handle,EXISTS(SELECT 1 FROM founder_role WHERE user_id=u.id AND u.hidden=0) founder,g.name category_name,g.date category_date,COALESCE(json_extract(g.source_json,'$.staticCatalog.count'),g.total_registrable)-(SELECT COUNT(*) FROM house_words hw WHERE hw.category_id=g.id) total_registrable FROM claims c JOIN answers a ON a.id=c.answer_id JOIN users u ON u.id=c.user_id JOIN categories g ON g.id=c.category_id`;
 export async function fileState(env: Env, category: string, uid: string) {
   const claims = (
     await env.DB.prepare(
@@ -73,6 +74,7 @@ export async function fileState(env: Env, category: string, uid: string) {
     ...claims.map((c) => ({
       at: c.created_at,
       kind: 'dibs',
+      points: c.points,
       golden: !!c.golden,
       display: c.display,
       claimId: c.id,
@@ -93,6 +95,9 @@ export async function fileState(env: Env, category: string, uid: string) {
   const closed = claims.length >= MAX_CLAIMS || strikes.length >= MAX_STRIKES;
   return {
     category_id: category,
+    ...scoreFile(events),
+    eligible: !claims.some((c) => c.voided),
+    golden: claims.some((c) => c.golden),
     claims,
     dibs: claims.length,
     strikes: strikes.length,
@@ -305,8 +310,8 @@ async function admin(req: Request, env: Env, path: string) {
       Date.parse(b.opensAt) <= Date.now()
     )
       return fail(422, 'Choose a future practice opening.');
-    await env.DB.prepare("UPDATE categories SET drop_at=? WHERE id='practice'")
-      .bind(new Date(b.opensAt).toISOString())
+    await env.DB.prepare("UPDATE categories SET drop_at=?,date=? WHERE id='practice'")
+      .bind(new Date(b.opensAt).toISOString(), torontoDate(new Date(b.opensAt)))
       .run();
     return json({ ok: true, opensAt: new Date(b.opensAt).toISOString() });
   }
@@ -918,12 +923,13 @@ async function claim(req: Request, env: Env, u: any) {
   const day = torontoDate();
   const hash = await hmac(ip || 'unknown', await hmac('ip:' + day, env.COOKIE_SECRET));
   const id = crypto.randomUUID();
+  const score = await scoreAnswer(env, g, staticRow?.[0], answer.answer_id);
   try {
     await env.DB.batch([
       reserveRequest(),
       persistUser,
       env.DB.prepare(
-        "INSERT INTO claims(id,category_id,answer_id,user_id,claim_no,created_at,ip_hash,ip_day,file_no,request_id,request_answer) SELECT ?,?,?,?,COALESCE(MAX(claim_no),0)+1,strftime('%Y-%m-%dT%H:%M:%fZ','now'),?,?,(SELECT COUNT(*) FROM claims WHERE category_id=? AND user_id=?)+(SELECT COUNT(*) FROM strikes WHERE category_id=? AND user_id=?)+1,?,? FROM claims WHERE category_id=?",
+        "INSERT INTO claims(id,category_id,answer_id,user_id,claim_no,created_at,ip_hash,ip_day,file_no,request_id,request_answer,points,percentile,bonus) SELECT ?,?,?,?,COALESCE(MAX(claim_no),0)+1,strftime('%Y-%m-%dT%H:%M:%fZ','now'),?,?,(SELECT COUNT(*) FROM claims WHERE category_id=? AND user_id=?)+(SELECT COUNT(*) FROM strikes WHERE category_id=? AND user_id=?)+1,?,?,?,?,? FROM claims WHERE category_id=?",
       ).bind(
         id,
         g.id,
@@ -937,6 +943,9 @@ async function claim(req: Request, env: Env, u: any) {
         u.id,
         requestId,
         normalize(b.answer),
+        score.points,
+        score.percentile,
+        score.bonus,
         g.id,
       ),
     ]);

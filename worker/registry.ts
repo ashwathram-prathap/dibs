@@ -1,10 +1,11 @@
+import { Leaderboard, publicScores } from './leaderboard';
 import { withdraw } from './withdraw';
 import { calendarRoute } from './calendar';
 import { platformUsage } from './platform-usage';
-import { canReveal, publicCategory, concealClaim, concealSummary } from './visibility';
+import { canReveal, dayClosed, publicCategory, concealClaim, concealSummary } from './visibility';
 import { emptyMinute, alertConditions, freeLimits, type Minute } from './monitoring';
 import { verifyChallenge, verificationToken, verifiedSession } from './turnstile';
-import { specialStatus } from './specials';
+import { closeAt, specialStatus } from './specials';
 import { dropAt } from './domain';
 import { LAUNCH_DATE } from '../shared/config';
 import { gate, securityKey, type Gate } from './security';
@@ -48,12 +49,14 @@ type Session = {
 // One global read coordinator. SQLite-backed Durable Objects are included on Workers Free.
 // Hibernation avoids charging five minutes of active duration for every open browser.
 export class Registry extends DurableObject<Env> {
+  private scores: Leaderboard;
   private snapshot?: Snapshot;
   private refreshing?: Promise<Snapshot>;
   private mutations = new Map<string, Promise<unknown>>();
   private flights = new Map<string, Promise<Response>>();
   constructor(ctx: DurableObjectState, env: Env) {
     super(ctx, env);
+    this.scores = new Leaderboard(ctx.storage, env);
   }
   async fresh(env: Env): Promise<Snapshot> {
     if (this.refreshing) return this.refreshing;
@@ -116,13 +119,15 @@ export class Registry extends DurableObject<Env> {
       this.refreshing = undefined;
     }
   }
-  today(s: Snapshot, reveal = false) {
+  today(s: Snapshot, reveal = dayClosed(s.category)) {
     return {
       serverTime: new Date().toISOString(),
       category: publicCategory(s.category),
       specials: s.specials
         ? { ...s.specials, houseWords: reveal ? s.specials.houseWords : [] }
         : null,
+      revealed: dayClosed(s.category),
+      closesAt: s.category ? closeAt(s.category) : null,
       practice: this.env.STAGING === 'true',
       claimed: s.rows.length,
       open: s.category
@@ -164,7 +169,7 @@ export class Registry extends DurableObject<Env> {
       if (u) {
         const dates = (
           await this.env.DB.prepare(
-            'SELECT g.date FROM claims c JOIN categories g ON g.id=c.category_id WHERE c.user_id=? AND c.voided=0 ORDER BY c.created_at DESC LIMIT 370',
+            'SELECT DISTINCT g.date FROM claims c JOIN categories g ON g.id=c.category_id WHERE c.user_id=? AND c.voided=0 ORDER BY g.date DESC LIMIT 370',
           )
             .bind(id)
             .all<any>()
@@ -226,7 +231,10 @@ export class Registry extends DurableObject<Env> {
       .first<any>();
     session.file.handle = founder?.name || session.user.handle;
     session.file.founder = !!founder;
-    session.file.streak = streak(session.streakDates, registryDate());
+    session.file.streak = streak(
+      session.streakDates,
+      session.claim?.category_date || registryDate(),
+    );
     const key = 'summary:' + id;
     if (!(await this.ctx.storage.get(key)))
       await this.ctx.storage.put(key, {
@@ -264,11 +272,15 @@ export class Registry extends DurableObject<Env> {
         .bind(ref.user, category.date)
         .all<any>()
     ).results.map((r) => r.date);
+    const standing = publicScores(await this.scores.rows(ref.category), ref.user);
     const owner = await this.ctx.storage.get<Session>('session:' + ref.user);
     const visibleIds = new Set(visible.map((c: any) => c.id));
     return json({
       file: {
         ...file,
+        revealed: dayClosed(category),
+        rank: standing.own?.rank || null,
+        players: standing.total,
         events: file.events.map((e) =>
           e.kind === 'dibs' && 'claimId' in e && !visibleIds.has(e.claimId)
             ? { at: e.at, kind: e.kind, display: 'Record withheld' }
@@ -315,20 +327,22 @@ export class Registry extends DurableObject<Env> {
     }
   }
   async image(id: string, env: Env): Promise<Response> {
-    if ((await this.ctx.storage.get('image-format')) !== 11) {
+    if ((await this.ctx.storage.get('image-format')) !== 14) {
       await this.ctx.blockConcurrencyWhile(async () => {
-        if ((await this.ctx.storage.get('image-format')) === 11) return;
+        if ((await this.ctx.storage.get('image-format')) === 14) return;
         for (const prefix of ['image:', 'image-expiry:']) {
           const rows = await this.ctx.storage.list({ prefix });
           if (rows.size) await this.ctx.storage.delete([...rows.keys()]);
         }
         await this.ctx.storage.put('image-bytes', 0);
-        await this.ctx.storage.put('image-format', 11);
+        await this.ctx.storage.put('image-format', 14);
       });
     }
-    const key = 'image:' + (id || 'default') + ':r11';
+    const key = 'image:' + (id || 'default') + ':r14';
     const saved = await this.ctx.storage.get<ArrayBuffer>(key);
-    if (saved) return this.png(saved);
+    const ttl = id.startsWith('summary/') ? 25 : 86400;
+    const updated = (await this.ctx.storage.get<number>(key + ':updated')) || 0;
+    if (saved && (ttl === 86400 || Date.now() - updated < ttl * 1000)) return this.png(saved, ttl);
     let pending = this.flights.get(key);
     if (!pending) {
       pending = (async () => {
@@ -359,12 +373,14 @@ export class Registry extends DurableObject<Env> {
         const rendered = await og(claim, summary);
         const bytes = await rendered.arrayBuffer();
         const stored = await this.ctx.storage.transaction(async (txn) => {
-          const used = (await txn.get<number>('image-bytes')) || 0;
+          const previousBytes = (await txn.get<ArrayBuffer>(key))?.byteLength || 0;
+          const used = Math.max(0, ((await txn.get<number>('image-bytes')) || 0) - previousBytes);
           if (id && used + bytes.byteLength > 400_000_000) return false;
           await txn.put(key, bytes);
+          await txn.put(key + ':updated', Date.now());
           if (id) {
             await txn.put('image-bytes', used + bytes.byteLength);
-            await txn.put('image-expiry:' + id + ':r11', {
+            await txn.put('image-expiry:' + id + ':r14', {
               at: Date.now() + 30 * 86400000,
               size: bytes.byteLength,
             });
@@ -374,7 +390,7 @@ export class Registry extends DurableObject<Env> {
         if (!stored) return this.image('', env);
         if (!(await this.ctx.storage.getAlarm()))
           await this.ctx.storage.setAlarm(Date.now() + 86400000);
-        return this.png(bytes);
+        return this.png(bytes, ttl);
       })();
       this.flights.set(key, pending);
     }
@@ -384,11 +400,11 @@ export class Registry extends DurableObject<Env> {
       this.flights.delete(key);
     }
   }
-  png(bytes: ArrayBuffer) {
+  png(bytes: ArrayBuffer, ttl = 86400) {
     return new Response(bytes, {
       headers: {
         'content-type': 'image/png',
-        'cache-control': 'public, max-age=86400',
+        'cache-control': `public, max-age=${ttl}`,
         'x-public-origin': PUBLIC_ORIGIN,
       },
     });
@@ -406,7 +422,11 @@ export class Registry extends DurableObject<Env> {
               ? (await txn.get<ArrayBuffer>(key.replace('image-expiry:', 'image:')))?.byteLength ||
                 0
               : value.size;
-          await txn.delete([key, key.replace('image-expiry:', 'image:')]);
+          await txn.delete([
+            key,
+            key.replace('image-expiry:', 'image:'),
+            key.replace('image-expiry:', 'image:') + ':updated',
+          ]);
           await txn.put(
             'image-bytes',
             Math.max(0, ((await txn.get<number>('image-bytes')) || 0) - size),
@@ -703,27 +723,59 @@ export class Registry extends DurableObject<Env> {
         session.file = await fileState(env, snapshot.category.id, session.user.id);
         session.claim = session.file.claims.at(-1) || null;
       }
-      if (session) await this.ensureSummary(session);
+      if (session) {
+        await this.ensureSummary(session);
+        if (session.file && session.file.category_id === snapshot.category?.id) {
+          const board = publicScores(
+            await this.scores.rows(session.file.category_id),
+            session.user.id,
+          );
+          session.file.revealed = dayClosed(snapshot.category);
+          session.file.rank = board.own?.rank || null;
+          session.file.players = board.total;
+        }
+      }
       const data =
         path === '/me'
           ? this.me(session, snapshot.category?.id)
           : {
-              today: this.today(snapshot, !!session?.file?.closed),
+              today: this.today(snapshot),
+              leaderboard: snapshot.category
+                ? publicScores(await this.scores.rows(snapshot.category.id), session?.user.id)
+                : { rows: [], own: null, total: 0 },
               me: this.me(session, snapshot.category?.id),
-              rows: session?.file?.closed ? snapshot.rows.slice(0, 50) : [],
+              rows: dayClosed(snapshot.category) ? snapshot.rows.slice(0, 50) : [],
               version: snapshot.version,
             };
       return json(data, 200, cookie ? { 'set-cookie': cookie } : {});
     }
     if (path === '/today') {
       const snapshot = await this.fresh(env);
-      const { session } = await this.session(req);
-      return json(
-        this.today(
-          snapshot,
-          session?.file?.category_id === snapshot.category?.id && session?.file?.closed,
+      return json(this.today(snapshot));
+    }
+    if (path === '/leaderboard') {
+      const currentDay = await this.fresh(env);
+      const id = url.searchParams.get('category') || currentDay.category?.id;
+      if (!id) return json({ rows: [], own: null, total: 0 });
+      const category =
+        currentDay.category?.id === id
+          ? currentDay.category
+          : await env.DB.prepare(
+              "SELECT id,date,drop_at FROM categories WHERE id=? AND status='approved'",
+            )
+              .bind(id)
+              .first<any>();
+      if (!category || Date.parse(category.drop_at) > Date.now())
+        return json({ rows: [], own: null, total: 0 });
+      const uid = await cookieUser(req, env.COOKIE_SECRET);
+      return json({
+        ...publicScores(
+          await this.scores.rows(id),
+          uid || undefined,
+          url.searchParams.get('limit') === '10' && dayClosed(category) ? 10 : 25,
         ),
-      );
+        final: dayClosed(category),
+      });
     }
     if (path === '/ledger') {
       const s = await this.fresh(env),
@@ -776,7 +828,9 @@ export class Registry extends DurableObject<Env> {
       const data: any = await cached.json();
       const g = { id: data.claim.category_id, date: data.claim.category_date };
       return json({
-        claim: (await canReveal(req, env, g)) ? data.claim : concealClaim(data.claim),
+        claim: (await canReveal(req, env, g))
+          ? { ...data.claim, revealed: true }
+          : concealClaim(data.claim),
       });
     }
     if (path === '/og' || path.startsWith('/og/')) return this.image(path.slice(4), env);
@@ -881,6 +935,7 @@ export class Registry extends DurableObject<Env> {
           path === '/admin/practice-reset' ||
           path === '/admin/set-founder'
         ) {
+          await this.scores.clear();
           const b = (await req.clone().json()) as any; // caller body is cloned by route below
           if (path.endsWith('hide-user')) {
             const s = await this.ctx.storage.get<Session>('session:' + b.id);
@@ -990,6 +1045,7 @@ export class Registry extends DurableObject<Env> {
         )?.user_id;
       if (!uid) return json({ message: 'Enter your backup code to restore your claims.' }, 401);
       const replacements = await withdraw(env, uid);
+      await this.scores.clear();
       await this.ctx.storage.delete('session:' + uid);
       await this.ctx.storage.delete('active:' + uid);
       for (const [key, ref] of await this.ctx.storage.list<any>({ prefix: 'summary:' })) {
@@ -1228,35 +1284,32 @@ export class Registry extends DurableObject<Env> {
             });
           }
           await this.ensureSummary(latest);
-          if (latest.file?.closed) {
-            const key = 'board:' + latest.file.category_id;
-            const board = (await this.ctx.storage.get<any[]>(key)) || [];
-            const updated = [
-              ...board.filter((r) => r.user_id !== latest.user.id),
-              {
-                user_id: latest.user.id,
-                handle: latest.file.handle || latest.user.handle,
-                founder: !!latest.file.founder,
-                dibs: latest.file.dibs,
-                strikes: latest.file.strikes,
-                completedAt: latest.file.completedAt,
-              },
-            ]
-              .sort(
-                (a, b) =>
-                  b.dibs - a.dibs ||
-                  a.strikes - b.strikes ||
-                  a.completedAt.localeCompare(b.completedAt) ||
-                  a.user_id.localeCompare(b.user_id),
-              )
-              .slice(0, 10);
-            await this.ctx.storage.put(key, updated);
-            if (this.snapshot && this.snapshot.category?.id === latest.file.category_id)
-              this.snapshot.board = updated;
-          }
+          const founder = await env.DB.prepare('SELECT name FROM founder_role WHERE user_id=?')
+            .bind(latest.user.id)
+            .first<any>();
+          await this.scores.update(
+            latest.file.category_id,
+            {
+              user_id: latest.user.id,
+              handle: founder?.name || latest.user.handle,
+              founder: !!founder,
+              points: latest.file.points,
+              reachedAt: latest.file.reachedAt,
+              dibs: latest.file.dibs,
+              golden: latest.file.golden,
+              events: latest.file.dibs + latest.file.strikes,
+            },
+            !latest.user.hidden && latest.file.eligible,
+          );
+          const standing = publicScores(
+            await this.scores.rows(latest.file.category_id),
+            latest.user.id,
+          );
+          latest.file.revealed = dayClosed(this.snapshot?.category);
+          latest.file.rank = standing.own?.rank || null;
+          latest.file.players = standing.total;
           await this.ensureSummary(latest);
-          if (data.claim || latest.file?.closed)
-            await this.ctx.storage.put('session:' + latest.user.id, latest);
+          await this.ctx.storage.put('session:' + latest.user.id, latest);
           Object.assign(session, latest);
         });
         let recoveryKey: string | undefined;
@@ -1274,7 +1327,16 @@ export class Registry extends DurableObject<Env> {
           if (!issued.meta.changes && !data.replayed) recoveryKey = undefined;
         }
         return json(
-          { ...data, recoveryKey, file: session.file, me: this.me(session, data.file.category_id) },
+          {
+            ...data,
+            recoveryKey,
+            file: session.file,
+            me: this.me(session, data.file.category_id),
+            leaderboard: publicScores(
+              await this.scores.rows(data.file.category_id),
+              session.user.id,
+            ),
+          },
           response.status,
         );
       }
@@ -1306,11 +1368,21 @@ export class Registry extends DurableObject<Env> {
       const viewer = previous?.uid
         ? await this.ctx.storage.get<Session>('session:' + previous.uid)
         : undefined;
-      const reveal = viewer?.file?.category_id === s.category?.id && viewer?.file?.closed;
+      const reveal = dayClosed(s.category);
+      if (viewer?.file && viewer.file.category_id === s.category?.id) {
+        const standings = publicScores(await this.scores.rows(s.category.id), viewer.user.id);
+        viewer.file.rank = standings.own?.rank || null;
+        viewer.file.players = standings.total;
+        viewer.file.revealed = reveal;
+      }
       const same = b.category === s.category?.id && (b.version || 0) === (s.version || 0);
       ws.send(
         JSON.stringify({
           today: this.today(s, reveal),
+          me: viewer ? this.me(viewer, s.category?.id) : undefined,
+          leaderboard: s.category
+            ? publicScores(await this.scores.rows(s.category.id), previous?.uid)
+            : { rows: [], own: null, total: 0 },
           rows: reveal ? s.rows.filter((r) => !same || r.claim_no > (Number(b.since) || 0)) : [],
           reset: !same,
           version: s.version,
