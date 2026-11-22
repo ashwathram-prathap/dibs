@@ -1,3 +1,4 @@
+import { LAUNCH_DATE, DROP_TIME_LABEL } from '../shared/config';
 import { PUBLIC_HOST } from '../shared/config';
 import { type Claim, type DayFile, type Category, serial } from './types';
 import { WORDMARK_WIDTH, WORDMARK_PATH, WORDMARK_BLOCK_X } from '../shared/brand';
@@ -102,8 +103,8 @@ export async function exportCertificate(claim: Claim, story: boolean) {
   c.save();
   c.translate(795, h - 247);
   c.rotate(((((claim.claim_no * 7.31) % 7) - 4) * Math.PI) / 180);
-  c.strokeStyle = '#E1462B';
-  c.fillStyle = '#E1462B';
+  c.strokeStyle = claim.golden ? '#B8902F' : '#E1462B';
+  c.fillStyle = claim.golden ? '#B8902F' : '#E1462B';
   c.lineWidth = 5;
   c.strokeRect(-166, -67, 332, 147);
   c.strokeRect(-156, -57, 312, 127);
@@ -112,7 +113,16 @@ export async function exportCertificate(claim: Claim, story: boolean) {
   c.fillText('DIBS', 0, 32);
   c.fillStyle = '#1A1A17';
   c.font = '400 22px Plex';
-  c.fillText(claim.obscurity && claim.obscurity >= 4 ? 'DEEP CUT' : 'REGISTERED', 0, 61);
+  c.fillStyle = claim.golden ? '#7A5C14' : '#1A1A17';
+  c.fillText(
+    claim.golden
+      ? '★ GOLDEN TICKET'
+      : claim.obscurity && claim.obscurity >= 4
+        ? 'DEEP CUT'
+        : 'REGISTERED',
+    0,
+    61,
+  );
   c.restore();
   c.setLineDash([6, 6]);
   line(h - 120);
@@ -135,7 +145,8 @@ export function summaryText(file: DayFile, category: Category) {
   const edition = Math.max(
     1,
     Math.round(
-      (Date.parse(category.date + 'T12:00:00Z') - Date.parse('2026-11-24T12:00:00Z')) / 86400000,
+      (Date.parse(category.date + 'T12:00:00Z') - Date.parse(LAUNCH_DATE + 'T12:00:00Z')) /
+        86400000,
     ) + 1,
   );
   const time = new Date(file.completedAt!).toLocaleTimeString('en-US', {
@@ -143,7 +154,7 @@ export function summaryText(file: DayFile, category: Category) {
     hour: 'numeric',
     minute: '2-digit',
   });
-  return `Dibs #${edition} ${file.events.map((e) => (e.kind === 'dibs' ? '■' : '□')).join('')} ${file.dibs}/3 · ${file.strikes} ${file.strikes === 1 ? 'strike' : 'strikes'} · filed ${time}`;
+  return `Dibs #${edition} ${file.events.map((e) => (e.kind === 'dibs' ? (e.golden ? '★' : '■') : '□')).join('')} ${file.dibs}/3 · ${file.strikes} ${file.strikes === 1 ? 'strike' : 'strikes'} · filed ${time}`;
 }
 export async function exportSummary(file: DayFile, category: Category, story: boolean) {
   await document.fonts.ready;
@@ -184,7 +195,10 @@ export async function exportSummary(file: DayFile, category: Category, story: bo
   }
   let y = story ? 850 : 745;
   for (let i = 0; i < 3; i++) {
-    const label = file.claims[i]?.display.toUpperCase() || '— UNCLAIMED';
+    const label =
+      (file.claims[i]?.golden ? '★ ' : '') +
+      (file.claims[i]?.display.toUpperCase() || '— UNCLAIMED');
+    c.fillStyle = file.claims[i]?.golden ? '#7A5C14' : '#1A1A17';
     const fitted = fitText(
       label,
       (t, size) => {
@@ -202,6 +216,7 @@ export async function exportSummary(file: DayFile, category: Category, story: bo
     for (const [j, line] of fitted.lines.entries()) c.fillText(line, 80, y + j * fitted.size);
     y += 120;
   }
+  c.fillStyle = '#1A1A17';
   mono(
     'FILED ' +
       new Date(file.completedAt!).toLocaleTimeString('en-US', {
@@ -212,7 +227,7 @@ export async function exportSummary(file: DayFile, category: Category, story: bo
       ' / TORONTO',
     h - 150,
   );
-  mono('NEXT DROP / 9 PM TORONTO', h - 105, 22);
+  mono('NEXT DROP / ' + DROP_TIME_LABEL + ' TORONTO', h - 105, 22);
   mono(PUBLIC_HOST, h - 65, 20);
   return canvasFile(canvas, `dibs-day-${category.date}-${story ? 'story' : 'feed'}.png`);
 }

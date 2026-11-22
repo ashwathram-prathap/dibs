@@ -7,10 +7,13 @@ export default defineConfig(({ mode }) => {
   const token =
     process.env.VITE_CF_ANALYTICS_TOKEN ||
     loadEnv(mode, process.cwd(), 'VITE_').VITE_CF_ANALYTICS_TOKEN;
+  const publicOrigin = process.env.DIBS_PUBLIC_ORIGIN || PUBLIC_ORIGIN;
   return {
+    define: { DIBS_PUBLIC_ORIGIN: JSON.stringify(publicOrigin) },
     ...(mode === 'security-test'
       ? {
           define: {
+            DIBS_PUBLIC_ORIGIN: JSON.stringify(publicOrigin),
             'import.meta.env.DEV': 'true',
             'import.meta.env.VITE_DEMO': JSON.stringify('true'),
           },
@@ -19,7 +22,7 @@ export default defineConfig(({ mode }) => {
     plugins: [
       {
         name: 'public-origin',
-        transformIndexHtml: (html: string) => html.replaceAll('__PUBLIC_ORIGIN__', PUBLIC_ORIGIN),
+        transformIndexHtml: (html: string) => html.replaceAll('__PUBLIC_ORIGIN__', publicOrigin),
       },
       react(),
       {

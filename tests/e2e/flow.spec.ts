@@ -28,11 +28,7 @@ test('full filing, certificate, sharing and public record', async ({ page }, inf
   await page.evaluate(() => document.fonts.ready);
   await shot('01-load');
   const input = page.getByLabel('ENTRY:', { exact: true });
-  await input.fill('Pan');
-  await expect(page.getByRole('option', { name: 'Pangolin' })).toBeVisible();
-  await input.press('ArrowDown');
-  await input.press('Enter');
-  await expect(input).toHaveValue('Pangolin');
+  await input.fill('Pangolin');
   await page.getByRole('button', { name: 'CALL DIBS' }).click();
   await expect(page.getByRole('status')).toContainText('already called dibs');
   await shot('02-taken');

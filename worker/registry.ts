@@ -1,3 +1,6 @@
+import { specialStatus } from './specials';
+import { dropAt } from './domain';
+import { LAUNCH_DATE } from '../shared/config';
 import { gate, securityKey, type Gate } from './security';
 import { isLocal, originFailure, validId } from '../shared/security';
 import { DurableObject } from 'cloudflare:workers';
@@ -10,6 +13,7 @@ import { isPlatform, platforms } from '../shared/sharing';
 
 type Snapshot = {
   category: any;
+  specials?: any;
   rows: any[];
   reserved: number;
   checkedAt: number;
@@ -71,6 +75,7 @@ export class Registry extends DurableObject<Env> {
       const rows = [...added, ...(previous?.rows || [])];
       this.snapshot = {
         category,
+        specials: category ? await specialStatus(env, category) : null,
         nextDrop: category
           ? nextDrop()
           : (
@@ -79,7 +84,7 @@ export class Registry extends DurableObject<Env> {
               )
                 .bind(new Date().toISOString())
                 .first<any>()
-            )?.at || '2026-11-25T02:00:00.000Z',
+            )?.at || dropAt(LAUNCH_DATE),
         board: category ? (await this.ctx.storage.get<any[]>('board:' + category.id)) || [] : [],
         rows,
         reserved,
@@ -99,8 +104,12 @@ export class Registry extends DurableObject<Env> {
   today(s: Snapshot) {
     return {
       category: s.category,
+      specials: s.specials,
+      practice: this.env.STAGING === 'true',
       claimed: s.rows.length,
-      open: s.category ? s.category.total_registrable - s.reserved : 0,
+      open: s.category
+        ? s.category.total_registrable - s.reserved - (s.specials?.houseCount || 0)
+        : 0,
       voided: s.reserved - s.rows.length,
       lastClaimAt: s.rows[0]?.created_at || null,
       nextDrop: s.nextDrop || nextDrop(),
@@ -206,6 +215,7 @@ export class Registry extends DurableObject<Env> {
     return json({
       file: { ...file, claims: visible, summaryId: id },
       category,
+      specials: await specialStatus(env, category),
       nextDrop: nextDrop(),
     });
   }
@@ -508,6 +518,11 @@ export class Registry extends DurableObject<Env> {
       }
 
       const response = await route(req.clone() as Request, env);
+      if (response.ok && path === '/admin/practice-reset' && env.STAGING === 'true') {
+        await this.ctx.storage.deleteAll();
+        this.snapshot = undefined;
+        for (const ws of this.ctx.getWebSockets()) ws.close(1012, 'Practice reset');
+      }
       if (response.ok && req.method === 'POST') {
         await this.ctx.storage.put(
           'version',
@@ -517,7 +532,11 @@ export class Registry extends DurableObject<Env> {
         await this.ctx.storage.delete('snapshot');
         const keys = await this.ctx.storage.list({ prefix: 'cache:' });
         await this.ctx.storage.delete([...keys.keys()]);
-        if (path.endsWith('hide-user') || path.endsWith('void-claim')) {
+        if (
+          path.endsWith('hide-user') ||
+          path.endsWith('void-claim') ||
+          path === '/admin/practice-reset'
+        ) {
           const b = (await req.clone().json()) as any; // caller body is cloned by route below
           if (path.endsWith('hide-user')) {
             const s = await this.ctx.storage.get<Session>('session:' + b.id);
@@ -648,6 +667,7 @@ export class Registry extends DurableObject<Env> {
       const response = await route(req, { ...env, PLAYER: session.user, ATTEMPT_CHECKED: true });
       if (response.status === 201 || response.status === 409) {
         const data = (await response.clone().json()) as any;
+        if (this.snapshot) this.snapshot.checkedAt = 0;
         // Read authoritative D1 progress after every mutation. Concurrent requests cannot
         // overwrite session progress with an older response.
         await this.ctx.blockConcurrencyWhile(async () => {

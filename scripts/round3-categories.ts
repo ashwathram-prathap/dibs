@@ -1,3 +1,4 @@
+import { LAUNCH_DATE, DROP_TIME_LABEL } from '../shared/config';
 // Resumable owner-approved rollout. Persist this journal between daily runs.
 import { readFileSync, writeFileSync, existsSync, appendFileSync } from 'node:fs';
 import { createHash } from 'node:crypto';
@@ -41,16 +42,21 @@ const busy = stats.days.some(
     d.day >= new Date(Date.now() - 86400000).toISOString().slice(0, 10) &&
     d.active_claimers >= 1000,
 );
-let lastDate = '2026-11-23';
+let lastDate = new Date(Date.parse(LAUNCH_DATE + 'T12:00:00Z') - 86400000)
+  .toISOString()
+  .slice(0, 10);
 for (const [i, id] of plan.entries()) {
   const local = JSON.parse(readFileSync(`categories/${id}.json`, 'utf8'));
   let remote = registers.find((r: any) => r.id === id);
   const record = (progress.categories[id] ||= {
     status: 'pending',
-    plannedDate: new Date(Date.parse('2026-11-24T12:00:00Z') + i * 86400000)
+    plannedDate: new Date(Date.parse(LAUNCH_DATE + 'T12:00:00Z') + i * 86400000)
       .toISOString()
       .slice(0, 10),
   });
+  record.plannedDate = new Date(Date.parse(LAUNCH_DATE + 'T12:00:00Z') + i * 86400000)
+    .toISOString()
+    .slice(0, 10);
   if (remote?.status === 'approved') {
     record.status = 'approved';
     record.date = remote.date;
@@ -129,7 +135,7 @@ for (const [i, id] of plan.entries()) {
   lastDate = date;
   budget.reservedWrites += 8;
   save();
-  console.log(`${id}: verified and approved for ${date}, 9 PM Toronto`);
+  console.log(`${id}: verified and approved for ${date}, ${DROP_TIME_LABEL} Toronto`);
 }
 progress.remaining = plan.filter((id) => progress.categories[id]?.status !== 'approved');
 save();

@@ -20,6 +20,9 @@ if (command === 'upload' || command === 'replace-draft') {
 } else if (['hide-user', 'void-claim'].includes(command)) {
   path = '/admin/' + command;
   body = { id: target };
+} else if (command === 'practice-reset') {
+  path = '/admin/practice-reset';
+  body = {};
 } else if (command === 'stats') path = '/admin/stats';
 else
   throw new Error(
@@ -28,7 +31,7 @@ else
 const r = await fetch(base + path, {
   method: body ? 'POST' : 'GET',
   headers: {
-    origin: 'https://dibs.here',
+    origin: new URL(base).origin,
     authorization: 'Bearer ' + token,
     'content-type': 'application/json',
   },

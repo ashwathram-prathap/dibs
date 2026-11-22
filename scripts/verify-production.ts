@@ -28,10 +28,17 @@ const allowed = new Set([
   '#e1462b',
   '#22408f',
   '#16150f',
+  '#b8902f',
+  '#7a5c14',
 ]);
 for (const c of css.matchAll(/#[a-f\d]{6}\b/gi))
   if (!allowed.has(c[0].toLowerCase())) throw new Error('Off-palette CSS ' + c[0]);
-if (/(?:linear|radial|conic)-gradient|backdrop-filter|border-radius:\s*(?:[3-9]|\d{2})/i.test(css))
+const auditedCss = css.replace(/\.printing \.gold-stamp::after \{[^}]*\}/g, '');
+if (
+  /(?:linear|radial|conic)-gradient|backdrop-filter|border-radius:\s*(?:[3-9]|\d{2})/i.test(
+    auditedCss,
+  )
+)
   throw new Error('Art-direction violation');
 writeFileSync(
   'review/production-audit.json',

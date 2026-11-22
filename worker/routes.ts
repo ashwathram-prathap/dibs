@@ -1,3 +1,4 @@
+import { ensureSpecials, specialStatus } from './specials';
 import {
   canonicalRedirect,
   corsResponse,
@@ -24,6 +25,7 @@ import {
 import { og } from './og';
 export interface Env {
   DB: D1Database;
+  STAGING?: string;
   REGISTRY?: DurableObjectNamespace;
   IMAGE_CACHE?: DurableObjectNamespace;
   PLAYER?: any;
@@ -34,7 +36,7 @@ export interface Env {
   TURNSTILE_SITE_KEY: string;
   LOCAL_TEST?: string;
 }
-const claimSelect = `SELECT c.id,c.category_id,c.claim_no,c.file_no,c.created_at,a.display,a.obscurity,CASE WHEN u.hidden=1 THEN 'Record withheld' ELSE u.handle END handle,g.name category_name,g.date category_date,g.total_registrable FROM claims c JOIN answers a ON a.id=c.answer_id JOIN users u ON u.id=c.user_id JOIN categories g ON g.id=c.category_id`;
+const claimSelect = `SELECT c.id,c.category_id,c.claim_no,c.file_no,c.created_at,a.display,a.obscurity,EXISTS(SELECT 1 FROM daily_specials ds,json_each(ds.golden_json) j WHERE ds.category_id=c.category_id AND j.value=c.answer_id) golden,CASE WHEN u.hidden=1 THEN 'Record withheld' ELSE u.handle END handle,g.name category_name,g.date category_date,g.total_registrable FROM claims c JOIN answers a ON a.id=c.answer_id JOIN users u ON u.id=c.user_id JOIN categories g ON g.id=c.category_id`;
 export async function fileState(env: Env, category: string, uid: string) {
   const claims = (
     await env.DB.prepare(
@@ -51,7 +53,12 @@ export async function fileState(env: Env, category: string, uid: string) {
       .all()
   ).results as any[];
   const events = [
-    ...claims.map((c) => ({ at: c.created_at, kind: 'dibs', order: c.file_no })),
+    ...claims.map((c) => ({
+      at: c.created_at,
+      kind: 'dibs',
+      golden: !!c.golden,
+      order: c.file_no,
+    })),
     ...strikes.map((s) => ({ at: s.created_at, kind: 'strike', order: s.seq })),
   ].sort((a, b) => a.order - b.order);
   const closed = claims.length >= 3 || strikes.length >= 5;
@@ -79,11 +86,18 @@ export const json = (data: unknown, status = 200, extra: Record<string, string> 
   });
 const fail = (status: number, message: string) => json({ message }, status);
 export async function current(env: Env) {
-  return env.DB.prepare(
-    "SELECT * FROM categories WHERE date=? AND status='approved' AND drop_at<=?",
-  )
-    .bind(registryDate(), new Date().toISOString())
-    .first<any>();
+  const category =
+    env.STAGING === 'true'
+      ? await env.DB.prepare(
+          "SELECT * FROM categories WHERE id='practice' AND status='approved'",
+        ).first<any>()
+      : await env.DB.prepare(
+          "SELECT * FROM categories WHERE date=? AND status='approved' AND drop_at<=?",
+        )
+          .bind(registryDate(), new Date().toISOString())
+          .first<any>();
+  if (category) await ensureSpecials(env, category);
+  return category;
 }
 async function user(req: Request, env: Env) {
   if (env.PLAYER) return env.PLAYER;
@@ -203,6 +217,19 @@ async function admin(req: Request, env: Env, path: string) {
       ),
     ]);
     return results[0].meta.changes ? json({ ok: true }) : fail(404, 'Record not found.');
+  }
+  if (path === '/admin/practice-reset') {
+    if (env.STAGING !== 'true') return fail(404, 'No such clerk procedure.');
+    await env.DB.batch([
+      env.DB.prepare('DELETE FROM strikes'),
+      env.DB.prepare('DELETE FROM claims'),
+      env.DB.prepare('DELETE FROM attempts'),
+      env.DB.prepare('DELETE FROM rate_limits'),
+      env.DB.prepare('DELETE FROM users'),
+      env.DB.prepare('DELETE FROM daily_specials'),
+      env.DB.prepare('UPDATE house_words SET revealed=0'),
+    ]);
+    return json({ ok: true, practice: true });
   }
   if (path === '/admin/category') return uploadCategory(env, b);
   if (path === '/admin/approve') {
@@ -403,12 +430,17 @@ export async function route(req: Request, env: Env): Promise<Response> {
           .bind(category.id)
           .first<any>()
       : { reserved: 0, claimed: 0 };
+    const specials = category ? await specialStatus(env, category) : null;
     const claimed = Number(counts.claimed);
     return json({
       category,
+      specials,
+      practice: env.STAGING === 'true',
       claimed,
       lastClaimAt: counts.lastClaimAt || null,
-      open: category ? category.total_registrable - Number(counts.reserved) : 0,
+      open: category
+        ? category.total_registrable - Number(counts.reserved) - (specials?.houseCount || 0)
+        : 0,
       voided: Number(counts.reserved) - claimed,
       nextDrop: nextDrop(),
       turnstileSiteKey: env.TURNSTILE_SITE_KEY,
@@ -452,17 +484,7 @@ export async function route(req: Request, env: Env): Promise<Response> {
     );
   }
   if (path === '/answers') {
-    const q = url.searchParams.get('q') || '';
-    if (q.length < 3) return json({ answers: [] });
-    const category = await current(env);
-    if (!category) return json({ answers: [] });
-    const key = normalize(q);
-    const rows = await env.DB.prepare(
-      'SELECT DISTINCT a.display FROM answer_keys k JOIN answers a ON a.id=k.answer_id WHERE k.category_id=? AND k.match_key LIKE ? ORDER BY a.display LIMIT 8',
-    )
-      .bind(category.id, key + '%')
-      .all();
-    return json({ answers: rows.results.map((r: any) => r.display) });
+    return json({ answers: [] });
   }
   if (path === '/ledger') {
     const category = url.searchParams.get('category');
@@ -476,11 +498,15 @@ export async function route(req: Request, env: Env): Promise<Response> {
   }
   if (path === '/archive') {
     const rows = await env.DB.prepare(
-      "SELECT id,date,name,slug,total_registrable,drop_at FROM categories g WHERE date<? AND status='approved' AND drop_at<=? AND EXISTS(SELECT 1 FROM claims c WHERE c.category_id=g.id AND c.voided=0) ORDER BY date DESC",
+      "SELECT id,date,name,slug,total_registrable,drop_at FROM categories g WHERE date<? AND status='approved' AND drop_at<=? ORDER BY date DESC",
     )
       .bind(registryDate(), new Date().toISOString())
       .all();
-    return json({ categories: rows.results });
+    return json({
+      categories: await Promise.all(
+        rows.results.map(async (g: any) => ({ ...g, specials: await specialStatus(env, g, true) })),
+      ),
+    });
   }
   if (path.startsWith('/certificate/')) {
     const id = path.slice(13);
@@ -565,11 +591,16 @@ async function claim(req: Request, env: Env, u: any) {
     .bind(g.id, normalize(b.answer))
     .first<any>();
   if (!answer) return fail(422, "Not on today's register. Check the spelling.");
+  const house = await env.DB.prepare(
+    'SELECT a.display FROM house_words h JOIN answers a ON a.id=h.answer_id WHERE h.category_id=? AND h.answer_id=?',
+  )
+    .bind(g.id, answer.answer_id)
+    .first<any>();
   const taken = async () => {
     const r = await env.DB.prepare(claimSelect + ' WHERE c.category_id=? AND c.answer_id=?')
       .bind(g.id, answer.answer_id)
       .first<any>();
-    if (!r) return null;
+    if (!r && !house) return null;
     try {
       await env.DB.prepare(
         "INSERT INTO strikes SELECT ?,?,(SELECT COUNT(*) FROM claims WHERE category_id=? AND user_id=?)+COUNT(*)+1,strftime('%Y-%m-%dT%H:%M:%fZ','now') FROM strikes WHERE category_id=? AND user_id=?",
@@ -580,8 +611,22 @@ async function claim(req: Request, env: Env, u: any) {
       if (String(e).includes('FILE_CLOSED')) return fail(403, 'Your file is closed for today.');
       throw e;
     }
+    if (house)
+      await env.DB.prepare(
+        'UPDATE house_words SET revealed=1 WHERE category_id=? AND answer_id=? AND revealed=0',
+      )
+        .bind(g.id, answer.answer_id)
+        .run();
     return json(
-      { takenBy: r.handle, at: r.created_at, file: await fileState(env, g.id, u.id) },
+      {
+        takenBy: house ? 'THE REGISTRY' : r.handle,
+        house: !!house,
+        message: house
+          ? `${house.display.toUpperCase()} is held by the Registry. Obvious picks are reserved.`
+          : undefined,
+        at: r?.created_at,
+        file: await fileState(env, g.id, u.id),
+      },
       409,
     );
   };
@@ -669,7 +714,11 @@ const handler = {
         const shard = (parseInt(id.replace(/[^a-f0-9]/gi, '').slice(0, 2) || '0', 16) || 0) % 8;
         return env.IMAGE_CACHE.get(env.IMAGE_CACHE.idFromName('images-' + shard)).fetch(req);
       }
-      if (req.method === 'GET' && (path === '/today' || path === '/ledger')) {
+      if (
+        env.STAGING !== 'true' &&
+        req.method === 'GET' &&
+        (path === '/today' || path === '/ledger')
+      ) {
         // Neither cookies, query order nor the player's cursor fragments the shared cache.
         const key = new URL(PUBLIC_ORIGIN + '/api' + path);
         if (path === '/ledger')
@@ -713,6 +762,8 @@ const handler = {
     }
   },
   async scheduled(_event: ScheduledController, env: Env) {
+    await current(env);
+    if (_event.cron !== '17 5 * * *') return;
     await ensureMaintenanceIndexes(env);
     await env.DB.batch([
       env.DB.prepare('DELETE FROM attempts WHERE at<?').bind(Date.now() - 120000),

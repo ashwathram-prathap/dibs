@@ -40,7 +40,7 @@ for (const width of [390, 1440])
         page.getByText(
           state === 'quota'
             ? 'Registry closed for the day.'
-            : 'The first register opens November 24 at 9 PM, Toronto time. Come back to call dibs.',
+            : 'The first register opens Monday November 23 at 9:00 PM, Toronto time. Come back to call dibs.',
           { exact: true },
         ),
       ).toBeVisible();

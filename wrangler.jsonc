@@ -2,6 +2,12 @@
   "name": "dibs",
   "pages_build_output_dir": "dist",
   "compatibility_date": "2026-11-20",
+  "env": {
+    "preview": {
+      "vars": { "STAGING": "true" },
+      "services": [{ "binding": "API", "service": "dibs-api-staging" }]
+    }
+  },
   "services": [
     {
       "binding": "API",

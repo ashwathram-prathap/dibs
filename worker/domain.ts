@@ -1,3 +1,4 @@
+import { DROP_TIME_LOCAL, DROP_TIME_ZONE } from '../shared/config';
 export function normalize(value: string) {
   let s = value
     .normalize('NFKD')
@@ -33,17 +34,17 @@ export function normalize(value: string) {
 }
 export function torontoDate(now = new Date()) {
   return new Intl.DateTimeFormat('en-CA', {
-    timeZone: 'America/Toronto',
+    timeZone: DROP_TIME_ZONE,
     year: 'numeric',
     month: '2-digit',
     day: '2-digit',
   }).format(now);
 }
 export function dropAt(date: string) {
-  let t = Date.parse(date + 'T21:00:00Z');
+  let t = Date.parse(date + 'T' + DROP_TIME_LOCAL + ':00Z');
   for (let i = 0; i < 3; i++) {
     const parts = new Intl.DateTimeFormat('en-CA', {
-      timeZone: 'America/Toronto',
+      timeZone: DROP_TIME_ZONE,
       year: 'numeric',
       month: '2-digit',
       day: '2-digit',
@@ -56,7 +57,7 @@ export function dropAt(date: string) {
     const local = Date.parse(
       `${get('year')}-${get('month')}-${get('day')}T${get('hour')}:${get('minute')}:${get('second')}Z`,
     );
-    t += Date.parse(date + 'T21:00:00Z') - local;
+    t += Date.parse(date + 'T' + DROP_TIME_LOCAL + ':00Z') - local;
   }
   return new Date(t).toISOString();
 }

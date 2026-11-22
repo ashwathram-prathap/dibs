@@ -1,14 +1,17 @@
 import { PUBLIC_ORIGIN } from './config';
 interface Env {
+  STAGING?: string;
   API: Fetcher;
   ASSETS: Fetcher;
 }
 // Both metadata surfaces use the same anonymous, spoiler-free record.
 export function preview(kind: 'certificate' | 'summary'): PagesFunction<Env> {
   return async ({ request, env, params }) => {
+    const publicOrigin =
+      env.STAGING === 'true' ? 'https://practice.dibs-7hz.pages.dev' : PUBLIC_ORIGIN;
     const id = encodeURIComponent(String(params.id));
     const origin = new URL(request.url).origin;
-    const response = await env.API.fetch(new Request(`${PUBLIC_ORIGIN}/api/${kind}/${id}`));
+    const response = await env.API.fetch(new Request(`${publicOrigin}/api/${kind}/${id}`));
     if (!response.ok)
       return new Response('Dibs: this file is not on record.', { status: response.status });
     const data = (await response.json()) as any;
@@ -20,8 +23,8 @@ export function preview(kind: 'certificate' | 'summary'): PagesFunction<Env> {
       kind === 'summary'
         ? `A day on file, ${data.category.date}. Three dibs. Five strikes. Play the daily registry.`
         : `One more on file, ${data.claim.category_date}. Call your own Dibs in the daily registry.`;
-    const image = `${PUBLIC_ORIGIN}/api/og/${kind === 'summary' ? 'summary/' : ''}${id}?v=4`;
-    const canonical = `${PUBLIC_ORIGIN}/${kind}/${id}`;
+    const image = `${publicOrigin}/api/og/${kind === 'summary' ? 'summary/' : ''}${id}?v=4`;
+    const canonical = `${publicOrigin}/${kind}/${id}`;
     const tags: Record<string, string> = {
       'meta[name="description"]': description,
       'meta[property="og:title"]': title,

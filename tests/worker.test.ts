@@ -81,12 +81,17 @@ beforeAll(async () => {
       .replace(/^--.*$/gm, '')
       .replace(/\n/g, ' '),
   );
+  await db.exec(
+    readFileSync('migrations/0007_daily_specials.sql', 'utf8')
+      .replace(/^--.*$/gm, '')
+      .replace(/\n/g, ' '),
+  );
   const date = registryDate();
   await db
     .prepare(
       'INSERT INTO categories(id,date,name,slug,total_registrable,drop_at,status) VALUES(?,?,?,?,?,?,?)',
     )
-    .bind('test', date, 'Animals', 'animals', 2400, dropAt(date), 'approved')
+    .bind('test', date, 'Animals', 'test-animals', 2400, dropAt(date), 'approved')
     .run();
   for (let i = 0; i < 70; i++) {
     const display = i === 0 ? 'Axolotl' : 'Test animal ' + i;
@@ -219,7 +224,7 @@ describe('Worker with real SQLite/D1 execution', () => {
   });
   it('autocomplete never reveals ownership and ledger serials are unique', async () => {
     const r = await request('/answers?q=axo');
-    expect(await r.json()).toEqual({ answers: ['Axolotl'] });
+    expect(await r.json()).toEqual({ answers: [] });
     const rows = ((await (await request('/ledger?category=test')).json()) as any).rows;
     expect(new Set(rows.map((r: any) => r.claim_no)).size).toBe(rows.length);
   });

@@ -30,6 +30,12 @@ export function publishClaim(claim: Claim, me?: Me) {
       rows: [claim],
       today: {
         ...latest.today,
+        specials: latest.today.specials
+          ? {
+              ...latest.today.specials,
+              goldenFound: latest.today.specials.goldenFound + (!exists && claim.golden ? 1 : 0),
+            }
+          : undefined,
         claimed: latest.today.claimed + (exists ? 0 : 1),
         open: latest.today.open - (exists ? 0 : 1),
         lastClaimAt: claim.created_at,

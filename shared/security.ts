@@ -4,7 +4,7 @@ export const CSP = [
   "default-src 'self'",
   "script-src 'self' https://challenges.cloudflare.com https://static.cloudflareinsights.com",
   'frame-src https://challenges.cloudflare.com',
-  "connect-src 'self' wss://dibs.here https://cloudflareinsights.com",
+  `connect-src 'self' ${PUBLIC_ORIGIN.replace('https:', 'wss:')} https://cloudflareinsights.com`,
   "style-src 'self'",
   "img-src 'self' data: blob:",
   "font-src 'self'",
@@ -29,10 +29,10 @@ export function secureResponse(response: Response) {
 }
 export const isLocal = (req: Request, enabled?: string) =>
   enabled === 'true' && ['localhost', '127.0.0.1'].includes(new URL(req.url).hostname);
-export function canonicalRedirect(req: Request, local = false) {
+export function canonicalRedirect(req: Request, local = false, origin = PUBLIC_ORIGIN) {
   const url = new URL(req.url);
-  if (!local && url.origin !== PUBLIC_ORIGIN)
-    return Response.redirect(PUBLIC_ORIGIN + url.pathname + url.search, 301);
+  if (!local && url.origin !== origin)
+    return Response.redirect(origin + url.pathname + url.search, 301);
   return null;
 }
 export function allowedOrigin(req: Request, local = false) {

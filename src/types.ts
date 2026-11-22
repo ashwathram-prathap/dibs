@@ -1,4 +1,20 @@
+export interface Specials {
+  houseCount: number;
+  houseWords: { display: string; handle: string }[];
+  goldenFound: number;
+  goldenTotal: number;
+  commitment: string;
+  committedAt: string;
+  verified?: boolean;
+  reveal?: {
+    seed: string;
+    answers: { id: string; display: string }[];
+    algorithm: string;
+    payload: string;
+  };
+}
 export interface Category {
+  specials?: Specials;
   id: string;
   date: string;
   name: string;
@@ -8,6 +24,7 @@ export interface Category {
   status?: string;
 }
 export interface Claim {
+  golden?: boolean | number;
   id: string;
   category_id: string;
   claim_no: number;
@@ -25,6 +42,8 @@ export interface User {
   rerolls_used: number;
 }
 export interface Today {
+  practice?: boolean;
+  specials?: Specials;
   category: Category | null;
   claimed: number;
   open: number;
@@ -41,7 +60,7 @@ export interface DayFile {
   claims: Claim[];
   dibs: number;
   strikes: number;
-  events: { at: string; kind: 'dibs' | 'strike' }[];
+  events: { at: string; kind: 'dibs' | 'strike'; golden?: boolean }[];
   closed: boolean;
   completedAt: string | null;
 }

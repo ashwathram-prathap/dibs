@@ -56,7 +56,7 @@ beforeAll(async () => {
       const html = ${JSON.stringify(readFileSync('index.html', 'utf8').replaceAll('__PUBLIC_ORIGIN__', PUBLIC_ORIGIN))};
       export default { fetch(request, env) {
         const [, kind, id] = new URL(request.url).pathname.split('/');
-        return onRequest({ request, next: () => preview(kind)({ request, params: { id }, env: { API: env.API, ASSETS: { fetch: () => new Response(html, { headers: { 'content-type': 'text/html' } }) } } }) });
+        return onRequest({ request, env, next: () => preview(kind)({ request, params: { id }, env: { API: env.API, ASSETS: { fetch: () => new Response(html, { headers: { 'content-type': 'text/html' } }) } } }) });
       } };`,
       resolveDir: process.cwd(),
     },
@@ -108,6 +108,7 @@ beforeAll(async () => {
     '0004_privacy_cleanup_index.sql',
     '0005_three_dibs.sql',
     '0006_file_event_order.sql',
+    '0007_daily_specials.sql',
   ])
     await db.exec(
       readFileSync('migrations/' + file, 'utf8')
@@ -134,11 +135,12 @@ beforeAll(async () => {
   }
 }, 30000);
 afterAll(async () => {
-  mkdirSync('review/round5', { recursive: true });
-  writeFileSync('review/round5/d1-actions.json', JSON.stringify(evidence, null, 2));
+  mkdirSync('review/round6', { recursive: true });
+  writeFileSync('review/round6/d1-actions.json', JSON.stringify(evidence, null, 2));
   await mf?.dispose();
 });
 it('creates no D1 users or writes on page loads and cached polls', async () => {
+  await account(); // The drop creates its immutable commitment once, before player polling.
   const first = await account();
   const next = await account();
   expect(first.today.category.name).toBe('Animals');
@@ -409,8 +411,8 @@ it('serves unique cached previews to WhatsApp, X, Facebook, iMessage and Discord
       writeFileSync(`review/final/${kind}-og.png`, bytes);
     }
   }
-  mkdirSync('review/round5', { recursive: true });
-  writeFileSync('review/round5/preview-fetches.json', JSON.stringify(results, null, 2));
+  mkdirSync('review/round6', { recursive: true });
+  writeFileSync('review/round6/preview-fetches.json', JSON.stringify(results, null, 2));
 });
 
 it('keeps a zero-dibs five-strike summary across reloads without creating a D1 player', async () => {

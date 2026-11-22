@@ -1,3 +1,13 @@
+const r6 = new URLSearchParams(location.search).has('r6');
+const house = ['Dog', 'Cat', 'Lion', 'Tiger', 'Elephant', 'Horse', 'Wolf', 'Bear', 'Rabbit', 'Fox'];
+const specials = () => ({
+  houseCount: 10,
+  houseWords: [],
+  goldenFound: myClaims.filter((c) => c.golden).length,
+  goldenTotal: 3,
+  commitment: 'aa'.repeat(32),
+  committedAt: new Date().toISOString(),
+});
 // DEVELOPMENT ONLY. Vite removes this import from every production build.
 class ApiError extends Error {
   constructor(
@@ -48,7 +58,7 @@ let claims: any[] = [
 const originalClaim = claims[0];
 let mine: any = null;
 let myClaims: any[] = [];
-let events: { at: string; kind: string }[] = [];
+let events: { at: string; kind: string; golden?: boolean }[] = [];
 function file() {
   const strikes = events.filter((e) => e.kind === 'strike').length;
   const closed = myClaims.length === 3 || strikes === 5;
@@ -71,9 +81,10 @@ export async function request(path: string, body?: any): Promise<any> {
   if (path === '/today')
     return {
       category: { ...category },
+      ...(r6 ? { practice: true, specials: specials() } : {}),
       claimed: claims.length,
       lastClaimAt: claims[0]?.created_at || null,
-      open: 2400 - claims.length,
+      open: 2400 - claims.length - (r6 ? 10 : 0),
       nextDrop: new Date(Date.now() + 3600000 * 12).toISOString(),
       turnstileSiteKey: 'demo',
     };
@@ -111,11 +122,45 @@ export async function request(path: string, body?: any): Promise<any> {
       ),
     };
   }
-  if (path === '/archive') return { categories: [] };
+  if (path === '/archive')
+    return {
+      categories: r6
+        ? [
+            {
+              ...category,
+              specials: {
+                ...specials(),
+                houseWords: house.map((display) => ({ display, handle: 'THE REGISTRY' })),
+                verified: true,
+                reveal: {
+                  seed: 'visual-fixture',
+                  answers: [
+                    { id: 'a', display: 'Axolotl' },
+                    { id: 'b', display: 'Okapi' },
+                    { id: 'c', display: 'Quokka' },
+                  ],
+                  payload: 'Development-only commitment proof',
+                  algorithm: 'SHA-256',
+                },
+              },
+            },
+          ]
+        : [],
+    };
   if (path.startsWith('/certificate/'))
     return { claim: claims.find((c) => c.id === path.split('/').pop()) || mine };
   if (path === '/claim') {
     if (file().closed) throw new ApiError(403, { message: 'Your file is closed for today.' });
+    if (r6 && body.answer.toLowerCase() === 'dog') {
+      events.push({ at: new Date().toISOString(), kind: 'strike' });
+      throw new ApiError(409, {
+        house: true,
+        takenBy: 'THE REGISTRY',
+        message: 'DOG is held by the Registry. Obvious picks are reserved.',
+        file: file(),
+        me: await request('/me'),
+      });
+    }
     const entry = entries.find((e) => e.toLowerCase() === body.answer.trim().toLowerCase());
     if (!entry)
       throw new ApiError(422, {
@@ -147,14 +192,16 @@ export async function request(path: string, body?: any): Promise<any> {
       handle: user.handle,
       created_at: new Date().toISOString(),
       obscurity: 4,
+      golden: r6 && entry === 'Axolotl',
     };
     claims = [mine, ...claims];
     myClaims.push(mine);
-    events.push({ at: mine.created_at, kind: 'dibs' });
+    events.push({ at: mine.created_at, kind: 'dibs', golden: !!mine.golden });
     return { claim: mine, me: await request('/me') };
   }
   if (path.startsWith('/summary/'))
     return {
+      ...(r6 ? { specials: specials() } : {}),
       file: { ...file(), summaryId: 'fixture-summary' },
       category,
       nextDrop: new Date(Date.now() + 43200000).toISOString(),
