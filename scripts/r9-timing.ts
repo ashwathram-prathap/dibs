@@ -6,7 +6,10 @@ try {
   for (let batch = 0; batch < 2; batch++) {
     const context = await browser.newContext({ viewport: { width: 390, height: 844 } });
     const page = await context.newPage();
+    const verification = (process.argv[2] || '').startsWith('after') ? page.waitForResponse(r=>r.url().endsWith('/api/verify-session')&&r.ok(),{timeout:60000}) : undefined;
+    if ((process.argv[2] || '').includes('4g')) { const cdp=await context.newCDPSession(page); await cdp.send('Network.enable');await cdp.send('Network.emulateNetworkConditions',{offline:false,latency:150,downloadThroughput:200000,uploadThroughput:90000}); }
     await page.goto('https://practice.dibs-7hz.pages.dev');
+    if(verification) await verification;
     await page.locator('#answer').waitFor();
     for (let i = 0; i < 10; i++) {
       await page.locator('#answer').fill('Chamelon');
@@ -38,7 +41,7 @@ try {
     .sort((a, b) => a - b);
   const result = {
     label: process.argv[2] || 'before',
-    network: 'Live practice, local network; not a 4G claim',
+    network: (process.argv[2] || '').includes('4g') ? 'Live practice, Chromium emulated 4G: 150ms latency, 1.6Mbps down, 720Kbps up' : 'Live practice, local network; not a 4G claim',
     samples,
     p50: values[Math.floor(values.length * 0.5)],
     p95: values[Math.min(values.length - 1, Math.floor(values.length * 0.95))],

@@ -282,3 +282,91 @@ it('makes records public after the category closes without relying on the viewer
     }),
   ).toBe(false);
 });
+it('assigns only one founder server-side, renders the role and gives no extra dibs', async () => {
+  const a = await account();
+  const first = await call(
+    '/claim',
+    { answer: 'Animal 40', turnstileToken: 'test', founder: true },
+    a.cookie,
+    'founder-test',
+  );
+  const data: any = await first.json();
+  expect(data.claim.founder).toBe(0);
+  const assign = (target: string, name?: string) =>
+    mf.dispatchFetch('http://localhost/api/admin/set-founder', {
+      method: 'POST',
+      headers: {
+        origin: 'https://dibs.here',
+        authorization: 'Bearer local-admin',
+        'content-type': 'application/json',
+      },
+      body: JSON.stringify({ target, name }),
+    });
+  expect((await assign(data.recoveryKey)).status).toBe(200);
+  for (const answer of ['Animal 41', 'Animal 42'])
+    expect(
+      (await call('/claim', { answer, turnstileToken: 'test' }, a.cookie, 'founder-test')).status,
+    ).toBe(201);
+  const cert: any = await (await call('/certificate/' + data.claim.id, undefined, a.cookie)).json();
+  expect(cert.claim.handle).toBe('THE REGISTRAR');
+  expect(cert.claim.founder).toBe(1);
+  expect(
+    (
+      await call(
+        '/claim',
+        { answer: 'Animal 43', turnstileToken: 'test' },
+        a.cookie,
+        'founder-test',
+      )
+    ).status,
+  ).toBe(403);
+  expect((await assign(a.me.user.id, 'THE CLERK')).status).toBe(200);
+  expect((await db.prepare('SELECT COUNT(*) n FROM founder_role').first()).n).toBe(1);
+});
+it('stores feedback privately, checks verification, and limits repeat submissions', async () => {
+  const a = await account();
+  expect(
+    (
+      await call(
+        '/feedback',
+        { text: 'Private note', turnstileToken: '' },
+        a.cookie,
+        'feedback-test',
+      )
+    ).status,
+  ).toBe(400);
+  expect(
+    (
+      await call(
+        '/feedback',
+        { text: 'x'.repeat(501), turnstileToken: 'test' },
+        a.cookie,
+        'feedback-test',
+      )
+    ).status,
+  ).toBe(422);
+  for (let i = 0; i < 3; i++)
+    expect(
+      (
+        await call(
+          '/feedback',
+          { text: 'Private note', turnstileToken: 'test' },
+          a.cookie,
+          'feedback-test',
+        )
+      ).status,
+    ).toBe(200);
+  expect(
+    (await call('/feedback', { text: 'Again', turnstileToken: 'test' }, a.cookie, 'feedback-test'))
+      .status,
+  ).toBe(429);
+  expect(await (await call('/bootstrap', undefined, a.cookie)).text()).not.toContain(
+    'Private note',
+  );
+  expect((await call('/admin/live')).status).toBe(404);
+  const admin = await mf.dispatchFetch('http://localhost/api/admin/live', {
+    headers: { authorization: 'Bearer local-admin' },
+  });
+  expect(admin.status).toBe(200);
+  expect(await admin.text()).toContain('Private note');
+});

@@ -1,3 +1,7 @@
+import { categoryStyle, paperStocks } from '../shared/category-style';
+import { clerkLine } from '../shared/clerk-lines';
+import { BrandProof } from './BrandProof';
+import { prepareSound, stampSound, soundEnabled } from './sound';
 import { submittedSpelling } from './spelling';
 import { HOME_TITLE, archiveTitle } from '../shared/seo';
 import { Icon } from './Icon';
@@ -31,6 +35,25 @@ import { ShareSheet } from './ShareSheet';
 import { summaryUrl, isPlatform } from '../shared/sharing';
 import { exportCertificate, exportSummary, summaryText } from './share';
 import { WORDMARK_WIDTH, WORDMARK_PATH, WORDMARK_BLOCK_X } from '../shared/brand';
+function Seal({ className = '' }: { className?: string }) {
+  return (
+    <img
+      className={'official-seal ' + className}
+      src="/art/seal.svg"
+      alt="Registry of Dibs · First come, first served · Est. 2026"
+    />
+  );
+}
+function Plate({ slug }: { slug: string }) {
+  const plate = categoryStyle(slug).plate;
+  return (
+    <img
+      className="category-plate"
+      src={'/art/' + (plate === 'seal-b' ? 'seal' : plate) + '.svg'}
+      alt=""
+    />
+  );
+}
 function Handle({ name, founder }: { name: string; founder?: boolean | number }) {
   return (
     <span className={founder ? 'founder-handle' : undefined}>
@@ -148,6 +171,36 @@ function Clock({ target, slim = false }: { target: string; slim?: boolean }) {
         {announcement}
       </span>
     </section>
+  );
+}
+function SoundToggle() {
+  const [on, setOn] = useState(soundEnabled);
+  return (
+    <button
+      className="sound-toggle"
+      aria-label={on ? 'Turn stamp sound off' : 'Turn stamp sound on'}
+      aria-pressed={on}
+      onClick={() => {
+        try {
+          localStorage.setItem('dibs-sound', on ? 'off' : 'on');
+        } catch {}
+        setOn(!on);
+        void prepareSound();
+      }}
+    >
+      <svg
+        viewBox="0 0 24 24"
+        width="20"
+        height="20"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="1.5"
+        aria-hidden="true"
+      >
+        <path d="M3 9h4l5-4v14l-5-4H3z" />
+        {on ? <path d="M16 8q5 4 0 8M19 5q8 7 0 14" /> : <path d="m16 9 5 6m0-6-5 6" />}
+      </svg>
+    </button>
   );
 }
 function TimezonePicker() {
@@ -308,14 +361,17 @@ export default function App() {
             <br />
             FIRST COME, FIRST SERVED.
           </p>
-          <button
-            className="theme-toggle"
-            onClick={() => setTheme(theme === 'light' ? 'dark' : 'light')}
-            aria-label={theme === 'light' ? 'Use carbon copy dark mode' : 'Use paper light mode'}
-          >
-            <span className="theme-swatch" />
-            {theme === 'light' ? 'CARBON COPY' : 'PAPER COPY'}
-          </button>
+          <div className="header-controls">
+            <SoundToggle />
+            <button
+              className="theme-toggle"
+              onClick={() => setTheme(theme === 'light' ? 'dark' : 'light')}
+              aria-label={theme === 'light' ? 'Use carbon copy dark mode' : 'Use paper light mode'}
+            >
+              <span className="theme-swatch" />
+              {theme === 'light' ? 'CARBON COPY' : 'PAPER COPY'}
+            </button>
+          </div>
         </header>
         <nav aria-label="Main navigation">
           {[
@@ -378,6 +434,8 @@ export default function App() {
             <Archive />
           ) : path === '/about' ? (
             <About nextDrop={today.nextDrop} />
+          ) : path === '/brand-proof' && (isDemo || today.practice) ? (
+            <BrandProof />
           ) : path === '/admin/live' ? (
             <LiveAdmin />
           ) : path === '/stats' ? (
@@ -464,6 +522,9 @@ function Home({
     [me.file, me.user?.handle, me.streak],
   );
   const [landed, setLanded] = useState(false);
+  useEffect(() => {
+    if (file?.closed) void refresh();
+  }, [file?.closed]);
 
   const reduced = useReducedMotion();
   const input = useRef<HTMLInputElement>(null);
@@ -566,6 +627,7 @@ function Home({
   async function submit(e: FormEvent, confirmed?: string) {
     e.preventDefault();
     if (busy || !answer.trim()) return;
+    void prepareSound();
     setBusy(true);
     setMessage('');
     setSuggestion(null);
@@ -587,11 +649,14 @@ function Home({
         result = await send(token);
       } catch (e) {
         if ((e as ApiError).data?.code !== 'VERIFY_AGAIN') throw e;
+        if ((e as ApiError).data?.sessionNotice)
+          setSessionNotice((e as ApiError).data.sessionNotice);
         verification.current = null;
         result = await send(await verifySession());
       }
       if (result.sessionNotice) setSessionNotice(result.sessionNotice);
       pendingRequest.current = null;
+      stampSound(true);
       setOutcome(result.claim.golden ? 'GOLD' : 'DIBS');
       setMessage(result.claim.display.toUpperCase());
       if (result.recoveryKey) setRecoveryKey(result.recoveryKey);
@@ -604,6 +669,7 @@ function Home({
       publishClaim(result.claim, result.me);
     } catch (e) {
       const err = e as ApiError;
+      if (err.status === 409) stampSound(false);
       if (err.data?.me) setMe(err.data.me);
       else if (err.data?.file) setMe({ ...me, file: err.data.file });
       if (err.status && err.status < 500) pendingRequest.current = null;
@@ -649,6 +715,7 @@ function Home({
     <div className={playing ? 'focused-play' : 'completed-play'}>
       {!today.category ? (
         <section className="closed-office">
+          <Seal />
           <Clock target={today.nextDrop} />
           <h1>
             Animals drops <DropTime at={today.nextDrop} />.
@@ -664,8 +731,11 @@ function Home({
         </>
       ) : (
         <section className="claim-section" aria-label="Play today's category">
-          <div className="claim-paper">
-            <CategoryHeading name={today.category.name} />
+          <div className={'claim-paper stock-' + categoryStyle(today.category.slug).stock}>
+            <div className="play-heading">
+              <CategoryHeading name={today.category.name} />
+              <Plate slug={today.category.slug} />
+            </div>
             <Progress dibs={file?.dibs || 0} strikes={file?.strikes || 0} />
             {landed && claim ? (
               <div
@@ -675,6 +745,9 @@ function Home({
                 <strong className="win-stamp">DIBS · {claim.display.toUpperCase()}</strong>
                 <p>
                   {file?.dibs || 1} of 3 dibs{claim.golden && ' · Golden ticket!'}
+                </p>
+                <p className="clerk-aside">
+                  {clerkLine(claim.golden ? 'gold' : 'win', claim.claim_no)}
                 </p>
                 <div className="win-actions">
                   <button
@@ -905,29 +978,27 @@ function DaySummary({ file, today }: { file: DayFile; today: Today }) {
   );
   return (
     <section className="day-summary">
-      <article className="summary-paper day-certificate" aria-label="Day summary">
-        <div className="cert-rule">
-          <span>REGISTRY OF CLAIMS</span>
-          <span>FORM D-3</span>
-        </div>
+      <article
+        className={
+          'summary-paper day-certificate stock-' + categoryStyle(today.category!.slug).stock
+        }
+        aria-label="Day summary"
+      >
         <div className="day-cert-heading">
-          <span className="eyebrow">
-            DAY CERTIFICATE
-            <br />
-            dibs #{edition(today.category!.date)}
-          </span>
+          <span className="eyebrow">DAY CERTIFICATE</span>
           <Wordmark />
         </div>
-        <p className="eyebrow">
-          {dateLabel(today.category!.date)} / {today.category!.name}
-        </p>
-        <h2>File closed.</h2>
+        <div className="day-category">
+          <h2>{today.category!.name}</h2>
+          <Plate slug={today.category!.slug} />
+        </div>
+        <p className="postmark-date">{dateLabel(today.category!.date)}</p>
         <p className="file-tally">
           {file.dibs}/3 dibs · {file.strikes} {file.strikes === 1 ? 'strike' : 'strikes'} · filed{' '}
           {time(file.completedAt!)}
         </p>
         <Progress dibs={file.dibs} strikes={file.strikes} />
-        <p className="eyebrow entries-label">Accepted &amp; rejected filings / in order</p>
+
         <ol className="summary-answers">
           {guesses(file).map((event, i) => (
             <li key={i} className={event.kind === 'strike' ? 'rejected-filing' : 'accepted-filing'}>
@@ -967,6 +1038,7 @@ function DaySummary({ file, today }: { file: DayFile; today: Today }) {
           ))}
         </ol>
         <div className="day-cert-holder">
+          <Seal />
           <span className="eyebrow">FILED UNDER</span>
           <strong>
             <Handle
@@ -981,13 +1053,13 @@ function DaySummary({ file, today }: { file: DayFile; today: Today }) {
           <span>{PUBLIC_HOST}</span>
         </div>
       </article>
-      <Reminder at={today.nextDrop} />
-      <InstallHint />
       <ShareSheet
         url={summaryUrl(file.summaryId!)}
         text={summaryText(file, today.category!)}
         render={render}
       />
+      <Reminder at={today.nextDrop} />
+      <InstallHint />
     </section>
   );
 }
@@ -1117,7 +1189,7 @@ function Ledger({
     <section className="ledger-section">
       <div className="section-heading">
         <div>
-          <span className="section-number">02 / PUBLIC RECORD</span>
+          <span className="section-number">LEDGER</span>
           <h2>
             {rows.length < 10 ? 'First filings' : 'The live ledger'}
             <span className="live-mark" aria-hidden="true" />
@@ -1219,8 +1291,8 @@ function Ledger({
         </button>
       )}
       <div className="ledger-foot">
-        <span>END OF ENTRIES / {rows.length.toLocaleString()} ON FILE</span>
-        <span>LIVE / 15s, THEN 60s · PAUSED IN BACKGROUND</span>
+        <span>{rows.length.toLocaleString()} filed</span>
+        <span>Live</span>
       </div>
     </section>
   );
@@ -1230,7 +1302,11 @@ export function Certificate({ claim, animated = false }: { claim: Claim; animate
   return (
     <motion.article
       className={
-        'certificate ' + (animated ? 'printing ' : '') + (claim.golden ? 'gold-certificate' : '')
+        'certificate stock-' +
+        categoryStyle(claim.category_name.toLowerCase()).stock +
+        ' ' +
+        (animated ? 'printing ' : '') +
+        (claim.golden ? 'gold-certificate' : '')
       }
       initial={animated && !reduced ? { y: 80, opacity: 0 } : false}
       animate={{ y: 0, opacity: 1 }}
@@ -1272,6 +1348,7 @@ export function Certificate({ claim, animated = false }: { claim: Claim; animate
           <Handle name={claim.handle} founder={claim.founder} />
         </strong>
       </div>
+      <Seal className="certificate-seal" />
       <div className="cert-bottom">
         <div>
           <span className="eyebrow">OBSCURITY</span>

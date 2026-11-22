@@ -24,8 +24,9 @@ try {
           for (const answer of ['Axolotl', 'Okapi', 'Quokka']) {
             await page.locator('#answer').fill(answer);
             await page.getByRole('button', { name: 'CALL DIBS' }).click();
-            if (answer !== 'Quokka') await page.getByRole('button', { name: /Next dibs|See my file/ }).click();
-          else await page.locator('.day-certificate').waitFor();
+            if (answer !== 'Quokka')
+              await page.getByRole('button', { name: /Next dibs|See my file/ }).click();
+            else await page.locator('.day-certificate').waitFor();
           }
         await page.evaluate(() => document.fonts.ready);
         const metrics = await page.locator('main').evaluate((el) => ({

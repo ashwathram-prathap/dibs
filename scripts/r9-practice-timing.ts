@@ -88,11 +88,14 @@ try {
   ]);
   await waitForSiteKey('1x00000000000000000000AA');
   await new Promise<void>((resolve, reject) => {
-    const child = spawn('npx', ['tsx', 'scripts/r9-timing.ts', 'before-official-test'], {
+    const child = spawn('npx', ['tsx', 'scripts/r9-timing.ts', process.argv[2] || 'after-official-test'], {
       stdio: 'inherit',
     });
     child.on('exit', (code) => (code === 0 ? resolve() : reject(Error('Timing failed'))));
     child.on('error', reject);
+  });
+  if (process.argv.includes('--flow')) await new Promise<void>((resolve,reject)=>{
+    const child=spawn('npx',['tsx','scripts/r9-live-flow.ts'],{stdio:'inherit'});child.on('exit',code=>code===0?resolve():reject(Error('Live flow failed')));child.on('error',reject);
   });
 } finally {
   await run(['secret', 'put', 'TURNSTILE_SECRET', '-c', config], vars.TURNSTILE_SECRET + '\n');

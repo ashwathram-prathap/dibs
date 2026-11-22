@@ -1,9 +1,14 @@
+import { categoryStyle } from '../shared/category-style';
 import { edition, localTime } from '../shared/time';
 import { guesses } from '../shared/guesses';
 import { PUBLIC_HOST } from '../shared/config';
 import { type Claim, type DayFile, type Category, serial } from './types';
 import { WORDMARK_WIDTH, WORDMARK_PATH, WORDMARK_BLOCK_X } from '../shared/brand';
 import { fitText } from '../shared/typography';
+async function artwork(src: string) {
+  const image = new Image(); image.src = src;
+  await image.decode(); return image;
+}
 // Canvas avoids Safari's SVG foreignObject restrictions. Font faces are self-hosted.
 export async function exportCertificate(claim: Claim, story: boolean) {
   await document.fonts.ready;
@@ -25,7 +30,7 @@ export async function exportCertificate(claim: Claim, story: boolean) {
   canvas.height = story ? 1920 : 1350;
   const c = canvas.getContext('2d')!;
   const h = story ? 1500 : 1350;
-  c.fillStyle = '#F1ECE2';
+  c.fillStyle = categoryStyle(claim.category_name.toLowerCase()).light;
   c.fillRect(0, 0, 1080, canvas.height);
   if (story) c.translate(0, 80);
   c.strokeStyle = '#1A1A17';
@@ -100,6 +105,7 @@ export async function exportCertificate(claim: Claim, story: boolean) {
   if (claim.founder) mono('FOUNDER', 80, holder + 90, 18);
   c.fillStyle = '#1A1A17';
   c.font = '400 26px Instrument';
+  c.drawImage(await artwork('/art/seal.svg'), 430, h - 320, 150, 150);
   mono('OBSCURITY', 80, h - 250);
   for (let i = 0; i < 5; i++) {
     c.beginPath();
@@ -170,7 +176,7 @@ export async function exportSummary(file: DayFile, category: Category, story: bo
   canvas.height = story ? 1920 : 1350;
   const c = canvas.getContext('2d')!;
   const h = story ? 1760 : 1350;
-  c.fillStyle = '#F1ECE2';
+  c.fillStyle = categoryStyle(category.slug).light;
   c.fillRect(0, 0, 1080, canvas.height);
   if (story) c.translate(0, 80);
   const ink = '#1A1A17',
@@ -219,6 +225,7 @@ export async function exportSummary(file: DayFile, category: Category, story: bo
   );
   text('FORM D-3', 885, 105, 19);
   line(132);
+  c.drawImage(await artwork('/art/seal.svg'), 855, 310, 135, 135);
   text('DAY CERTIFICATE', 80, 198);
   text('dibs #' + edition(category.date), 80, 235);
   c.save();
@@ -275,6 +282,7 @@ export async function exportSummary(file: DayFile, category: Category, story: bo
   });
   c.fillStyle = ink;
   c.strokeStyle = ink;
+  c.drawImage(await artwork('/art/'+categoryStyle(category.slug).plate.replace('seal-b','seal')+'.svg'),800,460,190,105);
   const holderTop = 565 + rows.length * rowHeight + 30;
   line(holderTop);
   text('FILED UNDER', 80, holderTop + 38, 18);

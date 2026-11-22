@@ -462,10 +462,8 @@ export class Registry extends DurableObject<Env> {
     const usage = (await this.ctx.storage.get<any>(
       'usage:' + new Date(now).toISOString().slice(0, 10),
     )) || { requests: 0, reads: 0, writes: 0 };
-    const size = await this.env.DB.prepare(
-      'SELECT page_count * page_size bytes FROM pragma_page_count(), pragma_page_size()',
-    ).first<any>();
-    usage.storageBytes = Number(size?.bytes || 0);
+    const size = await this.env.DB.prepare('SELECT 1').all();
+    usage.storageBytes = Number(size.meta.size_after || 0);
     return {
       at: new Date(now).toISOString(),
       active,

@@ -118,34 +118,37 @@ export function ShareSheet({
           {busy ? 'SHARING…' : files ? 'SHARE' : 'PREPARING PNG…'} <Icon />
         </button>
       </div>
-      <div className="share-platforms" aria-label="Share by platform">
-        {(['x', 'whatsapp', 'facebook'] as const).map((platform, i) => (
-          <a
-            key={platform}
-            href={intentUrl(platform, text, url)}
-            target="_blank"
-            rel="noopener noreferrer"
-            onClick={() => tap(platform)}
-          >
-            {['X', 'WhatsApp', 'Facebook'][i]}
-          </a>
-        ))}
-        <button disabled={!files || busy} onClick={() => void share('instagram-tiktok')}>
-          Instagram / TikTok story
-        </button>
-        <button onClick={() => void clipboard('copy-link')}>Copy link</button>
-      </div>
-      <div className="share-formats">
-        <button disabled={!files || busy} onClick={() => void share('story')}>
-          Story PNG
-        </button>
-        <button disabled={!files || busy} onClick={() => void share('feed')}>
-          Feed PNG
-        </button>
-        <button onClick={() => void clipboard('copy-text')}>Copy text</button>
-      </div>
+      <details className="share-options">
+        <summary>More ways to share</summary>
+        <div className="share-platforms" aria-label="Share by platform">
+          {(['x', 'whatsapp', 'facebook'] as const).map((platform, i) => (
+            <a
+              key={platform}
+              href={intentUrl(platform, text, url)}
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={() => tap(platform)}
+            >
+              {['X', 'WhatsApp', 'Facebook'][i]}
+            </a>
+          ))}
+          <button disabled={!files || busy} onClick={() => void share('instagram-tiktok')}>
+            Instagram / TikTok story
+          </button>
+          <button onClick={() => void clipboard('copy-link')}>Copy link</button>
+        </div>
+        <div className="share-formats">
+          <button disabled={!files || busy} onClick={() => void share('story')}>
+            Story PNG
+          </button>
+          <button disabled={!files || busy} onClick={() => void share('feed')}>
+            Feed PNG
+          </button>
+          <button onClick={() => void clipboard('copy-text')}>Copy text</button>
+        </div>
+      </details>
       <p className="share-hint" role="status">
-        {status || 'Your copy, ready to travel. Story 1080 × 1920 / feed 1080 × 1350.'}
+        {status}
       </p>
       {manual && (
         <div className="share-manual">

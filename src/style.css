@@ -3005,3 +3005,327 @@ html[data-theme='dark'] .founder-handle {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
+.header-controls {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.sound-toggle {
+  width: 44px;
+  height: 44px;
+  min-width: 44px;
+  padding: 10px;
+  display: grid;
+  place-items: center;
+}
+@media (max-width: 600px) {
+  .header-controls {
+    gap: 4px;
+  }
+  .masthead {
+    gap: 8px;
+  }
+  .theme-toggle {
+    padding: 10px 8px;
+  }
+  .home-page .brand-mark {
+    max-width: 150px;
+  }
+}
+.brand-proof {
+  margin: 40px 0;
+}
+.brand-directions {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+}
+.direction {
+  color: #1a1a17;
+  border: 1px solid #36392f;
+  padding: 32px;
+}
+.direction-a {
+  background: #ebe3d2;
+}
+.direction-b {
+  background: #e5e9db;
+}
+.proof-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 36px 0;
+}
+.proof-heading h2 {
+  font: 900 clamp(32px, 4vw, 64px) Archivo;
+  text-transform: uppercase;
+  margin: 0;
+}
+.proof-heading img {
+  width: 34%;
+}
+.proof-stamp {
+  font: 900 50px Archivo;
+  border: 4px double currentColor;
+  padding: 4px 16px;
+  display: inline-block;
+  transform: rotate(-3deg);
+}
+.proof-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 50px;
+  border-top: 1px solid #36392f;
+  padding-top: 20px;
+}
+.proof-bottom img {
+  width: 140px;
+}
+@media (max-width: 700px) {
+  .brand-directions {
+    grid-template-columns: 1fr;
+  }
+  .direction {
+    padding: 20px;
+  }
+}
+/* Selected direction B: field-register stock and original engraved plates. */
+.official-seal {
+  width: 112px;
+  height: 112px;
+  opacity: 0.85;
+}
+.category-plate {
+  width: 100px;
+  height: 70px;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+.play-heading,
+.day-category {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+.play-heading .category {
+  margin: 0 0 16px;
+}
+.day-category h2 {
+  font: 900 clamp(36px, 5vw, 64px)/1 Archivo;
+  text-transform: uppercase;
+  margin: 12px 0;
+}
+.claim-paper,
+.day-certificate,
+.certificate {
+  background: var(--stock, var(--paper));
+}
+html[data-theme='dark'] .claim-paper,
+html[data-theme='dark'] .day-certificate,
+html[data-theme='dark'] .certificate {
+  background: var(--stock-dark, var(--paper));
+}
+html[data-theme='dark'] .official-seal,
+html[data-theme='dark'] .category-plate {
+  filter: invert(0.9);
+}
+.closed-office > .official-seal {
+  float: right;
+  margin: 0 0 16px 16px;
+}
+.day-certificate {
+  border-block: 2px dashed var(--ink);
+}
+.postmark-date {
+  border-block: 2px solid var(--muted);
+  width: fit-content;
+  padding: 5px 12px;
+  transform: rotate(-2deg);
+  font: 14px Plex;
+}
+.day-cert-holder .official-seal {
+  margin-left: auto;
+  order: 3;
+}
+.certificate-seal {
+  position: absolute;
+  right: 30px;
+  top: 125px;
+  width: 85px;
+  height: 85px;
+  opacity: 0.6;
+}
+.ledger {
+  position: relative;
+  border-left: 1px solid var(--muted);
+  padding-left: 24px;
+}
+.ledger::before {
+  content: '';
+  position: absolute;
+  left: 6px;
+  top: 30px;
+  width: 7px;
+  height: 7px;
+  border: 1px solid var(--muted);
+  border-radius: 50%;
+  box-shadow:
+    0 70px 0 var(--paper),
+    0 70px 0 1px var(--muted),
+    0 140px 0 var(--paper),
+    0 140px 0 1px var(--muted);
+}
+.rejected-filing s {
+  text-shadow: 1px 1px 0 color-mix(in srgb, currentColor 15%, transparent);
+}
+.clerk-aside {
+  color: var(--muted);
+  font-style: italic;
+  font-size: 14px !important;
+}
+.register-arrival .category {
+  animation: typed-category 0.6s steps(7, end);
+}
+@keyframes typed-category {
+  from {
+    clip-path: inset(0 100% 0 0);
+  }
+  to {
+    clip-path: inset(0);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .register-arrival .category {
+    animation: none;
+  }
+}
+@media (max-width: 600px) {
+  .category-plate {
+    width: 70px;
+    height: 52px;
+  }
+  .certificate-seal {
+    width: 64px;
+    height: 64px;
+    right: 20px;
+    top: 110px;
+  }
+  .closed-office > .official-seal {
+    width: 85px;
+    height: 85px;
+  }
+}
+@media (min-width: 900px) {
+  .page p,
+  .page li {
+    font-size: max(18px, 1em);
+  }
+  .page small,
+  .page label,
+  .page th,
+  .page td,
+  .page summary,
+  .page button,
+  .page .eyebrow,
+  .page .cert-source,
+  .page .cert-footer,
+  .page .cert-rule,
+  .page .mini-stamp,
+  .page .guess-number,
+  .page .file-progress,
+  .page .ledger-meta,
+  .page .section-number {
+    font-size: 14px;
+  }
+}
+.stock-sage {
+  --stock: #e5e9db;
+  --stock-dark: #20271f;
+}
+.stock-blue-manila {
+  --stock: #dfe6e9;
+  --stock-dark: #1d252a;
+}
+.stock-apricot {
+  --stock: #eee1d1;
+  --stock-dark: #2d231b;
+}
+.stock-lilac-grey {
+  --stock: #e6e2e7;
+  --stock-dark: #27232b;
+}
+.stock-oat {
+  --stock: #e9e3d4;
+  --stock-dark: #29251d;
+}
+.stock-celadon {
+  --stock: #dce7df;
+  --stock-dark: #1c2822;
+}
+.stock-rose {
+  --stock: #eadfdc;
+  --stock-dark: #2d2220;
+}
+.stock-slate {
+  --stock: #dfe3e3;
+  --stock-dark: #202728;
+}
+.stock-flax {
+  --stock: #ebe6cc;
+  --stock-dark: #2b291c;
+}
+.stock-clay {
+  --stock: #e7ddd2;
+  --stock-dark: #2a231e;
+}
+.stock-pearl {
+  --stock: #e8e6e0;
+  --stock-dark: #262622;
+}
+.stock-olive {
+  --stock: #e2e4d1;
+  --stock-dark: #252818;
+}
+.completed-play .day-summary {
+  max-width: 760px;
+  margin-inline: auto;
+}
+.completed-play > .file-closed-stamp {
+  margin-inline: auto;
+}
+.share-options > summary {
+  min-height: 44px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+@media (min-width: 900px) {
+  .page nav a,
+  .page .archive-spine,
+  .page .specimen-line,
+  .page .demo-label,
+  .page footer span,
+  .page .cert-meta span,
+  .page .dibs-stamp span,
+  .page .share-platforms a,
+  .page .day-cert-holder span,
+  .page table.ledger td,
+  .page table.ledger .local-time,
+  .page .ledger-foot span {
+    font-size: 14px;
+  }
+}
+@media (max-width: 600px) {
+  nav a {
+    padding-inline: 8px;
+  }
+  .timezone-control {
+    width: 100%;
+    justify-content: flex-end;
+  }
+}
+.theme-toggle, .home-page .theme-toggle { width:144px; flex-shrink:0; white-space:nowrap; }
+@media(max-width:600px) { .theme-toggle, .home-page .theme-toggle {width:128px;} }

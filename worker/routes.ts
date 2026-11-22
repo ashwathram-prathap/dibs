@@ -226,7 +226,13 @@ async function admin(req: Request, env: Env, path: string) {
         await env.DB.prepare(
           `SELECT g.id,g.name,g.status,g.date,g.drop_at,COALESCE(json_extract(g.source_json,'$.staticCatalog.count'),g.total_registrable) total_registrable,g.source_json,(SELECT COUNT(*) FROM answers a WHERE a.category_id=g.id) answer_count,(SELECT COUNT(*) FROM answer_keys k WHERE k.category_id=g.id) key_count FROM categories g ORDER BY g.date,g.id`,
         ).all()
-      ).results,
+      ).results.map((row: any) => {
+        const source = JSON.parse(row.source_json || '{}');
+        if (source.staticCatalog) {
+          delete source.staticCatalog.house;
+        }
+        return { ...row, source_json: JSON.stringify(source) };
+      }),
     });
   }
   if (path === '/admin/stats') {

@@ -17,13 +17,13 @@ writeFileSync(
     `export const DROP_TIME_LOCAL = '${time}';`,
   ),
 );
-// Hourly checks also cover DST without a second manually maintained local drop time.
+// Minute monitoring covers the exact local drop and its DST transition.
 const wrangler = 'worker/wrangler.jsonc';
 writeFileSync(
   wrangler,
   readFileSync(wrangler, 'utf8').replace(
     /"crons": \[[^\]]*\]/,
-    `"crons": ["17 5 * * *", "${Number(match[2] || 0)} * * * *"]`,
+    `"crons": ["17 5 * * *", "* * * * *"]`,
   ),
 );
 console.log(`Drop configured: ${time} America/Toronto`);

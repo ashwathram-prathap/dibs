@@ -1,3 +1,4 @@
+import { categoryStyle } from '../shared/category-style';
 import { buildBinaryCatalog } from './binary-catalog';
 import { BINARY_CHUNK_BYTES } from '../shared/binary-catalog';
 import { readCategory } from './category-file';
@@ -29,6 +30,10 @@ const unchanged =
       }
     });
 if (unchanged && !process.argv.includes('--force')) {
+  for (const slug of readdirSync('public/catalog')) {
+    const path = `public/catalog/${slug}/manifest.json`;
+    if (existsSync(path)) { const manifest=JSON.parse(readFileSync(path,'utf8')); manifest.paper=categoryStyle(slug); writeFileSync(path,JSON.stringify(manifest)); }
+  }
   console.log('Catalog assets already current');
   process.exit(0);
 }
@@ -140,6 +145,7 @@ for (const f of readdirSync('categories').filter((f) => f.endsWith('.json'))) {
   const manifest = {
     v: 2,
     slug: c.slug,
+    paper: categoryStyle(c.slug),
     version,
     count: rows.length,
     house: rows.slice(0, 10),

@@ -1,3 +1,4 @@
+import { categoryStyle } from '../shared/category-style';
 import { cookieUser } from './identity';
 import { closeAt } from './specials';
 import type { Env } from './routes';
@@ -5,7 +6,16 @@ export const concealed = 'Revealed when your file closes';
 export function publicCategory(g: any) {
   if (!g) return null;
   const { id, date, name, slug, total_registrable, drop_at, status } = g;
-  return { id, date, name, slug, total_registrable, drop_at, status };
+  return {
+    id,
+    date,
+    name,
+    slug,
+    total_registrable,
+    drop_at,
+    status,
+    paper: categoryStyle(slug || id),
+  };
 }
 export async function canReveal(req: Request, env: Env, category: any) {
   if (!category) return false;
