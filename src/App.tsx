@@ -551,6 +551,10 @@ function Home({
 
   const reduced = useReducedMotion();
   const input = useRef<HTMLInputElement>(null);
+  const nextDibs = useRef<HTMLButtonElement>(null);
+  useEffect(() => {
+    if (landed && !file?.closed) nextDibs.current?.focus({ preventScroll: true });
+  }, [landed, file?.closed]);
   const turnstileBox = useRef<HTMLDivElement>(null);
   const verification = useRef<{ token: string; expires: number } | null>(null);
   const verifying = useRef<Promise<string> | null>(null);
@@ -615,6 +619,14 @@ function Home({
       });
   }, [now, today.nextDrop]);
   useEffect(() => {
+    if (location.hash === '#file-settings') {
+      const panel = document.getElementById('file-settings') as HTMLDetailsElement | null;
+      if (panel) {
+        panel.open = true;
+        panel.scrollIntoView({ block: 'start' });
+        panel.querySelector('summary')?.focus({ preventScroll: true });
+      }
+    }
     if (location.hash.startsWith('#file-key=')) history.replaceState(null, '', location.pathname);
   }, []);
   async function restore(e: FormEvent) {
@@ -769,7 +781,9 @@ function Home({
         </section>
       ) : file?.closed ? (
         <>
-          <span className="file-closed-stamp">FILE CLOSED</span>
+          <span className="file-closed-stamp" role="status">
+            FILE CLOSED
+          </span>
           <p className="clerk-aside">{categoryNote(today.category.slug)}</p>
           <DaySummary file={file} today={today} showLedger />
         </>
@@ -789,10 +803,10 @@ function Home({
                   className="win-stamp"
                   style={{ rotate: `${((claim.claim_no * 7.31) % 7) - 4}deg` }}
                 >
-                  DIBS · {claim.display.toUpperCase()}
+                  DIBS<span>{claim.display.toUpperCase()}</span>
                 </strong>
                 <p>
-                  {file?.dibs || 1} of 3 dibs{claim.golden && ' · Golden ticket!'}
+                  {file?.dibs || 1} of 3 dibs{claim.golden && ' · Golden ticket'}
                 </p>
                 <p className="clerk-aside">
                   {clerkLine(claim.golden ? 'gold' : 'win', claim.claim_no)}
@@ -800,6 +814,8 @@ function Home({
                 <div className="win-actions">
                   <button
                     className="primary"
+                    ref={nextDibs}
+                    tabIndex={0}
                     onClick={() => {
                       setLanded(false);
                       setMessage('');
@@ -1865,46 +1881,52 @@ function About({ nextDrop }: { nextDrop: string }) {
             days. Nothing is sold or used for ads.
           </p>
           <p>
-            <Link to="/#file-settings">Delete my file</Link> removes your handle, file key, streak
-            and feedback. Past claims stay as “Withdrawn filer”, without a link between days.
-            Private backups expire within 30 days. For privacy questions, use{' '}
-            <a href="#feedback">Tell the clerk</a>
-            and choose “Privacy question”. No reply channel is collected. Dibs is for players 13 and
-            up.
+            <a href="/#file-settings">Delete my file</a> removes your handle, file key, streak and
+            feedback. Past claims stay as “Withdrawn filer”, without a link between days. Private
+            backups expire within 30 days. For privacy questions, use{' '}
+            <a href="#feedback">Tell the clerk</a> and choose “Privacy question”. No reply channel
+            is collected. Dibs is for players 13 and up.
           </p>
           <p>The founder plays by the same rules.</p>
-          <h2>Sources and attribution</h2>
-          <p>
-            Registers use <a href="https://www.geonames.org/">GeoNames</a> (CC BY), Princeton
-            WordNet, Wikipedia contributors (CC BY-SA),{' '}
-            <a href="https://www.wikidata.org/wiki/Wikidata:Licensing">Wikidata</a> (CC0),{' '}
-            <a href="https://www.gbif.org/dataset/d7dddbf4-2cf0-4f39-9b2a-bb099caae36c">
-              GBIF Backbone Taxonomy
-            </a>{' '}
-            (CC BY 4.0), <a href="https://plants.usda.gov/">USDA NRCS PLANTS</a> (public plant
-            data), <a href="https://www.mammaldiversity.org/">Mammal Diversity Database</a> (CC BY
-            4.0), <a href="https://www.worldbirdnames.org/">IOC World Bird List</a> (CC BY 3.0),{' '}
-            <a href="https://world.openfoodfacts.org/">Open Food Facts</a> (ODbL), and ISO 3166 data
-            (MIT), plus <a href="https://ourairports.com/">OurAirports</a> (public domain), and{' '}
-            <a href="https://ssd.jpl.nasa.gov/">NASA/JPL</a> small-body data. Wikipedia pageviews
-            rank measured answers. <a href="/data/licenses.txt">Full licenses and source notes</a>.
-          </p>
-          <h2>Golden-ticket commitment</h2>
-          <p>
-            Before a register opens, the clerk publishes a SHA-256 commitment. Once it closes, the
-            archive reveals the seed and answer IDs so anyone can check the draw.{' '}
-            <Link to="/archive">Read the archive</Link>.
-          </p>
-          <p>
-            Obscurity uses Wikipedia pageviews, grouped from 1 (familiar) to 5 (less read). It
-            describes the article’s readership, not your intelligence.
-          </p>
-          {SHOW_CREATOR_CREDIT && (
-            <p>
-              Made by <a href={CREATOR_URL}>Ashwathram</a> · <a href={X_URL}>X</a>
-            </p>
-          )}
         </aside>
+        <section className="office-sources">
+          <div>
+            <h2>Sources and attribution</h2>
+            <p>
+              Registers use <a href="https://www.geonames.org/">GeoNames</a> (CC BY), Princeton
+              WordNet, Wikipedia contributors (CC BY-SA),{' '}
+              <a href="https://www.wikidata.org/wiki/Wikidata:Licensing">Wikidata</a> (CC0),{' '}
+              <a href="https://www.gbif.org/dataset/d7dddbf4-2cf0-4f39-9b2a-bb099caae36c">
+                GBIF Backbone Taxonomy
+              </a>{' '}
+              (CC BY 4.0), <a href="https://plants.usda.gov/">USDA NRCS PLANTS</a> (public plant
+              data), <a href="https://www.mammaldiversity.org/">Mammal Diversity Database</a> (CC BY
+              4.0), <a href="https://www.worldbirdnames.org/">IOC World Bird List</a> (CC BY 3.0),{' '}
+              <a href="https://world.openfoodfacts.org/">Open Food Facts</a> (ODbL), and ISO 3166
+              data (MIT), plus <a href="https://ourairports.com/">OurAirports</a> (public domain),
+              and <a href="https://ssd.jpl.nasa.gov/">NASA/JPL</a> small-body data. Wikipedia
+              pageviews rank measured answers.{' '}
+              <a href="/data/licenses.txt">Full licenses and source notes</a>.
+            </p>
+          </div>
+          <div>
+            <h2>Golden-ticket commitment</h2>
+            <p>
+              Before a register opens, the clerk publishes a SHA-256 commitment. Once it closes, the
+              archive reveals the seed and answer IDs so anyone can check the draw.{' '}
+              <Link to="/archive">Read the archive</Link>.
+            </p>
+            <p>
+              Obscurity uses Wikipedia pageviews, grouped from 1 (familiar) to 5 (less read). It
+              describes the article’s readership, not your intelligence.
+            </p>
+            {SHOW_CREATOR_CREDIT && (
+              <p>
+                Made by <a href={CREATOR_URL}>Ashwathram</a> · <a href={X_URL}>X</a>
+              </p>
+            )}
+          </div>
+        </section>
       </div>
     </>
   );

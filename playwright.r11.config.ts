@@ -5,7 +5,7 @@ export default defineConfig({
   timeout: 60000,
   testMatch: ['round9.spec.ts', 'round11.spec.ts'],
   projects: base
-    .projects!.filter((p) => !p.name?.startsWith('r6-390'))
+    .projects!.filter((p) => !p.name?.startsWith('r6-390') && (!process.env.R11_SKIP_FIREFOX || !p.name?.startsWith('firefox')))
     .map((p) => ({
       ...p,
       testMatch: ['round9.spec.ts', 'round11.spec.ts'],

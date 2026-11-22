@@ -4236,3 +4236,78 @@ html[data-theme='dark'] .gold-result .win-stamp {
     margin-top: 0;
   }
 }
+@media (max-width: 600px) {
+  .masthead,
+  .home-page .masthead,
+  .home-page:has(.focused-play) .masthead {
+    grid-template-columns: minmax(0, 1fr) auto;
+  }
+  .masthead .wordmark {
+    min-width: 0;
+  }
+  .masthead .brand-mark {
+    max-width: 100%;
+  }
+}
+@media (max-height: 600px) and (max-width: 600px) {
+  .page .practice-banner {
+    display: none;
+  }
+}
+@media (min-width: 900px) {
+  .certificate-page > .page-heading {
+    grid-column: 1/-1;
+    margin-bottom: 0;
+  }
+  .certificate-page > .certificate {
+    grid-column: 1;
+  }
+  .certificate-page > .share-area {
+    grid-column: 2;
+  }
+}
+.win-stamp {
+  width: fit-content;
+  max-width: 100%;
+  padding: 12px 20px;
+  font-size: clamp(40px, 5vw, 72px);
+  line-height: 1;
+}
+.win-stamp span {
+  display: block;
+  margin-top: 6px;
+  font-size: clamp(20px, 2.4vw, 32px);
+  line-height: 1.15;
+}
+@media (prefers-reduced-motion: reduce) {
+  .win-stamp {
+    animation: ink-fade 150ms !important;
+  }
+}
+.office-sources {
+  grid-column: 1/-1;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+  border-top: 1px solid var(--ink);
+  padding-top: 40px;
+  margin-top: 24px;
+}
+.about-layout {
+  column-gap: 48px;
+}
+@media (max-width: 899px) {
+  .office-sources {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+}
+@media (max-height: 600px) and (max-width: 600px) {
+  .win-stamp {
+    font-size: 36px;
+    padding: 8px 12px;
+  }
+  .win-stamp span {
+    font-size: 18px;
+  }
+}

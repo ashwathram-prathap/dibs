@@ -1,0 +1,2 @@
+import {defineConfig} from '@playwright/test';import base from './playwright.r11.config';
+export default defineConfig({...base,testMatch:['sharing.spec.ts','round11-edge.spec.ts'],projects:base.projects!.filter(p=>['chromium-1440-light','chromium-1440-dark','iPhone-15-Pro-light','iPhone-15-Pro-dark'].includes(p.name!)).map(p=>({...p,testMatch:['sharing.spec.ts','round11-edge.spec.ts']})),reporter:[['list'],['json',{outputFile:'review/round11/edge-browser-results.json'}]]});

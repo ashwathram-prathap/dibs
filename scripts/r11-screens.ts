@@ -16,6 +16,13 @@ try {
         ['closed', '/?r7-closed'],
         ['play', '/?r6'],
         ['day', '/?r6'],
+        ['mid-round', '/?r6'],
+        ['five-strikes', '/?r6'],
+        ['gold', '/?r6'],
+        ['office-expanded', '/about'],
+        ['admin-live', '/admin/live'],
+        ['calendar', '/admin/schedule'],
+        ['stats', '/stats'],
         ['certificate', '/certificate/fixture-1'],
         ['archive', '/archive'],
         ['office', '/about'],
@@ -23,10 +30,30 @@ try {
       ]) {
         await page.goto(base + path);
         await page.locator('.loading').waitFor({ state: 'hidden' });
-        if (name === 'day')
-          for (const answer of ['Axolotl', 'Okapi', 'Quokka']) {
+        if (name === 'office-expanded')
+          await page
+            .getByText('More about the game', { exact: true })
+            .click()
+            .catch(() => {});
+        if (['day', 'mid-round', 'five-strikes', 'gold'].includes(name))
+          for (const answer of name === 'five-strikes'
+            ? ['Dog', 'Dog', 'Dog', 'Dog', 'Dog']
+            : name === 'gold'
+              ? ['Axolotl']
+              : name === 'mid-round'
+                ? ['Okapi']
+                : ['Axolotl', 'Okapi', 'Quokka']) {
             await page.locator('#answer').fill(answer);
             await page.getByRole('button', { name: 'CALL DIBS', exact: true }).click();
+            if (name === 'five-strikes') {
+              if (
+                phase === 'before' &&
+                (await page.getByRole('button', { name: 'See my file' }).count())
+              )
+                await page.getByRole('button', { name: 'See my file' }).click();
+              continue;
+            }
+            if (name === 'gold') continue;
             if (phase === 'before')
               await page
                 .getByRole('button', { name: answer === 'Quokka' ? 'See my file' : 'Next dibs' })

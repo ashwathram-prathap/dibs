@@ -6,7 +6,22 @@ let links = '';
 try {
   for (const width of [390, 1440, 2560])
     for (const theme of ['light', 'dark'])
-      for (const name of ['closed', 'play', 'day', 'certificate', 'archive', 'office', 'error']) {
+      for (const name of [
+        'closed',
+        'play',
+        'mid-round',
+        'day',
+        'five-strikes',
+        'gold',
+        'certificate',
+        'archive',
+        'office',
+        'office-expanded',
+        'admin-live',
+        'calendar',
+        'stats',
+        'error',
+      ]) {
         const images = ['before', 'after']
           .map(
             (phase) =>

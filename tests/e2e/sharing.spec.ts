@@ -4,6 +4,7 @@ import { PUBLIC_ORIGIN } from '../../shared/config';
 async function certificate(page: any) {
   await page.goto('/certificate/fixture-1');
   await expect(page.getByRole('button', { name: 'SHARE', exact: true })).toBeEnabled();
+  await page.getByText('More ways to share', {exact:true}).click();
 }
 test('all share controls, exact intents and anonymous one-tap events', async ({ page }) => {
   await page.addInitScript(() => {
@@ -198,11 +199,14 @@ test('first arrival attribution survives reloads and ignores arbitrary sources',
   await expect.poll(() => arrivals).toEqual([{ platform: 'whatsapp' }]);
   await page.reload();
   await expect(page.getByRole('button', { name: 'SHARE', exact: true })).toBeEnabled();
+  await page.getByText('More ways to share', {exact:true}).click();
   await page.goto('/certificate/fixture-1?s=x');
   await expect(page.getByRole('button', { name: 'SHARE', exact: true })).toBeEnabled();
+  await page.getByText('More ways to share', {exact:true}).click();
   expect(arrivals).toEqual([{ platform: 'whatsapp' }]);
   await page.evaluate(() => localStorage.removeItem('dibs-arrived'));
   await page.goto('/certificate/fixture-1?s=not-a-platform');
   await expect(page.getByRole('button', { name: 'SHARE', exact: true })).toBeEnabled();
+  await page.getByText('More ways to share', {exact:true}).click();
   expect(arrivals).toEqual([{ platform: 'whatsapp' }]);
 });
