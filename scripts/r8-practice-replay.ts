@@ -135,7 +135,10 @@ try {
       answer,
       retries,
       status: filed.response.status,
-      code: filed.data.code || 'DIBS',
+      code:
+        filed.data.code ||
+        (filed.response.status === 201 ? 'DIBS' : filed.data.house ? 'HOUSE' : 'TAKEN'),
+      house: !!filed.data.house,
       display: filed.data.claim?.display || filed.data.answer,
       dibs: filed.data.file?.dibs,
       strikes: filed.data.file?.strikes,

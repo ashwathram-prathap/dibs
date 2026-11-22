@@ -183,8 +183,9 @@ for (const [slug, unclean] of Object.entries(raw) as any) {
   const aliasOwner = new Map<string, any>();
   const taxonOwner = new Map<string, any>();
   for (const a of ordered) {
-    if (a.wikidata && a.wikipediaTitle) a.aliases.push(a.wikipediaTitle);
-    if (a.wikipediaTitle) a.wikipediaTitles = [a.wikipediaTitle];
+    if (a.wikidata && a.wikipediaTitle && a.wikipediaScopeValid !== false)
+      a.aliases.push(a.wikipediaTitle);
+    if (a.wikipediaTitle && a.wikipediaScopeValid !== false) a.wikipediaTitles = [a.wikipediaTitle];
     const key = sourceKey(a.display);
     if (!key) continue;
     const scientific = a.scientificName ? normalize(a.scientificName) : '';
@@ -320,7 +321,8 @@ const saveRankingCache = () => {
 const title = (s: string) => s[0].toUpperCase() + s.slice(1);
 const titleOverrides = JSON.parse(readFileSync('scripts/r8-page-titles.json', 'utf8'));
 const measurementTitles = (a: any, slug: string): string[] =>
-  a.wikipediaUnavailable && !a.wikipediaTitle && !a.wikipediaTitles?.length
+  (a.wikipediaScopeValid === false && !a.wikipediaTitles?.length) ||
+  (a.wikipediaUnavailable && !a.wikipediaTitle && !a.wikipediaTitles?.length)
     ? []
     : titleOverrides[slug]?.[a.display]
       ? [titleOverrides[slug][a.display]]
@@ -411,7 +413,12 @@ for (const [slug, rows] of Object.entries(catalogs))
   for (const a of rows) {
     const qualified = !scopeDomains.has(slug) || a.wikidata;
     for (const t of measurementTitles(a, slug)) {
-      if (qualified) qualifiedTitles.add(slug + ':' + t);
+      if (
+        qualified &&
+        (slug !== 'paintings' ||
+          pageMatchesScope(slug, metadataFor(cache[t]?.title || t)?.description || ''))
+      )
+        qualifiedTitles.add(slug + ':' + t);
       else unqualifiedTitles.add(t);
     }
   }

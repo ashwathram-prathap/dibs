@@ -241,6 +241,7 @@ for (const row of rows) {
     !article.disambiguation &&
     pageMatchesScope(slug, article.description, !!row.scientificName);
   row.wikipediaDescription = article.description;
+  row.wikipediaScopeValid = valid;
   if (!valid) {
     unrelated++;
     row.aliases = row.aliases.filter(

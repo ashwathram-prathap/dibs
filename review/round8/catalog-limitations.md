@@ -1,7 +1,5 @@
 # Remaining reference limits
 
-Provisional snapshot: source imports are still running; regenerate after final coverage checks.
-
 The original obvious lists and independent 50-answer draws are retained. Complete extraction means every eligible row in the selected reference, not proof that the reference describes every real-world answer. Initial misses and later corrections remain in the review evidence. No failing category is newly scheduled.
 
 The five existing launch categories pass their gates. The following unscheduled categories still need source or sample review before approval. Their current missing names are listed explicitly; they are not silently excluded or replaced with easier samples.
@@ -14,7 +12,7 @@ The five existing launch categories pass their gates. The following unscheduled 
 | mountains | 99.48% | 49/50 | Peak Lenin; Jabal Toubkal | Taungthonton Volcano |
 | museums | 98.69% | 36/50 | Centre Pompidou; Kunstsammlung Nordrhein-Westfalen; Zwinger; Montreal Museum of Archaeology and History | Stephens Collection; Institute of Archaeology Collections; Danson House; Valentines Mansion; 575 Wandsworth Road; artsdepot; Osterley Park and House; Southside House; Royal College of Nursing; Wiener Library; Banqueting House, Whitehall; Crossness Pumping Station; Garrick's Temple to Shakespeare; Hogarth's House |
 | painters | 99.74% | 47/50 | Kenojuak Ashevak | John Armleder; David Annand; Robert Adamson |
-| paintings | 95.56% | 48/50 | The Rape of Europa; The Spinners; The Haywain Triptych; The Last Judgment Triptych; The Four Apostles; The Derby at Epsom; Poppies; The Flower Carrier; The Soul of the Rose; Yellow-Red-Blue; Composition VIII; Target with Four Faces; My Parents; The Feast of the Bean King | Les Poseuses, Ensemble (Petite version); Portrait of Joseph Roulin |
+| paintings | 99.05% | 49/50 | The Rape of Europa; The Last Judgment Triptych; The Derby at Epsom | Les Poseuses, Ensemble (Petite version) |
 | poets | 99.74% | 48/50 | Sterling Brown | Barrett Watten; Thomas Tickell |
 | ships | 99.45% | 47/50 | SS James A. Farrell; Peter the Great | Vital Spark; Hongzehu (881); ARP Humaitá |
 | video-games | 100.00% | 49/50 | None | Naruto Shippudden: Ultimate Ninja Storm Trilogy |
@@ -27,7 +25,7 @@ The five existing launch categories pass their gates. The following unscheduled 
 - **mountains**: Complete GeoNames mountains/peaks/volcanoes; expanded Wikidata ranges/summits/volcanoes with complete class-group extraction; English source aliases and Wikipedia redirects.
 - **museums**: Full Wikidata museum hierarchy; complete Wikipedia museum-infobox traversal and redirects; worldwide OSM museum requests at three Overpass endpoints plus geographic partitioning. All OSM attempts failed or timed out; no partial OSM extract was used.
 - **painters**: Full Wikidata painter occupation hierarchy; count-checked normal-rank occupation statements; complete Wikipedia article redirects.
-- **paintings**: Expanded individual painting/group/series/cycle classifications; every candidate’s labels and original/native titles in all languages; complete Wikipedia article redirects.
+- **paintings**: Full uncapped individual painting/group/series/cycle classifications across 279 classes, including non-deprecated normal-rank statements and named works without English articles; English/default labels, English/multilingual aliases, original/native title properties in all languages, and complete linked Wikipedia redirects.
 - **poets**: Full Wikidata poet occupation hierarchy; count-checked normal-rank occupation statements; complete Wikipedia article redirects.
 - **ships**: Original ship classification expanded to the complete watercraft hierarchy; full English/multilingual aliases and Wikipedia redirects; generic naval-prefix and hull-number aliases.
 - **video-games**: Expanded video-game/series/compilation classifications and source labels; full English/multilingual source aliases; complete Wikipedia article redirects.

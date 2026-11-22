@@ -1,0 +1,12 @@
+{
+  "checkedAt": "2026-11-22T10:30:43.832547+00:00",
+  "scheduledLocalTime": "05:30 America/Toronto",
+  "runs": 1,
+  "lastExitCode": 0,
+  "backup": ".backups/production-20261122T103005Z.sql",
+  "bytes": 3138347,
+  "mode": "0o600",
+  "sha256": "c7288f8a027df6aec4271d0ac784bc52958ddb848ada4d617b3277d4b13bd9a6",
+  "privateAndGitignored": true,
+  "note": "Observed automatic launchd run while the Mac was awake and the login session active. The separate restore rehearsal is recorded in backup-restore-rehearsal.json."
+}

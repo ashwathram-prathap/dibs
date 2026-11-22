@@ -715,37 +715,24 @@
   },
   {
     "slug": "paintings",
-    "entries": 10501,
-    "scope": "Paintings & series classified by Wikidata with English Wikipedia articles; one answer per name.",
+    "entries": 516458,
+    "scope": "Named paintings, groups and series in Wikidata; English article titles or English/default source names, including works without an English article. One answer per title.",
     "obvious": 315,
-    "score": 0.9555555555555556,
+    "score": 0.9904761904761905,
     "missing": [
       "The Rape of Europa",
-      "The Spinners",
-      "The Haywain Triptych",
       "The Last Judgment Triptych",
-      "The Four Apostles",
-      "The Derby at Epsom",
-      "Poppies",
-      "The Flower Carrier",
-      "The Soul of the Rose",
-      "Yellow-Red-Blue",
-      "Composition VIII",
-      "Target with Four Faces",
-      "My Parents",
-      "The Feast of the Bean King"
+      "The Derby at Epsom"
     ],
     "ready": false,
     "independentChecked": 50,
     "independentMissing": [
-      "Les Poseuses, Ensemble (Petite version)",
-      "Portrait of Joseph Roulin"
+      "Les Poseuses, Ensemble (Petite version)"
     ],
-    "sourceComplete": false,
+    "sourceComplete": true,
     "rankingComplete": true,
-    "unmeasured": 56,
+    "unmeasured": 506357,
     "house": [
-      "Tronald Dump",
       "Mona Lisa",
       "Beauty Revealed",
       "Woman with a Horse",
@@ -754,7 +741,8 @@
       "The Last Supper",
       "The Scream",
       "American Gothic",
-      "Guernica"
+      "Guernica",
+      "The Garden of Earthly Delights"
     ],
     "status": "unscheduled",
     "date": null

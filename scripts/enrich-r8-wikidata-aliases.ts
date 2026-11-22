@@ -12,6 +12,13 @@ const only = process.argv
   .find((a) => a.startsWith('--only='))
   ?.slice(7)
   .split(',');
+const batchSize = Number(
+  process.argv.find((arg) => arg.startsWith('--batch-size='))?.slice(13) || 5000,
+);
+if (!Number.isInteger(batchSize) || batchSize < 250 || batchSize > 5000)
+  throw Error(
+    'Alias batch size must be an integer between 250 and 5000; it never limits membership.',
+  );
 const dir = '.category-cache/r8/other-references';
 const cache = '.category-cache/r8/wikidata-names-en-mul-v3';
 mkdirSync(cache, { recursive: true });
@@ -56,8 +63,13 @@ do {
     }
     const targets = rows.filter(
       (r: any) =>
-        r.wikidata && (!r.aliasesComplete || r.aliasPolicy !== 'en-mul-labels-aliases-v3'),
+        r.wikidata &&
+        (!r.aliasesComplete ||
+          r.aliasPolicy !== 'en-mul-labels-aliases-v3' ||
+          (slug === 'paintings' && !r.nativeTitlePropertiesComplete)),
     );
+    const referenceTotal = rows.filter((r: any) => r.wikidata).length;
+    const previouslyComplete = referenceTotal - targets.length;
     if (!targets.length) {
       if (rows.some((row: any) => row.wikidata)) {
         const count = rows.filter((row: any) => row.wikidata).length;
@@ -76,8 +88,8 @@ do {
     console.log(slug, targets.length, 'source records awaiting aliases');
     let done = 0;
     let blocked = false;
-    for (let cursor = 0; cursor < targets.length; cursor += 5000) {
-      const batch = targets.slice(cursor, cursor + 5000);
+    for (let cursor = 0; cursor < targets.length; cursor += batchSize) {
+      const batch = targets.slice(cursor, cursor + batchSize);
       const ids = batch.map((r: any) => r.wikidata);
       const path =
         cache +
@@ -87,7 +99,8 @@ do {
           .digest('hex') +
         '.json';
       let aliases: any;
-      if (existsSync(path)) aliases = JSON.parse(readFileSync(path, 'utf8'));
+      const cached = existsSync(path);
+      if (cached) aliases = JSON.parse(readFileSync(path, 'utf8'));
       else {
         const values = `VALUES ?item {${ids.map((id: string) => 'wd:' + id).join(' ')}}`;
         // Keep each OPTIONAL join bounded. A UNION here can trigger an unbounded
@@ -137,8 +150,8 @@ do {
             if (attempt === 2) {
               report[slug] = {
                 complete: false,
-                checked: done,
-                total: targets.length,
+                checked: previouslyComplete + done,
+                total: referenceTotal,
                 error: String(e),
               };
               blocked = true;
@@ -156,14 +169,14 @@ do {
       done += batch.length;
       report[slug] = {
         complete: false,
-        checked: done,
-        total: targets.length,
+        checked: previouslyComplete + done,
+        total: referenceTotal,
         referencePolicy: reference.labelPolicy,
         classificationRevision: reference.cacheKey || 'base',
       };
       saveReport();
-      console.log(slug, done, '/', targets.length, 'English aliases');
-      await sleep(2000);
+      console.log(slug, previouslyComplete + done, '/', referenceTotal, 'English aliases');
+      if (!cached) await sleep(2000);
     }
     if (statSync(dir + '/' + file).mtimeMs !== sourceTime) {
       console.log(slug, 'reference changed during enrichment; retrying the new full source');
@@ -175,13 +188,13 @@ do {
     if (!blocked) {
       report[slug] = {
         complete: true,
-        checked: done,
-        total: targets.length,
+        checked: previouslyComplete + done,
+        total: referenceTotal,
         referencePolicy: reference.labelPolicy,
         classificationRevision: reference.cacheKey || 'base',
       };
       saveReport();
-    }
+    } else saveReport();
     processed.set(file, statSync(dir + '/' + file).mtimeMs);
   }
   if (!process.argv.includes('--watch')) break;

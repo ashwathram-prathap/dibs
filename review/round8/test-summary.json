@@ -1,9 +1,9 @@
 {
   "unit": {
-    "passed": 97,
+    "passed": 98,
     "failed": 0,
     "files": 21,
-    "note": "Full suite passed Nov 22 05:05 ET, including the 120-character clerk regression."
+    "note": "Full suite passed Nov 22 05:47 ET against the final 33 catalogs, including clerk length and painting subject/redirect scope regressions."
   },
   "browser": {
     "localMatrixPassed": 470,
@@ -36,11 +36,12 @@
     "credentials": "Official Cloudflare testing credentials, guarded to exact practice origin and explicitly compiled test mode",
     "realCredentialsRestored": true,
     "restorationEvidence": "practice-restore.json",
-    "note": "Browser wrapper restoration wait initially expired because Durable Object updates default to deferred (300 seconds); practice now explicitly uses immediate updates and real site key plus zero claims were independently verified.",
+    "note": "Final Animals replay: 238 claims, seven house-held results, and one already-taken Opossum alias. Real credentials and zero claims independently verified after restoration.",
     "submissions": 246,
     "successfulClaims": 238,
-    "expectedRegistryHeld": 8,
-    "refreshedAt": "2026-11-22T10:01:54.743Z"
+    "expectedRegistryHeld": 7,
+    "refreshedAt": "2026-11-22T10:01:54.743Z",
+    "expectedAlreadyTakenAlias": 1
   },
   "headingStress": {
     "categories": 33,
@@ -61,5 +62,14 @@
     "passed": 396,
     "note": "Content-only heading stress test; underlying fixture remains Animals. Long mobile headings manually inspected.",
     "refreshedAt": "2026-11-22T08:50:00Z"
+  },
+  "catalogs": {
+    "categories": 33,
+    "obviousTargetPassed": 33,
+    "animalsPercent": 100,
+    "independentSpotChecks": 1650,
+    "strictApprovalReady": 23,
+    "remainingIndependentReview": 10,
+    "schedule": "Existing five dates preserved; other categories unscheduled."
   }
 }

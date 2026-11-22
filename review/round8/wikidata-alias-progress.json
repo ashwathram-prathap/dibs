@@ -119,9 +119,10 @@
     "classificationRevision": "base"
   },
   "paintings": {
-    "complete": false,
-    "reason": "Awaiting current full classification",
-    "expectedPolicy": "english-article-or-source-label-v4",
+    "complete": true,
+    "checked": 723650,
+    "total": 723650,
+    "referencePolicy": "english-article-or-source-label-v4",
     "classificationRevision": "paintings-named-all-ranks-v3"
   },
   "mountains": {

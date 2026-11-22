@@ -1,6 +1,10 @@
 // Reject popularity from an unrelated homonym. Scientific-name requests are already
 // domain-qualified by the reference record; their redirect may be a common-name page.
 export function pageMatchesScope(slug: string, description: string, scientificRequest = false) {
+  if (slug === 'paintings')
+    return /\b(?:paintings?|murals?|fresco(?:es)?|altarpiece|triptych|diptych|polyptych|watercolou?r|artworks?|works? of art|oil on canvas|tempera|painted|icons?|illuminated manuscript)\b/i.test(
+      description,
+    );
   const geography: Record<string, RegExp> = {
     castles:
       /castle|fortress|fortification|\bfort\b|palace|manor|country house|mansion|château|chateau|historic house|stately home|tower house/i,

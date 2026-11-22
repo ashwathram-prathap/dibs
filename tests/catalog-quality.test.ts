@@ -40,6 +40,14 @@ it('does not rank biological homonyms using unrelated popular articles', () => {
   expect(pageMatchesScope('foods', 'French puff pastry dessert')).toBe(true);
 });
 
+it('does not borrow a painting subject’s biography for aliases or readership', () => {
+  expect(pageMatchesScope('paintings', 'President of the United States')).toBe(false);
+  expect(pageMatchesScope('paintings', 'Italian Renaissance painter')).toBe(false);
+  expect(pageMatchesScope('paintings', '')).toBe(false);
+  expect(pageMatchesScope('paintings', 'Mural depicting a politician')).toBe(true);
+  expect(pageMatchesScope('paintings', '1889 painting by Vincent van Gogh')).toBe(true);
+});
+
 it('distinguishes castle buildings from unrelated subjects at castle locations', () => {
   for (const description of [
     'Castle in the town of Bolsover, England',
