@@ -21,7 +21,7 @@ const output = execFileSync(
     'worker/wrangler.jsonc',
     '--json',
     '--command',
-    'SELECT * FROM users ORDER BY rowid; SELECT * FROM claims ORDER BY rowid; SELECT * FROM strikes ORDER BY rowid;',
+    'SELECT * FROM users ORDER BY id; SELECT * FROM claims ORDER BY id; SELECT * FROM strikes ORDER BY category_id,user_id,seq;',
   ],
   { encoding: 'utf8', maxBuffer: 32 * 1024 * 1024, stdio: ['ignore', 'pipe', 'pipe'] },
 );

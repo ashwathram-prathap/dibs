@@ -238,8 +238,9 @@ async function extract(def: any) {
         : def.allowNamedWithoutArticle
           ? 'Entire uncapped classification ID set; English article title or English/Latin-script source label, with unknown readership when no article exists'
           : 'Entire uncapped classification ID set; English-article quality filter applied during bounded joins',
-      method:
-        'Complete classification candidates and bounded article joins; English article titles provide common names, and English/multilingual labels and aliases supply variants. Article availability is the quality filter, never a result-count cutoff.',
+      method: def.allowNamedWithoutArticle
+        ? 'Complete classification candidates and bounded non-deprecated statement joins; English article titles or English/default source labels provide names. Works without an English article retain unknown readership. No result-count cutoff.'
+        : 'Complete classification candidates and bounded article joins; English article titles provide common names, and English/multilingual labels and aliases supply variants. Article availability is the quality filter, never a result-count cutoff.',
     };
     saveReport();
     console.log(def.slug, cursor, '/', ids.length, 'eligible', rows.length);

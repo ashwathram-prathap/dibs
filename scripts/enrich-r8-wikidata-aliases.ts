@@ -73,6 +73,7 @@ do {
       processed.set(file, sourceTime);
       continue;
     }
+    console.log(slug, targets.length, 'source records awaiting aliases');
     let done = 0;
     let blocked = false;
     for (let cursor = 0; cursor < targets.length; cursor += 5000) {
@@ -88,36 +89,51 @@ do {
       let aliases: any;
       if (existsSync(path)) aliases = JSON.parse(readFileSync(path, 'utf8'));
       else {
-        const query = `SELECT ?item ?alias WHERE { VALUES ?item {${ids.map((id: string) => 'wd:' + id).join(' ')}} OPTIONAL { { ?item (rdfs:label|skos:altLabel|wdt:P1476|wdt:P1448|wdt:P1705) ?alias FILTER(LANG(?alias) IN ("en", "mul", "en-gb", "en-ca", "en-us")) } ${slug === 'paintings' ? 'UNION { ?item (wdt:P1476|wdt:P1705) ?alias }' : ''} } }`;
+        const values = `VALUES ?item {${ids.map((id: string) => 'wd:' + id).join(' ')}}`;
+        // Keep each OPTIONAL join bounded. A UNION here can trigger an unbounded
+        // query plan at the public endpoint even when VALUES is outside it.
+        const queries = [
+          `SELECT ?item ?alias WHERE { ${values} OPTIONAL { ?item (rdfs:label|skos:altLabel|wdt:P1476|wdt:P1448|wdt:P1705) ?alias FILTER(LANG(?alias) IN ("en", "mul", "en-gb", "en-ca", "en-us")) } }`,
+          ...(slug === 'paintings'
+            ? [
+                `SELECT ?item ?alias WHERE { ${values} OPTIONAL { ?item (wdt:P1476|wdt:P1705) ?alias } }`,
+              ]
+            : []),
+        ];
         for (let attempt = 0; attempt < 3; attempt++) {
           try {
-            const response = await fetch('https://query.wikidata.org/sparql', {
-              method: 'POST',
-              body: new URLSearchParams({ query, format: 'json' }),
-              headers: {
-                'User-Agent': 'DibsCatalog/2.0 (https://dibs.here/about)',
-                Accept: 'application/sparql-results+json',
-              },
-              signal: AbortSignal.timeout(90000),
-            });
-            if (response.status === 429)
-              await sleep(
-                Math.max(60000, Number(response.headers.get('retry-after') || 60) * 1000),
+            const bindings: any[] = [];
+            for (const query of queries) {
+              const response = await fetch('https://query.wikidata.org/sparql', {
+                method: 'POST',
+                body: new URLSearchParams({ query, format: 'json' }),
+                headers: {
+                  'User-Agent': 'DibsCatalog/2.0 (https://dibs.here/about)',
+                  Accept: 'application/sparql-results+json',
+                },
+                signal: AbortSignal.timeout(90000),
+              });
+              if (response.status === 429)
+                await sleep(
+                  Math.max(60000, Number(response.headers.get('retry-after') || 60) * 1000),
+                );
+              if (!response.ok) throw Error('HTTP ' + response.status);
+              const data: any = await response.json();
+              if (!Array.isArray(data.results?.bindings)) throw Error('Incomplete alias query');
+              const observed = new Set(
+                data.results.bindings.map((row: any) => row.item?.value.split('/').at(-1)),
               );
-            if (!response.ok) throw Error('HTTP ' + response.status);
-            const data: any = await response.json();
-            if (!Array.isArray(data.results?.bindings)) throw Error('Incomplete alias query');
-            const observed = new Set(
-              data.results.bindings.map((row: any) => row.item?.value.split('/').at(-1)),
-            );
-            if (ids.some((id) => !observed.has(id)))
-              throw Error('Alias query omitted a requested ID');
+              if (ids.some((id) => !observed.has(id)))
+                throw Error('Alias query omitted a requested ID');
+              bindings.push(...data.results.bindings);
+            }
             aliases = Object.fromEntries(ids.map((id: string) => [id, []]));
-            for (const row of data.results.bindings)
+            for (const row of bindings)
               if (row.alias?.value) aliases[row.item.value.split('/').at(-1)].push(row.alias.value);
             writeFileSync(path, JSON.stringify(aliases));
             break;
           } catch (e) {
+            console.log(slug, 'alias batch retry', cursor, attempt + 1, String(e));
             if (attempt === 2) {
               report[slug] = {
                 complete: false,
