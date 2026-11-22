@@ -1,0 +1,22 @@
+{
+  "url": "https://practice.dibs-7hz.pages.dev",
+  "verification": {
+    "id": "practice",
+    "entries": 2200,
+    "keys": 2200,
+    "digest": "f954834efd5e81cfa7c9173cb23d0d81ca99605cf0d6dfd04f6c5c21027cee38",
+    "keyDigest": "560abe0a3543f6899b18ba4f4a0049add7797eb06dbdc2af7a61e1e007568c0c"
+  },
+  "category": {
+    "id": "practice",
+    "date": "2026-11-21",
+    "name": "PRACTICE",
+    "slug": "animals",
+    "total_registrable": 2200,
+    "drop_at": "2026-11-22T02:00:00Z",
+    "status": "approved",
+    "source_json": "{\"source\":\"Wikidata SPARQL + English Wikipedia PageViewInfo\",\"categoryLists\":null,\"queryRoot\":\"Q7377\",\"property\":\"P171\",\"builtAt\":\"2026-11-21T05:02:39.567Z\",\"license\":\"Wikidata CC0; Wikipedia titles and pageview counts. See source URL on each entry.\",\"scoring\":\"Mean daily Wikipedia pageviews over available days in the past 30: 1 >=1000; 2 >=200; 3 >=50; 4 >=10; 5 <10. Missing data excluded.\",\"scopeNote\":\"A mammal-led register supplemented with familiar animals such as Axolotl. Includes common animal names as well as species with English Wikipedia articles.\",\"reviewRequired\":true,\"identityPolicy\":\"exclude-cross-title-redirects-v1\",\"uploadFingerprint\":\"09b28363662d800a5d15da071d10d1dbb643d6518cd8b8681e1f4e6996268ec2\"}"
+  },
+  "open": 2190,
+  "commitment": "3a71bc0a1ba045782250afa27ba03806df89e831ad9cda374f18f86c7dec1daf"
+}

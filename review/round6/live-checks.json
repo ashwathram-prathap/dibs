@@ -1,0 +1,129 @@
+{
+  "checkedAt": "2026-11-22T01:48:40.415Z",
+  "checks": [
+    {
+      "name": "http://dibs.here canonical route",
+      "passed": true,
+      "detail": {
+        "status": 301,
+        "location": "https://dibs.here/certificate/r6-check?s=copy-link"
+      }
+    },
+    {
+      "name": "https://dibs.here canonical route",
+      "passed": true,
+      "detail": {
+        "status": 404,
+        "location": null
+      }
+    },
+    {
+      "name": "http://www.dibs.here canonical route",
+      "passed": true,
+      "detail": {
+        "status": 301,
+        "location": "https://www.dibs.here/certificate/r6-check?s=copy-link"
+      }
+    },
+    {
+      "name": "https://www.dibs.here canonical route",
+      "passed": true,
+      "detail": {
+        "status": 301,
+        "location": "https://dibs.here/certificate/r6-check?s=copy-link"
+      }
+    },
+    {
+      "name": "http://dibs-7hz.pages.dev canonical route",
+      "passed": true,
+      "detail": {
+        "status": 301,
+        "location": "https://dibs-7hz.pages.dev/certificate/r6-check?s=copy-link"
+      }
+    },
+    {
+      "name": "https://dibs-7hz.pages.dev canonical route",
+      "passed": true,
+      "detail": {
+        "status": 301,
+        "location": "https://dibs.here/certificate/r6-check?s=copy-link"
+      }
+    },
+    {
+      "name": "http://dibs-api.dibs-registry.workers.dev canonical route",
+      "passed": true,
+      "detail": {
+        "status": 301,
+        "location": "https://dibs.here/certificate/r6-check?s=copy-link"
+      }
+    },
+    {
+      "name": "https://dibs-api.dibs-registry.workers.dev canonical route",
+      "passed": true,
+      "detail": {
+        "status": 301,
+        "location": "https://dibs.here/certificate/r6-check?s=copy-link"
+      }
+    },
+    {
+      "name": "production security headers /",
+      "passed": true,
+      "detail": 200
+    },
+    {
+      "name": "production security headers /api/today",
+      "passed": true,
+      "detail": 200
+    },
+    {
+      "name": "production security headers /certificate/r6-check",
+      "passed": true,
+      "detail": 404
+    },
+    {
+      "name": "production security headers /summary/r6-check",
+      "passed": true,
+      "detail": 404
+    },
+    {
+      "name": "Monday production countdown and empty public record",
+      "passed": true,
+      "detail": {
+        "nextDrop": "2026-11-24T02:00:00.000Z",
+        "claimed": 0
+      }
+    },
+    {
+      "name": "canonical social metadata and real OG image",
+      "passed": true,
+      "detail": {
+        "image": "https://dibs.here/api/og?v=4",
+        "bytes": 38292
+      }
+    },
+    {
+      "name": "practice isolated and always open",
+      "passed": true,
+      "detail": {
+        "category": "PRACTICE",
+        "open": 2190,
+        "claimed": 0
+      }
+    },
+    {
+      "name": "https://dibs.here noindex and no public answer catalog",
+      "passed": true,
+      "detail": 200
+    },
+    {
+      "name": "https://practice.dibs-7hz.pages.dev noindex and no public answer catalog",
+      "passed": true,
+      "detail": 200
+    },
+    {
+      "name": "https://dibs-api-staging.dibs-registry.workers.dev noindex and no public answer catalog",
+      "passed": true,
+      "detail": 200
+    }
+  ]
+}

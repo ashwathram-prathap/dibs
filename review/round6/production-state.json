@@ -1,0 +1,81 @@
+[
+  {
+    "results": [
+      {
+        "players": 3,
+        "claims": 0,
+        "strikes": 0
+      }
+    ],
+    "success": true,
+    "meta": {
+      "served_by": "v3-prod",
+      "served_by_region": "ENAM",
+      "served_by_colo": "ORD",
+      "served_by_primary": true,
+      "timings": {
+        "sql_duration_ms": 0.5573
+      },
+      "duration": 0.5573,
+      "changes": 0,
+      "last_row_id": 0,
+      "changed_db": false,
+      "size_after": 2928640,
+      "rows_read": 3,
+      "rows_written": 0,
+      "total_attempts": 1
+    }
+  },
+  {
+    "results": [
+      {
+        "id": "animals",
+        "date": "2026-11-23",
+        "drop_at": "2026-11-24T02:00:00.000Z",
+        "status": "approved"
+      },
+      {
+        "id": "plants",
+        "date": "2026-11-24",
+        "drop_at": "2026-11-25T02:00:00.000Z",
+        "status": "approved"
+      },
+      {
+        "id": "birds",
+        "date": "2026-11-25",
+        "drop_at": "2026-11-26T02:00:00.000Z",
+        "status": "approved"
+      },
+      {
+        "id": "cities",
+        "date": "2026-11-26",
+        "drop_at": "2026-11-27T02:00:00.000Z",
+        "status": "approved"
+      },
+      {
+        "id": "actors",
+        "date": "2026-11-27",
+        "drop_at": "2026-11-28T02:00:00.000Z",
+        "status": "approved"
+      }
+    ],
+    "success": true,
+    "meta": {
+      "served_by": "v3-prod",
+      "served_by_region": "ENAM",
+      "served_by_colo": "ORD",
+      "served_by_primary": true,
+      "timings": {
+        "sql_duration_ms": 0.3427
+      },
+      "duration": 0.3427,
+      "changes": 0,
+      "last_row_id": 0,
+      "changed_db": false,
+      "size_after": 2928640,
+      "rows_read": 10,
+      "rows_written": 0,
+      "total_attempts": 1
+    }
+  }
+]

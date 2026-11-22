@@ -1,0 +1,110 @@
+[
+  {
+    "path": "/zones?name=dibs.here",
+    "method": "GET",
+    "status": 200,
+    "errors": [],
+    "result": [
+      {
+        "id": "c6c41226bfe192bf17871f7e3af103dd",
+        "name": "dibs.here",
+        "status": "pending",
+        "name_servers": [
+          "arnold.ns.cloudflare.com",
+          "val.ns.cloudflare.com"
+        ]
+      }
+    ]
+  },
+  {
+    "path": "/zones/c6c41226bfe192bf17871f7e3af103dd/dns_records",
+    "method": "GET",
+    "status": 403,
+    "errors": [
+      {
+        "code": 10000,
+        "message": "Authentication error",
+        "documentation_url": "https://developers.cloudflare.com/api/resources/dns/subresources/records/methods/list"
+      }
+    ]
+  },
+  {
+    "path": "/zones/c6c41226bfe192bf17871f7e3af103dd/dns_records",
+    "method": "POST",
+    "status": 403,
+    "errors": [
+      {
+        "code": 10000,
+        "message": "Authentication error",
+        "documentation_url": "https://developers.cloudflare.com/api/resources/dns/subresources/records/methods/create"
+      }
+    ]
+  },
+  {
+    "path": "/zones/c6c41226bfe192bf17871f7e3af103dd/dns_records",
+    "method": "POST",
+    "status": 403,
+    "errors": [
+      {
+        "code": 10000,
+        "message": "Authentication error",
+        "documentation_url": "https://developers.cloudflare.com/api/resources/dns/subresources/records/methods/create"
+      }
+    ]
+  },
+  {
+    "path": "/zones/c6c41226bfe192bf17871f7e3af103dd/settings/ssl",
+    "method": "PATCH",
+    "status": 403,
+    "errors": [
+      {
+        "code": 9109,
+        "message": "Unauthorized to access requested resource"
+      }
+    ]
+  },
+  {
+    "path": "/zones/c6c41226bfe192bf17871f7e3af103dd/settings/always_use_https",
+    "method": "PATCH",
+    "status": 403,
+    "errors": [
+      {
+        "code": 10000,
+        "message": "Authentication error",
+        "documentation_url": "https://developers.cloudflare.com/api/resources/zones/subresources/settings/methods/edit"
+      }
+    ]
+  },
+  {
+    "path": "/accounts/5cf62cff0219727f2121253b3924f886/pages/projects/dibs",
+    "method": "GET",
+    "status": 200,
+    "errors": []
+  },
+  {
+    "path": "/accounts/5cf62cff0219727f2121253b3924f886/pages/projects/dibs/domains",
+    "method": "GET",
+    "status": 200,
+    "errors": [],
+    "result": [
+      {
+        "id": "413671a8-5b98-40a5-9869-55db8a04b1d8",
+        "name": "dibs.here",
+        "status": "pending",
+        "verification_data": {
+          "status": "pending",
+          "error_message": "CNAME record not set"
+        }
+      },
+      {
+        "id": "cc55be00-dc6f-4cf0-a7c0-6090e32e7b4a",
+        "name": "www.dibs.here",
+        "status": "pending",
+        "verification_data": {
+          "status": "pending",
+          "error_message": "CNAME record not set"
+        }
+      }
+    ]
+  }
+]

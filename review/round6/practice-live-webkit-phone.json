@@ -1,0 +1,31 @@
+[
+  {
+    "action": "live claim flow",
+    "passed": false,
+    "message": "page.waitForResponse: Timeout 95000ms exceeded while waiting for event \"response\"",
+    "clerk": "Verification took too long. Please try again."
+  },
+  {
+    "action": "no application errors",
+    "passed": false,
+    "errors": [
+      "/challenges.cloudflare.com\" from accessing a frame with origin \"https://practice.dibs-7hz.pages.dev\". Protocols, domains, and ports must match."
+    ]
+  },
+  {
+    "action": "practice 390 light layout",
+    "passed": true
+  },
+  {
+    "action": "practice 390 dark layout",
+    "passed": true
+  },
+  {
+    "action": "practice 1440 light layout",
+    "passed": true
+  },
+  {
+    "action": "practice 1440 dark layout",
+    "passed": true
+  }
+]

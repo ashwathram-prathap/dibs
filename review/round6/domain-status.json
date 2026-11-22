@@ -1,0 +1,47 @@
+{
+  "checkedAt": "2026-11-22T01:48:48.276Z",
+  "zone": [
+    {
+      "name": "dibs.here",
+      "status": "active",
+      "name_servers": [
+        "arnold.ns.cloudflare.com",
+        "val.ns.cloudflare.com"
+      ]
+    }
+  ],
+  "domains": [
+    {
+      "id": "413671a8-5b98-40a5-9869-55db8a04b1d8",
+      "domain_id": "413671a8-5b98-40a5-9869-55db8a04b1d8",
+      "name": "dibs.here",
+      "status": "active",
+      "verification_data": {
+        "status": "active"
+      },
+      "validation_data": {
+        "status": "active",
+        "method": "http"
+      },
+      "certificate_authority": "google",
+      "zone_tag": "c6c41226bfe192bf17871f7e3af103dd",
+      "created_on": "2026-11-22T01:26:21.42029Z"
+    },
+    {
+      "id": "cc55be00-dc6f-4cf0-a7c0-6090e32e7b4a",
+      "domain_id": "cc55be00-dc6f-4cf0-a7c0-6090e32e7b4a",
+      "name": "www.dibs.here",
+      "status": "active",
+      "verification_data": {
+        "status": "active"
+      },
+      "validation_data": {
+        "status": "active",
+        "method": "http"
+      },
+      "certificate_authority": "google",
+      "zone_tag": "c6c41226bfe192bf17871f7e3af103dd",
+      "created_on": "2026-11-22T01:26:21.849505Z"
+    }
+  ]
+}

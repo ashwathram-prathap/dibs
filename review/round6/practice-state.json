@@ -1,0 +1,29 @@
+[
+  {
+    "results": [
+      {
+        "practice_players": 0,
+        "practice_claims": 0,
+        "practice_strikes": 0
+      }
+    ],
+    "success": true,
+    "meta": {
+      "served_by": "v3-prod",
+      "served_by_region": "ENAM",
+      "served_by_colo": "EWR",
+      "served_by_primary": true,
+      "timings": {
+        "sql_duration_ms": 0.4073
+      },
+      "duration": 0.4073,
+      "changes": 0,
+      "last_row_id": 1,
+      "changed_db": false,
+      "size_after": 811008,
+      "rows_read": 0,
+      "rows_written": 0,
+      "total_attempts": 1
+    }
+  }
+]
