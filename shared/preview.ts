@@ -1,3 +1,5 @@
+import { GAME_DESCRIPTION } from './copy';
+import { MAX_CLAIMS } from './config';
 import { PUBLIC_ORIGIN } from './config';
 interface Env {
   STAGING?: string;
@@ -17,12 +19,9 @@ export function preview(kind: 'certificate' | 'summary'): PagesFunction<Env> {
     const data = (await response.json()) as any;
     const title =
       kind === 'summary'
-        ? `Dibs · ${data.file.dibs}/3 · ${data.file.strikes} ${data.file.strikes === 1 ? 'strike' : 'strikes'}`
+        ? `Dibs · ${data.file.dibs}/${MAX_CLAIMS} · ${data.file.strikes} ${data.file.strikes === 1 ? 'strike' : 'strikes'}`
         : `Dibs · Certificate No. ${data.claim.claim_no}`;
-    const description =
-      kind === 'summary'
-        ? `A day on file, ${data.category.date}. Three dibs. Five strikes. Next drop: 9 PM ET.`
-        : `One more on file, ${data.claim.category_date}. Call your own Dibs at 9 PM ET.`;
+    const description = GAME_DESCRIPTION;
     const image = `${publicOrigin}/api/og/${kind === 'summary' ? 'summary/' : ''}${id}?v=11`;
     const canonical = `${publicOrigin}/${kind}/${id}`;
     const tags: Record<string, string> = {

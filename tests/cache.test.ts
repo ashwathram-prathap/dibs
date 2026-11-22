@@ -651,7 +651,7 @@ it('R11 deletion requires confirmation and verification, erases identity, and an
   const view: any = await (
     await call('/certificate/' + data.claim.id, undefined, summaryViewer)
   ).json();
-  expect(view.claim.handle).toBe('Withdrawn filer');
+  expect(view.claim.handle).toBe('Withdrawn player');
   expect(
     (await call('/recover', { key: data.recoveryKey }, undefined, 'r11-delete-restore')).status,
   ).toBe(422);

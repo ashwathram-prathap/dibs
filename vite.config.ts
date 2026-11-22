@@ -1,3 +1,4 @@
+import { HOME_TITLE, HOME_DESCRIPTION, escapeHtml } from './shared/seo';
 import { createHash } from 'node:crypto';
 import { SECURITY_HEADERS } from './shared/security';
 import { PUBLIC_ORIGIN } from './shared/config';
@@ -22,7 +23,13 @@ export default defineConfig(({ mode }) => {
     plugins: [
       {
         name: 'public-origin',
-        transformIndexHtml: (html: string) => html.replaceAll('__PUBLIC_ORIGIN__', publicOrigin),
+        transformIndexHtml: (html: string) =>
+          html
+            .replaceAll('__PUBLIC_ORIGIN__', publicOrigin)
+            .replaceAll('__HOME_TITLE__', escapeHtml(HOME_TITLE))
+            .replaceAll('__HOME_DESCRIPTION__', escapeHtml(HOME_DESCRIPTION))
+            .replaceAll('__HOME_TITLE__', escapeHtml(HOME_TITLE))
+            .replaceAll('__HOME_DESCRIPTION__', escapeHtml(HOME_DESCRIPTION)),
       },
       react(),
       {

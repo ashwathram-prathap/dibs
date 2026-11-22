@@ -45,7 +45,7 @@ it('serves indexable production rules and privacy as real HTML without executing
   expect(text).toContain('content="index,follow"');
   const about = await (await mf.dispatchFetch('https://dibs.here/about')).text();
   expect(about).toContain('Missing-answer submissions');
-  expect(about).toContain('Delete my file');
+  expect(about).toContain('Delete my data');
   expect(about).not.toContain('privacy@dibs.here');
   expect(about).toContain('Dibs | Office notice, rules and privacy');
 });

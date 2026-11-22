@@ -1,3 +1,4 @@
+import { GAME_DESCRIPTION } from '../shared/copy';
 import { readCategory } from '../scripts/category-file';
 import { it, expect } from 'vitest';
 import { readFileSync, readdirSync, existsSync } from 'node:fs';
@@ -84,5 +85,5 @@ it('prints a spoiler-free square for each claimed event and numbers Monday as th
       } as any,
       { date: '2026-11-23' } as any,
     ),
-  ).toBe('Dibs #1 ■■■□ 3/3 dibs · 1 strike · filed 9:04 PM ET · Next drop: 9 PM ET');
+  ).toBe(GAME_DESCRIPTION + '\nDibs #1 ■■■□ 3/3 claims · 1 strike · filed 9:04 PM ET · Next drop: 9:00 PM ET');
 });

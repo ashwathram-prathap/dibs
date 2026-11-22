@@ -16,7 +16,7 @@ it('normalizes intended plurals, accents and Saint abbreviations', () => {
   ])
     expect(normalizeCommonName(a)).toBe(normalizeCommonName(b));
 });
-it('creates stable high-entropy file keys and stores only a one-way digest', async () => {
+it('creates stable high-entropy backup codes and stores only a one-way digest', async () => {
   const a = await fileKey('one', 'test-key'),
     b = await fileKey('two', 'test-key');
   expect(a).not.toBe(b);

@@ -1,3 +1,4 @@
+import { MAX_CLAIMS, MAX_STRIKES } from '../shared/config';
 import { categoryStyle } from '../shared/category-style';
 import { cookieUser } from './identity';
 import { closeAt } from './specials';
@@ -27,7 +28,7 @@ export async function canReveal(req: Request, env: Env, category: any) {
   )
     .bind(category.id, uid, category.id, uid)
     .first<any>();
-  return row.dibs >= 3 || row.strikes >= 5;
+  return row.dibs >= MAX_CLAIMS || row.strikes >= MAX_STRIKES;
 }
 export const concealClaim = (c: any) => ({
   ...c,

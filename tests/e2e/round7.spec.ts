@@ -107,7 +107,7 @@ for (const kind of ['clean', 'gold-two-strikes', 'five-strikes'])
         await expect(page.locator('.result-panel')).toBeVisible();
         await page
           .getByRole('button', {
-            name: answer === 'Quokka' ? 'See my file' : 'Next dibs',
+            name: answer === 'Quokka' ? 'See my file' : 'Next claim',
             exact: true,
           })
           .click();

@@ -42,7 +42,7 @@ test('full filing, certificate, sharing and public record', async ({ page }, inf
   await expect(page.getByRole('row').filter({ hasText: 'Axolotl' })).toBeVisible({ timeout: 8000 });
   await page.getByRole('searchbox').fill('Axolotl');
   await shot('04-ledger');
-  await page.getByRole('button', { name: 'Next dibs', exact: true }).click();
+  await page.getByRole('button', { name: 'Next claim', exact: true }).click();
   for (const answer of ['Okapi', 'Quokka']) {
     await input.fill(answer);
     await page.getByRole('button', { name: 'CALL DIBS' }).click();
@@ -51,7 +51,7 @@ test('full filing, certificate, sharing and public record', async ({ page }, inf
     ).toBeVisible();
     await page.waitForTimeout(1200);
     await page
-      .getByRole('button', { name: answer === 'Quokka' ? 'See my file' : 'Next dibs', exact: true })
+      .getByRole('button', { name: answer === 'Quokka' ? 'See my file' : 'Next claim', exact: true })
       .click();
   }
   await expect(page.getByRole('article', { name: 'Day summary' })).toBeVisible();

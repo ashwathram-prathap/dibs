@@ -1,3 +1,4 @@
+import { MAX_CLAIMS, MAX_STRIKES } from '../shared/config';
 import { clerkReply } from '../shared/moments';
 import { canReveal, publicCategory, concealClaim } from './visibility';
 import { verifyChallenge, verifiedSession } from './turnstile';
@@ -52,7 +53,7 @@ export interface Env {
   TURNSTILE_SITE_KEY: string;
   LOCAL_TEST?: string;
 }
-const claimSelect = `SELECT c.id,c.category_id,c.claim_no,c.file_no,c.created_at,a.display,a.obscurity,EXISTS(SELECT 1 FROM daily_specials ds,json_each(ds.golden_json) j WHERE ds.category_id=c.category_id AND j.value=c.answer_id) golden,CASE WHEN u.provider_subject LIKE 'withdrawn:%' THEN 'Withdrawn filer' WHEN u.hidden=1 THEN 'Record withheld' ELSE COALESCE((SELECT name FROM founder_role WHERE user_id=u.id),u.handle) END handle,EXISTS(SELECT 1 FROM founder_role WHERE user_id=u.id AND u.hidden=0) founder,g.name category_name,g.date category_date,COALESCE(json_extract(g.source_json,'$.staticCatalog.count'),g.total_registrable)-(SELECT COUNT(*) FROM house_words hw WHERE hw.category_id=g.id) total_registrable FROM claims c JOIN answers a ON a.id=c.answer_id JOIN users u ON u.id=c.user_id JOIN categories g ON g.id=c.category_id`;
+const claimSelect = `SELECT c.id,c.category_id,c.claim_no,c.file_no,c.created_at,a.display,a.obscurity,EXISTS(SELECT 1 FROM daily_specials ds,json_each(ds.golden_json) j WHERE ds.category_id=c.category_id AND j.value=c.answer_id) golden,CASE WHEN u.provider_subject LIKE 'withdrawn:%' THEN 'Withdrawn player' WHEN u.hidden=1 THEN 'Record withheld' ELSE COALESCE((SELECT name FROM founder_role WHERE user_id=u.id),u.handle) END handle,EXISTS(SELECT 1 FROM founder_role WHERE user_id=u.id AND u.hidden=0) founder,g.name category_name,g.date category_date,COALESCE(json_extract(g.source_json,'$.staticCatalog.count'),g.total_registrable)-(SELECT COUNT(*) FROM house_words hw WHERE hw.category_id=g.id) total_registrable FROM claims c JOIN answers a ON a.id=c.answer_id JOIN users u ON u.id=c.user_id JOIN categories g ON g.id=c.category_id`;
 export async function fileState(env: Env, category: string, uid: string) {
   const claims = (
     await env.DB.prepare(
@@ -63,7 +64,7 @@ export async function fileState(env: Env, category: string, uid: string) {
   ).results as any[];
   const strikes = (
     await env.DB.prepare(
-      `SELECT s.created_at,s.seq,s.guess,s.house,c.created_at held_at,CASE WHEN u.provider_subject LIKE 'withdrawn:%' THEN 'Withdrawn filer' WHEN u.hidden=1 OR c.voided=1 THEN 'Record withheld' ELSE COALESCE((SELECT name FROM founder_role WHERE user_id=u.id),u.handle) END holder,EXISTS(SELECT 1 FROM founder_role WHERE user_id=u.id AND u.hidden=0 AND c.voided=0) holder_founder FROM strikes s LEFT JOIN claims c ON c.id=s.holder_claim_id LEFT JOIN users u ON u.id=c.user_id WHERE s.category_id=? AND s.user_id=? ORDER BY s.seq`,
+      `SELECT s.created_at,s.seq,s.guess,s.house,c.created_at held_at,CASE WHEN u.provider_subject LIKE 'withdrawn:%' THEN 'Withdrawn player' WHEN u.hidden=1 OR c.voided=1 THEN 'Record withheld' ELSE COALESCE((SELECT name FROM founder_role WHERE user_id=u.id),u.handle) END holder,EXISTS(SELECT 1 FROM founder_role WHERE user_id=u.id AND u.hidden=0 AND c.voided=0) holder_founder FROM strikes s LEFT JOIN claims c ON c.id=s.holder_claim_id LEFT JOIN users u ON u.id=c.user_id WHERE s.category_id=? AND s.user_id=? ORDER BY s.seq`,
     )
       .bind(category, uid)
       .all()
@@ -89,7 +90,7 @@ export async function fileState(env: Env, category: string, uid: string) {
       heldAt: s.held_at,
     })),
   ].sort((a, b) => a.order - b.order);
-  const closed = claims.length >= 3 || strikes.length >= 5;
+  const closed = claims.length >= MAX_CLAIMS || strikes.length >= MAX_STRIKES;
   return {
     category_id: category,
     claims,
@@ -181,7 +182,7 @@ async function admin(req: Request, env: Env, path: string) {
     !env.ADMIN_TOKEN ||
     !(await constantEqual(req.headers.get('authorization') || '', 'Bearer ' + env.ADMIN_TOKEN))
   )
-    return fail(404, 'No file at this address.');
+    return fail(404, 'Page not found; return to today.');
   if (invalidParameters(req)) return fail(422, 'That form could not be read.');
   if (path === '/admin/verify' && req.method === 'GET') {
     const id = new URL(req.url).searchParams.get('id');
@@ -266,7 +267,7 @@ async function admin(req: Request, env: Env, path: string) {
     )
       .bind(target, hash)
       .first<any>();
-    if (!found) return fail(404, 'No account matches that file key or user ID.');
+    if (!found) return fail(404, 'No account matches that backup code or user ID.');
     await env.DB.batch([
       env.DB.prepare(
         'INSERT INTO founder_role(slot,user_id,name) VALUES(1,?,?) ON CONFLICT(slot) DO UPDATE SET user_id=excluded.user_id,name=excluded.name',
@@ -733,7 +734,7 @@ export async function route(req: Request, env: Env): Promise<Response> {
       'Cookies are required to keep your place. Please allow cookies or open Dibs in your regular browser.',
     );
   if (u.hidden) return fail(403, 'This account is not accepting new filings.');
-  if (req.method !== 'POST') return fail(404, 'No file at this address.');
+  if (req.method !== 'POST') return fail(404, 'Page not found; return to today.');
   if (path === '/session-check') return json({ ok: true });
   if (path === '/me/reroll') {
     const result = await env.DB.prepare(
@@ -746,7 +747,7 @@ export async function route(req: Request, env: Env): Promise<Response> {
       : fail(403, 'This handle has been filed. Re-rolls are closed.');
   }
   if (path === '/claim') return claim(req, env, u);
-  return fail(404, 'No file at this address.');
+  return fail(404, 'Page not found; return to today.');
 }
 async function claim(req: Request, env: Env, u: any) {
   const b = await body(req);
@@ -754,7 +755,7 @@ async function claim(req: Request, env: Env, u: any) {
     return fail(422, 'A valid request ID is required.');
   const requestId = b.requestId || crypto.randomUUID();
   const g = await current(env);
-  if (!g) return fail(422, 'This register is not open.');
+  if (!g) return fail(422, 'The category is closed; check the opening time.');
   const replay = async () => {
     const c = await env.DB.prepare(
       publicClaim + ' AND c.user_id=? AND c.category_id=? AND c.request_id=?',
@@ -794,7 +795,8 @@ async function claim(req: Request, env: Env, u: any) {
   };
   const repeated = await replay();
   if (repeated) return repeated;
-  if ((await fileState(env, g.id, u.id)).closed) return fail(403, 'Your file is closed for today.');
+  if ((await fileState(env, g.id, u.id)).closed)
+    return fail(403, "You're done for today; see your certificate.");
   try {
     if (!env.ATTEMPT_CHECKED)
       await env.DB.prepare('INSERT INTO attempts VALUES(?,?,?)')
@@ -802,7 +804,7 @@ async function claim(req: Request, env: Env, u: any) {
         .run();
   } catch (e) {
     if (String(e).includes('USER_RATE_LIMIT'))
-      return fail(429, 'Twelve attempts per minute. Give the ink a moment to dry.');
+      return fail(429, 'Too many attempts; wait a minute and try again.');
     throw e;
   }
   const local = isLocal(req, env.LOCAL_TEST);
@@ -814,7 +816,7 @@ async function claim(req: Request, env: Env, u: any) {
         428,
       );
   } else if (!(await verifyChallenge(req, env, b.turnstileToken))) {
-    return fail(400, 'Verification was not accepted. Please try again.');
+    return fail(400, 'Verification failed; try again.');
   }
   const note = clerkReply(b.answer, g.name);
   if (note) return json({ code: 'CLERK_NOTE', message: note }, 422);
@@ -879,7 +881,8 @@ async function claim(req: Request, env: Env, u: any) {
     } catch (e) {
       const repeated = await replay();
       if (repeated) return repeated;
-      if (String(e).includes('FILE_CLOSED')) return fail(403, 'Your file is closed for today.');
+      if (String(e).includes('FILE_CLOSED'))
+        return fail(403, "You're done for today; see your certificate.");
       throw e;
     }
     if (house)
@@ -940,7 +943,8 @@ async function claim(req: Request, env: Env, u: any) {
   } catch (e) {
     const repeated = await replay();
     if (repeated) return repeated;
-    if (String(e).includes('FILE_CLOSED')) return fail(403, 'Your file is closed for today.');
+    if (String(e).includes('FILE_CLOSED'))
+      return fail(403, "You're done for today; see your certificate.");
     const conflict = await taken();
     if (conflict) return conflict;
     if (String(e).includes('IP_LIMIT'))

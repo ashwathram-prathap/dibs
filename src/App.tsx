@@ -1,3 +1,20 @@
+import {
+  GAME_EXPLANATION,
+  LIMIT_EXPLANATION,
+  GAME_DESCRIPTION,
+  BACKUP_EXPLANATION,
+  FINISH_EXPLANATION,
+  SCHEDULE_EXPLANATION,
+  GOLDEN_EXPLANATION,
+  RESERVED_EXPLANATION,
+} from '../shared/copy';
+import {
+  MAX_CLAIMS,
+  MAX_STRIKES,
+  goldenPerDay,
+  LAUNCH_DATE,
+  DROP_TIME_ZONE,
+} from '../shared/config';
 import { categoryNote, REGISTRAR_STROKE } from '../shared/moments';
 import { reminder } from '../shared/reminder';
 import { Calendar } from './Calendar';
@@ -361,7 +378,7 @@ export default function App() {
     <LazyMotion features={domAnimation}>
       <Filters />
       <a className="skip" href="#main">
-        Skip to registry
+        Skip to game
       </a>
       <div className={'page ' + (path === '/' ? 'home-page' : '')}>
         {(today?.practice || location.hostname === 'practice.dibs-7hz.pages.dev') && (
@@ -381,10 +398,10 @@ export default function App() {
             <button
               className="theme-toggle"
               onClick={() => setTheme(theme === 'light' ? 'dark' : 'light')}
-              aria-label={theme === 'light' ? 'Use carbon copy dark mode' : 'Use paper light mode'}
+              aria-label={theme === 'light' ? 'Use dark mode' : 'Use light mode'}
             >
               <span className="theme-swatch" />
-              {theme === 'light' ? 'CARBON COPY' : 'PAPER COPY'}
+              {theme === 'light' ? 'DARK MODE' : 'LIGHT MODE'}
             </button>
           </div>
           <nav aria-label="Main navigation">
@@ -418,6 +435,7 @@ export default function App() {
           </div>
         )}
         <main id="main">
+          {path === '/' && <Introduction />}
           {error ? (
             <div className="notice" role="alert">
               <span className="eyebrow">OFFICE NOTICE</span>
@@ -427,11 +445,11 @@ export default function App() {
                   : 'The clerk is away.'}
               </h1>
               <p>{error.replace(/^Registry closed for the day\.\s*/, '')}</p>
-              <button onClick={() => void refresh()}>Try the office again</button>
+              <button onClick={() => void refresh()}>Try again</button>
             </div>
           ) : !today || !me ? (
             <div className="loading" role="status">
-              OPENING THE REGISTER<span className="loading-dots"> . . .</span>
+              LOADING THE GAME<span className="loading-dots"> . . .</span>
             </div>
           ) : path === '/' ? (
             <Home
@@ -457,8 +475,8 @@ export default function App() {
             <Stats />
           ) : (
             <div className="notice">
-              <h1>File not found.</h1>
-              <Link to="/">Return to today’s registry</Link>
+              <h1>Page not found.</h1>
+              <Link to="/">Return to today</Link>
             </div>
           )}
         </main>
@@ -636,7 +654,7 @@ function Home({
       setOutcome('FILE RESTORED');
     } catch (e) {
       setMessage((e as Error).message);
-      setOutcome('FILE KEY');
+      setOutcome('BACKUP CODE');
     }
   }
   async function sendMissing() {
@@ -736,10 +754,10 @@ function Home({
       setMessage(
         err.status === 409
           ? err.data.house
-            ? `${value.toUpperCase()} is reserved: the 10 most obvious answers are off-limits.`
+            ? `${value.toUpperCase()} is reserved (too obvious, nobody can claim it); try another answer.`
             : `Taken: ${value.toUpperCase()} is ${err.data.takenBy}'s.`
           : err.data?.code === 'NOT_REGISTERED'
-            ? "Not on today's list. Check spelling."
+            ? "Not on today's list; check the spelling."
             : err.message,
       );
       input.current?.focus();
@@ -754,33 +772,29 @@ function Home({
   return (
     <div className={playing ? 'focused-play' : 'completed-play'}>
       {location.search.includes('file-deleted') && (
-        <p role="status">Your file is removed. Past claims now belong to Withdrawn filer.</p>
+        <p role="status">Your data is removed; past claims now show “Withdrawn player”.</p>
       )}
       {!today.category ? (
         <section className="closed-office">
           <div className="closed-copy">
+            <OpeningTime
+              at={today.nextDrop}
+              first={
+                new Intl.DateTimeFormat('en-CA', { timeZone: DROP_TIME_ZONE }).format(
+                  new Date(today.nextDrop),
+                ) === LAUNCH_DATE
+              }
+            />
             <Clock target={today.nextDrop} />
-            <h1>
-              Animals drops <DropTime at={today.nextDrop} />.
-            </h1>
-            <p>Same moment for everyone.</p>
-            <p className="clerk-aside">{categoryNote('animals')}</p>
-            <Rules />
             <Reminder at={today.nextDrop} />
-          </div>
-          <div className="closed-brand">
-            <div className="dibs-stamp">
-              <strong>DIBS</strong>
-              <span>FIRST COME, FIRST SERVED</span>
-            </div>
-            <p>Three dibs. Five strikes. One public record.</p>
           </div>
         </section>
       ) : file?.closed ? (
         <>
           <span className="file-closed-stamp" role="status">
-            FILE CLOSED
+            DONE FOR TODAY
           </span>
+          <p>Your certificate is ready below.</p>
           <p className="clerk-aside">{categoryNote(today.category.slug)}</p>
           <DaySummary file={file} today={today} showLedger />
         </>
@@ -803,7 +817,7 @@ function Home({
                   DIBS<span>{claim.display.toUpperCase()}</span>
                 </strong>
                 <p>
-                  {file?.dibs || 1} of 3 dibs{!!claim.golden && ' · Golden ticket'}
+                  {file?.dibs || 1} of {MAX_CLAIMS} claims{!!claim.golden && ' · Golden ticket'}
                 </p>
                 <p className="clerk-aside">
                   {clerkLine(claim.golden ? 'gold' : 'win', claim.claim_no)}
@@ -820,7 +834,7 @@ function Home({
                       requestAnimationFrame(() => input.current?.focus({ preventScroll: true }));
                     }}
                   >
-                    Next dibs <Icon />
+                    Next claim <Icon />
                   </button>
                   <Link to={'/certificate/' + claim.id}>View certificate</Link>
                 </div>
@@ -833,6 +847,10 @@ function Home({
                 <div className="input-row">
                   <input
                     ref={input}
+                    onFocus={(e) => {
+                      if (innerHeight <= 600 && innerWidth <= 900)
+                        e.currentTarget.closest('.input-row')?.scrollIntoView({ block: 'center' });
+                    }}
                     id="answer"
                     name="answer"
                     value={answer}
@@ -849,10 +867,11 @@ function Home({
                     maxLength={120}
                   />
                   <button className="primary" disabled={busy || !me.user}>
-                    {busy ? 'Filing…' : 'CALL DIBS'}
+                    {busy ? 'Claiming…' : 'CALL DIBS'}
                     <Icon />
                   </button>
                 </div>
+                <p className="claim-subline">Claim this answer as yours.</p>
                 {message && (
                   <div
                     className={'result-panel ' + (taken ? 'taken' : '')}
@@ -871,7 +890,9 @@ function Home({
                       )}
                     </p>
                     {taken && (
-                      <strong className="strike-count">Strike {file?.strikes || 0} of 5</strong>
+                      <strong className="strike-count">
+                        Strike {file?.strikes || 0} of {MAX_STRIKES}
+                      </strong>
                     )}
                     {suggestion && (
                       <>
@@ -895,7 +916,7 @@ function Home({
                         className="text-button"
                         onClick={() => void sendMissing()}
                       >
-                        Tell the clerk
+                        Send feedback
                       </button>
                     )}
                   </div>
@@ -922,20 +943,21 @@ function Home({
         </section>
       )}
       {playing && (
-        <section className="locked-ledger" aria-label="Locked ledger">
+        <section className="locked-ledger" aria-label="Results hidden until you finish">
           <p>
             {today.claimed.toLocaleString()} claimed · {today.open.toLocaleString()} open
           </p>
-          <span>Ledger opens when your file closes</span>
+          <span>Today's results appear when you finish</span>
         </section>
       )}
       {true && (
         <details id="file-settings" className="file-key-panel" open={restoreKey ? true : undefined}>
           <summary>
-            File key &amp; settings <Icon name="chevron" />
+            Backup code &amp; settings <Icon name="chevron" />
           </summary>
+          <p>{BACKUP_EXPLANATION}</p>
           <form onSubmit={restore}>
-            <label htmlFor="restore-key">File key</label>
+            <label htmlFor="restore-key">Backup code</label>
             <input
               id="restore-key"
               value={restoreKey}
@@ -943,7 +965,7 @@ function Home({
               autoComplete="off"
               maxLength={60}
             />
-            <button>Restore file</button>
+            <button>Restore claims</button>
           </form>
           <DeleteFile sitekey={today.turnstileSiteKey} initialKey={restoreKey} />
         </details>
@@ -952,9 +974,9 @@ function Home({
         <>
           {recoveryKey && (
             <section className="file-key-panel">
-              <h2>Your file key</h2>
+              <h2>Your backup code</h2>
               <strong>{recoveryKey}</strong>
-              <p>Keep it private. It restores your file.</p>
+              <p>{BACKUP_EXPLANATION} Keep it private.</p>
             </section>
           )}
         </>
@@ -1031,28 +1053,55 @@ function InstallHint() {
     </aside>
   ) : null;
 }
+function Introduction() {
+  return (
+    <section className="game-intro" aria-label="How to play Dibs">
+      <div className="game-explanation">
+        <p>{GAME_EXPLANATION}</p>
+        <p>{LIMIT_EXPLANATION}</p>
+      </div>
+      <div className="worked-example" aria-label="Example">
+        <p>
+          <strong>Example:</strong> Today's category is <strong>Animals</strong>.
+        </p>
+        <p>
+          You type <strong>Okapi</strong>. Nobody has claimed it yet, so <strong>it's yours</strong>
+          . <span className="example-stamp yours">YOURS</span>
+        </p>
+        <p>
+          You type <strong>Lion</strong>. Someone already claimed it, so you get{' '}
+          <strong>a strike</strong>. <span className="example-stamp taken">TAKEN</span>
+        </p>
+      </div>
+    </section>
+  );
+}
 function Rules() {
   return (
-    <ol className="quick-rules" aria-label="How it works">
-      <li>
-        <Icon name="arrow" />
-        <span>
-          <b>Type</b> an answer.
-        </span>
-      </li>
-      <li>
-        <Icon name="check" />
-        <span>
-          <b>Free?</b> It's yours.
-        </span>
-      </li>
-      <li>
-        <Icon name="cross" />
-        <span>
-          <b>Taken?</b> Strike. Five and you're out.
-        </span>
-      </li>
-    </ol>
+    <div className="plain-rules">
+      <p>{FINISH_EXPLANATION}</p>
+      <p>{SCHEDULE_EXPLANATION}</p>
+      <p>{GOLDEN_EXPLANATION}</p>
+      <p>{RESERVED_EXPLANATION}</p>
+    </div>
+  );
+}
+function OpeningTime({ at, first }: { at: string; first: boolean }) {
+  const weekday = new Intl.DateTimeFormat('en-US', {
+    weekday: 'long',
+    timeZone: viewerZone(),
+  }).format(new Date(at));
+  return (
+    <h1>
+      The {first ? 'first' : 'next'} category opens{' '}
+      <strong>
+        {weekday} at {localTime(at).label}
+      </strong>{' '}
+      your time{' '}
+      <span className="opening-zone">
+        (in Toronto time it's {localTime(at, DROP_TIME_ZONE).full}).
+      </span>
+    </h1>
   );
 }
 
@@ -1060,9 +1109,11 @@ function Progress({ dibs, strikes }: { dibs: number; strikes: number }) {
   return (
     <div className="file-progress">
       <span className="dibs-progress">
-        <strong>DIBS {dibs}/3</strong>
+        <strong>
+          CLAIMS {dibs}/{MAX_CLAIMS}
+        </strong>
         <span className="dibs-marks" aria-hidden="true">
-          {Array.from({ length: 3 }, (_, i) => (
+          {Array.from({ length: MAX_CLAIMS }, (_, i) => (
             <i key={i} className={i < dibs ? 'used' : ''}>
               D
             </i>
@@ -1070,9 +1121,11 @@ function Progress({ dibs, strikes }: { dibs: number; strikes: number }) {
         </span>
       </span>
       <span className="strikes-progress">
-        <strong>STRIKES {strikes}/5</strong>
-        <span className="strike-row" role="img" aria-label={`${strikes} of 5 strikes`}>
-          {Array.from({ length: 5 }, (_, i) => (
+        <strong>
+          STRIKES {strikes}/{MAX_STRIKES}
+        </strong>
+        <span className="strike-row" role="img" aria-label={`${strikes} of ${MAX_STRIKES} strikes`}>
+          {Array.from({ length: MAX_STRIKES }, (_, i) => (
             <i key={i} className={i < strikes ? 'used' : ''} />
           ))}
         </span>
@@ -1113,8 +1166,8 @@ function DaySummary({
           <Signature />
         </div>
         <p className="file-tally">
-          {file.dibs}/3 dibs · {file.strikes} {file.strikes === 1 ? 'strike' : 'strikes'} · filed{' '}
-          {time(file.completedAt!)}
+          {file.dibs}/{MAX_CLAIMS} claims · {file.strikes}{' '}
+          {file.strikes === 1 ? 'strike' : 'strikes'} · filed {time(file.completedAt!)}
         </p>
         <Progress dibs={file.dibs} strikes={file.strikes} />
 
@@ -1194,7 +1247,7 @@ function DaySummary({
               goldenTotal={today.specials?.goldenTotal}
             />
             <section className="cleanest">
-              <h2>Today's cleanest files</h2>
+              <h2>Today's results</h2>
               {today.board?.length ? (
                 <ol>
                   {today.board.map((r, i) => (
@@ -1203,7 +1256,7 @@ function DaySummary({
                         <Handle name={r.handle} founder={r.founder} />
                       </strong>
                       <span>
-                        {r.dibs}/3 · {r.strikes} strikes · {time(r.completedAt)}
+                        {r.dibs}/{MAX_CLAIMS} · {r.strikes} strikes · {time(r.completedAt)}
                       </span>
                     </li>
                   ))}
@@ -1346,25 +1399,26 @@ function Ledger({
         <div>
           <span className="section-number">LEDGER</span>
           <h2>
-            {rows.length < 10 ? 'First filings' : 'The live ledger'}
+            Today’s claims
             <span className="live-mark" aria-hidden="true" />
           </h2>
         </div>
         <label className="search">
-          <span className="eyebrow">SEARCH THESE FILINGS</span>
+          <span className="eyebrow">SEARCH CLAIMS</span>
           <input
             type="search"
             value={query}
             onChange={(e) => setQuery(e.target.value)}
-            placeholder="Entry or holder"
-            aria-label="Search the ledger"
+            placeholder="Answer or player"
+            aria-label="Search claims"
           />
         </label>
       </div>
       {error && <p role="status">{error}</p>}
       {goldenFound !== undefined && (
         <p className="gold-announcement" role="status">
-          Golden tickets: {goldenFound} of {goldenTotal || 3} found today
+          Golden tickets: {goldenFound} of{' '}
+          {goldenTotal ?? goldenPerDay(category?.date || LAUNCH_DATE)} found today
         </p>
       )}
       {category && open !== undefined && rows.length < 10 && (
@@ -1409,7 +1463,7 @@ function Ledger({
                   ? 'No matching entries in this register.'
                   : category
                     ? 'The first line is still blank. A fine place for your name.'
-                    : 'No claims filed. The register will open after review.'}
+                    : 'No claims yet.'}
               </td>
             </tr>
           )}
@@ -1515,7 +1569,7 @@ export function Certificate({ claim, animated = false }: { claim: Claim; animate
             aria-label={claim.obscurity ? `${claim.obscurity} out of 5` : 'Unrated'}
           >
             {claim.obscurity
-              ? Array.from({ length: 5 }, (_, i) => (
+              ? Array.from({ length: MAX_STRIKES }, (_, i) => (
                   <span
                     aria-hidden="true"
                     key={i}
@@ -1561,9 +1615,7 @@ export function Certificate({ claim, animated = false }: { claim: Claim; animate
 }
 function ShareButtons({ claim }: { claim: Claim }) {
   const render = useCallback((story: boolean) => exportCertificate(claim, story), [claim]);
-  return (
-    <ShareSheet url={certificateUrl(claim.id)} text="Dibs · one more on file." render={render} />
-  );
+  return <ShareSheet url={certificateUrl(claim.id)} text={GAME_DESCRIPTION} render={render} />;
 }
 function SummaryPage({ id }: { id: string }) {
   const [data, setData] = useState<{
@@ -1818,10 +1870,12 @@ function About({ nextDrop }: { nextDrop: string }) {
       <div className="about-layout">
         <section>
           <h2>How to play</h2>
+          <p>{GAME_EXPLANATION}</p>
+          <p>{LIMIT_EXPLANATION}</p>
           <Rules />
           <details>
             <summary>
-              More about the game <Icon name="chevron" />
+              More rules <Icon name="chevron" />
             </summary>
             <ol className="rules">
               <li>
@@ -1829,12 +1883,11 @@ function About({ nextDrop }: { nextDrop: string }) {
                   Next drop: <DropTime at={nextDrop} />. First come, first served.
                 </span>
               </li>
-              <li>Three dibs. Five strikes. Taken answers cost a strike.</li>
-              <li>The 10 most obvious answers are reserved: off-limits to everyone.</li>
+
               <li>
                 The golden list is published when the day ends, so you can check it wasn't changed.
               </li>
-              <li>Most dibs, fewest strikes, earliest completed file wins.</li>
+              <li>Results rank by claims, then fewest strikes, then finish time.</li>
             </ol>
           </details>
           <h2 className="faq-heading">Frequently asked questions</h2>
@@ -1842,8 +1895,8 @@ function About({ nextDrop }: { nextDrop: string }) {
           <p>
             Next drop: <DropTime at={nextDrop} />. Same moment for everyone.
           </p>
-          <h3>What's a golden ticket?</h3>
-          <p>A secret randomly selected answer. Claim it to earn a gold stamp.</p>
+          <h3>Can I check the golden draw?</h3>
+          <p>The answers and original draw are published after the category closes.</p>
           <h3>Is it free?</h3>
           <p>Yes. Dibs is free to play.</p>
           <div className="about-stamp">
@@ -1855,35 +1908,31 @@ function About({ nextDrop }: { nextDrop: string }) {
         <aside className="office-note">
           <span className="eyebrow">A NOTE ON THE RECORD</span>
           <h2>Privacy</h2>
+          <p>Your random name and claims are public; a cookie remembers you for one year.</p>
           <p>
-            We store a randomly generated handle and your claims. An anonymous, signed cookie keeps
-            your place. No email. No password. No public names to type.
+            <strong>Backup code.</strong> {BACKUP_EXPLANATION} Keep it private.
           </p>
           <p>
-            For abuse prevention, an IP address becomes a daily rotating hash. We do not store raw
-            IPs. We count share-button taps and first arrivals by platform only and use cookieless
-            traffic analytics when configured. Nothing is sold.
+            We keep claims and strikes, plus a hash of your backup code; we never store raw IP
+            addresses or sell data.
           </p>
           <p>
-            Your file key restores access after switching browsers or clearing cookies. Keep it
-            private: anyone with it can use your file. Your handle locks after your first claim.
+            Abuse-prevention hashes change daily and expire after two days; browser sessions and
+            private backups expire after 30 days.
           </p>
           <p>
-            We keep your random ID cookie for one year, claims and strikes as the public game
-            record, and a hashed recovery key so you can restore your identity. Network abuse hashes
-            rotate daily and are cleared after two days. Anonymous share and arrival counts have no
-            names or IP addresses. Missing-answer submissions contain only the normalized answer,
-            category, date and count, and are kept for 90 days. Private feedback is kept for 90
-            days. Transient browser sessions expire after 30 days. Backups are kept privately for 30
-            days. Nothing is sold or used for ads.
+            Missing-answer submissions and feedback expire after 90 days; anonymous share and
+            arrival totals have no names or IP addresses.
           </p>
           <p>
-            <a href="/#file-settings">Delete my file</a> removes your handle, file key, streak and
-            feedback. Past claims stay as “Withdrawn filer”, without a link between days. Private
-            backups expire within 30 days. For privacy questions, use{' '}
-            <a href="#feedback">Tell the clerk</a> and choose “Privacy question”. No reply channel
-            is collected. Dibs is for players 13 and up.
+            <a href="/#file-settings">Delete my data</a> removes your name, backup code, streak and
+            feedback; past claims stay as “Withdrawn player”, with no link between days.
           </p>
+          <p>
+            Use <a href="#feedback">Send feedback</a> for privacy questions; we collect no reply
+            address.
+          </p>
+          <p>For players 13 and up.</p>
           <p>The founder plays by the same rules.</p>
         </aside>
         <section className="office-sources">
@@ -2050,12 +2099,10 @@ function DeleteFile({ sitekey, initialKey = '' }: { sitekey: string; initialKey?
   const box = useRef<HTMLDivElement>(null);
   return (
     <section className="delete-file">
-      <h3>Delete my file</h3>
-      <p>
-        This permanently removes your handle, file key and streak. Your past claims stay on the
-        public record as 'Withdrawn filer'.
-      </p>
-      <label htmlFor="delete-key">File key (optional when using your current file)</label>
+      <h3>Delete my data</h3>
+      <p>This removes your name, backup code and streak; past claims stay as ‘Withdrawn player’.</p>
+      <p>{BACKUP_EXPLANATION}</p>
+      <label htmlFor="delete-key">Backup code (optional on this device)</label>
       <input
         id="delete-key"
         value={key}
@@ -2064,7 +2111,7 @@ function DeleteFile({ sitekey, initialKey = '' }: { sitekey: string; initialKey?
         maxLength={60}
       />
       {!confirm ? (
-        <button onClick={() => setConfirm(true)}>Delete my file</button>
+        <button onClick={() => setConfirm(true)}>Delete my data</button>
       ) : (
         <>
           <p>Remove this file permanently?</p>
@@ -2090,10 +2137,10 @@ function DeleteFile({ sitekey, initialKey = '' }: { sitekey: string; initialKey?
               }
             }}
           >
-            Yes, permanently delete my file
+            Delete permanently
           </button>
           <button disabled={busy} onClick={() => setConfirm(false)}>
-            Keep my file
+            Keep my data
           </button>
         </>
       )}
@@ -2110,7 +2157,7 @@ function Feedback({ sitekey }: { sitekey: string }) {
   const box = useRef<HTMLDivElement>(null);
   return (
     <details id="feedback" className="feedback">
-      <summary>Tell the clerk</summary>
+      <summary>Send feedback</summary>
       <form
         onSubmit={async (e) => {
           e.preventDefault();

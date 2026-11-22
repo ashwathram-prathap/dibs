@@ -19,4 +19,12 @@ export const DROP_TIME_LABEL = new Intl.DateTimeFormat('en-US', {
 // Beta dates are registry dates; schedule and commitment format stay unchanged.
 export const GOLDEN_PER_DAY = 3;
 export const goldenPerDay = (date: string) =>
-  date >= '2026-11-23' && date <= '2026-11-29' ? 10 : GOLDEN_PER_DAY;
+  date >= '2026-11-23' && date <= '2026-11-29' ? LAUNCH_GOLDEN_PER_DAY : GOLDEN_PER_DAY;
+
+// Game limits and copy use the same values as the API.
+export const MAX_CLAIMS = 3;
+export const MAX_STRIKES = 5;
+export const RESERVED_COUNT = 10;
+export const CLOSE_TIME_LOCAL = DROP_TIME_LOCAL; // The following day's drop.
+export const CLOSE_TIME_LABEL = DROP_TIME_LABEL;
+export const LAUNCH_GOLDEN_PER_DAY = 10;

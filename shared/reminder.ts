@@ -1,3 +1,4 @@
+import { GAME_DESCRIPTION } from './copy';
 import { DROP_TIME_ZONE, PUBLIC_ORIGIN } from './config';
 const compact = (date: Date) =>
   date
@@ -25,7 +26,7 @@ export function reminder(at: string, origin = PUBLIC_ORIGIN) {
   const start = new Date(Date.parse(at) - 5 * 60000),
     end = new Date(at);
   const title = 'Dibs drops in five minutes',
-    details = `Three dibs. Five strikes. ${origin}/`;
+    details = `${GAME_DESCRIPTION} ${origin}/`;
   const google = new URL('https://calendar.google.com/calendar/render');
   google.search = new URLSearchParams({
     action: 'TEMPLATE',
@@ -74,7 +75,7 @@ export function reminder(at: string, origin = PUBLIC_ORIGIN) {
     'DURATION:PT5M',
     'RRULE:FREQ=DAILY',
     `SUMMARY:${title}`,
-    `DESCRIPTION:${details}`,
+    `DESCRIPTION:${details.replaceAll('\\', '\\\\').replaceAll(';', '\\;').replaceAll(',', '\\,')}`,
     `URL:${origin}/`,
     'END:VEVENT',
     'END:VCALENDAR',

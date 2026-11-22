@@ -236,13 +236,13 @@ export class Registry extends DurableObject<Env> {
   }
   async summary(id: string, env: Env) {
     const ref = await this.ctx.storage.get<{ category: string; user: string }>('summary:' + id);
-    if (!ref) return json({ message: 'No day summary on file.' }, 404);
+    if (!ref) return json({ message: 'Results not found; return to today.' }, 404);
     const category = await env.DB.prepare(
       "SELECT * FROM categories WHERE id=? AND status='approved'",
     )
       .bind(ref.category)
       .first<any>();
-    if (!category) return json({ message: 'No day summary on file.' }, 404);
+    if (!category) return json({ message: 'Results not found; return to today.' }, 404);
     const file = await fileState(env, ref.category, ref.user);
     // Keep the completed score, but never expose a voided claim in a shared file.
     const visible = (
@@ -253,7 +253,7 @@ export class Registry extends DurableObject<Env> {
         .all()
     ).results;
     const holder = await env.DB.prepare(
-      "SELECT CASE WHEN provider_subject LIKE 'withdrawn:%' THEN 'Withdrawn filer' ELSE handle END handle,hidden,provider_subject FROM users WHERE id=?",
+      "SELECT CASE WHEN provider_subject LIKE 'withdrawn:%' THEN 'Withdrawn player' ELSE handle END handle,hidden,provider_subject FROM users WHERE id=?",
     )
       .bind(ref.user)
       .first<any>();
@@ -677,7 +677,7 @@ export class Registry extends DurableObject<Env> {
           {
             message:
               status === 404
-                ? 'No file at this address.'
+                ? 'Page not found; return to today.'
                 : 'Give the clerk a minute before filing again.',
           },
           status,
@@ -988,7 +988,7 @@ export class Registry extends DurableObject<Env> {
             .bind(await hmac(normalizeFileKey(String(b.key)), env.COOKIE_SECRET))
             .first<any>()
         )?.user_id;
-      if (!uid) return json({ message: 'Restore your file or enter its file key first.' }, 401);
+      if (!uid) return json({ message: 'Enter your backup code to restore your claims.' }, 401);
       const replacements = await withdraw(env, uid);
       await this.ctx.storage.delete('session:' + uid);
       await this.ctx.storage.delete('active:' + uid);
@@ -1031,7 +1031,7 @@ export class Registry extends DurableObject<Env> {
       await this.ctx.storage.delete('snapshot');
       for (const ws of this.ctx.getWebSockets()) ws.close(1012, 'The public record was updated');
       return json(
-        { ok: true, message: 'Your file is removed. Past claims now belong to Withdrawn filer.' },
+        { ok: true, message: 'Your file is removed. Past claims now belong to Withdrawn player.' },
         200,
         {
           'set-cookie':
@@ -1054,13 +1054,12 @@ export class Registry extends DurableObject<Env> {
         await tx.put(rate, r);
         return r.n <= 5;
       });
-      if (!allowed)
-        return json({ message: 'Give the clerk 15 minutes before trying another key.' }, 429);
+      if (!allowed) return json({ message: 'Too many codes tried; wait 15 minutes.' }, 429);
       const hash = await hmac(key, env.COOKIE_SECRET);
       const found = await env.DB.prepare('SELECT user_id FROM recovery_keys WHERE key_hash=?')
         .bind(hash)
         .first<any>();
-      if (!found) return json({ message: 'That file key was not found.' }, 422);
+      if (!found) return json({ message: 'Backup code not found; check it and try again.' }, 422);
       return json({ ok: true }, 200, {
         'set-cookie': await sessionCookie(
           found.user_id,
@@ -1085,7 +1084,7 @@ export class Registry extends DurableObject<Env> {
             sessionNotice:
               env.STAGING === 'true'
                 ? 'Practice was reset. You have a fresh file.'
-                : 'You have a fresh file. Have a file key? Restore it.',
+                : 'You have a fresh file. Have a backup code? Restore it.',
           },
           result.status,
           { 'set-cookie': fresh.cookie },
@@ -1101,14 +1100,14 @@ export class Registry extends DurableObject<Env> {
     }
     if (session.user.hidden)
       return json({ message: 'This account is not accepting new filings.' }, 403);
-    if (req.method !== 'POST') return json({ message: 'No file at this address.' }, 404);
+    if (req.method !== 'POST') return json({ message: 'Page not found; return to today.' }, 404);
     if (path === '/session-check') return json({ ok: true });
     if (path === '/verify-session') {
       const denied = await this.rateGate(req, env, false, true);
       if (denied) return denied;
       const b = await body(req, 3000);
       if (!(await verifyChallenge(req, env, b.turnstileToken)))
-        return json({ message: 'Verification was not accepted. Please try again.' }, 400);
+        return json({ message: 'Verification failed; try again.' }, 400);
       return json(await verificationToken(req, env, session.user.id));
     }
     if (path === '/me/reroll') {
@@ -1149,8 +1148,7 @@ export class Registry extends DurableObject<Env> {
         });
         return true;
       });
-      if (!allowed)
-        return json({ message: 'The clerk has your notes. Try again in an hour.' }, 429);
+      if (!allowed) return json({ message: 'Feedback limit reached; try again in an hour.' }, 429);
       await env.DB.prepare('INSERT INTO feedback(id,user_id,text,created_at) VALUES(?,?,?,?)')
         .bind(
           crypto.randomUUID(),
@@ -1159,7 +1157,7 @@ export class Registry extends DurableObject<Env> {
           new Date().toISOString(),
         )
         .run();
-      return json({ ok: true, message: 'The clerk has your note.' });
+      return json({ ok: true, message: 'Feedback received.' });
     }
     if (path === '/missing' && req.method === 'POST') {
       const denied = await this.rateGate(req, env, false, true);
@@ -1184,13 +1182,13 @@ export class Registry extends DurableObject<Env> {
         await tx.put(rate, n + 1);
         return true;
       });
-      if (!allowed) return json({ message: 'The clerk has your suggestions for today.' }, 429);
+      if (!allowed) return json({ message: 'Suggestion limit reached; try again tomorrow.' }, 429);
       await env.DB.prepare(
         'INSERT INTO missing_answers(day,category_id,answer) VALUES(?,?,?) ON CONFLICT(day,category_id,answer) DO UPDATE SET count=count+1',
       )
         .bind(day, category.id, answer)
         .run();
-      return json({ ok: true, message: 'Submitted to the clerk. No strike charged.' });
+      return json({ ok: true, message: 'Suggestion received; no strike charged.' });
     }
     if (path === '/claim') {
       const allowed = await this.ctx.blockConcurrencyWhile(async () => {
@@ -1202,7 +1200,7 @@ export class Registry extends DurableObject<Env> {
         return true;
       });
       if (!allowed)
-        return json({ message: 'Twelve attempts per minute. Give the ink a moment to dry.' }, 429);
+        return json({ message: 'Too many attempts; wait a minute and try again.' }, 429);
       const response = await route(req, { ...env, PLAYER: session.user, ATTEMPT_CHECKED: true });
       if (response.status === 201 || response.status === 409) {
         const data = (await response.clone().json()) as any;
@@ -1282,7 +1280,7 @@ export class Registry extends DurableObject<Env> {
       }
       return response;
     }
-    return json({ message: 'No file at this address.' }, 404);
+    return json({ message: 'Page not found; return to today.' }, 404);
   }
   async webSocketMessage(ws: WebSocket, message: string | ArrayBuffer) {
     try {

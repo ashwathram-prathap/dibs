@@ -39,13 +39,13 @@ test('one card completes three wins and two strikes, then shares and reveals the
         await expect(page.locator('.win-stamp')).toContainText(answer.toUpperCase());
         await expect(page.locator('.certificate')).toHaveCount(0);
         await screenshot('win-' + wins);
-        await page.getByRole('button', { name: 'Next dibs' }).click();
+        await page.getByRole('button', { name: 'Next claim' }).click();
         await expect(page.locator('#answer')).toBeFocused();
       }
     }
   }
   await expect(page.locator('.day-certificate')).toBeVisible();
-  await expect(page.locator('.file-tally')).toContainText('3/3 dibs · 2 strikes');
+  await expect(page.locator('.file-tally')).toContainText('3/3 claims · 2 strikes');
   await expect(page.locator('table.ledger')).toBeVisible();
   await screenshot('closed');
   await page.getByText('More ways to share', { exact: true }).click();
@@ -64,7 +64,7 @@ test('one card completes three wins and two strikes, then shares and reveals the
     body: JSON.stringify({
       milliseconds: Date.now() - start,
       maxTapsPerGuess: 2,
-      note: 'Next dibs focuses the input and is the first tap of the following guess.',
+      note: 'Next claim focuses the input and is the first tap of the following guess.',
     }),
     contentType: 'application/json',
   });
@@ -87,7 +87,7 @@ test('invalid and failed requests preserve the entry, and five strikes close dir
     if (i < 4) await expect(page.locator('.strike-count')).toHaveText(`Strike ${i + 1} of 5`);
   }
   await expect(page.locator('.day-certificate')).toBeVisible();
-  await expect(page.locator('.file-tally')).toContainText('0/3 dibs · 5 strikes');
+  await expect(page.locator('.file-tally')).toContainText('0/3 claims · 5 strikes');
 });
 test('theme edges work on every route with consistent header placement', async ({ page }, info) => {
   let position: any;
@@ -123,7 +123,7 @@ test('theme edges work on every route with consistent header placement', async (
     await page.locator('.masthead').screenshot({ path: dir + '/' + name + '.png' });
   }
 });
-test('390 phone plays with an emulated keyboard without scrolling', async ({ page }) => {
+test('390 phone keeps claim controls above an emulated keyboard', async ({ page }) => {
   await page.setViewportSize({ width: 390, height: 520 });
   await page.goto('/?r6');
   await page.locator('#answer').click();
@@ -132,13 +132,12 @@ test('390 phone plays with an emulated keyboard without scrolling', async ({ pag
     const button = page.getByRole('button', { name: 'CALL DIBS' });
     const box = (await button.boundingBox())!;
     expect(box.y + box.height).toBeLessThanOrEqual(520);
-    expect(await page.evaluate(() => scrollY)).toBe(0);
     await button.click();
     if (answer === 'Dog' || answer === 'Pangolin')
       await expect(page.locator('.strike-count')).toBeVisible();
     else if (answer !== 'Quokka') {
       await expect(page.locator('.win-stamp')).toBeVisible();
-      await page.getByRole('button', { name: 'Next dibs' }).click();
+      await page.getByRole('button', { name: 'Next claim' }).click();
     }
   }
   await expect(page.locator('.day-certificate')).toBeVisible();

@@ -20,7 +20,7 @@ test('R11 rules, free guesses, explicit counters, reminders, settings and deleti
   await page.locator('#answer').fill('Dog');
   await page.locator('#answer').press('Enter');
   await expect(page.locator('.result-panel')).toContainText(
-    'reserved: the 10 most obvious answers are off-limits.',
+    'reserved (too obvious, nobody can claim it); try another answer.',
   );
   await expect(page.locator('.play-rules')).not.toHaveAttribute('open', '');
   await page.goto('/?r7-closed');
@@ -33,9 +33,9 @@ test('R11 rules, free guesses, explicit counters, reminders, settings and deleti
   await page.locator('.reminder-button').press('Escape');
   await expect(page.locator('.reminder-menu')).not.toHaveAttribute('open', '');
   await page.locator('#file-settings summary').click();
-  await page.getByRole('button', { name: 'Delete my file', exact: true }).click();
-  await expect(page.getByRole('button', { name: 'Yes, permanently delete my file' })).toBeVisible();
-  await page.getByRole('button', { name: 'Keep my file' }).click();
+  await page.getByRole('button', { name: 'Delete my data', exact: true }).click();
+  await expect(page.getByRole('button', { name: 'Delete permanently' })).toBeVisible();
+  await page.getByRole('button', { name: 'Keep my data' }).click();
   await page.goto('/about');
   await page.locator('main h1').waitFor();
   await expect(page.locator('body')).not.toContainText('privacy@');

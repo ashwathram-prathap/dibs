@@ -111,8 +111,7 @@ export const onRequest: PagesFunction = async ({ request, next, env }) => {
     ];
     if (path === '/about') {
       title = 'Dibs | Office notice, rules and privacy';
-      description =
-        'How Dibs works, the golden-ticket draw, data sources and a plain-language privacy notice.';
+      description = HOME_DESCRIPTION;
       content = rulesHtml + privacyHtml;
     }
     if (path === '/archive') {
@@ -121,7 +120,7 @@ export const onRequest: PagesFunction = async ({ request, next, env }) => {
         categories.find((c: any) => c.date === url.searchParams.get('date')) ||
         (!url.searchParams.has('date') ? categories[0] : null);
       title = 'Dibs | The archive of closed registers';
-      description = 'Browse past Dibs categories and see who claimed each answer.';
+      description = HOME_DESCRIPTION;
       content =
         '<h1>Dibs archive</h1><nav>' +
         categories
@@ -141,7 +140,7 @@ export const onRequest: PagesFunction = async ({ request, next, env }) => {
         const nextBefore =
           ledger.rows?.length === 50 ? Math.min(...ledger.rows.map((r: any) => r.claim_no)) : 0;
         title = archiveTitle(selected);
-        description = `Who claimed what in ${selected.name} on ${selected.date}. The closed Dibs register and golden-ticket verification.`;
+        description = HOME_DESCRIPTION;
         canonical = origin + '/archive?date=' + selected.date + (before ? '&before=' + before : '');
         if (before) title += ' | Filings before #' + before;
         content +=

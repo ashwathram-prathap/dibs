@@ -26,14 +26,14 @@ export async function api<T>(path: string, body?: unknown): Promise<T> {
       body: body === undefined ? undefined : JSON.stringify(body),
     });
   } catch {
-    throw new Error('The clerk didn’t get that. Try again.');
+    throw new Error('Could not send your answer; try again.');
   }
   let data: any;
   try {
     data = await r.json();
   } catch {
     throw new ApiError(r.status, {
-      message: 'The filing cabinet is unavailable. Please try again shortly.',
+      message: 'The game is unavailable; try again shortly.',
     });
   }
   syncClock(data?.today?.serverTime || data?.serverTime || r.headers.get('Date'));

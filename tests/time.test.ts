@@ -62,6 +62,6 @@ it('share text contains only result squares, never answers or holders', () => {
   );
   expect(result).toContain('■□');
   expect(result).toContain('9:06 PM ET');
-  expect(result).toContain('9 PM ET');
+  expect(result).toContain('9:00 PM ET');
   expect(result).not.toMatch(/Axolotl|DOG|Secret Holder/);
 });

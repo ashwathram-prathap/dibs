@@ -1,3 +1,5 @@
+import { GAME_DESCRIPTION } from '../shared/copy';
+import { MAX_CLAIMS, DROP_TIME_LABEL } from '../shared/config';
 import { REGISTRAR_STROKE } from '../shared/moments';
 import { edition, localTime } from '../shared/time';
 import { guesses } from '../shared/guesses';
@@ -158,7 +160,7 @@ async function canvasFile(canvas: HTMLCanvasElement, name: string) {
 }
 
 export function summaryText(file: DayFile, category: Category) {
-  return `Dibs #${edition(category.date)} ${file.events.map((e) => (e.kind === 'dibs' ? '■' : '□')).join('')} ${file.dibs}/3 dibs · ${file.strikes} ${file.strikes === 1 ? 'strike' : 'strikes'} · filed ${localTime(file.completedAt!, 'America/Toronto').full} · Next drop: 9 PM ET`;
+  return `${GAME_DESCRIPTION}\nDibs #${edition(category.date)} ${file.events.map((e) => (e.kind === 'dibs' ? '■' : '□')).join('')} ${file.dibs}/${MAX_CLAIMS} claims · ${file.strikes} ${file.strikes === 1 ? 'strike' : 'strikes'} · filed ${localTime(file.completedAt!, 'America/Toronto').full} · Next drop: ${DROP_TIME_LABEL} ET`;
 }
 export async function exportSummary(file: DayFile, category: Category, story: boolean) {
   await document.fonts.ready;
@@ -241,7 +243,7 @@ export async function exportSummary(file: DayFile, category: Category, story: bo
   fit(category.name.toUpperCase(), 80, 422, 680, 30);
   text(category.date, 825, 422, 21);
   text(
-    `${file.dibs}/3 dibs · ${file.strikes} ${file.strikes === 1 ? 'strike' : 'strikes'} · filed ${localTime(file.completedAt!).full}`,
+    `${file.dibs}/${MAX_CLAIMS} claims · ${file.strikes} ${file.strikes === 1 ? 'strike' : 'strikes'} · filed ${localTime(file.completedAt!).full}`,
     80,
     480,
     22,

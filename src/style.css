@@ -4327,3 +4327,221 @@ html[data-theme='dark'] .gold-result .win-stamp {
 html.low-power .win-stamp {
   filter: none;
 }
+
+/* The rules and worked example precede every home state. */
+.game-intro {
+  padding: 18px 0 22px;
+  border-bottom: 1px solid var(--ink);
+  margin-bottom: 24px;
+}
+.game-explanation {
+  max-width: 1100px;
+  font-size: 20px;
+  line-height: 1.45;
+}
+.game-explanation p {
+  margin: 0 0 8px;
+}
+.worked-example {
+  margin-top: 18px;
+  font-size: 16px;
+  line-height: 1.55;
+}
+.worked-example p {
+  margin: 3px 0;
+}
+.example-stamp {
+  display: inline-block;
+  border: 2px solid currentColor;
+  padding: 0 5px;
+  margin-left: 5px;
+  font:
+    700 14px Plex,
+    monospace;
+  transform: rotate(-2deg);
+}
+.example-stamp.yours {
+  color: var(--red);
+}
+.example-stamp.taken {
+  color: var(--muted);
+  transform: rotate(1deg);
+}
+.closed-office {
+  display: block;
+}
+.closed-copy {
+  max-width: 950px;
+}
+.closed-copy h1 {
+  font-size: clamp(24px, 3vw, 40px);
+  line-height: 1.25;
+}
+.closed-copy .opening-zone {
+  display: block;
+  margin-top: 8px;
+  font:
+    400 18px/1.5 Instrument,
+    sans-serif;
+}
+.plain-rules {
+  font-size: 16px;
+  line-height: 1.5;
+}
+.plain-rules p {
+  margin: 8px 0;
+}
+.claim-subline {
+  margin: 8px 0 0;
+  font-size: 16px;
+}
+@media (max-width: 600px) {
+  .game-intro {
+    padding-top: 8px;
+    margin-bottom: 18px;
+    padding-bottom: 18px;
+  }
+  .game-explanation {
+    font-size: 18px;
+    line-height: 1.4;
+  }
+  .worked-example {
+    font-size: 16px;
+    line-height: 1.45;
+    margin-top: 12px;
+  }
+  .closed-copy .opening-zone {
+    font-size: 16px;
+  }
+}
+/* Keep the active controls reachable when a phone keyboard reduces the viewport. */
+@media (max-height: 600px) and (max-width: 900px) {
+  .home-page:has(#answer:focus) .game-intro {
+    display: none;
+  }
+}
+
+.example-stamp.yours {
+  color: #b93420;
+}
+[data-theme='dark'] .example-stamp.yours {
+  color: #ff836b;
+}
+.home-page .masthead {
+  min-height: 0;
+  height: auto;
+  padding-top: 12px;
+  gap: 12px;
+}
+.home-page .masthead .brand-mark {
+  width: 160px;
+}
+.home-page .practice-banner {
+  padding: 8px;
+  font-size: 14px;
+  margin-bottom: 8px;
+}
+.closed-office {
+  min-height: 0;
+  margin-block: 0 24px;
+  padding-block: 0;
+}
+.closed-copy h1 {
+  margin: 0 0 12px;
+}
+.closed-office .clock {
+  margin: 12px 0;
+  padding: 0 0 12px;
+  font-size: 48px;
+}
+.focused-play .claim-section {
+  padding-top: 0;
+}
+.focused-play .play-heading .category {
+  font-size: clamp(42px, 7vw, 100px);
+  margin-bottom: 16px;
+}
+.focused-play .claim-paper {
+  padding: 18px;
+}
+.focused-play .input-row {
+  margin-top: 14px;
+}
+@media (max-width: 600px) {
+  .home-page .masthead .brand-mark {
+    width: 120px;
+  }
+  .home-page .masthead nav {
+    flex-wrap: nowrap;
+    gap: 12px;
+  }
+  .home-page .masthead nav .timezone-picker {
+    display: none;
+  }
+  .game-explanation {
+    font-size: 18px;
+  }
+  .closed-copy h1 {
+    font-size: 24px;
+  }
+  .focused-play .claim-paper {
+    padding: 14px;
+  }
+  .focused-play .play-heading .category {
+    font-size: 44px;
+  }
+}
+@media (max-height: 600px) and (max-width: 900px) {
+  .home-page:has(.focused-play):focus-within .game-intro {
+    display: none;
+  }
+}
+.closed-office .drop-countdown {
+  padding-block: 8px;
+  margin-block: 8px;
+}
+.closed-office .reminder-menu {
+  margin-block: 12px;
+}
+@media (max-width: 600px) {
+  .home-page .masthead nav .timezone-control {
+    display: none;
+  }
+}
+.masthead {
+  min-height: 0;
+  height: auto;
+  padding-top: 12px;
+  gap: 12px;
+}
+.masthead .brand-mark {
+  width: 160px;
+}
+@media (max-width: 600px) {
+  .masthead .brand-mark {
+    width: 120px;
+  }
+}
+
+.home-page:has(#answer:focus) .game-intro,
+.home-page:has(.focused-play):focus-within .game-intro {
+  display: block;
+}
+.masthead .wordmark {
+  height: 60px;
+  display: flex;
+  align-items: center;
+  margin: 0;
+}
+.masthead .brand-mark {
+  height: 60px;
+}
+.masthead .mast-note {
+  display: none;
+}
+@media (max-width: 600px) {
+  .masthead .wordmark,
+  .masthead .brand-mark {
+    height: 44px;
+  }
+}
