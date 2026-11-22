@@ -5,6 +5,7 @@ on:
   workflow_dispatch:
 permissions:
   contents: read
+  actions: write
 concurrency:
   group: approved-category-rollout
   cancel-in-progress: false
@@ -23,7 +24,8 @@ jobs:
           key: dibs-r3-uploads-${{ github.run_id }}
           restore-keys: dibs-r3-uploads-
       - run: npm ci --ignore-scripts
-      - run: npx tsx scripts/round3-categories.ts
+      - id: rollout
+        run: npx tsx scripts/round3-categories.ts
         env:
           ADMIN_TOKEN: ${{ secrets.DIBS_ADMIN_TOKEN }}
       - uses: actions/cache/save@v4
@@ -40,3 +42,8 @@ jobs:
             .upload-state.json
             review/round3/upload-progress.json
           retention-days: 30
+      - name: Stop the completed rollout
+        if: steps.rollout.outputs.complete == 'true'
+        run: gh workflow disable category-rollout.yml
+        env:
+          GH_TOKEN: ${{ github.token }}

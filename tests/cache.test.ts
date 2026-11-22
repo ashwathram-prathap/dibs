@@ -153,7 +153,7 @@ it('keeps the claim race safe behind the coordinator', async () => {
   const loser = accounts.find((_, i) => i !== winner)!;
   const lost = (await (await call('/bootstrap', undefined, loser.cookie)).json()) as any;
   expect(lost.me.file.strikes).toBe(1);
-  expect((await db.prepare('SELECT COUNT(*) n FROM users').first()).n).toBeLessThanOrEqual(50);
+  expect((await db.prepare('SELECT COUNT(*) n FROM users').first()).n).toBe(1);
   const png = await call('/og/' + data.claim.id);
   expect(png.headers.get('content-type')).toBe('image/png');
   const bytes = await png.arrayBuffer();
@@ -250,4 +250,43 @@ it('bounds cold full-ID and printed-prefix certificate reads', async () => {
   expect(evidence.at(-1).reads).toBeLessThanOrEqual(10);
   expect((await call('/certificate/' + id.slice(0, 16))).status).toBe(200);
   expect(evidence.at(-1).reads).toBeLessThanOrEqual(10);
+});
+it('orders completed real files by dibs, strikes, then completion time', async () => {
+  const players = await Promise.all(Array.from({ length: 3 }, account));
+  for (let p = 0; p < 3; p++) {
+    if (p === 0)
+      expect(
+        (await call('/claim', { answer: 'Animal 0', turnstileToken: 'test' }, players[p].cookie))
+          .status,
+      ).toBe(409);
+    for (let i = 0; i < 3; i++)
+      expect(
+        (
+          await call(
+            '/claim',
+            { answer: 'Animal ' + (30 + p * 3 + i), turnstileToken: 'test' },
+            players[p].cookie,
+            'board-' + p,
+          )
+        ).status,
+      ).toBe(201);
+  }
+  const today = (await (await call('/today')).json()) as any;
+  expect(today.board.map((r: any) => r.handle)).toEqual([
+    players[1].me.user.handle,
+    players[2].me.user.handle,
+    players[0].me.user.handle,
+  ]);
+  expect(today.board.map((r: any) => [r.dibs, r.strikes])).toEqual([
+    [3, 0],
+    [3, 0],
+    [3, 1],
+  ]);
+  const me = (await (await call('/me', undefined, players[0].cookie)).json()) as any;
+  expect(me.file.events.map((e: any) => e.kind)).toEqual(['strike', 'dibs', 'dibs', 'dibs']);
+  expect(me.file.closed).toBe(true);
+  expect(
+    (await call('/claim', { answer: 'Animal 60', turnstileToken: 'test' }, players[0].cookie))
+      .status,
+  ).toBe(403);
 });

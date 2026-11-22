@@ -1,0 +1,57 @@
+[
+  {
+    "id": "animals",
+    "status": "approved",
+    "date": "2026-11-24",
+    "drop_at": "2026-11-25T02:00:00.000Z",
+    "entries": 2200,
+    "keys": 2200,
+    "digest": "f954834efd5e81cfa7c9173cb23d0d81ca99605cf0d6dfd04f6c5c21027cee38",
+    "keyDigest": "560abe0a3543f6899b18ba4f4a0049add7797eb06dbdc2af7a61e1e007568c0c",
+    "verified": true
+  },
+  {
+    "id": "plants",
+    "status": "approved",
+    "date": "2026-11-25",
+    "drop_at": "2026-11-26T02:00:00.000Z",
+    "entries": 2200,
+    "keys": 2200,
+    "digest": "24ad4b7f84299e19108e89ce82ef11b2502288d8736f924f8d2f8255b75a96b5",
+    "keyDigest": "42f25e99007101279e10c924fca9e8eccd88b2559c8731f64a9961f05bb099f3",
+    "verified": true
+  },
+  {
+    "id": "birds",
+    "status": "approved",
+    "date": "2026-11-26",
+    "drop_at": "2026-11-27T02:00:00.000Z",
+    "entries": 2200,
+    "keys": 2200,
+    "digest": "8b2bb6673ae61c947882d6ee95584b5ceffeea867db3757b25f8517016c3bc67",
+    "keyDigest": "fd204bbd2435fe8af142a220dc033041c6a0fb5eeaadc8ccb044bbae0c106774",
+    "verified": true
+  },
+  {
+    "id": "cities",
+    "status": "approved",
+    "date": "2026-11-27",
+    "drop_at": "2026-11-28T02:00:00.000Z",
+    "entries": 2200,
+    "keys": 2200,
+    "digest": "4ba912b388be19bc7050b54643d5b60e9b3f435bc09fdeffe028801a4d1df530",
+    "keyDigest": "dfbf1f29799f00ad853f35dd394bb7a5a3bfdca931ee382d3ba9e01d76579b3b",
+    "verified": true
+  },
+  {
+    "id": "actors",
+    "status": "approved",
+    "date": "2026-11-28",
+    "drop_at": "2026-11-29T02:00:00.000Z",
+    "entries": 2200,
+    "keys": 2200,
+    "digest": "f66e92ab6f3626ef56af35ed335b2e58b13f90eef81e1a7bba1058475a034fba",
+    "keyDigest": "98dea3679eb8a9578c6a0049dad5fa0c96b4b69dce1e677e9b9334ccef98b3d1",
+    "verified": true
+  }
+]

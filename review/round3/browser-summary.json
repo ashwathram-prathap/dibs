@@ -152,5 +152,47 @@
       "passed": 5,
       "failed": 0
     }
+  },
+  "firefoxCI": {
+    "run": "https://github.com/ashwathram-prathap/dibs/actions/runs/44966756200",
+    "stats": {
+      "startTime": "2026-11-22T00:28:51.936Z",
+      "duration": 152962.897,
+      "expected": 30,
+      "skipped": 0,
+      "unexpected": 0,
+      "flaky": 0
+    },
+    "projects": {
+      "firefox-1280-light": {
+        "passed": 5,
+        "failed": 0
+      },
+      "firefox-1440-light": {
+        "passed": 5,
+        "failed": 0
+      },
+      "firefox-2560-light": {
+        "passed": 5,
+        "failed": 0
+      },
+      "firefox-1280-dark": {
+        "passed": 5,
+        "failed": 0
+      },
+      "firefox-1440-dark": {
+        "passed": 5,
+        "failed": 0
+      },
+      "firefox-2560-dark": {
+        "passed": 5,
+        "failed": 0
+      }
+    }
+  },
+  "combined": {
+    "passed": 180,
+    "applicationFailures": 0,
+    "localFirefoxLaunchFailures": 30
   }
 }

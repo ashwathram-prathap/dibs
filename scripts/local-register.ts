@@ -28,4 +28,4 @@ execFileSync(
   ],
   { stdio: 'inherit' },
 );
-console.log('Local register opened. Remote categories remain drafts.');
+console.log('Local register opened. Remote categories are unchanged.');

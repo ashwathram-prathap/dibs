@@ -128,7 +128,7 @@ async function saveCanvas(canvas: HTMLCanvasElement, name: string, text: string,
   const file = new File([blob], name, { type: 'image/png' });
   if (navigator.canShare?.({ files: [file] })) {
     try {
-      await navigator.share({ files: [file], title: 'Certificate of Dibs', text, url });
+      await navigator.share({ files: [file], title: 'Dibs', text, url });
       return 'A certified copy has left the office.';
     } catch (e) {
       if ((e as Error).name === 'AbortError') return 'Copy retained at the office.';
@@ -228,8 +228,8 @@ export async function exportSummary(
       { startSize: 54, minSize: 18, maxLines: 2, maxHeight: 95, lineHeight: 1 },
     );
     c.beginPath();
-    c.moveTo(80, y - 40);
-    c.lineTo(1000, y - 40);
+    c.moveTo(80, y - 60);
+    c.lineTo(1000, y - 60);
     c.stroke();
     c.font = `900 ${fitted.size}px Archivo, ArchivoSupplement`;
     for (const [j, line] of fitted.lines.entries()) c.fillText(line, 80, y + j * fitted.size);

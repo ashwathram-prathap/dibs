@@ -1,8 +1,8 @@
 // Resumable owner-approved rollout. Persist this journal between daily runs.
-import { readFileSync, writeFileSync, existsSync } from 'node:fs';
+import { readFileSync, writeFileSync, existsSync, appendFileSync } from 'node:fs';
 import { createHash } from 'node:crypto';
 import { normalize, dropAt, torontoDate } from '../worker/domain';
-import { catalogContent } from '../shared/catalog-digest';
+import { catalogContent, keyContent } from '../shared/catalog-digest';
 const base = process.env.DIBS_API || 'https://dibs-7hz.pages.dev/api';
 const token =
   process.env.ADMIN_TOKEN || readFileSync('.dev.vars', 'utf8').match(/^ADMIN_TOKEN=(.+)$/m)?.[1];
@@ -85,8 +85,21 @@ for (const [i, id] of plan.entries()) {
     (n: number, a: any) => n + new Set([normalize(a.display), ...a.aliases.map(normalize)]).size,
     0,
   );
+  const expectedKeys = createHash('sha256')
+    .update(
+      keyContent(
+        local.answers.flatMap((a: any) =>
+          [...new Set([normalize(a.display), ...a.aliases.map(normalize)])].map((match_key) => ({
+            match_key,
+            display: a.display,
+          })),
+        ),
+      ),
+    )
+    .digest('hex');
   if (
     verified.digest !== expected ||
+    verified.keyDigest !== expectedKeys ||
     verified.entries !== local.answers.length ||
     verified.keys !== keyCount
   )
@@ -133,3 +146,6 @@ writeFileSync(
 console.log(
   `${plan.length - progress.remaining.length}/30 approved; ${budget.reservedWrites}/45000 upload writes reserved today.`,
 );
+
+if (process.env.GITHUB_OUTPUT)
+  appendFileSync(process.env.GITHUB_OUTPUT, `complete=${progress.remaining.length === 0}\n`);

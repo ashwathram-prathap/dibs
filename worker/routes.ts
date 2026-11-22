@@ -1,4 +1,4 @@
-import { catalogContent } from '../shared/catalog-digest';
+import { catalogContent, keyContent } from '../shared/catalog-digest';
 /// <reference types="@cloudflare/workers-types" />
 import { PUBLIC_ORIGIN } from '../shared/config';
 import { handle, hmac, cookieUser } from './identity';
@@ -131,7 +131,9 @@ async function admin(req: Request, env: Env, path: string) {
         .all<any>()
     ).results;
     const missing = (
-      await env.DB.prepare('SELECT match_key,answer_id FROM answer_keys WHERE category_id=?')
+      await env.DB.prepare(
+        'SELECT k.match_key,a.display FROM answer_keys k JOIN answers a ON a.id=k.answer_id WHERE k.category_id=?',
+      )
         .bind(id)
         .all<any>()
     ).results;
@@ -143,7 +145,14 @@ async function admin(req: Request, env: Env, path: string) {
     ]
       .map((n) => n.toString(16).padStart(2, '0'))
       .join('');
-    return json({ id, entries: rows.length, keys: missing.length, digest });
+    const keyDigest = [
+      ...new Uint8Array(
+        await crypto.subtle.digest('SHA-256', new TextEncoder().encode(keyContent(missing))),
+      ),
+    ]
+      .map((n) => n.toString(16).padStart(2, '0'))
+      .join('');
+    return json({ id, entries: rows.length, keys: missing.length, digest, keyDigest });
   }
   if (path === '/admin/registers' && req.method === 'GET') {
     return json({
@@ -572,9 +581,9 @@ async function claim(req: Request, env: Env, u: any) {
     if (!r) return null;
     try {
       await env.DB.prepare(
-        'INSERT INTO strikes SELECT ?,?,(SELECT COUNT(*) FROM claims WHERE category_id=? AND user_id=?)+COUNT(*)+1,? FROM strikes WHERE category_id=? AND user_id=?',
+        "INSERT INTO strikes SELECT ?,?,(SELECT COUNT(*) FROM claims WHERE category_id=? AND user_id=?)+COUNT(*)+1,strftime('%Y-%m-%dT%H:%M:%fZ','now') FROM strikes WHERE category_id=? AND user_id=?",
       )
-        .bind(g.id, u.id, g.id, u.id, new Date().toISOString(), g.id, u.id)
+        .bind(g.id, u.id, g.id, u.id, g.id, u.id)
         .run();
     } catch (e) {
       if (String(e).includes('FILE_CLOSED')) return fail(403, 'Your file is closed for today.');
@@ -588,11 +597,9 @@ async function claim(req: Request, env: Env, u: any) {
   const existing = await taken();
   if (existing) return existing;
   // Persist a pending identity only once a valid, available claim is being filed.
-  await env.DB.prepare(
+  const persistUser = env.DB.prepare(
     'INSERT OR IGNORE INTO users(id,handle,created_at,rerolls_used) VALUES(?,?,?,?)',
-  )
-    .bind(u.id, u.handle, new Date().toISOString(), u.rerolls_used)
-    .run();
+  ).bind(u.id, u.handle, new Date().toISOString(), u.rerolls_used);
   const ip =
     (local ? req.headers.get('x-test-ip') : null) ||
     req.headers.get('CF-Connecting-IP') ||
@@ -601,24 +608,12 @@ async function claim(req: Request, env: Env, u: any) {
   const hash = await hmac(ip || 'unknown', await hmac('ip:' + day, env.COOKIE_SECRET));
   const id = crypto.randomUUID();
   try {
-    await env.DB.prepare(
-      'INSERT INTO claims(id,category_id,answer_id,user_id,claim_no,created_at,ip_hash,ip_day,file_no) SELECT ?,?,?,?,COALESCE(MAX(claim_no),0)+1,?,?,?,(SELECT COUNT(*) FROM claims WHERE category_id=? AND user_id=?)+(SELECT COUNT(*) FROM strikes WHERE category_id=? AND user_id=?)+1 FROM claims WHERE category_id=?',
-    )
-      .bind(
-        id,
-        g.id,
-        answer.answer_id,
-        u.id,
-        new Date().toISOString(),
-        hash,
-        day,
-        g.id,
-        u.id,
-        g.id,
-        u.id,
-        g.id,
-      )
-      .run();
+    await env.DB.batch([
+      persistUser,
+      env.DB.prepare(
+        "INSERT INTO claims(id,category_id,answer_id,user_id,claim_no,created_at,ip_hash,ip_day,file_no) SELECT ?,?,?,?,COALESCE(MAX(claim_no),0)+1,strftime('%Y-%m-%dT%H:%M:%fZ','now'),?,?,(SELECT COUNT(*) FROM claims WHERE category_id=? AND user_id=?)+(SELECT COUNT(*) FROM strikes WHERE category_id=? AND user_id=?)+1 FROM claims WHERE category_id=?",
+      ).bind(id, g.id, answer.answer_id, u.id, hash, day, g.id, u.id, g.id, u.id, g.id),
+    ]);
   } catch (e) {
     if (String(e).includes('FILE_CLOSED')) return fail(403, 'Your file is closed for today.');
     const conflict = await taken();

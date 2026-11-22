@@ -1,0 +1,12 @@
+{
+  "passed": true,
+  "checks": [
+    "real D1 3 dibs plus strike",
+    "server event order",
+    "reload persists 3/1 and 0/5",
+    "closed 403",
+    "UI summary",
+    "three-stamp recording"
+  ],
+  "errors": []
+}
