@@ -96,7 +96,7 @@ export async function specialStatus(env: Env, category: any, reveal = false) {
     return {
       houseCount: ((houseWords as Record<string, string[]>)[category.slug] || []).length,
       houseWords: ((houseWords as Record<string, string[]>)[category.slug] || []).map(
-        (display) => ({ display, handle: 'THE REGISTRY' }),
+        (display) => ({ display, handle: 'RESERVED' }),
       ),
       goldenFound: 0,
       goldenTotal: goldenPerDay(category.date),
@@ -120,7 +120,7 @@ export async function specialStatus(env: Env, category: any, reveal = false) {
     houseCount: house.length,
     houseWords: house
       .filter((h) => closed || h.revealed)
-      .map((h) => ({ display: h.display, handle: 'THE REGISTRY' })),
+      .map((h) => ({ display: h.display, handle: 'RESERVED' })),
     goldenFound: Number(found?.n || 0),
     goldenTotal: JSON.parse(saved.golden_json).length,
     commitment: saved.commitment,

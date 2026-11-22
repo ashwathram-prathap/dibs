@@ -81,7 +81,7 @@ House words are the ten highest measured mean daily pageview answers, with deter
 
 ## Identity, privacy and operation
 
-A hashed recovery key restores the same signed identity in another browser. Key entry is rate limited. Claim requests carry an idempotency UUID so a network retry cannot duplicate a claim or strike. Missing-answer submissions are anonymous, rate limited, retained for 90 days, and visible in admin stats. The Office notice explains storage, retention, 13+ eligibility and the `privacy@dibs.here` contact placeholder.
+A hashed recovery key restores the same signed identity in another browser. Key entry is rate limited. Claim requests carry an idempotency UUID so a network retry cannot duplicate a claim or strike. Missing-answer submissions are anonymous, rate limited, retained for 90 days, and visible in admin stats. The Office notice explains storage, retention, 13+ eligibility and self-serve file deletion and the Tell the clerk privacy topic.
 
 The shared registry coordinator serializes claims; D1 constraints enforce answer uniqueness and atomic daily limits. Public polling uses bounded caches and incremental cursors. Permanent Day Certificate and individual certificate links support PNG, copy, download and long-press fallbacks. Moderation redacts public previews without erasing identity records. Free-tier limits still apply; the earlier workload estimates are in `review/round4/free-tier.md`.
 

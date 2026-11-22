@@ -594,3 +594,107 @@ it('restores the same file with a hashed key, rate limits guesses, and counts an
   const after: any = await (await call('/me', undefined, cookie)).json();
   expect(after.file.strikes).toBe(0);
 });
+it('R11 deletion requires confirmation and verification, erases identity, and anonymizes every cached record', async () => {
+  const a = await account();
+  await db
+    .prepare('INSERT INTO answers VALUES(?,?,?,?,?,?)')
+    .bind('r11-delete-a', 'test', 'deleteanimal', 'Delete animal', '[]', 4)
+    .run();
+  await db
+    .prepare('INSERT INTO answer_keys VALUES(?,?,?)')
+    .bind('test', 'deleteanimal', 'r11-delete-a')
+    .run();
+  const claimed = await call(
+    '/claim',
+    { answer: 'deleteanimal', turnstileToken: 'test', requestId: crypto.randomUUID() },
+    a.cookie,
+    'r11-delete',
+  );
+  expect(claimed.status).toBe(201);
+  const data: any = await claimed.json();
+  const uid = a.me.user.id;
+  await call(
+    '/feedback',
+    { text: 'private test note', topic: 'privacy', turnstileToken: 'test' },
+    a.cookie,
+    'r11-delete',
+  );
+  expect(
+    (await call('/delete-file', { turnstileToken: 'test' }, a.cookie, 'r11-delete')).status,
+  ).toBe(422);
+  expect(
+    (await call('/delete-file', { confirm: 'DELETE MY FILE' }, a.cookie, 'r11-delete')).status,
+  ).toBe(400);
+  const removed = await call(
+    '/delete-file',
+    { confirm: 'DELETE MY FILE', turnstileToken: 'test' },
+    a.cookie,
+    'r11-delete',
+  );
+  expect(removed.status).toBe(200);
+  expect(removed.headers.get('set-cookie')).toContain('Max-Age=0');
+  expect(await db.prepare('SELECT id FROM users WHERE id=?').bind(uid).first()).toBeNull();
+  expect(
+    await db.prepare('SELECT user_id FROM recovery_keys WHERE user_id=?').bind(uid).first(),
+  ).toBeNull();
+  expect(
+    await db.prepare('SELECT user_id FROM feedback WHERE user_id=?').bind(uid).first(),
+  ).toBeNull();
+  expect(
+    (
+      await db
+        .prepare('SELECT user_id,ip_hash,request_id FROM claims WHERE id=?')
+        .bind(data.claim.id)
+        .first()
+    ).user_id,
+  ).not.toBe(uid);
+  const view: any = await (
+    await call('/certificate/' + data.claim.id, undefined, summaryViewer)
+  ).json();
+  expect(view.claim.handle).toBe('Withdrawn filer');
+  expect(
+    (await call('/recover', { key: data.recoveryKey }, undefined, 'r11-delete-restore')).status,
+  ).toBe(422);
+  const stale: any = await (await call('/bootstrap', undefined, a.cookie)).json();
+  expect(stale.me.user.id).not.toBe(uid);
+  expect(stale.me.streak).toBe(0);
+});
+it('R11 file-key deletion works from another browser and deletion is rate limited', async () => {
+  const a = await account();
+  await db
+    .prepare('INSERT INTO answers VALUES(?,?,?,?,?,?)')
+    .bind('r11-key-a', 'test', 'keyanimal', 'Key animal', '[]', 4)
+    .run();
+  await db
+    .prepare('INSERT INTO answer_keys VALUES(?,?,?)')
+    .bind('test', 'keyanimal', 'r11-key-a')
+    .run();
+  const result: any = await (
+    await call(
+      '/claim',
+      { answer: 'keyanimal', turnstileToken: 'test', requestId: crypto.randomUUID() },
+      a.cookie,
+      'r11-key',
+    )
+  ).json();
+  expect(result.recoveryKey).toBeTruthy();
+  const response = await call(
+    '/delete-file',
+    { key: result.recoveryKey, confirm: 'DELETE MY FILE', turnstileToken: 'test' },
+    undefined,
+    'r11-key',
+  );
+  expect(response.status).toBe(200);
+  expect(await db.prepare('SELECT id FROM users WHERE id=?').bind(a.me.user.id).first()).toBeNull();
+  let status = 0;
+  for (let i = 0; i < 31; i++)
+    status = (
+      await call(
+        '/delete-file',
+        { confirm: 'DELETE MY FILE', turnstileToken: 'test' },
+        undefined,
+        'r11-rate',
+      )
+    ).status;
+  expect(status).toBe(429);
+});

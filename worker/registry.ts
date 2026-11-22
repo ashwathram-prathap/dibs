@@ -1,3 +1,4 @@
+import { withdraw } from './withdraw';
 import { calendarRoute } from './calendar';
 import { platformUsage } from './platform-usage';
 import { canReveal, publicCategory, concealClaim, concealSummary } from './visibility';
@@ -49,6 +50,7 @@ type Session = {
 export class Registry extends DurableObject<Env> {
   private snapshot?: Snapshot;
   private refreshing?: Promise<Snapshot>;
+  private mutations = new Map<string, Promise<unknown>>();
   private flights = new Map<string, Promise<Response>>();
   constructor(ctx: DurableObjectState, env: Env) {
     super(ctx, env);
@@ -250,7 +252,9 @@ export class Registry extends DurableObject<Env> {
         .bind(ref.category, ref.user)
         .all()
     ).results;
-    const holder = await env.DB.prepare('SELECT handle,hidden FROM users WHERE id=?')
+    const holder = await env.DB.prepare(
+      "SELECT CASE WHEN provider_subject LIKE 'withdrawn:%' THEN 'Withdrawn filer' ELSE handle END handle,hidden,provider_subject FROM users WHERE id=?",
+    )
       .bind(ref.user)
       .first<any>();
     const dates = (
@@ -278,7 +282,9 @@ export class Registry extends DurableObject<Env> {
           (holder?.hidden
             ? 'Record withheld'
             : holder?.handle || owner?.user.handle || 'Anonymous filer'),
-        streak: streak(dates, category.date),
+        streak: holder?.provider_subject?.startsWith('withdrawn:')
+          ? 0
+          : streak(dates, category.date),
       },
       category,
       specials: await specialStatus(env, category),
@@ -519,7 +525,16 @@ export class Registry extends DurableObject<Env> {
     const stats = await this.liveStats();
     const alerts = alertConditions(stats.minutes, stats.usage);
     const now = Date.now(),
-      at = Date.parse(dropAt(registryDate()));
+      at =
+        this.env.STAGING === 'true'
+          ? Date.parse(
+              (
+                await this.env.DB.prepare(
+                  "SELECT drop_at FROM categories WHERE id='practice' AND status='approved'",
+                ).first<any>()
+              )?.drop_at || '',
+            )
+          : Date.parse(dropAt(registryDate()));
     if (now >= at && now < at + 120000) {
       const g = await current(this.env);
       alerts.push({
@@ -538,11 +553,15 @@ export class Registry extends DurableObject<Env> {
       if (threshold && (await this.ctx.storage.get('threshold-sent:' + alert.type))) continue;
       const key = 'alert:' + alert.type;
       const previous = (await this.ctx.storage.get<number>(key)) || 0;
-      if (Date.now() - previous < 1800000 || !this.env.NTFY_TOPIC || this.env.STAGING === 'true')
+      if (
+        Date.now() - previous < 1800000 ||
+        !this.env.NTFY_TOPIC ||
+        (this.env.STAGING === 'true' && alert.type !== 'drop-live')
+      )
         continue;
       const response = await fetch('https://ntfy.sh/' + encodeURIComponent(this.env.NTFY_TOPIC), {
         method: 'POST',
-        body: alert.message,
+        body: (this.env.STAGING === 'true' ? 'Practice rehearsal — ' : '') + alert.message,
         headers: { Title: 'Dibs office', Priority: 'high' },
       });
       if (response.ok) {
@@ -567,7 +586,30 @@ export class Registry extends DurableObject<Env> {
     try {
       const closed = await this.ctx.storage.get<{ until: number; body: any }>('quota-closed');
       if (closed && closed.until > Date.now()) response = json(closed.body, 503);
-      else response = await this.dispatch(req, env);
+      else {
+        const path = new URL(req.url).pathname;
+        let uid = await cookieUser(req, env.COOKIE_SECRET);
+        if (path.endsWith('/delete-file') && req.method === 'POST') {
+          const b = await body(req.clone() as Request, 3000);
+          if (b.key)
+            uid =
+              (
+                await env.DB.prepare('SELECT user_id FROM recovery_keys WHERE key_hash=?')
+                  .bind(await hmac(normalizeFileKey(String(b.key)), env.COOKIE_SECRET))
+                  .first<any>()
+              )?.user_id || uid;
+        }
+        if (uid && /\/(claim|delete-file)$/.test(path)) {
+          const previous = this.mutations.get(uid) || Promise.resolve();
+          const task = previous.catch(() => {}).then(() => this.dispatch(req, env));
+          this.mutations.set(uid, task);
+          try {
+            response = await task;
+          } finally {
+            if (this.mutations.get(uid) === task) this.mutations.delete(uid);
+          }
+        } else response = await this.dispatch(req, env);
+      }
     } catch (e) {
       response = safeError(e, env);
       if (response.status === 503) {
@@ -905,6 +947,73 @@ export class Registry extends DurableObject<Env> {
       });
       return json({ ok: true });
     }
+    if (path === '/delete-file' && req.method === 'POST') {
+      const denied = await this.rateGate(req, env, false, true);
+      if (denied) return denied;
+      const b = await body(req, 3000);
+      if (b.confirm !== 'DELETE MY FILE')
+        return json({ message: 'Confirm that you want to permanently remove your file.' }, 422);
+      if (!(await verifyChallenge(req, env, b.turnstileToken)))
+        return json({ message: 'Please complete verification.' }, 400);
+      let uid = (await this.session(req)).session?.user.id;
+      if (b.key)
+        uid = (
+          await env.DB.prepare('SELECT user_id FROM recovery_keys WHERE key_hash=?')
+            .bind(await hmac(normalizeFileKey(String(b.key)), env.COOKIE_SECRET))
+            .first<any>()
+        )?.user_id;
+      if (!uid) return json({ message: 'Restore your file or enter its file key first.' }, 401);
+      const replacements = await withdraw(env, uid);
+      await this.ctx.storage.delete('session:' + uid);
+      await this.ctx.storage.delete('active:' + uid);
+      for (const [key, ref] of await this.ctx.storage.list<any>({ prefix: 'summary:' })) {
+        if (ref.user === uid)
+          await this.ctx.storage.put(key, { ...ref, user: replacements.get(ref.category) });
+      }
+      for (const [key, board] of await this.ctx.storage.list<any[]>({ prefix: 'board:' })) {
+        await this.ctx.storage.put(
+          key,
+          board.filter((r) => r.user_id !== uid),
+        );
+      }
+      // Other players may have a cached strike naming this holder. Re-read their
+      // file on the next bootstrap; never leave the deleted handle in a cache.
+      for (const [key, other] of await this.ctx.storage.list<Session>({ prefix: 'session:' })) {
+        if (other.file) {
+          other.file = await fileState(env, other.file.category_id, other.user.id);
+          await this.ctx.storage.put(key, other);
+        }
+      }
+      for (const prefix of ['cache:', 'image:', 'image-expiry:']) {
+        const keys = await this.ctx.storage.list({ prefix });
+        if (keys.size) await this.ctx.storage.delete([...keys.keys()]);
+      }
+      await this.ctx.storage.put('image-bytes', 0);
+      if (env.IMAGE_CACHE)
+        await Promise.all(
+          Array.from({ length: 8 }, (_, i) =>
+            env
+              .IMAGE_CACHE!.get(env.IMAGE_CACHE!.idFromName('images-' + i))
+              .fetch(new Request('https://images/invalidate', { method: 'POST' })),
+          ),
+        );
+      await this.ctx.storage.put(
+        'version',
+        ((await this.ctx.storage.get<number>('version')) || 0) + 1,
+      );
+      this.snapshot = undefined;
+      await this.ctx.storage.delete('snapshot');
+      for (const ws of this.ctx.getWebSockets()) ws.close(1012, 'The public record was updated');
+      return json(
+        { ok: true, message: 'Your file is removed. Past claims now belong to Withdrawn filer.' },
+        200,
+        {
+          'set-cookie':
+            'dibs_session=; HttpOnly; SameSite=Lax; Path=/; Max-Age=0' +
+            (isLocal(req, env.LOCAL_TEST) ? '' : '; Secure'),
+        },
+      );
+    }
     if (path === '/recover' && req.method === 'POST') {
       const denied = await this.rateGate(req, env, false, true);
       if (denied) return denied;
@@ -993,7 +1102,11 @@ export class Registry extends DurableObject<Env> {
     }
     if (path === '/feedback') {
       const b = await body(req, 4000);
-      if (typeof b.text !== 'string' || !b.text.trim() || b.text.length > 500)
+      if (
+        typeof b.text !== 'string' ||
+        !b.text.trim() ||
+        b.text.length > (b.topic === 'privacy' ? 482 : 500)
+      )
         return json({ message: 'Write up to 500 characters.' }, 422);
       if (
         !(await verifiedSession(req, env, session.user.id, b.sessionToken)) &&
@@ -1013,7 +1126,12 @@ export class Registry extends DurableObject<Env> {
       if (!allowed)
         return json({ message: 'The clerk has your notes. Try again in an hour.' }, 429);
       await env.DB.prepare('INSERT INTO feedback(id,user_id,text,created_at) VALUES(?,?,?,?)')
-        .bind(crypto.randomUUID(), session.user.id, b.text.trim(), new Date().toISOString())
+        .bind(
+          crypto.randomUUID(),
+          session.user.id,
+          (b.topic === 'privacy' ? 'Privacy question: ' : '') + b.text.trim(),
+          new Date().toISOString(),
+        )
         .run();
       return json({ ok: true, message: 'The clerk has your note.' });
     }

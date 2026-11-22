@@ -1,3 +1,4 @@
+import { reminder } from '../shared/reminder';
 import { canonicalRedirect, secureResponse } from '../shared/security';
 import { PUBLIC_ORIGIN } from '../shared/config';
 import {
@@ -21,6 +22,18 @@ export const onRequest: PagesFunction = async ({ request, next, env }) => {
     return r.json();
   };
   try {
+    if (path === '/reminder.ics') {
+      const today: any = await api('/today');
+      return secureResponse(
+        new Response(reminder(today.nextDrop, origin).ics, {
+          headers: {
+            'content-type': 'text/calendar; charset=utf-8',
+            'content-disposition': 'attachment; filename="dibs-reminder.ics"',
+            'cache-control': 'no-store',
+          },
+        }),
+      );
+    }
     if (path === '/robots.txt')
       return new Response(
         staging

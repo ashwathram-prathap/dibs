@@ -1,3 +1,4 @@
+import { clerkReply } from '../shared/moments';
 import { nextDrop } from '../worker/domain';
 const r7 = new URLSearchParams(location.search);
 const clockStart = performance.now();
@@ -162,7 +163,7 @@ export async function request(path: string, body?: any): Promise<any> {
               ...category,
               specials: {
                 ...specials(),
-                houseWords: house.map((display) => ({ display, handle: 'THE REGISTRY' })),
+                houseWords: house.map((display) => ({ display, handle: 'RESERVED' })),
                 verified: true,
                 reveal: {
                   seed: 'visual-fixture',
@@ -183,8 +184,11 @@ export async function request(path: string, body?: any): Promise<any> {
     return { claim: claims.find((c) => c.id === path.split('/').pop()) || mine };
   if (path === '/missing')
     return { ok: true, message: 'Submitted to the clerk. No strike charged.' };
+  if (path === '/delete-file') return {ok:true,message:'Your file is removed. Past claims now belong to Withdrawn filer.'};
   if (path === '/recover') return { ok: true };
   if (path === '/claim') {
+    const note = clerkReply(body.answer, category.name);
+    if(note) throw new ApiError(422,{code:'CLERK_NOTE',message:note});
     if (r7.has('r8') && body.answer === 'offline proof')
       throw new Error('The clerk didn’t get that. Try again.');
     if (file().closed) throw new ApiError(403, { message: 'Your file is closed for today.' });
@@ -192,8 +196,8 @@ export async function request(path: string, body?: any): Promise<any> {
       events.push({ at: new Date().toISOString(), kind: 'strike', display: 'DOG', house: true });
       throw new ApiError(409, {
         house: true,
-        takenBy: 'THE REGISTRY',
-        message: 'DOG is held by the Registry. Obvious picks are reserved.',
+        takenBy: 'RESERVED',
+        message: 'DOG is reserved: the 10 most obvious answers are off-limits.',
         file: file(),
         me: await request('/me'),
       });

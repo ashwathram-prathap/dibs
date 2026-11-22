@@ -1,9 +1,10 @@
 export function Icon({
   name = 'arrow',
 }: {
-  name?: 'arrow' | 'back' | 'check' | 'cross' | 'star' | 'info' | 'circle';
+  name?: 'arrow' | 'back' | 'check' | 'cross' | 'star' | 'info' | 'circle' | 'chevron';
 }) {
   const paths = {
+    chevron: 'm6 9 6 6 6-6',
     arrow: 'M5 19 19 5M5 5h14v14',
     back: 'm11 5-7 7 7 7M4 12h16',
     check: 'm4 12 5 5L20 6',

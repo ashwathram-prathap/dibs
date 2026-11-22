@@ -1,8 +1,10 @@
+import { categoryNote, REGISTRAR_STROKE } from '../shared/moments';
+import { reminder } from '../shared/reminder';
 import { Calendar } from './Calendar';
 import { categoryStyle, paperStocks } from '../shared/category-style';
 import { clerkLine } from '../shared/clerk-lines';
 import { BrandProof } from './BrandProof';
-import { prepareSound, stampSound, soundEnabled } from './sound';
+import { prepareSound, stampSound, goldSound, soundEnabled } from './sound';
 import { submittedSpelling } from './spelling';
 import { HOME_TITLE, archiveTitle } from '../shared/seo';
 import { Icon } from './Icon';
@@ -36,6 +38,23 @@ import { ShareSheet } from './ShareSheet';
 import { summaryUrl, isPlatform } from '../shared/sharing';
 import { exportCertificate, exportSummary, summaryText } from './share';
 import { WORDMARK_WIDTH, WORDMARK_PATH, WORDMARK_BLOCK_X } from '../shared/brand';
+function Signature() {
+  return (
+    <span className="registrar-signature">
+      <svg viewBox="0 0 220 50" role="img" aria-label="Signed, The Registrar">
+        <path
+          d={REGISTRAR_STROKE}
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="1.4"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        />
+      </svg>
+      <span>The Registrar</span>
+    </span>
+  );
+}
 function Handle({ name, founder }: { name: string; founder?: boolean | number }) {
   return (
     <span className={founder ? 'founder-handle' : undefined}>
@@ -65,6 +84,19 @@ function time(at: string) {
     >
       {value.label}
       <span className="zone-tip"> {value.zone}</span>
+    </time>
+  );
+}
+function RelativeTime({ at }: { at: string }) {
+  const now = useServerNow();
+  const seconds = Math.max(0, Math.floor((now - Date.parse(at)) / 1000));
+  return (
+    <time dateTime={at} title={localTime(at).full}>
+      {seconds < 60
+        ? 'just now'
+        : seconds < 3600
+          ? `${Math.floor(seconds / 60)}m ago`
+          : localTime(at).full}
     </time>
   );
 }
@@ -648,6 +680,7 @@ function Home({
       if (result.sessionNotice) setSessionNotice(result.sessionNotice);
       pendingRequest.current = null;
       stampSound(true);
+      if (result.claim.golden) goldSound();
       setOutcome(result.claim.golden ? 'GOLD' : 'DIBS');
       setMessage(result.claim.display.toUpperCase());
       if (result.recoveryKey) setRecoveryKey(result.recoveryKey);
@@ -674,13 +707,15 @@ function Home({
       setOutcome(
         err.status === 409
           ? err.data.house
-            ? 'HOUSE'
+            ? 'RESERVED'
             : 'TAKEN'
-          : err.data?.code === 'NOT_REGISTERED'
-            ? 'NOT ON THE LIST'
-            : err.status === 403
-              ? 'FILE CLOSED'
-              : 'TRY AGAIN',
+          : err.data?.code === 'CLERK_NOTE'
+            ? 'A NOTE FROM THE CLERK'
+            : err.data?.code === 'NOT_REGISTERED'
+              ? 'NOT ON THE LIST'
+              : err.status === 403
+                ? 'FILE CLOSED'
+                : 'TRY AGAIN',
       );
       setTaken(err.status === 409);
       setHouseStrike(!!err.data?.house);
@@ -692,7 +727,7 @@ function Home({
       setMessage(
         err.status === 409
           ? err.data.house
-            ? `Taken: ${value.toUpperCase()} is held by the house.`
+            ? `${value.toUpperCase()} is reserved: the 10 most obvious answers are off-limits.`
             : `Taken: ${value.toUpperCase()} is ${err.data.takenBy}'s.`
           : err.data?.code === 'NOT_REGISTERED'
             ? "Not on today's list. Check spelling."
@@ -709,6 +744,9 @@ function Home({
   const playing = !!today.category && !file?.closed;
   return (
     <div className={playing ? 'focused-play' : 'completed-play'}>
+      {location.search.includes('file-deleted') && (
+        <p role="status">Your file is removed. Past claims now belong to Withdrawn filer.</p>
+      )}
       {!today.category ? (
         <section className="closed-office">
           <div className="closed-copy">
@@ -717,6 +755,7 @@ function Home({
               Animals drops <DropTime at={today.nextDrop} />.
             </h1>
             <p>Same moment for everyone.</p>
+            <p className="clerk-aside">{categoryNote('animals')}</p>
             <Rules />
             <Reminder at={today.nextDrop} />
           </div>
@@ -731,8 +770,8 @@ function Home({
       ) : file?.closed ? (
         <>
           <span className="file-closed-stamp">FILE CLOSED</span>
-          <p className="clerk-aside">{clerkLine('closed', file.dibs + file.strikes)}</p>
-          <DaySummary file={file} today={today} />
+          <p className="clerk-aside">{categoryNote(today.category.slug)}</p>
+          <DaySummary file={file} today={today} showLedger />
         </>
       ) : (
         <section className="claim-section" aria-label="Play today's category">
@@ -746,7 +785,12 @@ function Home({
                 className={'result-panel win-beat ' + (claim.golden ? 'gold-result' : '')}
                 role="status"
               >
-                <strong className="win-stamp">DIBS · {claim.display.toUpperCase()}</strong>
+                <strong
+                  className="win-stamp"
+                  style={{ rotate: `${((claim.claim_no * 7.31) % 7) - 4}deg` }}
+                >
+                  DIBS · {claim.display.toUpperCase()}
+                </strong>
                 <p>
                   {file?.dibs || 1} of 3 dibs{claim.golden && ' · Golden ticket!'}
                 </p>
@@ -817,9 +861,20 @@ function Home({
                       <strong className="strike-count">Strike {file?.strikes || 0} of 5</strong>
                     )}
                     {suggestion && (
-                      <button type="button" onClick={(e) => void submit(e, suggestion)}>
-                        Did you mean {suggestion.toUpperCase()}?
-                      </button>
+                      <>
+                        <button type="button" onClick={(e) => void submit(e, suggestion)}>
+                          Did you mean {suggestion.toUpperCase()}?
+                        </button>
+                        <button
+                          type="button"
+                          onClick={() => {
+                            setSuggestion(null);
+                            input.current?.focus();
+                          }}
+                        >
+                          Keep my spelling
+                        </button>
+                      </>
                     )}
                     {missing && (
                       <button
@@ -841,8 +896,13 @@ function Home({
                 {sessionNotice}
               </p>
             )}
-            <details className="play-rules">
-              <summary>How it works</summary>
+            <details
+              key={String(file?.dibs || 0) + ':' + String(file?.strikes || 0) + ':' + message}
+              className="play-rules"
+            >
+              <summary>
+                How it works <Icon name="chevron" />
+              </summary>
               <Rules />
             </details>
           </div>
@@ -856,9 +916,11 @@ function Home({
           <span>Ledger opens when your file closes</span>
         </section>
       )}
-      {(!playing || sessionNotice || restoreKey) && (
-        <details className="file-key-panel" open={restoreKey ? true : undefined}>
-          <summary>Have a file key? Restore it.</summary>
+      {true && (
+        <details id="file-settings" className="file-key-panel" open={restoreKey ? true : undefined}>
+          <summary>
+            File key &amp; settings <Icon name="chevron" />
+          </summary>
           <form onSubmit={restore}>
             <label htmlFor="restore-key">File key</label>
             <input
@@ -870,6 +932,7 @@ function Home({
             />
             <button>Restore file</button>
           </form>
+          <DeleteFile sitekey={today.turnstileSiteKey} initialKey={restoreKey} />
         </details>
       )}
       {file?.closed && (
@@ -881,43 +944,52 @@ function Home({
               <p>Keep it private. It restores your file.</p>
             </section>
           )}
-          <Ledger
-            category={today.category!}
-            open={today.open}
-            goldenFound={today.specials?.goldenFound}
-            goldenTotal={today.specials?.goldenTotal}
-          />
-          <section className="cleanest">
-            <h2>Today's cleanest files</h2>
-            {today.board?.length ? (
-              <ol>
-                {today.board.map((r, i) => (
-                  <li key={i}>
-                    <strong>
-                      <Handle name={r.handle} founder={r.founder} />
-                    </strong>
-                    <span>
-                      {r.dibs}/3 · {r.strikes} strikes · {time(r.completedAt)}
-                    </span>
-                  </li>
-                ))}
-              </ol>
-            ) : (
-              <p>Results post as files close.</p>
-            )}
-          </section>
         </>
       )}
     </div>
   );
 }
 function Reminder({ at }: { at: string }) {
-  return (
-    <a className="reminder-button" href="/reminder.ics" download="dibs-reminder.ics">
-      Remind me at {dropTime(at).full}
+  const links = reminder(at);
+  const appleFirst = /iPhone|iPad|iPod/.test(navigator.userAgent);
+  const mac = /Mac/.test(navigator.platform) && !appleFirst;
+  const apple = (
+    <a key="apple" href={'/reminder.ics?at=' + encodeURIComponent(at)}>
+      Apple Calendar{mac ? ' (downloads a file, then open it)' : ''}
     </a>
   );
+  const google = (
+    <a key="google" href={links.google} target="_blank" rel="noopener noreferrer">
+      Google Calendar
+    </a>
+  );
+  return (
+    <details
+      className="reminder-menu"
+      onKeyDown={(e) => {
+        if (e.key === 'Escape') {
+          e.currentTarget.open = false;
+          e.currentTarget.querySelector('summary')?.focus();
+        }
+      }}
+    >
+      <summary className="reminder-button">
+        Remind me <Icon name="chevron" />
+      </summary>
+      <div className="reminder-options">
+        <p>
+          Five minutes before <DropTime at={at} />. Daily.
+        </p>
+        {appleFirst ? [apple, google] : [google, apple]}
+        <a href={links.outlook} target="_blank" rel="noopener noreferrer">
+          Outlook
+        </a>
+        <small>Outlook opens one event. Set Repeat to Daily.</small>
+      </div>
+    </details>
+  );
 }
+
 function InstallHint() {
   const [show, setShow] = useState(() => {
     try {
@@ -974,16 +1046,36 @@ function Rules() {
 function Progress({ dibs, strikes }: { dibs: number; strikes: number }) {
   return (
     <div className="file-progress">
-      <strong>DIBS {dibs}/3</strong>
-      <span className="strike-row" role="img" aria-label={`${strikes} of 5 strikes`}>
-        {Array.from({ length: 5 }, (_, i) => (
-          <i key={i} className={i < strikes ? 'used' : ''} />
-        ))}
+      <span className="dibs-progress">
+        <strong>DIBS {dibs}/3</strong>
+        <span className="dibs-marks" aria-hidden="true">
+          {Array.from({ length: 3 }, (_, i) => (
+            <i key={i} className={i < dibs ? 'used' : ''}>
+              D
+            </i>
+          ))}
+        </span>
+      </span>
+      <span className="strikes-progress">
+        <strong>STRIKES {strikes}/5</strong>
+        <span className="strike-row" role="img" aria-label={`${strikes} of 5 strikes`}>
+          {Array.from({ length: 5 }, (_, i) => (
+            <i key={i} className={i < strikes ? 'used' : ''} />
+          ))}
+        </span>
       </span>
     </div>
   );
 }
-function DaySummary({ file, today }: { file: DayFile; today: Today }) {
+function DaySummary({
+  file,
+  today,
+  showLedger = false,
+}: {
+  file: DayFile;
+  today: Today;
+  showLedger?: boolean;
+}) {
   const render = useCallback(
     (story: boolean) => exportSummary(file, today.category!, story),
     [file, today.category],
@@ -1003,7 +1095,10 @@ function DaySummary({ file, today }: { file: DayFile; today: Today }) {
         <div className="day-category">
           <h2>{today.category!.name}</h2>
         </div>
-        <p className="postmark-date">{dateLabel(today.category!.date)}</p>
+        <div className="signed-date">
+          <p className="postmark-date">{dateLabel(today.category!.date)}</p>
+          <Signature />
+        </div>
         <p className="file-tally">
           {file.dibs}/3 dibs · {file.strikes} {file.strikes === 1 ? 'strike' : 'strikes'} · filed{' '}
           {time(file.completedAt!)}
@@ -1018,7 +1113,12 @@ function DaySummary({ file, today }: { file: DayFile; today: Today }) {
                 {event.kind === 'dibs' ? (
                   <>
                     {event.claimId ? (
-                      <Link to={'/certificate/' + event.claimId}>{event.display}</Link>
+                      <>
+                        <strong>{event.display}</strong>{' '}
+                        <Link className="view-certificate" to={'/certificate/' + event.claimId}>
+                          view
+                        </Link>
+                      </>
                     ) : (
                       <strong>{event.display}</strong>
                     )}
@@ -1032,7 +1132,7 @@ function DaySummary({ file, today }: { file: DayFile; today: Today }) {
                     <s>{event.display}</s>
                     <small>
                       {event.house ? (
-                        'Held by the Registry'
+                        'RESERVED'
                       ) : event.holder ? (
                         <>
                           Taken by <Handle name={event.holder} founder={event.holderFounder} />
@@ -1070,7 +1170,37 @@ function DaySummary({ file, today }: { file: DayFile; today: Today }) {
           render={render}
         />
         <Reminder at={today.nextDrop} />
+        <Clock target={today.nextDrop} />
         <InstallHint />
+        {showLedger && (
+          <>
+            <Ledger
+              category={today.category!}
+              open={today.open}
+              goldenFound={today.specials?.goldenFound}
+              goldenTotal={today.specials?.goldenTotal}
+            />
+            <section className="cleanest">
+              <h2>Today's cleanest files</h2>
+              {today.board?.length ? (
+                <ol>
+                  {today.board.map((r, i) => (
+                    <li key={i}>
+                      <strong>
+                        <Handle name={r.handle} founder={r.founder} />
+                      </strong>
+                      <span>
+                        {r.dibs}/3 · {r.strikes} strikes · {time(r.completedAt)}
+                      </span>
+                    </li>
+                  ))}
+                </ol>
+              ) : (
+                <p>Results post as files close.</p>
+              )}
+            </section>
+          </>
+        )}
       </aside>
     </section>
   );
@@ -1254,7 +1384,9 @@ function Ledger({
                 <Handle name={r.handle} founder={r.founder} />
                 <span className="mobile-meta">{time(r.created_at)}</span>
               </td>
-              <td className="time-col">{time(r.created_at)}</td>
+              <td className="time-col">
+                <RelativeTime at={r.created_at} />
+              </td>
             </tr>
           ))}
           {!filtered.length && (query || !category) && (
@@ -1354,6 +1486,7 @@ export function Certificate({ claim, animated = false }: { claim: Claim; animate
         <span>{claim.category_name.toUpperCase()}</span>
         <span>{dateLabel(claim.category_date)}</span>
       </div>
+      <Signature />
       <div className="cert-holder">
         <span className="eyebrow">HELD BY</span>
         <strong>
@@ -1588,8 +1721,8 @@ function Archive() {
               />
               {selected.specials && (
                 <section className="archive-specials">
-                  <span className="house-stamp">THE REGISTRY · HOUSE</span>
-                  <h2>Reserved by the house.</h2>
+                  <span className="house-stamp">RESERVED</span>
+                  <h2>The obvious answers are reserved.</h2>
                   <p>These entries never counted as player claims.</p>
                   <ul className="reserved-list">
                     {selected.specials.houseWords.map((w) => (
@@ -1674,25 +1807,24 @@ function About({ nextDrop }: { nextDrop: string }) {
           <h2>How to play</h2>
           <Rules />
           <details>
-            <summary>More about the game</summary>
+            <summary>
+              More about the game <Icon name="chevron" />
+            </summary>
             <ol className="rules">
               <li>
                 <span>
-                  A new category opens daily. Next drop: <DropTime at={nextDrop} />.
+                  Next drop: <DropTime at={nextDrop} />. First come, first served.
                 </span>
               </li>
-              <li>Call dibs on an answer. First come, first served.</li>
-              <li>Taken guesses cost a strike. Five strikes close your file.</li>
-              <li>Up to three dibs per person, per category.</li>
-              <li>The 10 most obvious answers are held by the house.</li>
+              <li>Three dibs. Five strikes. Taken answers cost a strike.</li>
+              <li>The 10 most obvious answers are reserved: off-limits to everyone.</li>
               <li>
-                Ten secret golden tickets per drop November 23–29, then three. The commitment is
-                revealed at close.
+                The golden list is published when the day ends, so you can check it wasn't changed.
               </li>
               <li>Most dibs, fewest strikes, earliest completed file wins.</li>
             </ol>
           </details>
-          <h2>Frequently asked questions</h2>
+          <h2 className="faq-heading">Frequently asked questions</h2>
           <h3>When does the category drop?</h3>
           <p>
             Next drop: <DropTime at={nextDrop} />. Same moment for everyone.
@@ -1733,9 +1865,12 @@ function About({ nextDrop }: { nextDrop: string }) {
             days. Nothing is sold or used for ads.
           </p>
           <p>
-            For privacy questions or deletion requests:{' '}
-            <a href="mailto:privacy@dibs.here">privacy@dibs.here</a> (contact mailbox awaiting owner
-            setup). Dibs is for players 13 and up.
+            <Link to="/#file-settings">Delete my file</Link> removes your handle, file key, streak
+            and feedback. Past claims stay as “Withdrawn filer”, without a link between days.
+            Private backups expire within 30 days. For privacy questions, use{' '}
+            <a href="#feedback">Tell the clerk</a>
+            and choose “Privacy question”. No reply channel is collected. Dibs is for players 13 and
+            up.
           </p>
           <p>The founder plays by the same rules.</p>
           <h2>Sources and attribution</h2>
@@ -1888,13 +2023,74 @@ function Stats() {
   );
 }
 
+function DeleteFile({ sitekey, initialKey = '' }: { sitekey: string; initialKey?: string }) {
+  const [confirm, setConfirm] = useState(false),
+    [key, setKey] = useState(initialKey),
+    [busy, setBusy] = useState(false),
+    [message, setMessage] = useState('');
+  const box = useRef<HTMLDivElement>(null);
+  return (
+    <section className="delete-file">
+      <h3>Delete my file</h3>
+      <p>
+        This permanently removes your handle, file key and streak. Your past claims stay on the
+        public record as 'Withdrawn filer'.
+      </p>
+      <label htmlFor="delete-key">File key (optional when using your current file)</label>
+      <input
+        id="delete-key"
+        value={key}
+        onChange={(e) => setKey(e.target.value)}
+        autoComplete="off"
+        maxLength={60}
+      />
+      {!confirm ? (
+        <button onClick={() => setConfirm(true)}>Delete my file</button>
+      ) : (
+        <>
+          <p>Remove this file permanently?</p>
+          <button
+            disabled={busy}
+            onClick={async () => {
+              setBusy(true);
+              try {
+                const turnstileToken = isDemo ? 'demo' : await runTurnstile(sitekey, box.current!);
+                const result = await api<{ message: string }>('/delete-file', {
+                  key,
+                  confirm: 'DELETE MY FILE',
+                  turnstileToken,
+                });
+                setMessage(result.message);
+                setConfirm(false);
+                setKey('');
+                if (!isDemo) location.replace('/?file-deleted');
+              } catch (e) {
+                setMessage((e as Error).message);
+              } finally {
+                setBusy(false);
+              }
+            }}
+          >
+            Yes, permanently delete my file
+          </button>
+          <button disabled={busy} onClick={() => setConfirm(false)}>
+            Keep my file
+          </button>
+        </>
+      )}
+      <div ref={box} />
+      <p role="status">{message}</p>
+    </section>
+  );
+}
 function Feedback({ sitekey }: { sitekey: string }) {
+  const [topic, setTopic] = useState('game');
   const [text, setText] = useState(''),
     [message, setMessage] = useState(''),
     [busy, setBusy] = useState(false);
   const box = useRef<HTMLDivElement>(null);
   return (
-    <details className="feedback">
+    <details id="feedback" className="feedback">
       <summary>Tell the clerk</summary>
       <form
         onSubmit={async (e) => {
@@ -1903,7 +2099,11 @@ function Feedback({ sitekey }: { sitekey: string }) {
           setBusy(true);
           try {
             const turnstileToken = isDemo ? 'demo' : await runTurnstile(sitekey, box.current!);
-            const data = await api<{ message: string }>('/feedback', { text, turnstileToken });
+            const data = await api<{ message: string }>('/feedback', {
+              text,
+              topic,
+              turnstileToken,
+            });
             setMessage(data.message);
             setText('');
           } catch (e) {
@@ -1913,10 +2113,15 @@ function Feedback({ sitekey }: { sitekey: string }) {
           }
         }}
       >
+        <label htmlFor="feedback-topic">Topic</label>
+        <select id="feedback-topic" value={topic} onChange={(e) => setTopic(e.target.value)}>
+          <option value="game">Game question</option>
+          <option value="privacy">Privacy question</option>
+        </select>
         <label htmlFor="feedback-note">Private note · 500 characters max</label>
         <textarea
           id="feedback-note"
-          maxLength={500}
+          maxLength={topic === 'privacy' ? 482 : 500}
           value={text}
           onChange={(e) => setText(e.target.value)}
           required

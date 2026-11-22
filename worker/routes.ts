@@ -1,3 +1,4 @@
+import { clerkReply } from '../shared/moments';
 import { canReveal, publicCategory, concealClaim } from './visibility';
 import { verifyChallenge, verifiedSession } from './turnstile';
 import { catalogMeta, lookup, nearMiss, answerId, persistAnswer } from './catalog';
@@ -51,7 +52,7 @@ export interface Env {
   TURNSTILE_SITE_KEY: string;
   LOCAL_TEST?: string;
 }
-const claimSelect = `SELECT c.id,c.category_id,c.claim_no,c.file_no,c.created_at,a.display,a.obscurity,EXISTS(SELECT 1 FROM daily_specials ds,json_each(ds.golden_json) j WHERE ds.category_id=c.category_id AND j.value=c.answer_id) golden,CASE WHEN u.hidden=1 THEN 'Record withheld' ELSE COALESCE((SELECT name FROM founder_role WHERE user_id=u.id),u.handle) END handle,EXISTS(SELECT 1 FROM founder_role WHERE user_id=u.id AND u.hidden=0) founder,g.name category_name,g.date category_date,COALESCE(json_extract(g.source_json,'$.staticCatalog.count'),g.total_registrable)-(SELECT COUNT(*) FROM house_words hw WHERE hw.category_id=g.id) total_registrable FROM claims c JOIN answers a ON a.id=c.answer_id JOIN users u ON u.id=c.user_id JOIN categories g ON g.id=c.category_id`;
+const claimSelect = `SELECT c.id,c.category_id,c.claim_no,c.file_no,c.created_at,a.display,a.obscurity,EXISTS(SELECT 1 FROM daily_specials ds,json_each(ds.golden_json) j WHERE ds.category_id=c.category_id AND j.value=c.answer_id) golden,CASE WHEN u.provider_subject LIKE 'withdrawn:%' THEN 'Withdrawn filer' WHEN u.hidden=1 THEN 'Record withheld' ELSE COALESCE((SELECT name FROM founder_role WHERE user_id=u.id),u.handle) END handle,EXISTS(SELECT 1 FROM founder_role WHERE user_id=u.id AND u.hidden=0) founder,g.name category_name,g.date category_date,COALESCE(json_extract(g.source_json,'$.staticCatalog.count'),g.total_registrable)-(SELECT COUNT(*) FROM house_words hw WHERE hw.category_id=g.id) total_registrable FROM claims c JOIN answers a ON a.id=c.answer_id JOIN users u ON u.id=c.user_id JOIN categories g ON g.id=c.category_id`;
 export async function fileState(env: Env, category: string, uid: string) {
   const claims = (
     await env.DB.prepare(
@@ -62,7 +63,7 @@ export async function fileState(env: Env, category: string, uid: string) {
   ).results as any[];
   const strikes = (
     await env.DB.prepare(
-      `SELECT s.created_at,s.seq,s.guess,s.house,c.created_at held_at,CASE WHEN u.hidden=1 OR c.voided=1 THEN 'Record withheld' ELSE COALESCE((SELECT name FROM founder_role WHERE user_id=u.id),u.handle) END holder,EXISTS(SELECT 1 FROM founder_role WHERE user_id=u.id AND u.hidden=0 AND c.voided=0) holder_founder FROM strikes s LEFT JOIN claims c ON c.id=s.holder_claim_id LEFT JOIN users u ON u.id=c.user_id WHERE s.category_id=? AND s.user_id=? ORDER BY s.seq`,
+      `SELECT s.created_at,s.seq,s.guess,s.house,c.created_at held_at,CASE WHEN u.provider_subject LIKE 'withdrawn:%' THEN 'Withdrawn filer' WHEN u.hidden=1 OR c.voided=1 THEN 'Record withheld' ELSE COALESCE((SELECT name FROM founder_role WHERE user_id=u.id),u.handle) END holder,EXISTS(SELECT 1 FROM founder_role WHERE user_id=u.id AND u.hidden=0 AND c.voided=0) holder_founder FROM strikes s LEFT JOIN claims c ON c.id=s.holder_claim_id LEFT JOIN users u ON u.id=c.user_id WHERE s.category_id=? AND s.user_id=? ORDER BY s.seq`,
     )
       .bind(category, uid)
       .all()
@@ -83,7 +84,7 @@ export async function fileState(env: Env, category: string, uid: string) {
       order: s.seq,
       display: s.guess,
       house: !!s.house,
-      holder: s.house ? 'the Registry' : s.holder,
+      holder: s.house ? 'RESERVED' : s.holder,
       holderFounder: !s.house && !!s.holder_founder,
       heldAt: s.held_at,
     })),
@@ -117,8 +118,10 @@ export async function current(env: Env) {
   const category =
     env.STAGING === 'true'
       ? await env.DB.prepare(
-          "SELECT * FROM categories WHERE id='practice' AND status='approved'",
-        ).first<any>()
+          "SELECT * FROM categories WHERE id='practice' AND status='approved' AND drop_at<=?",
+        )
+          .bind(new Date().toISOString())
+          .first<any>()
       : await env.DB.prepare(
           "SELECT * FROM categories WHERE date=? AND status='approved' AND drop_at<=?",
         )
@@ -292,6 +295,19 @@ async function admin(req: Request, env: Env, path: string) {
       ),
     ]);
     return results[0].meta.changes ? json({ ok: true }) : fail(404, 'Record not found.');
+  }
+  if (path === '/admin/practice-schedule') {
+    if (env.STAGING !== 'true') return fail(404, 'No such clerk procedure.');
+    if (
+      typeof b.opensAt !== 'string' ||
+      !Number.isFinite(Date.parse(b.opensAt)) ||
+      Date.parse(b.opensAt) <= Date.now()
+    )
+      return fail(422, 'Choose a future practice opening.');
+    await env.DB.prepare("UPDATE categories SET drop_at=? WHERE id='practice'")
+      .bind(new Date(b.opensAt).toISOString())
+      .run();
+    return json({ ok: true, opensAt: new Date(b.opensAt).toISOString() });
   }
   if (path === '/admin/practice-reset') {
     if (env.STAGING !== 'true') return fail(404, 'No such clerk procedure.');
@@ -767,7 +783,7 @@ async function claim(req: Request, env: Env, u: any) {
     return json(
       {
         house: !!strike.house,
-        takenBy: strike.house ? 'THE REGISTRY' : holder?.handle || 'Record withheld',
+        takenBy: strike.house ? 'RESERVED' : holder?.handle || 'Record withheld',
         founder: !strike.house && !!holder?.founder,
         message: strike.guess + ' is taken.',
         file: await fileState(env, g.id, u.id),
@@ -800,6 +816,8 @@ async function claim(req: Request, env: Env, u: any) {
   } else if (!(await verifyChallenge(req, env, b.turnstileToken))) {
     return fail(400, 'Verification was not accepted. Please try again.');
   }
+  const note = clerkReply(b.answer, g.name);
+  if (note) return json({ code: 'CLERK_NOTE', message: note }, 422);
   const staticRow = catalogMeta(g) ? await lookup(g, b.answer) : null;
   const answer = catalogMeta(g)
     ? staticRow
@@ -872,11 +890,11 @@ async function claim(req: Request, env: Env, u: any) {
         .run();
     return json(
       {
-        takenBy: house ? 'THE REGISTRY' : r.handle,
+        takenBy: house ? 'RESERVED' : r.handle,
         founder: !house && !!r.founder,
         house: !!house,
         message: house
-          ? `${house.display.toUpperCase()} is held by the Registry. Obvious picks are reserved.`
+          ? `${house.display.toUpperCase()} is reserved: the 10 most obvious answers are off-limits.`
           : undefined,
         at: r?.created_at,
         file: await fileState(env, g.id, u.id),

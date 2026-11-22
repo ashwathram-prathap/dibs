@@ -1,3 +1,4 @@
+import { REGISTRAR_STROKE } from '../shared/moments';
 import { edition, localTime } from '../shared/time';
 import { guesses } from '../shared/guesses';
 import { PUBLIC_HOST } from '../shared/config';
@@ -100,6 +101,8 @@ export async function exportCertificate(claim: Claim, story: boolean) {
   if (claim.founder) mono('FOUNDER', 80, holder + 90, 18);
   c.fillStyle = '#1A1A17';
   c.font = '400 26px Instrument';
+  c.save(); c.translate(790, h - 240); c.scale(.9,.9); c.lineWidth=1.4; c.stroke(new Path2D(REGISTRAR_STROKE)); c.restore();
+  mono('The Registrar', 790, h - 180, 18);
   mono('OBSCURITY', 80, h - 250);
   for (let i = 0; i < 5; i++) {
     c.beginPath();
@@ -255,7 +258,7 @@ export async function exportSummary(file: DayFile, category: Category, story: bo
       c.lineTo(Math.min(980, 132 + c.measureText(display).width), y + 25);
       c.stroke();
       const held = event.house
-        ? 'Held by the Registry'
+        ? 'RESERVED'
         : event.holder
           ? `Taken by ${event.holder}${event.holderFounder ? ' / FOUNDER' : ''}${event.heldAt ? ' at ' + localTime(event.heldAt).full : ''}`
           : 'Holder details were not retained';
@@ -293,6 +296,8 @@ export async function exportSummary(file: DayFile, category: Category, story: bo
   if (file.founder) text('FOUNDER', 80, holderTop + 112, 18);
   c.fillStyle = ink;
   text(`${file.streak || 0} DAY STREAK`, 80, holderTop + 145, 20);
+  c.save(); c.translate(780,h - 210); c.lineWidth=1.4; c.stroke(new Path2D(REGISTRAR_STROKE)); c.restore();
+  text('The Registrar',780,h - 145,18);
   line(h - 100);
   text('ALL CLAIMS ENTIRELY CEREMONIAL.', 80, h - 66, 16);
   text(PUBLIC_HOST, 825, h - 66, 18);

@@ -160,8 +160,8 @@ it('charges house strikes without creating players, claims or ledger rows; caps 
   expect(responses.filter((r) => r.status === 403)).toHaveLength(3);
   const data = (await responses.find((r) => r.status === 409)!.json()) as any;
   expect(data.house).toBe(true);
-  expect(data.takenBy).toBe('THE REGISTRY');
-  expect(data.message).toContain('Obvious picks are reserved.');
+  expect(data.takenBy).toBe('RESERVED');
+  expect(data.message).toContain('the 10 most obvious answers are off-limits.');
   const me = (await (await call('/me', undefined, a.cookie)).json()) as any;
   expect(me.file.strikes).toBe(5);
   expect(me.file.dibs).toBe(0);
@@ -171,7 +171,7 @@ it('charges house strikes without creating players, claims or ledger rows; caps 
   expect(today.today.open).toBe(1990);
   expect(today.rows).toEqual([]);
   expect(today.today.specials.houseWords).toEqual([
-    { display: houseWords.animals[0], handle: 'THE REGISTRY' },
+    { display: houseWords.animals[0], handle: 'RESERVED' },
   ]);
 });
 it('reveals a golden answer only after its successful claim and retains stars on reload', async () => {

@@ -3,11 +3,10 @@ import { readFileSync } from 'node:fs';
 import { dropAt, nextDrop } from '../worker/domain';
 import { dropTime } from '../shared/time';
 import { deploymentBlocked } from '../shared/deploy-window';
-it('reminder is a 9 PM Toronto event with one five-minute warning, including DST', () => {
+it('reminder is five minutes before the 9 PM Toronto event, including DST', () => {
   const ics = readFileSync('public/reminder.ics', 'utf8');
-  expect(ics).toContain('DTSTART;TZID=America/Toronto:20261123T210000');
-  expect(ics.match(/TRIGGER:/g)).toHaveLength(1);
-  expect(ics).toContain('TRIGGER:-PT5M');
+  expect(ics).toContain('DTSTART;TZID=America/Toronto:20261123T205500');
+  expect(ics).not.toContain('TRIGGER:');
   expect(dropTime(nextDrop(new Date('2026-11-22T19:18:00Z')), 'America/Toronto').full).toBe(
     '9:00 PM ET',
   );
