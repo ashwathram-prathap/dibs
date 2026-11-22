@@ -2,9 +2,13 @@ import { chromium, webkit } from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
 import { readFileSync, mkdirSync, writeFileSync } from 'node:fs';
 import assert from 'node:assert/strict';
-const origin = 'https://practice.dibs-7hz.pages.dev',
-  token = readFileSync('.dev.vars.staging', 'utf8').match(/^ADMIN_TOKEN=(.+)$/m)![1];
-mkdirSync('review/round9/calendar', { recursive: true });
+const production = process.argv.includes('--production');
+const folder = production ? 'calendar-production' : 'calendar';
+const origin = production ? 'https://dibs.here' : 'https://practice.dibs-7hz.pages.dev',
+  token = readFileSync(production ? '.dev.vars' : '.dev.vars.staging', 'utf8').match(
+    /^ADMIN_TOKEN=(.+)$/m,
+  )![1];
+mkdirSync('review/round9/' + folder, { recursive: true });
 const results: any[] = [];
 for (const [engine, name] of [
   [chromium, 'chromium'],
@@ -34,7 +38,7 @@ for (const [engine, name] of [
           [],
         );
         await p.screenshot({
-          path: `review/round9/calendar/${name}-${width}-${colorScheme}.png`,
+          path: `review/round9/${folder}/${name}-${width}-${colorScheme}.png`,
           fullPage: true,
         });
         await p.getByRole('button', { name: /2026-12-15:/ }).click();
@@ -42,7 +46,7 @@ for (const [engine, name] of [
         await p.locator('#topic-search').fill('countries');
         assert.equal(await p.locator('#topic-choice option').count(), 2);
         await p.screenshot({
-          path: `review/round9/calendar/editor-${name}-${width}-${colorScheme}.png`,
+          path: `review/round9/${folder}/editor-${name}-${width}-${colorScheme}.png`,
           fullPage: true,
         });
         results.push({
@@ -60,5 +64,5 @@ for (const [engine, name] of [
     await b.close();
   }
 }
-writeFileSync('review/round9/calendar-ui.json', JSON.stringify(results, null, 2));
+writeFileSync('review/round9/' + folder + '-ui.json', JSON.stringify(results, null, 2));
 console.log(results.length + ' calendar UI checks passed');

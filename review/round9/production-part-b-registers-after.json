@@ -1,0 +1,98 @@
+[
+  {
+    "id": "animals",
+    "name": "Animals",
+    "status": "approved",
+    "date": "2026-11-23",
+    "drop_at": "2026-11-24T02:00:00.000Z",
+    "total": 89122,
+    "staticCatalog": {
+      "v": 2,
+      "slug": "animals",
+      "version": "10210a86838c8eca",
+      "count": 89122,
+      "scope": "English common names for animals of every kind, including general groups and bird species."
+    }
+  },
+  {
+    "id": "plants",
+    "name": "Plants",
+    "status": "approved",
+    "date": "2026-11-24",
+    "drop_at": "2026-11-25T02:00:00.000Z",
+    "total": 43308,
+    "staticCatalog": {
+      "v": 2,
+      "slug": "plants",
+      "version": "f584483f47d38e7d",
+      "count": 43308,
+      "scope": "English common names for plants, including trees, flowers, herbs and crops."
+    }
+  },
+  {
+    "id": "birds",
+    "name": "Birds",
+    "status": "approved",
+    "date": "2026-11-25",
+    "drop_at": "2026-11-26T02:00:00.000Z",
+    "total": 16189,
+    "staticCatalog": {
+      "v": 2,
+      "slug": "birds",
+      "version": "04985deb94445ed1",
+      "count": 16189,
+      "scope": "Bird species and general bird names."
+    }
+  },
+  {
+    "id": "cities",
+    "name": "Cities",
+    "status": "approved",
+    "date": "2026-11-26",
+    "drop_at": "2026-11-27T02:00:00.000Z",
+    "total": 149928,
+    "staticCatalog": {
+      "v": 2,
+      "slug": "cities",
+      "version": "00cadebbe95f4404",
+      "count": 149928,
+      "scope": "Named populated places in GeoNames cities1000: population 1,000+ or administrative seats; one answer per name."
+    }
+  },
+  {
+    "id": "actors",
+    "name": "Actors",
+    "status": "approved",
+    "date": "2026-11-27",
+    "drop_at": "2026-11-28T02:00:00.000Z",
+    "total": 137623,
+    "staticCatalog": {
+      "v": 2,
+      "slug": "actors",
+      "version": "1f68f6b5340a8880",
+      "count": 137623,
+      "scope": "Actors classified by Wikidata with English Wikipedia articles; one answer per name."
+    }
+  },
+  {
+    "id": "day-2026-11-28",
+    "name": "Foods",
+    "status": "approved",
+    "date": "2026-11-28",
+    "drop_at": "2026-11-29T02:00:00.000Z",
+    "total": 13988,
+    "staticCatalog": {
+      "v": 2,
+      "slug": "foods",
+      "version": "f0dbabbca22064f9",
+      "count": 13988,
+      "scope": "Foods, dishes, drinks and edible ingredients.",
+      "paper": {
+        "stock": "apricot",
+        "light": "#eee1d1",
+        "dark": "#2d231b",
+        "plate": "foods"
+      }
+    }
+  }
+]

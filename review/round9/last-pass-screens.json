@@ -1,0 +1,338 @@
+[
+  {
+    "name": "play",
+    "width": 390,
+    "theme": "light",
+    "words": 10,
+    "minFont": 12
+  },
+  {
+    "name": "closed",
+    "width": 390,
+    "theme": "light",
+    "words": 46,
+    "minFont": 9
+  },
+  {
+    "name": "complete",
+    "width": 390,
+    "theme": "light",
+    "words": 171,
+    "minFont": 7
+  },
+  {
+    "name": "office",
+    "width": 390,
+    "theme": "light",
+    "words": 425,
+    "minFont": 9
+  },
+  {
+    "name": "archive",
+    "width": 390,
+    "theme": "light",
+    "words": 73,
+    "minFont": 9
+  },
+  {
+    "name": "certificate",
+    "width": 390,
+    "theme": "light",
+    "words": 59,
+    "minFont": 6
+  },
+  {
+    "name": "day",
+    "width": 390,
+    "theme": "light",
+    "words": 63,
+    "minFont": 8
+  },
+  {
+    "name": "error",
+    "width": 390,
+    "theme": "light",
+    "words": 7,
+    "minFont": 16
+  },
+  {
+    "name": "play",
+    "width": 390,
+    "theme": "dark",
+    "words": 10,
+    "minFont": 12
+  },
+  {
+    "name": "closed",
+    "width": 390,
+    "theme": "dark",
+    "words": 46,
+    "minFont": 9
+  },
+  {
+    "name": "complete",
+    "width": 390,
+    "theme": "dark",
+    "words": 171,
+    "minFont": 7
+  },
+  {
+    "name": "office",
+    "width": 390,
+    "theme": "dark",
+    "words": 425,
+    "minFont": 9
+  },
+  {
+    "name": "archive",
+    "width": 390,
+    "theme": "dark",
+    "words": 73,
+    "minFont": 9
+  },
+  {
+    "name": "certificate",
+    "width": 390,
+    "theme": "dark",
+    "words": 59,
+    "minFont": 6
+  },
+  {
+    "name": "day",
+    "width": 390,
+    "theme": "dark",
+    "words": 63,
+    "minFont": 8
+  },
+  {
+    "name": "error",
+    "width": 390,
+    "theme": "dark",
+    "words": 7,
+    "minFont": 16
+  },
+  {
+    "name": "play",
+    "width": 1440,
+    "theme": "light",
+    "words": 21,
+    "minFont": 14
+  },
+  {
+    "name": "closed",
+    "width": 1440,
+    "theme": "light",
+    "words": 46,
+    "minFont": 14
+  },
+  {
+    "name": "complete",
+    "width": 1440,
+    "theme": "light",
+    "words": 160,
+    "minFont": 14
+  },
+  {
+    "name": "office",
+    "width": 1440,
+    "theme": "light",
+    "words": 425,
+    "minFont": 14
+  },
+  {
+    "name": "archive",
+    "width": 1440,
+    "theme": "light",
+    "words": 78,
+    "minFont": 14
+  },
+  {
+    "name": "certificate",
+    "width": 1440,
+    "theme": "light",
+    "words": 59,
+    "minFont": 14
+  },
+  {
+    "name": "day",
+    "width": 1440,
+    "theme": "light",
+    "words": 51,
+    "minFont": 14
+  },
+  {
+    "name": "error",
+    "width": 1440,
+    "theme": "light",
+    "words": 7,
+    "minFont": 19
+  },
+  {
+    "name": "play",
+    "width": 1440,
+    "theme": "dark",
+    "words": 21,
+    "minFont": 14
+  },
+  {
+    "name": "closed",
+    "width": 1440,
+    "theme": "dark",
+    "words": 46,
+    "minFont": 14
+  },
+  {
+    "name": "complete",
+    "width": 1440,
+    "theme": "dark",
+    "words": 160,
+    "minFont": 14
+  },
+  {
+    "name": "office",
+    "width": 1440,
+    "theme": "dark",
+    "words": 425,
+    "minFont": 14
+  },
+  {
+    "name": "archive",
+    "width": 1440,
+    "theme": "dark",
+    "words": 78,
+    "minFont": 14
+  },
+  {
+    "name": "certificate",
+    "width": 1440,
+    "theme": "dark",
+    "words": 59,
+    "minFont": 14
+  },
+  {
+    "name": "day",
+    "width": 1440,
+    "theme": "dark",
+    "words": 51,
+    "minFont": 14
+  },
+  {
+    "name": "error",
+    "width": 1440,
+    "theme": "dark",
+    "words": 7,
+    "minFont": 19
+  },
+  {
+    "name": "play",
+    "width": 2560,
+    "theme": "light",
+    "words": 21,
+    "minFont": 14
+  },
+  {
+    "name": "closed",
+    "width": 2560,
+    "theme": "light",
+    "words": 46,
+    "minFont": 14
+  },
+  {
+    "name": "complete",
+    "width": 2560,
+    "theme": "light",
+    "words": 161,
+    "minFont": 14
+  },
+  {
+    "name": "office",
+    "width": 2560,
+    "theme": "light",
+    "words": 425,
+    "minFont": 14
+  },
+  {
+    "name": "archive",
+    "width": 2560,
+    "theme": "light",
+    "words": 78,
+    "minFont": 14
+  },
+  {
+    "name": "certificate",
+    "width": 2560,
+    "theme": "light",
+    "words": 59,
+    "minFont": 14
+  },
+  {
+    "name": "day",
+    "width": 2560,
+    "theme": "light",
+    "words": 51,
+    "minFont": 14
+  },
+  {
+    "name": "error",
+    "width": 2560,
+    "theme": "light",
+    "words": 7,
+    "minFont": 19
+  },
+  {
+    "name": "play",
+    "width": 2560,
+    "theme": "dark",
+    "words": 21,
+    "minFont": 14
+  },
+  {
+    "name": "closed",
+    "width": 2560,
+    "theme": "dark",
+    "words": 46,
+    "minFont": 14
+  },
+  {
+    "name": "complete",
+    "width": 2560,
+    "theme": "dark",
+    "words": 160,
+    "minFont": 14
+  },
+  {
+    "name": "office",
+    "width": 2560,
+    "theme": "dark",
+    "words": 425,
+    "minFont": 14
+  },
+  {
+    "name": "archive",
+    "width": 2560,
+    "theme": "dark",
+    "words": 78,
+    "minFont": 14
+  },
+  {
+    "name": "certificate",
+    "width": 2560,
+    "theme": "dark",
+    "words": 59,
+    "minFont": 14
+  },
+  {
+    "name": "day",
+    "width": 2560,
+    "theme": "dark",
+    "words": 51,
+    "minFont": 14
+  },
+  {
+    "name": "error",
+    "width": 2560,
+    "theme": "dark",
+    "words": 7,
+    "minFont": 19
+  }
+]

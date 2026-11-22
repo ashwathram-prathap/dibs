@@ -304,6 +304,19 @@ it('assigns only one founder server-side, renders the role and gives no extra di
       body: JSON.stringify({ target, name }),
     });
   expect((await assign(data.recoveryKey)).status).toBe(200);
+  const other = await account();
+  const taken = await call(
+    '/claim',
+    { answer: 'Animal 40', turnstileToken: 'test' },
+    other.cookie,
+    'founder-taken',
+  );
+  expect(taken.status).toBe(409);
+  const hit: any = await taken.json();
+  expect(hit.founder).toBe(true);
+  expect(hit.takenBy).toBe('THE REGISTRAR');
+  expect(hit.file.events[0].holder).toBe('THE REGISTRAR');
+  expect(hit.file.events[0].holderFounder).toBe(true);
   for (const answer of ['Animal 41', 'Animal 42'])
     expect(
       (await call('/claim', { answer, turnstileToken: 'test' }, a.cookie, 'founder-test')).status,

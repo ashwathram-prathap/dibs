@@ -1,0 +1,27 @@
+{
+  "at": "2026-11-22T12:19:30.532Z",
+  "production": "https://dibs.here",
+  "practice": "https://practice.dibs-7hz.pages.dev",
+  "partAWorker": "edea442d-97fd-43c7-9ba8-bd5578198f4d",
+  "productionWorker": "31a7a485-a7f8-459d-9b2e-03fc7cc9dcfb",
+  "productionPages": "db61c5be",
+  "practiceWorker": "a23b03f3-9817-4fec-8a9f-ea1ab81d55ae",
+  "practicePages": "3cbe2225",
+  "unitTests": 118,
+  "gameplayBrowserChecks": 176,
+  "calendarBrowserChecks": 16,
+  "actionsValidation": {
+    "run": 45019630994,
+    "result": "success"
+  },
+  "actionsUpload": {
+    "run": 45020701543,
+    "result": "blocked-missing-scoped-cloudflare-token",
+    "calendarStatusRecorded": true
+  },
+  "physicalDevices": "Not available; emulations and engine tests documented",
+  "originalPlayerRowsPreserved": true,
+  "originalSchedulePreserved": true,
+  "founderStrikeHistoryVerified": true,
+  "desktopCertificateMinimumFontPx": 14
+}

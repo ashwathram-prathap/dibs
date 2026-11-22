@@ -6,8 +6,10 @@ import { type Claim, type DayFile, type Category, serial } from './types';
 import { WORDMARK_WIDTH, WORDMARK_PATH, WORDMARK_BLOCK_X } from '../shared/brand';
 import { fitText } from '../shared/typography';
 async function artwork(src: string) {
-  const image = new Image(); image.src = src;
-  await image.decode(); return image;
+  const image = new Image();
+  image.src = src;
+  await image.decode();
+  return image;
 }
 // Canvas avoids Safari's SVG foreignObject restrictions. Font faces are self-hosted.
 export async function exportCertificate(claim: Claim, story: boolean) {
@@ -263,8 +265,9 @@ export async function exportSummary(file: DayFile, category: Category, story: bo
       const held = event.house
         ? 'Held by the Registry'
         : event.holder
-          ? `Taken by ${event.holder}${event.heldAt ? ' at ' + localTime(event.heldAt).full : ''}`
+          ? `Taken by ${event.holder}${event.holderFounder ? ' / FOUNDER' : ''}${event.heldAt ? ' at ' + localTime(event.heldAt).full : ''}`
           : 'Holder details were not retained';
+      if (event.holderFounder) c.fillStyle = '#795700';
       fit(held, 132, y + 65, 850, 20, 'Plex', 400);
     } else {
       c.save();
@@ -282,7 +285,13 @@ export async function exportSummary(file: DayFile, category: Category, story: bo
   });
   c.fillStyle = ink;
   c.strokeStyle = ink;
-  c.drawImage(await artwork('/art/'+categoryStyle(category.slug).plate.replace('seal-b','seal')+'.svg'),800,460,190,105);
+  c.drawImage(
+    await artwork('/art/' + categoryStyle(category.slug).plate.replace('seal-b', 'seal') + '.svg'),
+    800,
+    460,
+    190,
+    105,
+  );
   const holderTop = 565 + rows.length * rowHeight + 30;
   line(holderTop);
   text('FILED UNDER', 80, holderTop + 38, 18);

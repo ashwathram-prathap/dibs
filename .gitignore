@@ -60,3 +60,5 @@ review/round9/**/*.webm
 review/round9/lighthouse*/mobile.*
 review/round9/firefox-ci/
 review/round9/browser-results.json
+
+review/final/round9/*.png

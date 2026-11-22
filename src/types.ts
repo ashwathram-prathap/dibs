@@ -55,7 +55,13 @@ export interface Today {
   turnstileSiteKey: string;
   closedReason?: string;
   lastClaimAt?: string | null;
-  board?: { founder?: boolean; handle: string; dibs: number; strikes: number; completedAt: string }[];
+  board?: {
+    founder?: boolean;
+    handle: string;
+    dibs: number;
+    strikes: number;
+    completedAt: string;
+  }[];
 }
 export interface Guess {
   at: string;
@@ -65,6 +71,7 @@ export interface Guess {
   claimId?: string;
   obscurity?: number | null;
   holder?: string;
+  holderFounder?: boolean;
   heldAt?: string;
   house?: boolean;
 }

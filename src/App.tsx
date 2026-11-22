@@ -520,6 +520,11 @@ function Home({
   const [message, setMessage] = useState('');
   const [taken, setTaken] = useState(false);
   const [houseStrike, setHouseStrike] = useState(false);
+  const [takenHolder, setTakenHolder] = useState<{
+    name: string;
+    founder: boolean;
+    answer: string;
+  } | null>(null);
   const [claim, setClaim] = useState<Claim | null>(me.claim);
   const file = useMemo(
     () =>
@@ -698,6 +703,11 @@ function Home({
       );
       setTaken(err.status === 409);
       setHouseStrike(!!err.data?.house);
+      setTakenHolder(
+        err.status === 409 && !err.data.house
+          ? { name: err.data.takenBy, founder: !!err.data.founder, answer: value.toUpperCase() }
+          : null,
+      );
       setMessage(
         err.status === 409
           ? err.data.house
@@ -806,7 +816,14 @@ function Home({
                   >
                     <p>
                       {taken && <Icon name="cross" />}
-                      {message}
+                      {taken && takenHolder?.founder ? (
+                        <>
+                          Taken: {takenHolder.answer} is <Handle name={takenHolder.name} founder />
+                          ’s.
+                        </>
+                      ) : (
+                        message
+                      )}
                     </p>
                     {taken && (
                       <strong className="strike-count">Strike {file?.strikes || 0} of 5</strong>
@@ -1031,7 +1048,7 @@ function DaySummary({ file, today }: { file: DayFile; today: Today }) {
                         'Held by the Registry'
                       ) : event.holder ? (
                         <>
-                          Taken by {event.holder}
+                          Taken by <Handle name={event.holder} founder={event.holderFounder} />
                           {event.heldAt && <> at {time(event.heldAt)}</>}
                         </>
                       ) : (

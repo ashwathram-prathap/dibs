@@ -3308,7 +3308,8 @@ html[data-theme='dark'] .category-plate {
   .page .specimen-line,
   .page .demo-label,
   .page footer span,
-  .page .cert-meta span,
+  .page .cert-category span,
+  .page .founder-stamp,
   .page .dibs-stamp span,
   .page .share-platforms a,
   .page .day-cert-holder span,
@@ -3610,4 +3611,8 @@ html[data-theme='dark'] .category-plate {
 }
 .calendar-day {
   scroll-margin-top: 16px;
+}
+
+.cert-category {
+  font-size: clamp(12px, 1vw, 14px);
 }

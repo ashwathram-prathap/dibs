@@ -62,7 +62,7 @@ export async function fileState(env: Env, category: string, uid: string) {
   ).results as any[];
   const strikes = (
     await env.DB.prepare(
-      `SELECT s.created_at,s.seq,s.guess,s.house,c.created_at held_at,CASE WHEN u.hidden=1 OR c.voided=1 THEN 'Record withheld' ELSE u.handle END holder FROM strikes s LEFT JOIN claims c ON c.id=s.holder_claim_id LEFT JOIN users u ON u.id=c.user_id WHERE s.category_id=? AND s.user_id=? ORDER BY s.seq`,
+      `SELECT s.created_at,s.seq,s.guess,s.house,c.created_at held_at,CASE WHEN u.hidden=1 OR c.voided=1 THEN 'Record withheld' ELSE COALESCE((SELECT name FROM founder_role WHERE user_id=u.id),u.handle) END holder,EXISTS(SELECT 1 FROM founder_role WHERE user_id=u.id AND u.hidden=0 AND c.voided=0) holder_founder FROM strikes s LEFT JOIN claims c ON c.id=s.holder_claim_id LEFT JOIN users u ON u.id=c.user_id WHERE s.category_id=? AND s.user_id=? ORDER BY s.seq`,
     )
       .bind(category, uid)
       .all()
@@ -84,6 +84,7 @@ export async function fileState(env: Env, category: string, uid: string) {
       display: s.guess,
       house: !!s.house,
       holder: s.house ? 'the Registry' : s.holder,
+      holderFounder: !s.house && !!s.holder_founder,
       heldAt: s.held_at,
     })),
   ].sort((a, b) => a.order - b.order);
@@ -767,6 +768,7 @@ async function claim(req: Request, env: Env, u: any) {
       {
         house: !!strike.house,
         takenBy: strike.house ? 'THE REGISTRY' : holder?.handle || 'Record withheld',
+        founder: !strike.house && !!holder?.founder,
         message: strike.guess + ' is taken.',
         file: await fileState(env, g.id, u.id),
         replayed: true,
@@ -871,6 +873,7 @@ async function claim(req: Request, env: Env, u: any) {
     return json(
       {
         takenBy: house ? 'THE REGISTRY' : r.handle,
+        founder: !house && !!r.founder,
         house: !!house,
         message: house
           ? `${house.display.toUpperCase()} is held by the Registry. Obvious picks are reserved.`

@@ -17,6 +17,9 @@ try {
         ['complete', '/?r6'],
         ['office', '/about'],
         ['archive', '/archive'],
+        ['certificate', '/certificate/fixture-1'],
+        ['day', '/summary/fixture-summary'],
+        ['error', '/not-a-page'],
       ]) {
         await page.goto('http://127.0.0.1:5173' + path);
         await page.locator('.loading').waitFor({ state: 'hidden' });

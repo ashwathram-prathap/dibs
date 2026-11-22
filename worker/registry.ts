@@ -527,7 +527,15 @@ export class Registry extends DurableObject<Env> {
         message: g ? 'Dibs: Drop is live.' : 'Dibs: the scheduled drop failed to open.',
       });
     }
+    const thresholdTypes = new Set(
+      alerts.filter((a) => /-0\.[79]$/.test(a.type)).map((a) => a.type),
+    );
+    for (const [key] of await this.ctx.storage.list({ prefix: 'threshold-sent:' }))
+      if (!thresholdTypes.has(key.slice('threshold-sent:'.length)))
+        await this.ctx.storage.delete(key);
     for (const alert of alerts) {
+      const threshold = thresholdTypes.has(alert.type);
+      if (threshold && (await this.ctx.storage.get('threshold-sent:' + alert.type))) continue;
       const key = 'alert:' + alert.type;
       const previous = (await this.ctx.storage.get<number>(key)) || 0;
       if (Date.now() - previous < 1800000 || !this.env.NTFY_TOPIC || this.env.STAGING === 'true')
@@ -537,7 +545,10 @@ export class Registry extends DurableObject<Env> {
         body: alert.message,
         headers: { Title: 'Dibs office', Priority: 'high' },
       });
-      if (response.ok) await this.ctx.storage.put(key, Date.now());
+      if (response.ok) {
+        await this.ctx.storage.put(key, Date.now());
+        if (threshold) await this.ctx.storage.put('threshold-sent:' + alert.type, true);
+      }
     }
     for (const [key] of await this.ctx.storage.list({
       prefix: 'metric:',

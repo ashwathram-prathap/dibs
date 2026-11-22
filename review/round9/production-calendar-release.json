@@ -1,5 +1,5 @@
 {
-  "at": "2026-11-22T12:06:40.151Z",
+  "at": "2026-11-22T12:19:30.448Z",
   "origin": "https://dibs.here",
   "days": [
     {
@@ -280,17 +280,17 @@
   "requested": 33,
   "libraryReady": 23,
   "storage": {
-    "d1Bytes": 3174400,
+    "d1Bytes": 3178496,
     "d1Limit": 500000000,
     "assets": {
       "files": 9499,
-      "bytes": 650473433,
+      "bytes": 650473888,
       "maxBytes": 18386687,
-      "at": "2026-11-22T12:05:19.955Z"
+      "at": "2026-11-22T12:19:25.741Z"
     },
     "assetFileLimit": 20000,
     "assetMaxFileBytes": 26214400,
-    "updatedAt": "2026-11-22T12:05:20.843Z"
+    "updatedAt": "2026-11-22T12:19:26.384Z"
   },
   "originalPlanPreserved": true
 }
