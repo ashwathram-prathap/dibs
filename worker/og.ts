@@ -1,6 +1,4 @@
 import { svgPath } from '../shared/svg-path';
-import { categoryStyle } from '../shared/category-style';
-import { sealMarkup } from '../shared/engraving.generated';
 import { PUBLIC_HOST, PUBLIC_ORIGIN } from '../shared/config';
 import { Resvg, initWasm } from '@resvg/resvg-wasm';
 import { parse, type Font } from 'opentype.js';
@@ -38,9 +36,6 @@ export async function og(claim: any, summary?: any) {
     return out;
   };
   const category = summary?.category?.name || claim?.category_name || 'Animals';
-  const stock = categoryStyle(summary?.category?.slug || category.toLowerCase());
-  const art = (svg: string, x: number, y: number, w: number, h: number) =>
-    svg.replace('<svg ', `<svg x="${x}" y="${y}" width="${w}" height="${h}" `);
   const title = category.toUpperCase();
   const { lines, size } = fitText(title, width, 820, {
     startSize: 155,
@@ -54,7 +49,7 @@ export async function og(claim: any, summary?: any) {
     : claim
       ? 'CERTIFICATE OF DIBS No. ' + String(claim.claim_no).padStart(4, '0')
       : 'REGISTRY OF CLAIMS / FORM C-1';
-  const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630"><path fill="${stock.light}" d="M0 0h1200v630H0z"/><g fill="none" stroke="#1A1A17" stroke-width="2"><path d="M20 20h1160v590H20z M30 30h1140v570H30z M60 130h1080 M60 470h1080"/></g><g transform="rotate(-6 1020 340)">${art(sealMarkup, 920, 240, 200, 200)}</g>${text(number, 60, 85, 22)}<g transform="translate(960 45) scale(${170 / WORDMARK_WIDTH})"><path fill="#1A1A17" d="${WORDMARK_PATH}"/><path fill="#E1462B" d="M${WORDMARK_BLOCK_X} 67h18v18h-18z"/></g>${text(summary ? summary.category.date : claim ? claim.category_date : 'FIRST COME. FIRST SERVED.', 60, 125, 14)}${text(summary ? `${summary.file.dibs}/3 dibs · ${summary.file.strikes} ${summary.file.strikes === 1 ? 'strike' : 'strikes'} / FILE CLOSED` : claim ? 'One more in the daily registry.' : 'Three dibs. Five strikes.', 60, 210, 30)}${lines.map((line, i) => text(line, 60, 240 + size + i * size * 0.95, size)).join('')}${text(summary ? 'A day on file. Your turn next.' : claim ? claim.handle : 'Yours for the day.', 60, 530, 30, claim?.founder ? '#795700' : '#1A1A17')}${claim?.founder || summary?.file?.founder ? text('FOUNDER', 720, 530, 18, '#795700') : ''}${claim ? text(claim.category_name.toUpperCase(), 60, 565, 18) : ''}<g transform="translate(935 538) rotate(-3)"><path fill="none" stroke="#E1462B" stroke-width="4" d="M-150-42h300v80h-300z"/>${text(claim ? 'REGISTERED' : 'DIBS', -132, 14, claim ? 37 : 52, '#E1462B')}</g>${summary ? summary.file.events.map((e: any, i: number) => `<rect x="${600 + i * 34}" y="105" width="22" height="22" fill="${e.kind === 'dibs' ? '#1A1A17' : 'none'}" stroke="#1A1A17" stroke-width="2"/>`).join('') : ''}${text(PUBLIC_HOST + ' / NEXT DROP: 9 PM ET', 60, 595, 16)}</svg>`;
+  const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630"><path fill="#F1ECE2" d="M0 0h1200v630H0z"/><g fill="none" stroke="#1A1A17" stroke-width="2"><path d="M20 20h1160v590H20z M30 30h1140v570H30z M60 130h1080 M60 470h1080"/></g>${text(number, 60, 85, 22)}<g transform="translate(960 45) scale(${170 / WORDMARK_WIDTH})"><path fill="#1A1A17" d="${WORDMARK_PATH}"/><path fill="#E1462B" d="M${WORDMARK_BLOCK_X} 67h18v18h-18z"/></g>${text(summary ? summary.category.date : claim ? claim.category_date : 'FIRST COME. FIRST SERVED.', 60, 125, 14)}${text(summary ? `${summary.file.dibs}/3 dibs · ${summary.file.strikes} ${summary.file.strikes === 1 ? 'strike' : 'strikes'} / FILE CLOSED` : claim ? 'One more in the daily registry.' : 'Three dibs. Five strikes.', 60, 210, 30)}${lines.map((line, i) => text(line, 60, 240 + size + i * size * 0.95, size)).join('')}${text(summary ? 'A day on file. Your turn next.' : claim ? claim.handle : 'Yours for the day.', 60, 530, 30, claim?.founder ? '#795700' : '#1A1A17')}${claim?.founder || summary?.file?.founder ? text('FOUNDER', 720, 530, 18, '#795700') : ''}${claim ? text(claim.category_name.toUpperCase(), 60, 565, 18) : ''}<g transform="translate(935 538) rotate(-3)"><path fill="none" stroke="#E1462B" stroke-width="4" d="M-150-42h300v80h-300z"/>${text(claim ? 'REGISTERED' : 'DIBS', -132, 14, claim ? 37 : 52, '#E1462B')}</g>${summary ? summary.file.events.map((e: any, i: number) => `<rect x="${600 + i * 34}" y="105" width="22" height="22" fill="${e.kind === 'dibs' ? '#1A1A17' : 'none'}" stroke="#1A1A17" stroke-width="2"/>`).join('') : ''}${text(PUBLIC_HOST + ' / NEXT DROP: 9 PM ET', 60, 595, 16)}</svg>`;
   const renderer = new Resvg(svg);
   try {
     const png = renderer.render();

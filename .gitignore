@@ -68,3 +68,8 @@ review/round10/**/*.png
 review/round10/**/*.webm
 review/round10/lighthouse*/
 review/round10/browser-results.json
+
+# R11 reproducible screenshots and reports; private QA identities stay local.
+review/round11/**/*.png
+review/round11/**/*.webm
+review/round11/browser-results.json

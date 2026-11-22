@@ -36,33 +36,6 @@ import { ShareSheet } from './ShareSheet';
 import { summaryUrl, isPlatform } from '../shared/sharing';
 import { exportCertificate, exportSummary, summaryText } from './share';
 import { WORDMARK_WIDTH, WORDMARK_PATH, WORDMARK_BLOCK_X } from '../shared/brand';
-function Seal({ className = '' }: { className?: string }) {
-  return (
-    <img
-      className={'official-seal ' + className}
-      src="/art/seal.svg"
-      alt="Registry of Dibs · First come, first served · Est. 2026"
-    />
-  );
-}
-function Plate({ slug }: { slug: string }) {
-  if (slug !== 'animals') return null;
-  return (
-    <figure className="engraving-plate stock-sage">
-      <img
-        src="/art/animals-plate.webp"
-        alt="Rhinoceros woodcut by Albrecht Dürer"
-        width="1127"
-        height="893"
-      />
-      <figcaption>
-        <span>Plate I. Animals</span>
-        <span>Dürer, 1515</span>
-      </figcaption>
-    </figure>
-  );
-}
-
 function Handle({ name, founder }: { name: string; founder?: boolean | number }) {
   return (
     <span className={founder ? 'founder-handle' : undefined}>
@@ -383,31 +356,31 @@ export default function App() {
               {theme === 'light' ? 'CARBON COPY' : 'PAPER COPY'}
             </button>
           </div>
+          <nav aria-label="Main navigation">
+            {[
+              ['/', 'Today'],
+              ['/archive', 'Archive'],
+              ['/about', 'Office notice'],
+            ].map(([url, label]) => (
+              <Link
+                key={url}
+                to={url}
+                aria-current={
+                  url === '/'
+                    ? path === '/'
+                      ? 'page'
+                      : undefined
+                    : path.startsWith(url)
+                      ? 'page'
+                      : undefined
+                }
+              >
+                {label}
+              </Link>
+            ))}
+            <TimezonePicker />
+          </nav>
         </header>
-        <nav aria-label="Main navigation">
-          {[
-            ['/', 'Today'],
-            ['/archive', 'Archive'],
-            ['/about', 'Office notice'],
-          ].map(([url, label]) => (
-            <Link
-              key={url}
-              to={url}
-              aria-current={
-                url === '/'
-                  ? path === '/'
-                    ? 'page'
-                    : undefined
-                  : path.startsWith(url)
-                    ? 'page'
-                    : undefined
-              }
-            >
-              {label}
-            </Link>
-          ))}
-          <TimezonePicker />
-        </nav>
         {isDemo && (
           <div className="demo-label">
             DESIGN PROOF · DEVELOPMENT FIXTURES · NOT THE PUBLIC RECORD
@@ -747,7 +720,13 @@ function Home({
             <Rules />
             <Reminder at={today.nextDrop} />
           </div>
-          <Plate slug="animals" />
+          <div className="closed-brand">
+            <div className="dibs-stamp">
+              <strong>DIBS</strong>
+              <span>FIRST COME, FIRST SERVED</span>
+            </div>
+            <p>Three dibs. Five strikes. One public record.</p>
+          </div>
         </section>
       ) : file?.closed ? (
         <>
@@ -867,7 +846,6 @@ function Home({
               <Rules />
             </details>
           </div>
-          <Plate slug={today.category.slug} />
         </section>
       )}
       {playing && (
@@ -1071,7 +1049,6 @@ function DaySummary({ file, today }: { file: DayFile; today: Today }) {
           ))}
         </ol>
         <div className="day-cert-holder">
-          <Seal />
           <span className="eyebrow">FILED UNDER</span>
           <strong>
             <Handle
@@ -1086,13 +1063,15 @@ function DaySummary({ file, today }: { file: DayFile; today: Today }) {
           <span>{PUBLIC_HOST}</span>
         </div>
       </article>
-      <ShareSheet
-        url={summaryUrl(file.summaryId!)}
-        text={summaryText(file, today.category!)}
-        render={render}
-      />
-      <Reminder at={today.nextDrop} />
-      <InstallHint />
+      <aside className="day-companions">
+        <ShareSheet
+          url={summaryUrl(file.summaryId!)}
+          text={summaryText(file, today.category!)}
+          render={render}
+        />
+        <Reminder at={today.nextDrop} />
+        <InstallHint />
+      </aside>
     </section>
   );
 }
@@ -1424,9 +1403,7 @@ export function Certificate({ claim, animated = false }: { claim: Claim; animate
           </span>
         </motion.div>
       </div>
-      <div className="certificate-registration">
-        <Seal className="certificate-seal" />
-      </div>
+
       <div className="cert-footer">
         <span>ONE OF {claim.total_registrable.toLocaleString()}. ONLY ONE YOURS.</span>
         <span>

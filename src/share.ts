@@ -1,16 +1,9 @@
-import { categoryStyle } from '../shared/category-style';
 import { edition, localTime } from '../shared/time';
 import { guesses } from '../shared/guesses';
 import { PUBLIC_HOST } from '../shared/config';
 import { type Claim, type DayFile, type Category, serial } from './types';
 import { WORDMARK_WIDTH, WORDMARK_PATH, WORDMARK_BLOCK_X } from '../shared/brand';
 import { fitText } from '../shared/typography';
-async function artwork(src: string) {
-  const image = new Image();
-  image.src = src;
-  await image.decode();
-  return image;
-}
 // Canvas avoids Safari's SVG foreignObject restrictions. Font faces are self-hosted.
 export async function exportCertificate(claim: Claim, story: boolean) {
   await document.fonts.ready;
@@ -32,7 +25,7 @@ export async function exportCertificate(claim: Claim, story: boolean) {
   canvas.height = story ? 1920 : 1350;
   const c = canvas.getContext('2d')!;
   const h = story ? 1500 : 1350;
-  c.fillStyle = categoryStyle(claim.category_name.toLowerCase()).light;
+  c.fillStyle = '#F1ECE2';
   c.fillRect(0, 0, 1080, canvas.height);
   if (story) c.translate(0, 80);
   c.strokeStyle = '#1A1A17';
@@ -107,11 +100,6 @@ export async function exportCertificate(claim: Claim, story: boolean) {
   if (claim.founder) mono('FOUNDER', 80, holder + 90, 18);
   c.fillStyle = '#1A1A17';
   c.font = '400 26px Instrument';
-  c.save();
-  c.translate(890, h - 240);
-  c.rotate((-7 * Math.PI) / 180);
-  c.drawImage(await artwork('/art/seal.svg'), -100, -100, 200, 200);
-  c.restore();
   mono('OBSCURITY', 80, h - 250);
   for (let i = 0; i < 5; i++) {
     c.beginPath();
@@ -182,11 +170,11 @@ export async function exportSummary(file: DayFile, category: Category, story: bo
   canvas.height = story ? 1920 : 1350;
   const c = canvas.getContext('2d')!;
   const h = story ? 1760 : 1350;
-  c.fillStyle = categoryStyle(category.slug).light;
+  c.fillStyle = '#F1ECE2';
   c.fillRect(0, 0, 1080, canvas.height);
   if (story) c.translate(0, 80);
   const ink = '#1A1A17',
-    red = '#B93420',
+    red = '#E1462B',
     gold = '#7A5C14';
   c.fillStyle = ink;
   c.strokeStyle = ink;
@@ -305,11 +293,6 @@ export async function exportSummary(file: DayFile, category: Category, story: bo
   if (file.founder) text('FOUNDER', 80, holderTop + 112, 18);
   c.fillStyle = ink;
   text(`${file.streak || 0} DAY STREAK`, 80, holderTop + 145, 20);
-  c.save();
-  c.translate(890, h - 220);
-  c.rotate((-7 * Math.PI) / 180);
-  c.drawImage(await artwork('/art/seal.svg'), -100, -100, 200, 200);
-  c.restore();
   line(h - 100);
   text('ALL CLAIMS ENTIRELY CEREMONIAL.', 80, h - 66, 16);
   text(PUBLIC_HOST, 825, h - 66, 18);

@@ -3617,234 +3617,245 @@ html[data-theme='dark'] .category-plate {
   font-size: clamp(12px, 1vw, 14px);
 }
 
-/* R10: one register, twelve columns, deliberate space for the printing plate. */
+/* R11: Round 7 paper, ink, type and stamp; the later one-card flow remains. */
+:root {
+  --red: #e1462b;
+  --panel: #f1ece2;
+}
+html[data-theme='dark'] {
+  --red: #e1462b;
+  --paper: #16150f;
+  --panel: #1f1e18;
+  --ink: #f1ece2;
+  --rule: #f1ece2;
+  --muted: #e4ddcf;
+}
 .page {
-  max-width: 1376px;
+  max-width: 1800px;
+}
+.claim-paper,
+.day-certificate,
+.certificate {
+  background: var(--panel);
+  border: 1px solid var(--ink);
+}
+html[data-theme='dark'] :is(.claim-paper, .day-certificate, .certificate) {
+  background: #1f1e18;
+}
+.primary {
+  background: #e1462b;
+  color: #f1ece2;
+  border: 1px solid var(--ink);
+  box-shadow: 4px 4px 0 var(--ink);
+  font: 700 20px/1.2 Archivo;
+}
+.primary:hover {
+  background: #e1462b;
+  box-shadow: 3px 3px 0 var(--ink);
 }
 .masthead {
+  display: flex;
   flex-wrap: wrap;
-  gap: 20px;
-  padding-top: 16px;
+  gap: 24px;
+  padding-block: 24px 0;
+}
+.masthead .header-controls {
+  margin-left: auto;
 }
 .masthead nav {
-  flex-basis: 100%;
+  width: 100%;
   margin: 0;
-  padding: 0;
-  order: 4;
-  border-block: 1px solid var(--ink);
+  min-height: 52px;
+  gap: 32px;
+  order: 0;
 }
-.home-page .masthead nav {
-  margin: 0;
+.masthead nav a {
+  font-size: 18px;
+  min-height: 44px;
 }
-.closed-office,
+.header-controls button,
+.timezone-picker,
+.timezone-picker button {
+  font-size: 14px;
+}
 .focused-play {
   max-width: none;
   width: 100%;
-  margin-inline: 0;
-}
-.closed-office {
-  display: grid;
-  grid-template-columns: repeat(12, minmax(0, 1fr));
-  column-gap: 32px;
-  margin-block: 36px;
-  align-items: center;
-}
-.closed-copy {
-  grid-column: span 7;
-  min-width: 0;
-}
-.closed-office .clock {
-  font-size: clamp(48px, 7.5vw, 104px);
-  letter-spacing: -0.065em;
-}
-.closed-office h1 {
-  font-size: clamp(24px, 2.5vw, 32px);
-  line-height: 1.25;
-}
-.local-drop,
-.local-drop small {
-  font: inherit;
-  vertical-align: baseline;
-}
-.engraving-plate {
-  grid-column: span 5;
-  margin: 0;
-  padding: 16px;
-  background: var(--stock, var(--paper));
-  border: 1px solid var(--ink);
-  min-width: 0;
-}
-.engraving-plate img {
-  display: block;
-  width: 100%;
-  height: auto;
-  filter: grayscale(1) contrast(1.2);
-  mix-blend-mode: multiply;
-}
-.engraving-plate figcaption {
-  display: flex;
-  justify-content: space-between;
-  gap: 8px;
-  padding-top: 14px;
-  font: 12px/1.5 Plex;
-}
-html[data-theme='dark'] .engraving-plate {
-  background: var(--stock-dark, var(--paper));
-}
-html[data-theme='dark'] .engraving-plate img {
-  filter: grayscale(1) contrast(1.2) invert(1);
-  mix-blend-mode: screen;
 }
 .focused-play .claim-section {
-  display: grid;
-  grid-template-columns: repeat(12, minmax(0, 1fr));
-  gap: 24px 32px;
-  align-items: start;
-}
-.focused-play .play-heading {
-  grid-column: 1/-1;
   display: block;
+  padding-top: 32px;
 }
 .focused-play .play-heading .category {
-  font-size: clamp(72px, 13vw, 188px);
-  line-height: 0.85;
-  margin: 8px 0 16px;
-  letter-spacing: -0.065em;
+  font-size: clamp(64px, 13.4vw, 220px);
+  line-height: 0.95;
+  margin: 0 0 28px;
 }
 .focused-play .claim-paper {
-  grid-column: span 7;
-  min-width: 0;
+  width: 100%;
+  padding: 28px;
 }
-.focused-play .claim-section > .engraving-plate {
-  grid-column: span 5;
-}
-.focused-play .claim-section:not(:has(.engraving-plate)) .claim-paper {
-  grid-column: 1/9;
-}
-.focused-play .locked-ledger {
+.focused-play .input-row {
   margin-top: 24px;
 }
-.official-seal {
-  width: 200px;
-  height: 200px;
-  opacity: 1;
-  transform: rotate(-7deg);
-  flex-shrink: 0;
+.focused-play .input-row input {
+  font-size: 28px;
 }
-html[data-theme='dark'] .official-seal {
-  filter: invert(1) sepia(0.15);
+.closed-office {
+  max-width: none;
+  display: grid;
+  grid-template-columns: 7fr 5fr;
+  gap: 48px;
+  align-items: center;
+  margin-block: 36px;
 }
-.certificate-registration {
-  display: flex;
-  justify-content: flex-end;
-  padding: 16px 0;
+.closed-office .clock {
+  font-size: clamp(48px, 7.5vw, 140px);
 }
-.certificate-seal {
-  position: static;
-  width: 200px;
-  height: 200px;
-  opacity: 1;
+.closed-brand {
+  text-align: center;
+}
+.closed-brand .dibs-stamp {
+  display: inline-block;
+  transform: rotate(-5deg);
+  padding: 24px;
+  margin-bottom: 36px;
+}
+.closed-brand .dibs-stamp strong {
+  font-size: clamp(80px, 10vw, 180px);
+}
+.closed-brand .dibs-stamp span {
+  font-size: 14px;
+}
+.day-summary,
+.completed-play .day-summary {
+  max-width: none;
+  display: grid;
+  grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
+  gap: 48px;
+  align-items: start;
+}
+.day-companions .share-area {
+  margin-top: 0;
 }
 .day-cert-holder {
-  grid-template-columns: minmax(0, 1fr) 200px;
-  align-items: center;
+  display: grid;
+  grid-template-columns: 1fr;
 }
-.day-cert-holder .official-seal {
-  grid-column: 2;
-  grid-row: 1/4;
-  margin: 0;
+.day-category h2 {
+  font-stretch: 125%;
 }
-.day-cert-holder > :not(.official-seal) {
-  grid-column: 1;
+.summary-answers a {
+  color: var(--ink);
+  text-decoration: none;
+  font-weight: 800;
+}
+.ledger::before {
+  display: none;
+}
+.ledger {
+  border-left: 0;
+}
+.register-arrival .category {
+  animation: none;
 }
 @media (min-width: 900px) {
-  .masthead {
+  .certificate-page {
     display: grid;
-    grid-template-columns: repeat(12, minmax(0, 1fr));
-    gap: 16px;
+    grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
+    gap: 32px 48px;
+    align-items: start;
   }
-  .masthead .wordmark {
-    grid-column: 1/4;
-    grid-row: 1;
-  }
-  .masthead .mast-note {
-    display: none;
-  }
-  .masthead .header-controls {
-    grid-column: 9/13;
-    grid-row: 1;
-    justify-self: end;
-  }
-  .masthead nav {
+  .certificate-page > a {
     grid-column: 1/-1;
-    grid-row: 2;
-    display: flex;
-    min-height: 52px;
   }
-  .engraving-plate figcaption {
-    font-size: 14px;
+  .certificate-page .share-area {
+    margin: 0;
   }
-  .closed-office .quick-rules {
-    margin-top: 24px;
+  .completed-play .ledger-section {
+    margin-top: 40px;
+  }
+  .focused-play .primary {
+    min-width: 240px;
   }
 }
 @media (max-width: 899px) {
-  .closed-office {
-    column-gap: 20px;
-  }
-  .closed-copy {
-    grid-column: 1/-1;
-  }
-  .closed-office > .engraving-plate {
-    grid-column: 1/-1;
-    margin-top: 24px;
-  }
-  .focused-play .claim-section {
+  .closed-office,
+  .day-summary,
+  .completed-play .day-summary {
     display: block;
   }
-  .focused-play .claim-section > .engraving-plate {
+  .closed-brand {
     display: none;
   }
-  .focused-play .play-heading .category {
-    font-size: clamp(44px, 14vw, 110px);
-    line-height: 0.95;
-  }
-  .official-seal,
-  .certificate-seal {
-    width: 140px;
-    height: 140px;
-  }
-  .day-cert-holder {
-    grid-template-columns: minmax(0, 1fr) 140px;
+  .day-companions {
+    margin-top: 28px;
   }
 }
 @media (max-width: 600px) {
-  .masthead {
+  .masthead,
+  .home-page .masthead,
+  .home-page:has(.focused-play) .masthead {
+    height: auto;
+    min-height: 0;
+    padding-block: 12px 0;
     gap: 8px;
   }
-  .masthead nav {
-    margin-top: 8px;
+  .masthead .brand-mark {
+    width: 120px;
   }
-  .closed-office {
-    margin-block: 24px;
+  .masthead .header-controls {
+    gap: 0;
   }
-  .closed-office .clock {
-    font-size: clamp(48px, 13vw, 72px);
+  .header-controls button {
+    font-size: 14px;
+    padding: 6px;
   }
-  .closed-office h1 {
-    margin-top: 20px;
+  .masthead nav,
+  .home-page:has(.focused-play) .masthead nav {
+    display: flex;
+    gap: 18px;
+    margin: 0;
+  }
+  .masthead nav a {
+    font-size: 14px;
+  }
+  .masthead nav .timezone-picker {
+    margin-left: auto;
+  }
+  .focused-play .claim-section {
+    padding-top: 20px;
   }
   .focused-play .play-heading .category {
-    margin-block: 8px 14px;
+    font-size: clamp(42px, 13.4vw, 80px);
+    margin-bottom: 16px;
   }
-  .home-page:has(.focused-play) .masthead nav {
-    display: none;
+  .focused-play .claim-paper {
+    padding: 16px;
+  }
+  .focused-play .input-row {
+    margin-top: 14px;
+  }
+  .focused-play .input-row input {
+    font-size: 18px;
+  }
+  .focused-play .primary {
+    font-size: 18px;
   }
 }
 @media (max-height: 600px) and (max-width: 600px) {
+  .home-page:has(.focused-play) .masthead nav {
+    display: none;
+  }
+  .focused-play .claim-section {
+    padding-top: 8px;
+  }
   .focused-play .play-heading .category {
-    font-size: 34px;
-    margin-block: 4px 8px;
+    font-size: 36px;
+    margin-bottom: 8px;
+  }
+  .focused-play .claim-paper {
+    padding: 12px;
   }
 }
 @media (max-width: 600px) {
@@ -3852,94 +3863,24 @@ html[data-theme='dark'] .official-seal {
   .home-page .masthead,
   .home-page:has(.focused-play) .masthead {
     display: grid;
-    grid-template-columns: minmax(0, 1fr) auto;
-    height: auto;
-    min-height: 80px;
-    gap: 8px;
-    padding-block: 12px;
+    grid-template-columns: 1fr auto;
   }
   .masthead .wordmark {
     width: auto;
   }
-  .masthead .brand-mark {
-    width: 136px;
-    max-width: 100%;
-  }
-  .masthead .header-controls {
-    gap: 0;
-  }
   .masthead nav {
     grid-column: 1/-1;
+    flex-wrap: wrap;
+    gap: 0 20px;
+    padding: 0;
   }
-  .closed-office .drop-countdown {
-    padding-top: 0;
+  .masthead nav .timezone-picker {
+    flex-basis: 100%;
+    min-height: 36px;
   }
-}
-@media (max-height: 600px) and (max-width: 600px) {
-  .home-page:has(.focused-play) .masthead {
-    min-height: 60px;
-    padding-block: 8px;
-  }
-}
-/* Keep the mobile navigation after the play surface; desktop navigation belongs
-   directly under the masthead, before every page's main content. */
-@media (min-width: 900px) {
-  .home-page > nav {
-    order: 0;
-    margin-top: 0;
-  }
-  .page > nav {
-    margin: 0;
-    min-height: 52px;
-    border-block: 1px solid var(--ink);
-  }
-  .masthead {
-    padding-block: 16px;
-    min-height: 110px;
-  }
-}
-.day-summary,
-.completed-play .day-summary,
-.summary-paper,
-.certificate,
-.certificate-page .share-area {
-  max-width: none;
-  width: 100%;
-}
-.completed-play > .file-closed-stamp {
-  margin: 24px 0 12px;
-}
-.day-cert-holder strong {
-  font-size: clamp(20px, 2.5vw, 32px);
-}
-@media (min-width: 900px) {
-  .day-certificate .day-category h2 {
-    font-size: 96px;
-  }
-  .day-certificate .summary-answers a {
-    font-size: 32px;
-  }
-  .cert-answer {
-    font-size: clamp(64px, 9vw, 128px);
-  }
-}
-@media (max-height: 600px) and (max-width: 600px) {
-  .masthead,
-  .home-page .masthead {
-    min-height: 60px;
-    padding-block: 8px;
-  }
-}
-.closed-office .clock {
-  font-size: clamp(64px, 10.3vw, 144px);
-}
-@media (max-width: 600px) {
-  .closed-office .clock {
-    font-size: clamp(48px, 18.5vw, 76px);
-  }
-}
-@media (min-width: 1001px) {
-  .page {
-    padding-inline: 48px;
+  .practice-banner {
+    padding: 8px;
+    margin-block: 8px;
+    font-size: 12px;
   }
 }
