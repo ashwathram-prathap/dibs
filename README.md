@@ -97,7 +97,7 @@ npm run deploy:api
 npm run deploy:web
 ```
 
-Both production deploy commands enforce the November 23, 6 PM ET–November 24, midnight ET freeze. Direct Wrangler commands must obey it too. Root `wrangler.jsonc` defines Pages service bindings; `worker/wrangler*.jsonc` separates production and practice. Remote `LOCAL_TEST` must remain disabled.
+Both production deploy commands enforce the November 23, 5 PM ET–November 24, midnight ET freeze. Direct Wrangler commands must obey it too. Root `wrangler.jsonc` defines Pages service bindings; `worker/wrangler*.jsonc` separates production and practice. Remote `LOCAL_TEST` must remain disabled.
 
 `npm run backup` exports production D1 privately to `.backups/`, retaining 30 days. The project-local launchd task runs at 5:30 AM while this Mac is awake and its login session exists. The runbook documents reloading it after reboot, local restore rehearsal, seven-day Free-plan D1 Time Travel, pausing a day, voiding an abusive claim, rollback and Search Console DNS verification. `MORNING_REPORT.md` is a private operational handoff and must never be committed.
 

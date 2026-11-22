@@ -15,7 +15,7 @@
     "Dibs common-name editorial supplement"
   ],
   "sourceSnapshot": "categories/foods.json",
-  "snapshotSha256": "c8d60b26f9362bc7a4d4256045138e3fe2435b8dcea0a204354f69af245ec08c",
+  "snapshotSha256": "8323161ca74a76ed3e698880a2e55324c9eafb534ec108992b688dd2899c906a",
   "answerSha256": null,
   "scope": "Foods, dishes, drinks and edible ingredients.",
   "aliases": "Use every source alias, normalize case and punctuation, then apply scripts/catalog-aliases.ts; ambiguous aliases never displace another canonical answer.",

@@ -50,7 +50,7 @@ function Plate({ slug }: { slug: string }) {
   return (
     <figure className="engraving-plate stock-sage">
       <img
-        src="/art/animals-plate.jpg"
+        src="/art/animals-plate.webp"
         alt="Rhinoceros woodcut by Albrecht Dürer"
         width="1127"
         height="893"

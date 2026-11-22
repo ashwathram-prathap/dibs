@@ -1,0 +1,567 @@
+[
+  {
+    "slug": "foods",
+    "checked": 30,
+    "rows": [
+      {
+        "answer": "Poutine",
+        "accepted": null
+      },
+      {
+        "answer": "Butter tart",
+        "accepted": null
+      },
+      {
+        "answer": "Nanaimo bar",
+        "accepted": null
+      },
+      {
+        "answer": "BeaverTails",
+        "accepted": null
+      },
+      {
+        "answer": "Ketchup chips",
+        "accepted": null
+      },
+      {
+        "answer": "Tourtière",
+        "accepted": "Tourtiere"
+      },
+      {
+        "answer": "Peameal bacon",
+        "accepted": null
+      },
+      {
+        "answer": "Montreal smoked meat",
+        "accepted": null
+      },
+      {
+        "answer": "Montreal-style bagel",
+        "accepted": null
+      },
+      {
+        "answer": "Bannock",
+        "accepted": "Bannock"
+      },
+      {
+        "answer": "Maple syrup",
+        "accepted": "Maple syrup"
+      },
+      {
+        "answer": "Saskatoon berry pie",
+        "accepted": null
+      },
+      {
+        "answer": "Rappie pie",
+        "accepted": null
+      },
+      {
+        "answer": "Jiggs dinner",
+        "accepted": null
+      },
+      {
+        "answer": "Pouding chômeur",
+        "accepted": null
+      },
+      {
+        "answer": "Sugar pie",
+        "accepted": "Sugar pies"
+      },
+      {
+        "answer": "Date square",
+        "accepted": null
+      },
+      {
+        "answer": "Split pea soup",
+        "accepted": "Split-pea soup"
+      },
+      {
+        "answer": "Figgy duff",
+        "accepted": null
+      },
+      {
+        "answer": "Donair",
+        "accepted": null
+      },
+      {
+        "answer": "Caesar cocktail",
+        "accepted": null
+      },
+      {
+        "answer": "Ice wine",
+        "accepted": null
+      },
+      {
+        "answer": "Hawaiian pizza",
+        "accepted": null
+      },
+      {
+        "answer": "Ginger beef",
+        "accepted": null
+      },
+      {
+        "answer": "All-dressed chips",
+        "accepted": null
+      },
+      {
+        "answer": "Canadian bacon",
+        "accepted": null
+      },
+      {
+        "answer": "Montreal steak seasoning",
+        "accepted": null
+      },
+      {
+        "answer": "Persian doughnut",
+        "accepted": null
+      },
+      {
+        "answer": "Coffee crisp",
+        "accepted": null
+      },
+      {
+        "answer": "Timbits",
+        "accepted": null
+      }
+    ],
+    "missing": [
+      "Poutine",
+      "Butter tart",
+      "Nanaimo bar",
+      "BeaverTails",
+      "Ketchup chips",
+      "Peameal bacon",
+      "Montreal smoked meat",
+      "Montreal-style bagel",
+      "Saskatoon berry pie",
+      "Rappie pie",
+      "Jiggs dinner",
+      "Pouding chômeur",
+      "Date square",
+      "Figgy duff",
+      "Donair",
+      "Caesar cocktail",
+      "Ice wine",
+      "Hawaiian pizza",
+      "Ginger beef",
+      "All-dressed chips",
+      "Canadian bacon",
+      "Montreal steak seasoning",
+      "Persian doughnut",
+      "Coffee crisp",
+      "Timbits"
+    ]
+  },
+  {
+    "slug": "cities",
+    "checked": 45,
+    "rows": [
+      {
+        "answer": "Toronto",
+        "accepted": "Toronto"
+      },
+      {
+        "answer": "Montréal",
+        "accepted": "Montreal"
+      },
+      {
+        "answer": "Vancouver",
+        "accepted": "Vancouver"
+      },
+      {
+        "answer": "Ottawa",
+        "accepted": "Ottawa"
+      },
+      {
+        "answer": "Québec City",
+        "accepted": "Québec"
+      },
+      {
+        "answer": "Calgary",
+        "accepted": "Calgary"
+      },
+      {
+        "answer": "Edmonton",
+        "accepted": "Edmonton"
+      },
+      {
+        "answer": "Winnipeg",
+        "accepted": "Winnipeg"
+      },
+      {
+        "answer": "Halifax",
+        "accepted": "Halifax"
+      },
+      {
+        "answer": "Victoria",
+        "accepted": "Victoria"
+      },
+      {
+        "answer": "Kitchener",
+        "accepted": "Kitchener"
+      },
+      {
+        "answer": "Mississauga",
+        "accepted": "Mississauga"
+      },
+      {
+        "answer": "Brampton",
+        "accepted": "Brampton"
+      },
+      {
+        "answer": "Markham",
+        "accepted": "Markham"
+      },
+      {
+        "answer": "Guelph",
+        "accepted": "Guelph"
+      },
+      {
+        "answer": "Waterloo",
+        "accepted": "Waterloo"
+      },
+      {
+        "answer": "Hamilton",
+        "accepted": "Hamilton"
+      },
+      {
+        "answer": "Burlington",
+        "accepted": "Burlington"
+      },
+      {
+        "answer": "Oakville",
+        "accepted": "Oakville"
+      },
+      {
+        "answer": "Oshawa",
+        "accepted": "Oshawa"
+      },
+      {
+        "answer": "Barrie",
+        "accepted": "Barrie"
+      },
+      {
+        "answer": "London",
+        "accepted": "London"
+      },
+      {
+        "answer": "Windsor",
+        "accepted": "Windsor"
+      },
+      {
+        "answer": "Sudbury",
+        "accepted": "Sudbury"
+      },
+      {
+        "answer": "Thunder Bay",
+        "accepted": "Thunder Bay"
+      },
+      {
+        "answer": "Saskatoon",
+        "accepted": "Saskatoon"
+      },
+      {
+        "answer": "Regina",
+        "accepted": "Regina"
+      },
+      {
+        "answer": "Kelowna",
+        "accepted": "Kelowna"
+      },
+      {
+        "answer": "Nanaimo",
+        "accepted": "Nanaimo"
+      },
+      {
+        "answer": "Surrey",
+        "accepted": "Surrey"
+      },
+      {
+        "answer": "Burnaby",
+        "accepted": "Burnaby"
+      },
+      {
+        "answer": "Richmond",
+        "accepted": "Richmond"
+      },
+      {
+        "answer": "Saint John",
+        "accepted": "Saint John"
+      },
+      {
+        "answer": "St. John’s",
+        "accepted": "St. John’s"
+      },
+      {
+        "answer": "Charlottetown",
+        "accepted": "Charlottetown"
+      },
+      {
+        "answer": "Fredericton",
+        "accepted": "Fredericton"
+      },
+      {
+        "answer": "Moncton",
+        "accepted": "Moncton"
+      },
+      {
+        "answer": "Whitehorse",
+        "accepted": "Whitehorse"
+      },
+      {
+        "answer": "Yellowknife",
+        "accepted": "Yellowknife"
+      },
+      {
+        "answer": "Iqaluit",
+        "accepted": "Iqaluit"
+      },
+      {
+        "answer": "Laval",
+        "accepted": "Laval"
+      },
+      {
+        "answer": "Gatineau",
+        "accepted": "Gatineau"
+      },
+      {
+        "answer": "Sherbrooke",
+        "accepted": "Sherbrooke"
+      },
+      {
+        "answer": "Saguenay",
+        "accepted": "Saguenay"
+      },
+      {
+        "answer": "Trois-Rivières",
+        "accepted": "Trois-Rivières"
+      }
+    ],
+    "missing": []
+  },
+  {
+    "slug": "animals",
+    "checked": 11,
+    "rows": [
+      {
+        "answer": "Moose",
+        "accepted": "Moose"
+      },
+      {
+        "answer": "Beaver",
+        "accepted": "Beaver"
+      },
+      {
+        "answer": "Caribou",
+        "accepted": "Caribou"
+      },
+      {
+        "answer": "Canada lynx",
+        "accepted": "Canadian Lynx"
+      },
+      {
+        "answer": "Polar bear",
+        "accepted": "Polar Bear"
+      },
+      {
+        "answer": "Arctic fox",
+        "accepted": "Arctic Fox"
+      },
+      {
+        "answer": "Wolverine",
+        "accepted": "Wolverine"
+      },
+      {
+        "answer": "Snowshoe hare",
+        "accepted": "Snowshoe hare"
+      },
+      {
+        "answer": "Beluga whale",
+        "accepted": "Beluga whale"
+      },
+      {
+        "answer": "Narwhal",
+        "accepted": "Narwhal"
+      },
+      {
+        "answer": "Bison",
+        "accepted": "Bison"
+      }
+    ],
+    "missing": []
+  },
+  {
+    "slug": "birds",
+    "checked": 6,
+    "rows": [
+      {
+        "answer": "Canada goose",
+        "accepted": "Canada Goose"
+      },
+      {
+        "answer": "Common loon",
+        "accepted": "Common Loon"
+      },
+      {
+        "answer": "Snowy owl",
+        "accepted": "Snowy Owl"
+      },
+      {
+        "answer": "Canada jay",
+        "accepted": "Canada Jay"
+      },
+      {
+        "answer": "Black-capped chickadee",
+        "accepted": "Black-capped chickadee"
+      },
+      {
+        "answer": "Atlantic puffin",
+        "accepted": "Atlantic Puffin"
+      }
+    ],
+    "missing": []
+  },
+  {
+    "slug": "lakes",
+    "checked": 9,
+    "rows": [
+      {
+        "answer": "Lake Ontario",
+        "accepted": "Lake Ontario"
+      },
+      {
+        "answer": "Lake Erie",
+        "accepted": "Lake Erie"
+      },
+      {
+        "answer": "Lake Huron",
+        "accepted": "Lake Huron"
+      },
+      {
+        "answer": "Lake Superior",
+        "accepted": "Lake Superior"
+      },
+      {
+        "answer": "Great Bear Lake",
+        "accepted": "Great Bear Lake"
+      },
+      {
+        "answer": "Great Slave Lake",
+        "accepted": "Great Slave Lake"
+      },
+      {
+        "answer": "Lake Winnipeg",
+        "accepted": "Lake Winnipeg"
+      },
+      {
+        "answer": "Lake Louise",
+        "accepted": "Lake Louise"
+      },
+      {
+        "answer": "Moraine Lake",
+        "accepted": "Moraine Lake"
+      }
+    ],
+    "missing": []
+  },
+  {
+    "slug": "rivers",
+    "checked": 7,
+    "rows": [
+      {
+        "answer": "Saint Lawrence River",
+        "accepted": "St. Lawrence River"
+      },
+      {
+        "answer": "Mackenzie River",
+        "accepted": "Mackenzie River"
+      },
+      {
+        "answer": "Yukon River",
+        "accepted": "Yukon River"
+      },
+      {
+        "answer": "Fraser River",
+        "accepted": "Fraser River"
+      },
+      {
+        "answer": "Ottawa River",
+        "accepted": "Ottawa River"
+      },
+      {
+        "answer": "Red River of the North",
+        "accepted": "Red River of the North"
+      },
+      {
+        "answer": "Saskatchewan River",
+        "accepted": "Saskatchewan River"
+      }
+    ],
+    "missing": []
+  },
+  {
+    "slug": "mountains",
+    "checked": 5,
+    "rows": [
+      {
+        "answer": "Mount Logan",
+        "accepted": "Mount Logan"
+      },
+      {
+        "answer": "Mount Robson",
+        "accepted": "Mount Robson"
+      },
+      {
+        "answer": "Mount Saint Elias",
+        "accepted": "Mount Saint Elias"
+      },
+      {
+        "answer": "Mount Columbia",
+        "accepted": "Mount Columbia"
+      },
+      {
+        "answer": "Whistler Mountain",
+        "accepted": "Whistler Mountain"
+      }
+    ],
+    "missing": []
+  },
+  {
+    "slug": "countries",
+    "checked": 1,
+    "rows": [
+      {
+        "answer": "Canada",
+        "accepted": "Canada"
+      }
+    ],
+    "missing": []
+  },
+  {
+    "slug": "islands",
+    "checked": 5,
+    "rows": [
+      {
+        "answer": "Vancouver Island",
+        "accepted": "Vancouver Island"
+      },
+      {
+        "answer": "Prince Edward Island",
+        "accepted": "Prince Edward Island"
+      },
+      {
+        "answer": "Newfoundland",
+        "accepted": "Newfoundland"
+      },
+      {
+        "answer": "Baffin Island",
+        "accepted": "Baffin Island"
+      },
+      {
+        "answer": "Ellesmere Island",
+        "accepted": "Ellesmere Island"
+      }
+    ],
+    "missing": []
+  }
+]
