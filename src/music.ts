@@ -10,10 +10,32 @@ let revision = 0;
 let pausedAt = 0;
 let beganAt = 0;
 let pauseTimer: ReturnType<typeof setTimeout> | undefined;
-function ramp(value: number, seconds = 1) {
+type GainPoint = { at: number; value: number };
+let envelope: GainPoint[] = [{ at: 0, value: 0 }];
+function gainAt(at: number) {
+  let previous = envelope[0];
+  for (const point of envelope.slice(1)) {
+    if (at < point.at)
+      return (
+        previous.value +
+        (point.value - previous.value) * Math.max(0, (at - previous.at) / (point.at - previous.at))
+      );
+    previous = point;
+  }
+  return previous.value;
+}
+function automate(points: GainPoint[]) {
   if (!gain || !context) return;
-  gain.gain.cancelAndHoldAtTime(context.currentTime);
-  gain.gain.linearRampToValueAtTime(value, context.currentTime + seconds);
+  const at = context.currentTime,
+    value = gainAt(at);
+  // Keep the scheduled value ourselves: Firefox has no cancelAndHoldAtTime.
+  gain.gain.cancelScheduledValues(at);
+  gain.gain.setValueAtTime(value, at);
+  envelope = [{ at, value }, ...points];
+  for (const point of points) gain.gain.linearRampToValueAtTime(point.value, point.at);
+}
+function ramp(value: number, seconds = 1) {
+  if (context) automate([{ at: context.currentTime + seconds, value }]);
 }
 function start() {
   if (!context || !buffer || !gain || source || !wanted || document.hidden) return;
@@ -86,8 +108,10 @@ document.addEventListener('visibilitychange', () => {
 window.addEventListener('dibs-stamp', ((event: CustomEvent<number>) => {
   if (!source || !gain || !context || !wanted) return;
   const at = context.currentTime;
-  gain.gain.cancelAndHoldAtTime(at);
-  gain.gain.linearRampToValueAtTime(0.2, at + 0.006);
-  gain.gain.setValueAtTime(0.2, at + event.detail);
-  gain.gain.linearRampToValueAtTime(1, at + event.detail + 1);
+  const ducked = Math.min(0.2, gainAt(at));
+  automate([
+    { at: at + 0.006, value: ducked },
+    { at: at + event.detail, value: ducked },
+    { at: at + event.detail + 1, value: 1 },
+  ]);
 }) as EventListener);

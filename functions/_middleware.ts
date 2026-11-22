@@ -85,7 +85,14 @@ export const onRequest: PagesFunction = async ({ request, next, env }) => {
     const personal = /^\/(api|admin|stats|certificate|summary|c)(\/|$)/.test(path);
     if (staging || personal) response.headers.set('X-Robots-Tag', 'noindex, nofollow');
     else response.headers.delete('X-Robots-Tag');
-    if (staging) response.headers.set('Cache-Control', 'no-store, no-transform');
+    // Prevent practice HTML injection while allowing normal compression of JS/CSS.
+    if (staging)
+      response.headers.set(
+        'Cache-Control',
+        response.headers.get('content-type')?.includes('text/html')
+          ? 'no-store, no-transform'
+          : 'no-store',
+      );
     if (staging)
       response.headers.set(
         'Content-Security-Policy',
