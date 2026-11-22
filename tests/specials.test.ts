@@ -112,6 +112,18 @@ it('publishes only a stable commitment before any claim, including cached payloa
     expect(r.status).toBe(200);
     payloads.push(await r.text());
   }
+  const upgrade = await mf.dispatchFetch('http://localhost/api/live', {
+    headers: { origin: 'http://localhost', upgrade: 'websocket' },
+  });
+  expect(upgrade.status).toBe(101);
+  const ws = upgrade.webSocket!;
+  ws.accept();
+  const message = new Promise<string>((resolve) =>
+    ws.addEventListener('message', (e) => resolve(String(e.data)), { once: true }),
+  );
+  ws.send(JSON.stringify({ category: 'specials', since: 0 }));
+  payloads.push(await message);
+  ws.close(1000);
   payloads.push(readFileSync('index.html', 'utf8'));
   for (const payload of payloads) {
     for (const word of gold) expect(payload).not.toContain(word.display);
@@ -237,4 +249,21 @@ it('allows reset only in isolated staging and keeps practice open outside the ca
   expect(fresh.rows).toEqual([]);
   expect((await db.prepare('SELECT COUNT(*) n FROM claims').first()).n).toBe(1);
   expect((await stage.prepare('SELECT COUNT(*) n FROM claims').first()).n).toBe(0);
+});
+
+it('loads one requested archive reveal at a time and never invents a missed-drop commitment', async () => {
+  await db
+    .prepare(
+      "INSERT INTO categories(id,date,name,slug,total_registrable,drop_at,status) VALUES('missed','2019-12-30','Animals','animals',2000,'2019-12-31T02:00:00Z','approved')",
+    )
+    .run();
+  const data = (await (await call('/archive?id=missed')).json()) as any;
+  const missed = data.categories.find((c: any) => c.id === 'missed');
+  expect(missed.specials.verified).toBe(false);
+  expect(missed.specials.commitment).toBe('');
+  expect(missed.specials.houseWords).toHaveLength(10);
+  expect(data.categories.find((c: any) => c.id === 'specials').specials).toBeUndefined();
+  expect(
+    await db.prepare("SELECT * FROM daily_specials WHERE category_id='missed'").first(),
+  ).toBeNull();
 });

@@ -1169,6 +1169,20 @@ function Archive() {
       })
       .catch((e) => setError(e.message));
   }, []);
+  useEffect(() => {
+    if (!selected || selected.specials) return;
+    let alive = true;
+    api<{ categories: Category[] }>('/archive?id=' + encodeURIComponent(selected.id))
+      .then((data) => {
+        if (alive) setSelected(data.categories.find((c) => c.id === selected.id) || selected);
+      })
+      .catch((e) => {
+        if (alive) setError(e.message);
+      });
+    return () => {
+      alive = false;
+    };
+  }, [selected?.id]);
   return (
     <>
       <div className="page-heading">

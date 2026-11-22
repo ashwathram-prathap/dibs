@@ -4,7 +4,7 @@ A daily game of first claims. React/TypeScript/Vite on Cloudflare Pages; a Worke
 
 Round 3 gives each player three dibs and five strikes. Taken answers cost a strike; invalid entries do not. Completed files rank by dibs, strikes and completion time. The day summary is the main PNG/share artifact; certificates remain available.
 
-The owner approved all 30 catalogs. Five are remotely verified and scheduled for November 24–28, 2026; the other 25 are queued for budgeted daily upload/verification/approval. Production stays closed until November 24 at 9 PM Toronto. November 24 is Tuesday; the explicit date overrides the conflicting Monday label in FIXES-R3.md.
+The owner approved all 30 catalogs. Animals opens Monday November 23, 2026 at 9:00 PM America/Toronto; Plants, Birds, Cities and Actors follow November 24–27. Those five are remotely verified. The other 25 remain queued for budgeted upload, verification and approval; only a late category moves, preserving the other planned dates.
 
 Review [the Round 3 gallery](review/index.html), [device results](review/round3/devices.md), [free-tier measurements](review/round3/free-tier.md), and [upload progress](review/round3/upload-progress.json). Remote migrations are applied. No plan or billing changes were made; no DOMAIN.txt was supplied.
 
@@ -44,7 +44,7 @@ The browser matrix covers 320–2560px, phone landscape, tablets, both themes, k
 
 ## Runtime and budget
 
-`shared/config.ts` owns `PUBLIC_ORIGIN`. Certificates, canvas exports, OG images and shared links all use it. Browser fonts are subset WOFF2; `npm run build` regenerates Pages-served autocomplete catalogs from `categories/`.
+`shared/config.ts` owns `PUBLIC_ORIGIN`. Certificates, canvas exports, OG images and shared links all use it. Browser fonts are subset WOFF2; `npm run build` removes public autocomplete catalogs to protect unclaimed golden answers.
 
 `/api/bootstrap` combines today's state, private identity and the latest 50 filings. `/api/live` carries cursor polls every 15 seconds, backing off to 60 seconds after two minutes and pausing hidden tabs. Socket failures fall back to 120-second HTTP refreshes. `/api/today` and `/api/ledger` also use shared 10-second Workers Cache API entries; a global coordinator performs indexed incremental D1 reads. Earlier ledger entries load in pages of 50; search is explicitly within the loaded filings.
 
@@ -109,6 +109,34 @@ The release uses `https://dibs.here` as its only canonical origin. Pages middlew
 
 All state-changing clients, including CLI admin tools, must send `Origin: https://dibs.here`; localhost is accepted only with LOCAL_TEST on a loopback request. Tokens belong only in the Authorization header. Turnstile verification checks both the canonical hostname and `claim` action. Persisted user input is bounded and D1 data values are bound parameters; reusable SQL fragments contain only static source text.
 
-**Cutover is pending owner dashboard steps.** Both custom hostnames fail TLS, and the Pages project currently lists only `dibs-7hz.pages.dev`. The working Round 4 production deployment remains active. Round 5 is staged as an inactive Worker version and the `r5-security` Pages branch. See ignored `MORNING_REPORT.md`, “Round 5 security / Owner steps,” for the domain, SSL, Turnstile and release commands. `npx tsx scripts/verify-domain-ready.ts` is a read-only preflight; `npx tsx scripts/verify-round5-live.ts` records live failures until the cutover is complete. The category workflow temporarily retains the old endpoint and must switch at cutover.
+**Round 6 supersedes the old cutover handoff.** Production Worker/Pages now run the canonical release, both custom domains are attached, and the zone is active. Apex and www point to `dibs-7hz.pages.dev`; Full (strict) SSL and Always Use HTTPS are configured. TLS issuance completed and both hosts were verified live. The category workflow now uses `https://dibs.here/api`. Run `npx tsx scripts/verify-round6-live.ts` to check current TLS/canonical status; see the ignored morning report for live results.
 
 `npm run test:e2e` builds an isolated fixture bundle in `.tmp/e2e-dist`; normal builds still remove all fixtures. Tests enforce CSP violations as failures. The test server authorizes only the exact inert `body {}` stylesheet that Playwright WebKit injects for screenshots, using a SHA-256 hash. Production CSP has no such exception. `scripts/verify-security-browser.ts` separately checks the exact production policy without screenshots, including real Turnstile with Cloudflare's official dummy key. Evidence is in `review/round5/`; Firefox runs on Linux CI because this Mac cannot launch the installed Firefox.
+
+
+## Round 6: practice, house words and golden tickets
+
+Practice: https://practice.dibs-7hz.pages.dev. This unlisted, noindex preview is not password protected. It binds only to `dibs-api-staging`, `dibs-db-staging` and independent Durable Objects. It uses independent cookie/admin credentials, a permanently open PRACTICE copy of Animals, and conspicuous practice labels on pages and exported certificates. The existing Turnstile widget allows the practice hostname as well as production. No remote test bypass is enabled.
+
+Reset practice from this folder (then refresh the phone). These commands read the separate staging credential; production rejects the reset route:
+
+```sh
+set -a
+source .dev.vars.staging
+set +a
+DIBS_API=https://practice.dibs-7hz.pages.dev/api npx tsx scripts/admin.ts practice-reset
+```
+
+`DROP_TIME_LOCAL` and `DROP_TIME_ZONE` live in `shared/config.ts`. Builds read optional `DROP_TIME.txt` (`21:00` or `9:00 PM`) through `scripts/configure-drop.ts`; the default is 21:00 America/Toronto. This drives scheduling, rollover, countdown and share copy. The hourly cron runs at the configured minute so DST requires no manual UTC change. Deploy both environments after changing it; published category timestamps remain explicit D1 records and need an audited future-only reschedule.
+
+`scripts/build-house-words.ts` ranks every catalog by measured mean daily Wikipedia pageviews, with display-name tie breaks. The resulting ten names live only in the Worker bundle. `house_words` contains no player identity or claim. Guesses consume ordinary atomic strikes, reveal that one house entry and use the registry-blue stamp. Pool counts subtract house words; they never inflate player, claim or ledger counts.
+
+At a drop, `daily_specials` stores a random 256-bit server seed, three unbiased draws without replacement from non-house answers, the list's SHA-256 commitment and its filing time in one D1 batch. Competing cold starts use INSERT OR IGNORE and re-read the winning commitment. No public endpoint returns the seed or unclaimed golden IDs. The archive reveals the exact canonical UTF-8 payload after the next drop; it never invents a proof for a missed drop. Archive details load one selected day at a time to stay within Free Worker query limits. Independently verify a closed register with:
+
+```sh
+npx tsx scripts/verify-golden.ts animals
+```
+
+All public autocomplete catalogs were removed because they contained unclaimed golden answers. The input still accepts the full verified answer set and aliases. Golden claims carry a star through events, reload, summary share text and the ledger; certificate and PNG stamps use the gold palette, with reduced-motion and static SVG fallbacks.
+
+Validation and screenshots: `review/round6/`, `review/final/r6-*`. Use `npm test`, `npm run test:e2e`, and `npx tsx scripts/verify-round6-live.ts`. Live phone verification still requires a human to complete Turnstile when it requests interaction. Never bypass the widget or create test players in production.

@@ -452,7 +452,11 @@ export class Registry extends DurableObject<Env> {
       return json({ rows: ((await r.json()) as any).rows.filter((r: any) => r.claim_no > since) });
     }
     if (path === '/archive')
-      return this.cached('archive:' + registryDate(), 600000, () => route(req, env));
+      return this.cached(
+        'archive:' + registryDate() + ':' + (url.searchParams.get('id') || 'latest'),
+        600000,
+        () => route(req, env),
+      );
     if (path.startsWith('/summary/') && req.method === 'GET') {
       const cached = await this.cached('summary:' + path.slice(9), 10000, () =>
         this.summary(path.slice(9), env),

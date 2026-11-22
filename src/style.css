@@ -791,7 +791,7 @@ footer {
     900 66px/0.95 Archivo,
     Arial,
     sans-serif;
-  font-stretch: 125%;
+  font-variation-settings: 'wdth' 125;
   letter-spacing: -0.07em;
 }
 .dibs-stamp span {
@@ -2290,9 +2290,7 @@ html.low-power .dibs-stamp strong {
   }
 }
 html.low-power .gold-stamp strong {
-  background: none;
-  font-size: inherit;
-  color: #b8902f;
+  background-image: url('/stamp-gold.svg');
 }
 @media (prefers-reduced-motion: reduce) {
   .printing .gold-stamp::after {

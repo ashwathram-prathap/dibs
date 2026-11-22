@@ -1,4 +1,4 @@
-import { chromium } from '@playwright/test';
+import { chromium, webkit } from '@playwright/test';
 import { readFileSync, writeFileSync, mkdirSync } from 'node:fs';
 const base = 'https://practice.dibs-7hz.pages.dev';
 const token = readFileSync('.dev.vars.staging', 'utf8').match(/^ADMIN_TOKEN=(.+)$/m)![1];
@@ -13,9 +13,13 @@ const reset = async () => {
 const checks: any[] = [];
 mkdirSync('review/round6', { recursive: true });
 await reset();
-const browser = await chromium.launch();
+const engine = process.argv[2] === 'webkit' ? webkit : chromium;
+const browser = await engine.launch();
+const desktop = process.argv[3] === 'desktop';
 try {
-  const page = await browser.newPage({ viewport: { width: 390, height: 844 } });
+  const page = await browser.newPage({
+    viewport: { width: desktop ? 1440 : 390, height: desktop ? 900 : 844 },
+  });
   page.setDefaultTimeout(30000);
   await page.goto(base);
   await page.locator('.practice-banner').waitFor();
@@ -23,7 +27,7 @@ try {
   page.on('pageerror', (e) => errors.push(e.message));
   await page.getByLabel('ENTRY:', { exact: true }).fill('Dog');
   const response = page.waitForResponse((r) => new URL(r.url()).pathname === '/api/claim', {
-    timeout: 45000,
+    timeout: 95000,
   });
   await page.getByRole('button', { name: 'CALL DIBS' }).click();
   try {
@@ -93,7 +97,10 @@ try {
 } finally {
   await browser.close();
   await reset();
-  writeFileSync('review/round6/practice-live.json', JSON.stringify(checks, null, 2));
+  writeFileSync(
+    `review/round6/practice-live-${engine.name()}-${desktop ? 'desktop' : 'phone'}.json`,
+    JSON.stringify(checks, null, 2),
+  );
 }
 console.log(checks);
 if (checks.some((c) => !c.passed)) process.exitCode = 1;

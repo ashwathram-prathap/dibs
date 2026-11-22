@@ -505,7 +505,11 @@ export async function route(req: Request, env: Env): Promise<Response> {
       .all();
     return json({
       categories: await Promise.all(
-        rows.results.map(async (g: any) => ({ ...g, specials: await specialStatus(env, g, true) })),
+        rows.results.map(async (g: any) =>
+          g.id === (url.searchParams.get('id') || rows.results[0]?.id)
+            ? { ...g, specials: await specialStatus(env, g, true) }
+            : g,
+        ),
       ),
     });
   }
