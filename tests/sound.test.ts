@@ -100,3 +100,20 @@ describe('playback authorization and deduplication', () => {
     expect(starts).toBe(2);
   });
 });
+
+it('audio device failures never interrupt claim handling', async () => {
+  vi.resetModules();
+  vi.stubGlobal('localStorage', { getItem: () => null });
+  vi.stubGlobal(
+    'AudioContext',
+    class {
+      state = 'running';
+      createBuffer() {
+        throw Error('Audio device unavailable');
+      }
+    },
+  );
+  const { prepareSound, playClaimSound } = await import('../src/sound');
+  await prepareSound();
+  expect(() => playClaimSound('stamp', 'successful-claim')).not.toThrow();
+});

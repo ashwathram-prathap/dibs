@@ -1,0 +1,26 @@
+[
+  {
+    "engine": "chromium",
+    "music": {
+      "duration": 32,
+      "frames": 1536000,
+      "sampleRate": 48000,
+      "peak": 0.02847873419523239,
+      "rms": 0.005296465331888762,
+      "boundaryJump": 0.00008505696314387023
+    },
+    "passed": true
+  },
+  {
+    "engine": "webkit",
+    "music": {
+      "duration": 32.04,
+      "frames": 1537920,
+      "sampleRate": 48000,
+      "peak": 0.028472900390625,
+      "rms": 0.005293140089076317,
+      "boundaryJump": 0.000091552734375
+    },
+    "passed": true
+  }
+]

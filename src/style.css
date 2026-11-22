@@ -4776,3 +4776,11 @@ body {
     margin-block: 0 10px;
   }
 }
+
+/* A translated hover target can oscillate beneath a touch-emulated pointer. */
+@media (hover: none) {
+  .primary:hover {
+    transform: none;
+    box-shadow: 4px 4px 0 var(--ink);
+  }
+}

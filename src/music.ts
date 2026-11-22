@@ -1,3 +1,4 @@
+import { musicLoopBounds } from './music-loop';
 // AudioContext and the MP3 are created/loaded only from a Music tap.
 let context: AudioContext | undefined;
 let gain: GainNode | undefined;
@@ -19,11 +20,12 @@ function start() {
   source = context.createBufferSource();
   source.buffer = buffer;
   source.loop = true;
-  source.loopStart = 0;
-  source.loopEnd = 32;
+  const loop = musicLoopBounds(buffer.duration);
+  source.loopStart = loop.start;
+  source.loopEnd = loop.end;
   source.connect(gain);
   beganAt = context.currentTime;
-  source.start(0, pausedAt % 32);
+  source.start(0, loop.start + (pausedAt % 32));
   ramp(1);
 }
 function stop() {

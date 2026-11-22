@@ -19,7 +19,7 @@ export async function prepareSound() {
     /* Audio support must never prevent a claim. */
   }
 }
-export function playClaimSound(kind: DeskSound | null, requestId: string) {
+function playPreparedClaimSound(kind: DeskSound | null, requestId: string) {
   if (!kind || !soundEnabled() || !context || context.state !== 'running' || played.has(requestId))
     return;
   played.add(requestId);
@@ -42,4 +42,12 @@ export function playClaimSound(kind: DeskSound | null, requestId: string) {
   };
   window.dispatchEvent(new CustomEvent('dibs-stamp', { detail: buffer.duration }));
   source.start();
+}
+
+export function playClaimSound(kind: DeskSound | null, requestId: string) {
+  try {
+    playPreparedClaimSound(kind, requestId);
+  } catch {
+    // Audio failure must not interrupt a successful claim or its error message.
+  }
 }

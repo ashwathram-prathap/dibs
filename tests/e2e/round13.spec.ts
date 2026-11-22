@@ -55,8 +55,25 @@ test('R13 sound mapping, double tap and music only after tap', async ({ page }) 
   });
   await page.addInitScript(() => {
     (window as any).stamps = [];
+    (window as any).musicLoops = [];
+    const start = AudioBufferSourceNode.prototype.start;
+    AudioBufferSourceNode.prototype.start = function (...args) {
+      if (this.loop && this.buffer) {
+        const samples = this.buffer.getChannelData(0),
+          rate = this.buffer.sampleRate;
+        (window as any).musicLoops.push({
+          duration: this.loopEnd - this.loopStart,
+          boundaryJump: Math.abs(
+            samples[Math.round(this.loopStart * rate)] -
+              samples[Math.round(this.loopEnd * rate) - 1],
+          ),
+        });
+      }
+      return start.apply(this, args);
+    };
     window.addEventListener('dibs-stamp', (e: any) => (window as any).stamps.push(e.detail));
   });
+  await page.emulateMedia({ reducedMotion: 'reduce' });
   await page.goto('/?r6');
   await page.locator('#answer').waitFor();
   expect(audioRequests).toEqual([]);
@@ -88,6 +105,20 @@ test('R13 sound mapping, double tap and music only after tap', async ({ page }) 
   await page.getByRole('button', { name: 'Turn music on', exact: true }).click();
   await expect.poll(() => audioRequests.length).toBe(1);
   await expect(page.locator('.music-toggle')).toHaveAttribute('aria-pressed', 'true');
+  await expect.poll(() => page.evaluate(() => (window as any).musicLoops.length)).toBe(1);
+  const loop = await page.evaluate(() => (window as any).musicLoops[0]);
+  expect(loop.duration).toBe(32);
+  expect(loop.boundaryJump).toBeLessThan(0.002);
+  await page.evaluate(() => {
+    Object.defineProperty(document, 'hidden', { configurable: true, value: true });
+    document.dispatchEvent(new Event('visibilitychange'));
+  });
+  await page.waitForTimeout(100);
+  await page.evaluate(() => {
+    Object.defineProperty(document, 'hidden', { configurable: true, value: false });
+    document.dispatchEvent(new Event('visibilitychange'));
+  });
+  await expect.poll(() => page.evaluate(() => (window as any).musicLoops.length)).toBe(2);
   await page.reload();
   await page.locator('#answer').waitFor();
   expect(audioRequests.length).toBe(1);

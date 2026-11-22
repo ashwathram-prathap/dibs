@@ -620,7 +620,10 @@ function Home({
   );
   const [landed, setLanded] = useState(false);
   useEffect(() => {
-    if (file?.closed) void refresh();
+    if (file?.closed) {
+      window.scrollTo(0, 0);
+      void refresh();
+    }
   }, [file?.closed]);
 
   const reduced = useReducedMotion();
@@ -859,7 +862,6 @@ function Home({
           <p>Your certificate is ready below.</p>
           <p className="clerk-aside">{categoryNote(today.category.slug)}</p>
           <DaySummary file={file} today={today} showLedger />
-          <Introduction />
         </>
       ) : (
         <section className="claim-section" aria-label="Play today's category">
@@ -1295,6 +1297,7 @@ function DaySummary({
         </div>
       </article>
       <aside className="day-companions">
+        {showLedger && <Introduction />}
         <ShareSheet
           url={summaryUrl(file.summaryId!)}
           text={summaryText(file, today.category!)}

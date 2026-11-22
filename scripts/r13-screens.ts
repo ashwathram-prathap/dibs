@@ -17,6 +17,12 @@ try {
         ['live', '/?r6'],
         ['done', '/?r6'],
         ['office', '/about'],
+        ['certificate', '/certificate/fixture-1'],
+        ['archive', '/archive'],
+        ['stats', '/stats'],
+        ['admin', '/admin/live'],
+        ['calendar', '/admin/schedule'],
+        ['error', '/not-a-page'],
       ]) {
         await p.goto('http://127.0.0.1:5175' + path);
         await p.locator('.loading').waitFor({ state: 'hidden' });
@@ -28,7 +34,7 @@ try {
               await p.getByRole('button', { name: /Next (dibs|claim)/ }).click();
           }
         await p.evaluate(() => document.fonts.ready);
-        await p.waitForTimeout(350);
+        await p.waitForTimeout(750);
         await p.screenshot({
           path: `review/round13/${name}-${width}-${theme}-${phase}.png`,
           fullPage: true,
