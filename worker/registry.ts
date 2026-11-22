@@ -423,10 +423,13 @@ export class Registry extends DurableObject<Env> {
     }
     if (path === '/archive')
       return this.cached('archive:' + registryDate(), 600000, () => route(req, env));
-    if (path.startsWith('/summary/') && req.method === 'GET')
-      return this.cached('summary:' + path.slice(9), 86400000, () =>
+    if (path.startsWith('/summary/') && req.method === 'GET') {
+      const cached = await this.cached('summary:' + path.slice(9), 86400000, () =>
         this.summary(path.slice(9), env),
       );
+      if (!cached.ok) return cached;
+      return json({ ...((await cached.json()) as any), nextDrop: nextDrop() });
+    }
     if (path.startsWith('/certificate/'))
       return this.cached('certificate:' + path.slice(13), 86400000, () => route(req, env));
     if (path === '/og' || path.startsWith('/og/')) return this.image(path.slice(4), env);
@@ -552,7 +555,7 @@ export class Registry extends DurableObject<Env> {
       const raw = await req.text();
       if (raw.length > 100) return json({ message: 'Small forms only.' }, 413);
       const b = JSON.parse(raw);
-      if (!isPlatform(b.platform) || Object.keys(b).some((k) => k !== 'platform'))
+      if (!b || typeof b !== 'object' || !isPlatform(b.platform) || Object.keys(b).some((k) => k !== 'platform'))
         return json({ message: 'Unknown platform.' }, 422);
       const key = 'platforms:' + new Date().toISOString().slice(0, 10);
       await this.ctx.storage.transaction(async (txn) => {
@@ -649,7 +652,8 @@ export class Registry extends DurableObject<Env> {
               this.snapshot.board = updated;
           }
           await this.ensureSummary(latest);
-          await this.ctx.storage.put('session:' + latest.user.id, latest);
+          if (data.claim || latest.file?.closed)
+            await this.ctx.storage.put('session:' + latest.user.id, latest);
           Object.assign(session, latest);
         });
         return json({ ...data, file: session.file, me: this.me(session) }, response.status);

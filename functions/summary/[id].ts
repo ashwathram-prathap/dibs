@@ -1,2 +1,2 @@
-import { preview } from '../preview';
+import { preview } from '../../shared/preview';
 export const onRequest = preview('summary');

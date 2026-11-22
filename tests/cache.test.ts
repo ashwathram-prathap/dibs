@@ -50,7 +50,7 @@ beforeAll(async () => {
   });
   const pages = await build({
     stdin: {
-      contents: `import { preview } from './functions/preview';
+      contents: `import { preview } from './shared/preview';
       const html = ${JSON.stringify(readFileSync('index.html', 'utf8').replaceAll('__PUBLIC_ORIGIN__', PUBLIC_ORIGIN))};
       export default { fetch(request, env) {
         const [, kind, id] = new URL(request.url).pathname.split('/');
@@ -132,8 +132,8 @@ beforeAll(async () => {
   }
 }, 30000);
 afterAll(async () => {
-  mkdirSync('review/round3', { recursive: true });
-  writeFileSync('review/round3/d1-actions.json', JSON.stringify(evidence, null, 2));
+  mkdirSync('review/round4', { recursive: true });
+  writeFileSync('review/round4/d1-actions.json', JSON.stringify(evidence, null, 2));
   await mf?.dispose();
 });
 it('creates no D1 users or writes on page loads and cached polls', async () => {
@@ -399,4 +399,36 @@ it('serves unique cached previews to WhatsApp, X, Facebook, iMessage and Discord
   }
   mkdirSync('review/round4', { recursive: true });
   writeFileSync('review/round4/preview-fetches.json', JSON.stringify(results, null, 2));
+});
+
+it('keeps a zero-dibs five-strike summary across reloads without creating a D1 player', async () => {
+  const player = await account();
+  for (let i = 0; i < 5; i++)
+    expect(
+      (await call('/claim', { answer: 'Animal 30', turnstileToken: 'test' }, player.cookie)).status,
+    ).toBe(409);
+  const reloaded = (await (await call('/me', undefined, player.cookie)).json()) as any;
+  expect(reloaded.file.closed).toBe(true);
+  expect(reloaded.file.dibs).toBe(0);
+  expect(reloaded.file.strikes).toBe(5);
+  const shared = (await (await call('/summary/' + reloaded.file.summaryId)).json()) as any;
+  expect(shared.file.claims).toEqual([]);
+  expect(shared.file.strikes).toBe(5);
+  expect(
+    await db.prepare('SELECT id FROM users WHERE id=?').bind(player.me.user.id).first(),
+  ).toBeNull();
+});
+it('invalidates public summaries and PNGs after a claim is voided', async () => {
+  const before = (await (await call('/summary/' + summaryId)).json()) as any;
+  expect(before.file.claims).toHaveLength(3);
+  const response = await mf.dispatchFetch('http://localhost/api/admin/void-claim', {
+    method: 'POST',
+    headers: { authorization: 'Bearer local-admin', 'content-type': 'application/json' },
+    body: JSON.stringify({ id: certificateId }),
+  });
+  expect(response.status).toBe(200);
+  const after = (await (await call('/summary/' + summaryId)).json()) as any;
+  expect(after.file.claims).toHaveLength(2);
+  expect(after.file.claims.map((c: any) => c.id)).not.toContain(certificateId);
+  expect(after.file.closed).toBe(true);
 });

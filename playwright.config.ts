@@ -51,10 +51,14 @@ for (const [app, suffix] of [
 ]) {
   for (const device of ['iPhone 15 Pro', 'Pixel 7']) {
     const profile = devices[device];
-    projects.push({ name: `${app}-${device.replaceAll(' ', '-')}`, use: {
-      ...profile, browserName: device.startsWith('iPhone') ? 'webkit' : 'chromium',
-      userAgent: profile.userAgent + ' ' + suffix,
-    } });
+    projects.push({
+      name: `${app}-${device.replaceAll(' ', '-')}`,
+      use: {
+        ...profile,
+        browserName: device.startsWith('iPhone') ? 'webkit' : 'chromium',
+        userAgent: profile.userAgent + ' ' + suffix,
+      },
+    });
   }
 }
 export default defineConfig({

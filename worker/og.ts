@@ -43,7 +43,7 @@ export async function og(claim: any, summary?: any) {
     lineHeight: 0.95,
   });
   const number = summary
-    ? 'DAY SUMMARY / FORM D-3'
+    ? 'DAY SUMMARY / ' + summary.file.summaryId.slice(0, 8).toUpperCase()
     : claim
       ? 'CERTIFICATE OF DIBS No. ' + String(claim.claim_no).padStart(4, '0')
       : 'REGISTRY OF CLAIMS / FORM C-1';

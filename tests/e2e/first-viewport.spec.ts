@@ -24,7 +24,7 @@ test('certificate and canvas export never print the local origin', async ({ page
   await page.goto('/certificate/fixture-1');
   await expect(page.locator('.cert-footer')).toContainText('dibs-7hz.pages.dev');
   const download = page.waitForEvent('download');
-  await page.getByRole('button', {name:'SHARE CERTIFICATE'}).click();
+  await page.getByRole('button', {name:'Story PNG'}).click();
   await download;
   const text = await page.evaluate(() => (window as any).printed.join(' '));
   expect(text).toContain('dibs-7hz.pages.dev');

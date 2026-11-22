@@ -1,4 +1,4 @@
-import { PUBLIC_ORIGIN } from '../shared/config';
+import { PUBLIC_ORIGIN } from './config';
 interface Env {
   API: Fetcher;
   ASSETS: Fetcher;

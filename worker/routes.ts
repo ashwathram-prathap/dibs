@@ -509,23 +509,6 @@ export async function route(req: Request, env: Env): Promise<Response> {
       ? json({ user: result })
       : fail(403, 'This handle has been filed. Re-rolls are closed.');
   }
-  if (path === '/events/share') {
-    const b = await body(req);
-    if (!['feed', 'story'].includes(b.format)) return fail(422, 'Unknown copy format.');
-    await env.DB.prepare(
-      'INSERT INTO share_events SELECT ?,?,?,? WHERE (SELECT COUNT(*) FROM share_events WHERE user_id=? AND day=?)<100',
-    )
-      .bind(
-        crypto.randomUUID(),
-        u.id,
-        new Date().toISOString().slice(0, 10),
-        b.format,
-        u.id,
-        new Date().toISOString().slice(0, 10),
-      )
-      .run();
-    return json({ ok: true });
-  }
   if (path === '/claim') return claim(req, env, u);
   return fail(404, 'No file at this address.');
 }

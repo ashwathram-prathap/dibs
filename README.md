@@ -52,7 +52,7 @@ Pending identities, rerolls, attempt limits and content-free share counters live
 
 OG images are rendered once and stored for 30 days in eight bounded image caches. Later or capacity-limited previews use the common wordmark. HTML certificates and client exports remain available. Moderation invalidates images and public caches. Inactive private caches expire after 30 days, and certificate response caches after one day; D1 records persist. D1 quota errors show a clerk notice and suppress retries until reset.
 
-The stated five-minute workload with one taken guess per player on average fits at 10,000 daily visitors. The maximum workload where all 10,000 players use five strikes exceeds free limits; this capacity limitation is documented. This is not unlimited browsing or indefinite database retention. See the budget for limits, assumptions, measurements, cache storage bounds and the 500 MB per-D1-database ceiling.
+Round 4 adds anonymous arrival counters and permanent summary references. Its conservative 10,000-visitor workload exceeds the free Durable Object request/write allowance; smaller launch traffic fits. The maximum workload where every player uses five strikes costs more still. See `review/round4/free-tier.md` for the updated capacity envelope. This is not unlimited browsing or indefinite database retention. See the budget for limits, assumptions, measurements, cache storage bounds and the 500 MB per-D1-database ceiling.
 
 ## Categories and administration
 
@@ -94,3 +94,11 @@ Free cookieless Cloudflare Web Analytics still needs a public beacon token confi
 `npx tsx scripts/round3-categories.ts` resumes the approved variety order in `scripts/category-plan.json`. The private `Approved category rollout` workflow runs daily at 00:20 UTC using `DIBS_ADMIN_TOKEN`; the initial workflow run passed. Each new catalog is verified by answer/alias/obscurity digest and normalized-key digest before the admin approve call. A server-side daily 45,000-write reservation prevents journal loss from bypassing the upload budget. Busy traffic days defer uploads. Dates are pushed forward and logged if needed.
 
 Keep `.upload-state.json`. Each workflow run publishes the journal and progress report in the `category-upload-state` artifact. Download the latest artifact with `gh run download <run-id> -n category-upload-state -D .tmp/latest-upload` to inspect future progress. A full 30-category rollout needs multiple UTC days by design; the current snapshot is not a claim that pending uploads are complete.
+
+## Round 4 sharing
+
+Day summaries have permanent `/summary/:id` links, including zero-dibs closed files. The primary SHARE action uses a prepared 1080×1920 PNG with text and the canonical URL; text-only native sheets, download, copy and long-press fallbacks are available. Separate 1080×1350 feed exports and X, WhatsApp, Facebook and Instagram/TikTok controls use no third-party widgets.
+
+Certificate and summary HTML includes matching Open Graph and Twitter metadata. Preview text and images remain spoiler-free permanently so a cached card cannot reveal today's answers; manually exported PNGs contain the player's answers. Existing 30-day/eight-shard image limits still apply. Anonymous per-platform tap and arrival totals appear in `/stats`; events contain only an allowlisted platform. First arrival is remembered by a boolean local-storage flag, with a per-page fallback if storage is blocked. “Native” means the system sheet, whose selected destination is not exposed to the website.
+
+Evidence is in `review/round4/` and screenshots/PNGs in `review/final/`. Reproduce exports with `npx tsx scripts/review-round4.ts` against the fixture dev server. `npx tsx scripts/verify-round4-live.ts` checks live cards without posting, claiming, or incrementing analytics.

@@ -138,3 +138,71 @@ test('text-only native sharing offers the PNG; blocked clipboard keeps selectabl
     `${PUBLIC_ORIGIN}/certificate/fixture-1?s=copy-link`,
   );
 });
+
+test('Instagram and TikTok export keeps a long-press image when the browser blocks downloads', async ({
+  page,
+}) => {
+  await page.addInitScript(() => {
+    Object.defineProperty(navigator, 'canShare', { value: () => false });
+    Object.defineProperty(navigator, 'share', { value: undefined });
+    const click = HTMLAnchorElement.prototype.click;
+    HTMLAnchorElement.prototype.click = function () {
+      if (!this.download) click.call(this);
+    };
+  });
+  await certificate(page);
+  await page.getByRole('button', { name: 'Instagram / TikTok story' }).click();
+  await expect(page.locator('.share-hint').first()).toHaveText(
+    'Saved. Open Instagram or TikTok, add it to your story, and add a link sticker.',
+  );
+  const image = page.getByAltText('Your Dibs PNG. Press and hold to save.');
+  await expect(image).toBeVisible();
+  expect(
+    await image.evaluate((img: HTMLImageElement) => [img.naturalWidth, img.naturalHeight]),
+  ).toEqual([1080, 1920]);
+  await expect(page.getByRole('link', { name: 'Open PNG to save manually' })).toHaveAttribute(
+    'href',
+    /^blob:/,
+  );
+});
+
+test('native share rejection falls back to a PNG', async ({ page }) => {
+  await page.addInitScript(() => {
+    Object.defineProperty(navigator, 'canShare', { value: () => true });
+    Object.defineProperty(navigator, 'share', {
+      value: async () => {
+        throw new DOMException('blocked', 'NotAllowedError');
+      },
+    });
+  });
+  await certificate(page);
+  const downloaded = page.waitForEvent('download');
+  await page.getByRole('button', { name: 'SHARE', exact: true }).click();
+  expect((await downloaded).suggestedFilename()).toContain('story.png');
+  await expect(page.locator('.share-hint').first()).toContainText('kept the share sheet closed');
+});
+
+test('first arrival attribution survives reloads and ignores arbitrary sources', async ({
+  page,
+}) => {
+  const arrivals: any[] = [];
+  await page.exposeFunction('observeArrival', (event: any) => {
+    if (event.path === '/events/arrival') arrivals.push(event.body);
+  });
+  await page.addInitScript(() =>
+    window.addEventListener('dibs-fixture-event', (e: any) =>
+      (window as any).observeArrival(e.detail),
+    ),
+  );
+  await page.goto('/certificate/fixture-1?s=whatsapp');
+  await expect.poll(() => arrivals).toEqual([{ platform: 'whatsapp' }]);
+  await page.reload();
+  await expect(page.getByRole('button', { name: 'SHARE', exact: true })).toBeEnabled();
+  await page.goto('/certificate/fixture-1?s=x');
+  await expect(page.getByRole('button', { name: 'SHARE', exact: true })).toBeEnabled();
+  expect(arrivals).toEqual([{ platform: 'whatsapp' }]);
+  await page.evaluate(() => localStorage.removeItem('dibs-arrived'));
+  await page.goto('/certificate/fixture-1?s=not-a-platform');
+  await expect(page.getByRole('button', { name: 'SHARE', exact: true })).toBeEnabled();
+  expect(arrivals).toEqual([{ platform: 'whatsapp' }]);
+});
