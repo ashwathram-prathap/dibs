@@ -319,7 +319,6 @@ export async function exportSummary(file: DayFile, category: Category, story: bo
   );
   if (file.founder) text('FOUNDER', 80, holderTop + 112, 18);
   c.fillStyle = ink;
-  text(`STREAK ${file.streak || 0}`, 80, holderTop + 145, 20);
   c.save();
   c.translate(780, h - 210);
   c.lineWidth = 1.4;

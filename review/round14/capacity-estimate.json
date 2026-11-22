@@ -1,0 +1,33 @@
+{
+  "scenario": "10,000 active players each making 3 successful claims and 2 strikes, with 10 leaderboard polls",
+  "localMeasuredPlayers": [
+    {
+      "player": 0,
+      "reads": 311,
+      "writes": 55
+    },
+    {
+      "player": 1,
+      "reads": 312,
+      "writes": 54
+    },
+    {
+      "player": 2,
+      "reads": 312,
+      "writes": 54
+    }
+  ],
+  "estimatedD1Reads": 3116667,
+  "estimatedD1Writes": 543333,
+  "steadyLeaderboardD1ReadsPerPoll": 0,
+  "steadyLeaderboardD1WritesPerPoll": 0,
+  "freeDailyReadLimit": 5000000,
+  "freeDailyWriteLimit": 100000,
+  "fitsFreeWriteAllowance": false,
+  "notes": [
+    "Estimate excludes boot, cleanup, recovery and cache reseeding overhead.",
+    "SQLite D1 row-write accounting includes indexes; Durable Object storage has separate limits.",
+    "200-player practice contention does not certify 10,000 fully active players. No plan upgrade or payment was made."
+  ],
+  "source": "https://developers.cloudflare.com/d1/platform/pricing/"
+}

@@ -481,7 +481,11 @@ export default function App() {
             <TimezonePicker />
             {me?.user && (
               <span className="header-player">
-                {me.user.handle} <span>Streak {me.streak}</span>
+                <Handle
+                  name={me.file?.handle || me.claim?.handle || me.user.handle}
+                  founder={me.file?.founder || me.claim?.founder}
+                />
+                <span>Streak {me.streak}</span>
               </span>
             )}
           </nav>
@@ -1368,7 +1372,6 @@ function DaySummary({
               founder={file.founder || file.claims.some((c) => c.founder)}
             />
           </strong>
-          <span>Streak {file.streak || 0}</span>
         </div>
         <div className="cert-footer">
           <span>ALL CLAIMS ENTIRELY CEREMONIAL.</span>

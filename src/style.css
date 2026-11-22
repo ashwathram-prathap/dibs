@@ -4801,6 +4801,10 @@ body {
   align-items: center;
 }
 .header-player > span {
+  max-width: 100%;
+  overflow-wrap: anywhere;
+}
+.header-player > span:last-child {
   white-space: nowrap;
 }
 .claim-payoff p {

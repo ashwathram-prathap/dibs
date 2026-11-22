@@ -1,0 +1,74 @@
+[
+  {
+    "engine": "chromium",
+    "app": "Instagram",
+    "colorScheme": "light",
+    "passed": true
+  },
+  {
+    "engine": "chromium",
+    "app": "Instagram",
+    "colorScheme": "dark",
+    "passed": true
+  },
+  {
+    "engine": "chromium",
+    "app": "LinkedIn",
+    "colorScheme": "light",
+    "passed": true
+  },
+  {
+    "engine": "chromium",
+    "app": "LinkedIn",
+    "colorScheme": "dark",
+    "passed": true
+  },
+  {
+    "engine": "chromium",
+    "app": "iMessage",
+    "colorScheme": "light",
+    "passed": true
+  },
+  {
+    "engine": "chromium",
+    "app": "iMessage",
+    "colorScheme": "dark",
+    "passed": true
+  },
+  {
+    "engine": "webkit",
+    "app": "Instagram",
+    "colorScheme": "light",
+    "passed": true
+  },
+  {
+    "engine": "webkit",
+    "app": "Instagram",
+    "colorScheme": "dark",
+    "passed": true
+  },
+  {
+    "engine": "webkit",
+    "app": "LinkedIn",
+    "colorScheme": "light",
+    "passed": true
+  },
+  {
+    "engine": "webkit",
+    "app": "LinkedIn",
+    "colorScheme": "dark",
+    "passed": true
+  },
+  {
+    "engine": "webkit",
+    "app": "iMessage",
+    "colorScheme": "light",
+    "passed": true
+  },
+  {
+    "engine": "webkit",
+    "app": "iMessage",
+    "colorScheme": "dark",
+    "passed": true
+  }
+]
