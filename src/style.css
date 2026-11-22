@@ -4784,3 +4784,9 @@ body {
     box-shadow: 4px 4px 0 var(--ink);
   }
 }
+
+/* Safari's keyboard can shrink only the visual viewport. Keep scroll space
+   below a focused form even after the explanation has collapsed. */
+.home-page:has(#answer:focus) {
+  padding-bottom: max(var(--keyboard-inset, 0px), env(safe-area-inset-bottom));
+}

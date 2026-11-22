@@ -1,0 +1,13 @@
+# R13 visual review
+
+Layout was addressed before the audio pass. The paper/carbon toggle retains the R11 visible wording and plain accessible labels. Closed leads with the oversized countdown and reminder; live leads with the R7 category and input; completed play leads with the result stamp and certificate. The unchanged R12 explanation follows the action and closes after the first guess. Completed play returns to the top, and its explanation precedes the share/reminder/results controls.
+
+Body copy is 18px on phones and 20px on desktop; controls are at least 18px. The Animals heading is 60.06px at 390 and 192px at 1440, matching R7. Long categories wrap at spaces; the variable font's width axis fits unusually long individual words without splitting them. Countdown digits have equal measured widths in Chromium and WebKit (249.140625px for 00:00:00, 11:11:11, 88:88:88 and 23:59:59 at 390px).
+
+The matrix covers all 15 requested viewport dimensions, both themes, and Chromium/WebKit. Every catalog heading is checked. Portrait phones keep the hero and Claim controls visible; landscape needs at most one viewport of scrolling. Reduced visual viewports exercise keyboard handling. Insets use env(safe-area-inset-*), the document uses dvh, and the viewport requests interactive-widget=resizes-content. Text-size stress uses 130% computed text sizes; desktop 200% zoom is emulated with half-size CSS viewports. Instagram, LinkedIn and iMessage user agents each complete a local flow in both engines and themes. These are emulated checks, not physical-device or native Dynamic Type certification.
+
+The anti-AI checklist has no hits: no gradients/glass, feature-card hero, rounded shadow cards, decorative icon-library symbols, centered generic layout, system-font design, placeholder copy, or stock illustration. The R7 comparison images retain the printed rules, counters, stamp, paper grain and left alignment. The full 390/1440 light/dark screen review covers closed, live, done, certificate, archive, Office, stats, admin, calendar and missing-page states.
+
+The least expressive screens remain the intentionally empty archive, the long Office explanation and the lengthy completed results list. Test-only player data stays in the security-test build; production builds exclude fixtures.
+
+Evidence: hero-matrix.png (all three states), matrix/ individual viewports, vs-r7-*.png comparisons, *-after.png full screens, hero-matrix.json and done-matrix.json geometry checks. Raw full-size captures remain local; the contact sheet and comparisons are versioned.

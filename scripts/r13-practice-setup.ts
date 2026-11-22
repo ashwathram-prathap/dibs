@@ -20,6 +20,14 @@ if (process.argv[2] === 'test') {
     'DIBS_PRACTICE_TEST_MODE:true',
   ]);
   console.log('Practice test verification installed; rehearsal notifications disabled.');
+} else if (process.argv[2] === 'alerts') {
+  const rehearsal = JSON.parse(readFileSync('review/round13/practice-first-visit.json', 'utf8'));
+  if (Date.now() < Date.parse(rehearsal.opensAt) + 125000)
+    throw Error('Wait until the practice drop notification window has ended');
+  const topic = readFileSync('FIXES-R9.md', 'utf8').match(/using topic `([^`]+)`/)?.[1];
+  if (!topic) throw Error('Practice notification destination unavailable');
+  run(['secret', 'put', 'NTFY_TOPIC', '-c', config], topic + '\n');
+  console.log('Original practice notification setting restored after the QA window.');
 } else {
   const secret = readFileSync('.dev.vars.staging', 'utf8')
     .split('\n')

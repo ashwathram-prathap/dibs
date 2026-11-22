@@ -663,14 +663,26 @@ function Home({
   useEffect(() => {
     const viewport = window.visualViewport;
     const keepFormVisible = () => {
-      if (document.activeElement !== input.current || !viewport) return;
+      const focused = document.activeElement === input.current;
+      document.documentElement.style.setProperty(
+        '--keyboard-inset',
+        `${focused && viewport ? Math.max(0, innerHeight - viewport.height) : 0}px`,
+      );
+      if (!focused || !viewport) return;
       const row = input.current?.closest('.input-row')?.getBoundingClientRect();
       if (row && row.bottom > viewport.height + viewport.offsetTop - 16) {
         window.scrollBy(0, row.bottom - viewport.height - viewport.offsetTop + 16);
       }
     };
     viewport?.addEventListener('resize', keepFormVisible);
-    return () => viewport?.removeEventListener('resize', keepFormVisible);
+    document.addEventListener('focusin', keepFormVisible);
+    document.addEventListener('focusout', keepFormVisible);
+    return () => {
+      viewport?.removeEventListener('resize', keepFormVisible);
+      document.removeEventListener('focusin', keepFormVisible);
+      document.removeEventListener('focusout', keepFormVisible);
+      document.documentElement.style.removeProperty('--keyboard-inset');
+    };
   }, []);
 
   const now = useServerNow();
@@ -911,7 +923,11 @@ function Home({
                   <input
                     ref={input}
                     onFocus={(e) => {
-                      if (innerHeight <= 600 && innerWidth <= 900)
+                      if (
+                        innerHeight <= 600 &&
+                        innerWidth <= 900 &&
+                        (!window.visualViewport || window.visualViewport.height >= innerHeight - 1)
+                      )
                         e.currentTarget.closest('.input-row')?.scrollIntoView({ block: 'center' });
                     }}
                     id="answer"
@@ -1913,7 +1929,7 @@ function Archive() {
                 <div className="specimen-line">EXAMPLE ENTRY / AXOLOTL</div>
                 <div className="specimen-line">HELD BY / Example holder</div>
                 <div className="specimen-line">DATE / A completed day</div>
-                <p className="eyebrow">The first real page arrives after a claimed day closes.</p>
+                <p>The first real page arrives after a claimed day closes.</p>
               </section>
             )
           )}

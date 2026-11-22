@@ -130,3 +130,34 @@ test('R13 sound mapping, double tap and music only after tap', async ({ page }) 
   expect(audioRequests.length).toBe(1);
   await expect(page.getByRole('button', { name: 'Resume music', exact: true })).toBeVisible();
 });
+
+test('R13 overlay keyboard keeps the whole form reachable after rules collapse', async ({
+  page,
+}) => {
+  for (const [width, height] of [
+    [320, 568],
+    [390, 844],
+  ]) {
+    await page.setViewportSize({ width, height });
+    await page.goto('/?r6');
+    await page.locator('#answer').fill('dibs');
+    await page.locator('#answer').press('Enter');
+    await expect(page.locator('.result-panel')).toBeVisible();
+    await page.evaluate(() => {
+      Object.defineProperty(visualViewport, 'height', { configurable: true, value: 280 });
+      visualViewport!.dispatchEvent(new Event('resize'));
+    });
+    const input = (await page.locator('#answer').boundingBox())!;
+    const button = (await page.locator('.input-row .primary').boundingBox())!;
+    expect(input.y).toBeGreaterThanOrEqual(0);
+    expect(button.y + button.height).toBeLessThanOrEqual(280);
+    await page.locator('#answer').blur();
+    await page.locator('#answer').focus();
+    const refocused = (await page.locator('.input-row .primary').boundingBox())!;
+    expect(refocused.y + refocused.height).toBeLessThanOrEqual(280);
+    await page.evaluate(() => {
+      delete (visualViewport as any).height;
+      visualViewport!.dispatchEvent(new Event('resize'));
+    });
+  }
+});
