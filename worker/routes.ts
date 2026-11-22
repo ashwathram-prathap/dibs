@@ -351,7 +351,13 @@ async function admin(req: Request, env: Env, path: string) {
     )
       return fail(409, 'A played or opened register cannot be rebuilt.');
     const response = await fetch(PUBLIC_ORIGIN + '/catalog/' + b.slug + '/manifest.json');
-    if (!response.ok || JSON.stringify(await response.json()) !== JSON.stringify(b.manifest))
+    if (
+      !response.ok ||
+      JSON.stringify(await response.json()) !==
+        JSON.stringify(
+          Object.fromEntries(Object.entries(b.manifest).filter(([k]) => k !== 'house')),
+        )
+    )
       return fail(422, 'The published manifest does not match.');
     await env.DB.batch([
       env.DB.prepare(
@@ -1025,6 +1031,18 @@ const handler = {
         new Request(PUBLIC_ORIGIN + '/api/admin/monitor', {
           method: 'POST',
           headers: { origin: PUBLIC_ORIGIN, authorization: 'Bearer ' + env.ADMIN_TOKEN },
+        }),
+      );
+    if (env.REGISTRY)
+      await env.REGISTRY.get(env.REGISTRY.idFromName('public-registry-v1')).fetch(
+        new Request(PUBLIC_ORIGIN + '/api/admin/schedule/tick', {
+          method: 'POST',
+          headers: {
+            origin: PUBLIC_ORIGIN,
+            authorization: 'Bearer ' + env.ADMIN_TOKEN,
+            'content-type': 'application/json',
+          },
+          body: '{}',
         }),
       );
     if (_event.cron !== '17 5 * * *') return;

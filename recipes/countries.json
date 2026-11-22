@@ -1,0 +1,27 @@
+{
+  "version": 1,
+  "slug": "countries",
+  "name": "Countries & territories",
+  "kind": "places",
+  "priority": 4,
+  "requestNames": [
+    "Countries & territories",
+    "countries",
+    "Countries and territories"
+  ],
+  "sources": [
+    "Dibs common-name editorial supplement",
+    "https://github.com/wooorm/iso-3166"
+  ],
+  "sourceSnapshot": "categories/countries.json",
+  "snapshotSha256": "2002bfe8a2b381ed7fcd26079a5d7c06cff66af9e8721320dc9289cd84691287",
+  "answerSha256": null,
+  "scope": "ISO 3166 countries and territories, with common alternate names.",
+  "aliases": "Use every source alias, normalize case and punctuation, then apply scripts/catalog-aliases.ts; ambiguous aliases never displace another canonical answer.",
+  "ranking": "Complete October 2026 human pageviews, all access methods, divided by 31 days; absent data remains unknown",
+  "obvious": "review/coverage/countries.txt",
+  "independent": "review/coverage/countries-independent.json",
+  "build": "tsx scripts/build-catalog-assets.ts",
+  "coverage": "tsx scripts/check-coverage.ts",
+  "refresh": "Complete upstream extraction and ranking are refreshed explicitly; unattended builds reproduce this audited, checksum-pinned snapshot."
+}

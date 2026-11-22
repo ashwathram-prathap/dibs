@@ -1,0 +1,25 @@
+{
+  "version": 1,
+  "slug": "painters",
+  "name": "Painters",
+  "kind": "people",
+  "priority": 50,
+  "requestNames": [
+    "Painters",
+    "painters"
+  ],
+  "sources": [
+    "http://www.wikidata.org/wiki/Special:EntityData"
+  ],
+  "sourceSnapshot": "categories/painters.json",
+  "snapshotSha256": "42155d2f1a27a398fd2d788c1cacfe48af927fb24334a53aa0702eca8556812e",
+  "answerSha256": null,
+  "scope": "Painters classified by Wikidata with English Wikipedia articles; one answer per name.",
+  "aliases": "Use every source alias, normalize case and punctuation, then apply scripts/catalog-aliases.ts; ambiguous aliases never displace another canonical answer.",
+  "ranking": "Complete October 2026 human pageviews, all access methods, divided by 31 days; absent data remains unknown",
+  "obvious": "review/coverage/painters.txt",
+  "independent": "review/coverage/painters-independent.json",
+  "build": "tsx scripts/build-catalog-assets.ts",
+  "coverage": "tsx scripts/check-coverage.ts",
+  "refresh": "Complete upstream extraction and ranking are refreshed explicitly; unattended builds reproduce this audited, checksum-pinned snapshot."
+}

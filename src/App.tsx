@@ -1,3 +1,4 @@
+import { Calendar } from './Calendar';
 import { categoryStyle, paperStocks } from '../shared/category-style';
 import { clerkLine } from '../shared/clerk-lines';
 import { BrandProof } from './BrandProof';
@@ -438,6 +439,8 @@ export default function App() {
             <About nextDrop={today.nextDrop} />
           ) : path === '/brand-proof' && (isDemo || today.practice) ? (
             <BrandProof />
+          ) : path === '/admin/schedule' ? (
+            <Calendar />
           ) : path === '/admin/live' ? (
             <LiveAdmin />
           ) : path === '/stats' ? (
@@ -1951,6 +1954,7 @@ function LiveAdmin() {
   return (
     <section className="admin-live">
       <h1>Live office.</h1>
+      <a href="/admin/schedule">Topic calendar</a>
       <form
         className="admin-form"
         onSubmit={(e) => {

@@ -1,0 +1,25 @@
+{
+  "version": 1,
+  "slug": "paintings",
+  "name": "Paintings & series",
+  "kind": "objects",
+  "priority": 50,
+  "requestNames": [
+    "Paintings & series",
+    "paintings"
+  ],
+  "sources": [
+    "http://www.wikidata.org/wiki/Special:EntityData"
+  ],
+  "sourceSnapshot": "categories/paintings.json",
+  "snapshotSha256": "0cb94a8548c6e8f6216e84c51164ddde5db1771034917976d52bf21e2a09825f",
+  "answerSha256": "80afae57762b62a67613d2b02fb854f679cd1593d7bff64568e45f635f013503",
+  "scope": "Named paintings, groups and series in Wikidata; English article titles or English/default source names, including works without an English article. One answer per title.",
+  "aliases": "Use every source alias, normalize case and punctuation, then apply scripts/catalog-aliases.ts; ambiguous aliases never displace another canonical answer.",
+  "ranking": "Complete October 2026 human pageviews, all access methods, divided by 31 days; absent data remains unknown",
+  "obvious": "review/coverage/paintings.txt",
+  "independent": "review/coverage/paintings-independent.json",
+  "build": "tsx scripts/build-catalog-assets.ts",
+  "coverage": "tsx scripts/check-coverage.ts",
+  "refresh": "Complete upstream extraction and ranking are refreshed explicitly; unattended builds reproduce this audited, checksum-pinned snapshot."
+}

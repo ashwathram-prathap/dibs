@@ -1,0 +1,26 @@
+{
+  "version": 1,
+  "slug": "songs",
+  "name": "Songs & compositions",
+  "kind": "music",
+  "priority": 6,
+  "requestNames": [
+    "Songs & compositions",
+    "songs",
+    "Songs and compositions"
+  ],
+  "sources": [
+    "http://www.wikidata.org/wiki/Special:EntityData"
+  ],
+  "sourceSnapshot": "categories/songs.json",
+  "snapshotSha256": "63ba371923e8d9eaaeff142f834147df8a4f1e6bfbdd8779af3a6250a6effb8b",
+  "answerSha256": "00b0c3ce99fc81a785dcb53bf031f2d6b66b78850da1190d3675fc5d5ad5c4c6",
+  "scope": "Songs, singles and musical compositions, including musical theatre and operas, with English Wikipedia articles; one answer per title.",
+  "aliases": "Use every source alias, normalize case and punctuation, then apply scripts/catalog-aliases.ts; ambiguous aliases never displace another canonical answer.",
+  "ranking": "Complete October 2026 human pageviews, all access methods, divided by 31 days; absent data remains unknown",
+  "obvious": "review/coverage/songs.txt",
+  "independent": "review/coverage/songs-independent.json",
+  "build": "tsx scripts/build-catalog-assets.ts",
+  "coverage": "tsx scripts/check-coverage.ts",
+  "refresh": "Complete upstream extraction and ranking are refreshed explicitly; unattended builds reproduce this audited, checksum-pinned snapshot."
+}

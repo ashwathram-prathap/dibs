@@ -1,10 +1,70 @@
-name: Legacy category rollout (retired)
+name: Daily topic calendar rollout
 on:
+  schedule:
+    - cron: '17 7 * * *'
   workflow_dispatch:
+    inputs:
+      validate_only:
+        description: Build and verify without changing production
+        type: boolean
+        default: false
 permissions:
   contents: read
+concurrency:
+  group: dibs-calendar-production
+  cancel-in-progress: false
 jobs:
-  notice:
+  rollout:
     runs-on: ubuntu-latest
+    timeout-minutes: 25
+    env:
+      NODE_OPTIONS: --max-old-space-size=6144
+      DIBS_ADMIN_TOKEN: ${{ secrets.DIBS_ADMIN_TOKEN }}
+      CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+      CLOUDFLARE_ACCOUNT_ID: 5cf62cff0219727f2121253b3924f886
     steps:
-      - run: echo 'The capped row uploader is retired. Use the R8 static catalog builder, coverage gate, and authenticated static-catalog activation. Existing live dates remain unchanged.'
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: npm ci
+      - name: Respect launch freeze
+        run: npx tsx scripts/check-deploy-freeze.ts --production --round9-part-b
+      - name: Check credentials
+        if: ${{ !inputs.validate_only }}
+        run: |
+          if [ -z "$CLOUDFLARE_API_TOKEN" ]; then
+            npx tsx scripts/rollout-status.ts blocked 'Cloudflare upload token is missing. See README calendar setup.'
+            exit 1
+          fi
+          test -n "$DIBS_ADMIN_TOKEN"
+      - name: Verify pinned complete-source recipes
+        run: npm run catalog:coverage && npx tsx scripts/verify-recipes.ts
+      - name: Build versioned indexes and front end
+        run: npm run build
+      - name: Match requests, preserve referenced assets and enforce budgets
+        if: ${{ !inputs.validate_only }}
+        run: |
+          npx tsx scripts/calendar-rollout.ts --discover
+          npx tsx scripts/calendar-rollout.ts --prune-assets
+          npx tsx scripts/check-asset-budget.ts
+      - name: Upload immutable assets
+        if: ${{ !inputs.validate_only }}
+        run: npx wrangler pages deploy dist --project-name dibs --branch main
+      - name: Publish library, build next seven days and record results
+        if: ${{ !inputs.validate_only }}
+        run: npx tsx scripts/calendar-rollout.ts --publish-library --build --inventory
+      - name: Prune inactive platform deployments
+        if: ${{ !inputs.validate_only }}
+        run: npx tsx scripts/prune-platform.ts
+      - name: Write a failed run back to the calendar
+        if: ${{ failure() && !inputs.validate_only && env.DIBS_ADMIN_TOKEN != '' }}
+        run: npx tsx scripts/rollout-status.ts failed 'Rollout failed. Open the private GitHub Actions run for details; existing ready days remain intact.'
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: calendar-coverage
+          path: |
+            review/coverage/results.json
+            review/round9/recipe-check.json
+          retention-days: 3

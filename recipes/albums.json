@@ -1,0 +1,26 @@
+{
+  "version": 1,
+  "slug": "albums",
+  "name": "Albums & EPs",
+  "kind": "music",
+  "priority": 13,
+  "requestNames": [
+    "Albums & EPs",
+    "albums",
+    "Albums and EPs"
+  ],
+  "sources": [
+    "http://www.wikidata.org/wiki/Special:EntityData"
+  ],
+  "sourceSnapshot": "categories/albums.json",
+  "snapshotSha256": "fc3cb06785ff9596399655e908778b08d67fd1873251656127c89792cfe36146",
+  "answerSha256": "884fceb207e816277f98365e7b9cf73a0469cafb48e55ed85b7345b29586eb6d",
+  "scope": "Albums & EPs classified by Wikidata with English Wikipedia articles; one answer per name.",
+  "aliases": "Use every source alias, normalize case and punctuation, then apply scripts/catalog-aliases.ts; ambiguous aliases never displace another canonical answer.",
+  "ranking": "Complete October 2026 human pageviews, all access methods, divided by 31 days; absent data remains unknown",
+  "obvious": "review/coverage/albums.txt",
+  "independent": "review/coverage/albums-independent.json",
+  "build": "tsx scripts/build-catalog-assets.ts",
+  "coverage": "tsx scripts/check-coverage.ts",
+  "refresh": "Complete upstream extraction and ranking are refreshed explicitly; unattended builds reproduce this audited, checksum-pinned snapshot."
+}

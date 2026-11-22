@@ -100,3 +100,34 @@ npm run deploy:web
 Both production deploy commands enforce the November 23, 6 PM ET–November 24, midnight ET freeze. Direct Wrangler commands must obey it too. Root `wrangler.jsonc` defines Pages service bindings; `worker/wrangler*.jsonc` separates production and practice. Remote `LOCAL_TEST` must remain disabled.
 
 `npm run backup` exports production D1 privately to `.backups/`, retaining 30 days. The project-local launchd task runs at 5:30 AM while this Mac is awake and its login session exists. The runbook documents reloading it after reboot, local restore rehearsal, seven-day Free-plan D1 Time Travel, pausing a day, voiding an abusive claim, rollback and Search Console DNS verification. `MORNING_REPORT.md` is a private operational handoff and must never be committed.
+
+## Topic calendar (Round 9)
+
+Open `/admin/schedule` on your phone and enter the existing admin token. It stays in memory, never in a URL or local storage. Select a day, search the topic library, request a new topic, choose **Pick for me**, or move/swap days. Library changes close 24 hours before the drop; new requests require 72 hours. Live and past days cannot be changed. Empty or failed days get an automatic coverage-passed topic at 48 hours, with the reason recorded in the clerk’s log. Existing Round 8 dates remain unchanged.
+
+Each file in `recipes/` names complete sources, scope, alias rules, ranking, an immutable source snapshot, and obvious/independent answer fixtures. The nightly job reproduces these audited snapshots; it does not silently refresh source membership or invent popularity data. Coverage requires at least 150 obvious answers at 98% (Animals: 100%), 50 independent matches, complete sources and completed ranking. Twenty-three current recipes pass. Unready recipes cannot be newly scheduled.
+
+New requests are matched against audited source scopes and recipe aliases. A matching complete recipe must still pass the coverage gate. Unmapped topics stay **needs recipe**, with the reason visible; they fall back at 48 hours. A topic such as Car brands needs its own complete source and independently written answer fixtures before it can qualify. No free-text request is treated as an already verified dataset.
+
+To add a recipe by hand, create a definition matching `recipes/countries.json` with its complete category snapshot and fixtures, then run one command:
+
+```sh
+npx tsx scripts/recipe-add.ts path/to/new-recipe.json
+```
+
+Commit the recipe, category snapshot (including any gzip companion), and fixtures. The helper rejects a recipe that fails coverage or source/ranking checks. The nightly build generates its immutable answer indexes; scheduling never depends on a laptop. Source refreshes must explicitly re-pin the recipe after review.
+
+### Enable unattended Cloudflare uploads
+
+1. Cloudflare dashboard → profile icon → **My Profile → API Tokens → Create Token → Create Custom Token**.
+2. Name it `dibs-calendar`. Add account permissions **Cloudflare Pages / Edit**, **Workers Scripts / Edit**, and **D1 / Edit**. Under Account Resources choose **Include → Specific account → the Dibs account**. Do not grant all accounts or zone/DNS permissions. Create the token and copy it privately.
+3. Private GitHub repository → **Settings → Secrets and variables → Actions → New repository secret**. Name: `CLOUDFLARE_API_TOKEN`; value: the token. `DIBS_ADMIN_TOKEN` already exists. Account ID is non-secret and configured in the workflow.
+4. Repository → **Actions → Daily topic calendar rollout → Run workflow → main**. Leave **Build and verify without changing production** unchecked. After it succeeds, `/admin/schedule` shows its timestamp and result.
+
+Daily runs start at 07:17 UTC, with a manual trigger available. The Worker also checks deadlines and builds one already-uploaded requested day each minute, keeping ready days independent of GitHub timing. The rollout uploads Pages assets, publishes coverage-gated D1 metadata, seals house/golden commitments, records status and prunes. It does not deploy Worker code. Production rollout guards enforce the November launch freeze.
+
+The workflow retains only referenced current/upcoming or recently closed full indexes. Full indexes can be removed seven days after close; shared versions remain while any upcoming day needs them. Sparse claimed answers, house words, golden reveals, counts, claims and certificates stay in D1. Clearing an unplayed future day deletes its unused metadata; removing a schedule never deletes a played record. Old inactive Pages deployments are pruned after seven days while preserving the active production deployment and five recent deployments per environment. Build files live only on ephemeral runners; coverage artifacts expire after three days. Account platform limits can constrain deletion; active aliased deployments are never force-deleted.
+
+Expected monthly automation budget: roughly 10 minutes × 31 Linux runs = 310 Actions minutes, plus manual tests (GitHub Free includes 2,000 private-repo minutes). Coverage artifacts are under 1 MB each with three-day retention (500 MB included storage). One Pages upload per day is about 31 of 500 monthly builds; asset checks enforce 20,000 files and 25 MiB per file. Calendar minute checks add about 43,200 cron executions and 86,400 internal monitoring/calendar requests per month, well below the 100,000-request **daily** Workers allowance before player traffic. D1 metadata/coverage writes are small; only sparse played answers enter D1. Admin Live measures API usage and the calendar reports actual D1 and static-asset storage, with 70% warnings. These are projections, not traffic guarantees.
+
+Limits: [Cloudflare Pages](https://developers.cloudflare.com/pages/platform/limits/), [Workers](https://developers.cloudflare.com/workers/platform/pricing/), [D1](https://developers.cloudflare.com/d1/platform/pricing/), [GitHub included usage](https://docs.github.com/en/billing/reference/product-usage-included).

@@ -1,0 +1,25 @@
+{
+  "version": 1,
+  "slug": "composers",
+  "name": "Composers",
+  "kind": "people",
+  "priority": 50,
+  "requestNames": [
+    "Composers",
+    "composers"
+  ],
+  "sources": [
+    "http://www.wikidata.org/wiki/Special:EntityData"
+  ],
+  "sourceSnapshot": "categories/composers.json",
+  "snapshotSha256": "aed2b3f959d3181697333262ead94611b8a379a2b645a80b9fa3b3bf603482c7",
+  "answerSha256": null,
+  "scope": "Composers classified by Wikidata with English Wikipedia articles; one answer per name.",
+  "aliases": "Use every source alias, normalize case and punctuation, then apply scripts/catalog-aliases.ts; ambiguous aliases never displace another canonical answer.",
+  "ranking": "Complete October 2026 human pageviews, all access methods, divided by 31 days; absent data remains unknown",
+  "obvious": "review/coverage/composers.txt",
+  "independent": "review/coverage/composers-independent.json",
+  "build": "tsx scripts/build-catalog-assets.ts",
+  "coverage": "tsx scripts/check-coverage.ts",
+  "refresh": "Complete upstream extraction and ranking are refreshed explicitly; unattended builds reproduce this audited, checksum-pinned snapshot."
+}

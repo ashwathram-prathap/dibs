@@ -1,0 +1,25 @@
+{
+  "version": 1,
+  "slug": "actors",
+  "name": "Actors",
+  "kind": "people",
+  "priority": 7,
+  "requestNames": [
+    "Actors",
+    "actors"
+  ],
+  "sources": [
+    "http://www.wikidata.org/wiki/Special:EntityData"
+  ],
+  "sourceSnapshot": "categories/actors.json",
+  "snapshotSha256": "dfd3aee70c48293c4da244732eac4e9ddc958a59d48d9892aad0b805c50a80aa",
+  "answerSha256": "d623397ed87df398cc96ab350eada2f3cbe45ef82485511638d56746dc445bbb",
+  "scope": "Actors classified by Wikidata with English Wikipedia articles; one answer per name.",
+  "aliases": "Use every source alias, normalize case and punctuation, then apply scripts/catalog-aliases.ts; ambiguous aliases never displace another canonical answer.",
+  "ranking": "Complete October 2026 human pageviews, all access methods, divided by 31 days; absent data remains unknown",
+  "obvious": "review/coverage/actors.txt",
+  "independent": "review/coverage/actors-independent.json",
+  "build": "tsx scripts/build-catalog-assets.ts",
+  "coverage": "tsx scripts/check-coverage.ts",
+  "refresh": "Complete upstream extraction and ranking are refreshed explicitly; unattended builds reproduce this audited, checksum-pinned snapshot."
+}

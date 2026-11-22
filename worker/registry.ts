@@ -1,3 +1,4 @@
+import { calendarRoute } from './calendar';
 import { platformUsage } from './platform-usage';
 import { canReveal, publicCategory, concealClaim, concealSummary } from './visibility';
 import { emptyMinute, alertConditions, freeLimits, type Minute } from './monitoring';
@@ -447,6 +448,7 @@ export class Registry extends DurableObject<Env> {
       if (uid) await tx.put('active:' + uid, now);
     });
   }
+  private calendarQueue: Promise<unknown> = Promise.resolve();
   async liveStats() {
     const now = Date.now(),
       minute = Math.floor(now / 60000);
@@ -697,6 +699,16 @@ export class Registry extends DurableObject<Env> {
         (await constantEqual(req.headers.get('authorization') || '', 'Bearer ' + env.ADMIN_TOKEN));
       const denied = await this.rateGate(req, env, true, valid);
       if (denied) return denied;
+      if (path.startsWith('/admin/schedule')) {
+        const operation = this.calendarQueue.then(() => calendarRoute(req, env, path));
+        this.calendarQueue = operation.catch(() => undefined);
+        const response = await operation;
+        if (response.ok && req.method === 'POST') {
+          this.snapshot = undefined;
+          await this.ctx.storage.delete('snapshot');
+        }
+        return response;
+      }
       if (path === '/admin/live' && req.method === 'GET') return json(await this.liveStats());
       if (path === '/admin/monitor' && req.method === 'POST') return this.monitor();
       if (

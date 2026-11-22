@@ -1,0 +1,26 @@
+{
+  "version": 1,
+  "slug": "museums",
+  "name": "Museums",
+  "kind": "places",
+  "priority": 50,
+  "requestNames": [
+    "Museums",
+    "museums"
+  ],
+  "sources": [
+    "http://www.wikidata.org/wiki/Special:EntityData",
+    "https://en.wikipedia.org/wiki/"
+  ],
+  "sourceSnapshot": "categories/museums.json",
+  "snapshotSha256": "76ecabe886dc199db50c9eadc84ba84897a061328fd403ce7e8cbd31e45fb190",
+  "answerSha256": null,
+  "scope": "Museums classified by Wikidata with English Wikipedia articles; one answer per name.",
+  "aliases": "Use every source alias, normalize case and punctuation, then apply scripts/catalog-aliases.ts; ambiguous aliases never displace another canonical answer.",
+  "ranking": "Complete October 2026 human pageviews, all access methods, divided by 31 days; absent data remains unknown",
+  "obvious": "review/coverage/museums.txt",
+  "independent": "review/coverage/museums-independent.json",
+  "build": "tsx scripts/build-catalog-assets.ts",
+  "coverage": "tsx scripts/check-coverage.ts",
+  "refresh": "Complete upstream extraction and ranking are refreshed explicitly; unattended builds reproduce this audited, checksum-pinned snapshot."
+}

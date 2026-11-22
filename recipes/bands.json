@@ -1,0 +1,27 @@
+{
+  "version": 1,
+  "slug": "bands",
+  "name": "Music groups",
+  "kind": "music",
+  "priority": 9,
+  "requestNames": [
+    "Music groups",
+    "bands",
+    "Music groups",
+    "Musical ensembles"
+  ],
+  "sources": [
+    "http://www.wikidata.org/wiki/Special:EntityData"
+  ],
+  "sourceSnapshot": "categories/bands.json",
+  "snapshotSha256": "78d931c5f87958878a95991830bf573d32d596946f1fa7cde494502e07b8e357",
+  "answerSha256": null,
+  "scope": "Music groups classified by Wikidata with English Wikipedia articles; one answer per name.",
+  "aliases": "Use every source alias, normalize case and punctuation, then apply scripts/catalog-aliases.ts; ambiguous aliases never displace another canonical answer.",
+  "ranking": "Complete October 2026 human pageviews, all access methods, divided by 31 days; absent data remains unknown",
+  "obvious": "review/coverage/bands.txt",
+  "independent": "review/coverage/bands-independent.json",
+  "build": "tsx scripts/build-catalog-assets.ts",
+  "coverage": "tsx scripts/check-coverage.ts",
+  "refresh": "Complete upstream extraction and ranking are refreshed explicitly; unattended builds reproduce this audited, checksum-pinned snapshot."
+}

@@ -1,0 +1,26 @@
+{
+  "version": 1,
+  "slug": "lakes",
+  "name": "Lakes",
+  "kind": "places",
+  "priority": 50,
+  "requestNames": [
+    "Lakes",
+    "lakes"
+  ],
+  "sources": [
+    "https://www.geonames.org/export/",
+    "http://www.wikidata.org/wiki/Special:EntityData"
+  ],
+  "sourceSnapshot": "categories/lakes.json",
+  "snapshotSha256": "1c0a09ff82402e7fabcf341d2a7b397b9b8aee0a8d91f3da562d8e3f2f2946d6",
+  "answerSha256": "e97c32d99fdbb9acc55094a102f7dcaa22e621969e1f220513a78a07d7bd0ddb",
+  "scope": "Lakes and reservoirs in the full GeoNames reference, complemented by Wikidata; one answer per name.",
+  "aliases": "Use every source alias, normalize case and punctuation, then apply scripts/catalog-aliases.ts; ambiguous aliases never displace another canonical answer.",
+  "ranking": "Complete October 2026 human pageviews, all access methods, divided by 31 days; absent data remains unknown",
+  "obvious": "review/coverage/lakes.txt",
+  "independent": "review/coverage/lakes-independent.json",
+  "build": "tsx scripts/build-catalog-assets.ts",
+  "coverage": "tsx scripts/check-coverage.ts",
+  "refresh": "Complete upstream extraction and ranking are refreshed explicitly; unattended builds reproduce this audited, checksum-pinned snapshot."
+}

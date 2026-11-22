@@ -1,0 +1,26 @@
+{
+  "version": 1,
+  "slug": "stations",
+  "name": "Rail stations",
+  "kind": "places",
+  "priority": 50,
+  "requestNames": [
+    "Rail stations",
+    "stations"
+  ],
+  "sources": [
+    "http://www.wikidata.org/wiki/Special:EntityData",
+    "https://www.geonames.org/export/"
+  ],
+  "sourceSnapshot": "categories/stations.json",
+  "snapshotSha256": "beeddf8eaede444bb153a14ad39e525480c9b7b37cbe400804c386e4636c5edd",
+  "answerSha256": "c99558dd6e21dee7ba7959513d8dafc15918ed292a83b3d76b23e9e79498558d",
+  "scope": "Current and former railway and metro stations and stops in the full GeoNames reference, complemented by Wikidata; one answer per name.",
+  "aliases": "Use every source alias, normalize case and punctuation, then apply scripts/catalog-aliases.ts; ambiguous aliases never displace another canonical answer.",
+  "ranking": "Complete October 2026 human pageviews, all access methods, divided by 31 days; absent data remains unknown",
+  "obvious": "review/coverage/stations.txt",
+  "independent": "review/coverage/stations-independent.json",
+  "build": "tsx scripts/build-catalog-assets.ts",
+  "coverage": "tsx scripts/check-coverage.ts",
+  "refresh": "Complete upstream extraction and ranking are refreshed explicitly; unattended builds reproduce this audited, checksum-pinned snapshot."
+}

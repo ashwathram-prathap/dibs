@@ -1,0 +1,26 @@
+{
+  "version": 1,
+  "slug": "cities",
+  "name": "Cities",
+  "kind": "places",
+  "priority": 2,
+  "requestNames": [
+    "Cities",
+    "cities"
+  ],
+  "sources": [
+    "Dibs common-name editorial supplement",
+    "https://www.geonames.org/export/"
+  ],
+  "sourceSnapshot": "categories/cities.json",
+  "snapshotSha256": "3f78fbcb4f333cdf69e64d03fb80d62aa337a7d9357e503f904463bd21fca6c9",
+  "answerSha256": null,
+  "scope": "Named populated places in GeoNames cities1000: population 1,000+ or administrative seats; one answer per name.",
+  "aliases": "Use every source alias, normalize case and punctuation, then apply scripts/catalog-aliases.ts; ambiguous aliases never displace another canonical answer.",
+  "ranking": "Complete October 2026 human pageviews, all access methods, divided by 31 days; absent data remains unknown",
+  "obvious": "review/coverage/cities.txt",
+  "independent": "review/coverage/cities-independent.json",
+  "build": "tsx scripts/build-catalog-assets.ts",
+  "coverage": "tsx scripts/check-coverage.ts",
+  "refresh": "Complete upstream extraction and ranking are refreshed explicitly; unattended builds reproduce this audited, checksum-pinned snapshot."
+}

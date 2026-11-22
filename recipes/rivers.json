@@ -1,0 +1,26 @@
+{
+  "version": 1,
+  "slug": "rivers",
+  "name": "Rivers",
+  "kind": "places",
+  "priority": 15,
+  "requestNames": [
+    "Rivers",
+    "rivers"
+  ],
+  "sources": [
+    "https://www.geonames.org/export/",
+    "http://www.wikidata.org/wiki/Special:EntityData"
+  ],
+  "sourceSnapshot": "categories/rivers.json",
+  "snapshotSha256": "8a6ddcd16f7086039281e3d583306957d4e1b458316c5c716b1fd0703ff52f04",
+  "answerSha256": "af6d50a921e95aa7052a6e5f3c782d6e6543b5daf1903c5ddcb4033e03339692",
+  "scope": "Rivers, streams and wadis in the full GeoNames reference, complemented by Wikidata; one answer per name.",
+  "aliases": "Use every source alias, normalize case and punctuation, then apply scripts/catalog-aliases.ts; ambiguous aliases never displace another canonical answer.",
+  "ranking": "Complete October 2026 human pageviews, all access methods, divided by 31 days; absent data remains unknown",
+  "obvious": "review/coverage/rivers.txt",
+  "independent": "review/coverage/rivers-independent.json",
+  "build": "tsx scripts/build-catalog-assets.ts",
+  "coverage": "tsx scripts/check-coverage.ts",
+  "refresh": "Complete upstream extraction and ranking are refreshed explicitly; unattended builds reproduce this audited, checksum-pinned snapshot."
+}

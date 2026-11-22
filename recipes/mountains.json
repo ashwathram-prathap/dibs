@@ -1,0 +1,26 @@
+{
+  "version": 1,
+  "slug": "mountains",
+  "name": "Mountains",
+  "kind": "places",
+  "priority": 50,
+  "requestNames": [
+    "Mountains",
+    "mountains"
+  ],
+  "sources": [
+    "https://www.geonames.org/export/",
+    "http://www.wikidata.org/wiki/Special:EntityData"
+  ],
+  "sourceSnapshot": "categories/mountains.json",
+  "snapshotSha256": "39c5eafeb2f55ea367479f9485de317db91d4cc5c019e15272f5147e87763711",
+  "answerSha256": "449d2995fdf3f07e7d5b339557020d4ac6a014d9ee91dbf8b9fdd52de28728bb",
+  "scope": "Mountains, ranges, peaks and volcanoes in the full GeoNames reference, complemented by Wikidata; one answer per name.",
+  "aliases": "Use every source alias, normalize case and punctuation, then apply scripts/catalog-aliases.ts; ambiguous aliases never displace another canonical answer.",
+  "ranking": "Complete October 2026 human pageviews, all access methods, divided by 31 days; absent data remains unknown",
+  "obvious": "review/coverage/mountains.txt",
+  "independent": "review/coverage/mountains-independent.json",
+  "build": "tsx scripts/build-catalog-assets.ts",
+  "coverage": "tsx scripts/check-coverage.ts",
+  "refresh": "Complete upstream extraction and ranking are refreshed explicitly; unattended builds reproduce this audited, checksum-pinned snapshot."
+}

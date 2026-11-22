@@ -1,0 +1,27 @@
+{
+  "version": 1,
+  "slug": "castles",
+  "name": "Castles, forts & palaces",
+  "kind": "places",
+  "priority": 50,
+  "requestNames": [
+    "Castles, forts & palaces",
+    "castles"
+  ],
+  "sources": [
+    "https://www.geonames.org/export/",
+    "http://www.wikidata.org/wiki/Special:EntityData",
+    "https://en.wikipedia.org/wiki/"
+  ],
+  "sourceSnapshot": "categories/castles.json",
+  "snapshotSha256": "240ca504ada655e578eafad00c1cee83bb758327e258e5793d1d7f7bf45c51e2",
+  "answerSha256": null,
+  "scope": "Castles, forts and palaces in GeoNames, complemented by Wikidata castles, fortifications, palaces and manor houses; one answer per name.",
+  "aliases": "Use every source alias, normalize case and punctuation, then apply scripts/catalog-aliases.ts; ambiguous aliases never displace another canonical answer.",
+  "ranking": "Complete October 2026 human pageviews, all access methods, divided by 31 days; absent data remains unknown",
+  "obvious": "review/coverage/castles.txt",
+  "independent": "review/coverage/castles-independent.json",
+  "build": "tsx scripts/build-catalog-assets.ts",
+  "coverage": "tsx scripts/check-coverage.ts",
+  "refresh": "Complete upstream extraction and ranking are refreshed explicitly; unattended builds reproduce this audited, checksum-pinned snapshot."
+}

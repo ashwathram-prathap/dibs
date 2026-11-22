@@ -1,0 +1,27 @@
+{
+  "version": 1,
+  "slug": "television",
+  "name": "TV shows",
+  "kind": "screen",
+  "priority": 14,
+  "requestNames": [
+    "TV shows",
+    "television",
+    "TV shows",
+    "Television shows"
+  ],
+  "sources": [
+    "http://www.wikidata.org/wiki/Special:EntityData"
+  ],
+  "sourceSnapshot": "categories/television.json",
+  "snapshotSha256": "8a6e8a01d1d06415b0ccb70e8e2b35f88ac6ebe26d237f8c68bb677a99456dce",
+  "answerSha256": null,
+  "scope": "Television series, miniseries and independently named seasons with English Wikipedia articles; numbered season articles are excluded. One answer per title.",
+  "aliases": "Use every source alias, normalize case and punctuation, then apply scripts/catalog-aliases.ts; ambiguous aliases never displace another canonical answer.",
+  "ranking": "Complete October 2026 human pageviews, all access methods, divided by 31 days; absent data remains unknown",
+  "obvious": "review/coverage/television.txt",
+  "independent": "review/coverage/television-independent.json",
+  "build": "tsx scripts/build-catalog-assets.ts",
+  "coverage": "tsx scripts/check-coverage.ts",
+  "refresh": "Complete upstream extraction and ranking are refreshed explicitly; unattended builds reproduce this audited, checksum-pinned snapshot."
+}
