@@ -26,6 +26,11 @@ test('R13 hero first, R7 scale, phone action visible, explanation collapses', as
   await expect(intro).toBeVisible();
   await page.goto('/?r7-closed');
   await expect(page.locator('.closed-office .clock')).toBeVisible();
+  expect(
+    await page
+      .locator('.closed-office .clock')
+      .evaluate((e) => parseFloat(getComputedStyle(e).fontSize)),
+  ).toBeGreaterThanOrEqual(Math.min(164, Math.max(52, width * 0.185)) - 1);
   expect((await page.locator('.closed-office .clock').boundingBox())!.y).toBeLessThan(
     (await page.locator('.game-intro').boundingBox())!.y,
   );
