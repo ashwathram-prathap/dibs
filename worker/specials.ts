@@ -1,3 +1,4 @@
+import { goldenPerDay, GOLDEN_PER_DAY } from '../shared/config';
 import houseWords from './house-words.json';
 import { dropAt } from './domain';
 import type { Env } from './routes';
@@ -7,12 +8,12 @@ export const sha256 = async (text: string) =>
     .join('');
 export const commitmentText = (category: string, seed: string, answers: string[]) =>
   JSON.stringify({ v: 1, category, seed, answers: [...answers].sort() });
-// Three unbiased draws without replacement, using a cryptographic server seed.
-export async function selectGolden(ids: string[], seed: string) {
+// Configured unbiased draws without replacement, using a cryptographic server seed.
+export async function selectGolden(ids: string[], seed: string, count = GOLDEN_PER_DAY) {
   const remaining = [...ids].sort(),
     selected: string[] = [];
   let counter = 0;
-  while (selected.length < 3 && remaining.length) {
+  while (selected.length < count && remaining.length) {
     const n = parseInt((await sha256(seed + ':' + counter++)).slice(0, 8), 16);
     const bound = Math.floor(0x100000000 / remaining.length) * remaining.length;
     if (n >= bound) continue;
@@ -44,6 +45,7 @@ export async function ensureSpecials(env: Env, category: any) {
   const golden = await selectGolden(
     pool.filter((a) => !house.some((h) => h.id === a.id)).map((a) => a.id),
     seed,
+    goldenPerDay(category.date),
   );
   const commitment = await sha256(commitmentText(category.id, seed, golden));
   await env.DB.batch([
@@ -80,7 +82,7 @@ export async function specialStatus(env: Env, category: any, reveal = false) {
         (display) => ({ display, handle: 'THE REGISTRY' }),
       ),
       goldenFound: 0,
-      goldenTotal: 3,
+      goldenTotal: goldenPerDay(category.date),
       commitment: '',
       committedAt: '',
       verified: false,
@@ -103,7 +105,7 @@ export async function specialStatus(env: Env, category: any, reveal = false) {
       .filter((h) => closed || h.revealed)
       .map((h) => ({ display: h.display, handle: 'THE REGISTRY' })),
     goldenFound: Number(found?.n || 0),
-    goldenTotal: 3,
+    goldenTotal: JSON.parse(saved.golden_json).length,
     commitment: saved.commitment,
     committedAt: saved.committed_at,
   };

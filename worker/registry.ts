@@ -103,6 +103,7 @@ export class Registry extends DurableObject<Env> {
   }
   today(s: Snapshot) {
     return {
+      serverTime: new Date().toISOString(),
       category: s.category,
       specials: s.specials,
       practice: this.env.STAGING === 'true',
@@ -187,6 +188,8 @@ export class Registry extends DurableObject<Env> {
       await hmac(session.user.id + ':' + session.file.category_id, this.env.COOKIE_SECRET)
     ).slice(0, 40);
     session.file.summaryId = id;
+    session.file.handle = session.user.handle;
+    session.file.streak = streak(session.streakDates, registryDate());
     const key = 'summary:' + id;
     if (!(await this.ctx.storage.get(key)))
       await this.ctx.storage.put(key, {
@@ -212,8 +215,33 @@ export class Registry extends DurableObject<Env> {
         .bind(ref.category, ref.user)
         .all()
     ).results;
+    const holder = await env.DB.prepare('SELECT handle,hidden FROM users WHERE id=?')
+      .bind(ref.user)
+      .first<any>();
+    const dates = (
+      await env.DB.prepare(
+        'SELECT DISTINCT g.date FROM claims c JOIN categories g ON g.id=c.category_id WHERE c.user_id=? AND c.voided=0 AND g.date<=?',
+      )
+        .bind(ref.user, category.date)
+        .all<any>()
+    ).results.map((r) => r.date);
+    const owner = await this.ctx.storage.get<Session>('session:' + ref.user);
+    const visibleIds = new Set(visible.map((c: any) => c.id));
     return json({
-      file: { ...file, claims: visible, summaryId: id },
+      file: {
+        ...file,
+        events: file.events.map((e) =>
+          e.kind === 'dibs' && 'claimId' in e && !visibleIds.has(e.claimId)
+            ? { at: e.at, kind: e.kind, display: 'Record withheld' }
+            : e,
+        ),
+        claims: visible,
+        summaryId: id,
+        handle: holder?.hidden
+          ? 'Record withheld'
+          : holder?.handle || owner?.user.handle || 'Anonymous filer',
+        streak: streak(dates, category.date),
+      },
       category,
       specials: await specialStatus(env, category),
       nextDrop: nextDrop(),

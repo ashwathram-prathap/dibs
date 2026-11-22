@@ -1,3 +1,4 @@
+import { syncClock } from './clock';
 import { api, isDemo } from './api';
 import type { Claim, Today, Me } from './types';
 export type Snapshot = { today: Today; rows: Claim[]; me?: Me; reset?: boolean; version?: number };
@@ -6,6 +7,7 @@ let cursor = 0;
 const listeners = new Set<(s: Snapshot) => void>();
 export const getSnapshot = () => latest;
 export function publish(s: Snapshot, optimistic = false) {
+  if (!optimistic) syncClock(s.today.serverTime);
   const same = latest?.today.category?.id === s.today.category?.id && !s.reset;
   if (!same) cursor = 0;
   if (!optimistic) cursor = Math.max(cursor, ...s.rows.map((r) => r.claim_no), 0);
@@ -104,7 +106,12 @@ export function watchRegistry(onError: (message: string) => void) {
   }
   const visible = () => {
     if (document.hidden) clearTimeout(timer);
-    else void tick();
+    else {
+      void api<Snapshot>('/bootstrap')
+        .then(publish)
+        .catch(() => {});
+      void tick();
+    }
   };
   document.addEventListener('visibilitychange', visible);
   schedule();

@@ -15,3 +15,8 @@ export const DROP_TIME_LABEL = new Intl.DateTimeFormat('en-US', {
   minute: '2-digit',
   timeZone: 'UTC',
 }).format(new Date('2000-01-01T' + DROP_TIME_LOCAL + ':00Z'));
+
+// Beta dates are registry dates; schedule and commitment format stay unchanged.
+export const GOLDEN_PER_DAY = 3;
+export const goldenPerDay = (date: string) =>
+  date >= '2026-11-23' && date <= '2026-11-29' ? 10 : GOLDEN_PER_DAY;

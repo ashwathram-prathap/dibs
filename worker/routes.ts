@@ -47,7 +47,7 @@ export async function fileState(env: Env, category: string, uid: string) {
   ).results as any[];
   const strikes = (
     await env.DB.prepare(
-      'SELECT created_at,seq FROM strikes WHERE category_id=? AND user_id=? ORDER BY seq',
+      `SELECT s.created_at,s.seq,s.guess,s.house,c.created_at held_at,CASE WHEN u.hidden=1 OR c.voided=1 THEN 'Record withheld' ELSE u.handle END holder FROM strikes s LEFT JOIN claims c ON c.id=s.holder_claim_id LEFT JOIN users u ON u.id=c.user_id WHERE s.category_id=? AND s.user_id=? ORDER BY s.seq`,
     )
       .bind(category, uid)
       .all()
@@ -57,9 +57,20 @@ export async function fileState(env: Env, category: string, uid: string) {
       at: c.created_at,
       kind: 'dibs',
       golden: !!c.golden,
+      display: c.display,
+      claimId: c.id,
+      obscurity: c.obscurity,
       order: c.file_no,
     })),
-    ...strikes.map((s) => ({ at: s.created_at, kind: 'strike', order: s.seq })),
+    ...strikes.map((s) => ({
+      at: s.created_at,
+      kind: 'strike',
+      order: s.seq,
+      display: s.guess,
+      house: !!s.house,
+      holder: s.house ? 'the Registry' : s.holder,
+      heldAt: s.held_at,
+    })),
   ].sort((a, b) => a.order - b.order);
   const closed = claims.length >= 3 || strikes.length >= 5;
   return {
@@ -81,6 +92,7 @@ export const json = (data: unknown, status = 200, extra: Record<string, string> 
       'cache-control': 'no-store',
       'x-content-type-options': 'nosniff',
       'x-robots-tag': 'noindex, nofollow',
+      date: new Date().toUTCString(),
       ...extra,
     },
   });
@@ -608,9 +620,19 @@ async function claim(req: Request, env: Env, u: any) {
     if (!r && !house) return null;
     try {
       await env.DB.prepare(
-        "INSERT INTO strikes SELECT ?,?,(SELECT COUNT(*) FROM claims WHERE category_id=? AND user_id=?)+COUNT(*)+1,strftime('%Y-%m-%dT%H:%M:%fZ','now') FROM strikes WHERE category_id=? AND user_id=?",
+        "INSERT INTO strikes(category_id,user_id,seq,created_at,guess,holder_claim_id,house) SELECT ?,?,(SELECT COUNT(*) FROM claims WHERE category_id=? AND user_id=?)+COUNT(*)+1,strftime('%Y-%m-%dT%H:%M:%fZ','now'),?,?,? FROM strikes WHERE category_id=? AND user_id=?",
       )
-        .bind(g.id, u.id, g.id, u.id, g.id, u.id)
+        .bind(
+          g.id,
+          u.id,
+          g.id,
+          u.id,
+          b.answer.trim().toUpperCase(),
+          r?.id || null,
+          house ? 1 : 0,
+          g.id,
+          u.id,
+        )
         .run();
     } catch (e) {
       if (String(e).includes('FILE_CLOSED')) return fail(403, 'Your file is closed for today.');

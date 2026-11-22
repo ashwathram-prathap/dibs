@@ -42,6 +42,7 @@ export interface User {
   rerolls_used: number;
 }
 export interface Today {
+  serverTime?: string;
   practice?: boolean;
   specials?: Specials;
   category: Category | null;
@@ -54,13 +55,26 @@ export interface Today {
   lastClaimAt?: string | null;
   board?: { handle: string; dibs: number; strikes: number; completedAt: string }[];
 }
+export interface Guess {
+  at: string;
+  kind: 'dibs' | 'strike';
+  golden?: boolean;
+  display?: string;
+  claimId?: string;
+  obscurity?: number | null;
+  holder?: string;
+  heldAt?: string;
+  house?: boolean;
+}
 export interface DayFile {
+  handle?: string;
+  streak?: number;
   summaryId?: string;
   category_id: string;
   claims: Claim[];
   dibs: number;
   strikes: number;
-  events: { at: string; kind: 'dibs' | 'strike'; golden?: boolean }[];
+  events: Guess[];
   closed: boolean;
   completedAt: string | null;
 }

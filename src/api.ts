@@ -1,3 +1,4 @@
+import { syncClock } from './clock';
 let fixture: typeof import('../dev/fixture') | undefined;
 if (import.meta.env.DEV && import.meta.env.VITE_DEMO === 'true')
   fixture = await import('../dev/fixture');
@@ -10,7 +11,11 @@ export class ApiError extends Error {
   }
 }
 export async function api<T>(path: string, body?: unknown): Promise<T> {
-  if (fixture) return fixture.request(path, body) as Promise<T>;
+  if (fixture) {
+    const data = await fixture.request(path, body);
+    syncClock(data?.today?.serverTime || data?.serverTime);
+    return data as T;
+  }
   let r: Response;
   try {
     r = await fetch('/api' + path, {
@@ -32,6 +37,7 @@ export async function api<T>(path: string, body?: unknown): Promise<T> {
       message: 'The filing cabinet is unavailable. Please try again shortly.',
     });
   }
+  syncClock(data?.today?.serverTime || data?.serverTime || r.headers.get('Date'));
   if (!r.ok) throw new ApiError(r.status, data);
   return data;
 }

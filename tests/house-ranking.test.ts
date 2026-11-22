@@ -22,7 +22,7 @@ it('does not ship a public answer catalog or import the house list into client c
   for (const f of readdirSync('src').filter((f) => /\.tsx?$/.test(f)))
     expect(readFileSync('src/' + f, 'utf8')).not.toMatch(/house-words|daily_specials|golden_json/);
 });
-it('prints a star at the claimed golden event and numbers Monday as the first drop', () => {
+it('prints a spoiler-free square for each claimed event and numbers Monday as the first drop', () => {
   expect(
     summaryText(
       {
@@ -38,5 +38,5 @@ it('prints a star at the claimed golden event and numbers Monday as the first dr
       } as any,
       { date: '2026-11-23' } as any,
     ),
-  ).toBe('Dibs #1 ■★■□ 3/3 · 1 strike · filed 9:04 PM');
+  ).toBe('Dibs #1 ■■■□ 3/3 dibs · 1 strike · filed 9:04 PM ET · Next drop: 9 PM ET');
 });

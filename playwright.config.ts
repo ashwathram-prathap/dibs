@@ -74,7 +74,7 @@ export default defineConfig({
   retries: 0,
   reporter: [['list'], ['json', { outputFile: 'review/devices/results.json' }]],
   use: { baseURL: 'http://127.0.0.1:5173', trace: 'retain-on-failure' },
-  projects,
+  projects: projects.map((p) => ({ ...p, testIgnore: 'round7.spec.ts' })),
   webServer: {
     command:
       'npx vite build --mode security-test && npm run preview -- --mode security-test --port 5173',

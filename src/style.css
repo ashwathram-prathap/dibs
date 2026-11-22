@@ -2305,3 +2305,208 @@ html.low-power .gold-stamp strong {
 .gold-imprint strong {
   color: #b8902f;
 }
+
+/* Round 7: a public clock and one complete day certificate. */
+.drop-countdown {
+  padding: 28px 0 24px;
+  border-bottom: 2px solid var(--ink);
+}
+.drop-countdown > .eyebrow {
+  display: block;
+}
+.drop-countdown .clock {
+  display: block;
+  font:
+    900 clamp(52px, 18.5vw, 164px)/1.05 Archivo,
+    sans-serif;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -0.045em;
+  margin: 8px 0;
+}
+.drop-countdown p {
+  margin: 0;
+  font:
+    16px/1.5 Plex,
+    monospace;
+}
+.local-drop small {
+  font-size: 0.75em;
+}
+.round-countdown {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  padding: 12px 0;
+  border-bottom: 1px solid var(--ink);
+}
+.round-countdown .clock {
+  font:
+    500 16px/1 Plex,
+    monospace;
+  font-variant-numeric: tabular-nums;
+}
+.round-countdown .eyebrow {
+  font-size: 11px;
+}
+.local-time {
+  position: relative;
+  white-space: nowrap;
+}
+.zone-tip {
+  display: none;
+}
+.local-time:hover .zone-tip,
+.local-time:focus .zone-tip {
+  display: inline;
+}
+.local-time:focus {
+  outline: 1px solid var(--ink);
+  outline-offset: 3px;
+}
+.claim-imprint-stage {
+  position: relative;
+  inset: auto;
+  padding: 12px 0 20px;
+  overflow: visible;
+}
+.claim-imprint {
+  position: relative;
+  inset: auto;
+  width: min(100%, 700px);
+  margin: 0 auto;
+  padding: 14px 22px;
+  border-width: 4px;
+  gap: 6px;
+}
+.claim-imprint strong {
+  font-size: 48px;
+}
+.claim-imprint > span {
+  font-size: 24px;
+}
+.next-dibs {
+  display: block;
+  margin: 24px auto;
+  min-height: 48px;
+}
+.day-certificate {
+  max-width: 860px;
+  width: 100%;
+}
+.day-cert-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 28px 0;
+}
+.day-cert-heading .brand-mark {
+  width: 100px;
+  height: auto;
+}
+.day-certificate h2 {
+  margin: 24px 0 16px;
+}
+.file-tally {
+  font:
+    12px/1.8 Plex,
+    monospace;
+}
+.day-certificate .file-progress {
+  margin: 20px 0;
+}
+.day-certificate .entries-label {
+  font-size: 10px;
+  margin-top: 32px;
+}
+.day-certificate .summary-answers li {
+  display: grid;
+  grid-template-columns: 28px 1fr;
+  gap: 12px;
+  text-transform: uppercase;
+}
+.guess-number {
+  font:
+    11px/1.8 Plex,
+    monospace;
+  padding-top: 4px;
+}
+.day-certificate .summary-answers a {
+  min-height: 44px;
+}
+.summary-answers small {
+  display: block;
+  font:
+    11px/1.7 Plex,
+    monospace;
+  margin-top: 10px;
+  text-transform: none;
+}
+.mini-stamp {
+  display: inline-block;
+  border: 1px solid var(--red);
+  color: var(--red);
+  padding: 5px 7px;
+  margin-top: 6px;
+  font:
+    10px/1.4 Plex,
+    monospace;
+  transform: rotate(-1deg);
+}
+.gold-mini {
+  color: #7a5c14;
+  border-color: #7a5c14;
+}
+[data-theme='dark'] .gold-mini {
+  color: #dec078;
+  border-color: #dec078;
+}
+.day-cert-holder {
+  display: grid;
+  gap: 8px;
+  border-top: 1px solid var(--ink);
+  padding: 24px 0;
+}
+.day-cert-holder strong {
+  font-size: 24px;
+}
+.day-cert-holder > span:last-child {
+  font:
+    12px Plex,
+    monospace;
+}
+.day-certificate .cert-footer {
+  padding-top: 18px;
+}
+.register-arrival {
+  animation: register-stamp 0.25s ease-out;
+}
+@keyframes register-stamp {
+  from {
+    transform: translateY(-4px);
+    opacity: 0.65;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .register-arrival {
+    animation: none;
+  }
+}
+@media (max-width: 600px) {
+  .home-page .daily-heading {
+    padding-top: 18px;
+  }
+  .day-certificate {
+    padding: 20px 16px;
+  }
+  .day-cert-heading .brand-mark {
+    width: 80px;
+  }
+  .day-certificate .cert-footer {
+    font-size: 8px;
+    gap: 10px;
+  }
+}

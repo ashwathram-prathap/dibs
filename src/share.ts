@@ -1,4 +1,5 @@
-import { LAUNCH_DATE, DROP_TIME_LABEL } from '../shared/config';
+import { edition, localTime } from '../shared/time';
+import { guesses } from '../shared/guesses';
 import { PUBLIC_HOST } from '../shared/config';
 import { type Claim, type DayFile, type Category, serial } from './types';
 import { WORDMARK_WIDTH, WORDMARK_PATH, WORDMARK_BLOCK_X } from '../shared/brand';
@@ -146,97 +147,145 @@ async function canvasFile(canvas: HTMLCanvasElement, name: string) {
 }
 
 export function summaryText(file: DayFile, category: Category) {
-  const edition = Math.max(
-    1,
-    Math.round(
-      (Date.parse(category.date + 'T12:00:00Z') - Date.parse(LAUNCH_DATE + 'T12:00:00Z')) /
-        86400000,
-    ) + 1,
-  );
-  const time = new Date(file.completedAt!).toLocaleTimeString('en-US', {
-    timeZone: 'America/Toronto',
-    hour: 'numeric',
-    minute: '2-digit',
-  });
-  return `Dibs #${edition} ${file.events.map((e) => (e.kind === 'dibs' ? (e.golden ? '★' : '■') : '□')).join('')} ${file.dibs}/3 · ${file.strikes} ${file.strikes === 1 ? 'strike' : 'strikes'} · filed ${time}`;
+  return `Dibs #${edition(category.date)} ${file.events.map((e) => (e.kind === 'dibs' ? '■' : '□')).join('')} ${file.dibs}/3 dibs · ${file.strikes} ${file.strikes === 1 ? 'strike' : 'strikes'} · filed ${localTime(file.completedAt!, 'America/Toronto').full} · Next drop: 9 PM ET`;
 }
 export async function exportSummary(file: DayFile, category: Category, story: boolean) {
   await document.fonts.ready;
-  await document.fonts.load(
-    '900 100px Archivo, ArchivoSupplement',
-    file.claims.map((c) => c.display).join(' '),
-  );
   await Promise.all([
-    document.fonts.load('400 24px Plex'),
+    document.fonts.load(
+      '900 100px Archivo, ArchivoSupplement',
+      guesses(file)
+        .map((e) => e.display)
+        .join(' '),
+    ),
     document.fonts.load('900 100px ArchivoSupplement'),
+    document.fonts.load('400 24px Plex'),
+    document.fonts.load('600 42px Instrument'),
   ]);
   const canvas = document.createElement('canvas');
   canvas.width = 1080;
   canvas.height = story ? 1920 : 1350;
-  const c = canvas.getContext('2d')!,
-    h = story ? 1500 : 1350;
+  const c = canvas.getContext('2d')!;
+  const h = story ? 1600 : 1350;
   c.fillStyle = '#F1ECE2';
   c.fillRect(0, 0, 1080, canvas.height);
   if (story) c.translate(0, 160);
-  c.fillStyle = '#1A1A17';
-  c.strokeStyle = '#1A1A17';
-  c.lineWidth = 3;
-  c.strokeRect(40, 40, 1000, h - 80);
-  const mono = (s: string, y: number, size = 24) => {
-    c.font = `400 ${size}px Plex`;
-    c.fillText(s, 80, y);
+  const ink = '#1A1A17',
+    red = '#B93420',
+    gold = '#7A5C14';
+  c.fillStyle = ink;
+  c.strokeStyle = ink;
+  c.lineWidth = 2;
+  c.strokeRect(36, 36, 1008, h - 72);
+  c.strokeRect(47, 47, 986, h - 94);
+  const text = (s: string, x: number, y: number, size = 22, face = 'Plex', weight = 400) => {
+    c.font = `${weight} ${size}px ${face}`;
+    c.fillText(s, x, y);
   };
-  mono(
-    category.id === 'practice'
-      ? 'PRACTICE — NOT THE PUBLIC RECORD'
-      : 'DIBS / REGISTRY OF CLAIMS — FORM D-3',
-    110,
-  );
-  mono(category.date + ' / ' + category.name.toUpperCase(), 190);
-  c.font = '900 120px Archivo';
-  c.fillText('FILE CLOSED.', 80, 350);
-  c.font = '900 90px Archivo';
-  c.fillText(`${file.dibs} / 3 DIBS`, 80, 480);
-  mono(`${file.strikes} / 5 STRIKES`, 560);
-  for (let i = 0; i < 5; i++) {
-    c.strokeRect(80 + i * 72, 590, 48, 48);
-    if (i < file.strikes) c.fillRect(84 + i * 72, 594, 40, 40);
-  }
-  let y = story ? 850 : 745;
-  for (let i = 0; i < 3; i++) {
-    const label =
-      (file.claims[i]?.golden ? '★ ' : '') +
-      (file.claims[i]?.display.toUpperCase() || '— UNCLAIMED');
-    c.fillStyle = file.claims[i]?.golden ? '#7A5C14' : '#1A1A17';
-    const fitted = fitText(
-      label,
-      (t, size) => {
-        c.font = `900 ${size}px Archivo, ArchivoSupplement`;
+  const fit = (
+    s: string,
+    x: number,
+    y: number,
+    width: number,
+    size: number,
+    face = 'Archivo, ArchivoSupplement',
+    weight = 900,
+  ) => {
+    const f = fitText(
+      s,
+      (t, z) => {
+        c.font = `${weight} ${z}px ${face}`;
         return c.measureText(t).width;
       },
-      850,
-      { startSize: 54, minSize: 18, maxLines: 2, maxHeight: 95, lineHeight: 1 },
+      width,
+      { startSize: size, minSize: 17, maxLines: 2, maxHeight: size * 1.6, lineHeight: 1 },
     );
+    f.lines.forEach((line, i) => text(line, x, y + i * f.size, f.size, face, weight));
+  };
+  const line = (y: number) => {
     c.beginPath();
-    c.moveTo(80, y - 60);
-    c.lineTo(1000, y - 60);
+    c.moveTo(80, y);
+    c.lineTo(1000, y);
     c.stroke();
-    c.font = `900 ${fitted.size}px Archivo, ArchivoSupplement`;
-    for (const [j, line] of fitted.lines.entries()) c.fillText(line, 80, y + j * fitted.size);
-    y += 120;
-  }
-  c.fillStyle = '#1A1A17';
-  mono(
-    'FILED ' +
-      new Date(file.completedAt!).toLocaleTimeString('en-US', {
-        timeZone: 'America/Toronto',
-        hour: 'numeric',
-        minute: '2-digit',
-      }) +
-      ' / TORONTO',
-    h - 150,
+  };
+  text(
+    category.id === 'practice' ? 'PRACTICE — NOT THE PUBLIC RECORD' : 'REGISTRY OF CLAIMS',
+    80,
+    105,
+    19,
   );
-  mono('NEXT DROP / ' + DROP_TIME_LABEL + ' TORONTO', h - 105, 22);
-  mono(PUBLIC_HOST, h - 65, 20);
+  text('FORM D-3', 885, 105, 19);
+  line(132);
+  text('DAY CERTIFICATE', 80, 198);
+  text('dibs #' + edition(category.date), 80, 235);
+  c.save();
+  c.translate(800, 166);
+  c.scale(200 / WORDMARK_WIDTH, 200 / WORDMARK_WIDTH);
+  c.fill(new Path2D(WORDMARK_PATH));
+  c.fillStyle = '#E1462B';
+  c.fillRect(WORDMARK_BLOCK_X, 67, 18, 18);
+  c.restore();
+  text('FILE CLOSED.', 80, 365, 114, 'Archivo', 900);
+  fit(category.name.toUpperCase(), 80, 422, 680, 30);
+  text(category.date, 825, 422, 21);
+  text(
+    `${file.dibs}/3 dibs · ${file.strikes} ${file.strikes === 1 ? 'strike' : 'strikes'} · filed ${localTime(file.completedAt!).full}`,
+    80,
+    480,
+    22,
+  );
+  text('ACCEPTED & REJECTED FILINGS / IN ORDER', 80, 538, 18);
+  const rows = guesses(file),
+    rowHeight = Math.min(150, (h - 790) / Math.max(1, rows.length));
+  rows.forEach((event, i) => {
+    const y = 565 + i * rowHeight;
+    c.fillStyle = ink;
+    c.strokeStyle = ink;
+    line(y);
+    text(String(i + 1).padStart(2, '0'), 80, y + 35, 18);
+    const display = (event.display || '').toUpperCase();
+    fit(display, 132, y + 35, event.kind === 'dibs' ? 590 : 850, Math.min(42, rowHeight * 0.32));
+    if (event.kind === 'strike') {
+      c.beginPath();
+      c.moveTo(132, y + 25);
+      c.lineTo(Math.min(980, 132 + c.measureText(display).width), y + 25);
+      c.stroke();
+      const held = event.house
+        ? 'Held by the Registry'
+        : event.holder
+          ? `Taken by ${event.holder}${event.heldAt ? ' at ' + localTime(event.heldAt).full : ''}`
+          : 'Holder details were not retained';
+      fit(held, 132, y + rowHeight - 16, 850, 20, 'Plex', 400);
+    } else {
+      c.save();
+      c.translate(866, y + 32);
+      c.rotate(-0.045);
+      c.fillStyle = event.golden ? gold : red;
+      c.strokeStyle = c.fillStyle;
+      c.lineWidth = 2;
+      c.strokeRect(-112, -22, 224, 45);
+      text(event.golden ? 'DIBS / GOLD' : 'DIBS', -98, 9, 26, 'Archivo', 900);
+      c.restore();
+      c.fillStyle = ink;
+      if ((event.obscurity || 0) >= 4) text('DEEP CUT', 755, y + rowHeight - 14, 17);
+    }
+  });
+  c.fillStyle = ink;
+  c.strokeStyle = ink;
+  line(h - 220);
+  text('FILED UNDER', 80, h - 182, 18);
+  fit(
+    file.handle || file.claims[0]?.handle || 'Anonymous filer',
+    80,
+    h - 135,
+    650,
+    38,
+    'Instrument',
+    600,
+  );
+  text(`${file.streak || 0} DAY STREAK`, 790, h - 140, 20);
+  line(h - 100);
+  text('ALL CLAIMS ENTIRELY CEREMONIAL.', 80, h - 66, 16);
+  text(PUBLIC_HOST, 825, h - 66, 18);
   return canvasFile(canvas, `dibs-day-${category.date}-${story ? 'story' : 'feed'}.png`);
 }

@@ -109,6 +109,7 @@ beforeAll(async () => {
     '0005_three_dibs.sql',
     '0006_file_event_order.sql',
     '0007_daily_specials.sql',
+    '0008_guess_details.sql',
   ])
     await db.exec(
       readFileSync('migrations/' + file, 'utf8')
@@ -135,8 +136,8 @@ beforeAll(async () => {
   }
 }, 30000);
 afterAll(async () => {
-  mkdirSync('review/round6', { recursive: true });
-  writeFileSync('review/round6/d1-actions.json', JSON.stringify(evidence, null, 2));
+  mkdirSync('review/round7', { recursive: true });
+  writeFileSync('review/round7/d1-actions.json', JSON.stringify(evidence, null, 2));
   await mf?.dispose();
 });
 it('creates no D1 users or writes on page loads and cached polls', async () => {
@@ -387,7 +388,7 @@ it('serves unique cached previews to WhatsApp, X, Facebook, iMessage and Discord
       const image = html.match(/property="og:image" content="([^"]+)"/)![1];
       expect(html).toContain(`name="twitter:image" content="${image}"`);
       expect(image).toBe(
-        `${PUBLIC_ORIGIN}/api/og/${kind === 'summary' ? 'summary/' : ''}${id}?v=4`,
+        `${PUBLIC_ORIGIN}/api/og/${kind === 'summary' ? 'summary/' : ''}${id}?v=7`,
       );
       const started = performance.now();
       const response = await mf.dispatchFetch(image, { headers: { 'user-agent': agent } });
@@ -408,11 +409,11 @@ it('serves unique cached previews to WhatsApp, X, Facebook, iMessage and Discord
         status: response.status,
       });
       mkdirSync('review/final', { recursive: true });
-      writeFileSync(`review/final/${kind}-og.png`, bytes);
+      writeFileSync(`review/final/r7-${kind}-og.png`, bytes);
     }
   }
-  mkdirSync('review/round6', { recursive: true });
-  writeFileSync('review/round6/preview-fetches.json', JSON.stringify(results, null, 2));
+  mkdirSync('review/round7', { recursive: true });
+  writeFileSync('review/round7/preview-fetches.json', JSON.stringify(results, null, 2));
 });
 
 it('keeps a zero-dibs five-strike summary across reloads without creating a D1 player', async () => {

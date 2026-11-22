@@ -1,5 +1,15 @@
-import { DROP_TIME_LABEL } from '../shared/config';
-import { useEffect, useLayoutEffect, useState, useRef, useCallback, type FormEvent } from 'react';
+import { dropTime, localTime, countdown, edition } from '../shared/time';
+import { guesses } from '../shared/guesses';
+import { useServerNow, serverNow } from './clock';
+import {
+  useEffect,
+  useLayoutEffect,
+  useState,
+  useRef,
+  useCallback,
+  useMemo,
+  type FormEvent,
+} from 'react';
 import { m as motion, LazyMotion, domAnimation, useReducedMotion } from 'framer-motion';
 import { api, ApiError, isDemo } from './api';
 import { type Category, type Claim, type DayFile, type Me, type Today, serial } from './types';
@@ -26,12 +36,29 @@ function Wordmark() {
   );
 }
 
-const time = (s: string) =>
-  new Date(s).toLocaleTimeString('en-CA', {
-    timeZone: 'America/Toronto',
-    hour: 'numeric',
-    minute: '2-digit',
-  });
+function time(at: string) {
+  const value = localTime(at);
+  return (
+    <time
+      dateTime={at}
+      title={value.full}
+      tabIndex={0}
+      className="local-time"
+      aria-label={value.full}
+    >
+      {value.label}
+      <span className="zone-tip"> {value.zone}</span>
+    </time>
+  );
+}
+function DropTime({ at }: { at: string }) {
+  const value = dropTime(at);
+  return (
+    <span className="local-drop">
+      {value.label} <small>{value.zone}</small>
+    </span>
+  );
+}
 const dateLabel = (s: string) =>
   new Date(s + 'T12:00:00Z').toLocaleDateString('en-CA', {
     month: 'long',
@@ -76,19 +103,31 @@ function Link({
     </a>
   );
 }
-function Clock({ target }: { target: string }) {
-  const [now, set] = useState(Date.now());
-  useEffect(() => {
-    const id = setInterval(() => set(Date.now()), 1000);
-    return () => clearInterval(id);
-  }, []);
-  const s = Math.max(0, Math.floor((Date.parse(target) - now) / 1000));
+function Clock({ target, slim = false }: { target: string; slim?: boolean }) {
+  const now = useServerNow();
+  const remaining = Math.max(0, Date.parse(target) - now);
+  const minutes = Math.ceil(remaining / 60000);
   return (
-    <span className="clock">
-      {[Math.floor(s / 3600), Math.floor(s / 60) % 60, s % 60]
-        .map((n) => String(n).padStart(2, '0'))
-        .join(':')}
-    </span>
+    <section
+      className={slim ? 'round-countdown' : 'drop-countdown'}
+      aria-label={slim ? 'Round countdown' : 'Next drop countdown'}
+    >
+      <span className="eyebrow">{slim ? 'Round closes in' : 'NEXT DROP'}</span>
+      <span className="clock" aria-hidden="true">
+        {remaining ? countdown(target, now) : 'Opening…'}
+      </span>
+      {!slim && (
+        <p>
+          Next drop: <DropTime at={target} />
+        </p>
+      )}
+      <span className="sr-only">
+        {slim ? 'Round closes' : 'Next drop'} at {dropTime(target).full}.
+      </span>
+      <span className="sr-only" aria-live="polite" aria-atomic="true">
+        {minutes ? `${minutes} minutes remaining.` : 'Opening…'}
+      </span>
+    </section>
   );
 }
 function Filters() {
@@ -267,7 +306,7 @@ export default function App() {
           ) : path.startsWith('/archive') ? (
             <Archive />
           ) : path === '/about' ? (
-            <About />
+            <About nextDrop={today.nextDrop} />
           ) : path === '/stats' ? (
             <Stats />
           ) : (
@@ -337,7 +376,10 @@ function Home({
   const [taken, setTaken] = useState(false);
   const [houseStrike, setHouseStrike] = useState(false);
   const [claim, setClaim] = useState<Claim | null>(me.claim);
-  const file = me.file;
+  const file = useMemo(
+    () => (me.file ? { ...me.file, handle: me.user?.handle, streak: me.streak } : null),
+    [me.file, me.user?.handle, me.streak],
+  );
   const [landed, setLanded] = useState(false);
   const [active, setActive] = useState(-1);
   const reduced = useReducedMotion();
@@ -366,13 +408,26 @@ function Home({
     return () => viewport?.removeEventListener('resize', keepFormVisible);
   }, []);
 
+  const now = useServerNow();
+  const retry = useRef({ at: 0, delay: 1000, busy: false });
   useEffect(() => {
-    const timer = setTimeout(
-      () => void refresh(),
-      Math.max(100, Date.parse(today.nextDrop) - Date.now() + 100),
-    );
-    return () => clearTimeout(timer);
-  }, [today.nextDrop]);
+    if (
+      document.hidden ||
+      now < Date.parse(today.nextDrop) ||
+      retry.current.busy ||
+      performance.now() < retry.current.at
+    )
+      return;
+    retry.current.busy = true;
+    void api<Snapshot>('/bootstrap')
+      .then((data) => publish({ ...data, reset: true }))
+      .catch(() => {})
+      .finally(() => {
+        retry.current.busy = false;
+        retry.current.at = performance.now() + retry.current.delay;
+        retry.current.delay = Math.min(30000, retry.current.delay * 2);
+      });
+  }, [now, today.nextDrop]);
   useEffect(() => {
     let valid = true;
     const id = setTimeout(() => {
@@ -423,7 +478,6 @@ function Home({
       setLanded(true);
       if (result.me) setMe(result.me);
       publishClaim(result.claim, result.me);
-      setTimeout(() => setLanded(false), (result.me?.file?.dibs || 1) === 1 ? 1300 : 1050);
     } catch (e) {
       const err = e as ApiError;
       if (err.data?.me) setMe(err.data.me);
@@ -444,30 +498,30 @@ function Home({
   }
   return (
     <>
-      <section className="daily-heading">
-        <span className="eyebrow">
-          {today.category ? "Today's category:" : 'THE DAILY GAME OF FIRST CLAIMS'}
-        </span>
-        <CategoryHeading name={today.category?.name || 'DIBS'} />
-        {today.category && (
-          <p className="game-rule">
-            Name {today.category.slug === 'animals' ? 'an animal' : 'an item in this category'}{' '}
-            nobody has claimed yet. First to call it owns it today.
-          </p>
-        )}
-      </section>
+      <Clock target={today.nextDrop} slim={!!today.category && !file?.closed} />
+      {today.category && (
+        <section className="daily-heading register-arrival">
+          <span className="eyebrow">
+            {today.category ? "Today's category:" : 'THE DAILY GAME OF FIRST CLAIMS'}
+          </span>
+          <CategoryHeading name={today.category?.name || 'DIBS'} />
+          {today.category && (
+            <p className="game-rule">
+              Name {today.category.slug === 'animals' ? 'an animal' : 'an item in this category'}{' '}
+              nobody has claimed yet. First to call it owns it today.
+            </p>
+          )}
+        </section>
+      )}
       {!today.category ? (
         <section className="closed-office">
           <span className="section-number">01 /</span>
           <div>
             <h2>The office is closed.</h2>
             <p>
-              The first register opens Monday November 23 at {DROP_TIME_LABEL}, Toronto time. Come
-              back to call dibs.
+              The next register opens at <DropTime at={today.nextDrop} />. Come back to call dibs.
             </p>
-            <p className="eyebrow">
-              NEXT DROP <Clock target={today.nextDrop} />
-            </p>
+
             <p className="closed-example">
               EXAMPLE · If the category is Animals, type “axolotl”. If nobody has it, it’s yours.
               Share your certificate.
@@ -494,7 +548,7 @@ function Home({
                 className={'claim-imprint ' + (claim.golden ? 'gold-imprint' : '')}
                 aria-hidden="true"
                 initial={{ scale: 1.4, opacity: 0, rotate: ((claim.claim_no * 7.31) % 7) - 4 }}
-                animate={{ scale: [1.4, 1, 1, 1], opacity: [0, 1, 1, 0] }}
+                animate={{ scale: [1.4, 1, 1, 1], opacity: [0, 1, 1, 1] }}
                 transition={{
                   duration: (file?.dibs || 1) === 1 ? 1.15 : 0.95,
                   times: [0, 0.15, 0.58, 1],
@@ -508,6 +562,15 @@ function Home({
           )}
           <Certificate claim={claim} animated={landed} />
           <ShareButtons claim={claim} />
+          <button
+            className="primary next-dibs"
+            onClick={() => {
+              setLanded(false);
+              window.scrollTo(0, 0);
+            }}
+          >
+            {file?.closed ? 'See my file' : 'Next dibs'}
+          </button>
           <Streak me={me} />
         </motion.section>
       ) : !me.user ? (
@@ -603,9 +666,9 @@ function Home({
               <p className="live-strip">
                 {today.open.toLocaleString()} still up for grabs ·{' '}
                 {today.lastClaimAt
-                  ? Date.now() - Date.parse(today.lastClaimAt) < 60000
+                  ? serverNow() - Date.parse(today.lastClaimAt) < 60000
                     ? 'last claim just now'
-                    : `last claim ${Math.floor((Date.now() - Date.parse(today.lastClaimAt)) / 60000)} min ago`
+                    : `last claim ${Math.floor((serverNow() - Date.parse(today.lastClaimAt)) / 60000)} min ago`
                   : 'be the first to claim'}
               </p>
               <ol className="how-it-works" aria-label="How it works">
@@ -660,10 +723,14 @@ function Home({
             category={today.category}
             open={today.open}
             goldenFound={today.specials?.goldenFound}
+            goldenTotal={today.specials?.goldenTotal}
           />
           {today.specials && (
             <section className="daily-specials">
-              <p>Golden tickets found: {today.specials.goldenFound} / 3</p>
+              <p>
+                Golden tickets: {today.specials.goldenFound} of {today.specials.goldenTotal} found
+                today
+              </p>
               {today.specials.houseWords.length > 0 && (
                 <div className="house-record">
                   <span className="house-stamp">THE REGISTRY · HOUSE</span>
@@ -729,35 +796,76 @@ function DaySummary({ file, today }: { file: DayFile; today: Today }) {
   );
   return (
     <section className="day-summary">
-      <article className="summary-paper" aria-label="Day summary">
+      <article className="summary-paper day-certificate" aria-label="Day summary">
         <div className="cert-rule">
           <span>REGISTRY OF CLAIMS</span>
           <span>FORM D-3</span>
         </div>
-        <span className="eyebrow">
+        <div className="day-cert-heading">
+          <span className="eyebrow">
+            DAY CERTIFICATE
+            <br />
+            dibs #{edition(today.category!.date)}
+          </span>
+          <Wordmark />
+        </div>
+        <p className="eyebrow">
           {dateLabel(today.category!.date)} / {today.category!.name}
-        </span>
-        <h2>File closed.</h2>
-        <Progress dibs={file.dibs} strikes={file.strikes} />
-        <p className="gold-summary">
-          Golden tickets found:{' '}
-          {today.specials?.goldenFound ?? file.claims.filter((c) => c.golden).length} / 3
         </p>
+        <h2>File closed.</h2>
+        <p className="file-tally">
+          {file.dibs}/3 dibs · {file.strikes} {file.strikes === 1 ? 'strike' : 'strikes'} · filed{' '}
+          {time(file.completedAt!)}
+        </p>
+        <Progress dibs={file.dibs} strikes={file.strikes} />
+        <p className="eyebrow entries-label">Accepted &amp; rejected filings / in order</p>
         <ol className="summary-answers">
-          {Array.from({ length: 3 }, (_, i) => (
-            <li key={i}>
-              {file.claims[i] ? (
-                <Link to={'/certificate/' + file.claims[i].id}>{file.claims[i].display} ↗</Link>
-              ) : (
-                <span>— Unclaimed</span>
-              )}
+          {guesses(file).map((event, i) => (
+            <li key={i} className={event.kind === 'strike' ? 'rejected-filing' : 'accepted-filing'}>
+              <span className="guess-number">{String(i + 1).padStart(2, '0')}</span>
+              <div>
+                {event.kind === 'dibs' ? (
+                  <>
+                    {event.claimId ? (
+                      <Link to={'/certificate/' + event.claimId}>{event.display}</Link>
+                    ) : (
+                      <strong>{event.display}</strong>
+                    )}
+                    <span className={'mini-stamp ' + (event.golden ? 'gold-mini' : '')}>
+                      DIBS{event.golden ? ' / GOLD' : ''}
+                      {(event.obscurity || 0) >= 4 ? ' / DEEP CUT' : ''}
+                    </span>
+                  </>
+                ) : (
+                  <>
+                    <s>{event.display}</s>
+                    <small>
+                      {event.house ? (
+                        'Held by the Registry'
+                      ) : event.holder ? (
+                        <>
+                          Taken by {event.holder}
+                          {event.heldAt && <> at {time(event.heldAt)}</>}
+                        </>
+                      ) : (
+                        'Holder details were not retained'
+                      )}
+                    </small>
+                  </>
+                )}
+              </div>
             </li>
           ))}
         </ol>
-        <p className="eyebrow">FILED {time(file.completedAt!)} · TORONTO</p>
-        <p className="next-drop">
-          Next drop <Clock target={today.nextDrop} />
-        </p>
+        <div className="day-cert-holder">
+          <span className="eyebrow">FILED UNDER</span>
+          <strong>{file.handle || file.claims[0]?.handle || 'Anonymous filer'}</strong>
+          <span>{file.streak || 0} day streak</span>
+        </div>
+        <div className="cert-footer">
+          <span>ALL CLAIMS ENTIRELY CEREMONIAL.</span>
+          <span>{PUBLIC_HOST}</span>
+        </div>
       </article>
       <ShareSheet
         url={summaryUrl(file.summaryId!)}
@@ -832,10 +940,12 @@ function Ledger({
   category,
   open,
   goldenFound,
+  goldenTotal,
 }: {
   category: Category | null;
   open?: number;
   goldenFound?: number;
+  goldenTotal?: number;
 }) {
   const [rows, setRows] = useState<Claim[]>([]);
   const [query, setQuery] = useState('');
@@ -903,9 +1013,9 @@ function Ledger({
         </label>
       </div>
       {error && <p role="status">{error}</p>}
-      {!!goldenFound && (
+      {goldenFound !== undefined && (
         <p className="gold-announcement" role="status">
-          Golden ticket found: {goldenFound} of 3
+          Golden tickets: {goldenFound} of {goldenTotal || 3} found today
         </p>
       )}
       {category && open !== undefined && rows.length < 10 && (
@@ -1229,7 +1339,11 @@ function Archive() {
           )}
           {selected ? (
             <>
-              <Ledger category={selected} goldenFound={selected.specials?.goldenFound} />
+              <Ledger
+                category={selected}
+                goldenFound={selected.specials?.goldenFound}
+                goldenTotal={selected.specials?.goldenTotal}
+              />
               {selected.specials && (
                 <section className="archive-specials">
                   <span className="house-stamp">THE REGISTRY · HOUSE</span>
@@ -1245,7 +1359,8 @@ function Archive() {
                     <p>No commitment was filed before this register closed.</p>
                   )}
                   <p className="gold-summary">
-                    Golden tickets found: {selected.specials.goldenFound} / 3
+                    Golden tickets: {selected.specials.goldenFound} of{' '}
+                    {selected.specials.goldenTotal} found
                   </p>
                   {selected.specials.reveal && (
                     <>
@@ -1295,7 +1410,7 @@ function Archive() {
     </>
   );
 }
-function About() {
+function About({ nextDrop }: { nextDrop: string }) {
   return (
     <>
       <div className="page-heading">
@@ -1310,14 +1425,16 @@ function About() {
         <section>
           <h2>The filing rules.</h2>
           <ol className="rules">
-            <li>A new category opens at {DROP_TIME_LABEL}, Toronto time.</li>
+            <li>
+              A new category opens daily. Next drop: <DropTime at={nextDrop} />.
+            </li>
             <li>Call dibs on an answer. First come, first served.</li>
             <li>Taken guesses cost a strike. Five strikes close your file.</li>
             <li>Up to three dibs per person, per category.</li>
             <li>The 10 most obvious answers are held by the house.</li>
             <li>
-              Three secret golden tickets are picked at each drop. The commitment is revealed at
-              close.
+              Ten secret golden tickets per drop November 23–29, then three. The commitment is
+              revealed at close.
             </li>
             <li>Most dibs, fewest strikes, earliest completed file wins.</li>
           </ol>

@@ -1,3 +1,10 @@
+const r7 = new URLSearchParams(location.search);
+const clockStart = performance.now();
+const fixtureNow = () =>
+  Date.parse(r7.has('r7-clock') ? '2026-11-24T01:59:55Z' : '2026-11-23T22:00:00Z') +
+  performance.now() -
+  clockStart;
+const fixtureDrop = '2026-11-24T02:00:00.000Z';
 const r6 = new URLSearchParams(location.search).has('r6');
 const house = ['Dog', 'Cat', 'Lion', 'Tiger', 'Elephant', 'Horse', 'Wolf', 'Bear', 'Rabbit', 'Fox'];
 const specials = () => ({
@@ -58,11 +65,13 @@ let claims: any[] = [
 const originalClaim = claims[0];
 let mine: any = null;
 let myClaims: any[] = [];
-let events: { at: string; kind: string; golden?: boolean }[] = [];
+let events: any[] = [];
 function file() {
   const strikes = events.filter((e) => e.kind === 'strike').length;
   const closed = myClaims.length === 3 || strikes === 5;
   return {
+    handle: user.handle,
+    streak: myClaims.length ? 1 : 0,
     summaryId: 'fixture-summary',
     category_id: category.id,
     claims: myClaims,
@@ -78,16 +87,31 @@ export async function request(path: string, body?: any): Promise<any> {
   await new Promise((r) => setTimeout(r, 120));
   if (path === '/bootstrap')
     return { today: await request('/today'), me: await request('/me'), rows: claims };
-  if (path === '/today')
+  if (path === '/today') {
+    if (
+      r7.has('r7-rollover') &&
+      fixtureNow() >= Date.parse(fixtureDrop) + 3000 &&
+      category.id === 'fixture-animals'
+    )
+      advanceFixtureDay();
     return {
-      category: { ...category },
+      ...(r7.has('r7-clock') || r7.has('r7-closed')
+        ? { serverTime: new Date(fixtureNow()).toISOString() }
+        : {}),
+      category: r7.has('r7-closed') ? null : { ...category },
       ...(r6 ? { practice: true, specials: specials() } : {}),
       claimed: claims.length,
       lastClaimAt: claims[0]?.created_at || null,
       open: 2400 - claims.length - (r6 ? 10 : 0),
-      nextDrop: new Date(Date.now() + 3600000 * 12).toISOString(),
+      nextDrop:
+        r7.has('r7-clock') || r7.has('r7-closed')
+          ? category.id === 'fixture-animals'
+            ? fixtureDrop
+            : '2026-11-25T02:00:00.000Z'
+          : new Date(Date.now() + 3600000 * 12).toISOString(),
       turnstileSiteKey: 'demo',
     };
+  }
   if (path === '/me')
     return {
       user,
@@ -152,7 +176,7 @@ export async function request(path: string, body?: any): Promise<any> {
   if (path === '/claim') {
     if (file().closed) throw new ApiError(403, { message: 'Your file is closed for today.' });
     if (r6 && body.answer.toLowerCase() === 'dog') {
-      events.push({ at: new Date().toISOString(), kind: 'strike' });
+      events.push({ at: new Date().toISOString(), kind: 'strike', display: 'DOG', house: true });
       throw new ApiError(409, {
         house: true,
         takenBy: 'THE REGISTRY',
@@ -168,7 +192,13 @@ export async function request(path: string, body?: any): Promise<any> {
       });
     const taken = claims.find((c) => c.display === entry);
     if (taken) {
-      events.push({ at: new Date().toISOString(), kind: 'strike' });
+      events.push({
+        at: new Date().toISOString(),
+        kind: 'strike',
+        display: entry,
+        holder: taken.handle,
+        heldAt: taken.created_at,
+      });
       throw new ApiError(409, {
         file: file(),
         me: await request('/me'),
@@ -196,7 +226,14 @@ export async function request(path: string, body?: any): Promise<any> {
     };
     claims = [mine, ...claims];
     myClaims.push(mine);
-    events.push({ at: mine.created_at, kind: 'dibs', golden: !!mine.golden });
+    events.push({
+      at: mine.created_at,
+      kind: 'dibs',
+      golden: !!mine.golden,
+      display: mine.display,
+      claimId: mine.id,
+      obscurity: mine.obscurity,
+    });
     return { claim: mine, me: await request('/me') };
   }
   if (path.startsWith('/summary/'))

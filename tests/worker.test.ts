@@ -86,6 +86,11 @@ beforeAll(async () => {
       .replace(/^--.*$/gm, '')
       .replace(/\n/g, ' '),
   );
+  await db.exec(
+    readFileSync('migrations/0008_guess_details.sql', 'utf8')
+      .replace(/^--.*$/gm, '')
+      .replace(/\n/g, ' '),
+  );
   const date = registryDate();
   await db
     .prepare(

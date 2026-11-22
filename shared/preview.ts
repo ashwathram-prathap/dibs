@@ -21,9 +21,9 @@ export function preview(kind: 'certificate' | 'summary'): PagesFunction<Env> {
         : `Dibs · Certificate No. ${data.claim.claim_no}`;
     const description =
       kind === 'summary'
-        ? `A day on file, ${data.category.date}. Three dibs. Five strikes. Play the daily registry.`
-        : `One more on file, ${data.claim.category_date}. Call your own Dibs in the daily registry.`;
-    const image = `${publicOrigin}/api/og/${kind === 'summary' ? 'summary/' : ''}${id}?v=4`;
+        ? `A day on file, ${data.category.date}. Three dibs. Five strikes. Next drop: 9 PM ET.`
+        : `One more on file, ${data.claim.category_date}. Call your own Dibs at 9 PM ET.`;
+    const image = `${publicOrigin}/api/og/${kind === 'summary' ? 'summary/' : ''}${id}?v=7`;
     const canonical = `${publicOrigin}/${kind}/${id}`;
     const tags: Record<string, string> = {
       'meta[name="description"]': description,
