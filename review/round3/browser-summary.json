@@ -1,0 +1,156 @@
+{
+  "stats": {
+    "startTime": "2026-11-22T00:24:01.356Z",
+    "duration": 164851.209,
+    "expected": 150,
+    "skipped": 0,
+    "unexpected": 30,
+    "flaky": 0
+  },
+  "projects": {
+    "iPhone-SE-light": {
+      "passed": 5,
+      "failed": 0
+    },
+    "iPhone-15-Pro-light": {
+      "passed": 5,
+      "failed": 0
+    },
+    "iPhone-15-Pro-Max-light": {
+      "passed": 5,
+      "failed": 0
+    },
+    "Pixel-7-light": {
+      "passed": 5,
+      "failed": 0
+    },
+    "Galaxy-S9+-light": {
+      "passed": 5,
+      "failed": 0
+    },
+    "iPad-Mini-light": {
+      "passed": 5,
+      "failed": 0
+    },
+    "iPad-Pro-11-landscape-light": {
+      "passed": 5,
+      "failed": 0
+    },
+    "chromium-1280-light": {
+      "passed": 5,
+      "failed": 0
+    },
+    "chromium-1440-light": {
+      "passed": 5,
+      "failed": 0
+    },
+    "chromium-2560-light": {
+      "passed": 5,
+      "failed": 0
+    },
+    "webkit-1280-light": {
+      "passed": 5,
+      "failed": 0
+    },
+    "webkit-1440-light": {
+      "passed": 5,
+      "failed": 0
+    },
+    "webkit-2560-light": {
+      "passed": 5,
+      "failed": 0
+    },
+    "firefox-1280-light": {
+      "passed": 0,
+      "failed": 5
+    },
+    "firefox-1440-light": {
+      "passed": 0,
+      "failed": 5
+    },
+    "firefox-2560-light": {
+      "passed": 0,
+      "failed": 5
+    },
+    "320-small-light": {
+      "passed": 5,
+      "failed": 0
+    },
+    "landscape-phone-light": {
+      "passed": 5,
+      "failed": 0
+    },
+    "iPhone-SE-dark": {
+      "passed": 5,
+      "failed": 0
+    },
+    "iPhone-15-Pro-dark": {
+      "passed": 5,
+      "failed": 0
+    },
+    "iPhone-15-Pro-Max-dark": {
+      "passed": 5,
+      "failed": 0
+    },
+    "Pixel-7-dark": {
+      "passed": 5,
+      "failed": 0
+    },
+    "Galaxy-S9+-dark": {
+      "passed": 5,
+      "failed": 0
+    },
+    "iPad-Mini-dark": {
+      "passed": 5,
+      "failed": 0
+    },
+    "iPad-Pro-11-landscape-dark": {
+      "passed": 5,
+      "failed": 0
+    },
+    "chromium-1280-dark": {
+      "passed": 5,
+      "failed": 0
+    },
+    "chromium-1440-dark": {
+      "passed": 5,
+      "failed": 0
+    },
+    "chromium-2560-dark": {
+      "passed": 5,
+      "failed": 0
+    },
+    "webkit-1280-dark": {
+      "passed": 5,
+      "failed": 0
+    },
+    "webkit-1440-dark": {
+      "passed": 5,
+      "failed": 0
+    },
+    "webkit-2560-dark": {
+      "passed": 5,
+      "failed": 0
+    },
+    "firefox-1280-dark": {
+      "passed": 0,
+      "failed": 5
+    },
+    "firefox-1440-dark": {
+      "passed": 0,
+      "failed": 5
+    },
+    "firefox-2560-dark": {
+      "passed": 0,
+      "failed": 5
+    },
+    "320-small-dark": {
+      "passed": 5,
+      "failed": 0
+    },
+    "landscape-phone-dark": {
+      "passed": 5,
+      "failed": 0
+    }
+  }
+}

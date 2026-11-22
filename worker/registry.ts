@@ -1,7 +1,7 @@
 import { DurableObject } from 'cloudflare:workers';
 import { route, current, fileState, publicClaim, json, safeError, type Env } from './routes';
 import { cookieUser, handle, hmac } from './identity';
-import { nextDrop, registryDate, streak } from './domain';
+import { nextDrop, registryDate, streak, normalize } from './domain';
 import { og } from './og';
 import { metered } from './metrics';
 
@@ -339,6 +339,10 @@ export class Registry extends DurableObject<Env> {
     if (path === '/bootstrap' || path === '/me') {
       const snapshot = await this.fresh(env);
       const { session, cookie } = await this.session(req, !!snapshot.category);
+      if (session && snapshot.category && (session.attempts.length || session.claim)) {
+        session.file = await fileState(env, snapshot.category.id, session.user.id);
+        session.claim = session.file.claims.at(-1) || null;
+      }
       const data =
         path === '/me'
           ? this.me(session)
@@ -373,6 +377,45 @@ export class Registry extends DurableObject<Env> {
     if (path === '/og' || path.startsWith('/og/')) return this.image(path.slice(4), env);
     if (path === '/answers') return json({ answers: [] }); // Suggestions are a versioned Pages asset.
     if (path.startsWith('/admin/')) {
+      if (
+        path === '/admin/upload-budget' ||
+        (path === '/admin/category' && env.LOCAL_TEST !== 'true')
+      ) {
+        if (
+          (await hmac(req.headers.get('authorization') || '', env.ADMIN_TOKEN)) !==
+          (await hmac('Bearer ' + env.ADMIN_TOKEN, env.ADMIN_TOKEN))
+        )
+          return json({ message: 'The clerk’s key is required.' }, 401);
+        const key = 'upload-budget:' + new Date().toISOString().slice(0, 10);
+        if (path === '/admin/upload-budget')
+          return json({
+            reservedWrites: (await this.ctx.storage.get<number>(key)) || 0,
+            limit: 45000,
+          });
+        const b = (await req.clone().json()) as any;
+        if (!Array.isArray(b.answers)) return json({ message: 'Answers are required.' }, 422);
+        const keys = b.answers.reduce(
+          (n: number, a: any) =>
+            n + new Set([normalize(a.display), ...(a.aliases || []).map(normalize)]).size,
+          0,
+        );
+        const exists = await env.DB.prepare('SELECT id FROM categories WHERE id=?')
+          .bind(b.id || b.slug)
+          .first();
+        const cost = (exists ? 2 : 1) * (4 * b.answers.length + 3 * keys) + 10;
+        const allowed = await this.ctx.storage.transaction(async (txn) => {
+          const reserved = (await txn.get<number>(key)) || 0;
+          if (reserved + cost > 45000) return false;
+          await txn.put(key, reserved + cost);
+          return true;
+        });
+        if (!allowed)
+          return json(
+            { message: 'Daily upload budget is reserved. Resume after midnight UTC.' },
+            429,
+          );
+      }
+
       const response = await route(req.clone() as Request, env);
       if (response.ok && req.method === 'POST') {
         await this.ctx.storage.put(
@@ -527,7 +570,7 @@ export class Registry extends DurableObject<Env> {
             if (this.snapshot && this.snapshot.category?.id === latest.file.category_id)
               this.snapshot.board = updated;
           }
-          await this.ctx.storage.put('session:' + latest.user.id, latest);
+          if (data.claim) await this.ctx.storage.put('session:' + latest.user.id, latest);
           Object.assign(session, latest);
         });
         return json({ ...data, file: session.file, me: this.me(session) }, response.status);

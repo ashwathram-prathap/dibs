@@ -604,7 +604,7 @@ function Home({
           ))}
         </section>
       )}
-      {!claim && me.user && (
+      {!claim && !file?.closed && me.user && (
         <section className="identity-section">
           <span className="eyebrow">YOUR HANDLE · FORM C-1</span>
           <div className="identity">

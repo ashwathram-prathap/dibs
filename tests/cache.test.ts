@@ -81,6 +81,7 @@ beforeAll(async () => {
     '0003_remove_schools.sql',
     '0004_privacy_cleanup_index.sql',
     '0005_three_dibs.sql',
+    '0006_file_event_order.sql',
   ])
     await db.exec(
       readFileSync('migrations/' + file, 'utf8')
@@ -145,6 +146,13 @@ it('keeps the claim race safe behind the coordinator', async () => {
     'race-winner',
   );
   expect(second.status).toBe(201);
+  const reloaded = (await (
+    await call('/bootstrap', undefined, accounts[winner].cookie)
+  ).json()) as any;
+  expect(reloaded.me.file.dibs).toBe(2);
+  const loser = accounts.find((_, i) => i !== winner)!;
+  const lost = (await (await call('/bootstrap', undefined, loser.cookie)).json()) as any;
+  expect(lost.me.file.strikes).toBe(1);
   expect((await db.prepare('SELECT COUNT(*) n FROM users').first()).n).toBeLessThanOrEqual(50);
   const png = await call('/og/' + data.claim.id);
   expect(png.headers.get('content-type')).toBe('image/png');

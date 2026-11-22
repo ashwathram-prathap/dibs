@@ -1,0 +1,24 @@
+name: Firefox regression check
+on: workflow_dispatch
+permissions:
+  contents: read
+jobs:
+  firefox:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: npm ci
+      - run: npx playwright install --with-deps firefox
+      - run: npm run test:e2e -- --project='firefox-*'
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: firefox-regression
+          path: |
+            review/devices/results.json
+            review/devices/firefox-*/
+          retention-days: 14

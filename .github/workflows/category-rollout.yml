@@ -1,0 +1,42 @@
+name: Approved category rollout
+on:
+  schedule:
+    - cron: '20 0 * * *'
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: approved-category-rollout
+  cancel-in-progress: false
+jobs:
+  upload:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - uses: actions/cache/restore@v4
+        with:
+          path: .upload-state.json
+          key: dibs-r3-uploads-${{ github.run_id }}
+          restore-keys: dibs-r3-uploads-
+      - run: npm ci --ignore-scripts
+      - run: npx tsx scripts/round3-categories.ts
+        env:
+          ADMIN_TOKEN: ${{ secrets.DIBS_ADMIN_TOKEN }}
+      - uses: actions/cache/save@v4
+        if: always()
+        with:
+          path: .upload-state.json
+          key: dibs-r3-uploads-${{ github.run_id }}
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: category-upload-state
+          include-hidden-files: true
+          path: |
+            .upload-state.json
+            review/round3/upload-progress.json
+          retention-days: 30

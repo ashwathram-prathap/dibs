@@ -1,3 +1,4 @@
+import { catalogContent } from '../shared/catalog-digest';
 /// <reference types="@cloudflare/workers-types" />
 import { PUBLIC_ORIGIN } from '../shared/config';
 import { handle, hmac, cookieUser } from './identity';
@@ -23,7 +24,7 @@ export interface Env {
   TURNSTILE_SITE_KEY: string;
   LOCAL_TEST?: string;
 }
-const claimSelect = `SELECT c.id,c.category_id,c.claim_no,c.created_at,a.display,a.obscurity,CASE WHEN u.hidden=1 THEN 'Record withheld' ELSE u.handle END handle,g.name category_name,g.date category_date,g.total_registrable FROM claims c JOIN answers a ON a.id=c.answer_id JOIN users u ON u.id=c.user_id JOIN categories g ON g.id=c.category_id`;
+const claimSelect = `SELECT c.id,c.category_id,c.claim_no,c.file_no,c.created_at,a.display,a.obscurity,CASE WHEN u.hidden=1 THEN 'Record withheld' ELSE u.handle END handle,g.name category_name,g.date category_date,g.total_registrable FROM claims c JOIN answers a ON a.id=c.answer_id JOIN users u ON u.id=c.user_id JOIN categories g ON g.id=c.category_id`;
 export async function fileState(env: Env, category: string, uid: string) {
   const claims = (
     await env.DB.prepare(
@@ -40,9 +41,9 @@ export async function fileState(env: Env, category: string, uid: string) {
       .all()
   ).results as any[];
   const events = [
-    ...claims.map((c) => ({ at: c.created_at, kind: 'dibs' })),
-    ...strikes.map((s) => ({ at: s.created_at, kind: 'strike' })),
-  ].sort((a, b) => a.at.localeCompare(b.at));
+    ...claims.map((c) => ({ at: c.created_at, kind: 'dibs', order: c.file_no })),
+    ...strikes.map((s) => ({ at: s.created_at, kind: 'strike', order: s.seq })),
+  ].sort((a, b) => a.order - b.order);
   const closed = claims.length >= 3 || strikes.length >= 5;
   return {
     category_id: category,
@@ -122,6 +123,37 @@ async function admin(req: Request, env: Env, path: string) {
     !(await constantEqual(req.headers.get('authorization') || '', 'Bearer ' + env.ADMIN_TOKEN))
   )
     return fail(401, 'The clerk’s key is required.');
+  if (path === '/admin/verify' && req.method === 'GET') {
+    const id = new URL(req.url).searchParams.get('id');
+    const rows = (
+      await env.DB.prepare('SELECT display,aliases_json,obscurity FROM answers WHERE category_id=?')
+        .bind(id)
+        .all<any>()
+    ).results;
+    const missing = (
+      await env.DB.prepare('SELECT match_key,answer_id FROM answer_keys WHERE category_id=?')
+        .bind(id)
+        .all<any>()
+    ).results;
+    const content = catalogContent(
+      rows.map((a) => ({ ...a, aliases: JSON.parse(a.aliases_json) })),
+    );
+    const digest = [
+      ...new Uint8Array(await crypto.subtle.digest('SHA-256', new TextEncoder().encode(content))),
+    ]
+      .map((n) => n.toString(16).padStart(2, '0'))
+      .join('');
+    return json({ id, entries: rows.length, keys: missing.length, digest });
+  }
+  if (path === '/admin/registers' && req.method === 'GET') {
+    return json({
+      categories: (
+        await env.DB.prepare(
+          `SELECT g.id,g.name,g.status,g.date,g.drop_at,g.total_registrable,g.source_json,(SELECT COUNT(*) FROM answers a WHERE a.category_id=g.id) answer_count,(SELECT COUNT(*) FROM answer_keys k WHERE k.category_id=g.id) key_count FROM categories g ORDER BY g.date,g.id`,
+        ).all()
+      ).results,
+    });
+  }
   if (path === '/admin/stats') {
     const days = await env.DB.prepare(
       `WITH days AS (SELECT substr(created_at,1,10) day FROM users UNION SELECT substr(created_at,1,10) day FROM claims UNION SELECT day FROM share_events) SELECT day,(SELECT COUNT(*) FROM users WHERE substr(created_at,1,10)=days.day) new_users,(SELECT COUNT(*) FROM claims WHERE substr(created_at,1,10)=days.day AND voided=0) claims,(SELECT COUNT(DISTINCT user_id) FROM claims WHERE substr(created_at,1,10)=days.day AND voided=0) active_claimers,(SELECT COUNT(*) FROM share_events WHERE day=days.day) shares FROM days ORDER BY day DESC LIMIT 90`,
@@ -540,9 +572,9 @@ async function claim(req: Request, env: Env, u: any) {
     if (!r) return null;
     try {
       await env.DB.prepare(
-        'INSERT INTO strikes SELECT ?,?,COALESCE(MAX(seq),0)+1,? FROM strikes WHERE category_id=? AND user_id=?',
+        'INSERT INTO strikes SELECT ?,?,(SELECT COUNT(*) FROM claims WHERE category_id=? AND user_id=?)+COUNT(*)+1,? FROM strikes WHERE category_id=? AND user_id=?',
       )
-        .bind(g.id, u.id, new Date().toISOString(), g.id, u.id)
+        .bind(g.id, u.id, g.id, u.id, new Date().toISOString(), g.id, u.id)
         .run();
     } catch (e) {
       if (String(e).includes('FILE_CLOSED')) return fail(403, 'Your file is closed for today.');
@@ -570,9 +602,22 @@ async function claim(req: Request, env: Env, u: any) {
   const id = crypto.randomUUID();
   try {
     await env.DB.prepare(
-      'INSERT INTO claims(id,category_id,answer_id,user_id,claim_no,created_at,ip_hash,ip_day) SELECT ?,?,?,?,COALESCE(MAX(claim_no),0)+1,?,?,? FROM claims WHERE category_id=?',
+      'INSERT INTO claims(id,category_id,answer_id,user_id,claim_no,created_at,ip_hash,ip_day,file_no) SELECT ?,?,?,?,COALESCE(MAX(claim_no),0)+1,?,?,?,(SELECT COUNT(*) FROM claims WHERE category_id=? AND user_id=?)+(SELECT COUNT(*) FROM strikes WHERE category_id=? AND user_id=?)+1 FROM claims WHERE category_id=?',
     )
-      .bind(id, g.id, answer.answer_id, u.id, new Date().toISOString(), hash, day, g.id)
+      .bind(
+        id,
+        g.id,
+        answer.answer_id,
+        u.id,
+        new Date().toISOString(),
+        hash,
+        day,
+        g.id,
+        u.id,
+        g.id,
+        u.id,
+        g.id,
+      )
       .run();
   } catch (e) {
     if (String(e).includes('FILE_CLOSED')) return fail(403, 'Your file is closed for today.');

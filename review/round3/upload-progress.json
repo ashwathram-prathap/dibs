@@ -1,0 +1,75 @@
+{
+  "asOf": "2026-11-22T00:27:14.492Z",
+  "reservedWrites": 30860,
+  "categories": {
+    "animals": {
+      "status": "approved",
+      "plannedDate": "2026-11-24",
+      "verifiedAt": "2026-11-22T00:27:08.040Z",
+      "digest": "f954834efd5e81cfa7c9173cb23d0d81ca99605cf0d6dfd04f6c5c21027cee38",
+      "date": "2026-11-24"
+    },
+    "plants": {
+      "status": "approved",
+      "plannedDate": "2026-11-25",
+      "verifiedAt": "2026-11-22T00:27:08.820Z",
+      "digest": "24ad4b7f84299e19108e89ce82ef11b2502288d8736f924f8d2f8255b75a96b5",
+      "date": "2026-11-25"
+    },
+    "birds": {
+      "status": "approved",
+      "plannedDate": "2026-11-26",
+      "verifiedAt": "2026-11-22T00:27:09.673Z",
+      "digest": "8b2bb6673ae61c947882d6ee95584b5ceffeea867db3757b25f8517016c3bc67",
+      "date": "2026-11-26"
+    },
+    "cities": {
+      "status": "approved",
+      "plannedDate": "2026-11-27",
+      "reservedAt": "2026-11-22T00:27:10.068Z",
+      "verifiedAt": "2026-11-22T00:27:11.649Z",
+      "digest": "4ba912b388be19bc7050b54643d5b60e9b3f435bc09fdeffe028801a4d1df530",
+      "date": "2026-11-27"
+    },
+    "actors": {
+      "status": "approved",
+      "plannedDate": "2026-11-28",
+      "reservedAt": "2026-11-22T00:27:12.233Z",
+      "verifiedAt": "2026-11-22T00:27:13.878Z",
+      "digest": "f66e92ab6f3626ef56af35ed335b2e58b13f90eef81e1a7bba1058475a034fba",
+      "date": "2026-11-28"
+    },
+    "ships": {
+      "status": "pending",
+      "plannedDate": "2026-11-29"
+    }
+  },
+  "decisions": [],
+  "remaining": [
+    "ships",
+    "arthropods",
+    "islands",
+    "composers",
+    "novels",
+    "mountains",
+    "painters",
+    "albums",
+    "rivers",
+    "footballers",
+    "paintings",
+    "castles",
+    "poets",
+    "video-games",
+    "lakes",
+    "architects",
+    "films",
+    "airports",
+    "bands",
+    "asteroids",
+    "museums",
+    "songs",
+    "universities",
+    "television",
+    "stations"
+  ]
+}

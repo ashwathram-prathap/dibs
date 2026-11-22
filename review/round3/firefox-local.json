@@ -1,0 +1,10 @@
+[
+  {
+    "name": "project-temp",
+    "error": "Error: browserType.launch: Failed to launch the browser process.\nBrowser logs:\n\n<launching> /Users/ashwathram/Library/Caches/ms-playwright/firefox-1572/firefox/Nightly.app/Contents/MacOS/firefox -no-remote -headless -profile /Users/ashwathram/Projects/dibs/.tmp/firefox-temp/playwright_firefoxdev_profile-EDHh6W -juggler-pipe -silent\n<launched> pid=88816\n[pid=88816][err] *** You are running in headless mode.\n[pid=88816][err] Could not find profile folder.\n[pid=88816] <process did exit: exitCode=1, signal=null>\n[pid=88816] starting temporary directories cleanup\n"
+  },
+  {
+    "name": "explicit-project-profile",
+    "error": "TimeoutError: browserType.launchPersistentContext: Timeout 15000ms exceeded.\n"
+  }
+]
