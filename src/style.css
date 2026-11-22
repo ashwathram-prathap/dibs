@@ -3472,7 +3472,7 @@ html[data-theme='dark'] .category-plate {
 }
 .auto-label {
   color: var(--muted);
-  font-size: 13px;
+  font-size: 14px;
 }
 .calendar-editor {
   margin: 24px 0;
@@ -3787,6 +3787,18 @@ html[data-theme='dark'] :is(.claim-paper, .day-certificate, .certificate) {
     display: block;
   }
   .closed-brand {
+    display: block;
+    text-align: left;
+    margin-top: 32px;
+  }
+  .closed-brand .dibs-stamp {
+    padding: 12px;
+    margin: 0 0 16px 6px;
+  }
+  .closed-brand .dibs-stamp strong {
+    font-size: 56px;
+  }
+  .closed-brand > p {
     display: none;
   }
   .day-companions {
@@ -4312,4 +4324,6 @@ html[data-theme='dark'] .gold-result .win-stamp {
     font-size: 18px;
   }
 }
-html.low-power .win-stamp { filter: none; }
+html.low-power .win-stamp {
+  filter: none;
+}

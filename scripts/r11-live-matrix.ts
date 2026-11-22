@@ -37,7 +37,9 @@ for (const [name, type] of [
       for (const theme of ['light', 'dark'] as const) {
         const row: any = { browser: name, width, theme, checks: [] };
         evidence.push(row);
+        let debugPage: any;
         try {
+          console.log('Starting', name, width, theme);
           await reset();
           const c = await b.newContext({
               viewport: { width, height: width === 390 ? 844 : 900 },
@@ -45,18 +47,14 @@ for (const [name, type] of [
               timezoneId: 'America/Vancouver',
             }),
             p = await c.newPage();
-          await p.addInitScript(() => {
-            (window as any).__shares = [];
-            Object.defineProperty(navigator, 'share', {
-              value: async (data: any) => {
-                (window as any).__shares.push({
-                  text: data.text,
-                  files: data.files?.map((f: File) => ({ type: f.type, size: f.size })),
-                });
-              },
-            });
-            Object.defineProperty(navigator, 'canShare', { value: () => true });
-          });
+          debugPage = p;
+          await p.addInitScript(`
+            window.__shares = [];
+            Object.defineProperty(navigator, 'share', { configurable: true, value: async function(data) {
+              window.__shares.push({text:data.text, files:data.files?.map(f=>({type:f.type,size:f.size}))});
+            }});
+            Object.defineProperty(navigator, 'canShare', { configurable: true, value: ()=>true });
+          `);
           const verified = p.waitForResponse(
             (r) => r.url().endsWith('/api/verify-session') && r.ok(),
             { timeout: 60000 },
@@ -72,7 +70,15 @@ for (const [name, type] of [
             });
             await p.getByRole('button', { name: 'CALL DIBS', exact: true }).click();
             const response = await wait;
-            return { status: response.status(), data: await response.json() };
+            const data = await response.json();
+            console.log(
+              'claim',
+              answer.slice(0, 20),
+              response.status(),
+              data.file?.dibs,
+              data.file?.strikes,
+            );
+            return { status: response.status(), data };
           };
           for (const answer of [
             'dibs',
@@ -120,7 +126,9 @@ for (const [name, type] of [
             'Mixed case, plurals, RESERVED strike, three wins, certificate, ledger reveal',
           );
           await p.getByRole('button', { name: 'SHARE', exact: true }).click();
-          assert.equal(await p.evaluate(() => (window as any).__shares.length), 1);
+          await expect
+            .poll(() => p.evaluate(() => (window as any).__shares.length), { timeout: 30000 })
+            .toBe(1);
           row.checks.push('Native file-share payload (intercepted; nothing posted)');
           await p.getByText('More ways to share', { exact: true }).click();
           for (const platform of ['X', 'WhatsApp', 'Facebook']) {
@@ -173,6 +181,16 @@ for (const [name, type] of [
         } catch (e) {
           row.passed = false;
           row.error = String(e);
+          if (debugPage && !debugPage.isClosed()) {
+            row.screen = (await debugPage.locator('main').innerText())
+              .replace(/DIBS-[A-Z0-9-]+/g, '[recovery key redacted]')
+              .slice(0, 2000);
+            await debugPage.screenshot({
+              path: `review/round11/practice/${name}-${width}-${theme}-failure.png`,
+              fullPage: true,
+            });
+          }
+          console.log(row.error, row.screen);
         }
         writeFileSync('review/round11/practice-matrix.json', JSON.stringify(evidence, null, 2));
       }

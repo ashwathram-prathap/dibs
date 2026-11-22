@@ -806,7 +806,7 @@ function Home({
                   DIBS<span>{claim.display.toUpperCase()}</span>
                 </strong>
                 <p>
-                  {file?.dibs || 1} of 3 dibs{claim.golden && ' · Golden ticket'}
+                  {file?.dibs || 1} of 3 dibs{!!claim.golden && ' · Golden ticket'}
                 </p>
                 <p className="clerk-aside">
                   {clerkLine(claim.golden ? 'gold' : 'win', claim.claim_no)}
@@ -1392,7 +1392,7 @@ function Ledger({
               <td>{serial(r.claim_no)}</td>
               <td>
                 <Link to={'/certificate/' + r.id}>
-                  {r.golden && <Icon name="star" />}
+                  {!!r.golden && <Icon name="star" />}
                   {r.display}
                 </Link>
               </td>

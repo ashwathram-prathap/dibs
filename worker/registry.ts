@@ -533,6 +533,7 @@ export class Registry extends DurableObject<Env> {
     };
   }
   async monitor() {
+    const deliveries: { type: string; status: number }[] = [];
     const stats = await this.liveStats();
     const alerts = alertConditions(stats.minutes, stats.usage);
     const now = Date.now(),
@@ -575,6 +576,15 @@ export class Registry extends DurableObject<Env> {
         body: (this.env.STAGING === 'true' ? 'Practice rehearsal — ' : '') + alert.message,
         headers: { Title: 'Dibs office', Priority: 'high' },
       });
+      deliveries.push({ type: alert.type, status: response.status });
+      await this.ctx.storage.put('last-notification', {
+        at: new Date().toISOString(),
+        type: alert.type,
+        status: response.status,
+        retryAfter: response.headers.get('retry-after'),
+        rateLimit: response.headers.get('ratelimit'),
+        error: response.ok ? null : ((await response.json().catch(() => ({}))) as any).error,
+      });
       if (response.ok) {
         await this.ctx.storage.put(key, Date.now());
         if (threshold) await this.ctx.storage.put('threshold-sent:' + alert.type, true);
@@ -587,7 +597,11 @@ export class Registry extends DurableObject<Env> {
       await this.ctx.storage.delete(key);
     for (const [key, at] of await this.ctx.storage.list<number>({ prefix: 'active:' }))
       if (at < Date.now() - 300000) await this.ctx.storage.delete(key);
-    return json({ ok: true });
+    return json({
+      ok: true,
+      deliveries,
+      lastNotification: await this.ctx.storage.get('last-notification'),
+    });
   }
   async fetch(req: Request): Promise<Response> {
     const started = Date.now();
