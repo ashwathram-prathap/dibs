@@ -1,8 +1,9 @@
 {
   "unit": {
-    "passed": 72,
+    "passed": 77,
     "failed": 0,
-    "note": "Three additional real Cloudflare HTML-rewriter SEO tests passed separately."
+    "files": 17,
+    "note": "Full suite, including real Cloudflare HTML-rewriter SEO tests, refreshed Nov 22 00:00 ET."
   },
   "browser": {
     "localMatrixPassed": 469,
@@ -21,7 +22,8 @@
     "states": 168,
     "axeViolations": 0,
     "horizontalOverflow": 0,
-    "emojiGlyphViolations": 0
+    "emojiGlyphViolations": 0,
+    "refreshedAt": "2026-11-22T05:04:00Z"
   },
   "emojiSourceCheck": "passed",
   "practiceLive": "all read-only checks passed; actual Turnstile claim automation blocked in three browser configurations"

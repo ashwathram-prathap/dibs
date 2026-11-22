@@ -22,14 +22,14 @@
         - columnheader "HOLDER"
         - columnheader "TIME"
     - rowgroup:
-      - 'row "0001 Pangolin Rust Finch #12 11:11 PM ET"':
+      - 'row "0001 Pangolin Rust Finch #12 12:18 AM ET"':
         - cell "0001"
         - cell "Pangolin":
           - link "Pangolin":
             - /url: /certificate/fixture-1
         - 'cell "Rust Finch #12"'
-        - cell "11:11 PM ET":
-          - time: 11:11 PM
+        - cell "12:18 AM ET":
+          - time: 12:18 AM
       - row "No. 0002 — open":
         - cell "No. 0002 — open"
       - row "No. 0003 — open":

@@ -1,0 +1,316 @@
+[
+  {
+    "title": "Trachylepidia",
+    "attempts": [
+      {
+        "url": "https://en.wikipedia.org/w/api.php?action=query&format=json&prop=pageviews%7Cinfo&pvipdays=30&titles=Trachylepidia&redirects=1",
+        "status": 200,
+        "data": {
+          "batchcomplete": "",
+          "query": {
+            "pages": {
+              "57548304": {
+                "pageid": 57548304,
+                "ns": 0,
+                "title": "Trachylepidia",
+                "pageviews": {
+                  "2026-10-23": null,
+                  "2026-10-24": null,
+                  "2026-10-25": null,
+                  "2026-10-26": null,
+                  "2026-10-27": null,
+                  "2026-10-28": null,
+                  "2026-10-29": null,
+                  "2026-10-30": null,
+                  "2026-10-31": null,
+                  "2026-11-01": null,
+                  "2026-11-02": null,
+                  "2026-11-03": null,
+                  "2026-11-04": null,
+                  "2026-11-05": null,
+                  "2026-11-06": null,
+                  "2026-11-07": null,
+                  "2026-11-08": null,
+                  "2026-11-09": null,
+                  "2026-11-10": null,
+                  "2026-11-11": null,
+                  "2026-11-12": null,
+                  "2026-11-13": null,
+                  "2026-11-14": null,
+                  "2026-11-15": null,
+                  "2026-11-16": null,
+                  "2026-11-17": null,
+                  "2026-11-18": null,
+                  "2026-11-19": null,
+                  "2026-11-20": null,
+                  "2026-11-21": null
+                },
+                "contentmodel": "wikitext",
+                "pagelanguage": "en",
+                "pagelanguagehtmlcode": "en",
+                "pagelanguagedir": "ltr",
+                "touched": "2026-11-21T18:25:07Z",
+                "lastrevid": 1386958295,
+                "length": 3406
+              }
+            }
+          }
+        }
+      },
+      {
+        "url": "https://en.wikipedia.org/w/api.php?action=query&format=json&prop=pageviews%7Cinfo&pvipdays=60&titles=Trachylepidia&redirects=1",
+        "status": 200,
+        "data": {
+          "batchcomplete": "",
+          "query": {
+            "pages": {
+              "57548304": {
+                "pageid": 57548304,
+                "ns": 0,
+                "title": "Trachylepidia",
+                "pageviews": {
+                  "2026-09-23": null,
+                  "2026-09-24": null,
+                  "2026-09-25": null,
+                  "2026-09-26": null,
+                  "2026-09-27": null,
+                  "2026-09-28": null,
+                  "2026-09-29": null,
+                  "2026-09-30": null,
+                  "2026-10-01": null,
+                  "2026-10-02": null,
+                  "2026-10-03": null,
+                  "2026-10-04": null,
+                  "2026-10-05": null,
+                  "2026-10-06": null,
+                  "2026-10-07": null,
+                  "2026-10-08": null,
+                  "2026-10-09": null,
+                  "2026-10-10": null,
+                  "2026-10-11": null,
+                  "2026-10-12": null,
+                  "2026-10-13": null,
+                  "2026-10-14": null,
+                  "2026-10-15": null,
+                  "2026-10-16": null,
+                  "2026-10-17": null,
+                  "2026-10-18": null,
+                  "2026-10-19": null,
+                  "2026-10-20": null,
+                  "2026-10-21": null,
+                  "2026-10-22": null,
+                  "2026-10-23": null,
+                  "2026-10-24": null,
+                  "2026-10-25": null,
+                  "2026-10-26": null,
+                  "2026-10-27": null,
+                  "2026-10-28": null,
+                  "2026-10-29": null,
+                  "2026-10-30": null,
+                  "2026-10-31": null,
+                  "2026-11-01": null,
+                  "2026-11-02": null,
+                  "2026-11-03": null,
+                  "2026-11-04": null,
+                  "2026-11-05": null,
+                  "2026-11-06": null,
+                  "2026-11-07": null,
+                  "2026-11-08": null,
+                  "2026-11-09": null,
+                  "2026-11-10": null,
+                  "2026-11-11": null,
+                  "2026-11-12": null,
+                  "2026-11-13": null,
+                  "2026-11-14": null,
+                  "2026-11-15": null,
+                  "2026-11-16": null,
+                  "2026-11-17": null,
+                  "2026-11-18": null,
+                  "2026-11-19": null,
+                  "2026-11-20": null,
+                  "2026-11-21": null
+                },
+                "contentmodel": "wikitext",
+                "pagelanguage": "en",
+                "pagelanguagehtmlcode": "en",
+                "pagelanguagedir": "ltr",
+                "touched": "2026-11-21T18:25:07Z",
+                "lastrevid": 1386958295,
+                "length": 3406
+              }
+            }
+          }
+        }
+      },
+      {
+        "url": "https://wikimedia.org/api/rest_v1/metrics/pageviews/per-article/en.wikipedia.org/all-access/user/Trachylepidia/daily/2026102300/2026112000",
+        "status": 404,
+        "data": {
+          "detail": "The date(s) you used are valid, but we either do not have data for those date(s), or the project you asked for is not loaded yet. Please check documentation for more information",
+          "method": "get",
+          "status": 404,
+          "title": "Not Found",
+          "type": "about:blank",
+          "uri": "/metrics/pageviews/per-article/en.wikipedia.org/all-access/user/Trachylepidia/daily/2026102300/2026112000"
+        }
+      }
+    ]
+  },
+  {
+    "title": "Barleeia unifasciata",
+    "attempts": [
+      {
+        "url": "https://en.wikipedia.org/w/api.php?action=query&format=json&prop=pageviews%7Cinfo&pvipdays=30&titles=Barleeia+unifasciata&redirects=1",
+        "status": 200,
+        "data": {
+          "batchcomplete": "",
+          "query": {
+            "pages": {
+              "84863043": {
+                "pageid": 84863043,
+                "ns": 0,
+                "title": "Barleeia unifasciata",
+                "pageviews": {
+                  "2026-10-23": null,
+                  "2026-10-24": null,
+                  "2026-10-25": null,
+                  "2026-10-26": null,
+                  "2026-10-27": null,
+                  "2026-10-28": null,
+                  "2026-10-29": null,
+                  "2026-10-30": null,
+                  "2026-10-31": null,
+                  "2026-11-01": null,
+                  "2026-11-02": null,
+                  "2026-11-03": null,
+                  "2026-11-04": null,
+                  "2026-11-05": null,
+                  "2026-11-06": null,
+                  "2026-11-07": null,
+                  "2026-11-08": null,
+                  "2026-11-09": null,
+                  "2026-11-10": null,
+                  "2026-11-11": null,
+                  "2026-11-12": null,
+                  "2026-11-13": null,
+                  "2026-11-14": null,
+                  "2026-11-15": null,
+                  "2026-11-16": null,
+                  "2026-11-17": null,
+                  "2026-11-18": null,
+                  "2026-11-19": null,
+                  "2026-11-20": null,
+                  "2026-11-21": null
+                },
+                "contentmodel": "wikitext",
+                "pagelanguage": "en",
+                "pagelanguagehtmlcode": "en",
+                "pagelanguagedir": "ltr",
+                "touched": "2026-11-21T19:38:56Z",
+                "lastrevid": 1386969484,
+                "length": 8837
+              }
+            }
+          }
+        }
+      },
+      {
+        "url": "https://en.wikipedia.org/w/api.php?action=query&format=json&prop=pageviews%7Cinfo&pvipdays=60&titles=Barleeia+unifasciata&redirects=1",
+        "status": 200,
+        "data": {
+          "batchcomplete": "",
+          "query": {
+            "pages": {
+              "84863043": {
+                "pageid": 84863043,
+                "ns": 0,
+                "title": "Barleeia unifasciata",
+                "pageviews": {
+                  "2026-09-23": null,
+                  "2026-09-24": null,
+                  "2026-09-25": null,
+                  "2026-09-26": null,
+                  "2026-09-27": null,
+                  "2026-09-28": null,
+                  "2026-09-29": null,
+                  "2026-09-30": null,
+                  "2026-10-01": null,
+                  "2026-10-02": null,
+                  "2026-10-03": null,
+                  "2026-10-04": null,
+                  "2026-10-05": null,
+                  "2026-10-06": null,
+                  "2026-10-07": null,
+                  "2026-10-08": null,
+                  "2026-10-09": null,
+                  "2026-10-10": null,
+                  "2026-10-11": null,
+                  "2026-10-12": null,
+                  "2026-10-13": null,
+                  "2026-10-14": null,
+                  "2026-10-15": null,
+                  "2026-10-16": null,
+                  "2026-10-17": null,
+                  "2026-10-18": null,
+                  "2026-10-19": null,
+                  "2026-10-20": null,
+                  "2026-10-21": null,
+                  "2026-10-22": null,
+                  "2026-10-23": null,
+                  "2026-10-24": null,
+                  "2026-10-25": null,
+                  "2026-10-26": null,
+                  "2026-10-27": null,
+                  "2026-10-28": null,
+                  "2026-10-29": null,
+                  "2026-10-30": null,
+                  "2026-10-31": null,
+                  "2026-11-01": null,
+                  "2026-11-02": null,
+                  "2026-11-03": null,
+                  "2026-11-04": null,
+                  "2026-11-05": null,
+                  "2026-11-06": null,
+                  "2026-11-07": null,
+                  "2026-11-08": null,
+                  "2026-11-09": null,
+                  "2026-11-10": null,
+                  "2026-11-11": null,
+                  "2026-11-12": null,
+                  "2026-11-13": null,
+                  "2026-11-14": null,
+                  "2026-11-15": null,
+                  "2026-11-16": null,
+                  "2026-11-17": null,
+                  "2026-11-18": null,
+                  "2026-11-19": null,
+                  "2026-11-20": null,
+                  "2026-11-21": null
+                },
+                "contentmodel": "wikitext",
+                "pagelanguage": "en",
+                "pagelanguagehtmlcode": "en",
+                "pagelanguagedir": "ltr",
+                "touched": "2026-11-21T19:38:56Z",
+                "lastrevid": 1386969484,
+                "length": 8837
+              }
+            }
+          }
+        }
+      },
+      {
+        "url": "https://wikimedia.org/api/rest_v1/metrics/pageviews/per-article/en.wikipedia.org/all-access/user/Barleeia%20unifasciata/daily/2026102300/2026112000",
+        "status": 404,
+        "data": {
+          "detail": "The date(s) you used are valid, but we either do not have data for those date(s), or the project you asked for is not loaded yet. Please check documentation for more information",
+          "method": "get",
+          "status": 404,
+          "title": "Not Found",
+          "type": "about:blank",
+          "uri": "/metrics/pageviews/per-article/en.wikipedia.org/all-access/user/Barleeia%20unifasciata/daily/2026102300/2026112000"
+        }
+      }
+    ]
+  }
+]

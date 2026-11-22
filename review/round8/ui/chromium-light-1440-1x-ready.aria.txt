@@ -1,5 +1,5 @@
 - main:
-  - region "Round countdown": Round closes in Round closes at 11:11 AM ET. 721 minutes remaining.
+  - region "Round countdown": Round closes in Round closes at 12:00 PM ET. 721 minutes remaining.
   - text: "Today's category:"
   - heading "Animals" [level=1]
   - paragraph: Name an animal nobody has claimed yet. First to call it owns it today.
@@ -37,14 +37,14 @@
         - columnheader "HOLDER"
         - columnheader "TIME"
     - rowgroup:
-      - 'row "0001 Pangolin Rust Finch #12 11:11 PM ET"':
+      - 'row "0001 Pangolin Rust Finch #12 12:00 AM ET"':
         - cell "0001"
         - cell "Pangolin":
           - link "Pangolin":
             - /url: /certificate/fixture-1
         - 'cell "Rust Finch #12"'
-        - cell "11:11 PM ET":
-          - time: 11:11 PM
+        - cell "12:00 AM ET":
+          - time: 12:00 AM
       - row "No. 0002 — open":
         - cell "No. 0002 — open"
       - row "No. 0003 — open":

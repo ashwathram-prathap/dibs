@@ -4,10 +4,56 @@
   - paragraph: A record of who called what. No revisions to history.
   - complementary:
     - text: SELECT A REGISTER
-    - paragraph: Volume I is waiting for its first page.
-  - region "Specimen example, not a real record":
-    - text: SPECIMEN — how a filed day looks
-    - heading "A day of first claims." [level=2]
-    - paragraph: This sample shows the layout. These are examples, not player records.
-    - text: EXAMPLE ENTRY / AXOLOTL HELD BY / Example holder DATE / A completed day
-    - paragraph: The first real page arrives after a claimed day closes.
+    - combobox "Archive date":
+      - option "2026-11-22 / Animals" [selected]
+  - text: REG. 2026-11-22
+  - heading "Animals" [level=2]
+  - text: 02 / PUBLIC RECORD
+  - heading "First filings" [level=2]
+  - text: SEARCH THESE FILINGS
+  - searchbox "Search the ledger"
+  - status: "Golden tickets: 0 of 3 found today"
+  - table "Claims in Animals":
+    - caption: Claims in Animals
+    - rowgroup:
+      - row "No. ENTRY HOLDER":
+        - columnheader "No."
+        - columnheader "ENTRY"
+        - columnheader "HOLDER"
+    - rowgroup:
+      - 'row "0001 Pangolin Rust Finch #12 12:18 AM ET"':
+        - cell "0001"
+        - cell "Pangolin":
+          - link "Pangolin":
+            - /url: /certificate/fixture-1
+        - 'cell "Rust Finch #12 12:18 AM ET"':
+          - text: "Rust Finch #12"
+          - time: 12:18 AM
+      - row "No. 0002 — open":
+        - cell "No. 0002 — open"
+      - row "No. 0003 — open":
+        - cell "No. 0003 — open"
+      - row "No. 0004 — open":
+        - cell "No. 0004 — open"
+  - text: END OF ENTRIES / 1 ON FILE LIVE / 15s, THEN 60s · PAUSED IN BACKGROUND THE REGISTRY · HOUSE
+  - heading "Reserved by the house." [level=2]
+  - paragraph: These entries never counted as player claims.
+  - list:
+    - listitem: DOG
+    - listitem: CAT
+    - listitem: LION
+    - listitem: TIGER
+    - listitem: ELEPHANT
+    - listitem: HORSE
+    - listitem: WOLF
+    - listitem: BEAR
+    - listitem: RABBIT
+    - listitem: FOX
+  - heading "Golden tickets." [level=2]
+  - paragraph: "Golden tickets: 0 of 3 found"
+  - paragraph: Verified
+  - list:
+    - listitem: Axolotl
+    - listitem: Okapi
+    - listitem: Quokka
+  - group: Verify the commitment

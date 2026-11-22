@@ -12,7 +12,10 @@ export function commonNamePlurals(name: string) {
   return [
     ...new Set([
       pluralize(name),
-      ...(alternatives[match[2].toLowerCase()] || []).map((word) => match[1] + word),
+      ...(Object.hasOwn(alternatives, match[2].toLowerCase())
+        ? alternatives[match[2].toLowerCase()]
+        : []
+      ).map((word) => match[1] + word),
     ]),
   ];
 }

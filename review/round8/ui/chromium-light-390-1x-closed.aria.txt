@@ -1,8 +1,8 @@
 - main:
   - region "Next drop countdown":
     - text: NEXT DROP
-    - paragraph: "Next drop: 11:10 AM ET"
-    - text: Next drop at 11:10 AM ET. 721 minutes remaining.
+    - paragraph: "Next drop: 11:59 AM ET"
+    - text: Next drop at 11:59 AM ET. 721 minutes remaining.
   - text: "Today's category:"
   - heading "Animals" [level=1]
   - paragraph: Name an animal nobody has claimed yet. First to call it owns it today.
@@ -28,7 +28,7 @@
     - heading "File closed." [level=2]
     - paragraph:
       - text: 3/3 dibs · 2 strikes · filed
-      - time: 11:11 PM
+      - time: 12:00 AM
     - strong: DIBS 3 / 3
     - img "2 of 5 strikes"
     - text: 2 of 5 strikes used
@@ -37,7 +37,7 @@
       - listitem: 01 DOG Held by the Registry
       - listitem:
         - text: "02 Pangolin Taken by Rust Finch #12 at"
-        - time: 11:10 PM
+        - time: 11:59 PM
       - listitem:
         - text: "03"
         - link "Axolotl":
@@ -58,9 +58,9 @@
     - text: 1 day streak + ALL CLAIMS ENTIRELY CEREMONIAL. dibs.here +
   - button "SHARE"
   - link "X":
-    - /url: https://twitter.com/intent/tweet?text=Dibs+%231+%E2%96%A1%E2%96%A1%E2%96%A0%E2%96%A0%E2%96%A0+3%2F3+dibs+%C2%B7+2+strikes+%C2%B7+filed+11%3A11+PM+ET+%C2%B7+Next+drop%3A+9+PM+ET&url=https%3A%2F%2Fdibs.here%2Fsummary%2Ffixture-summary%3Fs%3Dx
+    - /url: https://twitter.com/intent/tweet?text=Dibs+%231+%E2%96%A1%E2%96%A1%E2%96%A0%E2%96%A0%E2%96%A0+3%2F3+dibs+%C2%B7+2+strikes+%C2%B7+filed+12%3A00+AM+ET+%C2%B7+Next+drop%3A+9+PM+ET&url=https%3A%2F%2Fdibs.here%2Fsummary%2Ffixture-summary%3Fs%3Dx
   - link "WhatsApp":
-    - /url: https://wa.me/?text=Dibs+%231+%E2%96%A1%E2%96%A1%E2%96%A0%E2%96%A0%E2%96%A0+3%2F3+dibs+%C2%B7+2+strikes+%C2%B7+filed+11%3A11+PM+ET+%C2%B7+Next+drop%3A+9+PM+ET+https%3A%2F%2Fdibs.here%2Fsummary%2Ffixture-summary%3Fs%3Dwhatsapp
+    - /url: https://wa.me/?text=Dibs+%231+%E2%96%A1%E2%96%A1%E2%96%A0%E2%96%A0%E2%96%A0+3%2F3+dibs+%C2%B7+2+strikes+%C2%B7+filed+12%3A00+AM+ET+%C2%B7+Next+drop%3A+9+PM+ET+https%3A%2F%2Fdibs.here%2Fsummary%2Ffixture-summary%3Fs%3Dwhatsapp
   - link "Facebook":
     - /url: https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdibs.here%2Fsummary%2Ffixture-summary%3Fs%3Dfacebook
   - button "Instagram / TikTok story"
@@ -83,38 +83,38 @@
         - columnheader "ENTRY"
         - columnheader "HOLDER"
     - rowgroup:
-      - 'row "0004 Quokka Teal Otter #41 11:11 PM ET"':
+      - 'row "0004 Quokka Teal Otter #41 12:00 AM ET"':
         - cell "0004"
         - cell "Quokka":
           - link "Quokka":
             - /url: /certificate/fixture-4
-        - 'cell "Teal Otter #41 11:11 PM ET"':
+        - 'cell "Teal Otter #41 12:00 AM ET"':
           - text: "Teal Otter #41"
-          - time: 11:11 PM
-      - 'row "0003 Okapi Teal Otter #41 11:11 PM ET"':
+          - time: 12:00 AM
+      - 'row "0003 Okapi Teal Otter #41 12:00 AM ET"':
         - cell "0003"
         - cell "Okapi":
           - link "Okapi":
             - /url: /certificate/fixture-3
-        - 'cell "Teal Otter #41 11:11 PM ET"':
+        - 'cell "Teal Otter #41 12:00 AM ET"':
           - text: "Teal Otter #41"
-          - time: 11:11 PM
-      - 'row "0002 Axolotl Teal Otter #41 11:10 PM ET"':
+          - time: 12:00 AM
+      - 'row "0002 Axolotl Teal Otter #41 12:00 AM ET"':
         - cell "0002"
         - cell "Axolotl":
           - link "Axolotl":
             - /url: /certificate/fixture-2
-        - 'cell "Teal Otter #41 11:10 PM ET"':
+        - 'cell "Teal Otter #41 12:00 AM ET"':
           - text: "Teal Otter #41"
-          - time: 11:10 PM
-      - 'row "0001 Pangolin Rust Finch #12 11:10 PM ET"':
+          - time: 12:00 AM
+      - 'row "0001 Pangolin Rust Finch #12 11:59 PM ET"':
         - cell "0001"
         - cell "Pangolin":
           - link "Pangolin":
             - /url: /certificate/fixture-1
-        - 'cell "Rust Finch #12 11:10 PM ET"':
+        - 'cell "Rust Finch #12 11:59 PM ET"':
           - text: "Rust Finch #12"
-          - time: 11:10 PM
+          - time: 11:59 PM
       - row "No. 0005 — open":
         - cell "No. 0005 — open"
       - row "No. 0006 — open":

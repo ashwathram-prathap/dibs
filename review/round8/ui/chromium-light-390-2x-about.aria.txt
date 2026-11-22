@@ -4,7 +4,7 @@
   - paragraph: Welcome to the least consequential office in town.
   - heading "How to play" [level=2]
   - list:
-    - listitem: "A new category opens daily. Next drop: 11:11 AM ET ."
+    - listitem: "A new category opens daily. Next drop: 12:18 PM ET."
     - listitem: Call dibs on an answer. First come, first served.
     - listitem: Taken guesses cost a strike. Five strikes close your file.
     - listitem: Up to three dibs per person, per category.
@@ -51,7 +51,13 @@
       - text: (CC BY 3.0),
       - link "Open Food Facts":
         - /url: https://world.openfoodfacts.org/
-      - text: (ODbL), and ISO 3166 data (MIT). Wikipedia pageviews rank measured answers.
+      - text: (ODbL), and ISO 3166 data (MIT), plus
+      - link "OurAirports":
+        - /url: https://ourairports.com/
+      - text: (public domain), and
+      - link "NASA/JPL":
+        - /url: https://ssd.jpl.nasa.gov/
+      - text: small-body data. Wikipedia pageviews rank measured answers.
       - link "Full licenses and source notes":
         - /url: /data/licenses.txt
       - text: .

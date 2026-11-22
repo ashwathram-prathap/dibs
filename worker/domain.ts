@@ -25,7 +25,7 @@ export function normalize(value: string) {
     .split(/\s+/)
     .map(
       (w) =>
-        (w === 'st' ? 'saint' : irregular[w]) ||
+        (w === 'st' ? 'saint' : Object.hasOwn(irregular, w) ? irregular[w] : undefined) ||
         (w.endsWith('ies') && w.length > 4
           ? w.slice(0, -3) + 'y'
           : /(ches|shes|xes|zes|sses)$/.test(w)

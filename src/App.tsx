@@ -1535,7 +1535,9 @@ function About({ nextDrop }: { nextDrop: string }) {
           <h2>How to play</h2>
           <ol className="rules">
             <li>
-              A new category opens daily. Next drop: <DropTime at={nextDrop} />.
+              <span>
+                A new category opens daily. Next drop: <DropTime at={nextDrop} />.
+              </span>
             </li>
             <li>Call dibs on an answer. First come, first served.</li>
             <li>Taken guesses cost a strike. Five strikes close your file.</li>

@@ -36,7 +36,9 @@ for (const f of readdirSync('categories').filter((f) => f.endsWith('.json'))) {
   const version = createHash('sha256').update(JSON.stringify(c.answers)).digest('hex').slice(0, 16);
   const dir = `public/catalog/${c.slug}/${version}`;
   mkdirSync(dir, { recursive: true });
-  const shards: Record<string, CatalogRow>[] = Array.from({ length: 256 }, () => ({}));
+  const shards: Record<string, CatalogRow>[] = Array.from({ length: 256 }, () =>
+    Object.create(null),
+  );
   for (const [i, a] of c.answers.entries())
     for (const key of new Set<string>([normalize(a.display), ...a.aliases.map(normalize)])) {
       if (shards[shardFor(key)][key]) throw Error('Alias collision ' + c.slug + ': ' + key);
@@ -80,7 +82,7 @@ for (const f of readdirSync('categories').filter((f) => f.endsWith('.json'))) {
     }
   for (let length = 1; length <= 96; length++)
     writeFileSync(`${dir}/typos-${length}.json`, JSON.stringify(trees[length] || []));
-  const fast: Record<string, CatalogRow> = {};
+  const fast: Record<string, CatalogRow> = Object.create(null);
   for (const [i, a] of c.answers.entries())
     if (
       i < 1000 ||

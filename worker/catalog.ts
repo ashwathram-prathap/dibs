@@ -58,7 +58,7 @@ export async function lookup(category: any, text: string): Promise<CatalogRow | 
   const meta = catalogMeta(category);
   const key = normalize(text);
   const hot = (hotCatalog as any)[meta.slug];
-  if (hot?.version === meta.version && hot.keys[key]) return hot.keys[key];
+  if (hot?.version === meta.version && Object.hasOwn(hot.keys, key)) return hot.keys[key];
   const index = await completeIndex(meta);
   let low = 0,
     high = index.keys.length - 1;

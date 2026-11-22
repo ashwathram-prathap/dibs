@@ -117,6 +117,12 @@ it('claims through the complete static register, persists sparse rows, and resto
   const missed: any = await typo.json();
   expect(missed.suggestion).toBe('Chameleon');
   expect(missed.spellingCatalog.version).toBe(manifest.version);
+  const prototypeName = await call(
+    '/claim',
+    { answer: 'constructor', requestId: crypto.randomUUID(), turnstileToken: 'test' },
+    cookie,
+  );
+  expect(prototypeName.status).toBe(422); // A JS prototype property is not an accepted hot-index row.
   expect((await db.prepare('SELECT COUNT(*) n FROM answers').first()).n).toBeLessThanOrEqual(21);
   expect((await db.prepare('SELECT COUNT(*) n FROM claims').first()).n).toBe(1);
   expect((await db.prepare('SELECT COUNT(*) n FROM strikes').first()).n).toBe(0);
