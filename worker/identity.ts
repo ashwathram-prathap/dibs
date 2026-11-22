@@ -11,8 +11,7 @@ const random = (n: number) => {
   crypto.getRandomValues(a);
   return a[0] % n;
 };
-export const handle = () =>
-  `${colors[random(colors.length)]} ${animals[random(animals.length)]} #${random(999999) + 1}`;
+export const handle = () => `${colors[random(colors.length)]} ${animals[random(animals.length)]}`;
 export async function hmac(value: string, secret: string) {
   const key = await crypto.subtle.importKey(
     'raw',
@@ -56,3 +55,9 @@ export async function sessionCookie(id: string, secret: string, local = false) {
   // Host-only: the canonical host receives it, sibling subdomains do not.
   return `dibs_session=${id}.${await hmac(id, secret)}; HttpOnly; SameSite=Lax; Path=/; Max-Age=31536000${local ? '' : '; Secure'}`;
 }
+
+export async function fileKey(uid: string, secret: string) {
+  const hex = (await hmac('file-key:' + uid, secret)).slice(0, 20).toUpperCase();
+  return 'DIBS-' + hex.match(/.{1,5}/g)!.join('-');
+}
+export const normalizeFileKey = (key: string) => key.toUpperCase().replace(/[^A-Z0-9]/g, '');

@@ -21,12 +21,13 @@ export async function api<T>(path: string, body?: unknown): Promise<T> {
     r = await fetch('/api' + path, {
       method: body === undefined ? 'GET' : 'POST',
       credentials: 'same-origin',
+      signal: AbortSignal.timeout(20000),
       headers: body === undefined ? {} : { 'Content-Type': 'application/json' },
       body: body === undefined ? undefined : JSON.stringify(body),
     });
   } catch {
     throw new Error(
-      'The registry could not be reached. Please try again when your connection returns.',
+      'The clerk didn’t get that. Try again.',
     );
   }
   let data: any;

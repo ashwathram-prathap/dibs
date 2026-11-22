@@ -26,6 +26,7 @@ export function preview(kind: 'certificate' | 'summary'): PagesFunction<Env> {
     const image = `${publicOrigin}/api/og/${kind === 'summary' ? 'summary/' : ''}${id}?v=7`;
     const canonical = `${publicOrigin}/${kind}/${id}`;
     const tags: Record<string, string> = {
+      'meta[name="robots"]': 'noindex,nofollow',
       'meta[name="description"]': description,
       'meta[property="og:title"]': title,
       'meta[property="og:description"]': description,

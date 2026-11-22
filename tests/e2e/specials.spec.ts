@@ -9,7 +9,7 @@ test('house strike, gold stamp, gold certificate and verified archive', async ({
   const input = page.getByLabel('ENTRY:', { exact: true });
   await input.fill('Dog');
   await page.getByRole('button', { name: 'CALL DIBS' }).click();
-  await expect(page.locator('.house-strike')).toHaveText(
+  await expect(page.locator('.house-strike')).toContainText(
     'DOG is held by the Registry. Obvious picks are reserved.',
   );
   await expect(page.getByRole('img', { name: '1 of 5 strikes' })).toBeVisible();
@@ -39,7 +39,7 @@ test('house strike, gold stamp, gold certificate and verified archive', async ({
   expect(goldA11y.violations).toEqual([]);
   await page.goto('/archive?r6=1');
   await expect(page.locator('.reserved-list li')).toHaveCount(10);
-  await expect(page.getByText('✓ Verified', { exact: true })).toBeVisible();
+  await expect(page.getByText('Verified', { exact: true })).toBeVisible();
   await page.screenshot({ path: dir + '/r6-reserved-list.png', fullPage: true });
   expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
 });

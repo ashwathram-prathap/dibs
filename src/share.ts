@@ -27,7 +27,7 @@ export async function exportCertificate(claim: Claim, story: boolean) {
   const h = story ? 1500 : 1350;
   c.fillStyle = '#F1ECE2';
   c.fillRect(0, 0, 1080, canvas.height);
-  if (story) c.translate(0, 160);
+  if (story) c.translate(0, 80);
   c.strokeStyle = '#1A1A17';
   c.fillStyle = '#1A1A17';
   c.lineWidth = 2;
@@ -121,7 +121,7 @@ export async function exportCertificate(claim: Claim, story: boolean) {
   c.fillStyle = claim.golden ? '#7A5C14' : '#1A1A17';
   c.fillText(
     claim.golden
-      ? '★ GOLDEN TICKET'
+      ? 'GOLDEN TICKET'
       : claim.obscurity && claim.obscurity >= 4
         ? 'DEEP CUT'
         : 'REGISTERED',
@@ -166,10 +166,10 @@ export async function exportSummary(file: DayFile, category: Category, story: bo
   canvas.width = 1080;
   canvas.height = story ? 1920 : 1350;
   const c = canvas.getContext('2d')!;
-  const h = story ? 1600 : 1350;
+  const h = story ? 1760 : 1350;
   c.fillStyle = '#F1ECE2';
   c.fillRect(0, 0, 1080, canvas.height);
-  if (story) c.translate(0, 160);
+  if (story) c.translate(0, 80);
   const ink = '#1A1A17',
     red = '#B93420',
     gold = '#7A5C14';
@@ -236,7 +236,7 @@ export async function exportSummary(file: DayFile, category: Category, story: bo
   );
   text('ACCEPTED & REJECTED FILINGS / IN ORDER', 80, 538, 18);
   const rows = guesses(file),
-    rowHeight = Math.min(150, (h - 790) / Math.max(1, rows.length));
+    rowHeight = Math.min(105, (h - 790) / Math.max(1, rows.length));
   rows.forEach((event, i) => {
     const y = 565 + i * rowHeight;
     c.fillStyle = ink;
@@ -255,7 +255,7 @@ export async function exportSummary(file: DayFile, category: Category, story: bo
         : event.holder
           ? `Taken by ${event.holder}${event.heldAt ? ' at ' + localTime(event.heldAt).full : ''}`
           : 'Holder details were not retained';
-      fit(held, 132, y + rowHeight - 16, 850, 20, 'Plex', 400);
+      fit(held, 132, y + 65, 850, 20, 'Plex', 400);
     } else {
       c.save();
       c.translate(866, y + 32);
@@ -267,23 +267,33 @@ export async function exportSummary(file: DayFile, category: Category, story: bo
       text(event.golden ? 'DIBS / GOLD' : 'DIBS', -98, 9, 26, 'Archivo', 900);
       c.restore();
       c.fillStyle = ink;
-      if ((event.obscurity || 0) >= 4) text('DEEP CUT', 755, y + rowHeight - 14, 17);
+      if ((event.obscurity || 0) >= 4) text('DEEP CUT', 755, y + 82, 17);
     }
   });
   c.fillStyle = ink;
   c.strokeStyle = ink;
-  line(h - 220);
-  text('FILED UNDER', 80, h - 182, 18);
+  const holderTop = 565 + rows.length * rowHeight + 30;
+  line(holderTop);
+  text('FILED UNDER', 80, holderTop + 38, 18);
   fit(
     file.handle || file.claims[0]?.handle || 'Anonymous filer',
     80,
-    h - 135,
+    holderTop + 85,
     650,
     38,
     'Instrument',
     600,
   );
-  text(`${file.streak || 0} DAY STREAK`, 790, h - 140, 20);
+  text(`${file.streak || 0} DAY STREAK`, 790, holderTop + 80, 20);
+  if (story && h - 100 - (holderTop + 140) > 240) {
+    const y = holderTop + 210;
+    c.setLineDash([6, 6]);
+    line(y - 28);
+    c.setLineDash([]);
+    text('FILED DAILY.', 80, y + 90, 88, 'Archivo', 900);
+    text('HELD BRIEFLY.', 80, y + 185, 88, 'Archivo', 900);
+    text('NEXT DROP: 9 PM EASTERN', 80, y + 245, 24);
+  }
   line(h - 100);
   text('ALL CLAIMS ENTIRELY CEREMONIAL.', 80, h - 66, 16);
   text(PUBLIC_HOST, 825, h - 66, 18);

@@ -1,3 +1,5 @@
+// R8 supersedes the legacy scheduled uploader. Existing live dates are preserved.
+throw new Error('Legacy rollout stopped: use coverage-gated static catalogs; do not change the live schedule.');
 import { LAUNCH_DATE, DROP_TIME_LABEL } from '../shared/config';
 // Resumable owner-approved rollout. Persist this journal between daily runs.
 import { readFileSync, writeFileSync, existsSync, appendFileSync } from 'node:fs';

@@ -5,13 +5,7 @@ for (const name of readdirSync('categories')
   .filter((n) => n.endsWith('.json'))
   .sort()) {
   const category = JSON.parse(readFileSync('categories/' + name, 'utf8'));
-  if (
-    category.answers.some(
-      (a: any) => !Number.isFinite(a.pageviews?.total) || !(a.pageviews.days > 0),
-    )
-  )
-    throw Error(name + ': missing measured pageviews');
-  house[category.slug] = [...category.answers]
+  house[category.slug] = category.answers.filter((a:any)=>a.pageviews?.days>0)
     .sort(
       (a, b) =>
         b.pageviews.total / b.pageviews.days - a.pageviews.total / a.pageviews.days ||

@@ -91,6 +91,7 @@ beforeAll(async () => {
       .replace(/^--.*$/gm, '')
       .replace(/\n/g, ' '),
   );
+  await db.exec(readFileSync('migrations/0009_r8.sql','utf8').replace(/^--.*$/gm,'').replace(/\n/g,' '));
   const date = registryDate();
   await db
     .prepare(
@@ -162,7 +163,7 @@ describe('Worker with real SQLite/D1 execution', () => {
     );
     expect(invalid.status).toBe(422);
     expect(((await invalid.json()) as any).message).toBe(
-      "Not on today's register. Check the spelling.",
+      "Not on the register. No strike charged.",
     );
     const rs = await Promise.all(
       Array.from({ length: 10 }, () =>
@@ -356,7 +357,8 @@ describe('Worker with real SQLite/D1 execution', () => {
         },
         body: JSON.stringify({ id: 'replace-me', date: '2099-01-01', reviewed: true }),
       });
-    expect((await approve()).status).toBe(200);
+    expect((await approve()).status).toBe(422); // Legacy uncapped/source coverage has not passed.
+    await db.prepare("UPDATE categories SET status='approved' WHERE id='replace-me'").run();
     expect((await approve()).status).toBe(409);
     expect((await upload({ ...draft, replaceDraft: true })).status).toBe(409);
     expect(
@@ -426,4 +428,16 @@ describe('Worker with real SQLite/D1 execution', () => {
     expect(today.open).toBe(2400 - reserved);
     expect(today.claimed + today.open + today.voided).toBe(today.category.total_registrable);
   });
+});
+it('replays claim and strike retries without a second filing, including concurrent retries',async()=>{
+ const a=await account(),requestId=crypto.randomUUID();
+ const body={answer:'Test animal 63',turnstileToken:'test',requestId};
+ const responses=await Promise.all(Array.from({length:4},()=>request('/claim',body,a.cookie,'idempotence')));
+ expect(responses.map(r=>r.status)).toEqual([201,201,201,201]);
+ expect((await db.prepare('SELECT COUNT(*) n FROM claims WHERE user_id=?').bind(a.user.id).first()).n).toBe(1);
+ const b=await account(),strikeId=crypto.randomUUID();
+ const strikes=await Promise.all(Array.from({length:4},()=>request('/claim',{...body,requestId:strikeId},b.cookie,'idempotence-other')));
+ expect(strikes.map(r=>r.status)).toEqual([409,409,409,409]);
+ expect((await db.prepare('SELECT COUNT(*) n FROM strikes WHERE user_id=?').bind(b.user.id).first()).n).toBe(1);
+ expect((await request('/claim',{...body,answer:'Test animal 64'},a.cookie,'idempotence')).status).toBe(422);
 });

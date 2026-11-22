@@ -94,7 +94,7 @@ for (const kind of ['clean', 'gold-two-strikes', 'five-strikes'])
           const miss = answer === 'Axolotl' ? 'Pangolin' : 'Dog';
           await submit(page, miss);
           order.push(miss === 'Dog' ? 'DOG' : miss);
-          await expect(page.locator('.clerk-message')).toContainText(
+          await expect(page.locator('.result-panel')).toContainText(
             miss === 'Dog' ? 'held by the Registry' : 'already called dibs',
           );
         }

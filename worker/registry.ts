@@ -5,7 +5,15 @@ import { gate, securityKey, type Gate } from './security';
 import { isLocal, originFailure, validId } from '../shared/security';
 import { DurableObject } from 'cloudflare:workers';
 import { route, current, fileState, publicClaim, json, safeError, body, type Env } from './routes';
-import { cookieUser, handle, hmac, constantEqual, sessionCookie } from './identity';
+import {
+  cookieUser,
+  handle,
+  hmac,
+  constantEqual,
+  sessionCookie,
+  fileKey,
+  normalizeFileKey,
+} from './identity';
 import { nextDrop, registryDate, streak, normalize } from './domain';
 import { og } from './og';
 import { metered } from './metrics';
@@ -118,6 +126,22 @@ export class Registry extends DurableObject<Env> {
       turnstileSiteKey: this.env.TURNSTILE_SITE_KEY,
     };
   }
+  async newHandle() {
+    return this.ctx.blockConcurrencyWhile(async () => {
+      for (let attempt = 0; attempt < 30; attempt++) {
+        const pair = handle();
+        let next = (await this.ctx.storage.get<number>('handle:' + pair)) || 0;
+        for (; next <= 999; next++) {
+          const value = pair + (next ? ' #' + next : '');
+          if (await this.env.DB.prepare('SELECT id FROM users WHERE handle=?').bind(value).first())
+            continue;
+          await this.ctx.storage.put('handle:' + pair, next + 1);
+          return value;
+        }
+      }
+      throw Error('Handle pool unavailable');
+    });
+  }
   async session(req: Request, create = false): Promise<{ session?: Session; cookie: string }> {
     let id = await cookieUser(req, this.env.COOKIE_SECRET);
     let session = id ? await this.ctx.storage.get<Session>('session:' + id) : undefined;
@@ -156,7 +180,7 @@ export class Registry extends DurableObject<Env> {
     if (!session && create) {
       id = crypto.randomUUID();
       session = {
-        user: { id, handle: handle(), rerolls_used: 0, hidden: 0 },
+        user: { id, handle: await this.newHandle(), rerolls_used: 0, hidden: 0 },
         claim: null,
         streakDates: [],
         attempts: [],
@@ -630,6 +654,11 @@ export class Registry extends DurableObject<Env> {
             row.shares += counts[total.platform]?.shares || 0;
           }
         }
+        data.missing = (
+          await env.DB.prepare(
+            "SELECT day,category_id,answer,count FROM missing_answers WHERE day>=date('now','-90 day') ORDER BY day DESC,count DESC LIMIT 500",
+          ).all()
+        ).results;
         data.days.sort((a: any, b: any) => b.day.localeCompare(a.day));
         return json(data);
       }
@@ -656,6 +685,35 @@ export class Registry extends DurableObject<Env> {
       });
       return json({ ok: true });
     }
+    if (path === '/recover' && req.method === 'POST') {
+      const denied = await this.rateGate(req, env, false, true);
+      if (denied) return denied;
+      const b = await body(req, 200);
+      const key = normalizeFileKey(String(b.key || ''));
+      // Per-network five entries / 15 minutes, independent of a new browser cookie.
+      const rate = 'recover:' + (await securityKey(req, env.COOKIE_SECRET, env.LOCAL_TEST));
+      const allowed = await this.ctx.storage.transaction(async (tx) => {
+        let r = await tx.get<any>(rate);
+        if (!r || r.until < Date.now()) r = { n: 0, until: Date.now() + 900000 };
+        r.n++;
+        await tx.put(rate, r);
+        return r.n <= 5;
+      });
+      if (!allowed)
+        return json({ message: 'Give the clerk 15 minutes before trying another key.' }, 429);
+      const hash = await hmac(key, env.COOKIE_SECRET);
+      const found = await env.DB.prepare('SELECT user_id FROM recovery_keys WHERE key_hash=?')
+        .bind(hash)
+        .first<any>();
+      if (!found) return json({ message: 'That file key was not found.' }, 422);
+      return json({ ok: true }, 200, {
+        'set-cookie': await sessionCookie(
+          found.user_id,
+          env.COOKIE_SECRET,
+          isLocal(req, env.LOCAL_TEST),
+        ),
+      });
+    }
     const { session } = await this.session(req);
     if (!session)
       return json(
@@ -672,20 +730,50 @@ export class Registry extends DurableObject<Env> {
     if (path === '/me/reroll') {
       if (session.claim || session.user.rerolls_used >= 3)
         return json({ message: 'This handle has been filed. Re-rolls are closed.' }, 403);
+      const nextHandle = await this.newHandle();
       // Serialize this small state mutation so simultaneous rerolls cannot exceed three.
       return this.ctx.blockConcurrencyWhile(async () => {
         const latest = (await this.ctx.storage.get<Session>('session:' + session.user.id))!;
         if (latest.claim || latest.user.rerolls_used >= 3)
           return json({ message: 'This handle has been filed. Re-rolls are closed.' }, 403);
-        latest.user.handle = handle();
+        latest.user.handle = nextHandle;
         latest.user.rerolls_used++;
         await this.ctx.storage.put('session:' + latest.user.id, latest);
         return json({ user: latest.user });
       });
     }
+    if (path === '/missing' && req.method === 'POST') {
+      const denied = await this.rateGate(req, env, false, true);
+      if (denied) return denied;
+      const b = await body(req, 300);
+      const category = await current(env);
+      if (
+        !category ||
+        typeof b.answer !== 'string' ||
+        b.answer.length > 120 ||
+        Object.keys(b).some((k) => k !== 'answer')
+      )
+        return json({ message: 'Only the answer can be submitted.' }, 422);
+      const answer = normalize(b.answer);
+      if (!answer || answer.length > 100) return json({ message: 'Enter an answer first.' }, 422);
+      const day = registryDate();
+      const rate =
+        'missing-rate:' + day + ':' + (await securityKey(req, env.COOKIE_SECRET, env.LOCAL_TEST));
+      const allowed = await this.ctx.storage.transaction(async (tx) => {
+        const n = (await tx.get<number>(rate)) || 0;
+        if (n >= 10) return false;
+        await tx.put(rate, n + 1);
+        return true;
+      });
+      if (!allowed) return json({ message: 'The clerk has your suggestions for today.' }, 429);
+      await env.DB.prepare(
+        'INSERT INTO missing_answers(day,category_id,answer) VALUES(?,?,?) ON CONFLICT(day,category_id,answer) DO UPDATE SET count=count+1',
+      )
+        .bind(day, category.id, answer)
+        .run();
+      return json({ ok: true, message: 'Submitted to the clerk. No strike charged.' });
+    }
     if (path === '/claim') {
-      if (this.me(session).file?.closed)
-        return json({ message: 'Your file is closed for today.' }, 403);
       const allowed = await this.ctx.blockConcurrencyWhile(async () => {
         const latest = (await this.ctx.storage.get<Session>('session:' + session.user.id))!;
         latest.attempts = latest.attempts.filter((t) => t > Date.now() - 60000);
@@ -746,7 +834,23 @@ export class Registry extends DurableObject<Env> {
             await this.ctx.storage.put('session:' + latest.user.id, latest);
           Object.assign(session, latest);
         });
-        return json({ ...data, file: session.file, me: this.me(session) }, response.status);
+        let recoveryKey: string | undefined;
+        if (data.claim && session.file?.dibs === 1) {
+          recoveryKey = await fileKey(session.user.id, env.COOKIE_SECRET);
+          const issued=await env.DB.prepare(
+            'INSERT OR IGNORE INTO recovery_keys(key_hash,user_id,created_at) VALUES(?,?,?)',
+          )
+            .bind(
+              await hmac(normalizeFileKey(recoveryKey), env.COOKIE_SECRET),
+              session.user.id,
+              new Date().toISOString(),
+            )
+            .run();
+        }
+        return json(
+          { ...data, recoveryKey, file: session.file, me: this.me(session) },
+          response.status,
+        );
       }
       return response;
     }

@@ -11,9 +11,12 @@
     "test": "vitest run",
     "test:e2e": "playwright test",
     "categories": "tsx scripts/build-category.ts",
-    "deploy:api": "tsx scripts/configure-drop.ts && tsx scripts/build-house-words.ts && wrangler deploy -c worker/wrangler.jsonc",
-    "deploy:web": "npm run build && wrangler pages deploy dist --project-name dibs",
-    "check": "tsc -b && tsc -p tsconfig.worker.json"
+    "deploy:api": "tsx scripts/check-deploy-freeze.ts --production && tsx scripts/configure-drop.ts && tsx scripts/build-house-words.ts && wrangler deploy -c worker/wrangler.jsonc",
+    "deploy:web": "tsx scripts/check-deploy-freeze.ts --production && npm run build && wrangler pages deploy dist --project-name dibs",
+    "check": "tsc -b && tsc -p tsconfig.worker.json",
+    "test:emoji": "tsx scripts/emoji-check.ts",
+    "catalog:coverage": "tsx scripts/check-coverage.ts",
+    "backup": "sh scripts/backup-production.sh"
   },
   "dependencies": {
     "@resvg/resvg-wasm": "2.6.2",

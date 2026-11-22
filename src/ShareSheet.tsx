@@ -1,3 +1,4 @@
+import { Icon, ShareText } from './Icon';
 import { useEffect, useRef, useState } from 'react';
 import { api } from './api';
 import { attributedUrl, intentUrl, type Platform } from '../shared/sharing';
@@ -114,7 +115,7 @@ export function ShareSheet({
     <div className="share-area" aria-label="Share Dibs">
       <div className="share-buttons">
         <button className="primary" disabled={!files || busy} onClick={() => void share('native')}>
-          {busy ? 'SHARING…' : files ? 'SHARE' : 'PREPARING PNG…'} <span aria-hidden="true">↗</span>
+          {busy ? 'SHARING…' : files ? 'SHARE' : 'PREPARING PNG…'} <Icon />
         </button>
       </div>
       <div className="share-platforms" aria-label="Share by platform">
@@ -149,7 +150,7 @@ export function ShareSheet({
       {manual && (
         <div className="share-manual">
           <a href={manual.href} target="_blank" rel="noopener">
-            Open PNG to save manually ↗
+            Open PNG to save manually <Icon />
           </a>
           <p className="share-hint">
             If the download is blocked, open the PNG or press and hold this image to save.
@@ -158,12 +159,26 @@ export function ShareSheet({
         </div>
       )}
       {copy && (
-        <textarea
+        <div
+          className="share-copy"
           aria-label="Share text to copy"
-          readOnly
-          value={copy}
-          onFocus={(e) => e.currentTarget.select()}
-        />
+          role="textbox"
+          aria-readonly="true"
+          tabIndex={0}
+          onCopy={(e) => {
+            e.preventDefault();
+            e.clipboardData.setData('text/plain', copy);
+          }}
+          onFocus={(e) => {
+            const range = document.createRange();
+            range.selectNodeContents(e.currentTarget);
+            const selection = window.getSelection();
+            selection?.removeAllRanges();
+            selection?.addRange(range);
+          }}
+        >
+          <ShareText text={copy} />
+        </div>
       )}
     </div>
   );

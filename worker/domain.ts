@@ -9,6 +9,11 @@ export function normalize(value: string) {
     .trim();
   const irregular: Record<string, string> = {
     mice: 'mouse',
+    wolves: 'wolf',
+    calves: 'calf',
+    leaves: 'leaf',
+    octopi: 'octopus',
+    octopuses: 'octopus',
     geese: 'goose',
     feet: 'foot',
     teeth: 'tooth',
@@ -20,7 +25,7 @@ export function normalize(value: string) {
     .split(/\s+/)
     .map(
       (w) =>
-        irregular[w] ||
+        (w === 'st' ? 'saint' : irregular[w]) ||
         (w.endsWith('ies') && w.length > 4
           ? w.slice(0, -3) + 'y'
           : /(ches|shes|xes|zes|sses)$/.test(w)

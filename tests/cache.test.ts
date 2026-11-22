@@ -117,6 +117,7 @@ beforeAll(async () => {
         .replace(/CREATE TRIGGER[\s\S]*?\nEND;/g, (m) => m.replace(/\n/g, ' '))
         .replace(/\n/g, ' '),
     );
+  await db.exec(readFileSync('migrations/0009_r8.sql','utf8').replace(/^--.*$/gm,'').replace(/\n/g,' '));
   const date = registryDate();
   await db
     .prepare(

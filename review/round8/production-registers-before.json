@@ -1,0 +1,47 @@
+[
+  {
+    "id": "animals",
+    "name": "Animals",
+    "status": "approved",
+    "date": "2026-11-23",
+    "drop_at": "2026-11-24T02:00:00.000Z",
+    "total": 2200,
+    "staticCatalog": null
+  },
+  {
+    "id": "plants",
+    "name": "Plants",
+    "status": "approved",
+    "date": "2026-11-24",
+    "drop_at": "2026-11-25T02:00:00.000Z",
+    "total": 2200,
+    "staticCatalog": null
+  },
+  {
+    "id": "birds",
+    "name": "Birds",
+    "status": "approved",
+    "date": "2026-11-25",
+    "drop_at": "2026-11-26T02:00:00.000Z",
+    "total": 2200,
+    "staticCatalog": null
+  },
+  {
+    "id": "cities",
+    "name": "Cities",
+    "status": "approved",
+    "date": "2026-11-26",
+    "drop_at": "2026-11-27T02:00:00.000Z",
+    "total": 2200,
+    "staticCatalog": null
+  },
+  {
+    "id": "actors",
+    "name": "Actors",
+    "status": "approved",
+    "date": "2026-11-27",
+    "drop_at": "2026-11-28T02:00:00.000Z",
+    "total": 2200,
+    "staticCatalog": null
+  }
+]

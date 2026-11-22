@@ -1,3 +1,4 @@
+import { catalogMeta, rowAt, answerId, persistAnswer } from './catalog';
 import { goldenPerDay, GOLDEN_PER_DAY } from '../shared/config';
 import houseWords from './house-words.json';
 import { dropAt } from './domain';
@@ -32,21 +33,37 @@ export async function ensureSpecials(env: Env, category: any) {
     .bind(category.id)
     .first<any>();
   if (saved) return saved;
-  const pool = (
-    await env.DB.prepare('SELECT id,display FROM answers WHERE category_id=? ORDER BY id')
-      .bind(category.id)
-      .all<any>()
-  ).results;
+  const meta = catalogMeta(category);
+  const pool: { id: string; display: string }[] = meta
+    ? meta.house.map((r: any) => ({ id: answerId(category, r), display: r[1] }))
+    : (
+        await env.DB.prepare('SELECT id,display FROM answers WHERE category_id=? ORDER BY id')
+          .bind(category.id)
+          .all<any>()
+      ).results;
   const names = (houseWords as Record<string, string[]>)[category.slug] || [];
-  const house = pool.filter((a) => names.includes(a.display));
+  const house = meta ? pool : pool.filter((a) => names.includes(a.display));
   const seed = [...crypto.getRandomValues(new Uint8Array(32))]
     .map((n) => n.toString(16).padStart(2, '0'))
     .join('');
-  const golden = await selectGolden(
+  let golden = await selectGolden(
     pool.filter((a) => !house.some((h) => h.id === a.id)).map((a) => a.id),
     seed,
     goldenPerDay(category.date),
   );
+  if (meta) {
+    const chosen = new Set<number>();
+    let counter = 0;
+    while (chosen.size < goldenPerDay(category.date) && chosen.size < meta.count - 10) {
+      const n = parseInt((await sha256(seed + ':' + counter++)).slice(0, 8), 16);
+      const available = meta.count - 10;
+      const bound = Math.floor(0x100000000 / available) * available;
+      if (n < bound) chosen.add(10 + (n % available));
+    }
+    const rows = await Promise.all([...chosen].map((i) => rowAt(category, i)));
+    await env.DB.batch([...meta.house, ...rows].map((r) => persistAnswer(env, category, r)));
+    golden = rows.map((r) => answerId(category, r)).sort();
+  }
   const commitment = await sha256(commitmentText(category.id, seed, golden));
   await env.DB.batch([
     ...house.map((a) =>

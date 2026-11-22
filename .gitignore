@@ -43,3 +43,8 @@ review/rollover/
 
 # Audit identity cleanup lists stay local, including future review rounds.
 review/**/qa-identities.json
+
+# R8: private database exports and backup scheduler output
+.backups/
+# Reproducible immutable lookup assets; generated from versioned categories.
+public/catalog/

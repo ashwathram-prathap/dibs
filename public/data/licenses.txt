@@ -1,0 +1,24 @@
+Dibs answer-register sources and reuse
+
+GeoNames cities1000: https://download.geonames.org/export/dump/
+Creative Commons Attribution 4.0. https://creativecommons.org/licenses/by/4.0/
+Includes all rows in the downloaded cities1000 extract, with alternate and ASCII names. Same normalized names are merged, preferring the most populous place. GeoNames https://www.geonames.org/.
+
+Princeton WordNet 3.0. Copyright 2006 Princeton University. All rights reserved.
+Full required license and disclaimer: /data/wordnet-license.txt
+English common animal, plant and food words; taxonomic Latin names are not the primary answers. https://wordnet.princeton.edu/
+
+IOC World Bird List, Gill, F., Donsker, D. & Rasmussen, P. (Eds).
+Creative Commons Attribution 3.0 Unported. https://creativecommons.org/licenses/by/3.0/
+https://www.worldbirdnames.org/ . Source version is recorded in each catalog build's review notes.
+
+Open Food Facts contributors. Contains information from Open Food Facts, made available under the Open Database License (ODbL) 1.0, with individual contents under the Database Contents License.
+https://world.openfoodfacts.org/terms-of-use
+https://opendatacommons.org/licenses/odbl/1-0/
+The derived food database is available as machine-readable rows and alias-key shards under /catalog/foods/ (see manifest.json for the immutable version directory). The derived database is offered under ODbL 1.0. These files contain no player information or golden status.
+
+ISO 3166 data: iso-3166, copyright Titus Wormer, MIT. /data/iso-license.txt
+https://github.com/wooorm/iso-3166
+
+Wikipedia PageViewInfo measurements: https://en.wikipedia.org/w/api.php
+Article titles and measured pageviews only; common names remain the answer, even when a popularity measurement resolves a redirect. Unavailable readership is recorded as unknown, not a fabricated observation. Editorial common-name supplements by Dibs.

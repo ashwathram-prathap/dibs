@@ -30,7 +30,7 @@ test('full filing, certificate, sharing and public record', async ({ page }, inf
   const input = page.getByLabel('ENTRY:', { exact: true });
   await input.fill('Pangolin');
   await page.getByRole('button', { name: 'CALL DIBS' }).click();
-  await expect(page.getByRole('status')).toContainText('already called dibs');
+  await expect(page.locator('.result-panel')).toContainText('already called dibs');
   await shot('02-taken');
   await input.fill('Axolotl');
   await page.getByRole('button', { name: 'CALL DIBS' }).click();
@@ -101,7 +101,7 @@ test('five strikes close the file and invalid entries cost nothing', async ({ pa
   const input = page.getByLabel('ENTRY:', { exact: true });
   await input.fill('unknown animal');
   await page.getByRole('button', { name: 'CALL DIBS' }).click();
-  await expect(page.getByRole('status')).toHaveText("Not on today's register. Check the spelling.");
+  await expect(page.locator('.result-panel')).toContainText("Not on today's register. Check the spelling.");
   await expect(page.getByRole('img', { name: '0 of 5 strikes' })).toBeVisible();
   for (let i = 1; i <= 5; i++) {
     await input.fill('Pangolin');
@@ -109,5 +109,5 @@ test('five strikes close the file and invalid entries cost nothing', async ({ pa
     await expect(page.getByRole('img', { name: `${i} of 5 strikes` })).toBeVisible();
   }
   await expect(page.getByRole('article', { name: 'Day summary' })).toBeVisible();
-  await expect(page.getByRole('button', { name: 'CALL DIBS' })).toHaveCount(0);
+  await expect(page.getByRole('button', { name: 'CALL DIBS' })).toBeDisabled();
 });

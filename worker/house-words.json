@@ -37,15 +37,15 @@
   ],
   "animals": [
     "Cat",
+    "Turkey",
     "Dog",
     "Axolotl",
+    "Squirrel",
     "Capybara",
-    "Lion",
-    "Tiger",
-    "Giant panda",
-    "Sperm whale",
-    "Wolf",
-    "Polar bear"
+    "Orca",
+    "Horse",
+    "Hippopotamus",
+    "Lion"
   ],
   "architects": [
     "Thomas Jefferson",
@@ -96,16 +96,16 @@
     "Kings of Leon"
   ],
   "birds": [
+    "Turkey",
+    "Goonie",
+    "Dodo",
+    "Chicken",
+    "Rooster",
+    "Cassowary",
+    "Guinea",
+    "Penguin",
     "Shoebill",
-    "Emu",
-    "Great horned owl",
-    "Sandhill crane",
-    "Emperor penguin",
-    "Wild turkey",
-    "Barred owl",
-    "Red junglefowl",
-    "Rock dove",
-    "Pennant-winged nightjar"
+    "Peregrine falcon"
   ],
   "castles": [
     "Neuschwanstein Castle",
@@ -120,16 +120,16 @@
     "Hohenzollern Castle"
   ],
   "cities": [
+    "China",
     "New York City",
+    "Brazil",
+    "Japan",
+    "Singapore",
+    "Australia",
+    "Poland",
     "Hong Kong",
-    "London",
-    "Jerusalem",
-    "Toronto",
-    "Shenzhen",
-    "Mexico City",
-    "Dubai",
-    "Mumbai",
-    "Constantinople"
+    "Mexico",
+    "Los Angeles"
   ],
   "composers": [
     "Amanda Seyfried",
@@ -143,6 +143,18 @@
     "David Bowie",
     "Amy Winehouse"
   ],
+  "countries": [
+    "United States",
+    "United Kingdom",
+    "Israel",
+    "India",
+    "China",
+    "Russia",
+    "Canada",
+    "Brazil",
+    "Japan",
+    "Singapore"
+  ],
   "films": [
     "XXX (2002 film)",
     "I, Robot (film)",
@@ -155,6 +167,18 @@
     "The Silence of the Lambs (film)",
     "Contact (1997 American film)"
   ],
+  "foods": [
+    "Brazil",
+    "Turkey",
+    "Dog",
+    "Chile",
+    "Apple",
+    "Bread",
+    "Chicken",
+    "Banana",
+    "Ice cream",
+    "Octopus"
+  ],
   "footballers": [
     "Cristiano Ronaldo",
     "Michael Carrick",
@@ -166,6 +190,18 @@
     "Scott Parker",
     "Cesc Fàbregas",
     "David Beckham"
+  ],
+  "fruits-vegetables": [
+    "Chile",
+    "Apple",
+    "Banana",
+    "Potato",
+    "Cassava",
+    "Corn",
+    "Pomegranate",
+    "Avocado",
+    "Okra",
+    "Fig"
   ],
   "islands": [
     "Guam",
@@ -252,16 +288,16 @@
     "Nighthawks (Hopper)"
   ],
   "plants": [
+    "Apple",
+    "Banana",
     "Potato",
+    "Cassava",
     "Maize",
+    "Corn",
     "Pomegranate",
+    "Avocado",
     "Peanut",
-    "Cashew",
-    "Asimina triloba",
-    "Fig",
-    "Okra",
-    "Coriander",
-    "Liquorice"
+    "Cashew"
   ],
   "poets": [
     "James Stewart",

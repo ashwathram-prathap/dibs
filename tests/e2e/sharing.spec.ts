@@ -134,7 +134,7 @@ test('text-only native sharing offers the PNG; blocked clipboard keeps selectabl
   expect(await page.evaluate(() => (window as any).shared.files)).toBeUndefined();
   await expect(page.locator('.share-hint')).toContainText('Save the Story PNG');
   await page.getByRole('button', { name: 'Copy link', exact: true }).click();
-  await expect(page.getByLabel('Share text to copy')).toHaveValue(
+  await expect(page.getByLabel('Share text to copy')).toHaveText(
     `${PUBLIC_ORIGIN}/certificate/fixture-1?s=copy-link`,
   );
 });

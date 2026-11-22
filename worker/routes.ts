@@ -1,3 +1,4 @@
+import { catalogMeta, lookup, nearMiss, answerId, persistAnswer } from './catalog';
 import { ensureSpecials, specialStatus } from './specials';
 import {
   canonicalRedirect,
@@ -36,7 +37,7 @@ export interface Env {
   TURNSTILE_SITE_KEY: string;
   LOCAL_TEST?: string;
 }
-const claimSelect = `SELECT c.id,c.category_id,c.claim_no,c.file_no,c.created_at,a.display,a.obscurity,EXISTS(SELECT 1 FROM daily_specials ds,json_each(ds.golden_json) j WHERE ds.category_id=c.category_id AND j.value=c.answer_id) golden,CASE WHEN u.hidden=1 THEN 'Record withheld' ELSE u.handle END handle,g.name category_name,g.date category_date,g.total_registrable-(SELECT COUNT(*) FROM house_words hw WHERE hw.category_id=g.id) total_registrable FROM claims c JOIN answers a ON a.id=c.answer_id JOIN users u ON u.id=c.user_id JOIN categories g ON g.id=c.category_id`;
+const claimSelect = `SELECT c.id,c.category_id,c.claim_no,c.file_no,c.created_at,a.display,a.obscurity,EXISTS(SELECT 1 FROM daily_specials ds,json_each(ds.golden_json) j WHERE ds.category_id=c.category_id AND j.value=c.answer_id) golden,CASE WHEN u.hidden=1 THEN 'Record withheld' ELSE u.handle END handle,g.name category_name,g.date category_date,COALESCE(json_extract(g.source_json,'$.staticCatalog.count'),g.total_registrable)-(SELECT COUNT(*) FROM house_words hw WHERE hw.category_id=g.id) total_registrable FROM claims c JOIN answers a ON a.id=c.answer_id JOIN users u ON u.id=c.user_id JOIN categories g ON g.id=c.category_id`;
 export async function fileState(env: Env, category: string, uid: string) {
   const claims = (
     await env.DB.prepare(
@@ -108,7 +109,11 @@ export async function current(env: Env) {
         )
           .bind(registryDate(), new Date().toISOString())
           .first<any>();
-  if (category) await ensureSpecials(env, category);
+  if (category) {
+    const meta = catalogMeta(category);
+    if (meta) category.total_registrable = meta.count;
+    await ensureSpecials(env, category);
+  }
   return category;
 }
 async function user(req: Request, env: Env) {
@@ -233,6 +238,9 @@ async function admin(req: Request, env: Env, path: string) {
   if (path === '/admin/practice-reset') {
     if (env.STAGING !== 'true') return fail(404, 'No such clerk procedure.');
     await env.DB.batch([
+      env.DB.prepare('DELETE FROM recovery_keys'),
+      env.DB.prepare('DELETE FROM claim_requests'),
+      env.DB.prepare('DELETE FROM missing_answers'),
       env.DB.prepare('DELETE FROM strikes'),
       env.DB.prepare('DELETE FROM claims'),
       env.DB.prepare('DELETE FROM attempts'),
@@ -242,6 +250,55 @@ async function admin(req: Request, env: Env, path: string) {
       env.DB.prepare('UPDATE house_words SET revealed=0'),
     ]);
     return json({ ok: true, practice: true });
+  }
+  if (path === '/admin/static-catalog') {
+    if (
+      !validId(b.id) ||
+      !validId(b.slug) ||
+      !validText(b.name, 50) ||
+      !b.manifest ||
+      b.manifest.slug !== b.slug ||
+      !Number.isInteger(b.manifest.count) ||
+      b.manifest.count < (b.slug === 'countries' ? 200 : 300) ||
+      !/^[a-f0-9]{16}$/.test(b.manifest.version) ||
+      b.manifest.house?.length !== 10
+    )
+      return fail(422, 'A verified static manifest is required.');
+    const c = await env.DB.prepare('SELECT * FROM categories WHERE id=?').bind(b.id).first<any>();
+    if (
+      c &&
+      ((await env.DB.prepare('SELECT id FROM claims WHERE category_id=? LIMIT 1')
+        .bind(b.id)
+        .first()) ||
+        (env.STAGING !== 'true' && c.drop_at && c.drop_at <= new Date().toISOString()))
+    )
+      return fail(409, 'A played or opened register cannot be rebuilt.');
+    const response = await fetch(PUBLIC_ORIGIN + '/catalog/' + b.slug + '/manifest.json');
+    if (!response.ok || JSON.stringify(await response.json()) !== JSON.stringify(b.manifest))
+      return fail(422, 'The published manifest does not match.');
+    await env.DB.batch([
+      env.DB.prepare(
+        'INSERT INTO categories(id,name,slug,total_registrable,source_json) VALUES(?,?,?,?,?) ON CONFLICT(id) DO UPDATE SET name=excluded.name,slug=excluded.slug,total_registrable=excluded.total_registrable,source_json=excluded.source_json',
+      ).bind(
+        b.id,
+        b.name,
+        b.slug,
+        Math.max(2000, b.manifest.count),
+        JSON.stringify({ staticCatalog: b.manifest, coverage: b.coverage || null }),
+      ),
+      env.DB.prepare('DELETE FROM house_words WHERE category_id=?').bind(b.id),
+      env.DB.prepare('DELETE FROM daily_specials WHERE category_id=?').bind(b.id),
+    ]);
+    const updated = await env.DB.prepare('SELECT * FROM categories WHERE id=?')
+      .bind(b.id)
+      .first<any>();
+    await ensureSpecials(env, updated);
+    return json({ ok: true, entries: b.manifest.count, schedulePreserved: true });
+  }
+  if (path === '/admin/pause') {
+    if (!validId(b.id)) return fail(422, 'A register ID is required.');
+    await env.DB.prepare("UPDATE categories SET status='draft' WHERE id=?").bind(b.id).run();
+    return json({ ok: true });
   }
   if (path === '/admin/category') return uploadCategory(env, b);
   if (path === '/admin/approve') {
@@ -260,8 +317,13 @@ async function admin(req: Request, env: Env, path: string) {
     )
       .bind(b.id)
       .first<any>();
-    if (n.n < 2000 || n.n > 2200 || n.n !== c.total_registrable)
-      return fail(422, 'Review requires at least 2,000 fully scored entries.');
+    const meta = catalogMeta(c);
+    const coverage = JSON.parse(c.source_json || '{}').coverage;
+    if (meta ? !coverage?.ready : true)
+      return fail(
+        422,
+        'Scheduling requires complete sources, 150 obvious answers and 50 independent checks.',
+      );
     if (
       await env.DB.prepare('SELECT id FROM categories WHERE date=? AND id<>?')
         .bind(b.date, b.id)
@@ -511,7 +573,7 @@ export async function route(req: Request, env: Env): Promise<Response> {
   if (path === '/archive') {
     if (env.STAGING === 'true') return json({ categories: [] });
     const rows = await env.DB.prepare(
-      "SELECT id,date,name,slug,total_registrable,drop_at FROM categories g WHERE date<? AND status='approved' AND drop_at<=? ORDER BY date DESC",
+      "SELECT id,date,name,slug,COALESCE(json_extract(source_json,'$.staticCatalog.count'),total_registrable) total_registrable,drop_at FROM categories g WHERE date<? AND status='approved' AND drop_at<=? ORDER BY date DESC",
     )
       .bind(registryDate(), new Date().toISOString())
       .all();
@@ -565,8 +627,50 @@ export async function route(req: Request, env: Env): Promise<Response> {
   return fail(404, 'No file at this address.');
 }
 async function claim(req: Request, env: Env, u: any) {
+  const b = await body(req);
+  if (b.requestId !== undefined && !/^[a-f0-9-]{36}$/.test(b.requestId))
+    return fail(422, 'A valid request ID is required.');
+  const requestId = b.requestId || crypto.randomUUID();
   const g = await current(env);
   if (!g) return fail(422, 'This register is not open.');
+  const replay = async () => {
+    const c = await env.DB.prepare(
+      publicClaim + ' AND c.user_id=? AND c.category_id=? AND c.request_id=?',
+    )
+      .bind(u.id, g.id, requestId)
+      .first<any>();
+    const old = await env.DB.prepare(
+      'SELECT request_answer FROM claims WHERE user_id=? AND category_id=? AND request_id=? UNION ALL SELECT request_answer FROM strikes WHERE user_id=? AND category_id=? AND request_id=?',
+    )
+      .bind(u.id, g.id, requestId, u.id, g.id, requestId)
+      .first<any>();
+    if (!old) return null;
+    if (old.request_answer !== normalize(String(b.answer || '')))
+      return fail(422, 'A request ID belongs to its original answer.');
+    if (c) return json({ claim: c, file: await fileState(env, g.id, u.id), replayed: true }, 201);
+    const strike = await env.DB.prepare(
+      'SELECT house,guess,holder_claim_id FROM strikes WHERE user_id=? AND category_id=? AND request_id=?',
+    )
+      .bind(u.id, g.id, requestId)
+      .first<any>();
+    const holder = strike.holder_claim_id
+      ? await env.DB.prepare(publicClaim + ' AND c.id=?')
+          .bind(strike.holder_claim_id)
+          .first<any>()
+      : null;
+    return json(
+      {
+        house: !!strike.house,
+        takenBy: strike.house ? 'THE REGISTRY' : holder?.handle || 'Record withheld',
+        message: strike.guess + ' is taken.',
+        file: await fileState(env, g.id, u.id),
+        replayed: true,
+      },
+      409,
+    );
+  };
+  const repeated = await replay();
+  if (repeated) return repeated;
   if ((await fileState(env, g.id, u.id)).closed) return fail(403, 'Your file is closed for today.');
   try {
     if (!env.ATTEMPT_CHECKED)
@@ -578,7 +682,6 @@ async function claim(req: Request, env: Env, u: any) {
       return fail(429, 'Twelve attempts per minute. Give the ink a moment to dry.');
     throw e;
   }
-  const b = await body(req);
   if (
     !validText(b.answer) ||
     typeof b.turnstileToken !== 'string' ||
@@ -602,27 +705,44 @@ async function claim(req: Request, env: Env, u: any) {
     )
       return fail(400, 'Verification was not accepted. Please try again.');
   }
-  const answer = await env.DB.prepare(
-    'SELECT answer_id FROM answer_keys WHERE category_id=? AND match_key=?',
-  )
-    .bind(g.id, normalize(b.answer))
-    .first<any>();
-  if (!answer) return fail(422, "Not on today's register. Check the spelling.");
+  const staticRow = catalogMeta(g) ? await lookup(g, b.answer) : null;
+  const answer = catalogMeta(g)
+    ? staticRow
+      ? { answer_id: answerId(g, staticRow) }
+      : null
+    : await env.DB.prepare('SELECT answer_id FROM answer_keys WHERE category_id=? AND match_key=?')
+        .bind(g.id, normalize(b.answer))
+        .first<any>();
+  if (!answer)
+    return json(
+      {
+        code: 'NOT_REGISTERED',
+        message: 'Not on the register. No strike charged.',
+        suggestion: catalogMeta(g) ? await nearMiss(g, b.answer) : null,
+      },
+      422,
+    );
+  if (staticRow) await persistAnswer(env, g, staticRow).run();
   const house = await env.DB.prepare(
     'SELECT a.display FROM house_words h JOIN answers a ON a.id=h.answer_id WHERE h.category_id=? AND h.answer_id=?',
   )
     .bind(g.id, answer.answer_id)
     .first<any>();
+  const reserveRequest = () =>
+    env.DB.prepare(
+      'INSERT INTO claim_requests(user_id,category_id,request_id,answer_key,status,response_json,created_at) VALUES(?,?,?,?,0,?,?)',
+    ).bind(u.id, g.id, requestId, normalize(b.answer), '{}', new Date().toISOString());
   const taken = async () => {
     const r = await env.DB.prepare(claimSelect + ' WHERE c.category_id=? AND c.answer_id=?')
       .bind(g.id, answer.answer_id)
       .first<any>();
     if (!r && !house) return null;
     try {
-      await env.DB.prepare(
-        "INSERT INTO strikes(category_id,user_id,seq,created_at,guess,holder_claim_id,house) SELECT ?,?,(SELECT COUNT(*) FROM claims WHERE category_id=? AND user_id=?)+COUNT(*)+1,strftime('%Y-%m-%dT%H:%M:%fZ','now'),?,?,? FROM strikes WHERE category_id=? AND user_id=?",
-      )
-        .bind(
+      await env.DB.batch([
+        reserveRequest(),
+        env.DB.prepare(
+          "INSERT INTO strikes(category_id,user_id,seq,created_at,guess,holder_claim_id,house,request_id,request_answer) SELECT ?,?,(SELECT COUNT(*) FROM claims WHERE category_id=? AND user_id=?)+COUNT(*)+1,strftime('%Y-%m-%dT%H:%M:%fZ','now'),?,?,?,?,? FROM strikes WHERE category_id=? AND user_id=?",
+        ).bind(
           g.id,
           u.id,
           g.id,
@@ -630,11 +750,15 @@ async function claim(req: Request, env: Env, u: any) {
           b.answer.trim().toUpperCase(),
           r?.id || null,
           house ? 1 : 0,
+          requestId,
+          normalize(b.answer),
           g.id,
           u.id,
-        )
-        .run();
+        ),
+      ]);
     } catch (e) {
+      const repeated = await replay();
+      if (repeated) return repeated;
       if (String(e).includes('FILE_CLOSED')) return fail(403, 'Your file is closed for today.');
       throw e;
     }
@@ -672,12 +796,29 @@ async function claim(req: Request, env: Env, u: any) {
   const id = crypto.randomUUID();
   try {
     await env.DB.batch([
+      reserveRequest(),
       persistUser,
       env.DB.prepare(
-        "INSERT INTO claims(id,category_id,answer_id,user_id,claim_no,created_at,ip_hash,ip_day,file_no) SELECT ?,?,?,?,COALESCE(MAX(claim_no),0)+1,strftime('%Y-%m-%dT%H:%M:%fZ','now'),?,?,(SELECT COUNT(*) FROM claims WHERE category_id=? AND user_id=?)+(SELECT COUNT(*) FROM strikes WHERE category_id=? AND user_id=?)+1 FROM claims WHERE category_id=?",
-      ).bind(id, g.id, answer.answer_id, u.id, hash, day, g.id, u.id, g.id, u.id, g.id),
+        "INSERT INTO claims(id,category_id,answer_id,user_id,claim_no,created_at,ip_hash,ip_day,file_no,request_id,request_answer) SELECT ?,?,?,?,COALESCE(MAX(claim_no),0)+1,strftime('%Y-%m-%dT%H:%M:%fZ','now'),?,?,(SELECT COUNT(*) FROM claims WHERE category_id=? AND user_id=?)+(SELECT COUNT(*) FROM strikes WHERE category_id=? AND user_id=?)+1,?,? FROM claims WHERE category_id=?",
+      ).bind(
+        id,
+        g.id,
+        answer.answer_id,
+        u.id,
+        hash,
+        day,
+        g.id,
+        u.id,
+        g.id,
+        u.id,
+        requestId,
+        normalize(b.answer),
+        g.id,
+      ),
     ]);
   } catch (e) {
+    const repeated = await replay();
+    if (repeated) return repeated;
     if (String(e).includes('FILE_CLOSED')) return fail(403, 'Your file is closed for today.');
     const conflict = await taken();
     if (conflict) return conflict;
@@ -798,6 +939,7 @@ const handler = {
     if (_event.cron !== '17 5 * * *') return;
     await ensureMaintenanceIndexes(env);
     await env.DB.batch([
+      env.DB.prepare("DELETE FROM missing_answers WHERE day<date('now','-90 day')"),
       env.DB.prepare('DELETE FROM attempts WHERE at<?').bind(Date.now() - 120000),
       env.DB.prepare("DELETE FROM rate_limits WHERE day<date('now','-2 day')"),
       env.DB.prepare(

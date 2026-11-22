@@ -1,0 +1,16 @@
+{
+  "countsBefore": {
+    "claims": 0,
+    "strikes": 0,
+    "users": 3,
+    "categories": 5
+  },
+  "countsAfter": {
+    "claims": 0,
+    "strikes": 0,
+    "users": 3,
+    "categories": 5
+  },
+  "foreignKeyErrors": 0,
+  "passed": true
+}

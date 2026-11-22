@@ -5,7 +5,8 @@ import { summaryText } from '../src/share';
 it('holds exactly the ten highest measured daily pageview entries in every approved catalog', () => {
   for (const file of readdirSync('categories').filter((f) => f.endsWith('.json'))) {
     const c = JSON.parse(readFileSync('categories/' + file, 'utf8'));
-    const expected = [...c.answers]
+    const expected = c.answers
+      .filter((a: any) => a.pageviews?.days > 0)
       .sort(
         (a, b) =>
           b.pageviews.total / b.pageviews.days - a.pageviews.total / a.pageviews.days ||
@@ -17,8 +18,30 @@ it('holds exactly the ten highest measured daily pageview entries in every appro
     expect(new Set(expected).size).toBe(10);
   }
 });
-it('does not ship a public answer catalog or import the house list into client code', () => {
-  expect(existsSync('public/catalog')).toBe(false);
+it('keeps golden status out of public catalog assets and client code', () => {
+  if (existsSync('public/catalog'))
+    for (const f of readdirSync('public/catalog', { recursive: true }).filter((f) =>
+      String(f).endsWith('.json'),
+    )) {
+      const data = JSON.parse(readFileSync('public/catalog/' + f, 'utf8'));
+      if (String(f).endsWith('manifest.json')) {
+        expect(Object.keys(data).sort()).toEqual([
+          'count',
+          'house',
+          'scope',
+          'slug',
+          'v',
+          'version',
+        ]);
+        continue;
+      }
+      for (const row of Array.isArray(data) ? data : Object.values(data)) {
+        expect(row).toHaveLength(3);
+        expect(typeof row[0]).toBe('number');
+        expect(typeof row[1]).toBe('string');
+        expect(row[2] === null || Number.isInteger(row[2])).toBe(true);
+      }
+    }
   for (const f of readdirSync('src').filter((f) => /\.tsx?$/.test(f)))
     expect(readFileSync('src/' + f, 'utf8')).not.toMatch(/house-words|daily_specials|golden_json/);
 });

@@ -1,3 +1,7 @@
+import { HOME_TITLE, archiveTitle } from '../shared/seo';
+import { Icon } from './Icon';
+import { SHOW_CREATOR_CREDIT, CREATOR_URL, X_URL } from '../shared/creator';
+import { categoryPlural } from '../shared/category-copy';
 import { dropTime, localTime, countdown, edition } from '../shared/time';
 import { guesses } from '../shared/guesses';
 import { useServerNow, serverNow } from './clock';
@@ -21,7 +25,6 @@ import {
   watchRegistry,
   type Snapshot,
 } from './live';
-import { suggestions as catalogSuggestions } from './suggestions';
 import { PUBLIC_HOST, PUBLIC_ORIGIN, certificateUrl } from '../shared/config';
 import { ShareSheet } from './ShareSheet';
 import { summaryUrl, isPlatform } from '../shared/sharing';
@@ -234,7 +237,12 @@ export default function App() {
     } catch {}
   }, [theme]);
   useEffect(() => {
-    document.title = `Dibs — ${path.startsWith('/certificate') ? 'Certificate of Dibs' : path === '/about' ? 'Office notice' : path.startsWith('/archive') ? 'Registry archive' : 'The daily registry'}`;
+    if (!path.startsWith('/archive'))
+      document.title = path.startsWith('/certificate')
+        ? 'Dibs | Certificate of Dibs'
+        : path === '/about'
+          ? 'Dibs | Office notice, rules and privacy'
+          : HOME_TITLE;
   }, [path]);
   return (
     <LazyMotion features={domAnimation}>
@@ -386,7 +394,14 @@ function Home({
   setMe: (m: Me) => void;
 }) {
   const [answer, setAnswer] = useState('');
-  const [suggestions, setSuggestions] = useState<string[]>([]);
+  const [suggestion, setSuggestion] = useState<string | null>(null);
+  const [missing, setMissing] = useState(false);
+  const [outcome, setOutcome] = useState('');
+  const [recoveryKey, setRecoveryKey] = useState('');
+  const [restoreKey, setRestoreKey] = useState(() =>
+    decodeURIComponent(location.hash.match(/^#file-key=(.+)$/)?.[1] || ''),
+  );
+  const pendingRequest = useRef<{ answer: string; id: string } | null>(null);
   const [busy, setBusy] = useState(false);
   const [message, setMessage] = useState('');
   const [taken, setTaken] = useState(false);
@@ -397,20 +412,11 @@ function Home({
     [me.file, me.user?.handle, me.streak],
   );
   const [landed, setLanded] = useState(false);
-  const [active, setActive] = useState(-1);
+
   const reduced = useReducedMotion();
   const input = useRef<HTMLInputElement>(null);
   const turnstileBox = useRef<HTMLDivElement>(null);
   useEffect(() => setClaim(me.claim), [me.claim]);
-  useEffect(() => {
-    if (!landed) return;
-    const frame = requestAnimationFrame(() =>
-      document
-        .querySelector('.filed-section')
-        ?.scrollIntoView({ block: 'start', behavior: 'auto' }),
-    );
-    return () => cancelAnimationFrame(frame);
-  }, [landed]);
   useEffect(() => {
     const viewport = window.visualViewport;
     const keepFormVisible = () => {
@@ -445,26 +451,30 @@ function Home({
       });
   }, [now, today.nextDrop]);
   useEffect(() => {
-    let valid = true;
-    const id = setTimeout(() => {
-      if (answer.trim().length >= 3 && today.category)
-        (isDemo
-          ? api<{ answers: string[] }>(
-              '/answers?category=' + today.category.id + '&q=' + encodeURIComponent(answer),
-            ).then((d) => d.answers)
-          : catalogSuggestions(today.category.slug, answer)
-        )
-          .then((answers) => {
-            if (valid) setSuggestions(answers);
-          })
-          .catch(() => setSuggestions([]));
-      else setSuggestions([]);
-    }, 180);
-    return () => {
-      valid = false;
-      clearTimeout(id);
-    };
-  }, [answer, today.category]);
+    if (location.hash.startsWith('#file-key=')) history.replaceState(null, '', location.pathname);
+  }, []);
+  async function restore(e: FormEvent) {
+    e.preventDefault();
+    try {
+      await api('/recover', { key: restoreKey });
+      setRestoreKey('');
+      await refresh();
+      setMessage('Your file is restored.');
+      setOutcome('FILE RESTORED');
+    } catch (e) {
+      setMessage((e as Error).message);
+      setOutcome('FILE KEY');
+    }
+  }
+  async function sendMissing() {
+    try {
+      const r = await api<{ message: string }>('/missing', { answer });
+      setMessage(r.message);
+      setMissing(false);
+    } catch (e) {
+      setMessage((e as Error).message);
+    }
+  }
   async function identity(action: string, body: unknown) {
     try {
       const data = await api<{ user: Me['user'] }>('/me/' + action, body);
@@ -473,20 +483,29 @@ function Home({
       setMessage((e as Error).message);
     }
   }
-  async function submit(e: FormEvent) {
+  async function submit(e: FormEvent, confirmed?: string) {
     e.preventDefault();
     if (busy || !answer.trim()) return;
     setBusy(true);
     setMessage('');
-    setSuggestions([]);
+    setSuggestion(null);
+    setMissing(false);
     try {
       const token = isDemo
         ? 'demo'
         : await runTurnstile(today.turnstileSiteKey, turnstileBox.current!);
-      const result = await api<{ claim: Claim; me?: Me }>('/claim', {
-        answer,
+      const value = confirmed || answer;
+      if (!pendingRequest.current || pendingRequest.current.answer !== value)
+        pendingRequest.current = { answer: value, id: crypto.randomUUID() };
+      const result = await api<{ claim: Claim; me?: Me; recoveryKey?: string }>('/claim', {
+        answer: value,
+        requestId: pendingRequest.current.id,
         turnstileToken: token,
       });
+      pendingRequest.current = null;
+      setOutcome(result.claim.golden ? 'GOLD' : 'DIBS');
+      setMessage(result.claim.display.toUpperCase() + ' is yours.');
+      if (result.recoveryKey) setRecoveryKey(result.recoveryKey);
       setAnswer('');
       setTaken(false);
       setHouseStrike(false);
@@ -498,6 +517,20 @@ function Home({
       const err = e as ApiError;
       if (err.data?.me) setMe(err.data.me);
       else if (err.data?.file) setMe({ ...me, file: err.data.file });
+      if (err.status && err.status < 500) pendingRequest.current = null;
+      setSuggestion(err.data?.suggestion || null);
+      setMissing(err.data?.code === 'NOT_REGISTERED');
+      setOutcome(
+        err.status === 409
+          ? err.data.house
+            ? 'HOUSE WORD'
+            : 'TAKEN'
+          : err.data?.code === 'NOT_REGISTERED'
+            ? 'NOT ON THE REGISTER'
+            : err.status === 403
+              ? 'FILE CLOSED'
+              : 'TRY AGAIN',
+      );
       setTaken(err.status === 409);
       setHouseStrike(!!err.data?.house);
       setMessage(
@@ -510,6 +543,12 @@ function Home({
       input.current?.focus();
     } finally {
       setBusy(false);
+      requestAnimationFrame(() => {
+        input.current?.focus({ preventScroll: true });
+        document
+          .querySelector('.result-panel')
+          ?.scrollIntoView({ block: 'nearest', behavior: 'auto' });
+      });
     }
   }
   return (
@@ -549,46 +588,6 @@ function Home({
             <span>NOT YET FILED</span>
           </div>
         </section>
-      ) : file?.closed && !landed ? (
-        <DaySummary file={file} today={today} />
-      ) : claim && landed ? (
-        <motion.section
-          className="filed-section"
-          animate={landed && !reduced && innerWidth < 600 ? { x: [0, -6, 6, -3, 0] } : { x: 0 }}
-          transition={{ duration: 0.25 }}
-        >
-          <span className="eyebrow">YOUR DIBS HAS BEEN ENTERED INTO THE PUBLIC RECORD.</span>
-          {landed && !reduced && (
-            <div className="claim-imprint-stage" aria-hidden="true">
-              <motion.div
-                className={'claim-imprint ' + (claim.golden ? 'gold-imprint' : '')}
-                aria-hidden="true"
-                initial={{ scale: 1.4, opacity: 0, rotate: ((claim.claim_no * 7.31) % 7) - 4 }}
-                animate={{ scale: [1.4, 1, 1, 1], opacity: [0, 1, 1, 1] }}
-                transition={{
-                  duration: (file?.dibs || 1) === 1 ? 1.15 : 0.95,
-                  times: [0, 0.15, 0.58, 1],
-                }}
-              >
-                <strong>{claim.golden ? '★ DIBS' : 'DIBS'}</strong>
-                <span>{claim.display}</span>
-                <small>No. {serial(claim.claim_no)} · ENTERED INTO THE RECORD</small>
-              </motion.div>
-            </div>
-          )}
-          <Certificate claim={claim} animated={landed} />
-          <ShareButtons claim={claim} />
-          <button
-            className="primary next-dibs"
-            onClick={() => {
-              setLanded(false);
-              window.scrollTo(0, 0);
-            }}
-          >
-            {file?.closed ? 'See my file' : 'Next dibs'}
-          </button>
-          <Streak me={me} />
-        </motion.section>
       ) : !me.user ? (
         <section className="notice">
           <h2>The clerk is preparing your file.</h2>
@@ -602,7 +601,9 @@ function Home({
           transition={{ duration: 0.25 }}
         >
           <div className="claim-paper">
-            <Progress dibs={file?.dibs || 0} strikes={file?.strikes || 0} />
+            {(!file?.closed || landed) && (
+              <Progress dibs={file?.dibs || 0} strikes={file?.strikes || 0} />
+            )}
             <form onSubmit={submit}>
               <label className="eyebrow" htmlFor="answer">
                 ENTRY:
@@ -616,7 +617,6 @@ function Home({
                   placeholder={today.category.slug === 'animals' ? 'try: axolotl' : 'Name an item…'}
                   onChange={(e) => {
                     setAnswer(e.target.value);
-                    setActive(-1);
                   }}
                   onFocus={() => input.current?.scrollIntoView({ block: 'nearest' })}
                   autoComplete="off"
@@ -625,60 +625,63 @@ function Home({
                   spellCheck={false}
                   enterKeyHint="go"
                   maxLength={120}
-                  role="combobox"
-                  aria-autocomplete="list"
-                  aria-controls="suggestions"
-                  aria-expanded={suggestions.length > 0}
-                  aria-activedescendant={
-                    active >= 0 && active < suggestions.length ? 'suggestion-' + active : undefined
-                  }
-                  onKeyDown={(e) => {
-                    if (e.key === 'ArrowDown') {
-                      e.preventDefault();
-                      setActive((v) => Math.min(v + 1, suggestions.length - 1));
-                    }
-                    if (e.key === 'ArrowUp') {
-                      e.preventDefault();
-                      setActive((v) => Math.max(0, v - 1));
-                    }
-                    if (e.key === 'Escape') setSuggestions([]);
-                    if (e.key === 'Enter' && active >= 0 && suggestions[active]) {
-                      e.preventDefault();
-                      setAnswer(suggestions[active]);
-                      setSuggestions([]);
-                      setActive(-1);
-                    }
-                  }}
                 />
-                <button className="primary" disabled={busy}>
+                <button className="primary" disabled={busy || file?.closed}>
                   {busy ? 'FILING…' : 'CALL DIBS'}
-                  <span aria-hidden="true">↗</span>
+                  <Icon />
                 </button>
               </div>
-              <ul
-                id="suggestions"
-                className="suggestions"
-                role="listbox"
-                aria-label="Canonical entries"
+              <div
+                className={
+                  'result-panel ' +
+                  (houseStrike
+                    ? 'house-strike'
+                    : taken
+                      ? 'taken'
+                      : outcome === 'GOLD'
+                        ? 'gold-result'
+                        : '')
+                }
+                role={taken || outcome === 'DIBS' || outcome === 'GOLD' ? 'alert' : 'status'}
+                aria-live={
+                  taken || outcome === 'DIBS' || outcome === 'GOLD' ? 'assertive' : 'polite'
+                }
+                aria-atomic="true"
               >
-                {suggestions.map((s, i) => (
-                  <li key={s} id={'suggestion-' + i} role="option" aria-selected={active === i}>
-                    <button
-                      type="button"
-                      tabIndex={-1}
-                      onMouseDown={(e) => e.preventDefault()}
-                      onClick={() => {
-                        setAnswer(s);
-                        setSuggestions([]);
-                        input.current?.focus();
-                      }}
-                    >
-                      {s}
-                      <span>↖</span>
-                    </button>
-                  </li>
-                ))}
-              </ul>
+                <strong className="result-label">
+                  <Icon
+                    name={
+                      taken
+                        ? 'cross'
+                        : outcome === 'GOLD'
+                          ? 'star'
+                          : outcome === 'DIBS'
+                            ? 'check'
+                            : 'info'
+                    }
+                  />
+                  {outcome || 'READY TO FILE'}
+                </strong>
+                <p>
+                  {message || 'Think of an answer. The clerk is ready.'}{' '}
+                  {taken && <strong>Strike {file?.strikes || 0} of 5.</strong>}
+                </p>
+                {outcome && (
+                  <p className="result-counts">
+                    {3 - (file?.dibs || 0)} dibs and {5 - (file?.strikes || 0)} strikes remaining.
+                  </p>
+                )}
+                {suggestion && (
+                  <button type="button" onClick={(e) => void submit(e, suggestion)}>
+                    Did you mean {suggestion.toUpperCase()}?
+                  </button>
+                )}
+                {missing && (
+                  <button type="button" onClick={() => void sendMissing()}>
+                    Submit to the clerk
+                  </button>
+                )}
+              </div>
               <p className="live-strip">
                 {today.open.toLocaleString()} still up for grabs ·{' '}
                 {today.lastClaimAt
@@ -688,28 +691,72 @@ function Home({
                   : 'be the first to claim'}
               </p>
               <ol className="how-it-works" aria-label="How it works">
-                <li>Call dibs on up to 3 {today.category.name.toLowerCase()}.</li>
+                <li>Call dibs on up to 3 {categoryPlural(today.category)}.</li>
                 <li>Taken guesses cost a strike. 5 strikes and you’re out.</li>
                 <li>Fastest clean file wins the day.</li>
                 <li>The 10 most obvious answers are held by the house.</li>
               </ol>
               <div ref={turnstileBox} className="turnstile" />
-              <p
-                className={'clerk-message ' + (houseStrike ? 'house-strike' : taken ? 'taken' : '')}
-                role="status"
-              >
-                {message || 'Spell it right. The clerk is particular.'}
-              </p>
             </form>
           </div>
         </motion.section>
       )}
-      {file && !file.closed && !landed && file.claims.length > 0 && (
+      {recoveryKey && (
+        <section className="file-key-panel">
+          <h2>Your file key</h2>
+          <p>Save this key. It is shown after your first claim.</p>
+          <strong>{recoveryKey}</strong>
+          <p>Switching apps? Use your file key to keep your dibs and streak.</p>
+          <a href={'/#file-key=' + encodeURIComponent(recoveryKey)}>Continue in another browser</a>
+          <button
+            onClick={() =>
+              void navigator.clipboard.writeText(
+                location.origin + '/#file-key=' + encodeURIComponent(recoveryKey),
+              )
+            }
+          >
+            Copy continuation link
+          </button>
+          <button onClick={() => setRecoveryKey('')}>I saved my key</button>
+        </section>
+      )}
+      <details className="file-key-panel" open={restoreKey ? true : undefined}>
+        <summary>Restore your file in this browser</summary>
+        <p>Switching apps? Use your file key to keep your dibs and streak.</p>
+        <form onSubmit={restore}>
+          <label htmlFor="restore-key">Your file key</label>
+          <input
+            id="restore-key"
+            value={restoreKey}
+            onChange={(e) => setRestoreKey(e.target.value)}
+            autoComplete="off"
+            maxLength={60}
+          />
+          <button>Restore file</button>
+        </form>
+      </details>
+      {file?.closed && !landed && <DaySummary file={file} today={today} />}
+      {claim && landed && (
+        <section className="filed-section">
+          <Certificate claim={claim} animated />
+          <ShareButtons claim={claim} />
+          <button
+            className="primary next-dibs"
+            onClick={() => {
+              setLanded(false);
+              input.current?.focus();
+            }}
+          >
+            {file?.closed ? 'See my file' : 'Next dibs'}
+          </button>
+        </section>
+      )}
+      {file && !file.closed && file.claims.length > 0 && (
         <section className="file-copies">
           <span className="eyebrow">YOUR DIBS / CERTIFIED COPIES</span>
           {file.claims.map((c) => (
             <Link key={c.id} to={'/certificate/' + c.id}>
-              {c.display} ↗
+              {c.display} <Icon />
             </Link>
           ))}
         </section>
@@ -743,24 +790,12 @@ function Home({
           />
           {today.specials && (
             <section className="daily-specials">
-              <p>
-                Golden tickets: {today.specials.goldenFound} of {today.specials.goldenTotal} found
-                today
-              </p>
               {today.specials.houseWords.length > 0 && (
                 <div className="house-record">
                   <span className="house-stamp">THE REGISTRY · HOUSE</span>
                   <p>{today.specials.houseWords.map((w) => w.display.toUpperCase()).join(' · ')}</p>
                 </div>
               )}
-              <details>
-                <summary>Golden-ticket commitment</summary>
-                <code>{today.specials.commitment}</code>
-                <p>
-                  Filed at {time(today.specials.committedAt)}. The answers and verification open
-                  when this day closes.
-                </p>
-              </details>
             </section>
           )}
           <section className="cleanest">
@@ -787,7 +822,9 @@ function Home({
       <div className="bottom-note">
         <span className="eyebrow">A NOTE FROM THE CLERK</span>
         <p>All claims are real. All ownership is entirely ceremonial.</p>
-        <Link to="/about">Read the office notice ↗</Link>
+        <Link to="/about">
+          Read the office notice <Icon />
+        </Link>
       </div>
     </>
   );
@@ -801,7 +838,7 @@ function Progress({ dibs, strikes }: { dibs: number; strikes: number }) {
           <i key={i} className={i < strikes ? 'used' : ''} />
         ))}
       </span>
-      <span className="eyebrow">{strikes} / 5 STRIKES</span>
+      <span className="eyebrow">{strikes} of 5 strikes used</span>
     </div>
   );
 }
@@ -1055,7 +1092,7 @@ function Ledger({
               <td>{serial(r.claim_no)}</td>
               <td>
                 <Link to={'/certificate/' + r.id}>
-                  {r.golden ? '★ ' : ''}
+                  {r.golden && <Icon name="star" />}
                   {r.display}
                 </Link>
               </td>
@@ -1168,10 +1205,17 @@ export function Certificate({ claim, animated = false }: { claim: Claim; animate
           <span className="eyebrow">OBSCURITY</span>
           <div
             className="obscurity"
+            role="img"
             aria-label={claim.obscurity ? `${claim.obscurity} out of 5` : 'Unrated'}
           >
             {claim.obscurity
-              ? '●'.repeat(claim.obscurity) + '○'.repeat(5 - claim.obscurity)
+              ? Array.from({ length: 5 }, (_, i) => (
+                  <span
+                    aria-hidden="true"
+                    key={i}
+                    className={'obscurity-dot ' + (i < claim.obscurity! ? 'filled' : '')}
+                  />
+                ))
               : 'UNRATED'}
           </div>
           <span className="cert-source">
@@ -1187,11 +1231,15 @@ export function Certificate({ claim, animated = false }: { claim: Claim; animate
         >
           <strong>DIBS</strong>
           <span>
-            {claim.golden
-              ? '★ GOLDEN TICKET'
-              : claim.obscurity && claim.obscurity >= 4
-                ? 'DEEP CUT'
-                : 'REGISTERED'}
+            {claim.golden ? (
+              <>
+                <Icon name="star" /> GOLDEN TICKET
+              </>
+            ) : claim.obscurity && claim.obscurity >= 4 ? (
+              'DEEP CUT'
+            ) : (
+              'REGISTERED'
+            )}
           </span>
         </motion.div>
       </div>
@@ -1230,7 +1278,9 @@ function SummaryPage({ id }: { id: string }) {
       <div className="page-heading">
         <span className="eyebrow">REGISTRY OF CLAIMS / FORM D-3</span>
         <h1>A day on file.</h1>
-        <Link to="/">Play today’s Dibs ↗</Link>
+        <Link to="/">
+          Play today’s Dibs <Icon />
+        </Link>
       </div>
       {error ? (
         <p role="alert">{error}</p>
@@ -1275,7 +1325,9 @@ function CertificatePage({ id }: { id: string }) {
       ) : (
         <p role="status">{error || 'Retrieving the original…'}</p>
       )}
-      <Link to="/">← Back to the register</Link>
+      <Link to="/">
+        <Icon name="back" /> Back to the register
+      </Link>
     </section>
   );
 }
@@ -1296,6 +1348,12 @@ function Archive() {
       .catch((e) => setError(e.message));
   }, []);
   useEffect(() => {
+    if (selected) {
+      document.title = archiveTitle(selected);
+      document
+        .querySelector('link[rel="canonical"]')
+        ?.setAttribute('href', PUBLIC_ORIGIN + '/archive?date=' + selected.date);
+    }
     if (!selected || selected.specials) return;
     let alive = true;
     api<{ categories: Category[] }>('/archive?id=' + encodeURIComponent(selected.id))
@@ -1381,7 +1439,13 @@ function Archive() {
                   {selected.specials.reveal && (
                     <>
                       <p className="gold-summary">
-                        {selected.specials.verified ? '✓ Verified' : 'Verification unavailable'}
+                        {selected.specials.verified ? (
+                          <>
+                            <Icon name="check" /> Verified
+                          </>
+                        ) : (
+                          'Verification unavailable'
+                        )}
                       </p>
                       <ul>
                         {selected.specials.reveal.answers.map((a) => (
@@ -1432,14 +1496,14 @@ function About({ nextDrop }: { nextDrop: string }) {
       <div className="page-heading">
         <span className="eyebrow">PLEASE READ BEFORE FILING / NOTICE 001</span>
         <h1>
-          A small claim.
+          Dibs. A small claim.
           <br />A public record.
         </h1>
         <p>Welcome to the least consequential office in town.</p>
       </div>
       <div className="about-layout">
         <section>
-          <h2>The filing rules.</h2>
+          <h2>How to play</h2>
           <ol className="rules">
             <li>
               A new category opens daily. Next drop: <DropTime at={nextDrop} />.
@@ -1454,6 +1518,13 @@ function About({ nextDrop }: { nextDrop: string }) {
             </li>
             <li>Most dibs, fewest strikes, earliest completed file wins.</li>
           </ol>
+          <h2>Frequently asked questions</h2>
+          <h3>When does the category drop?</h3>
+          <p>Every day at 9 PM Eastern time.</p>
+          <h3>What's a golden ticket?</h3>
+          <p>A secret randomly selected answer. Claim it to earn a gold stamp.</p>
+          <h3>Is it free?</h3>
+          <p>Yes. Dibs is free to play.</p>
           <div className="about-stamp">
             NO ACTUAL
             <br />
@@ -1462,11 +1533,7 @@ function About({ nextDrop }: { nextDrop: string }) {
         </section>
         <aside className="office-note">
           <span className="eyebrow">A NOTE ON THE RECORD</span>
-          <h2>
-            Your data
-            <br />
-            stays modest.
-          </h2>
+          <h2>Privacy</h2>
           <p>
             We store a randomly generated handle and your claims. An anonymous, signed cookie keeps
             your place. No email. No password. No public names to type.
@@ -1477,24 +1544,45 @@ function About({ nextDrop }: { nextDrop: string }) {
             traffic analytics when configured. Nothing is sold.
           </p>
           <p>
-            Clearing cookies loses access to your anonymous account. Claims stay in the public
-            record. Your handle locks after your first claim.
+            Your file key restores access after switching browsers or clearing cookies. Keep it
+            private: anyone with it can use your file. Your handle locks after your first claim.
+          </p>
+          <p>
+            We keep your random ID cookie for one year, claims and strikes as the public game
+            record, and a hashed recovery key so you can restore your identity. Network abuse hashes
+            rotate daily and are cleared after two days. Anonymous share and arrival counts have no
+            names or IP addresses. Missing-answer submissions contain only the normalized answer,
+            category, date and count, and are kept for 90 days. Transient browser sessions expire
+            after 30 days. Backups are kept privately for 30 days. Nothing is sold or used for ads.
+          </p>
+          <p>
+            For privacy questions or deletion requests:{' '}
+            <a href="mailto:privacy@dibs.here">privacy@dibs.here</a> (contact mailbox awaiting owner
+            setup). Dibs is for players 13 and up.
+          </p>
+          <h2>Sources and attribution</h2>
+          <p>
+            Registers use <a href="https://www.geonames.org/">GeoNames</a> (CC BY), Princeton
+            WordNet, <a href="https://www.worldbirdnames.org/">IOC World Bird List</a> (CC BY 3.0),{' '}
+            <a href="https://world.openfoodfacts.org/">Open Food Facts</a> (ODbL), and ISO 3166 data
+            (MIT). Wikipedia pageviews rank measured answers.{' '}
+            <a href="/data/licenses.txt">Full licenses and source notes</a>.
+          </p>
+          <h2>Golden-ticket commitment</h2>
+          <p>
+            Before a register opens, the clerk publishes a SHA-256 commitment. Once it closes, the
+            archive reveals the seed and answer IDs so anyone can check the draw.{' '}
+            <Link to="/archive">Read the archive</Link>.
           </p>
           <p>
             Obscurity uses Wikipedia pageviews, grouped from 1 (familiar) to 5 (less read). It
             describes the article’s readership, not your intelligence.
           </p>
-          <p>
-            Built by{' '}
-            <a href="https://www.ashwathram.ca" target="_blank" rel="noreferrer">
-              Ashwathram Prathap ↗
-            </a>
-            <br />
-            <a href="https://github.com/ashwathram-prathap/dibs" target="_blank" rel="noreferrer">
-              Project on GitHub ↗
-            </a>{' '}
-            <span className="fine-print">(private preview)</span>
-          </p>
+          {SHOW_CREATOR_CREDIT && (
+            <p>
+              Made by <a href={CREATOR_URL}>Ashwathram</a> · <a href={X_URL}>X</a>
+            </p>
+          )}
         </aside>
       </div>
     </>
@@ -1556,6 +1644,27 @@ function Stats() {
                     {d.active_claimers} / {d.claims}
                   </td>
                   <td>{d.shares}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+          <table className="record-table">
+            <caption>Missing answers submitted to the clerk</caption>
+            <thead>
+              <tr>
+                <th>Day</th>
+                <th>Category</th>
+                <th>Answer</th>
+                <th>Count</th>
+              </tr>
+            </thead>
+            <tbody>
+              {(data.missing || []).map((r: any) => (
+                <tr key={r.day + r.category_id + r.answer}>
+                  <td>{r.day}</td>
+                  <td>{r.category_id}</td>
+                  <td>{r.answer}</td>
+                  <td>{r.count}</td>
                 </tr>
               ))}
             </tbody>

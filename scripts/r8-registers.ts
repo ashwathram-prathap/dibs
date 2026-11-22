@@ -1,0 +1,4 @@
+import {readFileSync,writeFileSync} from 'node:fs';
+const staging=process.argv.includes('--practice');const origin=staging?'https://practice.dibs-7hz.pages.dev':'https://dibs.here';const token=readFileSync(staging?'.dev.vars.staging':'.dev.vars','utf8').match(/^ADMIN_TOKEN=(.+)$/m)![1];
+const r=await fetch(origin+'/api/admin/registers',{headers:{authorization:'Bearer '+token,origin}});if(!r.ok)throw Error(await r.text());const data:any=await r.json();
+const rows=data.categories.map((c:any)=>({id:c.id,name:c.name,status:c.status,date:c.date,drop_at:c.drop_at,total:c.total_registrable,staticCatalog:JSON.parse(c.source_json||'{}').staticCatalog||null}));writeFileSync('review/round8/'+(staging?'practice':'production')+'-registers-'+(process.argv.includes('--after')?'after':'before')+'.json',JSON.stringify(rows,null,2));console.log(rows.map(({id,status,date,total}:any)=>({id,status,date,total})));
