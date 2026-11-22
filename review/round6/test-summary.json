@@ -8,9 +8,10 @@
   "live": 18,
   "visualExports": 34,
   "distinctBrowserCases": 506,
-  "finalStampFontRegression": 14,
+  "finalStampFontRegression": 38,
   "historySecretScan": {
-    "commits": 84,
+    "commits": 86,
     "leaks": 0
-  }
+  },
+  "firefoxRun": "https://github.com/ashwathram-prathap/dibs/actions/runs/44973141840"
 }

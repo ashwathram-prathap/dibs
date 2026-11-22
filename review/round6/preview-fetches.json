@@ -2,70 +2,70 @@
   {
     "kind": "certificate",
     "platform": "WhatsApp",
-    "bytes": 42316,
-    "milliseconds": 20,
+    "bytes": 41982,
+    "milliseconds": 27,
     "status": 200
   },
   {
     "kind": "certificate",
     "platform": "X",
-    "bytes": 42316,
+    "bytes": 41982,
     "milliseconds": 1,
     "status": 200
   },
   {
     "kind": "certificate",
     "platform": "Facebook",
-    "bytes": 42316,
+    "bytes": 41982,
     "milliseconds": 1,
     "status": 200
   },
   {
     "kind": "certificate",
     "platform": "iMessage",
-    "bytes": 42316,
+    "bytes": 41982,
     "milliseconds": 1,
     "status": 200
   },
   {
     "kind": "certificate",
     "platform": "Discord",
-    "bytes": 42316,
+    "bytes": 41982,
     "milliseconds": 1,
     "status": 200
   },
   {
     "kind": "summary",
     "platform": "WhatsApp",
-    "bytes": 40216,
-    "milliseconds": 17,
+    "bytes": 40317,
+    "milliseconds": 21,
     "status": 200
   },
   {
     "kind": "summary",
     "platform": "X",
-    "bytes": 40216,
-    "milliseconds": 0,
+    "bytes": 40317,
+    "milliseconds": 1,
     "status": 200
   },
   {
     "kind": "summary",
     "platform": "Facebook",
-    "bytes": 40216,
+    "bytes": 40317,
     "milliseconds": 1,
     "status": 200
   },
   {
     "kind": "summary",
     "platform": "iMessage",
-    "bytes": 40216,
+    "bytes": 40317,
     "milliseconds": 1,
     "status": 200
   },
   {
     "kind": "summary",
     "platform": "Discord",
-    "bytes": 40216,
+    "bytes": 40317,
     "milliseconds": 1,
     "status": 200
   }

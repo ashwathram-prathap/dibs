@@ -1,8 +1,8 @@
 # Round 6 browser checks
 
-506/506 checks passed. Chromium/WebKit local; Firefox Linux CI. Three initial gold-animation screenshot timing failures were fixed, then all 38 local special-visual cases rerun successfully. Firefox rerun passed all 72.
+506/506 distinct checks passed. Chromium/WebKit local; [final Firefox Linux CI](https://github.com/ashwathram-prathap/dibs/actions/runs/44973141840). Initial screenshot timing failures were repaired, then all 38 local special-state checks rerun. The final desktop stamp font fix was checked in all 38 local profiles and the latest 72-case Firefox suite, including a minimum rendered font-size regression assertion.
 
-These are browser engines and emulated viewport/user-agent profiles; physical phones, installed Samsung Internet and embedded social apps require owner smoke checks.
+These are browser engines and emulated viewport/user-agent profiles; physical phones, installed Samsung Internet and embedded social apps require owner smoke checks. Real unattended Turnstile timed out in Chromium phone, Chromium desktop and WebKit phone. WebKit also reported a cross-origin error from the third-party challenge. No remote bypass was enabled.
 
 | Profile | Passed | Failed |
 |---|---:|---:|

@@ -4,7 +4,7 @@ Reviewed the light/dark 390px and 1440px screen sets, house strike, gold claim a
 
 The palette remains paper/ink/vermilion, registry blue for the house, and muted gold only for golden tickets. One short stamp sheen is the sole gradient; reduced-motion disables it. No overflow, clipped controls or invented production player entries. Public answer catalogs are absent from production builds. Golden and house fixtures are explicitly labelled development proofs.
 
-The gold-specific accessibility check and minimum rendered stamp font assertion passed 14 final Chromium/WebKit desktop/exact-390 cases. The earlier 38-profile special-state rerun passed; complete browser results are in devices.md. Full font-regression Firefox coverage is recorded with the final CI results.
+The gold-specific accessibility check and minimum rendered stamp font assertion passed all 38 final local Chromium/WebKit profiles. The earlier 38-profile special-state rerun passed; complete browser results are in devices.md. The final 72-case Firefox suite also passed with the font assertion.
 
 Weakest screens for future polish: the mobile summary has a long group of sharing controls; the empty archive is intentionally sparse; the desktop stats login is utilitarian. No unresolved overlap or contrast failures were found.
 

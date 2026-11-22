@@ -1,0 +1,29 @@
+{
+  "checkedAt": "2026-11-22T01:51:07.787Z",
+  "production": "https://dibs.here",
+  "practice": "https://practice.dibs-7hz.pages.dev",
+  "records": [
+    {
+      "file": ".tmp/r6-prod-deploy.log",
+      "versions": [
+        "64d95d18-c3bc-4578-9ed9-5f27103c72f8"
+      ],
+      "pages": []
+    },
+    {
+      "file": ".tmp/r6-stage-deploy.log",
+      "versions": [
+        "df80e99b-09c5-445e-bb19-74c589219c9b"
+      ],
+      "pages": []
+    },
+    {
+      "file": ".tmp/r6-fixed-deploy.log",
+      "versions": [],
+      "pages": [
+        "https://1940a6e6.dibs-7hz.pages.dev",
+        "https://afebdf36.dibs-7hz.pages.dev"
+      ]
+    }
+  ]
+}
