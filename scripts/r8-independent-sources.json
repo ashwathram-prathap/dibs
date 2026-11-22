@@ -1,28 +1,94 @@
 {
-  "arthropods": ["List of butterflies of North America"],
-  "films": ["List of Academy Award-winning films"],
-  "bands": ["List of Rock and Roll Hall of Fame inductees"],
-  "albums": ["List of best-selling albums"],
-  "songs": ["List of Billboard Hot 100 number-one singles of the 2010s"],
-  "novels": ["List of best-selling books"],
-  "video-games": ["List of best-selling video games"],
-  "television": ["List of longest-running scripted American primetime television series"],
-  "mountains": ["List of mountains by elevation"],
-  "rivers": ["List of rivers by length"],
-  "lakes": ["List of lakes by area"],
-  "islands": ["List of islands by area"],
-  "museums": ["List of most-visited museums"],
-  "universities": ["List of universities in the United Kingdom"],
-  "airports": ["List of the busiest airports in the United States", "List of the busiest airports in Canada"],
-  "stations": ["List of London Underground stations"],
-  "asteroids": ["List of minor planets: 1–1000"],
-  "ships": ["List of museum ships"],
-  "castles": ["List of castles in England"],
-  "painters": ["List of painters by name, beginning with \"A\""],
-  "poets": ["List of poets"],
-  "composers": ["List of composers by name"],
-  "actors": ["List of actors with Academy Award nominations"],
-  "architects": ["List of architects"],
-  "footballers": ["List of men's footballers with 100 or more international caps"],
-  "paintings": ["List of most expensive paintings"]
+  "arthropods": [
+    "List of butterflies of North America",
+    "List of butterflies of North America (Papilionidae)",
+    "List of butterflies of North America (Hesperiidae)",
+    "List of butterflies of North America (Pieridae)",
+    "List of butterflies of North America (Lycaenidae)",
+    "List of butterflies of North America (Riodinidae)",
+    "List of butterflies of North America (Nymphalidae)"
+  ],
+  "films": [
+    "List of Academy Award-winning films"
+  ],
+  "bands": [
+    "List of Rock and Roll Hall of Fame inductees"
+  ],
+  "albums": [
+    "List of best-selling albums",
+    "List of best-selling albums in the United Kingdom"
+  ],
+  "songs": [
+    "List of Billboard Hot 100 number-one singles of the 2010s"
+  ],
+  "novels": [
+    "List of best-selling books",
+    "Hugo Award for Best Novel"
+  ],
+  "video-games": [
+    "List of best-selling video games",
+    "List of best-selling Nintendo Switch video games",
+    "List of best-selling PlayStation 4 video games"
+  ],
+  "television": [
+    "List of longest-running scripted American primetime television series"
+  ],
+  "mountains": [
+    "List of mountains by elevation"
+  ],
+  "rivers": [
+    "List of rivers by length"
+  ],
+  "lakes": [
+    "List of lakes by area",
+    "List of lakes by depth"
+  ],
+  "islands": [
+    "List of islands by area"
+  ],
+  "museums": [
+    "List of most-visited museums",
+    "List of museums in London"
+  ],
+  "universities": [
+    "List of universities in the United Kingdom"
+  ],
+  "airports": [
+    "List of the busiest airports in the United States",
+    "List of the busiest airports in Canada"
+  ],
+  "stations": [
+    "List of London Underground stations"
+  ],
+  "asteroids": [
+    "List of minor planets: 1\u20131000"
+  ],
+  "ships": [
+    "List of museum ships"
+  ],
+  "castles": [
+    "List of castles in England"
+  ],
+  "painters": [
+    "List of painters by name beginning with \"A\""
+  ],
+  "poets": [
+    "List of poets"
+  ],
+  "composers": [
+    "List of composers by name"
+  ],
+  "actors": [
+    "List of actors with Academy Award nominations"
+  ],
+  "architects": [
+    "List of architects"
+  ],
+  "footballers": [
+    "List of men's footballers with 100 or more international caps"
+  ],
+  "paintings": [
+    "List of most expensive paintings",
+    "List of works by Vincent van Gogh"
+  ]
 }

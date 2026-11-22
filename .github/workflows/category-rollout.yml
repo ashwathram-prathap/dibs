@@ -1,51 +1,10 @@
-name: Approved category rollout
+name: Legacy category rollout (retired)
 on:
-  schedule:
-    - cron: '20 0 * * *'
   workflow_dispatch:
 permissions:
   contents: read
-  actions: write
-concurrency:
-  group: approved-category-rollout
-  cancel-in-progress: false
 jobs:
-  upload:
+  notice:
     runs-on: ubuntu-latest
-    timeout-minutes: 5
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
-        with:
-          node-version: '22'
-      - uses: actions/cache/restore@v4
-        with:
-          path: .upload-state.json
-          key: dibs-r3-uploads-${{ github.run_id }}
-          restore-keys: dibs-r3-uploads-
-      - run: npm ci --ignore-scripts
-      - id: rollout
-        run: npx tsx scripts/round3-categories.ts
-        env:
-          # Monday November 23 launch; the script protects other dates when one upload is late.
-          DIBS_API: https://dibs.here/api
-          ADMIN_TOKEN: ${{ secrets.DIBS_ADMIN_TOKEN }}
-      - uses: actions/cache/save@v4
-        if: always()
-        with:
-          path: .upload-state.json
-          key: dibs-r3-uploads-${{ github.run_id }}
-      - uses: actions/upload-artifact@v4
-        if: always()
-        with:
-          name: category-upload-state
-          include-hidden-files: true
-          path: |
-            .upload-state.json
-            review/round3/upload-progress.json
-          retention-days: 30
-      - name: Stop the completed rollout
-        if: steps.rollout.outputs.complete == 'true'
-        run: gh workflow disable category-rollout.yml
-        env:
-          GH_TOKEN: ${{ github.token }}
+      - run: echo 'The capped row uploader is retired. Use the R8 static catalog builder, coverage gate, and authenticated static-catalog activation. Existing live dates remain unchanged.'

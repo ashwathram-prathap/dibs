@@ -35,7 +35,7 @@ The browser matrix covers both themes, 320–2560px, phone landscape, tablets, k
 
 ## Complete catalogs
 
-The R8 pipeline merges full reference extracts: WordNet, GBIF English vernacular names, IOC, USDA PLANTS, GeoNames cities1000 and allCountries plus English alternate names, the Mammal Diversity Database, OurAirports, ISO 3166, Open Food Facts, supplementary culinary lists, and uncapped Wikidata classifications. See [source attribution](public/data/licenses.txt). Reference downloads and pageview caches are private build inputs under `.category-cache/r8/`; source checksums are recorded in `review/round8/source-checksums.json`.
+The R8 pipeline merges full reference extracts: WordNet, GBIF English vernacular names, IOC, USDA PLANTS, GeoNames cities1000 and allCountries plus English alternate names, the Mammal Diversity Database, OurAirports, NASA/JPL named minor planets, ISO 3166, Open Food Facts, supplementary culinary lists, and uncapped Wikidata classifications. See [source attribution](public/data/licenses.txt). Reference downloads and pageview caches are private build inputs under `.category-cache/r8/`; source checksums are recorded in `review/round8/source-checksums.json`.
 
 ```sh
 # After downloading the documented complete reference inputs:
@@ -43,6 +43,7 @@ python3 scripts/extract-gbif-r8.py
 python3 scripts/extract-geonames-en-r8.py
 npx tsx scripts/extract-r8-curated.ts
 python3 scripts/extract-r8-geography.py
+npx tsx scripts/extract-r8-asteroids.ts
 npx tsx scripts/extract-r8-wikidata-chunks.ts
 python3 scripts/extract-r8.py
 NODE_OPTIONS=--max-old-space-size=8192 npx tsx scripts/build-r8.ts --write-measurement-queue
@@ -54,7 +55,7 @@ npm run build
 
 Wikidata extraction first retrieves the entire classification ID set, then uses resumable bounded joins to obtain English labels and article links. English Wikipedia article availability is its stated quality filter; batch size never caps membership. Cities, biological and food references retain their full eligible reference set. For the other GeoNames categories, every candidate is checked against the complete English Wikipedia title dump plus subsequent new-page and move logs; only measured articles with matching geographic descriptions pass the stated quality filter. Absence from that dated title inventory is recorded as unknown readership, never fabricated zero views. Geography feature codes and exclusions are recorded in the extraction audit.
 
-The builder considers every source row, merges common names and aliases, and measures English Wikipedia readership without a query-order cap. Unknown measurements remain unknown. Source completeness, completed ranking, at least 150 independently authored obvious examples (98%, Animals 100%), and 50 independent mid-popularity checks gate new approval. Legacy catalogs remain unverified until they pass. Countries uses all 249 ISO countries and territories; artificial entries are not added to reach 300.
+The builder considers every source row, merges common names and aliases, and measures English Wikipedia readership without a query-order cap. Unknown measurements remain unknown. Source completeness, completed ranking, at least 150 independently authored obvious examples (98%, Animals 100%), and 50 independent mid-popularity checks gate new approval. Legacy catalogs remain unverified until they pass. The old capped builder and uploader are retired, and their scheduled GitHub workflow is disabled; the live game calendar is unchanged. Countries uses all 249 ISO countries and territories; artificial entries are not added to reach 300.
 
 `build-catalog-assets.ts` writes immutable, versioned public indexes with no golden flags. The Worker checks a bundled common-name index first, then lazily loads one category's sorted full index per isolate and binary-searches it. D1 stores claims, strikes, house rows and golden commitments, not one row per reference answer. Legacy answer rows remain for rollback. Counts use the manifest's actual total. Client spelling assistance runs only **after submission**, in a bounded Web Worker; there is no answer autocomplete.
 

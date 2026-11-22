@@ -1,0 +1,198 @@
+{
+  "actors": {
+    "sources": [
+      "List of actors with Academy Award nominations"
+    ],
+    "entries": 1004,
+    "method": "Named subject column, preserving row spans; navigation, images, authors and other columns excluded"
+  },
+  "airports": {
+    "sources": [
+      "List of the busiest airports in the United States",
+      "List of the busiest airports in Canada"
+    ],
+    "entries": 119,
+    "method": "Named subject column, preserving row spans; navigation, images, authors and other columns excluded"
+  },
+  "albums": {
+    "sources": [
+      "List of best-selling albums",
+      "List of best-selling albums in the United Kingdom"
+    ],
+    "entries": 146,
+    "method": "Named subject column, preserving row spans; navigation, images, authors and other columns excluded"
+  },
+  "architects": {
+    "sources": [
+      "List of architects"
+    ],
+    "entries": 969,
+    "method": "First linked entry in each content list; butterfly common names read from the list label"
+  },
+  "arthropods": {
+    "sources": [
+      "List of butterflies of North America",
+      "List of butterflies of North America (Papilionidae)",
+      "List of butterflies of North America (Hesperiidae)",
+      "List of butterflies of North America (Pieridae)",
+      "List of butterflies of North America (Lycaenidae)",
+      "List of butterflies of North America (Riodinidae)",
+      "List of butterflies of North America (Nymphalidae)"
+    ],
+    "entries": 691,
+    "method": "First linked entry in each content list; butterfly common names read from the list label"
+  },
+  "asteroids": {
+    "sources": [
+      "List of minor planets: 1–1000"
+    ],
+    "entries": 1000,
+    "method": "Named subject column, preserving row spans; navigation, images, authors and other columns excluded"
+  },
+  "bands": {
+    "sources": [
+      "List of Rock and Roll Hall of Fame inductees"
+    ],
+    "entries": 482,
+    "method": "Named subject column, preserving row spans; navigation, images, authors and other columns excluded"
+  },
+  "castles": {
+    "sources": [
+      "List of castles in England"
+    ],
+    "entries": 411,
+    "method": "Named subject column, preserving row spans; navigation, images, authors and other columns excluded"
+  },
+  "composers": {
+    "sources": [
+      "List of composers by name"
+    ],
+    "entries": 5050,
+    "method": "First linked entry in each content list; butterfly common names read from the list label"
+  },
+  "films": {
+    "sources": [
+      "List of Academy Award–winning films"
+    ],
+    "entries": 1399,
+    "method": "Named subject column, preserving row spans; navigation, images, authors and other columns excluded"
+  },
+  "footballers": {
+    "sources": [
+      "List of men's footballers with 100 or more international caps"
+    ],
+    "entries": 704,
+    "method": "Named subject column, preserving row spans; navigation, images, authors and other columns excluded"
+  },
+  "islands": {
+    "sources": [
+      "List of islands by area"
+    ],
+    "entries": 322,
+    "method": "Named subject column, preserving row spans; navigation, images, authors and other columns excluded"
+  },
+  "lakes": {
+    "sources": [
+      "List of lakes by area",
+      "List of lakes by depth"
+    ],
+    "entries": 178,
+    "method": "Named subject column, preserving row spans; navigation, images, authors and other columns excluded"
+  },
+  "mountains": {
+    "sources": [
+      "List of mountains by elevation"
+    ],
+    "entries": 1633,
+    "method": "Named subject column, preserving row spans; navigation, images, authors and other columns excluded"
+  },
+  "museums": {
+    "sources": [
+      "List of most-visited museums",
+      "List of museums in London"
+    ],
+    "entries": 336,
+    "method": "Named subject column, preserving row spans; navigation, images, authors and other columns excluded"
+  },
+  "novels": {
+    "sources": [
+      "List of best-selling books",
+      "Hugo Award for Best Novel"
+    ],
+    "entries": 556,
+    "method": "Named subject column, preserving row spans; navigation, images, authors and other columns excluded"
+  },
+  "painters": {
+    "sources": [
+      "List of painters by name beginning with \"A\""
+    ],
+    "entries": 194,
+    "method": "First linked entry in each content list; butterfly common names read from the list label"
+  },
+  "paintings": {
+    "sources": [
+      "List of most expensive paintings",
+      "List of works by Vincent van Gogh"
+    ],
+    "entries": 115,
+    "method": "Named subject column, preserving row spans; navigation, images, authors and other columns excluded"
+  },
+  "poets": {
+    "sources": [
+      "List of poets"
+    ],
+    "entries": 2610,
+    "method": "First linked entry in each content list; butterfly common names read from the list label"
+  },
+  "rivers": {
+    "sources": [
+      "List of river systems by length"
+    ],
+    "entries": 318,
+    "method": "Named subject column, preserving row spans; navigation, images, authors and other columns excluded"
+  },
+  "ships": {
+    "sources": [
+      "List of museum ships"
+    ],
+    "entries": 300,
+    "method": "Named subject column, preserving row spans; navigation, images, authors and other columns excluded"
+  },
+  "songs": {
+    "sources": [
+      "List of Billboard Hot 100 number-one singles of the 2010s"
+    ],
+    "entries": 116,
+    "method": "Named subject column, preserving row spans; navigation, images, authors and other columns excluded"
+  },
+  "stations": {
+    "sources": [
+      "List of London Underground stations"
+    ],
+    "entries": 271,
+    "method": "Named subject column, preserving row spans; navigation, images, authors and other columns excluded"
+  },
+  "television": {
+    "sources": [
+      "List of longest-running scripted American primetime television series"
+    ],
+    "entries": 185,
+    "method": "Named subject column, preserving row spans; navigation, images, authors and other columns excluded"
+  },
+  "universities": {
+    "sources": [
+      "List of universities in the United Kingdom"
+    ],
+    "entries": 156,
+    "method": "Named subject column, preserving row spans; navigation, images, authors and other columns excluded"
+  },
+  "video-games": {
+    "sources": [
+      "List of best-selling video games",
+      "List of best-selling Nintendo Switch video games",
+      "List of best-selling PlayStation 4 video games"
+    ],
+    "entries": 213,
+    "method": "Named subject column, preserving row spans; navigation, images, authors and other columns excluded"
+  }
+}

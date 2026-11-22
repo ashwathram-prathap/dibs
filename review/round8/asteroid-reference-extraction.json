@@ -1,0 +1,11 @@
+{
+  "source": "https://ssd-api.jpl.nasa.gov/sbdb_query.api?fields=spkid%2Cfull_name%2Cpdes%2Cname%2Cclass&sb-kind=a&sb-cdata=%7B%22AND%22%3A%5B%22name%7CDF%22%5D%7D",
+  "complete": true,
+  "rows": 26637,
+  "quality": "All named objects in JPL asteroid/minor-planet class; excludes unnamed provisional designations, no result limit",
+  "license": "NASA public scientific data; https://science.nasa.gov/researchers/science-information-policy_faq/",
+  "signature": {
+    "source": "NASA/JPL SBDB (Small-Body DataBase) Query API",
+    "version": "1.0"
+  }
+}

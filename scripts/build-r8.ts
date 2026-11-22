@@ -1,21 +1,41 @@
-import { readFileSync, writeFileSync, readdirSync, existsSync, mkdirSync } from 'node:fs';
+import {
+  readFileSync,
+  writeFileSync,
+  readdirSync,
+  existsSync,
+  mkdirSync,
+  renameSync,
+} from 'node:fs';
 import { createHash } from 'node:crypto';
 import { pageMatchesScope } from './catalog-quality';
+import { cleanReferenceRows } from './catalog-cleaning';
 import { commonNamePlurals } from './catalog-aliases';
 import { normalize } from '../worker/domain';
-// All source rows are considered. Missing Wikipedia articles never exclude a real reference answer.
+// Every source row is considered; documented quality filters are applied after popularity assessment.
+const onlySlugs = process.argv
+  .find((a) => a.startsWith('--only='))
+  ?.slice(7)
+  .split(',');
 const raw = JSON.parse(readFileSync('.category-cache/r8/candidates.json', 'utf8'));
 const definitions = JSON.parse(readFileSync('scripts/category-sources.json', 'utf8'));
 const otherDir = '.category-cache/r8/other-references';
 if (existsSync(otherDir))
-  for (const f of readdirSync(otherDir).filter((f) => f.endsWith('.json')))
+  for (const f of readdirSync(otherDir).filter(
+    (f) => f.endsWith('.json') && (!onlySlugs || onlySlugs.includes(f.slice(0, -5))),
+  ))
     raw[f.slice(0, -5)] = JSON.parse(readFileSync(otherDir + '/' + f, 'utf8'));
+const countryAliasPath = '.category-cache/r8/iso-aliases.json';
+const countryAliases = existsSync(countryAliasPath)
+  ? JSON.parse(readFileSync(countryAliasPath, 'utf8'))
+  : {};
 const iso = await import('../.category-cache/r8/iso.mjs');
 raw.countries = iso.iso31661.map((r: any) => ({
   display: r.name,
-  aliases: [r.alpha2, r.alpha3],
+  aliases: [r.alpha2, r.alpha3, ...(countryAliases[r.alpha2]?.aliases || [])],
+  wikipediaTitle: countryAliases[r.alpha2]?.wikipediaTitle,
   source: 'https://github.com/wooorm/iso-3166',
 }));
+if (onlySlugs) for (const slug of Object.keys(raw)) if (!onlySlugs.includes(slug)) delete raw[slug];
 const overrides: Record<string, Record<string, string[]>> = {
   animals: {
     Cat: ['Domestic cat', 'House cat', 'Felis catus', 'Felis domesticus'],
@@ -44,6 +64,13 @@ const overrides: Record<string, Record<string, string[]>> = {
     'St. John’s': ['Saint Johns'],
   },
   countries: {
+    Macau: ['Macao'],
+    'British Virgin Islands': ['Virgin Islands (British)'],
+    'US Virgin Islands': ['United States Virgin Islands', 'Virgin Islands (U.S.)'],
+    'Saint Martin': ['Saint Martin (French part)'],
+    'Sint Maarten': ['Sint Maarten (Dutch part)'],
+    'Falkland Islands': ['Falkland Islands (Malvinas)'],
+    'Caribbean Netherlands': ['Bonaire, Sint Eustatius and Saba'],
     Palestine: ['Palestine, State of'],
     'Vatican City': ['Holy See'],
     Brunei: ['Brunei Darussalam'],
@@ -82,7 +109,16 @@ const supplement = existsSync('scripts/r8-common-names.json')
   ? JSON.parse(readFileSync('scripts/r8-common-names.json', 'utf8'))
   : {};
 const catalogs: Record<string, any[]> = {};
-for (const [slug, input] of Object.entries(raw) as any) {
+for (const [slug, unclean] of Object.entries(raw) as any) {
+  const categoryLabels: Record<string, string[]> = {
+    birds: ['bird'],
+    plants: ['plant'],
+    foods: ['food'],
+    'fruits-vegetables': ['ediblefruit', 'fruit', 'vegetable'],
+  };
+  const input = cleanReferenceRows(unclean).filter(
+    (r) => !(categoryLabels[slug] || []).includes(normalize(r.display)),
+  );
   const used = new Set<string>();
   const rows: any[] = [];
   const replacements = Object.entries(overrides[slug] || {}).map(([display, aliases]) => ({
@@ -114,6 +150,7 @@ for (const [slug, input] of Object.entries(raw) as any) {
       ) &&
         aliasOwner.get(key));
     if (prev) {
+      if (!prev.wikipediaTitle && a.wikipediaTitle) prev.wikipediaTitle = a.wikipediaTitle;
       prev.aliases.push(a.display, ...a.aliases);
       byKey.set(key, prev);
       if (scientific) taxonOwner.set(scientific, prev);
@@ -142,6 +179,24 @@ for (const [slug, input] of Object.entries(raw) as any) {
       a.aliases.push(...names.flatMap(commonNamePlurals));
     }
   }
+  if (['airports', 'stations'].includes(slug))
+    for (const a of rows) {
+      for (const name of [a.display, ...a.aliases]) {
+        if (slug === 'airports') {
+          const short = name.replace(
+            /\s+(?:International\s+)?(?:Airport|Airfield|Aerodrome)$/i,
+            '',
+          );
+          if (short !== name) a.aliases.push(short, name.replace(/\bInternational\s+/i, ''));
+        } else {
+          const short = name.replace(
+            /\s+(?:(?:Underground|Tube|Subway|Metro|Railway|Railroad|Rail|Train)\s+)?Station$/i,
+            '',
+          );
+          if (short !== name) a.aliases.push(short);
+        }
+      }
+    }
   for (const a of rows) used.add(normalize(a.display));
   for (const a of rows) {
     a.canonical = normalize(a.display);
@@ -163,6 +218,15 @@ const metadata: Record<string, any> = existsSync(metadataFile)
 const cache: Record<string, any> = existsSync(cacheFile)
   ? JSON.parse(readFileSync(cacheFile, 'utf8'))
   : {};
+const saveRankingCache = () => {
+  for (const [path, data] of [
+    [cacheFile, cache],
+    [metadataFile, metadata],
+  ] as const) {
+    writeFileSync(path + '.next', JSON.stringify(data));
+    renameSync(path + '.next', path);
+  }
+};
 const title = (s: string) => s[0].toUpperCase() + s.slice(1);
 const titleOverrides = JSON.parse(readFileSync('scripts/r8-page-titles.json', 'utf8'));
 const measurementTitle = (a: any, slug: string) =>
@@ -203,15 +267,25 @@ const inventoryPath = '.category-cache/r8/wiki-title-presence.json';
 const inventory = existsSync(inventoryPath)
   ? JSON.parse(readFileSync(inventoryPath, 'utf8'))
   : null;
+const sameInventoryQueue = inventory?.queueHash === queueHash;
+const checkedText =
+  inventory?.checkedFile && existsSync('.category-cache/r8/' + inventory.checkedFile)
+    ? readFileSync('.category-cache/r8/' + inventory.checkedFile, 'utf8')
+    : null;
+if (checkedText && createHash('sha256').update(checkedText).digest('hex') !== inventory.queueHash)
+  throw Error('Title inventory queue checksum mismatch');
+const checkedTitles: Set<string> | null = checkedText ? new Set(JSON.parse(checkedText)) : null;
 const knownTitles: Set<string> | null =
-  inventory?.queueHash === queueHash ? new Set(inventory.present) : null;
+  sameInventoryQueue || checkedTitles ? new Set(inventory.present) : null;
+const absentFromInventory = (t: string) =>
+  !!knownTitles && (sameInventoryQueue || !!checkedTitles?.has(t)) && !knownTitles.has(t);
 if (allTitles.length > 500000 && !knownTitles)
   throw Error(
     'Regenerate the complete measurement queue and title inventory before ranking large reference sets.',
   );
 const pageviewsFor = (t: string) =>
   cache[t] ||
-  (knownTitles && !knownTitles.has(t)
+  (absentFromInventory(t)
     ? {
         total: 0,
         days: 0,
@@ -219,19 +293,61 @@ const pageviewsFor = (t: string) =>
         inventoryDate: inventory.asOf,
       }
     : { total: 0, days: 0, status: 'unavailable' });
+if (process.argv.includes('--status')) {
+  for (const [slug, rows] of Object.entries(catalogs)) {
+    const pending = rows.filter((r) =>
+      ['unavailable', 'measurement unavailable'].includes(
+        pageviewsFor(measurementTitle(r, slug)).status,
+      ),
+    );
+    console.log(
+      slug,
+      JSON.stringify({
+        candidates: rows.length,
+        pending: pending.length,
+        examples: pending.slice(0, 10).map((r) => measurementTitle(r, slug)),
+      }),
+    );
+  }
+  process.exit(0);
+}
+const dayPriority = new Map<string, number>();
+const liveOrder = JSON.parse(readFileSync('review/round8/production-registers-before.json', 'utf8'))
+  .filter((r: any) => r.date)
+  .sort((a: any, b: any) => a.date.localeCompare(b.date));
+for (const [i, live] of liveOrder.entries())
+  for (const row of catalogs[live.id] || []) {
+    const t = measurementTitle(row, live.id);
+    dayPriority.set(t, Math.min(dayPriority.get(t) ?? 99, i));
+  }
+for (const row of catalogs.countries || []) {
+  const t = measurementTitle(row, 'countries');
+  dayPriority.set(t, Math.min(dayPriority.get(t) ?? 99, 0.5));
+}
+for (const [slug, rows] of Object.entries(catalogs)) {
+  const fixture = 'review/coverage/' + slug + '.txt';
+  if (!existsSync(fixture)) continue;
+  const keys = new Set(readFileSync(fixture, 'utf8').trim().split('\n').map(normalize));
+  for (const row of rows)
+    if (keys.has(normalize(row.display)) || row.aliases.some((s: string) => keys.has(normalize(s))))
+      priority.add(measurementTitle(row, slug));
+}
 const pending = allTitles
-  .filter((t) => !knownTitles || knownTitles.has(t) || cache[t])
+  .filter((t) => !absentFromInventory(t) || cache[t])
   .filter(
     (t) =>
       !cache[t] ||
       ['unavailable', 'measurement unavailable'].includes(cache[t].status) ||
       (cache[t].days > 0 && !metadata[cache[t].title]?.description),
   )
-  .sort((a, b) => Number(priority.has(b)) - Number(priority.has(a)));
+  .sort(
+    (a, b) =>
+      (dayPriority.get(a) ?? 99) - (dayPriority.get(b) ?? 99) ||
+      Number(priority.has(b)) - Number(priority.has(a)),
+  );
 process.on('SIGTERM', () => {
   if (!process.argv.includes('--offline')) {
-    writeFileSync(cacheFile, JSON.stringify(cache));
-    writeFileSync(metadataFile, JSON.stringify(metadata));
+    saveRankingCache();
   }
   process.exit(0);
 });
@@ -347,8 +463,7 @@ if (!process.argv.includes('--offline'))
         }
         done += batch.length;
         if (done % 400 === 0) {
-          writeFileSync(cacheFile, JSON.stringify(cache));
-          writeFileSync(metadataFile, JSON.stringify(metadata));
+          saveRankingCache();
           console.log('Measured', done, '/', pending.length);
         }
         await new Promise((r) => setTimeout(r, 2000));
@@ -356,10 +471,10 @@ if (!process.argv.includes('--offline'))
     }),
   );
 if (!process.argv.includes('--offline')) {
-  writeFileSync(cacheFile, JSON.stringify(cache));
-  writeFileSync(metadataFile, JSON.stringify(metadata));
+  saveRankingCache();
 }
 
+if (process.argv.includes('--measure-only')) process.exit(0);
 const names: any = {
   ...Object.fromEntries(definitions.map((d: any) => [d.slug, d.name])),
   animals: 'Animals',
@@ -377,6 +492,8 @@ const scopes: any = {
       d.name + ' classified by Wikidata with English Wikipedia articles; one answer per name.',
     ]),
   ),
+  asteroids:
+    'Named asteroids and other minor planets in the complete NASA/JPL Small-Body Database; names and numbered names accepted.',
   arthropods: 'English common names for insects, spiders, crustaceans and other arthropods.',
   mountains:
     'Mountains, ranges, peaks and volcanoes in GeoNames with verified English Wikipedia articles; one answer per name.',
@@ -478,8 +595,9 @@ for (const [slug, answers] of Object.entries(catalogs)) {
         unmeasured: answers.filter((a) => !a.pageviews.days).length,
         license: 'See /data/licenses.txt',
         completeSources:
-          !['animals', 'plants'].includes(slug) ||
-          existsSync('.category-cache/r8/gbif-extracted.json'),
+          (!['animals', 'plants', 'arthropods'].includes(slug) ||
+            existsSync('.category-cache/r8/gbif-extracted.json')) &&
+          raw[slug].every((r: any) => !r.wikidata || r.aliasesComplete),
         candidateCount,
         rankingComplete,
         qualityFilter: geographicQuality

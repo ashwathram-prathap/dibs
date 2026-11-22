@@ -1,3 +1,5 @@
+// Retired: row uploads imposed the obsolete 2,200-answer limit.
+throw new Error('Use the R8 static-catalog pipeline and coverage gate; legacy row upload is retired.');
 // Budgeted, sequential draft uploads. Defaults to LOCAL D1; never approves a category.
 import { readFileSync, existsSync, writeFileSync } from 'node:fs';
 import { createHash } from 'node:crypto';

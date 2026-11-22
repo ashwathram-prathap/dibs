@@ -1,3 +1,4 @@
+import { completeIdsByClass } from './wikidata-complete-ids';
 import { readFileSync, writeFileSync, existsSync, mkdirSync } from 'node:fs';
 const defs = JSON.parse(readFileSync('scripts/category-sources.json', 'utf8')).filter(
   (d: any) => !['animals', 'plants', 'birds', 'cities', 'arthropods'].includes(d.slug),
@@ -11,20 +12,38 @@ const pause = (ms: number) => new Promise((r) => setTimeout(r, ms));
 async function query(text: string, format = 'json') {
   const r = await fetch('https://query.wikidata.org/sparql', {
     method: 'POST',
-    body: new URLSearchParams({ query: text, format }),
+    body: new URLSearchParams({ query: text, format: 'json' }),
     headers: {
       'User-Agent': 'DibsCatalog/2.0 (https://dibs.here/about)',
-      Accept: format === 'json' ? 'application/sparql-results+json' : 'text/tab-separated-values',
+      Accept: 'application/sparql-results+json',
     },
     signal: AbortSignal.timeout(90000),
   });
   if (r.status === 429)
     await pause(Math.max(60000, Number(r.headers.get('retry-after') || 60) * 1000));
   if (!r.ok) throw Error('HTTP ' + r.status);
-  return r.text();
+  const body = await r.text();
+  if (format === 'tsv') {
+    const d = JSON.parse(body);
+    if (!Array.isArray(d.results?.bindings)) throw Error('No complete ID bindings');
+    return '?item\n' + d.results.bindings.map((r: any) => '<' + r.item.value + '>').join('\n');
+  }
+  return body;
 }
 for (const def of defs) {
-  if (['airports','mountains','rivers','lakes','islands','stations'].includes(def.slug)) continue;
+  if (
+    ['airports', 'mountains', 'rivers', 'lakes', 'islands', 'stations', 'asteroids'].includes(
+      def.slug,
+    )
+  )
+    continue;
+  if (
+    report[def.slug]?.complete &&
+    existsSync('.category-cache/r8/other-references/' + def.slug + '.json')
+  ) {
+    console.log(def.slug, 'already complete; preserving enriched aliases');
+    continue;
+  }
   const folder = dir + '/' + def.slug;
   mkdirSync(folder, { recursive: true });
   let ids: string[] = [];
@@ -38,13 +57,22 @@ for (const def of defs) {
     writeFileSync(idFile, JSON.stringify(ids));
   } else {
     const prop = def.property === 'P106' ? 'P106' : 'P31';
+    const roots = def.roots || [def.root];
+    const root = roots.length > 1 ? '?root' : 'wd:' + def.root;
+    const bind =
+      roots.length > 1
+        ? 'VALUES ?root {' + roots.map((r: string) => 'wd:' + r).join(' ') + '}'
+        : '';
     const queries = [
-      `SELECT DISTINCT ?item WHERE { ?item wdt:${prop}/wdt:P279* wd:${def.root} }`,
-      `SELECT DISTINCT ?item WHERE { ?type wdt:P279* wd:${def.root}. ?item wdt:${prop} ?type. }`,
-      `SELECT DISTINCT ?item WHERE { ?item wdt:${prop} ?type. FILTER EXISTS { ?type wdt:P279* wd:${def.root} } }`,
+      `SELECT DISTINCT ?item WHERE { ${bind} ?item wdt:${prop}/wdt:P279* ${root} }`,
+      `SELECT DISTINCT ?item WHERE { ${bind} ?type wdt:P279* ${root}. ?item wdt:${prop} ?type. }`,
+      `SELECT DISTINCT ?item WHERE { ${bind} ?item wdt:${prop} ?type. FILTER EXISTS { ?type wdt:P279* ${root} } }`,
     ];
     const errors: any[] = [];
-    for (const q of queries) {
+    for (const q of report[def.slug]?.stage === 'full candidate IDs' &&
+    report[def.slug]?.errors?.length >= 3
+      ? []
+      : queries) {
       try {
         const text = await query(q, 'tsv');
         const lines = text.trim().split('\n');
@@ -61,6 +89,15 @@ for (const def of defs) {
         errors.push({ query: q, error: String(e) });
         console.log(def.slug, String(e));
         await pause(60000);
+      }
+    }
+    if (!ids.length) {
+      try {
+        ids = await completeIdsByClass(def, folder, query);
+        if (!ids.length) throw Error('Empty complete class union');
+        writeFileSync(idFile, JSON.stringify(ids));
+      } catch (e) {
+        errors.push({ stage: 'exhaustive subclass and ordered-page fallback', error: String(e) });
       }
     }
     if (!ids.length) {

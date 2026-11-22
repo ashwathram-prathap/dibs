@@ -1,18 +1,32 @@
-import { readFileSync, writeFileSync, createReadStream } from 'node:fs';
+import { readFileSync, writeFileSync, createReadStream, copyFileSync } from 'node:fs';
 import { createGunzip } from 'node:zlib';
 import { createInterface } from 'node:readline';
 import { createHash } from 'node:crypto';
+import { execFileSync } from 'node:child_process';
 const folder = '.category-cache/r8/';
 const queueText = readFileSync(folder + 'measurement-queue.json', 'utf8');
 const requested = new Set<string>(JSON.parse(queueText));
 const present = new Set<string>();
-const head = await fetch(
-  'https://dumps.wikimedia.org/enwiki/latest/enwiki-latest-all-titles-in-ns0.gz',
-  { method: 'HEAD' },
+const headers = execFileSync(
+  'curl',
+  [
+    '-fsSI',
+    '--max-time',
+    '30',
+    'https://dumps.wikimedia.org/enwiki/latest/enwiki-latest-all-titles-in-ns0.gz',
+  ],
+  { encoding: 'utf8' },
 );
-if (!head.ok || !head.headers.get('last-modified'))
-  throw Error('Could not date complete title inventory');
-const dumpDate = new Date(head.headers.get('last-modified')!).toISOString();
+const modified = headers.match(/^last-modified:\s*(.+)$/im)?.[1];
+if (!modified) throw Error('Could not date complete title inventory');
+const dumpDate = new Date(modified).toISOString();
+console.log(
+  'Matching complete title dump',
+  dumpDate,
+  'against',
+  requested.size,
+  'candidate titles',
+);
 const start = new Date(new Date(dumpDate).getTime() - 2 * 86400000).toISOString();
 let scanned = 0;
 for await (const line of createInterface({
@@ -78,6 +92,7 @@ for (const mode of ['new', 'move']) {
       }
     }
     cont = data.continue;
+    console.log(mode, 'new/moved requested titles', additions, 'continuing', !!cont);
     await new Promise((resolve) => setTimeout(resolve, 1000));
   } while (cont);
 }
@@ -92,7 +107,9 @@ const result = {
   additions,
   present: [...present],
 };
-writeFileSync(folder + 'wiki-title-presence.json', JSON.stringify(result));
+const checkedFile = 'measurement-queue-' + result.queueHash + '.json';
+copyFileSync(folder + 'measurement-queue.json', folder + checkedFile);
+writeFileSync(folder + 'wiki-title-presence.json', JSON.stringify({ ...result, checkedFile }));
 const { present: _, ...audit } = result;
 writeFileSync(
   'review/round8/wikipedia-title-inventory.json',

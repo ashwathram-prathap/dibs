@@ -2,161 +2,213 @@
   "arthropods": [
     {
       "title": "List of butterflies of North America",
-      "bytes": 11703
+      "cached": true
+    },
+    {
+      "title": "List of butterflies of North America (Papilionidae)",
+      "bytes": 25227
+    },
+    {
+      "title": "List of butterflies of North America (Hesperiidae)",
+      "bytes": 66162
+    },
+    {
+      "title": "List of butterflies of North America (Pieridae)",
+      "bytes": 30820
+    },
+    {
+      "title": "List of butterflies of North America (Lycaenidae)",
+      "bytes": 52179
+    },
+    {
+      "title": "List of butterflies of North America (Riodinidae)",
+      "bytes": 13700
+    },
+    {
+      "title": "List of butterflies of North America (Nymphalidae)",
+      "bytes": 78433
     }
   ],
   "films": [
     {
       "title": "List of Academy Award-winning films",
-      "bytes": 402440
+      "cached": true
     }
   ],
   "bands": [
     {
       "title": "List of Rock and Roll Hall of Fame inductees",
-      "bytes": 1160129
+      "cached": true
     }
   ],
   "albums": [
     {
       "title": "List of best-selling albums",
-      "bytes": 1018029
+      "cached": true
+    },
+    {
+      "title": "List of best-selling albums in the United Kingdom",
+      "bytes": 152331
     }
   ],
   "songs": [
     {
       "title": "List of Billboard Hot 100 number-one singles of the 2010s",
-      "bytes": 786277
+      "cached": true
     }
   ],
   "novels": [
     {
       "title": "List of best-selling books",
-      "bytes": 626657
+      "cached": true
+    },
+    {
+      "title": "Hugo Award for Best Novel",
+      "bytes": 493326
     }
   ],
   "video-games": [
     {
       "title": "List of best-selling video games",
-      "bytes": 195852
+      "cached": true
+    },
+    {
+      "title": "List of best-selling Nintendo Switch video games",
+      "bytes": 254845
+    },
+    {
+      "title": "List of best-selling PlayStation 4 video games",
+      "bytes": 282867
     }
   ],
   "television": [
     {
       "title": "List of longest-running scripted American primetime television series",
-      "bytes": 86806
+      "cached": true
     }
   ],
   "mountains": [
     {
       "title": "List of mountains by elevation",
-      "bytes": 627746
+      "cached": true
     }
   ],
   "rivers": [
     {
       "title": "List of rivers by length",
-      "bytes": 337799
+      "cached": true
     }
   ],
   "lakes": [
     {
       "title": "List of lakes by area",
-      "bytes": 215151
+      "cached": true
+    },
+    {
+      "title": "List of lakes by depth",
+      "bytes": 301304
     }
   ],
   "islands": [
     {
       "title": "List of islands by area",
-      "bytes": 248938
+      "cached": true
     }
   ],
   "museums": [
     {
       "title": "List of most-visited museums",
-      "bytes": 182495
+      "cached": true
+    },
+    {
+      "title": "List of museums in London",
+      "bytes": 364035
     }
   ],
   "universities": [
     {
       "title": "List of universities in the United Kingdom",
-      "bytes": 464621
+      "cached": true
     }
   ],
   "airports": [
     {
       "title": "List of the busiest airports in the United States",
-      "bytes": 170119
+      "cached": true
     },
     {
       "title": "List of the busiest airports in Canada",
-      "bytes": 795039
+      "cached": true
     }
   ],
   "stations": [
     {
       "title": "List of London Underground stations",
-      "bytes": 632932
+      "cached": true
     }
   ],
   "asteroids": [
     {
       "title": "List of minor planets: 1–1000",
-      "bytes": 1196006
+      "cached": true
     }
   ],
   "ships": [
     {
       "title": "List of museum ships",
-      "bytes": 1648146
+      "cached": true
     }
   ],
   "castles": [
     {
       "title": "List of castles in England",
-      "bytes": 1166353
+      "cached": true
     }
   ],
   "painters": [
     {
-      "title": "List of painters by name, beginning with \"A\"",
-      "error": "Error: The page you specified doesn't exist."
+      "title": "List of painters by name beginning with \"A\"",
+      "bytes": 38685
     }
   ],
   "poets": [
     {
       "title": "List of poets",
-      "bytes": 482157
+      "cached": true
     }
   ],
   "composers": [
     {
       "title": "List of composers by name",
-      "bytes": 629788
+      "cached": true
     }
   ],
   "actors": [
     {
       "title": "List of actors with Academy Award nominations",
-      "bytes": 602060
+      "cached": true
     }
   ],
   "architects": [
     {
       "title": "List of architects",
-      "bytes": 167034
+      "cached": true
     }
   ],
   "footballers": [
     {
       "title": "List of men's footballers with 100 or more international caps",
-      "bytes": 1057304
+      "cached": true
     }
   ],
   "paintings": [
     {
       "title": "List of most expensive paintings",
-      "bytes": 511923
+      "cached": true
+    },
+    {
+      "title": "List of works by Vincent van Gogh",
+      "bytes": 1595011
     }
   ]
 }

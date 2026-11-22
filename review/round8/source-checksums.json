@@ -42,5 +42,21 @@
   "mdd-LICENSE.txt": {
     "sha256": "a2a170851fe3a3318a0cf8a48a35be33b8d864da5ac2a70a00868854a9084566",
     "bytes": 1086
+  },
+  "allCountries.zip": {
+    "sha256": "c06d910efc08398c1743fea0820927d1323964d547a1b2723cf49c78013f0b10",
+    "bytes": 422570325
+  },
+  "airports.csv": {
+    "sha256": "60259f22797bf86a11e7ad2e074a91c97cf0e9b5e3ae899f4796ecc15a96e1ee",
+    "bytes": 12762265
+  },
+  "enwiki-titles.gz": {
+    "sha256": "045c5561399d3947e02eb014f6f8889498681b3a949ba2c66248efaa1c2ace46",
+    "bytes": 109836374
+  },
+  "jpl-named-minor-planets.json": {
+    "sha256": "1fe626499163c605e40f212da426837edf812b23e30140390e2a03e787faa1c0",
+    "bytes": 1774969
   }
 }

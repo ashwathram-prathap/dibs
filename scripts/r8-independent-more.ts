@@ -1,4 +1,4 @@
-import { readFileSync, writeFileSync } from 'node:fs';
+import { readFileSync, writeFileSync, existsSync } from 'node:fs';
 import { normalize } from '../worker/domain';
 const pools = JSON.parse(readFileSync('.category-cache/r8/independent-pools.json', 'utf8'));
 const cache = JSON.parse(readFileSync('.category-cache/r8/pageviews.json', 'utf8'));
@@ -9,6 +9,19 @@ const genera = new Set(gbif.plants.map((r: any) => r.aliases.at(-1).split(' ')[0
 let seed = 8153;
 const random = () => ((seed = Math.imul(seed, 1664525) + 1013904223) >>> 0) / 2 ** 32;
 for (const slug of ['countries', 'foods', 'fruits-vegetables', 'plants']) {
+  const frozenPath = 'review/coverage/' + slug + '-independent.json';
+  if (existsSync(frozenPath)) {
+    const frozen = JSON.parse(readFileSync(frozenPath, 'utf8'));
+    const current = JSON.parse(readFileSync('categories/' + slug + '.json', 'utf8'));
+    const keys = new Set(
+      current.answers.flatMap((a: any) => [normalize(a.display), ...a.aliases.map(normalize)]),
+    );
+    for (const sample of frozen.samples) sample.present = keys.has(normalize(sample.answer));
+    writeFileSync(frozenPath, JSON.stringify(frozen, null, 2) + '\n');
+    console.log(slug, 'frozen sample', frozen.samples.filter((s: any) => s.present).length + '/50');
+    continue;
+  }
+
   const all = pools[slug].map((r: any) =>
     typeof r === 'string'
       ? { name: r, title: r, source: 'https://unstats.un.org/unsd/methodology/m49/overview/' }

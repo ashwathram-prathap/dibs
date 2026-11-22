@@ -1,0 +1,6 @@
+{
+  "complete": true,
+  "source": "Wikidata CC0: all ISO alpha-2 records and all English labels/aliases/article links",
+  "query": "SELECT ?iso ?name ?alias ?article WHERE { ?item wdt:P297 ?iso; rdfs:label ?name FILTER(LANG(?name)=\"en\") OPTIONAL { ?item skos:altLabel ?alias FILTER(LANG(?alias)=\"en\") } OPTIONAL { ?article schema:about ?item; schema:isPartOf <https://en.wikipedia.org/> } }",
+  "codes": 260
+}

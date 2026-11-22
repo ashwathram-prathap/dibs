@@ -3,20 +3,13 @@
     "slug": "animals",
     "name": "Animals",
     "root": "Q7377",
-    "property": "P171",
-    "note": "A mammal-led register supplemented with familiar animals such as Axolotl. Includes common animal names as well as species with English Wikipedia articles."
+    "property": "P171"
   },
   {
     "slug": "plants",
     "name": "Plants",
     "root": "Q756",
-    "property": "P171",
-    "wikiCategoryRoots": [
-      "Plants described in 1753",
-      "Plants described in 1759",
-      "Plants described in 1762"
-    ],
-    "note": "Plant species from Wikipedia botanical description-year lists, retaining scientific article names."
+    "property": "P171"
   },
   {
     "slug": "birds",
@@ -28,15 +21,7 @@
     "slug": "arthropods",
     "name": "Arthropods",
     "root": "Q1360",
-    "property": "P171",
-    "wikiCategoryRoots": [
-      "Insects described in 1758",
-      "Insects described in 1767",
-      "Insects described in 1802",
-      "Insects described in 1822",
-      "Insects described in 1858"
-    ],
-    "note": "Arthropods from historical Wikipedia insect description-year lists and their taxonomic subcategories. Includes insects, centipedes and other arthropod kin classified in those historical lists."
+    "property": "P171"
   },
   {
     "slug": "cities",
@@ -50,7 +35,7 @@
   },
   {
     "slug": "bands",
-    "name": "Bands",
+    "name": "Music groups",
     "root": "Q215380"
   },
   {
@@ -65,22 +50,12 @@
   },
   {
     "slug": "novels",
-    "name": "Novels",
+    "name": "Novels & novellas",
     "root": "Q8261",
-    "wikiCategoryRoots": [
-      "2000 novels",
-      "2001 novels",
-      "2002 novels",
-      "2003 novels",
-      "2004 novels",
-      "2005 novels",
-      "2006 novels",
-      "2007 novels",
-      "2008 novels",
-      "2009 novels",
-      "2010 novels"
-    ],
-    "note": "Novels from English Wikipedia publication-year lists for 2000–2010; retain disambiguated article titles."
+    "roots": [
+      "Q8261",
+      "Q149537"
+    ]
   },
   {
     "slug": "video-games",
@@ -134,21 +109,18 @@
   },
   {
     "slug": "asteroids",
-    "name": "Asteroids",
-    "root": "Q3863",
-    "sourceLimit": 6400
+    "name": "Asteroids & minor planets",
+    "root": "Q3863"
   },
   {
     "slug": "ships",
     "name": "Ships",
-    "root": "Q11446",
-    "note": "Ship articles classified by Wikidata, including historical, proposed and reported designs. Review planned or fictional vessel entries before publication."
+    "root": "Q11446"
   },
   {
     "slug": "castles",
     "name": "Castles",
-    "root": "Q23413",
-    "note": "Castles classified by Wikidata, including historic structures and legendary or literary fortresses. Confirm whether to retain fictional entries before publication."
+    "root": "Q23413"
   },
   {
     "slug": "painters",

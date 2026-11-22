@@ -1,9 +1,14 @@
 import { chromium, webkit } from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
-import { mkdirSync, writeFileSync } from 'node:fs';
+import { mkdirSync, writeFileSync, readFileSync } from 'node:fs';
 const dir = 'review/round8/ui';
 mkdirSync(dir, { recursive: true });
-const results: any[] = [];
+const pagesOnly = process.argv.includes('--pages-only');
+const results: any[] = pagesOnly
+  ? JSON.parse(readFileSync('review/round8/ui-results.json', 'utf8')).filter(
+      (r: any) => !['about', 'archive', 'stats'].includes(r.state),
+    )
+  : [];
 for (const engine of [chromium, webkit]) {
   const browser = await engine.launch();
   for (const theme of ['light', 'dark'] as const)
@@ -81,57 +86,64 @@ for (const engine of [chromium, webkit]) {
         });
         writeFileSync('review/round8/ui-results.json', JSON.stringify(results, null, 2));
       };
-      await shot('ready');
-      await page.locator('#answer').fill('offline proof');
-      await page.locator('#answer').press('Enter');
-      await page.getByText('OFFLINE PROOF: The clerk didn’t get that. Try again.').waitFor();
-      await shot('network-failure');
-      for (const [answer, state] of [
-        ['Dog', 'house'],
-        ['Pangolin', 'taken'],
-        ['unknown animal', 'invalid'],
-        ['Axolot', 'typo'],
-      ]) {
-        await page.locator('#answer').fill(answer);
+      if (!pagesOnly) {
+        await shot('ready');
+        await page.locator('#answer').fill('offline proof');
+        await page.locator('#answer').press('Enter');
+        await page.getByText('OFFLINE PROOF: The clerk didn’t get that. Try again.').waitFor();
+        await shot('network-failure');
+        for (const [answer, state] of [
+          ['Dog', 'house'],
+          ['Pangolin', 'taken'],
+          ['unknown animal', 'invalid'],
+          ['Axolot', 'typo'],
+        ]) {
+          await page.locator('#answer').fill(answer);
+          await page.locator('#answer').press('Enter');
+          await page.waitForTimeout(500);
+          await shot(state);
+          if (state === 'invalid') {
+            await page.getByRole('button', { name: 'Submit to the clerk' }).click();
+            await page.getByText('Submitted to the clerk. No strike charged.').waitFor();
+            await shot('clerk-submission');
+          }
+        }
+        await page.getByRole('button', { name: 'Did you mean AXOLOTL?' }).click();
+        await page.locator('.gold-stamp').waitFor();
+        await shot('gold');
+        await page.getByRole('button', { name: 'Copy continuation link' }).click();
+        await shot('file-key');
+        await page.getByRole('button', { name: 'I saved my key' }).click();
+        await page.getByRole('button', { name: 'Next dibs', exact: true }).click();
+        await page.locator('#answer').fill('Okapi');
         await page.locator('#answer').press('Enter');
         await page.waitForTimeout(500);
-        await shot(state);
-        if (state === 'invalid') {
-          await page.getByRole('button', { name: 'Submit to the clerk' }).click();
-          await page.getByText('Submitted to the clerk. No strike charged.').waitFor();
-          await shot('clerk-submission');
+        await shot('success');
+        await page.getByRole('button', { name: 'Next dibs', exact: true }).click();
+        await page.locator('#answer').fill('Quokka');
+        await page.locator('#answer').press('Enter');
+        await page.getByRole('button', { name: 'See my file', exact: true }).click();
+        await shot('closed');
+        if (engine === chromium && size.width === 390 && size.zoom === 1) {
+          const cdp = await page.context().newCDPSession(page);
+          for (const type of ['protanopia', 'deuteranopia', 'tritanopia']) {
+            await cdp.send('Emulation.setEmulatedVisionDeficiency', { type });
+            await page
+              .locator('.day-certificate')
+              .screenshot({ path: `${dir}/${theme}-${type}-certificate.png`, timeout: 60000 });
+          }
+          await cdp.send('Emulation.setEmulatedVisionDeficiency', { type: 'none' });
         }
-      }
-      await page.getByRole('button', { name: 'Did you mean AXOLOTL?' }).click();
-      await page.locator('.gold-stamp').waitFor();
-      await shot('gold');
-      await page.getByRole('button', { name: 'Copy continuation link' }).click();
-      await shot('file-key');
-      await page.getByRole('button', { name: 'I saved my key' }).click();
-      await page.getByRole('button', { name: 'Next dibs', exact: true }).click();
-      await page.locator('#answer').fill('Okapi');
-      await page.locator('#answer').press('Enter');
-      await page.waitForTimeout(500);
-      await shot('success');
-      await page.getByRole('button', { name: 'Next dibs', exact: true }).click();
-      await page.locator('#answer').fill('Quokka');
-      await page.locator('#answer').press('Enter');
-      await page.getByRole('button', { name: 'See my file', exact: true }).click();
-      await shot('closed');
-      if (engine === chromium && size.width === 390 && size.zoom === 1) {
-        const cdp = await page.context().newCDPSession(page);
-        for (const type of ['protanopia', 'deuteranopia', 'tritanopia']) {
-          await cdp.send('Emulation.setEmulatedVisionDeficiency', { type });
-          await page
-            .locator('.day-certificate')
-            .screenshot({ path: `${dir}/${theme}-${type}-certificate.png`, timeout: 60000 });
-        }
-        await cdp.send('Emulation.setEmulatedVisionDeficiency', { type: 'none' });
       }
       for (const path of ['/about', '/archive?r6=1', '/stats']) {
         await page.goto('http://127.0.0.1:5174' + path);
-        await page.locator('main').waitFor();
-        await page.waitForTimeout(250);
+        await page.locator('main h1').waitFor();
+        if (path === '/about')
+          await page.getByRole('heading', { name: 'Sources and attribution' }).waitFor();
+        if (path.startsWith('/archive'))
+          await page.getByRole('table', { name: 'Claims in Animals' }).waitFor();
+        if (path === '/stats')
+          await page.getByRole('button', { name: 'Read the record' }).waitFor();
         if (size.zoom === 2)
           await page.evaluate(() => (document.documentElement.style.fontSize = '200%'));
         await shot(path.split('?')[0].slice(1));
