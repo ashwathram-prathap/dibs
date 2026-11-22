@@ -21,6 +21,7 @@ ISO 3166 data: iso-3166, copyright Titus Wormer, MIT. /data/iso-license.txt
 https://github.com/wooorm/iso-3166
 
 Wikipedia PageViewInfo measurements: https://en.wikipedia.org/w/api.php
+Wikimedia complete human pageview data (CC0): https://dumps.wikimedia.org/other/pageview_complete/readme.html . The October 2026 monthly dump includes all access methods; null-page-ID view rows are included in title totals. Article eligibility is verified separately from popularity.
 Article titles and measured pageviews only; common names remain the answer, even when a popularity measurement resolves a redirect. Unavailable readership is recorded as unknown, not a fabricated observation. Editorial common-name supplements by Dibs.
 
 GBIF Secretariat (2023). GBIF Backbone Taxonomy. Checklist dataset https://doi.org/10.15468/39omei accessed 2026-11-22. CC BY 4.0: https://creativecommons.org/licenses/by/4.0/

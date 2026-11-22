@@ -39,7 +39,15 @@ for (const path of ['/', '/about', '/archive']) {
   if (path === '/about')
     check(
       'crawlable privacy',
-      html.includes('Missing-answer submissions') && html.includes('privacy@dibs.here'),
+      html.includes('Missing-answer submissions') &&
+        (html.includes('privacy@dibs.here') ||
+          [...html.matchAll(/data-cfemail="([a-f0-9]+)"/g)].some(([, encoded]) => {
+            const bytes = Buffer.from(encoded, 'hex');
+            return (
+              Buffer.from(bytes.subarray(1).map((byte) => byte ^ bytes[0])).toString() ===
+              'privacy@dibs.here'
+            );
+          })),
     );
   if (!practice)
     check(
@@ -92,7 +100,7 @@ for (const engine of [chromium, webkit]) {
       await page.locator('main').waitFor();
       await page.evaluate(() => document.fonts.ready);
       if (practice) await page.locator('#answer').waitFor();
-      else await page.locator('.closed-board').waitFor();
+      else await page.getByRole('heading', { name: 'The office is closed.' }).waitFor();
       const a = await new AxeBuilder({ page })
         .withTags(['wcag2a', 'wcag2aa', 'wcag21aa', 'wcag22aa'])
         .analyze();

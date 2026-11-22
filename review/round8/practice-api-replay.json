@@ -1,0 +1,2278 @@
+{
+  "checkedAt": "2026-11-22T06:03:14.577Z",
+  "origin": "https://practice.dibs-7hz.pages.dev",
+  "manifest": {
+    "v": 2,
+    "slug": "animals",
+    "version": "e3d587202519cd6b",
+    "count": 89124,
+    "house": [
+      [
+        0,
+        "Cat",
+        1
+      ],
+      [
+        1,
+        "Lamprey",
+        1
+      ],
+      [
+        2,
+        "Dog",
+        1
+      ],
+      [
+        3,
+        "Human",
+        1
+      ],
+      [
+        4,
+        "Axolotl",
+        1
+      ],
+      [
+        5,
+        "Squirrel",
+        1
+      ],
+      [
+        6,
+        "Capybara",
+        1
+      ],
+      [
+        7,
+        "Dinosaur",
+        1
+      ],
+      [
+        8,
+        "Orca",
+        1
+      ],
+      [
+        9,
+        "Horse",
+        1
+      ]
+    ],
+    "scope": "English common names for animals of every kind, including general groups and bird species."
+  },
+  "verification": "Official Cloudflare test credentials; real hostname/action checks are separately unit-tested. Real human Turnstile requires a phone check.",
+  "accepted": 246,
+  "stagingResetEvery": 5,
+  "obvious": 246,
+  "idempotency": true,
+  "identityRecovery": true,
+  "typoNoStrike": true,
+  "rows": [
+    {
+      "answer": "cat",
+      "retries": [],
+      "status": 409,
+      "code": "DIBS",
+      "dibs": 0,
+      "strikes": 1
+    },
+    {
+      "answer": "dog",
+      "retries": [],
+      "status": 409,
+      "code": "DIBS",
+      "dibs": 0,
+      "strikes": 1
+    },
+    {
+      "answer": "horse",
+      "retries": [],
+      "status": 409,
+      "code": "DIBS",
+      "dibs": 0,
+      "strikes": 1
+    },
+    {
+      "answer": "cow",
+      "retries": [],
+      "status": 201,
+      "code": "DIBS",
+      "display": "Cow",
+      "dibs": 1,
+      "strikes": 0
+    },
+    {
+      "answer": "pig",
+      "retries": [],
+      "status": 201,
+      "code": "DIBS",
+      "display": "Pig",
+      "dibs": 1,
+      "strikes": 0
+    },
+    {
+      "answer": "sheep",
+      "retries": [],
+      "status": 201,
+      "code": "DIBS",
+      "display": "Sheep",
+      "dibs": 1,
+      "strikes": 0
+    },
+    {
+      "answer": "goat",
+      "retries": [],
+      "status": 201,
+      "code": "DIBS",
+      "display": "Goat",
+      "dibs": 1,
+      "strikes": 0
+    },
+    {
+      "answer": "donkey",
+      "retries": [],
+      "status": 201,
+      "code": "DIBS",
+      "display": "Donkey",
+      "dibs": 1,
+      "strikes": 0
+    },
+    {
+      "answer": "mule",
+      "retries": [],
+      "status": 201,
+      "code": "DIBS",
+      "display": "Mule",
+      "dibs": 1,
+      "strikes": 0
+    },
+    {
+      "answer": "rabbit",
+      "retries": [],
+      "status": 201,
+      "code": "DIBS",
+      "display": "Rabbit",
+      "dibs": 1,
+      "strikes": 0
+    },
+    {
+      "answer": "hare",
+      "retries": [],
+      "status": 201,
+      "code": "DIBS",
+      "display": "Hare",
+      "dibs": 1,
+      "strikes": 0
+    },
+    {
+      "answer": "mouse",
+      "retries": [],
+      "status": 201,
+      "code": "DIBS",
+      "display": "Mouse",
+      "dibs": 1,
+      "strikes": 0
+    },
+    {
+      "answer": "rat",
+      "retries": [],
+      "status": 201,
+      "code": "DIBS",
+      "display": "Rat",
+      "dibs": 1,
+      "strikes": 0
+    },
+    {
+      "answer": "hamster",
+      "retries": [],
+      "status": 201,
+      "code": "DIBS",
+      "display": "Hamster",
+      "dibs": 1,
+      "strikes": 0
+    },
+    {
+      "answer": "gerbil",
+      "retries": [],
+      "status": 201,
+      "code": "DIBS",
+      "display": "Gerbil",
+      "dibs": 1,
+      "strikes": 0
+    },
+    {
+      "answer": "guinea pig",
+      "retries": [],
+      "status": 201,
+      "code": "DIBS",
+      "display": "Guinea pig",
+      "dibs": 1,
+      "strikes": 0
+    },
+    {
+      "answer": "chinchilla",
+      "retries": [],
+      "status": 201,
+      "code": "DIBS",
+      "display": "Chinchilla",
+      "dibs": 1,
+      "strikes": 0
+    },
+    {
+      "answer": "ferret",
+      "retries": [],
+      "status": 201,
+      "code": "DIBS",
+      "display": "Ferret",
+      "dibs": 1,
+      "strikes": 0
+    },
+    {
+      "answer": "hedgehog",
+      "retries": [],
+      "status": 201,
+      "code": "DIBS",
+      "display": "Hedgehog",
+      "dibs": 1,
+      "strikes": 0
+    },
+    {
+      "answer": "squirrel",
+      "retries": [],
+      "status": 409,
+      "code": "DIBS",
+      "dibs": 0,
+      "strikes": 1
+    },
+    {
+      "answer": "chipmunk",
+      "retries": [],
+      "status": 201,
+      "code": "DIBS",
+      "display": "Chipmunk",
+      "dibs": 1,
+      "strikes": 0
+    },
+    {
+      "answer": "beaver",
+      "retries": [],
+      "status": 201,
+      "code": "DIBS",
+      "display": "Beaver",
+      "dibs": 1,
+      "strikes": 0
+    },
+    {
+      "answer": "otter",
+      "retries": [],
+      "status": 201,
+      "code": "DIBS",
+      "display": "Otter",
+      "dibs": 1,
+      "strikes": 0
+    },
+    {
+      "answer": "badger",
+      "retries": [],
+      "status": 201,
+      "code": "DIBS",
+      "display": "Badger",
+      "dibs": 1,
+      "strikes": 0
+    },
+    {
+      "answer": "weasel",
+      "retries": [],
+      "status": 201,
+      "code": "DIBS",
+      "display": "Weasel",
+      "dibs": 1,
+      "strikes": 0
+    },
+    {
+      "answer": "stoat",
+      "retries": [],
+      "status": 201,
+      "code": "DIBS",
+      "display": "Stoat",
+      "dibs": 1,
+      "strikes": 0
+    },
+    {
+      "answer": "mink",
+      "retries": [],
+      "status": 201,
+      "code": "DIBS",
+      "display": "Mink",
+      "dibs": 1,
+      "strikes": 0
+    },
+    {
+      "answer": "wolverine",
+      "retries": [],
+      "status": 201,
+      "code": "DIBS",
+      "display": "Wolverine",
+      "dibs": 1,
+      "strikes": 0
+    },
+    {
+      "answer": "skunk",
+      "retries": [],
+      "status": 201,
+      "code": "DIBS",
+      "display": "Skunk",
+      "dibs": 1,
+      "strikes": 0
+    },
+    {
+      "answer": "raccoon",
+      "retries": [],
+      "status": 201,
+      "code": "DIBS",
+      "display": "Raccoon",
+      "dibs": 1,
+      "strikes": 0
+    },
+    {
+      "answer": "fox",
+      "retries": [],
+      "status": 201,
+      "code": "DIBS",
+      "display": "Fox",
+      "dibs": 1,
+      "strikes": 0
+    },
+    {
+      "answer": "wolf",
+      "retries": [],
+      "status": 201,
+      "code": "DIBS",
+      "display": "Wolf",
+      "dibs": 1,
+      "strikes": 0
+    },
+    {
+      "answer": "coyote",
+      "retries": [],
+      "status": 201,
+      "code": "DIBS",
+      "display": "Coyote",
+      "dibs": 1,
+      "strikes": 0
+    },
+    {
+      "answer": "jackal",
+      "retries": [],
+      "status": 201,
+      "code": "DIBS",
+      "display": "Jackal",
+      "dibs": 1,
+      "strikes": 0
+    },
+    {
+      "answer": "lion",
+      "retries": [],
+      "status": 201,
+      "code": "DIBS",
+      "display": "Lion",
+      "dibs": 1,
+      "strikes": 0
+    },
+    {
+      "answer": "tiger",
+      "retries": [],
+      "status": 201,
+      "code": "DIBS",
+      "display": "Tiger",
+      "dibs": 1,
+      "strikes": 0
+    },
+    {
+      "answer": "leopard",
+      "retries": [],
+      "status": 201,
+      "code": "DIBS",
+      "display": "Leopard",
+      "dibs": 1,
+      "strikes": 0
+    },
+    {
+      "answer": "cheetah",
+      "retries": [],
+      "status": 201,
+      "code": "DIBS",
+      "display": "Cheetah",
+      "dibs": 1,
+      "strikes": 0
+    },
+    {
+      "answer": "jaguar",
+      "retries": [],
+      "status": 201,
+      "code": "DIBS",
+      "display": "Jaguar",
+      "dibs": 1,
+      "strikes": 0
+    },
+    {
+      "answer": "puma",
+      "retries": [],
+      "status": 201,
+      "code": "DIBS",
+      "display": "Puma",
+      "dibs": 1,
+      "strikes": 0
+    },
+    {
+      "answer": "lynx",
+      "retries": [],
+      "status": 201,
+      "code": "DIBS",
+      "display": "Lynx",
+      "dibs": 1,
+      "strikes": 0
+    },
+    {
+      "answer": "bobcat",
+      "retries": [],
+      "status": 201,
+      "code": "DIBS",
+      "display": "Bobcat",
+      "dibs": 1,
+      "strikes": 0
+    },
+    {
+      "answer": "snow leopard",
+      "retries": [],
+      "status": 201,
+      "code": "DIBS",
+      "display": "Snow leopard",
+      "dibs": 1,
+      "strikes": 0
+    },
+    {
+      "answer": "bear",
+      "retries": [],
+      "status": 201,
+      "code": "DIBS",
+      "display": "Bear",
+      "dibs": 1,
+      "strikes": 0
+    },
+    {
+      "answer": "polar bear",
+      "retries": [],
+      "status": 201,
+      "code": "DIBS",
+      "display": "Polar Bear",
+      "dibs": 1,
+      "strikes": 0
+    },
+    {
+      "answer": "panda",
+      "retries": [],
+      "status": 201,
+      "code": "DIBS",
+      "display": "Panda",
+      "dibs": 1,
+      "strikes": 0
+    },
+    {
+      "answer": "red panda",
+      "retries": [],
+      "status": 201,
+      "code": "DIBS",
+      "display": "Lesser panda",
+      "dibs": 1,
+      "strikes": 0
+    },
+    {
+      "answer": "koala",
+      "retries": [],
+      "status": 201,
+      "code": "DIBS",
+      "display": "Koala",
+      "dibs": 1,
+      "strikes": 0
+    },
+    {
+      "answer": "kangaroo",
+      "retries": [],
+      "status": 201,
+      "code": "DIBS",
+      "display": "Kangaroo",
+      "dibs": 1,
+      "strikes": 0
+    },
+    {
+      "answer": "wallaby",
+      "retries": [],
+      "status": 201,
+      "code": "DIBS",
+      "display": "Wallaby",
+      "dibs": 1,
+      "strikes": 0
+    },
+    {
+      "answer": "wombat",
+      "retries": [],
+      "status": 201,
+      "code": "DIBS",
+      "display": "Wombat",
+      "dibs": 1,
+      "strikes": 0
+    },
+    {
+      "answer": "platypus",
+      "retries": [],
+      "status": 201,
+      "code": "DIBS",
+      "display": "Platypus",
+      "dibs": 1,
+      "strikes": 0
+    },
+    {
+      "answer": "echidna",
+      "retries": [],
+      "status": 201,
+      "code": "DIBS",
+      "display": "Echidna",
+      "dibs": 1,
+      "strikes": 0
+    },
+    {
+      "answer": "opossum",
+      "retries": [],
+      "status": 201,
+      "code": "DIBS",
+      "display": "Opossum",
+      "dibs": 1,
+      "strikes": 0
+    },
+    {
+      "answer": "possum",
+      "retries": [],
+      "status": 409,
+      "code": "DIBS",
+      "dibs": 0,
+      "strikes": 1
+    },
+    {
+      "answer": "sloth",
+      "retries": [],
+      "status": 201,
+      "code": "DIBS",
+      "display": "Sloth",
+      "dibs": 1,
+      "strikes": 0
+    },
+    {
+      "answer": "armadillo",
+      "retries": [],
+      "status": 201,
+      "code": "DIBS",
+      "display": "Armadillo",
+      "dibs": 1,
+      "strikes": 0
+    },
+    {
+      "answer": "anteater",
+      "retries": [],
+      "status": 201,
+      "code": "DIBS",
+      "display": "Anteater",
+      "dibs": 1,
+      "strikes": 0
+    },
+    {
+      "answer": "aardvark",
+      "retries": [],
+      "status": 201,
+      "code": "DIBS",
+      "display": "Aardvark",
+      "dibs": 1,
+      "strikes": 0
+    },
+    {
+      "answer": "pangolin",
+      "retries": [],
+      "status": 201,
+      "code": "DIBS",
+      "display": "Pangolin",
+      "dibs": 1,
+      "strikes": 0
+    },
+    {
+      "answer": "elephant",
+      "retries": [],
+      "status": 201,
+      "code": "DIBS",
+      "display": "Elephant",
+      "dibs": 1,
+      "strikes": 0
+    },
+    {
+      "answer": "rhinoceros",
+      "retries": [],
+      "status": 201,
+      "code": "DIBS",
+      "display": "Rhinoceros",
+      "dibs": 1,
+      "strikes": 0
+    },
+    {
+      "answer": "hippopotamus",
+      "retries": [],
+      "status": 201,
+      "code": "DIBS",
+      "display": "Hippopotamus",
+      "dibs": 1,
+      "strikes": 0
+    },
+    {
+      "answer": "giraffe",
+      "retries": [],
+      "status": 201,
+      "code": "DIBS",
+      "display": "Giraffe",
+      "dibs": 1,
+      "strikes": 0
+    },
+    {
+      "answer": "zebra",
+      "retries": [],
+      "status": 201,
+      "code": "DIBS",
+      "display": "Zebra",
+      "dibs": 1,
+      "strikes": 0
+    },
+    {
+      "answer": "camel",
+      "retries": [],
+      "status": 201,
+      "code": "DIBS",
+      "display": "Camel",
+      "dibs": 1,
+      "strikes": 0
+    },
+    {
+      "answer": "llama",
+      "retries": [],
+      "status": 201,
+      "code": "DIBS",
+      "display": "Llama",
+      "dibs": 1,
+      "strikes": 0
+    },
+    {
+      "answer": "alpaca",
+      "retries": [],
+      "status": 201,
+      "code": "DIBS",
+      "display": "Alpaca",
+      "dibs": 1,
+      "strikes": 0
+    },
+    {
+      "answer": "deer",
+      "retries": [],
+      "status": 201,
+      "code": "DIBS",
+      "display": "Deer",
+      "dibs": 1,
+      "strikes": 0
+    },
+    {
+      "answer": "elk",
+      "retries": [],
+      "status": 201,
+      "code": "DIBS",
+      "display": "Elk",
+      "dibs": 1,
+      "strikes": 0
+    },
+    {
+      "answer": "moose",
+      "retries": [],
+      "status": 201,
+      "code": "DIBS",
+      "display": "Moose",
+      "dibs": 1,
+      "strikes": 0
+    },
+    {
+      "answer": "reindeer",
+      "retries": [],
+      "status": 201,
+      "code": "DIBS",
+      "display": "Reindeer",
+      "dibs": 1,
+      "strikes": 0
+    },
+    {
+      "answer": "antelope",
+      "retries": [],
+      "status": 201,
+      "code": "DIBS",
+      "display": "Antelope",
+      "dibs": 1,
+      "strikes": 0
+    },
+    {
+      "answer": "gazelle",
+      "retries": [],
+      "status": 201,
+      "code": "DIBS",
+      "display": "Gazelle",
+      "dibs": 1,
+      "strikes": 0
+    },
+    {
+      "answer": "bison",
+      "retries": [],
+      "status": 201,
+      "code": "DIBS",
+      "display": "Bison",
+      "dibs": 1,
+      "strikes": 0
+    },
+    {
+      "answer": "buffalo",
+      "retries": [],
+      "status": 201,
+      "code": "DIBS",
+      "display": "Buffalo",
+      "dibs": 1,
+      "strikes": 0
+    },
+    {
+      "answer": "yak",
+      "retries": [],
+      "status": 201,
+      "code": "DIBS",
+      "display": "Yak",
+      "dibs": 1,
+      "strikes": 0
+    },
+    {
+      "answer": "gnu",
+      "retries": [],
+      "status": 201,
+      "code": "DIBS",
+      "display": "Gnu",
+      "dibs": 1,
+      "strikes": 0
+    },
+    {
+      "answer": "warthog",
+      "retries": [],
+      "status": 201,
+      "code": "DIBS",
+      "display": "Warthog",
+      "dibs": 1,
+      "strikes": 0
+    },
+    {
+      "answer": "meerkat",
+      "retries": [],
+      "status": 201,
+      "code": "DIBS",
+      "display": "Meerkat",
+      "dibs": 1,
+      "strikes": 0
+    },
+    {
+      "answer": "mongoose",
+      "retries": [],
+      "status": 201,
+      "code": "DIBS",
+      "display": "Mongoose",
+      "dibs": 1,
+      "strikes": 0
+    },
+    {
+      "answer": "hyena",
+      "retries": [],
+      "status": 201,
+      "code": "DIBS",
+      "display": "Hyena",
+      "dibs": 1,
+      "strikes": 0
+    },
+    {
+      "answer": "bat",
+      "retries": [],
+      "status": 201,
+      "code": "DIBS",
+      "display": "Bat",
+      "dibs": 1,
+      "strikes": 0
+    },
+    {
+      "answer": "monkey",
+      "retries": [],
+      "status": 201,
+      "code": "DIBS",
+      "display": "Monkey",
+      "dibs": 1,
+      "strikes": 0
+    },
+    {
+      "answer": "ape",
+      "retries": [],
+      "status": 201,
+      "code": "DIBS",
+      "display": "Ape",
+      "dibs": 1,
+      "strikes": 0
+    },
+    {
+      "answer": "gorilla",
+      "retries": [],
+      "status": 201,
+      "code": "DIBS",
+      "display": "Gorilla",
+      "dibs": 1,
+      "strikes": 0
+    },
+    {
+      "answer": "chimpanzee",
+      "retries": [],
+      "status": 201,
+      "code": "DIBS",
+      "display": "Chimpanzee",
+      "dibs": 1,
+      "strikes": 0
+    },
+    {
+      "answer": "orangutan",
+      "retries": [],
+      "status": 201,
+      "code": "DIBS",
+      "display": "Orangutan",
+      "dibs": 1,
+      "strikes": 0
+    },
+    {
+      "answer": "gibbon",
+      "retries": [],
+      "status": 201,
+      "code": "DIBS",
+      "display": "Gibbon",
+      "dibs": 1,
+      "strikes": 0
+    },
+    {
+      "answer": "baboon",
+      "retries": [],
+      "status": 201,
+      "code": "DIBS",
+      "display": "Baboon",
+      "dibs": 1,
+      "strikes": 0
+    },
+    {
+      "answer": "lemur",
+      "retries": [],
+      "status": 201,
+      "code": "DIBS",
+      "display": "Lemur",
+      "dibs": 1,
+      "strikes": 0
+    },
+    {
+      "answer": "tarsier",
+      "retries": [],
+      "status": 201,
+      "code": "DIBS",
+      "display": "Tarsier",
+      "dibs": 1,
+      "strikes": 0
+    },
+    {
+      "answer": "marmoset",
+      "retries": [],
+      "status": 201,
+      "code": "DIBS",
+      "display": "Marmoset",
+      "dibs": 1,
+      "strikes": 0
+    },
+    {
+      "answer": "capybara",
+      "retries": [],
+      "status": 409,
+      "code": "DIBS",
+      "dibs": 0,
+      "strikes": 1
+    },
+    {
+      "answer": "tapir",
+      "retries": [],
+      "status": 201,
+      "code": "DIBS",
+      "display": "Tapir",
+      "dibs": 1,
+      "strikes": 0
+    },
+    {
+      "answer": "okapi",
+      "retries": [],
+      "status": 201,
+      "code": "DIBS",
+      "display": "Okapi",
+      "dibs": 1,
+      "strikes": 0
+    },
+    {
+      "answer": "quokka",
+      "retries": [],
+      "status": 201,
+      "code": "DIBS",
+      "display": "Quokka",
+      "dibs": 1,
+      "strikes": 0
+    },
+    {
+      "answer": "narwhal",
+      "retries": [],
+      "status": 201,
+      "code": "DIBS",
+      "display": "Narwhal",
+      "dibs": 1,
+      "strikes": 0
+    },
+    {
+      "answer": "whale",
+      "retries": [],
+      "status": 201,
+      "code": "DIBS",
+      "display": "Whale",
+      "dibs": 1,
+      "strikes": 0
+    },
+    {
+      "answer": "dolphin",
+      "retries": [],
+      "status": 201,
+      "code": "DIBS",
+      "display": "Dolphin",
+      "dibs": 1,
+      "strikes": 0
+    },
+    {
+      "answer": "porpoise",
+      "retries": [],
+      "status": 201,
+      "code": "DIBS",
+      "display": "Porpoise",
+      "dibs": 1,
+      "strikes": 0
+    },
+    {
+      "answer": "orca",
+      "retries": [],
+      "status": 409,
+      "code": "DIBS",
+      "dibs": 0,
+      "strikes": 1
+    },
+    {
+      "answer": "seal",
+      "retries": [],
+      "status": 201,
+      "code": "DIBS",
+      "display": "Seal",
+      "dibs": 1,
+      "strikes": 0
+    },
+    {
+      "answer": "sea lion",
+      "retries": [],
+      "status": 201,
+      "code": "DIBS",
+      "display": "Sea lion",
+      "dibs": 1,
+      "strikes": 0
+    },
+    {
+      "answer": "walrus",
+      "retries": [],
+      "status": 201,
+      "code": "DIBS",
+      "display": "Walrus",
+      "dibs": 1,
+      "strikes": 0
+    },
+    {
+      "answer": "manatee",
+      "retries": [],
+      "status": 201,
+      "code": "DIBS",
+      "display": "Manatee",
+      "dibs": 1,
+      "strikes": 0
+    },
+    {
+      "answer": "dugong",
+      "retries": [],
+      "status": 201,
+      "code": "DIBS",
+      "display": "Dugong",
+      "dibs": 1,
+      "strikes": 0
+    },
+    {
+      "answer": "shark",
+      "retries": [],
+      "status": 201,
+      "code": "DIBS",
+      "display": "Shark",
+      "dibs": 1,
+      "strikes": 0
+    },
+    {
+      "answer": "ray",
+      "retries": [],
+      "status": 201,
+      "code": "DIBS",
+      "display": "Ray",
+      "dibs": 1,
+      "strikes": 0
+    },
+    {
+      "answer": "stingray",
+      "retries": [],
+      "status": 201,
+      "code": "DIBS",
+      "display": "Stingray",
+      "dibs": 1,
+      "strikes": 0
+    },
+    {
+      "answer": "manta ray",
+      "retries": [],
+      "status": 201,
+      "code": "DIBS",
+      "display": "Manta ray",
+      "dibs": 1,
+      "strikes": 0
+    },
+    {
+      "answer": "salmon",
+      "retries": [],
+      "status": 201,
+      "code": "DIBS",
+      "display": "Salmon",
+      "dibs": 1,
+      "strikes": 0
+    },
+    {
+      "answer": "trout",
+      "retries": [],
+      "status": 201,
+      "code": "DIBS",
+      "display": "Trout",
+      "dibs": 1,
+      "strikes": 0
+    },
+    {
+      "answer": "tuna",
+      "retries": [],
+      "status": 201,
+      "code": "DIBS",
+      "display": "Tuna",
+      "dibs": 1,
+      "strikes": 0
+    },
+    {
+      "answer": "cod",
+      "retries": [],
+      "status": 201,
+      "code": "DIBS",
+      "display": "Cod",
+      "dibs": 1,
+      "strikes": 0
+    },
+    {
+      "answer": "herring",
+      "retries": [],
+      "status": 201,
+      "code": "DIBS",
+      "display": "Herring",
+      "dibs": 1,
+      "strikes": 0
+    },
+    {
+      "answer": "sardine",
+      "retries": [],
+      "status": 201,
+      "code": "DIBS",
+      "display": "Sardine",
+      "dibs": 1,
+      "strikes": 0
+    },
+    {
+      "answer": "anchovy",
+      "retries": [],
+      "status": 201,
+      "code": "DIBS",
+      "display": "Anchovy",
+      "dibs": 1,
+      "strikes": 0
+    },
+    {
+      "answer": "eel",
+      "retries": [],
+      "status": 201,
+      "code": "DIBS",
+      "display": "Eel",
+      "dibs": 1,
+      "strikes": 0
+    },
+    {
+      "answer": "carp",
+      "retries": [],
+      "status": 201,
+      "code": "DIBS",
+      "display": "Carp",
+      "dibs": 1,
+      "strikes": 0
+    },
+    {
+      "answer": "goldfish",
+      "retries": [],
+      "status": 201,
+      "code": "DIBS",
+      "display": "Goldfish",
+      "dibs": 1,
+      "strikes": 0
+    },
+    {
+      "answer": "piranha",
+      "retries": [],
+      "status": 201,
+      "code": "DIBS",
+      "display": "Piranha",
+      "dibs": 1,
+      "strikes": 0
+    },
+    {
+      "answer": "seahorse",
+      "retries": [],
+      "status": 201,
+      "code": "DIBS",
+      "display": "Seahorse",
+      "dibs": 1,
+      "strikes": 0
+    },
+    {
+      "answer": "clownfish",
+      "retries": [],
+      "status": 201,
+      "code": "DIBS",
+      "display": "Clownfish",
+      "dibs": 1,
+      "strikes": 0
+    },
+    {
+      "answer": "swordfish",
+      "retries": [],
+      "status": 201,
+      "code": "DIBS",
+      "display": "Swordfish",
+      "dibs": 1,
+      "strikes": 0
+    },
+    {
+      "answer": "pufferfish",
+      "retries": [],
+      "status": 201,
+      "code": "DIBS",
+      "display": "Pufferfishes",
+      "dibs": 1,
+      "strikes": 0
+    },
+    {
+      "answer": "lionfish",
+      "retries": [],
+      "status": 201,
+      "code": "DIBS",
+      "display": "Lionfish",
+      "dibs": 1,
+      "strikes": 0
+    },
+    {
+      "answer": "jellyfish",
+      "retries": [],
+      "status": 201,
+      "code": "DIBS",
+      "display": "Jellyfish",
+      "dibs": 1,
+      "strikes": 0
+    },
+    {
+      "answer": "octopus",
+      "retries": [],
+      "status": 201,
+      "code": "DIBS",
+      "display": "Octopus",
+      "dibs": 1,
+      "strikes": 0
+    },
+    {
+      "answer": "squid",
+      "retries": [],
+      "status": 201,
+      "code": "DIBS",
+      "display": "Squid",
+      "dibs": 1,
+      "strikes": 0
+    },
+    {
+      "answer": "cuttlefish",
+      "retries": [],
+      "status": 201,
+      "code": "DIBS",
+      "display": "Cuttlefish",
+      "dibs": 1,
+      "strikes": 0
+    },
+    {
+      "answer": "nautilus",
+      "retries": [],
+      "status": 201,
+      "code": "DIBS",
+      "display": "Nautiluses",
+      "dibs": 1,
+      "strikes": 0
+    },
+    {
+      "answer": "snail",
+      "retries": [],
+      "status": 201,
+      "code": "DIBS",
+      "display": "Snail",
+      "dibs": 1,
+      "strikes": 0
+    },
+    {
+      "answer": "slug",
+      "retries": [],
+      "status": 201,
+      "code": "DIBS",
+      "display": "Slug",
+      "dibs": 1,
+      "strikes": 0
+    },
+    {
+      "answer": "clam",
+      "retries": [],
+      "status": 201,
+      "code": "DIBS",
+      "display": "Clam",
+      "dibs": 1,
+      "strikes": 0
+    },
+    {
+      "answer": "oyster",
+      "retries": [],
+      "status": 201,
+      "code": "DIBS",
+      "display": "Oyster",
+      "dibs": 1,
+      "strikes": 0
+    },
+    {
+      "answer": "mussel",
+      "retries": [],
+      "status": 201,
+      "code": "DIBS",
+      "display": "Mussel",
+      "dibs": 1,
+      "strikes": 0
+    },
+    {
+      "answer": "scallop",
+      "retries": [],
+      "status": 201,
+      "code": "DIBS",
+      "display": "Scallop",
+      "dibs": 1,
+      "strikes": 0
+    },
+    {
+      "answer": "crab",
+      "retries": [],
+      "status": 201,
+      "code": "DIBS",
+      "display": "Crab",
+      "dibs": 1,
+      "strikes": 0
+    },
+    {
+      "answer": "lobster",
+      "retries": [],
+      "status": 201,
+      "code": "DIBS",
+      "display": "Lobster",
+      "dibs": 1,
+      "strikes": 0
+    },
+    {
+      "answer": "shrimp",
+      "retries": [],
+      "status": 201,
+      "code": "DIBS",
+      "display": "Shrimp",
+      "dibs": 1,
+      "strikes": 0
+    },
+    {
+      "answer": "prawn",
+      "retries": [],
+      "status": 201,
+      "code": "DIBS",
+      "display": "Prawn",
+      "dibs": 1,
+      "strikes": 0
+    },
+    {
+      "answer": "crayfish",
+      "retries": [],
+      "status": 201,
+      "code": "DIBS",
+      "display": "Crayfish",
+      "dibs": 1,
+      "strikes": 0
+    },
+    {
+      "answer": "barnacle",
+      "retries": [],
+      "status": 201,
+      "code": "DIBS",
+      "display": "Barnacle",
+      "dibs": 1,
+      "strikes": 0
+    },
+    {
+      "answer": "starfish",
+      "retries": [],
+      "status": 201,
+      "code": "DIBS",
+      "display": "Starfish",
+      "dibs": 1,
+      "strikes": 0
+    },
+    {
+      "answer": "sea urchin",
+      "retries": [],
+      "status": 201,
+      "code": "DIBS",
+      "display": "Sea urchin",
+      "dibs": 1,
+      "strikes": 0
+    },
+    {
+      "answer": "sea cucumber",
+      "retries": [],
+      "status": 201,
+      "code": "DIBS",
+      "display": "Sea cucumber",
+      "dibs": 1,
+      "strikes": 0
+    },
+    {
+      "answer": "sponge",
+      "retries": [],
+      "status": 201,
+      "code": "DIBS",
+      "display": "Sponge",
+      "dibs": 1,
+      "strikes": 0
+    },
+    {
+      "answer": "coral",
+      "retries": [],
+      "status": 201,
+      "code": "DIBS",
+      "display": "Coral",
+      "dibs": 1,
+      "strikes": 0
+    },
+    {
+      "answer": "anemone",
+      "retries": [],
+      "status": 201,
+      "code": "DIBS",
+      "display": "Anemone",
+      "dibs": 1,
+      "strikes": 0
+    },
+    {
+      "answer": "worm",
+      "retries": [],
+      "status": 201,
+      "code": "DIBS",
+      "display": "Worm",
+      "dibs": 1,
+      "strikes": 0
+    },
+    {
+      "answer": "leech",
+      "retries": [],
+      "status": 201,
+      "code": "DIBS",
+      "display": "Leech",
+      "dibs": 1,
+      "strikes": 0
+    },
+    {
+      "answer": "centipede",
+      "retries": [],
+      "status": 201,
+      "code": "DIBS",
+      "display": "Centipede",
+      "dibs": 1,
+      "strikes": 0
+    },
+    {
+      "answer": "millipede",
+      "retries": [],
+      "status": 201,
+      "code": "DIBS",
+      "display": "Millipede",
+      "dibs": 1,
+      "strikes": 0
+    },
+    {
+      "answer": "spider",
+      "retries": [],
+      "status": 201,
+      "code": "DIBS",
+      "display": "Spider",
+      "dibs": 1,
+      "strikes": 0
+    },
+    {
+      "answer": "scorpion",
+      "retries": [],
+      "status": 201,
+      "code": "DIBS",
+      "display": "Scorpion",
+      "dibs": 1,
+      "strikes": 0
+    },
+    {
+      "answer": "tick",
+      "retries": [],
+      "status": 201,
+      "code": "DIBS",
+      "display": "Tick",
+      "dibs": 1,
+      "strikes": 0
+    },
+    {
+      "answer": "mite",
+      "retries": [],
+      "status": 201,
+      "code": "DIBS",
+      "display": "Mite",
+      "dibs": 1,
+      "strikes": 0
+    },
+    {
+      "answer": "ant",
+      "retries": [],
+      "status": 201,
+      "code": "DIBS",
+      "display": "Ant",
+      "dibs": 1,
+      "strikes": 0
+    },
+    {
+      "answer": "bee",
+      "retries": [],
+      "status": 201,
+      "code": "DIBS",
+      "display": "Bee",
+      "dibs": 1,
+      "strikes": 0
+    },
+    {
+      "answer": "wasp",
+      "retries": [],
+      "status": 201,
+      "code": "DIBS",
+      "display": "Wasp",
+      "dibs": 1,
+      "strikes": 0
+    },
+    {
+      "answer": "hornet",
+      "retries": [],
+      "status": 201,
+      "code": "DIBS",
+      "display": "Hornet",
+      "dibs": 1,
+      "strikes": 0
+    },
+    {
+      "answer": "butterfly",
+      "retries": [],
+      "status": 201,
+      "code": "DIBS",
+      "display": "Butterfly",
+      "dibs": 1,
+      "strikes": 0
+    },
+    {
+      "answer": "moth",
+      "retries": [],
+      "status": 201,
+      "code": "DIBS",
+      "display": "Moth",
+      "dibs": 1,
+      "strikes": 0
+    },
+    {
+      "answer": "beetle",
+      "retries": [],
+      "status": 201,
+      "code": "DIBS",
+      "display": "Beetle",
+      "dibs": 1,
+      "strikes": 0
+    },
+    {
+      "answer": "ladybug",
+      "retries": [],
+      "status": 201,
+      "code": "DIBS",
+      "display": "Ladybug",
+      "dibs": 1,
+      "strikes": 0
+    },
+    {
+      "answer": "dragonfly",
+      "retries": [],
+      "status": 201,
+      "code": "DIBS",
+      "display": "Dragonfly",
+      "dibs": 1,
+      "strikes": 0
+    },
+    {
+      "answer": "damselfly",
+      "retries": [],
+      "status": 201,
+      "code": "DIBS",
+      "display": "Damselfly",
+      "dibs": 1,
+      "strikes": 0
+    },
+    {
+      "answer": "mosquito",
+      "retries": [],
+      "status": 201,
+      "code": "DIBS",
+      "display": "Mosquito",
+      "dibs": 1,
+      "strikes": 0
+    },
+    {
+      "answer": "fly",
+      "retries": [],
+      "status": 201,
+      "code": "DIBS",
+      "display": "Fly",
+      "dibs": 1,
+      "strikes": 0
+    },
+    {
+      "answer": "flea",
+      "retries": [],
+      "status": 201,
+      "code": "DIBS",
+      "display": "Flea",
+      "dibs": 1,
+      "strikes": 0
+    },
+    {
+      "answer": "louse",
+      "retries": [],
+      "status": 201,
+      "code": "DIBS",
+      "display": "Louse",
+      "dibs": 1,
+      "strikes": 0
+    },
+    {
+      "answer": "cockroach",
+      "retries": [],
+      "status": 201,
+      "code": "DIBS",
+      "display": "Cockroach",
+      "dibs": 1,
+      "strikes": 0
+    },
+    {
+      "answer": "termite",
+      "retries": [],
+      "status": 201,
+      "code": "DIBS",
+      "display": "Termite",
+      "dibs": 1,
+      "strikes": 0
+    },
+    {
+      "answer": "grasshopper",
+      "retries": [],
+      "status": 201,
+      "code": "DIBS",
+      "display": "Grasshopper",
+      "dibs": 1,
+      "strikes": 0
+    },
+    {
+      "answer": "cricket",
+      "retries": [],
+      "status": 201,
+      "code": "DIBS",
+      "display": "Cricket",
+      "dibs": 1,
+      "strikes": 0
+    },
+    {
+      "answer": "locust",
+      "retries": [],
+      "status": 201,
+      "code": "DIBS",
+      "display": "Locust",
+      "dibs": 1,
+      "strikes": 0
+    },
+    {
+      "answer": "mantis",
+      "retries": [],
+      "status": 201,
+      "code": "DIBS",
+      "display": "Mantis",
+      "dibs": 1,
+      "strikes": 0
+    },
+    {
+      "answer": "cicada",
+      "retries": [],
+      "status": 201,
+      "code": "DIBS",
+      "display": "Cicada",
+      "dibs": 1,
+      "strikes": 0
+    },
+    {
+      "answer": "aphid",
+      "retries": [],
+      "status": 201,
+      "code": "DIBS",
+      "display": "Aphid",
+      "dibs": 1,
+      "strikes": 0
+    },
+    {
+      "answer": "stick insect",
+      "retries": [],
+      "status": 201,
+      "code": "DIBS",
+      "display": "Phasmid",
+      "dibs": 1,
+      "strikes": 0
+    },
+    {
+      "answer": "frog",
+      "retries": [],
+      "status": 201,
+      "code": "DIBS",
+      "display": "Frog",
+      "dibs": 1,
+      "strikes": 0
+    },
+    {
+      "answer": "toad",
+      "retries": [],
+      "status": 201,
+      "code": "DIBS",
+      "display": "Toads",
+      "dibs": 1,
+      "strikes": 0
+    },
+    {
+      "answer": "salamander",
+      "retries": [],
+      "status": 201,
+      "code": "DIBS",
+      "display": "Salamander",
+      "dibs": 1,
+      "strikes": 0
+    },
+    {
+      "answer": "newt",
+      "retries": [],
+      "status": 201,
+      "code": "DIBS",
+      "display": "Newt",
+      "dibs": 1,
+      "strikes": 0
+    },
+    {
+      "answer": "axolotl",
+      "retries": [],
+      "status": 409,
+      "code": "DIBS",
+      "dibs": 0,
+      "strikes": 1
+    },
+    {
+      "answer": "snake",
+      "retries": [],
+      "status": 201,
+      "code": "DIBS",
+      "display": "Snake",
+      "dibs": 1,
+      "strikes": 0
+    },
+    {
+      "answer": "cobra",
+      "retries": [],
+      "status": 201,
+      "code": "DIBS",
+      "display": "Cobra",
+      "dibs": 1,
+      "strikes": 0
+    },
+    {
+      "answer": "python",
+      "retries": [],
+      "status": 201,
+      "code": "DIBS",
+      "display": "Python",
+      "dibs": 1,
+      "strikes": 0
+    },
+    {
+      "answer": "boa",
+      "retries": [],
+      "status": 201,
+      "code": "DIBS",
+      "display": "Boa",
+      "dibs": 1,
+      "strikes": 0
+    },
+    {
+      "answer": "viper",
+      "retries": [],
+      "status": 201,
+      "code": "DIBS",
+      "display": "Viper",
+      "dibs": 1,
+      "strikes": 0
+    },
+    {
+      "answer": "rattlesnake",
+      "retries": [],
+      "status": 201,
+      "code": "DIBS",
+      "display": "Rattlesnake",
+      "dibs": 1,
+      "strikes": 0
+    },
+    {
+      "answer": "lizard",
+      "retries": [],
+      "status": 201,
+      "code": "DIBS",
+      "display": "Lizard",
+      "dibs": 1,
+      "strikes": 0
+    },
+    {
+      "answer": "gecko",
+      "retries": [],
+      "status": 201,
+      "code": "DIBS",
+      "display": "Gecko",
+      "dibs": 1,
+      "strikes": 0
+    },
+    {
+      "answer": "iguana",
+      "retries": [],
+      "status": 201,
+      "code": "DIBS",
+      "display": "Common iguana",
+      "dibs": 1,
+      "strikes": 0
+    },
+    {
+      "answer": "chameleon",
+      "retries": [],
+      "status": 201,
+      "code": "DIBS",
+      "display": "Chameleon",
+      "dibs": 1,
+      "strikes": 0
+    },
+    {
+      "answer": "monitor lizard",
+      "retries": [],
+      "status": 201,
+      "code": "DIBS",
+      "display": "Monitor lizard",
+      "dibs": 1,
+      "strikes": 0
+    },
+    {
+      "answer": "crocodile",
+      "retries": [],
+      "status": 201,
+      "code": "DIBS",
+      "display": "Crocodile",
+      "dibs": 1,
+      "strikes": 0
+    },
+    {
+      "answer": "alligator",
+      "retries": [],
+      "status": 201,
+      "code": "DIBS",
+      "display": "Alligator",
+      "dibs": 1,
+      "strikes": 0
+    },
+    {
+      "answer": "turtle",
+      "retries": [],
+      "status": 201,
+      "code": "DIBS",
+      "display": "Turtle",
+      "dibs": 1,
+      "strikes": 0
+    },
+    {
+      "answer": "tortoise",
+      "retries": [],
+      "status": 201,
+      "code": "DIBS",
+      "display": "Tortoise",
+      "dibs": 1,
+      "strikes": 0
+    },
+    {
+      "answer": "penguin",
+      "retries": [],
+      "status": 201,
+      "code": "DIBS",
+      "display": "Penguin",
+      "dibs": 1,
+      "strikes": 0
+    },
+    {
+      "answer": "ostrich",
+      "retries": [],
+      "status": 201,
+      "code": "DIBS",
+      "display": "Ostrich",
+      "dibs": 1,
+      "strikes": 0
+    },
+    {
+      "answer": "emu",
+      "retries": [],
+      "status": 201,
+      "code": "DIBS",
+      "display": "Emu",
+      "dibs": 1,
+      "strikes": 0
+    },
+    {
+      "answer": "chicken",
+      "retries": [],
+      "status": 201,
+      "code": "DIBS",
+      "display": "Chicken",
+      "dibs": 1,
+      "strikes": 0
+    },
+    {
+      "answer": "rooster",
+      "retries": [],
+      "status": 201,
+      "code": "DIBS",
+      "display": "Chicken",
+      "dibs": 1,
+      "strikes": 0
+    },
+    {
+      "answer": "turkey",
+      "retries": [],
+      "status": 201,
+      "code": "DIBS",
+      "display": "Turkey",
+      "dibs": 1,
+      "strikes": 0
+    },
+    {
+      "answer": "duck",
+      "retries": [],
+      "status": 201,
+      "code": "DIBS",
+      "display": "Duck",
+      "dibs": 1,
+      "strikes": 0
+    },
+    {
+      "answer": "goose",
+      "retries": [],
+      "status": 201,
+      "code": "DIBS",
+      "display": "Goose",
+      "dibs": 1,
+      "strikes": 0
+    },
+    {
+      "answer": "swan",
+      "retries": [],
+      "status": 201,
+      "code": "DIBS",
+      "display": "Swan",
+      "dibs": 1,
+      "strikes": 0
+    },
+    {
+      "answer": "eagle",
+      "retries": [],
+      "status": 201,
+      "code": "DIBS",
+      "display": "Eagle",
+      "dibs": 1,
+      "strikes": 0
+    },
+    {
+      "answer": "hawk",
+      "retries": [],
+      "status": 201,
+      "code": "DIBS",
+      "display": "Hawk",
+      "dibs": 1,
+      "strikes": 0
+    },
+    {
+      "answer": "falcon",
+      "retries": [],
+      "status": 201,
+      "code": "DIBS",
+      "display": "Falcon",
+      "dibs": 1,
+      "strikes": 0
+    },
+    {
+      "answer": "owl",
+      "retries": [],
+      "status": 201,
+      "code": "DIBS",
+      "display": "Owl",
+      "dibs": 1,
+      "strikes": 0
+    },
+    {
+      "answer": "parrot",
+      "retries": [],
+      "status": 201,
+      "code": "DIBS",
+      "display": "Parrot",
+      "dibs": 1,
+      "strikes": 0
+    },
+    {
+      "answer": "pigeon",
+      "retries": [],
+      "status": 201,
+      "code": "DIBS",
+      "display": "Pigeon",
+      "dibs": 1,
+      "strikes": 0
+    },
+    {
+      "answer": "dove",
+      "retries": [],
+      "status": 201,
+      "code": "DIBS",
+      "display": "Dove",
+      "dibs": 1,
+      "strikes": 0
+    },
+    {
+      "answer": "crow",
+      "retries": [],
+      "status": 201,
+      "code": "DIBS",
+      "display": "Crow",
+      "dibs": 1,
+      "strikes": 0
+    },
+    {
+      "answer": "raven",
+      "retries": [],
+      "status": 201,
+      "code": "DIBS",
+      "display": "Raven",
+      "dibs": 1,
+      "strikes": 0
+    },
+    {
+      "answer": "robin",
+      "retries": [],
+      "status": 201,
+      "code": "DIBS",
+      "display": "Robin",
+      "dibs": 1,
+      "strikes": 0
+    },
+    {
+      "answer": "sparrow",
+      "retries": [],
+      "status": 201,
+      "code": "DIBS",
+      "display": "Sparrow",
+      "dibs": 1,
+      "strikes": 0
+    },
+    {
+      "answer": "finch",
+      "retries": [],
+      "status": 201,
+      "code": "DIBS",
+      "display": "Finch",
+      "dibs": 1,
+      "strikes": 0
+    },
+    {
+      "answer": "canary",
+      "retries": [],
+      "status": 201,
+      "code": "DIBS",
+      "display": "Canary",
+      "dibs": 1,
+      "strikes": 0
+    },
+    {
+      "answer": "peacock",
+      "retries": [],
+      "status": 201,
+      "code": "DIBS",
+      "display": "Peacock",
+      "dibs": 1,
+      "strikes": 0
+    },
+    {
+      "answer": "flamingo",
+      "retries": [],
+      "status": 201,
+      "code": "DIBS",
+      "display": "Flamingo",
+      "dibs": 1,
+      "strikes": 0
+    },
+    {
+      "answer": "pelican",
+      "retries": [],
+      "status": 201,
+      "code": "DIBS",
+      "display": "Pelican",
+      "dibs": 1,
+      "strikes": 0
+    },
+    {
+      "answer": "heron",
+      "retries": [],
+      "status": 201,
+      "code": "DIBS",
+      "display": "Heron",
+      "dibs": 1,
+      "strikes": 0
+    },
+    {
+      "answer": "stork",
+      "retries": [],
+      "status": 201,
+      "code": "DIBS",
+      "display": "Stork",
+      "dibs": 1,
+      "strikes": 0
+    },
+    {
+      "answer": "crane",
+      "retries": [],
+      "status": 201,
+      "code": "DIBS",
+      "display": "Crane",
+      "dibs": 1,
+      "strikes": 0
+    },
+    {
+      "answer": "kingfisher",
+      "retries": [],
+      "status": 201,
+      "code": "DIBS",
+      "display": "Kingfisher",
+      "dibs": 1,
+      "strikes": 0
+    },
+    {
+      "answer": "woodpecker",
+      "retries": [],
+      "status": 201,
+      "code": "DIBS",
+      "display": "Woodpecker",
+      "dibs": 1,
+      "strikes": 0
+    },
+    {
+      "answer": "hummingbird",
+      "retries": [],
+      "status": 201,
+      "code": "DIBS",
+      "display": "Hummingbird",
+      "dibs": 1,
+      "strikes": 0
+    },
+    {
+      "answer": "toucan",
+      "retries": [],
+      "status": 201,
+      "code": "DIBS",
+      "display": "Toucan",
+      "dibs": 1,
+      "strikes": 0
+    },
+    {
+      "answer": "puffin",
+      "retries": [],
+      "status": 201,
+      "code": "DIBS",
+      "display": "Puffin",
+      "dibs": 1,
+      "strikes": 0
+    },
+    {
+      "answer": "albatross",
+      "retries": [],
+      "status": 201,
+      "code": "DIBS",
+      "display": "Albatross",
+      "dibs": 1,
+      "strikes": 0
+    },
+    {
+      "answer": "gull",
+      "retries": [],
+      "status": 201,
+      "code": "DIBS",
+      "display": "Gull",
+      "dibs": 1,
+      "strikes": 0
+    },
+    {
+      "answer": "swallow",
+      "retries": [],
+      "status": 201,
+      "code": "DIBS",
+      "display": "Swallow",
+      "dibs": 1,
+      "strikes": 0
+    },
+    {
+      "answer": "swift",
+      "retries": [],
+      "status": 201,
+      "code": "DIBS",
+      "display": "Swift",
+      "dibs": 1,
+      "strikes": 0
+    },
+    {
+      "answer": "wren",
+      "retries": [],
+      "status": 201,
+      "code": "DIBS",
+      "display": "Wren",
+      "dibs": 1,
+      "strikes": 0
+    },
+    {
+      "answer": "magpie",
+      "retries": [],
+      "status": 201,
+      "code": "DIBS",
+      "display": "Magpie",
+      "dibs": 1,
+      "strikes": 0
+    },
+    {
+      "answer": "blue jay",
+      "retries": [],
+      "status": 201,
+      "code": "DIBS",
+      "display": "Blue jay",
+      "dibs": 1,
+      "strikes": 0
+    },
+    {
+      "answer": "cardinal",
+      "retries": [],
+      "status": 201,
+      "code": "DIBS",
+      "display": "Cardinal",
+      "dibs": 1,
+      "strikes": 0
+    },
+    {
+      "answer": "quail",
+      "retries": [],
+      "status": 201,
+      "code": "DIBS",
+      "display": "Quail",
+      "dibs": 1,
+      "strikes": 0
+    },
+    {
+      "answer": "pheasant",
+      "retries": [],
+      "status": 201,
+      "code": "DIBS",
+      "display": "Pheasant",
+      "dibs": 1,
+      "strikes": 0
+    },
+    {
+      "answer": "kiwi",
+      "retries": [],
+      "status": 201,
+      "code": "DIBS",
+      "display": "Kiwi",
+      "dibs": 1,
+      "strikes": 0
+    },
+    {
+      "answer": "dodo",
+      "retries": [],
+      "status": 201,
+      "code": "DIBS",
+      "display": "Dodo",
+      "dibs": 1,
+      "strikes": 0
+    }
+  ]
+}

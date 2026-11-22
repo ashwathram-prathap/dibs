@@ -21,6 +21,8 @@ Read `/stats` and the ledger, identify the exact claim UUID, then run `ADMIN_TOK
 
 ## Roll back a release
 
+Durable Object updates default to a deferred five-minute rollout. A successful deploy command alone does not prove an existing object has adopted the new code or bindings. Practice explicitly uses immediate updates so test credentials can be installed and restored deterministically. The first R8 production release used Wrangler's one-off `--durable-objects-code-update-mode immediate` before launch, with no claims or strikes present. For later releases, allow the normal deferred rollout and verify the live version before testing; immediate updates can interrupt in-flight operations. Cloudflare documentation: https://developers.cloudflare.com/durable-objects/deployments/durable-objects-code-updates/
+
 Before changing production, read `review/round8/production-deployments-before.txt`. Run `npx wrangler deployments list -c worker/wrangler.jsonc`, then `npx wrangler rollback <known-good-version-id> -c worker/wrangler.jsonc`. In Cloudflare Pages → dibs → Deployments, select the previous successful production deployment and choose **Rollback to this deployment**. Roll back both the Worker and Pages to a compatible pair. Additive columns from R8 may stay in place; do not roll back player data to roll back code. During the freeze, pause a day if necessary and investigate without deploying.
 
 ## Private backups and restore

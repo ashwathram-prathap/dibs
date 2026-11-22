@@ -1,6 +1,7 @@
 import { chromium, webkit } from '@playwright/test';
 import { readFileSync, writeFileSync } from 'node:fs';
 const base = 'https://practice.dibs-7hz.pages.dev';
+const officialTestKeys = process.argv.includes('--official-test-keys');
 const token = readFileSync('.dev.vars.staging', 'utf8').match(/^ADMIN_TOKEN=(.+)$/m)![1];
 const reset = async () => {
   const r = await fetch(base + '/api/admin/practice-reset', {
@@ -15,6 +16,11 @@ const engine = process.argv.includes('--webkit') ? webkit : chromium;
 const browser = await engine.launch({ headless: !process.argv.includes('--headed') });
 try {
   await reset();
+  if (officialTestKeys) {
+    const state: any = await (await fetch(base + '/api/bootstrap')).json();
+    if (state.today.turnstileSiteKey !== '1x00000000000000000000AA')
+      throw Error('Official practice test key is not active');
+  }
   const context = await browser.newContext({ viewport: { width: 390, height: 844 } });
   const page = await context.newPage();
   await page.goto(base);
@@ -32,7 +38,11 @@ try {
   if (first.status !== 201 || !first.data.recoveryKey)
     throw Error('First claim/key failed: ' + JSON.stringify(first.data));
   const firstId = first.data.me.user.id;
-  results.push({ check: 'real Turnstile claim and one-time key', passed: true });
+  results.push({
+    check:
+      (officialTestKeys ? 'official testing-key UI' : 'real Turnstile') + ' claim and one-time key',
+    passed: true,
+  });
   const repeat = await context.request.post(base + '/api/claim', {
     headers: { origin: base },
     data: first.body,
@@ -79,7 +89,14 @@ try {
     if (i === 5)
       results.push({ check: 'recovery guessing rate limit', passed: r.status() === 429 });
   }
-  await page.screenshot({ path: 'review/round8/practice-live-flow.png', fullPage: true });
+  await page.screenshot({
+    path:
+      'review/round8/practice-live-flow-' +
+      engine.name() +
+      (officialTestKeys ? '-testing-key' : '-real-key') +
+      '.png',
+    fullPage: true,
+  });
   await context.close();
   await second.close();
 } catch (e) {
@@ -91,6 +108,7 @@ try {
     'review/round8/practice-live-flow-' +
       engine.name() +
       (process.argv.includes('--headed') ? '-headed' : '') +
+      (officialTestKeys ? '-testing-key' : '') +
       '.json',
     JSON.stringify(results, null, 2),
   );

@@ -1,16 +1,61 @@
 {
- "$schema":"../node_modules/wrangler/config-schema.json",
- "name":"dibs-api-staging",
- "main":"index.ts",
- "compatibility_date":"2026-11-20",
- "account_id":"5cf62cff0219727f2121253b3924f886",
- "workers_dev":true,
- "preview_urls":false,
- "define":{"DIBS_PUBLIC_ORIGIN":"\"https://practice.dibs-7hz.pages.dev\""},
- "vars":{"STAGING":"true","TURNSTILE_SITE_KEY":"0x4AAAAAAGLNsW8c9WxZVAxQ"},
- "d1_databases":[{"binding":"DB","database_name":"dibs-db-staging","database_id":"c2951624-d3d9-471b-a33c-f136451760b2","migrations_dir":"../migrations"}],
- "durable_objects":{"bindings":[{"name":"REGISTRY","class_name":"Registry"},{"name":"IMAGE_CACHE","class_name":"ImageCache"}]},
- "migrations":[{"tag":"r6-staging","new_sqlite_classes":["Registry","ImageCache"]}],
- "observability":{"enabled":false},
- "rules":[{"type":"Data","globs":["**/*.woff","**/*.otf"],"fallthrough":true}]
+  "$schema": "../node_modules/wrangler/config-schema.json",
+  "name": "dibs-api-staging",
+  "main": "index.ts",
+  "compatibility_date": "2026-11-20",
+  "account_id": "5cf62cff0219727f2121253b3924f886",
+  "workers_dev": true,
+  "preview_urls": false,
+  "define": {
+    "DIBS_PUBLIC_ORIGIN": "\"https://practice.dibs-7hz.pages.dev\""
+  },
+  "vars": {
+    "STAGING": "true",
+    "TURNSTILE_SITE_KEY": "0x4AAAAAAGLNsW8c9WxZVAxQ"
+  },
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "dibs-db-staging",
+      "database_id": "c2951624-d3d9-471b-a33c-f136451760b2",
+      "migrations_dir": "../migrations"
+    }
+  ],
+  "durable_objects": {
+    "bindings": [
+      {
+        "name": "REGISTRY",
+        "class_name": "Registry"
+      },
+      {
+        "name": "IMAGE_CACHE",
+        "class_name": "ImageCache"
+      }
+    ],
+    "code_update_strategy": {
+      "mode": "immediate"
+    }
+  },
+  "migrations": [
+    {
+      "tag": "r6-staging",
+      "new_sqlite_classes": [
+        "Registry",
+        "ImageCache"
+      ]
+    }
+  ],
+  "observability": {
+    "enabled": false
+  },
+  "rules": [
+    {
+      "type": "Data",
+      "globs": [
+        "**/*.woff",
+        "**/*.otf"
+      ],
+      "fallthrough": true
+    }
+  ]
 }

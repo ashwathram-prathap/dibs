@@ -1,7 +1,27 @@
+import { loadBulkReadership } from './bulk-readership';
 import { readFileSync, writeFileSync, existsSync } from 'node:fs';
 import { normalize } from '../worker/domain';
 const pools = JSON.parse(readFileSync('.category-cache/r8/independent-pools.json', 'utf8'));
 const cache = JSON.parse(readFileSync('.category-cache/r8/pageviews.json', 'utf8'));
+if (existsSync('.category-cache/r8/bulk-pageviews-complete.json')) {
+  const titles: string[] = Object.values(pools).flatMap((rows: any) =>
+    rows.map((r: any) => (typeof r === 'string' ? r : r.title || r.name)),
+  );
+  const bulk = loadBulkReadership(titles);
+  for (const title of titles) {
+    const row = bulk.readings[title];
+    cache[title] = row
+      ? {
+          total: row[0],
+          days: 31,
+          title,
+          status: 'measured complete month',
+          start: '2026-10-01',
+          end: '2026-10-31',
+        }
+      : { total: null, days: 0, title, status: 'not in complete monthly data' };
+  }
+}
 const metadata = JSON.parse(readFileSync('.category-cache/r8/page-metadata.json', 'utf8'));
 for (const [slug, all] of Object.entries(pools) as [string, any[]][]) {
   if (

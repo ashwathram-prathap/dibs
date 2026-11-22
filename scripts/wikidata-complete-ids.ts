@@ -1,4 +1,5 @@
 import { readFileSync, writeFileSync, existsSync, mkdirSync } from 'node:fs';
+import { createHash } from 'node:crypto';
 // A timeout fallback, not a membership cap: exhaust every subclass and every ordered page,
 // then compare the complete per-class unique set with an independent COUNT query.
 export async function completeIdsByClass(
@@ -37,6 +38,81 @@ export async function completeIdsByClass(
   const prop = def.property === 'P106' ? 'P106' : 'P31';
   const ids = new Set<string>();
   const audit: any[] = [];
+  // Bind the complete subclass set in small VALUES groups. This avoids both
+  // repeated transitive joins and thousands of per-class round trips. LIMIT is
+  // never applied to membership; each result is checked against its own COUNT.
+  const groups = folder + '/complete-groups';
+  mkdirSync(groups, { recursive: true });
+  const collect = async (group: string[]): Promise<void> => {
+    const hash = createHash('sha256').update(JSON.stringify(group)).digest('hex');
+    const file = groups + '/' + hash + '.json';
+    if (existsSync(file)) {
+      const saved = JSON.parse(readFileSync(file, 'utf8'));
+      if (saved.ids.length !== saved.expected) throw Error('Invalid cached group count');
+      for (const id of saved.ids) ids.add(id);
+      audit.push({ types: group, count: saved.expected, cached: true });
+      return;
+    }
+    const pattern = `VALUES ?type { ${group.map((id) => 'wd:' + id).join(' ')} } ?item wdt:${prop} ?type`;
+    try {
+      let members: string[] = [];
+      let expected = -1;
+      for (let attempt = 0; attempt < 3; attempt++) {
+        const text = await query(
+          `SELECT DISTINCT ?item WHERE { ${pattern} } # snapshot ${Date.now()}`,
+          'tsv',
+        );
+        const lines = text.trim().split('\n');
+        if (
+          lines[0] !== '?item' ||
+          !lines.slice(1).every((s) => /^<http:\/\/www.wikidata.org\/entity\/Q\d+>$/.test(s))
+        )
+          throw Error('Invalid complete group table');
+        members = [...new Set(lines.slice(1).map((s) => s.match(/Q\d+/)![0]))];
+        const count = JSON.parse(
+          await query(
+            `SELECT (COUNT(DISTINCT ?item) AS ?count) WHERE { ${pattern} } # snapshot ${Date.now()}`,
+          ),
+        );
+        expected = Number(count.results?.bindings?.[0]?.count?.value);
+        if (Number.isSafeInteger(expected) && expected === members.length) break;
+        await pause(1000);
+      }
+      if (expected !== members.length) throw Error('Live group count changed during three scans');
+      writeFileSync(
+        file,
+        JSON.stringify({
+          types: group,
+          expected,
+          ids: members,
+          method: 'uncapped VALUES group with independent COUNT',
+        }),
+      );
+      for (const id of members) ids.add(id);
+      audit.push({ types: group, count: expected });
+      writeFileSync(folder + '/class-audit.json', JSON.stringify(audit, null, 2));
+      console.log(
+        def.slug,
+        'complete subclass group',
+        group.length,
+        'members',
+        expected,
+        'union',
+        ids.size,
+      );
+      await pause(1000);
+    } catch (error) {
+      if (group.length === 1) throw error;
+      const middle = Math.ceil(group.length / 2);
+      await collect(group.slice(0, middle));
+      await collect(group.slice(middle));
+    }
+  };
+  if (types.length > 100) {
+    for (let i = 0; i < types.length; i += 25) await collect(types.slice(i, i + 25));
+    console.log(def.slug, 'complete union', ids.size, 'from', types.length, 'uncapped classes');
+    return [...ids];
+  }
   const parts = folder + '/classes';
   mkdirSync(parts, { recursive: true });
   for (const type of types) {
@@ -49,40 +125,107 @@ export async function completeIdsByClass(
     }
     const pattern = `?item wdt:${prop} wd:${type}`;
     const countData = JSON.parse(
-      await ask(`SELECT (COUNT(DISTINCT ?item) AS ?count) WHERE { ${pattern} }`),
+      await ask(
+        `SELECT (COUNT(DISTINCT ?item) AS ?count) WHERE { ${pattern} } # snapshot ${Date.now()}`,
+      ),
     );
     const expected = Number(countData.results?.bindings?.[0]?.count?.value);
     if (!Number.isSafeInteger(expected) || expected < 0)
       throw Error('Invalid subclass count ' + type);
-    const unique = new Set<string>();
-    for (let offset = 0; offset < expected; offset += 5000) {
-      const page = parts + '/' + type + '-' + offset + '.json';
-      let batch: string[];
-      if (existsSync(page)) batch = JSON.parse(readFileSync(page, 'utf8'));
-      else {
-        const text = await ask(
-          `SELECT DISTINCT ?item WHERE { ${pattern} } ORDER BY ?item LIMIT 5000 OFFSET ${offset}`,
-          'tsv',
-        );
-        const lines = text.trim().split('\n');
-        if (
-          lines[0] !== '?item' ||
-          !lines.slice(1).every((s) => /^<http:\/\/www.wikidata.org\/entity\/Q\d+>$/.test(s))
-        )
-          throw Error('Truncated ordered ID page ' + type + ' ' + offset);
-        batch = lines.slice(1).map((s) => s.match(/Q\d+/)![0]);
-        writeFileSync(page, JSON.stringify(batch));
-      }
-      if (!batch.length) throw Error('Empty ID page before full count ' + type);
-      for (const id of batch) unique.add(id);
-      console.log(def.slug, type, unique.size, '/', expected, 'complete ID paging');
-      await pause(1000);
-    }
-    if (unique.size !== expected)
-      throw Error(
-        'Changed or incomplete subclass: ' + type + ' expected ' + expected + ' saw ' + unique.size,
+    // A single direct-class query is often cheap even when the transitive union
+    // times out. Prefer its consistent snapshot to paging a live, edited set.
+    try {
+      const text = await ask(`SELECT DISTINCT ?item WHERE { ${pattern} }`, 'tsv');
+      const lines = text.trim().split('\n');
+      if (
+        lines[0] !== '?item' ||
+        !lines.slice(1).every((s) => /^<http:\/\/www.wikidata.org\/entity\/Q\d+>$/.test(s))
+      )
+        throw Error('Invalid direct-class table');
+      const direct = [...new Set(lines.slice(1).map((s) => s.match(/Q\d+/)![0]))];
+      if (direct.length !== expected) throw Error('Direct-class count changed');
+      writeFileSync(
+        file,
+        JSON.stringify({ expected, method: 'uncapped direct-class query', ids: direct }),
       );
-    writeFileSync(file, JSON.stringify({ expected, ids: [...unique] }));
+      for (const id of direct) ids.add(id);
+      audit.push({ type, count: direct.length, method: 'uncapped direct-class query' });
+      writeFileSync(folder + '/class-audit.json', JSON.stringify(audit, null, 2));
+      console.log(def.slug, type, 'complete direct class', direct.length);
+      await pause(1000);
+      continue;
+    } catch (error) {
+      console.log(def.slug, type, 'using keyset fallback:', String(error));
+    }
+    let unique = new Set<string>();
+    let finalCount = expected;
+    let matched = false;
+    // Keyset pagination avoids losing rows when live edits shift OFFSET pages.
+    for (let scan = 0; scan < 3 && !matched; scan++) {
+      unique = new Set<string>();
+      let after = '';
+      while (true) {
+        const cursorFilter = after
+          ? 'FILTER(STR(?item) > "http://www.wikidata.org/entity/' + after + '")'
+          : '';
+        const page = parts + '/' + type + '-after-' + (after || 'start') + '.json';
+        let batch: string[];
+        if (scan === 0 && existsSync(page)) batch = JSON.parse(readFileSync(page, 'utf8'));
+        else {
+          const text = await ask(
+            `SELECT DISTINCT ?item WHERE { ${pattern} ${cursorFilter} } ORDER BY STR(?item) LIMIT 5000${scan ? ' # fresh scan ' + Date.now() : ''}`,
+            'tsv',
+          );
+          const lines = text.trim().split('\n');
+          if (
+            lines[0] !== '?item' ||
+            !lines.slice(1).every((s) => /^<http:\/\/www.wikidata.org\/entity\/Q\d+>$/.test(s))
+          )
+            throw Error('Invalid keyset page ' + type);
+          batch = lines.slice(1).map((s) => s.match(/Q\d+/)![0]);
+          writeFileSync(page, JSON.stringify(batch));
+        }
+        if (batch.some((id) => unique.has(id))) throw Error('Non-advancing keyset page ' + type);
+        for (const id of batch) unique.add(id);
+        console.log(def.slug, type, unique.size, '/', expected, 'complete keyset paging');
+        if (batch.length < 5000) break;
+        after = batch.at(-1)!;
+        await pause(1000);
+      }
+      const end = JSON.parse(
+        await ask(
+          `SELECT (COUNT(DISTINCT ?item) AS ?count) WHERE { ${pattern} } # snapshot ${Date.now()}`,
+        ),
+      );
+      finalCount = Number(end.results?.bindings?.[0]?.count?.value);
+      matched = unique.size === finalCount;
+      if (!matched)
+        console.log(
+          def.slug,
+          type,
+          'changed during scan; repeating fresh keyset traversal',
+          unique.size,
+          finalCount,
+        );
+    }
+    if (!matched)
+      throw Error(
+        'Unstable or incomplete subclass after three exhaustive keyset scans: ' +
+          type +
+          ' expected ' +
+          finalCount +
+          ' saw ' +
+          unique.size,
+      );
+    writeFileSync(
+      file,
+      JSON.stringify({
+        expected: finalCount,
+        initialCount: expected,
+        method: 'exhaustive keyset pagination',
+        ids: [...unique],
+      }),
+    );
     for (const id of unique) ids.add(id);
     audit.push({ type, count: unique.size });
     writeFileSync(folder + '/class-audit.json', JSON.stringify(audit, null, 2));

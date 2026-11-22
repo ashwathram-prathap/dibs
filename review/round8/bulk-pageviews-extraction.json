@@ -1,0 +1,16 @@
+{
+  "source": "https://dumps.wikimedia.org/other/pageview_complete/monthly/2026/2026-10/pageviews-202610-user.bz2",
+  "licence": "CC0",
+  "bytes": 3893755947,
+  "sha256": "8c44d2a49dcd09b77737213a9e939abacd972c8b76dea2c912dd9f36e7823339",
+  "periodStart": "2026-10-01",
+  "periodEnd": "2026-10-31",
+  "days": 31,
+  "agent": "user",
+  "access": "all-access",
+  "rowsScanned": 325114102,
+  "englishAccessRows": 47766821,
+  "articleTitles": 27708754,
+  "complete": true,
+  "output": "pageviews-202610-en.tsv"
+}

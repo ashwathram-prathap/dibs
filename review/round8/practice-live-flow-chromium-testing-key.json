@@ -1,0 +1,30 @@
+[
+  {
+    "check": "official testing-key UI claim and one-time key",
+    "passed": true
+  },
+  {
+    "check": "lost-response replay costs no extra dibs",
+    "passed": true
+  },
+  {
+    "check": "new browser restores same identity/file",
+    "passed": true
+  },
+  {
+    "check": "typo has no strike and one confirmation",
+    "passed": true
+  },
+  {
+    "check": "anonymous clerk submission",
+    "passed": true
+  },
+  {
+    "check": "typo and missing submission leave strikes unchanged",
+    "passed": true
+  },
+  {
+    "check": "recovery guessing rate limit",
+    "passed": true
+  }
+]

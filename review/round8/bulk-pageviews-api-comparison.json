@@ -1,0 +1,37 @@
+{
+  "checkedAt": "2026-11-22T06:18:43.526Z",
+  "checks": [
+    {
+      "title": "Bohemian Rhapsody",
+      "dumpViews": 43672,
+      "apiViews": 43672,
+      "status": 200,
+      "passed": true,
+      "url": "https://wikimedia.org/api/rest_v1/metrics/pageviews/per-article/en.wikipedia.org/all-access/user/Bohemian%20Rhapsody/monthly/2026100100/2026103100"
+    },
+    {
+      "title": "Cat",
+      "dumpViews": 354611,
+      "apiViews": 354611,
+      "status": 200,
+      "passed": true,
+      "url": "https://wikimedia.org/api/rest_v1/metrics/pageviews/per-article/en.wikipedia.org/all-access/user/Cat/monthly/2026100100/2026103100"
+    },
+    {
+      "title": "Paris",
+      "dumpViews": 160412,
+      "apiViews": 160412,
+      "status": 200,
+      "passed": true,
+      "url": "https://wikimedia.org/api/rest_v1/metrics/pageviews/per-article/en.wikipedia.org/all-access/user/Paris/monthly/2026100100/2026103100"
+    },
+    {
+      "title": "The Beatles",
+      "dumpViews": 301326,
+      "apiViews": 301326,
+      "status": 200,
+      "passed": true,
+      "url": "https://wikimedia.org/api/rest_v1/metrics/pageviews/per-article/en.wikipedia.org/all-access/user/The%20Beatles/monthly/2026100100/2026103100"
+    }
+  ]
+}

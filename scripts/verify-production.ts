@@ -35,7 +35,11 @@ const allowed = new Set([
 ]);
 for (const c of css.matchAll(/#[a-f\d]{6}\b/gi))
   if (!allowed.has(c[0].toLowerCase())) throw new Error('Off-palette CSS ' + c[0]);
-const auditedCss = css.replace(/\.printing \.gold-stamp::after \{[^}]*\}/g, '');
+// The print stamp and circular obscurity markers are intentional illustrations,
+// not rounded panels or decorative gradients.
+const auditedCss = css
+  .replace(/\.printing \.gold-stamp::after \{[^}]*\}/g, '')
+  .replace(/\.obscurity-dot \{[^}]*\}/g, '');
 if (
   /(?:linear|radial|conic)-gradient|backdrop-filter|border-radius:\s*(?:[3-9]|\d{2})/i.test(
     auditedCss,

@@ -1,5 +1,5 @@
 import { completeIdsByClass } from './wikidata-complete-ids';
-import { readFileSync, writeFileSync, existsSync, mkdirSync } from 'node:fs';
+import { readFileSync, writeFileSync, existsSync, mkdirSync, renameSync } from 'node:fs';
 const defs = JSON.parse(readFileSync('scripts/category-sources.json', 'utf8')).filter(
   (d: any) => !['animals', 'plants', 'birds', 'cities', 'arthropods'].includes(d.slug),
 );
@@ -184,8 +184,12 @@ for (const def of defs) {
   if (!blocked) {
     mkdirSync('.category-cache/r8/other-references', { recursive: true });
     writeFileSync(
-      '.category-cache/r8/other-references/' + def.slug + '.json',
+      '.category-cache/r8/other-references/' + def.slug + '.json.next',
       JSON.stringify(rows),
+    );
+    renameSync(
+      '.category-cache/r8/other-references/' + def.slug + '.json.next',
+      '.category-cache/r8/other-references/' + def.slug + '.json',
     );
     report[def.slug] = {
       cacheKey: def.cacheKey,

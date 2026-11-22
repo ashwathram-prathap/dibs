@@ -2,6 +2,7 @@ import { readFileSync, writeFileSync, appendFileSync } from 'node:fs';
 import { spawn } from 'node:child_process';
 import assert from 'node:assert/strict';
 const base = 'https://practice.dibs-7hz.pages.dev';
+const browserOnly = process.argv.includes('--browser-only');
 const vars = Object.fromEntries(
   readFileSync('.dev.vars.staging', 'utf8')
     .split('\n')
@@ -102,7 +103,9 @@ try {
     true,
   );
   assert.equal(installed.response.status, 200, installed.data.message);
-  const words = readFileSync('review/coverage/animals.txt', 'utf8').trim().split('\n');
+  const words = browserOnly
+    ? []
+    : readFileSync('review/coverage/animals.txt', 'utf8').trim().split('\n');
   let recoveryChecked = false;
   for (const answer of words) {
     // Five new identities per connection per day is an intentional production rule.
@@ -164,36 +167,56 @@ try {
     }
     if (rows.length % 25 === 0) console.log('Replayed', rows.length, '/', words.length);
   }
-  assert.ok(recoveryChecked);
-  writeFileSync(
-    'review/round8/practice-api-replay.json',
-    JSON.stringify(
-      {
-        checkedAt: new Date().toISOString(),
-        origin: base,
-        manifest,
-        verification:
-          'Official Cloudflare test credentials; real hostname/action checks are separately unit-tested. Real human Turnstile requires a phone check.',
-        accepted: rows.length,
-        stagingResetEvery: 5,
-        obvious: words.length,
-        idempotency: true,
-        identityRecovery: true,
-        typoNoStrike: true,
-        rows,
-      },
-      null,
-      2,
-    ) + '\n',
-  );
+  if (!browserOnly) assert.ok(recoveryChecked);
+  if (!browserOnly)
+    writeFileSync(
+      'review/round8/practice-api-replay.json',
+      JSON.stringify(
+        {
+          checkedAt: new Date().toISOString(),
+          origin: base,
+          manifest,
+          verification:
+            'Official Cloudflare test credentials; real hostname/action checks are separately unit-tested. Real human Turnstile requires a phone check.',
+          accepted: rows.length,
+          stagingResetEvery: 5,
+          obvious: words.length,
+          idempotency: true,
+          identityRecovery: true,
+          typoNoStrike: true,
+          rows,
+        },
+        null,
+        2,
+      ) + '\n',
+    );
+  if (browserOnly)
+    for (const engine of ['chromium', 'webkit']) {
+      await new Promise<void>((resolve, reject) => {
+        const child = spawn(
+          'npx',
+          [
+            'tsx',
+            'scripts/r8-practice-flow.ts',
+            '--official-test-keys',
+            ...(engine === 'webkit' ? ['--webkit'] : []),
+          ],
+          { stdio: 'inherit' },
+        );
+        child.on('error', reject);
+        child.on('exit', (code) =>
+          code === 0 ? resolve() : reject(Error('Practice ' + engine + ' browser flow failed')),
+        );
+      });
+    }
 } catch (error) {
   console.error('Replay failed:', String(error));
   throw error;
 } finally {
   await reset();
   await run(['secret', 'put', 'TURNSTILE_SECRET', '-c', config], vars.TURNSTILE_SECRET + '\n');
-  await run(['deploy', '-c', config]);
   const expected = JSON.parse(readFileSync(config, 'utf8')).vars.TURNSTILE_SITE_KEY;
+  await run(['deploy', '-c', config, '--var', 'TURNSTILE_SITE_KEY:' + expected]);
   const after = await waitForSiteKey(expected);
   assert.equal(after.data.today.turnstileSiteKey, expected);
   assert.equal(after.data.today.claimed, 0);

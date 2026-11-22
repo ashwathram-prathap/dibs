@@ -1,0 +1,26 @@
+{
+  "at": "2026-11-22T06:16:08.395Z",
+  "checks": [
+    {
+      "slug": "animals",
+      "version": "e3d587202519cd6b",
+      "ok": true,
+      "entries": 89124,
+      "schedulePreserved": true
+    },
+    {
+      "slug": "plants",
+      "version": "f584483f47d38e7d",
+      "ok": true,
+      "entries": 43308,
+      "schedulePreserved": true
+    },
+    {
+      "slug": "birds",
+      "version": "04985deb94445ed1",
+      "ok": true,
+      "entries": 16189,
+      "schedulePreserved": true
+    }
+  ]
+}

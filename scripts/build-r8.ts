@@ -1,3 +1,4 @@
+import { loadBulkReadership } from './bulk-readership';
 import { bestReadership } from './catalog-ranking';
 import {
   readFileSync,
@@ -19,6 +20,9 @@ const onlySlugs = process.argv
   .split(',');
 const raw = JSON.parse(readFileSync('.category-cache/r8/candidates.json', 'utf8'));
 const definitions = JSON.parse(readFileSync('scripts/category-sources.json', 'utf8'));
+const referenceProgress = JSON.parse(
+  readFileSync('review/round8/wikidata-reference-progress.json', 'utf8'),
+);
 const otherDir = '.category-cache/r8/other-references';
 if (existsSync(otherDir))
   for (const f of readdirSync(otherDir).filter(
@@ -321,32 +325,99 @@ if (allTitles.length > 500000 && !knownTitles)
   throw Error(
     'Regenerate the complete measurement queue and title inventory before ranking large reference sets.',
   );
+const bulk = process.argv.includes('--bulk')
+  ? loadBulkReadership([...allTitles, ...allTitles.map((t) => cache[t]?.title).filter(Boolean)])
+  : null;
+const qualifiedTitles = new Set<string>();
+const unqualifiedTitles = new Set<string>();
+const poolMetadata = new Set<string>(
+  ['bands', 'paintings'].flatMap((slug) =>
+    (independentPools[slug] || []).map((r: any) => r.title || r.name),
+  ),
+);
+const scopeDomains = new Set([
+  'animals',
+  'birds',
+  'plants',
+  'arthropods',
+  'foods',
+  'fruits-vegetables',
+  'cities',
+  'mountains',
+  'rivers',
+  'lakes',
+  'islands',
+  'stations',
+]);
+for (const [slug, rows] of Object.entries(catalogs))
+  for (const a of rows) {
+    const qualified =
+      !scopeDomains.has(slug) ||
+      a.wikidata ||
+      (a.wikipediaTitle &&
+        /^(https:\/\/www.geonames.org\/|https:\/\/ourairports.com\/)/.test(a.source));
+    for (const t of measurementTitles(a, slug)) {
+      if (qualified) qualifiedTitles.add(slug + ':' + t);
+      else unqualifiedTitles.add(t);
+    }
+  }
 const confirmedGaps = new Set(
   JSON.parse(readFileSync('scripts/r8-confirmed-pageview-gaps.json', 'utf8')).titles,
 );
-const pageviewsFor = (t: string) =>
-  (!cache[t]?.days && (confirmedGaps.has(t) || confirmedGaps.has(cache[t]?.title))
-    ? {
-        total: null,
-        days: 0,
-        title: cache[t]?.title || t,
-        status: 'confirmed no pageview data',
-        evidence: 'review/round8/pageview-gaps.json',
-      }
-    : cache[t]) ||
-  (absentFromInventory(t)
-    ? {
-        total: 0,
-        days: 0,
-        status: 'not in complete title inventory',
-        inventoryDate: inventory.asOf,
-      }
-    : { total: 0, days: 0, status: 'unavailable' });
+const pageviewsFor = (t: string): any => {
+  if (bulk) {
+    if (['no article', 'disambiguation'].includes(cache[t]?.status)) return cache[t];
+    const resolved = cache[t]?.title || t;
+    const item = bulk.readings[resolved];
+    if (item)
+      return {
+        total: item[0],
+        days: 31,
+        start: bulk.proof.periodStart,
+        end: bulk.proof.periodEnd,
+        title: resolved,
+        pageId: item[1],
+        status: 'measured complete month',
+      };
+    return {
+      total: null,
+      days: 0,
+      title: resolved,
+      status: 'not in complete monthly human-pageview data',
+    };
+  }
+  return (
+    (!cache[t]?.days && (confirmedGaps.has(t) || confirmedGaps.has(cache[t]?.title))
+      ? {
+          total: null,
+          days: 0,
+          title: cache[t]?.title || t,
+          status: 'confirmed no pageview data',
+          evidence: 'review/round8/pageview-gaps.json',
+        }
+      : cache[t]) ||
+    (absentFromInventory(t)
+      ? {
+          total: 0,
+          days: 0,
+          status: 'not in complete title inventory',
+          inventoryDate: inventory.asOf,
+        }
+      : { total: 0, days: 0, status: 'unavailable' })
+  );
+};
+const needsMetadata = (t: string) =>
+  !!bulk &&
+  pageviewsFor(t).days > 0 &&
+  (unqualifiedTitles.has(t) || poolMetadata.has(t)) &&
+  !Object.hasOwn(metadata, cache[t]?.title || t);
 if (process.argv.includes('--status')) {
   for (const [slug, rows] of Object.entries(catalogs)) {
     const pending = rows.filter((r) =>
-      measurementTitles(r, slug).some((t) =>
-        ['unavailable', 'measurement unavailable'].includes(pageviewsFor(t).status),
+      measurementTitles(r, slug).some(
+        (t) =>
+          ['unavailable', 'measurement unavailable'].includes(pageviewsFor(t).status) ||
+          needsMetadata(t),
       ),
     );
     console.log(
@@ -382,12 +453,13 @@ for (const [slug, rows] of Object.entries(catalogs)) {
       priority.add(measurementTitle(row, slug));
 }
 const pending = allTitles
-  .filter((t) => !absentFromInventory(t) || cache[t])
-  .filter(
-    (t) =>
-      !cache[t] ||
-      ['unavailable', 'measurement unavailable'].includes(cache[t].status) ||
-      (cache[t].days > 0 && !metadata[cache[t].title]?.description),
+  .filter((t) => bulk || !absentFromInventory(t) || cache[t])
+  .filter((t) =>
+    bulk
+      ? needsMetadata(t)
+      : !cache[t] ||
+        ['unavailable', 'measurement unavailable'].includes(cache[t].status) ||
+        (cache[t].days > 0 && !metadata[cache[t].title]?.description),
   )
   .sort(
     (a, b) =>
@@ -409,7 +481,7 @@ async function measure(batch: string[]) {
   const params = {
     action: 'query',
     format: 'json',
-    prop: 'pageviews|pageprops|description',
+    prop: bulk ? 'pageprops|description' : 'pageviews|pageprops|description',
     pvipdays: '30',
     titles: batch.join('|'),
     redirects: '1',
@@ -470,6 +542,20 @@ async function measure(batch: string[]) {
           '',
         disambiguation: p.pageprops?.disambiguation !== undefined,
       };
+    if (bulk) {
+      cache[t] = {
+        total: null,
+        days: 0,
+        title: p?.title || t,
+        status:
+          p?.missing !== undefined
+            ? 'no article'
+            : p?.pageprops?.disambiguation !== undefined
+              ? 'disambiguation'
+              : 'bulk metadata checked',
+      };
+      continue;
+    }
     const points = Object.entries(p?.pageviews || {}).filter(([, n]) => typeof n === 'number');
     cache[t] =
       !p || p.missing !== undefined || p.pageprops?.disambiguation !== undefined || !points.length
@@ -541,6 +627,8 @@ const scopes: any = {
       d.name + ' classified by Wikidata with English Wikipedia articles; one answer per name.',
     ]),
   ),
+  songs:
+    'Songs, vocal recordings, singles and instrumental compositions with English Wikipedia articles; one answer per title.',
   asteroids:
     'Named asteroids and other minor planets in the complete NASA/JPL Small-Body Database; names and numbered names accepted.',
   arthropods: 'English common names for insects, spiders, crustaceans and other arthropods.',
@@ -570,7 +658,9 @@ for (const [slug, answers] of Object.entries(catalogs)) {
   const candidateCount = answers.length;
   const rankingComplete = answers.every((a) =>
     measurementTitles(a, slug).every(
-      (t) => !['unavailable', 'measurement unavailable'].includes(pageviewsFor(t).status),
+      (t) =>
+        !['unavailable', 'measurement unavailable'].includes(pageviewsFor(t).status) &&
+        !needsMetadata(t),
     ),
   );
   const geographicQuality = ['mountains', 'rivers', 'lakes', 'islands', 'stations'].includes(slug);
@@ -600,7 +690,16 @@ for (const [slug, answers] of Object.entries(catalogs)) {
     for (const a of answers)
       for (const name of [a.display, ...a.aliases]) articleOwners.set(normalize(name), a);
   for (const a of answers) {
-    a.pageviews = bestReadership(measurementTitles(a, slug).map(pageviewsFor));
+    a.pageviews = bestReadership(
+      measurementTitles(a, slug).map((t) => {
+        const reading = pageviewsFor(t);
+        const m = metadata[reading.title];
+        return qualifiedTitles.has(slug + ':' + t) ||
+          pageMatchesScope(slug, m?.description || '', !!a.scientificName && t === a.scientificName)
+          ? reading
+          : { total: null, days: 0, title: reading.title, status: 'scope not verified' };
+      }),
+    );
     const resolvedOwner = articleOwners.get(normalize(a.pageviews.title || ''));
     if (resolvedOwner && resolvedOwner !== a)
       a.pageviews = {
@@ -609,15 +708,6 @@ for (const [slug, answers] of Object.entries(catalogs)) {
         title: a.pageviews.title,
         status: 'shared article; readership attributed to its own accepted name',
       };
-    const m = metadata[a.pageviews.title];
-    if (
-      !pageMatchesScope(
-        slug,
-        m?.description || '',
-        !!a.scientificName && measurementTitle(a, slug) === a.scientificName,
-      )
-    )
-      a.pageviews = { total: 0, days: 0, status: 'scope not verified' };
     const mean = a.pageviews.days ? a.pageviews.total / a.pageviews.days : 0;
     a.obscurity = a.pageviews.days
       ? mean >= 1000
@@ -665,13 +755,19 @@ for (const [slug, answers] of Object.entries(catalogs)) {
         completeSources:
           (!['animals', 'plants', 'arthropods'].includes(slug) ||
             existsSync('.category-cache/r8/gbif-extracted.json')) &&
-          raw[slug].every((r: any) => !r.wikidata || r.aliasesComplete),
+          raw[slug].every((r: any) => !r.wikidata || r.aliasesComplete) &&
+          (!raw[slug].some((r: any) => r.wikidata) ||
+            (referenceProgress[slug]?.complete &&
+              referenceProgress[slug]?.cacheKey ===
+                definitions.find((d: any) => d.slug === slug)?.cacheKey)),
         candidateCount,
         rankingComplete,
         qualityFilter: geographicQuality
           ? 'Full GeoNames candidate set checked against the complete English Wikipedia title inventory, then measured; retains only an English article whose description verifies this geographic kind. No result-count cap.'
           : null,
-        ranking: '30 available days; unavailable pageviews retained as unknown, never fabricated',
+        ranking: bulk
+          ? 'Complete October 2026 human pageviews, all access methods, divided by 31 days; absent data remains unknown'
+          : '30 available days; unavailable pageviews retained as unknown, never fabricated',
       },
       answers,
     }) + '\n',

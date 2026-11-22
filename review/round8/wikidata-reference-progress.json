@@ -32,11 +32,26 @@
     "license": "https://www.wikidata.org/wiki/Wikidata:Data_access"
   },
   "songs": {
-    "complete": true,
-    "candidateCount": 34112,
-    "scanned": 34112,
-    "englishArticles": 9696,
-    "method": "All uncapped classification IDs, complete bounded joins; English Wikipedia article availability is the stated quality filter, never a result-count cutoff.",
-    "license": "https://www.wikidata.org/wiki/Wikidata:Data_access"
+    "cacheKey": "music-v2",
+    "complete": false,
+    "stage": "full candidate IDs",
+    "errors": [
+      {
+        "query": "SELECT DISTINCT ?item WHERE { VALUES ?root {wd:Q7366 wd:Q207628 wd:Q105543609 wd:Q134556 wd:Q55850593} ?item wdt:P31/wdt:P279* ?root }",
+        "error": "Error: HTTP 504"
+      },
+      {
+        "query": "SELECT DISTINCT ?item WHERE { VALUES ?root {wd:Q7366 wd:Q207628 wd:Q105543609 wd:Q134556 wd:Q55850593} ?type wdt:P279* ?root. ?item wdt:P31 ?type. }",
+        "error": "Error: HTTP 504"
+      },
+      {
+        "query": "SELECT DISTINCT ?item WHERE { VALUES ?root {wd:Q7366 wd:Q207628 wd:Q105543609 wd:Q134556 wd:Q55850593} ?item wdt:P31 ?type. FILTER EXISTS { ?type wdt:P279* ?root } }",
+        "error": "Error: HTTP 504"
+      },
+      {
+        "stage": "exhaustive subclass and ordered-page fallback",
+        "error": "Error: Changed or incomplete subclass: Q134556 expected 121084 saw 121081"
+      }
+    ]
   }
 }

@@ -52,3 +52,4 @@ public/catalog/
 # Full R8 captures stay local; compact audits and thumbnails are versioned.
 review/round8/ui/*.png
 review/round8/certificates/*.png
+review/round8/practice-live-flow-*.png

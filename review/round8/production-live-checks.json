@@ -1,0 +1,170 @@
+[
+  {
+    "name": "/ successful HTML",
+    "passed": true
+  },
+  {
+    "name": "/ index policy",
+    "passed": true
+  },
+  {
+    "name": "/ canonical",
+    "passed": true
+  },
+  {
+    "name": "/ social tags",
+    "passed": true
+  },
+  {
+    "name": "/ English/theme",
+    "passed": true
+  },
+  {
+    "name": "/ no creator credit",
+    "passed": true
+  },
+  {
+    "name": "crawlable home rules/FAQ",
+    "passed": true
+  },
+  {
+    "name": "/ structured data",
+    "passed": true
+  },
+  {
+    "name": "exact homepage title",
+    "passed": true
+  },
+  {
+    "name": "/about successful HTML",
+    "passed": true
+  },
+  {
+    "name": "/about index policy",
+    "passed": true
+  },
+  {
+    "name": "/about canonical",
+    "passed": true
+  },
+  {
+    "name": "/about social tags",
+    "passed": true
+  },
+  {
+    "name": "/about English/theme",
+    "passed": true
+  },
+  {
+    "name": "/about no creator credit",
+    "passed": true
+  },
+  {
+    "name": "crawlable privacy",
+    "passed": true
+  },
+  {
+    "name": "/about structured data",
+    "passed": true
+  },
+  {
+    "name": "/archive successful HTML",
+    "passed": true
+  },
+  {
+    "name": "/archive index policy",
+    "passed": true
+  },
+  {
+    "name": "/archive canonical",
+    "passed": true
+  },
+  {
+    "name": "/archive social tags",
+    "passed": true
+  },
+  {
+    "name": "/archive English/theme",
+    "passed": true
+  },
+  {
+    "name": "/archive no creator credit",
+    "passed": true
+  },
+  {
+    "name": "/archive structured data",
+    "passed": true
+  },
+  {
+    "name": "robots policy",
+    "passed": true
+  },
+  {
+    "name": "sitemap",
+    "passed": true
+  },
+  {
+    "name": "environment",
+    "passed": true
+  },
+  {
+    "name": "unchanged launch",
+    "passed": true
+  },
+  {
+    "name": "chromium light axe",
+    "passed": true,
+    "detail": []
+  },
+  {
+    "name": "chromium light no overflow",
+    "passed": true
+  },
+  {
+    "name": "chromium light no app errors",
+    "passed": true,
+    "detail": []
+  },
+  {
+    "name": "chromium dark axe",
+    "passed": true,
+    "detail": []
+  },
+  {
+    "name": "chromium dark no overflow",
+    "passed": true
+  },
+  {
+    "name": "chromium dark no app errors",
+    "passed": true,
+    "detail": []
+  },
+  {
+    "name": "webkit light axe",
+    "passed": true,
+    "detail": []
+  },
+  {
+    "name": "webkit light no overflow",
+    "passed": true
+  },
+  {
+    "name": "webkit light no app errors",
+    "passed": true,
+    "detail": []
+  },
+  {
+    "name": "webkit dark axe",
+    "passed": true,
+    "detail": []
+  },
+  {
+    "name": "webkit dark no overflow",
+    "passed": true
+  },
+  {
+    "name": "webkit dark no app errors",
+    "passed": true,
+    "detail": []
+  }
+]
