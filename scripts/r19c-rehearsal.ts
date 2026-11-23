@@ -1,6 +1,8 @@
 import './test-traffic';
 import { chromium, webkit, expect } from '@playwright/test';
 import { writeFileSync, readFileSync } from 'node:fs';
+import { spawnSync } from 'node:child_process';
+import { validateArchive } from '../shared/feedback-archive';
 import assert from 'node:assert/strict';
 import { api, origin } from './r19-practice-api';
 import { verifyPreviews } from './r19c-preview-bots';
@@ -139,6 +141,52 @@ try {
   const ids = { summary: state.file.summaryId, claim: state.file.claims[0].id };
   writeFileSync('review/round19c/practice-preview-ids.json', JSON.stringify(ids, null, 2));
   await verifyPreviews(origin, ids);
+  // Exercise the actual CLI against a practice note, keeping the snapshot on disk.
+  const feedbackStatus = await first.evaluate(
+    async () =>
+      (
+        await fetch('/api/feedback', {
+          method: 'POST',
+          headers: { 'content-type': 'application/json', 'x-dibs-test': '1' },
+          body: JSON.stringify({
+            topic: 'game',
+            text: 'R19C archive practice verification.',
+            turnstileToken: 'XXXX.DUMMY.TOKEN.XXXX',
+          }),
+        })
+      ).status,
+  );
+  assert.equal(feedbackStatus, 200);
+  const beforeArchive = await api('/admin/feedback-archive', undefined, undefined, true);
+  assert.ok(beforeArchive.response.ok);
+  const snapshot = validateArchive(beforeArchive.data.notes);
+  assert.ok(snapshot.some((n) => n.text === 'R19C archive practice verification.'));
+  const dryRun = spawnSync(
+    './node_modules/.bin/tsx',
+    ['scripts/admin.ts', 'archive-feedback', '--dry-run'],
+    {
+      encoding: 'utf8',
+      env: { ...process.env, DIBS_API: origin + '/api' },
+    },
+  );
+  assert.equal(dryRun.status, 0, 'Practice archive dry run failed');
+  assert.match(dryRun.stdout, /Dry run: archived \d+ notes/);
+  const afterArchive = await api('/admin/feedback-archive', undefined, undefined, true);
+  assert.deepEqual(afterArchive.data.notes, snapshot, 'Dry run must preserve every note');
+  writeFileSync(
+    'review/round19c/archive-practice-dry-run.json',
+    JSON.stringify(
+      {
+        passed: true,
+        at: new Date().toISOString(),
+        notes: snapshot.length,
+        output: dryRun.stdout.trim(),
+        unchanged: true,
+      },
+      null,
+      2,
+    ),
+  );
   result.passed = true;
 } catch (e) {
   result.error = String(e);

@@ -13,7 +13,7 @@ import { PUBLIC_ORIGIN } from './shared/config';
 import { defineConfig, loadEnv } from 'vite';
 import react from '@vitejs/plugin-react';
 export default defineConfig(({ mode }) => {
-  const out = mode === 'security-test' ? '.tmp/e2e-dist' : 'dist';
+  const out = mode === 'security-test' ? process.env.DIBS_TEST_OUT_DIR || '.tmp/e2e-dist' : 'dist';
   const builtPolicy = () =>
     existsSync(out + '/_headers')
       ? readFileSync(out + '/_headers', 'utf8').match(/Content-Security-Policy: ([^\n]+)/)?.[1] ||
@@ -147,7 +147,7 @@ export default defineConfig(({ mode }) => {
     },
     server: { proxy: { '/api': { target: 'http://127.0.0.1:8787', ws: true } } },
     build: {
-      outDir: mode === 'security-test' ? '.tmp/e2e-dist' : 'dist',
+      outDir: out,
       sourcemap: false,
       target: ['es2022', 'safari16', 'chrome110', 'firefox115'],
     },

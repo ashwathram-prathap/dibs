@@ -7604,3 +7604,39 @@ body {
     max-width: 100%;
   }
 }
+.invitation-action > a {
+  white-space: normal;
+  overflow-wrap: anywhere;
+  min-width: 0;
+}
+@media (max-width: 280px) {
+  .day-summary .day-certificate {
+    padding: 0.5rem;
+  }
+  .day-certificate .postmark-date {
+    max-width: 100%;
+    white-space: normal;
+    rotate: none;
+    transform: none;
+    padding: 0.25rem;
+    font-size: 0.75rem;
+  }
+  .day-certificate .signature {
+    display: none;
+  }
+  .day-certificate :is(.dibs-progress, .strikes-progress, .strike-row) {
+    min-width: 0;
+    max-width: 100%;
+  }
+  .day-certificate .strike-row {
+    gap: 0.2rem;
+  }
+  .day-certificate .strike-row i {
+    width: 0.85rem;
+    flex-shrink: 1;
+  }
+  .invitation-action > a {
+    flex-wrap: wrap;
+    padding: 0.5rem;
+  }
+}
