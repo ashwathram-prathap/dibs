@@ -1,0 +1,26 @@
+{
+  "browser-results": {
+    "startTime": "2026-11-23T22:26:09.609Z",
+    "duration": 714597.543,
+    "expected": 588,
+    "skipped": 0,
+    "unexpected": 0,
+    "flaky": 0
+  },
+  "firefox-browser-results": {
+    "startTime": "2026-11-23T22:26:06.177Z",
+    "duration": 389218.527,
+    "expected": 84,
+    "skipped": 0,
+    "unexpected": 0,
+    "flaky": 0
+  },
+  "visual-browser-results": {
+    "startTime": "2026-11-23T22:24:06.627Z",
+    "duration": 25113.446,
+    "expected": 8,
+    "skipped": 0,
+    "unexpected": 0,
+    "flaky": 0
+  }
+}
