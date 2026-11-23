@@ -6410,9 +6410,6 @@ body {
   flex-direction: column;
   align-items: stretch;
 }
-.day-companions .share-area {
-  order: -1;
-}
 .day-companions .share-buttons {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -7776,6 +7773,9 @@ html[data-theme='dark'] .gold-certificate .cert-rule .form-label {
 }
 html[data-theme='dark'] .gold-certificate {
   border-color: #e7c86b;
+}
+.day-certificate .golden-row .mini-stamp {
+  border-color: var(--gold);
 }
 .golden-row {
   border-bottom: 1px solid var(--gold);

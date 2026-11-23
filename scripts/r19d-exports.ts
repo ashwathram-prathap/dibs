@@ -114,10 +114,12 @@ try {
             };
             try {
               const summary = await exportSummary(file, category, story);
+              const summaryDrawings = drawings.slice();
               const certificate = await exportCertificate(
                 claims.find((c) => c.golden)!,
                 story,
               );
+              const certificateDrawings = drawings.slice(summaryDrawings.length);
               const hideStart = drawings.length;
               const hide = await exportSummary(file, category, story, true);
               const sealed = await exportCertificate(
@@ -138,6 +140,14 @@ try {
               });
               return {
                 summary: await encode(summary),
+                expectedClaims: claims.map((c) => ({
+                  display: c.display,
+                  points: c.points,
+                  bonus: c.bonus,
+                })),
+                expectedTotal: file.points,
+                summaryDrawings,
+                certificateDrawings,
                 certificate: await encode(certificate),
                 hide: await encode(hide),
                 sealed: await encode(sealed),
@@ -152,6 +162,28 @@ try {
             }
           },
           { theme, variant, story },
+        );
+        for (const claim of data.expectedClaims) {
+          assert.ok(
+            data.summaryDrawings.some((d: any) =>
+              d.value.startsWith(`${claim.display} · ${claim.points} points`),
+            ),
+            `Summary lost stored points for ${claim.display}`,
+          );
+          if (claim.bonus)
+            assert.ok(
+              data.summaryDrawings.some((d: any) =>
+                d.value.includes(`${claim.points - claim.bonus} + ${claim.bonus} golden bonus`),
+              ),
+            );
+        }
+        assert.ok(
+          data.summaryDrawings.some((d: any) => d.value === `${data.expectedTotal} points`),
+        );
+        assert.ok(
+          data.certificateDrawings.some(
+            (d: any) => d.value === '160 points · 60 + 100 golden bonus',
+          ),
         );
         for (const d of data.drawings) {
           assert.ok(!d.value.includes('SECRET STRUCK GUESS'));

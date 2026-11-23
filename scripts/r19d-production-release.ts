@@ -29,6 +29,7 @@ assert.ok(unit.success && !unit.numFailedTests && unit.numPassedTests >= 250, 'F
 for (const name of [
   'browser-results.json',
   'final-browser-results.json',
+  'visual-browser-results.json',
   'firefox-browser-results.json',
 ]) {
   const r = report(name);

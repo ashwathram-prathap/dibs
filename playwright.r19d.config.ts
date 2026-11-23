@@ -16,10 +16,10 @@ export default defineConfig({
   projects: projects.filter((p) =>
     process.env.R19D_FIREFOX ? p.name?.startsWith('firefox-') : !p.name?.startsWith('firefox-'),
   ),
-  testMatch: ['round19d.spec.ts', 'round19f.spec.ts', 'flow.spec.ts'],
+  testMatch: ['round19d.spec.ts', 'round19d-final.spec.ts', 'round19f.spec.ts', 'flow.spec.ts'],
   workers: 4,
   timeout: 90000,
-  outputDir: '.tmp/r19d/browser-artifacts',
+  outputDir: `.tmp/r19d/browser-artifacts-${port}`,
   use: { ...base.use, baseURL: `http://127.0.0.1:${port}`, timezoneId: 'America/Toronto' },
   reporter: [
     ['list'],

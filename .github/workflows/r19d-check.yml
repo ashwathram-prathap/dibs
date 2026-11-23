@@ -28,5 +28,5 @@ jobs:
             review/round19d/golden/
             review/round19d/ui/
             review/devices/
-            .tmp/r19d/browser-artifacts/
+            .tmp/r19d/browser-artifacts-*/
           retention-days: 14
