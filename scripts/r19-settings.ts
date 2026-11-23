@@ -74,6 +74,14 @@ for (const [name, engine] of Object.entries(
           () =>
             new Promise((resolve) => requestAnimationFrame(() => requestAnimationFrame(resolve))),
         );
+        // Font loading and the fit-aware text helper can finish on different frames in Firefox.
+        // Wait for reflow, then retain the strict overflow measurement below.
+        if (phase === 'after')
+          await page
+            .waitForFunction(() => document.documentElement.scrollWidth <= innerWidth, undefined, {
+              timeout: 3000,
+            })
+            .catch(() => {});
         const violations = await page.locator('.header-controls').evaluate((panel) => {
           const right = panel.getBoundingClientRect().right;
           return [panel, ...panel.querySelectorAll('*')]
