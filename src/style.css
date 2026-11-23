@@ -7211,6 +7211,8 @@ body {
   color: var(--ink);
   background: var(--paper);
   overflow-wrap: anywhere;
+  white-space: normal;
+  flex-wrap: wrap;
 }
 .share-area .share-buttons > .primary {
   background: var(--red);
@@ -7458,6 +7460,29 @@ body {
   }
   .completed-play .day-certificate {
     padding: 0.5rem;
+  }
+  .certificate {
+    padding: 0.5rem;
+  }
+  .certificate :is(.cert-category, .signed-date) {
+    flex-wrap: wrap;
+  }
+  .certificate .registrar-signature {
+    max-width: 100%;
+  }
+  .certificate .dibs-stamp {
+    max-width: 100%;
+    transform: none;
+    rotate: none;
+  }
+  .certificate .dibs-stamp strong {
+    font-size: 2rem;
+  }
+  .certificate .cert-footer,
+  .certificate .cert-footer span {
+    min-width: 0;
+    white-space: normal;
+    overflow-wrap: anywhere;
   }
   .completed-play .summary-answers li {
     grid-template-columns: minmax(0, 1fr);
