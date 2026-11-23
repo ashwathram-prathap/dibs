@@ -74,7 +74,7 @@ export function Settings({
         <SelectControl
           display={
             <>
-              <ThemeSwatch target={theme === 'light' ? 'dark' : 'light'} />
+              <ThemeSwatch target={themeChoice === 'system' ? theme : themeChoice} />
               {themeChoice === 'system'
                 ? 'System'
                 : themeChoice === 'light'

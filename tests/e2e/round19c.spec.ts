@@ -256,6 +256,19 @@ test('Settings share aligned controls, sticky opaque header, labels, theme swatc
     expect(control.font).toBe(geometry.controls[0].font);
   }
   for (const x of geometry.chevrons) expect(x).toBeCloseTo(geometry.chevrons[0], 0);
+  for (const choice of ['light', 'dark', 'system']) {
+    await page.getByRole('combobox', { name: 'Theme', exact: true }).selectOption(choice);
+    const target = choice === 'system' ? info.project.use.colorScheme : choice;
+    await expect(page.locator('.theme-control .theme-swatch')).toHaveClass(
+      'theme-swatch swatch-' + target,
+    );
+    const swatch = await page.locator('.theme-control .theme-swatch').boundingBox();
+    expect(swatch!.width).toBe(14);
+    expect(swatch!.height).toBe(10);
+    await expect(page.locator('.theme-toggle .theme-swatch')).toHaveClass(
+      'theme-swatch swatch-' + (target === 'light' ? 'dark' : 'light'),
+    );
+  }
   for (const zone of ['America/Vancouver', 'Asia/Kolkata', 'Europe/London', 'America/Toronto']) {
     await page.getByRole('combobox', { name: 'Timezone' }).selectOption(zone);
     await audit(page, '.header-controls');
