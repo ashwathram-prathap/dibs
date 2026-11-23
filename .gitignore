@@ -149,6 +149,7 @@ review/round19b/**/*.html
 review/round19b/*browser-results.json
 review/round19b/lighthouse*/
 review/final/round19b/
+feedback-archive/
 # R19B local inventory and transient diagnostics are not release artifacts.
 review/round19b/status-*.txt
 review/round19b/practice-before.json
@@ -161,3 +162,11 @@ review/round19b/practice-*-opening-diagnostic.json
 review/round19b/practice-score-bots.json
 review/round19b/compression-practice-headers.txt
 review/round19b/production-bots-after-attempt1.json
+
+# R19C detailed screenshots and runner output remain in the local handoff.
+review/round19c/matrix/raw/
+review/round19c/*browser-results.json
+review/round19c/lighthouse*/
+review/round19c/firefox-ci/
+review/round19c/settings-initial-*.png
+review/round19c/settings-aligned-*.png

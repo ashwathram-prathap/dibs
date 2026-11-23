@@ -702,7 +702,10 @@ export class DayRegistry extends DurableObject<Env> {
         specials: this.today().specials,
         nextDrop: nextDrop(),
       };
-      return json(publicSummary(data, dayClosed(this.category)));
+      return json({
+        ...publicSummary(data, dayClosed(this.category)),
+        owned: (await cookieUser(req, env.COOKIE_SECRET)) === s.user.id,
+      });
     }
     if (path === '/events/share' || path === '/events/arrival') {
       if (req.method !== 'POST') return json({ message: 'Not found.' }, 404);
@@ -820,7 +823,12 @@ export class DayRegistry extends DurableObject<Env> {
       const limit = await reserveFeedback(req, env, user.id);
       if (limit) return json({ message: limit }, 429);
       await env.DB.prepare('INSERT INTO feedback(id,user_id,text,created_at) VALUES(?,?,?,?)')
-        .bind(crypto.randomUUID(), user.id, note.text, new Date().toISOString())
+        .bind(
+          crypto.randomUUID(),
+          user.id,
+          (b.topic === 'privacy' ? 'Privacy question: ' : '') + note.text,
+          new Date().toISOString(),
+        )
         .run();
       return json({ ok: true, message: 'Feedback received.' });
     }

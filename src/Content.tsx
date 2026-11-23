@@ -1,6 +1,7 @@
 import { useState, useEffect, type FormEvent } from 'react';
 import { api } from './api';
 import { GAME_EXPLANATION, LIMIT_EXPLANATION, BACKUP_EXPLANATION } from '../shared/copy';
+import { archiveCsv, validateArchive } from '../shared/feedback-archive';
 import { SHOW_CREATOR_CREDIT, CREATOR_URL, X_URL } from '../shared/creator';
 import { Rules, DropTime, Link, time } from './ui';
 import { Icon } from './Icon';
@@ -109,8 +110,8 @@ export function About({ nextDrop }: { nextDrop: string }) {
               <a href="https://world.openfoodfacts.org/">Open Food Facts</a> (ODbL), and ISO 3166
               data (MIT), plus <a href="https://ourairports.com/">OurAirports</a> (public domain),
               and <a href="https://ssd.jpl.nasa.gov/">NASA/JPL</a> small-body data. Wikipedia
-              pageviews rank measured answers.{' '}
-              <a href="/data/licenses.txt">Full licenses and source notes</a>.
+              pageviews rank measured answers. Answers without popularity data score the category
+              median. <a href="/data/licenses.txt">Full licenses and source notes</a>.
             </p>
           </div>
           <div>
@@ -250,6 +251,8 @@ export function Stats() {
 }
 
 export function LiveAdmin() {
+  const [archiving, setArchiving] = useState(false);
+  const [archiveMessage, setArchiveMessage] = useState('');
   const [draft, setDraft] = useState(''),
     [token, setToken] = useState(''),
     [data, setData] = useState<any>(),
@@ -335,6 +338,73 @@ export function LiveAdmin() {
           </ul>
           <h2>Private feedback</h2>
           <p>Player-submitted, untrusted</p>
+          <button
+            disabled={archiving}
+            onClick={async () => {
+              if (
+                !confirm(
+                  'Download all feedback as JSON and CSV, then remove exactly those notes from the site?',
+                )
+              )
+                return;
+              setArchiving(true);
+              setArchiveMessage('');
+              try {
+                const headers = {
+                  authorization: 'Bearer ' + token,
+                  'content-type': 'application/json',
+                };
+                const response = await fetch('/api/admin/feedback-archive', { headers });
+                if (!response.ok) throw Error('Feedback could not be archived. Try again.');
+                const notes = validateArchive((await response.json()).notes);
+                if (!notes.length) {
+                  setArchiveMessage('No feedback to archive.');
+                  return;
+                }
+                const name =
+                  'feedback-' +
+                  new Date().toISOString().slice(0, 16).replace('T', '_').replace(':', '');
+                for (const [extension, content, type] of [
+                  ['json', JSON.stringify(notes, null, 2), 'application/json'],
+                  ['csv', archiveCsv(notes), 'text/csv'],
+                ]) {
+                  const url = URL.createObjectURL(new Blob([content], { type }));
+                  const link = document.createElement('a');
+                  link.href = url;
+                  link.download = name + '.' + extension;
+                  document.body.append(link);
+                  link.click();
+                  link.remove();
+                  setTimeout(() => URL.revokeObjectURL(url), 60000);
+                }
+                const deletion = await fetch('/api/admin/feedback-archive', {
+                  method: 'POST',
+                  headers,
+                  body: JSON.stringify({ ids: notes.map((n) => n.id) }),
+                });
+                if (!deletion.ok)
+                  throw Error(
+                    'Downloads started; notes could not be removed. Keep the downloads and try again.',
+                  );
+                const { removed } = await deletion.json();
+                const ids = new Set(notes.map((n) => n.id));
+                setData((current: any) => ({
+                  ...current,
+                  feedback: current.feedback.filter((n: any) => !ids.has(n.id)),
+                }));
+                setArchiveMessage(
+                  `Archived ${notes.length} notes; removed ${removed} from the site.`,
+                );
+              } catch (e) {
+                setArchiveMessage((e as Error).message);
+              } finally {
+                setArchiving(false);
+              }
+            }}
+          >
+            {archiving ? 'Archiving…' : 'Archive all'}
+          </button>
+          <p role="status">{archiveMessage}</p>
           {data.feedback.length ? (
             data.feedback.map((note: any) => (
               <article key={note.id}>

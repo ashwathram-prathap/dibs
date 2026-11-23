@@ -122,9 +122,8 @@ export function ShareSheet({
         <button className="copy-result" onClick={() => void clipboard('copy-text')}>
           {status === 'Copied' ? 'Copied' : 'Copy result'}
         </button>
-      </div>
-      <div className="share-platforms linkedin-share">
         <a
+          className="linkedin-share"
           href={intentUrl('linkedin', text, url)}
           target="_blank"
           rel="noopener noreferrer"

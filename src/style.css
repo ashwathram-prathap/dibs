@@ -6996,3 +6996,340 @@ body {
 .certificate .cert-bottom .dibs-stamp {
   margin-left: auto;
 }
+
+/* R19C: shared controls, an opaque top-layer Settings panel, and aligned sharing. */
+.theme-swatch {
+  display: inline-block;
+  flex: 0 0 14px;
+  width: 14px;
+  height: 10px;
+  border: 1px solid var(--ink);
+  border-radius: 2px;
+}
+.swatch-light {
+  background: #f1ece2;
+}
+.swatch-dark {
+  background: #16150f;
+}
+.theme-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+.page .header-settings .header-controls {
+  position: fixed;
+  inset: 1rem 1rem auto auto;
+  margin: 0;
+  width: min(27.5rem, calc(100vw - 2rem));
+  max-height: calc(100dvh - 2rem);
+  padding: 0 1.25rem 1.25rem;
+  border: 1px solid var(--ink);
+  color: var(--ink);
+  background: var(--paper);
+  isolation: isolate;
+  overflow: auto;
+  z-index: 200;
+}
+.header-controls::backdrop {
+  background: rgb(0 0 0 / 30%);
+}
+.page .header-controls .settings-heading {
+  position: sticky;
+  top: 0;
+  z-index: 2;
+  margin: 0 -1.25rem;
+  padding: 1rem 1.25rem;
+  width: calc(100% + 2.5rem);
+  max-width: none;
+  background: var(--paper);
+  border-bottom: 1px solid var(--soft-rule);
+}
+.page .header-settings .header-controls :is(.theme-control, .timezone-control) {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 0.5rem;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  border: 0;
+  outline: 0;
+  font:
+    400 1rem/1.4 'Instrument Sans',
+    sans-serif;
+}
+.select-control {
+  display: block;
+  position: relative;
+  width: 100%;
+  min-width: 0;
+}
+.control-face,
+.page .header-controls :is(.sound-toggle, .music-toggle, .file-key-panel > summary),
+.feedback-dialog textarea {
+  box-sizing: border-box;
+  width: 100%;
+  min-height: 3.5rem;
+  padding: 0.875rem 3rem 0.875rem 1rem;
+  border: 1px solid var(--ink);
+  border-radius: 2px;
+  background: var(--paper);
+  color: var(--ink);
+  font:
+    400 1rem/1.5 'Instrument Sans',
+    sans-serif;
+  text-align: left;
+  margin: 0;
+  outline: none;
+}
+.control-face {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  overflow-wrap: anywhere;
+}
+.page .header-controls .select-control select,
+.feedback-dialog .select-control select {
+  appearance: none;
+  -webkit-appearance: none;
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0.875rem 3rem 0.875rem 1rem;
+  opacity: 1;
+  color: transparent;
+  background: transparent;
+  border: 1px solid transparent;
+  border-radius: 2px;
+  outline: none;
+  font:
+    400 1rem/1.5 'Instrument Sans',
+    sans-serif;
+  cursor: pointer;
+}
+.select-control select option {
+  color: var(--ink);
+  background: var(--paper);
+}
+.select-control > svg,
+.page .header-controls .file-key-panel > summary > svg {
+  position: absolute;
+  right: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 16px;
+  height: 16px;
+  color: var(--ink);
+  pointer-events: none;
+}
+.page .header-controls .file-key-panel > summary {
+  position: relative;
+  display: block;
+}
+.page .header-controls .file-key-panel > summary::marker,
+.page .header-controls .file-key-panel > summary::-webkit-details-marker {
+  display: none;
+  content: '';
+}
+.page .header-controls :is(select, button, summary):focus-visible,
+.feedback-dialog :is(select, textarea, button):focus-visible {
+  outline: 2px solid var(--ink);
+  outline-offset: 3px;
+}
+.page .header-controls .theme-control:focus-within,
+.page .header-controls .timezone-control:focus-within {
+  outline: none;
+}
+.feedback-dialog textarea {
+  padding-right: 1rem;
+}
+.feedback-dialog .feedback-error {
+  color: var(--red);
+  margin: 0;
+}
+.streak-chip {
+  gap: 6px;
+  padding-inline: 0;
+}
+.streak-chip svg {
+  width: 20px;
+  height: 16px;
+  margin-right: 2px;
+}
+.streak-chip strong {
+  width: auto;
+  min-width: 1ch;
+  text-align: left;
+}
+.streak-zero {
+  display: none;
+}
+.rarity-curve {
+  padding-top: 1.25rem;
+  box-sizing: content-box;
+}
+.rarity-you {
+  top: 0;
+}
+.rarity-fill {
+  fill: var(--ink);
+  opacity: 0.04;
+}
+.rarity-tail,
+.rarity-gold .rarity-tail {
+  fill: var(--red);
+  opacity: 0.25;
+}
+.share-area .share-buttons,
+.day-companions .share-area .share-buttons {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-auto-rows: 1fr;
+  gap: 0.5rem;
+}
+.share-area :is(button, .share-platforms a, .share-buttons > a) {
+  box-sizing: border-box;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  min-width: 0;
+  min-height: 3.5rem;
+  margin: 0;
+  padding: 0.75rem 0.5rem;
+  border: 1px solid var(--ink);
+  font:
+    600 1rem/1.3 'Instrument Sans',
+    sans-serif;
+  text-align: center;
+  text-decoration: none;
+  color: var(--ink);
+  background: var(--paper);
+  overflow-wrap: anywhere;
+}
+.share-area .share-buttons > .primary {
+  background: var(--red);
+  color: var(--paper);
+  border-color: var(--ink);
+}
+.share-area .share-hint {
+  margin-top: 0.5rem;
+  text-align: left;
+  color: var(--muted);
+  font-size: 0.875rem;
+}
+.final-claim-note {
+  flex-basis: 100%;
+  margin: 0;
+  font-size: 1rem;
+}
+@media (max-width: 767px) {
+  .page .header-settings .header-controls {
+    inset: auto 0 0;
+    width: 100%;
+    max-width: none;
+    max-height: 90dvh;
+    padding-bottom: max(1.25rem, env(safe-area-inset-bottom));
+  }
+  .share-area .share-buttons,
+  .completed-play .day-companions .share-area .share-buttons {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .share-area .share-buttons > .primary,
+  .share-area .share-buttons > :last-child {
+    grid-column: 1 / -1;
+  }
+  .completed-play .day-companions .share-area .share-buttons {
+    padding: 0.5rem 1rem;
+    gap: 0.375rem;
+    grid-auto-rows: 1fr;
+  }
+  .completed-play .share-area .share-buttons > :is(button, a) {
+    min-height: 44px;
+    border: 1px solid var(--ink);
+    padding: 0.5rem 0.375rem;
+    font:
+      600 1rem/1.3 'Instrument Sans',
+      sans-serif;
+    text-decoration: none;
+  }
+  .completed-play {
+    padding-bottom: 14rem;
+  }
+  .focused-play .has-payoff .win-actions {
+    position: sticky;
+    bottom: var(--tab-height, 64px);
+    background: var(--paper);
+    z-index: 5;
+  }
+}
+@media (min-width: 360px) and (max-width: 767px) {
+  .share-area .share-buttons,
+  .completed-play .day-companions .share-area .share-buttons {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+  .share-area .share-buttons > :last-child {
+    grid-column: auto;
+  }
+}
+.shared-invitation {
+  max-width: 47.5rem;
+  margin: 0 auto 2rem;
+}
+.shared-invitation h1 {
+  font:
+    700 clamp(1.375rem, 3vw, 2.25rem)/1.2 'Instrument Sans',
+    sans-serif;
+  margin: 0.75rem 0;
+}
+.invitation-scorecard {
+  padding: 0.75rem 0;
+  border-block: 1px solid var(--soft-rule);
+  margin-bottom: 1rem;
+}
+.invitation-scorecard p {
+  font:
+    600 1.25rem/1.4 'Instrument Sans',
+    sans-serif;
+  margin: 0 0 0.5rem;
+}
+.invitation-action > a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  min-height: 3.5rem;
+  padding: 0.75rem;
+  border: 1px solid var(--ink);
+  background: var(--red);
+  color: var(--paper);
+  font:
+    600 1.125rem/1.3 'Instrument Sans',
+    sans-serif;
+  text-decoration: none;
+}
+.invitation-action p {
+  margin: 0.5rem 0 0;
+  font:
+    400 1rem/1.4 'Instrument Sans',
+    sans-serif;
+}
+@media (max-width: 767px) {
+  .summary-page:has(.shared-invitation),
+  .certificate-page:has(.shared-invitation) {
+    padding-bottom: 10rem;
+  }
+  .invitation-action {
+    position: fixed;
+    bottom: var(--tab-height, 64px);
+    left: 0;
+    right: 0;
+    z-index: 36;
+    padding: 0.75rem 1rem;
+    background: var(--paper);
+    border-top: 1px solid var(--soft-rule);
+  }
+}

@@ -6,6 +6,7 @@ import { viewerZone } from '../shared/time';
 import { BACKUP_EXPLANATION } from '../shared/copy';
 import { api, isDemo } from './api';
 import { Icon } from './Icon';
+import { SelectControl, ThemeSwatch } from './Control';
 import { runTurnstile } from './turnstile';
 export function Settings({
   sitekey,
@@ -13,12 +14,14 @@ export function Settings({
   focusZone,
   themeChoice,
   setTheme,
+  theme,
 }: {
   sitekey: string;
   refresh: () => Promise<void>;
   focusZone: boolean;
   themeChoice: ThemeChoice;
   setTheme: (choice: ThemeChoice) => void;
+  theme: 'light' | 'dark';
 }) {
   useEffect(() => {
     if (focusZone) document.querySelector<HTMLSelectElement>('.timezone-control select')?.focus();
@@ -27,7 +30,17 @@ export function Settings({
     <>
       <label className="theme-control">
         Theme
-        <select
+        <SelectControl
+          display={
+            <>
+              <ThemeSwatch target={theme === 'light' ? 'dark' : 'light'} />
+              {themeChoice === 'system'
+                ? 'System'
+                : themeChoice === 'light'
+                  ? 'Paper copy'
+                  : 'Carbon copy'}
+            </>
+          }
           aria-label="Theme"
           value={themeChoice}
           onChange={(e) => setTheme(e.target.value as ThemeChoice)}
@@ -35,7 +48,7 @@ export function Settings({
           <option value="system">System</option>
           <option value="light">Paper copy</option>
           <option value="dark">Carbon copy</option>
-        </select>
+        </SelectControl>
       </label>
       <SoundToggle />
       <MusicToggle />
@@ -108,6 +121,33 @@ export function SoundToggle() {
     </button>
   );
 }
+export function shortZone(zone: string) {
+  const labels: Record<string, string> = {
+    'Pacific/Honolulu': 'HST · Hawaii',
+    'America/Anchorage': 'AKT · Alaska',
+    'America/Vancouver': 'PT · Vancouver',
+    'America/Edmonton': 'MT · Edmonton',
+    'America/Winnipeg': 'CT · Winnipeg',
+    'America/Toronto': 'ET · Toronto',
+    'America/Halifax': 'AT · Halifax',
+    'America/St_Johns': 'NT · St. John’s',
+    'America/Sao_Paulo': 'BRT · São Paulo',
+    'Europe/London': 'GMT · London',
+    'Europe/Paris': 'CET · Paris',
+    'Africa/Lagos': 'WAT · Lagos',
+    'Africa/Johannesburg': 'SAST · Johannesburg',
+    'Asia/Dubai': 'GST · Dubai',
+    'Asia/Karachi': 'PKT · Karachi',
+    'Asia/Kolkata': 'IST · India',
+    'Asia/Colombo': 'IST · Colombo',
+    'Asia/Singapore': 'SGT · Singapore',
+    'Asia/Shanghai': 'CST · China',
+    'Asia/Tokyo': 'JST · Tokyo',
+    'Australia/Sydney': 'AET · Sydney',
+    'Pacific/Auckland': 'NZT · Auckland',
+  };
+  return labels[zone] || zone.split('/').pop()!.replaceAll('_', ' ');
+}
 export function TimezonePicker() {
   const [zone, setZone] = useState(viewerZone);
   const common: [string, string][] = [
@@ -142,7 +182,8 @@ export function TimezonePicker() {
   return (
     <label className="timezone-control">
       Time zone
-      <select
+      <SelectControl
+        display={shortZone(zone)}
         aria-label="Timezone"
         value={zone}
         onChange={(e) => {
@@ -158,7 +199,7 @@ export function TimezonePicker() {
             {name}
           </option>
         ))}
-      </select>
+      </SelectControl>
     </label>
   );
 }

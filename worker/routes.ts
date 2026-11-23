@@ -1,3 +1,4 @@
+import { feedbackArchiveRoute } from './feedback-archive';
 import { cleanStoredHandles } from '../shared/handles';
 import { backupCode } from './backup-code';
 import { prepareR17Admin, finishR17Admin } from './r17-admin';
@@ -197,6 +198,7 @@ async function admin(req: Request, env: Env, path: string) {
   )
     return fail(404, 'Page not found; return to today.');
   if (invalidParameters(req)) return fail(422, 'That form could not be read.');
+  if (path === '/admin/feedback-archive') return feedbackArchiveRoute(req, env);
   if (path === '/admin/verify' && req.method === 'GET') {
     const id = new URL(req.url).searchParams.get('id');
     const category = await env.DB.prepare('SELECT * FROM categories WHERE id=?')

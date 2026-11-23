@@ -22,9 +22,16 @@ export function StreakChip({ value }: { value: number }) {
       }
       aria-label={`${value} day streak`}
     >
-      <svg viewBox="0 0 16 16" aria-hidden="true">
-        <path d="M4 3v10M8 3v10M12 3v10M2 11l12-6" />
-      </svg>
+      {value > 0 && (
+        <svg viewBox="0 0 20 16" aria-hidden="true">
+          {['M4 3L3 13', 'M8 2L7 13', 'M12 3L11 14', 'M16 2L15 13']
+            .slice(0, Math.min(value, 4))
+            .map((d) => (
+              <path key={d} d={d} />
+            ))}
+          {value >= 5 && <path d="M1 12L18 4" />}
+        </svg>
+      )}
       <strong>{value}</strong>
       <span className="streak-caption">day streak</span>
     </span>

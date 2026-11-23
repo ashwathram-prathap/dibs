@@ -7,7 +7,7 @@ import { m as motion, useReducedMotion, LazyMotion, domAnimation } from 'framer-
 import { api } from './api';
 import { type Claim, type DayFile, type Today, type Category, serial } from './types';
 import { categoryStyle } from '../shared/category-style';
-import { MAX_CLAIMS, PUBLIC_HOST, certificateUrl } from '../shared/config';
+import { MAX_CLAIMS, MAX_STRIKES, PUBLIC_HOST, certificateUrl } from '../shared/config';
 import { GAME_DESCRIPTION } from '../shared/copy';
 import { guesses } from '../shared/guesses';
 import { summaryUrl } from '../shared/sharing';
@@ -227,12 +227,21 @@ export function Certificate({ claim, animated = false }: { claim: Claim; animate
                   DIBS
                 </div>
                 <p className="sealed-note">Sealed until the day closes.</p>
+                <p>{countLabel(claim.points ?? 0, 'point')}</p>
               </>
-            ) : claim.percentile != null ? (
+            ) : (
               <>
                 <p>
-                  {rarityLabel(claim.percentile, claim.category_name)} ·{' '}
-                  {countLabel(claim.points || 0, 'point')}
+                  {claim.percentile != null ? (
+                    <>
+                      {rarityLabel(claim.percentile, claim.category_name)} ·{' '}
+                      {countLabel(claim.points ?? 0, 'point')}
+                    </>
+                  ) : (
+                    <>
+                      {countLabel(claim.points ?? 0, 'point')} · rarity not measured for this answer
+                    </>
+                  )}
                 </p>
                 <RarityCurve
                   percentile={claim.percentile}
@@ -242,7 +251,7 @@ export function Certificate({ claim, animated = false }: { claim: Claim; animate
                   mini
                 />
               </>
-            ) : null}
+            )}
           </div>
           <motion.div
             className={'dibs-stamp ' + (claim.golden ? 'gold-stamp' : '')}
@@ -292,12 +301,62 @@ export function ShareButtons({
     />
   );
 }
-export function SummaryPage({ id }: { id: string }) {
+export function SharedInvitation({
+  handle,
+  file,
+  today,
+  revealed,
+}: {
+  handle: string;
+  file: Partial<DayFile>;
+  today: Today;
+  revealed?: boolean;
+}) {
+  const claims = file.dibs ?? file.claims?.length ?? 1;
+  const state =
+    (file.strikes ?? 0) >= MAX_STRIKES
+      ? ' and struck out'
+      : file.closed
+        ? ' and finished the day'
+        : '';
+  return (
+    <section className="shared-invitation" aria-label="An invitation to Dibs">
+      <span className="eyebrow">Dibs · a daily claim</span>
+      <h1>
+        {handle} claimed {countLabel(claims, 'answer')} in {revealed ? 'Dibs' : "today's Dibs"}
+        {state}. What can you claim?
+      </h1>
+      <div className="invitation-scorecard" aria-label="Spoiler-safe scorecard">
+        <p>
+          {countLabel(file.points ?? 0, 'point')}
+          {file.rank ? ` · #${file.rank}${file.players ? ` of ${file.players}` : ''}` : ''}
+        </p>
+        <Progress dibs={claims} strikes={file.strikes ?? 0} />
+      </div>
+      <div className="invitation-action">
+        <Link to="/?play=1" className="primary">
+          Play today's Dibs <Icon />
+        </Link>
+        <p>One category a day. {MAX_CLAIMS} claims. Your name stays on it.</p>
+      </div>
+      {revealed &&
+        (today.category && !today.revealed ? (
+          <p>
+            Today's category is open: <Link to="/?play=1">Play now</Link>
+          </p>
+        ) : (
+          <Clock target={today.nextDrop} />
+        ))}
+    </section>
+  );
+}
+export function SummaryPage({ id, today }: { id: string; today: Today }) {
   const [data, setData] = useState<{
     file: DayFile;
     category: Category;
     nextDrop: string;
     specials?: Today['specials'];
+    owned?: boolean;
   }>();
   const [error, setError] = useState('');
   useEffect(() => {
@@ -309,13 +368,22 @@ export function SummaryPage({ id }: { id: string }) {
   }, [id]);
   return (
     <section className="summary-page">
-      <div className="page-heading">
-        <span className="eyebrow">Day certificate</span>
-        <h1>A day on file.</h1>
-        <Link to="/">
-          Play today’s Dibs <Icon />
-        </Link>
-      </div>
+      {data && !data.owned ? (
+        <SharedInvitation
+          handle={data.file.handle || 'A player'}
+          file={data.file}
+          today={today}
+          revealed={data.file.revealed}
+        />
+      ) : (
+        <div className="page-heading">
+          <span className="eyebrow">Day certificate</span>
+          <h1>A day on file.</h1>
+          <Link to="/">
+            Play today’s Dibs <Icon />
+          </Link>
+        </div>
+      )}
       {error ? (
         <p role="alert">{error}</p>
       ) : data ? (
@@ -336,14 +404,12 @@ export function SummaryPage({ id }: { id: string }) {
     </section>
   );
 }
-export function CertificatePage({ id }: { id: string }) {
-  const [score, setScore] = useState<Pick<DayFile, 'points' | 'rank' | 'players'>>();
+export function CertificatePage({ id, today }: { id: string; today: Today }) {
+  const [score, setScore] = useState<Partial<DayFile>>();
   const [claim, setClaim] = useState<Claim | null>(null);
   const [error, setError] = useState('');
   useEffect(() => {
-    api<{ claim: Claim; score?: Pick<DayFile, 'points' | 'rank' | 'players'> }>(
-      '/certificate/' + id,
-    )
+    api<{ claim: Claim; score?: Partial<DayFile> }>('/certificate/' + id)
       .then((d) => {
         setScore(d.score);
         setClaim(
@@ -356,11 +422,20 @@ export function CertificatePage({ id }: { id: string }) {
   }, [id]);
   return (
     <section className="certificate-page">
-      <div className="page-heading">
-        <span className="eyebrow">Certificate</span>
-        <h1>On the record.</h1>
-        <p>Temporary ownership. Permanent bragging rights.</p>
-      </div>
+      {claim && !claim.owned ? (
+        <SharedInvitation
+          handle={claim.handle}
+          file={score || { points: claim.points, dibs: 1 }}
+          today={today}
+          revealed={claim.revealed}
+        />
+      ) : (
+        <div className="page-heading">
+          <span className="eyebrow">Certificate</span>
+          <h1>On the record.</h1>
+          <p>Temporary ownership. Permanent bragging rights.</p>
+        </div>
+      )}
       {claim ? (
         <>
           <Certificate claim={claim} />

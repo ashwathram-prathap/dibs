@@ -16,9 +16,9 @@ export function RarityCurve({
   score?: boolean;
 }) {
   const id = useId().replace(/:/g, '');
-  if (percentile == null) return null;
-  const x = bellX(percentile),
-    y = bellY(bellSigma(percentile));
+  const measured = percentile != null;
+  const x = bellX(percentile ?? 0.5),
+    y = bellY(bellSigma(percentile ?? 0.5));
   return (
     <div
       className={
@@ -29,12 +29,14 @@ export function RarityCurve({
       }
       role="img"
       aria-label={
-        score
-          ? `Better than ${Math.round(percentile * 100)}% of today's players`
-          : `${answer || 'This claim'}: ${rarityLabel(percentile, category)}`
+        !measured
+          ? 'Rarity not measured for this answer'
+          : score
+            ? `Better than ${Math.round(percentile! * 100)}% of today's players`
+            : `${answer || 'This claim'}: ${rarityLabel(percentile!, category)}`
       }
       data-percentile={percentile}
-      data-marker-x={x}
+      data-marker-x={measured ? x : undefined}
     >
       <svg viewBox="0 0 520 120" preserveAspectRatio="none" aria-hidden="true">
         <defs>
@@ -43,17 +45,25 @@ export function RarityCurve({
           </clipPath>
         </defs>
         <path className="rarity-fill" d={bellArea()} />
-        <path className="rarity-tail" clipPath={`url(#${id})`} d={bellArea()} />
+        {measured && <path className="rarity-tail" clipPath={`url(#${id})`} d={bellArea()} />}
         <path className="rarity-baseline" d="M28,108 H492" />
         <path className="rarity-line" pathLength="1" d={bellPath()} />
-        <g className="rarity-marker" style={{ transform: `translateX(${x}px)` }}>
-          <path d={`M0,${y} V112`} />
-          <circle cy={y} cx="0" r="3" />
-        </g>
+        {measured && (
+          <g className="rarity-marker" style={{ transform: `translateX(${x}px)` }}>
+            <path d={`M0,${y} V112`} />
+            <circle cy={y} cx="0" r="3" />
+          </g>
+        )}
       </svg>
-      <span className="rarity-you" aria-hidden="true" style={{ left: `${(x / 520) * 100}%` }}>
-        You
-      </span>
+      {measured && (
+        <span
+          className="rarity-you"
+          aria-hidden="true"
+          style={{ left: `${Math.max(8, Math.min(92, (x / 520) * 100))}%` }}
+        >
+          You
+        </span>
+      )}
       <div className="rarity-axis" aria-hidden="true">
         <span className="rarity-end">{score ? 'Lower scores' : 'Familiar'}</span>
         <span className="rarity-end">{score ? 'Higher scores' : 'Obscure'}</span>

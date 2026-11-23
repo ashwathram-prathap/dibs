@@ -71,6 +71,16 @@ const originalClaim = claims[0];
 let mine: any = null;
 let myClaims: any[] = [];
 let events: any[] = [];
+if (r7.has('r19c') && r7.has('persist')) {
+  const saved = sessionStorage.getItem('r19c-file');
+  if (saved) {
+    const state = JSON.parse(saved);
+    myClaims = state.myClaims;
+    events = state.events;
+    mine = myClaims.at(-1) || null;
+    claims = [...myClaims, originalClaim];
+  }
+}
 function file() {
   const strikes = events.filter((e) => e.kind === 'strike').length;
   const closed = myClaims.length === 3 || strikes === 5;
@@ -134,6 +144,8 @@ export async function request(path: string, body?: any): Promise<any> {
       turnstileSiteKey: 'demo',
     };
   }
+  if (path === '/me' && r7.has('r19c') && r7.has('persist'))
+    sessionStorage.setItem('r19c-file', JSON.stringify({ myClaims, events }));
   if (path === '/me')
     return {
       user,
@@ -194,6 +206,60 @@ export async function request(path: string, body?: any): Promise<any> {
           ]
         : [],
     };
+  if (path.startsWith('/certificate/') && r7.has('r19c')) {
+    const p = r7.get('p');
+    const owned = !r7.has('visitor');
+    const revealed = r7.has('revealed');
+    return {
+      claim: {
+        ...originalClaim,
+        id: 'fixture-1',
+        category_slug: 'animals',
+        handle: 'Tan Dove',
+        display:
+          owned || revealed
+            ? p === 'missing'
+              ? 'Common iguana'
+              : p === '0'
+                ? 'Chameleon'
+                : 'Okapi'
+            : 'SEALED',
+        owned,
+        revealed,
+        concealed: !owned && !revealed,
+        percentile: (!owned && !revealed) || p === 'missing' ? null : Number(p || '.6'),
+        points: p === 'missing' ? 50 : 60,
+        golden: r7.has('gold'),
+      },
+      score: { dibs: 3, strikes: 1, closed: true, points: 180, rank: 3, players: 27 },
+    };
+  }
+  if (path.startsWith('/summary/') && r7.has('r19c') && r7.has('visitor')) {
+    const revealed = r7.has('revealed'),
+      strikes = r7.has('strikeout') ? 5 : 1,
+      dibs = strikes === 5 ? 1 : 3;
+    return {
+      owned: false,
+      category,
+      nextDrop: nextDrop(),
+      file: {
+        ...file(),
+        handle: 'Tan Dove',
+        dibs,
+        strikes,
+        points: 180,
+        rank: 3,
+        players: 27,
+        closed: true,
+        revealed,
+        claims: [],
+        events: Array.from({ length: dibs }, () => ({
+          kind: 'dibs',
+          ...(revealed ? { display: 'Okapi' } : {}),
+        })),
+      },
+    };
+  }
   if (path.startsWith('/certificate/')) {
     const claim = claims.find((c) => c.id === path.split('/').pop()) || mine;
     const mode = new URLSearchParams(location.search).get('r17');
@@ -297,7 +363,9 @@ export async function request(path: string, body?: any): Promise<any> {
       handle: user.handle,
       created_at: new Date().toISOString(),
       obscurity: 4,
-      golden: r19 ? r7.has('gold') : r6 && entry === 'Axolotl',
+      golden: r19
+        ? r7.has('gold') || (r7.has('gold-third') && myClaims.length === 2)
+        : r6 && entry === 'Axolotl',
     };
     claims = [mine, ...claims];
     myClaims.push(mine);
@@ -321,6 +389,7 @@ export async function request(path: string, body?: any): Promise<any> {
   if (path.startsWith('/summary/'))
     return {
       ...(r6 ? { specials: specials() } : {}),
+      owned: true,
       file: { ...file(), summaryId: 'fixture-summary' },
       category,
       nextDrop: nextDrop(),

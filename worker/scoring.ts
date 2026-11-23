@@ -41,7 +41,7 @@ export async function scoreAnswer(
   if (meta && ordinal !== undefined) {
     const key = `${meta.slug}/${meta.version}`;
     if (active?.key !== key) {
-      const data = fetch(`${PUBLIC_ORIGIN}/catalog/${key}/scores-v1.bin`, {
+      const data = fetch(`${PUBLIC_ORIGIN}/catalog/${key}/scores-v2.bin`, {
         cf: { cacheTtl: 86400, cacheEverything: true },
       })
         .then(async (r) => {

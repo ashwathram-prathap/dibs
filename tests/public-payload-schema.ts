@@ -14,7 +14,7 @@ const specials = {
 };
 export const claimShape = {
   ...fields(
-    'id category_id claim_no handle created_at category_name category_date category_slug total_registrable founder streak concealed revealed owned',
+    'id category_id claim_no handle created_at category_name category_date category_slug total_registrable founder streak concealed revealed owned points',
   ),
 };
 const event = fields('at kind');
@@ -37,7 +37,7 @@ const today = {
   board: [],
 };
 export const shapes: Record<string, Shape> = {
-  summary: { concealed: true, category, specials, nextDrop: true, file },
+  summary: { owned: true, concealed: true, category, specials, nextDrop: true, file },
   certificate: { claim: claimShape, score: file },
   ledger: { rows: [], locked: true },
   leaderboard: board,

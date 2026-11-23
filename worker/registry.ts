@@ -920,11 +920,11 @@ export class Registry extends DurableObject<Env> {
       );
       if (!cached.ok) return cached;
       const data: any = await cached.json();
-      return json(
-        (await canReveal(req, env, data.category))
-          ? publicSummary(data, true)
-          : concealSummary(data),
-      );
+      const ref = await this.ctx.storage.get<{ user: string }>('summary:' + path.slice(9));
+      return json({
+        ...publicSummary(data, await canReveal(req, env, data.category)),
+        owned: !!ref && (await cookieUser(req, env.COOKIE_SECRET)) === ref.user,
+      });
     }
     if (path.startsWith('/certificate/')) {
       // Cache only the unredacted record internally; viewer policy is applied on every read.

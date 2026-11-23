@@ -1,4 +1,5 @@
 import { HeaderHandle } from './HeaderHandle';
+import { SelectControl, ThemeSwatch } from './Control';
 import { useNoOrphans } from './no-orphans';
 import { StreakChip } from './StreakChip';
 import { rarityLabel } from '../shared/rarity';
@@ -113,8 +114,18 @@ export default function App() {
     () => location.hash === '#file-settings' || location.hash.startsWith('#file-key='),
   );
   const [settingsLoaded, setSettingsLoaded] = useState(settingsOpen);
+  const settingsDialog = useRef<HTMLDialogElement>(null);
   useEffect(() => {
     if (settingsOpen) setSettingsLoaded(true);
+    const panel = settingsDialog.current;
+    if (settingsOpen && panel && !panel.open) panel.showModal();
+    if (!settingsOpen && panel?.open) panel.close();
+    if (!settingsOpen) return;
+    const before = document.documentElement.style.overflow;
+    document.documentElement.style.overflow = 'hidden';
+    return () => {
+      document.documentElement.style.overflow = before;
+    };
   }, [settingsOpen]);
   const [focusZone, setFocusZone] = useState(false);
   useEffect(() => {
@@ -296,6 +307,7 @@ export default function App() {
                   : 'Paper copy · Switch to light mode'
               }
             >
+              <ThemeSwatch target={theme === 'light' ? 'dark' : 'light'} />
               {theme === 'light' ? 'Carbon copy' : 'Paper copy'}
             </button>
             <details
@@ -313,7 +325,13 @@ export default function App() {
               }}
             >
               <summary>Settings</summary>
-              <div className="header-controls" role="region" aria-label="Settings">
+              <dialog
+                ref={settingsDialog}
+                className="header-controls"
+                aria-label="Settings"
+                onCancel={() => setSettingsOpen(false)}
+                onClose={() => setSettingsOpen(false)}
+              >
                 <div className="settings-heading">
                   <h2>Settings</h2>
                   <button
@@ -334,10 +352,11 @@ export default function App() {
                       focusZone={focusZone}
                       themeChoice={themeChoice}
                       setTheme={setTheme}
+                      theme={theme === 'dark' ? 'dark' : 'light'}
                     />
                   </Suspense>
                 )}
-              </div>
+              </dialog>
             </details>
           </div>
           <nav aria-label="Main navigation">
@@ -419,9 +438,13 @@ export default function App() {
                 setMe={setMe}
               />
             ) : path.startsWith('/summary/') ? (
-              <SummaryPage key={path} id={decodeURIComponent(path.split('/').pop()!)} />
+              <SummaryPage
+                key={path}
+                id={decodeURIComponent(path.split('/').pop()!)}
+                today={today}
+              />
             ) : path.startsWith('/certificate/') || path.startsWith('/c/') ? (
-              <CertificatePage id={decodeURIComponent(path.split('/').pop()!)} />
+              <CertificatePage id={decodeURIComponent(path.split('/').pop()!)} today={today} />
             ) : path.startsWith('/archive') ? (
               <Archive />
             ) : path === '/leaderboard' ? (
@@ -546,19 +569,25 @@ function Home({
     [me.file, me.user?.handle, me.streak],
   );
   const [landed, setLanded] = useState(false);
+  const [pendingFinal, setPendingFinal] = useState(false);
+  const showDone = !!file?.closed && !pendingFinal;
   useEffect(() => {
-    if (file?.closed) {
+    if (showDone) {
       window.scrollTo(0, 0);
       // The accepted final event already includes the complete file and summary.
       if (!file.summaryId) void refresh();
     }
-  }, [file?.closed]);
+  }, [showDone]);
 
   const input = useRef<HTMLInputElement>(null);
   const nextDibs = useRef<HTMLButtonElement>(null);
   useEffect(() => {
-    if (landed && !file?.closed) nextDibs.current?.focus({ preventScroll: true });
-  }, [landed, file?.closed]);
+    if (new URLSearchParams(location.search).has('play') && !file?.closed && me.user)
+      input.current?.focus({ preventScroll: true });
+  }, [me.user?.id, today.category?.id]);
+  useEffect(() => {
+    if (landed || pendingFinal) nextDibs.current?.focus({ preventScroll: true });
+  }, [landed, pendingFinal]);
   const turnstileBox = useRef<HTMLDivElement>(null);
   const verification = useRef<{ token: string; expires: number } | null>(null);
   const verifying = useRef<Promise<string> | null>(null);
@@ -726,11 +755,16 @@ function Home({
       setClaim(result.claim);
       input.current?.blur();
       setLanded(true);
+      setPendingFinal(!!result.me?.file?.closed);
       setStreakMoment(result.me && result.me.streak > me.streak ? result.me.streak : null);
       if (result.me) setMe(result.me);
       publishClaim(result.claim, result.me, result.leaderboard);
     } catch (e) {
       const err = e as ApiError;
+      if (err.status === 409 && (err.data?.me?.file?.closed || err.data?.file?.closed)) {
+        setPendingFinal(true);
+        input.current?.blur();
+      }
       playClaimSound(claimSound(err.status, err.data), pendingRequest.current?.id || '');
       if (err.data?.me) {
         setMe(err.data.me);
@@ -794,7 +828,7 @@ function Home({
       });
     }
   }
-  const playing = !!today.category && !file?.closed;
+  const playing = !!today.category && !showDone;
   return (
     <div className={playing ? 'focused-play' : 'completed-play'}>
       {location.search.includes('file-deleted') && (
@@ -816,7 +850,7 @@ function Home({
           </div>
           <Introduction />
         </section>
-      ) : file?.closed ? (
+      ) : showDone && file ? (
         <>
           <span className="file-closed-stamp" role="status">
             Done for today
@@ -826,14 +860,16 @@ function Home({
         </>
       ) : (
         <section
-          className={'claim-section' + (landed ? ' has-payoff' : '')}
+          className={'claim-section' + (landed || pendingFinal ? ' has-payoff' : '')}
           aria-label="Play today's category"
         >
           <div className="play-heading register-arrival">
             <CategoryHeading name={today.category.name} />
           </div>
           <div className={'claim-paper stock-' + categoryStyle(today.category.slug).stock}>
-            {!landed && <Progress dibs={file?.dibs || 0} strikes={file?.strikes || 0} />}
+            {!landed && !pendingFinal && (
+              <Progress dibs={file?.dibs || 0} strikes={file?.strikes || 0} />
+            )}
             {landed && claim ? (
               <div
                 className={'result-panel win-beat ' + (claim.golden ? 'gold-result' : '')}
@@ -851,7 +887,7 @@ function Home({
                     <strong>+{countLabel(claim.points ?? 0, 'point')}</strong>
                     {claim.percentile != null
                       ? ` · ${rarityLabel(claim.percentile, today.category.name)}`
-                      : ' · Popularity unknown'}
+                      : ' · rarity not measured for this answer'}
                     {!!claim.golden && ' · Golden ticket +100'}
                   </p>
                   {streakMoment !== null && (
@@ -874,18 +910,24 @@ function Home({
                   <span>{countLabel(MAX_STRIKES - (file?.strikes || 0), 'strike')} left</span>
                 </div>
                 <div className="win-actions">
+                  {pendingFinal && (
+                    <p className="final-claim-note">
+                      That's {MAX_CLAIMS} of {MAX_CLAIMS}. Your day is filed.
+                    </p>
+                  )}
                   <button
                     className="primary"
                     ref={nextDibs}
                     tabIndex={0}
                     onClick={() => {
+                      setPendingFinal(false);
                       setLanded(false);
                       setMessage('');
                       setOutcome('');
                       requestAnimationFrame(() => input.current?.focus({ preventScroll: true }));
                     }}
                   >
-                    Next claim <Icon />
+                    {pendingFinal ? 'See my results' : 'Next claim'} <Icon />
                   </button>
                   <div className="payoff-links">
                     <Link to={'/certificate/' + claim.id}>View certificate</Link>
@@ -897,6 +939,16 @@ function Home({
                 <div className="payoff-board">
                   <Leaderboard category={today.category.id} practice={today.practice} compact />
                 </div>
+              </div>
+            ) : pendingFinal ? (
+              <div className="result-panel final-strike taken" role="status" aria-atomic="true">
+                <strong className="strike-count">
+                  Strike {MAX_STRIKES} of {MAX_STRIKES}
+                </strong>
+                <p>Taken. −10 points. That's {MAX_STRIKES} strikes.</p>
+                <button className="primary" ref={nextDibs} onClick={() => setPendingFinal(false)}>
+                  See my results <Icon />
+                </button>
               </div>
             ) : (
               <form onSubmit={submit}>
@@ -1121,6 +1173,9 @@ function Feedback({ sitekey }: { sitekey: string }) {
     [message, setMessage] = useState(''),
     [failed, setFailed] = useState(false),
     [busy, setBusy] = useState(false);
+  const [validation, setValidation] = useState('');
+  const [sent, setSent] = useState(false);
+  const note = useRef<HTMLTextAreaElement>(null);
   const box = useRef<HTMLDivElement>(null);
   const dialog = useRef<HTMLDialogElement>(null);
   const trigger = useRef<HTMLElement>(null);
@@ -1173,62 +1228,104 @@ function Feedback({ sitekey }: { sitekey: string }) {
               Close
             </button>
           </div>
-          <form
-            onSubmit={async (e) => {
-              e.preventDefault();
-              if (busy) return;
-              setBusy(true);
-              setMessage('');
-              setFailed(false);
-              try {
-                const turnstileToken = isDemo ? 'demo' : await runTurnstile(sitekey, box.current!);
-                const data = await api<{ message: string }>('/feedback', {
-                  text,
-                  topic,
-                  turnstileToken,
-                });
-                setMessage(data.message || 'Your feedback was sent. Thank you.');
-                setText('');
-              } catch (e) {
-                setFailed(true);
-                setMessage((e as Error).message);
-              } finally {
-                setBusy(false);
-              }
-            }}
-          >
-            <div className="feedback-field">
-              <label htmlFor="feedback-topic">Topic</label>
-              <select id="feedback-topic" value={topic} onChange={(e) => setTopic(e.target.value)}>
-                <option value="game">Game question</option>
-                <option value="privacy">Privacy question</option>
-              </select>
-            </div>
-            <div className="feedback-field">
-              <label htmlFor="feedback-note">Private note</label>
-              <textarea
-                id="feedback-note"
-                aria-describedby="feedback-limit"
-                maxLength={topic === 'privacy' ? 482 : 500}
-                value={text}
-                onChange={(e) => setText(e.target.value)}
-                required
-              />
-              <small id="feedback-limit">500 characters max</small>
-            </div>
-            <div ref={box} className="feedback-verification" />
-            <button className="primary" disabled={busy}>
-              {busy ? 'Sending…' : 'Send note'}
-            </button>
-            {message && (
-              <p
-                className={failed ? 'feedback-error' : 'feedback-success'}
-                role={failed ? 'alert' : 'status'}
-              >
-                {message}
-              </p>
-            )}
-          </form>
+          {sent ? (
+            <p role="status">Thanks, the clerk got your note.</p>
+          ) : (
+            <form
+              noValidate
+              onSubmit={async (e) => {
+                e.preventDefault();
+                if (busy) return;
+                const invalid = !text.trim()
+                  ? 'Write a note first.'
+                  : text.length > 500
+                    ? `Keep it under 500 characters. You're at ${text.length}.`
+                    : '';
+                setValidation(invalid);
+                if (invalid) {
+                  note.current?.focus();
+                  return;
+                }
+                setBusy(true);
+                setMessage('');
+                setFailed(false);
+                try {
+                  const turnstileToken = isDemo
+                    ? 'demo'
+                    : await runTurnstile(sitekey, box.current!);
+                  await api<{ message: string }>('/feedback', {
+                    text,
+                    topic,
+                    turnstileToken,
+                  });
+                  setSent(true);
+                  setText('');
+                } catch (e) {
+                  setFailed(true);
+                  setMessage((e as Error).message);
+                } finally {
+                  setBusy(false);
+                }
+              }}
+            >
+              <div className="feedback-field">
+                <label htmlFor="feedback-topic">Topic</label>
+                <SelectControl
+                  display={topic === 'privacy' ? 'Privacy question' : 'Game question'}
+                  id="feedback-topic"
+                  value={topic}
+                  onChange={(e) => setTopic(e.target.value)}
+                >
+                  <option value="game">Game question</option>
+                  <option value="privacy">Privacy question</option>
+                </SelectControl>
+              </div>
+              <div className="feedback-field">
+                <label htmlFor="feedback-note">Private note</label>
+                <textarea
+                  id="feedback-note"
+                  ref={note}
+                  aria-invalid={!!validation}
+                  aria-describedby={
+                    validation ? 'feedback-limit feedback-validation' : 'feedback-limit'
+                  }
+                  value={text}
+                  onChange={(e) => {
+                    setText(e.target.value);
+                    if (validation)
+                      setValidation(
+                        !e.target.value.trim()
+                          ? 'Write a note first.'
+                          : e.target.value.length > 500
+                            ? `Keep it under 500 characters. You're at ${e.target.value.length}.`
+                            : '',
+                      );
+                  }}
+                  required
+                />
+                <small id="feedback-limit" aria-live="polite">
+                  {text.length} / 500
+                </small>
+                {validation && (
+                  <p id="feedback-validation" className="feedback-error" role="alert">
+                    {validation}
+                  </p>
+                )}
+              </div>
+              <div ref={box} className="feedback-verification" />
+              <button className="primary" disabled={busy}>
+                {busy ? 'Sending…' : 'Send note'}
+              </button>
+              {message && (
+                <p
+                  className={failed ? 'feedback-error' : 'feedback-success'}
+                  role={failed ? 'alert' : 'status'}
+                >
+                  {message}
+                </p>
+              )}
+            </form>
+          )}
         </dialog>,
         document.body,
       )}

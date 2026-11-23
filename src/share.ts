@@ -108,9 +108,11 @@ export async function exportCertificate(claim: Claim, story: boolean) {
   c.stroke(new Path2D(REGISTRAR_STROKE));
   c.restore();
   text('The Registrar', 790, h - 180, 18);
+  text(countLabel(claim.points ?? 0, 'point'), 80, h - 220, 18);
+  if (claim.revealed && claim.percentile == null)
+    text('Rarity not measured for this answer', 80, h - 250, 18);
   if (claim.revealed && claim.percentile != null) {
     text(rarityLabel(claim.percentile, claim.category_name), 80, h - 250, 18);
-    text(countLabel(claim.points || 0, 'point'), 80, h - 220, 18);
     await drawCurve(c, claim.percentile, 80, h - 205, 290, 68, !!claim.golden);
   }
   c.save();

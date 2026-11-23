@@ -36,6 +36,7 @@ export function visibleClaim(c: any, revealed = false, owned = false): any {
     total_registrable: c.total_registrable,
     founder: c.founder,
     streak: c.streak,
+    points: c.points,
     concealed: !revealed && !owned,
     revealed,
     owned,
