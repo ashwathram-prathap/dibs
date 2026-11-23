@@ -578,8 +578,10 @@ test('Share and visitor landing work in browser, standalone, LinkedIn and Instag
           width: r.width,
           y: r.y,
           font: s.fontSize,
+          family: s.fontFamily,
           weight: s.fontWeight,
-          border: s.borderTopWidth,
+          border: s.borderTop,
+          radius: s.borderRadius,
           color: s.color,
           background,
         };
@@ -588,8 +590,10 @@ test('Share and visitor landing work in browser, standalone, LinkedIn and Instag
     for (const c of cells) {
       expect(c.height).toBeCloseTo(cells[0].height, 0);
       expect(c.font).toBe(cells[0].font);
+      expect(c.family).toBe(cells[0].family);
       expect(c.weight).toBe(cells[0].weight);
       expect(c.border).toBe(cells[0].border);
+      expect(c.radius).toBe(cells[0].radius);
       expect(contrast(c.color, c.background), 'share text AA contrast').toBeGreaterThanOrEqual(4.5);
       for (const other of cells.filter((o) => Math.abs(o.y - c.y) < 1))
         expect(c.width).toBeCloseTo(other.width, 0);
