@@ -50,7 +50,7 @@ try {
                 claim_no: 1,
                 created_at: '2026-11-24T02:01:00Z',
                 obscurity: 4,
-                handle: 'Rust Finch #12',
+                handle: 'Rust Finch #6a325f64',
                 percentile: 0.94,
                 points: 95,
                 bonus: 0,

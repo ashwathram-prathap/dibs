@@ -6,6 +6,7 @@ function loadScript() {
     document.getElementById('turnstile-script')?.remove();
     const s = document.createElement('script');
     s.id = 'turnstile-script';
+    s.fetchPriority = 'low';
     s.src = 'https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit';
     s.onload = () => resolve();
     s.onerror = () => {
@@ -16,6 +17,8 @@ function loadScript() {
   });
   return loading;
 }
+// Fetch the loader while the live screen paints; rendering/execution still waits for idle or focus.
+export const preloadTurnstile = () => loadScript();
 // One reusable widget per mounted verification container. A ready token never enters storage.
 type Check = {
   promise: Promise<string>;

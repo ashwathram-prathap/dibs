@@ -138,3 +138,6 @@ review/round19/**/*.jpg
 review/round19/*browser-results.json
 review/round19/lighthouse*/
 review/round19/firefox-ci/
+review/final/round19/
+review/round19/*results.json
+review/round19/unit-tests.json

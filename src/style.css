@@ -5347,6 +5347,11 @@ a:focus-visible,
 .office-sources {
   display: block;
 }
+@media (min-width: 900px) {
+  .page:has(.about-layout) .page-heading h1 {
+    font-size: 4.5rem;
+  }
+}
 .how-page p,
 .about-layout p {
   max-width: 65ch;

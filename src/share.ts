@@ -2,7 +2,7 @@ import { GAME_DESCRIPTION } from '../shared/copy';
 type ExportFont = 'Archivo' | '"Instrument Sans"';
 import { cleanHandle, cleanStoredHandles } from '../shared/handles';
 import { noOrphan, countLabel } from '../shared/text';
-import { bellPath, bellX, rarityLabel } from '../shared/rarity';
+import { bellPath, bellArea, bellSigma, bellY, bellX, rarityLabel } from '../shared/rarity';
 import { MAX_CLAIMS } from '../shared/config';
 import { REGISTRAR_STROKE } from '../shared/moments';
 import { edition, localTime } from '../shared/time';
@@ -112,15 +112,7 @@ export async function exportCertificate(claim: Claim, story: boolean) {
   if (claim.revealed && claim.percentile != null) {
     text(rarityLabel(claim.percentile, claim.category_name), 80, h - 250, 18);
     text(countLabel(claim.points || 0, 'point'), 80, h - 220, 18);
-    await drawCurve(
-      c,
-      claim.category_slug || claim.category_name.toLowerCase(),
-      claim.percentile,
-      80,
-      h - 205,
-      290,
-      40,
-    );
+    await drawCurve(c, claim.percentile, 80, h - 205, 290, 68, !!claim.golden);
   }
   c.save();
   c.translate(550, h - 247);
@@ -168,25 +160,68 @@ export async function canvasFile(canvas: HTMLCanvasElement, name: string) {
 }
 async function drawCurve(
   c: CanvasRenderingContext2D,
-  slug: string,
   p: number,
   x: number,
   y: number,
   w: number,
   h: number,
+  golden: boolean,
 ) {
-  try {
-    c.save();
-    c.translate(x, y);
-    c.scale(w / 520, h / 150);
-    c.lineWidth = 1.8;
-    c.stroke(new Path2D(bellPath()));
-    c.beginPath();
-    c.moveTo(bellX(p), 16);
-    c.lineTo(bellX(p), 108);
-    c.stroke();
-    c.restore();
-  } catch {}
+  const ink = document.documentElement.dataset.theme === 'dark' ? '#F1ECE2' : '#1A1A17';
+  const accent = golden ? '#B8902F' : '#E1462B',
+    plotHeight = h - 26;
+  const matrix = new DOMMatrix([w / 520, 0, 0, plotHeight / 120, x, y]);
+  const area = new Path2D(),
+    line = new Path2D();
+  area.addPath(new Path2D(bellArea()), matrix);
+  line.addPath(new Path2D(bellPath()), matrix);
+  const marker = x + (bellX(p) / 520) * w,
+    baseline = y + (108 / 120) * plotHeight;
+  const dotY = y + (bellY(bellSigma(p)) / 120) * plotHeight;
+  c.save();
+  c.fillStyle = ink;
+  c.globalAlpha = 0.1;
+  c.fill(area);
+  c.save();
+  c.beginPath();
+  c.rect(marker, y, x + w - marker, plotHeight);
+  c.clip();
+  c.fillStyle = accent;
+  c.globalAlpha = 0.25;
+  c.fill(area);
+  c.restore();
+  c.globalAlpha = 1;
+  c.strokeStyle = ink;
+  c.lineWidth = 1.75;
+  c.lineCap = 'round';
+  c.stroke(line);
+  c.lineWidth = 0.75;
+  c.globalAlpha = 0.5;
+  c.beginPath();
+  c.moveTo(x + (w * 28) / 520, baseline);
+  c.lineTo(x + (w * 492) / 520, baseline);
+  c.stroke();
+  c.globalAlpha = 1;
+  c.strokeStyle = accent;
+  c.lineWidth = 1.75;
+  c.beginPath();
+  c.moveTo(marker, dotY);
+  c.lineTo(marker, baseline + 2);
+  c.stroke();
+  c.fillStyle = accent;
+  c.beginPath();
+  c.arc(marker, dotY, 2, 0, Math.PI * 2);
+  c.fill();
+  c.fillStyle = ink;
+  c.font = '400 11px "Instrument Sans"';
+  c.textAlign = 'center';
+  c.fillText('You', marker, baseline + 12);
+  c.font = '400 10px "IBM Plex Mono"';
+  c.textAlign = 'left';
+  c.fillText('Familiar', x + (w * 28) / 520, y + h);
+  c.textAlign = 'right';
+  c.fillText('Obscure', x + (w * 492) / 520, y + h);
+  c.restore();
 }
 
 export function summaryText(file: DayFile, category: Category) {

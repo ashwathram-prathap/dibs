@@ -1,7 +1,7 @@
 import { spawnSync } from 'node:child_process';
 import { appendFileSync, writeFileSync, readFileSync } from 'node:fs';
 import assert from 'node:assert/strict';
-import { api, origin } from './r11-practice';
+import { api, origin } from './r19-practice-api';
 assert.equal(origin, 'https://practice.dibs-7hz.pages.dev');
 const budget = JSON.parse(readFileSync('review/round19/account-write-budget.json', 'utf8'));
 assert.ok(

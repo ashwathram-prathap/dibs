@@ -96,9 +96,9 @@ test('R19 expanded Settings fits with real backup values and enlarged text', asy
             .map((el) => el.tagName + '#' + el.id),
         ),
     ).toEqual([]);
-    expect(await page.evaluate(() => document.documentElement.scrollWidth > innerWidth)).toBe(
-      false,
-    );
+    await expect
+      .poll(() => page.evaluate(() => document.documentElement.scrollWidth > innerWidth))
+      .toBe(false);
   }
   await shot(page, 'settings', info.project.name, false);
 });
@@ -111,16 +111,16 @@ test('R19 payoff uses an honest bell, quiet counters, named zone and one frame',
     await claim(page);
     const curve = page.locator('.payoff-curve .rarity-curve');
     await expect(curve).toBeVisible();
-    const you = await curve.locator('.rarity-you').boundingBox();
-    for (const label of await curve.locator('.rarity-end').all()) {
-      const end = await label.boundingBox();
-      expect(
-        you!.x < end!.x + end!.width &&
-          you!.x + you!.width > end!.x &&
-          you!.y < end!.y + end!.height &&
-          you!.y + you!.height > end!.y,
-      ).toBe(false);
-    }
+    // Take all geometry in one frame: the payoff itself is still settling into place.
+    expect(
+      await curve.evaluate((el) => {
+        const you = el.querySelector('.rarity-you')!.getBoundingClientRect();
+        return [...el.querySelectorAll('.rarity-end')].some((label) => {
+          const end = label.getBoundingClientRect();
+          return you.x < end.right && you.right > end.x && you.y < end.bottom && you.bottom > end.y;
+        });
+      }),
+    ).toBe(false);
     expect(Number(await curve.getAttribute('data-marker-x'))).toBeCloseTo(bellX(p), 6);
     await expect(page.locator('.claim-payoff')).not.toContainText(/rarer than 0%/i);
     await expect(page.locator('.payoff-counters')).toContainText('2 claims left');

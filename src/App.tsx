@@ -7,7 +7,7 @@ import { useTheme } from './theme';
 import { createPortal } from 'react-dom';
 import { RarityCurve } from './RarityCurve';
 import { Wordmark, Link, Clock, Reminder, Introduction, Rules, Progress } from './ui';
-import { runTurnstile, clearTurnstile } from './turnstile';
+import { runTurnstile, clearTurnstile, preloadTurnstile } from './turnstile';
 const Settings = lazy(() => import('./Settings').then((m) => ({ default: m.Settings })));
 const Archive = lazy(() => import('./Archive').then((m) => ({ default: m.Archive })));
 const DaySummary = lazy(() => import('./Certificate').then((m) => ({ default: m.DaySummary })));
@@ -588,6 +588,7 @@ function Home({
   }
   useEffect(() => {
     if (!today.category || file?.closed || isDemo) return;
+    if (!document.hidden) void preloadTurnstile().catch(() => {});
     const warm = () => {
       if (!document.hidden) void verifySession().catch(() => {});
     };

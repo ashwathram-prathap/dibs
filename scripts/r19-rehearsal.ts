@@ -1,7 +1,7 @@
 import { chromium, webkit, expect } from '@playwright/test';
 import { writeFileSync, readFileSync } from 'node:fs';
 import assert from 'node:assert/strict';
-import { api, origin } from './r11-practice';
+import { api, origin } from './r19-practice-api';
 import { readCategory } from './category-file';
 const clock = await api('/today');
 assert.ok(clock.response.ok);
