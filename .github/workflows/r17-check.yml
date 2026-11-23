@@ -1,0 +1,34 @@
+name: R17 Firefox gates
+on: workflow_dispatch
+permissions:
+  contents: read
+jobs:
+  firefox:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    env:
+      NODE_OPTIONS: --max-old-space-size=6144
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: npm ci
+      - run: npx playwright install --with-deps firefox
+      - run: |
+          sudo apt-get install -y pulseaudio
+          pulseaudio --start --exit-idle-time=-1
+          pactl load-module module-null-sink sink_name=dibs_ci
+          pactl set-default-sink dibs_ci
+      - run: npx tsx scripts/build-catalog-assets.ts && npx tsx scripts/build-scores.ts && npx vite build --mode security-test
+      - run: R17_FIREFOX=1 npx playwright test -c playwright.r17.config.ts
+      - run: R16_FULL=1 R16_REPORT=review/round17/firefox-regression-results.json npx playwright test -c playwright.r16.config.ts --project='firefox-*'
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: r17-firefox
+          path: |
+            review/round17/*browser-results.json
+            review/round17/firefox-regression-results.json
+            test-results/
+          retention-days: 14

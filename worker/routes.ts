@@ -1098,8 +1098,11 @@ const handler = {
           });
         return response;
       }
-      if(env.R17_STORAGE==='true'&&path.startsWith('/admin/')) {
-        await prepareR17Admin(req,env);const response=await stub.fetch(req.clone() as Request);const changed=await finishR17Admin(req,env,response);return changed&&response.status===404?json({ok:true}):response;
+      if (env.R17_STORAGE === 'true' && path.startsWith('/admin/')) {
+        await prepareR17Admin(req, env);
+        const response = await stub.fetch(req.clone() as Request);
+        const changed = await finishR17Admin(req, env, response);
+        return changed && response.status === 404 ? json({ ok: true }) : response;
       }
       return await stub.fetch(req);
     } catch (e) {

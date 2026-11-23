@@ -23,7 +23,11 @@ async function storageDelta() {
   return value;
 }
 let setupStorage: typeof storageTotals;
-const root = baseline ? '.tmp/r15-baseline/' : '';
+const root = process.argv.includes('--r16')
+  ? '.tmp/r17-baseline/'
+  : baseline
+    ? '.tmp/r15-baseline/'
+    : '';
 let mf: Miniflare, db: any;
 let manifest: any;
 const call = (path: string, body?: any, cookie?: string, ip?: string) =>
@@ -47,24 +51,28 @@ async function startRegistry(slug: string) {
           {
             name: 'local-storage-meter',
             setup(b) {
-              b.onLoad({ filter: /\/(registry|leaderboard|day-registry|event-journal)\.ts$/ }, async (args) => {
-                let source = readFileSync(args.path, 'utf8');
-                if(args.path.endsWith('event-journal.ts')) source=source.replace('storage.sql.exec(', '__store(storage).sql.exec(');
-                source = source
-                  .replaceAll('storage.sql.exec', 'storage.sql.exec')
-                  .replaceAll('this.ctx.storage', '__store(this.ctx.storage)')
-                  .replaceAll('this.storage', '__store(this.storage)')
-                  .replaceAll(
-                    'new Leaderboard(ctx.storage,',
-                    'new Leaderboard(__store(ctx.storage),',
-                  );
-                return {
-                  contents:
-                    `import { __store } from '${process.cwd()}/scripts/capacity-storage-proxy.ts';\n` +
-                    source,
-                  loader: 'ts',
-                };
-              });
+              b.onLoad(
+                { filter: /\/(registry|leaderboard|day-registry|event-journal)\.ts$/ },
+                async (args) => {
+                  let source = readFileSync(args.path, 'utf8');
+                  if (args.path.endsWith('event-journal.ts'))
+                    source = source.replace('storage.sql.exec(', '__store(storage).sql.exec(');
+                  source = source
+                    .replaceAll('storage.sql.exec', 'storage.sql.exec')
+                    .replaceAll('this.ctx.storage', '__store(this.ctx.storage)')
+                    .replaceAll('this.storage', '__store(this.storage)')
+                    .replaceAll(
+                      'new Leaderboard(ctx.storage,',
+                      'new Leaderboard(__store(ctx.storage),',
+                    );
+                  return {
+                    contents:
+                      `import { __store } from '${process.cwd()}/scripts/capacity-storage-proxy.ts';\n` +
+                      source,
+                    loader: 'ts',
+                  };
+                },
+              );
             },
           },
         ]
@@ -87,7 +95,9 @@ async function startRegistry(slug: string) {
           d1Databases: ['DB'],
           durableObjects: {
             REGISTRY: { className: 'Registry', useSQLite: true },
-            DAY_REGISTRY: { className: 'DayRegistry', useSQLite: true },
+            ...(process.argv.includes('--r16')
+              ? {}
+              : { DAY_REGISTRY: { className: 'DayRegistry', useSQLite: true } }),
             IMAGE_CACHE: { className: 'ImageCache', useSQLite: true },
           },
           bindings: {
@@ -198,6 +208,16 @@ async function http(path: string, body?: any) {
   const data = (await r.json()) as any;
   samples.push({
     path,
+    action:
+      path === '/claim'
+        ? r.status === 201
+          ? 'claim'
+          : r.status === 409
+            ? data.house
+              ? 'reserved'
+              : 'strike'
+            : 'typo'
+        : path,
     ...(await storageDelta()),
     transport: 'http',
     status: r.status,
@@ -231,6 +251,16 @@ async function rpc(path: string, body: any) {
   });
   samples.push({
     path,
+    action:
+      path === '/claim'
+        ? data.status === 201
+          ? 'claim'
+          : data.status === 409
+            ? data.body.house
+              ? 'reserved'
+              : 'strike'
+            : 'typo'
+        : path,
     ...(await storageDelta()),
     transport: 'socket',
     status: data.status,
@@ -249,7 +279,28 @@ try {
       reads: Number(setup.headers.get('x-d1-rows-read')),
       writes: Number(setup.headers.get('x-d1-rows-written')),
     };
+    const controlCookie = setup.headers.get('set-cookie')!.split(';')[0];
     await setup.text();
+    const control = await call(
+      '/claim',
+      {
+        answer: readCategory('categories/animals.json').answers[110].display,
+        turnstileToken: 'test',
+        requestId: crypto.randomUUID(),
+      },
+      controlCookie,
+      'control',
+    );
+    assert.equal(control.status, 201);
+    await control.text();
+    if (journal) {
+      const mirrored = await mf.dispatchFetch('http://localhost/api/admin/r17-flush', {
+        method: 'POST',
+        headers: { origin: 'https://dibs.here', authorization: 'Bearer static-test-admin' },
+      });
+      assert.equal(mirrored.status, 200);
+      await mirrored.text();
+    }
   }
   if (meterStorage) {
     await new Promise((r) => setTimeout(r, 500));
@@ -300,7 +351,12 @@ try {
         catalog.answers[4000 + Math.floor(Math.random() * 1000)].display,
         catalog.answers[6000 + Math.floor(Math.random() * 1000)].display,
       ]
-    : [100, 0, 0, 0, 101, 102].map((i) => catalog.answers[i].display);
+    : [100, 110, 0, 0, 101, 102].map((i) => catalog.answers[i].display);
+  await send('/claim', {
+    answer: 'zzzznotananswer',
+    sessionToken: verified.data.sessionToken,
+    requestId: crypto.randomUUID(),
+  });
   for (const [i, answer] of chosen.entries()) {
     const r = await send('/claim', {
       answer,
@@ -309,15 +365,25 @@ try {
     });
     assert.equal(r.status, i === 0 || i >= 4 ? 201 : 409, JSON.stringify(r.data));
   }
-  await send('/claim', {
-    answer: 'zzzznotananswer',
-    sessionToken: verified.data.sessionToken,
-    requestId: crypto.randomUUID(),
-  });
+
   // Current leaderboard is already in bootstrap and pushes; baseline opened an HTTP view.
   await http('/leaderboard');
   await send('/events/share', { platform: 'copy-text' });
-  if(journal) { const r=await mf.dispatchFetch('http://localhost/api/admin/r17-flush',{method:'POST',headers:{authorization:'Bearer static-test-admin',origin:'https://dibs.here'}}); const flushed=await r.json(); samples.push({path:'/batch-mirror',reads:Number(r.headers.get('x-d1-rows-read')),writes:Number(r.headers.get('x-d1-rows-written')),status:r.status,...await storageDelta()}); assert.equal(r.status,200,JSON.stringify(flushed)); }
+  if (journal) {
+    const r = await mf.dispatchFetch('http://localhost/api/admin/r17-flush', {
+      method: 'POST',
+      headers: { authorization: 'Bearer static-test-admin', origin: 'https://dibs.here' },
+    });
+    const flushed = await r.json();
+    samples.push({
+      path: '/batch-mirror',
+      reads: Number(r.headers.get('x-d1-rows-read')),
+      writes: Number(r.headers.get('x-d1-rows-written')),
+      status: r.status,
+      ...(await storageDelta()),
+    });
+    assert.equal(r.status, 200, JSON.stringify(flushed));
+  }
   await http('/bootstrap'); // Later return: same cookie, authoritative saved file.
   if (meterStorage) await new Promise((r) => setTimeout(r, 500));
   const rowsRead = samples.reduce((n, s) => n + s.reads, 0),
@@ -330,7 +396,7 @@ try {
     mode: practice ? 'practice' : baseline ? 'before-local' : 'after-local',
     at: new Date().toISOString(),
     scenario:
-      'load, verification, 6 guesses (3 claims, 3 reserved strikes), leaderboard, share, return visit',
+      'load, verification, typo, 6 guesses (3 claims, 1 taken strike, 2 reserved strikes), leaderboard, share, return visit; separate control player establishes the taken answer',
     httpRequests,
     pagesFunctionRequests: practice ? httpRequests : 0,
     workerRequests: httpRequests,

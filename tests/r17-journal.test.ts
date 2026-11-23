@@ -21,7 +21,11 @@ async function startRegistry(slug: string) {
   manifest = JSON.parse(readFileSync('public/catalog/' + slug + '/manifest.json', 'utf8'));
   const category = readCategory('categories/' + slug + '.json');
   const code = await build({
-    stdin:{contents:`import worker from './worker/index'; export {Registry, ImageCache, DayRegistry} from './worker/index'; export default {fetch(req,env,ctx){const date=new URL(req.url).searchParams.get('fixture-day'); if(date){const headers=new Headers(req.headers);headers.set('x-r17-day',date);return env.DAY_REGISTRY.get(env.DAY_REGISTRY.idFromName(date)).fetch(new Request(req,{headers}));}return worker.fetch(req,env,ctx);}};`,resolveDir:process.cwd(),loader:'ts'},
+    stdin: {
+      contents: `import worker from './worker/index'; const realNow=Date.now;let clock;Date.now=()=>clock??realNow(); export {Registry, ImageCache, DayRegistry} from './worker/index'; export default {fetch(req,env,ctx){const instant=new URL(req.url).searchParams.get('fixture-now');if(instant)clock=Number(instant);const date=new URL(req.url).searchParams.get('fixture-day'); if(date){const headers=new Headers(req.headers);headers.set('x-r17-day',date);return env.DAY_REGISTRY.get(env.DAY_REGISTRY.idFromName(date)).fetch(new Request(req,{headers}));}return worker.fetch(req,env,ctx);}};`,
+      resolveDir: process.cwd(),
+      loader: 'ts',
+    },
     bundle: true,
     write: false,
     format: 'esm',
@@ -36,7 +40,7 @@ async function startRegistry(slug: string) {
         modules: true,
         script: code.outputFiles[0].text,
         compatibilityDate: '2026-11-20',
-        d1Databases: ['DB'],
+        d1Databases: ['DB','PRESERVE'],
         durableObjects: {
           REGISTRY: { className: 'Registry', useSQLite: true },
           DAY_REGISTRY: { className: 'DayRegistry', useSQLite: true },
@@ -183,19 +187,55 @@ it('mirrors a complete game in batches, preserving exact state and scores after 
   expect(restored.file.points).toBe(last.data.file.points);
   expect(restored.streak).toBe(1);
 }, 30000);
-let nextDate:string, nextClaim:any;
-async function direct(date:string,path:string,data?:any,cookie=winner.cookie) {
-  return mf.dispatchFetch('http://localhost/api'+path+'?fixture-day='+date,{method:data===undefined?'GET':'POST',headers:{origin:'https://dibs.here','content-type':'application/json',cookie,authorization:'Bearer static-test-admin'},...(data===undefined?{}:{body:JSON.stringify(data)})});
+let nextDate: string, nextClaim: any;
+async function direct(date: string, path: string, data?: any, cookie = winner.cookie) {
+  return mf.dispatchFetch('http://localhost/api' + path + '?fixture-day=' + date, {
+    method: data === undefined ? 'GET' : 'POST',
+    headers: {
+      origin: 'https://dibs.here',
+      'content-type': 'application/json',
+      cookie,
+      authorization: 'Bearer static-test-admin',
+    },
+    ...(data === undefined ? {} : { body: JSON.stringify(data) }),
+  });
 }
-it('keeps streak and recovery identity across the next drop',async()=>{
-  nextDate=new Date(Date.parse(registryDate()+'T12:00:00Z')+86400000).toISOString().slice(0,10);
-  const original=await db.prepare('SELECT * FROM categories WHERE id=?').bind('static').first();
-  await db.prepare('INSERT INTO categories(id,date,name,slug,total_registrable,drop_at,status,source_json) VALUES(?,?,?,?,?,?,?,?)').bind('second',nextDate,original.name,original.slug,original.total_registrable,new Date(Date.now()-1000).toISOString(),'approved',original.source_json).run();
-  const boot:any=await (await direct(nextDate,'/bootstrap')).json();expect(boot.me.user.id).toBe(winner.data.me.user.id);
-  const won=await direct(nextDate,'/claim',{answer:catalog.answers[130].display,turnstileToken:'test',requestId:crypto.randomUUID()});expect(won.status).toBe(201);const result:any=await won.json();nextClaim=result.claim;expect(result.file.streak).toBe(2);
-  expect((await direct(nextDate,'/admin/r17-flush',{})).status).toBe(200);
-  const recovered=await call('/recover',{key:result.recoveryKey});expect(recovered.status).toBe(200);expect(recovered.headers.get('set-cookie')).toContain(winner.data.me.user.id);
-},30000);
+it('keeps streak and recovery identity across the next drop', async () => {
+  nextDate = new Date(Date.parse(registryDate() + 'T12:00:00Z') + 86400000)
+    .toISOString()
+    .slice(0, 10);
+  const original = await db.prepare('SELECT * FROM categories WHERE id=?').bind('static').first();
+  await db
+    .prepare(
+      'INSERT INTO categories(id,date,name,slug,total_registrable,drop_at,status,source_json) VALUES(?,?,?,?,?,?,?,?)',
+    )
+    .bind(
+      'second',
+      nextDate,
+      original.name,
+      original.slug,
+      original.total_registrable,
+      new Date(Date.now() - 1000).toISOString(),
+      'approved',
+      original.source_json,
+    )
+    .run();
+  const boot: any = await (await direct(nextDate, '/bootstrap')).json();
+  expect(boot.me.user.id).toBe(winner.data.me.user.id);
+  const won = await direct(nextDate, '/claim', {
+    answer: catalog.answers[130].display,
+    turnstileToken: 'test',
+    requestId: crypto.randomUUID(),
+  });
+  expect(won.status).toBe(201);
+  const result: any = await won.json();
+  nextClaim = result.claim;
+  expect(result.file.streak).toBe(2);
+  expect((await direct(nextDate, '/admin/r17-flush', {})).status).toBe(200);
+  const recovered = await call('/recover', { key: result.recoveryKey });
+  expect(recovered.status).toBe(200);
+  expect(recovered.headers.get('set-cookie')).toContain(winner.data.me.user.id);
+}, 30000);
 it('anonymises durable copies and mirror, retaining ownership after restart', async () => {
   const removed = await call(
     '/delete-file',
@@ -207,7 +247,10 @@ it('anonymises durable copies and mirror, retaining ownership after restart', as
   db = await mf.getD1Database('DB');
   const certificate: any = await (await call('/certificate/' + claim.id)).json();
   expect(certificate.claim.handle).toBe('Withdrawn player');
-  const next:any=await (await direct(nextDate,'/certificate/'+nextClaim.id,undefined,'')).json();expect(next.claim.handle).toBe('Withdrawn player');
+  const next: any = await (
+    await direct(nextDate, '/certificate/' + nextClaim.id, undefined, '')
+  ).json();
+  expect(next.claim.handle).toBe('Withdrawn player');
   const late = await account();
   expect((await guess(late.cookie, claim.display)).status).toBe(409);
   expect(
@@ -222,10 +265,68 @@ it('anonymises durable copies and mirror, retaining ownership after restart', as
   expect(JSON.stringify(mirrors)).not.toContain(winner.data.me.user.id);
 }, 30000);
 
-it('rejects invalid verification, changed replay answers and cross-origin writes',async()=>{
- const p=await account();
- const failed=await call('/claim',{answer:catalog.answers[140].display,turnstileToken:''},p.cookie);expect(failed.status).toBe(428);
- const requestId=crypto.randomUUID();expect((await guess(p.cookie,catalog.answers[140].display,requestId)).status).toBe(201);
- expect((await guess(p.cookie,catalog.answers[141].display,requestId)).status).toBe(422);
- const forbidden=await mf.dispatchFetch('http://localhost/api/claim',{method:'POST',headers:{origin:'https://example.com',cookie:p.cookie,'content-type':'application/json'},body:JSON.stringify({answer:catalog.answers[141].display,turnstileToken:'test'})});expect(forbidden.status).toBe(403);
+it('rejects invalid verification, changed replay answers and cross-origin writes', async () => {
+  const p = await account();
+  const failed = await call(
+    '/claim',
+    { answer: catalog.answers[140].display, turnstileToken: '' },
+    p.cookie,
+  );
+  expect(failed.status).toBe(428);
+  const requestId = crypto.randomUUID();
+  expect((await guess(p.cookie, catalog.answers[140].display, requestId)).status).toBe(201);
+  expect((await guess(p.cookie, catalog.answers[141].display, requestId)).status).toBe(422);
+  const forbidden = await mf.dispatchFetch('http://localhost/api/claim', {
+    method: 'POST',
+    headers: {
+      origin: 'https://example.com',
+      cookie: p.cookie,
+      'content-type': 'application/json',
+    },
+    body: JSON.stringify({ answer: catalog.answers[141].display, turnstileToken: 'test' }),
+  });
+  expect(forbidden.status).toBe(403);
+});
+
+it('flushes the exact final board and mirror at close, and reveals only after close', async () => {
+  const date = registryDate(),
+    closedAt = Date.parse(
+      dropAt(new Date(Date.parse(date + 'T12:00:00Z') + 86400000).toISOString().slice(0, 10)),
+    );
+  const r = await mf.dispatchFetch(
+    'http://localhost/api/admin/r17-flush?fixture-day=' + date + '&fixture-now=' + closedAt,
+    {
+      method: 'POST',
+      headers: { origin: 'https://dibs.here', authorization: 'Bearer static-test-admin' },
+    },
+  );
+  expect(r.status).toBe(200);
+  const board: any = await (await call('/leaderboard')).json();
+  expect(board.final).toBe(true);
+  const saved = JSON.parse(
+    (await db.prepare('SELECT data FROM r17_boards WHERE category_id=?').bind('static').first())
+      .data,
+  );
+  expect(saved.rows).toEqual(board.rows);
+  expect(saved.total).toBe(board.total);
+  const certificate: any = await (await call('/certificate/' + claim.id)).json();
+  expect(certificate.claim.display).toBe(claim.display);
+  expect(certificate.claim.revealed).toBe(true);
+  const all = (
+    await db.prepare('SELECT data FROM r17_files WHERE category_id=?').bind('static').all()
+  ).results.map((r: any) => JSON.parse(r.data));
+  const ledger: any = await (await call('/ledger?category=static')).json();
+  expect(all.flatMap((s: any) => s.file.claims).length).toBe(ledger.rows.length);
+});
+
+it('applies the additive migration without changing any legacy claim, strike, identity or point',async()=>{
+ const legacy=await mf.getD1Database('PRESERVE');
+ for(const name of readdirSync('migrations').filter(f=>f.endsWith('.sql')&&!f.startsWith('0015')).sort())await legacy.exec(readFileSync('migrations/'+name,'utf8').replace(/^--.*$/gm,'').replace(/CREATE TRIGGER[\s\S]*?\nEND;/g,m=>m.replace(/\n/g,' ')).replace(/\n/g,' '));
+ await legacy.prepare('INSERT INTO categories(id,date,name,slug,total_registrable,drop_at,status) VALUES(?,?,?,?,?,?,?)').bind('old','2026-11-20','Animals','animals',2000,'2026-11-21T02:00:00Z','approved').run();
+ await legacy.prepare('INSERT INTO answers VALUES(?,?,?,?,?,?)').bind('old-answer','old','aardvark','Aardvark','[]',4).run();
+ await legacy.prepare('INSERT INTO users(id,handle,created_at) VALUES(?,?,?)').bind('old-user','Old Holder','2026-11-21T02:00:00Z').run();
+ await legacy.prepare('INSERT INTO claims(id,category_id,answer_id,user_id,claim_no,created_at,ip_hash,ip_day,file_no,points,percentile,bonus) VALUES(?,?,?,?,?,?,?,?,?,?,?,?)').bind('old-claim','old','old-answer','old-user',1,'2026-11-21T02:01:00Z','','',1,75,.65,0).run();
+ await legacy.prepare('INSERT INTO strikes(category_id,user_id,seq,created_at,guess,house) VALUES(?,?,?,?,?,?)').bind('old','old-user',2,'2026-11-21T02:02:00Z','Cat',1).run();
+ const snapshot=async()=>Promise.all(['users','claims','strikes','categories','answers','daily_specials','house_words','recovery_keys','founder_role'].map(async table=>(await legacy.prepare('SELECT * FROM '+table).all()).results));
+ const before=await snapshot();await legacy.exec(readFileSync('migrations/0015_r17_journal.sql','utf8').replace(/^--.*$/gm,'').replace(/\n/g,' '));expect(await snapshot()).toEqual(before);
 });

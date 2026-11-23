@@ -1,0 +1,213 @@
+{
+  "dailySetup": {
+    "reads": 38,
+    "writes": 74
+  },
+  "doStorageSetup": {
+    "reads": 8,
+    "writes": 14
+  },
+  "doStorageLogicalRows": {
+    "reads": 71,
+    "writes": 70
+  },
+  "mode": "after-local",
+  "at": "2026-11-23T07:44:30.267Z",
+  "scenario": "load, verification, typo, 6 guesses (3 claims, 1 taken strike, 2 reserved strikes), leaderboard, share, return visit; separate control player establishes the taken answer",
+  "httpRequests": 4,
+  "pagesFunctionRequests": 0,
+  "workerRequests": 4,
+  "doRequests": 4.45,
+  "socketMessages": 9,
+  "d1RowsRead": 800,
+  "d1RowsWritten": 55,
+  "allMutationsMetered": true,
+  "samples": [
+    {
+      "path": "/bootstrap",
+      "action": "/bootstrap",
+      "doReads": 3,
+      "doWrites": 5,
+      "transport": "http",
+      "status": 200,
+      "reads": 55,
+      "writes": 0,
+      "metered": true
+    },
+    {
+      "path": "/verify-session",
+      "action": "/verify-session",
+      "doReads": 5,
+      "doWrites": 4,
+      "transport": "socket",
+      "status": 200,
+      "reads": 0,
+      "writes": 0,
+      "metered": true
+    },
+    {
+      "path": "/claim",
+      "action": "typo",
+      "doReads": 5,
+      "doWrites": 4,
+      "transport": "socket",
+      "status": 422,
+      "reads": 3,
+      "writes": 0,
+      "metered": true
+    },
+    {
+      "path": "/claim",
+      "action": "claim",
+      "doReads": 7,
+      "doWrites": 8,
+      "transport": "socket",
+      "status": 201,
+      "reads": 98,
+      "writes": 22,
+      "metered": true
+    },
+    {
+      "path": "/claim",
+      "action": "strike",
+      "doReads": 8,
+      "doWrites": 7,
+      "transport": "socket",
+      "status": 409,
+      "reads": 95,
+      "writes": 2,
+      "metered": true
+    },
+    {
+      "path": "/claim",
+      "action": "reserved",
+      "doReads": 8,
+      "doWrites": 7,
+      "transport": "socket",
+      "status": 409,
+      "reads": 90,
+      "writes": 3,
+      "metered": true
+    },
+    {
+      "path": "/claim",
+      "action": "reserved",
+      "doReads": 8,
+      "doWrites": 7,
+      "transport": "socket",
+      "status": 409,
+      "reads": 94,
+      "writes": 2,
+      "metered": true
+    },
+    {
+      "path": "/claim",
+      "action": "claim",
+      "doReads": 8,
+      "doWrites": 8,
+      "transport": "socket",
+      "status": 201,
+      "reads": 145,
+      "writes": 13,
+      "metered": true
+    },
+    {
+      "path": "/claim",
+      "action": "claim",
+      "doReads": 8,
+      "doWrites": 9,
+      "transport": "socket",
+      "status": 201,
+      "reads": 174,
+      "writes": 13,
+      "metered": true
+    },
+    {
+      "path": "/leaderboard",
+      "action": "/leaderboard",
+      "doReads": 2,
+      "doWrites": 3,
+      "transport": "http",
+      "status": 200,
+      "reads": 0,
+      "writes": 0,
+      "metered": true
+    },
+    {
+      "path": "/events/share",
+      "action": "/events/share",
+      "doReads": 4,
+      "doWrites": 5,
+      "transport": "socket",
+      "status": 200,
+      "reads": 0,
+      "writes": 0,
+      "metered": true
+    },
+    {
+      "path": "/bootstrap",
+      "action": "/bootstrap",
+      "doReads": 5,
+      "doWrites": 3,
+      "transport": "http",
+      "status": 200,
+      "reads": 46,
+      "writes": 0,
+      "metered": true
+    }
+  ],
+  "storageCauses": {
+    "KV": {
+      "reads": 79,
+      "writes": 0
+    },
+    "KV put snapshot": {
+      "reads": 0,
+      "writes": 8
+    },
+    "KV put handle": {
+      "reads": 0,
+      "writes": 2
+    },
+    "KV put session": {
+      "reads": 0,
+      "writes": 17
+    },
+    "alarm": {
+      "reads": 0,
+      "writes": 1
+    },
+    "KV put scores": {
+      "reads": 0,
+      "writes": 8
+    },
+    "KV put metric": {
+      "reads": 0,
+      "writes": 14
+    },
+    "KV put usage": {
+      "reads": 0,
+      "writes": 14
+    },
+    "KV put cache": {
+      "reads": 0,
+      "writes": 4
+    },
+    "KV put active": {
+      "reads": 0,
+      "writes": 12
+    },
+    "KV put security": {
+      "reads": 0,
+      "writes": 2
+    },
+    "KV put summary": {
+      "reads": 0,
+      "writes": 1
+    },
+    "KV put platforms": {
+      "reads": 0,
+      "writes": 1
+    }
+  }
+}

@@ -86,7 +86,10 @@ export class DayRegistry extends DurableObject<Env> {
           .first<any>();
         if (!user) continue;
         const file = await fileState(env, this.category.id, user_id);
-        if(file.claims[0]?.founder){user.founder=true;user.handle=file.claims[0].handle;}
+        if (file.claims[0]?.founder) {
+          user.founder = true;
+          user.handle = file.claims[0].handle;
+        }
         const dates = (
           await env.DB.prepare(
             'SELECT DISTINCT g.date FROM claims c JOIN categories g ON g.id=c.category_id WHERE c.user_id=? AND c.voided=0 ORDER BY g.date DESC LIMIT 370',
@@ -110,7 +113,7 @@ export class DayRegistry extends DurableObject<Env> {
     this.owners.clear();
     this.claims = 0;
     for (const state of this.all().values()) {
-      this.users.set(state.user.id, {...state.user,streakDates:state.streakDates});
+      this.users.set(state.user.id, { ...state.user, streakDates: state.streakDates });
       for (const claim of state.file.claims) {
         this.owners.set(claim.answer_id || claim.display.toLowerCase(), {
           ...claim,
@@ -180,12 +183,13 @@ export class DayRegistry extends DurableObject<Env> {
     let uid = await cookieUser(req, env.COOKIE_SECRET),
       cookie = '';
     if (uid && this.users.has(uid)) return { user: this.users.get(uid), cookie };
-    let user: any, legacyIdentity=false;
+    let user: any,
+      legacyIdentity = false;
     if (uid) {
       const saved = await env.DB.prepare('SELECT data FROM r17_players WHERE id=?')
         .bind(uid)
         .first<any>();
-      legacyIdentity=!saved;
+      legacyIdentity = !saved;
       user = saved
         ? JSON.parse(saved.data)
         : await env.DB.prepare('SELECT id,handle,rerolls_used,hidden FROM users WHERE id=?')
@@ -226,9 +230,14 @@ export class DayRegistry extends DurableObject<Env> {
         user.handle = role.name;
         user.founder = true;
       }
-      if(legacyIdentity && this.category) {
-        user.recoveryHash=await hmac(normalizeFileKey(await fileKey(user.id,env.COOKIE_SECRET)),env.COOKIE_SECRET);
-        await env.DB.prepare('INSERT OR IGNORE INTO r17_players(id,data) VALUES(?,?)').bind(user.id,JSON.stringify(user)).run();
+      if (legacyIdentity && this.category) {
+        user.recoveryHash = await hmac(
+          normalizeFileKey(await fileKey(user.id, env.COOKIE_SECRET)),
+          env.COOKIE_SECRET,
+        );
+        await env.DB.prepare('INSERT OR IGNORE INTO r17_players(id,data) VALUES(?,?)')
+          .bind(user.id, JSON.stringify(user))
+          .run();
       }
       this.users.set(user.id, user);
     }
@@ -279,22 +288,45 @@ export class DayRegistry extends DurableObject<Env> {
     await this.init(env);
     const url = new URL(req.url),
       path = url.pathname.replace(/^\/api/, '');
-    if(path==='/admin/r17-moderate' && req.method==='POST') {
-      if(!await constantEqual(req.headers.get('authorization')||'','Bearer '+env.ADMIN_TOKEN))return json({message:'Not found.'},404);
-      const b=await body(req,3000);
-      const selected=[...this.all().values()].filter(s=>s.user.id===b.uid || s.file.claims.some((c:any)=>c.id===b.claimId));
-      for(const state of selected) {
-        if(!this.journal?.files.has(state.user.id))this.journal?.append(state);
-        const role=await env.DB.prepare('SELECT name FROM founder_role WHERE user_id=?').bind(state.user.id).first<any>();
-        const identity=await env.DB.prepare('SELECT handle,hidden FROM users WHERE id=?').bind(state.user.id).first<any>();
-        this.journal?.rewriteUser(state.user.id,s=>{
-          if(b.hide)s.user.hidden=1;
-          if(b.role){s.user.handle=role?.name||identity?.handle||s.user.handle;s.user.founder=!!role;}
-          s.file.claims=s.file.claims.map((c:any)=>({...c,handle:s.user.hidden?'Record withheld':s.user.handle,founder:!s.user.hidden&&!!s.user.founder,voided:c.id===b.claimId?1:c.voided}));
-          s.file.eligible=!s.user.hidden&&!s.file.claims.some((c:any)=>c.voided);s.requests={};return s;
+    if (path === '/admin/r17-moderate' && req.method === 'POST') {
+      if (
+        !(await constantEqual(req.headers.get('authorization') || '', 'Bearer ' + env.ADMIN_TOKEN))
+      )
+        return json({ message: 'Not found.' }, 404);
+      const b = await body(req, 3000);
+      const selected = [...this.all().values()].filter(
+        (s) => s.user.id === b.uid || s.file.claims.some((c: any) => c.id === b.claimId),
+      );
+      for (const state of selected) {
+        if (!this.journal?.files.has(state.user.id)) this.journal?.append(state);
+        const role = await env.DB.prepare('SELECT name FROM founder_role WHERE user_id=?')
+          .bind(state.user.id)
+          .first<any>();
+        const identity = await env.DB.prepare('SELECT handle,hidden FROM users WHERE id=?')
+          .bind(state.user.id)
+          .first<any>();
+        this.journal?.rewriteUser(state.user.id, (s) => {
+          if (b.hide) s.user.hidden = 1;
+          if (b.role) {
+            s.user.handle = role?.name || identity?.handle || s.user.handle;
+            s.user.founder = !!role;
+          }
+          s.file.claims = s.file.claims.map((c: any) => ({
+            ...c,
+            handle: s.user.hidden ? 'Record withheld' : s.user.handle,
+            founder: !s.user.hidden && !!s.user.founder,
+            voided: c.id === b.claimId ? 1 : c.voided,
+          }));
+          s.file.eligible = !s.user.hidden && !s.file.claims.some((c: any) => c.voided);
+          s.requests = {};
+          return s;
         });
       }
-      await this.journal?.durable();await this.flush(env);this.rebuild();this.push();return json({ok:true,changed:selected.length});
+      await this.journal?.durable();
+      await this.flush(env);
+      this.rebuild();
+      this.push();
+      return json({ ok: true, changed: selected.length });
     }
     if (path === '/admin/r17-remove' && req.method === 'POST') {
       if (
@@ -468,7 +500,27 @@ export class DayRegistry extends DurableObject<Env> {
         'set-cookie': await sessionCookie(row.id, env.COOKIE_SECRET, isLocal(req, env.LOCAL_TEST)),
       });
     }
-    const { user } = await this.user(req, env);
+    let { user } = await this.user(req, env);
+    if (path === '/delete-file' && req.method === 'POST') {
+      const payload = await body(req.clone() as Request, 3000);
+      if (payload.key) {
+        const hash = await hmac(normalizeFileKey(String(payload.key)), env.COOKIE_SECRET);
+        const found = await env.DB.prepare(
+          "SELECT id FROM r17_players WHERE json_extract(data,'$.recoveryHash')=? UNION SELECT user_id id FROM recovery_keys WHERE key_hash=?",
+        )
+          .bind(hash, hash)
+          .first<any>();
+        if (!found) return json({ message: 'Backup code not found; check it and try again.' }, 422);
+        const headers = new Headers(req.headers);
+        headers.set(
+          'cookie',
+          (await sessionCookie(found.id, env.COOKIE_SECRET, isLocal(req, env.LOCAL_TEST))).split(
+            ';',
+          )[0],
+        );
+        ({ user } = await this.user(new Request(req, { headers }), env));
+      }
+    }
     if (!user)
       return json(
         {
@@ -481,7 +533,12 @@ export class DayRegistry extends DurableObject<Env> {
     if (req.method !== 'POST') return json({ message: 'Page not found.' }, 404);
     if (path === '/session-check') return json({ ok: true });
     if (path === '/verify-session') {
-      const key=user.id+':'+('SOCKET_SECURITY_KEY' in env?env.SOCKET_SECURITY_KEY:await securityKey(req,env.COOKIE_SECRET,env.LOCAL_TEST));
+      const key =
+        user.id +
+        ':' +
+        ('SOCKET_SECURITY_KEY' in env
+          ? env.SOCKET_SECURITY_KEY
+          : await securityKey(req, env.COOKIE_SECRET, env.LOCAL_TEST));
       const previous = this.verified.get(key);
       if (previous && previous.expires > Date.now()) return json(previous);
       const b = await body(req, 3000);
@@ -532,7 +589,11 @@ export class DayRegistry extends DurableObject<Env> {
       return json({ ok: true, message: 'Suggestion received; no strike charged.' });
     }
     if (path === '/me/reroll') {
-      if (this.state(user.id)?.file.dibs || (user.streakDates||[]).length || user.rerolls_used >= 3)
+      if (
+        this.state(user.id)?.file.dibs ||
+        (user.streakDates || []).length ||
+        user.rerolls_used >= 3
+      )
         return json({ message: 'This handle has been filed. Re-rolls are closed.' }, 403);
       user.handle = handle() + ' #' + user.id.slice(0, 8);
       user.rerolls_used++;
