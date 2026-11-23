@@ -1,5 +1,6 @@
 import { scoreFile } from './scoring';
-import { credentialGate, credentialQuota } from './credential-gate';
+import { credentialGate } from './credential-gate';
+import { credentialQuota } from './security';
 import { cleanStoredHandles } from '../shared/handles';
 import { cleanHandleBatch } from './handle-migration';
 import { feedbackText, reserveFeedback, feedbackQuota } from './feedback';

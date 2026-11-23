@@ -10,7 +10,7 @@ import {
 import { createHash } from 'node:crypto';
 import { SECURITY_HEADERS } from './shared/security';
 import { PUBLIC_ORIGIN } from './shared/config';
-import { defineConfig } from 'vite';
+import { defineConfig, loadEnv } from 'vite';
 import react from '@vitejs/plugin-react';
 export default defineConfig(({ mode }) => {
   const out = mode === 'security-test' ? '.tmp/e2e-dist' : 'dist';
@@ -21,6 +21,10 @@ export default defineConfig(({ mode }) => {
       : SECURITY_HEADERS['Content-Security-Policy'];
   const buildId = process.env.DIBS_BUILD_ID || new Date().toISOString();
   const publicOrigin = process.env.DIBS_PUBLIC_ORIGIN || PUBLIC_ORIGIN;
+  // VITE_ variables are public browser configuration, never Worker credentials.
+  const analyticsToken =
+    process.env.VITE_CF_ANALYTICS_TOKEN ||
+    loadEnv(mode, process.cwd(), 'VITE_CF_ANALYTICS_TOKEN').VITE_CF_ANALYTICS_TOKEN;
   return {
     define: {
       DIBS_PUBLIC_ORIGIN: JSON.stringify(publicOrigin),
@@ -55,6 +59,14 @@ export default defineConfig(({ mode }) => {
                       '@graph': homeStructuredData(publicOrigin),
                     }).replace(/</g, '\\u003c') +
                     '</script>'
+                : '',
+            )
+            .replace(
+              '__BEACON_CONFIG__',
+              mode !== 'security-test' &&
+                publicOrigin === PUBLIC_ORIGIN &&
+                /^[a-f0-9]{32}$/.test(analyticsToken || '')
+                ? `<script type="application/json" data-dibs-beacon='${JSON.stringify({ token: analyticsToken })}'></script>`
                 : '',
             )
             .replace('__RULES_HTML__', rulesHtml)

@@ -23,6 +23,7 @@ observer.contexts()[0].on('page', (page) => {
 });
 try {
   const result = await lighthouse(process.argv[2] || 'https://dibs.here', {
+    extraHeaders: { 'x-dibs-test': '1' },
     port: 9222,
     output: ['json', 'html'],
     onlyCategories: ['performance', 'accessibility', 'best-practices', 'seo'],
@@ -45,6 +46,10 @@ try {
     },
   });
   if (result) {
+    writeFileSync(
+      reportDir + '/diagnostics.json',
+      JSON.stringify({ failures, console: result.lhr.audits['errors-in-console'] }),
+    );
     if (failures.length || result.lhr.audits['errors-in-console']?.score === 0)
       throw new Error('Invalid audit: failed API/console errors: ' + failures.join(', '));
     writeFileSync(reportDir + '/mobile.json', result.report[0]);

@@ -1,18 +1,7 @@
 import { normalizeFileKey } from './identity';
-import { securityKey } from './security';
+import { securityKey, credentialQuota } from './security';
 import { body, json, type Env } from './routes';
 // One Registry quota spans endpoint, cookie, day, deployment and DO restarts.
-export async function credentialQuota(storage: DurableObjectStorage, network: string, now: number) {
-  return storage.transaction(async (tx) => {
-    const key = 'security:credential:' + network;
-    const old = await tx.get<{ count: number; expires: number }>(key);
-    const value = old && old.expires > now ? old : { count: 0, expires: now + 900000 };
-    if (value.count >= 5) return false;
-    value.count++;
-    await tx.put(key, value);
-    return true;
-  });
-}
 export async function credentialGate(req: Request, env: Env, storage?: DurableObjectStorage) {
   const path = new URL(req.url).pathname;
   if (req.method !== 'POST' || !/\/api\/(recover|delete-file)$/.test(path)) return null;

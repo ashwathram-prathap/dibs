@@ -45,3 +45,46 @@ export async function securityKey(req: Request, secret: string, local?: string) 
 }
 export const NETWORK_BUSY =
   'Too many new players from this network right now. Try again in a few minutes, or switch to mobile data.';
+
+// Durable limits must expire even if the last request was an anonymous rejection.
+export async function scheduleSecurityCleanup(
+  storage: DurableObjectStorage,
+  at = Date.now() + 900000,
+) {
+  const current = await storage.getAlarm();
+  if (!current || current > at) await storage.setAlarm(at);
+}
+export async function expireSecurity(storage: DurableObjectStorage, now = Date.now()) {
+  let after: string | undefined;
+  let next = Infinity;
+  while (true) {
+    const page = await storage.list<{ expires: number }>({
+      prefix: 'security:',
+      limit: 500,
+      ...(after ? { startAfter: after } : {}),
+    });
+    if (!page.size) break;
+    const expired: string[] = [];
+    for (const [key, value] of page) {
+      if (value.expires <= now) expired.push(key);
+      else next = Math.min(next, value.expires);
+    }
+    if (expired.length) await storage.delete(expired);
+    after = [...page.keys()].at(-1);
+    if (page.size < 500) break;
+  }
+  if (Number.isFinite(next)) await scheduleSecurityCleanup(storage, next);
+}
+
+export async function credentialQuota(storage: DurableObjectStorage, network: string, now: number) {
+  await scheduleSecurityCleanup(storage, now + 900000);
+  return storage.transaction(async (tx) => {
+    const key = 'security:credential:' + network;
+    const old = await tx.get<{ count: number; expires: number }>(key);
+    const value = old && old.expires > now ? old : { count: 0, expires: now + 900000 };
+    if (value.count >= 5) return false;
+    value.count++;
+    await tx.put(key, value);
+    return true;
+  });
+}

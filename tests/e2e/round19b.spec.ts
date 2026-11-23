@@ -22,3 +22,10 @@ test('R19B offers a LinkedIn score link and image download without posting', asy
     ),
   ).toBe(false);
 });
+
+test('R19B short certificate URLs render the certificate and share actions', async ({ page }) => {
+  await page.goto('/c/fixture-1?no-analytics=1');
+  await expect(page.getByRole('heading', { name: 'On the record.', exact: true })).toBeVisible();
+  await expect(page.getByRole('link', { name: 'Post on LinkedIn' })).toBeVisible();
+  await expect(page.getByRole('button', { name: 'Download image', exact: true })).toBeEnabled();
+});

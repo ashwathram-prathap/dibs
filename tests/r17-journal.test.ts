@@ -1,3 +1,4 @@
+import { assertPublicPayload, shapes } from './public-payload-schema';
 import { visibleClaim } from '../worker/visibility';
 import { readCategory } from '../scripts/category-file';
 import { it, expect, beforeAll, afterAll } from 'vitest';
@@ -242,6 +243,7 @@ it('R19B exposes only allowed pre-close fields across anonymous and signed publi
   ]);
   for (const cookie of ['', other.cookie, winner.cookie]) {
     const data: any = await (await call(summary, undefined, cookie)).json();
+    assertPublicPayload(data, shapes.summary);
     for (const key of Object.keys(data.file)) expect(allowedFile.has(key), key).toBe(true);
     for (const c of data.file.claims)
       for (const key of Object.keys(c)) expect(allowedClaim.has(key), key).toBe(true);
@@ -258,6 +260,7 @@ it('R19B exposes only allowed pre-close fields across anonymous and signed publi
     '/certificate/' + claim.id,
   ]) {
     const data: any = await (await call(path, undefined, other.cookie)).json();
+    assertPublicPayload(data, shapes[path.split(/[/?]/)[1]]);
     expect(JSON.stringify(data)).not.toMatch(/answer_id|user_id|"display"|"golden"/);
   }
 });
@@ -587,6 +590,7 @@ it('R19 counts only finished files, updates the live score percentile, and expos
     messages.some((m) => m.leaderboard?.comparison.finished === final.comparison.finished),
   ).toBe(true);
   for (const message of messages) {
+    assertPublicPayload(message, shapes.bootstrap);
     expect(message.rows).toEqual([]);
     expect(JSON.stringify(message.leaderboard)).not.toMatch(/display|answer_id|holder/);
   }

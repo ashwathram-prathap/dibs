@@ -14,18 +14,20 @@ const agents = [
   'Discordbot',
 ];
 beforeAll(async () => {
-  const html = readFileSync('index.html', 'utf8').replaceAll(
-    '__PUBLIC_ORIGIN__',
-    'https://dibs.here',
-  );
+  const html = readFileSync('index.html', 'utf8')
+    .replaceAll('__PUBLIC_ORIGIN__', 'https://dibs.here')
+    .replace(
+      '__BEACON_CONFIG__',
+      `<script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token":"fixture"}'></script>`,
+    );
   const code = await build({
     stdin: {
-      contents: `import {og} from './worker/og'; import {preview} from './shared/preview'; import {onRequest} from './functions/_middleware';
+      contents: `import {og} from './worker/og'; import {preview} from './shared/preview'; import {onRequest as shortPreview} from './functions/c/[id]'; import {onRequest} from './functions/_middleware';
  const file={summaryId:'fixture',points:140,rank:3,players:27,streak:2,dibs:3,strikes:1,events:[{kind:'dibs'},{kind:'strike'}]};
  const category={name:'Animals',date:'2026-11-23'};
  export default {fetch(request){const path=new URL(request.url).pathname; if(path.startsWith('/api/og')) return og(null,path==='/api/og'?undefined:{file,category});
- const env={API:{fetch:async()=>Response.json(path.startsWith('/c/')?{claim:{category_name:'Animals',claim_no:1,points:140,rank:3,players:27}}:{file,category})},ASSETS:{fetch:async()=>new Response(${JSON.stringify(html)},{headers:{'content-type':'text/html'}})}};
- return onRequest({request,env,next:()=>path.startsWith('/summary/')||path.startsWith('/c/')?preview(path.startsWith('/c/')?'certificate':'summary')({request,env,params:{id:'fixture'}}):env.ASSETS.fetch()});}}`,
+ const env={API:{fetch:async()=>Response.json(path.startsWith('/c/')?{claim:{id:'fixture',category_name:'Animals',claim_no:1,points:140,rank:3,players:27}}:{file,category})},ASSETS:{fetch:async()=>new Response(${JSON.stringify(html)},{headers:{'content-type':'text/html'}})}};
+ return onRequest({request,env,next:()=>path.startsWith('/summary/')||path.startsWith('/c/')?(path.startsWith('/c/')?shortPreview:preview('summary'))({request,env,params:{id:'fixture'}}):env.ASSETS.fetch()});}}`,
       resolveDir: process.cwd(),
     },
     bundle: true,
@@ -133,4 +135,13 @@ it('uses an evergreen home and answer-free LinkedIn caption and intent', () => {
   expect(intentUrl('linkedin' as any, text, 'https://dibs.here/summary/fixture')).toContain(
     'https://www.linkedin.com/sharing/share-offsite/?url=',
   );
+});
+
+it('makes injected analytics inert and propagates the explicit test header before HTML reaches the browser', async () => {
+  const r = await mf.dispatchFetch('https://dibs.here/', { headers: { 'x-dibs-test': '1' } });
+  const html = await r.text();
+  expect(r.headers.get('cache-control')).toContain('no-transform');
+  expect(html).toContain('name="dibs-test"');
+  expect(html).toContain('data-dibs-beacon=');
+  expect(html).not.toContain('src="https://static.cloudflareinsights.com/');
 });

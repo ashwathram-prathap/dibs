@@ -13,6 +13,7 @@ try {
     for (const strategy of ['mobile', 'desktop'] as const) {
       const desktop = strategy === 'desktop';
       const result = await lighthouse(url, {
+        extraHeaders: { 'x-dibs-test': '1' },
         port: 9223,
         output: ['json', 'html'],
         onlyCategories: ['performance', 'accessibility', 'best-practices', 'seo'],

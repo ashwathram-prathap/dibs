@@ -8,7 +8,7 @@ const once = process.argv.includes('--once');
 for (let run = 1; run <= (once ? 1 : 3); run++)
   for (const strategy of once ? ['mobile'] : ['mobile', 'desktop']) {
     const url = new URL('https://www.googleapis.com/pagespeedonline/v5/runPagespeed');
-    url.searchParams.set('url', 'https://dibs.here');
+    url.searchParams.set('url', 'https://dibs.here/?no-analytics=1');
     url.searchParams.set('strategy', strategy);
     for (const category of ['performance', 'accessibility', 'best-practices', 'seo'])
       url.searchParams.append('category', category);

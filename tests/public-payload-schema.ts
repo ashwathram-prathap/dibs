@@ -1,0 +1,79 @@
+import { expect } from 'vitest';
+type Shape = true | { [key: string]: Shape } | Shape[];
+const fields = (names: string): Record<string, Shape> =>
+  Object.fromEntries(names.split(' ').map((k) => [k, true]));
+const comparison = fields('finished percentile rank points'); // Aggregate score percentile, never answer rarity.
+const category = {
+  ...fields('id date name slug total_registrable drop_at status'),
+  paper: fields('stock light dark plate'),
+};
+const specials = {
+  ...fields('houseCount goldenFound goldenTotal commitment committedAt verified'),
+  houseWords: [],
+  clue: fields('text crackedBy'),
+};
+export const claimShape = {
+  ...fields(
+    'id category_id claim_no handle created_at category_name category_date category_slug total_registrable founder streak concealed revealed owned',
+  ),
+};
+const event = fields('at kind');
+const file = {
+  ...fields(
+    'category_id summaryId dibs strikes closed completedAt points rank players streak handle founder revealed',
+  ),
+  claims: [claimShape],
+  events: [event],
+  comparison,
+};
+const standing = fields('rank handle founder points claims own');
+const board = { rows: [standing], own: standing, total: true, comparison, final: true };
+const today = {
+  ...fields(
+    'serverTime revealed closesAt practice claimed open voided lastClaimAt nextDrop turnstileSiteKey',
+  ),
+  category,
+  specials,
+  board: [],
+};
+export const shapes: Record<string, Shape> = {
+  summary: { concealed: true, category, specials, nextDrop: true, file },
+  certificate: { claim: claimShape, score: file },
+  ledger: { rows: [], locked: true },
+  leaderboard: board,
+  bootstrap: {
+    today,
+    me: {
+      user: fields('id handle rerolls_used'),
+      claim: claimShape,
+      file,
+      streakDates: [true],
+      streak: true,
+    },
+    leaderboard: board,
+    rows: [],
+    version: true,
+    reset: true,
+  },
+  today,
+};
+export function assertPublicPayload(value: any, shape: Shape, path = 'payload') {
+  if (value == null) return;
+  if (shape === true) {
+    expect(typeof value === 'object', path + ' must be scalar').toBe(false);
+    return;
+  }
+  if (Array.isArray(shape)) {
+    expect(Array.isArray(value), path).toBe(true);
+    if (!shape.length) expect(value, path + ' must be empty before close').toEqual([]);
+    else
+      value.forEach((v: any, i: number) => assertPublicPayload(v, shape[0], path + '[' + i + ']'));
+    return;
+  }
+  expect(typeof value, path).toBe('object');
+  for (const key of Object.keys(value)) {
+    expect(['answer_id', 'user_id'].includes(key), path + '.' + key).toBe(false);
+    expect(Object.hasOwn(shape, key), 'Unlisted ' + path + '.' + key).toBe(true);
+    assertPublicPayload(value[key], shape[key], path + '.' + key);
+  }
+}

@@ -7,7 +7,7 @@ import { backupCode } from './backup-code';
 import { cluedId } from './clue';
 import { og } from './og';
 import { isPlatform } from '../shared/sharing';
-import { securityKey, gate, type Gate } from './security';
+import { securityKey, gate, type Gate, scheduleSecurityCleanup, expireSecurity } from './security';
 import { withdraw } from './withdraw';
 import { DurableObject } from 'cloudflare:workers';
 import { EventJournal, type JournalFile } from './event-journal';
@@ -395,6 +395,7 @@ export class DayRegistry extends DurableObject<Env> {
     if (!user && (create || uid)) {
       const network = await securityKey(req, env.COOKIE_SECRET, env.LOCAL_TEST);
       if (network && !uid) {
+        await scheduleSecurityCleanup(this.ctx.storage);
         const allowed = await this.ctx.storage.transaction(async (tx) => {
           const key = 'security:identity:' + network;
           const old = await tx.get<{ count: number; expires: number }>(key);
@@ -511,6 +512,7 @@ export class DayRegistry extends DurableObject<Env> {
         : valid
           ? 200
           : 404;
+      await scheduleSecurityCleanup(this.ctx.storage);
       if (status !== 200) return json({ message: 'Not found.' }, status);
     }
     if (!this.category && this.nextCheck && Date.now() >= this.nextCheck) this.ready = undefined;
@@ -1260,6 +1262,7 @@ export class DayRegistry extends DurableObject<Env> {
     }
   }
   async alarm() {
+    await expireSecurity(this.ctx.storage);
     await this.init(this.env);
     await this.flush();
   }

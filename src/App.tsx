@@ -420,7 +420,7 @@ export default function App() {
               />
             ) : path.startsWith('/summary/') ? (
               <SummaryPage key={path} id={decodeURIComponent(path.split('/').pop()!)} />
-            ) : path.startsWith('/certificate/') ? (
+            ) : path.startsWith('/certificate/') || path.startsWith('/c/') ? (
               <CertificatePage id={decodeURIComponent(path.split('/').pop()!)} />
             ) : path.startsWith('/archive') ? (
               <Archive />
