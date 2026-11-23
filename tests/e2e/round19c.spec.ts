@@ -2,6 +2,25 @@ import { test, expect } from './security-fixture';
 import type { Page, TestInfo } from '@playwright/test';
 import { mkdirSync } from 'node:fs';
 
+function describeConsoleErrors() {
+  const original = console.error.bind(console);
+  console.error = (...values) =>
+    original(
+      ...values.map((value) => {
+        if (value && typeof value === 'object') {
+          if ('message' in value || 'stack' in value)
+            return `${value.name || 'Error'}: ${value.message || ''}\n${value.stack || ''}`;
+          try {
+            return JSON.stringify(value);
+          } catch {
+            return String(value);
+          }
+        }
+        return value;
+      }),
+    );
+}
+
 function contrast(foreground: string, background: string) {
   const luminance = (color: string) => {
     const values = color
@@ -285,6 +304,7 @@ test.beforeEach(async ({ page }, info) => {
     if (e.type() === 'error') errors.push(e.text());
   });
   (page as any).__errors = errors;
+  await page.addInitScript(describeConsoleErrors);
   await page.addInitScript(
     ({ scale }) => {
       document.addEventListener('DOMContentLoaded', () => {
@@ -548,10 +568,11 @@ test('Share and visitor landing work in browser, standalone, LinkedIn and Instag
           : undefined,
     } as any);
     const p = await context.newPage();
+    await p.addInitScript(describeConsoleErrors);
     const errors: string[] = [];
     p.on('pageerror', (e) => errors.push(e.message));
     p.on('console', (e) => {
-      if (e.type() === 'error') errors.push(e.text());
+      if (e.type() === 'error') errors.push(e.text() + ' at ' + p.url());
     });
     await p.addInitScript(
       ({ scale, mode }) => {
