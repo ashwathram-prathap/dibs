@@ -12,13 +12,25 @@ for (const browserName of ['chromium', 'webkit'] as const)
     });
 export default defineConfig({
   ...base,
-  projects,
+  projects: projects.filter((p) =>
+    process.env.R19F_FIREFOX ? p.name?.startsWith('firefox-') : !p.name?.startsWith('firefox-'),
+  ),
   testMatch: ['round19f.spec.ts', 'flow.spec.ts'],
   workers: 4,
   timeout: 90000,
   outputDir: '.tmp/r19f/browser-artifacts',
   use: { ...base.use, baseURL: 'http://127.0.0.1:5220', timezoneId: 'America/Toronto' },
-  reporter: [['list'], ['json', { outputFile: 'review/round19f/browser-results.json' }]],
+  reporter: [
+    ['list'],
+    [
+      'json',
+      {
+        outputFile:
+          process.env.R19F_REPORT ||
+          `review/round19f/${process.env.R19F_FIREFOX ? 'firefox-' : ''}browser-results.json`,
+      },
+    ],
+  ],
   webServer: {
     command: 'npx vite preview --mode security-test --host 127.0.0.1 --port 5220',
     url: 'http://127.0.0.1:5220',

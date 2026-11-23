@@ -111,12 +111,12 @@ export async function exportCertificate(claim: Claim, story: boolean, hideAnswer
   c.fillStyle = ink;
   c.font = '400 26px "Instrument Sans"';
   c.save();
-  c.translate(790, h - 240);
+  c.translate(790, h - 500);
   c.scale(0.9, 0.9);
   c.lineWidth = 1.4;
   c.stroke(new Path2D(REGISTRAR_STROKE));
   c.restore();
-  text('The Registrar', 790, h - 180, 18);
+  text('The Registrar', 790, h - 440, 18);
   fitCanvasLine(
     c,
     `${claim.points ?? 0} points${claim.bonus ? ` · ${(claim.points ?? 0) - claim.bonus} + ${claim.bonus} golden bonus` : ''}`,
@@ -139,7 +139,7 @@ export async function exportCertificate(claim: Claim, story: boolean, hideAnswer
   if (!claim.concealed && claim.percentile != null)
     await drawCurve(c, claim.percentile, 80, h - 310, 400, 105, !!claim.golden);
   c.save();
-  c.translate(550, h - 247);
+  c.translate(780, h - 265);
   c.rotate(((((claim.claim_no * 7.31) % 7) - 4) * Math.PI) / 180);
   c.strokeStyle = claim.golden ? '#B8902F' : '#E1462B';
   c.fillStyle = claim.golden ? '#B8902F' : '#E1462B';

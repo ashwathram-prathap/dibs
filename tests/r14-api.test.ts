@@ -226,7 +226,7 @@ it('scores server-side at claim time, adds golden +100, and ignores submitted po
   const after: any = await (await call('/me', undefined, first.cookie)).json();
   expect(after.file.claims[0].points).toBe(50);
 });
-it('deducts taken and reserved strikes, floors at zero, and gives a live row to a strike-only player', async () => {
+it('deducts taken and reserved strikes, floors at zero, and excludes strike-only players from the claimants rank', async () => {
   const taken = await play(first, won[1]);
   expect(taken.status).toBe(409);
   expect(taken.data.file.points).toBe(40);
@@ -242,13 +242,15 @@ it('deducts taken and reserved strikes, floors at zero, and gives a live row to 
   const r = await play(loser, won[0]);
   expect(r.data.file.points).toBe(0);
   const board: any = await (await call('/leaderboard', undefined, loser.cookie)).json();
-  expect(board.own).toMatchObject({ points: 0, claims: 0 });
+  expect(board.own).toBeNull();
   const reroll = await call('/me/reroll', {}, loser.cookie);
   expect(reroll.status).toBe(200);
   const renamed: any = await reroll.json();
   const after: any = await (await call('/leaderboard', undefined, loser.cookie)).json();
-  expect(after.own.handle).toBe(renamed.user.handle);
-  expect(after.own.points).toBe(0);
+  expect(after.own).toBeNull();
+  const renamedMe: any = await (await call('/me', undefined, loser.cookie)).json();
+  expect(renamedMe.user.handle).toBe(renamed.user.handle);
+  expect(renamedMe.file.points).toBe(0);
 });
 it('never leaks other answers through leaderboard, completed-viewer ledger, socket, summary or HTML', async () => {
   for (const n of [60, 61]) {
@@ -301,8 +303,9 @@ it('returns 25 real rows plus own rank and makes repeated polling cost zero D1 r
     expect(r.status).toBe(201);
     last = a;
   }
-  // Strike-only score is below every claim, and therefore outside the first 25.
+  // A successful claim with a strike ranks below every unpenalized claim.
   const outsider = await account();
+  expect((await play(outsider, 51)).status).toBe(201);
   await play(outsider, won[0]);
   const board: any = await (await call('/leaderboard', undefined, outsider.cookie)).json();
   expect(board.rows).toHaveLength(25);
