@@ -38,9 +38,9 @@ try {
     '-c',
     'worker/wrangler.jsonc',
   ]);
+  await new Promise((resolve) => setTimeout(resolve, 10000)); // Let the new admin route propagate.
   ts('Clean existing stored handle suffixes', 'scripts/r19-migrate-handles.ts');
   ts('Notify IndexNow after Worker deploy (nonblocking)', 'scripts/indexnow.ts');
-  await new Promise((resolve) => setTimeout(resolve, 10000)); // Allow deployed routes to propagate before smoke.
   const response = await fetch('https://dibs.here/api/bootstrap', { cache: 'no-store' });
   const data: any = await response.json();
   writeFileSync(
