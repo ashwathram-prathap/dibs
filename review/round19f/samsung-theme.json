@@ -1,0 +1,29 @@
+{
+  "passed": true,
+  "results": [
+    {
+      "theme": "light",
+      "scheme": "light",
+      "meta": "light dark",
+      "background": "rgb(241, 236, 226)",
+      "luminance": 232.33333333333334,
+      "passed": true
+    },
+    {
+      "theme": "dark",
+      "scheme": "dark",
+      "meta": "light dark",
+      "background": "rgb(22, 21, 15)",
+      "luminance": 25.333333333333332,
+      "passed": true
+    },
+    {
+      "theme": "light",
+      "scheme": "light",
+      "meta": "light dark",
+      "background": "rgb(241, 236, 226)",
+      "luminance": 232.33333333333334,
+      "passed": true
+    }
+  ]
+}

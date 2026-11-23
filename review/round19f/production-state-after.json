@@ -1,0 +1,32 @@
+{
+  "at": "2026-11-23T22:07:14.925Z",
+  "stage": "production",
+  "passed": true,
+  "phase": "after",
+  "scheduledDates": 7,
+  "categories": [
+    "actors",
+    "animals",
+    "birds",
+    "cities",
+    "foods",
+    "countries",
+    "plants"
+  ],
+  "claims": 0,
+  "savedClaimsSha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+  "tonight": {
+    "id": "animals",
+    "slug": "animals",
+    "date": "2026-11-23",
+    "status": "approved",
+    "drop_at": "2026-11-24T02:00:00.000Z",
+    "staticCatalog": {
+      "v": 2,
+      "slug": "animals",
+      "version": "10210a86838c8eca",
+      "count": 89122,
+      "scope": "English common names for animals of every kind, including general groups and bird species."
+    }
+  }
+}

@@ -1,0 +1,49 @@
+{
+  "unit": {
+    "passed": 252,
+    "failed": 0,
+    "command": "npx vitest run --maxWorkers=1 --testTimeout=60000 --hookTimeout=60000 --reporter=json --outputFile=review/round19f/unit-results.json",
+    "note": "Serial run avoids concurrent catalog decompression and browser contention. The rank test now excludes randomized golden answers."
+  },
+  "finalCopyRegression": {
+    "passed": 11,
+    "failed": 0
+  },
+  "typecheck": "npm run check passed",
+  "visualReview": {
+    "sizes": [
+      390,
+      1440
+    ],
+    "themes": [
+      "light",
+      "dark"
+    ],
+    "checks": [
+      "No overflow",
+      "One primary phone Share action",
+      "Desktop two-by-two actions",
+      "Readable full certificate URLs",
+      "Gold text passes AA",
+      "No generic cards, gradients, stock imagery or placeholder copy"
+    ]
+  },
+  "loadTest": {
+    "status": "skipped",
+    "reason": "Not run before the permitted 7:05 PM ET window. R12 section 5 explicitly allows skipping instead of waiting for that window."
+  },
+  "limitations": [
+    "Browser engines and device profiles are emulated, not physical phones. Native-share payloads and activation are tested with API stubs.",
+    "Local Firefox could not start with its profile; required Firefox tests run on Linux CI.",
+    "Production has zero prelaunch claims; no fabricated records will be created to test a live certificate. Actual printed URLs are tested in practice and the production-mode handler is tested locally."
+  ],
+  "ogDateRegression": {
+    "passed": 38,
+    "failed": 0
+  },
+  "practiceFinalPreviews": {
+    "passed": 15,
+    "failed": 0
+  },
+  "practiceRestoration": "Verified real keys, original schedule and all 18 existing claims after retrying a transient flush failure."
+}

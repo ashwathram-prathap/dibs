@@ -1,0 +1,90 @@
+{
+  "passed": true,
+  "completedAt": "2026-11-23T22:07:16.442Z",
+  "completedET": "5:07 PM ET",
+  "hardStop": "2026-11-23 7:30 PM ET",
+  "launch": "2026-11-23 9:00 PM ET",
+  "codeCommit": "794a3b6",
+  "tag": "r19f-done",
+  "items": [
+    "Full printed certificate and summary URLs; old unique certificate prefixes resolve safely.",
+    "Plain scoring explanation before the first attempt and in How it works.",
+    "Consistent readership pool, top-decile, outside-pool and standard-score wording.",
+    "Reserved by the house wording and configured house-count explanation.",
+    "All-claimant ranks distinguished from finished-player comparisons.",
+    "One-sentence game description directly above the large launch countdown.",
+    "Dated edition labels on archived captions and link-preview images.",
+    "Invitation on both share images, prominent category/result, owner answers by default and remembered Hide my answers.",
+    "One in-flow phone Share button with More; desktop retains its two-by-two actions.",
+    "Android image+caption when supported; Apple image-only with caption copied, preserving native user activation."
+  ],
+  "tests": {
+    "unit": 252,
+    "browserMatrix": {
+      "browser-results": {
+        "startTime": "2026-11-23T21:50:19.686Z",
+        "duration": 394025.447,
+        "expected": 252,
+        "skipped": 0,
+        "unexpected": 0,
+        "flaky": 0
+      },
+      "final-browser-results": {
+        "startTime": "2026-11-23T21:49:12.747Z",
+        "duration": 61912.176999999996,
+        "expected": 48,
+        "skipped": 0,
+        "unexpected": 0,
+        "flaky": 0
+      },
+      "firefox-browser-results": {
+        "startTime": "2026-11-23T21:53:53.975Z",
+        "duration": 217543.996,
+        "expected": 36,
+        "skipped": 0,
+        "unexpected": 0,
+        "flaky": 0
+      }
+    },
+    "exportImages": 60,
+    "printedUrls": 8,
+    "legacyShortUrls": 6,
+    "ogRegression": 38,
+    "practicePreviewChecks": 15,
+    "lighthousePerformance": 98,
+    "lighthouseAccessibility": 100
+  },
+  "production": {
+    "pages": "f16893d0-8a61-4a2c-b284-0258036b856b",
+    "workerVersion": "59a45c87-83dc-4f72-acb3-4ee14b5d850f",
+    "workerDeployment": "5bc84a11-df8c-41be-bf46-ba8afd611c57",
+    "launch": "2026-11-24T02:00:00.000Z",
+    "recordedAt": "2026-11-23T22:07:16.419Z"
+  },
+  "rollback": {
+    "pages": "d3c6cd97-d3dc-4360-8846-a50b7c79c5ac",
+    "workerVersion": "08ac8998-1feb-48f8-a84d-021a8d7cea82",
+    "workerDeployment": "5340243c-ba93-4ba5-a73b-6ab984e18265",
+    "launch": "2026-11-24T02:00:00.000Z",
+    "recordedAt": "2026-11-23T22:05:16.381Z"
+  },
+  "practice": {
+    "at": "2026-11-23T22:02:08.661Z",
+    "passed": true,
+    "realVerification": true,
+    "notificationsRestored": true,
+    "scheduleRestored": true,
+    "existingClaimsPreserved": 18,
+    "qaClaims": 6,
+    "flushRetried": true
+  },
+  "limitations": [
+    "Browser engines and device profiles are emulated, not physical phones. Native-share payloads and activation are tested with API stubs.",
+    "Local Firefox could not start with its profile; required Firefox tests run on Linux CI.",
+    "Production has zero prelaunch claims; no fabricated records will be created to test a live certificate. Actual printed URLs are tested in practice and the production-mode handler is tested locally."
+  ],
+  "loadTest": {
+    "status": "skipped",
+    "reason": "Not run before the permitted 7:05 PM ET window. R12 section 5 explicitly allows skipping instead of waiting for that window."
+  }
+}

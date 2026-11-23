@@ -1,0 +1,61 @@
+{
+  "passed": true,
+  "at": "2026-11-23T21:55:31.166Z",
+  "opensAt": "2026-11-23T21:54:33.139Z",
+  "checks": [
+    {
+      "engine": "chromium",
+      "answer": "Redpoll",
+      "points": 95,
+      "bonus": 0,
+      "percentile": 0.8778,
+      "passed": true,
+      "errors": []
+    },
+    {
+      "engine": "chromium",
+      "answer": "Right whale",
+      "points": 25,
+      "bonus": 0,
+      "percentile": 0.2394,
+      "passed": true,
+      "errors": []
+    },
+    {
+      "engine": "chromium",
+      "answer": "Tapanuli Orangutan",
+      "points": 40,
+      "bonus": 0,
+      "percentile": 0.3538,
+      "passed": true,
+      "errors": []
+    },
+    {
+      "engine": "webkit",
+      "answer": "Gray Whale",
+      "points": 35,
+      "bonus": 0,
+      "percentile": 0.3339,
+      "passed": true,
+      "errors": []
+    },
+    {
+      "engine": "webkit",
+      "answer": "Bogong Moth",
+      "points": 25,
+      "bonus": 0,
+      "percentile": 0.2354,
+      "passed": true,
+      "errors": []
+    },
+    {
+      "engine": "webkit",
+      "answer": "Wildcat",
+      "points": 35,
+      "bonus": 0,
+      "percentile": 0.3093,
+      "passed": true,
+      "errors": []
+    }
+  ]
+}
