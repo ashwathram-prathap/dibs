@@ -1,6 +1,7 @@
 [
   {
     "category": "actors",
+    "retained": false,
     "catalogVersion": "1f68f6b5340a8880",
     "total": 137623,
     "measured": 137411,
@@ -14,6 +15,7 @@
   },
   {
     "category": "airports",
+    "retained": false,
     "catalogVersion": "8d8792d4f74eee1e",
     "total": 57109,
     "measured": 12762,
@@ -53,6 +55,7 @@
   },
   {
     "category": "albums",
+    "retained": false,
     "catalogVersion": "7b689f83c1956929",
     "total": 143941,
     "measured": 140878,
@@ -92,6 +95,7 @@
   },
   {
     "category": "animals",
+    "retained": false,
     "catalogVersion": "10210a86838c8eca",
     "total": 89122,
     "measured": 64423,
@@ -131,6 +135,7 @@
   },
   {
     "category": "architects",
+    "retained": false,
     "catalogVersion": "791e50276f0e82ae",
     "total": 17744,
     "measured": 17692,
@@ -144,6 +149,7 @@
   },
   {
     "category": "arthropods",
+    "retained": false,
     "catalogVersion": "51bc78890de6c9be",
     "total": 23621,
     "measured": 14694,
@@ -183,6 +189,7 @@
   },
   {
     "category": "asteroids",
+    "retained": false,
     "catalogVersion": "75530681294d3f8c",
     "total": 26637,
     "measured": 21150,
@@ -196,6 +203,7 @@
   },
   {
     "category": "bands",
+    "retained": false,
     "catalogVersion": "5aa38771254148d7",
     "total": 49795,
     "measured": 49678,
@@ -235,6 +243,7 @@
   },
   {
     "category": "birds",
+    "retained": false,
     "catalogVersion": "04985deb94445ed1",
     "total": 16189,
     "measured": 12794,
@@ -274,6 +283,7 @@
   },
   {
     "category": "castles",
+    "retained": false,
     "catalogVersion": "a373e1a824a05cc5",
     "total": 24713,
     "measured": 19547,
@@ -313,6 +323,7 @@
   },
   {
     "category": "cities",
+    "retained": false,
     "catalogVersion": "00cadebbe95f4404",
     "total": 149928,
     "measured": 105173,
@@ -352,6 +363,7 @@
   },
   {
     "category": "composers",
+    "retained": false,
     "catalogVersion": "65f4199c635d7bbc",
     "total": 70488,
     "measured": 70417,
@@ -391,6 +403,7 @@
   },
   {
     "category": "countries",
+    "retained": false,
     "catalogVersion": "34d735861a0b55ac",
     "total": 249,
     "measured": 249,
@@ -404,6 +417,7 @@
   },
   {
     "category": "films",
+    "retained": false,
     "catalogVersion": "5e6d4def4c7b073b",
     "total": 159646,
     "measured": 158806,
@@ -443,6 +457,7 @@
   },
   {
     "category": "foods",
+    "retained": false,
     "catalogVersion": "c13c215b8bb7b069",
     "total": 14011,
     "measured": 3839,
@@ -482,6 +497,7 @@
   },
   {
     "category": "footballers",
+    "retained": false,
     "catalogVersion": "3c42b0dee313f8fd",
     "total": 208788,
     "measured": 208220,
@@ -495,6 +511,7 @@
   },
   {
     "category": "fruits-vegetables",
+    "retained": false,
     "catalogVersion": "7cc25d83172226d8",
     "total": 1396,
     "measured": 1177,
@@ -534,6 +551,7 @@
   },
   {
     "category": "islands",
+    "retained": false,
     "catalogVersion": "dce93ccf83ed0b78",
     "total": 129033,
     "measured": 14630,
@@ -573,6 +591,7 @@
   },
   {
     "category": "lakes",
+    "retained": false,
     "catalogVersion": "c9a92d2453c458d6",
     "total": 273738,
     "measured": 15307,
@@ -612,6 +631,7 @@
   },
   {
     "category": "mountains",
+    "retained": false,
     "catalogVersion": "16b9c38c78cc2e5b",
     "total": 389883,
     "measured": 31299,
@@ -651,6 +671,7 @@
   },
   {
     "category": "museums",
+    "retained": false,
     "catalogVersion": "d4659b2a078667f8",
     "total": 20620,
     "measured": 20583,
@@ -690,6 +711,7 @@
   },
   {
     "category": "novels",
+    "retained": false,
     "catalogVersion": "c943416dcb136d31",
     "total": 34476,
     "measured": 34018,
@@ -729,6 +751,7 @@
   },
   {
     "category": "painters",
+    "retained": false,
     "catalogVersion": "739060aeb113477f",
     "total": 52966,
     "measured": 52894,
@@ -742,6 +765,7 @@
   },
   {
     "category": "paintings",
+    "retained": false,
     "catalogVersion": "9959859ce98921b9",
     "total": 516458,
     "measured": 10113,
@@ -781,6 +805,7 @@
   },
   {
     "category": "plants",
+    "retained": false,
     "catalogVersion": "f584483f47d38e7d",
     "total": 43308,
     "measured": 23465,
@@ -820,6 +845,7 @@
   },
   {
     "category": "poets",
+    "retained": false,
     "catalogVersion": "51f7d3922649c960",
     "total": 40826,
     "measured": 40783,
@@ -859,6 +885,7 @@
   },
   {
     "category": "rivers",
+    "retained": false,
     "catalogVersion": "e848dc5bda64483a",
     "total": 846065,
     "measured": 33597,
@@ -898,6 +925,7 @@
   },
   {
     "category": "ships",
+    "retained": false,
     "catalogVersion": "710de7afbdf266c3",
     "total": 33356,
     "measured": 33270,
@@ -937,6 +965,7 @@
   },
   {
     "category": "songs",
+    "retained": false,
     "catalogVersion": "29ccf58663e2b248",
     "total": 86353,
     "measured": 85620,
@@ -976,6 +1005,7 @@
   },
   {
     "category": "stations",
+    "retained": false,
     "catalogVersion": "c5509e1dd2ca6d1a",
     "total": 128777,
     "measured": 60962,
@@ -1015,6 +1045,7 @@
   },
   {
     "category": "television",
+    "retained": false,
     "catalogVersion": "d343cb3c81d189d2",
     "total": 57931,
     "measured": 57552,
@@ -1028,6 +1059,7 @@
   },
   {
     "category": "universities",
+    "retained": false,
     "catalogVersion": "1e087421872a18e5",
     "total": 24583,
     "measured": 24443,
@@ -1057,6 +1089,7 @@
   },
   {
     "category": "video-games",
+    "retained": false,
     "catalogVersion": "b3132c41eebaa59a",
     "total": 181173,
     "measured": 31367,
@@ -1091,6 +1124,46 @@
         "answer": "1999: Hore, Mita koto ka! Seikimatsu",
         "canonical": "Super Mario Bros./Tetris/Nintendo World Cup",
         "title": "List of Nintendo Entertainment System games"
+      }
+    ]
+  },
+  {
+    "category": "foods",
+    "retained": true,
+    "catalogVersion": "f0dbabbca22064f9",
+    "total": 13988,
+    "measured": 3839,
+    "poolLimit": 3000,
+    "poolSize": 3000,
+    "median": 55,
+    "missingBefore": 10682,
+    "missingAfter": 10149,
+    "mappedAnswers": 533,
+    "examples": [
+      {
+        "answer": "'Mpanatigghi",
+        "canonical": "Empanadas",
+        "title": "Empanada"
+      },
+      {
+        "answer": "Absinth",
+        "canonical": "Absinthe",
+        "title": "Absinthe"
+      },
+      {
+        "answer": "Aceto balsamico",
+        "canonical": "Balsamic vinegars",
+        "title": "Balsamic vinegar"
+      },
+      {
+        "answer": "Acuka",
+        "canonical": "Muhammara",
+        "title": "Muhammara"
+      },
+      {
+        "answer": "Adana kebap",
+        "canonical": "Adana kebabı",
+        "title": "Adana kebabı"
       }
     ]
   }

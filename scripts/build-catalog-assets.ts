@@ -1,38 +1,42 @@
 import { categoryStyle } from '../shared/category-style';
 import { buildBinaryCatalog } from './binary-catalog';
 import { BINARY_CHUNK_BYTES } from '../shared/binary-catalog';
-import { readCategory } from './category-file';
+import { catalogSources, readCatalogSource } from './catalog-sources';
 import { mkdirSync, readdirSync, readFileSync, writeFileSync, existsSync } from 'node:fs';
 import { createHash } from 'node:crypto';
 import { normalize } from '../worker/domain';
 import { shardFor, distanceFrom, type TypoNode, type CatalogRow } from '../shared/catalog';
 const unchanged =
   existsSync('worker/catalog-hot.generated.ts') &&
-  readdirSync('categories')
-    .filter((f) => f.endsWith('.json'))
-    .every((f) => {
-      const c = readCategory('categories/' + f);
-      if (c.provenance?.identityPolicy !== 'complete-reference-v2') return true;
-      const version = createHash('sha256')
-        .update(JSON.stringify(c.answers))
-        .digest('hex')
-        .slice(0, 16);
-      try {
-        return (
-          JSON.parse(readFileSync(`public/catalog/${c.slug}/manifest.json`, 'utf8')).version ===
-            version &&
-          (existsSync(`public/catalog/${c.slug}/${version}/full.json`) ||
-            existsSync(`public/catalog/${c.slug}/${version}/index-0.bin`)) &&
-          !existsSync(`public/catalog/${c.slug}/${version}/keys-0.json`)
-        );
-      } catch {
-        return false;
-      }
-    });
+  catalogSources().every((source) => {
+    const c = readCatalogSource(source);
+    if (c.provenance?.identityPolicy !== 'complete-reference-v2') return true;
+    const version = createHash('sha256')
+      .update(JSON.stringify(c.answers))
+      .digest('hex')
+      .slice(0, 16);
+    try {
+      return (
+        (source.retained
+          ? source.version
+          : JSON.parse(readFileSync(`public/catalog/${c.slug}/manifest.json`, 'utf8')).version) ===
+          version &&
+        (existsSync(`public/catalog/${c.slug}/${version}/full.json`) ||
+          existsSync(`public/catalog/${c.slug}/${version}/index-0.bin`)) &&
+        !existsSync(`public/catalog/${c.slug}/${version}/keys-0.json`)
+      );
+    } catch {
+      return false;
+    }
+  });
 if (unchanged && !process.argv.includes('--force')) {
   for (const slug of readdirSync('public/catalog')) {
     const path = `public/catalog/${slug}/manifest.json`;
-    if (existsSync(path)) { const manifest=JSON.parse(readFileSync(path,'utf8')); manifest.paper=categoryStyle(slug); writeFileSync(path,JSON.stringify(manifest)); }
+    if (existsSync(path)) {
+      const manifest = JSON.parse(readFileSync(path, 'utf8'));
+      manifest.paper = categoryStyle(slug);
+      writeFileSync(path, JSON.stringify(manifest));
+    }
   }
   console.log('Catalog assets already current');
   process.exit(0);
@@ -40,8 +44,8 @@ if (unchanged && !process.argv.includes('--force')) {
 // Keep previous immutable versions for active days and rollback Workers.
 mkdirSync('public/catalog', { recursive: true });
 const hot: Record<string, any> = {};
-for (const f of readdirSync('categories').filter((f) => f.endsWith('.json'))) {
-  const c = readCategory('categories/' + f);
+for (const source of catalogSources()) {
+  const c = readCatalogSource(source);
   if (c.provenance?.identityPolicy !== 'complete-reference-v2') continue;
   const rows: CatalogRow[] = c.answers.map((a: any, i: number) => [i, a.display, a.obscurity]);
   const version = createHash('sha256').update(JSON.stringify(c.answers)).digest('hex').slice(0, 16);
@@ -136,12 +140,13 @@ for (const f of readdirSync('categories').filter((f) => f.endsWith('.json'))) {
       at = child;
     }
   }
-  hot[c.slug] = {
-    version,
-    keys: fast,
-    tree: fastTree,
-    names: Object.fromEntries(Object.values(fast).map((row) => [row[0], row[1]])),
-  };
+  if (!source.retained)
+    hot[c.slug] = {
+      version,
+      keys: fast,
+      tree: fastTree,
+      names: Object.fromEntries(Object.values(fast).map((row) => [row[0], row[1]])),
+    };
   const manifest = {
     v: 2,
     slug: c.slug,
@@ -153,7 +158,8 @@ for (const f of readdirSync('categories').filter((f) => f.endsWith('.json'))) {
     ...(binary ? { indexFormat: 'sha256-96-v1', indexChunks } : {}),
     ...(rowChunkSize !== 256 ? { rowChunkSize } : {}),
   };
-  writeFileSync(`public/catalog/${c.slug}/manifest.json`, JSON.stringify(manifest));
+  if (!source.retained)
+    writeFileSync(`public/catalog/${c.slug}/manifest.json`, JSON.stringify(manifest));
 }
 
 writeFileSync(

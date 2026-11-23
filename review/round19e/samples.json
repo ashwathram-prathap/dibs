@@ -1,6 +1,8 @@
 [
   {
     "category": "actors",
+    "catalogVersion": "1f68f6b5340a8880",
+    "retained": false,
     "poolSize": 3000,
     "medianBefore": 50,
     "medianAfter": 55,
@@ -279,6 +281,8 @@
   },
   {
     "category": "airports",
+    "catalogVersion": "8d8792d4f74eee1e",
+    "retained": false,
     "poolSize": 3000,
     "medianBefore": 50,
     "medianAfter": 55,
@@ -557,6 +561,8 @@
   },
   {
     "category": "albums",
+    "catalogVersion": "7b689f83c1956929",
+    "retained": false,
     "poolSize": 3000,
     "medianBefore": 50,
     "medianAfter": 55,
@@ -835,6 +841,8 @@
   },
   {
     "category": "animals",
+    "catalogVersion": "10210a86838c8eca",
+    "retained": false,
     "poolSize": 3000,
     "medianBefore": 50,
     "medianAfter": 55,
@@ -1113,6 +1121,8 @@
   },
   {
     "category": "architects",
+    "catalogVersion": "791e50276f0e82ae",
+    "retained": false,
     "poolSize": 3000,
     "medianBefore": 50,
     "medianAfter": 55,
@@ -1391,6 +1401,8 @@
   },
   {
     "category": "arthropods",
+    "catalogVersion": "51bc78890de6c9be",
+    "retained": false,
     "poolSize": 3000,
     "medianBefore": 50,
     "medianAfter": 55,
@@ -1669,6 +1681,8 @@
   },
   {
     "category": "asteroids",
+    "catalogVersion": "75530681294d3f8c",
+    "retained": false,
     "poolSize": 3000,
     "medianBefore": 45,
     "medianAfter": 55,
@@ -1947,6 +1961,8 @@
   },
   {
     "category": "bands",
+    "catalogVersion": "5aa38771254148d7",
+    "retained": false,
     "poolSize": 3000,
     "medianBefore": 50,
     "medianAfter": 55,
@@ -2225,6 +2241,8 @@
   },
   {
     "category": "birds",
+    "catalogVersion": "04985deb94445ed1",
+    "retained": false,
     "poolSize": 3000,
     "medianBefore": 50,
     "medianAfter": 55,
@@ -2503,6 +2521,8 @@
   },
   {
     "category": "castles",
+    "catalogVersion": "a373e1a824a05cc5",
+    "retained": false,
     "poolSize": 3000,
     "medianBefore": 50,
     "medianAfter": 55,
@@ -2781,6 +2801,8 @@
   },
   {
     "category": "cities",
+    "catalogVersion": "00cadebbe95f4404",
+    "retained": false,
     "poolSize": 3000,
     "medianBefore": 50,
     "medianAfter": 55,
@@ -3059,6 +3081,8 @@
   },
   {
     "category": "composers",
+    "catalogVersion": "65f4199c635d7bbc",
+    "retained": false,
     "poolSize": 3000,
     "medianBefore": 50,
     "medianAfter": 55,
@@ -3337,6 +3361,8 @@
   },
   {
     "category": "countries",
+    "catalogVersion": "34d735861a0b55ac",
+    "retained": false,
     "poolSize": 249,
     "medianBefore": 50,
     "medianAfter": 55,
@@ -3615,6 +3641,8 @@
   },
   {
     "category": "films",
+    "catalogVersion": "5e6d4def4c7b073b",
+    "retained": false,
     "poolSize": 3000,
     "medianBefore": 50,
     "medianAfter": 55,
@@ -3893,6 +3921,8 @@
   },
   {
     "category": "foods",
+    "catalogVersion": "c13c215b8bb7b069",
+    "retained": false,
     "poolSize": 3000,
     "medianBefore": 50,
     "medianAfter": 55,
@@ -4171,6 +4201,8 @@
   },
   {
     "category": "footballers",
+    "catalogVersion": "3c42b0dee313f8fd",
+    "retained": false,
     "poolSize": 3000,
     "medianBefore": 50,
     "medianAfter": 55,
@@ -4449,6 +4481,8 @@
   },
   {
     "category": "fruits-vegetables",
+    "catalogVersion": "7cc25d83172226d8",
+    "retained": false,
     "poolSize": 1177,
     "medianBefore": 50,
     "medianAfter": 55,
@@ -4727,6 +4761,8 @@
   },
   {
     "category": "islands",
+    "catalogVersion": "dce93ccf83ed0b78",
+    "retained": false,
     "poolSize": 3000,
     "medianBefore": 50,
     "medianAfter": 55,
@@ -5005,6 +5041,8 @@
   },
   {
     "category": "lakes",
+    "catalogVersion": "c9a92d2453c458d6",
+    "retained": false,
     "poolSize": 3000,
     "medianBefore": 50,
     "medianAfter": 55,
@@ -5283,6 +5321,8 @@
   },
   {
     "category": "mountains",
+    "catalogVersion": "16b9c38c78cc2e5b",
+    "retained": false,
     "poolSize": 3000,
     "medianBefore": 50,
     "medianAfter": 55,
@@ -5561,6 +5601,8 @@
   },
   {
     "category": "museums",
+    "catalogVersion": "d4659b2a078667f8",
+    "retained": false,
     "poolSize": 3000,
     "medianBefore": 50,
     "medianAfter": 55,
@@ -5839,6 +5881,8 @@
   },
   {
     "category": "novels",
+    "catalogVersion": "c943416dcb136d31",
+    "retained": false,
     "poolSize": 3000,
     "medianBefore": 50,
     "medianAfter": 55,
@@ -6117,6 +6161,8 @@
   },
   {
     "category": "painters",
+    "catalogVersion": "739060aeb113477f",
+    "retained": false,
     "poolSize": 3000,
     "medianBefore": 50,
     "medianAfter": 55,
@@ -6395,6 +6441,8 @@
   },
   {
     "category": "paintings",
+    "catalogVersion": "9959859ce98921b9",
+    "retained": false,
     "poolSize": 3000,
     "medianBefore": 50,
     "medianAfter": 55,
@@ -6673,6 +6721,8 @@
   },
   {
     "category": "plants",
+    "catalogVersion": "f584483f47d38e7d",
+    "retained": false,
     "poolSize": 3000,
     "medianBefore": 50,
     "medianAfter": 55,
@@ -6951,6 +7001,8 @@
   },
   {
     "category": "poets",
+    "catalogVersion": "51f7d3922649c960",
+    "retained": false,
     "poolSize": 3000,
     "medianBefore": 50,
     "medianAfter": 55,
@@ -7229,6 +7281,8 @@
   },
   {
     "category": "rivers",
+    "catalogVersion": "e848dc5bda64483a",
+    "retained": false,
     "poolSize": 3000,
     "medianBefore": 50,
     "medianAfter": 55,
@@ -7507,6 +7561,8 @@
   },
   {
     "category": "ships",
+    "catalogVersion": "710de7afbdf266c3",
+    "retained": false,
     "poolSize": 3000,
     "medianBefore": 50,
     "medianAfter": 55,
@@ -7785,6 +7841,8 @@
   },
   {
     "category": "songs",
+    "catalogVersion": "29ccf58663e2b248",
+    "retained": false,
     "poolSize": 3000,
     "medianBefore": 50,
     "medianAfter": 55,
@@ -8063,6 +8121,8 @@
   },
   {
     "category": "stations",
+    "catalogVersion": "c5509e1dd2ca6d1a",
+    "retained": false,
     "poolSize": 3000,
     "medianBefore": 50,
     "medianAfter": 55,
@@ -8341,6 +8401,8 @@
   },
   {
     "category": "television",
+    "catalogVersion": "d343cb3c81d189d2",
+    "retained": false,
     "poolSize": 3000,
     "medianBefore": 50,
     "medianAfter": 55,
@@ -8619,6 +8681,8 @@
   },
   {
     "category": "universities",
+    "catalogVersion": "1e087421872a18e5",
+    "retained": false,
     "poolSize": 3000,
     "medianBefore": 50,
     "medianAfter": 55,
@@ -8897,6 +8961,8 @@
   },
   {
     "category": "video-games",
+    "catalogVersion": "b3132c41eebaa59a",
+    "retained": false,
     "poolSize": 3000,
     "medianBefore": 50,
     "medianAfter": 55,
@@ -9165,6 +9231,286 @@
       {
         "answer": "_dive",
         "ordinal": 29473,
+        "meanDailyViews": null,
+        "beforePercentile": null,
+        "afterPercentile": null,
+        "beforePoints": 50,
+        "afterPoints": 55
+      }
+    ]
+  },
+  {
+    "category": "foods",
+    "catalogVersion": "f0dbabbca22064f9",
+    "retained": true,
+    "poolSize": 3000,
+    "medianBefore": 50,
+    "medianAfter": 55,
+    "rows": [
+      {
+        "answer": "Persimmon",
+        "ordinal": 0,
+        "meanDailyViews": 4098.548387096775,
+        "beforePercentile": 0,
+        "afterPercentile": 0,
+        "beforePoints": 10,
+        "afterPoints": 10
+      },
+      {
+        "answer": "Tofu",
+        "ordinal": 69,
+        "meanDailyViews": 1044.1290322580646,
+        "beforePercentile": 0.030484627410109433,
+        "afterPercentile": 0.039,
+        "beforePoints": 10,
+        "afterPoints": 10
+      },
+      {
+        "answer": "Areca nuts",
+        "ordinal": 140,
+        "meanDailyViews": 818.3225806451613,
+        "beforePercentile": 0.060057321521625844,
+        "afterPercentile": 0.0769,
+        "beforePoints": 10,
+        "afterPoints": 10
+      },
+      {
+        "answer": "Chinese dumplings",
+        "ordinal": 5183,
+        "meanDailyViews": 680.3870967741935,
+        "beforePercentile": 0.09002084418968212,
+        "afterPercentile": 0.1152,
+        "beforePoints": 10,
+        "afterPoints": 10
+      },
+      {
+        "answer": "Spotted dick",
+        "ordinal": 306,
+        "meanDailyViews": 582.8387096774194,
+        "beforePercentile": 0.12011464304325169,
+        "afterPercentile": 0.1537,
+        "beforePoints": 10,
+        "afterPoints": 15
+      },
+      {
+        "answer": "Gelato",
+        "ordinal": 389,
+        "meanDailyViews": 501.8709677419355,
+        "beforePercentile": 0.15007816571130797,
+        "afterPercentile": 0.1921,
+        "beforePoints": 15,
+        "afterPoints": 20
+      },
+      {
+        "answer": "Miso soup",
+        "ordinal": 479,
+        "meanDailyViews": 434.06451612903226,
+        "beforePercentile": 0.18030224075039084,
+        "afterPercentile": 0.2307,
+        "beforePoints": 20,
+        "afterPoints": 25
+      },
+      {
+        "answer": "Flour",
+        "ordinal": 565,
+        "meanDailyViews": 378,
+        "beforePercentile": 0.21052631578947367,
+        "afterPercentile": 0.2694,
+        "beforePoints": 20,
+        "afterPoints": 30
+      },
+      {
+        "answer": "Tortilla",
+        "ordinal": 649,
+        "meanDailyViews": 324.64516129032256,
+        "beforePercentile": 0.24022928608650337,
+        "afterPercentile": 0.3074,
+        "beforePoints": 25,
+        "afterPoints": 35
+      },
+      {
+        "answer": "Mulligatawny",
+        "ordinal": 735,
+        "meanDailyViews": 288.61290322580646,
+        "beforePercentile": 0.27045336112558627,
+        "afterPercentile": 0.3461,
+        "beforePoints": 25,
+        "afterPoints": 35
+      },
+      {
+        "answer": "Insalata caprese",
+        "ordinal": 826,
+        "meanDailyViews": 253.09677419354838,
+        "beforePercentile": 0.3004168837936425,
+        "afterPercentile": 0.3845,
+        "beforePoints": 30,
+        "afterPoints": 40
+      },
+      {
+        "answer": "Radler",
+        "ordinal": 11218,
+        "meanDailyViews": 218.6451612903226,
+        "beforePercentile": 0.3303804064616988,
+        "afterPercentile": 0.4228,
+        "beforePoints": 35,
+        "afterPoints": 45
+      },
+      {
+        "answer": "Sopressa",
+        "ordinal": 12398,
+        "meanDailyViews": 188.7741935483871,
+        "beforePercentile": 0.36047420531526836,
+        "afterPercentile": 0.4613,
+        "beforePoints": 35,
+        "afterPoints": 50
+      },
+      {
+        "answer": "Shish kebab",
+        "ordinal": 1106,
+        "meanDailyViews": 170.1290322580645,
+        "beforePercentile": 0.3905680041688379,
+        "afterPercentile": 0.4998,
+        "beforePoints": 40,
+        "afterPoints": 55
+      },
+      {
+        "answer": "Sunflower oil",
+        "ordinal": 1199,
+        "meanDailyViews": 150.8709677419355,
+        "beforePercentile": 0.4205315268368942,
+        "afterPercentile": 0.5382,
+        "beforePoints": 40,
+        "afterPoints": 60
+      },
+      {
+        "answer": "Cider vinegar",
+        "ordinal": 1297,
+        "meanDailyViews": 134.7741935483871,
+        "beforePercentile": 0.4507556018759771,
+        "afterPercentile": 0.5769,
+        "beforePoints": 45,
+        "afterPoints": 65
+      },
+      {
+        "answer": "Chiffon cake",
+        "ordinal": 1399,
+        "meanDailyViews": 114.74193548387096,
+        "beforePercentile": 0.48071912454403337,
+        "afterPercentile": 0.6152,
+        "beforePoints": 50,
+        "afterPoints": 65
+      },
+      {
+        "answer": "Convenience food",
+        "ordinal": 1501,
+        "meanDailyViews": 97.03225806451613,
+        "beforePercentile": 0.5106826472120897,
+        "afterPercentile": 0.6536,
+        "beforePoints": 50,
+        "afterPoints": 70
+      },
+      {
+        "answer": "Rujak",
+        "ordinal": 1613,
+        "meanDailyViews": 83.6774193548387,
+        "beforePercentile": 0.5414278269932257,
+        "afterPercentile": 0.6929,
+        "beforePoints": 55,
+        "afterPoints": 75
+      },
+      {
+        "answer": "Murgh musallam",
+        "ordinal": 1719,
+        "meanDailyViews": 71.06451612903226,
+        "beforePercentile": 0.5707399687337155,
+        "afterPercentile": 0.7304,
+        "beforePoints": 55,
+        "afterPoints": 80
+      },
+      {
+        "answer": "Mare's milk",
+        "ordinal": 1824,
+        "meanDailyViews": 60.225806451612904,
+        "beforePercentile": 0.600833767587285,
+        "afterPercentile": 0.7689,
+        "beforePoints": 60,
+        "afterPoints": 85
+      },
+      {
+        "answer": "Pannenkoek",
+        "ordinal": 1931,
+        "meanDailyViews": 52.58064516129032,
+        "beforePercentile": 0.6310578426263679,
+        "afterPercentile": 0.8076,
+        "beforePoints": 65,
+        "afterPoints": 90
+      },
+      {
+        "answer": "Ham sandwich",
+        "ordinal": 2041,
+        "meanDailyViews": 44.83870967741935,
+        "beforePercentile": 0.6611516414799374,
+        "afterPercentile": 0.8461,
+        "beforePoints": 65,
+        "afterPoints": 95
+      },
+      {
+        "answer": "Ashcake",
+        "ordinal": 2152,
+        "meanDailyViews": 37.61290322580645,
+        "beforePercentile": 0.6909848879624805,
+        "afterPercentile": 0.8843,
+        "beforePoints": 70,
+        "afterPoints": 95
+      },
+      {
+        "answer": "Harzer",
+        "ordinal": 2264,
+        "meanDailyViews": 31.419354838709676,
+        "beforePercentile": 0.7214695153725899,
+        "afterPercentile": 0.9233,
+        "beforePoints": 70,
+        "afterPoints": 100
+      },
+      {
+        "answer": "Khanom krok",
+        "ordinal": 2371,
+        "meanDailyViews": 26.29032258064516,
+        "beforePercentile": 0.7511724856696196,
+        "afterPercentile": 0.9613,
+        "beforePoints": 75,
+        "afterPoints": 105
+      },
+      {
+        "answer": "Carrot juice",
+        "ordinal": 2478,
+        "meanDailyViews": 22.193548387096776,
+        "beforePercentile": 0.7813965607087024,
+        "afterPercentile": 1,
+        "beforePoints": 80,
+        "afterPoints": 110
+      },
+      {
+        "answer": "Ossenworst",
+        "ordinal": 2479,
+        "meanDailyViews": 22.129032258064516,
+        "beforePercentile": 0.7817873892652423,
+        "afterPercentile": 1,
+        "beforePoints": 80,
+        "afterPoints": 110
+      },
+      {
+        "answer": "Na tinombur",
+        "ordinal": 3305,
+        "meanDailyViews": 0.06451612903225806,
+        "beforePercentile": 1,
+        "afterPercentile": 1,
+        "beforePoints": 100,
+        "afterPoints": 110
+      },
+      {
+        "answer": "'Nzuddi",
+        "ordinal": 3307,
         "meanDailyViews": null,
         "beforePercentile": null,
         "afterPercentile": null,

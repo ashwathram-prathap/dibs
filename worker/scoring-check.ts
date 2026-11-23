@@ -18,7 +18,7 @@ export async function scoringCheck(req: Request, env: Env) {
   if (req.method !== 'GET') return json({ error: 'Read only' }, 405);
   const url = new URL(req.url),
     id = url.searchParams.get('id'),
-    answers = url.searchParams.getAll('answer');
+    answers = url.searchParams.getAll('q');
   if (!validId(id) || !answers.length || answers.length > 20 || answers.some((a) => !validText(a)))
     return json({ error: 'Supply a category and one to twenty answers' }, 422);
   const category = await env.DB.prepare('SELECT * FROM categories WHERE id=?')

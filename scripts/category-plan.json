@@ -65,5 +65,13 @@
     "countries": 3000,
     "foods": 3000,
     "fruits-vegetables": 3000
-  }
+  },
+  "retainedCatalogs": [
+    {
+      "slug": "foods",
+      "version": "f0dbabbca22064f9",
+      "categoryFile": "categories/retained/foods-f0dbabbca22064f9.json.gz",
+      "sha256": "ea865eb34180c29946e86401d7e03a738c3dd66561bcee1731ce159a8fba0842"
+    }
+  ]
 }

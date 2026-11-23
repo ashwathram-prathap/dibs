@@ -120,7 +120,8 @@ it('every configured catalog has aligned versioned scores/curves and retained ol
   const plan = JSON.parse(readFileSync('scripts/category-plan.json', 'utf8'));
   const coverage = JSON.parse(readFileSync('review/round19e/popularity-coverage.json', 'utf8'));
   expect(Object.keys(plan.rarityPoolSizes)).toHaveLength(33);
-  expect(coverage).toHaveLength(33);
+  expect(coverage).toHaveLength(34);
+  expect(new Set(coverage.map((c: any) => c.category)).size).toBe(33);
   for (const c of coverage) {
     expect(c.poolSize).toBe(Math.min(c.measured, plan.rarityPoolSizes[c.category]));
     const base = `public/catalog/${c.category}/${c.catalogVersion}`;
@@ -165,13 +166,13 @@ it('the live scoring diagnostic is authenticated, read-only and never queries bo
       method,
       headers: { authorization: 'Bearer ' + token },
     });
-  expect((await scoringCheck(request('?id=animals&answer=Cat', 'wrong'), env)).status).toBe(404);
+  expect((await scoringCheck(request('?id=animals&q=Cat', 'wrong'), env)).status).toBe(404);
   expect(
-    (await scoringCheck(request('?id=animals&answer=Cat', 'secret-test', 'POST'), env)).status,
+    (await scoringCheck(request('?id=animals&q=Cat', 'secret-test', 'POST'), env)).status,
   ).toBe(405);
   expect((await scoringCheck(request('?id=animals'), env)).status).toBe(422);
   expect(queries).toEqual([]);
-  const response = await scoringCheck(request('?id=animals&answer=Cat'), env);
+  const response = await scoringCheck(request('?id=animals&q=Cat'), env);
   expect(response.status).toBe(200);
   expect(await response.json()).toMatchObject({
     scoringVersion: SCORING_VERSION,

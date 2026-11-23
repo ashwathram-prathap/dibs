@@ -1,10 +1,10 @@
 import { resolvePopularity, measured } from './popularity-aliases';
 import { rarityDensity } from '../shared/rarity';
 import { scoreAssetPath, rarityAssetPath, SCORING_VERSION } from '../shared/scoring-assets';
-import { readCategory } from './category-file';
+import { catalogSources, readCatalogSource } from './catalog-sources';
 import { rankPopularity, rarityPoints } from '../worker/scoring';
 import { legacyRankPopularity, legacyRarityPoints } from './legacy-scoring';
-import { readdirSync, readFileSync, writeFileSync, existsSync, mkdirSync } from 'node:fs';
+import { readFileSync, writeFileSync, existsSync, mkdirSync } from 'node:fs';
 import { dirname } from 'node:path';
 import { createHash } from 'node:crypto';
 const plan = JSON.parse(readFileSync('scripts/category-plan.json', 'utf8'));
@@ -28,13 +28,13 @@ function encode({ median, percentiles }: { median: number; percentiles: (number 
   );
   return data;
 }
-for (const name of readdirSync('categories')
-  .filter((n) => n.endsWith('.json'))
-  .sort()) {
-  const c = readCategory('categories/' + name);
+for (const source of catalogSources()) {
+  const c = readCatalogSource(source);
   const path = `public/catalog/${c.slug}/manifest.json`;
   if (!existsSync(path)) throw Error('Missing catalog: ' + c.slug);
-  const meta = JSON.parse(readFileSync(path, 'utf8'));
+  const meta = source.retained
+    ? { version: source.version, count: c.answers.length }
+    : JSON.parse(readFileSync(path, 'utf8'));
   if (meta.count !== c.answers.length) throw Error('Catalog ordinal mismatch: ' + c.slug);
   const poolLimit = plan.rarityPoolSizes[c.slug];
   if (!Number.isSafeInteger(poolLimit) || poolLimit < 1)
@@ -50,6 +50,7 @@ for (const name of readdirSync('categories')
   const poolSize = Math.min(poolLimit, measuredOrder.length);
   coverage.push({
     category: c.slug,
+    retained: !!source.retained,
     catalogVersion: meta.version,
     total: c.answers.length,
     measured: measuredOrder.length,
@@ -74,10 +75,11 @@ for (const name of readdirSync('categories')
   immutable(`public/catalog/${c.slug}/${meta.version}/scores-v2.bin`, encode(before));
   // Preserve the pre-R19E curve too. The current UI uses the analytic R19 bell;
   // versioned empirical curves remain available to consumers and rollback clients.
-  immutable(
-    `public/rarity/${c.slug}.json`,
-    Buffer.from(JSON.stringify(rarityDensity(before.percentiles))),
-  );
+  if (!source.retained)
+    immutable(
+      `public/rarity/${c.slug}.json`,
+      Buffer.from(JSON.stringify(rarityDensity(before.percentiles))),
+    );
   immutable('public' + scoreAssetPath(c.slug, meta.version), encode(ranked));
   // Use precisely the quantized percentiles the Worker reads from the binary.
   const percentiles = ranked.percentiles.map((p) =>
@@ -122,6 +124,8 @@ for (const name of readdirSync('categories')
     throw Error('Sample count mismatch: ' + c.slug);
   samples.push({
     category: c.slug,
+    catalogVersion: meta.version,
+    retained: !!source.retained,
     poolSize,
     medianBefore: before.median,
     medianAfter: ranked.median,
@@ -156,7 +160,7 @@ writeFileSync(
     samples
       .map(
         (c) =>
-          `## ${c.category}\n\nPool: ${c.poolSize}. Missing-data fallback: ${c.medianBefore} → ${c.medianAfter} points.\n\n| Answer | Daily views | Before percentile | After percentile | Before pts | After pts |\n|---|---:|---:|---:|---:|---:|\n` +
+          `## ${c.category}${c.retained ? ' (retained scheduled catalog ' + c.catalogVersion + ')' : ''}\n\nPool: ${c.poolSize}. Missing-data fallback: ${c.medianBefore} → ${c.medianAfter} points.\n\n| Answer | Daily views | Before percentile | After percentile | Before pts | After pts |\n|---|---:|---:|---:|---:|---:|\n` +
           c.rows
             .map(
               (r: any) =>
@@ -168,5 +172,5 @@ writeFileSync(
     '\n',
 );
 console.log(
-  `Built ${coverage.length} categories; ${assets.length} new/retained assets; samples in review/round19e/SAMPLES.md`,
+  `Built ${coverage.length} catalog versions; ${assets.length} new/retained assets; samples in review/round19e/SAMPLES.md`,
 );

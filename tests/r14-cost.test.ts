@@ -122,7 +122,13 @@ it('measures real static-catalog claims and leaderboard polling using D1 result 
         writes: Number(r.headers.get('x-d1-rows-written')),
       });
       if (r.status === 201) {
-        const measured = resolvePopularity(catalog.answers).readings.filter(hasReading).map(p => ({ pageviews: p! }));
+        const measured = resolvePopularity(catalog.answers)
+          .readings.filter(hasReading)
+          .map((p) => ({ pageviews: p! }))
+          .sort(
+            (a, b) => b.pageviews.total! / b.pageviews.days - a.pageviews.total! / a.pageviews.days,
+          )
+          .slice(0, 3000);
         const popularity = answer.pageviews.total / answer.pageviews.days;
         const greater = measured.filter(
           (a: any) => a.pageviews.total / a.pageviews.days > popularity,
@@ -130,10 +136,10 @@ it('measures real static-catalog claims and leaderboard polling using D1 result 
         const equal = measured.filter(
           (a: any) => a.pageviews.total / a.pageviews.days === popularity,
         ).length;
-        const expected = (greater + (equal - 1) / 2) / (measured.length - 1);
+        const expected = equal ? (greater + (equal - 1) / 2) / (measured.length - 1) : 1;
         expect(data.claim.percentile).toBeCloseTo(expected, 3);
         expect(data.claim.points - data.claim.bonus).toBe(
-          Math.round((10 + 100 * Math.max(0, expected - 0.1)) / 5) * 5,
+          Math.round((10 + (100 / 0.9) * Math.max(0, expected - 0.1)) / 5) * 5,
         );
       }
     }

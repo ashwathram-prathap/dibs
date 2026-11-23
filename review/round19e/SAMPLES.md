@@ -1222,3 +1222,40 @@ Pool: 3000. Missing-data fallback: 50 → 55 points.
 | The Last Story | 169.13 | 9.56% | 100.00% | 10 | 110 |
 | Winter Wonderland | 0.13 | 100.00% | 100.00% | 100 | 110 |
 | _dive | unknown | unmeasured | unmeasured | 50 | 55 |
+
+## foods (retained scheduled catalog f0dbabbca22064f9)
+
+Pool: 3000. Missing-data fallback: 50 → 55 points.
+
+| Answer | Daily views | Before percentile | After percentile | Before pts | After pts |
+|---|---:|---:|---:|---:|---:|
+| Persimmon | 4098.55 | 0.00% | 0.00% | 10 | 10 |
+| Tofu | 1044.13 | 3.05% | 3.90% | 10 | 10 |
+| Areca nuts | 818.32 | 6.01% | 7.69% | 10 | 10 |
+| Chinese dumplings | 680.39 | 9.00% | 11.52% | 10 | 10 |
+| Spotted dick | 582.84 | 12.01% | 15.37% | 10 | 15 |
+| Gelato | 501.87 | 15.01% | 19.21% | 15 | 20 |
+| Miso soup | 434.06 | 18.03% | 23.07% | 20 | 25 |
+| Flour | 378.00 | 21.05% | 26.94% | 20 | 30 |
+| Tortilla | 324.65 | 24.02% | 30.74% | 25 | 35 |
+| Mulligatawny | 288.61 | 27.05% | 34.61% | 25 | 35 |
+| Insalata caprese | 253.10 | 30.04% | 38.45% | 30 | 40 |
+| Radler | 218.65 | 33.04% | 42.28% | 35 | 45 |
+| Sopressa | 188.77 | 36.05% | 46.13% | 35 | 50 |
+| Shish kebab | 170.13 | 39.06% | 49.98% | 40 | 55 |
+| Sunflower oil | 150.87 | 42.05% | 53.82% | 40 | 60 |
+| Cider vinegar | 134.77 | 45.08% | 57.69% | 45 | 65 |
+| Chiffon cake | 114.74 | 48.07% | 61.52% | 50 | 65 |
+| Convenience food | 97.03 | 51.07% | 65.36% | 50 | 70 |
+| Rujak | 83.68 | 54.14% | 69.29% | 55 | 75 |
+| Murgh musallam | 71.06 | 57.07% | 73.04% | 55 | 80 |
+| Mare's milk | 60.23 | 60.08% | 76.89% | 60 | 85 |
+| Pannenkoek | 52.58 | 63.11% | 80.76% | 65 | 90 |
+| Ham sandwich | 44.84 | 66.12% | 84.61% | 65 | 95 |
+| Ashcake | 37.61 | 69.10% | 88.43% | 70 | 95 |
+| Harzer | 31.42 | 72.15% | 92.33% | 70 | 100 |
+| Khanom krok | 26.29 | 75.12% | 96.13% | 75 | 105 |
+| Carrot juice | 22.19 | 78.14% | 100.00% | 80 | 110 |
+| Ossenworst | 22.13 | 78.18% | 100.00% | 80 | 110 |
+| Na tinombur | 0.06 | 100.00% | 100.00% | 100 | 110 |
+| 'Nzuddi | unknown | unmeasured | unmeasured | 50 | 55 |

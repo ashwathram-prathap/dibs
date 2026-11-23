@@ -313,7 +313,18 @@ export async function request(path: string, body?: any): Promise<any> {
         me: await request('/me'),
       });
     }
-    const entry = entries.find((e) => e.toLowerCase() === body.answer.trim().toLowerCase());
+    const entry =
+      entries.find((e) => e.toLowerCase() === body.answer.trim().toLowerCase()) ||
+      (r7.has('r19e') &&
+      [
+        'Chameleon',
+        'Blobfish',
+        'Sarcastic fringehead',
+        'Obscure sample',
+        'Unknown sample',
+      ].includes(body.answer)
+        ? body.answer
+        : undefined);
     if (!entry)
       throw new ApiError(422, {
         message: "Not on today's register. Check the spelling.",

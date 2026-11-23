@@ -5,12 +5,14 @@ import AxeBuilder from '@axe-core/playwright';
 const shot = async (page: any, project: string, name: string) => {
   const dir = `review/round19e/ui/${project}`;
   mkdirSync(dir, { recursive: true });
-  await page.screenshot({ path: `${dir}/${name}.png`, fullPage: true });
+  await page.evaluate(() => document.fonts.ready);
+  await page.screenshot({ path: `${dir}/${name}.png`, fullPage: true, animations: 'disabled' });
   expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
 };
 test('R19E scored payoff keeps points, percentile, wording and marker aligned', async ({
   page,
 }, info) => {
+  await page.emulateMedia({ reducedMotion: 'reduce' });
   for (const [answer, p, points] of [
     ['Camel', 0.065, 10],
     ['Chameleon', 0.1264, 15],
@@ -26,12 +28,15 @@ test('R19E scored payoff keeps points, percentile, wording and marker aligned', 
     await expect(payoff).toContainText(`+${points} points`);
     if (p === null) {
       await expect(payoff).toContainText('rarity not measured for this answer');
-      await expect(payoff.locator('.rarity-marker')).toHaveCount(0);
+      await expect(page.locator('.payoff-curve .rarity-marker')).toHaveCount(0);
     } else {
       await expect(payoff).toContainText(rarityLabel(p, 'animals'));
-      await expect(payoff.locator('.rarity-curve')).toHaveAttribute('data-percentile', String(p));
+      await expect(page.locator('.payoff-curve .rarity-curve')).toHaveAttribute(
+        'data-percentile',
+        String(p),
+      );
       expect(
-        Number(await payoff.locator('.rarity-curve').getAttribute('data-marker-x')),
+        Number(await page.locator('.payoff-curve .rarity-curve').getAttribute('data-marker-x')),
       ).toBeCloseTo(bellX(p));
     }
     await shot(page, info.project.name, answer.replaceAll(' ', '-'));

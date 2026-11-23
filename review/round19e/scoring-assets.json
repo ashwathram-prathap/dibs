@@ -825,6 +825,26 @@
       "path": "/rarity/video-games/b3132c41eebaa59a/r19e-pool-v1.json",
       "bytes": 333,
       "sha256": "42251f2a6cc0cbfce95e0d205877ae2b7f2b3e36c70c7f4923367e924d7c67ca"
+    },
+    {
+      "path": "/catalog/foods/f0dbabbca22064f9/scores-v1.bin",
+      "bytes": 27978,
+      "sha256": "9475917cc159611f39fe18791c42306d8361debca854b48f2bdae0c509262c3c"
+    },
+    {
+      "path": "/catalog/foods/f0dbabbca22064f9/scores-v2.bin",
+      "bytes": 27978,
+      "sha256": "3ddd127ceced87daedd5002e9179c4d03d9b10e27a8e2b594f725123a3bd7146"
+    },
+    {
+      "path": "/catalog/foods/f0dbabbca22064f9/r19e-pool-v1/scores-v2.bin",
+      "bytes": 27978,
+      "sha256": "bc66c1963ae0e2c73e2a9112ad4cff3f4dd91f923eb846f8d6fb56c4b278a99c"
+    },
+    {
+      "path": "/rarity/foods/f0dbabbca22064f9/r19e-pool-v1.json",
+      "bytes": 332,
+      "sha256": "4290509512ae9df0aa50f62ef77b3ad5eb0ed01b9131510773adae2d82d47bd5"
     }
   ]
 }
