@@ -1,13 +1,13 @@
 {
-  "at": "2026-11-23T15:25:08.365Z",
+  "at": "2026-11-23T16:09:26.239666+00:00",
   "url": "https://practice.dibs-7hz.pages.dev",
-  "sourceCommit": "a2b0ffa2489183cce95ee0fbba2e0f5ebc28b1fe",
+  "sourceCommit": "fc4d735a015713df98a32d381e7ba3ed2a97fb1f",
   "runs": [
     {
       "strategy": "mobile",
       "run": 1,
       "scores": {
-        "performance": 99,
+        "performance": 98,
         "accessibility": 100,
         "best-practices": 100,
         "seo": 66

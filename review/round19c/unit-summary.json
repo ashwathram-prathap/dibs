@@ -1,8 +1,9 @@
 {
-  "at": "2026-11-23T15:34:29.610Z",
-  "sourceCommit": "a2b0ffa2489183cce95ee0fbba2e0f5ebc28b1fe",
+  "at": "2026-11-23T16:09:32.716287+00:00",
+  "sourceCommit": "fc4d735a015713df98a32d381e7ba3ed2a97fb1f",
   "total": 230,
   "passed": 230,
   "failed": 0,
-  "suites": 58
+  "suites": 58,
+  "command": "npm test -- --maxWorkers=2"
 }
