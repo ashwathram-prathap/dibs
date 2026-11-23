@@ -1,10 +1,10 @@
 {
-  "at": "2026-11-23T16:06:02.558Z",
+  "at": "2026-11-23T16:28:46.870Z",
   "passed": true,
-  "entry": "/assets/index-BS_TSqho.js",
+  "entry": "/assets/index-BUSqIKG6.js",
   "rows": [
     {
-      "path": "Archive-CKahpEGO.js",
+      "path": "Archive-CnHOD4aS.js",
       "status": 200,
       "type": "application/javascript",
       "bytes": 4623,
@@ -18,45 +18,45 @@
       "matches": true
     },
     {
-      "path": "Certificate-CwHyYwhK.js",
+      "path": "Certificate-C4kZeiEi.js",
       "status": 200,
       "type": "application/javascript",
       "bytes": 98434,
       "matches": true
     },
     {
-      "path": "Content-DuCdxfuk.js",
+      "path": "Content-CbijFWjd.js",
       "status": 200,
       "type": "application/javascript",
       "bytes": 12830,
       "matches": true
     },
     {
-      "path": "Leaderboard-N-6TcTyu.js",
+      "path": "Leaderboard-DowI5d71.js",
       "status": 200,
       "type": "application/javascript",
       "bytes": 2335,
       "matches": true
     },
     {
-      "path": "Ledger-D36wqf5p.js",
+      "path": "Ledger-CaJ3Bjk4.js",
       "status": 200,
       "type": "application/javascript",
       "bytes": 5967,
       "matches": true
     },
     {
-      "path": "Settings-DQRQcJwq.js",
+      "path": "Settings--5lfkrUI.js",
       "status": 200,
       "type": "application/javascript",
       "bytes": 9494,
       "matches": true
     },
     {
-      "path": "index-BS_TSqho.js",
+      "path": "index-BUSqIKG6.js",
       "status": 200,
       "type": "application/javascript",
-      "bytes": 277030,
+      "bytes": 277053,
       "matches": true
     },
     {
@@ -83,10 +83,18 @@
   ],
   "observations": [
     {
-      "at": "2026-11-23T16:06:02.558Z",
+      "at": "2026-11-23T16:28:43.554Z",
       "status": 200,
-      "actual": "/assets/index-BS_TSqho.js",
-      "expected": "/assets/index-BS_TSqho.js",
+      "actual": "/assets/index-BUSqIKG6.js",
+      "expected": "/assets/index-BUSqIKG6.js",
+      "htmlMatches": true,
+      "passed": false
+    },
+    {
+      "at": "2026-11-23T16:28:46.870Z",
+      "status": 200,
+      "actual": "/assets/index-BUSqIKG6.js",
+      "expected": "/assets/index-BUSqIKG6.js",
       "htmlMatches": true,
       "passed": true
     }

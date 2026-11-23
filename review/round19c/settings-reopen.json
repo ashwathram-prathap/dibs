@@ -20,5 +20,9 @@
     "flaky": 0
   },
   "reopenCycles": 144,
-  "passed": true
+  "passed": true,
+  "directChromiumReproducerAfter": {
+    "consecutivePasses": 40,
+    "failures": 0
+  }
 }

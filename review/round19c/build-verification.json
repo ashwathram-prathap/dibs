@@ -1,9 +1,9 @@
 {
   "passed": true,
-  "at": "2026-11-23T16:08:12.976Z",
+  "at": "2026-11-23T16:30:31.984Z",
   "command": "npm run build",
-  "sourceCommit": "fc4d735a015713df98a32d381e7ba3ed2a97fb1f",
-  "htmlSha256": "75b0a9291b245b35a6e645db5f7055cc565ffe5f7f18e76ca8c439600d6e0b35",
+  "sourceCommit": "d3260f213ab78ca64920fd57788cdf539c9f71cf",
+  "htmlSha256": "2b55ef1ac7ce208fad7e4c6feb59c2dfb61108beb2a183e2bb18e8d5053d894b",
   "staticHomeStructuredData": true,
   "developmentFixturesExcluded": true,
   "jsChunks": 11,

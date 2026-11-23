@@ -1,0 +1,26 @@
+{
+  "totalCases": 720,
+  "totalProjects": 120,
+  "shards": [
+    {
+      "shard": 1,
+      "cases": 180,
+      "projects": 30
+    },
+    {
+      "shard": 2,
+      "cases": 180,
+      "projects": 30
+    },
+    {
+      "shard": 3,
+      "cases": 180,
+      "projects": 30
+    },
+    {
+      "shard": 4,
+      "cases": 180,
+      "projects": 30
+    }
+  ]
+}
