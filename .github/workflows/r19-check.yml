@@ -1,5 +1,11 @@
 name: R19 Firefox and browser regression
-on: workflow_dispatch
+on:
+  workflow_dispatch:
+    inputs:
+      evidence_only:
+        description: Capture R19 Firefox screenshots and layout audits after full regression
+        type: boolean
+        default: false
 permissions:
   contents: read
 jobs:
@@ -20,10 +26,15 @@ jobs:
           pulseaudio --start --exit-idle-time=-1
           pactl load-module module-null-sink sink_name=dibs_ci
           pactl set-default-sink dibs_ci
-      - run: npx tsx scripts/build-catalog-assets.ts && npx tsx scripts/build-scores.ts && npx vite build --mode security-test
+      - if: ${{ !inputs.evidence_only }}
+        run: npx tsx scripts/build-catalog-assets.ts && npx tsx scripts/build-scores.ts && npx vite build --mode security-test
+      - if: ${{ inputs.evidence_only }}
+        run: npx vite build --mode security-test
       - run: R19_FIREFOX=1 npx playwright test -c playwright.r19.config.ts
-      - run: R19_FULL=1 R19_FIREFOX=1 R19_REPORT=review/round19/firefox-regression-results.json npx playwright test -c playwright.r19.config.ts --project='firefox-390-*' --project='firefox-1440-*'
-      - run: R19_FIREFOX=1 npx playwright test -c playwright.r19-devices.config.ts
+      - if: ${{ !inputs.evidence_only }}
+        run: R19_FULL=1 R19_FIREFOX=1 R19_REPORT=review/round19/firefox-regression-results.json npx playwright test -c playwright.r19.config.ts --project='firefox-390-*' --project='firefox-1440-*'
+      - if: ${{ !inputs.evidence_only }}
+        run: R19_FIREFOX=1 npx playwright test -c playwright.r19-devices.config.ts
       - name: Firefox text and Settings audit
         if: always()
         run: |
@@ -34,10 +45,11 @@ jobs:
       - uses: actions/upload-artifact@v4
         if: always()
         with:
-          name: r19-firefox
+          name: ${{ inputs.evidence_only && 'r19-firefox-evidence' || 'r19-firefox' }}
           path: |
             review/round19/*results.json
             review/round19/text/firefox.json
             review/round19/settings/*json
+            review/round19/**/*.png
             .tmp/r19/browser-artifacts/
           retention-days: 14
