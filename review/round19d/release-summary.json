@@ -1,0 +1,83 @@
+{
+  "passed": true,
+  "completedAt": "2026-11-23T22:45:28.161Z",
+  "completedET": "5:45 PM ET",
+  "deadline": "Mon Nov 23, 2026 7:45 PM ET",
+  "launch": "2026-11-24T02:00:00.000Z",
+  "codeCommit": "4b3462dd5b9b60614864f83e8eeeae48eccf7b0c",
+  "tag": "r19d-done",
+  "sections": {
+    "golden": "Stored totals and base + bonus on payoff, certificates, summaries, copied results, exports and leaderboard; configured headline, single reduced-motion-safe shimmer and existing gold chime; gold frame, rules, labels, curve and accessible mobile marker; callout above Share.",
+    "footer": "Measure rendered text, shrink to a 14 px minimum, then elide the middle only if needed. Actual practice and production URLs fit without elision.",
+    "answers": "Owner answers on feed/story and consented summary/certificate links, with a shared remembered Hide my answers setting. Prepared images alone do not grant public consent. Struck guesses and other players remain excluded.",
+    "zone": "Filing date and time use the selected named zone; changing the zone regenerates prepared images. R19F edition dates remain game dates.",
+    "images": "128 image checks in both themes; largest 305341 bytes.",
+    "individual": "Holder answer headline, stored score with bonus, readable rarity, mini curve and gold variant; non-holder unshared links stay sealed.",
+    "samsung": "Existing first-paint color-scheme and theme-color implementation verified with touch and force-dark; certificate pixels match normal rendering in Paper and Carbon."
+  },
+  "tests": {
+    "unit": 257,
+    "browsers": {
+      "browser-results": {
+        "startTime": "2026-11-23T22:26:09.609Z",
+        "duration": 714597.543,
+        "expected": 588,
+        "skipped": 0,
+        "unexpected": 0,
+        "flaky": 0
+      },
+      "firefox-browser-results": {
+        "startTime": "2026-11-23T22:26:06.177Z",
+        "duration": 389218.527,
+        "expected": 84,
+        "skipped": 0,
+        "unexpected": 0,
+        "flaky": 0
+      },
+      "visual-browser-results": {
+        "startTime": "2026-11-23T22:24:06.627Z",
+        "duration": 25113.446,
+        "expected": 8,
+        "skipped": 0,
+        "unexpected": 0,
+        "flaky": 0
+      }
+    },
+    "imageCount": 128,
+    "maxImageBytes": 305341,
+    "lighthousePerformance": 99,
+    "lighthouseAccessibility": 100
+  },
+  "production": {
+    "pages": "fcd4323d-34a2-400b-9cfd-9c8733fc988d",
+    "workerVersion": "7a13baff-c4b2-4576-b004-942601df8dc3",
+    "workerDeployment": "f3dfbd82-dc87-4f4a-a7fb-7183de293736",
+    "launch": "2026-11-24T02:00:00.000Z",
+    "recordedAt": "2026-11-23T22:45:28.139Z"
+  },
+  "rollback": {
+    "pages": "f16893d0-8a61-4a2c-b284-0258036b856b",
+    "workerVersion": "59a45c87-83dc-4f72-acb3-4ee14b5d850f",
+    "workerDeployment": "5bc84a11-df8c-41be-bf46-ba8afd611c57",
+    "launch": "2026-11-24T02:00:00.000Z",
+    "recordedAt": "2026-11-23T22:43:50.200Z"
+  },
+  "backup": "20261123T224352Z: export complete",
+  "deferredFeatures": [],
+  "ntfyAlertsSent": 0,
+  "loadTest": {
+    "status": "skipped",
+    "reason": "Finished before the R12 7:05 PM ET practice-load window; R12 explicitly permits skipping instead of waiting. The local 200-arrival test passed."
+  },
+  "limitations": [
+    "Browser/device and Samsung Internet checks are emulations, not physical devices.",
+    "Native share payloads and activation use API stubs; actual practice downloads and links were exercised.",
+    "Production remains closed and has no fabricated test claims; its smoke test is read-only."
+  ],
+  "verificationNotes": [
+    "The final complete matrix supersedes earlier interrupted runs and artifact-directory collisions; each runner now has its own output directory.",
+    "The full unit suite runs serially to avoid catalog-decompression contention.",
+    "Normal calendar tests use a fixed time outside the separately tested launch freeze.",
+    "Gold marker semantics and desktop callout order were corrected after accessibility and screenshot review."
+  ]
+}

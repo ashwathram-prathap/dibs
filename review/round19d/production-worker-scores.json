@@ -1,0 +1,1688 @@
+{
+  "at": "2026-11-23T22:44:53.032Z",
+  "origin": "https://dibs.here",
+  "passed": true,
+  "version": "r19e-pool-v1",
+  "rows": [
+    {
+      "category": "actors",
+      "answer": "RJ Mitte",
+      "found": true,
+      "display": "RJ Mitte",
+      "basePoints": 10,
+      "percentile": 0
+    },
+    {
+      "category": "actors",
+      "answer": "Charlie Heaton",
+      "found": true,
+      "display": "Charlie Heaton",
+      "basePoints": 10,
+      "percentile": 0.0383
+    },
+    {
+      "category": "actors",
+      "answer": "Richard Riehle",
+      "found": true,
+      "display": "Richard Riehle",
+      "basePoints": 10,
+      "percentile": 0.0767
+    },
+    {
+      "category": "actors",
+      "answer": "Billie Lourd",
+      "found": true,
+      "display": "Billie Lourd",
+      "basePoints": 10,
+      "percentile": 0.1154
+    },
+    {
+      "category": "actors",
+      "answer": "Sean Connery",
+      "found": true,
+      "display": "Sean Connery",
+      "basePoints": 15,
+      "percentile": 0.1537
+    },
+    {
+      "category": "actors",
+      "answer": "Riz Ahmed",
+      "found": true,
+      "display": "Riz Ahmed",
+      "basePoints": 20,
+      "percentile": 0.1921
+    },
+    {
+      "category": "actors",
+      "answer": "John Ritter",
+      "found": true,
+      "display": "John Ritter",
+      "basePoints": 25,
+      "percentile": 0.2307
+    },
+    {
+      "category": "actors",
+      "answer": "Bani J",
+      "found": true,
+      "display": "Bani J",
+      "basePoints": 30,
+      "percentile": 0.2691
+    },
+    {
+      "category": "actors",
+      "answer": "Kane Parsons",
+      "found": true,
+      "display": "Kane Parsons",
+      "basePoints": 35,
+      "percentile": 0.3074
+    },
+    {
+      "category": "actors",
+      "answer": "Kirk Herbstreit",
+      "found": true,
+      "display": "Kirk Herbstreit",
+      "basePoints": 35,
+      "percentile": 0.3461
+    },
+    {
+      "category": "actors",
+      "answer": "Jim Morrison",
+      "found": true,
+      "display": "Jim Morrison",
+      "basePoints": 40,
+      "percentile": 0.3845
+    },
+    {
+      "category": "actors",
+      "answer": "Matt LeBlanc",
+      "found": true,
+      "display": "Matt LeBlanc",
+      "basePoints": 45,
+      "percentile": 0.4228
+    },
+    {
+      "category": "actors",
+      "answer": "Jamie Foxx",
+      "found": true,
+      "display": "Jamie Foxx",
+      "basePoints": 50,
+      "percentile": 0.4615
+    },
+    {
+      "category": "actors",
+      "answer": "Joe Rogan",
+      "found": true,
+      "display": "Joe Rogan",
+      "basePoints": 55,
+      "percentile": 0.4998
+    },
+    {
+      "category": "actors",
+      "answer": "Demi Lovato",
+      "found": true,
+      "display": "Demi Lovato",
+      "basePoints": 60,
+      "percentile": 0.5382
+    },
+    {
+      "category": "actors",
+      "answer": "Roy Orbison",
+      "found": true,
+      "display": "Roy Orbison",
+      "basePoints": 65,
+      "percentile": 0.5769
+    },
+    {
+      "category": "actors",
+      "answer": "Dichen Lachman",
+      "found": true,
+      "display": "Dichen Lachman",
+      "basePoints": 65,
+      "percentile": 0.6152
+    },
+    {
+      "category": "actors",
+      "answer": "Emily Deschanel",
+      "found": true,
+      "display": "Emily Deschanel",
+      "basePoints": 70,
+      "percentile": 0.6536
+    },
+    {
+      "category": "actors",
+      "answer": "Chris Isaak",
+      "found": true,
+      "display": "Chris Isaak",
+      "basePoints": 75,
+      "percentile": 0.6924
+    },
+    {
+      "category": "actors",
+      "answer": "Sam Richardson",
+      "found": true,
+      "display": "Sam Richardson",
+      "basePoints": 80,
+      "percentile": 0.7306
+    },
+    {
+      "category": "actors",
+      "answer": "Sidney Poitier",
+      "found": true,
+      "display": "Sidney Poitier",
+      "basePoints": 85,
+      "percentile": 0.7689
+    },
+    {
+      "category": "actors",
+      "answer": "Bel Powley",
+      "found": true,
+      "display": "Bel Powley",
+      "basePoints": 90,
+      "percentile": 0.8076
+    },
+    {
+      "category": "actors",
+      "answer": "Jason Derulo",
+      "found": true,
+      "display": "Jason Derulo",
+      "basePoints": 95,
+      "percentile": 0.8459
+    },
+    {
+      "category": "actors",
+      "answer": "Isaac Hayes",
+      "found": true,
+      "display": "Isaac Hayes",
+      "basePoints": 95,
+      "percentile": 0.8843
+    },
+    {
+      "category": "actors",
+      "answer": "Roy Scheider",
+      "found": true,
+      "display": "Roy Scheider",
+      "basePoints": 100,
+      "percentile": 0.923
+    },
+    {
+      "category": "actors",
+      "answer": "Ted Cassidy",
+      "found": true,
+      "display": "Ted Cassidy",
+      "basePoints": 105,
+      "percentile": 0.9613
+    },
+    {
+      "category": "actors",
+      "answer": "Terrence Howard",
+      "found": true,
+      "display": "Terrence Howard",
+      "basePoints": 110,
+      "percentile": 1
+    },
+    {
+      "category": "actors",
+      "answer": "Soulja Boy",
+      "found": true,
+      "display": "Soulja Boy",
+      "basePoints": 110,
+      "percentile": 1
+    },
+    {
+      "category": "actors",
+      "answer": "Yadana Bo",
+      "found": true,
+      "display": "Yadana Bo",
+      "basePoints": 110,
+      "percentile": 1
+    },
+    {
+      "category": "actors",
+      "answer": "Abdou Chaibane",
+      "found": true,
+      "display": "Abdou Chaibane",
+      "basePoints": 55,
+      "percentile": null
+    },
+    {
+      "category": "animals",
+      "answer": "Cat",
+      "found": true,
+      "display": "Cat",
+      "basePoints": 10,
+      "percentile": 0
+    },
+    {
+      "category": "animals",
+      "answer": "Dog",
+      "found": true,
+      "display": "Dog",
+      "basePoints": 10,
+      "percentile": 0.0007
+    },
+    {
+      "category": "animals",
+      "answer": "Axolotl",
+      "found": true,
+      "display": "Axolotl",
+      "basePoints": 10,
+      "percentile": 0.0013
+    },
+    {
+      "category": "animals",
+      "answer": "Lion",
+      "found": true,
+      "display": "Lion",
+      "basePoints": 10,
+      "percentile": 0.0062
+    },
+    {
+      "category": "animals",
+      "answer": "Deer",
+      "found": true,
+      "display": "Deer",
+      "basePoints": 10,
+      "percentile": 0.0297
+    },
+    {
+      "category": "animals",
+      "answer": "Quokka",
+      "found": true,
+      "display": "Quokka",
+      "basePoints": 10,
+      "percentile": 0.038
+    },
+    {
+      "category": "animals",
+      "answer": "Okapi",
+      "found": true,
+      "display": "Okapi",
+      "basePoints": 10,
+      "percentile": 0.0607
+    },
+    {
+      "category": "animals",
+      "answer": "Manul",
+      "found": true,
+      "display": "Manul",
+      "basePoints": 10,
+      "percentile": 0.0624
+    },
+    {
+      "category": "animals",
+      "answer": "Camel",
+      "found": true,
+      "display": "Camel",
+      "basePoints": 10,
+      "percentile": 0.065
+    },
+    {
+      "category": "animals",
+      "answer": "Bull shark",
+      "found": true,
+      "display": "Bull shark",
+      "basePoints": 15,
+      "percentile": 0.1247
+    },
+    {
+      "category": "animals",
+      "answer": "Chameleon",
+      "found": true,
+      "display": "Chameleon",
+      "basePoints": 15,
+      "percentile": 0.1264
+    },
+    {
+      "category": "animals",
+      "answer": "Great Egret",
+      "found": true,
+      "display": "Great Egret",
+      "basePoints": 20,
+      "percentile": 0.1876
+    },
+    {
+      "category": "animals",
+      "answer": "Bovine",
+      "found": true,
+      "display": "Bovine",
+      "basePoints": 25,
+      "percentile": 0.2497
+    },
+    {
+      "category": "animals",
+      "answer": "Partridge",
+      "found": true,
+      "display": "Partridge",
+      "basePoints": 35,
+      "percentile": 0.3124
+    },
+    {
+      "category": "animals",
+      "answer": "Steller Sea Lion",
+      "found": true,
+      "display": "Steller Sea Lion",
+      "basePoints": 40,
+      "percentile": 0.3748
+    },
+    {
+      "category": "animals",
+      "answer": "Blobfish",
+      "found": true,
+      "display": "Blobfish",
+      "basePoints": 45,
+      "percentile": 0.4161
+    },
+    {
+      "category": "animals",
+      "answer": "Tamaraw",
+      "found": true,
+      "display": "Tamaraw",
+      "basePoints": 50,
+      "percentile": 0.4376
+    },
+    {
+      "category": "animals",
+      "answer": "American White Ibis",
+      "found": true,
+      "display": "American White Ibis",
+      "basePoints": 55,
+      "percentile": 0.4998
+    },
+    {
+      "category": "animals",
+      "answer": "African Fish Eagle",
+      "found": true,
+      "display": "African Fish Eagle",
+      "basePoints": 60,
+      "percentile": 0.5622
+    },
+    {
+      "category": "animals",
+      "answer": "Indian Jungle Crow",
+      "found": true,
+      "display": "Indian Jungle Crow",
+      "basePoints": 70,
+      "percentile": 0.6245
+    },
+    {
+      "category": "animals",
+      "answer": "Sarcastic fringehead",
+      "found": true,
+      "display": "Sarcastic fringehead",
+      "basePoints": 75,
+      "percentile": 0.6777
+    },
+    {
+      "category": "animals",
+      "answer": "Western meadowlark",
+      "found": true,
+      "display": "Western meadowlark",
+      "basePoints": 75,
+      "percentile": 0.6872
+    },
+    {
+      "category": "animals",
+      "answer": "Western Rat Snake",
+      "found": true,
+      "display": "Western Rat Snake",
+      "basePoints": 80,
+      "percentile": 0.7501
+    },
+    {
+      "category": "animals",
+      "answer": "Bone-eating marine worms",
+      "found": true,
+      "display": "Bone-eating marine worms",
+      "basePoints": 90,
+      "percentile": 0.8123
+    },
+    {
+      "category": "animals",
+      "answer": "Cuscus",
+      "found": true,
+      "display": "Cuscus",
+      "basePoints": 95,
+      "percentile": 0.875
+    },
+    {
+      "category": "animals",
+      "answer": "Crested Hawk-Eagle",
+      "found": true,
+      "display": "Crested Hawk-Eagle",
+      "basePoints": 105,
+      "percentile": 0.9371
+    },
+    {
+      "category": "animals",
+      "answer": "Buff tailed bumblebee",
+      "found": true,
+      "display": "Buff tailed bumblebee",
+      "basePoints": 110,
+      "percentile": 1
+    },
+    {
+      "category": "animals",
+      "answer": "Eurasian Oystercatcher",
+      "found": true,
+      "display": "Eurasian Oystercatcher",
+      "basePoints": 110,
+      "percentile": 1
+    },
+    {
+      "category": "animals",
+      "answer": "Witte's Worm Lizard",
+      "found": true,
+      "display": "Witte's Worm Lizard",
+      "basePoints": 110,
+      "percentile": 1
+    },
+    {
+      "category": "animals",
+      "answer": "'Alpine' Sheridan'S Hairstreak",
+      "found": true,
+      "display": "'Alpine' Sheridan'S Hairstreak",
+      "basePoints": 55,
+      "percentile": null
+    },
+    {
+      "category": "birds",
+      "answer": "Dodo",
+      "found": true,
+      "display": "Dodo",
+      "basePoints": 10,
+      "percentile": 0
+    },
+    {
+      "category": "birds",
+      "answer": "Harpy",
+      "found": true,
+      "display": "Harpy",
+      "basePoints": 10,
+      "percentile": 0.0383
+    },
+    {
+      "category": "birds",
+      "answer": "Long-tailed Tit",
+      "found": true,
+      "display": "Long-tailed Tit",
+      "basePoints": 10,
+      "percentile": 0.0767
+    },
+    {
+      "category": "birds",
+      "answer": "Black guillemot",
+      "found": true,
+      "display": "Black guillemot",
+      "basePoints": 10,
+      "percentile": 0.1154
+    },
+    {
+      "category": "birds",
+      "answer": "Pied Currawong",
+      "found": true,
+      "display": "Pied Currawong",
+      "basePoints": 15,
+      "percentile": 0.1537
+    },
+    {
+      "category": "birds",
+      "answer": "Brown-headed Cowbird",
+      "found": true,
+      "display": "Brown-headed Cowbird",
+      "basePoints": 20,
+      "percentile": 0.1921
+    },
+    {
+      "category": "birds",
+      "answer": "Gambel's Quail",
+      "found": true,
+      "display": "Gambel's Quail",
+      "basePoints": 25,
+      "percentile": 0.2307
+    },
+    {
+      "category": "birds",
+      "answer": "Sacred Kingfisher",
+      "found": true,
+      "display": "Sacred Kingfisher",
+      "basePoints": 30,
+      "percentile": 0.2691
+    },
+    {
+      "category": "birds",
+      "answer": "Augur Buzzard",
+      "found": true,
+      "display": "Augur Buzzard",
+      "basePoints": 35,
+      "percentile": 0.3074
+    },
+    {
+      "category": "birds",
+      "answer": "Brown Quail",
+      "found": true,
+      "display": "Brown Quail",
+      "basePoints": 35,
+      "percentile": 0.3461
+    },
+    {
+      "category": "birds",
+      "answer": "Nankeen Kestrel",
+      "found": true,
+      "display": "Nankeen Kestrel",
+      "basePoints": 40,
+      "percentile": 0.3845
+    },
+    {
+      "category": "birds",
+      "answer": "Okarito Kiwi",
+      "found": true,
+      "display": "Okarito Kiwi",
+      "basePoints": 45,
+      "percentile": 0.4228
+    },
+    {
+      "category": "birds",
+      "answer": "Eurasian Pygmy Owl",
+      "found": true,
+      "display": "Eurasian Pygmy Owl",
+      "basePoints": 50,
+      "percentile": 0.4617
+    },
+    {
+      "category": "birds",
+      "answer": "Shamas",
+      "found": true,
+      "display": "Shamas",
+      "basePoints": 55,
+      "percentile": 0.4998
+    },
+    {
+      "category": "birds",
+      "answer": "Coconut Lorikeet",
+      "found": true,
+      "display": "Coconut Lorikeet",
+      "basePoints": 60,
+      "percentile": 0.5382
+    },
+    {
+      "category": "birds",
+      "answer": "Black-rumped Magpie",
+      "found": true,
+      "display": "Black-rumped Magpie",
+      "basePoints": 65,
+      "percentile": 0.5772
+    },
+    {
+      "category": "birds",
+      "answer": "Wompoo Fruit Dove",
+      "found": true,
+      "display": "Wompoo Fruit Dove",
+      "basePoints": 65,
+      "percentile": 0.6152
+    },
+    {
+      "category": "birds",
+      "answer": "American Cliff Swallow",
+      "found": true,
+      "display": "American Cliff Swallow",
+      "basePoints": 70,
+      "percentile": 0.6532
+    },
+    {
+      "category": "birds",
+      "answer": "Indian White-eye",
+      "found": true,
+      "display": "Indian White-eye",
+      "basePoints": 75,
+      "percentile": 0.6924
+    },
+    {
+      "category": "birds",
+      "answer": "Island Scrub Jay",
+      "found": true,
+      "display": "Island Scrub Jay",
+      "basePoints": 80,
+      "percentile": 0.7307
+    },
+    {
+      "category": "birds",
+      "answer": "Hudsonian Godwit",
+      "found": true,
+      "display": "Hudsonian Godwit",
+      "basePoints": 85,
+      "percentile": 0.7693
+    },
+    {
+      "category": "birds",
+      "answer": "Mexican Duck",
+      "found": true,
+      "display": "Mexican Duck",
+      "basePoints": 90,
+      "percentile": 0.8083
+    },
+    {
+      "category": "birds",
+      "answer": "Paramo Horned Owl",
+      "found": true,
+      "display": "Paramo Horned Owl",
+      "basePoints": 95,
+      "percentile": 0.8459
+    },
+    {
+      "category": "birds",
+      "answer": "Cryptic Treehunter",
+      "found": true,
+      "display": "Cryptic Treehunter",
+      "basePoints": 95,
+      "percentile": 0.8845
+    },
+    {
+      "category": "birds",
+      "answer": "Red-tailed Hawk (calurus/alascensis)",
+      "found": true,
+      "display": "Red-tailed Hawk (calurus/alascensis)",
+      "basePoints": 100,
+      "percentile": 0.9228
+    },
+    {
+      "category": "birds",
+      "answer": "Barred Buttonquail",
+      "found": true,
+      "display": "Barred Buttonquail",
+      "basePoints": 105,
+      "percentile": 0.962
+    },
+    {
+      "category": "birds",
+      "answer": "Orange-chinned Parakeet",
+      "found": true,
+      "display": "Orange-chinned Parakeet",
+      "basePoints": 110,
+      "percentile": 1
+    },
+    {
+      "category": "birds",
+      "answer": "Philippine Dwarf Kingfisher",
+      "found": true,
+      "display": "Philippine Dwarf Kingfisher",
+      "basePoints": 110,
+      "percentile": 1
+    },
+    {
+      "category": "birds",
+      "answer": "Jackson's Pipit",
+      "found": true,
+      "display": "Jackson's Pipit",
+      "basePoints": 110,
+      "percentile": 1
+    },
+    {
+      "category": "birds",
+      "answer": "\"magna\" Bluethroat",
+      "found": true,
+      "display": "\"magna\" Bluethroat",
+      "basePoints": 55,
+      "percentile": null
+    },
+    {
+      "category": "cities",
+      "answer": "New York",
+      "found": true,
+      "display": "New York",
+      "basePoints": 10,
+      "percentile": 0
+    },
+    {
+      "category": "cities",
+      "answer": "Columbus",
+      "found": true,
+      "display": "Columbus",
+      "basePoints": 10,
+      "percentile": 0.0383
+    },
+    {
+      "category": "cities",
+      "answer": "Lucento",
+      "found": true,
+      "display": "Lucento",
+      "basePoints": 10,
+      "percentile": 0.0765
+    },
+    {
+      "category": "cities",
+      "answer": "Sapporo",
+      "found": true,
+      "display": "Sapporo",
+      "basePoints": 10,
+      "percentile": 0.1154
+    },
+    {
+      "category": "cities",
+      "answer": "Abuja",
+      "found": true,
+      "display": "Abuja",
+      "basePoints": 15,
+      "percentile": 0.1537
+    },
+    {
+      "category": "cities",
+      "answer": "Donetsk",
+      "found": true,
+      "display": "Donetsk",
+      "basePoints": 20,
+      "percentile": 0.1921
+    },
+    {
+      "category": "cities",
+      "answer": "Firebaugh",
+      "found": true,
+      "display": "Firebaugh",
+      "basePoints": 25,
+      "percentile": 0.2307
+    },
+    {
+      "category": "cities",
+      "answer": "St. George",
+      "found": true,
+      "display": "St. George",
+      "basePoints": 30,
+      "percentile": 0.2691
+    },
+    {
+      "category": "cities",
+      "answer": "Yaoundé",
+      "found": true,
+      "display": "Yaoundé",
+      "basePoints": 35,
+      "percentile": 0.3074
+    },
+    {
+      "category": "cities",
+      "answer": "Santa Ana",
+      "found": true,
+      "display": "Santa Ana",
+      "basePoints": 35,
+      "percentile": 0.3461
+    },
+    {
+      "category": "cities",
+      "answer": "Goth Faridabad",
+      "found": true,
+      "display": "Goth Faridabad",
+      "basePoints": 40,
+      "percentile": 0.3843
+    },
+    {
+      "category": "cities",
+      "answer": "Fuzhou",
+      "found": true,
+      "display": "Fuzhou",
+      "basePoints": 45,
+      "percentile": 0.4228
+    },
+    {
+      "category": "cities",
+      "answer": "Port Louis",
+      "found": true,
+      "display": "Port Louis",
+      "basePoints": 50,
+      "percentile": 0.4615
+    },
+    {
+      "category": "cities",
+      "answer": "Mantua",
+      "found": true,
+      "display": "Mantua",
+      "basePoints": 55,
+      "percentile": 0.4998
+    },
+    {
+      "category": "cities",
+      "answer": "Haarlem",
+      "found": true,
+      "display": "Haarlem",
+      "basePoints": 60,
+      "percentile": 0.538
+    },
+    {
+      "category": "cities",
+      "answer": "Voronezh",
+      "found": true,
+      "display": "Voronezh",
+      "basePoints": 65,
+      "percentile": 0.5767
+    },
+    {
+      "category": "cities",
+      "answer": "Manchester-by-the-Sea",
+      "found": true,
+      "display": "Manchester-by-the-Sea",
+      "basePoints": 65,
+      "percentile": 0.6152
+    },
+    {
+      "category": "cities",
+      "answer": "Fullerton",
+      "found": true,
+      "display": "Fullerton",
+      "basePoints": 70,
+      "percentile": 0.6536
+    },
+    {
+      "category": "cities",
+      "answer": "Noumea",
+      "found": true,
+      "display": "Noumea",
+      "basePoints": 75,
+      "percentile": 0.6922
+    },
+    {
+      "category": "cities",
+      "answer": "Newburgh",
+      "found": true,
+      "display": "Newburgh",
+      "basePoints": 80,
+      "percentile": 0.7306
+    },
+    {
+      "category": "cities",
+      "answer": "Umeå",
+      "found": true,
+      "display": "Umeå",
+      "basePoints": 85,
+      "percentile": 0.7688
+    },
+    {
+      "category": "cities",
+      "answer": "Srikalahasti",
+      "found": true,
+      "display": "Srikalahasti",
+      "basePoints": 90,
+      "percentile": 0.8076
+    },
+    {
+      "category": "cities",
+      "answer": "Tuljāpur",
+      "found": true,
+      "display": "Tuljāpur",
+      "basePoints": 95,
+      "percentile": 0.8458
+    },
+    {
+      "category": "cities",
+      "answer": "Plattsburgh",
+      "found": true,
+      "display": "Plattsburgh",
+      "basePoints": 95,
+      "percentile": 0.8845
+    },
+    {
+      "category": "cities",
+      "answer": "Alto",
+      "found": true,
+      "display": "Alto",
+      "basePoints": 100,
+      "percentile": 0.923
+    },
+    {
+      "category": "cities",
+      "answer": "Dire Dawa",
+      "found": true,
+      "display": "Dire Dawa",
+      "basePoints": 105,
+      "percentile": 0.9613
+    },
+    {
+      "category": "cities",
+      "answer": "Horsham",
+      "found": true,
+      "display": "Horsham",
+      "basePoints": 110,
+      "percentile": 1
+    },
+    {
+      "category": "cities",
+      "answer": "Jizan",
+      "found": true,
+      "display": "Jizan",
+      "basePoints": 110,
+      "percentile": 1
+    },
+    {
+      "category": "cities",
+      "answer": "Zudilovo",
+      "found": true,
+      "display": "Zudilovo",
+      "basePoints": 110,
+      "percentile": 1
+    },
+    {
+      "category": "cities",
+      "answer": "'A'ala",
+      "found": true,
+      "display": "'A'ala",
+      "basePoints": 55,
+      "percentile": null
+    },
+    {
+      "category": "day-2026-11-28",
+      "answer": "Persimmon",
+      "found": true,
+      "display": "Persimmon",
+      "basePoints": 10,
+      "percentile": 0
+    },
+    {
+      "category": "day-2026-11-28",
+      "answer": "Tofu",
+      "found": true,
+      "display": "Tofu",
+      "basePoints": 10,
+      "percentile": 0.039
+    },
+    {
+      "category": "day-2026-11-28",
+      "answer": "Areca nuts",
+      "found": true,
+      "display": "Areca nuts",
+      "basePoints": 10,
+      "percentile": 0.0769
+    },
+    {
+      "category": "day-2026-11-28",
+      "answer": "Chinese dumplings",
+      "found": true,
+      "display": "Chinese dumplings",
+      "basePoints": 10,
+      "percentile": 0.1152
+    },
+    {
+      "category": "day-2026-11-28",
+      "answer": "Spotted dick",
+      "found": true,
+      "display": "Spotted dick",
+      "basePoints": 15,
+      "percentile": 0.1537
+    },
+    {
+      "category": "day-2026-11-28",
+      "answer": "Gelato",
+      "found": true,
+      "display": "Gelato",
+      "basePoints": 20,
+      "percentile": 0.1921
+    },
+    {
+      "category": "day-2026-11-28",
+      "answer": "Miso soup",
+      "found": true,
+      "display": "Miso soup",
+      "basePoints": 25,
+      "percentile": 0.2307
+    },
+    {
+      "category": "day-2026-11-28",
+      "answer": "Flour",
+      "found": true,
+      "display": "Flour",
+      "basePoints": 30,
+      "percentile": 0.2694
+    },
+    {
+      "category": "day-2026-11-28",
+      "answer": "Tortilla",
+      "found": true,
+      "display": "Tortilla",
+      "basePoints": 35,
+      "percentile": 0.3074
+    },
+    {
+      "category": "day-2026-11-28",
+      "answer": "Mulligatawny",
+      "found": true,
+      "display": "Mulligatawny",
+      "basePoints": 35,
+      "percentile": 0.3461
+    },
+    {
+      "category": "day-2026-11-28",
+      "answer": "Insalata caprese",
+      "found": true,
+      "display": "Insalata caprese",
+      "basePoints": 40,
+      "percentile": 0.3845
+    },
+    {
+      "category": "day-2026-11-28",
+      "answer": "Radler",
+      "found": true,
+      "display": "Radler",
+      "basePoints": 45,
+      "percentile": 0.4228
+    },
+    {
+      "category": "day-2026-11-28",
+      "answer": "Sopressa",
+      "found": true,
+      "display": "Sopressa",
+      "basePoints": 50,
+      "percentile": 0.4613
+    },
+    {
+      "category": "day-2026-11-28",
+      "answer": "Shish kebab",
+      "found": true,
+      "display": "Shish kebab",
+      "basePoints": 55,
+      "percentile": 0.4998
+    },
+    {
+      "category": "day-2026-11-28",
+      "answer": "Sunflower oil",
+      "found": true,
+      "display": "Sunflower oil",
+      "basePoints": 60,
+      "percentile": 0.5382
+    },
+    {
+      "category": "day-2026-11-28",
+      "answer": "Cider vinegar",
+      "found": true,
+      "display": "Cider vinegar",
+      "basePoints": 65,
+      "percentile": 0.5769
+    },
+    {
+      "category": "day-2026-11-28",
+      "answer": "Chiffon cake",
+      "found": true,
+      "display": "Chiffon cake",
+      "basePoints": 65,
+      "percentile": 0.6152
+    },
+    {
+      "category": "day-2026-11-28",
+      "answer": "Convenience food",
+      "found": true,
+      "display": "Convenience food",
+      "basePoints": 70,
+      "percentile": 0.6536
+    },
+    {
+      "category": "day-2026-11-28",
+      "answer": "Rujak",
+      "found": true,
+      "display": "Rujak",
+      "basePoints": 75,
+      "percentile": 0.6929
+    },
+    {
+      "category": "day-2026-11-28",
+      "answer": "Murgh musallam",
+      "found": true,
+      "display": "Murgh musallam",
+      "basePoints": 80,
+      "percentile": 0.7304
+    },
+    {
+      "category": "day-2026-11-28",
+      "answer": "Mare's milk",
+      "found": true,
+      "display": "Mare's milk",
+      "basePoints": 85,
+      "percentile": 0.7689
+    },
+    {
+      "category": "day-2026-11-28",
+      "answer": "Pannenkoek",
+      "found": true,
+      "display": "Pannenkoek",
+      "basePoints": 90,
+      "percentile": 0.8076
+    },
+    {
+      "category": "day-2026-11-28",
+      "answer": "Ham sandwich",
+      "found": true,
+      "display": "Ham sandwich",
+      "basePoints": 95,
+      "percentile": 0.8461
+    },
+    {
+      "category": "day-2026-11-28",
+      "answer": "Ashcake",
+      "found": true,
+      "display": "Ashcake",
+      "basePoints": 95,
+      "percentile": 0.8843
+    },
+    {
+      "category": "day-2026-11-28",
+      "answer": "Harzer",
+      "found": true,
+      "display": "Harzer",
+      "basePoints": 100,
+      "percentile": 0.9233
+    },
+    {
+      "category": "day-2026-11-28",
+      "answer": "Khanom krok",
+      "found": true,
+      "display": "Khanom krok",
+      "basePoints": 105,
+      "percentile": 0.9613
+    },
+    {
+      "category": "day-2026-11-28",
+      "answer": "Carrot juice",
+      "found": true,
+      "display": "Carrot juice",
+      "basePoints": 110,
+      "percentile": 1
+    },
+    {
+      "category": "day-2026-11-28",
+      "answer": "Ossenworst",
+      "found": true,
+      "display": "Ossenworst",
+      "basePoints": 110,
+      "percentile": 1
+    },
+    {
+      "category": "day-2026-11-28",
+      "answer": "Na tinombur",
+      "found": true,
+      "display": "Na tinombur",
+      "basePoints": 110,
+      "percentile": 1
+    },
+    {
+      "category": "day-2026-11-28",
+      "answer": "'Nzuddi",
+      "found": true,
+      "display": "'Nzuddi",
+      "basePoints": 55,
+      "percentile": null
+    },
+    {
+      "category": "day-2026-11-29",
+      "answer": "United States",
+      "found": true,
+      "display": "United States",
+      "basePoints": 10,
+      "percentile": 0
+    },
+    {
+      "category": "day-2026-11-29",
+      "answer": "France",
+      "found": true,
+      "display": "France",
+      "basePoints": 10,
+      "percentile": 0.0323
+    },
+    {
+      "category": "day-2026-11-29",
+      "answer": "Taiwan",
+      "found": true,
+      "display": "Taiwan",
+      "basePoints": 10,
+      "percentile": 0.0685
+    },
+    {
+      "category": "day-2026-11-29",
+      "answer": "Azerbaijan",
+      "found": true,
+      "display": "Azerbaijan",
+      "basePoints": 10,
+      "percentile": 0.1008
+    },
+    {
+      "category": "day-2026-11-29",
+      "answer": "Pakistan",
+      "found": true,
+      "display": "Pakistan",
+      "basePoints": 15,
+      "percentile": 0.1371
+    },
+    {
+      "category": "day-2026-11-29",
+      "answer": "South Korea",
+      "found": true,
+      "display": "South Korea",
+      "basePoints": 20,
+      "percentile": 0.1694
+    },
+    {
+      "category": "day-2026-11-29",
+      "answer": "Afghanistan",
+      "found": true,
+      "display": "Afghanistan",
+      "basePoints": 20,
+      "percentile": 0.2056
+    },
+    {
+      "category": "day-2026-11-29",
+      "answer": "Oman",
+      "found": true,
+      "display": "Oman",
+      "basePoints": 25,
+      "percentile": 0.2379
+    },
+    {
+      "category": "day-2026-11-29",
+      "answer": "Romania",
+      "found": true,
+      "display": "Romania",
+      "basePoints": 30,
+      "percentile": 0.2742
+    },
+    {
+      "category": "day-2026-11-29",
+      "answer": "North Macedonia",
+      "found": true,
+      "display": "North Macedonia",
+      "basePoints": 35,
+      "percentile": 0.3065
+    },
+    {
+      "category": "day-2026-11-29",
+      "answer": "Syria",
+      "found": true,
+      "display": "Syria",
+      "basePoints": 35,
+      "percentile": 0.3427
+    },
+    {
+      "category": "day-2026-11-29",
+      "answer": "Maldives",
+      "found": true,
+      "display": "Maldives",
+      "basePoints": 40,
+      "percentile": 0.379
+    },
+    {
+      "category": "day-2026-11-29",
+      "answer": "Cuba",
+      "found": true,
+      "display": "Cuba",
+      "basePoints": 45,
+      "percentile": 0.4113
+    },
+    {
+      "category": "day-2026-11-29",
+      "answer": "Madagascar",
+      "found": true,
+      "display": "Madagascar",
+      "basePoints": 50,
+      "percentile": 0.4476
+    },
+    {
+      "category": "day-2026-11-29",
+      "answer": "Moldova",
+      "found": true,
+      "display": "Moldova",
+      "basePoints": 50,
+      "percentile": 0.4798
+    },
+    {
+      "category": "day-2026-11-29",
+      "answer": "Fiji",
+      "found": true,
+      "display": "Fiji",
+      "basePoints": 55,
+      "percentile": 0.5161
+    },
+    {
+      "category": "day-2026-11-29",
+      "answer": "Namibia",
+      "found": true,
+      "display": "Namibia",
+      "basePoints": 60,
+      "percentile": 0.5484
+    },
+    {
+      "category": "day-2026-11-29",
+      "answer": "Jamaica",
+      "found": true,
+      "display": "Jamaica",
+      "basePoints": 65,
+      "percentile": 0.5847
+    },
+    {
+      "category": "day-2026-11-29",
+      "answer": "Djibouti",
+      "found": true,
+      "display": "Djibouti",
+      "basePoints": 65,
+      "percentile": 0.6169
+    },
+    {
+      "category": "day-2026-11-29",
+      "answer": "Mauritania",
+      "found": true,
+      "display": "Mauritania",
+      "basePoints": 70,
+      "percentile": 0.6532
+    },
+    {
+      "category": "day-2026-11-29",
+      "answer": "Ecuador",
+      "found": true,
+      "display": "Ecuador",
+      "basePoints": 75,
+      "percentile": 0.6895
+    },
+    {
+      "category": "day-2026-11-29",
+      "answer": "Nicaragua",
+      "found": true,
+      "display": "Nicaragua",
+      "basePoints": 80,
+      "percentile": 0.7218
+    },
+    {
+      "category": "day-2026-11-29",
+      "answer": "Tuvalu",
+      "found": true,
+      "display": "Tuvalu",
+      "basePoints": 85,
+      "percentile": 0.7581
+    },
+    {
+      "category": "day-2026-11-29",
+      "answer": "American Samoa",
+      "found": true,
+      "display": "American Samoa",
+      "basePoints": 85,
+      "percentile": 0.7903
+    },
+    {
+      "category": "day-2026-11-29",
+      "answer": "Comoros",
+      "found": true,
+      "display": "Comoros",
+      "basePoints": 90,
+      "percentile": 0.8266
+    },
+    {
+      "category": "day-2026-11-29",
+      "answer": "French Polynesia",
+      "found": true,
+      "display": "French Polynesia",
+      "basePoints": 95,
+      "percentile": 0.8589
+    },
+    {
+      "category": "day-2026-11-29",
+      "answer": "Antigua and Barbuda",
+      "found": true,
+      "display": "Antigua and Barbuda",
+      "basePoints": 100,
+      "percentile": 0.8952
+    },
+    {
+      "category": "day-2026-11-29",
+      "answer": "Norfolk Island",
+      "found": true,
+      "display": "Norfolk Island",
+      "basePoints": 100,
+      "percentile": 0.9274
+    },
+    {
+      "category": "day-2026-11-29",
+      "answer": "Wallis and Futuna",
+      "found": true,
+      "display": "Wallis and Futuna",
+      "basePoints": 105,
+      "percentile": 0.9637
+    },
+    {
+      "category": "day-2026-11-29",
+      "answer": "Cyprus",
+      "found": true,
+      "display": "Cyprus",
+      "basePoints": 110,
+      "percentile": 1
+    },
+    {
+      "category": "plants",
+      "answer": "Quince",
+      "found": true,
+      "display": "Quince",
+      "basePoints": 10,
+      "percentile": 0
+    },
+    {
+      "category": "plants",
+      "answer": "Martinique sweetleaf",
+      "found": true,
+      "display": "Martinique sweetleaf",
+      "basePoints": 10,
+      "percentile": 0.0378
+    },
+    {
+      "category": "plants",
+      "answer": "Peony",
+      "found": true,
+      "display": "Peony",
+      "basePoints": 10,
+      "percentile": 0.0767
+    },
+    {
+      "category": "plants",
+      "answer": "Chives",
+      "found": true,
+      "display": "Chives",
+      "basePoints": 10,
+      "percentile": 0.1155
+    },
+    {
+      "category": "plants",
+      "answer": "Water crowfoot",
+      "found": true,
+      "display": "Water crowfoot",
+      "basePoints": 15,
+      "percentile": 0.1532
+    },
+    {
+      "category": "plants",
+      "answer": "Liquidambar",
+      "found": true,
+      "display": "Liquidambar",
+      "basePoints": 20,
+      "percentile": 0.1922
+    },
+    {
+      "category": "plants",
+      "answer": "Pink",
+      "found": true,
+      "display": "Pink",
+      "basePoints": 25,
+      "percentile": 0.2312
+    },
+    {
+      "category": "plants",
+      "answer": "English walnut",
+      "found": true,
+      "display": "English walnut",
+      "basePoints": 30,
+      "percentile": 0.2691
+    },
+    {
+      "category": "plants",
+      "answer": "European aspen",
+      "found": true,
+      "display": "European aspen",
+      "basePoints": 35,
+      "percentile": 0.3074
+    },
+    {
+      "category": "plants",
+      "answer": "Littleleaf linden",
+      "found": true,
+      "display": "Littleleaf linden",
+      "basePoints": 35,
+      "percentile": 0.3461
+    },
+    {
+      "category": "plants",
+      "answer": "Elephant grass",
+      "found": true,
+      "display": "Elephant grass",
+      "basePoints": 40,
+      "percentile": 0.3845
+    },
+    {
+      "category": "plants",
+      "answer": "Dock",
+      "found": true,
+      "display": "Dock",
+      "basePoints": 45,
+      "percentile": 0.4228
+    },
+    {
+      "category": "plants",
+      "answer": "Baby sage",
+      "found": true,
+      "display": "Baby sage",
+      "basePoints": 50,
+      "percentile": 0.4617
+    },
+    {
+      "category": "plants",
+      "answer": "African bowstring hemp",
+      "found": true,
+      "display": "African bowstring hemp",
+      "basePoints": 55,
+      "percentile": 0.4998
+    },
+    {
+      "category": "plants",
+      "answer": "Fritillary",
+      "found": true,
+      "display": "Fritillary",
+      "basePoints": 60,
+      "percentile": 0.5385
+    },
+    {
+      "category": "plants",
+      "answer": "Wallflower",
+      "found": true,
+      "display": "Wallflower",
+      "basePoints": 65,
+      "percentile": 0.577
+    },
+    {
+      "category": "plants",
+      "answer": "Bog bilberry",
+      "found": true,
+      "display": "Bog bilberry",
+      "basePoints": 65,
+      "percentile": 0.6154
+    },
+    {
+      "category": "plants",
+      "answer": "Labrador tea",
+      "found": true,
+      "display": "Labrador tea",
+      "basePoints": 70,
+      "percentile": 0.6534
+    },
+    {
+      "category": "plants",
+      "answer": "Paperbark maple",
+      "found": true,
+      "display": "Paperbark maple",
+      "basePoints": 75,
+      "percentile": 0.6919
+    },
+    {
+      "category": "plants",
+      "answer": "Fig buttercup",
+      "found": true,
+      "display": "Fig buttercup",
+      "basePoints": 80,
+      "percentile": 0.7304
+    },
+    {
+      "category": "plants",
+      "answer": "Princess-flower",
+      "found": true,
+      "display": "Princess-flower",
+      "basePoints": 85,
+      "percentile": 0.7689
+    },
+    {
+      "category": "plants",
+      "answer": "Chinese hackberry",
+      "found": true,
+      "display": "Chinese hackberry",
+      "basePoints": 90,
+      "percentile": 0.8083
+    },
+    {
+      "category": "plants",
+      "answer": "Siberian peashrub",
+      "found": true,
+      "display": "Siberian peashrub",
+      "basePoints": 95,
+      "percentile": 0.8458
+    },
+    {
+      "category": "plants",
+      "answer": "Soapwort",
+      "found": true,
+      "display": "Soapwort",
+      "basePoints": 95,
+      "percentile": 0.8845
+    },
+    {
+      "category": "plants",
+      "answer": "Cotton grass",
+      "found": true,
+      "display": "Cotton grass",
+      "basePoints": 100,
+      "percentile": 0.9228
+    },
+    {
+      "category": "plants",
+      "answer": "Tall buttercup",
+      "found": true,
+      "display": "Tall buttercup",
+      "basePoints": 105,
+      "percentile": 0.9598
+    },
+    {
+      "category": "plants",
+      "answer": "Fishpole bamboo",
+      "found": true,
+      "display": "Fishpole bamboo",
+      "basePoints": 110,
+      "percentile": 0.9992
+    },
+    {
+      "category": "plants",
+      "answer": "Nanking cherry",
+      "found": true,
+      "display": "Nanking cherry",
+      "basePoints": 110,
+      "percentile": 1
+    },
+    {
+      "category": "plants",
+      "answer": "Woodborder dewberry",
+      "found": true,
+      "display": "Woodborder dewberry",
+      "basePoints": 110,
+      "percentile": 1
+    },
+    {
+      "category": "plants",
+      "answer": "'ahakea",
+      "found": true,
+      "display": "'ahakea",
+      "basePoints": 55,
+      "percentile": null
+    }
+  ]
+}

@@ -1,0 +1,72 @@
+[
+  {
+    "name": "Record production rollback IDs",
+    "passed": true,
+    "at": "2026-11-23T22:43:50.225Z"
+  },
+  {
+    "name": "Check production data and launch schedule",
+    "passed": true,
+    "at": "2026-11-23T22:43:52.784Z"
+  },
+  {
+    "name": "Back up production before release",
+    "passed": true,
+    "at": "2026-11-23T22:43:54.885Z"
+  },
+  {
+    "name": "Check explicit R19D deployment window",
+    "passed": true,
+    "at": "2026-11-23T22:43:55.066Z"
+  },
+  {
+    "name": "Publish production assets before Worker",
+    "passed": true,
+    "at": "2026-11-23T22:44:09.637Z"
+  },
+  {
+    "name": "Preflight immutable deployment scripts",
+    "passed": true,
+    "at": "2026-11-23T22:44:12.185Z"
+  },
+  {
+    "name": "Wait for fresh canonical assets",
+    "passed": true,
+    "at": "2026-11-23T22:44:14.758Z"
+  },
+  {
+    "name": "Verify coherent production scripts",
+    "passed": true,
+    "at": "2026-11-23T22:44:16.333Z"
+  },
+  {
+    "name": "Preserve all current and rollback score assets",
+    "passed": true,
+    "at": "2026-11-23T22:44:20.619Z"
+  },
+  {
+    "name": "Deploy production Worker",
+    "passed": true,
+    "at": "2026-11-23T22:44:34.035Z"
+  },
+  {
+    "name": "Verify live scoring reads",
+    "passed": true,
+    "at": "2026-11-23T22:44:53.057Z"
+  },
+  {
+    "name": "Run read-only production browser smoke",
+    "passed": true,
+    "at": "2026-11-23T22:45:24.924Z"
+  },
+  {
+    "name": "Verify unchanged production data and schedule",
+    "passed": true,
+    "at": "2026-11-23T22:45:26.674Z"
+  },
+  {
+    "name": "Record released deployment IDs",
+    "passed": true,
+    "at": "2026-11-23T22:45:28.161Z"
+  }
+]

@@ -1,0 +1,79 @@
+{
+  "at": "2026-11-23T22:44:12.163Z",
+  "origin": "https://fcd4323d.dibs-7hz.pages.dev",
+  "passed": true,
+  "rows": [
+    {
+      "path": "Archive-CFic8Q9X.js",
+      "status": 200,
+      "type": "application/javascript",
+      "matches": true
+    },
+    {
+      "path": "Calendar-eZ_oGWeH.js",
+      "status": 200,
+      "type": "application/javascript",
+      "matches": true
+    },
+    {
+      "path": "Certificate-BmhwGVvh.js",
+      "status": 200,
+      "type": "application/javascript",
+      "matches": true
+    },
+    {
+      "path": "Content-BxZJnHTN.js",
+      "status": 200,
+      "type": "application/javascript",
+      "matches": true
+    },
+    {
+      "path": "Leaderboard-Dk1xrRt8.js",
+      "status": 200,
+      "type": "application/javascript",
+      "matches": true
+    },
+    {
+      "path": "Ledger-8Mp11YKS.js",
+      "status": 200,
+      "type": "application/javascript",
+      "matches": true
+    },
+    {
+      "path": "Settings-BVBfbv4C.js",
+      "status": 200,
+      "type": "application/javascript",
+      "matches": true
+    },
+    {
+      "path": "index-BClQrUkp.css",
+      "status": 200,
+      "type": "text/css; charset=utf-8",
+      "matches": true
+    },
+    {
+      "path": "index-BoHOD6S6.js",
+      "status": 200,
+      "type": "application/javascript",
+      "matches": true
+    },
+    {
+      "path": "jsx-runtime-B4UN2VIk.js",
+      "status": 200,
+      "type": "application/javascript",
+      "matches": true
+    },
+    {
+      "path": "spelling.worker-CrIfIp-F.js",
+      "status": 200,
+      "type": "application/javascript",
+      "matches": true
+    },
+    {
+      "path": "time-CXmkzaBv.js",
+      "status": 200,
+      "type": "application/javascript",
+      "matches": true
+    }
+  ]
+}

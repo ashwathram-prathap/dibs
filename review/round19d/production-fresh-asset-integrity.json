@@ -1,0 +1,106 @@
+{
+  "at": "2026-11-23T22:44:14.738Z",
+  "passed": true,
+  "entry": "/assets/index-BoHOD6S6.js",
+  "inlineStyleHashes": [
+    "5ffa8cd03fa8d3c51f20fd6a741e091848efa9f50fa0220cb327e68945e06729",
+    "f46a3bbc2d7d2ef60161b1772dffa536d799e0adcab7781cebd14cab625f70b7"
+  ],
+  "rows": [
+    {
+      "path": "Archive-CFic8Q9X.js",
+      "status": 200,
+      "type": "application/javascript",
+      "bytes": 4623,
+      "matches": true
+    },
+    {
+      "path": "Calendar-eZ_oGWeH.js",
+      "status": 200,
+      "type": "application/javascript",
+      "bytes": 9595,
+      "matches": true
+    },
+    {
+      "path": "Certificate-BmhwGVvh.js",
+      "status": 200,
+      "type": "application/javascript",
+      "bytes": 101405,
+      "matches": true
+    },
+    {
+      "path": "Content-BxZJnHTN.js",
+      "status": 200,
+      "type": "application/javascript",
+      "bytes": 13026,
+      "matches": true
+    },
+    {
+      "path": "Leaderboard-Dk1xrRt8.js",
+      "status": 200,
+      "type": "application/javascript",
+      "bytes": 2563,
+      "matches": true
+    },
+    {
+      "path": "Ledger-8Mp11YKS.js",
+      "status": 200,
+      "type": "application/javascript",
+      "bytes": 5108,
+      "matches": true
+    },
+    {
+      "path": "Settings-BVBfbv4C.js",
+      "status": 200,
+      "type": "application/javascript",
+      "bytes": 9489,
+      "matches": true
+    },
+    {
+      "path": "index-BClQrUkp.css",
+      "status": 200,
+      "type": "text/css; charset=utf-8",
+      "bytes": 120056,
+      "matches": true
+    },
+    {
+      "path": "index-BoHOD6S6.js",
+      "status": 200,
+      "type": "application/javascript",
+      "bytes": 280390,
+      "matches": true
+    },
+    {
+      "path": "jsx-runtime-B4UN2VIk.js",
+      "status": 200,
+      "type": "application/javascript",
+      "bytes": 9096,
+      "matches": true
+    },
+    {
+      "path": "spelling.worker-CrIfIp-F.js",
+      "status": 200,
+      "type": "application/javascript",
+      "bytes": 1958,
+      "matches": true
+    },
+    {
+      "path": "time-CXmkzaBv.js",
+      "status": 200,
+      "type": "application/javascript",
+      "bytes": 1904,
+      "matches": true
+    }
+  ],
+  "observations": [
+    {
+      "at": "2026-11-23T22:44:14.738Z",
+      "status": 200,
+      "actual": "/assets/index-BoHOD6S6.js",
+      "expected": "/assets/index-BoHOD6S6.js",
+      "stylesMatch": true,
+      "htmlMatches": true,
+      "passed": true
+    }
+  ]
+}
