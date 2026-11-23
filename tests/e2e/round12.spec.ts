@@ -22,6 +22,7 @@ test('R12 first visitor sees plain rules and a full worked example in every home
   }
   await expect(page.locator('.day-certificate')).toBeVisible();
   await expect(page.locator('.game-explanation')).toBeVisible();
+  await page.locator('.header-settings > summary').click();
   await page.locator('#file-settings summary').click();
   await expect(page.getByLabel('Backup code', { exact: true })).toBeVisible();
 });

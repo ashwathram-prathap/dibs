@@ -1,9 +1,25 @@
 export function Icon({
   name = 'arrow',
 }: {
-  name?: 'arrow' | 'back' | 'check' | 'cross' | 'star' | 'info' | 'circle' | 'chevron';
+  name?:
+    | 'play'
+    | 'board'
+    | 'archive'
+    | 'rules'
+    | 'arrow'
+    | 'back'
+    | 'check'
+    | 'cross'
+    | 'star'
+    | 'info'
+    | 'circle'
+    | 'chevron';
 }) {
   const paths = {
+    play: 'M7 4h10v5H7zM9 9v6m6-6v6M5 15h14v5H5z',
+    board: 'M4 20V12h5v8m1 0V5h5v15m1 0v-9h4v9M3 20h18',
+    archive: 'M4 4h16v4H4zM6 8v12h12V8M10 12h4',
+    rules: 'M4 4h7l1 2 1-2h7v15h-7l-1 1-1-1H4zM12 6v14',
     chevron: 'm6 9 6 6 6-6',
     arrow: 'M5 19 19 5M5 5h14v14',
     back: 'm11 5-7 7 7 7M4 12h16',
@@ -21,7 +37,7 @@ export function Icon({
       focusable="false"
       fill="none"
       stroke="currentColor"
-      strokeWidth="2"
+      strokeWidth="1.75"
       strokeLinecap="square"
       strokeLinejoin="miter"
     >

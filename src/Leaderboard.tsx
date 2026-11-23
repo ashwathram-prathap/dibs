@@ -16,7 +16,7 @@ export function Leaderboard({
   const [error, setError] = useState(false);
   useEffect(() => {
     let stopped = false;
-    let timer: ReturnType<typeof setTimeout>;
+
     let updatedAt = 0;
     const accept = (data: Standings) => {
       if (!stopped) {
@@ -31,7 +31,7 @@ export function Leaderboard({
     setBoard(initial || null);
     if (initial) updatedAt = Date.now();
     const read = async () => {
-      if (!document.hidden && (final || Date.now() - updatedAt > 65000)) {
+      if (!document.hidden && (final || !getSnapshot()?.leaderboard)) {
         try {
           accept(
             await api<Standings>(
@@ -45,7 +45,6 @@ export function Leaderboard({
           if (!stopped) setError(true);
         }
       }
-      if (!stopped && !final) timer = setTimeout(read, 25000);
     };
     void read();
     const off = subscribe((s) => {
@@ -53,7 +52,7 @@ export function Leaderboard({
     });
     return () => {
       stopped = true;
-      clearTimeout(timer);
+
       off();
     };
   }, [category, final]);

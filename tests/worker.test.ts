@@ -107,14 +107,15 @@ beforeAll(async () => {
       .replace(/^--.*$/gm, '')
       .replace(/\n/g, ' '),
   );
-  const date = registryDate();
+
+  await db.exec(readFileSync('migrations/0014_shared_networks.sql', 'utf8').replace(/^--.*$/gm, '').replace(/\n/g, ' '));  const date = registryDate();
   await db
     .prepare(
       'INSERT INTO categories(id,date,name,slug,total_registrable,drop_at,status) VALUES(?,?,?,?,?,?,?)',
     )
     .bind('test', date, 'Animals', 'test-animals', 2400, dropAt(date), 'approved')
     .run();
-  for (let i = 0; i < 70; i++) {
+  for (let i = 0; i < 400; i++) {
     const display = i === 0 ? 'Axolotl' : 'Test animal ' + i;
     await db
       .prepare('INSERT INTO answers VALUES(?,?,?,?,?,?)')
@@ -194,7 +195,7 @@ describe('Worker with real SQLite/D1 execution', () => {
         .status,
     ).toBe(403);
   });
-  it('enforces five successful accounts per daily IP atomically', async () => {
+  it('admits eight simultaneous players on one shared network', async () => {
     const accounts = await Promise.all(Array.from({ length: 8 }, account));
     const rs = await Promise.all(
       accounts.map((a, i) =>
@@ -206,8 +207,8 @@ describe('Worker with real SQLite/D1 execution', () => {
         ),
       ),
     );
-    expect(rs.filter((r) => r.status === 201)).toHaveLength(5);
-    expect(rs.filter((r) => r.status === 429)).toHaveLength(3);
+    expect(rs.filter((r) => r.status === 201)).toHaveLength(8);
+    expect(rs.filter((r) => r.status === 429)).toHaveLength(0);
     const hashes = await db.prepare('SELECT ip_hash FROM rate_limits').all();
     expect(hashes.results.every((x: any) => /^[a-f0-9]{64}$/.test(x.ip_hash))).toBe(true);
   });
@@ -469,3 +470,42 @@ it('replays claim and strike retries without a second filing, including concurre
       .status,
   ).toBe(422);
 });
+
+it('R15: forty fresh players on one IP all claim inside two minutes; daily backstop is 5000', async () => {
+  const started = Date.now();
+  const players = await Promise.all(Array.from({length:40}, account));
+  const results = await Promise.all(players.map((p,i) => request('/claim', {answer:'Test animal '+(100+i), turnstileToken:'test'},p.cookie,'residence-r15')));
+  expect(results.map(r=>r.status)).toEqual(Array(40).fill(201));
+  expect(Date.now()-started).toBeLessThan(120000);
+  const row = await db.prepare('SELECT ip_hash,ip_day FROM claims WHERE answer_id=?').bind('answer-100').first();
+  await db.prepare('UPDATE rate_limits SET count=5000 WHERE ip_hash=? AND day=?').bind(row.ip_hash,row.ip_day).run();
+  const player = await account();
+  const denied = await request('/claim',{answer:'Test animal 140',turnstileToken:'test'},player.cookie,'residence-r15');
+  expect(denied.status).toBe(429);
+  expect((await denied.json() as any).message).toBe('Too many new players from this network right now. Try again in a few minutes, or switch to mobile data.');
+},30000);
+it('R15: rolling burst admits player 301 after the window and ignores missing IPs', async () => {
+  const {hmac} = await import('../worker/identity');
+  const {torontoDate} = await import('../worker/domain');
+  const day=torontoDate(); const hash=await hmac('burst-r15', await hmac('ip:'+day,'test-secret-not-for-production'));
+  // Seed the admission window directly, without 300 API accounts or attempts.
+  await db.exec('DROP TRIGGER claim_guard;');
+  for(let i=0;i<300;i++) {
+    await db.prepare('INSERT INTO users(id,handle,created_at) VALUES(?,?,?)').bind('burst-'+i,'Burst '+i,new Date().toISOString()).run();
+    await db.prepare('INSERT INTO answers VALUES(?,?,?,?,?,?)').bind('burst-a-'+i,'test','burst '+i,'Burst answer '+i,'[]',3).run();
+    await db.prepare('INSERT INTO claims(id,category_id,answer_id,user_id,claim_no,created_at,ip_hash,ip_day) VALUES(?,?,?,?,?,?,?,?)').bind('burst-c-'+i,'test','burst-a-'+i,'burst-'+i,1000+i,new Date().toISOString(),hash,day).run();
+  }
+  const migration=readFileSync('migrations/0014_shared_networks.sql','utf8');
+  await db.exec(migration.slice(migration.indexOf('CREATE TRIGGER claim_guard'),migration.indexOf('CREATE TRIGGER count_success')).replace(/\n/g,' '));
+  const player=await account();
+  const denied=await request('/claim',{answer:'Test animal 141',turnstileToken:'test'},player.cookie,'burst-r15');
+  expect(denied.status).toBe(429);
+  await db.prepare("UPDATE claims SET created_at=strftime('%Y-%m-%dT%H:%M:%fZ','now','-11 minutes') WHERE ip_hash=?").bind(hash).run();
+  expect((await request('/claim',{answer:'Test animal 141',turnstileToken:'test'},player.cookie,'burst-r15')).status).toBe(201);
+  for(let i=0;i<8;i++) {
+    const p=await account();
+    const r=await mf.dispatchFetch('http://localhost/api/claim',{method:'POST',headers:{origin:'https://dibs.here',cookie:p.cookie,'content-type':'application/json','CF-Connecting-IP':''},body:JSON.stringify({answer:'Test animal '+(150+i),turnstileToken:'test'})});
+    expect(r.status).toBe(201);
+  }
+  expect(await db.prepare("SELECT * FROM rate_limits WHERE ip_hash=''").first()).toBeNull();
+},30000);

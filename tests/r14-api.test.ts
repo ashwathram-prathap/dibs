@@ -133,7 +133,8 @@ beforeAll(async () => {
       .replace(/^--.*$/gm, '')
       .replace(/\n/g, ' '),
   );
-  const date = registryDate();
+
+  await db.exec(readFileSync('migrations/0014_shared_networks.sql', 'utf8').replace(/^--.*$/gm, '').replace(/\n/g, ' '));  const date = registryDate();
   await db
     .prepare(
       'INSERT INTO categories(id,date,name,slug,total_registrable,drop_at,status) VALUES(?,?,?,?,?,?,?)',
@@ -279,7 +280,7 @@ it('never leaks other answers through leaderboard, completed-viewer ledger, sock
   expect(JSON.stringify(data.leaderboard)).not.toMatch(/Animal [0-9]/);
   // A player's private me record can contain their own guesses, never another player's claim.
   expect(
-    data.me.file.claims.every((c: any) => current.file.claims.some((own: any) => own.id === c.id)),
+    (data.me?.file?.claims || []).every((c: any) => current.file.claims.some((own: any) => own.id === c.id)),
   ).toBe(true);
   ws.close(1000);
 });

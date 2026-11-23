@@ -28,3 +28,7 @@ export const RESERVED_COUNT = 10;
 export const CLOSE_TIME_LOCAL = DROP_TIME_LOCAL; // The following day's drop.
 export const CLOSE_TIME_LABEL = DROP_TIME_LABEL;
 export const LAUNCH_GOLDEN_PER_DAY = 10;
+
+// Inclusive drop dates; extend these without changing clue logic.
+export const CLUE_START_DATE = '2026-11-23';
+export const CLUE_END_DATE = '2026-11-29';

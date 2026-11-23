@@ -1,117 +1,65 @@
-import { musicLoopBounds } from './music-loop';
-// AudioContext and the MP3 are created/loaded only from a Music tap.
+// Create the media element only after a tap; decoding streams as bytes arrive.
 let context: AudioContext | undefined;
 let gain: GainNode | undefined;
-let source: AudioBufferSourceNode | undefined;
-let buffer: AudioBuffer | undefined;
-let loading: Promise<void> | undefined;
+let audio: HTMLAudioElement | undefined;
 let wanted = false;
-let revision = 0;
-let pausedAt = 0;
-let beganAt = 0;
-let pauseTimer: ReturnType<typeof setTimeout> | undefined;
-type GainPoint = { at: number; value: number };
-let envelope: GainPoint[] = [{ at: 0, value: 0 }];
-function gainAt(at: number) {
-  let previous = envelope[0];
-  for (const point of envelope.slice(1)) {
-    if (at < point.at)
-      return (
-        previous.value +
-        (point.value - previous.value) * Math.max(0, (at - previous.at) / (point.at - previous.at))
-      );
-    previous = point;
-  }
-  return previous.value;
+const level = 0.3;
+function ramp(value: number, seconds = 0.08) {
+  if (!context || !gain) return;
+  gain.gain.cancelScheduledValues(context.currentTime);
+  gain.gain.setTargetAtTime(value, context.currentTime, seconds / 3);
 }
-function automate(points: GainPoint[]) {
-  if (!gain || !context) return;
-  const at = context.currentTime,
-    value = gainAt(at);
-  // Keep the scheduled value ourselves: Firefox has no cancelAndHoldAtTime.
-  gain.gain.cancelScheduledValues(at);
-  gain.gain.setValueAtTime(value, at);
-  envelope = [{ at, value }, ...points];
-  for (const point of points) gain.gain.linearRampToValueAtTime(point.value, point.at);
-}
-function ramp(value: number, seconds = 1) {
-  if (context) automate([{ at: context.currentTime + seconds, value }]);
-}
-function start() {
-  if (!context || !buffer || !gain || source || !wanted || document.hidden) return;
-  source = context.createBufferSource();
-  source.buffer = buffer;
-  source.loop = true;
-  const loop = musicLoopBounds(buffer.duration);
-  source.loopStart = loop.start;
-  source.loopEnd = loop.end;
-  source.connect(gain);
-  beganAt = context.currentTime;
-  source.start(0, loop.start + (pausedAt % 32));
-  ramp(1);
-}
-function stop() {
-  if (!source || !context) return;
-  pausedAt = (pausedAt + context.currentTime - beganAt) % 32;
-  source.stop();
-  source.disconnect();
-  source = undefined;
+function setup() {
+  if (audio) return;
+  context = new AudioContext();
+  audio = new Audio();
+  audio.preload = 'none';
+  audio.loop = true;
+  audio.setAttribute('playsinline', '');
+  audio.src = audio.canPlayType('audio/webm; codecs="opus"')
+    ? '/audio/waiting-room.v2.webm'
+    : '/audio/waiting-room.v2.m4a';
+  gain = context.createGain();
+  gain.gain.value = level;
+  context.createMediaElementSource(audio).connect(gain);
+  gain.connect(context.destination);
+  context.addEventListener('statechange', () => {
+    if (wanted && !document.hidden && (context!.state as string) === 'interrupted')
+      void context!.resume();
+  });
+  audio.addEventListener('pause', () => {
+    if (wanted && !document.hidden)
+      void context!
+        .resume()
+        .then(() => audio!.play())
+        .catch(() => {});
+  });
 }
 export async function setMusic(on: boolean) {
   wanted = on;
-  const current = ++revision;
-  clearTimeout(pauseTimer);
   if (!on) {
-    ramp(0);
-    pauseTimer = setTimeout(stop, 1000);
+    audio?.pause();
     return;
   }
-  context ||= new AudioContext();
-  gain ||= context.createGain();
-  // Resume while still in the tap, before fetching/decoding.
-  await context.resume();
-  if (!loading) {
-    gain.gain.value = 0;
-    gain.connect(context.destination);
-    loading = fetch('/audio/waiting-room.mp3')
-      .then((r) => {
-        if (!r.ok) throw Error('Music unavailable');
-        return r.arrayBuffer();
-      })
-      .then((bytes) => context!.decodeAudioData(bytes))
-      .then((decoded) => {
-        buffer = decoded;
-      })
-      .catch((e) => {
-        loading = undefined;
-        throw e;
-      });
-  }
-  await loading;
-  if (current === revision && wanted) {
-    start();
-    if (!document.hidden) ramp(1);
-  }
+  setup();
+  if ('audioSession' in navigator) (navigator as any).audioSession.type = 'playback';
+  // Both calls begin synchronously inside the user's gesture on Safari.
+  const resumed = context!.resume();
+  const playing = audio!.play();
+  await Promise.all([resumed, playing]);
+  if (!wanted) audio!.pause();
+  else ramp(level);
 }
 document.addEventListener('visibilitychange', () => {
-  clearTimeout(pauseTimer);
-  if (document.hidden) {
-    ramp(0, 0.05);
-    pauseTimer = setTimeout(stop, 60);
-  } else if (wanted) {
-    void context?.resume().then(() => {
-      start();
-      ramp(1);
-    });
-  }
+  if (document.hidden) audio?.pause();
+  else if (wanted)
+    void context
+      ?.resume()
+      .then(() => audio?.play())
+      .catch(() => {});
 });
 window.addEventListener('dibs-stamp', ((event: CustomEvent<number>) => {
-  if (!source || !gain || !context || !wanted) return;
-  const at = context.currentTime;
-  const ducked = Math.min(0.2, gainAt(at));
-  automate([
-    { at: at + 0.006, value: ducked },
-    { at: at + event.detail, value: ducked },
-    { at: at + event.detail + 1, value: 1 },
-  ]);
+  if (!wanted || !gain || !context) return;
+  ramp(level * 0.15, 0.006);
+  gain.gain.setTargetAtTime(level, context.currentTime + event.detail, 0.25);
 }) as EventListener);

@@ -1,4 +1,5 @@
 export interface Specials {
+  clue?: { text: string; crackedBy: string | null } | null;
   houseCount: number;
   houseWords: { display: string; handle: string }[];
   goldenFound: number;
@@ -8,7 +9,7 @@ export interface Specials {
   verified?: boolean;
   reveal?: {
     seed: string;
-    answers: { id: string; display: string }[];
+    answers: { id: string; display: string; clued?: boolean }[];
     algorithm: string;
     payload: string;
   };

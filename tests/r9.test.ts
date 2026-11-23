@@ -134,7 +134,8 @@ beforeAll(async () => {
       .replace(/^--.*$/gm, '')
       .replace(/\n/g, ' '),
   );
-  const date = registryDate();
+
+  await db.exec(readFileSync('migrations/0014_shared_networks.sql', 'utf8').replace(/^--.*$/gm, '').replace(/\n/g, ' '));  const date = registryDate();
   await db
     .prepare(
       'INSERT INTO categories(id,date,name,slug,total_registrable,drop_at,status) VALUES(?,?,?,?,?,?,?)',

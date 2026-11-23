@@ -1,3 +1,4 @@
+import { cluedId, clueText, clueEnabled } from './clue';
 import { catalogMeta, rowAt, answerId, persistAnswer } from './catalog';
 import { goldenPerDay, GOLDEN_PER_DAY } from '../shared/config';
 import houseWords from './house-words.json';
@@ -116,7 +117,23 @@ export async function specialStatus(env: Env, category: any, reveal = false) {
   )
     .bind(category.id)
     .first<any>();
+  const selected = clueEnabled(category)
+    ? cluedId(JSON.parse(saved.golden_json), saved.commitment)
+    : null;
+  const clueAnswer = selected
+    ? await env.DB.prepare('SELECT display FROM answers WHERE id=?').bind(selected).first<any>()
+    : null;
+  const cracked = selected
+    ? await env.DB.prepare(
+        "SELECT CASE WHEN u.provider_subject LIKE 'withdrawn:%' THEN 'Withdrawn player' ELSE COALESCE(f.name,u.handle) END handle FROM claims c JOIN users u ON u.id=c.user_id LEFT JOIN founder_role f ON f.user_id=u.id WHERE c.answer_id=? AND c.category_id=? AND c.voided=0 AND u.hidden=0",
+      )
+        .bind(selected, category.id)
+        .first<any>()
+    : null;
   const base = {
+    clue: clueAnswer
+      ? { text: clueText(clueAnswer.display, category.date), crackedBy: cracked?.handle || null }
+      : null,
     houseCount: house.length,
     houseWords: house
       .filter((h) => closed || h.revealed)
@@ -139,7 +156,7 @@ export async function specialStatus(env: Env, category: any, reveal = false) {
     ...base,
     reveal: {
       seed: saved.seed,
-      answers,
+      answers: answers.map((a) => ({ ...a, clued: a.id === selected })),
       algorithm: 'SHA-256 of JSON.stringify({v:1,category,seed,answers:sortedAnswerIds})',
       payload: commitmentText(category.id, saved.seed, ids),
     },

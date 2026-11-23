@@ -1,0 +1,5 @@
+// Exact bytes are hash-authorized in the CSP; render before stylesheets.
+export const THEME_SCRIPT =
+  "try{var t=localStorage.getItem('dibs-theme');document.documentElement.dataset.theme=t==='light'||t==='dark'?t:matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light'}catch(e){document.documentElement.dataset.theme=matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light'}document.documentElement.style.colorScheme=document.documentElement.dataset.theme==='dark'?'dark':'light';";
+export const CRITICAL_CSS =
+  'html,body{margin:0;background:#F1ECE2;color:#1A1A17;color-scheme:light}html[data-theme=dark],html[data-theme=dark] body{background:#16150f;color:#F1ECE2;color-scheme:dark}#root>.seo-fallback{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%)}.opening-notice{font:18px system-ui;padding:24px}';

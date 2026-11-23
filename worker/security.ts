@@ -31,10 +31,17 @@ export function gate(previous: Gate | undefined, now: number, valid: boolean, ad
   state.expires = now + 900000;
   return { state, status: state.count > (admin ? 60 : 30) ? 429 : 200 };
 }
-export async function securityKey(req: Request, secret: string, local?: string) {
-  const ip =
+// Only the platform header (or explicit local-test header) identifies a network.
+// Missing IPs must never become one worldwide bucket.
+export function clientIp(req: Request, local?: string): string | null {
+  const value =
     (isLocal(req, local) ? req.headers.get('x-test-ip') : null) ||
-    req.headers.get('CF-Connecting-IP') ||
-    'unknown';
-  return hmac(ip, await hmac('security-rate-limit', secret));
+    req.headers.get('CF-Connecting-IP');
+  return value && value !== 'unknown' ? value : null;
 }
+export async function securityKey(req: Request, secret: string, local?: string) {
+  const ip = clientIp(req, local);
+  return ip ? hmac(ip, await hmac('security-rate-limit', secret)) : null;
+}
+export const NETWORK_BUSY =
+  'Too many new players from this network right now. Try again in a few minutes, or switch to mobile data.';

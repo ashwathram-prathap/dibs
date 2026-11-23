@@ -1,0 +1,5 @@
+{
+  "version": 1,
+  "include": ["/api/*", "/c/*", "/certificate/*", "/summary/*", "/reminder.ics", "/archive", "/about", "/robots.txt", "/sitemap.xml"],
+  "exclude": ["/assets/*", "/fonts/*", "/audio/*", "/art/*", "/catalog/*", "/data/*", "/favicon.svg", "/icon-*", "/grain.png", "/stamp*.svg", "/theme.js", "/manifest.webmanifest", "/version.json"]
+}

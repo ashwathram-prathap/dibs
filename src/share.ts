@@ -4,7 +4,13 @@ import { edition, localTime } from '../shared/time';
 import { guesses } from '../shared/guesses';
 import { PUBLIC_HOST } from '../shared/config';
 import { type Claim, type DayFile, type Category, serial } from './types';
-import { WORDMARK_WIDTH, WORDMARK_PATH, WORDMARK_BLOCK_X } from '../shared/brand';
+import {
+  WORDMARK_WIDTH,
+  WORDMARK_PATH,
+  WORDMARK_BLOCK_X,
+  WORDMARK_OFFSET_X,
+  WORDMARK_OFFSET_Y,
+} from '../shared/brand';
 import { fitText } from '../shared/typography';
 // Canvas avoids Safari's SVG foreignObject restrictions. Font faces are self-hosted.
 export async function exportCertificate(claim: Claim, story: boolean) {
@@ -68,6 +74,7 @@ export async function exportCertificate(claim: Claim, story: boolean) {
   c.save();
   c.translate(800, 162);
   c.scale(200 / WORDMARK_WIDTH, 200 / WORDMARK_WIDTH);
+  c.translate(WORDMARK_OFFSET_X, WORDMARK_OFFSET_Y);
   c.fill(new Path2D(WORDMARK_PATH));
   c.fillStyle = '#E1462B';
   c.fillRect(WORDMARK_BLOCK_X, 67, 18, 18);
@@ -161,7 +168,10 @@ async function canvasFile(canvas: HTMLCanvasElement, name: string) {
 }
 
 export function summaryText(file: DayFile, category: Category) {
-  return `Dibs, ${category.name}: ${file.points ?? 0} pts, ${file.rank ? `#${file.rank} of ${file.players}` : 'unranked'}, streak ${file.streak || 0}.`;
+  const squares = file.events
+    .map((event) => (event.kind === 'strike' ? '\u2b1b' : event.golden ? '\u{1f7e8}' : '\u{1f7e5}'))
+    .join('');
+  return `Dibs #${edition(category.date)} · ${category.name}\n${squares}\n${file.points ?? 0} pts${file.rank ? ` · #${file.rank} of ${file.players}` : ''} · streak ${file.streak || 0}\n${PUBLIC_HOST}`;
 }
 export async function exportSummary(file: DayFile, category: Category, story: boolean) {
   await document.fonts.ready;
@@ -236,6 +246,7 @@ export async function exportSummary(file: DayFile, category: Category, story: bo
   c.save();
   c.translate(800, 166);
   c.scale(200 / WORDMARK_WIDTH, 200 / WORDMARK_WIDTH);
+  c.translate(WORDMARK_OFFSET_X, WORDMARK_OFFSET_Y);
   c.fill(new Path2D(WORDMARK_PATH));
   c.fillStyle = '#E1462B';
   c.fillRect(WORDMARK_BLOCK_X, 67, 18, 18);

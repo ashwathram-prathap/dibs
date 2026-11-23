@@ -1,3 +1,6 @@
+import { liveRequest } from './transport';
+export const PACKED_MESSAGE =
+  "Dibs is packed tonight. Your spot isn't lost. Try again in a few minutes.";
 import { syncClock } from './clock';
 let fixture: typeof import('../dev/fixture') | undefined;
 if (import.meta.env.DEV && import.meta.env.VITE_DEMO === 'true')
@@ -18,25 +21,29 @@ export async function api<T>(path: string, body?: unknown): Promise<T> {
   }
   let r: Response;
   try {
-    r = await fetch('/api' + path, {
-      method: body === undefined ? 'GET' : 'POST',
-      credentials: 'same-origin',
-      signal: AbortSignal.timeout(20000),
-      headers: body === undefined ? {} : { 'Content-Type': 'application/json' },
-      body: body === undefined ? undefined : JSON.stringify(body),
-    });
+    r =
+      (await (body !== undefined ? liveRequest(path, body) : undefined)) ||
+      (await fetch('/api' + path, {
+        method: body === undefined ? 'GET' : 'POST',
+        credentials: 'same-origin',
+        signal: AbortSignal.timeout(20000),
+        headers: body === undefined ? {} : { 'Content-Type': 'application/json' },
+        body: body === undefined ? undefined : JSON.stringify(body),
+      }));
   } catch {
-    throw new Error('Could not send your answer; try again.');
+    throw new Error(PACKED_MESSAGE);
   }
   let data: any;
   try {
     data = await r.json();
   } catch {
     throw new ApiError(r.status, {
-      message: 'The game is unavailable; try again shortly.',
+      message: PACKED_MESSAGE,
     });
   }
   syncClock(data?.today?.serverTime || data?.serverTime || r.headers.get('Date'));
+  if (data?.code === 1027 || data?.errors?.some?.((e: any) => e.code === 1027))
+    data.message = PACKED_MESSAGE;
   if (!r.ok) throw new ApiError(r.status, data);
   return data;
 }

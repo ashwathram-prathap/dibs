@@ -282,7 +282,7 @@ it('removes an unplayed future day metadata and retains archived claims and cert
   denyAssets = false;
 });
 
-it('sends each usage threshold alert at most once in thirty minutes', async () => {
+it('sends at most one capacity alert per day across threshold levels', async () => {
   await admin('/assets', { files: 18000, bytes: 1, maxBytes: 1 });
   const monitor = () =>
     mf.dispatchFetch('http://localhost/api/admin/monitor', {
@@ -291,7 +291,7 @@ it('sends each usage threshold alert at most once in thirty minutes', async () =
     });
   expect((await monitor()).status).toBe(200);
   expect((await monitor()).status).toBe(200);
-  expect(notifications.filter((n) => n.includes('staticFiles'))).toHaveLength(2);
+  expect(notifications.filter((n) => n.includes('staticFiles'))).toHaveLength(1);
   expect(notifications.filter((n) => n.includes('70%'))).toHaveLength(1);
-  expect(notifications.filter((n) => n.includes('90%'))).toHaveLength(1);
+  expect(notifications.filter((n) => n.includes('90%'))).toHaveLength(0);
 });

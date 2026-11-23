@@ -35,7 +35,8 @@ test('R13 hero first, R7 scale, phone action visible, explanation collapses', as
     (await page.locator('.game-intro').boundingBox())!.y,
   );
   await expect(page.locator('.closed-office .drop-countdown > p')).toBeVisible();
-  await expect(page.locator('.theme-toggle')).toHaveText(/CARBON COPY|PAPER COPY/);
+  await page.locator('.header-settings > summary').click();
+  await expect(page.locator('.theme-toggle')).toHaveText(/Carbon copy|Paper copy/);
   const initial = await page.locator('html').getAttribute('data-theme');
   await page
     .getByRole('button', {
@@ -43,7 +44,7 @@ test('R13 hero first, R7 scale, phone action visible, explanation collapses', as
     })
     .click();
   await expect(page.locator('.theme-toggle')).toHaveText(
-    initial === 'light' ? 'PAPER COPY' : 'CARBON COPY',
+    initial === 'light' ? 'Paper copy' : 'Carbon copy',
   );
   expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
   const issues = await new AxeBuilder({ page })
@@ -61,20 +62,10 @@ test('R13 sound mapping, double tap and music only after tap', async ({ page }) 
   await page.addInitScript(() => {
     (window as any).stamps = [];
     (window as any).musicLoops = [];
-    const start = AudioBufferSourceNode.prototype.start;
-    AudioBufferSourceNode.prototype.start = function (...args) {
-      if (this.loop && this.buffer) {
-        const samples = this.buffer.getChannelData(0),
-          rate = this.buffer.sampleRate;
-        (window as any).musicLoops.push({
-          duration: this.loopEnd - this.loopStart,
-          boundaryJump: Math.abs(
-            samples[Math.round(this.loopStart * rate)] -
-              samples[Math.round(this.loopEnd * rate) - 1],
-          ),
-        });
-      }
-      return start.apply(this, args);
+    const play = HTMLMediaElement.prototype.play;
+    HTMLMediaElement.prototype.play = function () {
+      (window as any).musicLoops.push({loop:this.loop,preload:this.preload});
+      return play.call(this);
     };
     window.addEventListener('dibs-stamp', (e: any) => (window as any).stamps.push(e.detail));
   });
@@ -88,12 +79,16 @@ test('R13 sound mapping, double tap and music only after tap', async ({ page }) 
     await expect(page.locator('.result-panel')).toBeVisible();
   }
   expect(await page.evaluate(() => (window as any).stamps)).toEqual([]);
+  await page.locator('.header-settings').evaluate((e: HTMLDetailsElement) => e.open = true);
   await page.getByRole('button', { name: 'Turn stamp sound off' }).click();
+  await page.locator('.header-settings > summary').click();
   await page.locator('#answer').fill('Dog');
   await page.locator('#answer').press('Enter');
   await expect(page.locator('.strike-count')).toHaveText('Strike 1 of 5');
   expect(await page.evaluate(() => (window as any).stamps)).toEqual([]);
+  await page.locator('.header-settings').evaluate((e: HTMLDetailsElement) => e.open = true);
   await page.getByRole('button', { name: 'Turn stamp sound on' }).click();
+  await page.locator('.header-settings > summary').click();
   await page.locator('#answer').fill('Dog');
   await page.locator('#answer').press('Enter');
   await expect.poll(() => page.evaluate(() => (window as any).stamps)).toEqual([0.115]);
@@ -113,13 +108,14 @@ test('R13 sound mapping, double tap and music only after tap', async ({ page }) 
   await expect
     .poll(() => page.evaluate(() => (window as any).stamps))
     .toEqual([0.115, 0.48, 0.145]);
+  await page.locator('.header-settings').evaluate((e: HTMLDetailsElement) => e.open = true);
   await page.getByRole('button', { name: 'Turn music on', exact: true }).click();
   await expect.poll(() => audioRequests.length).toBe(1);
   await expect(page.locator('.music-toggle')).toHaveAttribute('aria-pressed', 'true');
   await expect.poll(() => page.evaluate(() => (window as any).musicLoops.length)).toBe(1);
   const loop = await page.evaluate(() => (window as any).musicLoops[0]);
-  expect(loop.duration).toBe(32);
-  expect(loop.boundaryJump).toBeLessThan(0.002);
+  expect(loop.loop).toBe(true);
+  expect(loop.preload).toBe('none');
   await page.evaluate(() => {
     Object.defineProperty(document, 'hidden', { configurable: true, value: true });
     document.dispatchEvent(new Event('visibilitychange'));
@@ -133,6 +129,7 @@ test('R13 sound mapping, double tap and music only after tap', async ({ page }) 
   await page.reload();
   await page.locator('#answer').waitFor();
   expect(audioRequests.length).toBe(1);
+  await page.locator('.header-settings > summary').click();
   await expect(page.getByRole('button', { name: 'Resume music', exact: true })).toBeVisible();
 });
 

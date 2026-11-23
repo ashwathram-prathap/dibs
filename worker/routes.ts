@@ -1,3 +1,4 @@
+import { clientIp, NETWORK_BUSY } from './security';
 import { scoreAnswer, scoreFile } from './scoring';
 import { MAX_CLAIMS, MAX_STRIKES } from '../shared/config';
 import { clerkReply } from '../shared/moments';
@@ -46,6 +47,8 @@ export interface Env {
   REGISTRY?: DurableObjectNamespace;
   IMAGE_CACHE?: DurableObjectNamespace;
   PLAYER?: any;
+  SOCKET_IP_HASH?: string;
+  SOCKET_SECURITY_KEY?: string | null;
   INTERNAL_RECORD?: boolean;
   ATTEMPT_CHECKED?: boolean;
   COOKIE_SECRET: string;
@@ -866,7 +869,7 @@ async function claim(req: Request, env: Env, u: any) {
     if (!r && !house) return null;
     try {
       await env.DB.batch([
-        reserveRequest(),
+        ...(env.ATTEMPT_CHECKED ? [] : [reserveRequest()]),
         env.DB.prepare(
           "INSERT INTO strikes(category_id,user_id,seq,created_at,guess,holder_claim_id,house,request_id,request_answer) SELECT ?,?,(SELECT COUNT(*) FROM claims WHERE category_id=? AND user_id=?)+COUNT(*)+1,strftime('%Y-%m-%dT%H:%M:%fZ','now'),?,?,?,?,? FROM strikes WHERE category_id=? AND user_id=?",
         ).bind(
@@ -916,17 +919,15 @@ async function claim(req: Request, env: Env, u: any) {
   const persistUser = env.DB.prepare(
     'INSERT OR IGNORE INTO users(id,handle,created_at,rerolls_used) VALUES(?,?,?,?)',
   ).bind(u.id, u.handle, new Date().toISOString(), u.rerolls_used);
-  const ip =
-    (local ? req.headers.get('x-test-ip') : null) ||
-    req.headers.get('CF-Connecting-IP') ||
-    'unknown';
+  const ip = clientIp(req, env.LOCAL_TEST);
   const day = torontoDate();
-  const hash = await hmac(ip || 'unknown', await hmac('ip:' + day, env.COOKIE_SECRET));
+  const hash =
+    env.SOCKET_IP_HASH ?? (ip ? await hmac(ip, await hmac('ip:' + day, env.COOKIE_SECRET)) : '');
   const id = crypto.randomUUID();
   const score = await scoreAnswer(env, g, staticRow?.[0], answer.answer_id);
   try {
     await env.DB.batch([
-      reserveRequest(),
+      ...(env.ATTEMPT_CHECKED ? [] : [reserveRequest()]),
       persistUser,
       env.DB.prepare(
         "INSERT INTO claims(id,category_id,answer_id,user_id,claim_no,created_at,ip_hash,ip_day,file_no,request_id,request_answer,points,percentile,bonus) SELECT ?,?,?,?,COALESCE(MAX(claim_no),0)+1,strftime('%Y-%m-%dT%H:%M:%fZ','now'),?,?,(SELECT COUNT(*) FROM claims WHERE category_id=? AND user_id=?)+(SELECT COUNT(*) FROM strikes WHERE category_id=? AND user_id=?)+1,?,?,?,?,? FROM claims WHERE category_id=?",
@@ -956,8 +957,7 @@ async function claim(req: Request, env: Env, u: any) {
       return fail(403, "You're done for today; see your certificate.");
     const conflict = await taken();
     if (conflict) return conflict;
-    if (String(e).includes('IP_LIMIT'))
-      return fail(429, 'This connection has reached its daily account allowance.');
+    if (String(e).includes('IP_LIMIT')) return fail(429, NETWORK_BUSY);
     if (String(e).includes('USER_HIDDEN'))
       return fail(403, 'This account is not accepting new filings.');
     throw e;

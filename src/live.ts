@@ -1,3 +1,4 @@
+import { setLiveTransport } from './transport';
 import { syncClock } from './clock';
 import { api, isDemo } from './api';
 import type { Claim, Today, Me } from './types';
@@ -20,7 +21,12 @@ export function publish(s: Snapshot, optimistic = false) {
   if (!optimistic) cursor = Math.max(cursor, ...s.rows.map((r) => r.claim_no), 0);
   const rows = new Map<string, Claim>((same ? latest?.rows || [] : []).map((r) => [r.id, r]));
   s.rows.forEach((r) => rows.set(r.id, r));
-  latest = { ...s, reset: false, rows: [...rows.values()].sort((a, b) => b.claim_no - a.claim_no) };
+  latest = {
+    ...s,
+    me: s.me || (latest?.today.category?.id === s.today.category?.id ? latest?.me : undefined),
+    reset: false,
+    rows: [...rows.values()].sort((a, b) => b.claim_no - a.claim_no),
+  };
   listeners.forEach((fn) => fn(latest!));
 }
 export function subscribe(fn: (s: Snapshot) => void) {
@@ -54,56 +60,94 @@ export function publishClaim(claim: Claim, me?: Me, leaderboard?: import('./type
     true,
   );
 }
-// Poll messages share one hibernatable connection. Hidden tabs send nothing.
+// Hibernating sockets receive server pushes. No application heartbeats.
 export function watchRegistry(onError: (message: string) => void) {
   let socket: WebSocket | undefined, timer: ReturnType<typeof setTimeout> | undefined;
   let stopped = false,
-    failed = false,
-    started = Date.now();
+    failed = false;
+  const pending = new Map<
+    string,
+    {
+      resolve: (r: Response) => void;
+      reject: (e: Error) => void;
+      timer: ReturnType<typeof setTimeout>;
+    }
+  >();
+  setLiveTransport((path, body) => {
+    if (
+      socket?.readyState !== WebSocket.OPEN ||
+      !['/claim', '/verify-session', '/events/share'].includes(path)
+    )
+      return;
+    return new Promise<Response>((resolve, reject) => {
+      const id = crypto.randomUUID();
+      const timer = setTimeout(() => {
+        pending.delete(id);
+        reject(Error('Request timed out'));
+      }, 20000);
+      pending.set(id, { resolve, reject, timer });
+      socket!.send(JSON.stringify({ rpc: id, path, body }));
+    });
+  });
+  const done = () => !!latest?.me?.file?.closed;
   const schedule = () => {
     clearTimeout(timer);
-    if (!stopped && !document.hidden)
-      timer = setTimeout(tick, failed ? 120000 : Date.now() - started >= 120000 ? 60000 : 15000);
+    if (!stopped && !document.hidden && !done() && (failed || isDemo))
+      timer = setTimeout(tick, 60000 + Math.random() * 15000);
   };
   const tick = async () => {
-    if (stopped || document.hidden) return;
+    if (stopped || document.hidden || done()) return;
     try {
       if (isDemo) {
         const today = await api<Today>('/today');
-        const since = cursor;
         const data = today.category
-          ? await api<{ rows: Claim[] }>(`/ledger?category=${today.category.id}&since=${since}`)
+          ? await api<{ rows: Claim[] }>(`/ledger?category=${today.category.id}&since=${cursor}`)
           : { rows: [] };
         const changed = latest?.today.category?.id !== today.category?.id;
-        const me = changed ? await api<Me>('/me') : undefined;
-        publish({ today, rows: data.rows, me, reset: changed });
-      } else if (socket?.readyState === WebSocket.OPEN) {
-        socket.send(
-          JSON.stringify({
-            category: latest?.today.category?.id,
-            version: latest?.version || 0,
-            since: cursor,
-          }),
-        );
+        publish({
+          today,
+          rows: data.rows,
+          me: changed ? await api<Me>('/me') : undefined,
+          reset: changed,
+        });
       } else if (failed) publish(await api<Snapshot>('/bootstrap'));
     } catch (e) {
       onError((e as Error).message);
     }
     schedule();
   };
-  if (!isDemo) {
+  const connect = () => {
+    if (isDemo || stopped || (socket && socket.readyState < 2)) return;
     const url = new URL('/api/live', location.href);
     url.protocol = location.protocol === 'https:' ? 'wss:' : 'ws:';
     socket = new WebSocket(url);
+    socket.onopen = () => {
+      failed = false;
+      clearTimeout(timer);
+    };
     socket.onmessage = (e) => {
       try {
         const data = JSON.parse(e.data);
+        if (data.rpc) {
+          const request = pending.get(data.rpc);
+          if (request) {
+            clearTimeout(request.timer);
+            pending.delete(data.rpc);
+            request.resolve(new Response(JSON.stringify(data.body), { status: data.status }));
+          }
+          return;
+        }
         if (data.error) onError(data.error.message);
         else publish(data);
       } catch {}
     };
     socket.onclose = () => {
       failed = true;
+      for (const request of pending.values()) {
+        clearTimeout(request.timer);
+        request.reject(Error('Connection closed'));
+      }
+      pending.clear();
       schedule();
     };
     socket.onerror = () => {
@@ -111,19 +155,19 @@ export function watchRegistry(onError: (message: string) => void) {
       socket?.close();
       schedule();
     };
-  }
+  };
   const visible = () => {
     if (document.hidden) clearTimeout(timer);
     else {
-      void api<Snapshot>('/bootstrap')
-        .then(publish)
-        .catch(() => {});
-      void tick();
+      connect();
+      schedule();
     }
   };
-  document.addEventListener('visibilitychange', visible);
+  connect();
   schedule();
+  document.addEventListener('visibilitychange', visible);
   return () => {
+    setLiveTransport();
     stopped = true;
     clearTimeout(timer);
     document.removeEventListener('visibilitychange', visible);

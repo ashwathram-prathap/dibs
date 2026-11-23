@@ -1,3 +1,6 @@
+import { createPortal } from 'react-dom';
+import { Clue } from './Clue';
+import { watchVersion } from './version';
 import { Handle } from './Handle';
 import { Leaderboard } from './Leaderboard';
 import {
@@ -58,7 +61,13 @@ import { PUBLIC_HOST, PUBLIC_ORIGIN, certificateUrl } from '../shared/config';
 import { ShareSheet } from './ShareSheet';
 import { summaryUrl, isPlatform } from '../shared/sharing';
 import { exportCertificate, exportSummary, summaryText } from './share';
-import { WORDMARK_WIDTH, WORDMARK_PATH, WORDMARK_BLOCK_X } from '../shared/brand';
+import {
+  WORDMARK_WIDTH,
+  WORDMARK_PATH,
+  WORDMARK_BLOCK_X,
+  WORDMARK_OFFSET_X,
+  WORDMARK_OFFSET_Y,
+} from '../shared/brand';
 function Signature() {
   return (
     <span className="registrar-signature">
@@ -79,8 +88,10 @@ function Signature() {
 function Wordmark() {
   return (
     <svg className="brand-mark" role="img" aria-label="dibs." viewBox={`0 0 ${WORDMARK_WIDTH} 100`}>
-      <path fill="currentColor" d={WORDMARK_PATH} />
-      <path fill="#E1462B" d={`M${WORDMARK_BLOCK_X} 67h18v18h-18z`} />
+      <g transform={`translate(${WORDMARK_OFFSET_X} ${WORDMARK_OFFSET_Y})`}>
+        <path fill="currentColor" d={WORDMARK_PATH} />
+        <path fill="#E1462B" d={`M${WORDMARK_BLOCK_X} 67h18v18h-18z`} />
+      </g>
     </svg>
   );
 }
@@ -219,6 +230,7 @@ function MusicToggle() {
     }
   });
   const [failed, setFailed] = useState(false);
+  const [loading, setLoading] = useState(false);
   const choice = useRef(0);
   return (
     <button
@@ -234,16 +246,21 @@ function MusicToggle() {
         try {
           localStorage.setItem('dibs-music', next ? 'on' : 'off');
         } catch {}
-        void setMusic(next).catch(() => {
-          if (version === choice.current) {
-            setOn(false);
-            setFailed(true);
-          }
-        });
+        setLoading(next);
+        void setMusic(next)
+          .finally(() => {
+            if (version === choice.current) setLoading(false);
+          })
+          .catch(() => {
+            if (version === choice.current) {
+              setOn(false);
+              setFailed(true);
+            }
+          });
       }}
       title={failed ? 'Music unavailable; tap to retry' : undefined}
     >
-      {saved && !on ? 'Music · resume' : 'Music'}
+      {loading ? 'Music · loading' : saved && !on ? 'Music · resume' : 'Music'}
     </button>
   );
 }
@@ -277,13 +294,35 @@ function SoundToggle() {
 }
 function TimezonePicker() {
   const [zone, setZone] = useState(viewerZone);
-  const zones: string[] = (Intl as any).supportedValuesOf?.('timeZone') || [
-    zone,
-    'America/Toronto',
-    'America/Vancouver',
-    'Europe/London',
-    'Asia/Kolkata',
+  const common: [string, string][] = [
+    ['Pacific/Honolulu', 'Hawaii'],
+    ['America/Anchorage', 'Alaska'],
+    ['America/Vancouver', 'Pacific Time (Vancouver, LA)'],
+    ['America/Edmonton', 'Mountain Time (Edmonton, Denver)'],
+    ['America/Winnipeg', 'Central Time (Winnipeg, Chicago)'],
+    ['America/Toronto', 'Eastern Time (Toronto, New York)'],
+    ['America/Halifax', 'Atlantic Time (Halifax)'],
+    ['America/St_Johns', 'Newfoundland (St. John’s)'],
+    ['America/Sao_Paulo', 'Brazil (São Paulo)'],
+    ['Europe/London', 'UK (London)'],
+    ['Europe/Paris', 'Central Europe (Paris, Berlin)'],
+    ['Africa/Lagos', 'West Africa (Lagos)'],
+    ['Africa/Johannesburg', 'South Africa (Johannesburg)'],
+    ['Asia/Dubai', 'Gulf (Dubai)'],
+    ['Asia/Karachi', 'Pakistan (Karachi)'],
+    ['Asia/Kolkata', 'India (Mumbai, Delhi)'],
+    ['Asia/Colombo', 'Sri Lanka (Colombo)'],
+    ['Asia/Singapore', 'Singapore, Malaysia'],
+    ['Asia/Shanghai', 'China (Shanghai)'],
+    ['Asia/Tokyo', 'Japan, Korea (Tokyo, Seoul)'],
+    ['Australia/Sydney', 'Australia East (Sydney)'],
+    ['Pacific/Auckland', 'New Zealand (Auckland)'],
   ];
+  const label = (z: string) =>
+    common.find(([id]) => id === z)?.[1] || z.split('/').pop()!.replaceAll('_', ' ');
+  const options: [string, string][] = common.some(([id]) => id === zone)
+    ? common
+    : [[zone, label(zone)], ...common];
   return (
     <label className="timezone-control">
       Times in {localTime(new Date().toISOString(), zone).zone} · change
@@ -298,9 +337,9 @@ function TimezonePicker() {
           window.dispatchEvent(new Event('dibs-zone'));
         }}
       >
-        {[...new Set([zone, ...zones])].map((z) => (
+        {options.map(([z, name]) => (
           <option key={z} value={z}>
-            {z.replaceAll('_', ' ')}
+            {name}
           </option>
         ))}
       </select>
@@ -357,9 +396,41 @@ export default function App() {
       return matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
     }
   });
+  useEffect(watchVersion, []);
+  useEffect(() => {
+    const viewport = window.visualViewport;
+    const update = () => {
+      const active = document.activeElement;
+      const typing = active instanceof HTMLInputElement || active instanceof HTMLTextAreaElement;
+      document.documentElement.classList.toggle(
+        'keyboard-open',
+        typing || (!!viewport && viewport.height < window.innerHeight * 0.75),
+      );
+    };
+    viewport?.addEventListener('resize', update);
+    document.addEventListener('focusin', update);
+    document.addEventListener('focusout', update);
+    return () => {
+      viewport?.removeEventListener('resize', update);
+      document.removeEventListener('focusin', update);
+      document.removeEventListener('focusout', update);
+    };
+  }, []);
   const [today, setToday] = useState<Today | null>(null);
   const [me, setMe] = useState<Me | null>(null);
   const [error, setError] = useState('');
+  const retryDelay = useRef(3000);
+  useEffect(() => {
+    if (!error) {
+      retryDelay.current = 3000;
+      return;
+    }
+    const timer = setTimeout(() => {
+      if (!document.hidden) void refresh();
+    }, retryDelay.current);
+    retryDelay.current = Math.min(60000, retryDelay.current * 2);
+    return () => clearTimeout(timer);
+  }, [error, today]);
   const refresh = async () => {
     try {
       const data = await api<Snapshot>('/bootstrap');
@@ -395,17 +466,19 @@ export default function App() {
             : null),
       );
     });
-    void refresh();
-    const stop =
-      path === '/'
-        ? watchRegistry((message) => {
-            const snapshot = getSnapshot();
-            // At the boundary, retain Opening… and its retry loop through transient server failures.
-            if (snapshot && serverNow() >= Date.parse(snapshot.today.nextDrop)) return;
-            setError(message);
-          })
-        : () => {};
+    let stop = () => {};
+    let mounted = true;
+    void refresh().then(() => {
+      if (mounted)
+        stop = watchRegistry((message) => {
+          const snapshot = getSnapshot();
+          // At the boundary, retain Opening… and its retry loop through transient server failures.
+          if (snapshot && serverNow() >= Date.parse(snapshot.today.nextDrop)) return;
+          setError(message);
+        });
+    });
     return () => {
+      mounted = false;
       off();
       stop();
     };
@@ -443,24 +516,30 @@ export default function App() {
             <br />
             FIRST COME, FIRST SERVED.
           </p>
-          <div className="header-controls">
-            <SoundToggle />
-            <MusicToggle />
-            <button
-              className="theme-toggle"
-              onClick={() => setTheme(theme === 'light' ? 'dark' : 'light')}
-              aria-label={theme === 'light' ? 'Switch to dark mode' : 'Switch to light mode'}
-            >
-              <span className="theme-swatch" />
-              {theme === 'light' ? 'CARBON COPY' : 'PAPER COPY'}
-            </button>
-          </div>
+          <details className="header-settings">
+            <summary>Settings</summary>
+            <div className="header-controls">
+              <SoundToggle />
+              <MusicToggle />
+              <button
+                className="theme-toggle"
+                onClick={() => setTheme(theme === 'light' ? 'dark' : 'light')}
+                aria-label={theme === 'light' ? 'Switch to dark mode' : 'Switch to light mode'}
+              >
+                <span className="theme-swatch" />
+                {theme === 'light' ? 'Carbon copy' : 'Paper copy'}
+              </button>
+              <TimezonePicker />
+              <div id="settings-content" />
+            </div>
+          </details>
           <nav aria-label="Main navigation">
             {[
-              ['/', 'Today'],
-              ['/archive', 'Archive'],
-              ['/about', 'Office'],
-            ].map(([url, label]) => (
+              ['/', 'Play', 'play'],
+              ['/leaderboard', 'Leaderboard', 'board'],
+              ['/archive', 'Archive', 'archive'],
+              ['/how-it-works', 'How it works', 'rules'],
+            ].map(([url, label, icon]) => (
               <Link
                 key={url}
                 to={url}
@@ -474,21 +553,20 @@ export default function App() {
                       : undefined
                 }
               >
-                {label}
+                <Icon name={icon as 'play'} />
+                <span>{label}</span>
               </Link>
             ))}
-            <a href="/#leaderboard">Leaderboard</a>
-            <TimezonePicker />
-            {me?.user && (
-              <span className="header-player">
-                <Handle
-                  name={me.file?.handle || me.claim?.handle || me.user.handle}
-                  founder={me.file?.founder || me.claim?.founder}
-                />
-                <span>Streak {me.streak}</span>
-              </span>
-            )}
           </nav>
+          {me?.user && (
+            <span className="header-player">
+              <Handle
+                name={me.file?.handle || me.claim?.handle || me.user.handle}
+                founder={me.file?.founder || me.claim?.founder}
+              />
+              <span>Streak {me.streak}</span>
+            </span>
+          )}
         </header>
         {isDemo && (
           <div className="demo-label">
@@ -498,7 +576,7 @@ export default function App() {
         <main id="main">
           {error ? (
             <div className="notice" role="alert">
-              <span className="eyebrow">OFFICE NOTICE</span>
+              <span className="eyebrow">Office notice</span>
               <h1>
                 {error.includes('Registry closed')
                   ? 'Registry closed for the day.'
@@ -525,6 +603,19 @@ export default function App() {
             <CertificatePage id={decodeURIComponent(path.split('/').pop()!)} />
           ) : path.startsWith('/archive') ? (
             <Archive />
+          ) : path === '/leaderboard' ? (
+            <Leaderboard category={today.category?.id} practice={today.practice} />
+          ) : path === '/how-it-works' ? (
+            <section className="how-page">
+              <h1>How it works</h1>
+              <Introduction />
+              <Rules />
+              <Clue clue={today.specials?.clue} />
+              <p>
+                Each night during launch week we post a clue to one golden ticket. The rest stay
+                secret.
+              </p>
+            </section>
           ) : path === '/about' ? (
             <About nextDrop={today.nextDrop} />
           ) : path === '/admin/schedule' ? (
@@ -544,7 +635,10 @@ export default function App() {
           <Link to="/" className="footer-logo">
             <Wordmark />
           </Link>
-          <span>A little claim to call your own.</span>
+          <span>Call it first. It’s yours.</span>
+          <Link to="/about">Office</Link>
+          <a href="/about#privacy">Privacy</a>
+          <a href="/about#sources">Sources</a>
           <Feedback sitekey={today?.turnstileSiteKey || ''} />
         </footer>
       </div>
@@ -1063,6 +1157,7 @@ function Home({
               </summary>
               <Introduction />
               <Rules />
+              <Clue clue={today.specials?.clue} />
             </details>
             {taken && <p className="clerk-aside">{clerkLine('strike', file?.strikes || 0)}</p>}
             <div ref={turnstileBox} className="turnstile" />
@@ -1074,6 +1169,7 @@ function Home({
           </div>
         </section>
       )}
+      <Clue clue={today.specials?.clue} />
       {playing && (
         <section className="locked-ledger" aria-label="Answers hidden until the day closes">
           <p>
@@ -1083,26 +1179,32 @@ function Home({
         </section>
       )}
       <Leaderboard category={today.category?.id} practice={today.practice} />
-      {true && (
-        <details id="file-settings" className="file-key-panel" open={restoreKey ? true : undefined}>
-          <summary>
-            Backup code &amp; settings <Icon name="chevron" />
-          </summary>
-          <p>{BACKUP_EXPLANATION}</p>
-          <form onSubmit={restore}>
-            <label htmlFor="restore-key">Backup code</label>
-            <input
-              id="restore-key"
-              value={restoreKey}
-              onChange={(e) => setRestoreKey(e.target.value)}
-              autoComplete="off"
-              maxLength={60}
-            />
-            <button>Restore claims</button>
-          </form>
-          <DeleteFile sitekey={today.turnstileSiteKey} initialKey={restoreKey} />
-        </details>
-      )}
+      {document.getElementById('settings-content') &&
+        createPortal(
+          <details
+            id="file-settings"
+            className="file-key-panel"
+            open={restoreKey ? true : undefined}
+          >
+            <summary>
+              Backup code <Icon name="chevron" />
+            </summary>
+            <p>{BACKUP_EXPLANATION}</p>
+            <form onSubmit={restore}>
+              <label htmlFor="restore-key">Backup code</label>
+              <input
+                id="restore-key"
+                value={restoreKey}
+                onChange={(e) => setRestoreKey(e.target.value)}
+                autoComplete="off"
+                maxLength={60}
+              />
+              <button>Restore claims</button>
+            </form>
+            <DeleteFile sitekey={today.turnstileSiteKey} initialKey={restoreKey} />
+          </details>,
+          document.getElementById('settings-content')!,
+        )}
       {file?.closed && (
         <>
           {recoveryKey && (
@@ -1256,7 +1358,7 @@ function Progress({ dibs, strikes }: { dibs: number; strikes: number }) {
     <div className="file-progress">
       <span className="dibs-progress">
         <strong>
-          CLAIMS {dibs}/{MAX_CLAIMS}
+          Claims {dibs} of {MAX_CLAIMS}
         </strong>
         <span className="dibs-marks" aria-hidden="true">
           {Array.from({ length: MAX_CLAIMS }, (_, i) => (
@@ -1268,7 +1370,7 @@ function Progress({ dibs, strikes }: { dibs: number; strikes: number }) {
       </span>
       <span className="strikes-progress">
         <strong>
-          STRIKES {strikes}/{MAX_STRIKES}
+          Strikes {strikes} of {MAX_STRIKES}
         </strong>
         <span className="strike-row" role="img" aria-label={`${strikes} of ${MAX_STRIKES} strikes`}>
           {Array.from({ length: MAX_STRIKES }, (_, i) => (
@@ -1301,7 +1403,7 @@ function DaySummary({
         aria-label="Day summary"
       >
         <div className="day-cert-heading">
-          <span className="eyebrow">DAY CERTIFICATE</span>
+          <span className="eyebrow">Day certificate</span>
           <Wordmark />
         </div>
         <div className="day-category">
@@ -1365,7 +1467,7 @@ function DaySummary({
           ))}
         </ol>
         <div className="day-cert-holder">
-          <span className="eyebrow">YOUR NAME</span>
+          <span className="eyebrow">Your name</span>
           <strong>
             <Handle
               name={file.handle || file.claims[0]?.handle || 'Anonymous filer'}
@@ -1535,7 +1637,7 @@ function Ledger({
           </h2>
         </div>
         <label className="search">
-          <span className="eyebrow">SEARCH CLAIMS</span>
+          <span className="eyebrow">Search claims</span>
           <input
             type="search"
             value={query}
@@ -1686,14 +1788,14 @@ export function Certificate({ claim, animated = false }: { claim: Claim; animate
       </div>
       <Signature />
       <div className="cert-holder">
-        <span className="eyebrow">HELD BY</span>
+        <span className="eyebrow">Held by</span>
         <strong>
           <Handle name={claim.handle} founder={claim.founder} />
         </strong>
       </div>
       <div className="cert-bottom">
         <div>
-          <span className="eyebrow">OBSCURITY</span>
+          <span className="eyebrow">Obscurity</span>
           <div
             className="obscurity"
             role="img"
@@ -1766,7 +1868,7 @@ function SummaryPage({ id }: { id: string }) {
   return (
     <section className="summary-page">
       <div className="page-heading">
-        <span className="eyebrow">DAY CERTIFICATE</span>
+        <span className="eyebrow">Day certificate</span>
         <h1>A day on file.</h1>
         <Link to="/">
           Play today’s Dibs <Icon />
@@ -1803,7 +1905,7 @@ function CertificatePage({ id }: { id: string }) {
   return (
     <section className="certificate-page">
       <div className="page-heading">
-        <span className="eyebrow">CERTIFICATE</span>
+        <span className="eyebrow">Certificate</span>
         <h1>On the record.</h1>
         <p>Temporary ownership. Permanent bragging rights.</p>
       </div>
@@ -1867,7 +1969,7 @@ function Archive() {
   return (
     <>
       <div className="page-heading">
-        <span className="eyebrow">ARCHIVE</span>
+        <span className="eyebrow">Archive</span>
         <h1>
           Yesterday
           <br />
@@ -1877,7 +1979,7 @@ function Archive() {
       </div>
       <div className="archive-layout">
         <aside>
-          <span className="eyebrow">SELECT A REGISTER</span>
+          <span className="eyebrow">Select a day</span>
           {categories.length ? (
             <select
               aria-label="Archive date"
@@ -1947,7 +2049,10 @@ function Archive() {
                       </p>
                       <ul>
                         {selected.specials.reveal.answers.map((a) => (
-                          <li key={a.id}>{a.display}</li>
+                          <li key={a.id}>
+                            {a.display}
+                            {a.clued ? ' · clued' : ''}
+                          </li>
                         ))}
                       </ul>
                       <details>
@@ -2016,8 +2121,11 @@ function About({ nextDrop }: { nextDrop: string }) {
           <p>
             Next drop: <DropTime at={nextDrop} />. Same moment for everyone.
           </p>
-          <h3>Can I check the golden draw?</h3>
-          <p>The answers and original draw are published after the category closes.</p>
+          <h3>Are golden tickets fair?</h3>
+          <p>
+            Yes. They’re picked and locked before the category opens. When it closes, we publish
+            them so anyone can check they never changed.
+          </p>
           <h3>How do points work?</h3>
           <p>Rarer answers score more. Golden tickets +100. Strikes −10.</p>
           <h3>What counts toward a streak?</h3>
@@ -2031,7 +2139,7 @@ function About({ nextDrop }: { nextDrop: string }) {
           </div>
         </section>
         <aside className="office-note">
-          <span className="eyebrow">A NOTE ON THE RECORD</span>
+          <span className="eyebrow">A note on the record</span>
           <h2>Privacy</h2>
           <p>Your random name and claims are public; a cookie remembers you for one year.</p>
           <p>

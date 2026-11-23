@@ -5,7 +5,9 @@ test('R11 rules, free guesses, explicit counters, reminders, settings and deleti
 }) => {
   await page.goto('/?r6');
   await expect(page.locator('#answer')).toBeVisible();
+  await page.locator('.header-settings > summary').click();
   await expect(page.getByRole('button', { name: 'Turn stamp sound off' })).toBeVisible();
+  await page.locator('.header-settings > summary').click();
   for (const [answer, message] of [
     ['dibs', 'The clerk appreciates the enthusiasm.'],
     ['registrar', 'Flattery will get you nowhere.'],
@@ -14,7 +16,7 @@ test('R11 rules, free guesses, explicit counters, reminders, settings and deleti
     await page.locator('#answer').fill(answer);
     await page.locator('#answer').press('Enter');
     await expect(page.locator('.result-panel')).toContainText(message);
-    await expect(page.locator('.strikes-progress')).toContainText('STRIKES 0/5');
+    await expect(page.locator('.strikes-progress')).toContainText('Strikes 0 of 5');
   }
   await page.locator('.play-rules summary').click();
   await page.locator('#answer').fill('Dog');
@@ -32,6 +34,7 @@ test('R11 rules, free guesses, explicit counters, reminders, settings and deleti
   expect(google.searchParams.get('recur')).toBe('RRULE:FREQ=DAILY');
   await page.locator('.reminder-button').press('Escape');
   await expect(page.locator('.reminder-menu')).not.toHaveAttribute('open', '');
+  await page.locator('.header-settings > summary').click();
   await page.locator('#file-settings summary').click();
   await page.getByRole('button', { name: 'Delete my data', exact: true }).click();
   await expect(page.getByRole('button', { name: 'Delete permanently' })).toBeVisible();

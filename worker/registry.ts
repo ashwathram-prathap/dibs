@@ -8,7 +8,7 @@ import { verifyChallenge, verificationToken, verifiedSession } from './turnstile
 import { closeAt, specialStatus } from './specials';
 import { dropAt } from './domain';
 import { LAUNCH_DATE } from '../shared/config';
-import { gate, securityKey, type Gate } from './security';
+import { gate, securityKey, clientIp, type Gate } from './security';
 import { isLocal, originFailure, validId } from '../shared/security';
 import { DurableObject } from 'cloudflare:workers';
 import { route, current, fileState, publicClaim, json, safeError, body, type Env } from './routes';
@@ -21,7 +21,7 @@ import {
   fileKey,
   normalizeFileKey,
 } from './identity';
-import { nextDrop, registryDate, streak, normalize } from './domain';
+import { nextDrop, registryDate, torontoDate, streak, normalize } from './domain';
 import { og } from './og';
 import { metered } from './metrics';
 import { isPlatform, platforms } from '../shared/sharing';
@@ -57,6 +57,7 @@ export class Registry extends DurableObject<Env> {
   constructor(ctx: DurableObjectState, env: Env) {
     super(ctx, env);
     this.scores = new Leaderboard(ctx.storage, env);
+    ctx.setWebSocketAutoResponse(new WebSocketRequestResponsePair('ping', 'pong'));
   }
   async fresh(env: Env): Promise<Snapshot> {
     if (this.refreshing) return this.refreshing;
@@ -552,6 +553,11 @@ export class Registry extends DurableObject<Env> {
         : 0,
       minutes,
       usage,
+      networkWarning: !!(await this.env.DB.prepare(
+        'SELECT 1 FROM rate_limits WHERE day=? AND count>500 LIMIT 1',
+      )
+        .bind(torontoDate())
+        .first()),
       limits: freeLimits,
       analyticsError,
       usageNote: platform
@@ -566,6 +572,7 @@ export class Registry extends DurableObject<Env> {
   }
   async monitor() {
     const deliveries: { type: string; status: number }[] = [];
+    await this.pushSnapshot();
     const stats = await this.liveStats();
     const alerts = alertConditions(stats.minutes, stats.usage);
     const now = Date.now(),
@@ -594,6 +601,8 @@ export class Registry extends DurableObject<Env> {
         await this.ctx.storage.delete(key);
     for (const alert of alerts) {
       const threshold = thresholdTypes.has(alert.type);
+      const dailyKey = 'capacity-alert:' + new Date().toISOString().slice(0, 10);
+      if (threshold && (await this.ctx.storage.get(dailyKey))) continue;
       if (threshold && (await this.ctx.storage.get('threshold-sent:' + alert.type))) continue;
       const key = 'alert:' + alert.type;
       const previous = (await this.ctx.storage.get<number>(key)) || 0;
@@ -603,6 +612,7 @@ export class Registry extends DurableObject<Env> {
         (this.env.STAGING === 'true' && alert.type !== 'drop-live')
       )
         continue;
+      if (threshold) await this.ctx.storage.put(dailyKey, true);
       const response = await fetch('https://ntfy.sh/' + encodeURIComponent(this.env.NTFY_TOPIC), {
         method: 'POST',
         body: (this.env.STAGING === 'true' ? 'Practice rehearsal — ' : '') + alert.message,
@@ -678,7 +688,15 @@ export class Registry extends DurableObject<Env> {
           });
       }
     }
-    if (env.LOCAL_TEST === 'true' && response.status !== 101) {
+    if (
+      (env.LOCAL_TEST === 'true' ||
+        (env.STAGING === 'true' &&
+          (await constantEqual(
+            req.headers.get('authorization') || '',
+            'Bearer ' + env.ADMIN_TOKEN,
+          )))) &&
+      response.status !== 101
+    ) {
       response = new Response(response.body, response);
       response.headers.set('x-d1-rows-read', String(meter.totals.reads));
       response.headers.set('x-d1-rows-written', String(meter.totals.writes));
@@ -691,10 +709,16 @@ export class Registry extends DurableObject<Env> {
     return response;
   }
   async rateGate(req: Request, env: Env, admin: boolean, valid: boolean) {
+    const network =
+      'SOCKET_SECURITY_KEY' in env
+        ? env.SOCKET_SECURITY_KEY
+        : await securityKey(req, env.COOKIE_SECRET, env.LOCAL_TEST);
+    if (!network)
+      return admin && !valid ? json({ message: 'Page not found; return to today.' }, 404) : null;
     const key =
       'security:' +
       (admin ? 'admin:' : 'events:') +
-      (await securityKey(req, env.COOKIE_SECRET, env.LOCAL_TEST));
+      (!admin ? (await cookieUser(req, env.COOKIE_SECRET)) || network : network);
     const status = await this.ctx.storage.transaction(async (txn) => {
       const result = gate(await txn.get<Gate>(key), Date.now(), valid, admin);
       await txn.put(key, result.state);
@@ -724,7 +748,23 @@ export class Registry extends DurableObject<Env> {
         return json({ message: 'A live connection is required.' }, 426);
       const pair = new WebSocketPair();
       this.ctx.acceptWebSocket(pair[1]);
-      pair[1].serializeAttachment({ uid: await cookieUser(req, env.COOKIE_SECRET), at: 0 });
+      const ip = clientIp(req, env.LOCAL_TEST);
+      const day = registryDate();
+      pair[1].serializeAttachment({
+        uid: await cookieUser(req, env.COOKIE_SECRET),
+        at: 0,
+        day,
+        ipHash: ip ? await hmac(ip, await hmac('ip:' + torontoDate(), env.COOKIE_SECRET)) : '',
+        securityKey: await securityKey(req, env.COOKIE_SECRET, env.LOCAL_TEST),
+        diagnostic:
+          env.LOCAL_TEST === 'true' ||
+          (env.STAGING === 'true' &&
+            (await constantEqual(
+              req.headers.get('authorization') || '',
+              'Bearer ' + env.ADMIN_TOKEN,
+            ))),
+      });
+      this.ctx.waitUntil(this.pushSnapshot());
       return new Response(null, { status: 101, webSocket: pair[0] });
     }
     if (path === '/bootstrap' || path === '/me') {
@@ -864,6 +904,15 @@ export class Registry extends DurableObject<Env> {
           await this.ctx.storage.delete('snapshot');
         }
         return response;
+      }
+      if (path === '/admin/network' && req.method === 'GET') {
+        const ip = clientIp(req, env.LOCAL_TEST);
+        return json({
+          present: !!req.headers.get('CF-Connecting-IP'),
+          hashPrefix: ip
+            ? (await hmac(ip, await hmac('ip:' + torontoDate(), env.COOKIE_SECRET))).slice(0, 8)
+            : null,
+        });
       }
       if (path === '/admin/live' && req.method === 'GET') return json(await this.liveStats());
       if (path === '/admin/monitor' && req.method === 'POST') return this.monitor();
@@ -1116,14 +1165,20 @@ export class Registry extends DurableObject<Env> {
       const b = await body(req, 200);
       const key = normalizeFileKey(String(b.key || ''));
       // Per-network five entries / 15 minutes, independent of a new browser cookie.
-      const rate = 'recover:' + (await securityKey(req, env.COOKIE_SECRET, env.LOCAL_TEST));
-      const allowed = await this.ctx.storage.transaction(async (tx) => {
-        let r = await tx.get<any>(rate);
-        if (!r || r.until < Date.now()) r = { n: 0, until: Date.now() + 900000 };
-        r.n++;
-        await tx.put(rate, r);
-        return r.n <= 5;
-      });
+      const network =
+        'SOCKET_SECURITY_KEY' in env
+          ? env.SOCKET_SECURITY_KEY
+          : await securityKey(req, env.COOKIE_SECRET, env.LOCAL_TEST);
+      const rate = 'recover:' + network;
+      const allowed =
+        !network ||
+        (await this.ctx.storage.transaction(async (tx) => {
+          let r = await tx.get<any>(rate);
+          if (!r || r.until < Date.now()) r = { n: 0, until: Date.now() + 900000 };
+          r.n++;
+          await tx.put(rate, r);
+          return r.n <= 5;
+        }));
       if (!allowed) return json({ message: 'Too many codes tried; wait 15 minutes.' }, 429);
       const hash = await hmac(key, env.COOKIE_SECRET);
       const found = await env.DB.prepare('SELECT user_id FROM recovery_keys WHERE key_hash=?')
@@ -1225,7 +1280,7 @@ export class Registry extends DurableObject<Env> {
         !(await verifyChallenge(req, env, b.turnstileToken))
       )
         return json({ message: 'Please complete verification.' }, 400);
-      const key = 'feedback-rate:' + (await securityKey(req, env.COOKIE_SECRET, env.LOCAL_TEST));
+      const key = 'feedback-rate:' + session.user.id;
       const allowed = await this.ctx.storage.transaction(async (tx) => {
         const r = await tx.get<any>(key);
         if (r && r.until > Date.now() && r.count >= 3) return false;
@@ -1261,8 +1316,7 @@ export class Registry extends DurableObject<Env> {
       const answer = normalize(b.answer);
       if (!answer) return json({ message: 'Enter an answer first.' }, 422);
       const day = registryDate();
-      const rate =
-        'missing-rate:' + day + ':' + (await securityKey(req, env.COOKIE_SECRET, env.LOCAL_TEST));
+      const rate = 'missing-rate:' + day + ':' + session.user.id;
       const allowed = await this.ctx.storage.transaction(async (tx) => {
         const n = (await tx.get<number>(rate)) || 0;
         if (n >= 10) return false;
@@ -1356,6 +1410,7 @@ export class Registry extends DurableObject<Env> {
             .run();
           if (!issued.meta.changes && !data.replayed) recoveryKey = undefined;
         }
+        await this.pushSnapshot(env);
         return json(
           {
             ...data,
@@ -1374,11 +1429,98 @@ export class Registry extends DurableObject<Env> {
     }
     return json({ message: 'Page not found; return to today.' }, 404);
   }
+  async pushSnapshot(env = this.env) {
+    const sockets = this.ctx.getWebSockets();
+    if (!sockets.length) return;
+    const s = await this.fresh(env);
+    const board = s.category ? await this.scores.rows(s.category.id) : [];
+    const today = this.today(s);
+    // One snapshot read and score-cache read per broadcast, never per viewer.
+    for (const ws of sockets) {
+      const attachment = ws.deserializeAttachment() as { uid?: string } | null;
+      try {
+        ws.send(
+          JSON.stringify({
+            today,
+            rows: dayClosed(s.category) ? s.rows.slice(0, 50) : [],
+            leaderboard: publicScores(board, attachment?.uid),
+            version: s.version,
+            reset: true,
+          }),
+        );
+      } catch {
+        try {
+          ws.close(1011, 'Reconnect');
+        } catch {}
+      }
+    }
+  }
   async webSocketMessage(ws: WebSocket, message: string | ArrayBuffer) {
     try {
-      if (typeof message !== 'string' || message.length > 512)
+      if (typeof message !== 'string' || message.length > 4096)
         return ws.close(1009, 'Small forms only');
       const b = JSON.parse(message);
+      if (b?.rpc) {
+        const a = ws.deserializeAttachment() as any;
+        if (
+          !a?.uid ||
+          a.day !== registryDate() ||
+          !/^[a-f0-9-]{36}$/.test(b.rpc) ||
+          !['/claim', '/verify-session', '/events/share'].includes(b.path)
+        ) {
+          ws.send(
+            JSON.stringify({
+              rpc: b.rpc,
+              status: 428,
+              body: { code: 'VERIFY_AGAIN', message: 'Reconnect and try again.' },
+            }),
+          );
+          return;
+        }
+        const req = new Request(
+          (this.env.LOCAL_TEST === 'true' ? 'http://localhost' : PUBLIC_ORIGIN) + '/api' + b.path,
+          {
+            method: 'POST',
+            headers: {
+              origin: PUBLIC_ORIGIN,
+              'content-type': 'application/json',
+              cookie: (await sessionCookie(a.uid, this.env.COOKIE_SECRET)).split(';')[0],
+            },
+            body: JSON.stringify(b.body),
+          },
+        );
+        const previous = this.mutations.get(a.uid) || Promise.resolve();
+        const meter = metered(this.env.DB);
+        const task = previous
+          .catch(() => {})
+          .then(() =>
+            this.dispatch(req, {
+              ...this.env,
+              DB: meter.db,
+              SOCKET_IP_HASH: a.ipHash,
+              SOCKET_SECURITY_KEY: a.securityKey,
+            }),
+          );
+        this.mutations.set(a.uid, task);
+        let response: Response;
+        try {
+          response = await task;
+        } catch (e) {
+          response = safeError(e, this.env);
+        } finally {
+          if (this.mutations.get(a.uid) === task) this.mutations.delete(a.uid);
+        }
+        this.ctx.waitUntil(this.recordMetric(req, response.clone() as Response, meter.totals));
+        ws.send(
+          JSON.stringify({
+            rpc: b.rpc,
+            status: response.status,
+            body: await response.json(),
+            ...(a.diagnostic ? { d1: meter.totals } : {}),
+          }),
+        );
+        return;
+      }
       if (
         !b ||
         typeof b !== 'object' ||

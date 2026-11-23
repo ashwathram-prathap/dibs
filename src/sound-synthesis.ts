@@ -2,7 +2,7 @@ import { MAX_STRIKES } from '../shared/config';
 export type DeskSound = 'stamp' | 'gold' | 'strike';
 export const SOUND_RATE = 48000;
 export const SOUND_LENGTH = { stamp: 0.145, gold: 0.48, strike: 0.115 } as const;
-export const SOUND_PEAK = { stamp: 0.12, gold: 0.12, strike: 0.06 } as const;
+export const SOUND_PEAK = { stamp: 0.7, gold: 0.7, strike: 0.5 } as const;
 
 // Only the response to an intentional claim can select a sound. A closing strike is silent.
 export function claimSound(
@@ -30,7 +30,7 @@ function normalize(samples: Float32Array, peak: number) {
   for (let i = 0; i < samples.length; i++) samples[i] *= peak / max;
 }
 // Deterministic PCM avoids browser-specific oscillator/filter gain differences.
-// The body is a damped 105 Hz desk resonance; two low-pass stages soften the paper.
+// The body is a damped 240 Hz desk resonance; two low-pass stages soften the paper.
 export function renderDeskSound(kind: DeskSound, rate = SOUND_RATE): Float32Array<ArrayBuffer> {
   const dull = kind === 'strike';
   const length = dull ? SOUND_LENGTH.strike : SOUND_LENGTH.stamp;
@@ -44,7 +44,7 @@ export function renderDeskSound(kind: DeskSound, rate = SOUND_RATE): Float32Arra
     seed = (Math.imul(seed, 1664525) + 1013904223) >>> 0;
     lp1 += alpha * (seed / 2147483648 - 1 - lp1);
     lp2 += alpha * (lp1 - lp2);
-    const body = Math.sin(2 * Math.PI * (dull ? 88 : 105) * t) * envelope(t, length, 0.026);
+    const body = Math.sin(2 * Math.PI * (dull ? 190 : 240) * t) * envelope(t, length, 0.026);
     const paper = lp2 * envelope(t, dull ? length : 0.052, dull ? 0.024 : 0.014);
     out[i] = body * 0.75 + paper * (dull ? 0.5 : 3.5);
   }
@@ -60,5 +60,6 @@ export function renderDeskSound(kind: DeskSound, rate = SOUND_RATE): Float32Arra
     normalize(ping, SOUND_PEAK.stamp * 0.4);
     for (let i = 0; i < ping.length; i++) out[i + Math.round(0.12 * rate)] += ping[i];
   }
+  out[out.length - 1] = 0;
   return out;
 }

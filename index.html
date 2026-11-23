@@ -1,7 +1,8 @@
 <!doctype html>
 <html lang="en">
   <head>
-    <script src="/theme.js"></script>
+    <script>__THEME_SCRIPT__</script>
+    __CRITICAL_HEAD__
     <meta charset="UTF-8" />
     <meta
       name="viewport"
@@ -23,7 +24,7 @@
     <meta name="twitter:card" content="summary_large_image" />
     <meta property="og:type" content="website" />
     <title>__HOME_TITLE__</title>
-    <link rel="apple-touch-icon" href="/icon-180.png" />
+    <link rel="apple-touch-icon" href="/icon-180.v2.png" />
     <link rel="manifest" href="/manifest.webmanifest" />
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-title" content="Dibs" />
@@ -32,6 +33,7 @@
   </head>
   <body>
     <div id="root">
+      <main class="seo-fallback">__RULES_HTML__</main>
       <p class="opening-notice">
         Dibs · The game is loading.<br />If this notice stays here, please open this page in a newer
         browser.

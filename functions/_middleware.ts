@@ -197,7 +197,7 @@ export const onRequest: PagesFunction = async ({ request, next, env }) => {
       })
       .on('#root', {
         element(e) {
-          e.setInnerContent('<main>' + content + '</main>', { html: true });
+          e.setInnerContent('<main class="seo-fallback">' + content + '</main>', { html: true });
         },
       })
       .on('head', {

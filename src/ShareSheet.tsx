@@ -98,14 +98,11 @@ export function ShareSheet({
   }
   async function clipboard(platform: 'copy-link' | 'copy-text') {
     tap(platform);
-    const value =
-      platform === 'copy-link'
-        ? attributedUrl(url, platform)
-        : text + ' ' + attributedUrl(url, platform);
+    const value = platform === 'copy-link' ? attributedUrl(url, platform) : text;
     try {
       await navigator.clipboard.writeText(value);
       setCopy('');
-      setStatus('Copied.');
+      setStatus('Copied');
     } catch {
       setCopy(value);
       setStatus('Press and hold the text below to copy.');
@@ -114,6 +111,9 @@ export function ShareSheet({
   return (
     <div className="share-area" aria-label="Share Dibs">
       <div className="share-buttons">
+        <button className="primary copy-result" onClick={() => void clipboard('copy-text')}>
+          {status === 'Copied' ? 'Copied' : 'Copy result'}
+        </button>
         <button className="primary" disabled={!files || busy} onClick={() => void share('native')}>
           {busy ? 'SHARING…' : files ? 'SHARE' : 'PREPARING PNG…'} <Icon />
         </button>

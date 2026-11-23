@@ -39,7 +39,7 @@ describe('one desk: only three direct claim outcomes', () => {
     }
     const gold = renderDeskSound('gold');
     const ping = gold.slice(Math.ceil(0.15 * SOUND_RATE));
-    expect(ping.reduce((m, x) => Math.max(m, Math.abs(x)), 0)).toBeLessThanOrEqual(0.04801);
+    expect(ping.reduce((m, x) => Math.max(m, Math.abs(x)), 0)).toBeLessThanOrEqual(SOUND_PEAK.stamp * 0.4 + .00001);
     expect(gold.slice(0, 0.12 * SOUND_RATE)).toEqual(
       renderDeskSound('stamp').slice(0, 0.12 * SOUND_RATE),
     );

@@ -38,7 +38,7 @@ export async function verifyChallenge(req: Request, env: any, token: unknown) {
 }
 export async function verificationToken(req: Request, env: any, uid: string) {
   const expires = Date.now() + 30 * 60000;
-  const value = `claim:${uid}:${expires}:${await securityKey(req, env.COOKIE_SECRET, env.LOCAL_TEST)}`;
+  const value = `claim:${uid}:${expires}:${'SOCKET_SECURITY_KEY' in env ? env.SOCKET_SECURITY_KEY : await securityKey(req, env.COOKIE_SECRET, env.LOCAL_TEST)}`;
   return { sessionToken: `${expires}.${await hmac(value, env.COOKIE_SECRET)}`, expires };
 }
 export async function verifiedSession(req: Request, env: any, uid: string, token: unknown) {
@@ -53,7 +53,7 @@ export async function verifiedSession(req: Request, env: any, uid: string, token
   )
     return false;
   return verify(
-    `claim:${uid}:${expires}:${await securityKey(req, env.COOKIE_SECRET, env.LOCAL_TEST)}`,
+    `claim:${uid}:${expires}:${'SOCKET_SECURITY_KEY' in env ? env.SOCKET_SECURITY_KEY : await securityKey(req, env.COOKIE_SECRET, env.LOCAL_TEST)}`,
     signature,
     env.COOKIE_SECRET,
   );
