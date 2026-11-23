@@ -2,6 +2,7 @@ import { defineConfig } from '@playwright/test';
 import base from './playwright.r14.config';
 export default defineConfig({
   ...base,
+  outputDir: '.tmp/r15-e2e-results',
   testMatch: ['round15.spec.ts'],
   projects: base
     .projects!.filter((p) =>

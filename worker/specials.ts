@@ -1,5 +1,5 @@
 import { cluedId, clueText, clueEnabled } from './clue';
-import { catalogMeta, rowAt, answerId, persistAnswer } from './catalog';
+import { catalogMeta, rowAt, answerId, persistAnswer, answerType } from './catalog';
 import { goldenPerDay, GOLDEN_PER_DAY } from '../shared/config';
 import houseWords from './house-words.json';
 import { dropAt } from './domain';
@@ -132,7 +132,10 @@ export async function specialStatus(env: Env, category: any, reveal = false) {
     : null;
   const base = {
     clue: clueAnswer
-      ? { text: clueText(clueAnswer.display, category.date), crackedBy: cracked?.handle || null }
+      ? {
+          text: clueText(clueAnswer.display, category.date, await answerType(category, selected!)),
+          crackedBy: cracked?.handle || null,
+        }
       : null,
     houseCount: house.length,
     houseWords: house

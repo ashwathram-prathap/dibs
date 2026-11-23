@@ -1,4 +1,3 @@
-import { createPortal } from 'react-dom';
 import { Clue } from './Clue';
 import { watchVersion } from './version';
 import { Handle } from './Handle';
@@ -532,7 +531,9 @@ export default function App() {
                 {theme === 'light' ? 'Carbon copy' : 'Paper copy'}
               </button>
               <TimezonePicker />
-              <div id="settings-content" />
+              <div id="settings-content">
+                <BackupSettings sitekey={today?.turnstileSiteKey || ''} refresh={refresh} />
+              </div>
             </div>
           </details>
           <nav aria-label="Main navigation">
@@ -702,9 +703,6 @@ function Home({
   const [outcome, setOutcome] = useState('');
   const [recoveryKey, setRecoveryKey] = useState('');
   const [keyCopyMessage, setKeyCopyMessage] = useState('');
-  const [restoreKey, setRestoreKey] = useState(
-    () => new URLSearchParams(location.hash.slice(1)).get('file-key') || '',
-  );
   const spellingVersion = useRef(0);
   const submitting = useRef(false);
   const pendingRequest = useRef<{ answer: string; id: string } | null>(null);
@@ -813,30 +811,6 @@ function Home({
         retry.current.delay = Math.min(30000, retry.current.delay * 2);
       });
   }, [now, today.nextDrop]);
-  useEffect(() => {
-    if (location.hash === '#file-settings') {
-      const panel = document.getElementById('file-settings') as HTMLDetailsElement | null;
-      if (panel) {
-        panel.open = true;
-        panel.scrollIntoView({ block: 'start' });
-        panel.querySelector('summary')?.focus({ preventScroll: true });
-      }
-    }
-    if (location.hash.startsWith('#file-key=')) history.replaceState(null, '', location.pathname);
-  }, []);
-  async function restore(e: FormEvent) {
-    e.preventDefault();
-    try {
-      await api('/recover', { key: restoreKey });
-      setRestoreKey('');
-      await refresh();
-      setMessage('Your claims are restored.');
-      setOutcome('CLAIMS RESTORED');
-    } catch (e) {
-      setMessage((e as Error).message);
-      setOutcome('BACKUP CODE');
-    }
-  }
   async function sendMissing() {
     try {
       const r = await api<{ message: string }>('/missing', { answer });
@@ -1181,32 +1155,6 @@ function Home({
         </section>
       )}
       <Leaderboard category={today.category?.id} practice={today.practice} />
-      {document.getElementById('settings-content') &&
-        createPortal(
-          <details
-            id="file-settings"
-            className="file-key-panel"
-            open={restoreKey ? true : undefined}
-          >
-            <summary>
-              Backup code <Icon name="chevron" />
-            </summary>
-            <p>{BACKUP_EXPLANATION}</p>
-            <form onSubmit={restore}>
-              <label htmlFor="restore-key">Backup code</label>
-              <input
-                id="restore-key"
-                value={restoreKey}
-                onChange={(e) => setRestoreKey(e.target.value)}
-                autoComplete="off"
-                maxLength={60}
-              />
-              <button>Restore claims</button>
-            </form>
-            <DeleteFile sitekey={today.turnstileSiteKey} initialKey={restoreKey} />
-          </details>,
-          document.getElementById('settings-content')!,
-        )}
       {file?.closed && (
         <>
           {recoveryKey && (
@@ -1219,6 +1167,53 @@ function Home({
         </>
       )}
     </div>
+  );
+}
+function BackupSettings({ sitekey, refresh }: { sitekey: string; refresh: () => Promise<void> }) {
+  const [restoreKey, setRestoreKey] = useState(
+    () => new URLSearchParams(location.hash.slice(1)).get('file-key') || '',
+  );
+  const [message, setMessage] = useState('');
+  useEffect(() => {
+    if (location.hash === '#file-settings' || restoreKey) {
+      const panel = document.querySelector<HTMLDetailsElement>('.header-settings');
+      if (panel) panel.open = true;
+      const backup = document.querySelector<HTMLDetailsElement>('#file-settings');
+      if (backup) backup.open = true;
+    }
+    if (location.hash.startsWith('#file-key=')) history.replaceState(null, '', location.pathname);
+  }, []);
+  async function restore(e: FormEvent) {
+    e.preventDefault();
+    try {
+      await api('/recover', { key: restoreKey });
+      setRestoreKey('');
+      await refresh();
+      setMessage('Your claims are restored.');
+    } catch (e) {
+      setMessage((e as Error).message);
+    }
+  }
+  return (
+    <details id="file-settings" className="file-key-panel" open={restoreKey ? true : undefined}>
+      <summary>
+        Backup code <Icon name="chevron" />
+      </summary>
+      <p>{BACKUP_EXPLANATION}</p>
+      <form onSubmit={restore}>
+        <label htmlFor="restore-key">Backup code</label>
+        <input
+          id="restore-key"
+          value={restoreKey}
+          onChange={(e) => setRestoreKey(e.target.value)}
+          autoComplete="off"
+          maxLength={60}
+        />
+        <button>Restore claims</button>
+      </form>
+      <p role="status">{message}</p>
+      <DeleteFile sitekey={sitekey} initialKey={restoreKey} />
+    </details>
   );
 }
 function Reminder({ at }: { at: string }) {
@@ -2128,6 +2123,7 @@ function About({ nextDrop }: { nextDrop: string }) {
             Yes. They’re picked and locked before the category opens. When it closes, we publish
             them so anyone can check they never changed.
           </p>
+          <p>Each night during launch week we post a clue to one golden ticket. The rest stay secret.</p>
           <h3>How do points work?</h3>
           <p>Rarer answers score more. Golden tickets +100. Strikes −10.</p>
           <h3>What counts toward a streak?</h3>

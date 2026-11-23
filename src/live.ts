@@ -21,9 +21,18 @@ export function publish(s: Snapshot, optimistic = false) {
   if (!optimistic) cursor = Math.max(cursor, ...s.rows.map((r) => r.claim_no), 0);
   const rows = new Map<string, Claim>((same ? latest?.rows || [] : []).map((r) => [r.id, r]));
   s.rows.forEach((r) => rows.set(r.id, r));
+  const previousMe = latest?.today.category?.id === s.today.category?.id ? latest?.me : undefined;
+  const me = s.me || previousMe;
+  const updatedMe =
+    me?.file && s.leaderboard
+      ? {
+          ...me,
+          file: { ...me.file, rank: s.leaderboard.own?.rank || null, players: s.leaderboard.total },
+        }
+      : me;
   latest = {
     ...s,
-    me: s.me || (latest?.today.category?.id === s.today.category?.id ? latest?.me : undefined),
+    me: updatedMe,
     reset: false,
     rows: [...rows.values()].sort((a, b) => b.claim_no - a.claim_no),
   };

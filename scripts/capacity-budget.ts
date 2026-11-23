@@ -228,7 +228,7 @@ try {
   assert.equal(verified.status, 200, JSON.stringify(verified.data));
   const catalog = readCategory('categories/animals.json');
   const chosen = practice
-    ? ['Binturong', 'Dog', 'Dog', 'Dog', 'Pangolin', 'Numbat']
+    ? [catalog.answers[2000 + Math.floor(Math.random()*1000)].display, 'Dog', 'Dog', 'Dog', catalog.answers[4000 + Math.floor(Math.random()*1000)].display, catalog.answers[6000 + Math.floor(Math.random()*1000)].display]
     : [100, 0, 0, 0, 101, 102].map((i) => catalog.answers[i].display);
   for (const [i, answer] of chosen.entries()) {
     const r = await send('/claim', {

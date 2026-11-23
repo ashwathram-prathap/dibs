@@ -5155,4 +5155,18 @@ footer {
     display: none;
   }
 }
-footer a { font-size: 16px; min-height: 44px; display: inline-flex; align-items: center; }
+footer a {
+  font-size: 16px;
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+}
+
+/* Keep the expanded menu above page content on every mobile stacking context. */
+.masthead {
+  position: relative;
+  z-index: 50;
+}
+.header-settings .header-controls {
+  max-width: min(340px, calc(100vw - 32px));
+}

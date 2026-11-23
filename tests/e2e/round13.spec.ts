@@ -64,7 +64,7 @@ test('R13 sound mapping, double tap and music only after tap', async ({ page }) 
     (window as any).musicLoops = [];
     const play = HTMLMediaElement.prototype.play;
     HTMLMediaElement.prototype.play = function () {
-      (window as any).musicLoops.push({loop:this.loop,preload:this.preload});
+      (window as any).musicLoops.push({ loop: this.loop, preload: this.preload });
       return play.call(this);
     };
     window.addEventListener('dibs-stamp', (e: any) => (window as any).stamps.push(e.detail));
@@ -79,19 +79,22 @@ test('R13 sound mapping, double tap and music only after tap', async ({ page }) 
     await expect(page.locator('.result-panel')).toBeVisible();
   }
   expect(await page.evaluate(() => (window as any).stamps)).toEqual([]);
-  await page.locator('.header-settings').evaluate((e: HTMLDetailsElement) => e.open = true);
+  await page.locator('.header-settings').evaluate((e: HTMLDetailsElement) => (e.open = true));
   await page.getByRole('button', { name: 'Turn stamp sound off' }).click();
   await page.locator('.header-settings > summary').click();
   await page.locator('#answer').fill('Dog');
   await page.locator('#answer').press('Enter');
   await expect(page.locator('.strike-count')).toHaveText('Strike 1 of 5');
   expect(await page.evaluate(() => (window as any).stamps)).toEqual([]);
-  await page.locator('.header-settings').evaluate((e: HTMLDetailsElement) => e.open = true);
+  await page.locator('.header-settings').evaluate((e: HTMLDetailsElement) => (e.open = true));
   await page.getByRole('button', { name: 'Turn stamp sound on' }).click();
   await page.locator('.header-settings > summary').click();
   await page.locator('#answer').fill('Dog');
   await page.locator('#answer').press('Enter');
   await expect.poll(() => page.evaluate(() => (window as any).stamps)).toEqual([0.115]);
+  await expect(page.locator('.strike-count')).toHaveText('Strike 2 of 5');
+  await expect(page.locator('#answer')).not.toHaveAttribute('readonly', '');
+  await page.waitForTimeout(150);
   await page.locator('#answer').fill('Axolotl');
   await page
     .getByRole('button', { name: 'CALL DIBS', exact: true })
@@ -108,7 +111,7 @@ test('R13 sound mapping, double tap and music only after tap', async ({ page }) 
   await expect
     .poll(() => page.evaluate(() => (window as any).stamps))
     .toEqual([0.115, 0.48, 0.145]);
-  await page.locator('.header-settings').evaluate((e: HTMLDetailsElement) => e.open = true);
+  await page.locator('.header-settings').evaluate((e: HTMLDetailsElement) => (e.open = true));
   await page.getByRole('button', { name: 'Turn music on', exact: true }).click();
   await expect.poll(() => audioRequests.length).toBe(1);
   await expect(page.locator('.music-toggle')).toHaveAttribute('aria-pressed', 'true');

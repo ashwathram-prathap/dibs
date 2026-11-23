@@ -26,6 +26,11 @@ it('keeps golden status out of public catalog assets and client code', () => {
       String(f).endsWith('.json'),
     )) {
       const data = JSON.parse(readFileSync('public/catalog/' + f, 'utf8'));
+      if (String(f).endsWith('/clue-types.json')) {
+        expect(Array.isArray(data)).toBe(true);
+        expect(data.every((code: unknown) => code === null || (typeof code === 'string' && /^[A-Z]{2}$/.test(code)))).toBe(true);
+        continue;
+      }
       if (String(f).endsWith('manifest.json')) {
         expect(
           Object.keys(data)

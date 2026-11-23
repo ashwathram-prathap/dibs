@@ -1,17 +1,21 @@
 import { beforeAll, afterAll, it, expect, vi } from 'vitest';
 import { Miniflare, convertV4MiniflareOptions } from 'miniflare';
 import { readFileSync, readdirSync } from 'node:fs';
+import { build } from 'esbuild';
 import { specialStatus } from '../worker/specials';
 import { cluedId } from '../worker/clue';
 let mf: Miniflare, db: any;
 beforeAll(async () => {
+  const built = await build({entryPoints:['worker/index.ts'],bundle:true,write:false,format:'esm',platform:'browser',external:['cloudflare:workers'],loader:{'.wasm':'binary','.woff':'binary','.otf':'binary'}});
   mf = new Miniflare(
     convertV4MiniflareOptions({
       workers: [
         {
           name: 'clue-test',
           modules: true,
-          script: 'export default {fetch(){return new Response("ok")}}',
+          script: built.outputFiles[0].text,
+          durableObjects:{REGISTRY:{className:'Registry',useSQLite:true},IMAGE_CACHE:{className:'ImageCache',useSQLite:true}},
+          bindings:{LOCAL_TEST:'true',COOKIE_SECRET:'clue-test-secret',ADMIN_TOKEN:'clue-test-admin',TURNSTILE_SITE_KEY:'test'},
           compatibilityDate: '2026-11-20',
           d1Databases: ['DB'],
         },
@@ -85,4 +89,18 @@ it('withholds the clue before drop, reveals no answer while live, shows cracked 
     expect.objectContaining({ id, clued: true }),
   ]);
   vi.useRealTimers();
+});
+
+it('keeps future clues and answers out of bootstrap, sockets and static HTML', async () => {
+  const headers={origin:'https://dibs.here'};
+  const response=await mf.dispatchFetch('http://localhost/api/bootstrap',{headers});
+  const cookie=response.headers.get('set-cookie')!.split(';')[0];
+  const data=await response.json() as any;
+  expect(data.today.category).toBeNull();
+  expect(JSON.stringify(data)).not.toMatch(/Private animal|One of tonight's|golden_json/);
+  const upgrade=await mf.dispatchFetch('http://localhost/api/live',{headers:{...headers,cookie,Upgrade:'websocket'}});
+  const ws=upgrade.webSocket!;expect(ws).toBeTruthy();ws.accept();
+  const message=await new Promise<string>(resolve=>ws.addEventListener('message',e=>resolve(String(e.data)),{once:true}));
+  expect(message).not.toMatch(/Private animal|One of tonight's|golden_json/);ws.close(1000);
+  expect(readFileSync('dist/index.html','utf8')).not.toMatch(/Private animal|One of tonight's|golden_json/);
 });

@@ -134,3 +134,19 @@ export function persistAnswer(env: Env, category: any, row: CatalogRow) {
     row[2],
   );
 }
+
+export async function answerType(category: any, id: string): Promise<string | undefined> {
+  const meta = catalogMeta(category);
+  if (meta?.slug !== 'cities') return;
+  const index = Number(id.split(':').at(-1));
+  if (!Number.isSafeInteger(index) || index < 0) return;
+  try {
+    const countries = await asset(`${meta.slug}/${meta.version}/clue-types.json`);
+    const code = countries[index];
+    if (typeof code !== 'string' || !/^[A-Z]{2}$/.test(code)) return;
+    const country = new Intl.DisplayNames(['en'], { type: 'region' }).of(code);
+    return country ? 'a city in ' + country : undefined;
+  } catch {
+    return;
+  } // Older immutable catalogs may have no retained type metadata.
+}
