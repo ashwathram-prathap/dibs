@@ -53,6 +53,30 @@ async function shot(page: Page, info: TestInfo, screen: string) {
 }
 async function audit(page: Page, scope = 'main', action?: string) {
   await settle(page);
+  // Certificates can extend below the viewport. Inspect their entire axes too.
+  const curveErrors = await page.locator(scope).evaluate((root) => {
+    const errors: string[] = [];
+    for (const axis of root.querySelectorAll<HTMLElement>('.rarity-axis')) {
+      const bounds = axis.getBoundingClientRect();
+      const curve = axis.closest('.rarity-curve')!.getBoundingClientRect();
+      const drawing = axis.closest('.rarity-curve')!.querySelector('svg')!.getBoundingClientRect();
+      const labels = [...axis.querySelectorAll('.rarity-end')];
+      if (bounds.bottom > curve.bottom + 1 || bounds.top < drawing.bottom - 1)
+        errors.push('Axis crosses the curve or its container');
+      for (const label of labels) {
+        const range = document.createRange();
+        range.selectNodeContents(label);
+        for (const r of range.getClientRects())
+          if (r.left < bounds.left - 1 || r.right > bounds.right + 1)
+            errors.push('Clipped axis label: ' + label.textContent);
+      }
+      const [a, b] = labels.map((label) => label.getBoundingClientRect());
+      if (a.left < b.right && a.right > b.left && a.top < b.bottom && a.bottom > b.top)
+        errors.push('Axis labels overlap');
+    }
+    return errors;
+  });
+  expect(curveErrors, 'complete curve labels, including below the viewport').toEqual([]);
   const overflow = await page.evaluate(() => ({
     width: innerWidth,
     scroll: document.documentElement.scrollWidth,

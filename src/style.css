@@ -7690,5 +7690,31 @@ html[data-theme='dark'] .feedback-dialog .feedback-error {
   }
 }
 @media (min-width: 900px) {
-  .rarity-axis .rarity-end { font-size: .875rem; }
+  .rarity-axis .rarity-end {
+    font-size: 0.875rem;
+  }
+}
+@media (max-width: 280px) {
+  .page .rarity-curve {
+    height: auto;
+    min-height: 0;
+  }
+  .page .rarity-curve svg {
+    height: 4rem;
+    min-height: 0;
+  }
+  .page .rarity-axis {
+    position: static;
+    margin: 0.25rem 5.38% 0;
+    flex-wrap: wrap;
+    gap: 0.25rem 0.5rem;
+  }
+  .page .rarity-end {
+    max-width: 100%;
+    overflow-wrap: anywhere;
+  }
+  .page .rarity-end:last-child {
+    margin-left: auto;
+    text-align: right;
+  }
 }
