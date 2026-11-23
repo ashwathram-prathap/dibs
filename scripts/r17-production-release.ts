@@ -47,9 +47,26 @@ try {
     '-c',
     'worker/wrangler.jsonc',
   ]);
-  const response = await fetch('https://dibs.here/api/bootstrap');
+  await new Promise((resolve) => setTimeout(resolve, 10000)); // Allow deployed routes to propagate before smoke.
+  const response = await fetch('https://dibs.here/api/bootstrap', { cache: 'no-store' });
   const data: any = await response.json();
+  writeFileSync(
+    'review/round17/production-read-diagnostic.json',
+    JSON.stringify(
+      {
+        at: new Date().toISOString(),
+        status: response.status,
+        version: data.version,
+        category: data.today?.category?.id || null,
+        userPresent: !!data.me?.user,
+        nextDrop: data.today?.nextDrop,
+      },
+      null,
+      2,
+    ),
+  );
   assert.ok(response.ok);
+  assert.equal(data.version, 17);
   assert.equal(data.today.category, null);
   assert.equal(data.me.user, null);
   assert.equal(data.today.nextDrop, '2026-11-24T02:00:00.000Z');
@@ -85,6 +102,14 @@ try {
   ts('Record released deployment IDs', 'scripts/r17-deployment-state.ts', ['released']);
   console.log('R17 released; all read-only production and preservation checks passed.');
 } catch (error) {
+  writeFileSync(
+    'review/round17/production-failure.json',
+    JSON.stringify(
+      { at: new Date().toISOString(), error: String(error), rolledBack: false },
+      null,
+      2,
+    ),
+  );
   if (workerChanged) {
     ts('Roll back failed release immediately', 'scripts/r17-smoke.ts', ['--rollback-now']);
     rolledBack = true;

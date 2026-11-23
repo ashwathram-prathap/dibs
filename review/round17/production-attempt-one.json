@@ -1,0 +1,67 @@
+[
+  {
+    "name": "Check exact R17 gates and timing",
+    "passed": true,
+    "at": "2026-11-23T08:48:39.569Z"
+  },
+  {
+    "name": "Record original deployment IDs",
+    "passed": true,
+    "at": "2026-11-23T08:48:41.638Z"
+  },
+  {
+    "name": "Back up production before migration",
+    "passed": true,
+    "at": "2026-11-23T08:48:43.699Z"
+  },
+  {
+    "name": "Capture all legacy rows and schedule",
+    "passed": true,
+    "at": "2026-11-23T08:48:44.944Z"
+  },
+  {
+    "name": "Check exact R17 gates and timing",
+    "passed": true,
+    "at": "2026-11-23T08:48:45.150Z"
+  },
+  {
+    "name": "Apply additive migrations",
+    "passed": true,
+    "at": "2026-11-23T08:48:46.375Z"
+  },
+  {
+    "name": "Verify exact rows after migration",
+    "passed": true,
+    "at": "2026-11-23T08:48:47.499Z"
+  },
+  {
+    "name": "Verify standard deployment freeze",
+    "passed": true,
+    "at": "2026-11-23T08:48:47.661Z"
+  },
+  {
+    "name": "Configure drop",
+    "passed": true,
+    "at": "2026-11-23T08:48:47.825Z"
+  },
+  {
+    "name": "Build house words",
+    "passed": true,
+    "at": "2026-11-23T08:48:52.533Z"
+  },
+  {
+    "name": "Check exact R17 gates and timing",
+    "passed": true,
+    "at": "2026-11-23T08:48:52.735Z"
+  },
+  {
+    "name": "Deploy production Worker",
+    "passed": true,
+    "at": "2026-11-23T08:49:31.804Z"
+  },
+  {
+    "name": "Roll back failed release immediately",
+    "passed": false,
+    "at": "2026-11-23T08:50:10.708Z"
+  }
+]

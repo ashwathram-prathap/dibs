@@ -10,11 +10,22 @@ async function rollback() {
     encoding: 'utf8',
   });
   if (auth.status) throw Error('Rollback authentication unavailable');
-  const r = await fetch(
-    `https://api.cloudflare.com/client/v4/accounts/5cf62cff0219727f2121253b3924f886/pages/projects/dibs/deployments/${ids.pages}/rollback`,
-    { method: 'POST', headers: { authorization: 'Bearer ' + JSON.parse(auth.stdout).token } },
+  const headers = { authorization: 'Bearer ' + JSON.parse(auth.stdout).token };
+  const project = await fetch(
+    'https://api.cloudflare.com/client/v4/accounts/5cf62cff0219727f2121253b3924f886/pages/projects/dibs',
+    { headers },
   );
-  const result: any = await r.json();
+  const current: any = await project.json();
+  let pagesOkay =
+    project.ok && current.success && current.result.canonical_deployment.id === ids.pages;
+  if (!pagesOkay) {
+    const r = await fetch(
+      `https://api.cloudflare.com/client/v4/accounts/5cf62cff0219727f2121253b3924f886/pages/projects/dibs/deployments/${ids.pages}/rollback`,
+      { method: 'POST', headers },
+    );
+    const result: any = await r.json();
+    pagesOkay = r.ok && result.success;
+  }
   const worker = spawnSync(
     './node_modules/.bin/wrangler',
     [
@@ -44,12 +55,12 @@ async function rollback() {
   writeFileSync(
     'review/round17/rollback-result.json',
     JSON.stringify(
-      { pages: r.ok && result.success, worker: worker.status === 0, at: new Date().toISOString() },
+      { pages: pagesOkay, worker: worker.status === 0, at: new Date().toISOString() },
       null,
       2,
     ),
   );
-  assert.ok(r.ok && result.success && worker.status === 0, 'Rollback needs attention');
+  assert.ok(pagesOkay && worker.status === 0, 'Rollback needs attention');
 }
 if (process.argv.includes('--rollback-now')) {
   await rollback();
