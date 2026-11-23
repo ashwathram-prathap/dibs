@@ -712,7 +712,7 @@ function Home({
   const submitting = useRef(false);
   const pendingRequest = useRef<{ answer: string; id: string } | null>(null);
   const [busy, setBusy] = useState(false);
-  const [guessed, setGuessed] = useState(false);
+  const [guessNumber, setGuessNumber] = useState(0);
   const [message, setMessage] = useState('');
   const [taken, setTaken] = useState(false);
   const [houseStrike, setHouseStrike] = useState(false);
@@ -839,7 +839,7 @@ function Home({
     submitting.current = true;
     void prepareSound();
     setBusy(true);
-    setGuessed(true);
+    setGuessNumber((n) => n + 1);
     setMessage('');
     setSuggestion(null);
     setMissing(false);
@@ -1130,8 +1130,8 @@ function Home({
             )}
             <details
               className="play-introduction play-rules"
-              key={String(guessed)}
-              open={!guessed && !file?.dibs && !file?.strikes}
+              key={guessNumber}
+              open={guessNumber === 0 && !file?.dibs && !file?.strikes}
             >
               <summary>
                 How it works <Icon name="chevron" />
