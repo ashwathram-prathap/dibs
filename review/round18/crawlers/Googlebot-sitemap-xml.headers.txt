@@ -1,0 +1,11 @@
+HTTP/2 200
+date: Mon, 23 Nov 2026 11:00:08 GMT
+content-type: application/xml; charset=utf-8
+content-length: 326
+cache-control: public,max-age=600
+report-to: {"group":"cf-nel","max_age":604800,"endpoints":[{"url":"https://a.nel.cloudflare.com/report/v4?s=RtzavfOu0N4QME4VtY4w3NvwM1sVoHD7JS3zrXeiYrEbZ%2FSRG%2Fd6XnsO0ZOXHRWGTFrCpkwpJ3o9G6FOFq6VNVAzbXEqeptZzpFfTtoIi9RrLs3C6I65wmXr5dnp5Mp2cJKKfG1wT2Q%3D"}]}
+nel: {"report_to":"cf-nel","success_fraction":0.0,"max_age":604800}
+server: cloudflare
+cf-cache-status: DYNAMIC
+cf-ray: a5efab221e0ca392-YYZ
+alt-svc: h3=":443"; ma=86400

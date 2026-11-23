@@ -15,7 +15,9 @@ assert.ok(
 );
 const rollback = read('rollback.json'),
   deployed = read('deployment.json'),
-  lh = gates.mobileLighthouse;
+  lh = gates.mobileLighthouse,
+  productionLh = read('lighthouse-production-summary.json'),
+  indexnow = read('indexnow-deploy.json');
 const devices: Record<string, { passed: number; failed: number; skipped: number }> = {};
 function collect(suite: any) {
   for (const spec of suite.specs || [])
@@ -62,7 +64,9 @@ Shipped to https://dibs.here on ${deployed.recordedAt}, before the Nov 23, 3 PM 
 | Firefox on Linux | ${gates.counts.firefox} passed ([CI run](${gates.firefoxRun})) |
 | Fresh practice closed → live | 6 browsers passed; displayed-code recovery passed |
 | Final practice UI | Chromium/WebKit × 390/1440 × both themes passed |
-| Slow-4G mobile Lighthouse | Performance ${lh.performance}, accessibility ${lh.accessibility}, best practices ${lh['best-practices']} |
+| Practice Slow-4G mobile Lighthouse | Performance ${lh.performance}, accessibility ${lh.accessibility}, best practices ${lh['best-practices']} |
+| Production Slow-4G mobile Lighthouse | Performance ${productionLh.scores.performance}, accessibility ${productionLh.scores.accessibility}, best practices ${productionLh.scores['best-practices']}, SEO ${productionLh.scores.seo} |
+| IndexNow deploy notifications | ${indexnow.map((r: any) => r.status + (r.ok ? ' accepted' : ' (nonblocking failure)')).join('; ')} |
 | Production smoke | 8 Chromium/WebKit × phone/desktop × theme checks passed; no console errors |
 | Preservation | Existing player rows and schedule unchanged |
 | Build, TypeScript, font roles, emoji audit | Passed |
@@ -101,7 +105,14 @@ The three weakest remaining screens are the long Office/legal page, the long exp
 First phone checks: open and scroll Backup code; open/close Send feedback with the keyboard; check the 9 PM ET countdown and reminder rows; switch paper/carbon; after opening, claim and try native Share / Copy result.
 `;
 writeFileSync(dir + 'REPORT.md', report);
-const note = `<!-- R18 -->\n# R18 shipped — Nov 23\n\nLive: https://dibs.here. Settings, feedback, footer, carbon/type system, R7 clock and SEO fixes shipped before 3 PM ET. Opening stays Monday 9 PM ET. ${gates.counts.unit} unit/API, ${gates.counts.browser + gates.counts.regression + gates.counts.firefox} browser checks, six fresh practice claims and eight production smoke checks passed. Mobile Lighthouse ${lh.performance} performance / ${lh.accessibility} accessibility. Existing player rows and schedule preserved; real practice keys, notifications and schedule restored. No ntfy alert.\n\nOwner action: verify Cloudflare Bot/WAF settings; read access returned 403. Details, rollback IDs, screenshots, physical-device limits, existing catalog glyph gaps and skipped late load-test explanation: [R18 report](review/round18/REPORT.md). Tag: r18-done.\n\nDevice/browser results (emulated profiles, both themes where applicable):\n\n${deviceTable}\n\nRollback Pages: ${rollback.pages}; Worker: ${rollback.workerVersion}.\n<!-- /R18 -->\n\n`;
+const morningDeviceTable = `| Device / browser profiles | Result |
+| --- | --- |
+| iPhone SE / 15 Pro / Max; Pixel 7; Galaxy S9+ | PASS |
+| iPad Mini / Pro landscape | PASS |
+| Chromium / WebKit desktop 1280, 1440, 2560 | PASS |
+| Narrow / landscape; Instagram, TikTok, X approximations | PASS |
+| Firefox 390 / 1440 flows and 320–2560 layouts | PASS |`;
+const note = `<!-- R18 -->\n# R18 shipped — Nov 23\n\nLive: https://dibs.here. Settings, feedback, footer, carbon/type system, R7 clock and SEO fixes shipped before 3 PM ET. Opening stays Monday 9 PM ET. ${gates.counts.unit} unit/API, ${gates.counts.browser + gates.counts.regression + gates.counts.firefox} browser checks, six fresh practice claims and eight production smoke checks passed. Production mobile Lighthouse ${productionLh.scores.performance} performance / ${productionLh.scores.accessibility} accessibility / ${productionLh.scores.seo} SEO. Existing player rows and schedule preserved; real practice keys, notifications and schedule restored. No ntfy alert.\n\nOwner action: verify Cloudflare Bot/WAF settings; read access returned 403. Details, rollback IDs, screenshots, physical-device limits, existing catalog glyph gaps and skipped late load-test explanation: [R18 report](review/round18/REPORT.md). Tag: r18-done.\n\nDevice/browser results (emulated profiles, both themes where applicable):\n\n${morningDeviceTable}\n\nRollback Pages: ${rollback.pages}; Worker: ${rollback.workerVersion}.\n<!-- /R18 -->\n\n`;
 const old = existsSync('MORNING_REPORT.md') ? readFileSync('MORNING_REPORT.md', 'utf8') : '';
 writeFileSync(
   'MORNING_REPORT.md',

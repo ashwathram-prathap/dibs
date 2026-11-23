@@ -1,0 +1,27 @@
+{
+  "passed": true,
+  "at": "2026-11-23T10:57:55.414Z",
+  "gates": {
+    "unit": true,
+    "browser": true,
+    "regression": true,
+    "firefox": true,
+    "practice": true,
+    "lighthouse": true,
+    "visual": true,
+    "build": true
+  },
+  "counts": {
+    "unit": 197,
+    "browser": 112,
+    "regression": 1550,
+    "firefox": 228
+  },
+  "firefoxRun": "https://github.com/ashwathram-prathap/dibs/actions/runs/45157548109",
+  "mobileLighthouse": {
+    "performance": 99,
+    "accessibility": 100,
+    "best-practices": 100,
+    "seo": 66
+  }
+}

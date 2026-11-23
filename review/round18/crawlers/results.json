@@ -1,0 +1,46 @@
+{
+  "at": "2026-11-23T11:00:09.213Z",
+  "passed": true,
+  "results": [
+    {
+      "bot": "Googlebot",
+      "endpoint": "sitemap.xml",
+      "status": 200,
+      "contentType": "application/xml; charset=utf-8",
+      "redirects": 0,
+      "seconds": 0.301016,
+      "valid": true,
+      "challenge": false
+    },
+    {
+      "bot": "Googlebot",
+      "endpoint": "robots.txt",
+      "status": 200,
+      "contentType": "text/plain; charset=utf-8",
+      "redirects": 0,
+      "seconds": 0.056748,
+      "valid": true,
+      "challenge": false
+    },
+    {
+      "bot": "Bingbot",
+      "endpoint": "sitemap.xml",
+      "status": 200,
+      "contentType": "application/xml; charset=utf-8",
+      "redirects": 0,
+      "seconds": 0.151016,
+      "valid": true,
+      "challenge": false
+    },
+    {
+      "bot": "Bingbot",
+      "endpoint": "robots.txt",
+      "status": 200,
+      "contentType": "text/plain; charset=utf-8",
+      "redirects": 0,
+      "seconds": 0.092483,
+      "valid": true,
+      "challenge": false
+    }
+  ]
+}

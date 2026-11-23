@@ -1,0 +1,92 @@
+[
+  {
+    "name": "Check exact R18 gates and timing",
+    "passed": true,
+    "at": "2026-11-23T10:58:00.436Z"
+  },
+  {
+    "name": "Record original deployment IDs",
+    "passed": true,
+    "at": "2026-11-23T10:58:02.517Z"
+  },
+  {
+    "name": "Back up production before release",
+    "passed": true,
+    "at": "2026-11-23T10:58:04.545Z"
+  },
+  {
+    "name": "Capture all legacy rows and schedule",
+    "passed": true,
+    "at": "2026-11-23T10:58:06.509Z"
+  },
+  {
+    "name": "Check exact R18 gates and timing",
+    "passed": true,
+    "at": "2026-11-23T10:58:06.691Z"
+  },
+  {
+    "name": "Verify standard deployment freeze",
+    "passed": true,
+    "at": "2026-11-23T10:58:06.859Z"
+  },
+  {
+    "name": "Configure drop",
+    "passed": true,
+    "at": "2026-11-23T10:58:07.028Z"
+  },
+  {
+    "name": "Build house words",
+    "passed": true,
+    "at": "2026-11-23T10:58:12.182Z"
+  },
+  {
+    "name": "Build production frontend",
+    "passed": true,
+    "at": "2026-11-23T10:58:35.801Z"
+  },
+  {
+    "name": "Check exact R18 gates and timing",
+    "passed": true,
+    "at": "2026-11-23T10:58:35.969Z"
+  },
+  {
+    "name": "Deploy production Worker",
+    "passed": true,
+    "at": "2026-11-23T10:59:12.366Z"
+  },
+  {
+    "name": "Notify IndexNow after Worker deploy (nonblocking)",
+    "passed": true,
+    "at": "2026-11-23T10:59:14.054Z"
+  },
+  {
+    "name": "Check exact R18 gates and timing",
+    "passed": true,
+    "at": "2026-11-23T10:59:24.904Z"
+  },
+  {
+    "name": "Deploy production Pages",
+    "passed": true,
+    "at": "2026-11-23T10:59:36.014Z"
+  },
+  {
+    "name": "Read-only production smoke",
+    "passed": true,
+    "at": "2026-11-23T10:59:57.097Z"
+  },
+  {
+    "name": "Notify IndexNow after Pages deploy (nonblocking)",
+    "passed": true,
+    "at": "2026-11-23T10:59:58.100Z"
+  },
+  {
+    "name": "Verify exact rows after smoke",
+    "passed": true,
+    "at": "2026-11-23T10:59:59.475Z"
+  },
+  {
+    "name": "Record released deployment IDs",
+    "passed": true,
+    "at": "2026-11-23T11:00:01.247Z"
+  }
+]

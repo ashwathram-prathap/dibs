@@ -1,0 +1,40 @@
+{
+  "passed": true,
+  "runtimeSourceCommit": "800626546884ad52c880d96c0fa0047f92f33ef6",
+  "testSourceCommit": "b4757df3d4ed09b925ea627a513856385326115f",
+  "firefoxRun": "https://github.com/ashwathram-prathap/dibs/actions/runs/45157548109",
+  "suites": {
+    "R18 Chromium/WebKit": {
+      "startTime": "2026-11-23T10:43:22.107Z",
+      "duration": 90344.837,
+      "expected": 112,
+      "skipped": 0,
+      "unexpected": 0,
+      "flaky": 0
+    },
+    "Full device regression": {
+      "startTime": "2026-11-23T10:21:50.891Z",
+      "duration": 1289893.78,
+      "expected": 1550,
+      "skipped": 0,
+      "unexpected": 0,
+      "flaky": 0
+    },
+    "R18 Firefox": {
+      "startTime": "2026-11-23T10:42:51.824Z",
+      "duration": 306818.499,
+      "expected": 56,
+      "skipped": 0,
+      "unexpected": 0,
+      "flaky": 0
+    },
+    "Full Firefox regression": {
+      "startTime": "2026-11-23T10:47:59.664Z",
+      "duration": 570797.449,
+      "expected": 172,
+      "skipped": 0,
+      "unexpected": 0,
+      "flaky": 0
+    }
+  }
+}
