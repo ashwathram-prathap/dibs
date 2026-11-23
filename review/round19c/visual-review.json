@@ -1,7 +1,7 @@
 {
   "at": "2026-11-23T17:13:50.423472+00:00",
   "passed": false,
-  "pending": "Repeat full matrix and final review after the enlarged-share-label fix, commit 6b1e52d.",
+  "pending": "Full rerun and review after the extreme-zoom certificate stamp correction, commit 5a59d1d.",
   "nativeScreensReviewed": [
     "review/final/round19c/settings-open/chromium-1440-light.png",
     "review/final/round19c/settings-open/chromium-390-light.png",
@@ -137,10 +137,10 @@
     "applicationCommit": "d3260f2"
   },
   "finalReview": {
-    "applicationCommit": "6b1e52d",
-    "at": "2026-11-23T17:39:13.227308+00:00",
+    "applicationCommit": "5a59d1d",
+    "at": "2026-11-23T18:17:03.396713+00:00",
     "screens": 31,
     "captures": 248,
-    "scope": "All 31 final contact-sheet overviews reviewed again after the share-grid fix; enlarged 360px WebKit share capture reviewed at native size."
+    "scope": "All 31 final contact-sheet overviews reviewed after the extreme-zoom stamp fix, plus the new native 390px light Settings capture. Full combined matrix and Firefox extreme stamp review remain pending."
   }
 }
