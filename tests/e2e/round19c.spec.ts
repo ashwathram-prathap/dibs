@@ -17,8 +17,21 @@ async function shot(page: Page, info: TestInfo, screen: string) {
     animations: 'disabled' as const,
   };
   // Capture the actual certificate/controls, including content below the first viewport.
-  if (screen.startsWith('certificate-')) await page.locator('.certificate').screenshot(options);
-  else if (screen.startsWith('share-')) await page.locator('.share-main').screenshot(options);
+  if (screen.startsWith('certificate-')) {
+    // Isolated certificate proof: keep fixed page navigation out of the component capture.
+    const header = page.locator('.masthead');
+    const previous = await header.evaluate((el: HTMLElement) => el.style.visibility);
+    await header.evaluate((el: HTMLElement) => {
+      el.style.visibility = 'hidden';
+    });
+    try {
+      await page.locator('.certificate').screenshot(options);
+    } finally {
+      await header.evaluate((el: HTMLElement, value) => {
+        el.style.visibility = value;
+      }, previous);
+    }
+  } else if (screen.startsWith('share-')) await page.locator('.share-main').screenshot(options);
   else await page.screenshot(options);
 }
 async function audit(page: Page, scope = 'main', action?: string) {
@@ -353,6 +366,7 @@ test('Certificates keep points and consistent curves; streak tally counts', asyn
         'rarity not measured for this answer',
       );
       await expect(page.locator('.rarity-marker')).toHaveCount(0);
+      await expect(page.locator('.dibs-stamp')).toContainText('Registered');
     } else {
       expect(
         await page.locator('.rarity-curve').evaluate((el) => {

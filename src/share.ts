@@ -131,7 +131,7 @@ export async function exportCertificate(claim: Claim, story: boolean) {
   c.fillText(
     claim.golden
       ? 'Golden ticket'
-      : claim.obscurity && claim.obscurity >= 4
+      : claim.percentile != null && claim.obscurity && claim.obscurity >= 4
         ? 'Deep cut'
         : 'Registered',
     0,

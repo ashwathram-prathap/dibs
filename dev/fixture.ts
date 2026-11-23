@@ -219,7 +219,7 @@ export async function request(path: string, body?: any): Promise<any> {
         display:
           owned || revealed
             ? p === 'missing'
-              ? 'Common iguana'
+              ? '3-spot musgravia'
               : p === '0'
                 ? 'Chameleon'
                 : 'Okapi'
@@ -228,6 +228,7 @@ export async function request(path: string, body?: any): Promise<any> {
         revealed,
         concealed: !owned && !revealed,
         percentile: (!owned && !revealed) || p === 'missing' ? null : Number(p || '.6'),
+        obscurity: p === 'missing' ? null : Number(p || '.6') >= 0.8 ? 5 : 1,
         points: p === 'missing' ? 50 : 60,
         golden: r7.has('gold'),
       },

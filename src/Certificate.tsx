@@ -266,7 +266,7 @@ export function Certificate({ claim, animated = false }: { claim: Claim; animate
                 <>
                   <Icon name="star" /> Golden ticket
                 </>
-              ) : claim.obscurity && claim.obscurity >= 4 ? (
+              ) : claim.percentile != null && claim.obscurity && claim.obscurity >= 4 ? (
                 'Deep cut'
               ) : (
                 'Registered'
