@@ -627,6 +627,25 @@ test('Share and visitor landing work in browser, standalone, LinkedIn and Instag
       for (const other of cells.filter((o) => Math.abs(o.y - c.y) < 1))
         expect(c.width).toBeCloseTo(other.width, 0);
     }
+    const splitLabels = await p.locator('.share-buttons').evaluate((root) => {
+      if (innerWidth < 280) return []; // Extreme zoom can require word wrapping.
+      const split: string[] = [];
+      const walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT);
+      while (walker.nextNode()) {
+        const node = walker.currentNode;
+        for (const match of (node.textContent || '').matchAll(/LinkedIn|Download/g)) {
+          const range = document.createRange();
+          range.setStart(node, match.index!);
+          range.setEnd(node, match.index! + match[0].length);
+          if ([...range.getClientRects()].filter((r) => r.width > 0).length > 1)
+            split.push(match[0]);
+        }
+      }
+      return split;
+    });
+    expect(splitLabels, 'share labels fit without splitting a word at normal phone widths').toEqual(
+      [],
+    );
     await audit(p, '.day-summary', '.share-buttons > .primary');
     await shot(p, info, 'share-' + mode);
     for (const route of ['/summary/fixture-summary', '/c/fixture-1']) {

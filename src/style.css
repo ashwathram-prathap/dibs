@@ -7278,13 +7278,22 @@ html[data-theme='dark'] .feedback-dialog .feedback-error {
     z-index: 5;
   }
 }
-@media (min-width: 360px) and (max-width: 767px) {
-  .share-area .share-buttons,
-  .completed-play .day-companions .share-area .share-buttons {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
+@media (max-width: 767px) {
+  .share-area {
+    width: 100%;
   }
-  .share-area .share-buttons > :last-child {
-    grid-column: auto;
+  .share-main {
+    container: share-controls / inline-size;
+  }
+  /* Let larger text choose the two-plus-one layout before words split. */
+  @container share-controls (min-width: 20rem) {
+    .share-area .share-buttons,
+    .completed-play .day-companions .share-area .share-buttons {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+    .share-area .share-buttons > :last-child {
+      grid-column: auto;
+    }
   }
 }
 .shared-invitation {
