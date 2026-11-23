@@ -91,4 +91,5 @@ if (process.argv[1]?.endsWith('r19b-preview-bots.ts'))
   await verifyPreviews(
     process.argv[2] || 'https://dibs.here',
     process.argv[3] ? { summary: process.argv[3], claim: process.argv[4] } : undefined,
+    process.argv[3] ? 'after' : 'home-after',
   );

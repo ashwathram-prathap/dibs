@@ -13,6 +13,24 @@ import {
   privacyHtml,
   escapeHtml,
 } from '../shared/seo';
+// no-transform prevents late beacon injection, so compress rewritten HTML here.
+function compressedHtml(request: Request, response: Response) {
+  const gzip = (request.headers.get('accept-encoding') || '').split(',').some((entry) => {
+    const [coding, ...params] = entry.trim().toLowerCase().split(';');
+    const quality = params.find((part) => part.trim().startsWith('q='));
+    return coding.trim() === 'gzip' && (!quality || Number(quality.trim().slice(2)) > 0);
+  });
+  if (!response.body || !gzip) return response;
+  const headers = new Headers(response.headers);
+  headers.set('Content-Encoding', 'gzip');
+  headers.delete('Content-Length');
+  headers.set('Vary', [headers.get('Vary'), 'Accept-Encoding'].filter(Boolean).join(', '));
+  return new Response(response.body.pipeThrough(new CompressionStream('gzip')), {
+    status: response.status,
+    headers,
+    encodeBody: 'manual',
+  });
+}
 export const onRequest: PagesFunction = async ({ request, next, env }) => {
   const staging = (env as any).STAGING === 'true';
   const origin = staging ? 'https://practice.dibs-7hz.pages.dev' : PUBLIC_ORIGIN;
@@ -150,13 +168,16 @@ export const onRequest: PagesFunction = async ({ request, next, env }) => {
       })
       .transform(response);
     if (personal)
-      return new HTMLRewriter()
-        .on('script[type="application/ld+json"]', {
-          element(e) {
-            e.remove();
-          },
-        })
-        .transform(response);
+      return compressedHtml(
+        request,
+        new HTMLRewriter()
+          .on('script[type="application/ld+json"]', {
+            element(e) {
+              e.remove();
+            },
+          })
+          .transform(response),
+      );
     let title = HOME_TITLE,
       description = HOME_DESCRIPTION,
       canonical = origin + path,
@@ -278,7 +299,7 @@ export const onRequest: PagesFunction = async ({ request, next, env }) => {
           e.setAttribute('content', value);
         },
       });
-    return rewrite.transform(response);
+    return compressedHtml(request, rewrite.transform(response));
   } catch {
     return secureResponse(
       new Response('The filing cabinet is unavailable. Please try again.', { status: 503 }),
