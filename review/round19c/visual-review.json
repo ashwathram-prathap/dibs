@@ -63,7 +63,12 @@
     "review/round19c/matrix/raw/certificate-golden/chromium-2560x1440-light-font1-zoom1.png",
     "review/round19c/matrix/raw/landing-summary-browser/chromium-844x390-light-font1.3-zoom1.png",
     "review/round19c/matrix/raw/settings-scrolled/webkit-320x568-dark-font1.3-zoom2.png",
-    "review/round19c/matrix/raw/admin-feedback/webkit-375x667-dark-font1.3-zoom1.png"
+    "review/round19c/matrix/raw/admin-feedback/webkit-375x667-dark-font1.3-zoom1.png",
+    "review/round19c/matrix/raw/settings-open/firefox-1470x956-dark-font1.3-zoom1.png",
+    "review/round19c/matrix/raw/landing-summary-Instagram/firefox-844x390-dark-font1.3-zoom1.png",
+    "review/round19c/matrix/raw/certificate-missing/firefox-390x844-light-font1.3-zoom1.png",
+    "review/round19c/matrix/raw/share-browser/firefox-360x780-light-font1.3-zoom1.png",
+    "review/round19c/matrix/raw/settings-open/firefox-320x568-dark-font1.3-zoom2.png"
   ],
   "finalSheetsReviewed": [
     "review/round19c/final-review/admin-feedback.png",
@@ -144,5 +149,11 @@
     "screens": 31,
     "captures": 248,
     "scope": "All 31 final contact-sheet overviews reviewed after the static fallback correction, plus the new native WebKit 390px dark scrolled Settings capture."
+  },
+  "firefoxNativeReview": {
+    "at": "2026-11-23T18:55:50.162438+00:00",
+    "applicationCommit": "d68bf47",
+    "run": "https://github.com/ashwathram-prathap/dibs/actions/runs/45238088491",
+    "passed": true
   }
 }
