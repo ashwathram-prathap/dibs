@@ -304,8 +304,16 @@ it('returns 25 real rows plus own rank and makes repeated polling cost zero D1 r
     last = a;
   }
   // A successful claim with a strike ranks below every unpenalized claim.
+  const specials = await db
+    .prepare('SELECT golden_json FROM daily_specials WHERE category_id=?')
+    .bind('test')
+    .first();
+  const goldens = JSON.parse(specials.golden_json).map((id: string) => Number(id.slice(1)));
+  const ordinary = Array.from({ length: 29 }, (_, i) => i + 40).find(
+    (n) => n !== 50 && !won.includes(n) && !goldens.includes(n),
+  )!;
   const outsider = await account();
-  expect((await play(outsider, 51)).status).toBe(201);
+  expect((await play(outsider, ordinary)).status).toBe(201);
   await play(outsider, won[0]);
   const board: any = await (await call('/leaderboard', undefined, outsider.cookie)).json();
   expect(board.rows).toHaveLength(25);

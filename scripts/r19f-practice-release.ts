@@ -240,6 +240,7 @@ try {
       s.includes('/summary/' + state.file.summaryId),
     );
     assert.ok(summaryPrinted, 'Summary export must print its full working URL');
+    await expect(p.locator('.day-certificate .cert-footer')).toContainText(summaryPrinted);
     await p.goto('https://' + summaryPrinted);
     await expect(p.locator('.day-certificate')).toContainText(state.file.claims[0].display);
     for (const claim of state.file.claims) {

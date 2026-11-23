@@ -80,6 +80,8 @@ test('R19F golden results keep one phone Share action in flow and show owner ans
   const share = page.getByRole('button', { name: 'SHARE', exact: true });
   await expect(share).toBeEnabled();
   await expect(page.locator('.day-certificate')).toContainText('Golden ticket found');
+  await expect(page.locator('.day-certificate .cert-footer')).toContainText('dibs.here/summary/');
+  await shot(page, info.project.name, 'results-default');
   const phone = await page.evaluate(
     () => matchMedia('(max-width:767px), (max-width:950px) and (max-height:500px)').matches,
   );

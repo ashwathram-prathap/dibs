@@ -117,7 +117,7 @@ export function DaySummary({
                     <s>{owned ? event.display : 'Strike · −10'}</s>
                     <small>
                       {event.house ? (
-                        'RESERVED'
+                        'Reserved by the house'
                       ) : event.holder ? (
                         <>
                           Taken by <Handle name={event.holder} founder={event.holderFounder} />
@@ -144,7 +144,7 @@ export function DaySummary({
         </div>
         <div className="cert-footer">
           <span>All claims entirely ceremonial.</span>
-          <span>{PUBLIC_HOST}</span>
+          <span>{file.summaryId ? `${PUBLIC_HOST}/summary/${file.summaryId}` : PUBLIC_HOST}</span>
         </div>
       </article>
       <aside className="day-companions">
