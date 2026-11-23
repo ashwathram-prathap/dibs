@@ -36,7 +36,7 @@ export function preview(kind: 'certificate' | 'summary'): PagesFunction<Env> {
         title +
         (data.file?.sharedAnswers || data.claim?.sharedAnswers
           ? ' · holder-shared answers'
-          : ' · sealed scorecard'),
+          : ' · scorecard'),
       'meta[name="twitter:title"]': title,
       'meta[name="twitter:description"]': description,
       'meta[name="twitter:image"]': image,

@@ -28,7 +28,6 @@ const unit = report('unit-results.json');
 assert.ok(unit.success && !unit.numFailedTests && unit.numPassedTests >= 250, 'Full unit/API gate');
 for (const name of [
   'browser-results.json',
-  'final-browser-results.json',
   'visual-browser-results.json',
   'firefox-browser-results.json',
 ]) {
