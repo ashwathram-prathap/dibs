@@ -85,7 +85,7 @@ export default defineConfig(({ mode }) => {
       {
         name: 'cookieless-analytics',
         transformIndexHtml: () =>
-          publicOrigin === PUBLIC_ORIGIN && /^[a-f0-9]{32}$/.test(token || '')
+          mode !== 'security-test' && publicOrigin === PUBLIC_ORIGIN && /^[a-f0-9]{32}$/.test(token || '')
             ? [
                 {
                   tag: 'script',
