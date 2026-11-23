@@ -2,14 +2,11 @@ import { test, expect } from './security-fixture';
 test('a fresh phone explains the game and can call dibs without scrolling', async ({ page }) => {
   await page.setViewportSize({ width: 390, height: 844 });
   await page.goto('/');
-  await expect(page.locator('.game-rule')).toHaveText(
-    'Name an animal nobody has claimed yet. First to call it owns it today.',
-  );
+  await expect(page.locator('.play-heading')).toContainText('Animals');
   await page.evaluate(() => document.fonts.ready);
   for (const locator of [
     page.locator('h1.category'),
-    page.locator('.game-rule'),
-    page.getByLabel('ENTRY:', { exact: true }),
+    page.locator('#answer'),
     page.getByRole('button', { name: 'CALL DIBS' }),
   ]) {
     const box = await locator.boundingBox();
@@ -30,6 +27,7 @@ test('certificate and canvas export never print the local origin', async ({ page
   });
   await page.goto('/certificate/fixture-1');
   await expect(page.locator('.cert-footer')).toContainText('dibs.here');
+  await page.getByText('More ways to share', { exact: true }).click();
   const download = page.waitForEvent('download');
   await page.getByRole('button', { name: 'Story JPEG' }).click();
   await download;

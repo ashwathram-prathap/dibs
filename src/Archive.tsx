@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { api } from './api';
 import { type Category } from './types';
-import { archiveTitle } from '../shared/seo';
+import { archiveDescription, archiveTitle } from '../shared/seo';
 import { PUBLIC_ORIGIN } from '../shared/config';
 import { Wordmark } from './ui';
 import { Icon } from './Icon';
@@ -11,6 +11,21 @@ export function Archive() {
   const [categories, setCategories] = useState<Category[]>([]);
   const [selected, setSelected] = useState<Category | null>(null);
   const [error, setError] = useState('');
+  useEffect(() => {
+    const selectors = [
+      'meta[name="description"]',
+      'meta[property="og:description"]',
+      'meta[name="twitter:description"]',
+    ];
+    const originals = selectors.map((selector) => [
+      selector,
+      document.querySelector(selector)?.getAttribute('content') || '',
+    ]);
+    return () => {
+      for (const [selector, value] of originals)
+        document.querySelector(selector)?.setAttribute('content', value);
+    };
+  }, []);
   useEffect(() => {
     api<{ categories: Category[] }>('/archive')
       .then((d) => {
@@ -30,6 +45,12 @@ export function Archive() {
         Math.floor(Number(new URLSearchParams(location.search).get('before')) || 0),
       );
       document.title = archiveTitle(selected) + (before ? ' | Filings before #' + before : '');
+      for (const selector of [
+        'meta[name="description"]',
+        'meta[property="og:description"]',
+        'meta[name="twitter:description"]',
+      ])
+        document.querySelector(selector)?.setAttribute('content', archiveDescription(selected));
       document
         .querySelector('link[rel="canonical"]')
         ?.setAttribute(

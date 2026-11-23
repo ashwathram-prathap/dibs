@@ -27,36 +27,29 @@ test('full filing, certificate, sharing and public record', async ({ page }, inf
   await expect(page.getByRole('heading', { name: 'Animals', exact: true })).toBeVisible();
   await page.evaluate(() => document.fonts.ready);
   await shot('01-load');
-  const input = page.getByLabel('ENTRY:', { exact: true });
+  const input = page.locator('#answer');
   await input.fill('Pangolin');
   await page.getByRole('button', { name: 'CALL DIBS' }).click();
-  await expect(page.locator('.result-panel')).toContainText('already called dibs');
+  await expect(page.locator('.result-panel')).toContainText('Taken.');
   await shot('02-taken');
   await input.fill('Axolotl');
   await page.getByRole('button', { name: 'CALL DIBS' }).click();
-  await expect(
-    page.getByRole('article', { name: 'Certificate of Dibs for Axolotl' }),
-  ).toBeVisible();
-  await page.waitForTimeout(1400);
+  await expect(page.locator('.win-stamp')).toContainText('AXOLOTL');
   await shot('03-success');
-  await expect(page.getByRole('row').filter({ hasText: 'Axolotl' })).toBeVisible({ timeout: 8000 });
-  await page.getByRole('searchbox').fill('Axolotl');
-  await shot('04-ledger');
+  await expect(page.locator('table.ledger')).toHaveCount(0);
   await page.getByRole('button', { name: 'Next claim', exact: true }).click();
   for (const answer of ['Okapi', 'Quokka']) {
     await input.fill(answer);
     await page.getByRole('button', { name: 'CALL DIBS' }).click();
-    await expect(
-      page.getByRole('article', { name: 'Certificate of Dibs for ' + answer }),
-    ).toBeVisible();
-    await page.waitForTimeout(1200);
-    await page
-      .getByRole('button', { name: answer === 'Quokka' ? 'See my file' : 'Next claim', exact: true })
-      .click();
+    if (answer !== 'Quokka') {
+      await expect(page.locator('.win-stamp')).toContainText(answer.toUpperCase());
+      await page.getByRole('button', { name: 'Next claim', exact: true }).click();
+    }
   }
   await expect(page.getByRole('article', { name: 'Day summary' })).toBeVisible();
-  await expect(page.locator('.file-progress')).toContainText('DIBS 3 / 3');
+  await expect(page.locator('.file-progress')).toContainText('Claims 3 of 3');
   await expect(page.getByRole('img', { name: '1 of 5 strikes' })).toBeVisible();
+  await page.getByText('More ways to share', { exact: true }).click();
   await page.getByRole('button', { name: 'Copy link', exact: true }).click();
   expect(await page.evaluate(() => (window as any).copied)).toBe(
     'https://dibs.here/summary/fixture-summary?s=copy-link',
@@ -86,7 +79,7 @@ test('full filing, certificate, sharing and public record', async ({ page }, inf
   ).toEqual([]);
   for (const [route, name] of [
     ['/certificate/fixture-1', '06-certificate'],
-    ['/archive', '07-archive'],
+    ['/archive?r6', '07-archive'],
     ['/about', '09-about'],
   ]) {
     await page.goto(route);
@@ -98,11 +91,11 @@ test('full filing, certificate, sharing and public record', async ({ page }, inf
 
 test('five strikes close the file and invalid entries cost nothing', async ({ page }) => {
   await page.goto('/');
-  const input = page.getByLabel('ENTRY:', { exact: true });
+  const input = page.locator('#answer');
   await input.fill('unknown animal');
   await page.getByRole('button', { name: 'CALL DIBS' }).click();
   await expect(page.locator('.result-panel')).toContainText(
-    "Not on today's register. Check the spelling.",
+    "Not on today's list; check the spelling.",
   );
   await expect(page.getByRole('img', { name: '0 of 5 strikes' })).toBeVisible();
   for (let i = 1; i <= 5; i++) {
@@ -111,7 +104,7 @@ test('five strikes close the file and invalid entries cost nothing', async ({ pa
     await expect(page.getByRole('img', { name: `${i} of 5 strikes` })).toBeVisible();
   }
   await expect(page.getByRole('article', { name: 'Day summary' })).toBeVisible();
-  await expect(page.locator('.result-panel')).toContainText('Your file is closed for today.');
-  await expect(input).toBeFocused();
-  await expect(page.getByRole('button', { name: 'CALL DIBS' })).toBeDisabled();
+  await expect(page.locator('.file-tally')).toContainText('0/3 claims · 5 strikes');
+  await expect(input).toHaveCount(0);
+  await expect(page.getByRole('button', { name: 'CALL DIBS' })).toHaveCount(0);
 });

@@ -35,7 +35,7 @@ test('R13 hero first, R7 scale, phone action visible, explanation collapses', as
       .evaluate((e) => parseFloat(getComputedStyle(e).fontSize)),
     // R18 preserves expanded Archivo and positive digit gaps; fit the whole row on phones.
   ).toBeGreaterThanOrEqual(
-    width < 768 ? Math.max(44, (width - 40) / 6.2) - 1 : Math.min(164, width * 0.12) - 1,
+    width < 768 ? Math.max(44, (width - 40) / 5.2) - 1 : Math.min(164, width * 0.12) - 1,
   );
   expect((await page.locator('.closed-office .clock').boundingBox())!.y).toBeLessThan(
     (await page.locator('.game-intro').boundingBox())!.y,

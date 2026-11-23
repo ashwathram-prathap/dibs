@@ -1,10 +1,11 @@
+import { GAME_DESCRIPTION } from '../../shared/copy';
 import { test, expect } from './security-fixture';
 import { PUBLIC_ORIGIN } from '../../shared/config';
 
 async function certificate(page: any) {
   await page.goto('/certificate/fixture-1');
   await expect(page.getByRole('button', { name: 'SHARE', exact: true })).toBeEnabled();
-  await page.getByText('More ways to share', {exact:true}).click();
+  await page.getByText('More ways to share', { exact: true }).click();
 }
 test('all share controls, exact intents and anonymous one-tap events', async ({ page }) => {
   await page.addInitScript(() => {
@@ -42,7 +43,7 @@ test('all share controls, exact intents and anonymous one-tap events', async ({ 
     expect(href.searchParams.get(key)).toContain(
       `${PUBLIC_ORIGIN}/certificate/fixture-1?s=${platform}`,
     );
-    if (platform === 'x') expect(href.searchParams.get('text')).toBe('Dibs · one more on file.');
+    if (platform === 'x') expect(href.searchParams.get('text')).toBe(GAME_DESCRIPTION);
     // Intercept the external navigation; tests never send content to a platform.
     await page
       .context()
@@ -55,12 +56,12 @@ test('all share controls, exact intents and anonymous one-tap events', async ({ 
     await target.close();
   }
   await page.getByRole('button', { name: 'Copy link', exact: true }).click();
-  await expect(page.locator('.share-hint')).toHaveText('Copied.');
+  await expect(page.locator('.share-hint')).toHaveText('Copied');
   expect(await page.evaluate(() => (window as any).copied)).toBe(
     `${PUBLIC_ORIGIN}/certificate/fixture-1?s=copy-link`,
   );
   await page.getByRole('button', { name: 'Copy text', exact: true }).click();
-  expect(await page.evaluate(() => (window as any).copied)).toContain('Dibs · one more on file.');
+  expect(await page.evaluate(() => (window as any).copied)).toContain(GAME_DESCRIPTION);
   const download = page.waitForEvent('download');
   await page.getByRole('button', { name: 'SHARE', exact: true }).click();
   expect((await download).suggestedFilename()).toContain('story.jpg');
@@ -153,9 +154,7 @@ test('Instagram and TikTok export keeps a long-press image when the browser bloc
   });
   await certificate(page);
   await page.getByRole('button', { name: 'Instagram / TikTok story' }).click();
-  await expect(page.locator('.share-hint').first()).toHaveText(
-    'Saved. Open Instagram or TikTok, add it to your story, and add a link sticker.',
-  );
+  await expect(page.locator('.share-hint').first()).toHaveText(/Couldn't share\./);
   const image = page.getByAltText('Your Dibs image. Press and hold to save.');
   await expect(image).toBeVisible();
   expect(
@@ -199,14 +198,14 @@ test('first arrival attribution survives reloads and ignores arbitrary sources',
   await expect.poll(() => arrivals).toEqual([{ platform: 'whatsapp' }]);
   await page.reload();
   await expect(page.getByRole('button', { name: 'SHARE', exact: true })).toBeEnabled();
-  await page.getByText('More ways to share', {exact:true}).click();
+  await page.getByText('More ways to share', { exact: true }).click();
   await page.goto('/certificate/fixture-1?s=x');
   await expect(page.getByRole('button', { name: 'SHARE', exact: true })).toBeEnabled();
-  await page.getByText('More ways to share', {exact:true}).click();
+  await page.getByText('More ways to share', { exact: true }).click();
   expect(arrivals).toEqual([{ platform: 'whatsapp' }]);
   await page.evaluate(() => localStorage.removeItem('dibs-arrived'));
   await page.goto('/certificate/fixture-1?s=not-a-platform');
   await expect(page.getByRole('button', { name: 'SHARE', exact: true })).toBeEnabled();
-  await page.getByText('More ways to share', {exact:true}).click();
+  await page.getByText('More ways to share', { exact: true }).click();
   expect(arrivals).toEqual([{ platform: 'whatsapp' }]);
 });

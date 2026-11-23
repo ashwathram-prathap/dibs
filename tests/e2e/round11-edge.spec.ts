@@ -46,9 +46,12 @@ test('keyboard-only play, announcements and 200 percent zoom', async ({ page }) 
 test('sound choice persists and reduced motion uses the quiet stamp', async ({ page }) => {
   await page.emulateMedia({ reducedMotion: 'reduce' });
   await page.goto('/?r6');
+  await page.locator('.header-settings > summary').click();
   await page.getByRole('button', { name: 'Turn stamp sound off' }).click();
   await page.reload();
+  await page.locator('.header-settings > summary').click();
   await expect(page.getByRole('button', { name: 'Turn stamp sound on' })).toBeVisible();
+  await page.locator('.settings-close').click();
   await page.locator('#answer').fill('Axolotl');
   await page.locator('#answer').press('Enter');
   await expect(page.locator('.win-stamp')).toBeVisible();
@@ -60,15 +63,18 @@ test('empty submission is free and timezone choice persists across pages', async
   await page.goto('/?r6');
   await page.locator('#answer').waitFor();
   await page.locator('#answer').press('Enter');
-  await expect(page.locator('.strikes-progress')).toContainText('STRIKES 0/5');
+  await expect(page.locator('.strikes-progress')).toContainText('Strikes 0 of 5');
   await page.goto('/?r7-closed');
+  await page.locator('.header-settings > summary').click();
   await page.getByLabel('Timezone', { exact: true }).selectOption('America/Vancouver');
-  await expect(page.locator('.local-drop').first()).toContainText('7:00 PM PT');
-  await page.getByRole('link', { name: 'Office notice', exact: true }).click();
-  await expect(page.locator('.local-drop').first()).toContainText('7:00 PM PT');
-  await page.reload();
+  await page.locator('.settings-close').click();
+  await expect(page.locator('.drop-countdown > p')).toContainText('7:00 PM PT');
+  await page.goto('/about');
+  await page.locator('.header-settings > summary').click();
   await expect(page.getByLabel('Timezone', { exact: true })).toHaveValue('America/Vancouver');
-  await expect(page.locator('.local-drop').first()).toContainText('7:00 PM PT');
+  await page.reload();
+  await page.locator('.header-settings > summary').click();
+  await expect(page.getByLabel('Timezone', { exact: true })).toHaveValue('America/Vancouver');
 });
 test('all disclosure contents stay legible and within the viewport', async ({ page }, info) => {
   for (const [name, path] of [

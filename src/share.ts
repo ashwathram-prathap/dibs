@@ -96,7 +96,7 @@ export async function exportCertificate(claim: Claim, story: boolean) {
   c.font = '600 42px "Instrument Sans"';
   if (claim.founder) c.fillStyle = dark ? '#e7c86b' : '#795700';
   c.fillText(claim.handle, 80, holder + 60);
-  if (claim.founder) text('FOUNDER', 80, holder + 90, 18);
+  if (claim.founder) text('Founder', 80, holder + 90, 18);
   c.fillStyle = ink;
   c.font = '400 26px "Instrument Sans"';
   c.save();
@@ -151,7 +151,7 @@ export async function exportCertificate(claim: Claim, story: boolean) {
   );
 }
 export async function canvasFile(canvas: HTMLCanvasElement, name: string) {
-  for (const quality of [0.85, 0.8]) {
+  for (const quality of [0.85, 0.8, 0.7, 0.6, 0.5]) {
     const blob = await new Promise<Blob>((resolve, reject) =>
       canvas.toBlob(
         (b) => (b ? resolve(b) : reject(Error('Image export failed'))),
@@ -159,9 +159,9 @@ export async function canvasFile(canvas: HTMLCanvasElement, name: string) {
         quality,
       ),
     );
-    if (blob.size <= 600_000) return new File([blob], name, { type: 'image/jpeg' });
+    if (blob.size < 350_000) return new File([blob], name, { type: 'image/jpeg' });
   }
-  throw Error('Image exceeds 600 KB');
+  throw Error('Image exceeds 350 KB');
 }
 async function drawCurve(
   c: CanvasRenderingContext2D,
@@ -279,7 +279,7 @@ export async function exportSummary(file: DayFile, category: Category, story: bo
   c.fillRect(WORDMARK_BLOCK_X, 67, 18, 18);
   c.restore();
   text('File closed.', 80, 365, 114, 'Archivo', 900);
-  fit(category.name.toUpperCase(), 80, 422, 680, 30);
+  fit(category.name, 80, 422, 680, 30);
   formText(c, 'date', category.date, 825, 422);
   text(
     `${file.dibs}/${MAX_CLAIMS} claims · ${file.strikes} ${file.strikes === 1 ? 'strike' : 'strikes'} · filed ${localTime(file.completedAt!).full}`,
@@ -288,7 +288,7 @@ export async function exportSummary(file: DayFile, category: Category, story: bo
     22,
   );
   text(
-    `${file.points ?? 0} POINTS${file.rank ? ` · #${file.rank} OF ${file.players}` : ''} · STREAK ${file.streak || 0}`,
+    `${file.points ?? 0} points${file.rank ? ` · #${file.rank} of ${file.players}` : ''} · streak ${file.streak || 0}`,
     80,
     538,
     24,
@@ -322,7 +322,7 @@ export async function exportSummary(file: DayFile, category: Category, story: bo
       const held = event.house
         ? 'RESERVED'
         : event.holder
-          ? `Taken by ${event.holder}${event.holderFounder ? ' / FOUNDER' : ''}${event.heldAt ? ' at ' + localTime(event.heldAt).full : ''}`
+          ? `Taken by ${event.holder}${event.holderFounder ? ' / Founder' : ''}${event.heldAt ? ' at ' + localTime(event.heldAt).full : ''}`
           : 'Holder details were not retained';
       if (event.holderFounder) c.fillStyle = dark ? '#e7c86b' : '#795700';
       fit(
@@ -345,7 +345,7 @@ export async function exportSummary(file: DayFile, category: Category, story: bo
       text(event.golden ? 'DIBS / GOLD' : 'DIBS', -98, 9, 26, 'Archivo', 900);
       c.restore();
       c.fillStyle = ink;
-      if ((event.obscurity || 0) >= 4) text('DEEP CUT', 755, y + rowHeight * 0.85, 17);
+      if ((event.obscurity || 0) >= 4) text('Deep cut', 755, y + rowHeight * 0.85, 17);
     }
   });
   for (const [i, event] of rows.entries()) {
@@ -368,7 +368,7 @@ export async function exportSummary(file: DayFile, category: Category, story: bo
     '"Instrument Sans"',
     600,
   );
-  if (file.founder) text('FOUNDER', 80, holderTop + 112, 18);
+  if (file.founder) text('Founder', 80, holderTop + 112, 18);
   c.fillStyle = ink;
   c.save();
   c.translate(780, h - 210);

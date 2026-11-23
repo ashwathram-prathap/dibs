@@ -6,7 +6,7 @@ Dibs is a daily word game with the character of a printed register. Use plain wo
 
 | Family | Role | Weights and scale |
 | --- | --- | --- |
-| Archivo | Wordmark, category, countdown, stamps, big headings | 900 for display and stamps; 800–900 for headings. Wide axis 125 for the category and clock. Headings 28/32/44/64px; category up to 192px; clock up to 164px, fitted to available width. |
+| Archivo | Wordmark, category, countdown, stamps, big headings | 900 for display and stamps; 800–900 for headings. Wide axis 125 for the category; clock uses the actual R7 reference axis (100) and weight 900. Headings 28/32/44/64px; category up to 192px; clock up to 164px, fitted to available width. |
 | Instrument Sans | Body, instructions, counters, errors, buttons, inputs and menus | 400 body; 500–650 emphasis; 700 primary actions. 18px body and controls, 20px primary action, 16px secondary text, 14px helpers. Body line-height 1.5–1.6. Never substitute a mono or serif face. |
 | IBM Plex Mono | Form numbers, certificate/ledger field labels, certificate dates and times, ledger entry/edition numbers, backup codes | 400, at least 14px desktop / 13px phone; inputs remain at least 16px. Short form labels alone may be uppercase, 1–3 words, tracking at most 0.06em. Use a few per screen. Never use for instructions, menus, buttons or counters. |
 

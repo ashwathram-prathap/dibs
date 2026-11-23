@@ -5647,9 +5647,9 @@ html[data-theme='dark'] {
 .closed-office .drop-countdown .clock * {
   font-family: Archivo, sans-serif;
   font-weight: 900;
-  font-stretch: 125%;
+  font-stretch: 100%;
   font-variation-settings:
-    'wdth' 125,
+    'wdth' 100,
     'wght' 900;
   font-variant-numeric: tabular-nums;
   font-feature-settings: 'tnum' 1;
@@ -5658,7 +5658,7 @@ html[data-theme='dark'] {
   text-shadow: none;
 }
 .closed-office .drop-countdown .clock {
-  font-size: clamp(52px, 12vw, 164px);
+  font-size: clamp(52px, 18.5vw, 164px);
   line-height: 1.05;
   text-align: left;
   margin: 8px 0 16px;
@@ -6036,7 +6036,7 @@ html[data-theme='dark'] :is(.certificate, .summary-paper, .day-certificate) {
     font-size: 18px;
   }
   .closed-office .drop-countdown .clock {
-    font-size: clamp(44px, calc((100vw - 40px) / 6.2), 111px);
+    font-size: clamp(44px, calc((100vw - 40px) / 5.2), 111px);
   }
 }
 /* The body grain overlays paper and carbon at 4%; never tile raw noise on a card. */
@@ -6061,7 +6061,7 @@ html[data-theme='dark'] :is(.certificate, .summary-paper, .day-certificate) {
 }
 .settings-heading {
   position: sticky;
-  top: -24px;
+  top: 0;
   background: var(--paper);
   z-index: 1;
   padding-block: 8px;

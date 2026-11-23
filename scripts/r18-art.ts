@@ -10,9 +10,16 @@ for (const name of ['seal-a', 'seal-b']) {
   svg = svg.replace(/<circle[^>]*\br="(?:79|50|53|82|77)"[^>]*\/>/g, '');
   const text = 'Dibs',
     size = 20;
-  const glyphs = [...text].map(ch => face.charToGlyph(ch));
-  let x = (180 - glyphs.reduce((n,g) => n + (g.advanceWidth || 0) * size / face.unitsPerEm, 0)) / 2;
-  const paths = glyphs.map(g => { const path=g.getPath(x,151,size).toSVG(2); x += (g.advanceWidth || 0) * size / face.unitsPerEm; return path; }).join('');
+  const glyphs = [...text].map((ch) => face.charToGlyph(ch));
+  let x =
+    (180 - glyphs.reduce((n, g) => n + ((g.advanceWidth || 0) * size) / face.unitsPerEm, 0)) / 2;
+  const paths = glyphs
+    .map((g) => {
+      const path = g.getPath(x, 151, size).toSVG(2);
+      x += ((g.advanceWidth || 0) * size) / face.unitsPerEm;
+      return path;
+    })
+    .join('');
   svg = svg.replace('</svg>', paths + '</svg>');
   writeFileSync(`public/art/${name}.svg`, svg);
 }
