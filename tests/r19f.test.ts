@@ -103,6 +103,28 @@ for (const [ua, mixed, expected] of [
   });
 }
 
+it('opens the native sheet in the original tap while owner consent is still being saved', async () => {
+  let finish!: () => void;
+  const saving = new Promise<void>((resolve) => {
+    finish = resolve;
+  });
+  const share = vi.fn(async () => {});
+  vi.stubGlobal('navigator', {
+    userAgent: 'iPhone',
+    share,
+    canShare: () => true,
+    clipboard: { writeText: async () => {} },
+  });
+  const result = sharePrepared(
+    new File(['x'], 'dibs.jpg', { type: 'image/jpeg' }),
+    { text: 'Caption', url: 'https://dibs.here/c/id' },
+    () => saving,
+  );
+  expect(share).toHaveBeenCalledTimes(1);
+  finish();
+  expect(await result).toBe('file-caption-copied');
+});
+
 it('uses the actual smaller pool when a catalog has fewer measured answers', () => {
   expect(rarityLabel(0.94, 'countries')).toContain('249 best-known countries and territories');
 });

@@ -59,7 +59,7 @@ run('Back up existing practice records', [
   '-c',
   config,
   '--output',
-  '.backups/r19e-practice-before.sql',
+  '.backups/r19f-practice-before.sql',
 ]);
 run('Publish practice assets before Worker', [
   'pages',
@@ -156,6 +156,7 @@ try {
       colorScheme: i ? 'dark' : 'light',
       timezoneId: 'America/Toronto',
     });
+    await p.addInitScript({ content: 'globalThis.__name = (fn) => fn;' });
     await p.addInitScript(() => {
       (window as any).__printedUrls = [];
       const original = CanvasRenderingContext2D.prototype.fillText;

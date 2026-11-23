@@ -132,6 +132,12 @@ test('R19F certificate renders full printed URL and all percentile bands', async
     await expect(certificate.locator('.cert-footer')).toContainText('dibs.here/c/fixture-1');
     await shot(page, info.project.name, `certificate-${p}`);
   }
+  const issues = await new AxeBuilder({ page })
+    .withTags(['wcag2a', 'wcag2aa', 'wcag21aa'])
+    .analyze();
+  expect(issues.violations.map((v) => ({ id: v.id, nodes: v.nodes.map((n) => n.target) }))).toEqual(
+    [],
+  );
 });
 
 test('R19F native image payload follows Android versus Apple sharing rules', async ({ page }) => {

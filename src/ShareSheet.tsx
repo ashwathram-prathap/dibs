@@ -81,9 +81,8 @@ export function ShareSheet({
     setBusy(true);
     setCopy('');
     try {
-      await beforeShare?.();
       if (platform === 'native' || platform === 'instagram-tiktok') {
-        const result = await sharePrepared(file, data);
+        const result = await sharePrepared(file, data, beforeShare);
         if (result === 'abort') return;
         if (
           result === 'file' ||
@@ -113,6 +112,7 @@ export function ShareSheet({
           setStatus("Couldn't share. Save the image or copy the link below.");
         }
       } else {
+        await beforeShare?.();
         download(file);
         setStatus(platform === 'story' ? storyTip : 'Image saved.');
       }
