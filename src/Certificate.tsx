@@ -12,7 +12,7 @@ import { GAME_DESCRIPTION } from '../shared/copy';
 import { guesses } from '../shared/guesses';
 import { summaryUrl } from '../shared/sharing';
 import { ShareSheet } from './ShareSheet';
-import { exportCertificate, exportSummary, summaryText } from './share';
+import { exportCertificate, exportSummary, summaryText, certificateText } from './share';
 import { Handle } from './Handle';
 import { Icon } from './Icon';
 import {
@@ -61,8 +61,8 @@ export function DaySummary({
           <Signature />
         </div>
         <p className="certificate-score">
-          {file.points ?? 0} points{file.rank ? ` · #${file.rank} of ${file.players}` : ''} · Streak{' '}
-          {file.streak || 0}
+          {countLabel(file.points ?? 0, 'point')}
+          {file.rank ? ` · #${file.rank} of ${file.players}` : ''} · Streak {file.streak || 0}
         </p>
         <p className="file-tally">
           {file.dibs}/{MAX_CLAIMS} claims · {file.strikes}{' '}
@@ -137,6 +137,7 @@ export function DaySummary({
         <Reminder at={today.nextDrop} />
         <Clock target={today.nextDrop} />
         <InstallHint />
+        {showLedger && <Introduction />}
         {showLedger && today.revealed && (
           <>
             <Ledger
@@ -277,7 +278,9 @@ export function Certificate({ claim, animated = false }: { claim: Claim; animate
 }
 export function ShareButtons({ claim }: { claim: Claim }) {
   const render = useCallback((story: boolean) => exportCertificate(claim, story), [claim]);
-  return <ShareSheet url={certificateUrl(claim.id)} text={GAME_DESCRIPTION} render={render} />;
+  return (
+    <ShareSheet url={certificateUrl(claim.id)} text={certificateText(claim)} render={render} />
+  );
 }
 export function SummaryPage({ id }: { id: string }) {
   const [data, setData] = useState<{

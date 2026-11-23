@@ -53,6 +53,8 @@ export function runTurnstile(sitekey: string, container: HTMLElement): Promise<s
     },
   };
   const renew = () => {
+    // Keep the visibility listener while asleep; resume the expired check on return.
+    if (document.hidden && container.isConnected) return;
     check.dispose();
     if (container.isConnected && !document.hidden) {
       const next = runTurnstile(sitekey, container);

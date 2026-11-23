@@ -322,6 +322,161 @@ it('propagates founder-by-backup, voiding and hiding into the durable day', asyn
   expect((await guess((await account()).cookie, catalog.answers[150].display)).status).toBe(409);
 }, 30000);
 
+it('R19 removes stored hex names, disambiguates clashes with decimal numbers, and keeps rerolls', async () => {
+  const players = await Promise.all([account(), account()]);
+  for (const p of players) {
+    const user = {
+      ...p.data.me.user,
+      handle: 'Tan Dove #' + p.data.me.user.id.slice(0, 8),
+      hidden: 0,
+      streakDates: [],
+    };
+    await db
+      .prepare('INSERT INTO r17_players(id,data) VALUES(?,?)')
+      .bind(user.id, JSON.stringify(user))
+      .run();
+  }
+  await mf.setOptions(options);
+  db = await mf.getD1Database('DB');
+  for (let i = 0; i < players.length; i++) {
+    const p = players[i];
+    const me: any = await (await call('/me', undefined, p.cookie)).json();
+    expect(me.user.handle).toBe('Tan Dove');
+    const result = await guess(p.cookie, catalog.answers[180 + i].display);
+    expect(result.status).toBe(201);
+    expect(JSON.stringify(result.data)).not.toMatch(/#[0-9a-f]{5,}/);
+    const cert = await (
+      await call('/certificate/' + result.data.claim.id, undefined, p.cookie)
+    ).text();
+    expect(cert).not.toMatch(/#[0-9a-f]{5,}/);
+  }
+  const board: any = await (await call('/leaderboard', undefined, players[0].cookie)).json();
+  expect(board.own.handle).toMatch(/^Tan Dove #\d{2,3}$/);
+  const again: any = await (await call('/leaderboard', undefined, players[0].cookie)).json();
+  expect(again.own.handle).toBe(board.own.handle);
+  const migrate = await mf.dispatchFetch('http://localhost/api/admin/r19-clean-handles', {
+    method: 'POST',
+    headers: {
+      origin: 'https://dibs.here',
+      authorization: 'Bearer static-test-admin',
+      'content-type': 'application/json',
+    },
+    body: JSON.stringify({ table: 'r17_players' }),
+  });
+  expect(migrate.status).toBe(200);
+  const stored = await db.prepare('SELECT data FROM r17_players').all();
+  expect(JSON.stringify(stored.results)).not.toMatch(/#[0-9a-f]{5,}/);
+  const fresh = await account();
+  for (let i = 0; i < 3; i++) {
+    const r = await call('/me/reroll', {}, fresh.cookie);
+    expect(r.status).toBe(200);
+    expect(await r.text()).not.toMatch(/ #[0-9a-f]+/);
+  }
+  expect((await call('/me/reroll', {}, fresh.cookie)).status).toBe(403);
+  await mf.setOptions(options);
+  db = await mf.getD1Database('DB');
+  expect(await (await call('/me', undefined, players[0].cookie)).text()).not.toMatch(
+    /#[0-9a-f]{5,}/,
+  );
+}, 30000);
+
+it('R19 feedback quota survives a real DO restart, strips controls and caps shared IPs', async () => {
+  const p = await account();
+  for (let i = 0; i < 3; i++)
+    expect(
+      (
+        await call(
+          '/feedback',
+          { text: 'Hello\u200b  there ' + i, turnstileToken: 'test' },
+          p.cookie,
+          '192.0.2.19',
+        )
+      ).status,
+    ).toBe(200);
+  await mf.setOptions(options);
+  db = await mf.getD1Database('DB');
+  expect(
+    (
+      await call(
+        '/feedback',
+        { text: 'Fourth note', turnstileToken: 'test' },
+        p.cookie,
+        '192.0.2.20',
+      )
+    ).status,
+  ).toBe(429);
+  for (let i = 3; i < 20; i++) {
+    const next = await account();
+    expect(
+      (
+        await call(
+          '/feedback',
+          { text: 'A useful note ' + i, turnstileToken: 'test' },
+          next.cookie,
+          '192.0.2.19',
+        )
+      ).status,
+    ).toBe(200);
+  }
+  const next = await account();
+  expect(
+    (
+      await call(
+        '/feedback',
+        { text: 'Another note', turnstileToken: 'test' },
+        next.cookie,
+        '192.0.2.19',
+      )
+    ).status,
+  ).toBe(429);
+  for (const text of ['https://example.com', 'See https://a.com https://b.com https://c.com'])
+    expect(
+      (await call('/feedback', { text, turnstileToken: 'test' }, next.cookie, '192.0.2.21')).status,
+    ).toBe(422);
+  const rows = await db
+    .prepare('SELECT text FROM feedback WHERE user_id=?')
+    .bind(p.data.me.user.id)
+    .all();
+  expect(rows.results.map((r: any) => r.text)).toEqual([
+    'Hello there 0',
+    'Hello there 1',
+    'Hello there 2',
+  ]);
+}, 30000);
+
+it('R19 counts only finished files, updates the live score percentile, and exposes no other answers', async () => {
+  const before: any = await (await call('/leaderboard')).json();
+  const players = await Promise.all(Array.from({ length: 11 }, () => account()));
+  // A socket belongs to a real signed player and receives the coalesced server broadcast.
+  const response = await mf.dispatchFetch('http://localhost/api/live', {
+    headers: { origin: 'https://dibs.here', upgrade: 'websocket', cookie: players[0].cookie },
+  });
+  const ws = response.webSocket!;
+  ws.accept();
+  const messages: any[] = [];
+  ws.addEventListener('message', (e) => messages.push(JSON.parse(String(e.data))));
+  for (const p of players)
+    for (let i = 0; i < 5; i++)
+      expect((await guess(p.cookie, manifest.house[0][1])).status).toBe(409);
+  const final: any = await (await call('/leaderboard', undefined, players[0].cookie)).json();
+  expect(final.comparison.finished).toBe(before.comparison.finished + 11);
+  expect(final.comparison.points).toBe(0);
+  expect(final.comparison.percentile).toBeGreaterThan(0);
+  await new Promise((resolve) => setTimeout(resolve, 1200));
+  expect(
+    messages.some((m) => m.leaderboard?.comparison.finished === final.comparison.finished),
+  ).toBe(true);
+  for (const message of messages) {
+    expect(message.rows).toEqual([]);
+    expect(JSON.stringify(message.leaderboard)).not.toMatch(/display|answer_id|holder/);
+  }
+  ws.close();
+  await mf.setOptions(options);
+  db = await mf.getD1Database('DB');
+  const restored: any = await (await call('/leaderboard', undefined, players[0].cookie)).json();
+  expect(restored.comparison).toEqual(final.comparison);
+}, 30000);
+
 it('flushes the exact final board and mirror at close, and reveals only after close', async () => {
   const date = registryDate(),
     closedAt = Date.parse(

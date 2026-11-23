@@ -1,0 +1,42 @@
+name: R19 Firefox and browser regression
+on: workflow_dispatch
+permissions:
+  contents: read
+jobs:
+  firefox:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    env:
+      NODE_OPTIONS: --max-old-space-size=6144
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: npm ci
+      - run: npx playwright install --with-deps firefox
+      - run: |
+          sudo apt-get install -y pulseaudio
+          pulseaudio --start --exit-idle-time=-1
+          pactl load-module module-null-sink sink_name=dibs_ci
+          pactl set-default-sink dibs_ci
+      - run: npx tsx scripts/build-catalog-assets.ts && npx tsx scripts/build-scores.ts && npx vite build --mode security-test
+      - run: R19_FIREFOX=1 npx playwright test -c playwright.r19.config.ts
+      - run: R19_FULL=1 R19_FIREFOX=1 R19_REPORT=review/round19/firefox-regression-results.json npx playwright test -c playwright.r19.config.ts --project='firefox-390-*' --project='firefox-1440-*'
+      - name: Firefox text and Settings audit
+        if: always()
+        run: |
+          npm run preview -- --mode security-test --port 5199 > .tmp/r19-preview.log 2>&1 &
+          sleep 3
+          R19_FIREFOX=1 npx tsx scripts/r19-orphans.ts
+          R19_FIREFOX=1 npx tsx scripts/r19-settings.ts after
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: r19-firefox
+          path: |
+            review/round19/*results.json
+            review/round19/text/firefox.json
+            review/round19/settings/*json
+            .tmp/r19/browser-artifacts/
+          retention-days: 14

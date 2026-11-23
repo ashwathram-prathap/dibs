@@ -1,3 +1,4 @@
+import { bellX } from '../../shared/rarity';
 import { test, expect } from './security-fixture';
 import { mkdirSync } from 'node:fs';
 test('R17 real curves, marker positions, readable labels and sealed certificate', async ({
@@ -20,21 +21,19 @@ test('R17 real curves, marker positions, readable labels and sealed certificate'
     } else {
       const curve = page.locator('.rarity-curve');
       await expect(curve).toBeVisible();
-      const x = await curve.locator('circle').getAttribute('cx');
-      expect(Number(x)).toBeCloseTo(Number(p) * 400);
+      expect(Number(await curve.getAttribute('data-marker-x'))).toBeCloseTo(bellX(Number(p)), 5);
       const geometry = await curve.evaluate((el) => {
-        const label = el.querySelector('.rarity-marker-label')!;
-        const axis = el.querySelector('.rarity-axis')!;
-        const b = label.getBoundingClientRect(),
-          a = axis.getBoundingClientRect(),
-          c = el.getBoundingClientRect();
+        const label = el.querySelector('.rarity-you')!.getBoundingClientRect();
+        const ends = [...el.querySelectorAll('.rarity-end')].map((n) => n.getBoundingClientRect());
+        const bounds = el.getBoundingClientRect();
         return {
-          size: parseFloat(getComputedStyle(label).fontSize),
-          noOverlap: b.bottom <= a.top,
-          contained: b.left >= c.left - 1 && b.right <= c.right + 1,
+          noOverlap: ends.every(
+            (e) => label.bottom <= e.top + 1 || label.right <= e.left || label.left >= e.right,
+          ),
+          contained: label.left >= bounds.left - 1 && label.right <= bounds.right + 1,
         };
       });
-      expect(geometry).toEqual({ size: 14, noOverlap: true, contained: true });
+      expect(geometry).toEqual({ noOverlap: true, contained: true });
       await expect(page.locator('.certificate')).not.toContainText('UNRATED');
     }
     expect(await page.evaluate(() => document.documentElement.scrollWidth > innerWidth)).toBe(

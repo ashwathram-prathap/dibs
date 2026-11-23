@@ -1,3 +1,4 @@
+import { cleanStoredHandles } from '../shared/handles';
 import { cleanHandleBatch } from './handle-migration';
 import { feedbackText, reserveFeedback, feedbackQuota } from './feedback';
 import { backupCode } from './backup-code';
@@ -182,6 +183,13 @@ export class Registry extends DurableObject<Env> {
           lastSeen: Date.now(),
         };
         await this.ctx.storage.put('session:' + id, session);
+      }
+    }
+    if (session) {
+      const cleaned = cleanStoredHandles(session);
+      if (JSON.stringify(cleaned) !== JSON.stringify(session)) {
+        session = cleaned;
+        await this.ctx.storage.put('session:' + session.user.id, session);
       }
     }
     let cookie = '';

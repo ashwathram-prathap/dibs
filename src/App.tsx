@@ -1,3 +1,4 @@
+import { HeaderHandle } from './HeaderHandle';
 import { useNoOrphans } from './no-orphans';
 import { StreakChip } from './StreakChip';
 import { rarityLabel } from '../shared/rarity';
@@ -160,7 +161,7 @@ export default function App() {
           : '0px',
       );
     const observer = new ResizeObserver(update);
-    observer.observe(nav);
+    observer.observe(nav, { box: 'border-box' });
     update();
     return () => observer.disconnect();
   }, []);
@@ -365,7 +366,7 @@ export default function App() {
           </nav>
           {me?.user ? (
             <span className="header-player">
-              <Handle
+              <HeaderHandle
                 name={me.file?.handle || me.claim?.handle || me.user.handle}
                 founder={me.file?.founder || me.claim?.founder}
               />

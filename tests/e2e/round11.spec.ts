@@ -18,7 +18,8 @@ test('R11 rules, free guesses, explicit counters, reminders, settings and deleti
     await expect(page.locator('.result-panel')).toContainText(message);
     await expect(page.locator('.strikes-progress')).toContainText('Strikes 0 of 5');
   }
-  await page.locator('.play-rules summary').click();
+  if(page.viewportSize()!.width>=768) await page.locator('.play-rules summary').click();
+  else { await expect(page.locator('.play-rules')).not.toBeVisible(); await expect(page.getByRole('link',{name:'How it works',exact:true})).toBeVisible(); }
   await page.locator('#answer').fill('Dog');
   await page.locator('#answer').press('Enter');
   await expect(page.locator('.result-panel')).toContainText(

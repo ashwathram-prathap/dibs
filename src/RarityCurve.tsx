@@ -36,7 +36,7 @@ export function RarityCurve({
       data-percentile={percentile}
       data-marker-x={x}
     >
-      <svg viewBox="0 0 520 150" aria-hidden="true">
+      <svg viewBox="0 0 520 120" preserveAspectRatio="none" aria-hidden="true">
         <defs>
           <clipPath id={id}>
             <rect x={x} y="0" width={520 - x} height="108" />
@@ -49,17 +49,15 @@ export function RarityCurve({
         <g className="rarity-marker" style={{ transform: `translateX(${x}px)` }}>
           <path d={`M0,${y} V112`} />
           <circle cy={y} cx="0" r="3" />
-          <text className="rarity-you" y="128" textAnchor="middle">
-            You
-          </text>
         </g>
-        <text className="rarity-end" x="28" y="146">
-          {score ? 'Lower scores' : 'Familiar'}
-        </text>
-        <text className="rarity-end" x="492" y="146" textAnchor="end">
-          {score ? 'Higher scores' : 'Obscure'}
-        </text>
       </svg>
+      <span className="rarity-you" aria-hidden="true" style={{ left: `${(x / 520) * 100}%` }}>
+        You
+      </span>
+      <div className="rarity-axis" aria-hidden="true">
+        <span className="rarity-end">{score ? 'Lower scores' : 'Familiar'}</span>
+        <span className="rarity-end">{score ? 'Higher scores' : 'Obscure'}</span>
+      </div>
     </div>
   );
 }

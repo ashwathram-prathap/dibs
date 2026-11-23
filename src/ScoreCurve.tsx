@@ -1,3 +1,4 @@
+import { countLabel } from '../shared/text';
 import { RarityCurve } from './RarityCurve';
 import type { FinishedComparison } from '../shared/finished-scores';
 export function ScoreCurve({
@@ -32,7 +33,8 @@ export function ScoreCurve({
             players
           </p>
           <p className="score-comparison-detail">
-            {points} points · #{rank} · ({finished} finished{final ? '' : ' so far'})
+            {countLabel(points || 0, 'point')} · #{rank} · ({finished} finished
+            {final ? '' : ' so far'})
           </p>
           <RarityCurve percentile={percentile} category="players" score />
         </>

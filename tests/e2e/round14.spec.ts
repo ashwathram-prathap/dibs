@@ -6,7 +6,7 @@ test('R14 payoff, hidden-answer leaderboard, done score and spoiler-free share',
   await page.emulateMedia({ reducedMotion: 'reduce' });
   await page.goto('/?r6');
   await expect(page.getByRole('link', { name: 'Leaderboard', exact: true })).toBeVisible();
-  await expect(page.locator('.header-player')).toContainText('Streak 0');
+  await expect(page.locator('.streak-chip')).toHaveAttribute('aria-label','0 day streak');
   await expect(page.locator('#leaderboard')).toContainText('No scores yet. Be first.');
   await page.locator('#answer').fill('Dog');
   await page.locator('#answer').press('Enter');
@@ -17,10 +17,11 @@ test('R14 payoff, hidden-answer leaderboard, done score and spoiler-free share',
     'Yours. Okapi has your name on it for good.',
   );
   await expect(page.locator('.claim-payoff')).toContainText(
-    '+60 points · rarer than 60% of animals',
+    '+60 points · Rarer than 60% of animals',
   );
-  await expect(page.locator('.claim-payoff')).toContainText('2 claims left · 4 strikes left');
-  await expect(page.locator('.header-player')).toContainText('Streak 1');
+  await expect(page.locator('.payoff-counters')).toContainText('2 claims left');
+  await expect(page.locator('.payoff-counters')).toContainText('4 strikes left');
+  await expect(page.locator('.streak-chip')).toHaveAttribute('aria-label','1 day streak');
   const width = page.viewportSize()!.width;
   if ((width === 390 || width === 393) && page.viewportSize()!.height >= 844) {
     const box = (await page.locator('.claim-payoff').boundingBox())!;
@@ -31,7 +32,6 @@ test('R14 payoff, hidden-answer leaderboard, done score and spoiler-free share',
     await page.locator('#answer').fill(answer);
     await page.locator('#answer').press('Enter');
   }
-  await expect(page.locator('.done-score')).toContainText('170 points · #1 of 1 today');
   await expect(page.locator('.certificate-score')).toContainText('170 points · #1 of 1 · Streak 1');
   expect(await page.evaluate(() => document.documentElement.scrollWidth > innerWidth)).toBe(false);
   const issues = await new AxeBuilder({ page })

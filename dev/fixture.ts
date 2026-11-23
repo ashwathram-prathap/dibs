@@ -382,3 +382,11 @@ function board() {
     comparison: comparison(),
   };
 }
+
+if (r19)
+  window.addEventListener('r19-finish', async () => {
+    r7.set('finished', String(Number(r7.get('finished') || 41) + 1));
+    const { getSnapshot, publish } = await import('../src/live');
+    const snapshot = getSnapshot();
+    if (snapshot) publish({ ...snapshot, me: undefined, rows: [], leaderboard: board() });
+  });

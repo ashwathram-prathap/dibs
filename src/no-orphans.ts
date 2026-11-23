@@ -10,7 +10,7 @@ export function useNoOrphans() {
     const changed = new Map<Text, { before: string; after: string }>();
     let frame = 0;
     const selector =
-      'p,h1,h2,h3,h4,h5,h6,button,summary,label,figcaption,li,td,th,a,small,.opening-notice,.cert-footer > span,.reveal-time span';
+      '.player-handle,p,h1,h2,h3,h4,h5,h6,button,summary,label,figcaption,li,td,th,a,small,.opening-notice,.cert-footer > span,.reveal-time span';
     function apply() {
       frame = 0;
       observer.disconnect();
@@ -21,7 +21,7 @@ export function useNoOrphans() {
         )
           continue;
         // The innermost block owns its sentence. Inline emphasis still belongs to its parent.
-        if (el.querySelector('p,h1,h2,h3,h4,h5,h6,li,table,button')) continue;
+        if (el.querySelector('.player-handle,p,h1,h2,h3,h4,h5,h6,li,table,button')) continue;
         const walker = document.createTreeWalker(el, NodeFilter.SHOW_TEXT);
         const nodes: Text[] = [];
         while (walker.nextNode()) nodes.push(walker.currentNode as Text);
@@ -55,11 +55,18 @@ export function useNoOrphans() {
           offset += node.length;
         }
         if (!start || !end || !space) continue;
-        const range = document.createRange();
-        range.setStart(start, startOffset);
-        range.setEnd(end, endOffset);
-        // Sum word widths even if currently on separate lines; spaces add a conservative half-em.
-        const width = Array.from(range.getClientRects()).reduce((n, r) => n + r.width, 0);
+        // Measure text-node fragments, not element rects (which double-count inline emphasis).
+        let width = 0,
+          measuring = false;
+        for (const node of nodes) {
+          if (node === start) measuring = true;
+          if (!measuring || !node.length) continue;
+          const range = document.createRange();
+          range.setStart(node, node === start ? startOffset : 0);
+          range.setEnd(node, node === end ? endOffset : node.length);
+          width += Array.from(range.getClientRects()).reduce((n, r) => n + r.width, 0);
+          if (node === end) break;
+        }
         const style = getComputedStyle(el);
         const available = el.clientWidth || el.parentElement!.clientWidth;
         if (
@@ -87,9 +94,19 @@ export function useNoOrphans() {
     const observer = new MutationObserver(schedule);
     apply();
     void document.fonts.ready.then(reset);
+    let fontSize = getComputedStyle(document.documentElement).fontSize;
+    const sizes = new ResizeObserver(() => {
+      const current = getComputedStyle(document.documentElement).fontSize;
+      if (current !== fontSize) {
+        fontSize = current;
+        reset();
+      }
+    });
+    sizes.observe(root);
     window.addEventListener('resize', reset);
     return () => {
       observer.disconnect();
+      sizes.disconnect();
       cancelAnimationFrame(frame);
       window.removeEventListener('resize', reset);
     };

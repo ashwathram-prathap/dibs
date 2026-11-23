@@ -6716,6 +6716,193 @@ body {
   color: var(--ink);
   background: var(--paper);
   border: 1px solid var(--ink);
-  font-family: 'IBM Plex Mono', monospace;
   font-size: 1rem;
+}
+.page footer > * {
+  min-width: 0;
+}
+.footer-brand span {
+  white-space: normal;
+}
+.footer-brand {
+  flex-wrap: wrap;
+}
+@media (max-width: 767px) {
+  .page footer > * {
+    width: 100%;
+  }
+  .page footer .footer-links {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .page footer .footer-links :is(a, summary) {
+    min-width: 0;
+    white-space: normal;
+  }
+  .completed-play .day-certificate .registrar-signature {
+    display: none;
+  }
+  .completed-play .day-certificate .day-category h2 {
+    margin: 0.75rem 0;
+  }
+  .completed-play .day-certificate .day-cert-holder {
+    padding: 0.75rem 0;
+  }
+}
+
+#restore-key,
+#delete-key {
+  font-family: 'IBM Plex Mono', monospace;
+}
+.settings-heading {
+  flex-wrap: wrap;
+}
+.rarity-curve {
+  height: 9.375rem;
+}
+.rarity-curve svg {
+  height: 9.375rem;
+}
+.rarity-you {
+  position: absolute;
+  top: 74%;
+  transform: translateX(-50%);
+  color: var(--ink);
+  font:
+    0.875rem/1.2 'Instrument Sans',
+    sans-serif;
+  transition: left 0.6s ease;
+}
+.rarity-axis {
+  position: absolute;
+  left: 5.38%;
+  right: 5.38%;
+  bottom: 0;
+  display: flex;
+  justify-content: space-between;
+  padding: 0;
+}
+.rarity-end {
+  font-size: 0.75rem;
+  color: var(--muted);
+  line-height: 1.2;
+}
+@media (max-width: 767px) {
+  .rarity-curve,
+  .rarity-curve svg {
+    height: 6rem;
+    min-height: 6rem;
+  }
+  .day-score-curve .rarity-curve,
+  .day-score-curve .rarity-curve svg {
+    height: 7.5rem;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .rarity-you {
+    transition: none;
+  }
+}
+.share-area p:empty {
+  display: none;
+}
+.day-companions .share-area {
+  margin-bottom: 0;
+}
+.header-handle {
+  display: inline-block;
+  flex: 1 1 auto;
+  min-width: 0;
+  white-space: nowrap;
+}
+@media (max-width: 767px) {
+  .page .masthead,
+  .home-page:has(.focused-play) .masthead {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.75rem;
+  }
+  .page .masthead > .wordmark {
+    flex: 0 0 auto;
+  }
+  .page .masthead .header-actions {
+    flex: 1 1 auto;
+    flex-wrap: wrap;
+    min-width: 0;
+    max-width: 100%;
+  }
+  .page .masthead .header-player {
+    flex: 1 0 100%;
+    width: 100%;
+    min-width: 0;
+  }
+  .closed-office .drop-countdown .clock {
+    font-size: min(6.9375rem, calc((100vw - 2.5rem) / 5.2));
+  }
+  .leaderboard {
+    font-size: 1rem;
+  }
+  .leaderboard th:last-child,
+  .leaderboard td:last-child {
+    display: none;
+  }
+  .leaderboard th,
+  .leaderboard td {
+    padding-inline: 0.25rem;
+  }
+  .leaderboard thead th {
+    white-space: nowrap;
+  }
+  .leaderboard-heading h2 {
+    overflow-wrap: anywhere;
+  }
+  .worked-example .example-row {
+    grid-template-columns: minmax(0, 4.5rem) minmax(0, 1fr);
+    gap: 0.5rem;
+  }
+  .example-row .example-stamp {
+    font-size: 0.75rem;
+    padding-inline: 0.125rem;
+  }
+}
+
+.rarity-curve svg {
+  height: calc(100% - 2rem);
+  min-height: 0;
+}
+.rarity-you {
+  top: calc(100% - 2rem);
+}
+
+.rarity-curve svg,
+.payoff-curve .rarity-curve svg,
+.day-score-curve .rarity-curve svg {
+  height: calc(100% - 2rem);
+  min-height: 0;
+}
+.reminder-close {
+  display: none;
+}
+@media (max-width: 767px) {
+  .leaderboard {
+    font-size: 0.875rem;
+  }
+  .leaderboard th:nth-child(2) {
+    width: 55%;
+  }
+  .leaderboard-badge {
+    display: block;
+    margin-left: 0;
+    font-size: 0.75rem;
+  }
+  .page footer .footer-links {
+    grid-template-columns: max-content max-content;
+    justify-content: space-between;
+    gap: 0.5rem;
+  }
+  .payoff-links .reminder-close {
+    display: block;
+    width: 100%;
+    min-height: 2.75rem;
+  }
 }

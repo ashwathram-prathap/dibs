@@ -1,6 +1,6 @@
 type ExportFont = 'Archivo' | '"Instrument Sans"';
-import { cleanHandle } from '../shared/handles';
-import { noOrphan } from '../shared/text';
+import { cleanHandle, cleanStoredHandles } from '../shared/handles';
+import { noOrphan, countLabel } from '../shared/text';
 import { bellPath, bellX, rarityLabel } from '../shared/rarity';
 import { MAX_CLAIMS } from '../shared/config';
 import { REGISTRAR_STROKE } from '../shared/moments';
@@ -18,6 +18,7 @@ import {
 import { fitText } from '../shared/typography';
 // Canvas avoids Safari's SVG foreignObject restrictions. Font faces are self-hosted.
 export async function exportCertificate(claim: Claim, story: boolean) {
+  claim = cleanStoredHandles(claim);
   if (!claim.revealed)
     claim = { ...claim, display: 'SEALED', obscurity: null, percentile: null, golden: false };
   const dark = document.documentElement.dataset.theme === 'dark';
@@ -109,7 +110,7 @@ export async function exportCertificate(claim: Claim, story: boolean) {
   text('The Registrar', 790, h - 180, 18);
   if (claim.revealed && claim.percentile != null) {
     text(rarityLabel(claim.percentile, claim.category_name), 80, h - 250, 18);
-    text(`${claim.points || 0} points`, 80, h - 220, 18);
+    text(countLabel(claim.points || 0, 'point'), 80, h - 220, 18);
     await drawCurve(
       c,
       claim.category_slug || claim.category_name.toLowerCase(),
@@ -191,9 +192,10 @@ export function summaryText(file: DayFile, category: Category) {
   const squares = file.events
     .map((event) => (event.kind === 'strike' ? '\u2b1b' : event.golden ? '\u{1f7e8}' : '\u{1f7e5}'))
     .join('');
-  return `Dibs #${edition(category.date)} · ${category.name}\n${squares}\n${file.points ?? 0} pts${file.rank ? ` · #${file.rank} of ${file.players}` : ''} · streak ${file.streak || 0}\n${PUBLIC_HOST}`;
+  return `Dibs #${edition(category.date)} · ${category.name}\n${squares}\n${file.points ?? 0} ${file.points === 1 ? 'pt' : 'pts'}${file.rank ? ` · #${file.rank} of ${file.players}` : ''} · streak ${file.streak || 0}\n${PUBLIC_HOST}`;
 }
 export async function exportSummary(file: DayFile, category: Category, story: boolean) {
+  file = cleanStoredHandles(file);
   const dark = document.documentElement.dataset.theme === 'dark';
   const ink = dark ? '#F1ECE2' : '#1A1A17',
     paper = dark ? '#1F1E18' : '#F1ECE2';
@@ -287,7 +289,7 @@ export async function exportSummary(file: DayFile, category: Category, story: bo
     22,
   );
   text(
-    `${file.points ?? 0} points${file.rank ? ` · #${file.rank} of ${file.players}` : ''} · streak ${file.streak || 0}`,
+    `${countLabel(file.points ?? 0, 'point')}${file.rank ? ` · #${file.rank} of ${file.players}` : ''} · streak ${file.streak || 0}`,
     80,
     538,
     24,
@@ -409,4 +411,8 @@ async function paintPaper(c: CanvasRenderingContext2D, paper: string) {
   } catch {
     /* The paper colour remains readable if the texture is unavailable. */
   }
+}
+
+export function certificateText(claim: Claim) {
+  return `Dibs · ${claim.category_name}${claim.revealed ? ' · ' + claim.display : ''}${claim.percentile != null ? '\n' + rarityLabel(claim.percentile, claim.category_name) : ''}${claim.points != null ? ' · ' + countLabel(claim.points, 'point') : ''}\n${PUBLIC_HOST}`;
 }

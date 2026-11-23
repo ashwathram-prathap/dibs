@@ -218,6 +218,16 @@ export function Reminder({ at }: { at: string }) {
           <span>Outlook</span>
           <small>Adds one event. Set it to repeat daily</small>
         </a>
+        <button
+          className="reminder-close"
+          onClick={(e) => {
+            const menu = e.currentTarget.closest('details')!;
+            menu.open = false;
+            menu.querySelector('summary')?.focus();
+          }}
+        >
+          Close reminder
+        </button>
       </div>
     </details>
   );

@@ -1,6 +1,6 @@
 /** Keep a short final word with its neighbour; cap the pair for narrow, enlarged text. */
 export function noOrphan(text: string, maxPair = 18) {
-  return text.replace(/(\S+)[ \t]+(\S{1,9})([ \t]*)$/, (all, before, last, tail) =>
+  return text.replace(/(\S+)[ \t]+(\S{1,12})([ \t]*)$/, (all, before, last, tail) =>
     before.length + last.length + 1 <= maxPair ? before + '\u00a0' + last + tail : all,
   );
 }
