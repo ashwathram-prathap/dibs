@@ -59,7 +59,7 @@ for (const path of ['/', '/about', '/archive']) {
   if (path === '/')
     check(
       'exact homepage title',
-      html.includes('<title>Dibs | the daily race to claim answers before anyone else</title>'),
+      html.includes('<title>Dibs | A daily game: call it first, it’s yours</title>'),
     );
 }
 const robots = await (await fetch(origin + '/robots.txt')).text();

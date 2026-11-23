@@ -9,7 +9,7 @@ import {
   RESERVED_EXPLANATION,
 } from './copy';
 import { edition } from './time';
-export const HOME_TITLE = 'Dibs | the daily race to claim answers before anyone else';
+export const HOME_TITLE = 'Dibs | A daily game: call it first, it’s yours';
 export const HOME_DESCRIPTION = GAME_DESCRIPTION;
 export const escapeHtml = (value: unknown) =>
   String(value ?? '').replace(
