@@ -1,4 +1,3 @@
-import { GAME_DESCRIPTION } from '../shared/copy';
 type ExportFont = 'Archivo' | '"Instrument Sans"';
 import { cleanHandle, cleanStoredHandles } from '../shared/handles';
 import { noOrphan, countLabel } from '../shared/text';

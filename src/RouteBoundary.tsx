@@ -7,10 +7,13 @@ export class RouteBoundary extends Component<{ children: ReactNode }, { failed: 
   }
   render() {
     return this.state.failed ? (
-      <section role="alert" className="route-recovery">
-        <h1>A new version is available. Reload</h1>
-        <button onClick={() => location.reload()}>Reload</button>
-      </section>
+      <main className="page">
+        <section role="alert" className="notice route-recovery">
+          <span className="eyebrow">Registry notice</span>
+          <h1>A new version is available. Reload</h1>
+          <button onClick={() => location.reload()}>Reload</button>
+        </section>
+      </main>
     ) : (
       this.props.children
     );
