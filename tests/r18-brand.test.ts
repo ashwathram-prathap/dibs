@@ -98,3 +98,11 @@ it('matches Archivo subset descriptors so supplemental glyphs cannot shadow the 
     expect(block).toContain('font-stretch: 62% 125%;');
   }
 });
+
+it('matches Instrument Sans subset descriptors for extended Latin text', () => {
+  for (const [, block] of css.matchAll(/@font-face\s*\{([^}]+)\}/g)) {
+    if (!block.includes("font-family: 'Instrument Sans';")) continue;
+    expect(block).toContain('font-weight: 400 700;');
+    expect(block).toContain('font-stretch: 75% 100%;');
+  }
+});
