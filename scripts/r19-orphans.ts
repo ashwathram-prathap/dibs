@@ -48,12 +48,15 @@ for (const [name, engine] of Object.entries(
           const failures: any[] = [];
           let checked = 0;
           for (const el of document.querySelectorAll<HTMLElement>(
-            '.player-handle,p,h1,h2,h3,h4,button,a,summary,label,li,th,td,small',
+            '.example-row > span:last-child,.player-handle,p,h1,h2,h3,h4,button,a,summary,label,li,th,td,small',
           )) {
             if (
               !el.getClientRects().length ||
               el.closest('svg,pre,code,select') ||
-              el.querySelector('.player-handle,p,h1,h2,h3,h4,li,button')
+              el.matches('.example-row') ||
+              el.querySelector(
+                '.example-row > span:last-child,.player-handle,p,h1,h2,h3,h4,li,button',
+              )
             )
               continue;
             const hiddenDetails = el.closest('details:not([open])');

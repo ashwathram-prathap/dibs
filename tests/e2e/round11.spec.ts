@@ -18,13 +18,15 @@ test('R11 rules, free guesses, explicit counters, reminders, settings and deleti
     await expect(page.locator('.result-panel')).toContainText(message);
     await expect(page.locator('.strikes-progress')).toContainText('Strikes 0 of 5');
   }
-  if(page.viewportSize()!.width>=768) await page.locator('.play-rules summary').click();
-  else { await expect(page.locator('.play-rules')).not.toBeVisible(); await expect(page.getByRole('link',{name:'How it works',exact:true})).toBeVisible(); }
+  if (page.viewportSize()!.width >= 768) await page.locator('.play-rules summary').click();
+  else {
+    await page.locator('#answer').blur();
+    await expect(page.locator('.play-rules')).not.toBeVisible();
+    await expect(page.getByRole('link', { name: 'How it works', exact: true })).toBeVisible();
+  }
   await page.locator('#answer').fill('Dog');
   await page.locator('#answer').press('Enter');
-  await expect(page.locator('.result-panel')).toContainText(
-    'Reserved (too obvious). −10 points.',
-  );
+  await expect(page.locator('.result-panel')).toContainText('Reserved (too obvious). −10 points.');
   await expect(page.locator('.play-rules')).not.toHaveAttribute('open', '');
   await page.goto('/?r7-closed');
   await page.locator('.reminder-button').click();

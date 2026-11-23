@@ -6906,3 +6906,73 @@ body {
     min-height: 2.75rem;
   }
 }
+
+.masthead nav {
+  flex-wrap: wrap;
+  min-width: 0;
+  max-width: 100%;
+}
+.masthead nav a,
+.masthead nav a span {
+  min-width: 0;
+}
+.masthead nav a span {
+  overflow-wrap: anywhere;
+}
+.page footer .footer-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1.25rem;
+}
+@media (min-width: 768px) {
+  .masthead {
+    flex-wrap: wrap;
+  }
+}
+
+.page footer .footer-links {
+  display: grid;
+  grid-template-columns: repeat(4, max-content);
+}
+@media (max-width: 767px) {
+  .page footer .footer-links {
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 8rem), 1fr));
+  }
+}
+@media (max-width: 767px) {
+  .worked-example .example-row {
+    grid-template-columns: minmax(0, min(4.5rem, 36%)) minmax(0, 1fr);
+  }
+  .example-row > span:last-child {
+    overflow-wrap: anywhere;
+  }
+  .leaderboard {
+    table-layout: auto;
+  }
+  .leaderboard th:first-child {
+    width: auto;
+  }
+  .leaderboard th:nth-child(2) {
+    width: auto;
+  }
+  .leaderboard thead th {
+    font-size: 0.75rem;
+    white-space: normal;
+  }
+}
+
+.completed-play .day-score-curve .rarity-curve svg {
+  height: calc(100% - 2rem);
+  min-height: 0;
+}
+.masthead nav .nav-phone-label {
+  display: none;
+}
+@media (max-width: 767px) {
+  .masthead nav .nav-full-label {
+    display: none;
+  }
+  .masthead nav .nav-phone-label {
+    display: inline;
+  }
+}

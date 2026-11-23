@@ -1,3 +1,4 @@
+import { GAME_DESCRIPTION } from '../shared/copy';
 type ExportFont = 'Archivo' | '"Instrument Sans"';
 import { cleanHandle, cleanStoredHandles } from '../shared/handles';
 import { noOrphan, countLabel } from '../shared/text';
@@ -414,5 +415,6 @@ async function paintPaper(c: CanvasRenderingContext2D, paper: string) {
 }
 
 export function certificateText(claim: Claim) {
-  return `Dibs · ${claim.category_name}${claim.revealed ? ' · ' + claim.display : ''}${claim.percentile != null ? '\n' + rarityLabel(claim.percentile, claim.category_name) : ''}${claim.points != null ? ' · ' + countLabel(claim.points, 'point') : ''}\n${PUBLIC_HOST}`;
+  if (!claim.revealed) return GAME_DESCRIPTION;
+  return `Dibs · ${claim.category_name}${claim.revealed ? ' · ' + claim.display : ''}${claim.percentile != null ? '\n' + rarityLabel(claim.percentile, claim.category_name) : ''}${claim.points != null ? ' · ' + countLabel(claim.points, 'point') : ''}\n${GAME_DESCRIPTION}\n${PUBLIC_HOST}`;
 }

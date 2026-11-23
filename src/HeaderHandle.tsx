@@ -16,8 +16,18 @@ export function HeaderHandle({ name, founder }: { name: string; founder?: boolea
         words.map((w, i) => (i === 0 ? w[0] + '.' : w)).join(' '),
         words.map((w) => w[0] + '.').join(' '),
       ];
+      const available =
+        innerWidth >= 768
+          ? Math.max(
+              el.clientWidth,
+              innerWidth -
+                el.getBoundingClientRect().left -
+                (el.nextElementSibling?.getBoundingClientRect().width || 0) -
+                96,
+            )
+          : el.clientWidth;
       setLabel(
-        options.find((text) => c.measureText(text).width <= el.clientWidth) || options.at(-1)!,
+        options.find((text) => c.measureText(text).width <= available + 1) || options.at(-1)!,
       );
     };
     const observer = new ResizeObserver(fit);

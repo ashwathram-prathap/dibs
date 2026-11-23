@@ -46,6 +46,7 @@ const entries = [
   'Wombat',
   'Narwhal',
   'Aardvark',
+  ...(r19 ? ['Deer', 'Camel'] : []),
 ];
 let user = {
   id: 'fixture-reader',

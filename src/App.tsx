@@ -349,6 +349,7 @@ export default function App() {
               <Link
                 key={url}
                 to={url}
+                aria-label={label}
                 aria-current={
                   url === '/'
                     ? path === '/'
@@ -360,7 +361,14 @@ export default function App() {
                 }
               >
                 <Icon name={icon as 'play'} />
-                <span>{label}</span>
+                <span className="nav-full-label">{label}</span>
+                <span className="nav-phone-label" aria-hidden="true">
+                  {label === 'Leaderboard'
+                    ? 'Board'
+                    : label === 'How it works'
+                      ? 'How to play'
+                      : label}
+                </span>
               </Link>
             ))}
           </nav>

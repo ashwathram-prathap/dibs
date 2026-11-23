@@ -10,22 +10,29 @@ export function useNoOrphans() {
     const changed = new Map<Text, { before: string; after: string }>();
     let frame = 0;
     const selector =
-      '.player-handle,p,h1,h2,h3,h4,h5,h6,button,summary,label,figcaption,li,td,th,a,small,.opening-notice,.cert-footer > span,.reveal-time span';
+      '.example-row > span:last-child,.player-handle,p,h1,h2,h3,h4,h5,h6,button,summary,label,figcaption,li,td,th,a,small,.opening-notice,.cert-footer > span,.reveal-time span';
     function apply() {
       frame = 0;
       observer.disconnect();
       for (const el of root.querySelectorAll<HTMLElement>(selector)) {
         if (
           !el.getClientRects().length ||
-          el.closest('svg,pre,code,textarea,select,[data-orphans="off"]')
+          el.closest('svg,pre,code,textarea,select,[data-orphans="off"]') ||
+          el.matches('.example-row,.masthead nav a')
         )
           continue;
         // The innermost block owns its sentence. Inline emphasis still belongs to its parent.
-        if (el.querySelector('.player-handle,p,h1,h2,h3,h4,h5,h6,li,table,button')) continue;
+        if (
+          el.querySelector(
+            '.example-row > span:last-child,.player-handle,p,h1,h2,h3,h4,h5,h6,li,table,button',
+          )
+        )
+          continue;
         const walker = document.createTreeWalker(el, NodeFilter.SHOW_TEXT);
         const nodes: Text[] = [];
         while (walker.nextNode()) nodes.push(walker.currentNode as Text);
         const text = nodes.map((n) => n.data).join('');
+        if (el.tagName === 'BUTTON' && text.trim().split(/\s+/).length < 3) continue;
         const next = noOrphan(text, Number.POSITIVE_INFINITY);
         if (next === text) continue;
         let index = 0;

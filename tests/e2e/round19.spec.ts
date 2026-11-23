@@ -108,6 +108,16 @@ test('R19 payoff uses an honest bell, quiet counters, named zone and one frame',
     await claim(page);
     const curve = page.locator('.payoff-curve .rarity-curve');
     await expect(curve).toBeVisible();
+    const you = await curve.locator('.rarity-you').boundingBox();
+    for (const label of await curve.locator('.rarity-end').all()) {
+      const end = await label.boundingBox();
+      expect(
+        you!.x < end!.x + end!.width &&
+          you!.x + you!.width > end!.x &&
+          you!.y < end!.y + end!.height &&
+          you!.y + you!.height > end!.y,
+      ).toBe(false);
+    }
     expect(Number(await curve.getAttribute('data-marker-x'))).toBeCloseTo(bellX(p), 6);
     await expect(page.locator('.claim-payoff')).not.toContainText(/rarer than 0%/i);
     await expect(page.locator('.payoff-counters')).toContainText('2 claims left');
@@ -214,4 +224,35 @@ test('R19 feedback HTML stays inert plain text in the admin view', async ({ page
     page.locator('.admin-live article script,.admin-live article img,.admin-live article a'),
   ).toHaveCount(0);
   expect(await page.evaluate(() => (window as any).pwned)).toBeUndefined();
+});
+
+test('R19 prepaint theme, higher contrast, forced colours and reduced motion remain usable', async ({
+  page,
+}, info) => {
+  await page.emulateMedia({ colorScheme: 'dark' });
+  await page.route('**/assets/index-*.js', (r) => r.abort());
+  await page.goto('/?r19&r6');
+  await expect(page.locator('html')).toHaveAttribute('data-theme', 'dark');
+  await expect(page.locator('meta[name="theme-color"]')).toHaveAttribute('content', '#16150f');
+  await page.unroute('**/assets/index-*.js');
+  await page.emulateMedia({ contrast: 'more', reducedMotion: 'reduce' });
+  await page.reload();
+  await page.locator('#answer').waitFor();
+  expect(await page.locator('#answer').evaluate((e) => getComputedStyle(e).borderTopWidth)).toBe(
+    '2px',
+  );
+  await claim(page);
+  expect(
+    await page
+      .locator('.rarity-line')
+      .evaluate((e) => parseFloat(getComputedStyle(e).animationDuration)),
+  ).toBeLessThanOrEqual(0.001);
+  await page.emulateMedia({ forcedColors: 'active' });
+  if (await page.evaluate(() => matchMedia('(forced-colors: active)').matches)) {
+    expect(
+      await page.locator('.win-stamp').evaluate((e) => getComputedStyle(e).borderTopStyle),
+    ).toBe('solid');
+    await expect(page.getByRole('button', { name: 'Next claim', exact: true })).toBeVisible();
+  }
+  await shot(page, 'preferences', info.project.name, false);
 });

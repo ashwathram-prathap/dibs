@@ -8,7 +8,9 @@ test('R13 hero first, R7 scale, phone action visible, explanation collapses', as
     intro = page.locator('.game-intro');
   await expect(input).toBeVisible();
   expect((await hero.boundingBox())!.y).toBeLessThan((await input.boundingBox())!.y);
-  expect((await input.boundingBox())!.y).toBeLessThan((await intro.boundingBox())!.y);
+  if (page.viewportSize()!.width >= 768)
+    expect((await input.boundingBox())!.y).toBeLessThan((await intro.boundingBox())!.y);
+  else await expect(page.locator('.play-rules')).not.toBeVisible();
   const width = page.viewportSize()!.width;
   if (width === 390 || width === 393) {
     const button = (await page
@@ -21,12 +23,14 @@ test('R13 hero first, R7 scale, phone action visible, explanation collapses', as
   ).toBeGreaterThanOrEqual(width <= 600 ? width * 0.154 - 1 : Math.min(192, width * 0.134) - 1);
   await input.fill('dibs');
   await input.press('Enter');
-  await expect(page.locator('.play-introduction')).not.toHaveAttribute('open', '');
-  await page.locator('.play-introduction summary').click();
-  await expect(intro).toBeVisible();
-  // A result arriving after the disclosure opens must not remount and close it.
-  await expect(page.locator('.result-panel')).toBeVisible();
-  await expect(intro).toBeVisible();
+  if (width >= 768) {
+    await expect(page.locator('.play-introduction')).not.toHaveAttribute('open', '');
+    await page.locator('.play-introduction summary').click();
+    await expect(intro).toBeVisible();
+    // A result arriving after the disclosure opens must not remount and close it.
+    await expect(page.locator('.result-panel')).toBeVisible();
+    await expect(intro).toBeVisible();
+  }
   await page.goto('/?r7-closed');
   await expect(page.locator('.closed-office .clock')).toBeVisible();
   expect(

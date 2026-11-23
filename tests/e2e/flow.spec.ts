@@ -48,7 +48,7 @@ test('full filing, certificate, sharing and public record', async ({ page }, inf
   }
   await expect(page.getByRole('article', { name: 'Day summary' })).toBeVisible();
   await expect(page.locator('.file-progress')).toContainText('Claims 3 of 3');
-  await expect(page.getByRole('img', { name: '1 of 5 strikes' })).toBeVisible();
+  await expect(page.locator('.file-tally')).toContainText('1 strike');
   await page.getByText('More ways to share', { exact: true }).click();
   await page.getByRole('button', { name: 'Copy link', exact: true }).click();
   expect(await page.evaluate(() => (window as any).copied)).toBe(
@@ -101,7 +101,8 @@ test('five strikes close the file and invalid entries cost nothing', async ({ pa
   for (let i = 1; i <= 5; i++) {
     await input.fill('Pangolin');
     await page.getByRole('button', { name: 'CALL DIBS' }).click();
-    await expect(page.getByRole('img', { name: `${i} of 5 strikes` })).toBeVisible();
+    if (i < 5) await expect(page.getByRole('img', { name: `${i} of 5 strikes` })).toBeVisible();
+    else await expect(page.locator('.file-tally')).toContainText('5 strikes');
   }
   await expect(page.getByRole('article', { name: 'Day summary' })).toBeVisible();
   await expect(page.locator('.file-tally')).toContainText('0/3 claims · 5 strikes');
