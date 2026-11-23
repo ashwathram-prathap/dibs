@@ -109,6 +109,7 @@ export function Leaderboard({
                   {r.golden && (
                     <span
                       className="gold-marker"
+                      role="img"
                       aria-label="found a golden ticket"
                       title="Golden ticket"
                     >
