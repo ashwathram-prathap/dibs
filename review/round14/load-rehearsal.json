@@ -1,0 +1,37 @@
+[
+  {
+    "name": "Check account headroom before practice changes",
+    "passed": true,
+    "at": "2026-11-23T04:44:40.515Z"
+  },
+  {
+    "name": "Install official practice test verification and suppress alerts",
+    "passed": true,
+    "at": "2026-11-23T04:44:59.273Z"
+  },
+  {
+    "name": "Refresh account headroom and run 200 players with leaderboard polling",
+    "passed": true,
+    "at": "2026-11-23T04:46:09.445Z"
+  },
+  {
+    "name": "Clear practice test players",
+    "passed": true,
+    "at": "2026-11-23T04:46:11.059Z"
+  },
+  {
+    "name": "Restore real practice verification using current R15 code",
+    "passed": true,
+    "at": "2026-11-23T04:46:27.333Z"
+  },
+  {
+    "name": "Restore original practice notifications",
+    "passed": true,
+    "at": "2026-11-23T04:46:28.517Z"
+  },
+  {
+    "name": "Verify real key, original schedule and empty practice board",
+    "passed": true,
+    "at": "2026-11-23T04:46:30.585Z"
+  }
+]

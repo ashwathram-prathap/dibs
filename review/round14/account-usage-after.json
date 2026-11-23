@@ -1,0 +1,14 @@
+{
+  "checkedAt": "2026-11-23T04:46:46.721Z",
+  "utcDay": "2026-11-23",
+  "accountD1": {
+    "rowsRead": 138842,
+    "rowsWritten": 611
+  },
+  "accountDurableObjects": {
+    "duration": 47.327928191999995,
+    "rowsRead": 15310,
+    "rowsWritten": 5850
+  },
+  "note": "Account-wide analytics may lag; totals are not isolated test billing."
+}

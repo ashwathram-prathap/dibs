@@ -1,0 +1,17 @@
+{
+  "checkedAt": "2026-11-23T04:44:59.448Z",
+  "utcDay": "2026-11-23",
+  "source": "Cloudflare account-wide daily D1 aggregate; no database filter",
+  "accountWrites": 611,
+  "accountReads": 138842,
+  "durableObjectUsage": {
+    "duration": 47.327928191999995,
+    "rowsRead": 15310,
+    "rowsWritten": 5850
+  },
+  "writeEstimate": 20000,
+  "safetyCeiling": 70000,
+  "freeDailyLimit": 100000,
+  "estimatedRemainingWrites": 79389,
+  "allowed": true
+}
