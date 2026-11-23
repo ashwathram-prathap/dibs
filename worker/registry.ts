@@ -1,3 +1,5 @@
+import { cleanHandleBatch } from './handle-migration';
+import { feedbackText, reserveFeedback, feedbackQuota } from './feedback';
 import { backupCode } from './backup-code';
 import { Leaderboard, publicScores } from './leaderboard';
 import { withdraw } from './withdraw';
@@ -50,6 +52,9 @@ type Session = {
 // One global read coordinator. SQLite-backed Durable Objects are included on Workers Free.
 // Hibernation avoids charging five minutes of active duration for every open browser.
 export class Registry extends DurableObject<Env> {
+  async reserveFeedbackQuota(uid: string, ipHash: string, now: number) {
+    return feedbackQuota(this.ctx.storage, uid, ipHash, now);
+  }
   private scores: Leaderboard;
   private snapshot?: Snapshot;
   private refreshing?: Promise<Snapshot>;
@@ -143,20 +148,7 @@ export class Registry extends DurableObject<Env> {
     };
   }
   async newHandle() {
-    return this.ctx.blockConcurrencyWhile(async () => {
-      for (let attempt = 0; attempt < 30; attempt++) {
-        const pair = handle();
-        let next = (await this.ctx.storage.get<number>('handle:' + pair)) || 0;
-        for (; next <= 999; next++) {
-          const value = pair + (next ? ' #' + next : '');
-          if (await this.env.DB.prepare('SELECT id FROM users WHERE handle=?').bind(value).first())
-            continue;
-          await this.ctx.storage.put('handle:' + pair, next + 1);
-          return value;
-        }
-      }
-      throw Error('Handle pool unavailable');
-    });
+    return handle();
   }
   async session(req: Request, create = false): Promise<{ session?: Session; cookie: string }> {
     let id = await cookieUser(req, this.env.COOKIE_SECRET);
@@ -750,6 +742,16 @@ export class Registry extends DurableObject<Env> {
       path = url.pathname.replace(/^\/api/, '');
     const rejected = originFailure(req, isLocal(req, env.LOCAL_TEST));
     if (rejected) return rejected;
+    if (path === '/admin/r19-clean-handles' && req.method === 'POST') {
+      if (
+        !(await constantEqual(req.headers.get('authorization') || '', 'Bearer ' + env.ADMIN_TOKEN))
+      )
+        return json({ message: 'Not found.' }, 404);
+      const b = await body(req, 1000);
+      if (!['users', 'r17_players', 'r17_files'].includes(b.table))
+        return json({ message: 'Unknown table.' }, 422);
+      return json(await cleanHandleBatch(env, b.table, String(b.after || '')));
+    }
     if (path === '/live') {
       if (req.headers.get('upgrade')?.toLowerCase() !== 'websocket')
         return json({ message: 'A live connection is required.' }, 426);
@@ -1294,22 +1296,20 @@ export class Registry extends DurableObject<Env> {
         !(await verifyChallenge(req, env, b.turnstileToken))
       )
         return json({ message: 'Please complete verification.' }, 400);
-      const key = 'feedback-rate:' + session.user.id;
-      const allowed = await this.ctx.storage.transaction(async (tx) => {
-        const r = await tx.get<any>(key);
-        if (r && r.until > Date.now() && r.count >= 3) return false;
-        await tx.put(key, {
-          until: r?.until > Date.now() ? r.until : Date.now() + 3600000,
-          count: r?.until > Date.now() ? r.count + 1 : 1,
-        });
-        return true;
-      });
-      if (!allowed) return json({ message: 'Feedback limit reached; try again in an hour.' }, 429);
+      const note = feedbackText(b.text);
+      if (!note.ok) return json({ message: note.message }, 422);
+      const day = new Date().toISOString().slice(0, 10);
+      const ipHash = await hmac(
+        'feedback:' + day + ':' + (clientIp(req, env.LOCAL_TEST) || 'unknown'),
+        env.COOKIE_SECRET,
+      );
+      const limit = await this.reserveFeedbackQuota(session.user.id, ipHash, Date.now());
+      if (limit) return json({ message: limit }, 429);
       await env.DB.prepare('INSERT INTO feedback(id,user_id,text,created_at) VALUES(?,?,?,?)')
         .bind(
           crypto.randomUUID(),
           session.user.id,
-          (b.topic === 'privacy' ? 'Privacy question: ' : '') + b.text.trim(),
+          (b.topic === 'privacy' ? 'Privacy question: ' : '') + note.text,
           new Date().toISOString(),
         )
         .run();

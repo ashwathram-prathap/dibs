@@ -2,9 +2,9 @@ import { PUBLIC_ORIGIN } from './config';
 
 export const CSP = [
   "default-src 'self'",
-  "script-src 'self' 'sha256-157BWqHyTyPFG6i5YK8C+MRWL9RH2aIQ6rGpoTtr4ss=' https://challenges.cloudflare.com https://static.cloudflareinsights.com",
+  "script-src 'self' 'sha256-V09tM62AvaGquTiF4ZXLUwJ9EYEHjgc+oQboGrJvQ4U=' https://challenges.cloudflare.com https://static.cloudflareinsights.com",
   'frame-src https://challenges.cloudflare.com',
-  `connect-src 'self' ${PUBLIC_ORIGIN.replace('https:', 'wss:')} https://cloudflareinsights.com`,
+  `connect-src 'self' ${PUBLIC_ORIGIN.replace('https:', 'wss:')} https://cloudflareinsights.com https://challenges.cloudflare.com`,
   "style-src 'self' 'sha256-6MyVuhJlmoNb28bVjxDTnS7EKyyb9/6WKz9HcSsbfos='",
   "img-src 'self' data: blob:",
   "font-src 'self'",

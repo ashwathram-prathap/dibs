@@ -131,3 +131,10 @@ review/round18/lighthouse*/
 review/round18/firefox-ci/
 review/final/round18/
 review/round18/clock/*.html
+
+# R19 full-resolution proof stays in the local handoff.
+review/round19/**/*.png
+review/round19/**/*.jpg
+review/round19/*browser-results.json
+review/round19/lighthouse*/
+review/round19/firefox-ci/

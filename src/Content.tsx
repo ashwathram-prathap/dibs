@@ -334,6 +334,7 @@ export function LiveAdmin() {
             ))}
           </ul>
           <h2>Private feedback</h2>
+          <p>Player-submitted, untrusted</p>
           {data.feedback.length ? (
             data.feedback.map((note: any) => (
               <article key={note.id}>

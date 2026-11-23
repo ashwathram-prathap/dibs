@@ -42,7 +42,7 @@ it('clerk notes invent no player behaviour and name no answer from their own ful
 it('public rules, metadata, reminders and share copy use the canonical limits and schedule', () => {
   expect(HOME_DESCRIPTION).toBe(GAME_DESCRIPTION);
   expect(LIMIT_EXPLANATION).toContain(`${MAX_CLAIMS} claims`);
-  expect(LIMIT_EXPLANATION).toContain(`${MAX_STRIKES} max`);
+  expect(LIMIT_EXPLANATION).toContain(`${MAX_STRIKES} strikes`);
   expect(FINISH_EXPLANATION).toContain(`${MAX_CLAIMS} claims or ${MAX_STRIKES} strikes`);
   expect(SCHEDULE_EXPLANATION).toContain(`${DROP_TIME_LABEL} ET`);
   expect(SCHEDULE_EXPLANATION).toContain(`${CLOSE_TIME_LABEL} ET the next day`);

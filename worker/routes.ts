@@ -1,3 +1,4 @@
+import { cleanStoredHandles } from '../shared/handles';
 import { backupCode } from './backup-code';
 import { prepareR17Admin, finishR17Admin } from './r17-admin';
 import { clientIp, NETWORK_BUSY } from './security';
@@ -115,7 +116,7 @@ export async function fileState(env: Env, category: string, uid: string) {
 }
 export const publicClaim = claimSelect + ` WHERE c.voided=0 AND g.status='approved'`;
 export const json = (data: unknown, status = 200, extra: Record<string, string> = {}) =>
-  new Response(JSON.stringify(data), {
+  new Response(JSON.stringify(cleanStoredHandles(data)), {
     status,
     headers: {
       'content-type': 'application/json;charset=utf-8',

@@ -1,3 +1,6 @@
+import { displayNames } from '../shared/handles';
+import { finishedComparisons } from './finished-scores';
+import { MAX_CLAIMS, MAX_STRIKES } from '../shared/config';
 import type { Env } from './routes';
 import { scoreFile } from './scoring';
 import { shardFor } from '../shared/catalog';
@@ -21,9 +24,20 @@ export function orderScores(rows: ScoreRow[]) {
   );
 }
 export function publicScores(rows: ScoreRow[], uid?: string, limit = 25) {
+  const names = displayNames(
+    rows.map((r) => ({ id: r.user_id, handle: r.handle, founder: r.founder })),
+  );
+  const comparison = finishedComparisons(
+    rows.map((r) => ({
+      user: { id: r.user_id },
+      file: { points: r.points, closed: r.dibs >= MAX_CLAIMS || r.events - r.dibs >= MAX_STRIKES },
+      streakDates: [],
+      requests: {},
+    })),
+  );
   const expose = (row: ScoreRow, index: number) => ({
     rank: index + 1,
-    handle: row.handle,
+    handle: names.get(row.user_id)!,
     founder: row.founder,
     points: row.points,
     claims: row.dibs,
@@ -35,6 +49,7 @@ export function publicScores(rows: ScoreRow[], uid?: string, limit = 25) {
     rows: rows.slice(0, limit).map(expose),
     own: ownIndex < 0 ? null : expose(rows[ownIndex], ownIndex),
     total: rows.length,
+    comparison: comparison.own.get(uid || '') || comparison.empty,
   };
 }
 // The public cache is split into 256 small shards, never a growing single KV value.

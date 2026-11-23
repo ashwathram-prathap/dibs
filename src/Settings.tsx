@@ -1,3 +1,4 @@
+import type { ThemeChoice } from './theme';
 import { useState, useRef, useEffect, type FormEvent } from 'react';
 import { setMusic } from './music';
 import { soundEnabled, setSoundEnabled, prepareSound } from './sound';
@@ -10,16 +11,32 @@ export function Settings({
   sitekey,
   refresh,
   focusZone,
+  themeChoice,
+  setTheme,
 }: {
   sitekey: string;
   refresh: () => Promise<void>;
   focusZone: boolean;
+  themeChoice: ThemeChoice;
+  setTheme: (choice: ThemeChoice) => void;
 }) {
   useEffect(() => {
     if (focusZone) document.querySelector<HTMLSelectElement>('.timezone-control select')?.focus();
   }, [focusZone]);
   return (
     <>
+      <label className="theme-control">
+        Theme
+        <select
+          aria-label="Theme"
+          value={themeChoice}
+          onChange={(e) => setTheme(e.target.value as ThemeChoice)}
+        >
+          <option value="system">System</option>
+          <option value="light">Paper copy</option>
+          <option value="dark">Carbon copy</option>
+        </select>
+      </label>
       <SoundToggle />
       <MusicToggle />
       <TimezonePicker />
@@ -229,7 +246,10 @@ export function BackupSettings({
       <h3>Restore on this device</h3>
       <form onSubmit={restore}>
         <label htmlFor="restore-key">Backup code</label>
-        <input
+        <textarea
+          rows={2}
+          spellCheck={false}
+          autoCapitalize="none"
           id="restore-key"
           value={restoreKey}
           onChange={(e) => setRestoreKey(e.target.value)}
@@ -254,7 +274,10 @@ export function DeleteFile({ sitekey, initialKey = '' }: { sitekey: string; init
       <h3>Delete my data</h3>
       <p>This removes your name, backup code and streak; past claims stay as ‘Withdrawn player’.</p>
       <label htmlFor="delete-key">Backup code (optional on this device)</label>
-      <input
+      <textarea
+        rows={2}
+        spellCheck={false}
+        autoCapitalize="none"
         id="delete-key"
         value={key}
         onChange={(e) => setKey(e.target.value)}

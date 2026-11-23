@@ -27,7 +27,7 @@ DTSTART;TZID=America/Toronto:20261123T205500
 DURATION:PT5M
 RRULE:FREQ=DAILY
 SUMMARY:Dibs drops in five minutes
-DESCRIPTION:One category a day. Name something in it that nobody else has claimed. If you're first\, it's yours\, and your name goes on it for good. You get 3 claims. Each guess someone already took costs a strike (5 max). https://dibs.here/
+DESCRIPTION:One category a day. Name something in it that nobody else has claimed. If you're first\, it's yours\, and your name goes on it for good. You get 3 claims. A guess someone already took costs a strike. 5 strikes and you're out. https://dibs.here/
 URL:https://dibs.here/
 END:VEVENT
 END:VCALENDAR

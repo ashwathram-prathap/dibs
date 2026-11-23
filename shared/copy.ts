@@ -8,7 +8,7 @@ import {
 } from './config';
 export const GAME_EXPLANATION =
   "One category a day. Name something in it that nobody else has claimed. If you're first, it's yours, and your name goes on it for good.";
-export const LIMIT_EXPLANATION = `You get ${MAX_CLAIMS} claims. Each guess someone already took costs a strike (${MAX_STRIKES} max).`;
+export const LIMIT_EXPLANATION = `You get ${MAX_CLAIMS} claims. A guess someone already took costs a strike. ${MAX_STRIKES} strikes and you're out.`;
 export const GAME_DESCRIPTION = GAME_EXPLANATION + ' ' + LIMIT_EXPLANATION;
 export const BACKUP_EXPLANATION =
   'Use this code to get your claims back on another device or browser.';

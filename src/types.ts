@@ -25,6 +25,7 @@ export interface Category {
   status?: string;
 }
 export interface Claim {
+  streak?: number;
   category_slug?: string;
   owned?: boolean;
   revealed?: boolean;
@@ -85,6 +86,7 @@ export interface Guess {
   house?: boolean;
 }
 export interface DayFile {
+  comparison?: import('../shared/finished-scores').FinishedComparison;
   points?: number;
   rank?: number | null;
   players?: number;
@@ -120,6 +122,7 @@ export interface Standing {
   own: boolean;
 }
 export interface Standings {
+  comparison?: import('../shared/finished-scores').FinishedComparison;
   rows: Standing[];
   own: Standing | null;
   total: number;

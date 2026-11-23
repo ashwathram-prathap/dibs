@@ -262,13 +262,18 @@ export function Introduction() {
         <p>
           <strong>Example:</strong> Today's category is <strong>Animals</strong>.
         </p>
-        <p>
-          You type <strong>Okapi</strong>. Nobody has claimed it yet, so <strong>it's yours</strong>
-          . <span className="example-stamp yours">YOURS</span>
+        <p className="example-row">
+          <span className="example-stamp yours">YOURS</span>
+          <span>
+            You type <strong>Okapi</strong>. Nobody has it yet, so <strong>it's yours</strong>.
+          </span>
         </p>
-        <p>
-          You type <strong>Lion</strong>. Someone already claimed it, so you get{' '}
-          <strong>a strike</strong>. <span className="example-stamp taken">TAKEN</span>
+        <p className="example-row">
+          <span className="example-stamp taken">TAKEN</span>
+          <span>
+            You type <strong>Lion</strong>. Someone already has it, so{' '}
+            <strong>you get a strike</strong>.
+          </span>
         </p>
       </div>
     </section>

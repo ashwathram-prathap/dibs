@@ -1,3 +1,6 @@
+import { cleanHandle, cleanStoredHandles, displayNames, playerNumber } from '../shared/handles';
+import { finishedComparisons } from './finished-scores';
+import { feedbackText, reserveFeedback } from './feedback';
 import { pingIndexNow } from '../shared/indexnow';
 import { backupCode } from './backup-code';
 import { cluedId } from './clue';
@@ -47,6 +50,7 @@ export class DayRegistry extends DurableObject<Env> {
   private boardTop?: any[];
   private boardOwn = new Map<string, any>();
   private boardTotal = 0;
+  private comparisons = finishedComparisons([]);
   private pushTimer?: ReturnType<typeof setTimeout>;
   private flushTimer?: ReturnType<typeof setInterval>;
   private nextCheck = 0;
@@ -150,7 +154,7 @@ export class DayRegistry extends DurableObject<Env> {
             },
           };
         }
-        this.legacy.set(user_id, { user, file, streakDates: dates, requests });
+        this.legacy.set(user_id, cleanStoredHandles({ user, file, streakDates: dates, requests }));
       }
       this.rebuild();
       // Keep the single production day in memory until close. Otherwise idle
@@ -193,6 +197,7 @@ export class DayRegistry extends DurableObject<Env> {
   }
   private board(uid?: string) {
     if (!this.boardTop) {
+      this.comparisons = finishedComparisons([...this.all().values()]);
       const rows = orderScores(
         [...this.all().values()]
           .filter((s) => !s.user.hidden && s.file.eligible !== false)
@@ -208,6 +213,10 @@ export class DayRegistry extends DurableObject<Env> {
           })),
       );
       this.boardTotal = rows.length;
+      const names = displayNames(
+        rows.map((r) => ({ id: r.user_id, handle: r.handle, founder: r.founder })),
+      );
+      for (const r of rows) r.handle = names.get(r.user_id)!;
       this.boardTop = publicScores(rows).rows;
       this.boardOwn = new Map(
         rows.map((r, i) => [
@@ -229,6 +238,7 @@ export class DayRegistry extends DurableObject<Env> {
       rows: this.boardTop.map((r) => ({ ...r, own: r.rank === own?.rank })),
       own,
       total: this.boardTotal,
+      comparison: this.comparisons.own.get(uid || '') || this.comparisons.empty,
     };
   }
   private state(uid: string): JournalFile | undefined {
@@ -236,15 +246,64 @@ export class DayRegistry extends DurableObject<Env> {
   }
   private presentFile(state: JournalFile) {
     const board = this.board(state.user.id);
+    const ownNumber = playerNumber(state.user.id);
+    const entries = [
+      { name: cleanHandle(state.user.handle), number: ownNumber, founder: state.user.founder },
+      ...state.file.events
+        .filter((e: any) => e.holder && !e.house)
+        .map((e: any) => ({
+          name: cleanHandle(e.holder),
+          number:
+            e.holderNumber ||
+            playerNumber(
+              [...this.owners.values()].find(
+                (c) => c.created_at === e.heldAt && cleanHandle(c.handle) === cleanHandle(e.holder),
+              )?.user_id || e.holder,
+            ),
+          founder: e.holderFounder,
+        })),
+    ];
+    const label = (name: string, number: number, founder: boolean) => {
+      const base = cleanHandle(name);
+      const ids = new Set(entries.filter((p) => p.name === base).map((p) => p.number));
+      return !founder &&
+        !['Withdrawn player', 'Record withheld', 'RESERVED'].includes(base) &&
+        ids.size > 1
+        ? `${base} #${number}`
+        : base;
+    };
     return {
       ...state.file,
-      handle: state.user.handle,
+      events: state.file.events.map((e: any) =>
+        e.holder
+          ? {
+              ...e,
+              holder: label(
+                e.holder,
+                entries.find(
+                  (p) =>
+                    p.name === cleanHandle(e.holder) && p.number === (e.holderNumber || p.number),
+                )?.number || playerNumber(e.holder),
+                e.holderFounder,
+              ),
+            }
+          : e,
+      ),
+      handle: label(state.user.handle, ownNumber, state.user.founder),
       founder: !!state.user.founder,
       rank: board.own?.rank || null,
       players: board.total,
+      comparison: board.comparison,
       streak: streak(state.streakDates, this.category.date),
       revealed: dayClosed(this.category),
     };
+  }
+  private ledgerRows() {
+    const rows = [...this.owners.values()].filter((c) => !c.voided);
+    const names = displayNames(
+      rows.map((c) => ({ id: c.user_id, handle: c.handle, founder: c.founder })),
+    );
+    return rows.map(({ user_id, answer_id, ...c }) => ({ ...c, handle: names.get(user_id)! }));
   }
   private today() {
     const g = this.category,
@@ -323,9 +382,7 @@ export class DayRegistry extends DurableObject<Env> {
         handle:
           colors[seed % colors.length] +
           ' ' +
-          animals[Math.floor(seed / colors.length) % animals.length] +
-          ' #' +
-          uid.slice(0, 8),
+          animals[Math.floor(seed / colors.length) % animals.length],
         rerolls_used: 0,
         hidden: 0,
         streakDates: [],
@@ -333,6 +390,7 @@ export class DayRegistry extends DurableObject<Env> {
       cookie = await sessionCookie(uid, env.COOKIE_SECRET, isLocal(req, env.LOCAL_TEST));
     }
     if (user) {
+      user.handle = cleanHandle(user.handle);
       if (!user.streakDates)
         user.streakDates = (
           await env.DB.prepare(
@@ -515,9 +573,7 @@ export class DayRegistry extends DurableObject<Env> {
               today: this.today(),
               me: this.me(user),
               leaderboard: this.board(user?.id),
-              rows: dayClosed(this.category)
-                ? [...this.owners.values()].map(({ user_id, answer_id, ...c }) => c)
-                : [],
+              rows: dayClosed(this.category) ? this.ledgerRows() : [],
               version: 17,
             },
         200,
@@ -531,11 +587,7 @@ export class DayRegistry extends DurableObject<Env> {
       });
     if (path === '/ledger')
       return json({
-        rows: dayClosed(this.category)
-          ? [...this.owners.values()]
-              .filter((c) => !c.voided)
-              .map(({ user_id, answer_id, ...c }) => c)
-          : [],
+        rows: dayClosed(this.category) ? this.ledgerRows() : [],
         locked: !dayClosed(this.category),
       });
     if (path === '/live') {
@@ -559,6 +611,7 @@ export class DayRegistry extends DurableObject<Env> {
         revealed = dayClosed(this.category),
         owned = uid === claim.user_id;
       const { user_id, answer_id, ...visible } = claim;
+      visible.streak = streak(this.state(claim.user_id)?.streakDates || [], this.category.date);
       return json({
         claim: revealed || owned ? { ...visible, revealed, owned } : concealClaim(visible),
       });
@@ -696,14 +749,12 @@ export class DayRegistry extends DurableObject<Env> {
         !(await verifyChallenge(req, env, b.turnstileToken))
       )
         return json({ message: 'Please complete verification.' }, 400);
-      const recent = (this.attempts.get('feedback:' + user.id) || []).filter(
-        (t) => t > Date.now() - 3600000,
-      );
-      if (recent.length >= 3)
-        return json({ message: 'Feedback limit reached; try again in an hour.' }, 429);
-      this.attempts.set('feedback:' + user.id, [...recent, Date.now()]);
+      const note = feedbackText(b.text);
+      if (!note.ok) return json({ message: note.message }, 422);
+      const limit = await reserveFeedback(req, env, user.id);
+      if (limit) return json({ message: limit }, 429);
       await env.DB.prepare('INSERT INTO feedback(id,user_id,text,created_at) VALUES(?,?,?,?)')
-        .bind(crypto.randomUUID(), user.id, b.text.trim(), new Date().toISOString())
+        .bind(crypto.randomUUID(), user.id, note.text, new Date().toISOString())
         .run();
       return json({ ok: true, message: 'Feedback received.' });
     }
@@ -734,7 +785,7 @@ export class DayRegistry extends DurableObject<Env> {
         user.rerolls_used >= 3
       )
         return json({ message: 'This handle has been filed. Re-rolls are closed.' }, 403);
-      user.handle = handle() + ' #' + user.id.slice(0, 8);
+      user.handle = handle();
       user.rerolls_used++;
       await env.DB.prepare(
         'INSERT INTO r17_players(id,data) VALUES(?,?) ON CONFLICT(id) DO UPDATE SET data=excluded.data',
@@ -959,6 +1010,7 @@ export class DayRegistry extends DurableObject<Env> {
         display: b.answer.trim().toUpperCase(),
         house,
         holder: house ? 'RESERVED' : holder.handle,
+        holderNumber: house ? undefined : playerNumber(holder.user_id),
         holderFounder: !house && holder.founder,
         heldAt: holder?.created_at,
       });

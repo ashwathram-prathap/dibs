@@ -6,11 +6,29 @@ import { PUBLIC_ORIGIN } from '../shared/config';
 import { Wordmark } from './ui';
 import { Icon } from './Icon';
 import { Leaderboard } from './Leaderboard';
+import { ScoreCurve } from './ScoreCurve';
 import { Ledger } from './Ledger';
 export function Archive() {
   const [categories, setCategories] = useState<Category[]>([]);
   const [selected, setSelected] = useState<Category | null>(null);
   const [error, setError] = useState('');
+  const [comparison, setComparison] =
+    useState<import('../shared/finished-scores').FinishedComparison>();
+  useEffect(() => {
+    setComparison(undefined);
+    if (!selected) return;
+    let alive = true;
+    void api<import('./types').Standings>(
+      '/leaderboard?category=' + encodeURIComponent(selected.id),
+    )
+      .then((r) => {
+        if (alive) setComparison(r.comparison);
+      })
+      .catch(() => {});
+    return () => {
+      alive = false;
+    };
+  }, [selected?.id]);
   useEffect(() => {
     const selectors = [
       'meta[name="description"]',
@@ -118,6 +136,7 @@ export function Archive() {
           {selected ? (
             <>
               <Leaderboard category={selected.id} final />
+              <ScoreCurve comparison={comparison} final />
               <Ledger
                 category={selected}
                 goldenFound={selected.specials?.goldenFound}

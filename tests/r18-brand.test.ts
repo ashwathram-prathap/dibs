@@ -6,6 +6,7 @@ const source = readFileSync('src/share.ts', 'utf8');
 const normalize = (s: string) => s.trim().replace(/^['"]|['"]$/g, '');
 const formSelectors = new Set([
   '.form-label',
+  '.rarity-end',
   '.form-value',
   '.postmark-date',
   '.guess-number',

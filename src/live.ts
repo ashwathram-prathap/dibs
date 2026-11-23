@@ -27,7 +27,12 @@ export function publish(s: Snapshot, optimistic = false) {
     me?.file && s.leaderboard
       ? {
           ...me,
-          file: { ...me.file, rank: s.leaderboard.own?.rank || null, players: s.leaderboard.total },
+          file: {
+            ...me.file,
+            rank: s.leaderboard.own?.rank || null,
+            players: s.leaderboard.total,
+            comparison: s.leaderboard.comparison,
+          },
         }
       : me;
   latest = {

@@ -67,5 +67,6 @@ it('keeps whole words on a certificate before resorting to letter wrapping', () 
     maxHeight: 270,
     lineHeight: 0.9,
   });
-  expect(fitted.lines).toEqual(['CHEZICHED', 'BINY']);
+  expect(fitted.lines).toEqual(['CHEZICHED\u00a0BINY']);
+  expect(fitted.lines[0].length * fitted.size).toBeLessThanOrEqual(910);
 });

@@ -1,3 +1,4 @@
+import { noOrphan } from './text';
 export function fitText(
   text: string,
   measure: (text: string, size: number) => number,
@@ -10,7 +11,7 @@ export function fitText(
     lineHeight: number;
   },
 ) {
-  const words = text.trim().split(/\s+/);
+  const words = noOrphan(text.trim()).split(/[ \t\r\n]+/);
   for (const splitWords of [false, true]) {
     for (let size = options.startSize; size >= options.minSize; size -= 5) {
       if (!splitWords && words.some((word) => measure(word, size) > width)) continue;

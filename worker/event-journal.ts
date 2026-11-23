@@ -1,3 +1,4 @@
+import { cleanStoredHandles } from '../shared/handles';
 import type { Env } from './routes';
 export type JournalFile = {
   user: any;
@@ -24,7 +25,10 @@ export class EventJournal {
     for (const row of storage.sql.exec<{ seq: number; payload: string }>(
       'SELECT seq,payload FROM events ORDER BY seq',
     )) {
-      const value = JSON.parse(row.payload) as JournalFile;
+      const value = cleanStoredHandles(JSON.parse(row.payload)) as JournalFile;
+      const cleaned = JSON.stringify(value);
+      if (cleaned !== row.payload)
+        storage.sql.exec('UPDATE events SET payload=? WHERE seq=?', cleaned, row.seq);
       this.sequence = row.seq;
       this.files.set(value.user.id, value);
       this.pending.set(value.user.id, { revision: row.seq, value });

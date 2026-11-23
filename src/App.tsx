@@ -1,7 +1,12 @@
+import { useNoOrphans } from './no-orphans';
+import { StreakChip } from './StreakChip';
+import { rarityLabel } from '../shared/rarity';
+import { countLabel } from '../shared/text';
+import { useTheme } from './theme';
 import { createPortal } from 'react-dom';
 import { RarityCurve } from './RarityCurve';
 import { Wordmark, Link, Clock, Reminder, Introduction, Rules, Progress } from './ui';
-import { runTurnstile } from './turnstile';
+import { runTurnstile, clearTurnstile } from './turnstile';
 const Settings = lazy(() => import('./Settings').then((m) => ({ default: m.Settings })));
 const Archive = lazy(() => import('./Archive').then((m) => ({ default: m.Archive })));
 const DaySummary = lazy(() => import('./Certificate').then((m) => ({ default: m.DaySummary })));
@@ -47,7 +52,7 @@ import { submittedSpelling } from './spelling';
 import { HOME_TITLE } from '../shared/seo';
 import { Icon } from './Icon';
 
-import { dropTime, localTime, viewerZone } from '../shared/time';
+import { dropTime, localTime, viewerZone, zoneName } from '../shared/time';
 
 import { useServerNow, serverNow } from './clock';
 import {
@@ -102,6 +107,7 @@ function Filters() {
 }
 let arrivalCounted = false;
 export default function App() {
+  useNoOrphans();
   const [settingsOpen, setSettingsOpen] = useState(
     () => location.hash === '#file-settings' || location.hash.startsWith('#file-key='),
   );
@@ -141,17 +147,24 @@ export default function App() {
     arrivalCounted = true;
     void api('/events/arrival', { platform }).catch(() => {});
   }, []);
-  const [theme, setTheme] = useState(() => {
-    try {
-      return (
-        localStorage.getItem('dibs-theme') ||
-        (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light')
-      );
-    } catch {
-      return matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
-    }
-  });
+  const { choice: themeChoice, resolved: theme, setChoice: setTheme } = useTheme();
   useEffect(watchVersion, []);
+  useLayoutEffect(() => {
+    const nav = document.querySelector<HTMLElement>('.masthead nav');
+    if (!nav) return;
+    const update = () =>
+      document.documentElement.style.setProperty(
+        '--tab-height',
+        getComputedStyle(nav).position === 'fixed'
+          ? nav.getBoundingClientRect().height + 'px'
+          : '0px',
+      );
+    const observer = new ResizeObserver(update);
+    observer.observe(nav);
+    update();
+    return () => observer.disconnect();
+  }, []);
+
   useEffect(() => {
     const viewport = window.visualViewport;
     const update = () => {
@@ -215,7 +228,11 @@ export default function App() {
                     ? {
                         ...previous.file,
                         ...(s.leaderboard
-                          ? { rank: s.leaderboard.own?.rank || null, players: s.leaderboard.total }
+                          ? {
+                              rank: s.leaderboard.own?.rank || null,
+                              players: s.leaderboard.total,
+                              comparison: s.leaderboard.comparison,
+                            }
                           : {}),
                       }
                     : null,
@@ -240,12 +257,6 @@ export default function App() {
       stop();
     };
   }, []);
-  useEffect(() => {
-    document.documentElement.dataset.theme = theme;
-    try {
-      localStorage.setItem('dibs-theme', theme);
-    } catch {}
-  }, [theme]);
   useEffect(() => {
     if (!path.startsWith('/archive'))
       document.title = path.startsWith('/certificate')
@@ -319,6 +330,8 @@ export default function App() {
                       sitekey={today?.turnstileSiteKey || ''}
                       refresh={refresh}
                       focusZone={focusZone}
+                      themeChoice={themeChoice}
+                      setTheme={setTheme}
                     />
                   </Suspense>
                 )}
@@ -356,7 +369,7 @@ export default function App() {
                 name={me.file?.handle || me.claim?.handle || me.user.handle}
                 founder={me.file?.founder || me.claim?.founder}
               />
-              <span>Streak {me.streak}</span>
+              <StreakChip value={me.streak} />
             </span>
           ) : (
             <span className="header-player header-player-placeholder" aria-hidden="true">
@@ -540,6 +553,8 @@ function Home({
   const verification = useRef<{ token: string; expires: number } | null>(null);
   const verifying = useRef<Promise<string> | null>(null);
   const [sessionNotice, setSessionNotice] = useState('');
+  const [checking, setChecking] = useState(false);
+  const [streakMoment, setStreakMoment] = useState<number | null>(null);
   function verifySession(): Promise<string> {
     if (isDemo) return Promise.resolve('demo');
     if (verification.current && verification.current.expires > Date.now() + 10000)
@@ -561,6 +576,28 @@ function Home({
       });
     return verifying.current;
   }
+  useEffect(() => {
+    if (!today.category || file?.closed || isDemo) return;
+    const warm = () => {
+      if (!document.hidden) void verifySession().catch(() => {});
+    };
+    const idle =
+      'requestIdleCallback' in window
+        ? window.requestIdleCallback(warm, { timeout: 1500 })
+        : undefined;
+    const fallback = idle === undefined ? setTimeout(warm, 1500) : undefined;
+    const renew = setInterval(() => {
+      if (!verification.current || verification.current.expires < Date.now() + 30000) warm();
+    }, 30000);
+    document.addEventListener('visibilitychange', warm);
+    return () => {
+      if (idle !== undefined) window.cancelIdleCallback(idle);
+      clearTimeout(fallback);
+      clearInterval(renew);
+      document.removeEventListener('visibilitychange', warm);
+      if (turnstileBox.current) clearTurnstile(turnstileBox.current);
+    };
+  }, [today.category?.id, file?.closed]);
   useEffect(() => setClaim(me.claim), [me.claim]);
   useEffect(() => {
     const viewport = window.visualViewport;
@@ -637,7 +674,11 @@ function Home({
     const value = confirmed || answer;
     const spellingAttempt = ++spellingVersion.current;
     try {
+      setChecking(
+        !isDemo && (!verification.current || verification.current.expires <= Date.now() + 10000),
+      );
       const token = await verifySession();
+      setChecking(false);
       if (!pendingRequest.current || pendingRequest.current.answer !== value)
         pendingRequest.current = { answer: value, id: crypto.randomUUID() };
       const send = (sessionToken: string) =>
@@ -673,6 +714,7 @@ function Home({
       setHouseStrike(false);
       setClaim(result.claim);
       setLanded(true);
+      setStreakMoment(result.me && result.me.streak > me.streak ? result.me.streak : null);
       if (result.me) setMe(result.me);
       publishClaim(result.claim, result.me, result.leaderboard);
     } catch (e) {
@@ -733,6 +775,7 @@ function Home({
     } finally {
       submitting.current = false;
       setBusy(false);
+      setChecking(false);
       requestAnimationFrame(() => {
         input.current?.focus({ preventScroll: true });
       });
@@ -765,12 +808,8 @@ function Home({
           <span className="file-closed-stamp" role="status">
             Done for today
           </span>
-          <p className="done-score">
-            {file.points ?? 0} points{file.rank ? ` · #${file.rank} of ${file.players} today` : ''}
-          </p>
-          <RevealTime today={today} />
-          <p className="clerk-aside">{categoryNote(today.category.slug)}</p>
           <DaySummary file={file} today={today} showLedger />
+          <RevealTime today={today} reminder={false} />
         </>
       ) : (
         <section
@@ -796,23 +835,30 @@ function Home({
                 <div className="claim-payoff">
                   <p>Yours. {claim.display} has your name on it for good.</p>
                   <p className="points-earned">
-                    +{claim.points ?? 0} points
+                    <strong>+{countLabel(claim.points ?? 0, 'point')}</strong>
                     {claim.percentile != null
-                      ? ` · rarer than ${Math.round(claim.percentile * 100)}% of ${today.category.name.toLowerCase()}`
-                      : ' · popularity unknown'}
+                      ? ` · ${rarityLabel(claim.percentile, today.category.name)}`
+                      : ' · Popularity unknown'}
                     {!!claim.golden && ' · Golden ticket +100'}
                   </p>
+                  {streakMoment !== null && (
+                    <p className="streak-payoff">
+                      Streak {streakMoment}. Back tomorrow at {localTime(today.nextDrop).label} to
+                      keep it.
+                    </p>
+                  )}
+                </div>
+                <div className="payoff-curve">
                   <RarityCurve
                     percentile={claim.percentile}
-                    category={today.category.slug}
+                    category={today.category.name}
                     answer={claim.display}
                     golden={claim.golden}
                   />
-                  <p>
-                    {MAX_CLAIMS - (file?.dibs || 1)} claims left ·{' '}
-                    {MAX_STRIKES - (file?.strikes || 0)} strikes left
-                  </p>
-                  <RevealTime today={today} />
+                </div>
+                <div className="payoff-counters">
+                  <span>{countLabel(MAX_CLAIMS - (file?.dibs || 1), 'claim')} left</span>
+                  <span>{countLabel(MAX_STRIKES - (file?.strikes || 0), 'strike')} left</span>
                 </div>
                 <div className="win-actions">
                   <button
@@ -828,7 +874,15 @@ function Home({
                   >
                     Next claim <Icon />
                   </button>
-                  <Link to={'/certificate/' + claim.id}>View certificate</Link>
+                  <div className="payoff-links">
+                    <Link to={'/certificate/' + claim.id}>View certificate</Link>
+                    <span aria-hidden="true">·</span>
+                    <Reminder at={today.closesAt || today.nextDrop} />
+                  </div>
+                </div>
+                <RevealTime today={today} reminder={false} />
+                <div className="payoff-board">
+                  <Leaderboard category={today.category.id} practice={today.practice} compact />
                 </div>
               </div>
             ) : (
@@ -840,6 +894,7 @@ function Home({
                   <input
                     ref={input}
                     onFocus={(e) => {
+                      void verifySession().catch(() => {});
                       if (
                         innerHeight <= 600 &&
                         innerWidth <= 900 &&
@@ -870,7 +925,9 @@ function Home({
                     <Icon />
                   </button>
                 </div>
-                <p className="claim-subline">Claim this answer as yours.</p>
+                <p className="claim-subline" role={checking ? 'status' : undefined}>
+                  {checking ? 'Checking you’re human…' : 'Claim this answer as yours.'}
+                </p>
                 {message && (
                   <div
                     className={'result-panel ' + (taken ? 'taken' : '')}
@@ -883,7 +940,7 @@ function Home({
                         <>
                           {houseStrike
                             ? 'Reserved (too obvious). −10 points.'
-                            : `Taken. −10 points. ${MAX_STRIKES - (file?.strikes || 0)} strikes left.`}
+                            : `Taken. −10 points. ${countLabel(MAX_STRIKES - (file?.strikes || 0), 'strike')} left.`}
                         </>
                       ) : takenHolder?.founder ? (
                         <>
@@ -974,14 +1031,16 @@ function Home({
     </div>
   );
 }
-function RevealTime({ today }: { today: Today }) {
+function RevealTime({ today, reminder = true }: { today: Today; reminder?: boolean }) {
   const at = today.closesAt || today.nextDrop;
   return (
     <div className="reveal-time">
       <p>The full board and golden tickets reveal when the day closes.</p>
       <div>
-        <span>Closes {dropTime(at).full} your time.</span>
-        <Reminder at={at} />
+        <span>
+          Closes {dropTime(at).label}, {zoneName()} time
+        </span>
+        {reminder && <Reminder at={at} />}
       </div>
     </div>
   );

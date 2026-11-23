@@ -7,6 +7,8 @@ const fixtureNow = () =>
   performance.now() -
   clockStart;
 const fixtureDrop = '2026-11-24T02:00:00.000Z';
+const r19 = r7.has('r19');
+const r19Streak = Number(r7.get('streak') || 0);
 const r6 = new URLSearchParams(location.search).has('r6');
 const house = ['Dog', 'Cat', 'Lion', 'Tiger', 'Elephant', 'Horse', 'Wolf', 'Bear', 'Rabbit', 'Fox'];
 const specials = () => ({
@@ -47,7 +49,7 @@ const entries = [
 ];
 let user = {
   id: 'fixture-reader',
-  handle: 'Teal Otter #41',
+  handle: r19 ? 'Tan Dove' : 'Teal Otter #41',
   rerolls_used: 0,
 };
 let claims: any[] = [
@@ -73,7 +75,8 @@ function file() {
   const closed = myClaims.length === 3 || strikes === 5;
   return {
     handle: user.handle,
-    streak: myClaims.length ? 1 : 0,
+    streak: r19 ? r19Streak + (myClaims.length ? 1 : 0) : myClaims.length ? 1 : 0,
+    ...(r19 ? { comparison: comparison() } : {}),
     summaryId: 'fixture-summary',
     category_id: category.id,
     points: Math.max(0, myClaims.reduce((n, c) => n + c.points, 0) - strikes * 10),
@@ -99,7 +102,12 @@ export async function request(path: string, body?: any): Promise<any> {
   )
     throw new ApiError(503, { message: 'The next register is still being prepared.' });
   if (path === '/bootstrap')
-    return { today: await request('/today'), me: await request('/me'), rows: claims };
+    return {
+      today: await request('/today'),
+      me: await request('/me'),
+      rows: claims,
+      ...(r19 ? { leaderboard: board() } : {}),
+    };
   if (path === '/today') {
     if (
       r7.has('r7-rollover') &&
@@ -130,7 +138,7 @@ export async function request(path: string, body?: any): Promise<any> {
       user,
       claim: mine,
       file: file(),
-      streak: mine ? 1 : 0,
+      streak: r19 ? r19Streak + (mine ? 1 : 0) : mine ? 1 : 0,
       streakDates: mine ? [date] : [],
     };
   if (path === '/me/reroll') {
@@ -149,7 +157,7 @@ export async function request(path: string, body?: any): Promise<any> {
         e.toLowerCase().includes(decodeURIComponent(path.split('q=')[1] || '').toLowerCase()),
       ),
     };
-  if (path.startsWith('/leaderboard')) return { rows: [], own: null, total: 0 };
+  if (path.startsWith('/leaderboard')) return board();
   if (path.startsWith('/ledger')) {
     const u = new URL(path, 'http://fixture');
     return {
@@ -188,20 +196,41 @@ export async function request(path: string, body?: any): Promise<any> {
   if (path.startsWith('/certificate/')) {
     const claim = claims.find((c) => c.id === path.split('/').pop()) || mine;
     const mode = new URLSearchParams(location.search).get('r17');
-    return { claim: mode ? {...claim, category_slug:'animals', percentile: mode==='sealed'?null:Number(new URLSearchParams(location.search).get('p') || '.94'), points:95, revealed:mode==='closed', owned:mode==='holder', concealed:mode==='sealed', display:mode==='sealed'?'Revealed when the day closes':claim.display} : claim };
+    return {
+      claim: mode
+        ? {
+            ...claim,
+            category_slug: 'animals',
+            percentile:
+              mode === 'sealed'
+                ? null
+                : Number(new URLSearchParams(location.search).get('p') || '.94'),
+            points: 95,
+            revealed: mode === 'closed',
+            owned: mode === 'holder',
+            concealed: mode === 'sealed',
+            display: mode === 'sealed' ? 'Revealed when the day closes' : claim.display,
+          }
+        : claim,
+    };
   }
   if (path === '/missing')
     return { ok: true, message: 'Submitted to the clerk. No strike charged.' };
-  if (path === '/delete-file') return {ok:true,message:'Your file is removed. Past claims now belong to Withdrawn filer.'};
-  if (path === '/backup-code') return {code:'DIBS-ABCDE-12345-FABCD-67890'};
+  if (path === '/delete-file')
+    return {
+      ok: true,
+      message: 'Your file is removed. Past claims now belong to Withdrawn filer.',
+    };
+  if (path === '/backup-code') return { code: 'DIBS-ABCDE-12345-FABCD-67890' };
   if (path === '/feedback') {
-    if (r7.has('feedback-error')) throw new ApiError(503, {message:'Your feedback could not be sent. Try again.'});
-    return {message:'Your feedback was sent. Thank you.'};
+    if (r7.has('feedback-error'))
+      throw new ApiError(503, { message: 'Your feedback could not be sent. Try again.' });
+    return { message: 'Your feedback was sent. Thank you.' };
   }
   if (path === '/recover') return { ok: true };
   if (path === '/claim') {
     const note = clerkReply(body.answer, category.name);
-    if(note) throw new ApiError(422,{code:'CLERK_NOTE',message:note});
+    if (note) throw new ApiError(422, { code: 'CLERK_NOTE', message: note });
     if (r7.has('r8') && body.answer === 'offline proof')
       throw new Error('The clerk didn’t get that. Try again.');
     if (file().closed) throw new ApiError(403, { message: 'Your file is closed for today.' });
@@ -254,8 +283,12 @@ export async function request(path: string, body?: any): Promise<any> {
       category_id: category.id,
       category_name: category.name,
       category_date: category.date,
-      points: entry === 'Axolotl' ? 160 : 60,
-      percentile: .6,
+      points: r19
+        ? Math.max(10, Math.round(Number(r7.get('p') || '.6') * 100))
+        : entry === 'Axolotl'
+          ? 160
+          : 60,
+      percentile: r19 ? Number(r7.get('p') || '.6') : 0.6,
       bonus: entry === 'Axolotl' ? 100 : 0,
       id: 'fixture-' + (claims.length + 1),
       claim_no: claims.length + 1,
@@ -263,7 +296,7 @@ export async function request(path: string, body?: any): Promise<any> {
       handle: user.handle,
       created_at: new Date().toISOString(),
       obscurity: 4,
-      golden: r6 && entry === 'Axolotl',
+      golden: r19 ? r7.has('gold') : r6 && entry === 'Axolotl',
     };
     claims = [mine, ...claims];
     myClaims.push(mine);
@@ -278,6 +311,7 @@ export async function request(path: string, body?: any): Promise<any> {
     return {
       claim: mine,
       me: await request('/me'),
+      ...(r19 ? { leaderboard: board() } : {}),
       ...(r7.has('r8') && myClaims.length === 1
         ? { recoveryKey: 'DIBS-01234-56789-ABCDE-F0123' }
         : {}),
@@ -310,4 +344,41 @@ export function advanceFixtureDay() {
   myClaims = [];
   events = [];
   claims = [];
+}
+
+function comparison() {
+  const finished = Number(r7.get('finished') || 41);
+  const closed = myClaims.length === 3 || events.filter((e) => e.kind === 'strike').length === 5;
+  return {
+    finished,
+    percentile: closed ? 0.63 : null,
+    rank: closed ? 3 : null,
+    points: closed ? myClaims.reduce((n, c) => n + c.points, 0) : null,
+  };
+}
+function board() {
+  if (!r19) return { rows: [], own: null, total: 0 };
+  const own = {
+    rank: 4,
+    handle: user.handle,
+    founder: false,
+    points: file().points,
+    claims: myClaims.length,
+    golden: false,
+    own: true,
+  };
+  return {
+    rows: ['Ochre Finch', 'Sage Otter', 'Blue Wren'].map((handle, i) => ({
+      rank: i + 1,
+      handle,
+      founder: false,
+      points: 250 - i * 30,
+      claims: 3,
+      golden: false,
+      own: false,
+    })),
+    own: myClaims.length ? own : null,
+    total: 42,
+    comparison: comparison(),
+  };
 }

@@ -1,3 +1,6 @@
+import { rarityLabel } from '../shared/rarity';
+import { ScoreCurve } from './ScoreCurve';
+import { countLabel } from '../shared/text';
 import { RarityCurve } from './RarityCurve';
 import { useState, useEffect, useCallback } from 'react';
 import { m as motion, useReducedMotion, LazyMotion, domAnimation } from 'framer-motion';
@@ -84,13 +87,6 @@ export function DaySummary({
                     ) : (
                       <strong>{event.display}</strong>
                     )}
-                    <RarityCurve
-                      percentile={file.claims.find((c) => c.id === event.claimId)?.percentile}
-                      category={today.category!.slug}
-                      answer={file.revealed ? event.display : undefined}
-                      golden={event.golden}
-                      mini
-                    />
                     <span className={'mini-stamp ' + (event.golden ? 'gold-mini' : '')}>
                       DIBS{event.golden ? ' / GOLD' : ''}
                       {(event.obscurity || 0) >= 4 ? ' / Deep cut' : ''}
@@ -132,12 +128,12 @@ export function DaySummary({
         </div>
       </article>
       <aside className="day-companions">
-        {showLedger && <Introduction />}
         <ShareSheet
           url={summaryUrl(file.summaryId!)}
           text={summaryText(file, today.category!)}
           render={render}
         />
+        {showLedger && <ScoreCurve comparison={file.comparison} final={today.revealed} />}
         <Reminder at={today.nextDrop} />
         <Clock target={today.nextDrop} />
         <InstallHint />
@@ -219,6 +215,9 @@ export function Certificate({ claim, animated = false }: { claim: Claim; animate
             <Handle name={claim.handle} founder={claim.founder} />
           </strong>
         </div>
+        {!!claim.streak && (
+          <p className="form-label certificate-streak">{claim.streak}-day streak</p>
+        )}
         <div className="cert-bottom">
           <div>
             {claim.concealed ? (
@@ -231,8 +230,8 @@ export function Certificate({ claim, animated = false }: { claim: Claim; animate
             ) : claim.percentile != null ? (
               <>
                 <p>
-                  Rarer than {Math.round(claim.percentile * 100)}% of{' '}
-                  {claim.category_name.toLowerCase()} · {claim.points} points
+                  {rarityLabel(claim.percentile, claim.category_name)} ·{' '}
+                  {countLabel(claim.points || 0, 'point')}
                 </p>
                 <RarityCurve
                   percentile={claim.percentile}

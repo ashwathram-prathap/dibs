@@ -1,6 +1,7 @@
 type ExportFont = 'Archivo' | '"Instrument Sans"';
-import { loadDensity } from './RarityCurve';
-import { rarityPath } from '../shared/rarity';
+import { cleanHandle } from '../shared/handles';
+import { noOrphan } from '../shared/text';
+import { bellPath, bellX, rarityLabel } from '../shared/rarity';
 import { MAX_CLAIMS } from '../shared/config';
 import { REGISTRAR_STROKE } from '../shared/moments';
 import { edition, localTime } from '../shared/time';
@@ -42,7 +43,7 @@ export async function exportCertificate(claim: Claim, story: boolean) {
   c.strokeRect(36, 36, 1008, h - 72);
   const text = (s: string, x: number, y: number, size = 26) => {
     c.font = `400 ${size}px "Instrument Sans"`;
-    c.fillText(s, x, y);
+    c.fillText(noOrphan(s), x, y);
   };
   const line = (y: number) => {
     c.beginPath();
@@ -95,7 +96,7 @@ export async function exportCertificate(claim: Claim, story: boolean) {
   formText(c, 'label', 'Held by', 80, holder);
   c.font = '600 42px "Instrument Sans"';
   if (claim.founder) c.fillStyle = dark ? '#e7c86b' : '#795700';
-  c.fillText(claim.handle, 80, holder + 60);
+  c.fillText(cleanHandle(claim.handle), 80, holder + 60);
   if (claim.founder) text('Founder', 80, holder + 90, 18);
   c.fillStyle = ink;
   c.font = '400 26px "Instrument Sans"';
@@ -107,7 +108,7 @@ export async function exportCertificate(claim: Claim, story: boolean) {
   c.restore();
   text('The Registrar', 790, h - 180, 18);
   if (claim.revealed && claim.percentile != null) {
-    text(`Rarer than ${Math.round(claim.percentile * 100)}%`, 80, h - 250, 18);
+    text(rarityLabel(claim.percentile, claim.category_name), 80, h - 250, 18);
     text(`${claim.points || 0} points`, 80, h - 220, 18);
     await drawCurve(
       c,
@@ -173,16 +174,14 @@ async function drawCurve(
   h: number,
 ) {
   try {
-    const data = await loadDensity(slug);
-    if (!data.measured) return;
     c.save();
     c.translate(x, y);
-    c.scale(w / 400, h / 48);
+    c.scale(w / 520, h / 150);
     c.lineWidth = 1.8;
-    c.stroke(new Path2D(rarityPath(data.density)));
+    c.stroke(new Path2D(bellPath()));
     c.beginPath();
-    c.moveTo(p * 400, 0);
-    c.lineTo(p * 400, 46);
+    c.moveTo(bellX(p), 16);
+    c.lineTo(bellX(p), 108);
     c.stroke();
     c.restore();
   } catch {}
@@ -231,7 +230,7 @@ export async function exportSummary(file: DayFile, category: Category, story: bo
     weight = 400,
   ) => {
     c.font = `${weight} ${size}px ${face}`;
-    c.fillText(s, x, y);
+    c.fillText(noOrphan(s), x, y);
   };
   const fit = (
     s: string,
@@ -350,8 +349,6 @@ export async function exportSummary(file: DayFile, category: Category, story: bo
   });
   for (const [i, event] of rows.entries()) {
     const claim = file.claims.find((c) => c.id === event.claimId);
-    if (event.kind === 'dibs' && claim?.percentile != null)
-      await drawCurve(c, category.slug, claim.percentile, 755, 565 + i * rowHeight + 58, 220, 22);
   }
   c.fillStyle = ink;
   c.strokeStyle = ink;

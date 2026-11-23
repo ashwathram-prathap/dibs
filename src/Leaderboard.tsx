@@ -8,10 +8,12 @@ export function Leaderboard({
   category,
   final = false,
   practice = false,
+  compact = false,
 }: {
   category?: string;
   final?: boolean;
   practice?: boolean;
+  compact?: boolean;
 }) {
   const [board, setBoard] = useState<Standings | null>(null);
   const [error, setError] = useState(false);
@@ -58,13 +60,16 @@ export function Leaderboard({
     };
   }, [category, final]);
   const rows = [
-    ...(board?.rows || []),
-    ...(board?.own && !board.rows.some((r) => r.rank === board.own!.rank) ? [board.own] : []),
+    ...(compact ? board?.rows.slice(0, 3) || [] : board?.rows || []),
+    ...(board?.own &&
+    !(compact ? board.rows.slice(0, 3) : board.rows).some((r) => r.rank === board.own!.rank)
+      ? [board.own]
+      : []),
   ];
   return (
     <section
-      id={final ? undefined : 'leaderboard'}
-      className="leaderboard-section"
+      id={final || compact ? undefined : 'leaderboard'}
+      className={'leaderboard-section' + (compact ? ' leaderboard-compact' : '')}
       aria-label={final ? 'Final leaderboard' : "Today's leaderboard"}
     >
       <div className="leaderboard-heading">

@@ -1,3 +1,5 @@
+import { cleanStoredHandles } from '../shared/handles';
+import { noOrphan } from '../shared/text';
 import encodeJpeg from './jpeg-encoder';
 import { MAX_CLAIMS, MAX_STRIKES, DROP_TIME_LABEL } from '../shared/config';
 import { svgPath } from '../shared/svg-path';
@@ -24,6 +26,8 @@ let textFont: Font, formFont: Font;
 let ready: Promise<void> | undefined;
 // Render self-hosted type to vector outlines before PNG rasterization. No remote fonts or HTML parser.
 export async function og(claim: any, summary?: any) {
+  claim = cleanStoredHandles(claim);
+  summary = cleanStoredHandles(summary);
   ready ||= initWasm(resvgWasm);
   await ready;
   fonts ||= [archivoFont, archivoExtended, archivoVietnamese, archivoSupplement].map((data) =>
@@ -47,7 +51,7 @@ export async function og(claim: any, summary?: any) {
     role: 'display' | 'text' | 'form' = 'text',
   ) => {
     let out = '';
-    for (const ch of value) {
+    for (const ch of noOrphan(value)) {
       const candidate = role === 'text' ? textFont : role === 'form' ? formFont : undefined;
       const face = candidate?.charToGlyphIndex(ch) ? candidate : faceFor(ch);
       const glyph = face.charToGlyph(ch);

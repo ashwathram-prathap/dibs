@@ -59,3 +59,14 @@ export const countdown = (target: string, now: number) => {
     .map((n) => String(n).padStart(2, '0'))
     .join(':');
 };
+
+export function zoneName(zone = viewerZone()) {
+  const names: Record<string, string> = {
+    'Asia/Tokyo': 'Japan',
+    'Asia/Seoul': 'Korea',
+    'Asia/Kolkata': 'India',
+    'Pacific/Honolulu': 'Hawaii',
+    'America/St_Johns': 'Newfoundland',
+  };
+  return names[zone] || zone.split('/').pop()!.replaceAll('_', ' ');
+}
