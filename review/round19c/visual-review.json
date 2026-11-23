@@ -24,7 +24,8 @@
     "review/final/round19c/feedback-sent/chromium-390-light.png",
     "review/final/round19c/admin-feedback/chromium-390-dark.png",
     "review/final/round19c/settings-scrolled/webkit-1440-dark.png",
-    "review/final/round19c/share-browser/chromium-390-light.png"
+    "review/final/round19c/share-browser/chromium-390-light.png",
+    "review/round19c/share-fit-360-light.png"
   ],
   "practiceScreensReviewed": [
     "review/round19c/practice-0-chromium-claim.png"
@@ -132,6 +133,14 @@
     "at": "2026-11-23T17:17:23.981374+00:00",
     "screens": 31,
     "captures": 7440,
-    "scope": "Overview review of all Chromium/WebKit contact sheets at 1200px width, plus the listed native captures and automated geometry/contrast/interaction checks. Firefox matrix remains pending."
+    "scope": "Overview review of all Chromium/WebKit contact sheets at 1200px width, plus the listed native captures and automated geometry/contrast/interaction checks. Firefox matrix remains pending.",
+    "applicationCommit": "d3260f2"
+  },
+  "finalReview": {
+    "applicationCommit": "6b1e52d",
+    "at": "2026-11-23T17:39:13.227308+00:00",
+    "screens": 31,
+    "captures": 248,
+    "scope": "All 31 final contact-sheet overviews reviewed again after the share-grid fix; enlarged 360px WebKit share capture reviewed at native size."
   }
 }
