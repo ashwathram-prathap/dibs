@@ -1,0 +1,1838 @@
+{
+  "config": {
+    "argv": [
+      "/opt/homebrew/Cellar/node/26.13.1_2/bin/node",
+      "/Users/ashwathram/Projects/dibs/node_modules/.bin/playwright",
+      "test",
+      "-c",
+      "playwright.r19.config.ts",
+      "flow.spec.ts",
+      "round11.spec.ts",
+      "round13.spec.ts",
+      "round16.spec.ts",
+      "round18.spec.ts",
+      "sharing.spec.ts",
+      "spelling.spec.ts",
+      "--project=chromium-390-light",
+      "--project=webkit-1440-dark"
+    ],
+    "configFile": "/Users/ashwathram/Projects/dibs/playwright.r19.config.ts",
+    "rootDir": "/Users/ashwathram/Projects/dibs/tests/e2e",
+    "failOnFlakyTests": false,
+    "forbidOnly": false,
+    "fullyParallel": true,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 4
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "/Users/ashwathram/Projects/dibs/.tmp/r19/browser-artifacts",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 4
+        },
+        "id": "chromium-320-light",
+        "name": "chromium-320-light",
+        "testDir": "/Users/ashwathram/Projects/dibs/tests/e2e",
+        "testIgnore": [
+          "round7.spec.ts"
+        ],
+        "testMatch": [
+          "**/*.spec.ts"
+        ],
+        "timeout": 90000
+      },
+      {
+        "outputDir": "/Users/ashwathram/Projects/dibs/.tmp/r19/browser-artifacts",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 4
+        },
+        "id": "chromium-320-dark",
+        "name": "chromium-320-dark",
+        "testDir": "/Users/ashwathram/Projects/dibs/tests/e2e",
+        "testIgnore": [
+          "round7.spec.ts"
+        ],
+        "testMatch": [
+          "**/*.spec.ts"
+        ],
+        "timeout": 90000
+      },
+      {
+        "outputDir": "/Users/ashwathram/Projects/dibs/.tmp/r19/browser-artifacts",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 4
+        },
+        "id": "chromium-360-light",
+        "name": "chromium-360-light",
+        "testDir": "/Users/ashwathram/Projects/dibs/tests/e2e",
+        "testIgnore": [
+          "round7.spec.ts"
+        ],
+        "testMatch": [
+          "**/*.spec.ts"
+        ],
+        "timeout": 90000
+      },
+      {
+        "outputDir": "/Users/ashwathram/Projects/dibs/.tmp/r19/browser-artifacts",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 4
+        },
+        "id": "chromium-360-dark",
+        "name": "chromium-360-dark",
+        "testDir": "/Users/ashwathram/Projects/dibs/tests/e2e",
+        "testIgnore": [
+          "round7.spec.ts"
+        ],
+        "testMatch": [
+          "**/*.spec.ts"
+        ],
+        "timeout": 90000
+      },
+      {
+        "outputDir": "/Users/ashwathram/Projects/dibs/.tmp/r19/browser-artifacts",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 4
+        },
+        "id": "chromium-390-light",
+        "name": "chromium-390-light",
+        "testDir": "/Users/ashwathram/Projects/dibs/tests/e2e",
+        "testIgnore": [
+          "round7.spec.ts"
+        ],
+        "testMatch": [
+          "**/*.spec.ts"
+        ],
+        "timeout": 90000
+      },
+      {
+        "outputDir": "/Users/ashwathram/Projects/dibs/.tmp/r19/browser-artifacts",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 4
+        },
+        "id": "chromium-390-dark",
+        "name": "chromium-390-dark",
+        "testDir": "/Users/ashwathram/Projects/dibs/tests/e2e",
+        "testIgnore": [
+          "round7.spec.ts"
+        ],
+        "testMatch": [
+          "**/*.spec.ts"
+        ],
+        "timeout": 90000
+      },
+      {
+        "outputDir": "/Users/ashwathram/Projects/dibs/.tmp/r19/browser-artifacts",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 4
+        },
+        "id": "chromium-430-light",
+        "name": "chromium-430-light",
+        "testDir": "/Users/ashwathram/Projects/dibs/tests/e2e",
+        "testIgnore": [
+          "round7.spec.ts"
+        ],
+        "testMatch": [
+          "**/*.spec.ts"
+        ],
+        "timeout": 90000
+      },
+      {
+        "outputDir": "/Users/ashwathram/Projects/dibs/.tmp/r19/browser-artifacts",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 4
+        },
+        "id": "chromium-430-dark",
+        "name": "chromium-430-dark",
+        "testDir": "/Users/ashwathram/Projects/dibs/tests/e2e",
+        "testIgnore": [
+          "round7.spec.ts"
+        ],
+        "testMatch": [
+          "**/*.spec.ts"
+        ],
+        "timeout": 90000
+      },
+      {
+        "outputDir": "/Users/ashwathram/Projects/dibs/.tmp/r19/browser-artifacts",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 4
+        },
+        "id": "chromium-768-light",
+        "name": "chromium-768-light",
+        "testDir": "/Users/ashwathram/Projects/dibs/tests/e2e",
+        "testIgnore": [
+          "round7.spec.ts"
+        ],
+        "testMatch": [
+          "**/*.spec.ts"
+        ],
+        "timeout": 90000
+      },
+      {
+        "outputDir": "/Users/ashwathram/Projects/dibs/.tmp/r19/browser-artifacts",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 4
+        },
+        "id": "chromium-768-dark",
+        "name": "chromium-768-dark",
+        "testDir": "/Users/ashwathram/Projects/dibs/tests/e2e",
+        "testIgnore": [
+          "round7.spec.ts"
+        ],
+        "testMatch": [
+          "**/*.spec.ts"
+        ],
+        "timeout": 90000
+      },
+      {
+        "outputDir": "/Users/ashwathram/Projects/dibs/.tmp/r19/browser-artifacts",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 4
+        },
+        "id": "chromium-1024-light",
+        "name": "chromium-1024-light",
+        "testDir": "/Users/ashwathram/Projects/dibs/tests/e2e",
+        "testIgnore": [
+          "round7.spec.ts"
+        ],
+        "testMatch": [
+          "**/*.spec.ts"
+        ],
+        "timeout": 90000
+      },
+      {
+        "outputDir": "/Users/ashwathram/Projects/dibs/.tmp/r19/browser-artifacts",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 4
+        },
+        "id": "chromium-1024-dark",
+        "name": "chromium-1024-dark",
+        "testDir": "/Users/ashwathram/Projects/dibs/tests/e2e",
+        "testIgnore": [
+          "round7.spec.ts"
+        ],
+        "testMatch": [
+          "**/*.spec.ts"
+        ],
+        "timeout": 90000
+      },
+      {
+        "outputDir": "/Users/ashwathram/Projects/dibs/.tmp/r19/browser-artifacts",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 4
+        },
+        "id": "chromium-1440-light",
+        "name": "chromium-1440-light",
+        "testDir": "/Users/ashwathram/Projects/dibs/tests/e2e",
+        "testIgnore": [
+          "round7.spec.ts"
+        ],
+        "testMatch": [
+          "**/*.spec.ts"
+        ],
+        "timeout": 90000
+      },
+      {
+        "outputDir": "/Users/ashwathram/Projects/dibs/.tmp/r19/browser-artifacts",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 4
+        },
+        "id": "chromium-1440-dark",
+        "name": "chromium-1440-dark",
+        "testDir": "/Users/ashwathram/Projects/dibs/tests/e2e",
+        "testIgnore": [
+          "round7.spec.ts"
+        ],
+        "testMatch": [
+          "**/*.spec.ts"
+        ],
+        "timeout": 90000
+      },
+      {
+        "outputDir": "/Users/ashwathram/Projects/dibs/.tmp/r19/browser-artifacts",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 4
+        },
+        "id": "webkit-320-light",
+        "name": "webkit-320-light",
+        "testDir": "/Users/ashwathram/Projects/dibs/tests/e2e",
+        "testIgnore": [
+          "round7.spec.ts"
+        ],
+        "testMatch": [
+          "**/*.spec.ts"
+        ],
+        "timeout": 90000
+      },
+      {
+        "outputDir": "/Users/ashwathram/Projects/dibs/.tmp/r19/browser-artifacts",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 4
+        },
+        "id": "webkit-320-dark",
+        "name": "webkit-320-dark",
+        "testDir": "/Users/ashwathram/Projects/dibs/tests/e2e",
+        "testIgnore": [
+          "round7.spec.ts"
+        ],
+        "testMatch": [
+          "**/*.spec.ts"
+        ],
+        "timeout": 90000
+      },
+      {
+        "outputDir": "/Users/ashwathram/Projects/dibs/.tmp/r19/browser-artifacts",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 4
+        },
+        "id": "webkit-360-light",
+        "name": "webkit-360-light",
+        "testDir": "/Users/ashwathram/Projects/dibs/tests/e2e",
+        "testIgnore": [
+          "round7.spec.ts"
+        ],
+        "testMatch": [
+          "**/*.spec.ts"
+        ],
+        "timeout": 90000
+      },
+      {
+        "outputDir": "/Users/ashwathram/Projects/dibs/.tmp/r19/browser-artifacts",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 4
+        },
+        "id": "webkit-360-dark",
+        "name": "webkit-360-dark",
+        "testDir": "/Users/ashwathram/Projects/dibs/tests/e2e",
+        "testIgnore": [
+          "round7.spec.ts"
+        ],
+        "testMatch": [
+          "**/*.spec.ts"
+        ],
+        "timeout": 90000
+      },
+      {
+        "outputDir": "/Users/ashwathram/Projects/dibs/.tmp/r19/browser-artifacts",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 4
+        },
+        "id": "webkit-390-light",
+        "name": "webkit-390-light",
+        "testDir": "/Users/ashwathram/Projects/dibs/tests/e2e",
+        "testIgnore": [
+          "round7.spec.ts"
+        ],
+        "testMatch": [
+          "**/*.spec.ts"
+        ],
+        "timeout": 90000
+      },
+      {
+        "outputDir": "/Users/ashwathram/Projects/dibs/.tmp/r19/browser-artifacts",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 4
+        },
+        "id": "webkit-390-dark",
+        "name": "webkit-390-dark",
+        "testDir": "/Users/ashwathram/Projects/dibs/tests/e2e",
+        "testIgnore": [
+          "round7.spec.ts"
+        ],
+        "testMatch": [
+          "**/*.spec.ts"
+        ],
+        "timeout": 90000
+      },
+      {
+        "outputDir": "/Users/ashwathram/Projects/dibs/.tmp/r19/browser-artifacts",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 4
+        },
+        "id": "webkit-430-light",
+        "name": "webkit-430-light",
+        "testDir": "/Users/ashwathram/Projects/dibs/tests/e2e",
+        "testIgnore": [
+          "round7.spec.ts"
+        ],
+        "testMatch": [
+          "**/*.spec.ts"
+        ],
+        "timeout": 90000
+      },
+      {
+        "outputDir": "/Users/ashwathram/Projects/dibs/.tmp/r19/browser-artifacts",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 4
+        },
+        "id": "webkit-430-dark",
+        "name": "webkit-430-dark",
+        "testDir": "/Users/ashwathram/Projects/dibs/tests/e2e",
+        "testIgnore": [
+          "round7.spec.ts"
+        ],
+        "testMatch": [
+          "**/*.spec.ts"
+        ],
+        "timeout": 90000
+      },
+      {
+        "outputDir": "/Users/ashwathram/Projects/dibs/.tmp/r19/browser-artifacts",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 4
+        },
+        "id": "webkit-768-light",
+        "name": "webkit-768-light",
+        "testDir": "/Users/ashwathram/Projects/dibs/tests/e2e",
+        "testIgnore": [
+          "round7.spec.ts"
+        ],
+        "testMatch": [
+          "**/*.spec.ts"
+        ],
+        "timeout": 90000
+      },
+      {
+        "outputDir": "/Users/ashwathram/Projects/dibs/.tmp/r19/browser-artifacts",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 4
+        },
+        "id": "webkit-768-dark",
+        "name": "webkit-768-dark",
+        "testDir": "/Users/ashwathram/Projects/dibs/tests/e2e",
+        "testIgnore": [
+          "round7.spec.ts"
+        ],
+        "testMatch": [
+          "**/*.spec.ts"
+        ],
+        "timeout": 90000
+      },
+      {
+        "outputDir": "/Users/ashwathram/Projects/dibs/.tmp/r19/browser-artifacts",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 4
+        },
+        "id": "webkit-1024-light",
+        "name": "webkit-1024-light",
+        "testDir": "/Users/ashwathram/Projects/dibs/tests/e2e",
+        "testIgnore": [
+          "round7.spec.ts"
+        ],
+        "testMatch": [
+          "**/*.spec.ts"
+        ],
+        "timeout": 90000
+      },
+      {
+        "outputDir": "/Users/ashwathram/Projects/dibs/.tmp/r19/browser-artifacts",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 4
+        },
+        "id": "webkit-1024-dark",
+        "name": "webkit-1024-dark",
+        "testDir": "/Users/ashwathram/Projects/dibs/tests/e2e",
+        "testIgnore": [
+          "round7.spec.ts"
+        ],
+        "testMatch": [
+          "**/*.spec.ts"
+        ],
+        "timeout": 90000
+      },
+      {
+        "outputDir": "/Users/ashwathram/Projects/dibs/.tmp/r19/browser-artifacts",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 4
+        },
+        "id": "webkit-1440-light",
+        "name": "webkit-1440-light",
+        "testDir": "/Users/ashwathram/Projects/dibs/tests/e2e",
+        "testIgnore": [
+          "round7.spec.ts"
+        ],
+        "testMatch": [
+          "**/*.spec.ts"
+        ],
+        "timeout": 90000
+      },
+      {
+        "outputDir": "/Users/ashwathram/Projects/dibs/.tmp/r19/browser-artifacts",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 4
+        },
+        "id": "webkit-1440-dark",
+        "name": "webkit-1440-dark",
+        "testDir": "/Users/ashwathram/Projects/dibs/tests/e2e",
+        "testIgnore": [
+          "round7.spec.ts"
+        ],
+        "testMatch": [
+          "**/*.spec.ts"
+        ],
+        "timeout": 90000
+      }
+    ],
+    "filteredProjects": [
+      {
+        "grep": {},
+        "grepInvert": null,
+        "outputDir": "/Users/ashwathram/Projects/dibs/.tmp/r19/browser-artifacts",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 4
+        },
+        "name": "chromium-390-light",
+        "testDir": "/Users/ashwathram/Projects/dibs/tests/e2e",
+        "snapshotDir": "/Users/ashwathram/Projects/dibs/tests/e2e",
+        "testIgnore": "round7.spec.ts",
+        "testMatch": "**/*.spec.ts",
+        "timeout": 90000,
+        "use": {
+          "baseURL": "http://127.0.0.1:5199",
+          "trace": "retain-on-failure",
+          "timezoneId": "America/Toronto",
+          "browserName": "chromium",
+          "viewport": {
+            "width": 390,
+            "height": 844
+          },
+          "colorScheme": "light"
+        },
+        "dependencies": [],
+        "ignoreSnapshots": false,
+        "__projectId": "chromium-390-light"
+      },
+      {
+        "grep": {},
+        "grepInvert": null,
+        "outputDir": "/Users/ashwathram/Projects/dibs/.tmp/r19/browser-artifacts",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 4
+        },
+        "name": "webkit-1440-dark",
+        "testDir": "/Users/ashwathram/Projects/dibs/tests/e2e",
+        "snapshotDir": "/Users/ashwathram/Projects/dibs/tests/e2e",
+        "testIgnore": "round7.spec.ts",
+        "testMatch": "**/*.spec.ts",
+        "timeout": 90000,
+        "use": {
+          "baseURL": "http://127.0.0.1:5199",
+          "trace": "retain-on-failure",
+          "timezoneId": "America/Toronto",
+          "browserName": "webkit",
+          "viewport": {
+            "width": 1440,
+            "height": 1000
+          },
+          "colorScheme": "dark"
+        },
+        "dependencies": [],
+        "ignoreSnapshots": false,
+        "__projectId": "webkit-1440-dark"
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "list",
+        null
+      ],
+      [
+        "json",
+        {
+          "outputFile": "review/round19/regression-targeted.json"
+        }
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "default",
+    "updateSourceMethod": "patch",
+    "version": "1.65.1",
+    "workers": 4,
+    "webServer": {
+      "command": "npm run preview -- --mode security-test --port 5199",
+      "url": "http://127.0.0.1:5199",
+      "reuseExistingServer": true
+    }
+  },
+  "suites": [
+    {
+      "title": "flow.spec.ts",
+      "file": "flow.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "full filing, certificate, sharing and public record",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium-390-light",
+              "projectName": "chromium-390-light",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 7819,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-23T11:38:39.901Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            },
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "webkit-1440-dark",
+              "projectName": "webkit-1440-dark",
+              "results": [
+                {
+                  "workerIndex": 4,
+                  "parallelIndex": 3,
+                  "status": "passed",
+                  "duration": 8048,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-23T11:38:54.583Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "f353db48c569834dc22b-0a07ec54b106658e91f2",
+          "file": "flow.spec.ts",
+          "line": 6,
+          "column": 1
+        },
+        {
+          "title": "five strikes close the file and invalid entries cost nothing",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium-390-light",
+              "projectName": "chromium-390-light",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 3465,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-23T11:38:39.899Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            },
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "webkit-1440-dark",
+              "projectName": "webkit-1440-dark",
+              "results": [
+                {
+                  "workerIndex": 5,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 3714,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-23T11:38:55.053Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "f353db48c569834dc22b-d0152f1ea91cb435cfe8",
+          "file": "flow.spec.ts",
+          "line": 92,
+          "column": 1
+        }
+      ]
+    },
+    {
+      "title": "round11.spec.ts",
+      "file": "round11.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "R11 rules, free guesses, explicit counters, reminders, settings and deletion",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium-390-light",
+              "projectName": "chromium-390-light",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 2,
+                  "status": "passed",
+                  "duration": 5447,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-23T11:38:39.898Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            },
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "webkit-1440-dark",
+              "projectName": "webkit-1440-dark",
+              "results": [
+                {
+                  "workerIndex": 6,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 4514,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-23T11:38:55.668Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "08cc234c304286c01af8-8f598a80fb1f093ed5bc",
+          "file": "round11.spec.ts",
+          "line": 3,
+          "column": 1
+        },
+        {
+          "title": "R11 every page has legible type, aligned containers, accessible disclosures and no overflow",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium-390-light",
+              "projectName": "chromium-390-light",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 3,
+                  "status": "passed",
+                  "duration": 8297,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-23T11:38:39.897Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            },
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "webkit-1440-dark",
+              "projectName": "webkit-1440-dark",
+              "results": [
+                {
+                  "workerIndex": 7,
+                  "parallelIndex": 2,
+                  "status": "passed",
+                  "duration": 10047,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-23T11:38:58.251Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "08cc234c304286c01af8-24090abcc593dbd4604d",
+          "file": "round11.spec.ts",
+          "line": 51,
+          "column": 1
+        }
+      ]
+    },
+    {
+      "title": "round13.spec.ts",
+      "file": "round13.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "R13 hero first, R7 scale, phone action visible, explanation collapses",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium-390-light",
+              "projectName": "chromium-390-light",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 2117,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-23T11:38:43.459Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            },
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "webkit-1440-dark",
+              "projectName": "webkit-1440-dark",
+              "results": [
+                {
+                  "workerIndex": 5,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 2822,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-23T11:38:58.972Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "58ee6b72ac1a0da6b9f8-9b7f2a2c82a85de381f0",
+          "file": "round13.spec.ts",
+          "line": 3,
+          "column": 1
+        },
+        {
+          "title": "R13 sound mapping, double tap and music only after tap",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium-390-light",
+              "projectName": "chromium-390-light",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 2,
+                  "status": "passed",
+                  "duration": 6433,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-23T11:38:45.437Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            },
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "webkit-1440-dark",
+              "projectName": "webkit-1440-dark",
+              "results": [
+                {
+                  "workerIndex": 6,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 6164,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-23T11:39:00.346Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "58ee6b72ac1a0da6b9f8-d24df98145a1ca73c190",
+          "file": "round13.spec.ts",
+          "line": 67,
+          "column": 1
+        },
+        {
+          "title": "R13 overlay keyboard keeps the whole form reachable after rules collapse",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium-390-light",
+              "projectName": "chromium-390-light",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 2156,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-23T11:38:45.581Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            },
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "webkit-1440-dark",
+              "projectName": "webkit-1440-dark",
+              "results": [
+                {
+                  "workerIndex": 5,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 2458,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-23T11:39:01.802Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "58ee6b72ac1a0da6b9f8-ce0e7f41d275ba9d1244",
+          "file": "round13.spec.ts",
+          "line": 154,
+          "column": 1
+        }
+      ]
+    },
+    {
+      "title": "round16.spec.ts",
+      "file": "round16.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "R16 header controls, timezone focus and readable content",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium-390-light",
+              "projectName": "chromium-390-light",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 2809,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-23T11:38:47.744Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            },
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "webkit-1440-dark",
+              "projectName": "webkit-1440-dark",
+              "results": [
+                {
+                  "workerIndex": 4,
+                  "parallelIndex": 3,
+                  "status": "passed",
+                  "duration": 2862,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-23T11:39:02.806Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "e261f051a35234793ec6-abf80c8e65dd0fda049b",
+          "file": "round16.spec.ts",
+          "line": 3,
+          "column": 1
+        },
+        {
+          "title": "R16 clock digits have visible spacing in both themes",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium-390-light",
+              "projectName": "chromium-390-light",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 926,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-23T11:38:47.807Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            },
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "webkit-1440-dark",
+              "projectName": "webkit-1440-dark",
+              "results": [
+                {
+                  "workerIndex": 5,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1175,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-23T11:39:04.267Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "e261f051a35234793ec6-12428a9b67e8e3e037b1",
+          "file": "round16.spec.ts",
+          "line": 35,
+          "column": 1
+        }
+      ]
+    },
+    {
+      "title": "round18.spec.ts",
+      "file": "round18.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "R18 Settings expands down, keeps one explanation, code/copy/restore/delete order and zero overflow",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium-390-light",
+              "projectName": "chromium-390-light",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 3,
+                  "status": "passed",
+                  "duration": 1065,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-23T11:38:48.308Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            },
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "webkit-1440-dark",
+              "projectName": "webkit-1440-dark",
+              "results": [
+                {
+                  "workerIndex": 5,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1432,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-23T11:39:05.468Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "7c72e80f0d49c79a6cc5-6714e228f1c25f7e93d7",
+          "file": "round18.spec.ts",
+          "line": 5,
+          "column": 1
+        },
+        {
+          "title": "R18 feedback is a single-column modal with focus trap, Escape, success and error states",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium-390-light",
+              "projectName": "chromium-390-light",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 2826,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-23T11:38:48.748Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            },
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "webkit-1440-dark",
+              "projectName": "webkit-1440-dark",
+              "results": [
+                {
+                  "workerIndex": 4,
+                  "parallelIndex": 3,
+                  "status": "passed",
+                  "duration": 3538,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-23T11:39:05.689Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "7c72e80f0d49c79a6cc5-ecc9d3e3da47e9c3e484",
+          "file": "round18.spec.ts",
+          "line": 43,
+          "column": 1
+        },
+        {
+          "title": "R18 footer stays grouped; reminder rows are equal, accessible and large enough to tap",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium-390-light",
+              "projectName": "chromium-390-light",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 3,
+                  "status": "passed",
+                  "duration": 937,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-23T11:38:49.378Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            },
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "webkit-1440-dark",
+              "projectName": "webkit-1440-dark",
+              "results": [
+                {
+                  "workerIndex": 6,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 1239,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-23T11:39:06.528Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "7c72e80f0d49c79a6cc5-b35537de8ec961a57c77",
+          "file": "round18.spec.ts",
+          "line": 87,
+          "column": 1
+        },
+        {
+          "title": "R18 clock is solid Archivo and fits every repeated tabular digit; sharing appears only after play",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium-390-light",
+              "projectName": "chromium-390-light",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 3,
+                  "status": "passed",
+                  "duration": 4001,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-23T11:38:50.319Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            },
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "webkit-1440-dark",
+              "projectName": "webkit-1440-dark",
+              "results": [
+                {
+                  "workerIndex": 5,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 4063,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-23T11:39:06.907Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "7c72e80f0d49c79a6cc5-e00b0c689e2f934bc45b",
+          "file": "round18.spec.ts",
+          "line": 120,
+          "column": 1
+        }
+      ]
+    },
+    {
+      "title": "sharing.spec.ts",
+      "file": "sharing.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "all share controls, exact intents and anonymous one-tap events",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium-390-light",
+              "projectName": "chromium-390-light",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 1824,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-23T11:38:50.569Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            },
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "webkit-1440-dark",
+              "projectName": "webkit-1440-dark",
+              "results": [
+                {
+                  "workerIndex": 6,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 2705,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-23T11:39:07.775Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "ef7e8b9b487b6f94d7a1-6d2e62e107b0cc71b22d",
+          "file": "sharing.spec.ts",
+          "line": 10,
+          "column": 1
+        },
+        {
+          "title": "native sharing sends a prepared story file; cancellation never downloads",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium-390-light",
+              "projectName": "chromium-390-light",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1524,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-23T11:38:51.585Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            },
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "webkit-1440-dark",
+              "projectName": "webkit-1440-dark",
+              "results": [
+                {
+                  "workerIndex": 7,
+                  "parallelIndex": 2,
+                  "status": "passed",
+                  "duration": 1771,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-23T11:39:08.491Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "ef7e8b9b487b6f94d7a1-43dd747eb82652fe07bf",
+          "file": "sharing.spec.ts",
+          "line": 80,
+          "column": 1
+        },
+        {
+          "title": "text-only native sharing offers the PNG; blocked clipboard keeps selectable text",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium-390-light",
+              "projectName": "chromium-390-light",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 2,
+                  "status": "passed",
+                  "duration": 1488,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-23T11:38:51.889Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            },
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "webkit-1440-dark",
+              "projectName": "webkit-1440-dark",
+              "results": [
+                {
+                  "workerIndex": 4,
+                  "parallelIndex": 3,
+                  "status": "passed",
+                  "duration": 1880,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-23T11:39:09.234Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "ef7e8b9b487b6f94d7a1-267901c49ffa4ee0f5b8",
+          "file": "sharing.spec.ts",
+          "line": 116,
+          "column": 1
+        },
+        {
+          "title": "Instagram and TikTok export keeps a long-press image when the browser blocks downloads",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium-390-light",
+              "projectName": "chromium-390-light",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 1496,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-23T11:38:52.398Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            },
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "webkit-1440-dark",
+              "projectName": "webkit-1440-dark",
+              "results": [
+                {
+                  "workerIndex": 7,
+                  "parallelIndex": 2,
+                  "status": "passed",
+                  "duration": 1854,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-23T11:39:10.272Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "ef7e8b9b487b6f94d7a1-0fa4b4d7b247dc157406",
+          "file": "sharing.spec.ts",
+          "line": 144,
+          "column": 1
+        },
+        {
+          "title": "native share rejection falls back to a PNG",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium-390-light",
+              "projectName": "chromium-390-light",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1500,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-23T11:38:53.115Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            },
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "webkit-1440-dark",
+              "projectName": "webkit-1440-dark",
+              "results": [
+                {
+                  "workerIndex": 6,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 1795,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-23T11:39:10.485Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "ef7e8b9b487b6f94d7a1-698dc283cd971b33f935",
+          "file": "sharing.spec.ts",
+          "line": 169,
+          "column": 1
+        },
+        {
+          "title": "first arrival attribution survives reloads and ignores arbitrary sources",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium-390-light",
+              "projectName": "chromium-390-light",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 2,
+                  "status": "passed",
+                  "duration": 4532,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-23T11:38:53.381Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            },
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "webkit-1440-dark",
+              "projectName": "webkit-1440-dark",
+              "results": [
+                {
+                  "workerIndex": 5,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 4874,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-23T11:39:10.978Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "ef7e8b9b487b6f94d7a1-07419f9fe2a75296c63a",
+          "file": "sharing.spec.ts",
+          "line": 185,
+          "column": 1
+        }
+      ]
+    },
+    {
+      "title": "spelling.spec.ts",
+      "file": "spelling.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "checks a long-tail submitted typo in a browser worker without revealing suggestions while typing",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium-390-light",
+              "projectName": "chromium-390-light",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 1374,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-23T11:38:53.903Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            },
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "webkit-1440-dark",
+              "projectName": "webkit-1440-dark",
+              "results": [
+                {
+                  "workerIndex": 4,
+                  "parallelIndex": 3,
+                  "status": "passed",
+                  "duration": 1524,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-23T11:39:11.124Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "bbb28137ad76fbeadc40-d676be9b20be36477ed4",
+          "file": "spelling.spec.ts",
+          "line": 6,
+          "column": 1
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-11-23T11:38:39.464Z",
+    "duration": 36445.151000000005,
+    "expected": 40,
+    "skipped": 0,
+    "unexpected": 0,
+    "flaky": 0
+  }
+}

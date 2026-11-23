@@ -1,0 +1,406 @@
+[
+  {
+    "kind": "streak",
+    "browser": "chromium",
+    "width": 320,
+    "theme": "light",
+    "states": [
+      0,
+      1,
+      3,
+      7,
+      30,
+      100
+    ],
+    "passed": true
+  },
+  {
+    "kind": "streak",
+    "browser": "chromium",
+    "width": 320,
+    "theme": "dark",
+    "states": [
+      0,
+      1,
+      3,
+      7,
+      30,
+      100
+    ],
+    "passed": true
+  },
+  {
+    "kind": "streak",
+    "browser": "chromium",
+    "width": 390,
+    "theme": "light",
+    "states": [
+      0,
+      1,
+      3,
+      7,
+      30,
+      100
+    ],
+    "passed": true
+  },
+  {
+    "kind": "streak",
+    "browser": "chromium",
+    "width": 390,
+    "theme": "dark",
+    "states": [
+      0,
+      1,
+      3,
+      7,
+      30,
+      100
+    ],
+    "passed": true
+  },
+  {
+    "kind": "streak",
+    "browser": "chromium",
+    "width": 1440,
+    "theme": "light",
+    "states": [
+      0,
+      1,
+      3,
+      7,
+      30,
+      100
+    ],
+    "passed": true
+  },
+  {
+    "kind": "streak",
+    "browser": "chromium",
+    "width": 1440,
+    "theme": "dark",
+    "states": [
+      0,
+      1,
+      3,
+      7,
+      30,
+      100
+    ],
+    "passed": true
+  },
+  {
+    "kind": "examples",
+    "browser": "chromium",
+    "width": 320,
+    "theme": "light",
+    "passed": true
+  },
+  {
+    "kind": "examples",
+    "browser": "chromium",
+    "width": 320,
+    "theme": "dark",
+    "passed": true
+  },
+  {
+    "kind": "examples",
+    "browser": "chromium",
+    "width": 360,
+    "theme": "light",
+    "passed": true
+  },
+  {
+    "kind": "examples",
+    "browser": "chromium",
+    "width": 360,
+    "theme": "dark",
+    "passed": true
+  },
+  {
+    "kind": "examples",
+    "browser": "chromium",
+    "width": 390,
+    "theme": "light",
+    "passed": true
+  },
+  {
+    "kind": "examples",
+    "browser": "chromium",
+    "width": 390,
+    "theme": "dark",
+    "passed": true
+  },
+  {
+    "kind": "examples",
+    "browser": "chromium",
+    "width": 1440,
+    "theme": "light",
+    "passed": true
+  },
+  {
+    "kind": "examples",
+    "browser": "chromium",
+    "width": 1440,
+    "theme": "dark",
+    "passed": true
+  },
+  {
+    "kind": "200% browser-zoom-equivalent CSS viewport",
+    "browser": "chromium",
+    "physicalViewport": {
+      "width": 1470,
+      "height": 956
+    },
+    "cssViewport": {
+      "width": 735,
+      "height": 478
+    },
+    "theme": "light",
+    "passed": true
+  },
+  {
+    "kind": "200% browser-zoom-equivalent CSS viewport",
+    "browser": "chromium",
+    "physicalViewport": {
+      "width": 1470,
+      "height": 956
+    },
+    "cssViewport": {
+      "width": 735,
+      "height": 478
+    },
+    "theme": "dark",
+    "passed": true
+  },
+  {
+    "kind": "200% browser-zoom-equivalent CSS viewport",
+    "browser": "chromium",
+    "physicalViewport": {
+      "width": 1440,
+      "height": 900
+    },
+    "cssViewport": {
+      "width": 720,
+      "height": 450
+    },
+    "theme": "light",
+    "passed": true
+  },
+  {
+    "kind": "200% browser-zoom-equivalent CSS viewport",
+    "browser": "chromium",
+    "physicalViewport": {
+      "width": 1440,
+      "height": 900
+    },
+    "cssViewport": {
+      "width": 720,
+      "height": 450
+    },
+    "theme": "dark",
+    "passed": true
+  },
+  {
+    "kind": "streak",
+    "browser": "webkit",
+    "width": 320,
+    "theme": "light",
+    "states": [
+      0,
+      1,
+      3,
+      7,
+      30,
+      100
+    ],
+    "passed": true
+  },
+  {
+    "kind": "streak",
+    "browser": "webkit",
+    "width": 320,
+    "theme": "dark",
+    "states": [
+      0,
+      1,
+      3,
+      7,
+      30,
+      100
+    ],
+    "passed": true
+  },
+  {
+    "kind": "streak",
+    "browser": "webkit",
+    "width": 390,
+    "theme": "light",
+    "states": [
+      0,
+      1,
+      3,
+      7,
+      30,
+      100
+    ],
+    "passed": true
+  },
+  {
+    "kind": "streak",
+    "browser": "webkit",
+    "width": 390,
+    "theme": "dark",
+    "states": [
+      0,
+      1,
+      3,
+      7,
+      30,
+      100
+    ],
+    "passed": true
+  },
+  {
+    "kind": "streak",
+    "browser": "webkit",
+    "width": 1440,
+    "theme": "light",
+    "states": [
+      0,
+      1,
+      3,
+      7,
+      30,
+      100
+    ],
+    "passed": true
+  },
+  {
+    "kind": "streak",
+    "browser": "webkit",
+    "width": 1440,
+    "theme": "dark",
+    "states": [
+      0,
+      1,
+      3,
+      7,
+      30,
+      100
+    ],
+    "passed": true
+  },
+  {
+    "kind": "examples",
+    "browser": "webkit",
+    "width": 320,
+    "theme": "light",
+    "passed": true
+  },
+  {
+    "kind": "examples",
+    "browser": "webkit",
+    "width": 320,
+    "theme": "dark",
+    "passed": true
+  },
+  {
+    "kind": "examples",
+    "browser": "webkit",
+    "width": 360,
+    "theme": "light",
+    "passed": true
+  },
+  {
+    "kind": "examples",
+    "browser": "webkit",
+    "width": 360,
+    "theme": "dark",
+    "passed": true
+  },
+  {
+    "kind": "examples",
+    "browser": "webkit",
+    "width": 390,
+    "theme": "light",
+    "passed": true
+  },
+  {
+    "kind": "examples",
+    "browser": "webkit",
+    "width": 390,
+    "theme": "dark",
+    "passed": true
+  },
+  {
+    "kind": "examples",
+    "browser": "webkit",
+    "width": 1440,
+    "theme": "light",
+    "passed": true
+  },
+  {
+    "kind": "examples",
+    "browser": "webkit",
+    "width": 1440,
+    "theme": "dark",
+    "passed": true
+  },
+  {
+    "kind": "200% browser-zoom-equivalent CSS viewport",
+    "browser": "webkit",
+    "physicalViewport": {
+      "width": 1470,
+      "height": 956
+    },
+    "cssViewport": {
+      "width": 735,
+      "height": 478
+    },
+    "theme": "light",
+    "passed": true
+  },
+  {
+    "kind": "200% browser-zoom-equivalent CSS viewport",
+    "browser": "webkit",
+    "physicalViewport": {
+      "width": 1470,
+      "height": 956
+    },
+    "cssViewport": {
+      "width": 735,
+      "height": 478
+    },
+    "theme": "dark",
+    "passed": true
+  },
+  {
+    "kind": "200% browser-zoom-equivalent CSS viewport",
+    "browser": "webkit",
+    "physicalViewport": {
+      "width": 1440,
+      "height": 900
+    },
+    "cssViewport": {
+      "width": 720,
+      "height": 450
+    },
+    "theme": "light",
+    "passed": true
+  },
+  {
+    "kind": "200% browser-zoom-equivalent CSS viewport",
+    "browser": "webkit",
+    "physicalViewport": {
+      "width": 1440,
+      "height": 900
+    },
+    "cssViewport": {
+      "width": 720,
+      "height": 450
+    },
+    "theme": "dark",
+    "passed": true
+  }
+]

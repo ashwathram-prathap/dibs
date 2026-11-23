@@ -1,0 +1,24 @@
+{
+  "at": "2026-11-23T12:07:17.370Z",
+  "passed": true,
+  "result": [
+    {
+      "table": "users",
+      "read": 0,
+      "changed": 0,
+      "batches": 1
+    },
+    {
+      "table": "r17_players",
+      "read": 0,
+      "changed": 0,
+      "batches": 1
+    },
+    {
+      "table": "r17_files",
+      "read": 0,
+      "changed": 0,
+      "batches": 1
+    }
+  ]
+}

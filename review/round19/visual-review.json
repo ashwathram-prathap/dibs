@@ -1,0 +1,44 @@
+{
+  "passed": true,
+  "at": "2026-11-23T12:15:51.882516+00:00",
+  "reviewedRoutes": [
+    "closed",
+    "live",
+    "done",
+    "leaderboard",
+    "how",
+    "office",
+    "certificate",
+    "archive",
+    "stats",
+    "admin",
+    "calendar",
+    "error"
+  ],
+  "widths": [
+    390,
+    1440
+  ],
+  "themes": [
+    "light",
+    "dark"
+  ],
+  "phonePayoffComparedWithR7": true,
+  "checks": [
+    "single payoff frame and clear hierarchy",
+    "desktop bell and mini board",
+    "visible phone Share and Copy at enlarged text",
+    "no Day Certificate curve in page or export",
+    "individual certificate curve and cleaned holder in canvas/OG",
+    "stamp-first examples",
+    "all Settings content fits real backup codes",
+    "Office heading and decorative stamp fit enlarged text"
+  ],
+  "officeCases": 36,
+  "weakest": [
+    "long Office/privacy page",
+    "tall phone Day Certificate with visible sticky actions",
+    "empty archive"
+  ],
+  "localIndex": "review/round19/index.html"
+}

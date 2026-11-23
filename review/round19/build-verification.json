@@ -1,0 +1,11 @@
+{
+  "passed": true,
+  "at": "2026-11-23T12:17:36.445Z",
+  "command": "npm run build",
+  "sourceCommit": "90af84d0ba27b06c3d2a7e55905e091c8182240c",
+  "htmlSha256": "1206412941ce85ae37541b7deffeb9c1533bcede1738457246dff2bf31e411f7",
+  "staticHomeStructuredData": true,
+  "developmentFixturesExcluded": true,
+  "jsChunks": 11,
+  "note": "Production-origin build and both TypeScript projects passed. The release driver rebuilds before deploying."
+}

@@ -1,0 +1,398 @@
+[
+  {
+    "group": "payoff",
+    "width": 390,
+    "height": 844,
+    "theme": "light",
+    "scale": 1,
+    "percentile": 0.05,
+    "overflow": false
+  },
+  {
+    "group": "payoff",
+    "width": 390,
+    "height": 844,
+    "theme": "light",
+    "scale": 1,
+    "percentile": 0.5,
+    "overflow": false
+  },
+  {
+    "group": "payoff",
+    "width": 390,
+    "height": 844,
+    "theme": "light",
+    "scale": 1,
+    "percentile": 0.94,
+    "overflow": false
+  },
+  {
+    "group": "payoff",
+    "width": 390,
+    "height": 844,
+    "theme": "dark",
+    "scale": 1,
+    "percentile": 0.05,
+    "overflow": false
+  },
+  {
+    "group": "payoff",
+    "width": 390,
+    "height": 844,
+    "theme": "dark",
+    "scale": 1,
+    "percentile": 0.5,
+    "overflow": false
+  },
+  {
+    "group": "payoff",
+    "width": 390,
+    "height": 844,
+    "theme": "dark",
+    "scale": 1,
+    "percentile": 0.94,
+    "overflow": false
+  },
+  {
+    "group": "payoff",
+    "width": 768,
+    "height": 1000,
+    "theme": "light",
+    "scale": 1,
+    "percentile": 0.05,
+    "overflow": false
+  },
+  {
+    "group": "payoff",
+    "width": 768,
+    "height": 1000,
+    "theme": "light",
+    "scale": 1,
+    "percentile": 0.5,
+    "overflow": false
+  },
+  {
+    "group": "payoff",
+    "width": 768,
+    "height": 1000,
+    "theme": "light",
+    "scale": 1,
+    "percentile": 0.94,
+    "overflow": false
+  },
+  {
+    "group": "payoff",
+    "width": 768,
+    "height": 1000,
+    "theme": "dark",
+    "scale": 1,
+    "percentile": 0.05,
+    "overflow": false
+  },
+  {
+    "group": "payoff",
+    "width": 768,
+    "height": 1000,
+    "theme": "dark",
+    "scale": 1,
+    "percentile": 0.5,
+    "overflow": false
+  },
+  {
+    "group": "payoff",
+    "width": 768,
+    "height": 1000,
+    "theme": "dark",
+    "scale": 1,
+    "percentile": 0.94,
+    "overflow": false
+  },
+  {
+    "group": "payoff",
+    "width": 1440,
+    "height": 1000,
+    "theme": "light",
+    "scale": 1,
+    "percentile": 0.05,
+    "overflow": false
+  },
+  {
+    "group": "payoff",
+    "width": 1440,
+    "height": 1000,
+    "theme": "light",
+    "scale": 1,
+    "percentile": 0.5,
+    "overflow": false
+  },
+  {
+    "group": "payoff",
+    "width": 1440,
+    "height": 1000,
+    "theme": "light",
+    "scale": 1,
+    "percentile": 0.94,
+    "overflow": false
+  },
+  {
+    "group": "payoff",
+    "width": 1440,
+    "height": 1000,
+    "theme": "dark",
+    "scale": 1,
+    "percentile": 0.05,
+    "overflow": false
+  },
+  {
+    "group": "payoff",
+    "width": 1440,
+    "height": 1000,
+    "theme": "dark",
+    "scale": 1,
+    "percentile": 0.5,
+    "overflow": false
+  },
+  {
+    "group": "payoff",
+    "width": 1440,
+    "height": 1000,
+    "theme": "dark",
+    "scale": 1,
+    "percentile": 0.94,
+    "overflow": false
+  },
+  {
+    "group": "payoff",
+    "width": 1920,
+    "height": 1080,
+    "theme": "light",
+    "scale": 1,
+    "percentile": 0.05,
+    "overflow": false
+  },
+  {
+    "group": "payoff",
+    "width": 1920,
+    "height": 1080,
+    "theme": "light",
+    "scale": 1,
+    "percentile": 0.5,
+    "overflow": false
+  },
+  {
+    "group": "payoff",
+    "width": 1920,
+    "height": 1080,
+    "theme": "light",
+    "scale": 1,
+    "percentile": 0.94,
+    "overflow": false
+  },
+  {
+    "group": "payoff",
+    "width": 1920,
+    "height": 1080,
+    "theme": "dark",
+    "scale": 1,
+    "percentile": 0.05,
+    "overflow": false
+  },
+  {
+    "group": "payoff",
+    "width": 1920,
+    "height": 1080,
+    "theme": "dark",
+    "scale": 1,
+    "percentile": 0.5,
+    "overflow": false
+  },
+  {
+    "group": "payoff",
+    "width": 1920,
+    "height": 1080,
+    "theme": "dark",
+    "scale": 1,
+    "percentile": 0.94,
+    "overflow": false
+  },
+  {
+    "group": "payoff-phone",
+    "width": 360,
+    "height": 800,
+    "theme": "light",
+    "scale": 1,
+    "percentile": 0.05,
+    "overflow": false
+  },
+  {
+    "group": "payoff-phone",
+    "width": 360,
+    "height": 800,
+    "theme": "light",
+    "scale": 1.3,
+    "percentile": 0.05,
+    "overflow": false
+  },
+  {
+    "group": "payoff-phone",
+    "width": 360,
+    "height": 800,
+    "theme": "dark",
+    "scale": 1,
+    "percentile": 0.05,
+    "overflow": false
+  },
+  {
+    "group": "payoff-phone",
+    "width": 360,
+    "height": 800,
+    "theme": "dark",
+    "scale": 1.3,
+    "percentile": 0.05,
+    "overflow": false
+  },
+  {
+    "group": "payoff-phone",
+    "width": 412,
+    "height": 915,
+    "theme": "light",
+    "scale": 1,
+    "percentile": 0.05,
+    "overflow": false
+  },
+  {
+    "group": "payoff-phone",
+    "width": 412,
+    "height": 915,
+    "theme": "light",
+    "scale": 1.3,
+    "percentile": 0.05,
+    "overflow": false
+  },
+  {
+    "group": "payoff-phone",
+    "width": 412,
+    "height": 915,
+    "theme": "dark",
+    "scale": 1,
+    "percentile": 0.05,
+    "overflow": false
+  },
+  {
+    "group": "payoff-phone",
+    "width": 412,
+    "height": 915,
+    "theme": "dark",
+    "scale": 1.3,
+    "percentile": 0.05,
+    "overflow": false
+  },
+  {
+    "group": "payoff-phone",
+    "width": 375,
+    "height": 667,
+    "theme": "light",
+    "scale": 1,
+    "percentile": 0.05,
+    "overflow": false
+  },
+  {
+    "group": "payoff-phone",
+    "width": 375,
+    "height": 667,
+    "theme": "light",
+    "scale": 1.3,
+    "percentile": 0.05,
+    "overflow": false
+  },
+  {
+    "group": "payoff-phone",
+    "width": 375,
+    "height": 667,
+    "theme": "dark",
+    "scale": 1,
+    "percentile": 0.05,
+    "overflow": false
+  },
+  {
+    "group": "payoff-phone",
+    "width": 375,
+    "height": 667,
+    "theme": "dark",
+    "scale": 1.3,
+    "percentile": 0.05,
+    "overflow": false
+  },
+  {
+    "group": "payoff-phone",
+    "width": 390,
+    "height": 844,
+    "theme": "light",
+    "scale": 1,
+    "percentile": 0.05,
+    "overflow": false
+  },
+  {
+    "group": "payoff-phone",
+    "width": 390,
+    "height": 844,
+    "theme": "light",
+    "scale": 1.3,
+    "percentile": 0.05,
+    "overflow": false
+  },
+  {
+    "group": "payoff-phone",
+    "width": 390,
+    "height": 844,
+    "theme": "dark",
+    "scale": 1,
+    "percentile": 0.05,
+    "overflow": false
+  },
+  {
+    "group": "payoff-phone",
+    "width": 390,
+    "height": 844,
+    "theme": "dark",
+    "scale": 1.3,
+    "percentile": 0.05,
+    "overflow": false
+  },
+  {
+    "group": "payoff-phone",
+    "width": 430,
+    "height": 932,
+    "theme": "light",
+    "scale": 1,
+    "percentile": 0.05,
+    "overflow": false
+  },
+  {
+    "group": "payoff-phone",
+    "width": 430,
+    "height": 932,
+    "theme": "light",
+    "scale": 1.3,
+    "percentile": 0.05,
+    "overflow": false
+  },
+  {
+    "group": "payoff-phone",
+    "width": 430,
+    "height": 932,
+    "theme": "dark",
+    "scale": 1,
+    "percentile": 0.05,
+    "overflow": false
+  },
+  {
+    "group": "payoff-phone",
+    "width": 430,
+    "height": 932,
+    "theme": "dark",
+    "scale": 1.3,
+    "percentile": 0.05,
+    "overflow": false
+  }
+]

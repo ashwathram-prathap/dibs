@@ -1,0 +1,86 @@
+[
+  {
+    "browser": "chromium",
+    "sample": 0,
+    "phase": "before",
+    "tapToStampMs": [
+      4475,
+      812,
+      839
+    ],
+    "verificationRequests": 1,
+    "proofClaimRequests": 3,
+    "scriptStartedBeforeTap": false,
+    "transport": "150ms RTT + 1.6Mbps encoded-response shim; 75ms each way WebSocket; no CPU throttling"
+  },
+  {
+    "browser": "chromium",
+    "sample": 1,
+    "phase": "before",
+    "tapToStampMs": [
+      4374,
+      829,
+      830
+    ],
+    "verificationRequests": 1,
+    "proofClaimRequests": 3,
+    "scriptStartedBeforeTap": false,
+    "transport": "150ms RTT + 1.6Mbps encoded-response shim; 75ms each way WebSocket; no CPU throttling"
+  },
+  {
+    "browser": "chromium",
+    "sample": 2,
+    "phase": "before",
+    "tapToStampMs": [
+      4415,
+      863,
+      1398
+    ],
+    "verificationRequests": 1,
+    "proofClaimRequests": 3,
+    "scriptStartedBeforeTap": false,
+    "transport": "150ms RTT + 1.6Mbps encoded-response shim; 75ms each way WebSocket; no CPU throttling"
+  },
+  {
+    "browser": "webkit",
+    "sample": 0,
+    "phase": "before",
+    "tapToStampMs": [
+      4581,
+      869,
+      1394
+    ],
+    "verificationRequests": 1,
+    "proofClaimRequests": 3,
+    "scriptStartedBeforeTap": false,
+    "transport": "150ms RTT + 1.6Mbps encoded-response shim; 75ms each way WebSocket; no CPU throttling"
+  },
+  {
+    "browser": "webkit",
+    "sample": 1,
+    "phase": "before",
+    "tapToStampMs": [
+      4505,
+      974,
+      951
+    ],
+    "verificationRequests": 1,
+    "proofClaimRequests": 3,
+    "scriptStartedBeforeTap": false,
+    "transport": "150ms RTT + 1.6Mbps encoded-response shim; 75ms each way WebSocket; no CPU throttling"
+  },
+  {
+    "browser": "webkit",
+    "sample": 2,
+    "phase": "before",
+    "tapToStampMs": [
+      4508,
+      876,
+      865
+    ],
+    "verificationRequests": 1,
+    "proofClaimRequests": 3,
+    "scriptStartedBeforeTap": false,
+    "transport": "150ms RTT + 1.6Mbps encoded-response shim; 75ms each way WebSocket; no CPU throttling"
+  }
+]

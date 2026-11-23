@@ -1,0 +1,86 @@
+[
+  {
+    "browser": "chromium",
+    "sample": 0,
+    "phase": "after",
+    "tapToStampMs": [
+      928,
+      819,
+      840
+    ],
+    "verificationRequests": 1,
+    "proofClaimRequests": 3,
+    "scriptStartedBeforeTap": true,
+    "transport": "150ms RTT + 1.6Mbps encoded-response shim; 75ms each way WebSocket; no CPU throttling"
+  },
+  {
+    "browser": "chromium",
+    "sample": 1,
+    "phase": "after",
+    "tapToStampMs": [
+      859,
+      843,
+      817
+    ],
+    "verificationRequests": 1,
+    "proofClaimRequests": 3,
+    "scriptStartedBeforeTap": true,
+    "transport": "150ms RTT + 1.6Mbps encoded-response shim; 75ms each way WebSocket; no CPU throttling"
+  },
+  {
+    "browser": "chromium",
+    "sample": 2,
+    "phase": "after",
+    "tapToStampMs": [
+      1354,
+      836,
+      828
+    ],
+    "verificationRequests": 1,
+    "proofClaimRequests": 3,
+    "scriptStartedBeforeTap": true,
+    "transport": "150ms RTT + 1.6Mbps encoded-response shim; 75ms each way WebSocket; no CPU throttling"
+  },
+  {
+    "browser": "webkit",
+    "sample": 0,
+    "phase": "after",
+    "tapToStampMs": [
+      2377,
+      829,
+      843
+    ],
+    "verificationRequests": 1,
+    "proofClaimRequests": 3,
+    "scriptStartedBeforeTap": true,
+    "transport": "150ms RTT + 1.6Mbps encoded-response shim; 75ms each way WebSocket; no CPU throttling"
+  },
+  {
+    "browser": "webkit",
+    "sample": 1,
+    "phase": "after",
+    "tapToStampMs": [
+      1838,
+      825,
+      848
+    ],
+    "verificationRequests": 1,
+    "proofClaimRequests": 3,
+    "scriptStartedBeforeTap": true,
+    "transport": "150ms RTT + 1.6Mbps encoded-response shim; 75ms each way WebSocket; no CPU throttling"
+  },
+  {
+    "browser": "webkit",
+    "sample": 2,
+    "phase": "after",
+    "tapToStampMs": [
+      1863,
+      830,
+      820
+    ],
+    "verificationRequests": 1,
+    "proofClaimRequests": 3,
+    "scriptStartedBeforeTap": true,
+    "transport": "150ms RTT + 1.6Mbps encoded-response shim; 75ms each way WebSocket; no CPU throttling"
+  }
+]

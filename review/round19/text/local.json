@@ -1,0 +1,1766 @@
+[
+  {
+    "browser": "chromium",
+    "width": 320,
+    "theme": "light",
+    "screen": "closed",
+    "checked": 15,
+    "failures": [],
+    "overflow": false
+  },
+  {
+    "browser": "chromium",
+    "width": 320,
+    "theme": "light",
+    "screen": "live",
+    "checked": 9,
+    "failures": [],
+    "overflow": false
+  },
+  {
+    "browser": "chromium",
+    "width": 320,
+    "theme": "light",
+    "screen": "payoff",
+    "checked": 15,
+    "failures": [],
+    "overflow": false
+  },
+  {
+    "browser": "chromium",
+    "width": 320,
+    "theme": "light",
+    "screen": "done",
+    "checked": 29,
+    "failures": [],
+    "overflow": false
+  },
+  {
+    "browser": "chromium",
+    "width": 320,
+    "theme": "light",
+    "screen": "how",
+    "checked": 14,
+    "failures": [],
+    "overflow": false
+  },
+  {
+    "browser": "chromium",
+    "width": 320,
+    "theme": "light",
+    "screen": "settings",
+    "checked": 28,
+    "failures": [],
+    "overflow": false
+  },
+  {
+    "browser": "chromium",
+    "width": 320,
+    "theme": "light",
+    "screen": "certificate",
+    "checked": 11,
+    "failures": [],
+    "overflow": false
+  },
+  {
+    "browser": "chromium",
+    "width": 320,
+    "theme": "dark",
+    "screen": "closed",
+    "checked": 15,
+    "failures": [],
+    "overflow": false
+  },
+  {
+    "browser": "chromium",
+    "width": 320,
+    "theme": "dark",
+    "screen": "live",
+    "checked": 9,
+    "failures": [],
+    "overflow": false
+  },
+  {
+    "browser": "chromium",
+    "width": 320,
+    "theme": "dark",
+    "screen": "payoff",
+    "checked": 15,
+    "failures": [],
+    "overflow": false
+  },
+  {
+    "browser": "chromium",
+    "width": 320,
+    "theme": "dark",
+    "screen": "done",
+    "checked": 29,
+    "failures": [],
+    "overflow": false
+  },
+  {
+    "browser": "chromium",
+    "width": 320,
+    "theme": "dark",
+    "screen": "how",
+    "checked": 14,
+    "failures": [],
+    "overflow": false
+  },
+  {
+    "browser": "chromium",
+    "width": 320,
+    "theme": "dark",
+    "screen": "settings",
+    "checked": 28,
+    "failures": [],
+    "overflow": false
+  },
+  {
+    "browser": "chromium",
+    "width": 320,
+    "theme": "dark",
+    "screen": "certificate",
+    "checked": 11,
+    "failures": [],
+    "overflow": false
+  },
+  {
+    "browser": "chromium",
+    "width": 360,
+    "theme": "light",
+    "screen": "closed",
+    "checked": 15,
+    "failures": [],
+    "overflow": false
+  },
+  {
+    "browser": "chromium",
+    "width": 360,
+    "theme": "light",
+    "screen": "live",
+    "checked": 9,
+    "failures": [],
+    "overflow": false
+  },
+  {
+    "browser": "chromium",
+    "width": 360,
+    "theme": "light",
+    "screen": "payoff",
+    "checked": 15,
+    "failures": [],
+    "overflow": false
+  },
+  {
+    "browser": "chromium",
+    "width": 360,
+    "theme": "light",
+    "screen": "done",
+    "checked": 29,
+    "failures": [],
+    "overflow": false
+  },
+  {
+    "browser": "chromium",
+    "width": 360,
+    "theme": "light",
+    "screen": "how",
+    "checked": 14,
+    "failures": [],
+    "overflow": false
+  },
+  {
+    "browser": "chromium",
+    "width": 360,
+    "theme": "light",
+    "screen": "settings",
+    "checked": 28,
+    "failures": [],
+    "overflow": false
+  },
+  {
+    "browser": "chromium",
+    "width": 360,
+    "theme": "light",
+    "screen": "certificate",
+    "checked": 11,
+    "failures": [],
+    "overflow": false
+  },
+  {
+    "browser": "chromium",
+    "width": 360,
+    "theme": "dark",
+    "screen": "closed",
+    "checked": 15,
+    "failures": [],
+    "overflow": false
+  },
+  {
+    "browser": "chromium",
+    "width": 360,
+    "theme": "dark",
+    "screen": "live",
+    "checked": 9,
+    "failures": [],
+    "overflow": false
+  },
+  {
+    "browser": "chromium",
+    "width": 360,
+    "theme": "dark",
+    "screen": "payoff",
+    "checked": 15,
+    "failures": [],
+    "overflow": false
+  },
+  {
+    "browser": "chromium",
+    "width": 360,
+    "theme": "dark",
+    "screen": "done",
+    "checked": 29,
+    "failures": [],
+    "overflow": false
+  },
+  {
+    "browser": "chromium",
+    "width": 360,
+    "theme": "dark",
+    "screen": "how",
+    "checked": 14,
+    "failures": [],
+    "overflow": false
+  },
+  {
+    "browser": "chromium",
+    "width": 360,
+    "theme": "dark",
+    "screen": "settings",
+    "checked": 28,
+    "failures": [],
+    "overflow": false
+  },
+  {
+    "browser": "chromium",
+    "width": 360,
+    "theme": "dark",
+    "screen": "certificate",
+    "checked": 11,
+    "failures": [],
+    "overflow": false
+  },
+  {
+    "browser": "chromium",
+    "width": 390,
+    "theme": "light",
+    "screen": "closed",
+    "checked": 15,
+    "failures": [],
+    "overflow": false
+  },
+  {
+    "browser": "chromium",
+    "width": 390,
+    "theme": "light",
+    "screen": "live",
+    "checked": 9,
+    "failures": [],
+    "overflow": false
+  },
+  {
+    "browser": "chromium",
+    "width": 390,
+    "theme": "light",
+    "screen": "payoff",
+    "checked": 15,
+    "failures": [],
+    "overflow": false
+  },
+  {
+    "browser": "chromium",
+    "width": 390,
+    "theme": "light",
+    "screen": "done",
+    "checked": 29,
+    "failures": [],
+    "overflow": false
+  },
+  {
+    "browser": "chromium",
+    "width": 390,
+    "theme": "light",
+    "screen": "how",
+    "checked": 14,
+    "failures": [],
+    "overflow": false
+  },
+  {
+    "browser": "chromium",
+    "width": 390,
+    "theme": "light",
+    "screen": "settings",
+    "checked": 28,
+    "failures": [],
+    "overflow": false
+  },
+  {
+    "browser": "chromium",
+    "width": 390,
+    "theme": "light",
+    "screen": "certificate",
+    "checked": 11,
+    "failures": [],
+    "overflow": false
+  },
+  {
+    "browser": "chromium",
+    "width": 390,
+    "theme": "dark",
+    "screen": "closed",
+    "checked": 15,
+    "failures": [],
+    "overflow": false
+  },
+  {
+    "browser": "chromium",
+    "width": 390,
+    "theme": "dark",
+    "screen": "live",
+    "checked": 9,
+    "failures": [],
+    "overflow": false
+  },
+  {
+    "browser": "chromium",
+    "width": 390,
+    "theme": "dark",
+    "screen": "payoff",
+    "checked": 15,
+    "failures": [],
+    "overflow": false
+  },
+  {
+    "browser": "chromium",
+    "width": 390,
+    "theme": "dark",
+    "screen": "done",
+    "checked": 29,
+    "failures": [],
+    "overflow": false
+  },
+  {
+    "browser": "chromium",
+    "width": 390,
+    "theme": "dark",
+    "screen": "how",
+    "checked": 14,
+    "failures": [],
+    "overflow": false
+  },
+  {
+    "browser": "chromium",
+    "width": 390,
+    "theme": "dark",
+    "screen": "settings",
+    "checked": 28,
+    "failures": [],
+    "overflow": false
+  },
+  {
+    "browser": "chromium",
+    "width": 390,
+    "theme": "dark",
+    "screen": "certificate",
+    "checked": 11,
+    "failures": [],
+    "overflow": false
+  },
+  {
+    "browser": "chromium",
+    "width": 430,
+    "theme": "light",
+    "screen": "closed",
+    "checked": 15,
+    "failures": [],
+    "overflow": false
+  },
+  {
+    "browser": "chromium",
+    "width": 430,
+    "theme": "light",
+    "screen": "live",
+    "checked": 9,
+    "failures": [],
+    "overflow": false
+  },
+  {
+    "browser": "chromium",
+    "width": 430,
+    "theme": "light",
+    "screen": "payoff",
+    "checked": 15,
+    "failures": [],
+    "overflow": false
+  },
+  {
+    "browser": "chromium",
+    "width": 430,
+    "theme": "light",
+    "screen": "done",
+    "checked": 29,
+    "failures": [],
+    "overflow": false
+  },
+  {
+    "browser": "chromium",
+    "width": 430,
+    "theme": "light",
+    "screen": "how",
+    "checked": 14,
+    "failures": [],
+    "overflow": false
+  },
+  {
+    "browser": "chromium",
+    "width": 430,
+    "theme": "light",
+    "screen": "settings",
+    "checked": 28,
+    "failures": [],
+    "overflow": false
+  },
+  {
+    "browser": "chromium",
+    "width": 430,
+    "theme": "light",
+    "screen": "certificate",
+    "checked": 11,
+    "failures": [],
+    "overflow": false
+  },
+  {
+    "browser": "chromium",
+    "width": 430,
+    "theme": "dark",
+    "screen": "closed",
+    "checked": 15,
+    "failures": [],
+    "overflow": false
+  },
+  {
+    "browser": "chromium",
+    "width": 430,
+    "theme": "dark",
+    "screen": "live",
+    "checked": 9,
+    "failures": [],
+    "overflow": false
+  },
+  {
+    "browser": "chromium",
+    "width": 430,
+    "theme": "dark",
+    "screen": "payoff",
+    "checked": 15,
+    "failures": [],
+    "overflow": false
+  },
+  {
+    "browser": "chromium",
+    "width": 430,
+    "theme": "dark",
+    "screen": "done",
+    "checked": 29,
+    "failures": [],
+    "overflow": false
+  },
+  {
+    "browser": "chromium",
+    "width": 430,
+    "theme": "dark",
+    "screen": "how",
+    "checked": 14,
+    "failures": [],
+    "overflow": false
+  },
+  {
+    "browser": "chromium",
+    "width": 430,
+    "theme": "dark",
+    "screen": "settings",
+    "checked": 28,
+    "failures": [],
+    "overflow": false
+  },
+  {
+    "browser": "chromium",
+    "width": 430,
+    "theme": "dark",
+    "screen": "certificate",
+    "checked": 11,
+    "failures": [],
+    "overflow": false
+  },
+  {
+    "browser": "chromium",
+    "width": 768,
+    "theme": "light",
+    "screen": "closed",
+    "checked": 15,
+    "failures": [],
+    "overflow": false
+  },
+  {
+    "browser": "chromium",
+    "width": 768,
+    "theme": "light",
+    "screen": "live",
+    "checked": 20,
+    "failures": [],
+    "overflow": false
+  },
+  {
+    "browser": "chromium",
+    "width": 768,
+    "theme": "light",
+    "screen": "payoff",
+    "checked": 18,
+    "failures": [],
+    "overflow": false
+  },
+  {
+    "browser": "chromium",
+    "width": 768,
+    "theme": "light",
+    "screen": "done",
+    "checked": 27,
+    "failures": [],
+    "overflow": false
+  },
+  {
+    "browser": "chromium",
+    "width": 768,
+    "theme": "light",
+    "screen": "how",
+    "checked": 14,
+    "failures": [],
+    "overflow": false
+  },
+  {
+    "browser": "chromium",
+    "width": 768,
+    "theme": "light",
+    "screen": "settings",
+    "checked": 28,
+    "failures": [],
+    "overflow": false
+  },
+  {
+    "browser": "chromium",
+    "width": 768,
+    "theme": "light",
+    "screen": "certificate",
+    "checked": 11,
+    "failures": [],
+    "overflow": false
+  },
+  {
+    "browser": "chromium",
+    "width": 768,
+    "theme": "dark",
+    "screen": "closed",
+    "checked": 15,
+    "failures": [],
+    "overflow": false
+  },
+  {
+    "browser": "chromium",
+    "width": 768,
+    "theme": "dark",
+    "screen": "live",
+    "checked": 20,
+    "failures": [],
+    "overflow": false
+  },
+  {
+    "browser": "chromium",
+    "width": 768,
+    "theme": "dark",
+    "screen": "payoff",
+    "checked": 18,
+    "failures": [],
+    "overflow": false
+  },
+  {
+    "browser": "chromium",
+    "width": 768,
+    "theme": "dark",
+    "screen": "done",
+    "checked": 27,
+    "failures": [],
+    "overflow": false
+  },
+  {
+    "browser": "chromium",
+    "width": 768,
+    "theme": "dark",
+    "screen": "how",
+    "checked": 14,
+    "failures": [],
+    "overflow": false
+  },
+  {
+    "browser": "chromium",
+    "width": 768,
+    "theme": "dark",
+    "screen": "settings",
+    "checked": 28,
+    "failures": [],
+    "overflow": false
+  },
+  {
+    "browser": "chromium",
+    "width": 768,
+    "theme": "dark",
+    "screen": "certificate",
+    "checked": 11,
+    "failures": [],
+    "overflow": false
+  },
+  {
+    "browser": "chromium",
+    "width": 1024,
+    "theme": "light",
+    "screen": "closed",
+    "checked": 15,
+    "failures": [],
+    "overflow": false
+  },
+  {
+    "browser": "chromium",
+    "width": 1024,
+    "theme": "light",
+    "screen": "live",
+    "checked": 20,
+    "failures": [],
+    "overflow": false
+  },
+  {
+    "browser": "chromium",
+    "width": 1024,
+    "theme": "light",
+    "screen": "payoff",
+    "checked": 23,
+    "failures": [],
+    "overflow": false
+  },
+  {
+    "browser": "chromium",
+    "width": 1024,
+    "theme": "light",
+    "screen": "done",
+    "checked": 27,
+    "failures": [],
+    "overflow": false
+  },
+  {
+    "browser": "chromium",
+    "width": 1024,
+    "theme": "light",
+    "screen": "how",
+    "checked": 14,
+    "failures": [],
+    "overflow": false
+  },
+  {
+    "browser": "chromium",
+    "width": 1024,
+    "theme": "light",
+    "screen": "settings",
+    "checked": 28,
+    "failures": [],
+    "overflow": false
+  },
+  {
+    "browser": "chromium",
+    "width": 1024,
+    "theme": "light",
+    "screen": "certificate",
+    "checked": 11,
+    "failures": [],
+    "overflow": false
+  },
+  {
+    "browser": "chromium",
+    "width": 1024,
+    "theme": "dark",
+    "screen": "closed",
+    "checked": 15,
+    "failures": [],
+    "overflow": false
+  },
+  {
+    "browser": "chromium",
+    "width": 1024,
+    "theme": "dark",
+    "screen": "live",
+    "checked": 20,
+    "failures": [],
+    "overflow": false
+  },
+  {
+    "browser": "chromium",
+    "width": 1024,
+    "theme": "dark",
+    "screen": "payoff",
+    "checked": 23,
+    "failures": [],
+    "overflow": false
+  },
+  {
+    "browser": "chromium",
+    "width": 1024,
+    "theme": "dark",
+    "screen": "done",
+    "checked": 27,
+    "failures": [],
+    "overflow": false
+  },
+  {
+    "browser": "chromium",
+    "width": 1024,
+    "theme": "dark",
+    "screen": "how",
+    "checked": 14,
+    "failures": [],
+    "overflow": false
+  },
+  {
+    "browser": "chromium",
+    "width": 1024,
+    "theme": "dark",
+    "screen": "settings",
+    "checked": 28,
+    "failures": [],
+    "overflow": false
+  },
+  {
+    "browser": "chromium",
+    "width": 1024,
+    "theme": "dark",
+    "screen": "certificate",
+    "checked": 11,
+    "failures": [],
+    "overflow": false
+  },
+  {
+    "browser": "chromium",
+    "width": 1440,
+    "theme": "light",
+    "screen": "closed",
+    "checked": 15,
+    "failures": [],
+    "overflow": false
+  },
+  {
+    "browser": "chromium",
+    "width": 1440,
+    "theme": "light",
+    "screen": "live",
+    "checked": 20,
+    "failures": [],
+    "overflow": false
+  },
+  {
+    "browser": "chromium",
+    "width": 1440,
+    "theme": "light",
+    "screen": "payoff",
+    "checked": 23,
+    "failures": [],
+    "overflow": false
+  },
+  {
+    "browser": "chromium",
+    "width": 1440,
+    "theme": "light",
+    "screen": "done",
+    "checked": 27,
+    "failures": [],
+    "overflow": false
+  },
+  {
+    "browser": "chromium",
+    "width": 1440,
+    "theme": "light",
+    "screen": "how",
+    "checked": 14,
+    "failures": [],
+    "overflow": false
+  },
+  {
+    "browser": "chromium",
+    "width": 1440,
+    "theme": "light",
+    "screen": "settings",
+    "checked": 28,
+    "failures": [],
+    "overflow": false
+  },
+  {
+    "browser": "chromium",
+    "width": 1440,
+    "theme": "light",
+    "screen": "certificate",
+    "checked": 11,
+    "failures": [],
+    "overflow": false
+  },
+  {
+    "browser": "chromium",
+    "width": 1440,
+    "theme": "dark",
+    "screen": "closed",
+    "checked": 15,
+    "failures": [],
+    "overflow": false
+  },
+  {
+    "browser": "chromium",
+    "width": 1440,
+    "theme": "dark",
+    "screen": "live",
+    "checked": 20,
+    "failures": [],
+    "overflow": false
+  },
+  {
+    "browser": "chromium",
+    "width": 1440,
+    "theme": "dark",
+    "screen": "payoff",
+    "checked": 23,
+    "failures": [],
+    "overflow": false
+  },
+  {
+    "browser": "chromium",
+    "width": 1440,
+    "theme": "dark",
+    "screen": "done",
+    "checked": 27,
+    "failures": [],
+    "overflow": false
+  },
+  {
+    "browser": "chromium",
+    "width": 1440,
+    "theme": "dark",
+    "screen": "how",
+    "checked": 14,
+    "failures": [],
+    "overflow": false
+  },
+  {
+    "browser": "chromium",
+    "width": 1440,
+    "theme": "dark",
+    "screen": "settings",
+    "checked": 28,
+    "failures": [],
+    "overflow": false
+  },
+  {
+    "browser": "chromium",
+    "width": 1440,
+    "theme": "dark",
+    "screen": "certificate",
+    "checked": 11,
+    "failures": [],
+    "overflow": false
+  },
+  {
+    "browser": "webkit",
+    "width": 320,
+    "theme": "light",
+    "screen": "closed",
+    "checked": 15,
+    "failures": [],
+    "overflow": false
+  },
+  {
+    "browser": "webkit",
+    "width": 320,
+    "theme": "light",
+    "screen": "live",
+    "checked": 9,
+    "failures": [],
+    "overflow": false
+  },
+  {
+    "browser": "webkit",
+    "width": 320,
+    "theme": "light",
+    "screen": "payoff",
+    "checked": 15,
+    "failures": [],
+    "overflow": false
+  },
+  {
+    "browser": "webkit",
+    "width": 320,
+    "theme": "light",
+    "screen": "done",
+    "checked": 29,
+    "failures": [],
+    "overflow": false
+  },
+  {
+    "browser": "webkit",
+    "width": 320,
+    "theme": "light",
+    "screen": "how",
+    "checked": 14,
+    "failures": [],
+    "overflow": false
+  },
+  {
+    "browser": "webkit",
+    "width": 320,
+    "theme": "light",
+    "screen": "settings",
+    "checked": 28,
+    "failures": [],
+    "overflow": false
+  },
+  {
+    "browser": "webkit",
+    "width": 320,
+    "theme": "light",
+    "screen": "certificate",
+    "checked": 11,
+    "failures": [],
+    "overflow": false
+  },
+  {
+    "browser": "webkit",
+    "width": 320,
+    "theme": "dark",
+    "screen": "closed",
+    "checked": 15,
+    "failures": [],
+    "overflow": false
+  },
+  {
+    "browser": "webkit",
+    "width": 320,
+    "theme": "dark",
+    "screen": "live",
+    "checked": 9,
+    "failures": [],
+    "overflow": false
+  },
+  {
+    "browser": "webkit",
+    "width": 320,
+    "theme": "dark",
+    "screen": "payoff",
+    "checked": 15,
+    "failures": [],
+    "overflow": false
+  },
+  {
+    "browser": "webkit",
+    "width": 320,
+    "theme": "dark",
+    "screen": "done",
+    "checked": 29,
+    "failures": [],
+    "overflow": false
+  },
+  {
+    "browser": "webkit",
+    "width": 320,
+    "theme": "dark",
+    "screen": "how",
+    "checked": 14,
+    "failures": [],
+    "overflow": false
+  },
+  {
+    "browser": "webkit",
+    "width": 320,
+    "theme": "dark",
+    "screen": "settings",
+    "checked": 28,
+    "failures": [],
+    "overflow": false
+  },
+  {
+    "browser": "webkit",
+    "width": 320,
+    "theme": "dark",
+    "screen": "certificate",
+    "checked": 11,
+    "failures": [],
+    "overflow": false
+  },
+  {
+    "browser": "webkit",
+    "width": 360,
+    "theme": "light",
+    "screen": "closed",
+    "checked": 15,
+    "failures": [],
+    "overflow": false
+  },
+  {
+    "browser": "webkit",
+    "width": 360,
+    "theme": "light",
+    "screen": "live",
+    "checked": 9,
+    "failures": [],
+    "overflow": false
+  },
+  {
+    "browser": "webkit",
+    "width": 360,
+    "theme": "light",
+    "screen": "payoff",
+    "checked": 15,
+    "failures": [],
+    "overflow": false
+  },
+  {
+    "browser": "webkit",
+    "width": 360,
+    "theme": "light",
+    "screen": "done",
+    "checked": 29,
+    "failures": [],
+    "overflow": false
+  },
+  {
+    "browser": "webkit",
+    "width": 360,
+    "theme": "light",
+    "screen": "how",
+    "checked": 14,
+    "failures": [],
+    "overflow": false
+  },
+  {
+    "browser": "webkit",
+    "width": 360,
+    "theme": "light",
+    "screen": "settings",
+    "checked": 28,
+    "failures": [],
+    "overflow": false
+  },
+  {
+    "browser": "webkit",
+    "width": 360,
+    "theme": "light",
+    "screen": "certificate",
+    "checked": 11,
+    "failures": [],
+    "overflow": false
+  },
+  {
+    "browser": "webkit",
+    "width": 360,
+    "theme": "dark",
+    "screen": "closed",
+    "checked": 15,
+    "failures": [],
+    "overflow": false
+  },
+  {
+    "browser": "webkit",
+    "width": 360,
+    "theme": "dark",
+    "screen": "live",
+    "checked": 9,
+    "failures": [],
+    "overflow": false
+  },
+  {
+    "browser": "webkit",
+    "width": 360,
+    "theme": "dark",
+    "screen": "payoff",
+    "checked": 15,
+    "failures": [],
+    "overflow": false
+  },
+  {
+    "browser": "webkit",
+    "width": 360,
+    "theme": "dark",
+    "screen": "done",
+    "checked": 29,
+    "failures": [],
+    "overflow": false
+  },
+  {
+    "browser": "webkit",
+    "width": 360,
+    "theme": "dark",
+    "screen": "how",
+    "checked": 14,
+    "failures": [],
+    "overflow": false
+  },
+  {
+    "browser": "webkit",
+    "width": 360,
+    "theme": "dark",
+    "screen": "settings",
+    "checked": 28,
+    "failures": [],
+    "overflow": false
+  },
+  {
+    "browser": "webkit",
+    "width": 360,
+    "theme": "dark",
+    "screen": "certificate",
+    "checked": 11,
+    "failures": [],
+    "overflow": false
+  },
+  {
+    "browser": "webkit",
+    "width": 390,
+    "theme": "light",
+    "screen": "closed",
+    "checked": 15,
+    "failures": [],
+    "overflow": false
+  },
+  {
+    "browser": "webkit",
+    "width": 390,
+    "theme": "light",
+    "screen": "live",
+    "checked": 9,
+    "failures": [],
+    "overflow": false
+  },
+  {
+    "browser": "webkit",
+    "width": 390,
+    "theme": "light",
+    "screen": "payoff",
+    "checked": 15,
+    "failures": [],
+    "overflow": false
+  },
+  {
+    "browser": "webkit",
+    "width": 390,
+    "theme": "light",
+    "screen": "done",
+    "checked": 29,
+    "failures": [],
+    "overflow": false
+  },
+  {
+    "browser": "webkit",
+    "width": 390,
+    "theme": "light",
+    "screen": "how",
+    "checked": 14,
+    "failures": [],
+    "overflow": false
+  },
+  {
+    "browser": "webkit",
+    "width": 390,
+    "theme": "light",
+    "screen": "settings",
+    "checked": 28,
+    "failures": [],
+    "overflow": false
+  },
+  {
+    "browser": "webkit",
+    "width": 390,
+    "theme": "light",
+    "screen": "certificate",
+    "checked": 11,
+    "failures": [],
+    "overflow": false
+  },
+  {
+    "browser": "webkit",
+    "width": 390,
+    "theme": "dark",
+    "screen": "closed",
+    "checked": 15,
+    "failures": [],
+    "overflow": false
+  },
+  {
+    "browser": "webkit",
+    "width": 390,
+    "theme": "dark",
+    "screen": "live",
+    "checked": 9,
+    "failures": [],
+    "overflow": false
+  },
+  {
+    "browser": "webkit",
+    "width": 390,
+    "theme": "dark",
+    "screen": "payoff",
+    "checked": 15,
+    "failures": [],
+    "overflow": false
+  },
+  {
+    "browser": "webkit",
+    "width": 390,
+    "theme": "dark",
+    "screen": "done",
+    "checked": 29,
+    "failures": [],
+    "overflow": false
+  },
+  {
+    "browser": "webkit",
+    "width": 390,
+    "theme": "dark",
+    "screen": "how",
+    "checked": 14,
+    "failures": [],
+    "overflow": false
+  },
+  {
+    "browser": "webkit",
+    "width": 390,
+    "theme": "dark",
+    "screen": "settings",
+    "checked": 28,
+    "failures": [],
+    "overflow": false
+  },
+  {
+    "browser": "webkit",
+    "width": 390,
+    "theme": "dark",
+    "screen": "certificate",
+    "checked": 11,
+    "failures": [],
+    "overflow": false
+  },
+  {
+    "browser": "webkit",
+    "width": 430,
+    "theme": "light",
+    "screen": "closed",
+    "checked": 15,
+    "failures": [],
+    "overflow": false
+  },
+  {
+    "browser": "webkit",
+    "width": 430,
+    "theme": "light",
+    "screen": "live",
+    "checked": 9,
+    "failures": [],
+    "overflow": false
+  },
+  {
+    "browser": "webkit",
+    "width": 430,
+    "theme": "light",
+    "screen": "payoff",
+    "checked": 15,
+    "failures": [],
+    "overflow": false
+  },
+  {
+    "browser": "webkit",
+    "width": 430,
+    "theme": "light",
+    "screen": "done",
+    "checked": 29,
+    "failures": [],
+    "overflow": false
+  },
+  {
+    "browser": "webkit",
+    "width": 430,
+    "theme": "light",
+    "screen": "how",
+    "checked": 14,
+    "failures": [],
+    "overflow": false
+  },
+  {
+    "browser": "webkit",
+    "width": 430,
+    "theme": "light",
+    "screen": "settings",
+    "checked": 28,
+    "failures": [],
+    "overflow": false
+  },
+  {
+    "browser": "webkit",
+    "width": 430,
+    "theme": "light",
+    "screen": "certificate",
+    "checked": 11,
+    "failures": [],
+    "overflow": false
+  },
+  {
+    "browser": "webkit",
+    "width": 430,
+    "theme": "dark",
+    "screen": "closed",
+    "checked": 15,
+    "failures": [],
+    "overflow": false
+  },
+  {
+    "browser": "webkit",
+    "width": 430,
+    "theme": "dark",
+    "screen": "live",
+    "checked": 9,
+    "failures": [],
+    "overflow": false
+  },
+  {
+    "browser": "webkit",
+    "width": 430,
+    "theme": "dark",
+    "screen": "payoff",
+    "checked": 15,
+    "failures": [],
+    "overflow": false
+  },
+  {
+    "browser": "webkit",
+    "width": 430,
+    "theme": "dark",
+    "screen": "done",
+    "checked": 29,
+    "failures": [],
+    "overflow": false
+  },
+  {
+    "browser": "webkit",
+    "width": 430,
+    "theme": "dark",
+    "screen": "how",
+    "checked": 14,
+    "failures": [],
+    "overflow": false
+  },
+  {
+    "browser": "webkit",
+    "width": 430,
+    "theme": "dark",
+    "screen": "settings",
+    "checked": 28,
+    "failures": [],
+    "overflow": false
+  },
+  {
+    "browser": "webkit",
+    "width": 430,
+    "theme": "dark",
+    "screen": "certificate",
+    "checked": 11,
+    "failures": [],
+    "overflow": false
+  },
+  {
+    "browser": "webkit",
+    "width": 768,
+    "theme": "light",
+    "screen": "closed",
+    "checked": 15,
+    "failures": [],
+    "overflow": false
+  },
+  {
+    "browser": "webkit",
+    "width": 768,
+    "theme": "light",
+    "screen": "live",
+    "checked": 20,
+    "failures": [],
+    "overflow": false
+  },
+  {
+    "browser": "webkit",
+    "width": 768,
+    "theme": "light",
+    "screen": "payoff",
+    "checked": 18,
+    "failures": [],
+    "overflow": false
+  },
+  {
+    "browser": "webkit",
+    "width": 768,
+    "theme": "light",
+    "screen": "done",
+    "checked": 27,
+    "failures": [],
+    "overflow": false
+  },
+  {
+    "browser": "webkit",
+    "width": 768,
+    "theme": "light",
+    "screen": "how",
+    "checked": 14,
+    "failures": [],
+    "overflow": false
+  },
+  {
+    "browser": "webkit",
+    "width": 768,
+    "theme": "light",
+    "screen": "settings",
+    "checked": 28,
+    "failures": [],
+    "overflow": false
+  },
+  {
+    "browser": "webkit",
+    "width": 768,
+    "theme": "light",
+    "screen": "certificate",
+    "checked": 11,
+    "failures": [],
+    "overflow": false
+  },
+  {
+    "browser": "webkit",
+    "width": 768,
+    "theme": "dark",
+    "screen": "closed",
+    "checked": 15,
+    "failures": [],
+    "overflow": false
+  },
+  {
+    "browser": "webkit",
+    "width": 768,
+    "theme": "dark",
+    "screen": "live",
+    "checked": 20,
+    "failures": [],
+    "overflow": false
+  },
+  {
+    "browser": "webkit",
+    "width": 768,
+    "theme": "dark",
+    "screen": "payoff",
+    "checked": 18,
+    "failures": [],
+    "overflow": false
+  },
+  {
+    "browser": "webkit",
+    "width": 768,
+    "theme": "dark",
+    "screen": "done",
+    "checked": 27,
+    "failures": [],
+    "overflow": false
+  },
+  {
+    "browser": "webkit",
+    "width": 768,
+    "theme": "dark",
+    "screen": "how",
+    "checked": 14,
+    "failures": [],
+    "overflow": false
+  },
+  {
+    "browser": "webkit",
+    "width": 768,
+    "theme": "dark",
+    "screen": "settings",
+    "checked": 28,
+    "failures": [],
+    "overflow": false
+  },
+  {
+    "browser": "webkit",
+    "width": 768,
+    "theme": "dark",
+    "screen": "certificate",
+    "checked": 11,
+    "failures": [],
+    "overflow": false
+  },
+  {
+    "browser": "webkit",
+    "width": 1024,
+    "theme": "light",
+    "screen": "closed",
+    "checked": 15,
+    "failures": [],
+    "overflow": false
+  },
+  {
+    "browser": "webkit",
+    "width": 1024,
+    "theme": "light",
+    "screen": "live",
+    "checked": 20,
+    "failures": [],
+    "overflow": false
+  },
+  {
+    "browser": "webkit",
+    "width": 1024,
+    "theme": "light",
+    "screen": "payoff",
+    "checked": 23,
+    "failures": [],
+    "overflow": false
+  },
+  {
+    "browser": "webkit",
+    "width": 1024,
+    "theme": "light",
+    "screen": "done",
+    "checked": 27,
+    "failures": [],
+    "overflow": false
+  },
+  {
+    "browser": "webkit",
+    "width": 1024,
+    "theme": "light",
+    "screen": "how",
+    "checked": 14,
+    "failures": [],
+    "overflow": false
+  },
+  {
+    "browser": "webkit",
+    "width": 1024,
+    "theme": "light",
+    "screen": "settings",
+    "checked": 28,
+    "failures": [],
+    "overflow": false
+  },
+  {
+    "browser": "webkit",
+    "width": 1024,
+    "theme": "light",
+    "screen": "certificate",
+    "checked": 11,
+    "failures": [],
+    "overflow": false
+  },
+  {
+    "browser": "webkit",
+    "width": 1024,
+    "theme": "dark",
+    "screen": "closed",
+    "checked": 15,
+    "failures": [],
+    "overflow": false
+  },
+  {
+    "browser": "webkit",
+    "width": 1024,
+    "theme": "dark",
+    "screen": "live",
+    "checked": 20,
+    "failures": [],
+    "overflow": false
+  },
+  {
+    "browser": "webkit",
+    "width": 1024,
+    "theme": "dark",
+    "screen": "payoff",
+    "checked": 23,
+    "failures": [],
+    "overflow": false
+  },
+  {
+    "browser": "webkit",
+    "width": 1024,
+    "theme": "dark",
+    "screen": "done",
+    "checked": 27,
+    "failures": [],
+    "overflow": false
+  },
+  {
+    "browser": "webkit",
+    "width": 1024,
+    "theme": "dark",
+    "screen": "how",
+    "checked": 14,
+    "failures": [],
+    "overflow": false
+  },
+  {
+    "browser": "webkit",
+    "width": 1024,
+    "theme": "dark",
+    "screen": "settings",
+    "checked": 28,
+    "failures": [],
+    "overflow": false
+  },
+  {
+    "browser": "webkit",
+    "width": 1024,
+    "theme": "dark",
+    "screen": "certificate",
+    "checked": 11,
+    "failures": [],
+    "overflow": false
+  },
+  {
+    "browser": "webkit",
+    "width": 1440,
+    "theme": "light",
+    "screen": "closed",
+    "checked": 15,
+    "failures": [],
+    "overflow": false
+  },
+  {
+    "browser": "webkit",
+    "width": 1440,
+    "theme": "light",
+    "screen": "live",
+    "checked": 20,
+    "failures": [],
+    "overflow": false
+  },
+  {
+    "browser": "webkit",
+    "width": 1440,
+    "theme": "light",
+    "screen": "payoff",
+    "checked": 23,
+    "failures": [],
+    "overflow": false
+  },
+  {
+    "browser": "webkit",
+    "width": 1440,
+    "theme": "light",
+    "screen": "done",
+    "checked": 27,
+    "failures": [],
+    "overflow": false
+  },
+  {
+    "browser": "webkit",
+    "width": 1440,
+    "theme": "light",
+    "screen": "how",
+    "checked": 14,
+    "failures": [],
+    "overflow": false
+  },
+  {
+    "browser": "webkit",
+    "width": 1440,
+    "theme": "light",
+    "screen": "settings",
+    "checked": 28,
+    "failures": [],
+    "overflow": false
+  },
+  {
+    "browser": "webkit",
+    "width": 1440,
+    "theme": "light",
+    "screen": "certificate",
+    "checked": 11,
+    "failures": [],
+    "overflow": false
+  },
+  {
+    "browser": "webkit",
+    "width": 1440,
+    "theme": "dark",
+    "screen": "closed",
+    "checked": 15,
+    "failures": [],
+    "overflow": false
+  },
+  {
+    "browser": "webkit",
+    "width": 1440,
+    "theme": "dark",
+    "screen": "live",
+    "checked": 20,
+    "failures": [],
+    "overflow": false
+  },
+  {
+    "browser": "webkit",
+    "width": 1440,
+    "theme": "dark",
+    "screen": "payoff",
+    "checked": 23,
+    "failures": [],
+    "overflow": false
+  },
+  {
+    "browser": "webkit",
+    "width": 1440,
+    "theme": "dark",
+    "screen": "done",
+    "checked": 27,
+    "failures": [],
+    "overflow": false
+  },
+  {
+    "browser": "webkit",
+    "width": 1440,
+    "theme": "dark",
+    "screen": "how",
+    "checked": 14,
+    "failures": [],
+    "overflow": false
+  },
+  {
+    "browser": "webkit",
+    "width": 1440,
+    "theme": "dark",
+    "screen": "settings",
+    "checked": 28,
+    "failures": [],
+    "overflow": false
+  },
+  {
+    "browser": "webkit",
+    "width": 1440,
+    "theme": "dark",
+    "screen": "certificate",
+    "checked": 11,
+    "failures": [],
+    "overflow": false
+  }
+]
