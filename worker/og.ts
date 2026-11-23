@@ -1,4 +1,5 @@
 import { claimScore } from '../shared/claim-copy';
+import { editionLabel } from '../shared/sharing';
 import { SHARE_INVITATION } from '../shared/copy';
 import { bellPath, bellArea, bellX, bellY, bellSigma } from '../shared/rarity';
 import { cleanStoredHandles } from '../shared/handles';
@@ -92,7 +93,7 @@ export async function og(claim: any, summary?: any) {
     content = `${wordmark(60, 73, 500)}${text('One category a day.', 60, 310, 48)}${text("Call it first, it's yours.", 60, 375, 48)}${text(`${MAX_CLAIMS} claims · ${MAX_STRIKES} strikes · new drop ${DROP_TIME_LABEL.replace(':00', '')} ET`, 60, 465, 28)}${stamp}${text(PUBLIC_HOST, 60, 585, 20)}`;
   else if (claim) {
     const shown = !claim.concealed;
-    content = `${wordmark(960, 45, 170)}${text(claim.golden ? 'Form D-1 · Golden ticket' : 'Certificate of Dibs', 60, 90, 26, claim.golden ? gold : '#1A1A17')}${text(shown ? claim.display : 'SEALED', 60, 220, 95, '#1A1A17', 'display')}${text(category, 60, 270, 32)}${text(shown ? claimScore(claim) : `${claim.points ?? 0} points · Sealed until the day closes.`, 60, 320, 26)}${text(claim.handle || '', 60, 490, 28)}`;
+    content = `${wordmark(960, 45, 170)}${text(`${editionLabel(claim.category_date)}${claim.golden ? ' · Golden ticket' : ' · Certificate'}`, 60, 90, 26, claim.golden ? gold : '#1A1A17')}${text(shown ? claim.display : 'SEALED', 60, 220, 95, '#1A1A17', 'display')}${text(category, 60, 270, 32)}${text(shown ? claimScore(claim) : `${claim.points ?? 0} points · Sealed until the day closes.`, 60, 320, 26)}${text(claim.handle || '', 60, 490, 28)}`;
     if (shown && claim.percentile != null) {
       const x = bellX(claim.percentile),
         y = bellY(bellSigma(claim.percentile));
@@ -101,7 +102,7 @@ export async function og(claim: any, summary?: any) {
     content +=
       text(SHARE_INVITATION, 60, 545, 26) + text(`${PUBLIC_HOST}/c/${claim.id}`, 60, 585, 20);
   } else {
-    content = `${wordmark(960, 45, 170)}${text(summary.category.date, 60, 80, 24)}${text(title, 60, 170, 80, '#1A1A17', 'display')}${text(`${file.points ?? 0} points${file.rank ? ` · #${file.rank} of ${file.players} players today` : ''}`, 60, 225, 38)}${golden ? text('Golden ticket found', 60, 265, 26, gold) : ''}`;
+    content = `${wordmark(960, 45, 170)}${text(editionLabel(summary.category.date), 60, 80, 24)}${text(title, 60, 170, 80, '#1A1A17', 'display')}${text(`${file.points ?? 0} points${file.rank ? ` · #${file.rank} of ${file.players} players today` : ''}`, 60, 225, 38)}${golden ? text('Golden ticket found', 60, 265, 26, gold) : ''}`;
     claims.slice(0, 3).forEach((c: any, i: number) => {
       const y = 310 + i * 62,
         color = c.golden ? gold : '#1A1A17';
