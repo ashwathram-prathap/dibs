@@ -98,7 +98,25 @@ for (const engine of [chromium, webkit]) {
         if (r.url().endsWith('/api/claim') && r.postDataJSON()?.sessionToken) claimProofs++;
       });
       page.on('response', (r) => {
+        if (r.url().startsWith(origin + '/api/') && r.status() >= 400)
+          console.log(
+            'API diagnostic',
+            engine.name(),
+            sample,
+            new URL(r.url()).pathname,
+            r.status(),
+          );
         if (r.url().endsWith('/api/verify-session') && r.ok()) verified++;
+      });
+      page.on('requestfailed', (r) => {
+        if (r.url().startsWith(origin + '/api/'))
+          console.log(
+            'Transport diagnostic',
+            engine.name(),
+            sample,
+            new URL(r.url()).pathname,
+            r.failure()?.errorText,
+          );
       });
       page.on('websocket', (ws) => {
         ws.on('framereceived', (e) => {

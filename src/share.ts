@@ -216,11 +216,10 @@ async function drawCurve(
   c.font = '400 11px "Instrument Sans"';
   c.textAlign = 'center';
   c.fillText('You', marker, baseline + 12);
-  c.font = '400 10px "IBM Plex Mono"';
   c.textAlign = 'left';
-  c.fillText('Familiar', x + (w * 28) / 520, y + h);
+  formText(c, 'label', 'Familiar', x + (w * 28) / 520, y + h, 10);
   c.textAlign = 'right';
-  c.fillText('Obscure', x + (w * 492) / 520, y + h);
+  formText(c, 'label', 'Obscure', x + (w * 492) / 520, y + h, 10);
   c.restore();
 }
 
@@ -423,10 +422,11 @@ function formText(
   value: string,
   x: number,
   y: number,
+  size = 24,
 ) {
   if (role === 'label' && value.trim().split(/\s+/).length > 3)
     throw Error('Form labels must be short');
-  c.font = '400 24px "IBM Plex Mono"';
+  c.font = `400 ${size}px "IBM Plex Mono"`;
   c.fillText(value, x, y);
 }
 async function paintPaper(c: CanvasRenderingContext2D, paper: string) {

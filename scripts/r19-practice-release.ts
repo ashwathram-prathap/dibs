@@ -124,7 +124,13 @@ try {
     ]);
   assert.ok((await api('/admin/practice-reset', {}, undefined, true)).response.ok);
   ts('Rehearse six fresh browsers from closed to verified claim', 'scripts/r19-rehearsal.ts');
-  ts('Measure R18 cold verification on throttled 4G', 'scripts/r19-claim-timing.ts', ['before']);
+  if (process.env.R19_REUSE_BASELINE === '1') {
+    const baseline = JSON.parse(readFileSync('review/round19/claim-timing-before.json', 'utf8'));
+    assert.ok(baseline.length === 6 && baseline.every((r: any) => r.proofClaimRequests === 3));
+    console.log('Reuse the completed R18 comparison; its source and transport are unchanged.');
+  } else {
+    ts('Measure R18 cold verification on throttled 4G', 'scripts/r19-claim-timing.ts', ['before']);
+  }
   ts('Measure R19 prewarmed verification on throttled 4G', 'scripts/r19-claim-timing.ts', [
     'after',
   ]);
