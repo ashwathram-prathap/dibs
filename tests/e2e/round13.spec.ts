@@ -24,6 +24,9 @@ test('R13 hero first, R7 scale, phone action visible, explanation collapses', as
   await expect(page.locator('.play-introduction')).not.toHaveAttribute('open', '');
   await page.locator('.play-introduction summary').click();
   await expect(intro).toBeVisible();
+  // A result arriving after the disclosure opens must not remount and close it.
+  await expect(page.locator('.result-panel')).toBeVisible();
+  await expect(intro).toBeVisible();
   await page.goto('/?r7-closed');
   await expect(page.locator('.closed-office .clock')).toBeVisible();
   expect(

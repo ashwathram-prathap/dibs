@@ -1130,7 +1130,7 @@ function Home({
             )}
             <details
               className="play-introduction play-rules"
-              key={String(guessed) + ':' + message}
+              key={String(guessed)}
               open={!guessed && !file?.dibs && !file?.strikes}
             >
               <summary>
@@ -2513,8 +2513,11 @@ function LiveAdmin() {
           <ul>
             {Object.entries(data.limits).map(([key, limit]) => (
               <li key={key}>
-                {key}: {(data.usage[key] || 0).toLocaleString()} / {Number(limit).toLocaleString()}{' '}
-                <meter min={0} max={Number(limit)} value={data.usage[key] || 0} />
+                {key}: {data.usage[key] == null ? 'Unavailable' : data.usage[key].toLocaleString()}{' '}
+                / {Number(limit).toLocaleString()}{' '}
+                {data.usage[key] != null && (
+                  <meter min={0} max={Number(limit)} value={data.usage[key]} />
+                )}
               </li>
             ))}
           </ul>

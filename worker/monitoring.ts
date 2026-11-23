@@ -19,6 +19,10 @@ export const emptyMinute = (): Minute => ({
 export const freeLimits = {
   requests: 100000,
   doRequests: 100000,
+  doReads: 5000000,
+  doWrites: 100000,
+  doDuration: 13000,
+  doStorageBytes: 5000000000,
   reads: 5000000,
   writes: 100000,
   storageBytes: 500000000,

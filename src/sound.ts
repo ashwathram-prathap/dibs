@@ -57,6 +57,8 @@ function playPreparedClaimSound(kind: DeskSound | null, requestId: string) {
 }
 
 export function playClaimSound(kind: DeskSound | null, requestId: string) {
+  // Muted results must never become queued sounds when audio startup finishes.
+  if (!kind || !soundEnabled()) return;
   const play = () => {
     try {
       playPreparedClaimSound(kind, requestId);

@@ -522,7 +522,9 @@ export class Registry extends DurableObject<Env> {
       'usage:' + new Date(now).toISOString().slice(0, 10),
     )) || { requests: 0, reads: 0, writes: 0 };
     let platform = await this.ctx.storage.get<any>('platform-usage');
-    let analyticsError = '';
+    let analyticsError = this.env.CF_ANALYTICS_TOKEN
+      ? ''
+      : 'Account-wide quota monitoring needs CF_ANALYTICS_TOKEN with Account Analytics Read. Durable Object storage and duration are unavailable until configured.';
     if (
       this.env.CF_ANALYTICS_TOKEN &&
       (!platform || Date.now() - Date.parse(platform.at) > 60000)
