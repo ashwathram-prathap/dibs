@@ -1,14 +1,14 @@
 {
-  "at": "2026-11-23T18:08:49.371Z",
+  "at": "2026-11-23T18:26:05.534Z",
   "passed": true,
-  "entry": "/assets/index-fxIwjcD3.js",
+  "entry": "/assets/index-BAJPNtW_.js",
   "inlineStyleHashes": [
     "5ffa8cd03fa8d3c51f20fd6a741e091848efa9f50fa0220cb327e68945e06729",
-    "7f29e745ed363224c24ad618561424ad220e72414fe41307ca2b278feb922b89"
+    "87ac706d030ae2494505686a9a639a473a57eaef1a1e06df2dca71f1702b9a16"
   ],
   "rows": [
     {
-      "path": "Archive-BfWCBuwf.js",
+      "path": "Archive-ZZyph469.js",
       "status": 200,
       "type": "application/javascript",
       "bytes": 4623,
@@ -22,52 +22,52 @@
       "matches": true
     },
     {
-      "path": "Certificate-CcxwcbbD.js",
+      "path": "Certificate-DzFVVFO0.js",
       "status": 200,
       "type": "application/javascript",
       "bytes": 98434,
       "matches": true
     },
     {
-      "path": "Content-Br7tOqkI.js",
+      "path": "Content-BefSOsra.js",
       "status": 200,
       "type": "application/javascript",
       "bytes": 12830,
       "matches": true
     },
     {
-      "path": "Leaderboard-YjnpCu0I.js",
+      "path": "Leaderboard-KXEHM2o1.js",
       "status": 200,
       "type": "application/javascript",
       "bytes": 2335,
       "matches": true
     },
     {
-      "path": "Ledger-BZXLNtnl.js",
+      "path": "Ledger-CtzsOdg6.js",
       "status": 200,
       "type": "application/javascript",
       "bytes": 5967,
       "matches": true
     },
     {
-      "path": "Settings-BkAY6Fv0.js",
+      "path": "Settings-CVPwlGl6.js",
       "status": 200,
       "type": "application/javascript",
       "bytes": 9494,
       "matches": true
     },
     {
-      "path": "index-BYToc9s-.css",
-      "status": 200,
-      "type": "text/css; charset=utf-8",
-      "bytes": 117782,
-      "matches": true
-    },
-    {
-      "path": "index-fxIwjcD3.js",
+      "path": "index-BAJPNtW_.js",
       "status": 200,
       "type": "application/javascript",
       "bytes": 277053,
+      "matches": true
+    },
+    {
+      "path": "index-WLWyW6Yu.css",
+      "status": 200,
+      "type": "text/css; charset=utf-8",
+      "bytes": 117792,
       "matches": true
     },
     {
@@ -94,10 +94,10 @@
   ],
   "observations": [
     {
-      "at": "2026-11-23T18:08:49.371Z",
+      "at": "2026-11-23T18:26:05.534Z",
       "status": 200,
-      "actual": "/assets/index-fxIwjcD3.js",
-      "expected": "/assets/index-fxIwjcD3.js",
+      "actual": "/assets/index-BAJPNtW_.js",
+      "expected": "/assets/index-BAJPNtW_.js",
       "stylesMatch": true,
       "htmlMatches": true,
       "passed": true
