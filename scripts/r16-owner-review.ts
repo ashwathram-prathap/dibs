@@ -24,7 +24,11 @@ try {
         await page.goto('http://127.0.0.1:5190' + path);
         await page.locator('.loading').waitFor({ state: 'hidden' });
         await page.evaluate(() => document.fonts.ready);
-        if (name === 'settings') await page.locator('.header-settings > summary').click();
+        if (['how', 'office', 'archive'].includes(name)) await page.locator('main h1').waitFor();
+        if (name === 'settings') {
+          await page.locator('.header-settings > summary').click();
+          await page.locator('.music-toggle').waitFor();
+        }
         await page.screenshot({
           path: `${dir}/${phase}-${name}-${width}-${theme}.png`,
           fullPage: true,

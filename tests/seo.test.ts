@@ -2,12 +2,12 @@ import { beforeAll, afterAll, it, expect } from 'vitest';
 import { Miniflare, convertV4MiniflareOptions } from 'miniflare';
 import { build } from 'esbuild';
 import { readFileSync } from 'node:fs';
+import { createHash } from 'node:crypto';
 let mf: Miniflare;
 beforeAll(async () => {
-  const html = readFileSync('index.html', 'utf8').replaceAll(
-    '__PUBLIC_ORIGIN__',
-    'https://dibs.here',
-  );
+  const html = readFileSync('index.html', 'utf8')
+    .replaceAll('__PUBLIC_ORIGIN__', 'https://dibs.here')
+    .replace('__CRITICAL_HEAD__', '<style>body{color:#1a1a17}</style>');
   const source = `import {onRequest} from './functions/_middleware';
  const category={id:'closed',name:'Animals',date:'2026-11-23',total_registrable:90000};
  const rows=Array.from({length:120},(_,i)=>({claim_no:120-i,display:'Entry '+(120-i),handle:'Example holder',created_at:'2026-11-24T02:03:00Z'}));
@@ -37,6 +37,9 @@ it('serves indexable production rules and privacy as real HTML without executing
   const home = await mf.dispatchFetch('https://dibs.here/');
   const text = await home.text();
   expect(home.status).toBe(200);
+  const styleHash = createHash('sha256').update('body{color:#1a1a17}').digest('base64');
+  expect(home.headers.get('content-security-policy')).toContain("'sha256-" + styleHash + "'");
+  expect(home.headers.get('content-security-policy')).not.toContain("'unsafe-inline'");
   expect(home.headers.get('x-robots-tag')).toBeNull();
   expect(text).toContain('<h1>Dibs</h1>');
   expect(text).toContain('How to play');

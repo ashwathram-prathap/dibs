@@ -32,7 +32,7 @@ try {
               cpuSlowdownMultiplier: 4,
               requestLatencyMs: 562.5,
               downloadThroughputKbps: 1474.56,
-              uploadThroughputputKbps: 675,
+              uploadThroughputKbps: 675,
             },
         screenEmulation: {
           mobile: !desktop,

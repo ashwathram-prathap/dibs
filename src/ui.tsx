@@ -1,0 +1,305 @@
+import { Fragment, useEffect, useRef, useState } from 'react';
+import { REGISTRAR_STROKE } from '../shared/moments';
+import {
+  WORDMARK_WIDTH,
+  WORDMARK_PATH,
+  WORDMARK_BLOCK_X,
+  WORDMARK_OFFSET_X,
+  WORDMARK_OFFSET_Y,
+} from '../shared/brand';
+import { localTime, dropTime, countdown, viewerZone } from '../shared/time';
+import { useServerNow } from './clock';
+import { reminder } from '../shared/reminder';
+import { Icon } from './Icon';
+import { MAX_CLAIMS, MAX_STRIKES } from '../shared/config';
+import {
+  GAME_EXPLANATION,
+  LIMIT_EXPLANATION,
+  FINISH_EXPLANATION,
+  SCHEDULE_EXPLANATION,
+  GOLDEN_EXPLANATION,
+  RESERVED_EXPLANATION,
+} from '../shared/copy';
+export function Signature() {
+  return (
+    <span className="registrar-signature">
+      <svg viewBox="0 0 220 50" role="img" aria-label="Signed, The Registrar">
+        <path
+          d={REGISTRAR_STROKE}
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="1.4"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        />
+      </svg>
+      <span>The Registrar</span>
+    </span>
+  );
+}
+export function Wordmark() {
+  return (
+    <svg className="brand-mark" role="img" aria-label="dibs." viewBox={`0 0 ${WORDMARK_WIDTH} 100`}>
+      <g transform={`translate(${WORDMARK_OFFSET_X} ${WORDMARK_OFFSET_Y})`}>
+        <path fill="currentColor" d={WORDMARK_PATH} />
+        <path fill="#E1462B" d={`M${WORDMARK_BLOCK_X} 67h18v18h-18z`} />
+      </g>
+    </svg>
+  );
+}
+
+export function time(at: string) {
+  const value = localTime(at);
+  return (
+    <time
+      dateTime={at}
+      title={value.full}
+      tabIndex={0}
+      className="local-time"
+      aria-label={value.full}
+    >
+      {value.label}
+      <span className="zone-tip"> {value.zone}</span>
+    </time>
+  );
+}
+export function RelativeTime({ at }: { at: string }) {
+  const now = useServerNow();
+  const seconds = Math.max(0, Math.floor((now - Date.parse(at)) / 1000));
+  return (
+    <time dateTime={at} title={localTime(at).full}>
+      {seconds < 60
+        ? 'just now'
+        : seconds < 3600
+          ? `${Math.floor(seconds / 60)}m ago`
+          : localTime(at).full}
+    </time>
+  );
+}
+export function DropTime({ at }: { at: string }) {
+  const value = localTime(at, viewerZone(), true);
+  return (
+    <span className="local-drop">
+      {value.label} {value.zone}
+    </span>
+  );
+}
+export const dateLabel = (s: string) =>
+  new Date(s + 'T12:00:00Z').toLocaleDateString('en-CA', {
+    month: 'long',
+    day: 'numeric',
+    year: 'numeric',
+  });
+export function navigate(path: string) {
+  history.pushState({}, '', path);
+  window.dispatchEvent(new PopStateEvent('popstate'));
+  window.scrollTo(0, 0);
+}
+export function Link({
+  to,
+  children,
+  ...props
+}: {
+  to: string;
+  children: React.ReactNode;
+  [key: string]: any;
+}) {
+  return (
+    <a
+      href={to}
+      {...props}
+      onClick={(e: React.MouseEvent) => {
+        if (!e.ctrlKey && !e.metaKey && !e.shiftKey) {
+          e.preventDefault();
+          navigate(to);
+        }
+      }}
+    >
+      {children}
+    </a>
+  );
+}
+export function Clock({ target, slim = false }: { target: string; slim?: boolean }) {
+  const now = useServerNow();
+  const remaining = Math.max(0, Date.parse(target) - now);
+  const minutes = Math.ceil(remaining / 60000);
+  const [announcement, setAnnouncement] = useState('');
+  const announcedAt = useRef(-Infinity);
+  useEffect(() => {
+    // Server resyncs may straddle a minute boundary; never repeat announcements rapidly.
+    if (performance.now() - announcedAt.current < 60000) return;
+    announcedAt.current = performance.now();
+    setAnnouncement(minutes ? `${minutes} minutes remaining.` : 'Opening…');
+  }, [minutes]);
+  return (
+    <section
+      className={slim ? 'round-countdown' : 'drop-countdown'}
+      aria-label={slim ? 'Round countdown' : 'Next drop countdown'}
+    >
+      <span className="eyebrow">{slim ? 'Round closes in' : 'Opens in'}</span>
+      <span className="clock" aria-hidden="true">
+        {remaining
+          ? countdown(target, now)
+              .split(' ')
+              .map((part, i) => (
+                <Fragment key={i}>
+                  {i > 0 && ' '}
+                  <span className="clock-part">{part}</span>
+                </Fragment>
+              ))
+          : 'Opening…'}
+      </span>
+      {!slim && (
+        <p>
+          <span>{localTime(target).full}</span> · change in{' '}
+          <button
+            className="text-link"
+            onClick={() => {
+              const panel = document.querySelector<HTMLDetailsElement>('.header-settings');
+              if (panel) panel.open = true;
+              window.dispatchEvent(new Event('dibs-settings-zone'));
+            }}
+          >
+            Settings
+          </button>
+        </p>
+      )}
+      <span className="sr-only">
+        {slim ? 'Round closes' : 'Next drop'} at {dropTime(target).full}.
+      </span>
+      <span className="sr-only" aria-live="polite" aria-atomic="true">
+        {announcement}
+      </span>
+    </section>
+  );
+}
+export function Reminder({ at }: { at: string }) {
+  const links = reminder(at);
+  const appleFirst = /iPhone|iPad|iPod/.test(navigator.userAgent);
+  const mac = /Mac/.test(navigator.platform) && !appleFirst;
+  const apple = (
+    <a key="apple" href={'/reminder.ics?at=' + encodeURIComponent(at)}>
+      Apple Calendar{mac ? ' (downloads a file, then open it)' : ''}
+    </a>
+  );
+  const google = (
+    <a key="google" href={links.google} target="_blank" rel="noopener noreferrer">
+      Google Calendar
+    </a>
+  );
+  return (
+    <details
+      className="reminder-menu"
+      onKeyDown={(e) => {
+        if (e.key === 'Escape') {
+          e.currentTarget.open = false;
+          e.currentTarget.querySelector('summary')?.focus();
+        }
+      }}
+    >
+      <summary className="reminder-button">
+        Remind me <Icon name="chevron" />
+      </summary>
+      <div className="reminder-options">
+        <p>
+          Five minutes before <DropTime at={at} />. Daily.
+        </p>
+        {appleFirst ? [apple, google] : [google, apple]}
+        <a href={links.outlook} target="_blank" rel="noopener noreferrer">
+          Outlook
+        </a>
+        <small>Outlook opens one event. Set Repeat to Daily.</small>
+      </div>
+    </details>
+  );
+}
+
+export function InstallHint() {
+  const [show, setShow] = useState(() => {
+    try {
+      return (
+        matchMedia('(max-width: 600px)').matches &&
+        !localStorage.getItem('dibs-install-hint') &&
+        !matchMedia('(display-mode: standalone)').matches
+      );
+    } catch {
+      return false;
+    }
+  });
+  return show ? (
+    <aside className="install-hint">
+      <p>Keep Dibs handy: browser menu, then Add to Home Screen.</p>
+      <button
+        onClick={() => {
+          try {
+            localStorage.setItem('dibs-install-hint', '1');
+          } catch {}
+          setShow(false);
+        }}
+      >
+        Got it
+      </button>
+    </aside>
+  ) : null;
+}
+export function Introduction() {
+  return (
+    <section className="game-intro" aria-label="How to play Dibs">
+      <div className="game-explanation">
+        <p>{GAME_EXPLANATION}</p>
+        <p>{LIMIT_EXPLANATION}</p>
+      </div>
+      <div className="worked-example" aria-label="Example">
+        <p>
+          <strong>Example:</strong> Today's category is <strong>Animals</strong>.
+        </p>
+        <p>
+          You type <strong>Okapi</strong>. Nobody has claimed it yet, so <strong>it's yours</strong>
+          . <span className="example-stamp yours">YOURS</span>
+        </p>
+        <p>
+          You type <strong>Lion</strong>. Someone already claimed it, so you get{' '}
+          <strong>a strike</strong>. <span className="example-stamp taken">TAKEN</span>
+        </p>
+      </div>
+    </section>
+  );
+}
+export function Rules() {
+  return (
+    <div className="plain-rules">
+      <p>{FINISH_EXPLANATION}</p>
+      <p>{SCHEDULE_EXPLANATION}</p>
+      <p>{GOLDEN_EXPLANATION}</p>
+      <p>{RESERVED_EXPLANATION}</p>
+    </div>
+  );
+}
+export function Progress({ dibs, strikes }: { dibs: number; strikes: number }) {
+  return (
+    <div className="file-progress">
+      <span className="dibs-progress">
+        <strong>
+          Claims {dibs} of {MAX_CLAIMS}
+        </strong>
+        <span className="dibs-marks" aria-hidden="true">
+          {Array.from({ length: MAX_CLAIMS }, (_, i) => (
+            <i key={i} className={i < dibs ? 'used' : ''}>
+              D
+            </i>
+          ))}
+        </span>
+      </span>
+      <span className="strikes-progress">
+        <strong>
+          Strikes {strikes} of {MAX_STRIKES}
+        </strong>
+        <span className="strike-row" role="img" aria-label={`${strikes} of ${MAX_STRIKES} strikes`}>
+          {Array.from({ length: MAX_STRIKES }, (_, i) => (
+            <i key={i} className={i < strikes ? 'used' : ''} />
+          ))}
+        </span>
+      </span>
+    </div>
+  );
+}

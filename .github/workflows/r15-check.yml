@@ -1,4 +1,4 @@
-name: R15 Firefox and network check
+name: R16 Firefox and network check
 on:
   push:
     branches: [main]
@@ -28,9 +28,10 @@ jobs:
           pactl load-module module-null-sink sink_name=dibs_ci
           pactl set-default-sink dibs_ci
       - run: npx vite build --mode security-test
-      - run: npx playwright test -c playwright.r14.config.ts --project='firefox-*'
+      - run: npx playwright test -c playwright.r16.config.ts --project='firefox-*'
         env:
-          R14_REPORT: review/round15/firefox-results.json
+          R16_FULL: 1
+          R16_REPORT: review/round16/firefox-browser-results.json
       - if: inputs.network || github.event_name == 'push'
         name: Verify independent network hash
         env:
@@ -39,9 +40,9 @@ jobs:
       - uses: actions/upload-artifact@v4
         if: always()
         with:
-          name: r15-verification
+          name: r16-verification
           path: |
-            review/round15/firefox-results.json
+            review/round16/firefox-browser-results.json
             review/round15/network-ci.json
-            test-results/
+            .tmp/r16/browser-artifacts/
           retention-days: 14

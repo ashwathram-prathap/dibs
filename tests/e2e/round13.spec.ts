@@ -115,10 +115,15 @@ test('R13 sound mapping, double tap and music only after tap', async ({ page }) 
     .poll(() => page.evaluate(() => (window as any).stamps))
     .toEqual([0.115, 0.48, 0.145]);
   await page.locator('.header-settings').evaluate((e: HTMLDetailsElement) => (e.open = true));
-  await page.getByRole('button', { name: 'Turn music on', exact: true }).click();
+  await page.getByRole('button', { name: /Turn music on/ }).click();
   await expect.poll(() => audioRequests.length).toBe(1);
   await expect(page.locator('.music-toggle')).toHaveAttribute('aria-pressed', 'true');
   await expect.poll(() => page.evaluate(() => (window as any).musicLoops.length)).toBe(1);
+  await page.locator('.header-settings > summary').click();
+  await expect(page.locator('.music-toggle')).not.toBeVisible();
+  await page.locator('.header-settings > summary').click();
+  await expect(page.locator('.music-toggle')).toHaveAttribute('aria-pressed', 'true');
+  await expect(page.locator('.music-toggle')).toHaveText('Music: On');
   const loop = await page.evaluate(() => (window as any).musicLoops[0]);
   expect(loop.loop).toBe(true);
   expect(loop.preload).toBe('none');
@@ -136,7 +141,7 @@ test('R13 sound mapping, double tap and music only after tap', async ({ page }) 
   await page.locator('#answer').waitFor();
   expect(audioRequests.length).toBe(1);
   await page.locator('.header-settings > summary').click();
-  await expect(page.getByRole('button', { name: 'Resume music', exact: true })).toBeVisible();
+  await expect(page.getByRole('button', { name: /Resume music/ })).toBeVisible();
 });
 
 test('R13 overlay keyboard keeps the whole form reachable after rules collapse', async ({

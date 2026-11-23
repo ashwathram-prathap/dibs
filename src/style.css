@@ -1,4 +1,12 @@
 @font-face {
+  font-family: ArchivoClock;
+  src: url('/fonts/archivo-clock.v1.woff2') format('woff2');
+  font-weight: 100 900;
+  font-stretch: 62% 125%;
+  font-display: swap;
+  unicode-range: U+0030-003A;
+}
+@font-face {
   font-family: ArchivoSupplement;
   src: url('/fonts/archivo-supplement-400.v2.woff2') format('woff2');
   font-weight: 400;
@@ -114,7 +122,11 @@ body:before {
   inset: 0;
   pointer-events: none;
   z-index: 99;
-  background: url('/grain.png') repeat;
+  background: url('/grain.v2.webp') repeat;
+  background-image: image-set(
+    url('/grain.v1.avif') type('image/avif'),
+    url('/grain.v2.webp') type('image/webp')
+  );
   opacity: 0.04;
 }
 button,
@@ -5414,14 +5426,15 @@ a:focus-visible,
 }
 .closed-office .drop-countdown .clock,
 .closed-office .drop-countdown .clock * {
-  font-family: Archivo, sans-serif;
+  font-family: ArchivoClock, Archivo, sans-serif;
   font-weight: 900;
   letter-spacing: 0.055em;
   font-variant-numeric: tabular-nums;
   font-feature-settings: 'tnum' 1;
 }
 .closed-office .drop-countdown .clock {
-  font-size: clamp(52px, 15.8vw, 192px);
+  font-size: clamp(80px, 18.5vw, 192px);
+  font-stretch: 85%;
 }
 @media (max-width: 600px) {
   .header-actions {
@@ -5434,7 +5447,7 @@ a:focus-visible,
     font-size: 14px;
   }
   .closed-office .drop-countdown .clock {
-    font-size: clamp(42px, 15.8vw, 95px);
+    font-size: clamp(52px, 18.5vw, 111px);
   }
 }
 @media (max-width: 359px) {
@@ -5471,7 +5484,13 @@ a:focus-visible,
   vertical-align: -0.05em;
 }
 @media (max-width: 767px) {
-  .page .masthead .header-player { grid-column: 1 / -1; }
+  .page .masthead .header-player {
+    grid-column: 1 / -1;
+  }
 }
-.page footer .footer-logo { min-height: 0; }
-.page footer .footer-logo svg { vertical-align: -0.35em; }
+.page footer .footer-logo {
+  min-height: 0;
+}
+.page footer .footer-logo svg {
+  vertical-align: -0.35em;
+}

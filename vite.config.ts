@@ -4,12 +4,15 @@ import { HOME_TITLE, HOME_DESCRIPTION, escapeHtml, rulesHtml } from './shared/se
 import { createHash } from 'node:crypto';
 import { SECURITY_HEADERS } from './shared/security';
 import { PUBLIC_ORIGIN } from './shared/config';
-import { defineConfig, loadEnv } from 'vite';
+import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 export default defineConfig(({ mode }) => {
-  const token =
-    process.env.VITE_CF_ANALYTICS_TOKEN ||
-    loadEnv(mode, process.cwd(), 'VITE_').VITE_CF_ANALYTICS_TOKEN;
+  const out = mode === 'security-test' ? '.tmp/e2e-dist' : 'dist';
+  const builtPolicy = () =>
+    existsSync(out + '/_headers')
+      ? readFileSync(out + '/_headers', 'utf8').match(/Content-Security-Policy: ([^\n]+)/)?.[1] ||
+        SECURITY_HEADERS['Content-Security-Policy']
+      : SECURITY_HEADERS['Content-Security-Policy'];
   const buildId = process.env.DIBS_BUILD_ID || new Date().toISOString();
   const publicOrigin = process.env.DIBS_PUBLIC_ORIGIN || PUBLIC_ORIGIN;
   return {
@@ -32,7 +35,10 @@ export default defineConfig(({ mode }) => {
         name: 'public-origin',
         transformIndexHtml: (html: string) =>
           html
-            .replace('__THEME_SCRIPT__', THEME_SCRIPT)
+            .replace(
+              /<script>\s*__THEME_SCRIPT__;?\s*<\/script>/,
+              '<script>' + THEME_SCRIPT + '</script>',
+            )
             .replace('__CRITICAL_HEAD__', '<style>' + CRITICAL_CSS + '</style>')
             .replace('__RULES_HTML__', rulesHtml)
             .replace(
@@ -49,14 +55,24 @@ export default defineConfig(({ mode }) => {
       {
         name: 'static-release',
         closeBundle() {
-          const out = mode === 'security-test' ? '.tmp/e2e-dist' : 'dist';
+          // Inline the stylesheet without changing its cascade order. Page JS stays lazy.
+          const htmlPath = out + '/index.html';
+          let html = readFileSync(htmlPath, 'utf8');
+          let initialStyleHash = '';
+          html = html.replace(/<link rel="stylesheet"[^>]*href="([^"]+)"[^>]*>/g, (tag, href) => {
+            if (!/^\/assets\/index-[^/]+\.css$/.test(href)) return tag;
+            const css = readFileSync(out + href, 'utf8');
+            initialStyleHash = createHash('sha256').update(css).digest('base64');
+            return '<style>' + css + '</style>';
+          });
+          if (!initialStyleHash) throw new Error('Initial stylesheet missing from build');
+          writeFileSync(htmlPath, html);
           writeFileSync(out + '/version.json', JSON.stringify({ buildId }));
           const headers: Record<string, string> = {
             ...SECURITY_HEADERS,
-            'Content-Security-Policy': SECURITY_HEADERS['Content-Security-Policy'].replaceAll(
-              'wss://dibs.here',
-              publicOrigin.replace('https:', 'wss:'),
-            ),
+            'Content-Security-Policy': SECURITY_HEADERS['Content-Security-Policy']
+              .replaceAll('wss://dibs.here', publicOrigin.replace('https:', 'wss:'))
+              .replace("style-src 'self'", "style-src 'self' 'sha256-" + initialStyleHash + "'"),
           };
           if (publicOrigin === PUBLIC_ORIGIN) delete headers['X-Robots-Tag'];
           writeFileSync(
@@ -65,7 +81,7 @@ export default defineConfig(({ mode }) => {
               Object.entries(headers)
                 .map(([k, v]) => '  ' + k + ': ' + v)
                 .join('\n') +
-              '\n  Cache-Control: no-cache\n/assets/*\n  ! Cache-Control\n  Cache-Control: public, max-age=31536000, immutable\n/fonts/*\n  ! Cache-Control\n  Cache-Control: public, max-age=2592000\n/audio/*\n  ! Cache-Control\n  Cache-Control: public, max-age=2592000\n/catalog/*\n  ! Cache-Control\n  Cache-Control: public, max-age=86400\n',
+              '\n  Cache-Control: no-cache\n/grain.*\n  ! Cache-Control\n  Cache-Control: public, max-age=31536000, immutable\n/assets/*\n  ! Cache-Control\n  Cache-Control: public, max-age=31536000, immutable\n/fonts/*\n  ! Cache-Control\n  Cache-Control: public, max-age=31536000, immutable\n/audio/*\n  ! Cache-Control\n  Cache-Control: public, max-age=31536000, immutable\n/catalog/*\n  ! Cache-Control\n  Cache-Control: public, max-age=86400\n',
           );
           if (publicOrigin === PUBLIC_ORIGIN)
             writeFileSync(
@@ -82,23 +98,8 @@ export default defineConfig(({ mode }) => {
             }
         },
       },
-      {
-        name: 'cookieless-analytics',
-        transformIndexHtml: () =>
-          mode !== 'security-test' && publicOrigin === PUBLIC_ORIGIN && /^[a-f0-9]{32}$/.test(token || '')
-            ? [
-                {
-                  tag: 'script',
-                  attrs: {
-                    defer: true,
-                    src: 'https://static.cloudflareinsights.com/beacon.min.js',
-                    'data-cf-beacon': JSON.stringify({ token }),
-                  },
-                  injectTo: 'body' as const,
-                },
-              ]
-            : [],
-      },
+      // Cloudflare Pages injects the production Web Analytics beacon. A second
+      // build-time beacon double-counted visits and downloaded the same code twice.
     ],
     // WebKit screenshots inject exactly "body {}" to synchronize animations.
     // The inert rule is hash-authorized only in the isolated test build.
@@ -107,14 +108,14 @@ export default defineConfig(({ mode }) => {
         mode === 'security-test'
           ? {
               ...SECURITY_HEADERS,
-              'Content-Security-Policy': SECURITY_HEADERS['Content-Security-Policy'].replace(
+              'Content-Security-Policy': builtPolicy().replace(
                 "style-src 'self'",
                 "style-src 'self' 'sha256-" +
                   createHash('sha256').update('body {}').digest('base64') +
                   "'",
               ),
             }
-          : SECURITY_HEADERS,
+          : { ...SECURITY_HEADERS, 'Content-Security-Policy': builtPolicy() },
     },
     server: { proxy: { '/api': { target: 'http://127.0.0.1:8787', ws: true } } },
     build: {

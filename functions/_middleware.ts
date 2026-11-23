@@ -81,7 +81,32 @@ export const onRequest: PagesFunction = async ({ request, next, env }) => {
         Response.json(publicManifest, { headers: { 'cache-control': 'public, max-age=300' } }),
       );
     }
-    let response = secureResponse(await next());
+    const asset = await next();
+    // The build adds an exact hash for its inline first-paint CSS. Preserve only
+    // those style hashes from our trusted static asset response, never directives.
+    const builtStyle =
+      asset.headers.get('Content-Security-Policy')?.match(/(?:^|;)\s*style-src ([^;]+)/)?.[1] || '';
+    const hashes: string[] = builtStyle.match(/'sha256-[A-Za-z0-9+/]{43}='/g) || [];
+    if (!hashes.length && asset.headers.get('content-type')?.includes('text/html')) {
+      // Pages does not apply _headers on every Function path. Hash the trusted
+      // build output before any route-specific/user content is inserted.
+      for (const style of (await asset.clone().text()).matchAll(/<style>([\s\S]*?)<\/style>/g)) {
+        const digest = new Uint8Array(
+          await crypto.subtle.digest('SHA-256', new TextEncoder().encode(style[1])),
+        );
+        hashes.push("'sha256-" + btoa(String.fromCharCode(...digest)) + "'");
+      }
+    }
+
+    let response = secureResponse(asset);
+    if (hashes.length)
+      response.headers.set(
+        'Content-Security-Policy',
+        response.headers
+          .get('Content-Security-Policy')!
+          .replace("style-src 'self'", "style-src 'self' " + hashes.join(' ')),
+      );
+
     const personal = /^\/(api|admin|stats|certificate|summary|c)(\/|$)/.test(path);
     if (staging || personal) response.headers.set('X-Robots-Tag', 'noindex, nofollow');
     else response.headers.delete('X-Robots-Tag');
