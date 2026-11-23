@@ -1,0 +1,106 @@
+{
+  "at": "2026-11-23T19:57:56.259Z",
+  "passed": true,
+  "entry": "/assets/index-CIE9CIfW.js",
+  "inlineStyleHashes": [
+    "5ffa8cd03fa8d3c51f20fd6a741e091848efa9f50fa0220cb327e68945e06729",
+    "837ed39ca45504b0cc7b11d9d04b4676f8269baddf058a76b8d7153ebe29ed5a"
+  ],
+  "rows": [
+    {
+      "path": "Archive-BfkFm2lc.js",
+      "status": 200,
+      "type": "application/javascript",
+      "bytes": 4623,
+      "matches": true
+    },
+    {
+      "path": "Calendar-DIUZMX7d.js",
+      "status": 200,
+      "type": "application/javascript",
+      "bytes": 9590,
+      "matches": true
+    },
+    {
+      "path": "Certificate-BrntExri.js",
+      "status": 200,
+      "type": "application/javascript",
+      "bytes": 98434,
+      "matches": true
+    },
+    {
+      "path": "Content-99bjdlPN.js",
+      "status": 200,
+      "type": "application/javascript",
+      "bytes": 12830,
+      "matches": true
+    },
+    {
+      "path": "Leaderboard-fW0W2Z86.js",
+      "status": 200,
+      "type": "application/javascript",
+      "bytes": 2335,
+      "matches": true
+    },
+    {
+      "path": "Ledger-BIUTHeVA.js",
+      "status": 200,
+      "type": "application/javascript",
+      "bytes": 5967,
+      "matches": true
+    },
+    {
+      "path": "Settings-D5iC6lqN.js",
+      "status": 200,
+      "type": "application/javascript",
+      "bytes": 9494,
+      "matches": true
+    },
+    {
+      "path": "index-CIE9CIfW.js",
+      "status": 200,
+      "type": "application/javascript",
+      "bytes": 277053,
+      "matches": true
+    },
+    {
+      "path": "index-qLR1_SbC.css",
+      "status": 200,
+      "type": "text/css; charset=utf-8",
+      "bytes": 117851,
+      "matches": true
+    },
+    {
+      "path": "jsx-runtime-B4UN2VIk.js",
+      "status": 200,
+      "type": "application/javascript",
+      "bytes": 9096,
+      "matches": true
+    },
+    {
+      "path": "spelling.worker-CrIfIp-F.js",
+      "status": 200,
+      "type": "application/javascript",
+      "bytes": 1958,
+      "matches": true
+    },
+    {
+      "path": "time-Do7Gbtg7.js",
+      "status": 200,
+      "type": "application/javascript",
+      "bytes": 1737,
+      "matches": true
+    }
+  ],
+  "observations": [
+    {
+      "at": "2026-11-23T19:57:56.259Z",
+      "status": 200,
+      "actual": "/assets/index-CIE9CIfW.js",
+      "expected": "/assets/index-CIE9CIfW.js",
+      "stylesMatch": true,
+      "htmlMatches": true,
+      "passed": true
+    }
+  ]
+}

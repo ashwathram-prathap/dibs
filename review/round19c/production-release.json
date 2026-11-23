@@ -1,0 +1,77 @@
+[
+  {
+    "name": "Check exact R19C gates and timing",
+    "passed": true,
+    "at": "2026-11-23T19:56:10.833Z"
+  },
+  {
+    "name": "Record original deployment IDs",
+    "passed": true,
+    "at": "2026-11-23T19:56:13.642Z"
+  },
+  {
+    "name": "Check exact R19C gates and timing",
+    "passed": true,
+    "at": "2026-11-23T19:56:13.836Z"
+  },
+  {
+    "name": "Verify standard deployment freeze",
+    "passed": true,
+    "at": "2026-11-23T19:56:13.998Z"
+  },
+  {
+    "name": "Configure drop",
+    "passed": true,
+    "at": "2026-11-23T19:56:14.156Z"
+  },
+  {
+    "name": "Build house words",
+    "passed": true,
+    "at": "2026-11-23T19:56:19.039Z"
+  },
+  {
+    "name": "Check exact R19C gates and timing",
+    "passed": true,
+    "at": "2026-11-23T19:56:19.232Z"
+  },
+  {
+    "name": "Deploy production Worker",
+    "passed": true,
+    "at": "2026-11-23T19:56:56.043Z"
+  },
+  {
+    "name": "Build production frontend",
+    "passed": true,
+    "at": "2026-11-23T19:57:25.251Z"
+  },
+  {
+    "name": "Check exact R19C gates and timing",
+    "passed": true,
+    "at": "2026-11-23T19:57:36.849Z"
+  },
+  {
+    "name": "Deploy production Pages",
+    "passed": true,
+    "at": "2026-11-23T19:57:53.438Z"
+  },
+  {
+    "name": "Verify deployed script artifacts",
+    "passed": true,
+    "at": "2026-11-23T19:57:56.267Z"
+  },
+  {
+    "name": "Verify all new and rollback scoring assets",
+    "passed": true,
+    "at": "2026-11-23T19:58:05.165Z"
+  },
+  {
+    "name": "Read-only production smoke",
+    "passed": true,
+    "at": "2026-11-23T19:58:26.469Z"
+  },
+  {
+    "name": "Record released deployment IDs",
+    "passed": true,
+    "at": "2026-11-23T19:58:28.028Z"
+  }
+]
