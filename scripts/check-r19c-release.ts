@@ -1,5 +1,6 @@
 import { readFileSync } from 'node:fs';
 import assert from 'node:assert/strict';
+import { execFileSync } from 'node:child_process';
 assert.ok(
   Date.now() < Date.parse('2026-11-23T20:00:00Z'),
   'R19C 3 PM ET deadline passed; do not deploy',
@@ -8,6 +9,24 @@ if (!process.argv.includes('--timing-only')) {
   const read = (name: string) => JSON.parse(readFileSync('review/round19c/' + name, 'utf8'));
   const gates = read('release-gates.json');
   assert.equal(gates.passed, true);
+  execFileSync('git', [
+    'diff',
+    '--exit-code',
+    gates.sourceCommit,
+    '--',
+    'src',
+    'shared',
+    'worker',
+    'dev',
+    'tests',
+    'vite.config.ts',
+    'package.json',
+    'package-lock.json',
+    'scripts/admin.ts',
+    'scripts/feedback-archive.ts',
+    'scripts/build-scores.ts',
+    'scripts/popularity-aliases.ts',
+  ]);
   for (const [name, value] of Object.entries(gates.gates))
     assert.equal(value, true, name + ' failed');
   assert.equal(read('practice-first-visit.json').passed, true);
