@@ -1,3 +1,4 @@
+import './test-traffic';
 import { chromium, webkit, firefox } from '@playwright/test';
 import { mkdirSync, writeFileSync } from 'node:fs';
 const results: any[] = [];

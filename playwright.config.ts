@@ -73,7 +73,7 @@ export default defineConfig({
   timeout: 60000,
   retries: 0,
   reporter: [['list'], ['json', { outputFile: 'review/devices/results.json' }]],
-  use: { baseURL: 'http://127.0.0.1:5173', trace: 'retain-on-failure' },
+  use: { extraHTTPHeaders: {'x-dibs-test':'1'}, baseURL: 'http://127.0.0.1:5173', trace: 'retain-on-failure' },
   projects: projects.map((p) => ({ ...p, testIgnore: 'round7.spec.ts' })),
   webServer: {
     // A fresh CI checkout builds every complete reference index before starting.

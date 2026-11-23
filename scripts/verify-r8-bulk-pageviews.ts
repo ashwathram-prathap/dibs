@@ -1,3 +1,4 @@
+import './test-traffic';
 import { readFileSync, writeFileSync } from 'node:fs';
 const samples = readFileSync('.tmp/r8-bulk-samples.tsv', 'utf8')
   .trim()

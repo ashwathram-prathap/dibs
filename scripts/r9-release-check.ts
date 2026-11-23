@@ -1,3 +1,4 @@
+import './test-traffic';
 import { readFileSync, writeFileSync } from 'node:fs';
 import assert from 'node:assert/strict';
 const practice = process.argv.includes('--practice'),

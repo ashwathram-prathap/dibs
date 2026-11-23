@@ -1,3 +1,4 @@
+import './test-traffic';
 import { chromium, expect } from '@playwright/test';
 import { api, origin } from './r11-practice';
 import { writeFileSync, readFileSync } from 'node:fs';

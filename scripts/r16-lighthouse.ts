@@ -1,3 +1,4 @@
+import './test-traffic';
 import { chromium } from '@playwright/test';
 import lighthouse from 'lighthouse';
 import { mkdirSync, writeFileSync } from 'node:fs';

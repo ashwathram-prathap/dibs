@@ -1,3 +1,4 @@
+import './test-traffic';
 import { readCategory } from '../scripts/category-file';
 import { Miniflare, convertV4MiniflareOptions } from 'miniflare';
 import { build } from 'esbuild';

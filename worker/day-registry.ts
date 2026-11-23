@@ -1,3 +1,4 @@
+import { credentialGate } from './credential-gate';
 import { cleanHandle, cleanStoredHandles, displayNames, playerNumber } from '../shared/handles';
 import { finishedComparisons } from './finished-scores';
 import { feedbackText, reserveFeedback } from './feedback';
@@ -6,7 +7,7 @@ import { backupCode } from './backup-code';
 import { cluedId } from './clue';
 import { og } from './og';
 import { isPlatform } from '../shared/sharing';
-import { securityKey } from './security';
+import { securityKey, gate, type Gate } from './security';
 import { withdraw } from './withdraw';
 import { DurableObject } from 'cloudflare:workers';
 import { EventJournal, type JournalFile } from './event-journal';
@@ -27,7 +28,16 @@ import { MAX_CLAIMS, MAX_STRIKES, LAUNCH_DATE, PUBLIC_ORIGIN } from '../shared/c
 import { catalogMeta, lookup, answerId, nearMiss } from './catalog';
 import { scoreAnswer, scoreFile } from './scoring';
 import { verifyChallenge, verificationToken, verifiedSession } from './turnstile';
-import { dayClosed, publicCategory, concealClaim, concealSummary } from './visibility';
+import {
+  dayClosed,
+  publicCategory,
+  concealClaim,
+  concealSummary,
+  visibleClaim,
+  publicSummary,
+  publicSpecials,
+  publicFile,
+} from './visibility';
 import { specialStatus, closeAt } from './specials';
 import { publicScores, orderScores } from './leaderboard';
 import { clerkReply } from '../shared/moments';
@@ -217,7 +227,15 @@ export class DayRegistry extends DurableObject<Env> {
         rows.map((r) => ({ id: r.user_id, handle: r.handle, founder: r.founder })),
       );
       for (const r of rows) r.handle = names.get(r.user_id)!;
-      this.boardTop = publicScores(rows).rows;
+      this.boardTop = publicScores(rows).rows.map((r) => ({
+        rank: r.rank,
+        handle: r.handle,
+        founder: r.founder,
+        points: r.points,
+        claims: r.claims,
+        own: r.own,
+        ...(dayClosed(this.category) ? { golden: r.golden } : {}),
+      }));
       this.boardOwn = new Map(
         rows.map((r, i) => [
           r.user_id,
@@ -227,7 +245,7 @@ export class DayRegistry extends DurableObject<Env> {
             founder: r.founder,
             points: r.points,
             claims: r.dibs,
-            golden: r.golden,
+            golden: dayClosed(this.category) ? r.golden : undefined,
             own: true,
           },
         ]),
@@ -273,7 +291,7 @@ export class DayRegistry extends DurableObject<Env> {
         : base;
     };
     return {
-      ...state.file,
+      ...publicFile(state.file, dayClosed(this.category), true),
       events: state.file.events.map((e: any) =>
         e.holder
           ? {
@@ -303,7 +321,7 @@ export class DayRegistry extends DurableObject<Env> {
     const names = displayNames(
       rows.map((c) => ({ id: c.user_id, handle: c.handle, founder: c.founder })),
     );
-    return rows.map(({ user_id, answer_id, ...c }) => ({ ...c, handle: names.get(user_id)! }));
+    return rows.map((c) => visibleClaim({ ...c, handle: names.get(c.user_id)! }, true));
   }
   private today() {
     const g = this.category,
@@ -314,7 +332,7 @@ export class DayRegistry extends DurableObject<Env> {
       category: publicCategory(g),
       specials: g
         ? {
-            ...this.specials,
+            ...publicSpecials(this.specials, closed),
             houseWords: closed
               ? (catalogMeta(g)?.house || []).map((r: any) => ({
                   display: r[1],
@@ -323,7 +341,7 @@ export class DayRegistry extends DurableObject<Env> {
               : [],
             clue: this.specials.clue
               ? {
-                  ...this.specials.clue,
+                  text: this.specials.clue.text,
                   crackedBy:
                     rows.find(
                       (c) => c.answer_id === cluedId([...this.golden], this.specials.commitment),
@@ -375,6 +393,20 @@ export class DayRegistry extends DurableObject<Env> {
           .first<any>();
     }
     if (!user && (create || uid)) {
+      const network = await securityKey(req, env.COOKIE_SECRET, env.LOCAL_TEST);
+      if (network && !uid) {
+        const allowed = await this.ctx.storage.transaction(async (tx) => {
+          const key = 'security:identity:' + network;
+          const old = await tx.get<{ count: number; expires: number }>(key);
+          const value =
+            old && old.expires > Date.now() ? old : { count: 0, expires: Date.now() + 600000 };
+          if (value.count >= 120) return false;
+          value.count++;
+          await tx.put(key, value);
+          return true;
+        });
+        if (!allowed) throw new Error('IDENTITY_LIMIT');
+      }
       uid ||= crypto.randomUUID();
       const seed = parseInt(uid.replaceAll('-', '').slice(0, 8), 16);
       user = {
@@ -418,7 +450,9 @@ export class DayRegistry extends DurableObject<Env> {
     const s = user ? this.state(user.id) : undefined;
     return {
       user: user ? { id: user.id, handle: user.handle, rerolls_used: user.rerolls_used } : null,
-      claim: s?.file.claims.at(-1) || null,
+      claim: s?.file.claims.at(-1)
+        ? visibleClaim(s.file.claims.at(-1), dayClosed(this.category), true)
+        : null,
       file: s ? this.presentFile(s) : null,
       streakDates: s?.streakDates || user?.streakDates || [],
       streak: streak(
@@ -434,7 +468,12 @@ export class DayRegistry extends DurableObject<Env> {
     try {
       response = await this.dispatch(req, env);
     } catch (e) {
-      response = safeError(e, env);
+      response = String(e).includes('IDENTITY_LIMIT')
+        ? json(
+            { message: 'Too many new players from this network; try again in a few minutes.' },
+            429,
+          )
+        : safeError(e, env);
     }
     if (
       response.status !== 101 &&
@@ -454,6 +493,26 @@ export class DayRegistry extends DurableObject<Env> {
   private async dispatch(req: Request, env: Env): Promise<Response> {
     const rejected = originFailure(req, isLocal(req, env.LOCAL_TEST));
     if (rejected) return rejected;
+    const credentialDenied = await credentialGate(req, env);
+    if (credentialDenied) return credentialDenied;
+    const routePath = new URL(req.url).pathname.replace(/^\/api/, '');
+    if (routePath.startsWith('/admin/')) {
+      const valid =
+        !!env.ADMIN_TOKEN &&
+        (await constantEqual(req.headers.get('authorization') || '', 'Bearer ' + env.ADMIN_TOKEN));
+      const network = await securityKey(req, env.COOKIE_SECRET, env.LOCAL_TEST);
+      const status = network
+        ? await this.ctx.storage.transaction(async (tx) => {
+            const key = 'security:admin:' + network;
+            const result = gate(await tx.get<Gate>(key), Date.now(), valid, true);
+            await tx.put(key, result.state);
+            return result.status;
+          })
+        : valid
+          ? 200
+          : 404;
+      if (status !== 200) return json({ message: 'Not found.' }, status);
+    }
     if (!this.category && this.nextCheck && Date.now() >= this.nextCheck) this.ready = undefined;
     this.requestedDay ||= req.headers.get('x-r17-day') || registryDate();
     await this.init(env);
@@ -557,7 +616,14 @@ export class DayRegistry extends DurableObject<Env> {
       }
       const claim = [...this.owners.values()].find((c) => c.id === id && !c.voided);
       if (!claim) return json({ message: 'Not found.' }, 404);
-      return og(dayClosed(this.category) ? claim : concealClaim(claim));
+      const state = this.state(claim.user_id);
+      return og(
+        null,
+        publicSummary(
+          { category: this.category, file: state ? this.presentFile(state) : { points: 0 } },
+          dayClosed(this.category),
+        ),
+      );
     }
     if (path === '/backup-code' && req.method === 'GET') {
       const uid = await cookieUser(req, env.COOKIE_SECRET);
@@ -593,13 +659,21 @@ export class DayRegistry extends DurableObject<Env> {
     if (path === '/live') {
       if (req.headers.get('upgrade')?.toLowerCase() !== 'websocket')
         return json({ message: 'A live connection is required.' }, 426);
+      const uid = await cookieUser(req, env.COOKIE_SECRET);
+      const network = await securityKey(req, env.COOKIE_SECRET, env.LOCAL_TEST);
+      const active = this.ctx.getWebSockets().map((ws) => ws.deserializeAttachment() as any);
+      if (
+        active.filter((a) => (uid ? a?.uid === uid : !a?.uid && a?.securityKey === network))
+          .length >= (uid ? 8 : 4)
+      )
+        return json({ message: 'Too many live connections; close another tab and retry.' }, 429);
       const pair = new WebSocketPair();
       this.ctx.acceptWebSocket(pair[1]);
       pair[1].serializeAttachment({
-        uid: await cookieUser(req, env.COOKIE_SECRET),
+        uid,
         day: registryDate(),
         diagnostic: env.LOCAL_TEST === 'true',
-        securityKey: await securityKey(req, env.COOKIE_SECRET, env.LOCAL_TEST),
+        securityKey: network,
       });
       return new Response(null, { status: 101, webSocket: pair[0] });
     }
@@ -610,10 +684,11 @@ export class DayRegistry extends DurableObject<Env> {
       const uid = await cookieUser(req, env.COOKIE_SECRET),
         revealed = dayClosed(this.category),
         owned = uid === claim.user_id;
-      const { user_id, answer_id, ...visible } = claim;
-      visible.streak = streak(this.state(claim.user_id)?.streakDates || [], this.category.date);
+      const state = this.state(claim.user_id);
+      const score = state ? publicFile(this.presentFile(state), false) : undefined;
       return json({
-        claim: revealed || owned ? { ...visible, revealed, owned } : concealClaim(visible),
+        claim: visibleClaim(claim, revealed, owned),
+        score,
       });
     }
     if (path.startsWith('/summary/')) {
@@ -625,13 +700,7 @@ export class DayRegistry extends DurableObject<Env> {
         specials: this.today().specials,
         nextDrop: nextDrop(),
       };
-      if (dayClosed(this.category)) return json(data);
-      const sealed = concealSummary(data);
-      sealed.file.claims = sealed.file.claims.map((c: any, i: number) => ({
-        ...c,
-        percentile: data.file.claims[i].percentile,
-      }));
-      return json(sealed);
+      return json(publicSummary(data, dayClosed(this.category)));
     }
     if (path === '/events/share' || path === '/events/arrival') {
       if (req.method !== 'POST') return json({ message: 'Not found.' }, 404);
@@ -656,13 +725,6 @@ export class DayRegistry extends DurableObject<Env> {
     if (path === '/recover' && req.method === 'POST') {
       const b = await body(req, 300),
         key = normalizeFileKey(String(b.key || ''));
-      const network = (await securityKey(req, env.COOKIE_SECRET, env.LOCAL_TEST)) || 'missing';
-      const attempts = (this.attempts.get('recover:' + network) || []).filter(
-        (t) => t > Date.now() - 900000,
-      );
-      if (attempts.length >= 5)
-        return json({ message: 'Too many codes tried; wait 15 minutes.' }, 429);
-      this.attempts.set('recover:' + network, [...attempts, Date.now()]);
       const hash = await hmac(key, env.COOKIE_SECRET);
       const current = [...this.all().values()].find((s) => s.user.recoveryHash === hash);
       const row = current
@@ -694,13 +756,15 @@ export class DayRegistry extends DurableObject<Env> {
     if (path === '/delete-file' && req.method === 'POST') {
       const payload = await body(req.clone() as Request, 3000);
       if (payload.key) {
-        await this.journal?.mirror(env);
         const hash = await hmac(normalizeFileKey(String(payload.key)), env.COOKIE_SECRET);
-        const found = await env.DB.prepare(
-          "SELECT user_id id FROM r17_files WHERE json_extract(data,'$.user.recoveryHash')=? UNION SELECT id FROM r17_players WHERE json_extract(data,'$.recoveryHash')=? UNION SELECT user_id id FROM recovery_keys WHERE key_hash=?",
-        )
-          .bind(hash, hash, hash)
-          .first<any>();
+        const current = [...this.all().values()].find((s) => s.user.recoveryHash === hash);
+        const found = current
+          ? { id: current.user.id }
+          : await env.DB.prepare(
+              "SELECT user_id id FROM r17_files WHERE json_extract(data,'$.user.recoveryHash')=? UNION SELECT id FROM r17_players WHERE json_extract(data,'$.recoveryHash')=? UNION SELECT user_id id FROM recovery_keys WHERE key_hash=?",
+            )
+              .bind(hash, hash, hash)
+              .first<any>();
         if (!found) return json({ message: 'Backup code not found; check it and try again.' }, 422);
         const headers = new Headers(req.headers);
         headers.set(
@@ -1116,6 +1180,15 @@ export class DayRegistry extends DurableObject<Env> {
         return ws.close(1009, 'Small forms only');
       const b = JSON.parse(message),
         a = ws.deserializeAttachment() as any;
+      const now = Date.now();
+      if (!a) return ws.close(1008, 'Reconnect');
+      if (!a.window || now - a.window >= 60000) {
+        a.window = now;
+        a.count = 0;
+      }
+      a.count = (a.count || 0) + 1;
+      ws.serializeAttachment(a);
+      if (a.count > 30) return ws.close(1008, 'Too many requests');
       if (b.rpc) {
         if (
           !a?.uid ||

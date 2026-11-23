@@ -1,0 +1,33 @@
+{
+  "at": "2026-11-23T12:54:19.170Z",
+  "pages": "18a0cd31-6207-45dd-804f-d2e9b577256b",
+  "worker": "e9102cfd-ca70-4967-8407-7f00b23569a1",
+  "analytics": {
+    "production": false,
+    "preview": false
+  },
+  "security": {
+    "zoneFound": true,
+    "bot_management": {
+      "status": 403,
+      "data": null,
+      "errors": [
+        "Authentication error"
+      ]
+    },
+    "settings/security_level": {
+      "status": 403,
+      "data": null,
+      "errors": [
+        "Unauthorized to access requested resource"
+      ]
+    },
+    "rulesets": {
+      "status": 403,
+      "data": null,
+      "errors": [
+        "Authentication error"
+      ]
+    }
+  }
+}

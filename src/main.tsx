@@ -1,3 +1,4 @@
+import { RouteBoundary } from './RouteBoundary';
 import { createRoot } from 'react-dom/client';
 import App from './App';
 import './style.css';
@@ -12,4 +13,8 @@ function sampleFrame(t: number) {
   else if (slowFrames > 6) document.documentElement.classList.add('low-power');
 }
 requestAnimationFrame(sampleFrame);
-createRoot(document.getElementById('root')!).render(<App />);
+createRoot(document.getElementById('root')!).render(
+  <RouteBoundary>
+    <App />
+  </RouteBoundary>,
+);

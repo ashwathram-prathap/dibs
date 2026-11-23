@@ -1,3 +1,4 @@
+import './test-traffic';
 import { writeFileSync } from 'node:fs';
 import { PUBLIC_ORIGIN } from '../shared/config';
 import { PNG } from 'pngjs';

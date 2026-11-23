@@ -1,3 +1,4 @@
+import { robots } from '../shared/robots';
 import { reminder } from '../shared/reminder';
 import { canonicalRedirect, secureResponse } from '../shared/security';
 import { PUBLIC_ORIGIN } from '../shared/config';
@@ -40,17 +41,12 @@ export const onRequest: PagesFunction = async ({ request, next, env }) => {
       );
     }
     if (path === '/robots.txt')
-      return new Response(
-        staging
-          ? 'User-agent: *\nDisallow: /\n'
-          : `User-agent: *\nAllow: /\nDisallow: /api/\nDisallow: /admin\nDisallow: /stats\nDisallow: /certificate/\nDisallow: /summary/\nSitemap: ${origin}/sitemap.xml\n`,
-        {
-          headers: {
-            'content-type': 'text/plain; charset=utf-8',
-            'cache-control': 'public,max-age=600',
-          },
+      return new Response(robots(origin, staging), {
+        headers: {
+          'content-type': 'text/plain; charset=utf-8',
+          'cache-control': 'public,max-age=600',
         },
-      );
+      });
     let archive: any;
     if (path === '/sitemap.xml') {
       // Crawlers must receive useful XML even during an API outage, malformed
@@ -128,6 +124,31 @@ export const onRequest: PagesFunction = async ({ request, next, env }) => {
           .replace('wss://dibs.here', 'wss://practice.dibs-7hz.pages.dev'),
       );
     if (!response.headers.get('content-type')?.includes('text/html')) return response;
+    // Pages may inject a beacon into the asset. Make it inert before the browser
+    // parses HTML; the local loader decides whether this is a real visitor.
+    response.headers.set('Cache-Control', 'no-cache, no-transform');
+    response = new HTMLRewriter()
+      .on('script[src^="https://static.cloudflareinsights.com/"]', {
+        element(e) {
+          const config = e.getAttribute('data-cf-beacon');
+          e.removeAttribute('src');
+          e.removeAttribute('defer');
+          e.removeAttribute('data-cf-beacon');
+          e.setAttribute('type', 'application/json');
+          if (config) e.setAttribute('data-dibs-beacon', config);
+        },
+      })
+      .on('head', {
+        element(e) {
+          if (
+            staging ||
+            request.headers.has('x-dibs-test') ||
+            url.searchParams.get('no-analytics') === '1'
+          )
+            e.append('<meta name="dibs-test" content="1">', { html: true });
+        },
+      })
+      .transform(response);
     if (personal)
       return new HTMLRewriter()
         .on('script[type="application/ld+json"]', {

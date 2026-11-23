@@ -1,3 +1,4 @@
+import './test-traffic';
 import { existsSync, mkdirSync, readFileSync, renameSync, writeFileSync } from 'node:fs';
 // An independent complete article reference, not a lookup of coverage misses.
 const folder = '.category-cache/r8/museum-infobox-reference-v1';

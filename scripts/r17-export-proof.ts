@@ -1,3 +1,4 @@
+import './test-traffic';
 import { chromium } from '@playwright/test';
 import { build } from 'esbuild';
 import { execFileSync } from 'node:child_process';

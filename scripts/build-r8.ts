@@ -1,3 +1,4 @@
+import './test-traffic';
 import { writeCategory } from './category-file';
 import { loadBulkReadership } from './bulk-readership';
 import { bestReadership } from './catalog-ranking';

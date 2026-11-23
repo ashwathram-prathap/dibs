@@ -1,3 +1,4 @@
+import './test-traffic';
 import { readFileSync, writeFileSync } from 'node:fs';
 const reportPath = 'review/round8/pageview-gaps.json';
 const decisionsPath = 'scripts/r8-confirmed-pageview-gaps.json';

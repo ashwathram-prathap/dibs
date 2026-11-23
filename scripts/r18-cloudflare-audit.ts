@@ -1,3 +1,4 @@
+import './test-traffic';
 import { spawnSync } from 'node:child_process';
 import { writeFileSync } from 'node:fs';
 const auth = spawnSync('./node_modules/.bin/wrangler', ['auth', 'token', '--json'], {

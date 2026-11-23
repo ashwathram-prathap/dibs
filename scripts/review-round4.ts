@@ -1,3 +1,4 @@
+import './test-traffic';
 import { chromium } from '@playwright/test';
 import { mkdirSync, writeFileSync, readFileSync } from 'node:fs';
 import { PNG } from 'pngjs';

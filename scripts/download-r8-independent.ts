@@ -1,3 +1,4 @@
+import './test-traffic';
 import { readFileSync, writeFileSync, existsSync, mkdirSync } from 'node:fs';
 const sources = JSON.parse(readFileSync('scripts/r8-independent-sources.json', 'utf8'));
 const folder = '.category-cache/r8/independent-pages';

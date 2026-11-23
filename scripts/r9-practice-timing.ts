@@ -1,3 +1,4 @@
+import './test-traffic';
 import { readFileSync, writeFileSync, appendFileSync } from 'node:fs';
 import { spawn } from 'node:child_process';
 import assert from 'node:assert/strict';

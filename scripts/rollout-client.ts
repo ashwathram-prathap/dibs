@@ -1,3 +1,4 @@
+import './test-traffic';
 import { readFileSync, existsSync } from 'node:fs';
 export const practice = process.argv.includes('--practice');
 export const origin =

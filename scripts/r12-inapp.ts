@@ -1,3 +1,4 @@
+import './test-traffic';
 import { chromium, webkit, devices, expect } from '@playwright/test';
 import { writeFileSync } from 'node:fs';
 const results = [];

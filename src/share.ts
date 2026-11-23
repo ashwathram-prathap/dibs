@@ -224,10 +224,7 @@ async function drawCurve(
 }
 
 export function summaryText(file: DayFile, category: Category) {
-  const squares = file.events
-    .map((event) => (event.kind === 'strike' ? '\u2b1b' : event.golden ? '\u{1f7e8}' : '\u{1f7e5}'))
-    .join('');
-  return `Dibs #${edition(category.date)} · ${category.name}\n${squares}\n${file.points ?? 0} ${file.points === 1 ? 'pt' : 'pts'}${file.rank ? ` · #${file.rank} of ${file.players}` : ''} · streak ${file.streak || 0}\n${PUBLIC_HOST}`;
+  return `I scored ${file.points ?? 0} on today's Dibs (${category.name})${file.rank ? `, #${file.rank} of ${file.players}` : ''}. ${PUBLIC_HOST}`;
 }
 export async function exportSummary(file: DayFile, category: Category, story: boolean) {
   file = cleanStoredHandles(file);
@@ -348,6 +345,18 @@ export async function exportSummary(file: DayFile, category: Category, story: bo
     c.strokeStyle = ink;
     line(y);
     formText(c, 'number', String(i + 1).padStart(2, '0'), 80, y + 35);
+    if (!file.revealed) {
+      c.strokeStyle = ink;
+      c.lineWidth = 2;
+      c.strokeRect(132, y + 15, 30, 30);
+      if (event.kind === 'dibs') {
+        c.fillStyle = red;
+        c.fillRect(136, y + 19, 22, 22);
+      }
+      c.fillStyle = ink;
+      text(event.kind === 'dibs' ? 'Claim' : 'Strike', 190, y + 39, 25);
+      return;
+    }
     const display = (event.display || '').toUpperCase();
     fit(display, 132, y + 35, event.kind === 'dibs' ? 590 : 850, Math.min(42, rowHeight * 0.32));
     if (event.kind === 'strike') {

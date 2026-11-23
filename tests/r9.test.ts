@@ -272,7 +272,7 @@ it('redacts live records across bootstrap, ledger, certificates, summaries and s
     await call('/summary/' + result.file.summaryId, undefined, owner.cookie)
   ).json();
   expect(closedSummary.file.claims).toHaveLength(3);
-  expect(closedSummary.file.claims[0].display).toBe('Revealed when the day closes');
+  expect(closedSummary.file.claims[0]).not.toHaveProperty('display');
 });
 it('makes records public after the category closes without relying on the viewer identity', async () => {
   const { canReveal } = await import('../worker/visibility');

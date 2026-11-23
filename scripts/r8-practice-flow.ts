@@ -1,3 +1,4 @@
+import './test-traffic';
 import { chromium, webkit } from '@playwright/test';
 import { readFileSync, writeFileSync } from 'node:fs';
 const base = 'https://practice.dibs-7hz.pages.dev';

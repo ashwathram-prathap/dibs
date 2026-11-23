@@ -1,3 +1,4 @@
+import './test-traffic';
 import {
   readFileSync,
   writeFileSync,

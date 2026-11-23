@@ -1,3 +1,4 @@
+import './test-traffic';
 import { chromium } from '@playwright/test';
 import { readFileSync, writeFileSync } from 'node:fs';
 const b = await chromium.launch(),

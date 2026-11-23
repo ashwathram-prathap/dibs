@@ -1018,6 +1018,20 @@ function Home({
               <Clue clue={today.specials?.clue} />
             </details>
             {taken && <p className="clerk-aside">{clerkLine('strike', file?.strikes || 0)}</p>}
+            {message === 'Verification is slow. Retry' && (
+              <button
+                type="button"
+                onClick={() => {
+                  setMessage('');
+                  setChecking(true);
+                  void verifySession()
+                    .catch((e) => setMessage(e.message))
+                    .finally(() => setChecking(false));
+                }}
+              >
+                Retry
+              </button>
+            )}
             <div ref={turnstileBox} className="turnstile" />
             {sessionNotice && (
               <p className="session-notice" role="status">

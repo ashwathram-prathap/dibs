@@ -1,3 +1,4 @@
+import './test-traffic';
 import { chromium, webkit } from '@playwright/test';
 import { writeFileSync } from 'node:fs';
 const phase = process.argv[2] || 'before';

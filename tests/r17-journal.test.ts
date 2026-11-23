@@ -1,3 +1,4 @@
+import { visibleClaim } from '../worker/visibility';
 import { readCategory } from '../scripts/category-file';
 import { it, expect, beforeAll, afterAll } from 'vitest';
 import { Miniflare, convertV4MiniflareOptions } from 'miniflare';
@@ -144,7 +145,7 @@ it('keeps certificate ownership private, while owner sees stored rarity', async 
   const text = await publicResponse.text();
   expect(text).not.toContain(claim.display);
   const data = JSON.parse(text);
-  expect(data.claim.percentile).toBe(null);
+  expect(data.claim).not.toHaveProperty('percentile');
   expect(data.claim.concealed).toBe(true);
   expect(await (await call('/leaderboard', undefined, other.cookie)).text()).not.toContain(
     claim.display,
@@ -177,7 +178,9 @@ it('mirrors a complete game in batches, preserving exact state and scores after 
         .first()
     ).data,
   );
-  expect(mirrored.file.claims).toEqual(last.data.file.claims);
+  expect(
+    mirrored.file.claims.map((c: any) => JSON.parse(JSON.stringify(visibleClaim(c, false, true)))),
+  ).toEqual(last.data.file.claims);
   expect(mirrored.file.events).toEqual(last.data.file.events);
   expect(mirrored.file.points).toBe(last.data.file.points);
   await mf.setOptions(options);
@@ -200,6 +203,123 @@ async function direct(date: string, path: string, data?: any, cookie = winner.co
     ...(data === undefined ? {} : { body: JSON.stringify(data) }),
   });
 }
+it('R19B exposes only allowed pre-close fields across anonymous and signed public reads', async () => {
+  const other = await account();
+  const summary = '/summary/' + last.data.file.summaryId;
+  const allowedClaim = new Set([
+    'id',
+    'category_id',
+    'claim_no',
+    'handle',
+    'created_at',
+    'category_name',
+    'category_date',
+    'category_slug',
+    'total_registrable',
+    'founder',
+    'streak',
+    'concealed',
+    'revealed',
+    'owned',
+  ]);
+  const allowedFile = new Set([
+    'category_id',
+    'summaryId',
+    'dibs',
+    'strikes',
+    'closed',
+    'completedAt',
+    'points',
+    'rank',
+    'players',
+    'streak',
+    'handle',
+    'founder',
+    'revealed',
+    'claims',
+    'events',
+    'comparison',
+  ]);
+  for (const cookie of ['', other.cookie, winner.cookie]) {
+    const data: any = await (await call(summary, undefined, cookie)).json();
+    for (const key of Object.keys(data.file)) expect(allowedFile.has(key), key).toBe(true);
+    for (const c of data.file.claims)
+      for (const key of Object.keys(c)) expect(allowedClaim.has(key), key).toBe(true);
+    for (const e of data.file.events) expect(Object.keys(e).sort()).toEqual(['at', 'kind']);
+    expect(JSON.stringify(data)).not.toMatch(
+      /answer_id|user_id|"display"|"golden"|"bonus"|"obscurity"/,
+    );
+    for (const c of data.file.claims) expect(c).not.toHaveProperty('percentile');
+  }
+  for (const path of [
+    '/ledger?category=static',
+    '/leaderboard',
+    '/bootstrap',
+    '/certificate/' + claim.id,
+  ]) {
+    const data: any = await (await call(path, undefined, other.cookie)).json();
+    expect(JSON.stringify(data)).not.toMatch(/answer_id|user_id|"display"|"golden"/);
+  }
+});
+it('R19B rejects malformed codes cheaply and shares durable throttling between recover and delete', async () => {
+  for (const path of ['/recover', '/delete-file']) {
+    const r = await call(path, { key: 'bad' }, undefined, '192.0.2.240');
+    expect(r.status).toBe(422);
+    expect(r.headers.get('x-d1-rows-read')).toBe('0');
+  }
+  for (let i = 0; i < 5; i++)
+    expect(
+      (
+        await call(
+          i % 2 ? '/recover' : '/delete-file',
+          { key: 'DIBS-AAAAA-BBBBB-CCCCC-DDDDD' },
+          undefined,
+          '192.0.2.241',
+        )
+      ).status,
+    ).toBe(422);
+  await mf.setOptions(options);
+  db = await mf.getD1Database('DB');
+  for (const path of ['/recover', '/delete-file'])
+    expect(
+      (await call(path, { key: 'DIBS-AAAAA-BBBBB-CCCCC-DDDDD' }, undefined, '192.0.2.241')).status,
+    ).toBe(429);
+  expect(
+    (await call('/recover', { key: 'DIBS-AAAAA-BBBBB-CCCCC-DDDDD' }, undefined, '192.0.2.242'))
+      .status,
+  ).toBe(422);
+});
+it('R19B bounds anonymous sockets and same-identity connections without blocking a shared network', async () => {
+  const open = async (cookie?: string) =>
+    mf.dispatchFetch('http://localhost/api/live', {
+      headers: {
+        origin: 'https://dibs.here',
+        upgrade: 'websocket',
+        'x-test-ip': '192.0.2.243',
+        ...(cookie ? { cookie } : {}),
+      },
+    });
+  const held: any[] = [];
+  try {
+    for (let i = 0; i < 4; i++) {
+      const r = await open();
+      expect(r.status).toBe(101);
+      r.webSocket!.accept();
+      held.push(r.webSocket);
+    }
+    expect((await open()).status).toBe(429);
+    for (let i = 0; i < 12; i++) {
+      const p = await account();
+      const r = await open(p.cookie);
+      expect(r.status).toBe(101);
+      r.webSocket!.accept();
+      held.push(r.webSocket);
+    }
+  } finally {
+    held.forEach((ws) => ws.close());
+  }
+});
+
 it('keeps streak and recovery identity across the next drop', async () => {
   nextDate = new Date(Date.parse(registryDate() + 'T12:00:00Z') + 86400000)
     .toISOString()
@@ -476,6 +596,85 @@ it('R19 counts only finished files, updates the live score percentile, and expos
   const restored: any = await (await call('/leaderboard', undefined, players[0].cookie)).json();
   expect(restored.comparison).toEqual(final.comparison);
 }, 30000);
+
+it('R19B enforces concurrent claim/strike limits and accepts one golden bonus on the enabled runtime', async () => {
+  const p = await account();
+  const wins = await Promise.all(
+    Array.from({ length: 7 }, (_, i) => guess(p.cookie, catalog.answers[300 + i].display)),
+  );
+  expect(wins.filter((r) => r.status === 201)).toHaveLength(3);
+  expect(wins.filter((r) => r.status === 403)).toHaveLength(4);
+  const q = await account();
+  const strikes = await Promise.all(
+    Array.from({ length: 8 }, () => guess(q.cookie, manifest.house[0][1])),
+  );
+  expect(strikes.filter((r) => r.status === 409)).toHaveLength(5);
+  expect(strikes.filter((r) => r.status === 403)).toHaveLength(3);
+  // This database is isolated Miniflare fixture data, never a deployed golden draw.
+  const special = await db
+    .prepare('SELECT golden_json FROM daily_specials WHERE category_id=?')
+    .bind('static')
+    .first();
+  const chosen = JSON.parse(special.golden_json) as string[];
+  const golden = chosen.find(
+    (id) =>
+      ![
+        '120',
+        '121',
+        '122',
+        '130',
+        '140',
+        '150',
+        '151',
+        '180',
+        '181',
+        '300',
+        '301',
+        '302',
+        '303',
+        '304',
+        '305',
+        '306',
+      ].includes(id.split(':').at(-1)!),
+  )!;
+  const goldPlayer = await account();
+  const index = Number(golden.split(':').at(-1));
+  const gold = await guess(goldPlayer.cookie, catalog.answers[index].display);
+  expect(gold.status).toBe(201);
+  expect(gold.data.claim.bonus).toBe(100);
+  expect(gold.data.claim.golden).toBeTruthy();
+  expect(gold.data.file.points).toBe(gold.data.claim.points);
+  const retry = await guess(goldPlayer.cookie, catalog.answers[index].display, gold.requestId);
+  expect(retry.data.file.points).toBe(gold.data.file.points);
+});
+it('R19B reconciles a deliberately discarded socket ack using the same HTTP request ID', async () => {
+  const p = await account();
+  const id = crypto.randomUUID();
+  const answer = catalog.answers[350].display;
+  const response = await mf.dispatchFetch('http://localhost/api/live', {
+    headers: { origin: 'https://dibs.here', upgrade: 'websocket', cookie: p.cookie },
+  });
+  const ws = response.webSocket!;
+  ws.accept();
+  const accepted = new Promise<void>((resolve) =>
+    ws.addEventListener('message', (e) => {
+      if (JSON.parse(String(e.data)).rpc === id) resolve();
+    }),
+  );
+  ws.send(
+    JSON.stringify({
+      rpc: id,
+      path: '/claim',
+      body: { requestId: id, answer, turnstileToken: 'test' },
+    }),
+  );
+  await accepted;
+  ws.close();
+  const retry = await guess(p.cookie, answer, id);
+  expect(retry.status).toBe(201);
+  expect(retry.data.replayed).toBe(true);
+  expect(retry.data.file.dibs).toBe(1);
+});
 
 it('flushes the exact final board and mirror at close, and reveals only after close', async () => {
   const date = registryDate(),

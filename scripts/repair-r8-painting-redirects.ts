@@ -1,3 +1,4 @@
+import './test-traffic';
 import { readFileSync, writeFileSync, renameSync, mkdirSync, existsSync } from 'node:fs';
 import { createHash } from 'node:crypto';
 import { pageMatchesScope } from './catalog-quality';

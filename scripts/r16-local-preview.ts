@@ -1,3 +1,4 @@
+import './test-traffic';
 import http from 'node:http';
 import { gzipSync } from 'node:zlib';
 import { WebSocket, WebSocketServer } from 'ws';

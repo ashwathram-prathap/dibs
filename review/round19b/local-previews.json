@@ -1,0 +1,152 @@
+[
+  {
+    "agent": "LinkedInBot/1.0 (compatible; Mozilla/5.0; Apache-HttpClient +http://www.linkedin.com)",
+    "path": "/",
+    "status": 200,
+    "image": "https://dibs.here/api/og?v=19b",
+    "statusImage": 200,
+    "bytes": 66159,
+    "width": 1200,
+    "height": 627
+  },
+  {
+    "agent": "LinkedInBot/1.0 (compatible; Mozilla/5.0; Apache-HttpClient +http://www.linkedin.com)",
+    "path": "/summary/fixture",
+    "status": 200,
+    "image": "https://dibs.here/api/og/summary/fixture?v=19b",
+    "statusImage": 200,
+    "bytes": 59442,
+    "width": 1200,
+    "height": 627
+  },
+  {
+    "agent": "LinkedInBot/1.0 (compatible; Mozilla/5.0; Apache-HttpClient +http://www.linkedin.com)",
+    "path": "/c/fixture",
+    "status": 200,
+    "image": "https://dibs.here/api/og/fixture?v=19b",
+    "statusImage": 200,
+    "bytes": 59442,
+    "width": 1200,
+    "height": 627
+  },
+  {
+    "agent": "facebookexternalhit",
+    "path": "/",
+    "status": 200,
+    "image": "https://dibs.here/api/og?v=19b",
+    "statusImage": 200,
+    "bytes": 66159,
+    "width": 1200,
+    "height": 627
+  },
+  {
+    "agent": "facebookexternalhit",
+    "path": "/summary/fixture",
+    "status": 200,
+    "image": "https://dibs.here/api/og/summary/fixture?v=19b",
+    "statusImage": 200,
+    "bytes": 59442,
+    "width": 1200,
+    "height": 627
+  },
+  {
+    "agent": "facebookexternalhit",
+    "path": "/c/fixture",
+    "status": 200,
+    "image": "https://dibs.here/api/og/fixture?v=19b",
+    "statusImage": 200,
+    "bytes": 59442,
+    "width": 1200,
+    "height": 627
+  },
+  {
+    "agent": "Twitterbot",
+    "path": "/",
+    "status": 200,
+    "image": "https://dibs.here/api/og?v=19b",
+    "statusImage": 200,
+    "bytes": 66159,
+    "width": 1200,
+    "height": 627
+  },
+  {
+    "agent": "Twitterbot",
+    "path": "/summary/fixture",
+    "status": 200,
+    "image": "https://dibs.here/api/og/summary/fixture?v=19b",
+    "statusImage": 200,
+    "bytes": 59442,
+    "width": 1200,
+    "height": 627
+  },
+  {
+    "agent": "Twitterbot",
+    "path": "/c/fixture",
+    "status": 200,
+    "image": "https://dibs.here/api/og/fixture?v=19b",
+    "statusImage": 200,
+    "bytes": 59442,
+    "width": 1200,
+    "height": 627
+  },
+  {
+    "agent": "Slackbot",
+    "path": "/",
+    "status": 200,
+    "image": "https://dibs.here/api/og?v=19b",
+    "statusImage": 200,
+    "bytes": 66159,
+    "width": 1200,
+    "height": 627
+  },
+  {
+    "agent": "Slackbot",
+    "path": "/summary/fixture",
+    "status": 200,
+    "image": "https://dibs.here/api/og/summary/fixture?v=19b",
+    "statusImage": 200,
+    "bytes": 59442,
+    "width": 1200,
+    "height": 627
+  },
+  {
+    "agent": "Slackbot",
+    "path": "/c/fixture",
+    "status": 200,
+    "image": "https://dibs.here/api/og/fixture?v=19b",
+    "statusImage": 200,
+    "bytes": 59442,
+    "width": 1200,
+    "height": 627
+  },
+  {
+    "agent": "Discordbot",
+    "path": "/",
+    "status": 200,
+    "image": "https://dibs.here/api/og?v=19b",
+    "statusImage": 200,
+    "bytes": 66159,
+    "width": 1200,
+    "height": 627
+  },
+  {
+    "agent": "Discordbot",
+    "path": "/summary/fixture",
+    "status": 200,
+    "image": "https://dibs.here/api/og/summary/fixture?v=19b",
+    "statusImage": 200,
+    "bytes": 59442,
+    "width": 1200,
+    "height": 627
+  },
+  {
+    "agent": "Discordbot",
+    "path": "/c/fixture",
+    "status": 200,
+    "image": "https://dibs.here/api/og/fixture?v=19b",
+    "statusImage": 200,
+    "bytes": 59442,
+    "width": 1200,
+    "height": 627
+  }
+]

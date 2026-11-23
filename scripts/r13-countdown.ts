@@ -1,3 +1,4 @@
+import './test-traffic';
 import { chromium, webkit } from '@playwright/test';
 import assert from 'node:assert/strict';
 import { writeFileSync } from 'node:fs';

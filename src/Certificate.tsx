@@ -331,7 +331,13 @@ export function CertificatePage({ id }: { id: string }) {
   const [error, setError] = useState('');
   useEffect(() => {
     api<{ claim: Claim }>('/certificate/' + id)
-      .then((d) => setClaim(d.claim))
+      .then((d) =>
+        setClaim(
+          d.claim.concealed
+            ? { ...d.claim, display: 'Revealed when the day closes', obscurity: null }
+            : d.claim,
+        ),
+      )
       .catch((e) => setError(e.message));
   }, [id]);
   return (

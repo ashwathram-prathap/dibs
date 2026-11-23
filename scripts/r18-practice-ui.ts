@@ -1,3 +1,4 @@
+import './test-traffic';
 import { chromium, webkit, expect } from '@playwright/test';
 import { writeFileSync } from 'node:fs';
 import { execFileSync } from 'node:child_process';

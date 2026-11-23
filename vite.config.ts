@@ -98,7 +98,7 @@ export default defineConfig(({ mode }) => {
               Object.entries(headers)
                 .map(([k, v]) => '  ' + k + ': ' + v)
                 .join('\n') +
-              '\n  Cache-Control: no-cache\n/grain.*\n  ! Cache-Control\n  Cache-Control: public, max-age=31536000, immutable\n/assets/*\n  ! Cache-Control\n  Cache-Control: public, max-age=31536000, immutable\n/fonts/*\n  ! Cache-Control\n  Cache-Control: public, max-age=31536000, immutable\n/audio/*\n  ! Cache-Control\n  Cache-Control: public, max-age=31536000, immutable\n/catalog/*\n  ! Cache-Control\n  Cache-Control: public, max-age=86400\n',
+              '\n  Cache-Control: no-cache, no-transform\n/grain.*\n  ! Cache-Control\n  Cache-Control: public, max-age=31536000, immutable\n/assets/*\n  ! Cache-Control\n  Cache-Control: public, max-age=31536000, immutable\n/fonts/*\n  ! Cache-Control\n  Cache-Control: public, max-age=31536000, immutable\n/audio/*\n  ! Cache-Control\n  Cache-Control: public, max-age=31536000, immutable\n/catalog/*\n  ! Cache-Control\n  Cache-Control: public, max-age=86400\n',
           );
           if (publicOrigin === PUBLIC_ORIGIN)
             writeFileSync(
@@ -115,8 +115,7 @@ export default defineConfig(({ mode }) => {
             }
         },
       },
-      // Cloudflare Pages injects the production Web Analytics beacon. A second
-      // build-time beacon double-counted visits and downloaded the same code twice.
+      // The Pages middleware makes injected beacons inert; analytics.js gates real visits.
     ],
     // WebKit screenshots inject exactly "body {}" to synchronize animations.
     // The inert rule is hash-authorized only in the isolated test build.

@@ -1,3 +1,4 @@
+import './test-traffic';
 import { chromium } from '@playwright/test';
 import { readFileSync, mkdirSync } from 'node:fs';
 mkdirSync('review/round19/design-review', { recursive: true });

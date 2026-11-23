@@ -1,3 +1,4 @@
+import './test-traffic';
 import { readCategory } from './category-file';
 // R8 supersedes the legacy scheduled uploader. Existing live dates are preserved.
 throw new Error('Legacy rollout stopped: use coverage-gated static catalogs; do not change the live schedule.');

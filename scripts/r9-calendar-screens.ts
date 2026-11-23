@@ -1,3 +1,4 @@
+import './test-traffic';
 import { chromium, webkit } from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
 import { readFileSync, mkdirSync, writeFileSync } from 'node:fs';

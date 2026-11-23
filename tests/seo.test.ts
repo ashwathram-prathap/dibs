@@ -82,5 +82,6 @@ it('keeps practice and personal pages out of search results', async () => {
   const robots = await (
     await mf.dispatchFetch('https://practice.dibs-7hz.pages.dev/robots.txt')
   ).text();
-  expect(robots).toBe('User-agent: *\nDisallow: /\n');
+  expect(robots).toContain('User-agent: *\nDisallow: /\n');
+  expect(robots).toContain('User-agent: LinkedInBot');
 });

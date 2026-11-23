@@ -1,3 +1,4 @@
+import './test-traffic';
 import { readFileSync, writeFileSync, existsSync, mkdirSync, renameSync } from 'node:fs';
 import { createHash } from 'node:crypto';
 const pause = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms));

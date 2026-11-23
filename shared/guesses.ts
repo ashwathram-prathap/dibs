@@ -3,6 +3,8 @@ import type { DayFile, Guess } from '../src/types';
 export function guesses(file: DayFile): Guess[] {
   let win = 0;
   return file.events.map((event) => {
+    if (!file.revealed && !event.display)
+      return { at: event.at, kind: event.kind, display: 'Revealed when the day closes' };
     if (event.kind === 'strike') return { ...event, display: event.display || 'Unrecorded entry' };
     const claim = file.claims[win++];
     return {

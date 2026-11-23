@@ -1,3 +1,4 @@
+import './test-traffic';
 import { readCategory } from './category-file';
 // LOCAL ONLY. Opens a real category in the local D1 emulator for end-to-end testing.
 import { readFileSync } from 'node:fs';

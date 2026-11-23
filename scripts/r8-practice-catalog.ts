@@ -1,3 +1,4 @@
+import './test-traffic';
 import { readCategory } from './category-file';
 import {readFileSync,writeFileSync} from 'node:fs';
 const base='https://practice.dibs-7hz.pages.dev';const token=readFileSync('.dev.vars.staging','utf8').match(/^ADMIN_TOKEN=(.+)$/m)![1];

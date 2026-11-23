@@ -1,3 +1,4 @@
+import './test-traffic';
 import { readFileSync, writeFileSync, existsSync } from 'node:fs';
 import assert from 'node:assert/strict';
 const dir = 'review/round19/';

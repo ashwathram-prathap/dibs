@@ -1,3 +1,4 @@
+import './test-traffic';
 import { readCategory } from './category-file';
 import { chromium, webkit } from '@playwright/test';
 import { readFileSync, readdirSync, mkdirSync, writeFileSync } from 'node:fs';

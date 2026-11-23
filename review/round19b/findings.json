@@ -1,0 +1,56 @@
+[
+  {
+    "item": "Sharing crawl rules, metadata, home art and LinkedIn controls",
+    "classification": "confirmed defect",
+    "before": "3 failing local preview tests",
+    "after": "All bot fixtures pass; 1200x627 JPEGs; UI 390/1440 light/dark reviewed"
+  },
+  {
+    "item": "Public answer confidentiality",
+    "classification": "confirmed defect",
+    "before": "Runtime summary included eligible, answer_id and claim percentile; recursive poison test added",
+    "after": "Explicit public projections, owner access retained"
+  },
+  {
+    "item": "Credential endpoints",
+    "classification": "confirmed defect",
+    "before": "Malformed code incurred 32 reads; delete path lacked throttle",
+    "after": "Cheap format validation and shared durable quota before lookup/mirror"
+  },
+  {
+    "item": "Socket flood protection",
+    "classification": "confirmed defect",
+    "before": "Fifth anonymous socket accepted",
+    "after": "Anonymous 4, per identity 8; shared-network signed players accepted"
+  },
+  {
+    "item": "Reconnect and verification loader",
+    "classification": "confirmed defect",
+    "before": "No bootstrap reconnect; loader hung beyond 10 seconds",
+    "after": "Backoff with jitter, reconnect sync, timeout and retry tests pass"
+  },
+  {
+    "item": "Lazy chunk failure",
+    "classification": "confirmed defect",
+    "before": "Browser lost route with uncaught import error, no recovery UI",
+    "after": "Explicit reload prompt, zero automatic document reloads"
+  },
+  {
+    "item": "Enabled runtime correctness",
+    "classification": "missing test",
+    "before": "Concurrency/restart existed; more limit/ack/golden/time cases needed",
+    "after": "Added concurrent limits, discarded-ack retry, golden scoring, tonight/DST tests"
+  },
+  {
+    "item": "Analytics automation exclusion",
+    "classification": "source-level concern",
+    "before": "No client exclusion; injected tag outside app control",
+    "after": "Inert beacon transformation and conditional loader; shared test-traffic flag"
+  },
+  {
+    "item": "Cloudflare bot settings",
+    "classification": "source-level concern",
+    "before": "Read-only API returns 403 for bot management and rulesets",
+    "after": "Direct bot-fetch verification pending; dashboard owner audit required"
+  }
+]

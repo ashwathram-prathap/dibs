@@ -1,3 +1,4 @@
+import './test-traffic';
 import{chromium}from'@playwright/test';import{readFileSync}from'node:fs';
 const b=await chromium.launch(),p=await b.newPage({viewport:{width:2100,height:900}});
 for(const width of [390,1440,2560])for(const theme of ['light','dark']){

@@ -1,3 +1,4 @@
+import './test-traffic';
 import { readFileSync, existsSync } from 'node:fs';
 const [command, target, date] = process.argv.slice(2);
 const localSecrets = process.env.DIBS_API?.includes('practice') ? '.dev.vars.staging' : '.dev.vars';

@@ -8,11 +8,21 @@ function loadScript() {
     s.id = 'turnstile-script';
     s.fetchPriority = 'low';
     s.src = 'https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit';
-    s.onload = () => resolve();
-    s.onerror = () => {
+    const fail = () => {
+      clearTimeout(timer);
+      s.onload = null;
+      s.onerror = null;
+      s.remove();
       loading = undefined;
-      reject(Error('Verification could not load. Please try a regular browser.'));
+      reject(Error('Verification is slow. Retry'));
     };
+    const timer = setTimeout(fail, 10000);
+    s.onload = () => {
+      clearTimeout(timer);
+      if ((window as any).turnstile) resolve();
+      else fail();
+    };
+    s.onerror = fail;
     document.head.appendChild(s);
   });
   return loading;

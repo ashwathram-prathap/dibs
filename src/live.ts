@@ -78,6 +78,10 @@ export function publishClaim(claim: Claim, me?: Me, leaderboard?: import('./type
 export function watchRegistry(onError: (message: string) => void) {
   let socket: WebSocket | undefined, timer: ReturnType<typeof setTimeout> | undefined;
   let socketIdentity: string | undefined;
+  let retry: ReturnType<typeof setTimeout> | undefined;
+  let handshake: ReturnType<typeof setTimeout> | undefined;
+  let failures = 0;
+  const online = () => typeof navigator === 'undefined' || navigator.onLine !== false;
   let stopped = false,
     failed = false;
   const pending = new Map<
@@ -112,14 +116,13 @@ export function watchRegistry(onError: (message: string) => void) {
       socket!.send(JSON.stringify({ rpc: id, path, body }));
     });
   });
-  const done = () => !!latest?.me?.file?.closed;
   const schedule = () => {
     clearTimeout(timer);
-    if (!stopped && !document.hidden && !done() && (failed || isDemo))
+    if (!stopped && !document.hidden && (failed || isDemo))
       timer = setTimeout(tick, 60000 + Math.random() * 15000);
   };
   const tick = async () => {
-    if (stopped || document.hidden || done()) return;
+    if (stopped || document.hidden) return;
     try {
       if (isDemo) {
         const today = await api<Today>('/today');
@@ -140,16 +143,34 @@ export function watchRegistry(onError: (message: string) => void) {
     schedule();
   };
   const connect = () => {
-    if (isDemo || stopped || (socket && socket.readyState < 2)) return;
+    if (isDemo || stopped || document.hidden || !online() || (socket && socket.readyState < 2))
+      return;
+    clearTimeout(retry);
     const url = new URL('/api/live', location.href);
     url.protocol = location.protocol === 'https:' ? 'wss:' : 'ws:';
     socketIdentity = latest?.me?.user?.id;
     socket = new WebSocket(url);
     const connection = socket;
+    handshake = setTimeout(() => {
+      if (socket === connection && connection.readyState !== WebSocket.OPEN) connection.close();
+    }, 10000);
     socket.onopen = () => {
       if (socket !== connection) return;
       failed = false;
+      clearTimeout(handshake);
       clearTimeout(timer);
+      // HTTP bootstrap reattaches identity and reconciles accepted requests after a lost ack.
+      // Submissions are never automatically replayed; the UI retains their requestId.
+      void api<Snapshot>('/bootstrap')
+        .then((s) => {
+          if (!stopped && socket === connection) {
+            failures = 0;
+            publish(s);
+          }
+        })
+        .catch((e) => {
+          if (!stopped) onError(e.message);
+        });
     };
     socket.onmessage = (e) => {
       if (socket !== connection) return;
@@ -173,28 +194,55 @@ export function watchRegistry(onError: (message: string) => void) {
     };
     socket.onclose = () => {
       if (socket !== connection) return;
+      socket = undefined;
+      clearTimeout(handshake);
       failed = true;
       for (const request of pending.values()) {
         clearTimeout(request.timer);
         request.reject(Error('Connection closed'));
       }
       pending.clear();
+      reconnect();
       schedule();
     };
     socket.onerror = () => {
       if (socket !== connection) return;
       failed = true;
       socket?.close();
+      reconnect();
       schedule();
     };
   };
+  const reconnect = () => {
+    clearTimeout(retry);
+    if (!stopped && !document.hidden && online())
+      retry = setTimeout(
+        connect,
+        Math.min(30000, 500 * 2 ** Math.min(failures++, 6)) * (0.75 + Math.random() * 0.25),
+      );
+  };
   const visible = () => {
-    if (document.hidden) clearTimeout(timer);
-    else {
+    if (document.hidden) {
+      clearTimeout(timer);
+      clearTimeout(retry);
+    } else {
+      // Sleep/wake can leave a TCP connection apparently open but unusable.
+      socket?.close(1000, 'Refresh connection');
+      socket = undefined;
       connect();
       schedule();
     }
   };
+  const offline = () => {
+    clearTimeout(retry);
+    clearTimeout(timer);
+    socket?.close();
+  };
+  if (typeof window !== 'undefined') {
+    window.addEventListener('online', visible);
+    window.addEventListener('offline', offline);
+    window.addEventListener('pageshow', visible);
+  }
   connect();
   schedule();
   document.addEventListener('visibilitychange', visible);
@@ -202,6 +250,18 @@ export function watchRegistry(onError: (message: string) => void) {
     setLiveTransport();
     stopped = true;
     clearTimeout(timer);
+    clearTimeout(retry);
+    clearTimeout(handshake);
+    if (typeof window !== 'undefined') {
+      window.removeEventListener('online', visible);
+      window.removeEventListener('offline', offline);
+      window.removeEventListener('pageshow', visible);
+    }
+    for (const request of pending.values()) {
+      clearTimeout(request.timer);
+      request.reject(Error('Connection closed'));
+    }
+    pending.clear();
     document.removeEventListener('visibilitychange', visible);
     socket?.close();
   };

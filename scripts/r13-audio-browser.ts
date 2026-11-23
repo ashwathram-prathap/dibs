@@ -1,3 +1,4 @@
+import './test-traffic';
 import { musicLoopBounds } from '../src/music-loop';
 import { chromium, webkit } from '@playwright/test';
 import { writeFileSync } from 'node:fs';

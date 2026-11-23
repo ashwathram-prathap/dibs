@@ -1,3 +1,4 @@
+import './test-traffic';
 import {readFileSync,writeFileSync} from 'node:fs';
 const staging=process.argv.includes('--practice');const origin=staging?'https://practice.dibs-7hz.pages.dev':'https://dibs.here';const token=readFileSync(staging?'.dev.vars.staging':'.dev.vars','utf8').match(/^ADMIN_TOKEN=(.+)$/m)![1];
 const r=await fetch(origin+'/api/admin/registers',{headers:{authorization:'Bearer '+token,origin}});if(!r.ok)throw Error(await r.text());const data:any=await r.json();

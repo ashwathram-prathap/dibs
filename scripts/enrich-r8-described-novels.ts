@@ -1,3 +1,4 @@
+import './test-traffic';
 import { readFileSync, writeFileSync, renameSync, mkdirSync, existsSync } from 'node:fs';
 import { completeIdsByClass } from './wikidata-complete-ids';
 const folder = '.category-cache/r8/described-literary-novels-v1';

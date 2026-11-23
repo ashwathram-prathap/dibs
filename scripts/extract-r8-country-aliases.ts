@@ -1,3 +1,4 @@
+import './test-traffic';
 import { writeFileSync } from 'node:fs';
 const query =
   'SELECT ?iso ?name ?alias ?article WHERE { ?item wdt:P297 ?iso; rdfs:label ?name FILTER(LANG(?name)="en") OPTIONAL { ?item skos:altLabel ?alias FILTER(LANG(?alias)="en") } OPTIONAL { ?article schema:about ?item; schema:isPartOf <https://en.wikipedia.org/> } }';

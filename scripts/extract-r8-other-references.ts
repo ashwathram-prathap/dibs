@@ -1,3 +1,4 @@
+import './test-traffic';
 import { readFileSync, writeFileSync, existsSync, mkdirSync } from 'node:fs';
 // No LIMIT, OFFSET cutoff, publication-year subset or query-order truncation.
 // Partial HTTP-200 responses are rejected by JSON parsing and never certified complete.

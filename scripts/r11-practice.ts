@@ -1,3 +1,4 @@
+import './test-traffic';
 import { readFileSync, writeFileSync, appendFileSync } from 'node:fs';
 import { spawnSync } from 'node:child_process';
 const config = 'worker/wrangler.staging.jsonc';

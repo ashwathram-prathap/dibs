@@ -1,3 +1,4 @@
+import './test-traffic';
 import { readCategory } from './category-file';
 import { readFileSync, writeFileSync } from 'node:fs';
 const origin = 'https://dibs.here';

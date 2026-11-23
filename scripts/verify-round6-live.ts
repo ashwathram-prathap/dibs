@@ -1,3 +1,4 @@
+import './test-traffic';
 import { mkdirSync, writeFileSync } from 'node:fs';
 import { SECURITY_HEADERS } from '../shared/security';
 const origin = 'https://dibs.here';

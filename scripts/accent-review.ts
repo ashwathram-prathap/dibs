@@ -1,3 +1,4 @@
+import './test-traffic';
 import { chromium, webkit } from '@playwright/test';
 import { mkdirSync, writeFileSync, readFileSync } from 'node:fs';
 import { resolve, basename } from 'node:path';

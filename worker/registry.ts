@@ -1,3 +1,4 @@
+import { credentialGate, credentialQuota } from './credential-gate';
 import { cleanStoredHandles } from '../shared/handles';
 import { cleanHandleBatch } from './handle-migration';
 import { feedbackText, reserveFeedback, feedbackQuota } from './feedback';
@@ -6,7 +7,16 @@ import { Leaderboard, publicScores } from './leaderboard';
 import { withdraw } from './withdraw';
 import { calendarRoute } from './calendar';
 import { platformUsage } from './platform-usage';
-import { canReveal, dayClosed, publicCategory, concealClaim, concealSummary } from './visibility';
+import {
+  canReveal,
+  dayClosed,
+  publicCategory,
+  concealClaim,
+  concealSummary,
+  visibleClaim,
+  publicSummary,
+  publicFile,
+} from './visibility';
 import { emptyMinute, alertConditions, freeLimits, type Minute } from './monitoring';
 import { verifyChallenge, verificationToken, verifiedSession } from './turnstile';
 import { closeAt, specialStatus } from './specials';
@@ -53,6 +63,9 @@ type Session = {
 // One global read coordinator. SQLite-backed Durable Objects are included on Workers Free.
 // Hibernation avoids charging five minutes of active duration for every open browser.
 export class Registry extends DurableObject<Env> {
+  async reserveCredentialQuota(network: string, now: number) {
+    return credentialQuota(this.ctx.storage, network, now);
+  }
   async reserveFeedbackQuota(uid: string, ipHash: string, now: number) {
     return feedbackQuota(this.ctx.storage, uid, ipHash, now);
   }
@@ -351,18 +364,18 @@ export class Registry extends DurableObject<Env> {
     }
   }
   async image(id: string, env: Env): Promise<Response> {
-    if ((await this.ctx.storage.get('image-format')) !== 17) {
+    if ((await this.ctx.storage.get('image-format')) !== 19) {
       await this.ctx.blockConcurrencyWhile(async () => {
-        if ((await this.ctx.storage.get('image-format')) === 17) return;
+        if ((await this.ctx.storage.get('image-format')) === 19) return;
         for (const prefix of ['image:', 'image-expiry:']) {
           const rows = await this.ctx.storage.list({ prefix });
           if (rows.size) await this.ctx.storage.delete([...rows.keys()]);
         }
         await this.ctx.storage.put('image-bytes', 0);
-        await this.ctx.storage.put('image-format', 17);
+        await this.ctx.storage.put('image-format', 19);
       });
     }
-    const key = 'image:' + (id || 'default') + ':r17';
+    const key = 'image:' + (id || 'default') + ':r19b';
     const saved = await this.ctx.storage.get<ArrayBuffer>(key);
     const ttl = id.startsWith('summary/') ? 25 : 86400;
     const updated = (await this.ctx.storage.get<number>(key + ':updated')) || 0;
@@ -386,7 +399,7 @@ export class Registry extends DurableObject<Env> {
               );
         if (r && !r.ok) return r;
         const data = r ? ((await r.json()) as any) : null;
-        const claim = data?.claim || null;
+        const claim = data?.claim ? { ...data.claim, score: data.score } : null;
         const summary = data?.file ? data : null;
         // Old certificates keep their HTML/PNG export; their social preview becomes the common wordmark.
         if (
@@ -404,7 +417,7 @@ export class Registry extends DurableObject<Env> {
           await txn.put(key + ':updated', Date.now());
           if (id) {
             await txn.put('image-bytes', used + bytes.byteLength);
-            await txn.put('image-expiry:' + id + ':r17', {
+            await txn.put('image-expiry:' + id + ':r19b', {
               at: Date.now() + 30 * 86400000,
               size: bytes.byteLength,
             });
@@ -666,6 +679,14 @@ export class Registry extends DurableObject<Env> {
     });
   }
   async fetch(req: Request): Promise<Response> {
+    const rejected = originFailure(req, isLocal(req, this.env.LOCAL_TEST));
+    if (rejected) return rejected;
+    try {
+      const denied = await credentialGate(req, this.env, this.ctx.storage);
+      if (denied) return denied;
+    } catch (e) {
+      return safeError(e, this.env);
+    }
     const started = Date.now();
     const meter = metered(this.env.DB);
     const env = { ...this.env, DB: meter.db };
@@ -899,7 +920,7 @@ export class Registry extends DurableObject<Env> {
       const data: any = await cached.json();
       return json(
         (await canReveal(req, env, data.category))
-          ? { ...data, category: publicCategory(data.category), nextDrop: nextDrop() }
+          ? publicSummary(data, true)
           : concealSummary(data),
       );
     }
@@ -918,8 +939,45 @@ export class Registry extends DurableObject<Env> {
           .bind(data.claim.id, uid)
           .first());
       const revealed = await canReveal(req, env, g);
+      const scoreResponse = await this.cached(
+        'certificate-score:' + data.claim.id,
+        10000,
+        async () => {
+          const ownerId =
+            data.ownerId ||
+            (
+              await env.DB.prepare('SELECT user_id FROM claims WHERE id=?')
+                .bind(data.claim.id)
+                .first<any>()
+            )?.user_id;
+          const session = ownerId
+            ? await this.ctx.storage.get<Session>('session:' + ownerId)
+            : null;
+          const standing = ownerId ? publicScores(await this.scores.rows(g.id), ownerId) : null;
+          const file =
+            session?.file?.category_id === g.id
+              ? session.file
+              : ownerId
+                ? await fileState(env, g.id, ownerId)
+                : null;
+          return json(
+            file
+              ? publicFile(
+                  {
+                    ...file,
+                    rank: standing?.own?.rank || null,
+                    players: standing?.total,
+                    handle: data.claim.handle,
+                  },
+                  false,
+                )
+              : null,
+          );
+        },
+      );
       return json({
-        claim: revealed || owned ? { ...data.claim, revealed, owned } : concealClaim(data.claim),
+        claim: visibleClaim(data.claim, revealed, owned),
+        score: await scoreResponse.json(),
       });
     }
     if (path === '/og' || path.startsWith('/og/')) return this.image(path.slice(4), env);
@@ -1199,22 +1257,6 @@ export class Registry extends DurableObject<Env> {
       if (denied) return denied;
       const b = await body(req, 200);
       const key = normalizeFileKey(String(b.key || ''));
-      // Per-network five entries / 15 minutes, independent of a new browser cookie.
-      const network =
-        'SOCKET_SECURITY_KEY' in env
-          ? env.SOCKET_SECURITY_KEY
-          : await securityKey(req, env.COOKIE_SECRET, env.LOCAL_TEST);
-      const rate = 'recover:' + network;
-      const allowed =
-        !network ||
-        (await this.ctx.storage.transaction(async (tx) => {
-          let r = await tx.get<any>(rate);
-          if (!r || r.until < Date.now()) r = { n: 0, until: Date.now() + 900000 };
-          r.n++;
-          await tx.put(rate, r);
-          return r.n <= 5;
-        }));
-      if (!allowed) return json({ message: 'Too many codes tried; wait 15 minutes.' }, 429);
       const hash = await hmac(key, env.COOKIE_SECRET);
       const found = await env.DB.prepare('SELECT user_id FROM recovery_keys WHERE key_hash=?')
         .bind(hash)
@@ -1398,7 +1440,7 @@ export class Registry extends DurableObject<Env> {
             ].slice(0, 370);
             await this.ctx.storage.put('cache:certificate:' + data.claim.id, {
               at: Date.now(),
-              body: JSON.stringify({ claim: data.claim }),
+              body: JSON.stringify({ claim: data.claim, ownerId: latest.user.id }),
             });
           }
           const founder = await this.founderFor(latest);

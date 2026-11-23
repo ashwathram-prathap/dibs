@@ -16,12 +16,11 @@ export function preview(kind: 'certificate' | 'summary'): PagesFunction<Env> {
     if (!response.ok)
       return new Response('Dibs: this file is not on record.', { status: response.status });
     const data = (await response.json()) as any;
-    const title =
-      kind === 'summary'
-        ? `Dibs, ${data.category.name}: ${data.file.points ?? 0} pts, ${data.file.rank ? '#' + data.file.rank + ' of ' + data.file.players : 'unranked'}, streak ${data.file.streak || 0}.`
-        : `Dibs · Certificate No. ${data.claim.claim_no}`;
+    const score = data.score || data.file || data.claim;
+    const category = data.category?.name || data.claim?.category_name;
+    const title = `Dibs · ${category} · ${score.points ?? 0} pts${score.rank ? ' · #' + score.rank + ' of ' + score.players : ''}`;
     const description = GAME_DESCRIPTION;
-    const image = `${publicOrigin}/api/og/${kind === 'summary' ? 'summary/' : ''}${id}?v=17`;
+    const image = `${publicOrigin}/api/og/${kind === 'summary' ? 'summary/' : ''}${id}?v=19b`;
     const canonical = `${publicOrigin}/${kind}/${id}`;
     const tags: Record<string, string> = {
       'meta[name="robots"]': 'noindex,nofollow',
@@ -29,9 +28,11 @@ export function preview(kind: 'certificate' | 'summary'): PagesFunction<Env> {
       'meta[property="og:title"]': title,
       'meta[property="og:description"]': description,
       'meta[property="og:image"]': image,
-      'meta[property="og:image:width"]': '1080',
-      'meta[property="og:image:height"]': '567',
+      'meta[property="og:image:width"]': '1200',
+      'meta[property="og:image:height"]': '627',
       'meta[property="og:url"]': canonical,
+      'meta[property="og:type"]': 'website',
+      'meta[property="og:image:alt"]': title + ' · spoiler-free scorecard',
       'meta[name="twitter:title"]': title,
       'meta[name="twitter:description"]': description,
       'meta[name="twitter:image"]': image,

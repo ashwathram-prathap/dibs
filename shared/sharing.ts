@@ -2,6 +2,7 @@ import { PUBLIC_ORIGIN } from './config';
 
 export const platforms = [
   'native',
+  'linkedin',
   'x',
   'whatsapp',
   'facebook',
@@ -22,6 +23,8 @@ export function attributedUrl(url: string, platform: Platform) {
 }
 export function intentUrl(platform: Platform, text: string, url: string) {
   const link = attributedUrl(url, platform);
+  if (platform === 'linkedin')
+    return 'https://www.linkedin.com/sharing/share-offsite/?' + new URLSearchParams({ url: link });
   if (platform === 'x')
     return 'https://twitter.com/intent/tweet?' + new URLSearchParams({ text, url: link });
   if (platform === 'whatsapp')

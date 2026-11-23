@@ -1,0 +1,30 @@
+[
+  {
+    "width": 390,
+    "theme": "light",
+    "fallback": 1,
+    "navigations": 1,
+    "errors": []
+  },
+  {
+    "width": 390,
+    "theme": "dark",
+    "fallback": 1,
+    "navigations": 1,
+    "errors": []
+  },
+  {
+    "width": 1440,
+    "theme": "light",
+    "fallback": 1,
+    "navigations": 1,
+    "errors": []
+  },
+  {
+    "width": 1440,
+    "theme": "dark",
+    "fallback": 1,
+    "navigations": 1,
+    "errors": []
+  }
+]

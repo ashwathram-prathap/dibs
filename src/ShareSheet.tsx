@@ -68,7 +68,7 @@ export function ShareSheet({
   async function share(platform: 'native' | 'instagram-tiktok' | 'story' | 'feed') {
     tap(platform);
     if (!files) return;
-    const file = files[platform === 'feed' ? 'feed' : 'story'];
+    const file = files[platform === 'feed' || platform === 'native' ? 'feed' : 'story'];
     const data = { title: 'Dibs', text, url: attributedUrl(url, platform) };
     setBusy(true);
     setCopy('');
@@ -123,6 +123,22 @@ export function ShareSheet({
           {status === 'Copied' ? 'Copied' : 'Copy result'}
         </button>
       </div>
+      <div className="share-platforms linkedin-share">
+        <a
+          href={intentUrl('linkedin', text, url)}
+          target="_blank"
+          rel="noopener noreferrer"
+          onClick={() => tap('linkedin')}
+        >
+          Post on LinkedIn
+        </a>
+        <button disabled={!files || busy} onClick={() => void share('feed')}>
+          Download image
+        </button>
+      </div>
+      <p className="share-hint">
+        For the best post, download the image and add it to your LinkedIn post.
+      </p>
       <details className="share-options">
         <summary>More ways to share</summary>
         <div className="share-platforms" aria-label="Share by platform">

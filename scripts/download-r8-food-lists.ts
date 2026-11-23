@@ -1,3 +1,4 @@
+import './test-traffic';
 import{writeFileSync,existsSync}from'node:fs';
 const pages=['List of Indian dishes','List of Japanese dishes','List of Korean dishes','List of Thai dishes','List of Vietnamese dishes','List of Indonesian dishes','List of Filipino dishes','List of Mexican dishes','List of Italian dishes','List of French dishes','List of Turkish dishes','List of Lebanese dishes','List of Pakistani dishes','List of British dishes','List of German dishes','List of Spanish dishes','List of vegetables'];
 const audit:any[]=[];

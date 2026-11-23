@@ -1,3 +1,4 @@
+import './test-traffic';
 import { chromium } from '@playwright/test';
 import { readFileSync, writeFileSync, existsSync } from 'node:fs';
 const dir = 'review/round18';

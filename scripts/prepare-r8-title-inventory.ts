@@ -1,3 +1,4 @@
+import './test-traffic';
 import { readFileSync, writeFileSync, createReadStream, copyFileSync } from 'node:fs';
 import { createGunzip } from 'node:zlib';
 import { createInterface } from 'node:readline';

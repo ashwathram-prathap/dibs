@@ -1,3 +1,4 @@
+import './test-traffic';
 // Re-encode the unchanged museum scan for delivery; keep the source JPEG intact.
 import { chromium } from '@playwright/test';
 import { writeFileSync } from 'node:fs';

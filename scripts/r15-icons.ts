@@ -1,3 +1,4 @@
+import './test-traffic';
 import { PNG } from 'pngjs';
 import { readFileSync, writeFileSync } from 'node:fs';
 import opentype from 'opentype.js';

@@ -1,3 +1,4 @@
+import './test-traffic';
 import { chromium } from '@playwright/test';
 import { mkdirSync } from 'node:fs';
 const dir = process.argv[2] || 'review/m1';

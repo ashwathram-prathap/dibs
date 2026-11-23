@@ -1,3 +1,4 @@
+import './test-traffic';
 // Local capacity harness only: count SQLite-backed KV rows, including alarm writes.
 // Instrumentation adds IO and must not be used to estimate duration or deployed.
 const cache = new WeakMap<object, any>();

@@ -1,3 +1,4 @@
+import './test-traffic';
 // Release guard: do not send an existing preview to an unavailable canonical domain.
 // Run after the dashboard steps in MORNING_REPORT.md; exits before mutations if TLS fails.
 for (const host of ['dibs.here', 'www.dibs.here']) {

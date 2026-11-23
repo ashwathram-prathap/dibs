@@ -1,3 +1,4 @@
+import './test-traffic';
 import { castleTitleDescriptionMatches } from './catalog-quality';
 import {
   readFileSync,

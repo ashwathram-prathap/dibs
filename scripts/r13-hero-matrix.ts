@@ -1,3 +1,4 @@
+import './test-traffic';
 import { chromium, webkit, type Page } from '@playwright/test';
 import { readFileSync, writeFileSync, mkdirSync } from 'node:fs';
 const sizes = [

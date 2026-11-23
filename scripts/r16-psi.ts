@@ -1,3 +1,4 @@
+import './test-traffic';
 import { mkdirSync, writeFileSync } from 'node:fs';
 const phase = process.argv[2] || 'before';
 const dir = `review/round16/psi-${phase}`;

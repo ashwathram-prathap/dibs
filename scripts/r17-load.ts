@@ -1,3 +1,4 @@
+import './test-traffic';
 import { createRequire } from 'node:module';
 const WebSocket = createRequire(import.meta.url)('ws');
 const sockets: any[] = [];

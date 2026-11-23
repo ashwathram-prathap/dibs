@@ -141,3 +141,11 @@ review/round19/firefox-ci/
 review/final/round19/
 review/round19/*results.json
 review/round19/unit-tests.json
+
+# R19B raw captures, browser traces and verbose audit reports remain local.
+review/round19b/**/*.png
+review/round19b/**/*.jpg
+review/round19b/**/*.html
+review/round19b/*browser-results.json
+review/round19b/lighthouse*/
+review/final/round19b/

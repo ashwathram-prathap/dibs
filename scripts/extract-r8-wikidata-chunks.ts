@@ -1,3 +1,4 @@
+import './test-traffic';
 import { completeIdsByClass, classificationPath } from './wikidata-complete-ids';
 import { readFileSync, writeFileSync, existsSync, mkdirSync, renameSync } from 'node:fs';
 const defs = JSON.parse(readFileSync('scripts/category-sources.json', 'utf8')).filter(

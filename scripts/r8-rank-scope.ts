@@ -1,3 +1,4 @@
+import './test-traffic';
 import { readFileSync, writeFileSync } from 'node:fs';
 const path = '.category-cache/r8/pageviews.json',
   cache = JSON.parse(readFileSync(path, 'utf8'));

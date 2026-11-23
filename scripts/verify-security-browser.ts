@@ -1,3 +1,4 @@
+import './test-traffic';
 import { chromium, webkit } from '@playwright/test';
 import { mkdirSync, writeFileSync } from 'node:fs';
 import { SECURITY_HEADERS } from '../shared/security';

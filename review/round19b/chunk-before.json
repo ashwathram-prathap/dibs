@@ -1,0 +1,38 @@
+[
+  {
+    "width": 390,
+    "theme": "light",
+    "fallback": 0,
+    "navigations": 2,
+    "errors": [
+      "Failed to fetch dynamically imported module: http://127.0.0.1:5199/assets/Archive-DGDLFSXc.js"
+    ]
+  },
+  {
+    "width": 390,
+    "theme": "dark",
+    "fallback": 0,
+    "navigations": 2,
+    "errors": [
+      "Failed to fetch dynamically imported module: http://127.0.0.1:5199/assets/Archive-DGDLFSXc.js"
+    ]
+  },
+  {
+    "width": 1440,
+    "theme": "light",
+    "fallback": 0,
+    "navigations": 2,
+    "errors": [
+      "Failed to fetch dynamically imported module: http://127.0.0.1:5199/assets/Archive-DGDLFSXc.js"
+    ]
+  },
+  {
+    "width": 1440,
+    "theme": "dark",
+    "fallback": 0,
+    "navigations": 2,
+    "errors": [
+      "Failed to fetch dynamically imported module: http://127.0.0.1:5199/assets/Archive-DGDLFSXc.js"
+    ]
+  }
+]

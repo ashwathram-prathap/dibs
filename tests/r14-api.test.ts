@@ -338,7 +338,7 @@ it('uses the real founder name without changing points and preserves withdrawn s
   // All rows (including a low-ranked withdrawn filer) remain in the final cache, not an old handle.
   const cert: any = await (await call('/certificate/' + win.data.claim.id)).json();
   expect(cert.claim.handle).toBe('Withdrawn player');
-  expect(cert.claim.points).toBeNull(); // Public individual rarity stays sealed before close.
+  expect(cert.claim).not.toHaveProperty('points'); // Public individual rarity stays sealed before close.
   expect(
     (await db.prepare('SELECT points FROM claims WHERE id=?').bind(win.data.claim.id).first())
       .points,

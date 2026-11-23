@@ -1,3 +1,4 @@
+import './test-traffic';
 import { chromium, webkit, firefox } from '@playwright/test';
 import { mkdirSync, writeFileSync, readFileSync } from 'node:fs';
 const phase = process.argv[2] || 'before';

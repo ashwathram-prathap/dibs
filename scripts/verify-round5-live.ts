@@ -1,3 +1,4 @@
+import './test-traffic';
 import { execFileSync } from 'node:child_process';
 import { mkdirSync, writeFileSync } from 'node:fs';
 import { SECURITY_HEADERS } from '../shared/security';

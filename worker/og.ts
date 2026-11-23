@@ -60,22 +60,25 @@ export async function og(claim: any, summary?: any) {
     }
     return out;
   };
-  const category = summary?.category?.name || claim?.category_name || 'Animals';
-  const title = (claim ? (claim.concealed ? 'SEALED' : claim.display) : category).toUpperCase();
-  const { lines, size } = fitText(title, width, 820, {
-    startSize: 155,
+  const home = !summary && !claim;
+  const category = summary?.category?.name || claim?.category_name || '';
+  const file = summary?.file || claim?.score || {};
+  const title = category.toUpperCase();
+  const { lines, size } = fitText(title, width, 1020, {
+    startSize: 130,
     minSize: 15,
-    maxLines: 3,
-    maxHeight: 205,
+    maxLines: 2,
+    maxHeight: 190,
     lineHeight: 0.95,
   });
-  const number = summary
-    ? 'Day summary / ' + summary.file.summaryId.slice(0, 8).toUpperCase()
-    : claim
-      ? 'Certificate No. ' + String(claim.claim_no).padStart(4, '0')
-      : 'Registry of claims / Form C-1';
-  const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630"><path fill="#F1ECE2" d="M0 0h1200v630H0z"/><g fill="none" stroke="#1A1A17" stroke-width="2"><path d="M20 20h1160v590H20z M60 130h1080 M60 470h1080"/></g>${text(number, 60, 85, 22, '#1A1A17', 'form')}<g transform="translate(960 45) scale(${170 / WORDMARK_WIDTH}) translate(${WORDMARK_OFFSET_X} ${WORDMARK_OFFSET_Y})"><path fill="#1A1A17" d="${WORDMARK_PATH}"/><path fill="#E1462B" d="M${WORDMARK_BLOCK_X} 67h18v18h-18z"/></g>${text(summary ? summary.category.date : claim ? claim.category_date : 'Call it first. It’s yours.', 60, 125, 20, '#1A1A17', summary || claim ? 'form' : 'text')}${text(summary ? `${summary.file.dibs}/${MAX_CLAIMS} claims · ${summary.file.strikes} ${summary.file.strikes === 1 ? 'strike' : 'strikes'} / File closed` : claim ? 'One more answer claimed.' : `${MAX_CLAIMS} claims. ${MAX_STRIKES} strikes.`, 60, 210, 30)}${lines.map((line, i) => text(line, 60, 240 + size + i * size * 0.95, size, '#1A1A17', 'display')).join('')}${text(summary ? `${summary.file.points ?? 0} pts · ${summary.file.rank ? '#' + summary.file.rank + ' of ' + summary.file.players : 'Unranked'} · Streak ${summary.file.streak || 0}` : claim ? claim.handle : 'Your name stays on it.', 60, 530, 30, claim?.founder ? '#795700' : '#1A1A17')}${claim?.founder || summary?.file?.founder ? text('Founder', 720, 530, 18, '#795700') : ''}${claim ? text(claim.category_name, 60, 565, 18) : ''}<g transform="translate(935 538) rotate(-3)"><path fill="none" stroke="#E1462B" stroke-width="4" d="M-150-42h300v80h-300z"/>${text(claim ? 'REGISTERED' : 'DIBS', -132, 14, claim ? 37 : 52, '#E1462B', 'display')}</g>${summary ? summary.file.events.map((e: any, i: number) => `<rect x="${600 + i * 34}" y="105" width="22" height="22" fill="${e.kind === 'dibs' ? '#1A1A17' : 'none'}" stroke="#1A1A17" stroke-width="2"/>`).join('') : ''}${text(PUBLIC_HOST + ` / Next drop: ${DROP_TIME_LABEL} ET`, 60, 595, 16)}</svg>`;
-  const renderer = new Resvg(svg, { fitTo: { mode: 'width', value: 1080 } });
+  const wordmark = (x: number, y: number, w: number) =>
+    `<g transform="translate(${x} ${y}) scale(${w / WORDMARK_WIDTH}) translate(${WORDMARK_OFFSET_X} ${WORDMARK_OFFSET_Y})"><path fill="#1A1A17" d="${WORDMARK_PATH}"/><path fill="#E1462B" d="M${WORDMARK_BLOCK_X} 67h18v18h-18z"/></g>`;
+  const stamp = `<g transform="translate(965 529) rotate(-3)"><path fill="none" stroke="#E1462B" stroke-width="4" d="M-150-42h300v80h-300z"/>${text('DIBS', -110, 17, 58, '#E1462B', 'display')}</g>`;
+  const content = home
+    ? `${wordmark(60, 73, 500)}${text('One category a day.', 60, 310, 48)}${text("Call it first, it's yours.", 60, 375, 48)}${text(`${MAX_CLAIMS} claims · ${MAX_STRIKES} strikes · new drop ${DROP_TIME_LABEL.replace(':00', '')} ET`, 60, 465, 28)}`
+    : `${wordmark(960, 45, 170)}${text(summary?.category?.date || claim?.category_date || '', 60, 95, 24, '#1A1A17', 'form')}${lines.map((line, i) => text(line, 60, 180 + size + i * size * 0.95, size, '#1A1A17', 'display')).join('')}${text(`${file.points ?? claim?.points ?? 0} pts${file.rank ? ' · #' + file.rank + ' of ' + file.players : ''} · Streak ${file.streak || claim?.streak || 0}`, 60, 445, 32)}${(file.events || []).map((e: any, i: number) => `<rect x="${60 + i * 42}" y="495" width="28" height="28" fill="${e.kind === 'dibs' ? '#E1462B' : 'none'}" stroke="#1A1A17" stroke-width="2"/>`).join('')}`;
+  const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="627"><path fill="#F1ECE2" d="M0 0h1200v627H0z"/><path fill="none" stroke="#1A1A17" stroke-width="2" d="M20 20h1160v587H20z"/>${content}${stamp}${!home ? text(file.handle || claim?.handle || '', 60, 558, 20) : ''}${text(PUBLIC_HOST, 60, 585, 20)}</svg>`;
+  const renderer = new Resvg(svg);
   try {
     const png = renderer.render();
     try {

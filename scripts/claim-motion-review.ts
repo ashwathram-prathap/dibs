@@ -1,3 +1,4 @@
+import './test-traffic';
 import { chromium } from '@playwright/test';
 import { copyFileSync, mkdirSync, writeFileSync } from 'node:fs';
 mkdirSync('review/motion', { recursive: true });

@@ -1,3 +1,4 @@
+import './test-traffic';
 import { chromium, expect } from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
 const browser = await chromium.launch();

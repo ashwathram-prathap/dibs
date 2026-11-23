@@ -1,3 +1,4 @@
+import './test-traffic';
 import {createServer} from 'node:http';
 import {readFileSync,existsSync,mkdirSync,writeFileSync} from 'node:fs';
 import {extname,join} from 'node:path';

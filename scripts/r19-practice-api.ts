@@ -1,3 +1,4 @@
+import './test-traffic';
 import { readFileSync } from 'node:fs';
 const vars = Object.fromEntries(
   readFileSync('.dev.vars.staging', 'utf8')

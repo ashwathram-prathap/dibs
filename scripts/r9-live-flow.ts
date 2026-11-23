@@ -1,3 +1,4 @@
+import './test-traffic';
 import { chromium } from '@playwright/test';
 import { readFileSync, writeFileSync, mkdirSync, copyFileSync } from 'node:fs';
 import assert from 'node:assert/strict';

@@ -1,3 +1,4 @@
+import './test-traffic';
 import{chromium}from'@playwright/test';import{writeFileSync}from'node:fs';import assert from'node:assert/strict';
 const browser=await chromium.launch(),report:any[]=[];
 try{for(const [zone,expected]of [['America/Vancouver','PT'],['Europe/London','GMT'],['Asia/Kolkata','GMT+5:30']]){

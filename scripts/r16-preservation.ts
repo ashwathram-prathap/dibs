@@ -1,3 +1,4 @@
+import './test-traffic';
 import { readFileSync, writeFileSync, mkdirSync, unlinkSync } from 'node:fs';
 import { execFileSync } from 'node:child_process';
 import { createHash } from 'node:crypto';

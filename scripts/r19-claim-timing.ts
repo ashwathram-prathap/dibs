@@ -1,3 +1,4 @@
+import './test-traffic';
 import { gzipSync } from 'node:zlib';
 import { chromium, webkit, expect } from '@playwright/test';
 import { readFileSync, writeFileSync, existsSync } from 'node:fs';

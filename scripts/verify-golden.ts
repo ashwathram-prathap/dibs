@@ -1,3 +1,4 @@
+import './test-traffic';
 import { createHash } from 'node:crypto';
 const id = process.argv[2];
 if (!id || !/^[a-z0-9-]+$/.test(id))

@@ -1,3 +1,4 @@
+import './test-traffic';
 import { build } from 'esbuild';
 import { Miniflare,convertV4MiniflareOptions } from 'miniflare';
 import { readFileSync,writeFileSync } from 'node:fs';

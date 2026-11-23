@@ -1,3 +1,4 @@
+import './test-traffic';
 import { cleanStoredHandles } from '../shared/handles';
 import { readFileSync, writeFileSync, mkdirSync, unlinkSync } from 'node:fs';
 import { execFileSync } from 'node:child_process';
