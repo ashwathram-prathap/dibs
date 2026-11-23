@@ -392,6 +392,12 @@ test('Settings share aligned controls, sticky opaque header, labels, theme swatc
   expect(await page.evaluate(() => scrollY)).toBe(scroll);
   await page.locator('.settings-close').click();
   expect(await page.locator('.theme-toggle .theme-swatch').count()).toBe(1);
+  for (let i = 0; i < 2; i++) {
+    await page.locator('.drop-countdown .text-link').focus();
+    await page.locator('.drop-countdown .text-link').press('Enter');
+    await expect(page.getByLabel('Timezone', { exact: true })).toBeFocused();
+    await page.keyboard.press('Escape');
+  }
 });
 
 test('Feedback uses shared controls and inline required/length validation, then replaces the form', async ({

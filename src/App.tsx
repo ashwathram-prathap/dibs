@@ -343,7 +343,11 @@ export default function App() {
                 className="header-controls"
                 aria-label="Settings"
                 onCancel={() => setSettingsOpen(false)}
-                onClose={() => setSettingsOpen(false)}
+                onClose={(e) => {
+                  // A queued close from the previous opening can arrive after
+                  // a fast keyboard reopen. Keep the new dialog open.
+                  if (!e.currentTarget.open) setSettingsOpen(false);
+                }}
               >
                 <div className="settings-heading">
                   <h2>Settings</h2>

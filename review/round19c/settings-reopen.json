@@ -1,0 +1,24 @@
+{
+  "at": "2026-11-23T16:27:48.858707+00:00",
+  "reproducedBefore": true,
+  "failedIterationBefore": 2,
+  "staleCloseArrivedWhileOpen": true,
+  "fixedLegacyRepeatedCases": {
+    "startTime": "2026-11-23T16:26:09.012Z",
+    "duration": 42265.746999999996,
+    "expected": 40,
+    "skipped": 0,
+    "unexpected": 0,
+    "flaky": 0
+  },
+  "fixedMatrixSettingsCases": {
+    "startTime": "2026-11-23T16:26:25.484Z",
+    "duration": 13422.03,
+    "expected": 12,
+    "skipped": 0,
+    "unexpected": 0,
+    "flaky": 0
+  },
+  "reopenCycles": 144,
+  "passed": true
+}
