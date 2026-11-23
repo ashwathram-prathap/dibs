@@ -112,6 +112,8 @@ export default function App() {
     const open = () => {
       setSettingsOpen(true);
       setFocusZone(true);
+      // A second click must focus the selector even when Settings is already open.
+      document.querySelector<HTMLSelectElement>('.timezone-control select')?.focus();
     };
     window.addEventListener('dibs-settings-zone', open);
     return () => window.removeEventListener('dibs-settings-zone', open);

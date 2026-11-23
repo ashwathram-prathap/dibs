@@ -8,6 +8,9 @@ test('R16 header controls, timezone focus and readable content', async ({ page }
   await page.locator('.drop-countdown .text-link').click();
   await expect(page.getByLabel('Timezone', { exact: true })).toBeFocused();
   await expect(page.getByLabel('Timezone', { exact: true })).toBeVisible();
+  await page.locator('.sound-toggle').focus();
+  await page.locator('.drop-countdown .text-link').click();
+  await expect(page.getByLabel('Timezone', { exact: true })).toBeFocused();
   await page.getByLabel('Timezone', { exact: true }).selectOption('America/Vancouver');
   await expect(page.locator('.drop-countdown')).toContainText('PM PT · change in Settings');
   await expect(page.locator('.sound-toggle')).toHaveText(/Sound: (On|Off)/);
