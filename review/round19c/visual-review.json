@@ -1,7 +1,7 @@
 {
   "at": "2026-11-23T17:13:50.423472+00:00",
   "passed": false,
-  "pending": "Full rerun after fixing the low-power static stamp fallback; Firefox caught four clipping failures at 320px, font1.3, zoom2.",
+  "pending": "Full combined matrix review and the corrected native Firefox extreme-zoom stamp capture remain pending.",
   "nativeScreensReviewed": [
     "review/final/round19c/settings-open/chromium-1440-light.png",
     "review/final/round19c/settings-open/chromium-390-light.png",
@@ -25,7 +25,8 @@
     "review/final/round19c/admin-feedback/chromium-390-dark.png",
     "review/final/round19c/settings-scrolled/webkit-1440-dark.png",
     "review/final/round19c/share-browser/chromium-390-light.png",
-    "review/round19c/share-fit-360-light.png"
+    "review/round19c/share-fit-360-light.png",
+    "review/final/round19c/settings-scrolled/webkit-390-dark.png"
   ],
   "practiceScreensReviewed": [
     "review/round19c/practice-0-chromium-claim.png"
@@ -137,10 +138,10 @@
     "applicationCommit": "d3260f2"
   },
   "finalReview": {
-    "applicationCommit": "5a59d1d",
-    "at": "2026-11-23T18:17:03.396713+00:00",
+    "applicationCommit": "d68bf47",
+    "at": "2026-11-23T18:41:37.343246+00:00",
     "screens": 31,
     "captures": 248,
-    "scope": "All 31 final contact-sheet overviews reviewed after the extreme-zoom stamp fix, plus the new native 390px light Settings capture. Full combined matrix and Firefox extreme stamp review remain pending."
+    "scope": "All 31 final contact-sheet overviews reviewed after the static fallback correction, plus the new native WebKit 390px dark scrolled Settings capture."
   }
 }
