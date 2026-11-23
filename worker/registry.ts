@@ -888,11 +888,10 @@ export class Registry extends DurableObject<Env> {
       if (!cached.ok) return cached;
       const data: any = await cached.json();
       const g = { id: data.claim.category_id, date: data.claim.category_date };
-      return json({
-        claim: (await canReveal(req, env, g))
-          ? { ...data.claim, revealed: true }
-          : concealClaim(data.claim),
-      });
+      const uid = await cookieUser(req, env.COOKIE_SECRET);
+      const owned = !!uid && !!(await env.DB.prepare('SELECT 1 FROM claims WHERE id=? AND user_id=?').bind(data.claim.id, uid).first());
+      const revealed = await canReveal(req, env, g);
+      return json({ claim: revealed || owned ? { ...data.claim, revealed, owned } : concealClaim(data.claim) });
     }
     if (path === '/og' || path.startsWith('/og/')) return this.image(path.slice(4), env);
     if (path === '/answers') return json({ answers: [] }); // Suggestions are a versioned Pages asset.

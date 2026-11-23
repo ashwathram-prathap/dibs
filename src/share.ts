@@ -1,3 +1,5 @@
+import { loadDensity } from './RarityCurve';
+import { rarityPath } from '../shared/rarity';
 import { MAX_CLAIMS } from '../shared/config';
 import { REGISTRAR_STROKE } from '../shared/moments';
 import { edition, localTime } from '../shared/time';
@@ -15,7 +17,10 @@ import { fitText } from '../shared/typography';
 // Canvas avoids Safari's SVG foreignObject restrictions. Font faces are self-hosted.
 export async function exportCertificate(claim: Claim, story: boolean) {
   if (!claim.revealed)
-    claim = { ...claim, display: 'Revealed when the day closes', obscurity: null, golden: false };
+    claim = { ...claim, display: 'SEALED', obscurity: null, percentile: null, golden: false };
+  const dark = document.documentElement.dataset.theme === 'dark';
+  const ink = dark ? '#eee8dd' : '#1A1A17',
+    paper = dark ? '#222320' : '#F1ECE2';
   await document.fonts.ready;
   await Promise.all([
     document.fonts.load(
@@ -35,11 +40,11 @@ export async function exportCertificate(claim: Claim, story: boolean) {
   canvas.height = story ? 1920 : 1350;
   const c = canvas.getContext('2d')!;
   const h = story ? 1500 : 1350;
-  c.fillStyle = '#F1ECE2';
+  c.fillStyle = paper;
   c.fillRect(0, 0, 1080, canvas.height);
   if (story) c.translate(0, 80);
-  c.strokeStyle = '#1A1A17';
-  c.fillStyle = '#1A1A17';
+  c.strokeStyle = ink;
+  c.fillStyle = ink;
   c.lineWidth = 2;
   c.strokeRect(36, 36, 1008, h - 72);
   c.strokeRect(47, 47, 986, h - 94);
@@ -106,10 +111,10 @@ export async function exportCertificate(claim: Claim, story: boolean) {
   const holder = y + 120;
   mono('HELD BY', 80, holder, 19);
   c.font = '600 42px Instrument';
-  if (claim.founder) c.fillStyle = '#795700';
+  if (claim.founder) c.fillStyle = dark ? '#e7c86b' : '#795700';
   c.fillText(claim.handle, 80, holder + 60);
   if (claim.founder) mono('FOUNDER', 80, holder + 90, 18);
-  c.fillStyle = '#1A1A17';
+  c.fillStyle = ink;
   c.font = '400 26px Instrument';
   c.save();
   c.translate(790, h - 240);
@@ -118,14 +123,19 @@ export async function exportCertificate(claim: Claim, story: boolean) {
   c.stroke(new Path2D(REGISTRAR_STROKE));
   c.restore();
   mono('The Registrar', 790, h - 180, 18);
-  mono('OBSCURITY', 80, h - 250);
-  for (let i = 0; i < 5; i++) {
-    c.beginPath();
-    c.arc(93 + i * 42, h - 211, 12, 0, Math.PI * 2);
-    if (claim.obscurity && i < claim.obscurity) c.fill();
-    else c.stroke();
+  if (claim.revealed && claim.percentile != null) {
+    mono(`RARER THAN ${Math.round(claim.percentile * 100)}%`, 80, h - 250, 18);
+    mono(`${claim.points || 0} POINTS`, 80, h - 220, 18);
+    await drawCurve(
+      c,
+      claim.category_slug || claim.category_name.toLowerCase(),
+      claim.percentile,
+      80,
+      h - 205,
+      290,
+      40,
+    );
   }
-  mono(claim.obscurity ? 'Wikipedia pageviews' : 'Unrated: pageviews unavailable', 80, h - 165, 16);
   c.save();
   c.translate(550, h - 247);
   c.rotate(((((claim.claim_no * 7.31) % 7) - 4) * Math.PI) / 180);
@@ -137,9 +147,9 @@ export async function exportCertificate(claim: Claim, story: boolean) {
   c.font = '900 110px Archivo, ArchivoSupplement';
   c.textAlign = 'center';
   c.fillText('DIBS', 0, 32);
-  c.fillStyle = '#1A1A17';
+  c.fillStyle = ink;
   c.font = '400 22px Plex';
-  c.fillStyle = claim.golden ? '#7A5C14' : '#1A1A17';
+  c.fillStyle = claim.golden ? (dark ? '#e7c86b' : '#7A5C14') : ink;
   c.fillText(
     claim.golden
       ? 'GOLDEN TICKET'
@@ -157,14 +167,45 @@ export async function exportCertificate(claim: Claim, story: boolean) {
   mono(PUBLIC_HOST, 740, h - 80, 17);
   return canvasFile(
     canvas,
-    `dibs-${claim.display.toLowerCase().replace(/[^a-z0-9]+/g, '-')}-${story ? 'story' : 'feed'}.png`,
+    `dibs-${claim.display.toLowerCase().replace(/[^a-z0-9]+/g, '-')}-${story ? 'story' : 'feed'}.jpg`,
   );
 }
-async function canvasFile(canvas: HTMLCanvasElement, name: string) {
-  const blob = await new Promise<Blob>((resolve, reject) =>
-    canvas.toBlob((b) => (b ? resolve(b) : reject(new Error('PNG failed'))), 'image/png'),
-  );
-  return new File([blob], name, { type: 'image/png' });
+export async function canvasFile(canvas: HTMLCanvasElement, name: string) {
+  for (const quality of [0.85, 0.8]) {
+    const blob = await new Promise<Blob>((resolve, reject) =>
+      canvas.toBlob(
+        (b) => (b ? resolve(b) : reject(Error('Image export failed'))),
+        'image/jpeg',
+        quality,
+      ),
+    );
+    if (blob.size <= 600_000) return new File([blob], name, { type: 'image/jpeg' });
+  }
+  throw Error('Image exceeds 600 KB');
+}
+async function drawCurve(
+  c: CanvasRenderingContext2D,
+  slug: string,
+  p: number,
+  x: number,
+  y: number,
+  w: number,
+  h: number,
+) {
+  try {
+    const data = await loadDensity(slug);
+    if (!data.measured) return;
+    c.save();
+    c.translate(x, y);
+    c.scale(w / 400, h / 48);
+    c.lineWidth = 1.8;
+    c.stroke(new Path2D(rarityPath(data.density)));
+    c.beginPath();
+    c.moveTo(p * 400, 0);
+    c.lineTo(p * 400, 46);
+    c.stroke();
+    c.restore();
+  } catch {}
 }
 
 export function summaryText(file: DayFile, category: Category) {
@@ -174,6 +215,9 @@ export function summaryText(file: DayFile, category: Category) {
   return `Dibs #${edition(category.date)} · ${category.name}\n${squares}\n${file.points ?? 0} pts${file.rank ? ` · #${file.rank} of ${file.players}` : ''} · streak ${file.streak || 0}\n${PUBLIC_HOST}`;
 }
 export async function exportSummary(file: DayFile, category: Category, story: boolean) {
+  const dark = document.documentElement.dataset.theme === 'dark';
+  const ink = dark ? '#eee8dd' : '#1A1A17',
+    paper = dark ? '#222320' : '#F1ECE2';
   await document.fonts.ready;
   await Promise.all([
     document.fonts.load(
@@ -191,12 +235,11 @@ export async function exportSummary(file: DayFile, category: Category, story: bo
   canvas.height = story ? 1920 : 1350;
   const c = canvas.getContext('2d')!;
   const h = story ? 1760 : 1350;
-  c.fillStyle = '#F1ECE2';
+  c.fillStyle = paper;
   c.fillRect(0, 0, 1080, canvas.height);
   if (story) c.translate(0, 80);
-  const ink = '#1A1A17',
-    red = '#E1462B',
-    gold = '#7A5C14';
+  const red = '#E1462B',
+    gold = dark ? '#e7c86b' : '#7A5C14';
   c.fillStyle = ink;
   c.strokeStyle = ink;
   c.lineWidth = 2;
@@ -297,7 +340,7 @@ export async function exportSummary(file: DayFile, category: Category, story: bo
         : event.holder
           ? `Taken by ${event.holder}${event.holderFounder ? ' / FOUNDER' : ''}${event.heldAt ? ' at ' + localTime(event.heldAt).full : ''}`
           : 'Holder details were not retained';
-      if (event.holderFounder) c.fillStyle = '#795700';
+      if (event.holderFounder) c.fillStyle = dark ? '#e7c86b' : '#795700';
       fit(held, 132, y + rowHeight * 0.82, 850, Math.min(20, rowHeight * 0.27), 'Plex', 400);
     } else {
       c.save();
@@ -313,12 +356,17 @@ export async function exportSummary(file: DayFile, category: Category, story: bo
       if ((event.obscurity || 0) >= 4) text('DEEP CUT', 755, y + rowHeight * 0.85, 17);
     }
   });
+  for (const [i, event] of rows.entries()) {
+    const claim = file.claims.find((c) => c.id === event.claimId);
+    if (event.kind === 'dibs' && claim?.percentile != null)
+      await drawCurve(c, category.slug, claim.percentile, 755, 565 + i * rowHeight + 58, 220, 22);
+  }
   c.fillStyle = ink;
   c.strokeStyle = ink;
   const holderTop = 565 + rows.length * rowHeight + 30;
   line(holderTop);
   text('FILED UNDER', 80, holderTop + 38, 18);
-  if (file.founder) c.fillStyle = '#795700';
+  if (file.founder) c.fillStyle = dark ? '#e7c86b' : '#795700';
   fit(
     file.handle || file.claims[0]?.handle || 'Anonymous filer',
     80,
@@ -339,5 +387,5 @@ export async function exportSummary(file: DayFile, category: Category, story: bo
   line(h - 100);
   text('ALL CLAIMS ENTIRELY CEREMONIAL.', 80, h - 66, 16);
   text(PUBLIC_HOST, 825, h - 66, 18);
-  return canvasFile(canvas, `dibs-day-${category.date}-${story ? 'story' : 'feed'}.png`);
+  return canvasFile(canvas, `dibs-day-${category.date}-${story ? 'story' : 'feed'}.jpg`);
 }

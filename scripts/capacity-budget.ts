@@ -1,13 +1,26 @@
 import { readCategory } from '../scripts/category-file';
 import { Miniflare, convertV4MiniflareOptions } from 'miniflare';
 import { build } from 'esbuild';
-import { readFileSync, readdirSync, writeFileSync } from 'node:fs';
+import { readFileSync, readdirSync, writeFileSync, mkdirSync } from 'node:fs';
 import { registryDate, dropAt } from '../worker/domain';
 const baseline = process.argv.includes('--before');
 const practice = process.argv.includes('--practice');
 const meterStorage = process.argv.includes('--storage');
 if (practice && meterStorage) throw Error('--storage is a local instrumentation mode');
 const storageTotals = { reads: 0, writes: 0 };
+const causes: Record<string, { reads: number; writes: number }> = {};
+const label = process.argv.find((a) => a.startsWith('--label='))?.slice(8) || 'after';
+let lastStorage = { reads: 0, writes: 0 };
+async function storageDelta() {
+  if (!meterStorage) return {};
+  await new Promise((r) => setTimeout(r, 50));
+  const value = {
+    doReads: storageTotals.reads - lastStorage.reads,
+    doWrites: storageTotals.writes - lastStorage.writes,
+  };
+  lastStorage = { ...storageTotals };
+  return value;
+}
 let setupStorage: typeof storageTotals;
 const root = baseline ? '.tmp/r15-baseline/' : '';
 let mf: Miniflare, db: any;
@@ -82,8 +95,13 @@ async function startRegistry(slug: string) {
           outboundService: async (req: Request) => {
             const url = new URL(req.url);
             if (meterStorage && url.origin === 'https://capacity.local') {
-              const m = (await req.json()) as { kind: 'reads' | 'writes'; n: number };
+              const m = (await req.json()) as {
+                kind: 'reads' | 'writes';
+                n: number;
+                cause: string;
+              };
               storageTotals[m.kind] += m.n;
+              (causes[m.cause] ||= { reads: 0, writes: 0 })[m.kind] += m.n;
               return new Response('ok');
             }
             if (url.origin === 'https://dibs.here' && url.pathname.startsWith('/catalog/'))
@@ -175,6 +193,7 @@ async function http(path: string, body?: any) {
   const data = (await r.json()) as any;
   samples.push({
     path,
+    ...(await storageDelta()),
     transport: 'http',
     status: r.status,
     reads: Number(r.headers.get('x-d1-rows-read')),
@@ -207,6 +226,7 @@ async function rpc(path: string, body: any) {
   });
   samples.push({
     path,
+    ...(await storageDelta()),
     transport: 'socket',
     status: data.status,
     reads: data.d1?.reads || 0,
@@ -284,8 +304,13 @@ try {
     });
     assert.equal(r.status, i === 0 || i >= 4 ? 201 : 409, JSON.stringify(r.data));
   }
+  await send('/claim', {
+    answer: 'zzzznotananswer',
+    sessionToken: verified.data.sessionToken,
+    requestId: crypto.randomUUID(),
+  });
   // Current leaderboard is already in bootstrap and pushes; baseline opened an HTTP view.
-  if (baseline) await http('/leaderboard');
+  await http('/leaderboard');
   await send('/events/share', { platform: 'copy-text' });
   await http('/bootstrap'); // Later return: same cookie, authoritative saved file.
   if (meterStorage) await new Promise((r) => setTimeout(r, 500));
@@ -309,11 +334,10 @@ try {
     d1RowsWritten: rowsWritten,
     allMutationsMetered: samples.filter((s) => s.path === '/claim').every((s) => s.metered),
     samples,
+    storageCauses: causes,
   };
-  writeFileSync(
-    'review/round15/capacity-' + (meterStorage ? 'do-storage-' : '') + report.mode + '.json',
-    JSON.stringify(report, null, 2),
-  );
+  mkdirSync('review/round17', { recursive: true });
+  writeFileSync('review/round17/capacity-' + label + '.json', JSON.stringify(report, null, 2));
   console.log(report);
 } finally {
   socket?.close();

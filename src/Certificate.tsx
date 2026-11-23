@@ -1,9 +1,10 @@
+import { RarityCurve } from './RarityCurve';
 import { useState, useEffect, useCallback } from 'react';
 import { m as motion, useReducedMotion, LazyMotion, domAnimation } from 'framer-motion';
 import { api } from './api';
 import { type Claim, type DayFile, type Today, type Category, serial } from './types';
 import { categoryStyle } from '../shared/category-style';
-import { MAX_CLAIMS, MAX_STRIKES, PUBLIC_HOST, certificateUrl } from '../shared/config';
+import { MAX_CLAIMS, PUBLIC_HOST, certificateUrl } from '../shared/config';
 import { GAME_DESCRIPTION } from '../shared/copy';
 import { guesses } from '../shared/guesses';
 import { summaryUrl } from '../shared/sharing';
@@ -83,6 +84,13 @@ export function DaySummary({
                     ) : (
                       <strong>{event.display}</strong>
                     )}
+                    <RarityCurve
+                      percentile={file.claims.find((c) => c.id === event.claimId)?.percentile}
+                      category={today.category!.slug}
+                      answer={file.revealed ? event.display : undefined}
+                      golden={event.golden}
+                      mini
+                    />
                     <span className={'mini-stamp ' + (event.golden ? 'gold-mini' : '')}>
                       DIBS{event.golden ? ' / GOLD' : ''}
                       {(event.obscurity || 0) >= 4 ? ' / DEEP CUT' : ''}
@@ -157,7 +165,8 @@ export function Certificate({ claim, animated = false }: { claim: Claim; animate
           categoryStyle(claim.category_name.toLowerCase()).stock +
           ' ' +
           (animated ? 'printing ' : '') +
-          (claim.golden ? 'gold-certificate' : '')
+          (claim.golden ? 'gold-certificate' : '') +
+          (claim.concealed ? ' sealed-certificate' : '')
         }
         initial={animated && !reduced ? { y: 80, opacity: 0 } : false}
         animate={{ y: 0, opacity: 1 }}
@@ -183,11 +192,21 @@ export function Certificate({ claim, animated = false }: { claim: Claim; animate
           </span>
         </div>
         <p className="cert-intro">
-          Let the record show.
-          <br />I called dibs on
+          {claim.concealed ? (
+            <>
+              A claim is held here.
+              <br />
+              The answer opens when the day closes.
+            </>
+          ) : (
+            <>
+              Let the record show.
+              <br />I called dibs on
+            </>
+          )}
         </p>
         <h2 className={'cert-answer ' + (claim.display.length > 15 ? 'long-answer' : '')}>
-          {claim.display}
+          {claim.concealed ? 'SEALED' : claim.display}
         </h2>
         <div className="cert-category">
           <span>{claim.category_name.toUpperCase()}</span>
@@ -202,25 +221,28 @@ export function Certificate({ claim, animated = false }: { claim: Claim; animate
         </div>
         <div className="cert-bottom">
           <div>
-            <span className="eyebrow">Obscurity</span>
-            <div
-              className="obscurity"
-              role="img"
-              aria-label={claim.obscurity ? `${claim.obscurity} out of 5` : 'Unrated'}
-            >
-              {claim.obscurity
-                ? Array.from({ length: MAX_STRIKES }, (_, i) => (
-                    <span
-                      aria-hidden="true"
-                      key={i}
-                      className={'obscurity-dot ' + (i < claim.obscurity! ? 'filled' : '')}
-                    />
-                  ))
-                : 'UNRATED'}
-            </div>
-            <span className="cert-source">
-              {claim.obscurity ? 'Wikipedia pageviews' : 'Pageview data unavailable'}
-            </span>
+            {claim.concealed ? (
+              <>
+                <div className="sealed-wax" aria-hidden="true">
+                  DIBS
+                </div>
+                <p className="sealed-note">Sealed until the day closes.</p>
+              </>
+            ) : claim.percentile != null ? (
+              <>
+                <p>
+                  Rarer than {Math.round(claim.percentile * 100)}% of{' '}
+                  {claim.category_name.toLowerCase()} · {claim.points} points
+                </p>
+                <RarityCurve
+                  percentile={claim.percentile}
+                  category={claim.category_slug || claim.category_name}
+                  answer={claim.display}
+                  golden={claim.golden}
+                  mini
+                />
+              </>
+            ) : null}
           </div>
           <motion.div
             className={'dibs-stamp ' + (claim.golden ? 'gold-stamp' : '')}

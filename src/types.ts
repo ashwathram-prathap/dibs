@@ -25,6 +25,8 @@ export interface Category {
   status?: string;
 }
 export interface Claim {
+  category_slug?: string;
+  owned?: boolean;
   revealed?: boolean;
   points?: number;
   percentile?: number | null;

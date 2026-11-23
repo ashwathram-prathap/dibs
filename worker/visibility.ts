@@ -24,7 +24,7 @@ export async function canReveal(_req: Request, _env: Env, category: any) {
 }
 export const concealClaim = (c: any) => ({
   ...c,
-  display: concealed,
+  display: 'SEALED',
   obscurity: null,
   percentile: null,
   golden: false,

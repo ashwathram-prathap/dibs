@@ -1,0 +1,201 @@
+{
+  "dailySetup": {
+    "reads": 38,
+    "writes": 74
+  },
+  "doStorageSetup": {
+    "reads": 1,
+    "writes": 7
+  },
+  "doStorageLogicalRows": {
+    "reads": 71,
+    "writes": 69
+  },
+  "mode": "after-local",
+  "at": "2026-11-23T07:11:00.279Z",
+  "scenario": "load, verification, 6 guesses (3 claims, 3 reserved strikes), leaderboard, share, return visit",
+  "httpRequests": 4,
+  "pagesFunctionRequests": 0,
+  "workerRequests": 4,
+  "doRequests": 4.45,
+  "socketMessages": 9,
+  "d1RowsRead": 755,
+  "d1RowsWritten": 55,
+  "allMutationsMetered": true,
+  "samples": [
+    {
+      "path": "/bootstrap",
+      "doReads": 3,
+      "doWrites": 4,
+      "transport": "http",
+      "status": 200,
+      "reads": 0,
+      "writes": 0,
+      "metered": true
+    },
+    {
+      "path": "/verify-session",
+      "doReads": 5,
+      "doWrites": 4,
+      "transport": "socket",
+      "status": 200,
+      "reads": 0,
+      "writes": 0,
+      "metered": true
+    },
+    {
+      "path": "/claim",
+      "doReads": 7,
+      "doWrites": 8,
+      "transport": "socket",
+      "status": 201,
+      "reads": 96,
+      "writes": 22,
+      "metered": true
+    },
+    {
+      "path": "/claim",
+      "doReads": 8,
+      "doWrites": 7,
+      "transport": "socket",
+      "status": 409,
+      "reads": 82,
+      "writes": 3,
+      "metered": true
+    },
+    {
+      "path": "/claim",
+      "doReads": 8,
+      "doWrites": 7,
+      "transport": "socket",
+      "status": 409,
+      "reads": 86,
+      "writes": 2,
+      "metered": true
+    },
+    {
+      "path": "/claim",
+      "doReads": 8,
+      "doWrites": 7,
+      "transport": "socket",
+      "status": 409,
+      "reads": 90,
+      "writes": 2,
+      "metered": true
+    },
+    {
+      "path": "/claim",
+      "doReads": 8,
+      "doWrites": 8,
+      "transport": "socket",
+      "status": 201,
+      "reads": 141,
+      "writes": 13,
+      "metered": true
+    },
+    {
+      "path": "/claim",
+      "doReads": 8,
+      "doWrites": 9,
+      "transport": "socket",
+      "status": 201,
+      "reads": 170,
+      "writes": 13,
+      "metered": true
+    },
+    {
+      "path": "/claim",
+      "doReads": 5,
+      "doWrites": 4,
+      "transport": "socket",
+      "status": 403,
+      "reads": 46,
+      "writes": 0,
+      "metered": true
+    },
+    {
+      "path": "/leaderboard",
+      "doReads": 2,
+      "doWrites": 3,
+      "transport": "http",
+      "status": 200,
+      "reads": 0,
+      "writes": 0,
+      "metered": true
+    },
+    {
+      "path": "/events/share",
+      "doReads": 4,
+      "doWrites": 5,
+      "transport": "socket",
+      "status": 200,
+      "reads": 0,
+      "writes": 0,
+      "metered": true
+    },
+    {
+      "path": "/bootstrap",
+      "doReads": 5,
+      "doWrites": 3,
+      "transport": "http",
+      "status": 200,
+      "reads": 44,
+      "writes": 0,
+      "metered": true
+    }
+  ],
+  "storageCauses": {
+    "KV": {
+      "reads": 72,
+      "writes": 0
+    },
+    "KV put snapshot": {
+      "reads": 0,
+      "writes": 7
+    },
+    "KV put handle": {
+      "reads": 0,
+      "writes": 2
+    },
+    "KV put session": {
+      "reads": 0,
+      "writes": 15
+    },
+    "alarm": {
+      "reads": 0,
+      "writes": 1
+    },
+    "KV put scores": {
+      "reads": 0,
+      "writes": 7
+    },
+    "KV put metric": {
+      "reads": 0,
+      "writes": 13
+    },
+    "KV put usage": {
+      "reads": 0,
+      "writes": 13
+    },
+    "KV put security": {
+      "reads": 0,
+      "writes": 2
+    },
+    "KV put active": {
+      "reads": 0,
+      "writes": 11
+    },
+    "KV put cache": {
+      "reads": 0,
+      "writes": 3
+    },
+    "KV put summary": {
+      "reads": 0,
+      "writes": 1
+    },
+    "KV put platforms": {
+      "reads": 0,
+      "writes": 1
+    }
+  }
+}

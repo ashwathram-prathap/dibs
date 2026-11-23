@@ -33,6 +33,7 @@ export async function scoreAnswer(
   category: any,
   ordinal: number | undefined,
   answer: string,
+  knownGolden?: boolean,
 ) {
   const meta = catalogMeta(category);
   let percentile: number | null = null,
@@ -61,7 +62,7 @@ export async function scoreAnswer(
     base = percentile === null ? data.median : rarityPoints(percentile);
   }
   // Legacy registers have no retained pageviews: their honest median fallback is 50.
-  const golden = !!(await env.DB.prepare(
+  const golden = knownGolden ?? !!(await env.DB.prepare(
     'SELECT 1 FROM daily_specials,json_each(golden_json) WHERE category_id=? AND value=?',
   )
     .bind(category.id, answer)

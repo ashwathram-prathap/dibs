@@ -40,6 +40,8 @@ import {
 import { og } from './og';
 export interface Env {
   DB: D1Database;
+  R17_STORAGE?: string;
+  DAY_REGISTRY?: DurableObjectNamespace;
   STAGING?: string;
   NTFY_TOPIC?: string;
   CF_ANALYTICS_TOKEN?: string;
@@ -57,7 +59,7 @@ export interface Env {
   TURNSTILE_SITE_KEY: string;
   LOCAL_TEST?: string;
 }
-const claimSelect = `SELECT c.id,c.category_id,c.claim_no,c.file_no,c.created_at,c.points,c.percentile,c.bonus,c.voided,a.display,a.obscurity,(c.bonus=100) golden,CASE WHEN u.provider_subject LIKE 'withdrawn:%' THEN 'Withdrawn player' WHEN u.hidden=1 THEN 'Record withheld' ELSE COALESCE((SELECT name FROM founder_role WHERE user_id=u.id),u.handle) END handle,EXISTS(SELECT 1 FROM founder_role WHERE user_id=u.id AND u.hidden=0) founder,g.name category_name,g.date category_date,COALESCE(json_extract(g.source_json,'$.staticCatalog.count'),g.total_registrable)-(SELECT COUNT(*) FROM house_words hw WHERE hw.category_id=g.id) total_registrable FROM claims c JOIN answers a ON a.id=c.answer_id JOIN users u ON u.id=c.user_id JOIN categories g ON g.id=c.category_id`;
+const claimSelect = `SELECT c.id,c.category_id,c.claim_no,c.file_no,c.created_at,c.points,c.percentile,c.bonus,c.voided,a.display,a.obscurity,(c.bonus=100) golden,CASE WHEN u.provider_subject LIKE 'withdrawn:%' THEN 'Withdrawn player' WHEN u.hidden=1 THEN 'Record withheld' ELSE COALESCE((SELECT name FROM founder_role WHERE user_id=u.id),u.handle) END handle,EXISTS(SELECT 1 FROM founder_role WHERE user_id=u.id AND u.hidden=0) founder,g.slug category_slug,g.name category_name,g.date category_date,COALESCE(json_extract(g.source_json,'$.staticCatalog.count'),g.total_registrable)-(SELECT COUNT(*) FROM house_words hw WHERE hw.category_id=g.id) total_registrable FROM claims c JOIN answers a ON a.id=c.answer_id JOIN users u ON u.id=c.user_id JOIN categories g ON g.id=c.category_id`;
 export async function fileState(env: Env, category: string, uid: string) {
   const claims = (
     await env.DB.prepare(

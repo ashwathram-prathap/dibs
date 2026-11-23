@@ -1,3 +1,4 @@
+import { RarityCurve } from './RarityCurve';
 import { Wordmark, Link, Clock, Reminder, Introduction, Rules, Progress } from './ui';
 import { runTurnstile } from './turnstile';
 const Settings = lazy(() => import('./Settings').then((m) => ({ default: m.Settings })));
@@ -777,6 +778,7 @@ function Home({
                       : ' · popularity unknown'}
                     {!!claim.golden && ' · Golden ticket +100'}
                   </p>
+                  <RarityCurve percentile={claim.percentile} category={today.category.slug} answer={claim.display} golden={claim.golden} />
                   <p>
                     {MAX_CLAIMS - (file?.dibs || 1)} claims left ·{' '}
                     {MAX_STRIKES - (file?.strikes || 0)} strikes left

@@ -116,3 +116,9 @@ review/round16/lighthouse*/
 review/round16/*browser-results.json
 review/round16/firefox-ci/
 review/final/round16/
+
+# R17 raw visual evidence stays in the local review folder.
+review/round17/**/*.png
+review/round17/**/*.jpg
+review/round17/*browser-results.json
+public/rarity/

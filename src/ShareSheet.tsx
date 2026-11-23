@@ -1,5 +1,6 @@
 import { Icon } from './Icon';
 import { useEffect, useRef, useState } from 'react';
+import { sharePrepared } from './native-share';
 import { api } from './api';
 import { attributedUrl, intentUrl, type Platform } from '../shared/sharing';
 
@@ -13,6 +14,15 @@ export function ShareSheet({
   text: string;
   render: (story: boolean) => Promise<File>;
 }) {
+  const [theme, setTheme] = useState(document.documentElement.dataset.theme);
+  useEffect(() => {
+    const observer = new MutationObserver(() => setTheme(document.documentElement.dataset.theme));
+    observer.observe(document.documentElement, {
+      attributes: true,
+      attributeFilter: ['data-theme'],
+    });
+    return () => observer.disconnect();
+  }, []);
   const [files, setFiles] = useState<{ story: File; feed: File }>();
   const [status, setStatus] = useState('');
   const [busy, setBusy] = useState(false);
@@ -33,7 +43,7 @@ export function ShareSheet({
     return () => {
       alive = false;
     };
-  }, [render]);
+  }, [render, theme]);
   useEffect(
     () => () => {
       if (object.current) URL.revokeObjectURL(object.current);
@@ -63,34 +73,24 @@ export function ShareSheet({
     setBusy(true);
     setCopy('');
     try {
-      let fileSupported = false;
-      try {
-        fileSupported = !!navigator.share && !!navigator.canShare?.({ files: [file] });
-      } catch {}
-      if ((platform === 'native' || platform === 'instagram-tiktok') && fileSupported) {
-        await navigator.share({ ...data, files: [file] });
-        setStatus(
-          platform === 'instagram-tiktok' ? storyTip : 'A certified copy has left the office.',
-        );
-        return;
-      }
-      if (platform === 'native' && navigator.share) {
-        await navigator.share(data);
-        setStatus('Link shared. Save the Story PNG below to take the image too.');
-        // Offer the image explicitly; do not open a second sheet after native sharing.
-        return;
-      }
-      download(file);
-      setStatus(
-        platform === 'instagram-tiktok'
-          ? storyTip
-          : 'PNG prepared. Copy text supplies the caption.',
-      );
-    } catch (e) {
-      if ((e as Error).name === 'AbortError') setStatus('Copy retained at the office.');
-      else {
+      if (platform === 'native' || platform === 'instagram-tiktok') {
+        const result = await sharePrepared(file, data);
+        if (result === 'abort') return;
+        if (result === 'file' || result === 'url') {
+          setStatus(result === 'file' ? 'Image shared.' : 'Link shared.');
+          return;
+        }
         download(file);
-        setStatus('This browser kept the share sheet closed. Save the PNG and copy the caption.');
+        try {
+          await navigator.clipboard.writeText(data.url);
+          setStatus("Couldn't share. Link copied instead.");
+        } catch {
+          setCopy(data.url);
+          setStatus("Couldn't share. Save the image or copy the link below.");
+        }
+      } else {
+        download(file);
+        setStatus(platform === 'story' ? storyTip : 'Image saved.');
       }
     } finally {
       setBusy(false);
@@ -115,7 +115,7 @@ export function ShareSheet({
           {status === 'Copied' ? 'Copied' : 'Copy result'}
         </button>
         <button className="primary" disabled={!files || busy} onClick={() => void share('native')}>
-          {busy ? 'SHARING…' : files ? 'SHARE' : 'PREPARING PNG…'} <Icon />
+          {busy ? 'SHARING…' : files ? 'SHARE' : 'PREPARING IMAGE…'} <Icon />
         </button>
       </div>
       <details className="share-options">
@@ -139,10 +139,10 @@ export function ShareSheet({
         </div>
         <div className="share-formats">
           <button disabled={!files || busy} onClick={() => void share('story')}>
-            Story PNG
+            Story JPEG
           </button>
           <button disabled={!files || busy} onClick={() => void share('feed')}>
-            Feed PNG
+            Feed JPEG
           </button>
           <button onClick={() => void clipboard('copy-text')}>Copy text</button>
         </div>
@@ -153,12 +153,12 @@ export function ShareSheet({
       {manual && (
         <div className="share-manual">
           <a href={manual.href} target="_blank" rel="noopener">
-            Open PNG to save manually <Icon />
+            Open image to save manually <Icon />
           </a>
           <p className="share-hint">
-            If the download is blocked, open the PNG or press and hold this image to save.
+            If the download is blocked, open the image or press and hold this image to save.
           </p>
-          <img src={manual.href} alt="Your Dibs PNG. Press and hold to save." />
+          <img src={manual.href} alt="Your Dibs image. Press and hold to save." />
         </div>
       )}
       {copy && (

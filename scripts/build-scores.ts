@@ -1,6 +1,7 @@
+import { rarityDensity } from '../shared/rarity';
 import { readCategory } from './category-file';
 import { rankPopularity } from '../worker/scoring';
-import { readdirSync, readFileSync, writeFileSync, existsSync } from 'node:fs';
+import { readdirSync, readFileSync, writeFileSync, existsSync, mkdirSync } from 'node:fs';
 for (const name of readdirSync('categories').filter((n) => n.endsWith('.json'))) {
   const c = readCategory('categories/' + name);
   const path = `public/catalog/${c.slug}/manifest.json`;
@@ -13,6 +14,10 @@ for (const name of readdirSync('categories').filter((n) => n.endsWith('.json')))
         : null,
     ),
   );
+  mkdirSync('public/rarity', { recursive: true });
+  const curve = JSON.stringify(rarityDensity(percentiles));
+  if (Buffer.byteLength(curve) >= 2048) throw Error('Rarity asset exceeds 2 KB');
+  writeFileSync(`public/rarity/${c.slug}.json`, curve);
   const data = Buffer.alloc((percentiles.length + 1) * 2);
   data.writeUInt16LE(median, 0);
   percentiles.forEach((p, i) =>
