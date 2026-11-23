@@ -84,7 +84,7 @@ XML was parsed, all lastmod values were checked as W3C dates, and both bot agent
 | Rollback | \`${rollback.pages}\` | \`${rollback.workerVersion}\` |
 | Released | \`${deployed.pages}\` | \`${deployed.workerVersion}\` |
 
-\`npx tsx scripts/r18-smoke.ts --rollback-now\` restores those recorded versions. Production was backed up before deployment. No migration or schedule change was required.
+\`npx tsx scripts/r18-smoke.ts --rollback-now\` restores those recorded versions. Production was backed up before deployment. No migration or schedule change was required. The first attempt was immediately rolled back after smoke found that the static home bypassed middleware-generated JSON-LD. The corrected build embeds it in the static HTML; refreshed tests and the final production smoke passed. [First-attempt rollback evidence](attempt-1/rollback-result.json).
 
 ## Owner checks and limits
 
