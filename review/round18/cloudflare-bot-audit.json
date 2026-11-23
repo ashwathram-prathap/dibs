@@ -1,0 +1,80 @@
+{
+  "at": "2026-11-23T09:13:38.308Z",
+  "zoneRead": {
+    "status": 200,
+    "success": true,
+    "errors": []
+  },
+  "settings": {
+    "bot_management": {
+      "status": 403,
+      "success": false,
+      "result": null,
+      "errors": [
+        {
+          "code": 10000,
+          "message": "Authentication error",
+          "documentation_url": "https://developers.cloudflare.com/api/resources/bot_management/methods/get"
+        }
+      ]
+    },
+    "settings/security_level": {
+      "status": 403,
+      "success": false,
+      "result": null,
+      "errors": [
+        {
+          "code": 9109,
+          "message": "Unauthorized to access requested resource"
+        }
+      ]
+    },
+    "settings/browser_check": {
+      "status": 403,
+      "success": false,
+      "result": null,
+      "errors": [
+        {
+          "code": 9109,
+          "message": "Unauthorized to access requested resource"
+        }
+      ]
+    },
+    "rulesets/phases/http_request_firewall_custom/entrypoint": {
+      "status": 403,
+      "success": false,
+      "result": null,
+      "errors": [
+        {
+          "code": 10000,
+          "message": "Authentication error",
+          "documentation_url": "https://developers.cloudflare.com/api/resources/rulesets/subresources/phases/methods/get"
+        }
+      ]
+    },
+    "rulesets/phases/http_request_firewall_managed/entrypoint": {
+      "status": 403,
+      "success": false,
+      "result": null,
+      "errors": [
+        {
+          "code": 10000,
+          "message": "Authentication error",
+          "documentation_url": "https://developers.cloudflare.com/api/resources/rulesets/subresources/phases/methods/get"
+        }
+      ]
+    },
+    "firewall/access_rules/rules": {
+      "status": 403,
+      "success": false,
+      "result": null,
+      "errors": [
+        {
+          "code": 10000,
+          "message": "Authentication error",
+          "documentation_url": "https://developers.cloudflare.com/api/resources/firewall/subresources/access_rules/methods/list"
+        }
+      ]
+    }
+  }
+}

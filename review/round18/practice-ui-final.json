@@ -1,0 +1,55 @@
+{
+  "passed": true,
+  "at": "2026-11-23T09:47:23.891Z",
+  "commit": "4f8bdbc40daeda3923e1e6adc584a4c0cdfa0101",
+  "checks": [
+    {
+      "browser": "chromium",
+      "width": 390,
+      "colorScheme": "light",
+      "passed": true
+    },
+    {
+      "browser": "chromium",
+      "width": 390,
+      "colorScheme": "dark",
+      "passed": true
+    },
+    {
+      "browser": "chromium",
+      "width": 1440,
+      "colorScheme": "light",
+      "passed": true
+    },
+    {
+      "browser": "chromium",
+      "width": 1440,
+      "colorScheme": "dark",
+      "passed": true
+    },
+    {
+      "browser": "webkit",
+      "width": 390,
+      "colorScheme": "light",
+      "passed": true
+    },
+    {
+      "browser": "webkit",
+      "width": 390,
+      "colorScheme": "dark",
+      "passed": true
+    },
+    {
+      "browser": "webkit",
+      "width": 1440,
+      "colorScheme": "light",
+      "passed": true
+    },
+    {
+      "browser": "webkit",
+      "width": 1440,
+      "colorScheme": "dark",
+      "passed": true
+    }
+  ]
+}

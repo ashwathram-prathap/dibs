@@ -3,6 +3,7 @@ import { readFileSync, writeFileSync, appendFileSync } from 'node:fs';
 import { spawnSync } from 'node:child_process';
 import assert from 'node:assert/strict';
 import { GAME_DESCRIPTION, GAME_EXPLANATION, LIMIT_EXPLANATION } from '../shared/copy';
+import { INDEXNOW_KEY } from '../shared/indexnow';
 const checks: any[] = [];
 async function rollback() {
   const ids = JSON.parse(readFileSync('review/round18/rollback.json', 'utf8'));
@@ -67,6 +68,20 @@ try {
     assert.ok(body.includes(path === '/sitemap.xml' ? '<urlset' : 'Sitemap:'));
     assert.ok(!body.includes('challenge-platform'));
   }
+  const home = await fetch('https://dibs.here');
+  assert.equal(home.status, 200);
+  const html = await home.text();
+  const structured = JSON.parse(
+    html.match(/<script type="application\/ld\+json">(.*?)<\/script>/)![1],
+  );
+  assert.equal(structured['@context'], 'https://schema.org');
+  const game = structured['@graph'].find((entry: any) => entry['@type'] === 'VideoGame');
+  assert.equal(game.name, 'Dibs');
+  assert.equal(game.author.name, 'Ashwathram Prathap');
+  assert.equal(game.offers.price, 0);
+  const key = await fetch('https://dibs.here/' + INDEXNOW_KEY + '.txt');
+  assert.equal(key.status, 200);
+  assert.equal((await key.text()).trim(), INDEXNOW_KEY);
   const today = (await (await fetch('https://dibs.here/api/today')).json()) as any;
   assert.equal(today.category, null);
   assert.equal(today.nextDrop, '2026-11-24T02:00:00.000Z');

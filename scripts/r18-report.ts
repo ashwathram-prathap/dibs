@@ -16,6 +16,29 @@ assert.ok(
 const rollback = read('rollback.json'),
   deployed = read('deployment.json'),
   lh = gates.mobileLighthouse;
+const devices: Record<string, { passed: number; failed: number; skipped: number }> = {};
+function collect(suite: any) {
+  for (const spec of suite.specs || [])
+    for (const test of spec.tests || []) {
+      const name = test.projectName.replace(/-(light|dark)$/, '');
+      const row = (devices[name] ||= { passed: 0, failed: 0, skipped: 0 });
+      row[
+        test.status === 'expected' ? 'passed' : test.status === 'skipped' ? 'skipped' : 'failed'
+      ]++;
+    }
+  for (const child of suite.suites || []) collect(child);
+}
+collect(read('regression-results.json'));
+collect(read('firefox-ci/firefox-regression-results.json'));
+const deviceTable =
+  '| Device / browser profile | Result |\n| --- | --- |\n' +
+  Object.entries(devices)
+    .map(
+      ([name, result]) =>
+        `| ${name} | ${result.failed ? 'FAIL' : 'PASS'} — ${result.passed} passed, ${result.failed} failed |`,
+    )
+    .join('\n');
+writeFileSync(dir + 'device-results.json', JSON.stringify(devices, null, 2));
 const report = `# R18 release report
 
 Shipped to https://dibs.here on ${deployed.recordedAt}, before the Nov 23, 3 PM ET cutoff. Opening remains **Monday, November 23 at 9:00 PM ET**. Tag: \`r18-done\`. No production test claims or feedback were submitted. No ntfy alert was sent.
@@ -43,6 +66,8 @@ Shipped to https://dibs.here on ${deployed.recordedAt}, before the Nov 23, 3 PM 
 | Production smoke | 8 Chromium/WebKit × phone/desktop × theme checks passed; no console errors |
 | Preservation | Existing player rows and schedule unchanged |
 | Build, TypeScript, font roles, emoji audit | Passed |
+
+${deviceTable}
 
 Device profiles include iPhone SE / 15 Pro / 15 Pro Max, Pixel 7, Galaxy S9+, iPad Mini / Pro landscape, Chromium/WebKit desktop 1280/1440/2560, narrow/landscape phones, and in-app user-agent approximations. These are engine/device emulations, not physical-device certification. Practice is deliberately noindex, explaining its Lighthouse SEO score of 66.
 
@@ -76,7 +101,7 @@ The three weakest remaining screens are the long Office/legal page, the long exp
 First phone checks: open and scroll Backup code; open/close Send feedback with the keyboard; check the 9 PM ET countdown and reminder rows; switch paper/carbon; after opening, claim and try native Share / Copy result.
 `;
 writeFileSync(dir + 'REPORT.md', report);
-const note = `<!-- R18 -->\n# R18 shipped — Nov 23\n\nLive: https://dibs.here. Settings, feedback, footer, carbon/type system, R7 clock and SEO fixes shipped before 3 PM ET. Opening stays Monday 9 PM ET. ${gates.counts.unit} unit/API, ${gates.counts.browser + gates.counts.regression + gates.counts.firefox} browser checks, six fresh practice claims and eight production smoke checks passed. Mobile Lighthouse ${lh.performance} performance / ${lh.accessibility} accessibility. Existing player rows and schedule preserved; real practice keys, notifications and schedule restored. No ntfy alert.\n\nOwner action: verify Cloudflare Bot/WAF settings; read access returned 403. Details, rollback IDs, screenshots, physical-device limits, existing catalog glyph gaps and skipped late load-test explanation: [R18 report](review/round18/REPORT.md). Tag: r18-done.\n\nRollback Pages: ${rollback.pages}; Worker: ${rollback.workerVersion}.\n<!-- /R18 -->\n\n`;
+const note = `<!-- R18 -->\n# R18 shipped — Nov 23\n\nLive: https://dibs.here. Settings, feedback, footer, carbon/type system, R7 clock and SEO fixes shipped before 3 PM ET. Opening stays Monday 9 PM ET. ${gates.counts.unit} unit/API, ${gates.counts.browser + gates.counts.regression + gates.counts.firefox} browser checks, six fresh practice claims and eight production smoke checks passed. Mobile Lighthouse ${lh.performance} performance / ${lh.accessibility} accessibility. Existing player rows and schedule preserved; real practice keys, notifications and schedule restored. No ntfy alert.\n\nOwner action: verify Cloudflare Bot/WAF settings; read access returned 403. Details, rollback IDs, screenshots, physical-device limits, existing catalog glyph gaps and skipped late load-test explanation: [R18 report](review/round18/REPORT.md). Tag: r18-done.\n\nDevice/browser results (emulated profiles, both themes where applicable):\n\n${deviceTable}\n\nRollback Pages: ${rollback.pages}; Worker: ${rollback.workerVersion}.\n<!-- /R18 -->\n\n`;
 const old = existsSync('MORNING_REPORT.md') ? readFileSync('MORNING_REPORT.md', 'utf8') : '';
 writeFileSync(
   'MORNING_REPORT.md',

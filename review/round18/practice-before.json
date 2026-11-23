@@ -1,0 +1,37 @@
+{
+  "serverTime": "2026-11-23T09:29:46.258Z",
+  "category": {
+    "id": "practice",
+    "date": "2026-11-22",
+    "name": "Animals",
+    "slug": "animals",
+    "total_registrable": 89122,
+    "drop_at": "2026-11-23T03:40:20.985Z",
+    "status": "approved",
+    "paper": {
+      "stock": "sage",
+      "light": "#e5e9db",
+      "dark": "#20271f",
+      "plate": "animals-b"
+    }
+  },
+  "specials": {
+    "clue": null,
+    "houseCount": 10,
+    "houseWords": [],
+    "goldenFound": 0,
+    "goldenTotal": 3,
+    "commitment": "8f074e86b6bbb8c1f67a465c90c6502c91acc04a3cf916a79e3c55eb4666d2da",
+    "committedAt": "2026-11-23T09:21:06.506Z"
+  },
+  "revealed": false,
+  "closesAt": "2026-11-24T02:00:00.000Z",
+  "practice": true,
+  "claimed": 0,
+  "open": 89112,
+  "voided": 0,
+  "lastClaimAt": null,
+  "nextDrop": "2026-11-24T02:00:00.000Z",
+  "board": [],
+  "turnstileSiteKey": "0x4AAAAAAGLNsW8c9WxZVAxQ"
+}

@@ -34,6 +34,16 @@ for (const [bot, ua] of [
     );
     const transfer = JSON.parse(output),
       body = readFileSync(prefix + '.body.txt', 'utf8');
+    // Keep curl header values verbatim, with text-file line endings for review.
+    const headerPath = prefix + '.headers.txt';
+    writeFileSync(
+      headerPath,
+      readFileSync(headerPath, 'utf8')
+        .split(/\r?\n/)
+        .map((line) => line.trimEnd())
+        .join('\n')
+        .trimEnd() + '\n',
+    );
     assert.equal(transfer.http_code, 200);
     assert.equal(transfer.num_redirects, 0);
     assert.equal(
