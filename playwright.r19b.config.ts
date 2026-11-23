@@ -10,6 +10,10 @@ export default defineConfig({
       'npx vite build --mode security-test && npx vite preview --mode security-test --host 127.0.0.1 --port 5201',
   },
   testMatch: ['flow.spec.ts', 'sharing.spec.ts', 'round19b.spec.ts'],
-  projects: base.projects?.filter((p) => !p.name?.startsWith('r6-')),
+  projects: base.projects?.filter(
+    (p) =>
+      !p.name?.startsWith('r6-') &&
+      (process.env.R19B_FIREFOX ? p.name?.startsWith('firefox-') : !p.name?.startsWith('firefox-')),
+  ),
   reporter: [['list'], ['json', { outputFile: 'review/round19b/matrix-browser-results.json' }]],
 });

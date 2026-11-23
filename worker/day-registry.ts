@@ -227,7 +227,7 @@ export class DayRegistry extends DurableObject<Env> {
         rows.map((r) => ({ id: r.user_id, handle: r.handle, founder: r.founder })),
       );
       for (const r of rows) r.handle = names.get(r.user_id)!;
-      this.boardTop = publicScores(rows).rows.map((r) => ({
+      this.boardTop = publicScores(rows, undefined, 25, dayClosed(this.category)).rows.map((r) => ({
         rank: r.rank,
         handle: r.handle,
         founder: r.founder,

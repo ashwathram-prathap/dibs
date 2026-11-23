@@ -56,7 +56,7 @@ test('all share controls, exact intents and anonymous one-tap events', async ({ 
     await target.close();
   }
   await page.getByRole('button', { name: 'Copy link', exact: true }).click();
-  await expect(page.locator('.share-hint')).toHaveText('Copied');
+  await expect(page.locator('.share-hint[role=status]')).toHaveText('Copied');
   expect(await page.evaluate(() => (window as any).copied)).toBe(
     `${PUBLIC_ORIGIN}/certificate/fixture-1?s=copy-link`,
   );
@@ -64,7 +64,7 @@ test('all share controls, exact intents and anonymous one-tap events', async ({ 
   expect(await page.evaluate(() => (window as any).copied)).toContain(GAME_DESCRIPTION);
   const download = page.waitForEvent('download');
   await page.getByRole('button', { name: 'SHARE', exact: true }).click();
-  expect((await download).suggestedFilename()).toContain('story.jpg');
+  expect((await download).suggestedFilename()).toContain('feed.jpg');
   await expect(page.getByRole('link', { name: 'Open image to save manually' })).toBeVisible();
   await expect(page.getByAltText('Your Dibs image. Press and hold to save.')).toBeVisible();
   await expect
@@ -77,7 +77,7 @@ test('all share controls, exact intents and anonymous one-tap events', async ({ 
     );
 });
 
-test('native sharing sends a prepared story file; cancellation never downloads', async ({
+test('native sharing sends a prepared feed file; cancellation never downloads', async ({
   page,
 }) => {
   await page.addInitScript(() => {
@@ -98,7 +98,7 @@ test('native sharing sends a prepared story file; cancellation never downloads',
   await certificate(page);
   await page.getByRole('button', { name: 'SHARE', exact: true }).click();
   const data = await page.evaluate(() => (window as any).shared);
-  expect(data.name).toContain('story.jpg');
+  expect(data.name).toContain('feed.jpg');
   expect(data.type).toBe('image/jpeg');
   expect(data.size).toBeGreaterThan(1000);
   expect(data.text).toBeUndefined();
@@ -109,7 +109,7 @@ test('native sharing sends a prepared story file; cancellation never downloads',
   let downloads = 0;
   page.on('download', () => downloads++);
   await page.getByRole('button', { name: 'SHARE', exact: true }).click();
-  await expect(page.locator('.share-hint')).toHaveText('Image shared.');
+  await expect(page.locator('.share-hint[role=status]')).toHaveText('Image shared.');
   expect(downloads).toBe(0);
 });
 
@@ -134,7 +134,7 @@ test('text-only native sharing offers the PNG; blocked clipboard keeps selectabl
   await certificate(page);
   await page.getByRole('button', { name: 'SHARE', exact: true }).click();
   expect(await page.evaluate(() => (window as any).shared.files)).toBeUndefined();
-  await expect(page.locator('.share-hint')).toContainText('Link shared.');
+  await expect(page.locator('.share-hint[role=status]')).toContainText('Link shared.');
   await page.getByRole('button', { name: 'Copy link', exact: true }).click();
   await expect(page.getByLabel('Share text to copy')).toHaveText(
     `${PUBLIC_ORIGIN}/certificate/fixture-1?s=copy-link`,
@@ -154,7 +154,7 @@ test('Instagram and TikTok export keeps a long-press image when the browser bloc
   });
   await certificate(page);
   await page.getByRole('button', { name: 'Instagram / TikTok story' }).click();
-  await expect(page.locator('.share-hint').first()).toHaveText(/Couldn't share\./);
+  await expect(page.locator('.share-hint[role=status]').first()).toHaveText(/Couldn't share\./);
   const image = page.getByAltText('Your Dibs image. Press and hold to save.');
   await expect(image).toBeVisible();
   expect(
@@ -178,8 +178,8 @@ test('native share rejection falls back to a PNG', async ({ page }) => {
   await certificate(page);
   const downloaded = page.waitForEvent('download');
   await page.getByRole('button', { name: 'SHARE', exact: true }).click();
-  expect((await downloaded).suggestedFilename()).toContain('story.jpg');
-  await expect(page.locator('.share-hint').first()).toContainText("Couldn't share.");
+  expect((await downloaded).suggestedFilename()).toContain('feed.jpg');
+  await expect(page.locator('.share-hint[role=status]').first()).toContainText("Couldn't share.");
 });
 
 test('first arrival attribution survives reloads and ignores arbitrary sources', async ({

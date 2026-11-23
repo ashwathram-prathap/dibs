@@ -1,3 +1,4 @@
+import { scoreFile } from './scoring';
 import { credentialGate, credentialQuota } from './credential-gate';
 import { cleanStoredHandles } from '../shared/handles';
 import { cleanHandleBatch } from './handle-migration';
@@ -954,12 +955,25 @@ export class Registry extends DurableObject<Env> {
             ? await this.ctx.storage.get<Session>('session:' + ownerId)
             : null;
           const standing = ownerId ? publicScores(await this.scores.rows(g.id), ownerId) : null;
-          const file =
-            session?.file?.category_id === g.id
-              ? session.file
-              : ownerId
-                ? await fileState(env, g.id, ownerId)
-                : null;
+          let file = session?.file?.category_id === g.id ? session!.file : null;
+          if (!file && ownerId) {
+            // Preview totals need no answer joins; keep cold legacy links bounded.
+            const events = (
+              await env.DB.prepare(
+                "SELECT created_at at,'dibs' kind,points,file_no seq FROM claims WHERE category_id=? AND user_id=? UNION ALL SELECT created_at at,'strike' kind,0 points,seq FROM strikes WHERE category_id=? AND user_id=? ORDER BY seq",
+              )
+                .bind(g.id, ownerId, g.id, ownerId)
+                .all<any>()
+            ).results;
+            file = {
+              category_id: g.id,
+              claims: [],
+              events,
+              ...scoreFile(events),
+              dibs: events.filter((e) => e.kind === 'dibs').length,
+              strikes: events.filter((e) => e.kind === 'strike').length,
+            };
+          }
           return json(
             file
               ? publicFile(

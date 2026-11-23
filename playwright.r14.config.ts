@@ -24,7 +24,12 @@ export default defineConfig({
           name: `r14-payoff-${browserName}-${colorScheme}`,
           testMatch: ['round14.spec.ts'],
           testIgnore: undefined,
-          use: { browserName, colorScheme, viewport: { width: 390, height: 844 } },
+          use: {
+            extraHTTPHeaders: { 'x-dibs-test': '1' },
+            browserName,
+            colorScheme,
+            viewport: { width: 390, height: 844 },
+          },
         })),
       ),
     ) as any,

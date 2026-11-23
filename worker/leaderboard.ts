@@ -23,7 +23,7 @@ export function orderScores(rows: ScoreRow[]) {
       a.user_id.localeCompare(b.user_id),
   );
 }
-export function publicScores(rows: ScoreRow[], uid?: string, limit = 25) {
+export function publicScores(rows: ScoreRow[], uid?: string, limit = 25, revealed = false) {
   const names = displayNames(
     rows.map((r) => ({ id: r.user_id, handle: r.handle, founder: r.founder })),
   );
@@ -41,7 +41,7 @@ export function publicScores(rows: ScoreRow[], uid?: string, limit = 25) {
     founder: row.founder,
     points: row.points,
     claims: row.dibs,
-    golden: row.golden,
+    ...(revealed ? { golden: row.golden } : {}),
     own: row.user_id === uid,
   });
   const ownIndex = rows.findIndex((r) => r.user_id === uid);

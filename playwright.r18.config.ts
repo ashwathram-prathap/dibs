@@ -10,7 +10,11 @@ export default defineConfig({
   workers: 4,
   timeout: 90000,
   outputDir: '.tmp/r18/browser-artifacts',
-  use: { baseURL: process.env.R18_BASE || 'http://127.0.0.1:5199', trace: 'retain-on-failure' },
+  use: {
+    extraHTTPHeaders: { 'x-dibs-test': '1' },
+    baseURL: process.env.R18_BASE || 'http://127.0.0.1:5199',
+    trace: 'retain-on-failure',
+  },
   projects: engines.flatMap((browserName) =>
     [320, 375, 390, 430, 768, 1440, 2560].flatMap((width) =>
       ['light', 'dark'].map((colorScheme) => ({

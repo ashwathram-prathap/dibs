@@ -10,6 +10,7 @@ export default defineConfig({
   retries: 0,
   outputDir: '.tmp/r19/browser-artifacts',
   use: {
+    extraHTTPHeaders: { 'x-dibs-test': '1' },
     baseURL: 'http://127.0.0.1:5199',
     trace: 'retain-on-failure',
     timezoneId: 'America/Toronto',

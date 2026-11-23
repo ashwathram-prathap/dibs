@@ -12,7 +12,11 @@ export default defineConfig({
         (!process.env.R13_SKIP_FIREFOX || !p.name?.startsWith('firefox')),
     )
     .map((p) => ({ ...p, testMatch: tests, testIgnore: undefined })),
-  use: { ...base.use, baseURL: process.env.R13_BASE || base.use?.baseURL },
+  use: {
+    extraHTTPHeaders: { 'x-dibs-test': '1' },
+    ...base.use,
+    baseURL: process.env.R13_BASE || base.use?.baseURL,
+  },
   webServer: process.env.R13_BASE
     ? undefined
     : {

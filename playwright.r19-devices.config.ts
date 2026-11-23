@@ -11,6 +11,7 @@ if (!firefox)
     {
       name: 'Samsung-Internet-360',
       use: {
+        extraHTTPHeaders: { 'x-dibs-test': '1' },
         ...devices['Galaxy S9+'],
         viewport: { width: 360, height: 780 },
         browserName: 'chromium',

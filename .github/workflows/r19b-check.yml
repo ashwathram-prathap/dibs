@@ -1,0 +1,31 @@
+name: R19B Firefox release checks
+on:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  firefox:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    env:
+      NODE_OPTIONS: --max-old-space-size=6144
+      R19B_FIREFOX: '1'
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: npm ci
+      - run: npx playwright install --with-deps firefox
+      - run: npx tsx scripts/build-catalog-assets.ts && npx tsx scripts/build-scores.ts
+      - run: mkdir -p review/round19b
+      - run: npx playwright test -c playwright.r19b.config.ts
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: r19b-firefox
+          path: |
+            review/round19b/matrix-browser-results.json
+            review/devices/firefox-*/
+            test-results/
+          retention-days: 14

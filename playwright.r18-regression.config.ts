@@ -2,7 +2,7 @@ import { defineConfig } from '@playwright/test';
 import base from './playwright.config';
 export default defineConfig({
   ...base,
-  use: { ...base.use, baseURL: 'http://127.0.0.1:5200' },
+  use: { extraHTTPHeaders: { 'x-dibs-test': '1' }, ...base.use, baseURL: 'http://127.0.0.1:5200' },
   testIgnore: 'round7.spec.ts',
   projects: base.projects!.filter((p) => !p.name?.startsWith('firefox')),
   outputDir: '.tmp/r18/regression-artifacts',

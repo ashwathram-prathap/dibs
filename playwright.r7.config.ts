@@ -8,6 +8,7 @@ export default defineConfig({
       ['light', 'dark'].map((colorScheme) => ({
         name: `r7-chromium-${width}-${colorScheme}`,
         use: {
+          extraHTTPHeaders: { 'x-dibs-test': '1' },
           browserName: 'chromium' as const,
           viewport: { width, height: width === 390 ? 844 : 900 },
           colorScheme: colorScheme as 'light' | 'dark',
