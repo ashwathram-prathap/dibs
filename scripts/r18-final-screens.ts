@@ -59,5 +59,5 @@ try {
     }
 } finally {
   await b.close();
-  writeFileSync(`review/round18/${phase}-metrics.json`, JSON.stringify(metrics, null, 2));
+  writeFileSync(`review/round18/final-metrics.json`, JSON.stringify(metrics, null, 2));
 }

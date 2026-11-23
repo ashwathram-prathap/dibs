@@ -1,0 +1,8 @@
+{
+  "passed": true,
+  "at": "2026-11-23T09:52:10.237973+00:00",
+  "command": "npm run build",
+  "sourceCommit": "4f8bdbc40daeda3923e1e6adc584a4c0cdfa0101",
+  "htmlSha256": "a09fca96e95bb43d9335c7080dccb058bb7193eb7c943a9e2854f30710813db1",
+  "note": "Production-origin build and TypeScript passed. Deployment driver rebuilds before changing the Worker."
+}

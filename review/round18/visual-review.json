@@ -1,0 +1,26 @@
+{
+  "passed": true,
+  "at": "2026-11-23T09:48:19.467392+00:00",
+  "reviewed": [
+    "48 final route screenshots at 390 and 1440, both themes",
+    "Settings open and scrolled, feedback and footer at six requested widths",
+    "Play, done and certificate before/after in both themes",
+    "Four original R7 clock comparisons",
+    "Canvas feed/story and server OG exports"
+  ],
+  "checks": [
+    "One-column Settings, own-code order, sticky Close, safe areas, no horizontal overflow",
+    "560px desktop feedback modal and phone sheet, 8px label gap and 24px groups",
+    "Footer brand row and four-link group without orphan",
+    "Warm paper/carbon, 4% grain, one frame, no crosshairs or dashed rules",
+    "Only three fonts, matching subset descriptors, crisp heavy clock and readable form labels",
+    "Share primary and Copy result secondary only after result",
+    "SPEC anti-AI checklist reviewed"
+  ],
+  "weakestRemaining": [
+    "Office page remains long because it includes full rules, privacy and source attribution.",
+    "Phone completed-day record is long when all claims and curves are expanded.",
+    "Empty archive is intentionally sparse until a genuine day closes."
+  ],
+  "physicalDeviceLimit": "Playwright emulation covers browser engines and device sizes, not physical-device certification."
+}
