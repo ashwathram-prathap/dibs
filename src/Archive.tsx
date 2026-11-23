@@ -105,7 +105,7 @@ export function Archive() {
             <p>{error || 'Volume I is waiting for its first page.'}</p>
           )}
           <div className="archive-spine" aria-hidden="true">
-            <Wordmark /> VOL. I / PUBLIC RECORD
+            <Wordmark /> Vol. I / Public record
           </div>
         </aside>
         <div>

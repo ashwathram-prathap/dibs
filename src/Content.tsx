@@ -8,7 +8,7 @@ export function About({ nextDrop }: { nextDrop: string }) {
   return (
     <>
       <div className="page-heading">
-        <span className="eyebrow">PLEASE READ BEFORE FILING / NOTICE 001</span>
+        <span className="eyebrow">Please read before filing / Notice 001</span>
         <h1>
           Dibs. A small claim.
           <br />A public record.
@@ -60,7 +60,7 @@ export function About({ nextDrop }: { nextDrop: string }) {
           <div className="about-stamp">
             NO ACTUAL
             <br />
-            PROPERTY RIGHTS
+            Property rights
           </div>
         </section>
         <aside id="privacy" className="office-note">
@@ -154,7 +154,7 @@ export function Stats() {
   return (
     <>
       <div className="page-heading">
-        <span className="eyebrow">CLERK ACCESS / FORM X-1</span>
+        <span className="eyebrow">Clerk access / Form X-1</span>
         <h1>Office figures.</h1>
         <p>Actual counts from the registry. No decorative numbers.</p>
       </div>
@@ -177,9 +177,9 @@ export function Stats() {
             <thead>
               <tr>
                 <th>DATE</th>
-                <th>NEW USERS</th>
-                <th>CLAIMERS / CLAIMS</th>
-                <th>SHARE TAPS</th>
+                <th>New users</th>
+                <th>Claimers / claims</th>
+                <th>Share taps</th>
               </tr>
             </thead>
             <tbody>
@@ -220,9 +220,9 @@ export function Stats() {
             <caption>Sharing by platform · all recorded taps and first arrivals</caption>
             <thead>
               <tr>
-                <th>PLATFORM</th>
-                <th>SHARE TAPS</th>
-                <th>ARRIVALS</th>
+                <th>Platform</th>
+                <th>Share taps</th>
+                <th>Arrivals</th>
               </tr>
             </thead>
             <tbody>

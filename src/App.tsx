@@ -269,9 +269,9 @@ export default function App() {
             <Wordmark />
           </Link>
           <p className="mast-note">
-            DEPARTMENT OF
+            Department of
             <br />
-            FIRST COME, FIRST SERVED.
+            First come, first served.
           </p>
           <div className="header-actions">
             <button
@@ -367,7 +367,7 @@ export default function App() {
         </header>
         {isDemo && (
           <div className="demo-label">
-            DESIGN PROOF · DEVELOPMENT FIXTURES · NOT THE PUBLIC RECORD
+            Design proof · Development fixtures · Not the public record
           </div>
         )}
         <main id="main">
@@ -763,7 +763,7 @@ function Home({
       ) : file?.closed ? (
         <>
           <span className="file-closed-stamp" role="status">
-            DONE FOR TODAY
+            Done for today
           </span>
           <p className="done-score">
             {file.points ?? 0} points{file.rank ? ` · #${file.rank} of ${file.players} today` : ''}
@@ -1010,7 +1010,7 @@ function Streak({ me }: { me: Me }) {
   return (
     <div className="streak">
       <span className="eyebrow">
-        ATTENDANCE RECORD / {me.streak} {me.streak === 1 ? 'DAY' : 'DAYS'}
+        Attendance record / {me.streak} {me.streak === 1 ? 'day' : 'days'}
       </span>
       <div aria-label={`${me.streak} consecutive days with a claim`}>
         {Array.from({ length: 7 }, (_, i) => (

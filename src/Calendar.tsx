@@ -71,7 +71,7 @@ export function Calendar() {
     <section className="schedule-page">
       <div className="schedule-title">
         <div>
-          <p className="eyebrow">THE REGISTRAR’S DESK</p>
+          <p className="eyebrow">The registrar’s desk</p>
           <h1>Topic calendar.</h1>
         </div>
         <a href="/admin/live">Live office</a>
