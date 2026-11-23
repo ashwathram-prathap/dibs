@@ -1,4 +1,4 @@
-import { GAME_DESCRIPTION } from '../../shared/copy';
+const CERTIFICATE_CAPTION = "I claimed a spot on today's Dibs (Animals). dibs.here";
 import { test, expect } from './security-fixture';
 import { PUBLIC_ORIGIN } from '../../shared/config';
 
@@ -43,7 +43,7 @@ test('all share controls, exact intents and anonymous one-tap events', async ({ 
     expect(href.searchParams.get(key)).toContain(
       `${PUBLIC_ORIGIN}/certificate/fixture-1?s=${platform}`,
     );
-    if (platform === 'x') expect(href.searchParams.get('text')).toBe(GAME_DESCRIPTION);
+    if (platform === 'x') expect(href.searchParams.get('text')).toBe(CERTIFICATE_CAPTION);
     // Intercept the external navigation; tests never send content to a platform.
     await page
       .context()
@@ -61,7 +61,7 @@ test('all share controls, exact intents and anonymous one-tap events', async ({ 
     `${PUBLIC_ORIGIN}/certificate/fixture-1?s=copy-link`,
   );
   await page.getByRole('button', { name: 'Copy text', exact: true }).click();
-  expect(await page.evaluate(() => (window as any).copied)).toContain(GAME_DESCRIPTION);
+  expect(await page.evaluate(() => (window as any).copied)).toContain(CERTIFICATE_CAPTION);
   const download = page.waitForEvent('download');
   await page.getByRole('button', { name: 'SHARE', exact: true }).click();
   expect((await download).suggestedFilename()).toContain('feed.jpg');
