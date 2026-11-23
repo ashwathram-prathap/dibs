@@ -561,13 +561,18 @@ export default function App() {
               </Link>
             ))}
           </nav>
-          {me?.user && (
+          {me?.user ? (
             <span className="header-player">
               <Handle
                 name={me.file?.handle || me.claim?.handle || me.user.handle}
                 founder={me.file?.founder || me.claim?.founder}
               />
               <span>Streak {me.streak}</span>
+            </span>
+          ) : (
+            <span className="header-player header-player-placeholder" aria-hidden="true">
+              <span>Loading</span>
+              <span>Streak</span>
             </span>
           )}
         </header>
@@ -590,7 +595,7 @@ export default function App() {
             </div>
           ) : !today || !me ? (
             <div className="loading" role="status">
-              LOADING THE GAME<span className="loading-dots"> . . .</span>
+              Loading the game<span className="loading-dots"> . . .</span>
             </div>
           ) : path === '/' ? (
             <Home
@@ -2123,7 +2128,9 @@ function About({ nextDrop }: { nextDrop: string }) {
             Yes. They’re picked and locked before the category opens. When it closes, we publish
             them so anyone can check they never changed.
           </p>
-          <p>Each night during launch week we post a clue to one golden ticket. The rest stay secret.</p>
+          <p>
+            Each night during launch week we post a clue to one golden ticket. The rest stay secret.
+          </p>
           <h3>How do points work?</h3>
           <p>Rarer answers score more. Golden tickets +100. Strikes −10.</p>
           <h3>What counts toward a streak?</h3>

@@ -5170,3 +5170,13 @@ footer a {
 .header-settings .header-controls {
   max-width: min(340px, calc(100vw - 32px));
 }
+
+/* Reserve the identity row and keep the footer below the loading viewport. */
+.header-player-placeholder {
+  visibility: hidden;
+  min-width: 200px;
+}
+.home-page .loading {
+  min-height: calc(100dvh - 102px);
+  font-size: 16px;
+}
