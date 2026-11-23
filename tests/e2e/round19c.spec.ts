@@ -200,6 +200,7 @@ test('Settings share aligned controls, sticky opaque header, labels, theme swatc
 }, info) => {
   await page.goto('/?r19&r19c&r7-closed');
   await page.locator('.closed-office').waitFor();
+  await audit(page, '.closed-office');
   await shot(page, info, 'settings-closed');
   await page.evaluate(() => scrollTo(0, document.body.scrollHeight / 2));
   // Opening by keyboard/programmatic activation preserves the scrolled page position.
@@ -450,6 +451,8 @@ test('Share and visitor landing work in browser, standalone, LinkedIn and Instag
     await expect(p.locator('.shared-invitation')).toContainText('struck out');
     await expect(p.locator('.summary-answers')).toContainText('Okapi');
     await expect(p.getByRole('link', { name: 'Play now', exact: true })).toBeVisible();
+    await audit(p, 'main', '.invitation-action > .primary');
+    await shot(p, info, 'landing-closed-' + mode);
     if (mode === 'browser') {
       await p.goto('/?r19&r19c&r6&persist');
       await done(p);
