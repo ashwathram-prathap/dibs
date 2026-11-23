@@ -719,12 +719,10 @@ export class Registry extends DurableObject<Env> {
       'SOCKET_SECURITY_KEY' in env
         ? env.SOCKET_SECURITY_KEY
         : await securityKey(req, env.COOKIE_SECRET, env.LOCAL_TEST);
-    if (!network)
+    const user = !admin ? await cookieUser(req, env.COOKIE_SECRET) : null;
+    if (!network && !user)
       return admin && !valid ? json({ message: 'Page not found; return to today.' }, 404) : null;
-    const key =
-      'security:' +
-      (admin ? 'admin:' : 'events:') +
-      (!admin ? (await cookieUser(req, env.COOKIE_SECRET)) || network : network);
+    const key = 'security:' + (admin ? 'admin:' : 'events:') + (user || network);
     const status = await this.ctx.storage.transaction(async (txn) => {
       const result = gate(await txn.get<Gate>(key), Date.now(), valid, admin);
       await txn.put(key, result.state);
@@ -760,6 +758,7 @@ export class Registry extends DurableObject<Env> {
         uid: await cookieUser(req, env.COOKIE_SECRET),
         at: 0,
         day,
+        networkDay: torontoDate(),
         ipHash: ip ? await hmac(ip, await hmac('ip:' + torontoDate(), env.COOKIE_SECRET)) : '',
         securityKey: await securityKey(req, env.COOKIE_SECRET, env.LOCAL_TEST),
         diagnostic:
@@ -1470,6 +1469,7 @@ export class Registry extends DurableObject<Env> {
         if (
           !a?.uid ||
           a.day !== registryDate() ||
+          a.networkDay !== torontoDate() ||
           !/^[a-f0-9-]{36}$/.test(b.rpc) ||
           !['/claim', '/verify-session', '/events/share'].includes(b.path)
         ) {
@@ -1480,6 +1480,7 @@ export class Registry extends DurableObject<Env> {
               body: { code: 'VERIFY_AGAIN', message: 'Reconnect and try again.' },
             }),
           );
+          ws.close(1012, 'Refresh session');
           return;
         }
         const req = new Request(

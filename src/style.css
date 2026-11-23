@@ -5243,3 +5243,8 @@ footer a {
     font-size: 16px;
   }
 }
+/* The active filing card keeps its strong rule; secondary cards use softer lines. */
+.claim-paper,
+.hero {
+  border-color: var(--ink);
+}

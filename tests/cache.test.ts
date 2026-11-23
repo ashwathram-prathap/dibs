@@ -134,7 +134,12 @@ beforeAll(async () => {
       .replace(/\n/g, ' '),
   );
 
-  await db.exec(readFileSync('migrations/0014_shared_networks.sql', 'utf8').replace(/^--.*$/gm, '').replace(/\n/g, ' '));  const date = registryDate();
+  await db.exec(
+    readFileSync('migrations/0014_shared_networks.sql', 'utf8')
+      .replace(/^--.*$/gm, '')
+      .replace(/\n/g, ' '),
+  );
+  const date = registryDate();
   await db
     .prepare(
       'INSERT INTO categories(id,date,name,slug,total_registrable,drop_at,status) VALUES(?,?,?,?,?,?,?)',
@@ -751,4 +756,20 @@ it('R11 invalid guesses leave live completion counters numeric', async () => {
       Object.values(m).every((v) => typeof v === 'number' && Number.isFinite(v)),
     ),
   ).toBe(true);
+});
+
+it('keeps signed-player event limits when the network is missing without sharing a worldwide bucket', async () => {
+  const a = await account();
+  const b = await account();
+  const send = (cookie: string) =>
+    mf.dispatchFetch('http://localhost/api/events/share', {
+      method: 'POST',
+      headers: { origin: 'https://dibs.here', cookie, 'content-type': 'application/json' },
+      body: JSON.stringify({ platform: 'copy-link' }),
+    });
+  const statuses = [];
+  for (let i = 0; i < 31; i++) statuses.push((await send(a.cookie)).status);
+  expect(statuses.filter((s) => s === 200)).toHaveLength(30);
+  expect(statuses[30]).toBe(429);
+  expect((await send(b.cookie)).status).toBe(200);
 });

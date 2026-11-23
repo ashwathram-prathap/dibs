@@ -142,6 +142,9 @@ export function watchRegistry(onError: (message: string) => void) {
           if (request) {
             clearTimeout(request.timer);
             pending.delete(data.rpc);
+            // A day/network rollover requires a new attachment. Close synchronously so
+            // verification retries use HTTP instead of repeating an expired socket RPC.
+            if (data.status === 428) socket?.close(1000, 'Refresh session');
             request.resolve(new Response(JSON.stringify(data.body), { status: data.status }));
           }
           return;
