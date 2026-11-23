@@ -1,0 +1,29 @@
+{
+  "at": "2026-11-23T15:53:19.902Z",
+  "passed": true,
+  "method": "Compare the real tilted certificate stamp, then move its label upward 32px as a positive control. Normalizing their common rotation must distinguish separated text from actual overlap.",
+  "checks": [
+    {
+      "browser": "chromium",
+      "separated": {
+        "raw": true,
+        "normalized": false
+      },
+      "intentionalOverlap": {
+        "raw": true,
+        "normalized": true
+      }
+    },
+    {
+      "browser": "webkit",
+      "separated": {
+        "raw": true,
+        "normalized": false
+      },
+      "intentionalOverlap": {
+        "raw": true,
+        "normalized": true
+      }
+    }
+  ]
+}

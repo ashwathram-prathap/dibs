@@ -98,7 +98,7 @@ async function audit(page: Page, scope = 'main', action?: string) {
   );
   expect(clipped, 'clipped text').toEqual([]);
   const overlaps = await page.locator(scope).evaluate((root) => {
-    const labels: { element: Element; text: string; rect: DOMRect }[] = [];
+    const labels: { element: Element; node: Node; text: string; rect: DOMRect }[] = [];
     const walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT);
     while (walker.nextNode()) {
       const node = walker.currentNode,
@@ -128,7 +128,7 @@ async function audit(page: Page, scope = 'main', action?: string) {
           Math.max(0, Math.min(innerHeight - 1, r.y + r.height / 2)),
         );
         if (!hit || !(el.contains(hit) || hit.contains(el))) continue;
-        labels.push({ element: el, text: node.textContent.trim().slice(0, 40), rect: r });
+        labels.push({ element: el, node, text: node.textContent.trim().slice(0, 40), rect: r });
       }
     }
     const hits: string[] = [];
@@ -142,11 +142,37 @@ async function audit(page: Page, scope = 'main', action?: string) {
           b.element.contains(a.element)
         )
           continue;
-        if (
-          Math.min(a.rect.right, b.rect.right) - Math.max(a.rect.left, b.rect.left) > 1 &&
-          Math.min(a.rect.bottom, b.rect.bottom) - Math.max(a.rect.top, b.rect.top) > 1
-        )
-          hits.push(a.text + ' / ' + b.text);
+        const intersects = (x: DOMRect, y: DOMRect) =>
+          Math.min(x.right, y.right) - Math.max(x.left, y.left) > 1 &&
+          Math.min(x.bottom, y.bottom) - Math.max(x.top, y.top) > 1;
+        if (!intersects(a.rect, b.rect)) continue;
+        // A shared rotation preserves separation, but its axis-aligned bounding boxes
+        // can intersect. Check those pairs in the common ancestor's unrotated frame.
+        // Unrelated transformed elements still use their actual viewport geometry.
+        let common = a.element.parentElement;
+        while (common && !common.contains(b.element)) common = common.parentElement;
+        let rotated: HTMLElement | null = common;
+        while (rotated && root.contains(rotated)) {
+          const style = getComputedStyle(rotated);
+          if (style.transform !== 'none' || (style.rotate && style.rotate !== 'none')) break;
+          rotated = rotated.parentElement;
+        }
+        if (rotated && root.contains(rotated)) {
+          const original = rotated.style.cssText;
+          try {
+            rotated.style.transform = 'none';
+            rotated.style.rotate = 'none';
+            const boxes = [a.node, b.node].map((node) => {
+              const range = document.createRange();
+              range.selectNode(node);
+              return [...range.getClientRects()];
+            });
+            if (!boxes[0].some((x) => boxes[1].some((y) => intersects(x, y)))) continue;
+          } finally {
+            rotated.style.cssText = original;
+          }
+        }
+        hits.push(a.text + ' / ' + b.text);
       }
     return hits;
   });
