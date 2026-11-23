@@ -1,7 +1,7 @@
 {
   "at": "2026-11-23T17:13:50.423472+00:00",
   "passed": false,
-  "pending": "Final three-engine matrix completion and contact-sheet review.",
+  "pending": "Repeat full matrix and final review after the enlarged-share-label fix, commit 6b1e52d.",
   "nativeScreensReviewed": [
     "review/final/round19c/settings-open/chromium-1440-light.png",
     "review/final/round19c/settings-open/chromium-390-light.png",
@@ -94,5 +94,44 @@
     "review/round19c/final-review/share-browser.png",
     "review/round19c/final-review/share-standalone.png",
     "review/round19c/final-review/strike-five.png"
-  ]
+  ],
+  "localMatrixSheetsReviewed": [
+    ".tmp/r19c/local-review/admin-feedback.png",
+    ".tmp/r19c/local-review/certificate-deep-cut.png",
+    ".tmp/r19c/local-review/certificate-familiar.png",
+    ".tmp/r19c/local-review/certificate-golden.png",
+    ".tmp/r19c/local-review/certificate-measured.png",
+    ".tmp/r19c/local-review/certificate-missing.png",
+    ".tmp/r19c/local-review/claim-1.png",
+    ".tmp/r19c/local-review/claim-2.png",
+    ".tmp/r19c/local-review/claim-3.png",
+    ".tmp/r19c/local-review/feedback-required.png",
+    ".tmp/r19c/local-review/feedback-sent.png",
+    ".tmp/r19c/local-review/landing-certificate-Instagram.png",
+    ".tmp/r19c/local-review/landing-certificate-LinkedInApp.png",
+    ".tmp/r19c/local-review/landing-certificate-browser.png",
+    ".tmp/r19c/local-review/landing-certificate-standalone.png",
+    ".tmp/r19c/local-review/landing-closed-Instagram.png",
+    ".tmp/r19c/local-review/landing-closed-LinkedInApp.png",
+    ".tmp/r19c/local-review/landing-closed-browser.png",
+    ".tmp/r19c/local-review/landing-closed-standalone.png",
+    ".tmp/r19c/local-review/landing-summary-Instagram.png",
+    ".tmp/r19c/local-review/landing-summary-LinkedInApp.png",
+    ".tmp/r19c/local-review/landing-summary-browser.png",
+    ".tmp/r19c/local-review/landing-summary-standalone.png",
+    ".tmp/r19c/local-review/settings-closed.png",
+    ".tmp/r19c/local-review/settings-open.png",
+    ".tmp/r19c/local-review/settings-scrolled.png",
+    ".tmp/r19c/local-review/share-Instagram.png",
+    ".tmp/r19c/local-review/share-LinkedInApp.png",
+    ".tmp/r19c/local-review/share-browser.png",
+    ".tmp/r19c/local-review/share-standalone.png",
+    ".tmp/r19c/local-review/strike-five.png"
+  ],
+  "localMatrixReview": {
+    "at": "2026-11-23T17:17:23.981374+00:00",
+    "screens": 31,
+    "captures": 7440,
+    "scope": "Overview review of all Chromium/WebKit contact sheets at 1200px width, plus the listed native captures and automated geometry/contrast/interaction checks. Firefox matrix remains pending."
+  }
 }

@@ -1,0 +1,16 @@
+{
+  "at": "2026-11-23T17:25:03.621813+00:00",
+  "sourceCommit": "6b1e52d",
+  "passed": true,
+  "stats": {
+    "startTime": "2026-11-23T17:22:39.205Z",
+    "duration": 107857.63399999999,
+    "expected": 16,
+    "skipped": 0,
+    "unexpected": 0,
+    "flaky": 0
+  },
+  "change": "The phone share grid uses a font-relative container threshold: three secondary cells when labels fit, otherwise two plus a full-width last cell.",
+  "assertion": "LinkedIn and Download each occupy one text range line at CSS widths of 280px or greater. Equal heights, fonts, borders and row widths still pass.",
+  "screenshot": "share-fit-360-light.png"
+}

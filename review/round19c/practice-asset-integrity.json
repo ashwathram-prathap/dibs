@@ -1,10 +1,14 @@
 {
-  "at": "2026-11-23T16:28:46.870Z",
+  "at": "2026-11-23T17:34:05.672Z",
   "passed": true,
-  "entry": "/assets/index-BUSqIKG6.js",
+  "entry": "/assets/index-DizAyivV.js",
+  "inlineStyleHashes": [
+    "5ffa8cd03fa8d3c51f20fd6a741e091848efa9f50fa0220cb327e68945e06729",
+    "818534aa5235de723cddd1f1155f539a970be37f9ab94003455ebe747d92adea"
+  ],
   "rows": [
     {
-      "path": "Archive-CnHOD4aS.js",
+      "path": "Archive-i-ZqpymH.js",
       "status": 200,
       "type": "application/javascript",
       "bytes": 4623,
@@ -18,42 +22,49 @@
       "matches": true
     },
     {
-      "path": "Certificate-C4kZeiEi.js",
+      "path": "Certificate-65IqFc_C.js",
       "status": 200,
       "type": "application/javascript",
       "bytes": 98434,
       "matches": true
     },
     {
-      "path": "Content-CbijFWjd.js",
+      "path": "Content-MQEP1RTN.js",
       "status": 200,
       "type": "application/javascript",
       "bytes": 12830,
       "matches": true
     },
     {
-      "path": "Leaderboard-DowI5d71.js",
+      "path": "Leaderboard-3u_xBHcy.js",
       "status": 200,
       "type": "application/javascript",
       "bytes": 2335,
       "matches": true
     },
     {
-      "path": "Ledger-CaJ3Bjk4.js",
+      "path": "Ledger-h7aoZmo6.js",
       "status": 200,
       "type": "application/javascript",
       "bytes": 5967,
       "matches": true
     },
     {
-      "path": "Settings--5lfkrUI.js",
+      "path": "Settings-33JAjEO-.js",
       "status": 200,
       "type": "application/javascript",
       "bytes": 9494,
       "matches": true
     },
     {
-      "path": "index-BUSqIKG6.js",
+      "path": "index-DHl-_UDC.css",
+      "status": 200,
+      "type": "text/css; charset=utf-8",
+      "bytes": 117755,
+      "matches": true
+    },
+    {
+      "path": "index-DizAyivV.js",
       "status": 200,
       "type": "application/javascript",
       "bytes": 277053,
@@ -83,18 +94,11 @@
   ],
   "observations": [
     {
-      "at": "2026-11-23T16:28:43.554Z",
+      "at": "2026-11-23T17:34:05.672Z",
       "status": 200,
-      "actual": "/assets/index-BUSqIKG6.js",
-      "expected": "/assets/index-BUSqIKG6.js",
-      "htmlMatches": true,
-      "passed": false
-    },
-    {
-      "at": "2026-11-23T16:28:46.870Z",
-      "status": 200,
-      "actual": "/assets/index-BUSqIKG6.js",
-      "expected": "/assets/index-BUSqIKG6.js",
+      "actual": "/assets/index-DizAyivV.js",
+      "expected": "/assets/index-DizAyivV.js",
+      "stylesMatch": true,
       "htmlMatches": true,
       "passed": true
     }
