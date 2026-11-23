@@ -1,7 +1,7 @@
 {
   "at": "2026-11-23T17:13:50.423472+00:00",
   "passed": false,
-  "pending": "Full combined matrix review and the corrected native Firefox extreme-zoom stamp capture remain pending.",
+  "pending": "Full combined matrix review remains pending; corrected Firefox extreme stamp, enlarged share grid and narrow Settings reviewed.",
   "nativeScreensReviewed": [
     "review/final/round19c/settings-open/chromium-1440-light.png",
     "review/final/round19c/settings-open/chromium-390-light.png",
@@ -26,7 +26,8 @@
     "review/final/round19c/settings-scrolled/webkit-1440-dark.png",
     "review/final/round19c/share-browser/chromium-390-light.png",
     "review/round19c/share-fit-360-light.png",
-    "review/final/round19c/settings-scrolled/webkit-390-dark.png"
+    "review/final/round19c/settings-scrolled/webkit-390-dark.png",
+    "review/round19c/stamp-firefox-after.png"
   ],
   "practiceScreensReviewed": [
     "review/round19c/practice-0-chromium-claim.png"

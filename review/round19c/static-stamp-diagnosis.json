@@ -11,5 +11,15 @@
     "Chromium",
     "WebKit"
   ],
-  "productionUntouched": true
+  "productionUntouched": true,
+  "verification": {
+    "applicationCommit": "d68bf47",
+    "firefoxRun": "https://github.com/ashwathram-prathap/dibs/actions/runs/45238088491",
+    "shard": 1,
+    "passed": 180,
+    "failed": 0,
+    "nativeScreenshot": "stamp-firefox-after.png",
+    "visuallyReviewedAt": "2026-11-23T18:45:13.424236+00:00",
+    "result": "The complete static DIBS graphic and Registered label fit inside the certificate at 320x568, text scale 1.3 and 200% zoom."
+  }
 }
