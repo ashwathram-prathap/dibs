@@ -1,3 +1,8 @@
+import { createRequire } from 'node:module';
+const WebSocket = createRequire(import.meta.url)('ws');
+const sockets: any[] = [];
+let broadcasts = 0;
+const socketMode = process.argv.includes('--sockets');
 import { writeFileSync } from 'node:fs';
 import { spawnSync } from 'node:child_process';
 import assert from 'node:assert/strict';
@@ -95,7 +100,54 @@ await Promise.all(
       const load = await api('/bootstrap');
       assert.ok(load.response.ok);
       const cookie = load.response.headers.get('set-cookie')!.split(';')[0];
-      const verification = await api(
+      let perform = api;
+      if (socketMode) {
+        const ws = new WebSocket(origin.replace('https:', 'wss:') + '/api/live', {
+          headers: { origin, cookie },
+        });
+        sockets.push(ws);
+        await new Promise<void>((resolve, reject) => {
+          ws.once('open', resolve);
+          ws.once('error', reject);
+        });
+        const pending = new Map<string, any>();
+        ws.on('message', (raw: any) => {
+          const message = JSON.parse(String(raw));
+          if (message.rpc) {
+            const p = pending.get(message.rpc);
+            if (p) {
+              clearTimeout(p.timer);
+              pending.delete(message.rpc);
+              p.resolve({
+                response: { status: message.status, ok: message.status < 400 },
+                data: message.body,
+              });
+            }
+          } else if (message.today) {
+            broadcasts++;
+            if (/"(?:display|answer_id|guess|user_id)":/.test(JSON.stringify(message)))
+              errors.push({ player: i, error: 'Private data in broadcast' });
+          }
+        });
+        ws.on('close', () => {
+          for (const p of pending.values()) {
+            clearTimeout(p.timer);
+            p.reject(Error('Socket closed'));
+          }
+          pending.clear();
+        });
+        perform = async (path: string, body?: any) =>
+          new Promise<any>((resolve, reject) => {
+            const rpc = crypto.randomUUID();
+            const timer = setTimeout(() => {
+              pending.delete(rpc);
+              reject(Error('RPC timeout'));
+            }, 20000);
+            pending.set(rpc, { resolve, reject, timer });
+            ws.send(JSON.stringify({ rpc, path, body }));
+          });
+      }
+      const verification = await perform(
         '/verify-session',
         { turnstileToken: 'XXXX.DUMMY.TOKEN.XXXX' },
         cookie,
@@ -112,7 +164,7 @@ await Promise.all(
       const ownClaims: string[] = [];
       for (const [j, answer] of guesses.entries()) {
         const t = performance.now();
-        const r = await api(
+        const r = await perform(
           '/claim',
           { answer, sessionToken: verification.data.sessionToken, requestId: crypto.randomUUID() },
           cookie,
@@ -147,6 +199,7 @@ await Promise.all(
     }
   }),
 );
+for (const ws of sockets) ws.close();
 const flushed = await api('/admin/r17-flush', {}, undefined, true);
 assert.ok(flushed.response.ok);
 const finalDay = await api('/today');
@@ -155,6 +208,8 @@ const result = {
   at: new Date().toISOString(),
   origin,
   players,
+  transport: socketMode ? '500 concurrent WebSockets' : 'HTTP',
+  broadcasts,
   completed,
   actualArrivalWindowSeconds: Math.max(...arrivals) / 1000,
   durationSeconds: (Date.now() - start) / 1000,

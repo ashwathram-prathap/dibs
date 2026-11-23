@@ -134,7 +134,12 @@ beforeAll(async () => {
       .replace(/\n/g, ' '),
   );
 
-  await db.exec(readFileSync('migrations/0014_shared_networks.sql', 'utf8').replace(/^--.*$/gm, '').replace(/\n/g, ' '));  const date = registryDate();
+  await db.exec(
+    readFileSync('migrations/0014_shared_networks.sql', 'utf8')
+      .replace(/^--.*$/gm, '')
+      .replace(/\n/g, ' '),
+  );
+  const date = registryDate();
   await db
     .prepare(
       'INSERT INTO categories(id,date,name,slug,total_registrable,drop_at,status) VALUES(?,?,?,?,?,?,?)',
@@ -253,16 +258,14 @@ it('never leaks other answers through leaderboard, completed-viewer ledger, sock
   }
   const current: any = await (await call('/me', undefined, first.cookie)).json();
   expect(current.file.closed).toBe(true);
-  for (const path of [
-    '/leaderboard',
-    '/ledger?category=test',
-    '/summary/' + summary,
-  ]) {
+  for (const path of ['/leaderboard', '/ledger?category=test', '/summary/' + summary]) {
     const r = await call(path, undefined, first.cookie);
     expect(r.status).toBe(200);
     expect(await r.text()).not.toMatch(/Animal [0-9]/);
   }
-  const ownCertificate: any = await (await call('/certificate/' + firstClaim.id, undefined, first.cookie)).json();
+  const ownCertificate: any = await (
+    await call('/certificate/' + firstClaim.id, undefined, first.cookie)
+  ).json();
   expect(ownCertificate.claim.display).toBe(firstClaim.display);
   expect(ownCertificate.claim.owned).toBe(true);
   expect(await (await call('/certificate/' + firstClaim.id)).text()).not.toMatch(/Animal [0-9]/);
@@ -283,7 +286,9 @@ it('never leaks other answers through leaderboard, completed-viewer ledger, sock
   expect(JSON.stringify(data.leaderboard)).not.toMatch(/Animal [0-9]/);
   // A player's private me record can contain their own guesses, never another player's claim.
   expect(
-    (data.me?.file?.claims || []).every((c: any) => current.file.claims.some((own: any) => own.id === c.id)),
+    (data.me?.file?.claims || []).every((c: any) =>
+      current.file.claims.some((own: any) => own.id === c.id),
+    ),
   ).toBe(true);
   ws.close(1000);
 });
@@ -333,7 +338,11 @@ it('uses the real founder name without changing points and preserves withdrawn s
   // All rows (including a low-ranked withdrawn filer) remain in the final cache, not an old handle.
   const cert: any = await (await call('/certificate/' + win.data.claim.id)).json();
   expect(cert.claim.handle).toBe('Withdrawn player');
-  expect(cert.claim.points).toBe(win.data.claim.points);
+  expect(cert.claim.points).toBeNull(); // Public individual rarity stays sealed before close.
+  expect(
+    (await db.prepare('SELECT points FROM claims WHERE id=?').bind(win.data.claim.id).first())
+      .points,
+  ).toBe(win.data.claim.points);
 });
 it('excludes hidden users and every file with a voided claim immediately', async () => {
   expect((await admin('hide-user', { id: second.me.user.id })).status).toBe(200);

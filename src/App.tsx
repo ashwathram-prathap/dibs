@@ -503,7 +503,8 @@ function Home({
   useEffect(() => {
     if (file?.closed) {
       window.scrollTo(0, 0);
-      void refresh();
+      // The accepted final event already includes the complete file and summary.
+      if (!file.summaryId) void refresh();
     }
   }, [file?.closed]);
 

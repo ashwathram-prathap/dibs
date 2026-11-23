@@ -12,7 +12,7 @@
     "writes": 70
   },
   "mode": "after-local",
-  "at": "2026-11-23T07:44:30.267Z",
+  "at": "2026-11-23T08:15:24.792Z",
   "scenario": "load, verification, typo, 6 guesses (3 claims, 1 taken strike, 2 reserved strikes), leaderboard, share, return visit; separate control player establishes the taken answer",
   "httpRequests": 4,
   "pagesFunctionRequests": 0,
@@ -158,48 +158,44 @@
   ],
   "storageCauses": {
     "KV": {
-      "reads": 79,
+      "reads": 71,
       "writes": 0
     },
     "KV put snapshot": {
       "reads": 0,
-      "writes": 8
+      "writes": 7
     },
     "KV put handle": {
       "reads": 0,
-      "writes": 2
+      "writes": 1
     },
     "KV put session": {
       "reads": 0,
-      "writes": 17
-    },
-    "alarm": {
-      "reads": 0,
-      "writes": 1
-    },
-    "KV put scores": {
-      "reads": 0,
-      "writes": 8
+      "writes": 14
     },
     "KV put metric": {
       "reads": 0,
-      "writes": 14
+      "writes": 12
     },
     "KV put usage": {
-      "reads": 0,
-      "writes": 14
-    },
-    "KV put cache": {
-      "reads": 0,
-      "writes": 4
-    },
-    "KV put active": {
       "reads": 0,
       "writes": 12
     },
     "KV put security": {
       "reads": 0,
       "writes": 2
+    },
+    "KV put active": {
+      "reads": 0,
+      "writes": 11
+    },
+    "KV put cache": {
+      "reads": 0,
+      "writes": 3
+    },
+    "KV put scores": {
+      "reads": 0,
+      "writes": 6
     },
     "KV put summary": {
       "reads": 0,

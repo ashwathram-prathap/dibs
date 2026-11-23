@@ -11,7 +11,7 @@ mkdirSync('review/round17/certificate',{recursive:true});
 const browser=await chromium.launch();const results=[];
 try {
  for(const theme of ['light','dark']){
-  const page=await browser.newPage({viewport:{width:390,height:844},colorScheme:theme as any});await page.goto('http://127.0.0.1:5197/certificate/fixture-1?r17=closed');await page.locator('.certificate').waitFor();await page.evaluate(()=>document.fonts.ready);
+  const page=await browser.newPage({viewport:{width:390,height:844},colorScheme:theme as any});await page.goto('http://127.0.0.1:5199/certificate/fixture-1?r17=closed');await page.locator('.certificate').waitFor();await page.evaluate(()=>document.fonts.ready);
   for(const phase of ['before','after'])for(const summary of [false,true])for(const story of [false,true]) {
    const result=await page.evaluate(async({phase,summary,story,theme})=>{
     document.documentElement.dataset.theme=theme;

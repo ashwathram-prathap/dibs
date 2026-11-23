@@ -75,6 +75,10 @@ export async function finishR17Admin(req: Request, env: Env, response: Response)
     if (!r.ok) throw Error('R17 administrative propagation failed; retry');
     changed += Number(((await r.json()) as any).changed || 0);
   };
+  if (path === '/api/admin/practice-schedule' && env.STAGING === 'true' && response.ok) {
+    await send(registryDate(), 'r17-refresh', {});
+    return;
+  }
   if (path === '/api/admin/practice-reset' && env.STAGING === 'true') {
     await send(registryDate(), 'r17-reset', {});
     return;

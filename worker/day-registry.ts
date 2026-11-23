@@ -42,7 +42,13 @@ export class DayRegistry extends DurableObject<Env> {
   private golden = new Set<string>();
   private legacy = new Map<string, JournalFile>();
   private claims = 0;
+  private boardTop?: any[];
+  private boardOwn = new Map<string, any>();
+  private boardTotal = 0;
+  private pushTimer?: ReturnType<typeof setTimeout>;
+  private flushTimer?: ReturnType<typeof setInterval>;
   private nextCheck = 0;
+  private nextOpening = dropAt(LAUNCH_DATE);
   private requestedDay?: string;
   private verified = new Map<string, any>();
   constructor(ctx: DurableObjectState, env: Env) {
@@ -61,6 +67,12 @@ export class DayRegistry extends DurableObject<Env> {
               .first<any>()
           : await current(env);
       if (!this.category) {
+        const next = await env.DB.prepare(
+          "SELECT drop_at FROM categories WHERE status='approved' AND drop_at>? ORDER BY drop_at LIMIT 1",
+        )
+          .bind(new Date().toISOString())
+          .first<any>();
+        this.nextOpening = next?.drop_at || dropAt(LAUNCH_DATE);
         this.nextCheck = Date.now() + 5000;
         return;
       }
@@ -139,6 +151,20 @@ export class DayRegistry extends DurableObject<Env> {
         this.legacy.set(user_id, { user, file, streakDates: dates, requests });
       }
       this.rebuild();
+      // Keep the single production day in memory until close. Otherwise idle
+      // minute crons could repeatedly replay a 60k-event day after hibernation.
+      // One 128-MB object for 24h is 11,059.2 GB-s, within the 13,000 free limit.
+      // Practice stays hibernatable so it cannot consume a second full-day budget.
+      if (
+        env.STAGING !== 'true' &&
+        env.LOCAL_TEST !== 'true' &&
+        !dayClosed(this.category) &&
+        !this.flushTimer
+      )
+        this.flushTimer = setInterval(
+          () => this.ctx.waitUntil(this.flush(this.env).catch(() => {})),
+          60000,
+        );
     })().catch((e) => {
       this.ready = undefined;
       throw e;
@@ -149,6 +175,7 @@ export class DayRegistry extends DurableObject<Env> {
     return new Map([...this.legacy, ...(this.journal?.files || [])]);
   }
   private rebuild() {
+    this.boardTop = undefined;
     this.owners.clear();
     this.claims = 0;
     for (const state of this.all().values()) {
@@ -163,19 +190,44 @@ export class DayRegistry extends DurableObject<Env> {
     }
   }
   private board(uid?: string) {
-    const rows = [...this.all().values()]
-      .filter((s) => !s.user.hidden && s.file.eligible !== false)
-      .map((s) => ({
-        user_id: s.user.id,
-        handle: s.user.handle,
-        founder: !!s.user.founder,
-        points: s.file.points,
-        dibs: s.file.dibs,
-        golden: s.file.golden,
-        reachedAt: s.file.reachedAt,
-        events: s.file.events.length,
-      }));
-    return publicScores(orderScores(rows), uid);
+    if (!this.boardTop) {
+      const rows = orderScores(
+        [...this.all().values()]
+          .filter((s) => !s.user.hidden && s.file.eligible !== false)
+          .map((s) => ({
+            user_id: s.user.id,
+            handle: s.user.handle,
+            founder: !!s.user.founder,
+            points: s.file.points,
+            dibs: s.file.dibs,
+            golden: s.file.golden,
+            reachedAt: s.file.reachedAt,
+            events: s.file.events.length,
+          })),
+      );
+      this.boardTotal = rows.length;
+      this.boardTop = publicScores(rows).rows;
+      this.boardOwn = new Map(
+        rows.map((r, i) => [
+          r.user_id,
+          {
+            rank: i + 1,
+            handle: r.handle,
+            founder: r.founder,
+            points: r.points,
+            claims: r.dibs,
+            golden: r.golden,
+            own: true,
+          },
+        ]),
+      );
+    }
+    const own = this.boardOwn.get(uid || '') || null;
+    return {
+      rows: this.boardTop.map((r) => ({ ...r, own: r.rank === own?.rank })),
+      own,
+      total: this.boardTotal,
+    };
   }
   private state(uid: string): JournalFile | undefined {
     return this.journal?.files.get(uid) || this.legacy.get(uid);
@@ -227,7 +279,7 @@ export class DayRegistry extends DurableObject<Env> {
       open: g ? g.total_registrable - this.claims - this.specials.houseCount : 0,
       voided: this.claims - rows.length,
       lastClaimAt: rows.at(-1)?.created_at || null,
-      nextDrop: g ? nextDrop() : dropAt(LAUNCH_DATE),
+      nextDrop: g ? nextDrop() : this.nextOpening,
       board: [],
       turnstileSiteKey: this.env.TURNSTILE_SITE_KEY,
     };
@@ -395,6 +447,21 @@ export class DayRegistry extends DurableObject<Env> {
         return json({ message: 'Not found.' }, 404);
       const b = await body(req, 3000);
       await this.removeUser(String(b.uid), env);
+      return json({ ok: true });
+    }
+    if (path === '/admin/r17-refresh' && req.method === 'POST') {
+      if (
+        env.STAGING !== 'true' ||
+        !(await constantEqual(req.headers.get('authorization') || '', 'Bearer ' + env.ADMIN_TOKEN))
+      )
+        return json({ message: 'Not found.' }, 404);
+      this.ready = undefined;
+      this.category = undefined;
+      this.journal = undefined;
+      this.legacy.clear();
+      this.users.clear();
+      this.owners.clear();
+      for (const ws of this.ctx.getWebSockets()) ws.close(1012, 'Practice schedule changed');
       return json({ ok: true });
     }
     if (path === '/admin/r17-reset' && req.method === 'POST') {
@@ -939,7 +1006,12 @@ export class DayRegistry extends DurableObject<Env> {
     file.summaryId ||= g.date + '-' + crypto.randomUUID();
     state.requests[requestId] = { answer, status, body: result };
     this.journal.append(state);
-    this.rebuild();
+    this.boardTop = undefined;
+    this.users.set(user.id, { ...state.user, streakDates: state.streakDates });
+    if (status === 201) {
+      this.owners.set(aid, { ...result.claim, user_id: user.id });
+      this.claims = result.claim.claim_no;
+    }
     await this.journal.durable();
     const saved = this.state(user.id)!;
     const response = {
@@ -955,12 +1027,22 @@ export class DayRegistry extends DurableObject<Env> {
     return json(response, status);
   }
   private push() {
+    if (this.pushTimer || !this.ctx.getWebSockets().length) return;
+    // Coalesce fanout, not persistence or acknowledgements. One sorted board and
+    // one day snapshot serve all connected viewers, at most once per second.
+    this.pushTimer = setTimeout(() => {
+      this.pushTimer = undefined;
+      this.broadcast();
+    }, 1000);
+  }
+  private broadcast() {
+    const today = this.today();
     for (const ws of this.ctx.getWebSockets()) {
       const a = ws.deserializeAttachment() as any;
       try {
         ws.send(
           JSON.stringify({
-            today: this.today(),
+            today,
             leaderboard: this.board(a?.uid),
             rows: [],
             version: 17,
@@ -1032,6 +1114,10 @@ export class DayRegistry extends DurableObject<Env> {
   }
   private async flush(env = this.env) {
     await this.journal?.mirror(env);
+    if (dayClosed(this.category) && this.flushTimer) {
+      clearInterval(this.flushTimer);
+      this.flushTimer = undefined;
+    }
     if (dayClosed(this.category) && this.category)
       await env.DB.prepare(
         'INSERT INTO r17_boards(category_id,data) VALUES(?,?) ON CONFLICT(category_id) DO UPDATE SET data=excluded.data WHERE r17_boards.data!=excluded.data',

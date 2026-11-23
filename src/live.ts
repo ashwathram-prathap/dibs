@@ -72,6 +72,7 @@ export function publishClaim(claim: Claim, me?: Me, leaderboard?: import('./type
 // Hibernating sockets receive server pushes. No application heartbeats.
 export function watchRegistry(onError: (message: string) => void) {
   let socket: WebSocket | undefined, timer: ReturnType<typeof setTimeout> | undefined;
+  let socketIdentity: string | undefined;
   let stopped = false,
     failed = false;
   const pending = new Map<
@@ -83,6 +84,14 @@ export function watchRegistry(onError: (message: string) => void) {
     }
   >();
   setLiveTransport((path, body) => {
+    // Bootstrap may issue the first cookie at opening, or recovery can change it.
+    // An existing socket keeps its old identity; this request must use fresh HTTP.
+    if (socketIdentity !== latest?.me?.user?.id) {
+      socket?.close(1000, 'Identity changed');
+      socket = undefined;
+      connect();
+      return;
+    }
     if (
       socket?.readyState !== WebSocket.OPEN ||
       !['/claim', '/verify-session', '/events/share'].includes(path)
@@ -129,12 +138,16 @@ export function watchRegistry(onError: (message: string) => void) {
     if (isDemo || stopped || (socket && socket.readyState < 2)) return;
     const url = new URL('/api/live', location.href);
     url.protocol = location.protocol === 'https:' ? 'wss:' : 'ws:';
+    socketIdentity = latest?.me?.user?.id;
     socket = new WebSocket(url);
+    const connection = socket;
     socket.onopen = () => {
+      if (socket !== connection) return;
       failed = false;
       clearTimeout(timer);
     };
     socket.onmessage = (e) => {
+      if (socket !== connection) return;
       try {
         const data = JSON.parse(e.data);
         if (data.rpc) {
@@ -154,6 +167,7 @@ export function watchRegistry(onError: (message: string) => void) {
       } catch {}
     };
     socket.onclose = () => {
+      if (socket !== connection) return;
       failed = true;
       for (const request of pending.values()) {
         clearTimeout(request.timer);
@@ -163,6 +177,7 @@ export function watchRegistry(onError: (message: string) => void) {
       schedule();
     };
     socket.onerror = () => {
+      if (socket !== connection) return;
       failed = true;
       socket?.close();
       schedule();

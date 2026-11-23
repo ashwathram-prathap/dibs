@@ -27,6 +27,8 @@ export const concealClaim = (c: any) => ({
   display: concealed,
   obscurity: null,
   percentile: null,
+  points: null,
+  bonus: 0,
   golden: false,
   concealed: true,
 });

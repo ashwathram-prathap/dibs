@@ -1,42 +1,59 @@
-# R17 baseline (R16 code)
+# R17 baseline: exact R16 tag
 
-Measured locally with D1 result metadata and SQLite-backed DO KV/alarm operations. Daily setup is reported separately. These are observed storage operations, not a claim of deployed billing/duration.
+Same scenario on `r16-done`: load, verify, typo, six accepted guesses (three claims, one taken strike and two reserved strikes), leaderboard, share and return. A separate control player establishes the taken answer before counters reset. D1 values come from result `meta`; DO SQL uses cursor rowsRead/rowsWritten and SQLite-backed KV/alarm operations are counted. Instrumentation adds IO, so its duration is not a billing measurement.
 
-| Action | D1 read | D1 written | DO read | DO written |
-|---|---:|---:|---:|---:|
-| /bootstrap (200) | 0 | 0 | 3 | 4 |
-| /verify-session (200) | 0 | 0 | 5 | 4 |
-| /claim (201) | 96 | 22 | 7 | 8 |
-| /claim (409) | 82 | 3 | 8 | 7 |
-| /claim (409) | 86 | 2 | 8 | 7 |
-| /claim (409) | 90 | 2 | 8 | 7 |
-| /claim (201) | 141 | 13 | 8 | 8 |
-| /claim (201) | 170 | 13 | 8 | 9 |
-| /claim (403) | 46 | 0 | 5 | 4 |
-| /leaderboard (200) | 0 | 0 | 2 | 3 |
-| /events/share (200) | 0 | 0 | 4 | 5 |
-| /bootstrap (200) | 44 | 0 | 5 | 3 |
+| Action / status | D1 read | D1 written | DO read | DO written | Transport |
+|---|---:|---:|---:|---:|---|
+| /bootstrap / 200 | 55 | 0 | 3 | 5 | http |
+| /verify-session / 200 | 0 | 0 | 5 | 4 | socket |
+| typo / 422 | 3 | 0 | 5 | 4 | socket |
+| claim / 201 | 98 | 22 | 7 | 8 | socket |
+| strike / 409 | 95 | 2 | 8 | 7 | socket |
+| reserved / 409 | 90 | 3 | 8 | 7 | socket |
+| reserved / 409 | 94 | 2 | 8 | 7 | socket |
+| claim / 201 | 145 | 13 | 8 | 8 | socket |
+| claim / 201 | 174 | 13 | 8 | 9 | socket |
+| /leaderboard / 200 | 0 | 0 | 2 | 3 | http |
+| /events/share / 200 | 0 | 0 | 4 | 5 | socket |
+| /bootstrap / 200 | 46 | 0 | 5 | 3 | http |
 
-Total: **55 D1 writes, 69 DO writes; 755 D1 reads**. 4 Worker HTTP requests; 9 incoming socket messages; 4.45 billed-equivalent DO requests.
+Total: **55 D1 + 70 DO = 125 durable writes**, 800 D1 reads, 71 DO reads. Four HTTP/API Worker requests (including socket upgrade), nine incoming socket messages, 4.45 billed-equivalent DO requests. Each proxied HTTP request also invokes Pages Functions; conservatively eight account Worker invocations per game.
 
-| DO cause | Writes |
+| DO write cause | Rows |
 |---|---:|
 | KV | 0 |
 | KV put snapshot | 7 |
-| KV put handle | 2 |
-| KV put session | 15 |
-| alarm | 1 |
-| KV put scores | 7 |
-| KV put metric | 13 |
-| KV put usage | 13 |
+| KV put handle | 1 |
+| KV put session | 14 |
+| KV put metric | 12 |
+| KV put usage | 12 |
 | KV put security | 2 |
 | KV put active | 11 |
 | KV put cache | 3 |
+| KV put scores | 6 |
 | KV put summary | 1 |
 | KV put platforms | 1 |
 
-D1 causes: materializing static answers (table + ID and category indexes); claim insertion (table + unique answer, claim ID, ordinal, request, privacy, user and network indexes); count_success trigger (network rate row); strike insertion (table + composite/request indexes); first user (table + ID, handle, provider indexes); first recovery key (table + primary index); reserved reveal update. Catalog/special seeding is daily overhead, not charged per player. Attempts are already skipped on the DO path but session attempts, score shards, snapshot, certificate cache, summary ref and metric/usage/active updates still write to DO on each event.
+The initial daily special/catalog setup costs 74 D1 writes and 38 reads in this run. The DO setup counter (14 writes) also includes the control player's first claim and must not be described as pure daily overhead. Prior rough runs used a different action order; the final matched comparison above supersedes them.
 
-All legacy indexes remain required until the new path passes compatibility checks. R17's proposed additive tables have only clustered primary keys: player ID for identity lookup; (category ID, user ID) for batched snapshots. No secondary indexes or triggers. The SQLite event log uses an INTEGER PRIMARY KEY, with ownership and idempotency maps reconstructed from durable events.
+## Every durable write path
 
-The baseline includes one post-completion invalid-guess request; it is rejected as a closed file. A pre-completion typo and taken-answer case will be measured separately in the final harness.
+| Cause | R16 | R17 normal game |
+|---|---|---|
+| Identity | users table plus identity/handle/provider uniqueness; recovery_keys plus uniqueness | identity is included in first durable event and its file mirror; signed cookie needs no row |
+| Claim | claims row; claim ID/answer/ordinal/request/privacy/user/network indexes; sparse answer row and indexes | one DO events INSERT; eventual latest-file mirror |
+| Taken / reserved strike | strikes row and composite/request uniqueness; house_words reveal | one DO events INSERT; eventual latest-file mirror |
+| Streak / points | scans and cached score/session rewrites | event payload contains exact points and once-per-day streak date; mirrored together |
+| Triggers / network counters | count_success updates rate_limits | in-memory rate checks; no new claims/strikes/attempts rows in legacy tables |
+| Sessions / request replay | repeated DO session KV snapshots | signed cookie; request replay stored in the accepted event |
+| Attempts / verification | DO security/session KV updates | memory plus signed session token |
+| Public snapshot / score cache / active users | DO snapshot, scores, active KV writes | memory, one final D1 board snapshot at close |
+| Share / arrival / metrics | DO metric, usage, platform counters | unused per-player share/arrival writes dropped |
+| Alarms | DO alarm setup | no new DO alarms; minute cron plus production in-memory timer |
+| Administrative / privacy operations | deletion, hiding, voiding, recovery and audit tables | explicit administrative rewrites; excluded from the normal six-guess workload, never silently free |
+
+## Index decisions
+
+New path: `events.seq INTEGER PRIMARY KEY` orders replay without a secondary index; `r17_files PRIMARY KEY(user_id,day) WITHOUT ROWID` supports the latest identity/streak lookup and replaces separate user/day indexes; `r17_players.id WITHOUT ROWID` is retained for explicit rerolls/administrative identity overrides; `r17_boards.category_id WITHOUT ROWID` stores final boards. No new secondary indexes or triggers.
+
+Legacy indexes are retained for rollback and old records; normal R17 game traffic does not write to them. Identity/handle/provider and recovery uniqueness preserve existing accounts; answer ID/category/key indexes preserve legacy lookup and golden proof; claims ID/answer/ordinal uniqueness, user/date, request replay, privacy cleanup and IP window indexes preserve old API/admin behavior; strike/request uniqueness preserves old replay; attempt and share-day indexes preserve the legacy fallback; schedule status/date, slug/date, schedule log and feedback-created indexes support unchanged administration. Removing these would compromise the retained R16 fallback without reducing R17 per-game writes. Legacy triggers remain installed but are never fired by new journal claims.

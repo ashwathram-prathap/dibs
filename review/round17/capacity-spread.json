@@ -12,7 +12,7 @@
     "writes": 6
   },
   "mode": "after-local",
-  "at": "2026-11-23T08:09:54.909Z",
+  "at": "2026-11-23T08:15:31.627Z",
   "scenario": "load, verification, typo, 6 guesses (3 claims, 1 taken strike, 2 reserved strikes), leaderboard, share, return visit; separate control player establishes the taken answer",
   "httpRequests": 4,
   "pagesFunctionRequests": 0,
@@ -219,17 +219,9 @@
     }
   ],
   "storageCauses": {
-    "CREATE TABLE IF NOT EXISTS events(seq INTEGER PRIMARY KEY, payload TEXT NOT NULL)": {
-      "reads": 1,
-      "writes": 2
-    },
-    "SELECT seq,payload FROM events ORDER BY seq": {
-      "reads": 1,
-      "writes": 0
-    },
     "INSERT INTO events(seq,payload) VALUES(?,?)": {
-      "reads": 7,
-      "writes": 7
+      "reads": 6,
+      "writes": 6
     }
   }
 }

@@ -1116,6 +1116,18 @@ const handler = {
         .toISOString()
         .slice(0, 10);
       for (const date of env.STAGING === 'true' ? [today] : [yesterday, today]) {
+        // Once the previous board is final, never wake its full durable journal
+        // merely to rewrite identical mirror rows every minute.
+        if (
+          env.STAGING !== 'true' &&
+          date !== today &&
+          (await env.DB.prepare(
+            'SELECT 1 FROM r17_boards b JOIN categories g ON g.id=b.category_id WHERE g.date=?',
+          )
+            .bind(date)
+            .first())
+        )
+          continue;
         const r = await env.DAY_REGISTRY.get(
           env.DAY_REGISTRY.idFromName(env.STAGING === 'true' ? 'practice' : date),
         ).fetch(
