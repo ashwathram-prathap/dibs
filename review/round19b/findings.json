@@ -64,5 +64,17 @@
     "classification": "confirmed defect",
     "before": "Practice Lighthouse 83/89; no-transform HTML transferred 111 KB uncompressed",
     "after": "Explicit gzip while retaining no-transform: about 22 KB; final mobile Lighthouse 91 performance / 100 accessibility."
+  },
+  {
+    "item": "Initial pageshow cancels an in-progress WebSocket handshake",
+    "classification": "confirmed defect",
+    "before": "First production smoke: WebKit closed-before-established console error; both deployments rolled back in four seconds. Real local WebSockets reproduced two initial connections and the same WebKit error.",
+    "after": "Native Chromium/WebKit: one initial connection and successful restored bootstrap, zero errors; all 223 unit/API, 400 Chromium/WebKit, 60 Firefox, six practice users and 20 local opening cases pass."
+  },
+  {
+    "item": "One practice opening reached the reload fallback",
+    "classification": "source-level concern",
+    "before": "One of six browsers reached the safe reload screen before filing; first harness did not retain caught console details.",
+    "after": "Not reproduced with console diagnostics: all six fresh browsers passed. All 11 deployed JS chunks match the build and 20 local timing variants pass. Exact cause remains unconfirmed; retain asset-reliability follow-up in R20."
   }
 ]

@@ -1,5 +1,5 @@
 {
-  "sourceCommit": "eacebcdf8138f5c9bc70ea9b0735c0ba0d0e12e3",
+  "sourceCommit": "72926bfed181e30e600d3f5cd1d0de6815b46e86",
   "unit": {
     "files": 49,
     "tests": 223,
@@ -11,8 +11,8 @@
     ]
   },
   "fullMatrix": {
-    "startTime": "2026-11-23T13:35:27.901Z",
-    "duration": 329497.44399999996,
+    "startTime": "2026-11-23T13:52:49.598Z",
+    "duration": 333072.10799999995,
     "expected": 400,
     "skipped": 0,
     "unexpected": 0,
@@ -45,14 +45,14 @@
     "bestPractices": 1,
     "practiceSeo": 0.66,
     "consoleErrors": [],
-    "lcp": "2.1\u00a0s",
+    "lcp": "2.0\u00a0s",
     "cls": "0.173"
   },
   "productionBuild": {
     "passed": true,
     "inertConfiguration": true,
     "conditionalLoader": true,
-    "sha256": "f52f628d279f8f04010ba60d4af1d6dc8d250019c6db9ef756970e48d806d6f2"
+    "sha256": "8d0d63d0c94c820a134ba9d9765b41e25de8f700194a95e47bb0af92500e11e2"
   },
   "firefoxPriorRun": {
     "id": 45183450344,
@@ -60,14 +60,29 @@
     "failed": 6,
     "cause": "Stale expected generic certificate caption after the deliberate answer-free caption change; updated both intent and clipboard expectations."
   },
-  "fullMatrixCommit": "fee40e211be8d712aa9faf1ff94e8a4d8ca363e3",
+  "fullMatrixCommit": "72926bfed181e30e600d3f5cd1d0de6815b46e86",
   "firefox": {
     "conclusion": "success",
-    "headSha": "fee40e211be8d712aa9faf1ff94e8a4d8ca363e3",
+    "headSha": "72926bfed181e30e600d3f5cd1d0de6815b46e86",
     "status": "completed",
-    "url": "https://github.com/ashwathram-prathap/dibs/actions/runs/45185430336",
+    "url": "https://github.com/ashwathram-prathap/dibs/actions/runs/45188126964",
     "tests": 60,
     "passed": true
   },
-  "verificationCommit": "fee40e211be8d712aa9faf1ff94e8a4d8ca363e3"
+  "verificationCommit": "72926bfed181e30e600d3f5cd1d0de6815b46e86",
+  "nativeSocketProof": {
+    "browsers": 2,
+    "initialConnections": 1,
+    "restoreBootstraps": 2,
+    "consoleErrors": 0
+  },
+  "openingRaces": {
+    "cases": 20,
+    "passed": true,
+    "consoleErrors": 0
+  },
+  "practiceOpeningFallback": {
+    "observedOnce": true,
+    "cause": "Unconfirmed; diagnostic repeat passed all six without reload; all deployed JS chunks matched the build; 20 local timing variants passed."
+  }
 }

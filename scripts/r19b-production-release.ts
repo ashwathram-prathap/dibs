@@ -86,6 +86,7 @@ try {
     'main',
     '--commit-dirty=true',
   ]);
+  ts('Verify deployed script artifacts', 'scripts/r19b-assets.ts', ['https://dibs.here']);
   ts('Read-only production smoke', 'scripts/r19b-smoke.ts');
   ts('Record released deployment IDs', 'scripts/r19b-deployment-state.ts', ['released']);
   console.log('R19B released; all read-only production checks passed.');

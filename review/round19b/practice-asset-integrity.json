@@ -1,0 +1,84 @@
+{
+  "at": "2026-11-23T13:59:12.101Z",
+  "passed": true,
+  "entry": "/assets/index-BrnOZlNS.js",
+  "rows": [
+    {
+      "path": "Archive-O7i7xzNa.js",
+      "status": 200,
+      "type": "application/javascript",
+      "bytes": 4623,
+      "matches": true
+    },
+    {
+      "path": "Calendar-DSCOdZmY.js",
+      "status": 200,
+      "type": "application/javascript",
+      "bytes": 9590,
+      "matches": true
+    },
+    {
+      "path": "Certificate-DJaiBYHt.js",
+      "status": 200,
+      "type": "application/javascript",
+      "bytes": 96447,
+      "matches": true
+    },
+    {
+      "path": "Content-dbCDCr0F.js",
+      "status": 200,
+      "type": "application/javascript",
+      "bytes": 10752,
+      "matches": true
+    },
+    {
+      "path": "Leaderboard-5ZfraFSI.js",
+      "status": 200,
+      "type": "application/javascript",
+      "bytes": 2335,
+      "matches": true
+    },
+    {
+      "path": "Ledger-BO7ccUu6.js",
+      "status": 200,
+      "type": "application/javascript",
+      "bytes": 5967,
+      "matches": true
+    },
+    {
+      "path": "Settings-D2PNf1la.js",
+      "status": 200,
+      "type": "application/javascript",
+      "bytes": 7617,
+      "matches": true
+    },
+    {
+      "path": "index-BrnOZlNS.js",
+      "status": 200,
+      "type": "application/javascript",
+      "bytes": 274173,
+      "matches": true
+    },
+    {
+      "path": "jsx-runtime-B4UN2VIk.js",
+      "status": 200,
+      "type": "application/javascript",
+      "bytes": 9096,
+      "matches": true
+    },
+    {
+      "path": "spelling.worker-D4UD658e.js",
+      "status": 200,
+      "type": "application/javascript",
+      "bytes": 1976,
+      "matches": true
+    },
+    {
+      "path": "time-B2kEtE2D.js",
+      "status": 200,
+      "type": "application/javascript",
+      "bytes": 1755,
+      "matches": true
+    }
+  ]
+}

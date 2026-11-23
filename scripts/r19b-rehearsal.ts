@@ -52,7 +52,14 @@ try {
     p.on('requestfailed', (r) =>
       failures.push(r.url().split('?')[0] + ': ' + r.failure()?.errorText),
     );
-    p.on('pageerror', (e) => failures.push(e.message));
+    p.on('pageerror', (e) => failures.push(e.stack || e.message));
+    p.on('console', (m) => {
+      if (m.type() === 'error') failures.push(m.text());
+    });
+    p.on('response', (r) => {
+      if (r.url().includes('/assets/') && !r.ok())
+        failures.push('Asset ' + r.status() + ' ' + r.url());
+    });
     p.on('request', (r) => {
       if (r.url().includes('challenges.cloudflare.com')) challenge = true;
     });

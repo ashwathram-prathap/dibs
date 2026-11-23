@@ -7,7 +7,7 @@
     "offlineOnline": true,
     "backgroundWake": true,
     "multipleTabs": true,
-    "verificationTimeoutMs": 9967
+    "verificationTimeoutMs": 10037
   },
   {
     "browser": "webkit",
@@ -17,6 +17,6 @@
     "offlineOnline": true,
     "backgroundWake": true,
     "multipleTabs": true,
-    "verificationTimeoutMs": 10385
+    "verificationTimeoutMs": 10411
   }
 ]

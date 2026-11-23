@@ -1,8 +1,8 @@
 {
-  "passed": false,
-  "at": "2026-11-23T13:47:05.813125+00:00",
+  "passed": true,
+  "at": "2026-11-23T14:03:12.372444+00:00",
   "deadline": "2026-11-23T20:00:00Z",
-  "verificationCommit": "fee40e211be8d712aa9faf1ff94e8a4d8ca363e3",
+  "verificationCommit": "72926bfed181e30e600d3f5cd1d0de6815b46e86",
   "gates": {
     "unit": true,
     "typecheck": true,
@@ -10,14 +10,14 @@
     "firefox": true,
     "sharing": true,
     "connections": true,
+    "initialSocketHandshake": true,
+    "openingRaces": true,
     "oldChunk": true,
     "practice": true,
     "previews": true,
     "lighthouse": true,
     "visual": true,
     "build": true,
-    "source": true,
-    "initialSocketHandshake": false
-  },
-  "note": "First release rolled back after WebKit initial-pageshow handshake cancellation; verifying the local fix before another release."
+    "source": true
+  }
 }
