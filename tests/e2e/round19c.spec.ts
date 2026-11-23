@@ -75,6 +75,20 @@ async function audit(page: Page, scope = 'main', action?: string) {
   // Certificates can extend below the viewport. Inspect their entire axes too.
   const curveErrors = await page.locator(scope).evaluate((root) => {
     const errors: string[] = [];
+    const certificates = [
+      ...(root.matches('.certificate') ? [root] : []),
+      ...root.querySelectorAll('.certificate'),
+    ];
+    for (const certificate of certificates) {
+      const bounds = certificate.getBoundingClientRect();
+      for (const text of certificate.querySelectorAll('.dibs-stamp strong, .dibs-stamp span')) {
+        const range = document.createRange();
+        range.selectNodeContents(text);
+        for (const r of range.getClientRects())
+          if (r.left < bounds.left - 1 || r.right > bounds.right + 1)
+            errors.push('Clipped certificate stamp: ' + text.textContent);
+      }
+    }
     for (const axis of root.querySelectorAll<HTMLElement>('.rarity-axis')) {
       const bounds = axis.getBoundingClientRect();
       const curve = axis.closest('.rarity-curve')!.getBoundingClientRect();

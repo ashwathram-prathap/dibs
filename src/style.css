@@ -7489,11 +7489,11 @@ html[data-theme='dark'] .feedback-dialog .feedback-error {
   }
   .certificate .dibs-stamp {
     max-width: 100%;
-    transform: none;
+    transform: none !important;
     rotate: none;
   }
   .certificate .dibs-stamp strong {
-    font-size: 2rem;
+    font-size: min(2rem, 18vw);
   }
   .certificate .cert-footer,
   .certificate .cert-footer span {
