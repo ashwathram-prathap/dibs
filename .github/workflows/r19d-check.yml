@@ -1,0 +1,31 @@
+name: R19D Firefox share and copy checks
+on:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  firefox:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    env:
+      NODE_OPTIONS: --max-old-space-size=6144
+      R19D_FIREFOX: '1'
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: npm ci
+      - run: npx playwright install --with-deps firefox
+      - run: npx vite build --mode security-test
+      - run: npx playwright test -c playwright.r19d.config.ts
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: r19d-firefox
+          path: |
+            review/round19d/firefox-browser-results.json
+            review/round19d/ui/
+            review/devices/
+            .tmp/r19d/browser-artifacts/
+          retention-days: 14

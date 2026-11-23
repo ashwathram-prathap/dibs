@@ -1,0 +1,305 @@
+{
+  "passed": true,
+  "results": [
+    {
+      "theme": "light",
+      "variant": "first",
+      "story": false,
+      "passed": true,
+      "bytes": [
+        230680,
+        218019,
+        227894
+      ],
+      "printedUrls": [
+        "practice.dibs-7hz.pages.dev/summary/2026-11-22-ad24b000-0000-4000-8000-111111111111",
+        "practice.dibs-7hz.pages.dev/c/2026-11-22-ad24b000-0000-4000-8000-000000000000"
+      ]
+    },
+    {
+      "theme": "light",
+      "variant": "first",
+      "story": true,
+      "passed": true,
+      "bytes": [
+        290490,
+        272824,
+        287406
+      ],
+      "printedUrls": [
+        "practice.dibs-7hz.pages.dev/summary/2026-11-22-ad24b000-0000-4000-8000-111111111111",
+        "practice.dibs-7hz.pages.dev/c/2026-11-22-ad24b000-0000-4000-8000-000000000000"
+      ]
+    },
+    {
+      "theme": "light",
+      "variant": "second",
+      "story": false,
+      "passed": true,
+      "bytes": [
+        230949,
+        220587,
+        228196
+      ],
+      "printedUrls": [
+        "practice.dibs-7hz.pages.dev/summary/2026-11-22-ad24b000-0000-4000-8000-111111111111",
+        "practice.dibs-7hz.pages.dev/c/2026-11-22-ad24b000-0000-4000-8000-000000000001"
+      ]
+    },
+    {
+      "theme": "light",
+      "variant": "second",
+      "story": true,
+      "passed": true,
+      "bytes": [
+        290996,
+        275766,
+        287981
+      ],
+      "printedUrls": [
+        "practice.dibs-7hz.pages.dev/summary/2026-11-22-ad24b000-0000-4000-8000-111111111111",
+        "practice.dibs-7hz.pages.dev/c/2026-11-22-ad24b000-0000-4000-8000-000000000001"
+      ]
+    },
+    {
+      "theme": "light",
+      "variant": "third",
+      "story": false,
+      "passed": true,
+      "bytes": [
+        231450,
+        231150,
+        228450
+      ],
+      "printedUrls": [
+        "practice.dibs-7hz.pages.dev/summary/2026-11-22-ad24b000-0000-4000-8000-111111111111",
+        "practice.dibs-7hz.pages.dev/c/2026-11-22-ad24b000-0000-4000-8000-000000000002"
+      ]
+    },
+    {
+      "theme": "light",
+      "variant": "third",
+      "story": true,
+      "passed": true,
+      "bytes": [
+        290726,
+        283017,
+        287650
+      ],
+      "printedUrls": [
+        "practice.dibs-7hz.pages.dev/summary/2026-11-22-ad24b000-0000-4000-8000-111111111111",
+        "practice.dibs-7hz.pages.dev/c/2026-11-22-ad24b000-0000-4000-8000-000000000002"
+      ]
+    },
+    {
+      "theme": "light",
+      "variant": "two",
+      "story": false,
+      "passed": true,
+      "bytes": [
+        237768,
+        218019,
+        234797
+      ],
+      "printedUrls": [
+        "practice.dibs-7hz.pages.dev/summary/2026-11-22-ad24b000-0000-4000-8000-111111111111",
+        "practice.dibs-7hz.pages.dev/c/2026-11-22-ad24b000-0000-4000-8000-000000000000"
+      ]
+    },
+    {
+      "theme": "light",
+      "variant": "two",
+      "story": true,
+      "passed": true,
+      "bytes": [
+        297322,
+        272824,
+        294294
+      ],
+      "printedUrls": [
+        "practice.dibs-7hz.pages.dev/summary/2026-11-22-ad24b000-0000-4000-8000-111111111111",
+        "practice.dibs-7hz.pages.dev/c/2026-11-22-ad24b000-0000-4000-8000-000000000000"
+      ]
+    },
+    {
+      "theme": "light",
+      "variant": "strikes",
+      "story": false,
+      "passed": true,
+      "bytes": [
+        246469,
+        220587,
+        243587
+      ],
+      "printedUrls": [
+        "practice.dibs-7hz.pages.dev/summary/2026-11-22-ad24b000-0000-4000-8000-111111111111",
+        "practice.dibs-7hz.pages.dev/c/2026-11-22-ad24b000-0000-4000-8000-000000000001"
+      ]
+    },
+    {
+      "theme": "light",
+      "variant": "strikes",
+      "story": true,
+      "passed": true,
+      "bytes": [
+        300513,
+        275766,
+        297650
+      ],
+      "printedUrls": [
+        "practice.dibs-7hz.pages.dev/summary/2026-11-22-ad24b000-0000-4000-8000-111111111111",
+        "practice.dibs-7hz.pages.dev/c/2026-11-22-ad24b000-0000-4000-8000-000000000001"
+      ]
+    },
+    {
+      "theme": "dark",
+      "variant": "first",
+      "story": false,
+      "passed": true,
+      "bytes": [
+        234494,
+        220494,
+        231713
+      ],
+      "printedUrls": [
+        "practice.dibs-7hz.pages.dev/summary/2026-11-22-ad24b000-0000-4000-8000-111111111111",
+        "practice.dibs-7hz.pages.dev/c/2026-11-22-ad24b000-0000-4000-8000-000000000000"
+      ]
+    },
+    {
+      "theme": "dark",
+      "variant": "first",
+      "story": true,
+      "passed": true,
+      "bytes": [
+        294534,
+        275380,
+        291321
+      ],
+      "printedUrls": [
+        "practice.dibs-7hz.pages.dev/summary/2026-11-22-ad24b000-0000-4000-8000-111111111111",
+        "practice.dibs-7hz.pages.dev/c/2026-11-22-ad24b000-0000-4000-8000-000000000000"
+      ]
+    },
+    {
+      "theme": "dark",
+      "variant": "second",
+      "story": false,
+      "passed": true,
+      "bytes": [
+        234901,
+        223045,
+        232105
+      ],
+      "printedUrls": [
+        "practice.dibs-7hz.pages.dev/summary/2026-11-22-ad24b000-0000-4000-8000-111111111111",
+        "practice.dibs-7hz.pages.dev/c/2026-11-22-ad24b000-0000-4000-8000-000000000001"
+      ]
+    },
+    {
+      "theme": "dark",
+      "variant": "second",
+      "story": true,
+      "passed": true,
+      "bytes": [
+        295291,
+        278173,
+        292154
+      ],
+      "printedUrls": [
+        "practice.dibs-7hz.pages.dev/summary/2026-11-22-ad24b000-0000-4000-8000-111111111111",
+        "practice.dibs-7hz.pages.dev/c/2026-11-22-ad24b000-0000-4000-8000-000000000001"
+      ]
+    },
+    {
+      "theme": "dark",
+      "variant": "third",
+      "story": false,
+      "passed": true,
+      "bytes": [
+        235449,
+        233099,
+        232403
+      ],
+      "printedUrls": [
+        "practice.dibs-7hz.pages.dev/summary/2026-11-22-ad24b000-0000-4000-8000-111111111111",
+        "practice.dibs-7hz.pages.dev/c/2026-11-22-ad24b000-0000-4000-8000-000000000002"
+      ]
+    },
+    {
+      "theme": "dark",
+      "variant": "third",
+      "story": true,
+      "passed": true,
+      "bytes": [
+        294993,
+        285284,
+        291817
+      ],
+      "printedUrls": [
+        "practice.dibs-7hz.pages.dev/summary/2026-11-22-ad24b000-0000-4000-8000-111111111111",
+        "practice.dibs-7hz.pages.dev/c/2026-11-22-ad24b000-0000-4000-8000-000000000002"
+      ]
+    },
+    {
+      "theme": "dark",
+      "variant": "two",
+      "story": false,
+      "passed": true,
+      "bytes": [
+        243000,
+        220494,
+        239793
+      ],
+      "printedUrls": [
+        "practice.dibs-7hz.pages.dev/summary/2026-11-22-ad24b000-0000-4000-8000-111111111111",
+        "practice.dibs-7hz.pages.dev/c/2026-11-22-ad24b000-0000-4000-8000-000000000000"
+      ]
+    },
+    {
+      "theme": "dark",
+      "variant": "two",
+      "story": true,
+      "passed": true,
+      "bytes": [
+        302799,
+        275380,
+        299615
+      ],
+      "printedUrls": [
+        "practice.dibs-7hz.pages.dev/summary/2026-11-22-ad24b000-0000-4000-8000-111111111111",
+        "practice.dibs-7hz.pages.dev/c/2026-11-22-ad24b000-0000-4000-8000-000000000000"
+      ]
+    },
+    {
+      "theme": "dark",
+      "variant": "strikes",
+      "story": false,
+      "passed": true,
+      "bytes": [
+        250698,
+        223045,
+        247801
+      ],
+      "printedUrls": [
+        "practice.dibs-7hz.pages.dev/summary/2026-11-22-ad24b000-0000-4000-8000-111111111111",
+        "practice.dibs-7hz.pages.dev/c/2026-11-22-ad24b000-0000-4000-8000-000000000001"
+      ]
+    },
+    {
+      "theme": "dark",
+      "variant": "strikes",
+      "story": true,
+      "passed": true,
+      "bytes": [
+        304449,
+        278173,
+        301193
+      ],
+      "printedUrls": [
+        "practice.dibs-7hz.pages.dev/summary/2026-11-22-ad24b000-0000-4000-8000-111111111111",
+        "practice.dibs-7hz.pages.dev/c/2026-11-22-ad24b000-0000-4000-8000-000000000001"
+      ]
+    }
+  ]
+}

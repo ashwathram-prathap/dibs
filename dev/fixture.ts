@@ -389,7 +389,11 @@ export async function request(path: string, body?: any): Promise<any> {
       created_at: new Date().toISOString(),
       obscurity: 4,
       golden: r19
-        ? r7.has('gold') || (r7.has('gold-third') && myClaims.length === 2)
+        ? r7.has('gold') ||
+          (r7.has('gold-first') && myClaims.length === 0) ||
+          (r7.has('gold-second') && myClaims.length === 1) ||
+          (r7.has('gold-third') && myClaims.length === 2) ||
+          (r7.has('gold-two') && myClaims.length !== 1)
         : r6 && entry === 'Axolotl',
     };
     if (r19) {

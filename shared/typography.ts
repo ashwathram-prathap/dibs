@@ -48,3 +48,25 @@ export function fitText(
   }
   throw new Error('This entry does not fit the certificate.');
 }
+
+// Preserve both ends of long identifiers after reaching a readable minimum size.
+export function fitLine(
+  value: string,
+  measure: (value: string, size: number) => number,
+  width: number,
+  startSize: number,
+  minSize = 14,
+) {
+  const minimum = Math.min(startSize, minSize);
+  let size = startSize;
+  while (size > minimum && measure(value, size) > width) size = Math.max(minimum, size - 0.5);
+  if (measure(value, size) <= width) return { text: value, size };
+  const chars = [...value];
+  for (let keep = chars.length - 1; keep >= 0; keep--) {
+    const left = Math.ceil(keep / 2),
+      right = Math.floor(keep / 2);
+    const text = chars.slice(0, left).join('') + '…' + (right ? chars.slice(-right).join('') : '');
+    if (measure(text, size) <= width) return { text, size };
+  }
+  return { text: '', size };
+}

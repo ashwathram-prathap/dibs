@@ -18,7 +18,7 @@ import {
   WORDMARK_OFFSET_X,
   WORDMARK_OFFSET_Y,
 } from '../shared/brand';
-import { fitText } from '../shared/typography';
+import { fitText, fitLine } from '../shared/typography';
 // Canvas avoids Safari's SVG foreignObject restrictions. Font faces are self-hosted.
 export async function exportCertificate(claim: Claim, story: boolean, hideAnswers = false) {
   claim = cleanStoredHandles(claim);
@@ -342,7 +342,7 @@ export async function exportSummary(
       c,
       event.kind === 'strike'
         ? 'Strike · −10'
-        : `${answer}${claim ? ` · ${claim.points ?? 0} pts` : ''}${isGold ? ' · Golden ticket · +100' : ''}`,
+        : `${answer}${claim ? ` · ${claim.points ?? 0} points` : ''}${isGold ? ' · Golden ticket · +100' : ''}`,
       175,
       y + 31,
       825,
@@ -353,9 +353,12 @@ export async function exportSummary(
     if (claim && !claim.concealed)
       fitCanvasLine(
         c,
-        claim.percentile == null
-          ? 'Standard score (no readership data for this answer)'
-          : rarityLabel(claim.percentile, claim.category_slug || claim.category_name),
+        (claim.bonus
+          ? `${(claim.points ?? 0) - claim.bonus} + ${claim.bonus} golden bonus · `
+          : '') +
+          (claim.percentile == null
+            ? 'Standard score (no readership data for this answer)'
+            : rarityLabel(claim.percentile, claim.category_slug || claim.category_name)),
         175,
         y + 60,
         825,
@@ -389,7 +392,7 @@ export async function exportSummary(
   return canvasFile(canvas, `dibs-day-${category.date}-${story ? 'story' : 'feed'}.jpg`);
 }
 
-// Fit one line to its actual measured width; long printed URLs remain complete.
+// Measure the rendered glyph bounds, shrink to a readable minimum, then elide the middle.
 function fitCanvasLine(
   c: CanvasRenderingContext2D,
   value: string,
@@ -400,13 +403,18 @@ function fitCanvasLine(
   face: ExportFont = '"Instrument Sans"',
   weight = 400,
 ) {
-  let size = start;
-  do {
-    c.font = `${weight} ${size}px ${face}`;
-    if (c.measureText(value).width <= width) break;
-    size -= 0.5;
-  } while (size > 8);
-  c.fillText(value, x, y);
+  const fitted = fitLine(
+    value,
+    (text, size) => {
+      c.font = `${weight} ${size}px ${face}`;
+      const m = c.measureText(text);
+      return Math.max(m.width, m.actualBoundingBoxLeft + m.actualBoundingBoxRight);
+    },
+    width,
+    start,
+  );
+  c.font = `${weight} ${fitted.size}px ${face}`;
+  c.fillText(fitted.text, x + Math.max(0, c.measureText(fitted.text).actualBoundingBoxLeft), y);
 }
 
 function formText(

@@ -97,7 +97,7 @@ export async function og(claim: any, summary?: any) {
     if (shown && claim.percentile != null) {
       const x = bellX(claim.percentile),
         y = bellY(bellSigma(claim.percentile));
-      content += `<g transform="translate(60 345)"><path fill="#1A1A17" opacity=".08" d="${bellArea()}"/><path fill="none" stroke="#1A1A17" stroke-width="2" d="${bellPath()}"/><path stroke="${golden ? gold : '#E1462B'}" stroke-width="3" d="M${x} ${y}V108"/><circle fill="${golden ? gold : '#E1462B'}" cx="${x}" cy="${y}" r="4"/></g>`;
+      content += `<g transform="translate(60 345)"><path fill="#1A1A17" opacity=".08" d="${bellArea()}"/><defs><clipPath id="rarity-tail"><rect x="${x}" y="0" width="${520 - x}" height="120"/></clipPath></defs><path fill="${golden ? gold : '#E1462B'}" opacity=".25" clip-path="url(#rarity-tail)" d="${bellArea()}"/><path fill="none" stroke="#1A1A17" stroke-width="2" d="${bellPath()}"/><path stroke="${golden ? gold : '#E1462B'}" stroke-width="3" d="M${x} ${y}V108"/><circle fill="${golden ? gold : '#E1462B'}" cx="${x}" cy="${y}" r="4"/></g>`;
     }
     content +=
       text(SHARE_INVITATION, 60, 545, 26) + text(`${PUBLIC_HOST}/c/${claim.id}`, 60, 585, 20);
@@ -106,6 +106,7 @@ export async function og(claim: any, summary?: any) {
     claims.slice(0, 3).forEach((c: any, i: number) => {
       const y = 310 + i * 62,
         color = c.golden ? gold : '#1A1A17';
+      if (c.golden) content += `<path stroke="${gold}" stroke-width="1" d="M60 ${y + 32}H1140"/>`;
       content += `<rect x="60" y="${y - 18}" width="18" height="18" fill="${c.golden ? gold : '#E1462B'}"/>`;
       content += text(
         `${!c.concealed ? c.display : 'Claim'}${c.golden ? ' · Golden ticket · +100' : ''}`,
