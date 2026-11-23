@@ -12,7 +12,14 @@ async function shot(page: Page, info: TestInfo, screen: string) {
   await settle(page);
   const directory = `review/round19c/matrix/raw/${screen}`;
   mkdirSync(directory, { recursive: true });
-  await page.screenshot({ path: `${directory}/${info.project.name}.png`, animations: 'disabled' });
+  const options = {
+    path: `${directory}/${info.project.name}.png`,
+    animations: 'disabled' as const,
+  };
+  // Capture the actual certificate/controls, including content below the first viewport.
+  if (screen.startsWith('certificate-')) await page.locator('.certificate').screenshot(options);
+  else if (screen.startsWith('share-')) await page.locator('.share-main').screenshot(options);
+  else await page.screenshot(options);
 }
 async function audit(page: Page, scope = 'main', action?: string) {
   await settle(page);
