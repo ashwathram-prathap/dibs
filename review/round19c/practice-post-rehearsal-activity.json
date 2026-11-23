@@ -1,0 +1,35 @@
+{
+  "checkedAt": "2026-11-23T18:58:24.853088+00:00",
+  "cleanupVerifiedAt": "2026-11-23T17:18:33.729Z",
+  "claimed": 6,
+  "players": 2,
+  "claimTimes": [
+    {
+      "created": "2026-11-23T17:51:59.590Z",
+      "count": 1
+    },
+    {
+      "created": "2026-11-23T17:52:13.839Z",
+      "count": 1
+    },
+    {
+      "created": "2026-11-23T17:52:21.568Z",
+      "count": 1
+    },
+    {
+      "created": "2026-11-23T17:56:50.991Z",
+      "count": 1
+    },
+    {
+      "created": "2026-11-23T17:57:13.422Z",
+      "count": 1
+    },
+    {
+      "created": "2026-11-23T17:57:38.357Z",
+      "count": 1
+    }
+  ],
+  "allAfterCleanup": true,
+  "preserved": true,
+  "method": "Read-only aggregate query of the practice r17_files claim timestamps; no identifiers or note contents exported."
+}

@@ -15,7 +15,21 @@ for (let attempt = 0; attempt < 30; attempt++) {
 assert.ok(after, 'Real practice verification did not propagate');
 assert.equal(after.category.drop_at, before.category.drop_at);
 assert.equal(after.category.date, before.category.date);
-assert.equal(after.claimed, 0);
+const cleanup = JSON.parse(readFileSync('review/round19c/practice-cleanup.json', 'utf8'));
+assert.equal(cleanup.claimed, 0, 'Rehearsal claims must have been cleared');
+assert.ok(Number.isInteger(after.claimed) && after.claimed >= 0);
+if (after.claimed > 0) {
+  const activity = JSON.parse(
+    readFileSync('review/round19c/practice-post-rehearsal-activity.json', 'utf8'),
+  );
+  assert.equal(activity.claimed, after.claimed);
+  assert.equal(activity.cleanupVerifiedAt, cleanup.at);
+  assert.equal(
+    activity.claimTimes.reduce((sum: number, row: any) => sum + row.count, 0),
+    after.claimed,
+  );
+  assert.ok(activity.claimTimes.every((row: any) => row.created > cleanup.at));
+}
 const inventory = await api('/admin/registers', undefined, undefined, true);
 assert.ok(inventory.response.ok);
 for (const original of [before.category, ...conflicts]) {
@@ -30,10 +44,14 @@ writeFileSync(
       realVerification: true,
       notificationsRestored: true,
       scheduleRestored: true,
-      claimed: 0,
+      claimed: after.claimed,
+      qaCleanupVerifiedAt: cleanup.at,
+      laterPracticeActivityPreserved: after.claimed,
     },
     null,
     2,
   ),
 );
-console.log('Real practice verification and every modified schedule restored; QA claims cleared.');
+console.log(
+  'Real practice verification and every modified schedule restored; rehearsal cleanup verified and later practice play preserved.',
+);
