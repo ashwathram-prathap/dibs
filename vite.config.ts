@@ -1,6 +1,12 @@
 import { THEME_SCRIPT, CRITICAL_CSS } from './shared/critical';
 import { writeFileSync, readFileSync, readdirSync, existsSync } from 'node:fs';
-import { HOME_TITLE, HOME_DESCRIPTION, escapeHtml, rulesHtml } from './shared/seo';
+import {
+  HOME_TITLE,
+  HOME_DESCRIPTION,
+  escapeHtml,
+  rulesHtml,
+  homeStructuredData,
+} from './shared/seo';
 import { createHash } from 'node:crypto';
 import { SECURITY_HEADERS } from './shared/security';
 import { PUBLIC_ORIGIN } from './shared/config';
@@ -40,6 +46,17 @@ export default defineConfig(({ mode }) => {
               '<script>' + THEME_SCRIPT + '</script>',
             )
             .replace('__CRITICAL_HEAD__', '<style>' + CRITICAL_CSS + '</style>')
+            .replace(
+              '__STRUCTURED_DATA__',
+              publicOrigin === PUBLIC_ORIGIN
+                ? '<script type="application/ld+json">' +
+                    JSON.stringify({
+                      '@context': 'https://schema.org',
+                      '@graph': homeStructuredData(publicOrigin),
+                    }).replace(/</g, '\\u003c') +
+                    '</script>'
+                : '',
+            )
             .replace('__RULES_HTML__', rulesHtml)
             .replace(
               'name="robots" content="noindex,nofollow"',

@@ -18,3 +18,7 @@ Cloudflare accepted the zone lookup but denied all security-setting/rules reads 
 In **Cloudflare → dibs.here → Security → Settings**, filter **Bot traffic** and inspect **Bot fight mode**. If Super Bot Fight Mode is present, its **Verified bots** action should be **Allow**. Inspect **Security → Security rules** for Block/Challenge rules that could match known search crawlers; the supported exclusion is `and not cf.client.bot`. Review the corresponding Security Events before changing a rule. No specific blocking toggle was identified because its state could not be read.
 
 Official references: [Bot Fight Mode settings](https://developers.cloudflare.com/bots/get-started/bot-fight-mode/), [verified-bot custom-rule exclusions](https://developers.cloudflare.com/waf/custom-rules/use-cases/allow-traffic-from-verified-bots/), [security interoperability](https://developers.cloudflare.com/waf/feature-interoperability/).
+
+## First release attempt
+
+The first production smoke caught missing home JSON-LD: the intentionally static home route bypasses Pages middleware. The release driver immediately rolled back both deployments, and a follow-up preservation check confirmed all existing player rows and the schedule were unchanged. The fix embeds the same graph into the static production HTML, replaces it exactly once on rewritten routes, and omits it from practice/private routes. A build-transform regression and browser assertion cover this path. The original fast home routing remains unchanged. See `attempt-1/` for the failed smoke and successful rollback evidence.

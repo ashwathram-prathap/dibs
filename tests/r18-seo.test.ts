@@ -4,6 +4,7 @@ import { Miniflare, convertV4MiniflareOptions } from 'miniflare';
 import { homeStructuredData, HOME_DESCRIPTION, archiveDescription, sitemap } from '../shared/seo';
 import { pingIndexNow, INDEXNOW_KEY, INDEXNOW_ENDPOINT } from '../shared/indexnow';
 import { readFileSync } from 'node:fs';
+import viteConfig from '../vite.config';
 let mf: Miniflare;
 beforeAll(async () => {
   const compiled = await build({
@@ -15,7 +16,7 @@ beforeAll(async () => {
       if(mode==='status') return new Response('down',{status:503});
       if(mode==='json') return new Response('not json');
       return Response.json({categories:mode==='shape'?{}:[null,{date:'not-date'},{date:'2026-02-31'},{date:'2026-11-23'}]});
-    }}},next:async()=>new Response('<html><head><title></title></head><body><div id="root"></div></body></html>',{headers:{'content-type':'text/html'}})});}}`,
+    }}},next:async()=>new Response('<html><head><title></title><script type="application/ld+json">{"name":"stale static graph"}</script></head><body><div id="root"></div></body></html>',{headers:{'content-type':'text/html'}})});}}`,
       resolveDir: process.cwd(),
     },
     bundle: true,
@@ -68,6 +69,8 @@ it('uses schema.org VideoGame, CreativeWork, Offer and Person properties with th
   // Property/range contract: https://schema.org/VideoGame, /Offer, /Person, /WebSite.
   const home = await mf.dispatchFetch('https://dibs.here/');
   const html = await home.text();
+  expect(html.match(/<script type="application\/ld\+json">/g)).toHaveLength(1);
+  expect(html).not.toContain('stale static graph');
   const json = JSON.parse(html.match(/<script type="application\/ld\+json">(.*?)<\/script>/)![1]);
   expect(json['@context']).toBe('https://schema.org');
   expect(json['@graph']).toEqual(homeStructuredData('https://dibs.here'));
@@ -88,6 +91,31 @@ it('uses schema.org VideoGame, CreativeWork, Offer and Person properties with th
   for (const person of [website.author, game.author, game.publisher])
     expect(person).toEqual({ '@type': 'Person', name: 'Ashwathram Prathap' });
   expect(JSON.stringify(json)).not.toMatch(/aggregateRating|review|ratingValue/);
+});
+it('embeds home structured data in the static production build and omits it from practice', () => {
+  try {
+    for (const origin of ['https://dibs.here', 'https://practice.dibs-7hz.pages.dev']) {
+      vi.stubEnv('DIBS_PUBLIC_ORIGIN', origin);
+      const config = (viteConfig as any)({ mode: 'production', command: 'build' });
+      const transform = config.plugins.find(
+        (plugin: any) => plugin.name === 'public-origin',
+      ).transformIndexHtml;
+      const html = transform(readFileSync('index.html', 'utf8'));
+      expect(html).not.toContain('__STRUCTURED_DATA__');
+      const graphs = [...html.matchAll(/<script type="application\/ld\+json">(.*?)<\/script>/g)];
+      expect(graphs).toHaveLength(origin === 'https://dibs.here' ? 1 : 0);
+      if (graphs.length)
+        expect(JSON.parse(graphs[0][1])['@graph']).toEqual(homeStructuredData(origin));
+    }
+  } finally {
+    vi.unstubAllEnvs();
+  }
+});
+it('removes the static home graph from private routes', async () => {
+  const response = await mf.dispatchFetch('https://dibs.here/stats');
+  expect(response.status).toBe(200);
+  expect(response.headers.get('x-robots-tag')).toBe('noindex, nofollow');
+  expect(await response.text()).not.toContain('application/ld+json');
 });
 it('gives each archive date its own description and sitemap lastmod', () => {
   const a = { date: '2026-11-23', name: 'Animals' },

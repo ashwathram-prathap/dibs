@@ -127,7 +127,15 @@ export const onRequest: PagesFunction = async ({ request, next, env }) => {
           .get('Content-Security-Policy')!
           .replace('wss://dibs.here', 'wss://practice.dibs-7hz.pages.dev'),
       );
-    if (!response.headers.get('content-type')?.includes('text/html') || personal) return response;
+    if (!response.headers.get('content-type')?.includes('text/html')) return response;
+    if (personal)
+      return new HTMLRewriter()
+        .on('script[type="application/ld+json"]', {
+          element(e) {
+            e.remove();
+          },
+        })
+        .transform(response);
     let title = HOME_TITLE,
       description = HOME_DESCRIPTION,
       canonical = origin + path,
@@ -201,6 +209,13 @@ export const onRequest: PagesFunction = async ({ request, next, env }) => {
       'meta[name="robots"]': staging ? 'noindex,nofollow' : 'index,follow',
     };
     const rewrite = new HTMLRewriter()
+      // The static home contains its graph without a Function request. Replace
+      // that graph on rewritten routes so archive metadata is emitted once.
+      .on('script[type="application/ld+json"]', {
+        element(e) {
+          e.remove();
+        },
+      })
       .on('title', {
         element(e) {
           e.setInnerContent(title);

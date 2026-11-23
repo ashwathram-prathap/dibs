@@ -85,6 +85,10 @@ test('R18 footer stays grouped; reminder rows are equal, accessible and large en
 }) => {
   await page.goto('/?r7-closed');
   await page.locator('.closed-office').waitFor();
+  const structured = page.locator('script[type="application/ld+json"]');
+  await expect(structured).toHaveCount(1);
+  const graph = JSON.parse((await structured.textContent())!)['@graph'];
+  expect(graph.map((entry: any) => entry['@type'])).toEqual(['WebSite', 'VideoGame']);
   const links = page.locator('.footer-links a,.footer-links summary');
   expect(await links.count()).toBe(4);
   const rows = await links.evaluateAll((els) => els.map((el) => el.getBoundingClientRect().y));
