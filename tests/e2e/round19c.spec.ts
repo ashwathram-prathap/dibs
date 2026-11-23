@@ -361,8 +361,8 @@ test('Settings share aligned controls, sticky opaque header, labels, theme swatc
       'theme-swatch swatch-' + target,
     );
     const swatch = await page.locator('.theme-control .theme-swatch').boundingBox();
-    expect(swatch!.width).toBe(14);
-    expect(swatch!.height).toBe(10);
+    expect(swatch!.width).toBeCloseTo(14, 2);
+    expect(swatch!.height).toBeCloseTo(10, 2);
     await expect(page.locator('.theme-toggle .theme-swatch')).toHaveClass(
       'theme-swatch swatch-' + (target === 'light' ? 'dark' : 'light'),
     );
@@ -520,7 +520,7 @@ test('Certificates keep points and consistent curves; streak tally counts', asyn
       ).toBe(false);
     }
     const h = (await page.locator('.rarity-curve').boundingBox())!.height;
-    if (height !== undefined) expect(h).toBe(height);
+    if (height !== undefined) expect(h).toBeCloseTo(height, 2);
     height = h;
     await audit(page, '.certificate-page');
     await shot(page, info, 'certificate-' + name);
@@ -537,6 +537,8 @@ test('Share and visitor landing work in browser, standalone, LinkedIn and Instag
   page,
   browser,
 }, info) => {
+  // Four complete flows need more time on the two-core Firefox CI runners.
+  if (info.project.use.browserName === 'firefox') test.setTimeout(180000);
   for (const mode of ['browser', 'standalone', 'LinkedInApp', 'Instagram']) {
     const context = await browser.newContext({
       ...info.project.use,

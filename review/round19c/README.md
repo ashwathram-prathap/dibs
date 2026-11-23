@@ -34,3 +34,5 @@ The text-overlap audit normalizes a shared transform when comparing text within 
 At very narrow zoomed widths, curve axis labels wrap into separate rows in normal flow. The matrix checks every complete axis for clipping, overlap and containment even when the certificate extends below the viewport.
 
 Rapid Escape/Enter reopening is tested in every Settings configuration. A queued native close from an earlier opening must not close the newly opened dialog; `settings-reopen.json` records the reproduced race and focused repeated checks.
+
+Firefox CI runs all 720 cases in four shards and merges Playwright blob reports into one JSON report. The four-mode sharing scenario has a 180-second Firefox budget on two-core runners; every flow and assertion remains required. Geometry equality uses 0.005px tolerance for Firefox floating-point noise (observed differences of 0.000015px for swatches and 0.000122px for curves).
