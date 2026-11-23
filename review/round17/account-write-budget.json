@@ -1,17 +1,17 @@
 {
-  "checkedAt": "2026-11-23T07:41:48.415Z",
+  "checkedAt": "2026-11-23T08:39:22.771Z",
   "utcDay": "2026-11-23",
   "source": "Cloudflare account-wide daily D1 aggregate; no database filter",
-  "accountWrites": 3671,
-  "accountReads": 331518,
+  "accountWrites": 11781,
+  "accountReads": 475850,
   "durableObjectUsage": {
-    "duration": 103.00275264000001,
-    "rowsRead": 32796,
-    "rowsWritten": 16928
+    "duration": 238.20634636799997,
+    "rowsRead": 141851,
+    "rowsWritten": 28727
   },
   "writeEstimate": 15000,
   "safetyCeiling": 70000,
   "freeDailyLimit": 100000,
-  "estimatedRemainingWrites": 81329,
+  "estimatedRemainingWrites": 73219,
   "allowed": true
 }

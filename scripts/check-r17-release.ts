@@ -38,6 +38,44 @@ for (const name of [
   'exportSizes',
   'migrationPreservation',
   'practiceRestored',
+  'practiceFirstVisit',
+  'visualQA',
+  'lighthouse',
 ])
   assert.equal(gates[name], true, `R17 gate missing or failing: ${name}`);
+const read = (name: string) => JSON.parse(readFileSync('review/round17/' + name, 'utf8'));
+assert.equal(read('unit-tests.json').numFailedTests, 0);
+assert.ok(read('unit-tests.json').numPassedTests >= 179);
+for (const name of ['browser-results.json', 'regression-browser-results.json']) {
+  const result = read(name).stats;
+  assert.equal(result.unexpected, 0);
+  assert.equal(result.flaky, 0);
+  assert.equal(result.skipped, 0);
+  assert.ok(result.expected >= (name.startsWith('regression') ? 576 : 180));
+}
+assert.equal(read('firefox-final-run.json').conclusion, 'success');
+assert.equal(read('load-test.json').passed, true);
+assert.equal(read('load-test.json').players, 500);
+assert.equal(read('load-test.json').zeroLostClaims, true);
+assert.equal(read('load-test.json').zeroDoubleWinners, true);
+assert.equal(read('practice-first-visit.json').passed, true);
+for (const key of ['realVerification', 'notificationsRestored', 'scheduleRestored'])
+  assert.equal(read('practice-restored.json')[key], true);
+assert.equal(read('visual-qa.json').passed, true);
+const perf = read('lighthouse-practice/summary.json').find((r: any) => r.strategy === 'mobile');
+assert.ok(perf.scores.performance >= 90 && perf.scores.accessibility >= 95);
+for (const name of ['capacity-after.json', 'capacity-spread.json']) {
+  const data = read(name);
+  assert.ok(
+    data.d1RowsWritten <= 8 &&
+      data.doStorageLogicalRows.writes <= 6 &&
+      data.d1RowsWritten + data.doStorageLogicalRows.writes <= 12 &&
+      data.d1RowsRead < 200,
+  );
+}
+assert.ok(
+  read('export-sizes.json')
+    .filter((r: any) => r.name.startsWith('after'))
+    .every((r: any) => r.bytes < 350000),
+);
 console.log('R17 gates pass before the deadline.');

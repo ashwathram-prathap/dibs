@@ -51,6 +51,10 @@ async function rollback() {
   );
   assert.ok(r.ok && result.success && worker.status === 0, 'Rollback needs attention');
 }
+if (process.argv.includes('--rollback-now')) {
+  await rollback();
+  process.exit(0);
+}
 try {
   const today = (await (await fetch('https://dibs.here/api/today')).json()) as any;
   assert.equal(today.category, null);

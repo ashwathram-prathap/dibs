@@ -1,0 +1,33 @@
+name: R17 guarded practice load
+on: workflow_dispatch
+permissions:
+  contents: read
+jobs:
+  load:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: npm ci
+      - name: Create temporary practice-only credential
+        env:
+          PRACTICE_ADMIN: ${{ secrets.R17_PRACTICE_ADMIN_TOKEN }}
+        run: node -e "require('fs').writeFileSync('.dev.vars.staging','ADMIN_TOKEN='+process.env.PRACTICE_ADMIN+'\n',{mode:384})"
+      - name: Verify fresh headroom and run 500 live sockets
+        env:
+          R17_APPROVED_BUDGET: '1'
+        run: npx tsx scripts/r17-load.ts --sockets
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: r17-load
+          path: |
+            review/round17/load-test.json
+            review/round17/account-write-budget.json
+          retention-days: 14
+      - name: Remove temporary credential
+        if: always()
+        run: rm -f .dev.vars.staging
