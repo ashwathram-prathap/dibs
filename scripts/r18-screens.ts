@@ -34,6 +34,7 @@ try {
             if (answer !== 'Quokka')
               await page.getByRole('button', { name: /Next (dibs|claim)/ }).click();
           }
+        if (name === 'done') await page.locator('.day-certificate').waitFor();
         if (name === 'certificate') await page.locator('.certificate').waitFor();
         if (name === 'settings') {
           await page.locator('.header-settings > summary').click();
@@ -47,6 +48,12 @@ try {
           path: `${dir}/${phase}-${name}-${width}-${theme}.png`,
           ...(name === 'footer' ? {} : { fullPage: !['settings', 'feedback'].includes(name) }),
         });
+        if (name === 'settings') {
+          await page.locator('.header-controls').evaluate((el) => (el.scrollTop = el.scrollHeight));
+          await page.screenshot({
+            path: `${dir}/${phase}-settings-scrolled-${width}-${theme}.png`,
+          });
+        }
         results.push({
           phase,
           name,

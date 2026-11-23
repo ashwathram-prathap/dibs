@@ -88,7 +88,7 @@ export async function exportCertificate(claim: Claim, story: boolean) {
   }
   y += 45;
   line(y);
-  text(claim.category_name.toUpperCase(), 80, y + 38, 20);
+  text(claim.category_name, 80, y + 38, 20);
   formText(c, 'date', claim.category_date, 820, y + 38);
   line(y + 65);
   const holder = y + 120;
@@ -134,10 +134,10 @@ export async function exportCertificate(claim: Claim, story: boolean) {
   c.fillStyle = claim.golden ? (dark ? '#e7c86b' : '#7A5C14') : ink;
   c.fillText(
     claim.golden
-      ? 'GOLDEN TICKET'
+      ? 'Golden ticket'
       : claim.obscurity && claim.obscurity >= 4
-        ? 'DEEP CUT'
-        : 'REGISTERED',
+        ? 'Deep cut'
+        : 'Registered',
     0,
     61,
   );

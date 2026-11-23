@@ -93,7 +93,7 @@ export function DaySummary({
                     />
                     <span className={'mini-stamp ' + (event.golden ? 'gold-mini' : '')}>
                       DIBS{event.golden ? ' / GOLD' : ''}
-                      {(event.obscurity || 0) >= 4 ? ' / DEEP CUT' : ''}
+                      {(event.obscurity || 0) >= 4 ? ' / Deep cut' : ''}
                     </span>
                   </>
                 ) : (
@@ -209,7 +209,7 @@ export function Certificate({ claim, animated = false }: { claim: Claim; animate
           {claim.concealed ? 'SEALED' : claim.display}
         </h2>
         <div className="cert-category">
-          <span>{claim.category_name.toUpperCase()}</span>
+          <span>{claim.category_name}</span>
           <time dateTime={claim.category_date}>{dateLabel(claim.category_date)}</time>
         </div>
         <Signature />
@@ -255,12 +255,12 @@ export function Certificate({ claim, animated = false }: { claim: Claim; animate
             <span>
               {claim.golden ? (
                 <>
-                  <Icon name="star" /> GOLDEN TICKET
+                  <Icon name="star" /> Golden ticket
                 </>
               ) : claim.obscurity && claim.obscurity >= 4 ? (
-                'DEEP CUT'
+                'Deep cut'
               ) : (
-                'REGISTERED'
+                'Registered'
               )}
             </span>
           </motion.div>

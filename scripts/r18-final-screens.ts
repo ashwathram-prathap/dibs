@@ -36,6 +36,7 @@ try {
             if (answer !== 'Quokka')
               await p.getByRole('button', { name: /Next (dibs|claim)/ }).click();
           }
+        if (name === 'done') await p.locator('.day-certificate').waitFor();
         await p.evaluate(() => document.fonts.ready);
         await p.waitForTimeout(750);
         await p.screenshot({
