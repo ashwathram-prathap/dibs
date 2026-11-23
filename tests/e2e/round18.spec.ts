@@ -116,6 +116,11 @@ test('R18 clock is solid Archivo and fits every repeated tabular digit; sharing 
   const clock = page.locator('.closed-office .clock');
   await clock.waitFor();
   await page.evaluate(() => document.fonts.ready);
+  expect(
+    await page.evaluate(
+      async () => (await document.fonts.load('900 100px Archivo', '0123456789 DIBS')).length,
+    ),
+  ).toBeGreaterThan(0);
   const widths = [];
   for (const digit of ['00', '11', '44', '88']) {
     await clock.evaluate((el, d) => (el.textContent = `${d}:${d}:${d}`), digit);

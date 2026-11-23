@@ -82,9 +82,19 @@ it('uses no other face in SVGs or first-paint CSS and ships no unused duplicate 
       `Unused font ${face}`,
     ).toBe(true);
 });
-it('authorizes the exact branded first-paint stylesheet without unsafe inline styles',async()=>{
-  const { CRITICAL_CSS }=await import('../shared/critical');
-  const { CSP }=await import('../shared/security');
-  const { createHash }=await import('node:crypto');
-  expect(CSP).toContain("'sha256-"+createHash('sha256').update(CRITICAL_CSS).digest('base64')+"'");
+it('authorizes the exact branded first-paint stylesheet without unsafe inline styles', async () => {
+  const { CRITICAL_CSS } = await import('../shared/critical');
+  const { CSP } = await import('../shared/security');
+  const { createHash } = await import('node:crypto');
+  expect(CSP).toContain(
+    "'sha256-" + createHash('sha256').update(CRITICAL_CSS).digest('base64') + "'",
+  );
+});
+
+it('matches Archivo subset descriptors so supplemental glyphs cannot shadow the main face', () => {
+  for (const [, block] of css.matchAll(/@font-face\s*\{([^}]+)\}/g)) {
+    if (!/font-family:\s*Archivo;/.test(block)) continue;
+    expect(block).toContain('font-weight: 100 900;');
+    expect(block).toContain('font-stretch: 62% 125%;');
+  }
 });

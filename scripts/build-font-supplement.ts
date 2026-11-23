@@ -4,7 +4,7 @@
 import { readFileSync, writeFileSync } from 'node:fs';
 import opentype from 'opentype.js';
 import wawoff2 from 'wawoff2';
-for (const weight of [400, 900]) {
+for (const weight of [900]) {
   const data = readFileSync(
     `node_modules/@fontsource/archivo/files/archivo-latin-${weight}-normal.woff`,
   );
@@ -56,4 +56,4 @@ for (const weight of [400, 900]) {
   if (weight === 900) writeFileSync(`public/fonts/archivo-supplement-${weight}.otf`, otf);
   writeFileSync(`public/fonts/archivo-supplement-${weight}.v2.woff2`, await wawoff2.compress(otf));
 }
-console.log('Built three Archivo-derived orthographic glyphs at regular and black weights.');
+console.log('Built three Archivo-derived orthographic glyphs at display weight.');

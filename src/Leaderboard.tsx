@@ -1,3 +1,4 @@
+import { Icon } from './Icon';
 import { Handle } from './Handle';
 import { useEffect, useState } from 'react';
 import { api } from './api';
@@ -94,7 +95,7 @@ export function Leaderboard({
                   {r.own && <span className="leaderboard-badge">You</span>}
                   {r.golden && (
                     <span className="gold-marker" aria-label="Golden ticket" title="Golden ticket">
-                      ●
+                      <Icon name="star" />
                     </span>
                   )}
                 </th>

@@ -10,7 +10,8 @@ for (const dir of ['src', 'shared', 'worker'])
       .forEach((line, i) => {
         if (path === 'src/share.ts' && line.includes('file.events.map')) return;
         if (path === 'src/Icon.tsx' && /[■□★]/.test(line)) return;
-        if (bad.test(line)) failures.push(path + ':' + (i + 1));
+        // U+2212 is a mathematical minus, not an emoji.
+        if (bad.test(line.replaceAll('−', ''))) failures.push(path + ':' + (i + 1));
       });
   }
 for (const file of readdirSync('categories').filter((file) => file.endsWith('.json'))) {

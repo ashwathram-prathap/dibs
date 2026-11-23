@@ -1,14 +1,8 @@
 @font-face {
   font-family: Archivo;
-  src: url('/fonts/archivo-supplement-400.v2.woff2') format('woff2');
-  font-weight: 400;
-  font-display: swap;
-  unicode-range: U+02BB, U+1E90-1E91;
-}
-@font-face {
-  font-family: Archivo;
   src: url('/fonts/archivo-supplement-900.v2.woff2') format('woff2');
-  font-weight: 900;
+  font-weight: 100 900;
+  font-stretch: 62% 125%;
   font-display: swap;
   unicode-range: U+02BB, U+1E90-1E91;
 }
@@ -5658,7 +5652,7 @@ html[data-theme='dark'] {
   text-shadow: none;
 }
 .closed-office .drop-countdown .clock {
-  font-size: clamp(52px, 18.5vw, 164px);
+  font-size: clamp(52px, calc((100vw - 96px) / 5.2), 164px);
   line-height: 1.05;
   text-align: left;
   margin: 8px 0 16px;

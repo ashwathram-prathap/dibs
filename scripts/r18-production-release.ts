@@ -13,7 +13,7 @@ function run(name: string, bin: string, args: string[]) {
     '\n' + name + '\n' + result.stdout + result.stderr,
   );
   steps.push({ name, passed: result.status === 0, at: new Date().toISOString() });
-  writeFileSync('review/round17/production-release.json', JSON.stringify(steps, null, 2));
+  writeFileSync('review/round18/production-release.json', JSON.stringify(steps, null, 2));
   assert.equal(result.status, 0, name + ' failed; production release halted');
 }
 const ts = (name: string, script: string, args: string[] = []) =>
@@ -43,7 +43,7 @@ try {
   const response = await fetch('https://dibs.here/api/bootstrap', { cache: 'no-store' });
   const data: any = await response.json();
   writeFileSync(
-    'review/round17/production-read-diagnostic.json',
+    'review/round18/production-read-diagnostic.json',
     JSON.stringify(
       {
         at: new Date().toISOString(),
@@ -63,7 +63,7 @@ try {
   assert.equal(data.me.user, null);
   assert.equal(data.today.nextDrop, '2026-11-24T02:00:00.000Z');
   writeFileSync(
-    'review/round17/production-test-free-read.json',
+    'review/round18/production-test-free-read.json',
     JSON.stringify(
       {
         at: new Date().toISOString(),
@@ -95,7 +95,7 @@ try {
   console.log('R18 released; all read-only production and preservation checks passed.');
 } catch (error) {
   writeFileSync(
-    'review/round17/production-failure.json',
+    'review/round18/production-failure.json',
     JSON.stringify(
       { at: new Date().toISOString(), error: String(error), rolledBack: false },
       null,
@@ -107,7 +107,7 @@ try {
     rolledBack = true;
   }
   writeFileSync(
-    'review/round17/production-failure.json',
+    'review/round18/production-failure.json',
     JSON.stringify({ at: new Date().toISOString(), error: String(error), rolledBack }, null, 2),
   );
   throw error;
