@@ -276,10 +276,20 @@ export function Certificate({ claim, animated = false }: { claim: Claim; animate
     </LazyMotion>
   );
 }
-export function ShareButtons({ claim }: { claim: Claim }) {
+export function ShareButtons({
+  claim,
+  score,
+}: {
+  claim: Claim;
+  score?: Pick<DayFile, 'points' | 'rank' | 'players'>;
+}) {
   const render = useCallback((story: boolean) => exportCertificate(claim, story), [claim]);
   return (
-    <ShareSheet url={certificateUrl(claim.id)} text={certificateText(claim)} render={render} />
+    <ShareSheet
+      url={certificateUrl(claim.id)}
+      text={certificateText(claim, score)}
+      render={render}
+    />
   );
 }
 export function SummaryPage({ id }: { id: string }) {
@@ -327,17 +337,21 @@ export function SummaryPage({ id }: { id: string }) {
   );
 }
 export function CertificatePage({ id }: { id: string }) {
+  const [score, setScore] = useState<Pick<DayFile, 'points' | 'rank' | 'players'>>();
   const [claim, setClaim] = useState<Claim | null>(null);
   const [error, setError] = useState('');
   useEffect(() => {
-    api<{ claim: Claim }>('/certificate/' + id)
-      .then((d) =>
+    api<{ claim: Claim; score?: Pick<DayFile, 'points' | 'rank' | 'players'> }>(
+      '/certificate/' + id,
+    )
+      .then((d) => {
+        setScore(d.score);
         setClaim(
           d.claim.concealed
             ? { ...d.claim, display: 'Revealed when the day closes', obscurity: null }
             : d.claim,
-        ),
-      )
+        );
+      })
       .catch((e) => setError(e.message));
   }, [id]);
   return (
@@ -350,7 +364,7 @@ export function CertificatePage({ id }: { id: string }) {
       {claim ? (
         <>
           <Certificate claim={claim} />
-          <ShareButtons claim={claim} />
+          <ShareButtons claim={claim} score={score} />
         </>
       ) : (
         <p role="status">{error || 'Retrieving the original…'}</p>

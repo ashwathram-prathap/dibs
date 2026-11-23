@@ -458,7 +458,11 @@ async function paintPaper(c: CanvasRenderingContext2D, paper: string) {
   }
 }
 
-export function certificateText(claim: Claim) {
-  if (!claim.revealed) return GAME_DESCRIPTION;
-  return `Dibs · ${claim.category_name}${claim.revealed ? ' · ' + claim.display : ''}${claim.percentile != null ? '\n' + rarityLabel(claim.percentile, claim.category_name) : ''}${claim.points != null ? ' · ' + countLabel(claim.points, 'point') : ''}\n${GAME_DESCRIPTION}\n${PUBLIC_HOST}`;
+export function certificateText(
+  claim: Claim,
+  score?: Pick<DayFile, 'points' | 'rank' | 'players'>,
+) {
+  if (score && typeof score.points === 'number')
+    return summaryText(score as DayFile, { name: claim.category_name } as Category);
+  return `I claimed a spot on today's Dibs (${claim.category_name}). ${PUBLIC_HOST}`;
 }

@@ -3,7 +3,7 @@ import { build } from 'esbuild';
 import { Miniflare, convertV4MiniflareOptions } from 'miniflare';
 import { readFileSync, writeFileSync } from 'node:fs';
 import { decode } from 'jpeg-js';
-import { summaryText } from '../src/share';
+import { summaryText, certificateText } from '../src/share';
 import { intentUrl } from '../shared/sharing';
 let mf: Miniflare;
 const agents = [
@@ -156,4 +156,20 @@ it('compresses protected HTML without allowing late analytics injection', async 
   const html = await r.text();
   expect(html).toContain('name="dibs-test"');
   expect(html).not.toContain('src="https://static.cloudflareinsights.com/');
+});
+
+it('keeps certificate captions answer-free after reveal too', () => {
+  const caption = certificateText({
+    category_name: 'Animals',
+    display: 'Axolotl',
+    revealed: true,
+    points: 140,
+    percentile: 99,
+  } as any);
+  expect(caption).not.toContain('Axolotl');
+  expect(caption).not.toContain('99');
+  expect(caption).toContain('dibs.here');
+  expect(
+    certificateText({ category_name: 'Animals' } as any, { points: 140, rank: 3, players: 27 }),
+  ).toBe("I scored 140 on today's Dibs (Animals), #3 of 27. dibs.here");
 });
