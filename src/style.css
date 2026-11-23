@@ -1687,7 +1687,9 @@ html.low-power .dibs-stamp {
 }
 html.low-power .dibs-stamp strong {
   display: block;
-  font-size: 2.5rem;
+  /* The static SVG supplies the visible letters; hidden text must not set its width. */
+  font-size: 0;
+  max-width: 100%;
   color: transparent;
   width: 10.9375rem;
   height: 4rem;

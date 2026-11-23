@@ -82,6 +82,9 @@ async function audit(page: Page, scope = 'main', action?: string) {
     for (const certificate of certificates) {
       const bounds = certificate.getBoundingClientRect();
       for (const text of certificate.querySelectorAll('.dibs-stamp strong, .dibs-stamp span')) {
+        const box = text.getBoundingClientRect();
+        if (box.left < bounds.left - 1 || box.right > bounds.right + 1)
+          errors.push('Clipped certificate stamp box: ' + text.textContent);
         const range = document.createRange();
         range.selectNodeContents(text);
         for (const r of range.getClientRects())
@@ -558,6 +561,14 @@ test('Certificates keep points and consistent curves; streak tally counts', asyn
     height = h;
     await audit(page, '.certificate-page');
     await shot(page, info, 'certificate-' + name);
+    const wasLowPower = await page.evaluate(() => {
+      const was = document.documentElement.classList.contains('low-power');
+      document.documentElement.classList.add('low-power');
+      return was;
+    });
+    await audit(page, '.certificate-page');
+    if (!wasLowPower)
+      await page.evaluate(() => document.documentElement.classList.remove('low-power'));
   }
   for (const n of [0, 1, 2, 3, 4, 5, 8]) {
     await page.goto('/?r19&r19c&r7-closed&streak=' + n);

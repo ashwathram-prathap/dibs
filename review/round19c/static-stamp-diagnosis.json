@@ -1,0 +1,15 @@
+{
+  "at": "2026-11-23T18:23:57.758208+00:00",
+  "failedRun": "https://github.com/ashwathram-prathap/dibs/actions/runs/45233559547",
+  "failedShard": 1,
+  "passedInShard": 176,
+  "failedInShard": 4,
+  "configuration": "320x568, font 1.3, zoom 2, both themes",
+  "cause": "The low-power static SVG fallback had a fixed rem width and invisible 52px text. Its higher-specificity rule overrode the normal stamp sizing.",
+  "fix": "Constrain the static image to its container and give its invisible text zero font size; add full stamp-box and explicit low-power audits for every certificate variant.",
+  "reproducedIn": [
+    "Chromium",
+    "WebKit"
+  ],
+  "productionUntouched": true
+}
