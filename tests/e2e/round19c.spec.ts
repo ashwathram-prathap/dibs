@@ -199,6 +199,16 @@ async function audit(page: Page, scope = 'main', action?: string) {
       })),
   );
   expect(small, '44px tap targets').toEqual([]);
+  if (action) {
+    const colors = await page.locator(action).evaluate((el) => {
+      const style = getComputedStyle(el);
+      return { foreground: style.color, background: style.backgroundColor };
+    });
+    expect(
+      contrast(colors.foreground, colors.background),
+      'primary action AA contrast',
+    ).toBeGreaterThanOrEqual(4.5);
+  }
   if (
     action &&
     (page.viewportSize()!.width < 768 ||

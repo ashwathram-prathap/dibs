@@ -6346,6 +6346,10 @@ body {
   outline: none;
   box-shadow: none;
 }
+.focused-play .win-actions .primary,
+.focused-play .final-strike > .primary {
+  color: #0f0e0b;
+}
 .focused-play .win-actions .primary:focus-visible,
 .payoff-links .reminder-button:focus-visible {
   outline: 2px solid var(--ink);
@@ -7312,7 +7316,7 @@ html[data-theme='dark'] .feedback-dialog .feedback-error {
   padding: 0.75rem;
   border: 1px solid var(--ink);
   background: var(--red);
-  color: var(--paper);
+  color: #0f0e0b;
   font:
     600 1.125rem/1.3 'Instrument Sans',
     sans-serif;
