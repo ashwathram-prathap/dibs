@@ -9,7 +9,13 @@ export function ShareSheet({
   url,
   text,
   render,
+  hideAnswers = false,
+  onHideAnswers,
+  beforeShare,
 }: {
+  hideAnswers?: boolean;
+  onHideAnswers?: (value: boolean) => void;
+  beforeShare?: () => Promise<void>;
   url: string;
   text: string;
   render: (story: boolean) => Promise<File>;
@@ -26,6 +32,7 @@ export function ShareSheet({
   const [files, setFiles] = useState<{ story: File; feed: File }>();
   const [status, setStatus] = useState('');
   const [busy, setBusy] = useState(false);
+  const [more, setMore] = useState(false);
   const [manual, setManual] = useState<{ href: string; name: string }>();
   const [copy, setCopy] = useState('');
   const object = useRef('');
@@ -33,6 +40,7 @@ export function ShareSheet({
   useEffect(() => {
     let alive = true;
     setFiles(undefined);
+    setStatus('');
     Promise.all([render(true), render(false)])
       .then(([story, feed]) => {
         if (alive) setFiles({ story, feed });
@@ -73,11 +81,27 @@ export function ShareSheet({
     setBusy(true);
     setCopy('');
     try {
+      await beforeShare?.();
       if (platform === 'native' || platform === 'instagram-tiktok') {
         const result = await sharePrepared(file, data);
         if (result === 'abort') return;
-        if (result === 'file' || result === 'url') {
-          setStatus(result === 'file' ? 'Image shared.' : 'Link shared.');
+        if (
+          result === 'file' ||
+          result === 'file-caption' ||
+          result === 'file-caption-copied' ||
+          result === 'url'
+        ) {
+          setStatus(
+            result === 'file-caption-copied'
+              ? 'Caption copied'
+              : result === 'url'
+                ? 'Link shared.'
+                : 'Image shared.',
+          );
+          if (result === 'file') {
+            setCopy(text + ' ' + data.url);
+            setStatus('Image shared. Copy the caption below.');
+          }
           return;
         }
         download(file);
@@ -92,14 +116,20 @@ export function ShareSheet({
         download(file);
         setStatus(platform === 'story' ? storyTip : 'Image saved.');
       }
+    } catch {
+      setStatus('Could not prepare this share. Please try again.');
     } finally {
       setBusy(false);
     }
   }
   async function clipboard(platform: 'copy-link' | 'copy-text') {
     tap(platform);
-    const value = platform === 'copy-link' ? attributedUrl(url, platform) : text;
+    const value =
+      platform === 'copy-link'
+        ? attributedUrl(url, platform)
+        : text + ' ' + attributedUrl(url, platform);
     try {
+      await beforeShare?.();
       await navigator.clipboard.writeText(value);
       setCopy('');
       setStatus('Copied');
@@ -111,7 +141,7 @@ export function ShareSheet({
   return (
     <div className="share-area" aria-label="Share Dibs">
       <div className="share-main">
-        <div className="share-buttons">
+        <div className={'share-buttons' + (more ? ' more-open' : '')}>
           <button
             className="primary"
             aria-label="SHARE"
@@ -119,6 +149,9 @@ export function ShareSheet({
             onClick={() => void share('native')}
           >
             {busy ? 'Sharing…' : files ? 'Share' : 'Preparing image…'} <Icon />
+          </button>
+          <button className="share-more" aria-expanded={more} onClick={() => setMore(!more)}>
+            More
           </button>
           <button className="copy-result" onClick={() => void clipboard('copy-text')}>
             {status === 'Copied' ? 'Copied' : 'Copy result'}
@@ -128,7 +161,23 @@ export function ShareSheet({
             href={intentUrl('linkedin', text, url)}
             target="_blank"
             rel="noopener noreferrer"
-            onClick={() => tap('linkedin')}
+            onClick={async (event) => {
+              if (!beforeShare) {
+                tap('linkedin');
+                return;
+              }
+              event.preventDefault();
+              const target = window.open('about:blank', '_blank');
+              if (target) target.opener = null;
+              try {
+                await beforeShare();
+                tap('linkedin');
+                if (target) target.location.href = intentUrl('linkedin', text, url);
+              } catch {
+                target?.close();
+                setStatus('Could not prepare this share. Please try again.');
+              }
+            }}
           >
             Post on LinkedIn
           </a>
@@ -140,6 +189,16 @@ export function ShareSheet({
           For the best post, download the image and add it to your LinkedIn post.
         </p>
       </div>
+      {onHideAnswers && (
+        <label className="hide-answers">
+          <input
+            type="checkbox"
+            checked={hideAnswers}
+            onChange={(e) => onHideAnswers(e.currentTarget.checked)}
+          />{' '}
+          Hide my answers
+        </label>
+      )}
       <details className="share-options">
         <summary>More ways to share</summary>
         <div className="share-platforms" aria-label="Share by platform">
@@ -149,7 +208,23 @@ export function ShareSheet({
               href={intentUrl(platform, text, url)}
               target="_blank"
               rel="noopener noreferrer"
-              onClick={() => tap(platform)}
+              onClick={async (event) => {
+                if (!beforeShare) {
+                  tap(platform);
+                  return;
+                }
+                event.preventDefault();
+                const target = window.open('about:blank', '_blank');
+                if (target) target.opener = null;
+                try {
+                  await beforeShare();
+                  tap(platform);
+                  if (target) target.location.href = intentUrl(platform, text, url);
+                } catch {
+                  target?.close();
+                  setStatus('Could not prepare this share. Please try again.');
+                }
+              }}
             >
               {['X', 'WhatsApp', 'Facebook'][i]}
             </a>

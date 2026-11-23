@@ -211,7 +211,7 @@ export class DayRegistry extends DurableObject<Env> {
       this.comparisons = finishedComparisons([...this.all().values()]);
       const rows = orderScores(
         [...this.all().values()]
-          .filter((s) => !s.user.hidden && s.file.eligible !== false)
+          .filter((s) => !s.user.hidden && s.file.eligible !== false && s.file.dibs > 0)
           .map((s) => ({
             user_id: s.user.id,
             handle: s.user.handle,
@@ -228,14 +228,14 @@ export class DayRegistry extends DurableObject<Env> {
         rows.map((r) => ({ id: r.user_id, handle: r.handle, founder: r.founder })),
       );
       for (const r of rows) r.handle = names.get(r.user_id)!;
-      this.boardTop = publicScores(rows, undefined, 25, dayClosed(this.category)).rows.map((r) => ({
+      this.boardTop = publicScores(rows, undefined, 25, true).rows.map((r) => ({
         rank: r.rank,
         handle: r.handle,
         founder: r.founder,
         points: r.points,
         claims: r.claims,
         own: r.own,
-        ...(dayClosed(this.category) ? { golden: r.golden } : {}),
+        golden: r.golden,
       }));
       this.boardOwn = new Map(
         rows.map((r, i) => [
@@ -246,7 +246,7 @@ export class DayRegistry extends DurableObject<Env> {
             founder: r.founder,
             points: r.points,
             claims: r.dibs,
-            golden: dayClosed(this.category) ? r.golden : undefined,
+            golden: r.golden,
             own: true,
           },
         ]),
@@ -615,16 +615,17 @@ export class DayRegistry extends DurableObject<Env> {
         const state = [...this.all().values()].find((s) => s.file.summaryId === id);
         if (!state) return json({ message: 'Not found.' }, 404);
         const data = { file: this.presentFile(state), category: publicCategory(this.category) };
-        return og(null, dayClosed(this.category) ? data : concealSummary(data));
+        return og(null, publicSummary(data, dayClosed(this.category), !!state.file.shareAnswers));
       }
       const claim = resolveCertificate(this.owners.values(), id);
       if (!claim) return json({ message: 'Not found.' }, 404);
       const state = this.state(claim.user_id);
       return og(
-        null,
-        publicSummary(
-          { category: this.category, file: state ? this.presentFile(state) : { points: 0 } },
+        visibleClaim(
+          claim,
           dayClosed(this.category),
+          false,
+          !!state?.file.sharedClaimIds?.includes(claim.id),
         ),
       );
     }
@@ -688,15 +689,55 @@ export class DayRegistry extends DurableObject<Env> {
         revealed = dayClosed(this.category),
         owned = uid === claim.user_id;
       const state = this.state(claim.user_id);
+      if (req.method === 'POST') {
+        if (!owned || !state || !this.journal)
+          return json({ message: 'Only the holder can share this answer.' }, 403);
+        const choice = await body(req, 100);
+        if (typeof choice.showAnswers !== 'boolean' || Object.keys(choice).length !== 1)
+          return json({ message: 'Choose whether to show your answer.' }, 422);
+        if (
+          !!this.state(claim.user_id)?.file.sharedClaimIds?.includes(claim.id) ===
+          choice.showAnswers
+        )
+          return json({ ok: true });
+        const updated = structuredClone(this.state(claim.user_id)!);
+        const ids = new Set<string>(updated.file.sharedClaimIds || []);
+        choice.showAnswers ? ids.add(claim.id) : ids.delete(claim.id);
+        updated.file.sharedClaimIds = [...ids];
+        this.journal.append(updated);
+        await this.journal.durable();
+        return json({ ok: true });
+      }
       const score = state ? publicFile(this.presentFile(state), false) : undefined;
       return json({
-        claim: visibleClaim(claim, revealed, owned),
+        claim: visibleClaim(
+          claim,
+          revealed,
+          owned,
+          !!state?.file.sharedClaimIds?.includes(claim.id),
+        ),
         score,
       });
     }
     if (path.startsWith('/summary/')) {
       const s = [...this.all().values()].find((s) => s.file.summaryId === path.slice(9));
       if (!s) return json({ message: 'Results not found.' }, 404);
+      const owned = (await cookieUser(req, env.COOKIE_SECRET)) === s.user.id;
+      if (req.method === 'POST') {
+        if (!owned || !this.journal)
+          return json({ message: 'Only the holder can share these answers.' }, 403);
+        const choice = await body(req, 100);
+        if (typeof choice.showAnswers !== 'boolean' || Object.keys(choice).length !== 1)
+          return json({ message: 'Choose whether to show your answers.' }, 422);
+        if (!!this.state(s.user.id)?.file.shareAnswers === choice.showAnswers)
+          return json({ ok: true });
+        const updated = structuredClone(this.state(s.user.id)!);
+        updated.file.shareAnswers = choice.showAnswers;
+        this.journal.append(updated);
+        await this.journal.durable();
+        return json({ ok: true });
+      }
+
       const data = {
         file: this.presentFile(s),
         category: publicCategory(this.category),
@@ -704,8 +745,8 @@ export class DayRegistry extends DurableObject<Env> {
         nextDrop: nextDrop(),
       };
       return json({
-        ...publicSummary(data, dayClosed(this.category)),
-        owned: (await cookieUser(req, env.COOKIE_SECRET)) === s.user.id,
+        ...publicSummary(data, dayClosed(this.category), !!s.file.shareAnswers),
+        owned,
       });
     }
     if (path === '/events/share' || path === '/events/arrival') {

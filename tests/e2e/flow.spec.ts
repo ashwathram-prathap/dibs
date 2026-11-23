@@ -52,9 +52,9 @@ test('full filing, certificate, sharing and public record', async ({ page }, inf
   await expect(page.locator('.file-tally')).toContainText('1 strike');
   await page.getByText('More ways to share', { exact: true }).click();
   await page.getByRole('button', { name: 'Copy link', exact: true }).click();
-  expect(await page.evaluate(() => (window as any).copied)).toBe(
-    'https://dibs.here/summary/fixture-summary?s=copy-link',
-  );
+  await expect
+    .poll(() => page.evaluate(() => (window as any).copied))
+    .toBe('https://dibs.here/summary/fixture-summary?s=copy-link');
   const download = page.waitForEvent('download');
   await page.getByRole('button', { name: 'Feed JPEG' }).click();
   const d = await download;

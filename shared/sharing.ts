@@ -1,3 +1,4 @@
+import { edition } from './time';
 import { PUBLIC_ORIGIN } from './config';
 
 export const platforms = [
@@ -33,3 +34,14 @@ export function intentUrl(platform: Platform, text: string, url: string) {
     return 'https://www.facebook.com/sharer/sharer.php?' + new URLSearchParams({ u: link });
   return '';
 }
+
+export function editionLabel(date: string) {
+  const label = new Intl.DateTimeFormat('en-US', {
+    month: 'short',
+    day: 'numeric',
+    timeZone: 'UTC',
+  }).format(new Date(date + 'T12:00:00Z'));
+  return `Dibs #${edition(date)} · ${label}`;
+}
+export const playerRank = (rank?: number | null, players?: number) =>
+  rank ? `#${rank} of ${players ?? 0} players today` : '';

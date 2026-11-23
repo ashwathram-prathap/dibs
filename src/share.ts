@@ -1,10 +1,13 @@
+import { claimScore } from '../shared/claim-copy';
+import { SHARE_INVITATION } from '../shared/copy';
+import { editionLabel } from '../shared/sharing';
 type ExportFont = 'Archivo' | '"Instrument Sans"';
 import { cleanHandle, cleanStoredHandles } from '../shared/handles';
 import { noOrphan, countLabel } from '../shared/text';
 import { bellPath, bellArea, bellSigma, bellY, bellX, rarityLabel } from '../shared/rarity';
 import { MAX_CLAIMS } from '../shared/config';
 import { REGISTRAR_STROKE } from '../shared/moments';
-import { edition, localTime } from '../shared/time';
+import { edition, localTime, zoneName } from '../shared/time';
 import { guesses } from '../shared/guesses';
 import { PUBLIC_HOST } from '../shared/config';
 import { type Claim, type DayFile, type Category, serial } from './types';
@@ -17,10 +20,9 @@ import {
 } from '../shared/brand';
 import { fitText } from '../shared/typography';
 // Canvas avoids Safari's SVG foreignObject restrictions. Font faces are self-hosted.
-export async function exportCertificate(claim: Claim, story: boolean) {
+export async function exportCertificate(claim: Claim, story: boolean, hideAnswers = false) {
   claim = cleanStoredHandles(claim);
-  if (!claim.revealed)
-    claim = { ...claim, display: 'SEALED', obscurity: null, percentile: null, golden: false };
+  if (hideAnswers || claim.concealed) claim = { ...claim, display: 'SEALED' };
   const dark = document.documentElement.dataset.theme === 'dark';
   const ink = dark ? '#F1ECE2' : '#1A1A17',
     paper = dark ? '#1F1E18' : '#F1ECE2';
@@ -35,9 +37,9 @@ export async function exportCertificate(claim: Claim, story: boolean) {
   canvas.width = 1080;
   canvas.height = story ? 1920 : 1350;
   const c = canvas.getContext('2d')!;
-  const h = story ? 1500 : 1350;
+  const h = 1350;
   await paintPaper(c, paper);
-  if (story) c.translate(0, 80);
+  if (story) c.translate(0, (canvas.height - h) / 2);
   c.strokeStyle = ink;
   c.fillStyle = ink;
   c.lineWidth = 2;
@@ -57,7 +59,14 @@ export async function exportCertificate(claim: Claim, story: boolean) {
     80,
     105,
   );
-  formText(c, 'number', 'Form D-1', 825, 105);
+  c.fillStyle = claim.golden ? (dark ? '#e7c86b' : '#795700') : ink;
+  fitCanvasLine(c, claim.golden ? 'Form D-1 · Golden ticket' : 'Form D-1', 640, 105, 360, 24);
+  if (claim.golden) {
+    c.strokeStyle = c.fillStyle;
+    c.strokeRect(42, 42, 996, h - 84);
+    c.strokeStyle = ink;
+  }
+  c.fillStyle = ink;
   line(135);
   text('Certificate of Dibs', 80, 200, 22);
   formText(c, 'number', 'No. ' + serial(claim.claim_no), 80, 237);
@@ -108,13 +117,27 @@ export async function exportCertificate(claim: Claim, story: boolean) {
   c.stroke(new Path2D(REGISTRAR_STROKE));
   c.restore();
   text('The Registrar', 790, h - 180, 18);
-  text(countLabel(claim.points ?? 0, 'point'), 80, h - 220, 18);
-  if (claim.revealed && claim.percentile == null)
-    text('Rarity not measured for this answer', 80, h - 250, 18);
-  if (claim.revealed && claim.percentile != null) {
-    text(rarityLabel(claim.percentile, claim.category_name), 80, h - 250, 18);
-    await drawCurve(c, claim.percentile, 80, h - 205, 290, 68, !!claim.golden);
-  }
+  fitCanvasLine(
+    c,
+    `${claim.points ?? 0} points${claim.bonus ? ` · ${(claim.points ?? 0) - claim.bonus} + ${claim.bonus} golden bonus` : ''}`,
+    80,
+    h - 350,
+    920,
+    30,
+  );
+  if (!claim.concealed)
+    fitCanvasLine(
+      c,
+      claim.percentile == null
+        ? 'Standard score (no readership data for this answer)'
+        : rarityLabel(claim.percentile, claim.category_slug || claim.category_name),
+      80,
+      h - 392,
+      920,
+      27,
+    );
+  if (!claim.concealed && claim.percentile != null)
+    await drawCurve(c, claim.percentile, 80, h - 310, 400, 105, !!claim.golden);
   c.save();
   c.translate(550, h - 247);
   c.rotate(((((claim.claim_no * 7.31) % 7) - 4) * Math.PI) / 180);
@@ -140,7 +163,8 @@ export async function exportCertificate(claim: Claim, story: boolean) {
   c.restore();
   line(h - 120);
   text(`One of ${claim.total_registrable.toLocaleString()}. Only one yours.`, 80, h - 80, 17);
-  text(PUBLIC_HOST, 740, h - 80, 17);
+  fitCanvasLine(c, `${PUBLIC_HOST}/c/${claim.id}`, 80, h - 52, 920, 17);
+  fitCanvasLine(c, SHARE_INVITATION, 80, h - 148, 920, 23);
   return canvasFile(
     canvas,
     `dibs-${claim.display.toLowerCase().replace(/[^a-z0-9]+/g, '-')}-${story ? 'story' : 'feed'}.jpg`,
@@ -187,7 +211,7 @@ async function drawCurve(
   c.beginPath();
   c.rect(marker, y, x + w - marker, plotHeight);
   c.clip();
-  c.fillStyle = '#E1462B';
+  c.fillStyle = accent;
   c.globalAlpha = 0.25;
   c.fill(area);
   c.restore();
@@ -224,22 +248,25 @@ async function drawCurve(
   c.restore();
 }
 
-export function summaryText(file: DayFile, category: Category) {
-  return `I scored ${file.points ?? 0} on today's Dibs (${category.name})${file.rank ? `, #${file.rank} of ${file.players}` : ''}. ${PUBLIC_HOST}`;
+export function summaryText(file: DayFile, category: Category, hideAnswers = false) {
+  const answers = hideAnswers ? [] : (file.claims || []).filter((c) => !c.concealed && c.display);
+  return `${editionLabel(category.date)} · ${category.name}${answers.length ? ' · ' + answers.map((c) => `${c.display} (${claimScore(c)})`).join(', ') : ''} · ${file.points ?? 0} pts${file.rank ? ` · #${file.rank} of ${file.players} players today` : ''}. ${PUBLIC_HOST}`;
 }
-export async function exportSummary(file: DayFile, category: Category, story: boolean) {
+export async function exportSummary(
+  file: DayFile,
+  category: Category,
+  story: boolean,
+  hideAnswers = false,
+) {
   file = cleanStoredHandles(file);
   const dark = document.documentElement.dataset.theme === 'dark';
   const ink = dark ? '#F1ECE2' : '#1A1A17',
     paper = dark ? '#1F1E18' : '#F1ECE2';
+  const gold = dark ? '#e7c86b' : '#795700',
+    red = '#E1462B';
   await document.fonts.ready;
   await Promise.all([
-    document.fonts.load(
-      '900 100px Archivo',
-      guesses(file)
-        .map((e) => e.display)
-        .join(' '),
-    ),
+    document.fonts.load('900 100px Archivo'),
     document.fonts.load('400 24px "IBM Plex Mono"'),
     document.fonts.load('600 42px "Instrument Sans"'),
   ]);
@@ -247,183 +274,135 @@ export async function exportSummary(file: DayFile, category: Category, story: bo
   canvas.width = 1080;
   canvas.height = story ? 1920 : 1350;
   const c = canvas.getContext('2d')!;
-  const h = story ? 1760 : 1350;
+  const h = Math.min(1350, 900 + file.events.length * 76);
   await paintPaper(c, paper);
-  if (story) c.translate(0, 80);
-  const red = '#E1462B',
-    gold = dark ? '#e7c86b' : '#7A5C14';
-  c.fillStyle = ink;
-  c.strokeStyle = ink;
+  c.translate(0, (canvas.height - h) / 2);
+  const golden = file.claims.some((c) => c.golden);
+  c.strokeStyle = golden ? gold : ink;
   c.lineWidth = 2;
   c.strokeRect(36, 36, 1008, h - 72);
-  const text = (
-    s: string,
-    x: number,
-    y: number,
-    size = 22,
-    face: ExportFont = '"Instrument Sans"',
-    weight = 400,
-  ) => {
-    c.font = `${weight} ${size}px ${face}`;
-    c.fillText(noOrphan(s), x, y);
-  };
-  const fit = (
-    s: string,
-    x: number,
-    y: number,
-    width: number,
-    size: number,
-    face: ExportFont = 'Archivo',
-    weight = 900,
-  ) => {
-    const f = fitText(
-      s,
-      (t, z) => {
-        c.font = `${weight} ${z}px ${face}`;
-        return c.measureText(t).width;
-      },
-      width,
-      { startSize: size, minSize: 17, maxLines: 2, maxHeight: size * 1.6, lineHeight: 1 },
-    );
-    f.lines.forEach((line, i) => text(line, x, y + i * f.size, f.size, face, weight));
-  };
   const line = (y: number) => {
     c.beginPath();
     c.moveTo(80, y);
     c.lineTo(1000, y);
     c.stroke();
   };
-  text(
-    category.id === 'practice' ? 'Practice — not the public record' : 'Registry of claims',
-    80,
-    105,
-    19,
-  );
-  formText(c, 'number', 'Form D-3', 825, 105);
-  line(132);
-
-  text('Day certificate', 80, 198);
-  formText(c, 'number', 'Dibs #' + edition(category.date), 80, 235);
+  c.fillStyle = ink;
+  fitCanvasLine(c, 'Day certificate · ' + editionLabel(category.date), 80, 105, 920, 26);
+  line(135);
   c.save();
-  c.translate(800, 166);
+  c.translate(800, 175);
   c.scale(200 / WORDMARK_WIDTH, 200 / WORDMARK_WIDTH);
   c.translate(WORDMARK_OFFSET_X, WORDMARK_OFFSET_Y);
   c.fill(new Path2D(WORDMARK_PATH));
-  c.fillStyle = '#E1462B';
+  c.fillStyle = red;
   c.fillRect(WORDMARK_BLOCK_X, 67, 18, 18);
   c.restore();
-  text('File closed.', 80, 365, 114, 'Archivo', 900);
-  fit(category.name, 80, 422, 680, 30);
-  formText(c, 'date', category.date, 825, 422);
-  text(
-    `${file.dibs}/${MAX_CLAIMS} claims · ${file.strikes} ${file.strikes === 1 ? 'strike' : 'strikes'} · filed ${localTime(file.completedAt!).full}`,
+  fitCanvasLine(c, category.name.toUpperCase(), 80, 265, 690, 105, 'Archivo', 900);
+  fitCanvasLine(c, `${file.points ?? 0} points`, 80, 350, 920, 66, 'Archivo', 900);
+  fitCanvasLine(
+    c,
+    file.rank ? `#${file.rank} of ${file.players} players today` : 'Your day on file',
     80,
-    480,
-    22,
+    395,
+    920,
+    30,
   );
-  text(
-    `${countLabel(file.points ?? 0, 'point')}${file.rank ? ` · #${file.rank} of ${file.players}` : ''} · streak ${file.streak || 0}`,
+  const at = file.completedAt || file.claims.at(-1)?.created_at;
+  const filed = at ? ` · filed ${localTime(at).label} ${zoneName()} time` : '';
+  fitCanvasLine(
+    c,
+    `${file.dibs}/${MAX_CLAIMS} claims · ${file.strikes} strikes${filed}`,
     80,
-    538,
+    440,
+    920,
     24,
   );
-  const rows = guesses(file).map((e) =>
-      file.revealed
-        ? e
-        : {
-            ...e,
-            display: 'Revealed when the day closes',
-            holder: undefined,
-            heldAt: undefined,
-            house: false,
-            golden: false,
-          },
-    ),
-    rowHeight = Math.min(105, (h - 940) / Math.max(1, rows.length));
+  c.fillStyle = golden ? gold : ink;
+  fitCanvasLine(c, golden ? 'Golden ticket found' : 'File closed.', 80, 485, 920, 26);
+  const rows = guesses(file),
+    rowHeight = Math.min(76, (h - 840) / Math.max(1, rows.length));
   rows.forEach((event, i) => {
-    const y = 565 + i * rowHeight;
-    c.fillStyle = ink;
-    c.strokeStyle = ink;
-    line(y);
-    formText(c, 'number', String(i + 1).padStart(2, '0'), 80, y + 35);
-    if (!file.revealed) {
-      c.strokeStyle = ink;
-      c.lineWidth = 2;
-      c.strokeRect(132, y + 15, 30, 30);
-      if (event.kind === 'dibs') {
-        c.fillStyle = red;
-        c.fillRect(136, y + 19, 22, 22);
-      }
-      c.fillStyle = ink;
-      text(event.kind === 'dibs' ? 'Claim' : 'Strike', 190, y + 39, 25);
-      return;
-    }
-    const display = (event.display || '').toUpperCase();
-    fit(display, 132, y + 35, event.kind === 'dibs' ? 590 : 850, Math.min(42, rowHeight * 0.32));
-    if (event.kind === 'strike') {
-      c.beginPath();
-      c.moveTo(132, y + 25);
-      c.lineTo(Math.min(980, 132 + c.measureText(display).width), y + 25);
-      c.stroke();
-      const held = event.house
-        ? 'RESERVED'
-        : event.holder
-          ? `Taken by ${event.holder}${event.holderFounder ? ' / Founder' : ''}${event.heldAt ? ' at ' + localTime(event.heldAt).full : ''}`
-          : 'Holder details were not retained';
-      if (event.holderFounder) c.fillStyle = dark ? '#e7c86b' : '#795700';
-      fit(
-        held,
-        132,
-        y + rowHeight * 0.82,
-        850,
-        Math.min(20, rowHeight * 0.27),
-        '"Instrument Sans"',
-        400,
-      );
-    } else {
-      c.save();
-      c.translate(866, y + 32);
-      c.rotate(-0.045);
-      c.fillStyle = event.golden ? gold : red;
-      c.strokeStyle = c.fillStyle;
-      c.lineWidth = 2;
-      c.strokeRect(-112, -22, 224, 45);
-      text(event.golden ? 'DIBS / GOLD' : 'DIBS', -98, 9, 26, 'Archivo', 900);
-      c.restore();
-      c.fillStyle = ink;
-      if ((event.obscurity || 0) >= 4) text('Deep cut', 755, y + rowHeight * 0.85, 17);
-    }
-  });
-  for (const [i, event] of rows.entries()) {
+    const y = 515 + i * rowHeight;
     const claim = file.claims.find((c) => c.id === event.claimId);
-  }
-  c.fillStyle = ink;
+    const isGold = !!claim?.golden;
+    c.strokeStyle = isGold ? gold : ink;
+    line(y);
+    c.fillStyle = ink;
+    formText(c, 'number', String(i + 1).padStart(2, '0'), 80, y + 31, 22);
+    c.fillStyle = isGold ? gold : red;
+    if (event.kind === 'dibs') c.fillRect(130, y + 13, 20, 20);
+    const answer = !hideAnswers && claim && !claim.concealed ? claim.display : 'Claim';
+    c.fillStyle = isGold ? gold : ink;
+    fitCanvasLine(
+      c,
+      event.kind === 'strike'
+        ? 'Strike · −10'
+        : `${answer}${claim ? ` · ${claim.points ?? 0} pts` : ''}${isGold ? ' · Golden ticket · +100' : ''}`,
+      175,
+      y + 31,
+      825,
+      29,
+      '"Instrument Sans"',
+      600,
+    );
+    if (claim && !claim.concealed)
+      fitCanvasLine(
+        c,
+        claim.percentile == null
+          ? 'Standard score (no readership data for this answer)'
+          : rarityLabel(claim.percentile, claim.category_slug || claim.category_name),
+        175,
+        y + 60,
+        825,
+        22,
+      );
+  });
+  const holderTop = 515 + rows.length * rowHeight + 25;
   c.strokeStyle = ink;
-  const holderTop = 565 + rows.length * rowHeight + 30;
+  c.fillStyle = ink;
   line(holderTop);
-  formText(c, 'label', 'Filed under', 80, holderTop + 38);
-  if (file.founder) c.fillStyle = dark ? '#e7c86b' : '#795700';
-  fit(
+  formText(c, 'label', 'Filed under', 80, holderTop + 35, 22);
+  fitCanvasLine(
+    c,
     file.handle || file.claims[0]?.handle || 'Anonymous filer',
     80,
-    holderTop + 85,
-    650,
+    holderTop + 82,
+    660,
     38,
     '"Instrument Sans"',
     600,
   );
-  if (file.founder) text('Founder', 80, holderTop + 112, 18);
-  c.fillStyle = ink;
   c.save();
-  c.translate(780, h - 210);
+  c.translate(780, holderTop + 35);
   c.lineWidth = 1.4;
   c.stroke(new Path2D(REGISTRAR_STROKE));
   c.restore();
-  text('The Registrar', 780, h - 145, 18);
-  line(h - 100);
-  text('All claims entirely ceremonial.', 80, h - 66, 16);
-  text(PUBLIC_HOST, 825, h - 66, 18);
+  fitCanvasLine(c, SHARE_INVITATION, 80, h - 135, 920, 25);
+  line(h - 110);
+  fitCanvasLine(c, `${PUBLIC_HOST}/summary/${file.summaryId}`, 80, h - 77, 920, 19);
+  fitCanvasLine(c, 'All claims entirely ceremonial.', 80, h - 50, 920, 16);
   return canvasFile(canvas, `dibs-day-${category.date}-${story ? 'story' : 'feed'}.jpg`);
+}
+
+// Fit one line to its actual measured width; long printed URLs remain complete.
+function fitCanvasLine(
+  c: CanvasRenderingContext2D,
+  value: string,
+  x: number,
+  y: number,
+  width: number,
+  start = 24,
+  face: ExportFont = '"Instrument Sans"',
+  weight = 400,
+) {
+  let size = start;
+  do {
+    c.font = `${weight} ${size}px ${face}`;
+    if (c.measureText(value).width <= width) break;
+    size -= 0.5;
+  } while (size > 8);
+  c.fillText(value, x, y);
 }
 
 function formText(
@@ -462,8 +441,11 @@ async function paintPaper(c: CanvasRenderingContext2D, paper: string) {
 export function certificateText(
   claim: Claim,
   score?: Pick<DayFile, 'points' | 'rank' | 'players'>,
+  hideAnswers = false,
 ) {
-  if (score && typeof score.points === 'number')
-    return summaryText(score as DayFile, { name: claim.category_name } as Category);
-  return `I claimed a spot on today's Dibs (${claim.category_name}). ${PUBLIC_HOST}`;
+  const result =
+    !hideAnswers && !claim.concealed
+      ? `${claim.display} · ${claimScore(claim)}`
+      : `${claim.points ?? 0} points`;
+  return `${editionLabel(claim.category_date)} · ${claim.category_name} · ${result}${score?.rank ? ` · #${score.rank} of ${score.players} players today` : ''}. ${PUBLIC_HOST}`;
 }

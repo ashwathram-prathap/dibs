@@ -1,3 +1,6 @@
+import actualPools from './rarity-pools.generated.json';
+import plan from '../scripts/category-plan.json';
+import { categoryPlural } from './category-copy';
 // Gaussian smoothing of the actual percentile ranks used to score this catalog.
 // Missing pageview observations are omitted, never fabricated.
 export function rarityDensity(percentiles: (number | null)[], bins = 48) {
@@ -66,8 +69,18 @@ export const bellPath = () =>
   }).join(' ');
 export const bellArea = () => bellPath() + ' L492,108 L28,108 Z';
 export function rarityLabel(percentile: number, category: string) {
+  const slug = category.toLowerCase().replaceAll(' ', '-');
+  const pool = Math.min(
+    (plan.rarityPoolSizes as Record<string, number>)[slug] || 3000,
+    (actualPools as Record<string, number>)[slug] || 3000,
+  );
+  const subject = categoryPlural({ slug, name: category });
+  const size = pool.toLocaleString('en-US');
+  if (percentile <= 0.1)
+    return `One of the ${Math.ceil(pool / 10).toLocaleString('en-US')} best-known ${subject}`;
+  if (percentile >= 1) return `Rarer than every one of the ${size} best-known ${subject}`;
   const percent = Math.min(99, Math.max(0, Math.round(percentile * 100)));
-  const subject = category.toLowerCase().replaceAll('-', ' ');
-  if (percent <= 10) return `One of the most familiar ${subject}`;
-  return `Rarer than ${percent}% of ${subject}${percentile >= 0.9 && percentile < 0.99 ? ' · deep cut' : ''}`;
+  return `Rarer than ${percent}% of the ${size} best-known ${subject}`;
 }
+export const standardScoreLabel = (points: number) =>
+  `${points} points · standard score (no readership data for this answer)`;

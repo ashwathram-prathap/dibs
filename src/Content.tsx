@@ -1,6 +1,12 @@
 import { useState, useEffect, type FormEvent } from 'react';
 import { api } from './api';
-import { GAME_EXPLANATION, LIMIT_EXPLANATION, BACKUP_EXPLANATION } from '../shared/copy';
+import {
+  GAME_EXPLANATION,
+  LIMIT_EXPLANATION,
+  BACKUP_EXPLANATION,
+  RARITY_EXPLANATION,
+  RESERVED_EXPLANATION,
+} from '../shared/copy';
 import { archiveCsv, validateArchive } from '../shared/feedback-archive';
 import { SHOW_CREATOR_CREDIT, CREATOR_URL, X_URL } from '../shared/creator';
 import { Rules, DropTime, Link, time } from './ui';
@@ -21,7 +27,7 @@ export function About({ nextDrop }: { nextDrop: string }) {
           <h2>How to play</h2>
           <p>{GAME_EXPLANATION}</p>
           <p>{LIMIT_EXPLANATION}</p>
-          <Rules />
+          <Rules includeReserved={false} />
           <details>
             <summary>
               More rules <Icon name="chevron" />
@@ -57,6 +63,9 @@ export function About({ nextDrop }: { nextDrop: string }) {
             Rarer answers score more: from 10 for the most familiar to 110 for the rarest. Golden
             tickets +100; strikes −10.
           </p>
+          <p>{RARITY_EXPLANATION}</p>
+          <h3>What does reserved mean?</h3>
+          <p>{RESERVED_EXPLANATION}</p>
           <h3>What counts toward a streak?</h3>
           <p>Make a claim on consecutive drops. Missing a drop resets your streak.</p>
           <h3>Is it free?</h3>
@@ -113,8 +122,8 @@ export function About({ nextDrop }: { nextDrop: string }) {
               <a href="https://world.openfoodfacts.org/">Open Food Facts</a> (ODbL), and ISO 3166
               data (MIT), plus <a href="https://ourairports.com/">OurAirports</a> (public domain),
               and <a href="https://ssd.jpl.nasa.gov/">NASA/JPL</a> small-body data. Wikipedia
-              pageviews rank measured answers. Answers without popularity data score the category
-              median. <a href="/data/licenses.txt">Full licenses and source notes</a>.
+              readership ranks measured answers. Answers without data get the category’s standard
+              score. <a href="/data/licenses.txt">Full licenses and source notes</a>.
             </p>
           </div>
           <div>

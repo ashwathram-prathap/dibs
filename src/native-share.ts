@@ -7,8 +7,22 @@ export async function sharePrepared(file: File, link: { url: string; text: strin
   } catch {}
   if (capable) {
     try {
-      await navigator.share({ files: [file] });
-      return 'file';
+      const caption = `${link.text} ${link.url}`;
+      const android = /Android/i.test(navigator.userAgent);
+      let mixed = false;
+      try {
+        mixed = android && !!navigator.canShare?.({ files: [file], text: caption });
+      } catch {}
+      // Apple AirDrop rejects mixed payloads. Clipboard preparation must not delay share().
+      const copied = !android
+        ? navigator.clipboard?.writeText(caption).then(
+            () => true,
+            () => false,
+          )
+        : undefined;
+      await navigator.share(mixed ? { files: [file], text: caption } : { files: [file] });
+      if (mixed) return 'file-caption';
+      return (await copied) ? 'file-caption-copied' : 'file';
     } catch (e) {
       if ((e as Error).name === 'AbortError') return 'abort';
     }

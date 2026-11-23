@@ -1,3 +1,5 @@
+import { useHideAnswers } from './share-preference';
+import { claimScore } from '../shared/claim-copy';
 import { rarityLabel } from '../shared/rarity';
 import { ScoreCurve } from './ScoreCurve';
 import { countLabel } from '../shared/text';
@@ -10,7 +12,7 @@ import { categoryStyle } from '../shared/category-style';
 import { MAX_CLAIMS, MAX_STRIKES, PUBLIC_HOST, certificateUrl } from '../shared/config';
 import { GAME_DESCRIPTION } from '../shared/copy';
 import { guesses } from '../shared/guesses';
-import { summaryUrl } from '../shared/sharing';
+import { editionLabel, summaryUrl } from '../shared/sharing';
 import { ShareSheet } from './ShareSheet';
 import { exportCertificate, exportSummary, summaryText, certificateText } from './share';
 import { Handle } from './Handle';
@@ -32,20 +34,25 @@ export function DaySummary({
   file,
   today,
   showLedger = false,
+  owned = true,
 }: {
   file: DayFile;
   today: Today;
   showLedger?: boolean;
+  owned?: boolean;
 }) {
+  const [hideAnswers, setHideAnswers] = useHideAnswers();
   const render = useCallback(
-    (story: boolean) => exportSummary(file, today.category!, story),
-    [file, today.category],
+    (story: boolean) => exportSummary(file, today.category!, story, hideAnswers),
+    [file, today.category, hideAnswers],
   );
   return (
     <section className="day-summary">
       <article
         className={
-          'summary-paper day-certificate stock-' + categoryStyle(today.category!.slug).stock
+          'summary-paper day-certificate stock-' +
+          categoryStyle(today.category!.slug).stock +
+          (file.claims.some((c) => c.golden) ? ' gold-certificate' : '')
         }
         aria-label="Day summary"
       >
@@ -60,9 +67,11 @@ export function DaySummary({
           <p className="postmark-date">{dateLabel(today.category!.date)}</p>
           <Signature />
         </div>
+        {file.claims.some((c) => c.golden) && <p className="golden-notice">Golden ticket found</p>}
         <p className="certificate-score">
           {countLabel(file.points ?? 0, 'point')}
-          {file.rank ? ` · #${file.rank} of ${file.players}` : ''} · Streak {file.streak || 0}
+          {file.rank ? ` · #${file.rank} of ${file.players} players today` : ''} · Streak{' '}
+          {file.streak || 0}
         </p>
         <p className="file-tally">
           {file.dibs}/{MAX_CLAIMS} claims · {file.strikes}{' '}
@@ -72,7 +81,14 @@ export function DaySummary({
 
         <ol className="summary-answers">
           {guesses(file).map((event, i) => (
-            <li key={i} className={event.kind === 'strike' ? 'rejected-filing' : 'accepted-filing'}>
+            <li
+              key={i}
+              className={
+                event.kind === 'strike'
+                  ? 'rejected-filing'
+                  : 'accepted-filing' + (event.golden ? ' golden-row' : '')
+              }
+            >
               <span className="guess-number">{String(i + 1).padStart(2, '0')}</span>
               <div>
                 {event.kind === 'dibs' ? (
@@ -88,13 +104,17 @@ export function DaySummary({
                       <strong>{event.display}</strong>
                     )}
                     <span className={'mini-stamp ' + (event.golden ? 'gold-mini' : '')}>
-                      DIBS{event.golden ? ' / GOLD' : ''}
-                      {(event.obscurity || 0) >= 4 ? ' / Deep cut' : ''}
+                      {event.golden ? 'Golden ticket · +100' : 'DIBS'}
                     </span>
+                    {file.claims.find((c) => c.id === event.claimId) && (
+                      <small className="row-score">
+                        {claimScore(file.claims.find((c) => c.id === event.claimId)!)}
+                      </small>
+                    )}
                   </>
                 ) : (
                   <>
-                    <s>{event.display}</s>
+                    <s>{owned ? event.display : 'Strike · −10'}</s>
                     <small>
                       {event.house ? (
                         'RESERVED'
@@ -128,9 +148,22 @@ export function DaySummary({
         </div>
       </article>
       <aside className="day-companions">
+        {file.claims.some((c) => c.golden) && (
+          <p className="golden-notice">You found a golden ticket. Show it off.</p>
+        )}
         <ShareSheet
           url={summaryUrl(file.summaryId!)}
-          text={summaryText(file, today.category!)}
+          text={summaryText(file, today.category!, hideAnswers)}
+          hideAnswers={hideAnswers}
+          onHideAnswers={owned ? setHideAnswers : undefined}
+          beforeShare={
+            owned
+              ? () =>
+                  api('/summary/' + encodeURIComponent(file.summaryId!), {
+                    showAnswers: !hideAnswers,
+                  }).then(() => {})
+              : undefined
+          }
           render={render}
         />
         {showLedger && <ScoreCurve comparison={file.comparison} final={today.revealed} />}
@@ -176,7 +209,7 @@ export function Certificate({ claim, animated = false }: { claim: Claim; animate
               ? 'Practice — not the public record'
               : 'Registry of claims'}
           </span>
-          <span className="form-label">Form D-1</span>
+          <span className="form-label">Form D-1{claim.golden ? ' · Golden ticket' : ''}</span>
         </div>
         <div className="cert-top">
           <span className="eyebrow">
@@ -231,18 +264,7 @@ export function Certificate({ claim, animated = false }: { claim: Claim; animate
               </>
             ) : (
               <>
-                <p>
-                  {claim.percentile != null ? (
-                    <>
-                      {rarityLabel(claim.percentile, claim.category_name)} ·{' '}
-                      {countLabel(claim.points ?? 0, 'point')}
-                    </>
-                  ) : (
-                    <>
-                      {countLabel(claim.points ?? 0, 'point')} · rarity not measured for this answer
-                    </>
-                  )}
-                </p>
+                <p>{claimScore(claim)}</p>
                 <RarityCurve
                   percentile={claim.percentile}
                   category={claim.category_slug || claim.category_name}
@@ -292,11 +314,26 @@ export function ShareButtons({
   claim: Claim;
   score?: Pick<DayFile, 'points' | 'rank' | 'players'>;
 }) {
-  const render = useCallback((story: boolean) => exportCertificate(claim, story), [claim]);
+  const [hideAnswers, setHideAnswers] = useHideAnswers();
+  const owner = claim.owned !== false && !claim.concealed;
+  const render = useCallback(
+    (story: boolean) => exportCertificate(claim, story, hideAnswers),
+    [claim, hideAnswers],
+  );
   return (
     <ShareSheet
       url={certificateUrl(claim.id)}
-      text={certificateText(claim, score)}
+      text={certificateText(claim, score, hideAnswers)}
+      hideAnswers={hideAnswers}
+      onHideAnswers={owner ? setHideAnswers : undefined}
+      beforeShare={
+        owner
+          ? () =>
+              api('/certificate/' + encodeURIComponent(claim.id), {
+                showAnswers: !hideAnswers,
+              }).then(() => {})
+          : undefined
+      }
       render={render}
     />
   );
@@ -306,11 +343,13 @@ export function SharedInvitation({
   file,
   today,
   revealed,
+  date,
 }: {
   handle: string;
   file: Partial<DayFile>;
   today: Today;
   revealed?: boolean;
+  date?: string;
 }) {
   const invitation = useRef<HTMLElement>(null);
   useEffect(() => {
@@ -335,13 +374,15 @@ export function SharedInvitation({
     <section ref={invitation} className="shared-invitation" aria-label="An invitation to Dibs">
       <span className="eyebrow">Dibs · a daily claim</span>
       <h1>
-        {handle} claimed {countLabel(claims, 'answer')} in {revealed ? 'Dibs' : "today's Dibs"}
+        {handle} claimed {countLabel(claims, 'answer')} in {date ? editionLabel(date) : 'Dibs'}
         {state}. What can you claim?
       </h1>
       <div className="invitation-scorecard" aria-label="Spoiler-safe scorecard">
         <p>
           {countLabel(file.points ?? 0, 'point')}
-          {file.rank ? ` · #${file.rank}${file.players ? ` of ${file.players}` : ''}` : ''}
+          {file.rank
+            ? ` · #${file.rank}${file.players ? ` of ${file.players} players today` : ''}`
+            : ''}
         </p>
         <Progress dibs={claims} strikes={file.strikes ?? 0} />
       </div>
@@ -386,6 +427,7 @@ export function SummaryPage({ id, today }: { id: string; today: Today }) {
           file={data.file}
           today={today}
           revealed={data.file.revealed}
+          date={data.category.date}
         />
       ) : (
         <div className="page-heading">
@@ -401,6 +443,7 @@ export function SummaryPage({ id, today }: { id: string; today: Today }) {
       ) : data ? (
         <DaySummary
           file={data.file}
+          owned={!!data.owned}
           today={{
             category: data.category,
             specials: data.specials,
@@ -440,6 +483,7 @@ export function CertificatePage({ id, today }: { id: string; today: Today }) {
           file={score || { points: claim.points, dibs: 1 }}
           today={today}
           revealed={claim.revealed}
+          date={claim.category_date}
         />
       ) : (
         <div className="page-heading">

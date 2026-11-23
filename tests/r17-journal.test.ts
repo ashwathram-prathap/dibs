@@ -200,6 +200,31 @@ it('mirrors a complete game in batches, preserving exact state and scores after 
   expect(restored.file.points).toBe(last.data.file.points);
   expect(restored.streak).toBe(1);
 }, 30000);
+it('persists explicit owner sharing and never grants another viewer permission or reveals struck guesses', async () => {
+  const other = await account();
+  const summary = '/summary/' + last.data.file.summaryId;
+  for (const path of ['/certificate/' + claim.id, summary]) {
+    expect((await call(path, { showAnswers: true }, other.cookie)).status).toBe(403);
+    expect((await call(path, { showAnswers: true }, winner.cookie)).status).toBe(200);
+  }
+  await mf.setOptions(options);
+  db = await mf.getD1Database('DB');
+  const sharedClaim: any = await (await call('/certificate/' + claim.id)).json();
+  expect(sharedClaim.claim.display).toBe(claim.display);
+  expect(sharedClaim.claim.sharedAnswers).toBe(true);
+  const shared: any = await (await call(summary)).json();
+  expect(shared.file.claims.map((c: any) => c.display)).toContain(claim.display);
+  for (const event of shared.file.events.filter((e: any) => e.kind === 'strike'))
+    expect(event).not.toHaveProperty('display');
+  expect(JSON.stringify(shared)).not.toMatch(/answer_id|user_id|sharedClaimIds/);
+  expect(await (await call('/leaderboard')).text()).not.toContain(claim.display);
+  for (const path of ['/certificate/' + claim.id, summary])
+    expect((await call(path, { showAnswers: false }, winner.cookie)).status).toBe(200);
+  expect(await (await call(summary)).text()).not.toContain(claim.display);
+  expect(((await (await call('/certificate/' + claim.id)).json()) as any).claim.concealed).toBe(
+    true,
+  );
+});
 let nextDate: string, nextClaim: any;
 async function direct(date: string, path: string, data?: any, cookie = winner.cookie) {
   return mf.dispatchFetch('http://localhost/api' + path + '?fixture-day=' + date, {
@@ -271,7 +296,7 @@ it('R19B exposes only allowed pre-close fields across anonymous and signed publi
   ]) {
     const data: any = await (await call(path, undefined, other.cookie)).json();
     assertPublicPayload(data, shapes[path.split(/[/?]/)[1]]);
-    expect(JSON.stringify(data)).not.toMatch(/answer_id|user_id|"display"|"golden"/);
+    expect(JSON.stringify(data)).not.toMatch(/answer_id|user_id|"display"/);
   }
 });
 it('R19B rejects malformed codes cheaply and shares durable throttling between recover and delete', async () => {

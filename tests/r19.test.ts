@@ -13,11 +13,11 @@ it('maps honest percentiles onto a standard normal with safe tails', () => {
     expect(bellX(p)).toBeCloseTo(28 + ((inverseNormalCDF(p) + 3) / 6) * 464, 6);
   expect(bellSigma(0)).toBe(-2.6);
   expect(bellSigma(1)).toBe(2.6);
-  expect(rarityLabel(0, 'animals')).toBe('One of the most familiar animals');
-  expect(rarityLabel(0.1, 'animals')).toBe('One of the most familiar animals');
-  expect(rarityLabel(0.55, 'animals')).toBe('Rarer than 55% of animals');
-  expect(rarityLabel(0.94, 'animals')).toBe('Rarer than 94% of animals · deep cut');
-  expect(rarityLabel(1, 'animals')).toBe('Rarer than 99% of animals');
+  expect(rarityLabel(0, 'animals')).toBe('One of the 300 best-known animals');
+  expect(rarityLabel(0.1, 'animals')).toBe('One of the 300 best-known animals');
+  expect(rarityLabel(0.55, 'animals')).toBe('Rarer than 55% of the 3,000 best-known animals');
+  expect(rarityLabel(0.94, 'animals')).toBe('Rarer than 94% of the 3,000 best-known animals');
+  expect(rarityLabel(1, 'animals')).toBe('Rarer than every one of the 3,000 best-known animals');
 });
 it('removes only the accidental suffix, preserves special names and generates 10000+ pairs', () => {
   expect(cleanHandle('Tan Dove #6a325f64')).toBe('Tan Dove');

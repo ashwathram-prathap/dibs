@@ -94,5 +94,5 @@ it('prints plain spoiler-free points, rank and streak', () => {
       } as any,
       { date: '2026-11-23', name: 'Animals' } as any,
     ),
-  ).toBe("I scored 140 on today's Dibs (Animals), #3 of 27. dibs.here");
+  ).toBe("Dibs #1 · Nov 23 · Animals · 140 pts · #3 of 27 players today. dibs.here");
 });

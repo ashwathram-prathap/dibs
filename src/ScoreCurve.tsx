@@ -17,7 +17,9 @@ export function ScoreCurve({
     >
       {finished < 10 ? (
         <p>
-          {rank ? `Your rank: #${rank} of ${finished} so far.` : `${finished} finished so far.`}{' '}
+          {rank
+            ? `Your rank: #${rank} of ${finished} who finished.`
+            : `${finished} finished so far.`}{' '}
           {final
             ? 'Fewer than 10 players finished this day.'
             : 'The curve appears once 10 players finish.'}
@@ -29,14 +31,12 @@ export function ScoreCurve({
       ) : (
         <>
           <p className="score-comparison">
-            Better than {Math.round(percentile * 100)}% of {final ? "that day's" : "today's"}{' '}
-            players
+            Better than {Math.round(percentile * 100)}% of the {finished} who finished
           </p>
           <p className="score-comparison-detail">
-            {countLabel(points || 0, 'point')} · #{rank} · ({finished} finished
-            {final ? '' : ' so far'})
+            {countLabel(points || 0, 'point')} · #{rank} of {finished} who finished
           </p>
-          <RarityCurve percentile={percentile} category="players" score />
+          <RarityCurve percentile={percentile} category="players" score finished={finished} />
         </>
       )}
     </section>

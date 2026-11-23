@@ -377,9 +377,9 @@ export class Registry extends DurableObject<Env> {
         await this.ctx.storage.put('image-format', 19);
       });
     }
-    const key = 'image:' + (id || 'default') + ':r19b';
+    const key = 'image:' + (id || 'default') + ':r19f';
     const saved = await this.ctx.storage.get<ArrayBuffer>(key);
-    const ttl = id.startsWith('summary/') ? 25 : 86400;
+    const ttl = id ? 25 : 86400;
     const updated = (await this.ctx.storage.get<number>(key + ':updated')) || 0;
     if (saved && (ttl === 86400 || Date.now() - updated < ttl * 1000)) return this.png(saved, ttl);
     let pending = this.flights.get(key);
@@ -419,7 +419,7 @@ export class Registry extends DurableObject<Env> {
           await txn.put(key + ':updated', Date.now());
           if (id) {
             await txn.put('image-bytes', used + bytes.byteLength);
-            await txn.put('image-expiry:' + id + ':r19b', {
+            await txn.put('image-expiry:' + id + ':r19f', {
               at: Date.now() + 30 * 86400000,
               size: bytes.byteLength,
             });
@@ -914,16 +914,33 @@ export class Registry extends DurableObject<Env> {
         600000,
         () => route(req, env),
       );
-    if (path.startsWith('/summary/') && req.method === 'GET') {
+    if (path.startsWith('/summary/')) {
       const cached = await this.cached('summary:' + path.slice(9), 10000, () =>
         this.summary(path.slice(9), env),
       );
       if (!cached.ok) return cached;
       const data: any = await cached.json();
-      const ref = await this.ctx.storage.get<{ user: string }>('summary:' + path.slice(9));
+      const ref = await this.ctx.storage.get<{
+        user: string;
+        category: string;
+        shareAnswers?: boolean;
+      }>('summary:' + path.slice(9));
+      const owned = !!ref && (await cookieUser(req, env.COOKIE_SECRET)) === ref.user;
+      if (req.method === 'POST') {
+        if (!owned || !ref)
+          return json({ message: 'Only the holder can share these answers.' }, 403);
+        const choice = await body(req, 100);
+        if (typeof choice.showAnswers !== 'boolean' || Object.keys(choice).length !== 1)
+          return json({ message: 'Choose whether to show your answers.' }, 422);
+        await this.ctx.storage.put('summary:' + path.slice(9), {
+          ...ref,
+          shareAnswers: choice.showAnswers,
+        });
+        return json({ ok: true });
+      }
       return json({
-        ...publicSummary(data, await canReveal(req, env, data.category)),
-        owned: !!ref && (await cookieUser(req, env.COOKIE_SECRET)) === ref.user,
+        ...publicSummary(data, await canReveal(req, env, data.category), !!ref?.shareAnswers),
+        owned,
       });
     }
     if (path.startsWith('/certificate/')) {
@@ -940,6 +957,14 @@ export class Registry extends DurableObject<Env> {
         !!(await env.DB.prepare('SELECT 1 FROM claims WHERE id=? AND user_id=?')
           .bind(data.claim.id, uid)
           .first());
+      if (req.method === 'POST') {
+        if (!owned) return json({ message: 'Only the holder can share this answer.' }, 403);
+        const choice = await body(req, 100);
+        if (typeof choice.showAnswers !== 'boolean' || Object.keys(choice).length !== 1)
+          return json({ message: 'Choose whether to show your answer.' }, 422);
+        await this.ctx.storage.put('shared-claim:' + data.claim.id, choice.showAnswers);
+        return json({ ok: true });
+      }
       const revealed = await canReveal(req, env, g);
       const scoreResponse = await this.cached(
         'certificate-score:' + data.claim.id,
@@ -991,7 +1016,12 @@ export class Registry extends DurableObject<Env> {
         },
       );
       return json({
-        claim: visibleClaim(data.claim, revealed, owned),
+        claim: visibleClaim(
+          data.claim,
+          revealed,
+          owned,
+          !!(await this.ctx.storage.get('shared-claim:' + data.claim.id)),
+        ),
         score: await scoreResponse.json(),
       });
     }

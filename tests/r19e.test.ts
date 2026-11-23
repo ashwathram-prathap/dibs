@@ -44,8 +44,8 @@ describe('R19E nameable reference pool', () => {
   });
   it('matches the R19 label and bell position at endpoints, with 10–110 points', () => {
     expect([0, 0.1, 0.5, 0.94, 1].map(rarityPoints)).toEqual([10, 10, 55, 105, 110]);
-    expect(rarityLabel(0, 'animals')).toBe('One of the most familiar animals');
-    expect(rarityLabel(1, 'animals')).toBe('Rarer than 99% of animals');
+    expect(rarityLabel(0, 'animals')).toBe('One of the 300 best-known animals');
+    expect(rarityLabel(1, 'animals')).toBe('Rarer than every one of the 3,000 best-known animals');
     expect(bellX(0)).toBeLessThan(bellX(0.5));
     expect(bellX(0.5)).toBeLessThan(bellX(1));
     expect(rarityPoints(-1)).toBe(10);

@@ -64,6 +64,6 @@ it('share text contains scores, rank and streak, never answers or holders', () =
     } as any,
     { date: '2026-11-23', name: 'Animals' } as any,
   );
-  expect(result).toBe("I scored 140 on today's Dibs (Animals), #3 of 27. dibs.here");
+  expect(result).toBe("Dibs #1 · Nov 23 · Animals · 140 pts · #3 of 27 players today. dibs.here");
   expect(result).not.toMatch(/Axolotl|DOG|Secret Holder/);
 });

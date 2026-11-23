@@ -131,7 +131,7 @@ it('uses an evergreen home and answer-free LinkedIn caption and intent', () => {
     } as any,
     { name: 'Animals', date: '2026-11-23' } as any,
   );
-  expect(text).toBe("I scored 140 on today's Dibs (Animals), #3 of 27. dibs.here");
+  expect(text).toBe('Dibs #1 · Nov 23 · Animals · 140 pts · #3 of 27 players today. dibs.here');
   expect(intentUrl('linkedin' as any, text, 'https://dibs.here/summary/fixture')).toContain(
     'https://www.linkedin.com/sharing/share-offsite/?url=',
   );
@@ -158,18 +158,27 @@ it('compresses protected HTML without allowing late analytics injection', async 
   expect(html).not.toContain('src="https://static.cloudflareinsights.com/');
 });
 
-it('keeps certificate captions answer-free after reveal too', () => {
-  const caption = certificateText({
-    category_name: 'Animals',
-    display: 'Axolotl',
-    revealed: true,
-    points: 140,
-    percentile: 99,
-  } as any);
+it('honors Hide my answers in certificate captions after reveal too', () => {
+  const caption = certificateText(
+    {
+      category_name: 'Animals',
+      category_date: '2026-11-23',
+      display: 'Axolotl',
+      revealed: true,
+      points: 140,
+      percentile: 99,
+    } as any,
+    undefined,
+    true,
+  );
   expect(caption).not.toContain('Axolotl');
   expect(caption).not.toContain('99');
   expect(caption).toContain('dibs.here');
   expect(
-    certificateText({ category_name: 'Animals' } as any, { points: 140, rank: 3, players: 27 }),
-  ).toBe("I scored 140 on today's Dibs (Animals), #3 of 27. dibs.here");
+    certificateText(
+      { category_name: 'Animals', category_date: '2026-11-23', points: 140 } as any,
+      { points: 140, rank: 3, players: 27 },
+      true,
+    ),
+  ).toBe('Dibs #1 · Nov 23 · Animals · 140 points · #3 of 27 players today. dibs.here');
 });

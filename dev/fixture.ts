@@ -207,6 +207,8 @@ export async function request(path: string, body?: any): Promise<any> {
           ]
         : [],
     };
+  if (body && (path.startsWith('/certificate/') || path.startsWith('/summary/')))
+    return { ok: true };
   if (path.startsWith('/certificate/') && r7.has('r19c')) {
     const p = r7.get('p');
     const owned = !r7.has('visitor');
@@ -230,7 +232,8 @@ export async function request(path: string, body?: any): Promise<any> {
         concealed: !owned && !revealed,
         percentile: (!owned && !revealed) || p === 'missing' ? null : Number(p || '.6'),
         obscurity: p === 'missing' ? null : Number(p || '.6') >= 0.8 ? 5 : 1,
-        points: p === 'missing' ? 50 : 60,
+        points: (p === 'missing' ? 55 : 60) + (r7.has('gold') ? 100 : 0),
+        bonus: r7.has('gold') ? 100 : 0,
         golden: r7.has('gold'),
       },
       score: { dibs: 3, strikes: 1, closed: true, points: 180, rank: 3, players: 27 },
@@ -389,6 +392,10 @@ export async function request(path: string, body?: any): Promise<any> {
         ? r7.has('gold') || (r7.has('gold-third') && myClaims.length === 2)
         : r6 && entry === 'Axolotl',
     };
+    if (r19) {
+      mine.bonus = mine.golden ? 100 : 0;
+      mine.points += mine.bonus;
+    }
     claims = [mine, ...claims];
     myClaims.push(mine);
     events.push({

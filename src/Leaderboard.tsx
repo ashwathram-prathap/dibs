@@ -83,9 +83,17 @@ export function Leaderboard({
         <p>No scores yet. Be first.</p>
       ) : (
         <table className="leaderboard">
+          <caption>
+            {board.total} players {final ? 'that day' : 'today'} · everyone who claimed
+          </caption>
           <thead>
             <tr>
-              <th scope="col">Rank</th>
+              <th scope="col">
+                Rank{' '}
+                <span className="sr-only">
+                  of {board.total} players {final ? 'that day' : 'today'}
+                </span>
+              </th>
               <th scope="col">Player</th>
               <th scope="col">Points</th>
               <th scope="col">Claims</th>
@@ -99,7 +107,11 @@ export function Leaderboard({
                   <Handle name={r.handle} founder={r.founder} />
                   {r.own && <span className="leaderboard-badge">You</span>}
                   {r.golden && (
-                    <span className="gold-marker" aria-label="Golden ticket" title="Golden ticket">
+                    <span
+                      className="gold-marker"
+                      aria-label="found a golden ticket"
+                      title="Golden ticket"
+                    >
                       <Icon name="star" />
                     </span>
                   )}

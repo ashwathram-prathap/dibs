@@ -4081,7 +4081,7 @@ html[data-theme='dark'] .gold-result .win-stamp {
   background: #f1ece2;
   opacity: 0.35;
   clip-path: polygon(0 0, 8% 0, 0 100%);
-  animation: foil-pass 350ms ease-out forwards;
+  animation: foil-pass 600ms ease-out forwards;
   pointer-events: none;
 }
 @keyframes foil-pass {
@@ -7734,4 +7734,128 @@ html[data-theme='dark'] .feedback-dialog .feedback-error {
 /* Reserve the live verification widget before its delayed script paints. */
 .claim-section:not(.has-payoff) .turnstile {
   min-height: 80px;
+}
+
+/* R19F: a compact, in-flow phone toolbar leaves the certificate unobscured. */
+.launch-description {
+  max-width: 42rem;
+  font-size: clamp(1.125rem, 2vw, 1.5rem);
+  line-height: 1.4;
+}
+.cert-footer span {
+  min-width: 0;
+  overflow-wrap: anywhere;
+  white-space: normal;
+}
+.share-area .share-more {
+  display: none;
+}
+.hide-answers {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  min-height: 44px;
+  font-size: 1rem;
+}
+.hide-answers input {
+  width: 20px;
+  height: 20px;
+}
+.golden-notice,
+.golden-row .mini-stamp,
+.gold-certificate .cert-rule .form-label {
+  color: var(--gold, #795700);
+}
+html[data-theme='dark'] .golden-notice,
+html[data-theme='dark'] .golden-row .mini-stamp,
+html[data-theme='dark'] .gold-certificate .cert-rule .form-label {
+  color: #e7c86b;
+}
+.gold-certificate {
+  border-color: #795700;
+}
+html[data-theme='dark'] .gold-certificate {
+  border-color: #e7c86b;
+}
+.golden-row {
+  border-bottom: 1px solid #795700;
+}
+.row-score {
+  display: block;
+  margin-top: 0.25rem;
+  line-height: 1.4;
+}
+.rarity-gold .rarity-tail {
+  fill: #b8902f;
+}
+@media (max-width: 767px), (max-width: 950px) and (max-height: 500px) {
+  .completed-play .day-summary {
+    display: flex;
+    flex-direction: column;
+  }
+  .completed-play .day-companions {
+    display: contents;
+  }
+  .completed-play .day-companions .share-area {
+    order: -2;
+    margin: 0 0 0.75rem;
+  }
+  .completed-play .day-companions > .golden-notice {
+    order: -3;
+    margin: 0.25rem 0;
+  }
+  .completed-play .day-companions .share-main {
+    position: static;
+    inset: auto;
+    max-height: none;
+    overflow: visible;
+    padding: 0;
+    border: 0;
+  }
+  .share-area .share-buttons,
+  .completed-play .day-companions .share-main .share-buttons {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 5rem;
+    padding: 0;
+  }
+  .share-area .share-buttons > .primary,
+  .share-area .share-buttons > :last-child {
+    grid-column: auto;
+  }
+  .share-area .share-buttons > :not(.primary):not(.share-more) {
+    display: none;
+  }
+  .share-area .share-buttons > .share-more {
+    display: inline-flex;
+  }
+  .share-area .share-buttons.more-open > :not(.primary):not(.share-more) {
+    display: inline-flex;
+    grid-column: 1 / -1;
+  }
+  .share-main > .share-hint {
+    display: none;
+  }
+  .completed-play .share-options {
+    margin-block: 0;
+  }
+  .completed-play {
+    padding-bottom: 1rem;
+  }
+}
+
+.golden-row .guess-number::after {
+  content: '';
+  display: block;
+  width: 0.75rem;
+  height: 0.75rem;
+  margin-top: 0.35rem;
+  background: #795700;
+}
+html[data-theme='dark'] .golden-row .guess-number::after {
+  background: #e7c86b;
+}
+.leaderboard caption {
+  text-align: left;
+  padding-block: 0.5rem;
+  font-size: 0.875rem;
 }

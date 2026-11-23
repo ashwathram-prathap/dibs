@@ -25,6 +25,7 @@ export interface Category {
   status?: string;
 }
 export interface Claim {
+  sharedAnswers?: boolean;
   streak?: number;
   category_slug?: string;
   owned?: boolean;
@@ -86,6 +87,7 @@ export interface Guess {
   house?: boolean;
 }
 export interface DayFile {
+  sharedAnswers?: boolean;
   comparison?: import('../shared/finished-scores').FinishedComparison;
   points?: number;
   rank?: number | null;

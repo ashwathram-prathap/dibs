@@ -27,7 +27,7 @@ test('R19E scored payoff keeps points, percentile, wording and marker aligned', 
     const payoff = page.locator('.claim-payoff');
     await expect(payoff).toContainText(`+${points} points`);
     if (p === null) {
-      await expect(payoff).toContainText('rarity not measured for this answer');
+      await expect(payoff).toContainText('standard score (no readership data for this answer)');
       await expect(page.locator('.payoff-curve .rarity-marker')).toHaveCount(0);
     } else {
       await expect(payoff).toContainText(rarityLabel(p, 'animals'));

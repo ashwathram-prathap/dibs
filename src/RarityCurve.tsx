@@ -7,6 +7,7 @@ export function RarityCurve({
   golden,
   mini = false,
   score = false,
+  finished,
 }: {
   percentile: number | null | undefined;
   category: string;
@@ -14,6 +15,7 @@ export function RarityCurve({
   golden?: boolean | number;
   mini?: boolean;
   score?: boolean;
+  finished?: number;
 }) {
   const id = useId().replace(/:/g, '');
   const measured = percentile != null;
@@ -30,9 +32,9 @@ export function RarityCurve({
       role="img"
       aria-label={
         !measured
-          ? 'Rarity not measured for this answer'
+          ? 'Standard score (no readership data for this answer)'
           : score
-            ? `Better than ${Math.round(percentile! * 100)}% of today's players`
+            ? `Better than ${Math.round(percentile! * 100)}% of the ${finished} who finished`
             : `${answer || 'This claim'}: ${rarityLabel(percentile!, category)}`
       }
       data-percentile={percentile}

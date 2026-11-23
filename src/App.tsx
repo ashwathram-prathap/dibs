@@ -1,3 +1,6 @@
+import { claimScore } from '../shared/claim-copy';
+import { goldenPerDay } from '../shared/config';
+import { LAUNCH_EXPLANATION } from '../shared/copy';
 import { HeaderHandle } from './HeaderHandle';
 import { SelectControl, ThemeSwatch } from './Control';
 import { useNoOrphans } from './no-orphans';
@@ -837,7 +840,7 @@ function Home({
       setMessage(
         err.status === 409
           ? err.data.house
-            ? `${value.toUpperCase()} is reserved (too obvious, nobody can claim it); try another answer.`
+            ? `${value.toUpperCase()} is reserved by the house; try another answer.`
             : `Taken: ${value.toUpperCase()} is ${err.data.takenBy}'s.`
           : err.data?.code === 'NOT_REGISTERED'
             ? "Not on today's list; check the spelling."
@@ -863,6 +866,7 @@ function Home({
       {!today.category ? (
         <section className="closed-office">
           <div className="closed-copy">
+            <p className="launch-description">{LAUNCH_EXPLANATION}</p>
             <Clock target={today.nextDrop} />
             <Reminder at={today.nextDrop} />
             <OpeningTime
@@ -909,12 +913,15 @@ function Home({
                 </strong>
                 <div className="claim-payoff">
                   <p>Yours. {claim.display} has your name on it for good.</p>
+                  {!!claim.golden && (
+                    <p className="golden-notice">
+                      <strong>Golden ticket.</strong> One of{' '}
+                      {today.specials?.goldenTotal ?? goldenPerDay(today.category.date)} hidden
+                      tonight.
+                    </p>
+                  )}
                   <p className="points-earned">
-                    <strong>+{countLabel(claim.points ?? 0, 'point')}</strong>
-                    {claim.percentile != null
-                      ? ` · ${rarityLabel(claim.percentile, today.category.name)}`
-                      : ' · rarity not measured for this answer'}
-                    {!!claim.golden && ' · Golden ticket +100'}
+                    <strong>+{claimScore(claim)}</strong>
                   </p>
                   {streakMoment !== null && (
                     <p className="streak-payoff">
@@ -1037,7 +1044,7 @@ function Home({
                       {taken ? (
                         <>
                           {houseStrike
-                            ? 'Reserved (too obvious). −10 points.'
+                            ? 'Reserved by the house. −10 points.'
                             : `Taken. −10 points. ${countLabel(MAX_STRIKES - (file?.strikes || 0), 'strike')} left.`}
                         </>
                       ) : takenHolder?.founder ? (

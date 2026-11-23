@@ -146,6 +146,14 @@ for (const source of catalogSources()) {
       })),
   });
 }
+writeFileSync(
+  'shared/rarity-pools.generated.json',
+  JSON.stringify(
+    Object.fromEntries(coverage.filter((c) => !c.retained).map((c) => [c.category, c.poolSize])),
+    null,
+    2,
+  ) + '\n',
+);
 mkdirSync('review/round19e', { recursive: true });
 writeFileSync('review/round19e/popularity-coverage.json', JSON.stringify(coverage, null, 2) + '\n');
 writeFileSync(

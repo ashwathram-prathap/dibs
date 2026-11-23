@@ -18,9 +18,9 @@ export function preview(kind: 'certificate' | 'summary'): PagesFunction<Env> {
     const data = (await response.json()) as any;
     const score = data.score || data.file || data.claim;
     const category = data.category?.name || data.claim?.category_name;
-    const title = `Dibs · ${category} · ${score.points ?? 0} pts${score.rank ? ' · #' + score.rank + ' of ' + score.players : ''}`;
+    const title = `Dibs · ${category} · ${score.points ?? 0} pts${score.rank ? ' · #' + score.rank + ' of ' + score.players + ' players today' : ''}`;
     const description = GAME_DESCRIPTION;
-    const image = `${publicOrigin}/api/og/${kind === 'summary' ? 'summary/' : ''}${id}?v=19b`;
+    const image = `${publicOrigin}/api/og/${kind === 'summary' ? 'summary/' : ''}${id}?v=19f`;
     const canonical = `${publicOrigin}/${kind}/${id}`;
     const tags: Record<string, string> = {
       'meta[name="robots"]': 'noindex,nofollow',

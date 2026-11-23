@@ -23,7 +23,7 @@ export async function canReveal(_req: Request, _env: Env, category: any) {
   return dayClosed(category);
 }
 // Public boundaries enumerate fields. New journal fields are private by default.
-export function visibleClaim(c: any, revealed = false, owned = false): any {
+export function visibleClaim(c: any, revealed = false, owned = false, shared = false): any {
   const out: any = {
     id: c.id,
     category_id: c.category_id,
@@ -37,11 +37,12 @@ export function visibleClaim(c: any, revealed = false, owned = false): any {
     founder: c.founder,
     streak: c.streak,
     points: c.points,
-    concealed: !revealed && !owned,
+    concealed: !revealed && !owned && !shared,
     revealed,
     owned,
   };
-  if (revealed || owned) {
+  if (shared) out.sharedAnswers = true;
+  if (revealed || owned || shared) {
     out.display = c.display;
     out.obscurity = c.obscurity;
     out.percentile = c.percentile;
@@ -127,13 +128,34 @@ export function publicFile(f: any, revealed = false, owned = false): any {
     ),
   };
 }
-export function publicSummary(data: any, revealed = false) {
+export function publicSummary(data: any, revealed = false, shared = false) {
+  const file = publicFile(data.file, revealed);
+  if (shared) {
+    file.sharedAnswers = true;
+    file.claims = (data.file.claims || [])
+      .filter((c: any) => !c.voided)
+      .map((c: any) => visibleClaim(c, revealed, false, true));
+    // A share grants access only to this owner's successful claims, never struck guesses.
+    file.events = (data.file.events || []).map((e: any) =>
+      e.kind === 'dibs'
+        ? {
+            at: e.at,
+            kind: e.kind,
+            claimId: e.claimId,
+            display: e.display,
+            golden: e.golden,
+            obscurity: e.obscurity,
+          }
+        : { at: e.at, kind: e.kind },
+    );
+  }
+  file.events = file.events.map((e: any) => (e.kind === 'strike' ? { at: e.at, kind: e.kind } : e));
   return {
-    concealed: !revealed,
+    concealed: !revealed && !shared,
     category: publicCategory(data.category),
     specials: publicSpecials(data.specials, revealed),
     nextDrop: data.nextDrop,
-    file: publicFile(data.file, revealed),
+    file,
   };
 }
 export const concealSummary = (data: any) => publicSummary(data);

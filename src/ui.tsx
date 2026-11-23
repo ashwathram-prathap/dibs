@@ -289,13 +289,13 @@ export function Introduction() {
     </section>
   );
 }
-export function Rules() {
+export function Rules({ includeReserved = true }: { includeReserved?: boolean }) {
   return (
     <div className="plain-rules">
       <p>{FINISH_EXPLANATION}</p>
       <p>{SCHEDULE_EXPLANATION}</p>
       <p>{GOLDEN_EXPLANATION}</p>
-      <p>{RESERVED_EXPLANATION}</p>
+      {includeReserved && <p>{RESERVED_EXPLANATION}</p>}
     </div>
   );
 }

@@ -1,3 +1,6 @@
+import { claimScore } from '../shared/claim-copy';
+import { SHARE_INVITATION } from '../shared/copy';
+import { bellPath, bellArea, bellX, bellY, bellSigma } from '../shared/rarity';
 import { cleanStoredHandles } from '../shared/handles';
 import { noOrphan } from '../shared/text';
 import encodeJpeg from './jpeg-encoder';
@@ -50,6 +53,13 @@ export async function og(claim: any, summary?: any) {
     color = '#1A1A17',
     role: 'display' | 'text' | 'form' = 'text',
   ) => {
+    const measure = (z: number) =>
+      [...value].reduce((n, ch) => {
+        const candidate = role === 'text' ? textFont : role === 'form' ? formFont : undefined;
+        const face = candidate?.charToGlyphIndex(ch) ? candidate : faceFor(ch);
+        return n + ((face.charToGlyph(ch).advanceWidth || 0) * z) / face.unitsPerEm;
+      }, 0);
+    while (size > 9 && measure(size) > 1140 - x) size -= 0.5;
     let out = '';
     for (const ch of noOrphan(value)) {
       const candidate = role === 'text' ? textFont : role === 'form' ? formFont : undefined;
@@ -74,20 +84,64 @@ export async function og(claim: any, summary?: any) {
   const wordmark = (x: number, y: number, w: number) =>
     `<g transform="translate(${x} ${y}) scale(${w / WORDMARK_WIDTH}) translate(${WORDMARK_OFFSET_X} ${WORDMARK_OFFSET_Y})"><path fill="#1A1A17" d="${WORDMARK_PATH}"/><path fill="#E1462B" d="M${WORDMARK_BLOCK_X} 67h18v18h-18z"/></g>`;
   const stamp = `<g transform="translate(965 529) rotate(-3)"><path fill="none" stroke="#E1462B" stroke-width="4" d="M-150-42h300v80h-300z"/>${text('DIBS', -110, 17, 58, '#E1462B', 'display')}</g>`;
-  const content = home
-    ? `${wordmark(60, 73, 500)}${text('One category a day.', 60, 310, 48)}${text("Call it first, it's yours.", 60, 375, 48)}${text(`${MAX_CLAIMS} claims · ${MAX_STRIKES} strikes · new drop ${DROP_TIME_LABEL.replace(':00', '')} ET`, 60, 465, 28)}`
-    : `${wordmark(960, 45, 170)}${text(summary?.category?.date || claim?.category_date || '', 60, 95, 24, '#1A1A17', 'form')}${lines.map((line, i) => text(line, 60, 180 + size + i * size * 0.95, size, '#1A1A17', 'display')).join('')}${text(`${file.points ?? claim?.points ?? 0} pts${file.rank ? ' · #' + file.rank + ' of ' + file.players : ''} · Streak ${file.streak || claim?.streak || 0}`, 60, 445, 32)}${(file.events || []).map((e: any, i: number) => `<rect x="${60 + i * 42}" y="495" width="28" height="28" fill="${e.kind === 'dibs' ? '#E1462B' : 'none'}" stroke="#1A1A17" stroke-width="2"/>`).join('')}`;
-  const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="627"><path fill="#F1ECE2" d="M0 0h1200v627H0z"/><path fill="none" stroke="#1A1A17" stroke-width="2" d="M20 20h1160v587H20z"/>${content}${stamp}${!home ? text(file.handle || claim?.handle || '', 60, 558, 20) : ''}${text(PUBLIC_HOST, 60, 585, 20)}</svg>`;
+  const gold = '#795700';
+  const claims = summary?.file?.claims || [];
+  const golden = claim?.golden || claims.some((c: any) => c.golden);
+  let content: string;
+  if (home)
+    content = `${wordmark(60, 73, 500)}${text('One category a day.', 60, 310, 48)}${text("Call it first, it's yours.", 60, 375, 48)}${text(`${MAX_CLAIMS} claims · ${MAX_STRIKES} strikes · new drop ${DROP_TIME_LABEL.replace(':00', '')} ET`, 60, 465, 28)}${stamp}${text(PUBLIC_HOST, 60, 585, 20)}`;
+  else if (claim) {
+    const shown = !claim.concealed;
+    content = `${wordmark(960, 45, 170)}${text(claim.golden ? 'Form D-1 · Golden ticket' : 'Certificate of Dibs', 60, 90, 26, claim.golden ? gold : '#1A1A17')}${text(shown ? claim.display : 'SEALED', 60, 220, 95, '#1A1A17', 'display')}${text(category, 60, 270, 32)}${text(shown ? claimScore(claim) : `${claim.points ?? 0} points · Sealed until the day closes.`, 60, 320, 26)}${text(claim.handle || '', 60, 490, 28)}`;
+    if (shown && claim.percentile != null) {
+      const x = bellX(claim.percentile),
+        y = bellY(bellSigma(claim.percentile));
+      content += `<g transform="translate(60 345)"><path fill="#1A1A17" opacity=".08" d="${bellArea()}"/><path fill="none" stroke="#1A1A17" stroke-width="2" d="${bellPath()}"/><path stroke="${golden ? gold : '#E1462B'}" stroke-width="3" d="M${x} ${y}V108"/><circle fill="${golden ? gold : '#E1462B'}" cx="${x}" cy="${y}" r="4"/></g>`;
+    }
+    content +=
+      text(SHARE_INVITATION, 60, 545, 26) + text(`${PUBLIC_HOST}/c/${claim.id}`, 60, 585, 20);
+  } else {
+    content = `${wordmark(960, 45, 170)}${text(summary.category.date, 60, 80, 24)}${text(title, 60, 170, 80, '#1A1A17', 'display')}${text(`${file.points ?? 0} points${file.rank ? ` · #${file.rank} of ${file.players} players today` : ''}`, 60, 225, 38)}${golden ? text('Golden ticket found', 60, 265, 26, gold) : ''}`;
+    claims.slice(0, 3).forEach((c: any, i: number) => {
+      const y = 310 + i * 62,
+        color = c.golden ? gold : '#1A1A17';
+      content += `<rect x="60" y="${y - 18}" width="18" height="18" fill="${c.golden ? gold : '#E1462B'}"/>`;
+      content += text(
+        `${!c.concealed ? c.display : 'Claim'}${c.golden ? ' · Golden ticket · +100' : ''}`,
+        92,
+        y,
+        28,
+        color,
+      );
+      content += text(
+        c.concealed ? `${c.points ?? 0} points` : claimScore(c),
+        92,
+        y + 25,
+        20,
+        color,
+      );
+    });
+    content += text(
+      `${file.handle || ''}${file.strikes ? ` · ${file.strikes} strikes · −${file.strikes * 10}` : ''}`,
+      60,
+      505,
+      24,
+    );
+    content +=
+      text(SHARE_INVITATION, 60, 545, 26) +
+      text(`${PUBLIC_HOST}/summary/${file.summaryId || ''}`, 60, 585, 20);
+  }
+  const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="627"><path fill="#F1ECE2" d="M0 0h1200v627H0z"/><path fill="none" stroke="${golden ? gold : '#1A1A17'}" stroke-width="2" d="M20 20h1160v587H20z"/>${content}</svg>`;
   const renderer = new Resvg(svg);
   try {
     const png = renderer.render();
     try {
       const bytes = encodeJpeg({ data: png.pixels, width: png.width, height: png.height }, 85).data;
-      if (bytes.byteLength > 600000) throw Error('Preview exceeds image size limit');
+      if (bytes.byteLength > 350000) throw Error('Preview exceeds image size limit');
       return new Response(bytes.buffer as ArrayBuffer, {
         headers: {
           'content-type': 'image/jpeg',
-          'cache-control': 'public, max-age=300',
+          'cache-control': home ? 'public, max-age=300' : 'no-store',
           'x-robots-tag': 'noindex',
           'x-public-origin': PUBLIC_ORIGIN,
         },

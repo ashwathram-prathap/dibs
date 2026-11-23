@@ -52,7 +52,7 @@ it('prints ordered claim/gold/strike squares, no answers, and omits absent rank'
     streak: 1,
   };
   expect(summaryText(file, { date: '2026-11-23', name: 'Animals' } as any)).toBe(
-    "I scored 140 on today's Dibs (Animals). dibs.here",
+    "Dibs #1 · Nov 23 · Animals · 140 pts. dibs.here",
   );
 });
 it('reloads newer builds only when closed or done and never while typing', () => {

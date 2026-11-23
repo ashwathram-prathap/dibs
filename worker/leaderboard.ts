@@ -41,9 +41,10 @@ export function publicScores(rows: ScoreRow[], uid?: string, limit = 25, reveale
     founder: row.founder,
     points: row.points,
     claims: row.dibs,
-    ...(revealed ? { golden: row.golden } : {}),
+    golden: !!row.golden,
     own: row.user_id === uid,
   });
+  rows = rows.filter((row) => row.dibs > 0);
   const ownIndex = rows.findIndex((r) => r.user_id === uid);
   return {
     rows: rows.slice(0, limit).map(expose),

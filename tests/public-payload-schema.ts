@@ -26,7 +26,7 @@ const file = {
   events: [event],
   comparison,
 };
-const standing = fields('rank handle founder points claims own');
+const standing = fields('rank handle founder points claims own golden');
 const board = { rows: [standing], own: standing, total: true, comparison, final: true };
 const today = {
   ...fields(
