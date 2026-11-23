@@ -415,7 +415,7 @@ nav a[aria-current='page']:after {
 }
 .primary:hover {
   background: var(--red);
-  transform: translate(1px, 1px);
+  transform: none;
   box-shadow: 0.1875rem 0.1875rem 0 #1a1a17;
 }
 .primary span {

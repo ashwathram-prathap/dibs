@@ -57,7 +57,10 @@ export default defineConfig({
     baseURL: 'http://127.0.0.1:' + port,
     timezoneId: 'America/Toronto',
     extraHTTPHeaders: { 'x-dibs-test': '1' },
-    trace: 'retain-on-failure',
+    // Parallel custom contexts can race while Playwright packages trace streams.
+    // Keep screenshots/error contexts for the full matrix; tracing remains opt-in for diagnosis.
+    trace: process.env.R19C_TRACE ? 'retain-on-failure' : 'off',
+    screenshot: 'only-on-failure',
   },
   projects,
   reporter: [

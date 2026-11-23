@@ -351,6 +351,20 @@ test('Each claim gets its payoff; third gold and fifth strike wait for the playe
   for (let i = 0; i < 5; i++) {
     await claim(page, 'Pangolin');
     await expect(page.locator('.strike-count')).toContainText(`Strike ${i + 1}`);
+    if (i === 3) {
+      const positions = await page.locator('.input-row .primary').evaluate(async (el) => {
+        const rows: number[] = [];
+        for (let n = 0; n < 8; n++) {
+          await new Promise(requestAnimationFrame);
+          rows.push(el.getBoundingClientRect().y);
+        }
+        return rows;
+      });
+      expect(
+        Math.max(...positions) - Math.min(...positions),
+        'submit target must stay still under a parked pointer',
+      ).toBeLessThanOrEqual(0.5);
+    }
   }
   await expect(page.locator('.final-strike')).toContainText("Taken. −10 points. That's 5 strikes.");
   await expect(page.locator('.day-certificate')).toHaveCount(0);
