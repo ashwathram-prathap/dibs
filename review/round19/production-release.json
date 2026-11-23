@@ -1,0 +1,97 @@
+[
+  {
+    "name": "Check exact R19 gates and timing",
+    "passed": true,
+    "at": "2026-11-23T12:43:17.714Z"
+  },
+  {
+    "name": "Record original deployment IDs",
+    "passed": true,
+    "at": "2026-11-23T12:43:19.025Z"
+  },
+  {
+    "name": "Back up production before release",
+    "passed": true,
+    "at": "2026-11-23T12:43:21.395Z"
+  },
+  {
+    "name": "Capture all legacy rows and schedule",
+    "passed": true,
+    "at": "2026-11-23T12:43:22.724Z"
+  },
+  {
+    "name": "Check exact R19 gates and timing",
+    "passed": true,
+    "at": "2026-11-23T12:43:22.899Z"
+  },
+  {
+    "name": "Verify standard deployment freeze",
+    "passed": true,
+    "at": "2026-11-23T12:43:23.060Z"
+  },
+  {
+    "name": "Configure drop",
+    "passed": true,
+    "at": "2026-11-23T12:43:23.224Z"
+  },
+  {
+    "name": "Build house words",
+    "passed": true,
+    "at": "2026-11-23T12:43:28.312Z"
+  },
+  {
+    "name": "Build production frontend",
+    "passed": true,
+    "at": "2026-11-23T12:43:48.937Z"
+  },
+  {
+    "name": "Check exact R19 gates and timing",
+    "passed": true,
+    "at": "2026-11-23T12:43:49.109Z"
+  },
+  {
+    "name": "Deploy production Worker",
+    "passed": true,
+    "at": "2026-11-23T12:44:19.762Z"
+  },
+  {
+    "name": "Clean existing stored handle suffixes",
+    "passed": true,
+    "at": "2026-11-23T12:44:32.558Z"
+  },
+  {
+    "name": "Notify IndexNow after Worker deploy (nonblocking)",
+    "passed": true,
+    "at": "2026-11-23T12:44:33.862Z"
+  },
+  {
+    "name": "Check exact R19 gates and timing",
+    "passed": true,
+    "at": "2026-11-23T12:44:34.824Z"
+  },
+  {
+    "name": "Deploy production Pages",
+    "passed": true,
+    "at": "2026-11-23T12:44:49.355Z"
+  },
+  {
+    "name": "Read-only production smoke",
+    "passed": true,
+    "at": "2026-11-23T12:45:08.125Z"
+  },
+  {
+    "name": "Notify IndexNow after Pages deploy (nonblocking)",
+    "passed": true,
+    "at": "2026-11-23T12:45:09.109Z"
+  },
+  {
+    "name": "Verify exact rows after smoke",
+    "passed": true,
+    "at": "2026-11-23T12:45:10.640Z"
+  },
+  {
+    "name": "Record released deployment IDs",
+    "passed": true,
+    "at": "2026-11-23T12:45:12.206Z"
+  }
+]

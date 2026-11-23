@@ -1,0 +1,25 @@
+{
+  "at": "2026-11-23T12:47:51.201889+00:00",
+  "results": [
+    {
+      "strategy": "mobile",
+      "scores": {
+        "performance": 97,
+        "accessibility": 100,
+        "best-practices": 100,
+        "seo": 100
+      },
+      "warnings": []
+    },
+    {
+      "strategy": "desktop",
+      "scores": {
+        "performance": 100,
+        "accessibility": 100,
+        "best-practices": 100,
+        "seo": 100
+      },
+      "warnings": []
+    }
+  ]
+}

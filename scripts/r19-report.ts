@@ -103,7 +103,7 @@ Median tap-to-stamp, with sample range in parentheses. Three fresh sessions per 
 
 ${timingTable}
 
-Chromium meets the first-claim target. WebKit improves substantially but its 1.86-second median (1.84–2.38 seconds) at exactly three seconds of dwell remains above the approximate 1.5-second target. Both browsers meet the later-claim target. WebKit lacks requestIdleCallback, so it uses the requested 1.5-second fallback before executing the third-party check. The loader is fetched earlier to reduce that delay; the remaining first-claim miss is documented rather than hidden by a longer dwell time.
+Chromium meets the first-claim target. WebKit improves substantially but its 1.86-second median (1.84–2.38 seconds) at exactly three seconds of dwell remains above the approximate 1.5-second target. Both browsers meet the later-claim target. The tested WebKit build lacks requestIdleCallback, so it uses the requested 1.5-second fallback before executing the third-party check. The loader is fetched earlier to reduce that delay; the remaining first-claim miss is documented rather than hidden by a longer dwell time.
 
 The harness applies 150 ms RTT plus 1.6 Mbps encoded-response transfer delay and 75 ms each way for WebSocket messages, with no CPU slowdown. It waits exactly three seconds after the answer field appears. This is a reproducible transport simulation in both engines, not physical mobile-network measurement. Raw samples: [before](claim-timing-before.json), [after](claim-timing-after.json). Intermittent network failures interrupted two later rehearsal attempts; the completed R18 baseline was retained because its source and transport were unchanged, and the final R19 run completed separately. Practice cleanup, real keys, notifications and every schedule row were verified restored.
 
@@ -133,13 +133,14 @@ The optional 200-player practice load test was skipped: its allowed 7:05 PM ET s
 
 ## Design evidence and owner checks
 
-[Visual index](index.html). Final every-route light/dark screenshots at 390/1440 are in \`review/final/round19/\`; payoff at 390/768/1440/1920, phone payoff at the five requested sizes and 1.0/1.3 scale, streaks, Settings, theme states, Day/claim exports and OG proof are in \`review/round19/\`. Full-size images and verbose runner artifacts stay local; compact evidence is committed.
+[Visual index](index.html). Final every-route light/dark screenshots at 390/1440 are in \`review/final/round19/\`; payoff at 390/768/1440/1920, phone payoff at the five requested sizes and 1.0/1.3 scale, streaks, Settings, theme states, Day/claim exports and OG proof are in \`review/round19/\`. The final [Firefox screenshot run](https://github.com/ashwathram-prathap/dibs/actions/runs/45175559122) passed and its 148 images are included locally. Full-size images and verbose runner artifacts stay local; compact evidence is committed.
 
 The sticky Share bar was chosen to keep large, readable certificate text while guaranteeing visible actions at 130% text. Mobile navigation uses shorter visible labels with full accessible names. Feedback day limits use UTC; per-player limits use a rolling hour.
 
 The three weakest remaining screens are the long Office/privacy page, the tall phone Day Certificate (its actions remain fixed and visible), and the intentionally sparse empty archive. No invented records were added.
 
 First five phone checks:
+
 1. Return Theme to System, switch the device theme, and repeat from the home-screen app.
 2. Expand Backup code and Delete my data with large text; scroll vertically and confirm every code character is visible.
 3. After opening, type and claim; check the compact payoff, named close time and Remind me sheet.

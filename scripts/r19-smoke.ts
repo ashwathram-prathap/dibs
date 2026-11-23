@@ -123,6 +123,24 @@ try {
           await p.locator('.reminder-button').click();
           await p.locator('.drop-countdown .text-link').click();
           await expect(p.getByLabel('Timezone', { exact: true })).toBeFocused();
+          const theme = p.getByRole('combobox', { name: 'Theme', exact: true });
+          await expect(theme.locator('option')).toHaveText(['System', 'Paper copy', 'Carbon copy']);
+          await expect(theme).toHaveValue('system');
+          await theme.selectOption('light');
+          await expect(p.locator('html')).toHaveAttribute('data-theme', 'light');
+          await theme.selectOption('system');
+          await expect(p.locator('html')).toHaveAttribute('data-theme', colorScheme);
+          const statusBar = await p.locator('meta[name="theme-color"]').getAttribute('content');
+          const opposite = colorScheme === 'light' ? 'dark' : 'light';
+          await p.emulateMedia({ colorScheme: opposite });
+          await expect(p.locator('html')).toHaveAttribute('data-theme', opposite);
+          await expect(p.locator('meta[name="theme-color"]')).not.toHaveAttribute(
+            'content',
+            statusBar!,
+          );
+          assert.equal(await p.evaluate(() => localStorage.getItem('dibs-theme')), null);
+          await p.emulateMedia({ colorScheme });
+          await expect(p.locator('html')).toHaveAttribute('data-theme', colorScheme);
           await p.locator('#file-settings > summary').click();
           assert.ok(
             await p.locator('.header-controls').evaluate((el) => el.scrollWidth <= el.clientWidth),
