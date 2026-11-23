@@ -1,0 +1,42 @@
+{
+  "opensAt": "2026-11-23T13:23:00.220Z",
+  "checks": [
+    {
+      "browser": "chromium",
+      "fresh": true,
+      "claimStatus": 201,
+      "turnstile": true
+    },
+    {
+      "browser": "webkit",
+      "fresh": true,
+      "claimStatus": 201,
+      "turnstile": true
+    },
+    {
+      "browser": "chromium",
+      "fresh": true,
+      "claimStatus": 201,
+      "turnstile": true
+    },
+    {
+      "browser": "webkit",
+      "fresh": true,
+      "claimStatus": 201,
+      "turnstile": true
+    },
+    {
+      "browser": "chromium",
+      "fresh": true,
+      "claimStatus": 201,
+      "turnstile": true
+    },
+    {
+      "browser": "webkit",
+      "fresh": true,
+      "claimStatus": 201,
+      "turnstile": true
+    }
+  ],
+  "passed": true
+}

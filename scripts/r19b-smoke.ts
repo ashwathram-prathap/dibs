@@ -77,6 +77,16 @@ try {
   const home = await fetch('https://dibs.here');
   assert.equal(home.status, 200);
   const html = await home.text();
+  assert.ok(
+    html.includes('data-dibs-beacon='),
+    'Real-visitor analytics configuration must be present and inert',
+  );
+  assert.ok(html.includes('src="/analytics.js"'), 'Conditional analytics loader missing');
+  assert.ok(
+    !html.includes('src="https://static.cloudflareinsights.com/'),
+    'Beacon must not be active in HTML',
+  );
+  assert.ok(html.includes('name="dibs-test"'), 'QA header marker missing');
   const structured = JSON.parse(
     html.match(/<script type="application\/ld\+json">(.*?)<\/script>/)![1],
   );

@@ -1,0 +1,57 @@
+{
+  "sourceCommit": "eacebcdf8138f5c9bc70ea9b0735c0ba0d0e12e3",
+  "unit": {
+    "files": 49,
+    "tests": 223,
+    "passed": true,
+    "log": "unit-final-bounded.log",
+    "earlierResourceTimeouts": [
+      "r8.test.ts",
+      "house-ranking.test.ts"
+    ]
+  },
+  "fullMatrix": {
+    "startTime": "2026-11-23T13:18:41.323Z",
+    "duration": 355378.08900000004,
+    "expected": 400,
+    "skipped": 0,
+    "unexpected": 0,
+    "flaky": 0
+  },
+  "finalShareMatrix": {
+    "startTime": "2026-11-23T13:24:41.657Z",
+    "duration": 63164.472,
+    "expected": 80,
+    "skipped": 0,
+    "unexpected": 0,
+    "flaky": 0
+  },
+  "visual": {
+    "mainScreens": 52,
+    "recoveryScreens": 4,
+    "overflow": false,
+    "antiAIChecklist": "reviewed"
+  },
+  "practice": {
+    "freshBrowsers": 6,
+    "previewCases": 15,
+    "maximumPageMs": 276.21695799999,
+    "maximumImageMs": 433.0587919999962
+  },
+  "productionPublicScoreLinks": "No rows or archived categories exist; cannot verify a real production score URL without creating prohibited synthetic data.",
+  "lighthouse": {
+    "performance": 0.91,
+    "accessibility": 1,
+    "bestPractices": 1,
+    "practiceSeo": 0.66,
+    "consoleErrors": [],
+    "lcp": "2.1\u00a0s",
+    "cls": "0.173"
+  },
+  "productionBuild": {
+    "passed": true,
+    "inertConfiguration": true,
+    "conditionalLoader": true,
+    "sha256": "f52f628d279f8f04010ba60d4af1d6dc8d250019c6db9ef756970e48d806d6f2"
+  }
+}

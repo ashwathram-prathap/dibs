@@ -1,0 +1,22 @@
+[
+  {
+    "browser": "chromium",
+    "passed": true,
+    "slowBootstrapMs": 200,
+    "finishedRank": 3,
+    "offlineOnline": true,
+    "backgroundWake": true,
+    "multipleTabs": true,
+    "verificationTimeoutMs": 9967
+  },
+  {
+    "browser": "webkit",
+    "passed": true,
+    "slowBootstrapMs": 200,
+    "finishedRank": 3,
+    "offlineOnline": true,
+    "backgroundWake": true,
+    "multipleTabs": true,
+    "verificationTimeoutMs": 10385
+  }
+]

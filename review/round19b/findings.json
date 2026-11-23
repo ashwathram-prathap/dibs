@@ -3,7 +3,7 @@
     "item": "Sharing crawl rules, metadata, home art and LinkedIn controls",
     "classification": "confirmed defect",
     "before": "3 failing local preview tests",
-    "after": "All bot fixtures pass; 1200x627 JPEGs; UI 390/1440 light/dark reviewed"
+    "after": "All five bots \u00d7 home/summary/c pass on practice: direct 200 HTML, 1200x627 JPEG under 1 MB; answer-free captions; LinkedIn/download UI at both widths/themes."
   },
   {
     "item": "Public answer confidentiality",
@@ -51,6 +51,18 @@
     "item": "Cloudflare bot settings",
     "classification": "source-level concern",
     "before": "Read-only API returns 403 for bot management and rulesets",
-    "after": "Direct bot-fetch verification pending; dashboard owner audit required"
+    "after": "15 live practice bot checks pass without cookies/challenges; account settings APIs remain 403. Owner audit paths recorded; no settings changed."
+  },
+  {
+    "item": "Short certificate redirects",
+    "classification": "confirmed defect",
+    "before": "Practice bot check and actual local /c handler returned 302",
+    "after": "Direct server-rendered 200 preview and client certificate route; 40-profile UI checks"
+  },
+  {
+    "item": "HTML compression with analytics exclusion",
+    "classification": "confirmed defect",
+    "before": "Practice Lighthouse 83/89; no-transform HTML transferred 111 KB uncompressed",
+    "after": "Explicit gzip while retaining no-transform: about 22 KB; final mobile Lighthouse 91 performance / 100 accessibility."
   }
 ]
