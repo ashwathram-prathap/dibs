@@ -2,7 +2,7 @@ import { rarityLabel } from '../shared/rarity';
 import { ScoreCurve } from './ScoreCurve';
 import { countLabel } from '../shared/text';
 import { RarityCurve } from './RarityCurve';
-import { useState, useEffect, useCallback } from 'react';
+import { useState, useEffect, useCallback, useRef } from 'react';
 import { m as motion, useReducedMotion, LazyMotion, domAnimation } from 'framer-motion';
 import { api } from './api';
 import { type Claim, type DayFile, type Today, type Category, serial } from './types';
@@ -312,6 +312,18 @@ export function SharedInvitation({
   today: Today;
   revealed?: boolean;
 }) {
+  const invitation = useRef<HTMLElement>(null);
+  useEffect(() => {
+    if (!matchMedia('(min-width: 768px) and (max-width: 950px) and (max-height: 500px)').matches)
+      return;
+    let active = true;
+    void document.fonts.ready.then(() => {
+      if (active) invitation.current?.scrollIntoView({ block: 'start', behavior: 'instant' });
+    });
+    return () => {
+      active = false;
+    };
+  }, []);
   const claims = file.dibs ?? file.claims?.length ?? 1;
   const state =
     (file.strikes ?? 0) >= MAX_STRIKES
@@ -320,7 +332,7 @@ export function SharedInvitation({
         ? ' and finished the day'
         : '';
   return (
-    <section className="shared-invitation" aria-label="An invitation to Dibs">
+    <section ref={invitation} className="shared-invitation" aria-label="An invitation to Dibs">
       <span className="eyebrow">Dibs · a daily claim</span>
       <h1>
         {handle} claimed {countLabel(claims, 'answer')} in {revealed ? 'Dibs' : "today's Dibs"}

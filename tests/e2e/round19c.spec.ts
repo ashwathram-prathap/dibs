@@ -189,6 +189,15 @@ async function audit(page: Page, scope = 'main', action?: string) {
     expect(r!.y + r!.height, 'primary below phone viewport').toBeLessThanOrEqual(
       Math.min(page.viewportSize()!.height, nav?.y ?? Infinity) + 1,
     );
+    if (action === '.invitation-action > .primary' && page.viewportSize()!.width >= 768) {
+      const heading = (await page.locator('.shared-invitation h1').boundingBox())!;
+      const bar = (await page.locator('.invitation-action').boundingBox())!;
+      expect(heading.y, 'landscape invitation heading above viewport').toBeGreaterThanOrEqual(0);
+      expect(
+        heading.y + heading.height,
+        'landscape action covers invitation heading',
+      ).toBeLessThanOrEqual(bar.y);
+    }
   }
 }
 async function claim(page: Page, answer: string) {
