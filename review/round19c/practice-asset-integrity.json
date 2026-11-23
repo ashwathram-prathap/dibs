@@ -1,14 +1,14 @@
 {
-  "at": "2026-11-23T17:34:05.672Z",
+  "at": "2026-11-23T18:08:49.371Z",
   "passed": true,
-  "entry": "/assets/index-DizAyivV.js",
+  "entry": "/assets/index-fxIwjcD3.js",
   "inlineStyleHashes": [
     "5ffa8cd03fa8d3c51f20fd6a741e091848efa9f50fa0220cb327e68945e06729",
-    "818534aa5235de723cddd1f1155f539a970be37f9ab94003455ebe747d92adea"
+    "7f29e745ed363224c24ad618561424ad220e72414fe41307ca2b278feb922b89"
   ],
   "rows": [
     {
-      "path": "Archive-i-ZqpymH.js",
+      "path": "Archive-BfWCBuwf.js",
       "status": 200,
       "type": "application/javascript",
       "bytes": 4623,
@@ -22,49 +22,49 @@
       "matches": true
     },
     {
-      "path": "Certificate-65IqFc_C.js",
+      "path": "Certificate-CcxwcbbD.js",
       "status": 200,
       "type": "application/javascript",
       "bytes": 98434,
       "matches": true
     },
     {
-      "path": "Content-MQEP1RTN.js",
+      "path": "Content-Br7tOqkI.js",
       "status": 200,
       "type": "application/javascript",
       "bytes": 12830,
       "matches": true
     },
     {
-      "path": "Leaderboard-3u_xBHcy.js",
+      "path": "Leaderboard-YjnpCu0I.js",
       "status": 200,
       "type": "application/javascript",
       "bytes": 2335,
       "matches": true
     },
     {
-      "path": "Ledger-h7aoZmo6.js",
+      "path": "Ledger-BZXLNtnl.js",
       "status": 200,
       "type": "application/javascript",
       "bytes": 5967,
       "matches": true
     },
     {
-      "path": "Settings-33JAjEO-.js",
+      "path": "Settings-BkAY6Fv0.js",
       "status": 200,
       "type": "application/javascript",
       "bytes": 9494,
       "matches": true
     },
     {
-      "path": "index-DHl-_UDC.css",
+      "path": "index-BYToc9s-.css",
       "status": 200,
       "type": "text/css; charset=utf-8",
-      "bytes": 117755,
+      "bytes": 117782,
       "matches": true
     },
     {
-      "path": "index-DizAyivV.js",
+      "path": "index-fxIwjcD3.js",
       "status": 200,
       "type": "application/javascript",
       "bytes": 277053,
@@ -94,10 +94,10 @@
   ],
   "observations": [
     {
-      "at": "2026-11-23T17:34:05.672Z",
+      "at": "2026-11-23T18:08:49.371Z",
       "status": 200,
-      "actual": "/assets/index-DizAyivV.js",
-      "expected": "/assets/index-DizAyivV.js",
+      "actual": "/assets/index-fxIwjcD3.js",
+      "expected": "/assets/index-fxIwjcD3.js",
       "stylesMatch": true,
       "htmlMatches": true,
       "passed": true
