@@ -1,3 +1,4 @@
+import { resolveCertificate } from '../shared/certificate-id';
 import { credentialGate } from './credential-gate';
 import { cleanHandle, cleanStoredHandles, displayNames, playerNumber } from '../shared/handles';
 import { finishedComparisons } from './finished-scores';
@@ -616,7 +617,7 @@ export class DayRegistry extends DurableObject<Env> {
         const data = { file: this.presentFile(state), category: publicCategory(this.category) };
         return og(null, dayClosed(this.category) ? data : concealSummary(data));
       }
-      const claim = [...this.owners.values()].find((c) => c.id === id && !c.voided);
+      const claim = resolveCertificate(this.owners.values(), id);
       if (!claim) return json({ message: 'Not found.' }, 404);
       const state = this.state(claim.user_id);
       return og(
@@ -681,7 +682,7 @@ export class DayRegistry extends DurableObject<Env> {
     }
     if (path.startsWith('/certificate/')) {
       const id = path.slice(13),
-        claim = [...this.owners.values()].find((c) => c.id === id);
+        claim = resolveCertificate(this.owners.values(), id);
       if (!claim || claim.voided) return json({ message: 'Certificate not found.' }, 404);
       const uid = await cookieUser(req, env.COOKIE_SECRET),
         revealed = dayClosed(this.category),

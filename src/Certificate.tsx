@@ -278,7 +278,7 @@ export function Certificate({ claim, animated = false }: { claim: Claim; animate
         <div className="cert-footer">
           <span>One of {claim.total_registrable.toLocaleString()}. Only one yours.</span>
           <span>
-            {PUBLIC_HOST}/c/{claim.id.slice(0, 16)}
+            {PUBLIC_HOST}/c/{claim.id}
           </span>
         </div>
       </motion.article>

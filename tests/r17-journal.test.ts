@@ -153,6 +153,15 @@ it('keeps certificate ownership private, while owner sees stored rarity', async 
   );
   expect(((await (await call('/ledger?category=static')).json()) as any).rows).toEqual([]);
 });
+it('resolves the literal full and legacy short certificate URLs before the D1 mirror', async () => {
+  for (const id of [claim.id, claim.id.slice(0, 16)]) {
+    const response = await call('/certificate/' + id, undefined, winner.cookie);
+    expect(response.status).toBe(200);
+    expect(((await response.json()) as any).claim.id).toBe(claim.id);
+    const anonymous = await call('/certificate/' + id);
+    expect(((await anonymous.json()) as any).claim.concealed).toBe(true);
+  }
+});
 it('mirrors a complete game in batches, preserving exact state and scores after another restart', async () => {
   for (const answer of [
     catalog.answers[0].display,
