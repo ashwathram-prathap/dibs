@@ -413,9 +413,22 @@ export function SummaryPage({ id, today }: { id: string; today: Today }) {
   }>();
   const [error, setError] = useState('');
   useEffect(() => {
-    api<{ file: DayFile; category: Category; nextDrop: string; specials?: Today['specials'] }>(
-      '/summary/' + encodeURIComponent(id),
-    )
+    api<{
+      file: DayFile;
+      category: Category;
+      nextDrop: string;
+      specials?: Today['specials'];
+      owned?: boolean;
+    }>('/summary/' + encodeURIComponent(id))
+      .then(async (summary) => {
+        // The public summary stays sealed until an explicit share. The holder
+        // can prepare their own image from the existing private /me endpoint.
+        if (summary.owned && summary.file.claims.some((claim) => claim.concealed)) {
+          const me = await api<{ file: DayFile | null }>('/me');
+          if (me.file?.summaryId === id) summary.file = me.file;
+        }
+        return summary;
+      })
       .then(setData)
       .catch((e) => setError(e.message));
   }, [id]);

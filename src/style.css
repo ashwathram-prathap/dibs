@@ -7747,7 +7747,7 @@ html[data-theme='dark'] .feedback-dialog .feedback-error {
   overflow-wrap: anywhere;
   white-space: normal;
 }
-.share-area .share-more {
+.share-area .share-buttons > .share-more {
   display: none;
 }
 .hide-answers {

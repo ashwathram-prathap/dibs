@@ -66,7 +66,7 @@ test('R19F golden results keep one phone Share action in flow and show owner ans
       },
     });
   });
-  await page.goto('/?r19&r6&gold-third');
+  await page.goto('/?r19&r6&gold-third&owner-sealed');
   for (const answer of ['Okapi', 'Quokka', 'Wombat']) {
     await page.locator('#answer').fill(answer);
     await page.getByRole('button', { name: 'CALL DIBS', exact: true }).click();
@@ -92,6 +92,13 @@ test('R19F golden results keep one phone Share action in flow and show owner ans
     );
     await expect(page.getByRole('button', { name: 'Copy result', exact: true })).toBeHidden();
     await page.getByRole('button', { name: 'More', exact: true }).click();
+  } else {
+    await expect(page.getByRole('button', { name: 'More', exact: true })).toBeHidden();
+    await expect(page.locator('.share-buttons > :visible')).toHaveCount(4);
+    const grid = await page
+      .locator('.share-buttons')
+      .evaluate((el) => getComputedStyle(el).gridTemplateColumns);
+    expect(grid.split(' ')).toHaveLength(2);
   }
   await page.locator('.copy-result').click();
   await expect.poll(() => page.evaluate(() => (window as any).__copied || '')).toContain('Okapi');
@@ -118,6 +125,17 @@ test('R19F golden results keep one phone Share action in flow and show owner ans
   expect(issues.violations.map((v) => ({ id: v.id, nodes: v.nodes.map((n) => n.target) }))).toEqual(
     [],
   );
+  await page.evaluate(() => {
+    history.pushState(null, '', '/summary/fixture-summary');
+    dispatchEvent(new PopStateEvent('popstate'));
+  });
+  await expect(page.locator('.day-certificate')).toContainText('Okapi');
+  await expect(page.locator('.day-certificate')).toContainText('Golden ticket found');
+  await page.getByLabel('Hide my answers', { exact: true }).uncheck();
+  await expect(share).toBeEnabled();
+  if (phone) await page.getByRole('button', { name: 'More', exact: true }).click();
+  await page.locator('.copy-result').click();
+  await expect.poll(() => page.evaluate(() => (window as any).__copied || '')).toContain('Okapi');
 });
 test('R19F certificate renders full printed URL and all percentile bands', async ({
   page,

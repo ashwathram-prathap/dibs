@@ -228,6 +228,12 @@ try {
     const state: any = await p.evaluate(async () =>
       (await fetch('/api/me', { headers: { 'x-dibs-test': '1' } })).json(),
     );
+    // Opening one's own unshared summary can prepare private answers without
+    // publishing them. Anonymous visitors must still see a sealed record.
+    await p.goto(origin + '/summary/' + state.file.summaryId);
+    await expect(p.locator('.day-certificate')).toContainText(state.file.claims[0].display);
+    const unshared = await api('/summary/' + state.file.summaryId);
+    assert.ok(unshared.data.file.claims.every((claim: any) => !claim.display));
     await expect(p.getByRole('button', { name: 'SHARE', exact: true })).toBeEnabled();
     // Record the literal footer strings produced by the image renderer, then type each URL.
     if (await p.getByRole('button', { name: 'More', exact: true }).isVisible())

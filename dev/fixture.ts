@@ -419,7 +419,18 @@ export async function request(path: string, body?: any): Promise<any> {
     return {
       ...(r6 ? { specials: specials() } : {}),
       owned: true,
-      file: { ...file(), summaryId: 'fixture-summary' },
+      file: r7.has('owner-sealed')
+        ? {
+            ...file(),
+            summaryId: 'fixture-summary',
+            claims: file().claims.map((claim) => ({
+              ...claim,
+              display: undefined,
+              concealed: true,
+            })),
+            events: file().events.map((event) => ({ at: event.at, kind: event.kind })),
+          }
+        : { ...file(), summaryId: 'fixture-summary' },
       category,
       nextDrop: nextDrop(),
     };

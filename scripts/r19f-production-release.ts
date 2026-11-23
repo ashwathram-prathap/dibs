@@ -29,7 +29,11 @@ assert.ok(
 const report = (name: string) => JSON.parse(readFileSync('review/round19f/' + name, 'utf8'));
 const unit = report('unit-results.json');
 assert.ok(unit.success && !unit.numFailedTests && unit.numPassedTests >= 250, 'Full unit/API gate');
-for (const name of ['browser-results.json', 'firefox-browser-results.json']) {
+for (const name of [
+  'browser-results.json',
+  'final-browser-results.json',
+  'firefox-browser-results.json',
+]) {
   const r = report(name);
   assert.ok(
     r.stats.expected > 0 && !r.stats.unexpected && !r.stats.skipped && !r.stats.flaky,
@@ -42,6 +46,7 @@ for (const name of [
   'practice-restored.json',
   'practice-state-after.json',
   'printed-links.json',
+  'samsung-theme.json',
 ])
   assert.equal(report(name).passed, true, name + ' must pass');
 const lighthouse = report('lighthouse-practice/mobile.json');
