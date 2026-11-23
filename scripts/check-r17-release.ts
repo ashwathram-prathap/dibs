@@ -24,6 +24,11 @@ execFileSync('git', ['rev-parse', '--verify', 'r16-done'], { stdio: 'ignore' });
 const gates = JSON.parse(readFileSync('review/round17/release-gates.json', 'utf8'));
 const head = execFileSync('git', ['rev-parse', 'HEAD'], { encoding: 'utf8' }).trim();
 assert.equal(gates.commit, head, 'Release evidence must match the exact commit');
+execFileSync(
+  'git',
+  ['diff', '--quiet', 'HEAD', '--', 'worker', 'src', 'shared', 'migrations', 'dev', 'public'],
+  { stdio: 'ignore' },
+);
 for (const name of [
   'allTests',
   'restartOneWinner',

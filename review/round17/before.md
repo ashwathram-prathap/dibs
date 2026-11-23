@@ -2,20 +2,21 @@
 
 Same scenario on `r16-done`: load, verify, typo, six accepted guesses (three claims, one taken strike and two reserved strikes), leaderboard, share and return. A separate control player establishes the taken answer before counters reset. D1 values come from result `meta`; DO SQL uses cursor rowsRead/rowsWritten and SQLite-backed KV/alarm operations are counted. Instrumentation adds IO, so its duration is not a billing measurement.
 
-| Action / status | D1 read | D1 written | DO read | DO written | Transport |
-|---|---:|---:|---:|---:|---|
-| /bootstrap / 200 | 55 | 0 | 3 | 5 | http |
-| /verify-session / 200 | 0 | 0 | 5 | 4 | socket |
-| typo / 422 | 3 | 0 | 5 | 4 | socket |
-| claim / 201 | 98 | 22 | 7 | 8 | socket |
-| strike / 409 | 95 | 2 | 8 | 7 | socket |
-| reserved / 409 | 90 | 3 | 8 | 7 | socket |
-| reserved / 409 | 94 | 2 | 8 | 7 | socket |
-| claim / 201 | 145 | 13 | 8 | 8 | socket |
-| claim / 201 | 174 | 13 | 8 | 9 | socket |
-| /leaderboard / 200 | 0 | 0 | 2 | 3 | http |
-| /events/share / 200 | 0 | 0 | 4 | 5 | socket |
-| /bootstrap / 200 | 46 | 0 | 5 | 3 | http |
+| Action / status | D1 read | D1 written | DO read | DO written | API Worker requests | DO requests |
+|---|---:|---:|---:|---:|---:|---:|
+| /bootstrap / 200 | 55 | 0 | 3 | 5 | 1 | 1 |
+| socket upgrade / 101 | 0 | 0 | 0 | 0 | 1 | 1 |
+| /verify-session / 200 | 0 | 0 | 5 | 4 | 0 | 0.05 |
+| typo / 422 | 3 | 0 | 5 | 4 | 0 | 0.05 |
+| claim / 201 | 98 | 22 | 7 | 8 | 0 | 0.05 |
+| strike / 409 | 95 | 2 | 8 | 7 | 0 | 0.05 |
+| reserved / 409 | 90 | 3 | 8 | 7 | 0 | 0.05 |
+| reserved / 409 | 94 | 2 | 8 | 7 | 0 | 0.05 |
+| claim / 201 | 145 | 13 | 8 | 8 | 0 | 0.05 |
+| claim / 201 | 174 | 13 | 8 | 9 | 0 | 0.05 |
+| /leaderboard / 200 | 0 | 0 | 2 | 3 | 1 | 1 |
+| /events/share / 200 | 0 | 0 | 4 | 5 | 0 | 0.05 |
+| /bootstrap / 200 | 46 | 0 | 5 | 3 | 1 | 1 |
 
 Total: **55 D1 + 70 DO = 125 durable writes**, 800 D1 reads, 71 DO reads. Four HTTP/API Worker requests (including socket upgrade), nine incoming socket messages, 4.45 billed-equivalent DO requests. Each proxied HTTP request also invokes Pages Functions; conservatively eight account Worker invocations per game.
 

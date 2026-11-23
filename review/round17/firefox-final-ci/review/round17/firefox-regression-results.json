@@ -1,0 +1,4770 @@
+{
+  "config": {
+    "argv": [
+      "/opt/hostedtoolcache/node/22.23.5/x64/bin/node",
+      "/home/runner/work/dibs/dibs/node_modules/.bin/playwright",
+      "test",
+      "-c",
+      "playwright.r16.config.ts",
+      "--project=firefox-*"
+    ],
+    "configFile": "/home/runner/work/dibs/dibs/playwright.r16.config.ts",
+    "rootDir": "/home/runner/work/dibs/dibs/tests/e2e",
+    "failOnFlakyTests": false,
+    "forbidOnly": false,
+    "fullyParallel": true,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "ci": {
+        "commitHref": "https://github.com/ashwathram-prathap/dibs/commit/74018b95c6d37be2fc68f6b8682e11da341d52a8",
+        "commitHash": "74018b95c6d37be2fc68f6b8682e11da341d52a8",
+        "buildHref": "https://github.com/ashwathram-prathap/dibs/actions/runs/45139260575"
+      },
+      "gitCommit": {
+        "shortHash": "74018b9",
+        "hash": "74018b95c6d37be2fc68f6b8682e11da341d52a8",
+        "subject": "R17: verify opening identity, coalesce live broadcasts and document free-tier bounds",
+        "body": "R17: verify opening identity, coalesce live broadcasts and document free-tier bounds\n",
+        "author": {
+          "name": "Ashwathram Prathap",
+          "email": "prathapashwathram@gmail.com",
+          "time": 1795422661000
+        },
+        "committer": {
+          "name": "Ashwathram Prathap",
+          "email": "prathapashwathram@gmail.com",
+          "time": 1795422661000
+        },
+        "branch": "main"
+      },
+      "actualWorkers": 4
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "/home/runner/work/dibs/dibs/.tmp/r16/browser-artifacts",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "ci": {
+            "commitHref": "https://github.com/ashwathram-prathap/dibs/commit/74018b95c6d37be2fc68f6b8682e11da341d52a8",
+            "commitHash": "74018b95c6d37be2fc68f6b8682e11da341d52a8",
+            "buildHref": "https://github.com/ashwathram-prathap/dibs/actions/runs/45139260575"
+          },
+          "gitCommit": {
+            "shortHash": "74018b9",
+            "hash": "74018b95c6d37be2fc68f6b8682e11da341d52a8",
+            "subject": "R17: verify opening identity, coalesce live broadcasts and document free-tier bounds",
+            "body": "R17: verify opening identity, coalesce live broadcasts and document free-tier bounds\n",
+            "author": {
+              "name": "Ashwathram Prathap",
+              "email": "prathapashwathram@gmail.com",
+              "time": 1795422661000
+            },
+            "committer": {
+              "name": "Ashwathram Prathap",
+              "email": "prathapashwathram@gmail.com",
+              "time": 1795422661000
+            },
+            "branch": "main"
+          },
+          "actualWorkers": 4
+        },
+        "id": "iPhone-SE-light",
+        "name": "iPhone-SE-light",
+        "testDir": "/home/runner/work/dibs/dibs/tests/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "round9.spec.ts",
+          "round11.spec.ts",
+          "round12.spec.ts",
+          "round13.spec.ts",
+          "round14.spec.ts",
+          "round15.spec.ts",
+          "round16.spec.ts"
+        ],
+        "timeout": 90000
+      },
+      {
+        "outputDir": "/home/runner/work/dibs/dibs/.tmp/r16/browser-artifacts",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "ci": {
+            "commitHref": "https://github.com/ashwathram-prathap/dibs/commit/74018b95c6d37be2fc68f6b8682e11da341d52a8",
+            "commitHash": "74018b95c6d37be2fc68f6b8682e11da341d52a8",
+            "buildHref": "https://github.com/ashwathram-prathap/dibs/actions/runs/45139260575"
+          },
+          "gitCommit": {
+            "shortHash": "74018b9",
+            "hash": "74018b95c6d37be2fc68f6b8682e11da341d52a8",
+            "subject": "R17: verify opening identity, coalesce live broadcasts and document free-tier bounds",
+            "body": "R17: verify opening identity, coalesce live broadcasts and document free-tier bounds\n",
+            "author": {
+              "name": "Ashwathram Prathap",
+              "email": "prathapashwathram@gmail.com",
+              "time": 1795422661000
+            },
+            "committer": {
+              "name": "Ashwathram Prathap",
+              "email": "prathapashwathram@gmail.com",
+              "time": 1795422661000
+            },
+            "branch": "main"
+          },
+          "actualWorkers": 4
+        },
+        "id": "iPhone-15-Pro-light",
+        "name": "iPhone-15-Pro-light",
+        "testDir": "/home/runner/work/dibs/dibs/tests/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "round9.spec.ts",
+          "round11.spec.ts",
+          "round12.spec.ts",
+          "round13.spec.ts",
+          "round14.spec.ts",
+          "round15.spec.ts",
+          "round16.spec.ts"
+        ],
+        "timeout": 90000
+      },
+      {
+        "outputDir": "/home/runner/work/dibs/dibs/.tmp/r16/browser-artifacts",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "ci": {
+            "commitHref": "https://github.com/ashwathram-prathap/dibs/commit/74018b95c6d37be2fc68f6b8682e11da341d52a8",
+            "commitHash": "74018b95c6d37be2fc68f6b8682e11da341d52a8",
+            "buildHref": "https://github.com/ashwathram-prathap/dibs/actions/runs/45139260575"
+          },
+          "gitCommit": {
+            "shortHash": "74018b9",
+            "hash": "74018b95c6d37be2fc68f6b8682e11da341d52a8",
+            "subject": "R17: verify opening identity, coalesce live broadcasts and document free-tier bounds",
+            "body": "R17: verify opening identity, coalesce live broadcasts and document free-tier bounds\n",
+            "author": {
+              "name": "Ashwathram Prathap",
+              "email": "prathapashwathram@gmail.com",
+              "time": 1795422661000
+            },
+            "committer": {
+              "name": "Ashwathram Prathap",
+              "email": "prathapashwathram@gmail.com",
+              "time": 1795422661000
+            },
+            "branch": "main"
+          },
+          "actualWorkers": 4
+        },
+        "id": "iPhone-15-Pro-Max-light",
+        "name": "iPhone-15-Pro-Max-light",
+        "testDir": "/home/runner/work/dibs/dibs/tests/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "round9.spec.ts",
+          "round11.spec.ts",
+          "round12.spec.ts",
+          "round13.spec.ts",
+          "round14.spec.ts",
+          "round15.spec.ts",
+          "round16.spec.ts"
+        ],
+        "timeout": 90000
+      },
+      {
+        "outputDir": "/home/runner/work/dibs/dibs/.tmp/r16/browser-artifacts",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "ci": {
+            "commitHref": "https://github.com/ashwathram-prathap/dibs/commit/74018b95c6d37be2fc68f6b8682e11da341d52a8",
+            "commitHash": "74018b95c6d37be2fc68f6b8682e11da341d52a8",
+            "buildHref": "https://github.com/ashwathram-prathap/dibs/actions/runs/45139260575"
+          },
+          "gitCommit": {
+            "shortHash": "74018b9",
+            "hash": "74018b95c6d37be2fc68f6b8682e11da341d52a8",
+            "subject": "R17: verify opening identity, coalesce live broadcasts and document free-tier bounds",
+            "body": "R17: verify opening identity, coalesce live broadcasts and document free-tier bounds\n",
+            "author": {
+              "name": "Ashwathram Prathap",
+              "email": "prathapashwathram@gmail.com",
+              "time": 1795422661000
+            },
+            "committer": {
+              "name": "Ashwathram Prathap",
+              "email": "prathapashwathram@gmail.com",
+              "time": 1795422661000
+            },
+            "branch": "main"
+          },
+          "actualWorkers": 4
+        },
+        "id": "Pixel-7-light",
+        "name": "Pixel-7-light",
+        "testDir": "/home/runner/work/dibs/dibs/tests/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "round9.spec.ts",
+          "round11.spec.ts",
+          "round12.spec.ts",
+          "round13.spec.ts",
+          "round14.spec.ts",
+          "round15.spec.ts",
+          "round16.spec.ts"
+        ],
+        "timeout": 90000
+      },
+      {
+        "outputDir": "/home/runner/work/dibs/dibs/.tmp/r16/browser-artifacts",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "ci": {
+            "commitHref": "https://github.com/ashwathram-prathap/dibs/commit/74018b95c6d37be2fc68f6b8682e11da341d52a8",
+            "commitHash": "74018b95c6d37be2fc68f6b8682e11da341d52a8",
+            "buildHref": "https://github.com/ashwathram-prathap/dibs/actions/runs/45139260575"
+          },
+          "gitCommit": {
+            "shortHash": "74018b9",
+            "hash": "74018b95c6d37be2fc68f6b8682e11da341d52a8",
+            "subject": "R17: verify opening identity, coalesce live broadcasts and document free-tier bounds",
+            "body": "R17: verify opening identity, coalesce live broadcasts and document free-tier bounds\n",
+            "author": {
+              "name": "Ashwathram Prathap",
+              "email": "prathapashwathram@gmail.com",
+              "time": 1795422661000
+            },
+            "committer": {
+              "name": "Ashwathram Prathap",
+              "email": "prathapashwathram@gmail.com",
+              "time": 1795422661000
+            },
+            "branch": "main"
+          },
+          "actualWorkers": 4
+        },
+        "id": "Galaxy-S9+-light",
+        "name": "Galaxy-S9+-light",
+        "testDir": "/home/runner/work/dibs/dibs/tests/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "round9.spec.ts",
+          "round11.spec.ts",
+          "round12.spec.ts",
+          "round13.spec.ts",
+          "round14.spec.ts",
+          "round15.spec.ts",
+          "round16.spec.ts"
+        ],
+        "timeout": 90000
+      },
+      {
+        "outputDir": "/home/runner/work/dibs/dibs/.tmp/r16/browser-artifacts",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "ci": {
+            "commitHref": "https://github.com/ashwathram-prathap/dibs/commit/74018b95c6d37be2fc68f6b8682e11da341d52a8",
+            "commitHash": "74018b95c6d37be2fc68f6b8682e11da341d52a8",
+            "buildHref": "https://github.com/ashwathram-prathap/dibs/actions/runs/45139260575"
+          },
+          "gitCommit": {
+            "shortHash": "74018b9",
+            "hash": "74018b95c6d37be2fc68f6b8682e11da341d52a8",
+            "subject": "R17: verify opening identity, coalesce live broadcasts and document free-tier bounds",
+            "body": "R17: verify opening identity, coalesce live broadcasts and document free-tier bounds\n",
+            "author": {
+              "name": "Ashwathram Prathap",
+              "email": "prathapashwathram@gmail.com",
+              "time": 1795422661000
+            },
+            "committer": {
+              "name": "Ashwathram Prathap",
+              "email": "prathapashwathram@gmail.com",
+              "time": 1795422661000
+            },
+            "branch": "main"
+          },
+          "actualWorkers": 4
+        },
+        "id": "iPad-Mini-light",
+        "name": "iPad-Mini-light",
+        "testDir": "/home/runner/work/dibs/dibs/tests/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "round9.spec.ts",
+          "round11.spec.ts",
+          "round12.spec.ts",
+          "round13.spec.ts",
+          "round14.spec.ts",
+          "round15.spec.ts",
+          "round16.spec.ts"
+        ],
+        "timeout": 90000
+      },
+      {
+        "outputDir": "/home/runner/work/dibs/dibs/.tmp/r16/browser-artifacts",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "ci": {
+            "commitHref": "https://github.com/ashwathram-prathap/dibs/commit/74018b95c6d37be2fc68f6b8682e11da341d52a8",
+            "commitHash": "74018b95c6d37be2fc68f6b8682e11da341d52a8",
+            "buildHref": "https://github.com/ashwathram-prathap/dibs/actions/runs/45139260575"
+          },
+          "gitCommit": {
+            "shortHash": "74018b9",
+            "hash": "74018b95c6d37be2fc68f6b8682e11da341d52a8",
+            "subject": "R17: verify opening identity, coalesce live broadcasts and document free-tier bounds",
+            "body": "R17: verify opening identity, coalesce live broadcasts and document free-tier bounds\n",
+            "author": {
+              "name": "Ashwathram Prathap",
+              "email": "prathapashwathram@gmail.com",
+              "time": 1795422661000
+            },
+            "committer": {
+              "name": "Ashwathram Prathap",
+              "email": "prathapashwathram@gmail.com",
+              "time": 1795422661000
+            },
+            "branch": "main"
+          },
+          "actualWorkers": 4
+        },
+        "id": "iPad-Pro-11-landscape-light",
+        "name": "iPad-Pro-11-landscape-light",
+        "testDir": "/home/runner/work/dibs/dibs/tests/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "round9.spec.ts",
+          "round11.spec.ts",
+          "round12.spec.ts",
+          "round13.spec.ts",
+          "round14.spec.ts",
+          "round15.spec.ts",
+          "round16.spec.ts"
+        ],
+        "timeout": 90000
+      },
+      {
+        "outputDir": "/home/runner/work/dibs/dibs/.tmp/r16/browser-artifacts",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "ci": {
+            "commitHref": "https://github.com/ashwathram-prathap/dibs/commit/74018b95c6d37be2fc68f6b8682e11da341d52a8",
+            "commitHash": "74018b95c6d37be2fc68f6b8682e11da341d52a8",
+            "buildHref": "https://github.com/ashwathram-prathap/dibs/actions/runs/45139260575"
+          },
+          "gitCommit": {
+            "shortHash": "74018b9",
+            "hash": "74018b95c6d37be2fc68f6b8682e11da341d52a8",
+            "subject": "R17: verify opening identity, coalesce live broadcasts and document free-tier bounds",
+            "body": "R17: verify opening identity, coalesce live broadcasts and document free-tier bounds\n",
+            "author": {
+              "name": "Ashwathram Prathap",
+              "email": "prathapashwathram@gmail.com",
+              "time": 1795422661000
+            },
+            "committer": {
+              "name": "Ashwathram Prathap",
+              "email": "prathapashwathram@gmail.com",
+              "time": 1795422661000
+            },
+            "branch": "main"
+          },
+          "actualWorkers": 4
+        },
+        "id": "chromium-1280-light",
+        "name": "chromium-1280-light",
+        "testDir": "/home/runner/work/dibs/dibs/tests/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "round9.spec.ts",
+          "round11.spec.ts",
+          "round12.spec.ts",
+          "round13.spec.ts",
+          "round14.spec.ts",
+          "round15.spec.ts",
+          "round16.spec.ts"
+        ],
+        "timeout": 90000
+      },
+      {
+        "outputDir": "/home/runner/work/dibs/dibs/.tmp/r16/browser-artifacts",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "ci": {
+            "commitHref": "https://github.com/ashwathram-prathap/dibs/commit/74018b95c6d37be2fc68f6b8682e11da341d52a8",
+            "commitHash": "74018b95c6d37be2fc68f6b8682e11da341d52a8",
+            "buildHref": "https://github.com/ashwathram-prathap/dibs/actions/runs/45139260575"
+          },
+          "gitCommit": {
+            "shortHash": "74018b9",
+            "hash": "74018b95c6d37be2fc68f6b8682e11da341d52a8",
+            "subject": "R17: verify opening identity, coalesce live broadcasts and document free-tier bounds",
+            "body": "R17: verify opening identity, coalesce live broadcasts and document free-tier bounds\n",
+            "author": {
+              "name": "Ashwathram Prathap",
+              "email": "prathapashwathram@gmail.com",
+              "time": 1795422661000
+            },
+            "committer": {
+              "name": "Ashwathram Prathap",
+              "email": "prathapashwathram@gmail.com",
+              "time": 1795422661000
+            },
+            "branch": "main"
+          },
+          "actualWorkers": 4
+        },
+        "id": "chromium-1440-light",
+        "name": "chromium-1440-light",
+        "testDir": "/home/runner/work/dibs/dibs/tests/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "round9.spec.ts",
+          "round11.spec.ts",
+          "round12.spec.ts",
+          "round13.spec.ts",
+          "round14.spec.ts",
+          "round15.spec.ts",
+          "round16.spec.ts"
+        ],
+        "timeout": 90000
+      },
+      {
+        "outputDir": "/home/runner/work/dibs/dibs/.tmp/r16/browser-artifacts",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "ci": {
+            "commitHref": "https://github.com/ashwathram-prathap/dibs/commit/74018b95c6d37be2fc68f6b8682e11da341d52a8",
+            "commitHash": "74018b95c6d37be2fc68f6b8682e11da341d52a8",
+            "buildHref": "https://github.com/ashwathram-prathap/dibs/actions/runs/45139260575"
+          },
+          "gitCommit": {
+            "shortHash": "74018b9",
+            "hash": "74018b95c6d37be2fc68f6b8682e11da341d52a8",
+            "subject": "R17: verify opening identity, coalesce live broadcasts and document free-tier bounds",
+            "body": "R17: verify opening identity, coalesce live broadcasts and document free-tier bounds\n",
+            "author": {
+              "name": "Ashwathram Prathap",
+              "email": "prathapashwathram@gmail.com",
+              "time": 1795422661000
+            },
+            "committer": {
+              "name": "Ashwathram Prathap",
+              "email": "prathapashwathram@gmail.com",
+              "time": 1795422661000
+            },
+            "branch": "main"
+          },
+          "actualWorkers": 4
+        },
+        "id": "chromium-2560-light",
+        "name": "chromium-2560-light",
+        "testDir": "/home/runner/work/dibs/dibs/tests/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "round9.spec.ts",
+          "round11.spec.ts",
+          "round12.spec.ts",
+          "round13.spec.ts",
+          "round14.spec.ts",
+          "round15.spec.ts",
+          "round16.spec.ts"
+        ],
+        "timeout": 90000
+      },
+      {
+        "outputDir": "/home/runner/work/dibs/dibs/.tmp/r16/browser-artifacts",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "ci": {
+            "commitHref": "https://github.com/ashwathram-prathap/dibs/commit/74018b95c6d37be2fc68f6b8682e11da341d52a8",
+            "commitHash": "74018b95c6d37be2fc68f6b8682e11da341d52a8",
+            "buildHref": "https://github.com/ashwathram-prathap/dibs/actions/runs/45139260575"
+          },
+          "gitCommit": {
+            "shortHash": "74018b9",
+            "hash": "74018b95c6d37be2fc68f6b8682e11da341d52a8",
+            "subject": "R17: verify opening identity, coalesce live broadcasts and document free-tier bounds",
+            "body": "R17: verify opening identity, coalesce live broadcasts and document free-tier bounds\n",
+            "author": {
+              "name": "Ashwathram Prathap",
+              "email": "prathapashwathram@gmail.com",
+              "time": 1795422661000
+            },
+            "committer": {
+              "name": "Ashwathram Prathap",
+              "email": "prathapashwathram@gmail.com",
+              "time": 1795422661000
+            },
+            "branch": "main"
+          },
+          "actualWorkers": 4
+        },
+        "id": "webkit-1280-light",
+        "name": "webkit-1280-light",
+        "testDir": "/home/runner/work/dibs/dibs/tests/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "round9.spec.ts",
+          "round11.spec.ts",
+          "round12.spec.ts",
+          "round13.spec.ts",
+          "round14.spec.ts",
+          "round15.spec.ts",
+          "round16.spec.ts"
+        ],
+        "timeout": 90000
+      },
+      {
+        "outputDir": "/home/runner/work/dibs/dibs/.tmp/r16/browser-artifacts",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "ci": {
+            "commitHref": "https://github.com/ashwathram-prathap/dibs/commit/74018b95c6d37be2fc68f6b8682e11da341d52a8",
+            "commitHash": "74018b95c6d37be2fc68f6b8682e11da341d52a8",
+            "buildHref": "https://github.com/ashwathram-prathap/dibs/actions/runs/45139260575"
+          },
+          "gitCommit": {
+            "shortHash": "74018b9",
+            "hash": "74018b95c6d37be2fc68f6b8682e11da341d52a8",
+            "subject": "R17: verify opening identity, coalesce live broadcasts and document free-tier bounds",
+            "body": "R17: verify opening identity, coalesce live broadcasts and document free-tier bounds\n",
+            "author": {
+              "name": "Ashwathram Prathap",
+              "email": "prathapashwathram@gmail.com",
+              "time": 1795422661000
+            },
+            "committer": {
+              "name": "Ashwathram Prathap",
+              "email": "prathapashwathram@gmail.com",
+              "time": 1795422661000
+            },
+            "branch": "main"
+          },
+          "actualWorkers": 4
+        },
+        "id": "webkit-1440-light",
+        "name": "webkit-1440-light",
+        "testDir": "/home/runner/work/dibs/dibs/tests/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "round9.spec.ts",
+          "round11.spec.ts",
+          "round12.spec.ts",
+          "round13.spec.ts",
+          "round14.spec.ts",
+          "round15.spec.ts",
+          "round16.spec.ts"
+        ],
+        "timeout": 90000
+      },
+      {
+        "outputDir": "/home/runner/work/dibs/dibs/.tmp/r16/browser-artifacts",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "ci": {
+            "commitHref": "https://github.com/ashwathram-prathap/dibs/commit/74018b95c6d37be2fc68f6b8682e11da341d52a8",
+            "commitHash": "74018b95c6d37be2fc68f6b8682e11da341d52a8",
+            "buildHref": "https://github.com/ashwathram-prathap/dibs/actions/runs/45139260575"
+          },
+          "gitCommit": {
+            "shortHash": "74018b9",
+            "hash": "74018b95c6d37be2fc68f6b8682e11da341d52a8",
+            "subject": "R17: verify opening identity, coalesce live broadcasts and document free-tier bounds",
+            "body": "R17: verify opening identity, coalesce live broadcasts and document free-tier bounds\n",
+            "author": {
+              "name": "Ashwathram Prathap",
+              "email": "prathapashwathram@gmail.com",
+              "time": 1795422661000
+            },
+            "committer": {
+              "name": "Ashwathram Prathap",
+              "email": "prathapashwathram@gmail.com",
+              "time": 1795422661000
+            },
+            "branch": "main"
+          },
+          "actualWorkers": 4
+        },
+        "id": "webkit-2560-light",
+        "name": "webkit-2560-light",
+        "testDir": "/home/runner/work/dibs/dibs/tests/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "round9.spec.ts",
+          "round11.spec.ts",
+          "round12.spec.ts",
+          "round13.spec.ts",
+          "round14.spec.ts",
+          "round15.spec.ts",
+          "round16.spec.ts"
+        ],
+        "timeout": 90000
+      },
+      {
+        "outputDir": "/home/runner/work/dibs/dibs/.tmp/r16/browser-artifacts",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "ci": {
+            "commitHref": "https://github.com/ashwathram-prathap/dibs/commit/74018b95c6d37be2fc68f6b8682e11da341d52a8",
+            "commitHash": "74018b95c6d37be2fc68f6b8682e11da341d52a8",
+            "buildHref": "https://github.com/ashwathram-prathap/dibs/actions/runs/45139260575"
+          },
+          "gitCommit": {
+            "shortHash": "74018b9",
+            "hash": "74018b95c6d37be2fc68f6b8682e11da341d52a8",
+            "subject": "R17: verify opening identity, coalesce live broadcasts and document free-tier bounds",
+            "body": "R17: verify opening identity, coalesce live broadcasts and document free-tier bounds\n",
+            "author": {
+              "name": "Ashwathram Prathap",
+              "email": "prathapashwathram@gmail.com",
+              "time": 1795422661000
+            },
+            "committer": {
+              "name": "Ashwathram Prathap",
+              "email": "prathapashwathram@gmail.com",
+              "time": 1795422661000
+            },
+            "branch": "main"
+          },
+          "actualWorkers": 4
+        },
+        "id": "firefox-1280-light",
+        "name": "firefox-1280-light",
+        "testDir": "/home/runner/work/dibs/dibs/tests/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "round9.spec.ts",
+          "round11.spec.ts",
+          "round12.spec.ts",
+          "round13.spec.ts",
+          "round14.spec.ts",
+          "round15.spec.ts",
+          "round16.spec.ts"
+        ],
+        "timeout": 90000
+      },
+      {
+        "outputDir": "/home/runner/work/dibs/dibs/.tmp/r16/browser-artifacts",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "ci": {
+            "commitHref": "https://github.com/ashwathram-prathap/dibs/commit/74018b95c6d37be2fc68f6b8682e11da341d52a8",
+            "commitHash": "74018b95c6d37be2fc68f6b8682e11da341d52a8",
+            "buildHref": "https://github.com/ashwathram-prathap/dibs/actions/runs/45139260575"
+          },
+          "gitCommit": {
+            "shortHash": "74018b9",
+            "hash": "74018b95c6d37be2fc68f6b8682e11da341d52a8",
+            "subject": "R17: verify opening identity, coalesce live broadcasts and document free-tier bounds",
+            "body": "R17: verify opening identity, coalesce live broadcasts and document free-tier bounds\n",
+            "author": {
+              "name": "Ashwathram Prathap",
+              "email": "prathapashwathram@gmail.com",
+              "time": 1795422661000
+            },
+            "committer": {
+              "name": "Ashwathram Prathap",
+              "email": "prathapashwathram@gmail.com",
+              "time": 1795422661000
+            },
+            "branch": "main"
+          },
+          "actualWorkers": 4
+        },
+        "id": "firefox-1440-light",
+        "name": "firefox-1440-light",
+        "testDir": "/home/runner/work/dibs/dibs/tests/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "round9.spec.ts",
+          "round11.spec.ts",
+          "round12.spec.ts",
+          "round13.spec.ts",
+          "round14.spec.ts",
+          "round15.spec.ts",
+          "round16.spec.ts"
+        ],
+        "timeout": 90000
+      },
+      {
+        "outputDir": "/home/runner/work/dibs/dibs/.tmp/r16/browser-artifacts",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "ci": {
+            "commitHref": "https://github.com/ashwathram-prathap/dibs/commit/74018b95c6d37be2fc68f6b8682e11da341d52a8",
+            "commitHash": "74018b95c6d37be2fc68f6b8682e11da341d52a8",
+            "buildHref": "https://github.com/ashwathram-prathap/dibs/actions/runs/45139260575"
+          },
+          "gitCommit": {
+            "shortHash": "74018b9",
+            "hash": "74018b95c6d37be2fc68f6b8682e11da341d52a8",
+            "subject": "R17: verify opening identity, coalesce live broadcasts and document free-tier bounds",
+            "body": "R17: verify opening identity, coalesce live broadcasts and document free-tier bounds\n",
+            "author": {
+              "name": "Ashwathram Prathap",
+              "email": "prathapashwathram@gmail.com",
+              "time": 1795422661000
+            },
+            "committer": {
+              "name": "Ashwathram Prathap",
+              "email": "prathapashwathram@gmail.com",
+              "time": 1795422661000
+            },
+            "branch": "main"
+          },
+          "actualWorkers": 4
+        },
+        "id": "firefox-2560-light",
+        "name": "firefox-2560-light",
+        "testDir": "/home/runner/work/dibs/dibs/tests/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "round9.spec.ts",
+          "round11.spec.ts",
+          "round12.spec.ts",
+          "round13.spec.ts",
+          "round14.spec.ts",
+          "round15.spec.ts",
+          "round16.spec.ts"
+        ],
+        "timeout": 90000
+      },
+      {
+        "outputDir": "/home/runner/work/dibs/dibs/.tmp/r16/browser-artifacts",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "ci": {
+            "commitHref": "https://github.com/ashwathram-prathap/dibs/commit/74018b95c6d37be2fc68f6b8682e11da341d52a8",
+            "commitHash": "74018b95c6d37be2fc68f6b8682e11da341d52a8",
+            "buildHref": "https://github.com/ashwathram-prathap/dibs/actions/runs/45139260575"
+          },
+          "gitCommit": {
+            "shortHash": "74018b9",
+            "hash": "74018b95c6d37be2fc68f6b8682e11da341d52a8",
+            "subject": "R17: verify opening identity, coalesce live broadcasts and document free-tier bounds",
+            "body": "R17: verify opening identity, coalesce live broadcasts and document free-tier bounds\n",
+            "author": {
+              "name": "Ashwathram Prathap",
+              "email": "prathapashwathram@gmail.com",
+              "time": 1795422661000
+            },
+            "committer": {
+              "name": "Ashwathram Prathap",
+              "email": "prathapashwathram@gmail.com",
+              "time": 1795422661000
+            },
+            "branch": "main"
+          },
+          "actualWorkers": 4
+        },
+        "id": "320-small-light",
+        "name": "320-small-light",
+        "testDir": "/home/runner/work/dibs/dibs/tests/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "round9.spec.ts",
+          "round11.spec.ts",
+          "round12.spec.ts",
+          "round13.spec.ts",
+          "round14.spec.ts",
+          "round15.spec.ts",
+          "round16.spec.ts"
+        ],
+        "timeout": 90000
+      },
+      {
+        "outputDir": "/home/runner/work/dibs/dibs/.tmp/r16/browser-artifacts",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "ci": {
+            "commitHref": "https://github.com/ashwathram-prathap/dibs/commit/74018b95c6d37be2fc68f6b8682e11da341d52a8",
+            "commitHash": "74018b95c6d37be2fc68f6b8682e11da341d52a8",
+            "buildHref": "https://github.com/ashwathram-prathap/dibs/actions/runs/45139260575"
+          },
+          "gitCommit": {
+            "shortHash": "74018b9",
+            "hash": "74018b95c6d37be2fc68f6b8682e11da341d52a8",
+            "subject": "R17: verify opening identity, coalesce live broadcasts and document free-tier bounds",
+            "body": "R17: verify opening identity, coalesce live broadcasts and document free-tier bounds\n",
+            "author": {
+              "name": "Ashwathram Prathap",
+              "email": "prathapashwathram@gmail.com",
+              "time": 1795422661000
+            },
+            "committer": {
+              "name": "Ashwathram Prathap",
+              "email": "prathapashwathram@gmail.com",
+              "time": 1795422661000
+            },
+            "branch": "main"
+          },
+          "actualWorkers": 4
+        },
+        "id": "landscape-phone-light",
+        "name": "landscape-phone-light",
+        "testDir": "/home/runner/work/dibs/dibs/tests/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "round9.spec.ts",
+          "round11.spec.ts",
+          "round12.spec.ts",
+          "round13.spec.ts",
+          "round14.spec.ts",
+          "round15.spec.ts",
+          "round16.spec.ts"
+        ],
+        "timeout": 90000
+      },
+      {
+        "outputDir": "/home/runner/work/dibs/dibs/.tmp/r16/browser-artifacts",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "ci": {
+            "commitHref": "https://github.com/ashwathram-prathap/dibs/commit/74018b95c6d37be2fc68f6b8682e11da341d52a8",
+            "commitHash": "74018b95c6d37be2fc68f6b8682e11da341d52a8",
+            "buildHref": "https://github.com/ashwathram-prathap/dibs/actions/runs/45139260575"
+          },
+          "gitCommit": {
+            "shortHash": "74018b9",
+            "hash": "74018b95c6d37be2fc68f6b8682e11da341d52a8",
+            "subject": "R17: verify opening identity, coalesce live broadcasts and document free-tier bounds",
+            "body": "R17: verify opening identity, coalesce live broadcasts and document free-tier bounds\n",
+            "author": {
+              "name": "Ashwathram Prathap",
+              "email": "prathapashwathram@gmail.com",
+              "time": 1795422661000
+            },
+            "committer": {
+              "name": "Ashwathram Prathap",
+              "email": "prathapashwathram@gmail.com",
+              "time": 1795422661000
+            },
+            "branch": "main"
+          },
+          "actualWorkers": 4
+        },
+        "id": "iPhone-SE-dark",
+        "name": "iPhone-SE-dark",
+        "testDir": "/home/runner/work/dibs/dibs/tests/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "round9.spec.ts",
+          "round11.spec.ts",
+          "round12.spec.ts",
+          "round13.spec.ts",
+          "round14.spec.ts",
+          "round15.spec.ts",
+          "round16.spec.ts"
+        ],
+        "timeout": 90000
+      },
+      {
+        "outputDir": "/home/runner/work/dibs/dibs/.tmp/r16/browser-artifacts",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "ci": {
+            "commitHref": "https://github.com/ashwathram-prathap/dibs/commit/74018b95c6d37be2fc68f6b8682e11da341d52a8",
+            "commitHash": "74018b95c6d37be2fc68f6b8682e11da341d52a8",
+            "buildHref": "https://github.com/ashwathram-prathap/dibs/actions/runs/45139260575"
+          },
+          "gitCommit": {
+            "shortHash": "74018b9",
+            "hash": "74018b95c6d37be2fc68f6b8682e11da341d52a8",
+            "subject": "R17: verify opening identity, coalesce live broadcasts and document free-tier bounds",
+            "body": "R17: verify opening identity, coalesce live broadcasts and document free-tier bounds\n",
+            "author": {
+              "name": "Ashwathram Prathap",
+              "email": "prathapashwathram@gmail.com",
+              "time": 1795422661000
+            },
+            "committer": {
+              "name": "Ashwathram Prathap",
+              "email": "prathapashwathram@gmail.com",
+              "time": 1795422661000
+            },
+            "branch": "main"
+          },
+          "actualWorkers": 4
+        },
+        "id": "iPhone-15-Pro-dark",
+        "name": "iPhone-15-Pro-dark",
+        "testDir": "/home/runner/work/dibs/dibs/tests/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "round9.spec.ts",
+          "round11.spec.ts",
+          "round12.spec.ts",
+          "round13.spec.ts",
+          "round14.spec.ts",
+          "round15.spec.ts",
+          "round16.spec.ts"
+        ],
+        "timeout": 90000
+      },
+      {
+        "outputDir": "/home/runner/work/dibs/dibs/.tmp/r16/browser-artifacts",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "ci": {
+            "commitHref": "https://github.com/ashwathram-prathap/dibs/commit/74018b95c6d37be2fc68f6b8682e11da341d52a8",
+            "commitHash": "74018b95c6d37be2fc68f6b8682e11da341d52a8",
+            "buildHref": "https://github.com/ashwathram-prathap/dibs/actions/runs/45139260575"
+          },
+          "gitCommit": {
+            "shortHash": "74018b9",
+            "hash": "74018b95c6d37be2fc68f6b8682e11da341d52a8",
+            "subject": "R17: verify opening identity, coalesce live broadcasts and document free-tier bounds",
+            "body": "R17: verify opening identity, coalesce live broadcasts and document free-tier bounds\n",
+            "author": {
+              "name": "Ashwathram Prathap",
+              "email": "prathapashwathram@gmail.com",
+              "time": 1795422661000
+            },
+            "committer": {
+              "name": "Ashwathram Prathap",
+              "email": "prathapashwathram@gmail.com",
+              "time": 1795422661000
+            },
+            "branch": "main"
+          },
+          "actualWorkers": 4
+        },
+        "id": "iPhone-15-Pro-Max-dark",
+        "name": "iPhone-15-Pro-Max-dark",
+        "testDir": "/home/runner/work/dibs/dibs/tests/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "round9.spec.ts",
+          "round11.spec.ts",
+          "round12.spec.ts",
+          "round13.spec.ts",
+          "round14.spec.ts",
+          "round15.spec.ts",
+          "round16.spec.ts"
+        ],
+        "timeout": 90000
+      },
+      {
+        "outputDir": "/home/runner/work/dibs/dibs/.tmp/r16/browser-artifacts",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "ci": {
+            "commitHref": "https://github.com/ashwathram-prathap/dibs/commit/74018b95c6d37be2fc68f6b8682e11da341d52a8",
+            "commitHash": "74018b95c6d37be2fc68f6b8682e11da341d52a8",
+            "buildHref": "https://github.com/ashwathram-prathap/dibs/actions/runs/45139260575"
+          },
+          "gitCommit": {
+            "shortHash": "74018b9",
+            "hash": "74018b95c6d37be2fc68f6b8682e11da341d52a8",
+            "subject": "R17: verify opening identity, coalesce live broadcasts and document free-tier bounds",
+            "body": "R17: verify opening identity, coalesce live broadcasts and document free-tier bounds\n",
+            "author": {
+              "name": "Ashwathram Prathap",
+              "email": "prathapashwathram@gmail.com",
+              "time": 1795422661000
+            },
+            "committer": {
+              "name": "Ashwathram Prathap",
+              "email": "prathapashwathram@gmail.com",
+              "time": 1795422661000
+            },
+            "branch": "main"
+          },
+          "actualWorkers": 4
+        },
+        "id": "Pixel-7-dark",
+        "name": "Pixel-7-dark",
+        "testDir": "/home/runner/work/dibs/dibs/tests/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "round9.spec.ts",
+          "round11.spec.ts",
+          "round12.spec.ts",
+          "round13.spec.ts",
+          "round14.spec.ts",
+          "round15.spec.ts",
+          "round16.spec.ts"
+        ],
+        "timeout": 90000
+      },
+      {
+        "outputDir": "/home/runner/work/dibs/dibs/.tmp/r16/browser-artifacts",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "ci": {
+            "commitHref": "https://github.com/ashwathram-prathap/dibs/commit/74018b95c6d37be2fc68f6b8682e11da341d52a8",
+            "commitHash": "74018b95c6d37be2fc68f6b8682e11da341d52a8",
+            "buildHref": "https://github.com/ashwathram-prathap/dibs/actions/runs/45139260575"
+          },
+          "gitCommit": {
+            "shortHash": "74018b9",
+            "hash": "74018b95c6d37be2fc68f6b8682e11da341d52a8",
+            "subject": "R17: verify opening identity, coalesce live broadcasts and document free-tier bounds",
+            "body": "R17: verify opening identity, coalesce live broadcasts and document free-tier bounds\n",
+            "author": {
+              "name": "Ashwathram Prathap",
+              "email": "prathapashwathram@gmail.com",
+              "time": 1795422661000
+            },
+            "committer": {
+              "name": "Ashwathram Prathap",
+              "email": "prathapashwathram@gmail.com",
+              "time": 1795422661000
+            },
+            "branch": "main"
+          },
+          "actualWorkers": 4
+        },
+        "id": "Galaxy-S9+-dark",
+        "name": "Galaxy-S9+-dark",
+        "testDir": "/home/runner/work/dibs/dibs/tests/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "round9.spec.ts",
+          "round11.spec.ts",
+          "round12.spec.ts",
+          "round13.spec.ts",
+          "round14.spec.ts",
+          "round15.spec.ts",
+          "round16.spec.ts"
+        ],
+        "timeout": 90000
+      },
+      {
+        "outputDir": "/home/runner/work/dibs/dibs/.tmp/r16/browser-artifacts",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "ci": {
+            "commitHref": "https://github.com/ashwathram-prathap/dibs/commit/74018b95c6d37be2fc68f6b8682e11da341d52a8",
+            "commitHash": "74018b95c6d37be2fc68f6b8682e11da341d52a8",
+            "buildHref": "https://github.com/ashwathram-prathap/dibs/actions/runs/45139260575"
+          },
+          "gitCommit": {
+            "shortHash": "74018b9",
+            "hash": "74018b95c6d37be2fc68f6b8682e11da341d52a8",
+            "subject": "R17: verify opening identity, coalesce live broadcasts and document free-tier bounds",
+            "body": "R17: verify opening identity, coalesce live broadcasts and document free-tier bounds\n",
+            "author": {
+              "name": "Ashwathram Prathap",
+              "email": "prathapashwathram@gmail.com",
+              "time": 1795422661000
+            },
+            "committer": {
+              "name": "Ashwathram Prathap",
+              "email": "prathapashwathram@gmail.com",
+              "time": 1795422661000
+            },
+            "branch": "main"
+          },
+          "actualWorkers": 4
+        },
+        "id": "iPad-Mini-dark",
+        "name": "iPad-Mini-dark",
+        "testDir": "/home/runner/work/dibs/dibs/tests/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "round9.spec.ts",
+          "round11.spec.ts",
+          "round12.spec.ts",
+          "round13.spec.ts",
+          "round14.spec.ts",
+          "round15.spec.ts",
+          "round16.spec.ts"
+        ],
+        "timeout": 90000
+      },
+      {
+        "outputDir": "/home/runner/work/dibs/dibs/.tmp/r16/browser-artifacts",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "ci": {
+            "commitHref": "https://github.com/ashwathram-prathap/dibs/commit/74018b95c6d37be2fc68f6b8682e11da341d52a8",
+            "commitHash": "74018b95c6d37be2fc68f6b8682e11da341d52a8",
+            "buildHref": "https://github.com/ashwathram-prathap/dibs/actions/runs/45139260575"
+          },
+          "gitCommit": {
+            "shortHash": "74018b9",
+            "hash": "74018b95c6d37be2fc68f6b8682e11da341d52a8",
+            "subject": "R17: verify opening identity, coalesce live broadcasts and document free-tier bounds",
+            "body": "R17: verify opening identity, coalesce live broadcasts and document free-tier bounds\n",
+            "author": {
+              "name": "Ashwathram Prathap",
+              "email": "prathapashwathram@gmail.com",
+              "time": 1795422661000
+            },
+            "committer": {
+              "name": "Ashwathram Prathap",
+              "email": "prathapashwathram@gmail.com",
+              "time": 1795422661000
+            },
+            "branch": "main"
+          },
+          "actualWorkers": 4
+        },
+        "id": "iPad-Pro-11-landscape-dark",
+        "name": "iPad-Pro-11-landscape-dark",
+        "testDir": "/home/runner/work/dibs/dibs/tests/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "round9.spec.ts",
+          "round11.spec.ts",
+          "round12.spec.ts",
+          "round13.spec.ts",
+          "round14.spec.ts",
+          "round15.spec.ts",
+          "round16.spec.ts"
+        ],
+        "timeout": 90000
+      },
+      {
+        "outputDir": "/home/runner/work/dibs/dibs/.tmp/r16/browser-artifacts",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "ci": {
+            "commitHref": "https://github.com/ashwathram-prathap/dibs/commit/74018b95c6d37be2fc68f6b8682e11da341d52a8",
+            "commitHash": "74018b95c6d37be2fc68f6b8682e11da341d52a8",
+            "buildHref": "https://github.com/ashwathram-prathap/dibs/actions/runs/45139260575"
+          },
+          "gitCommit": {
+            "shortHash": "74018b9",
+            "hash": "74018b95c6d37be2fc68f6b8682e11da341d52a8",
+            "subject": "R17: verify opening identity, coalesce live broadcasts and document free-tier bounds",
+            "body": "R17: verify opening identity, coalesce live broadcasts and document free-tier bounds\n",
+            "author": {
+              "name": "Ashwathram Prathap",
+              "email": "prathapashwathram@gmail.com",
+              "time": 1795422661000
+            },
+            "committer": {
+              "name": "Ashwathram Prathap",
+              "email": "prathapashwathram@gmail.com",
+              "time": 1795422661000
+            },
+            "branch": "main"
+          },
+          "actualWorkers": 4
+        },
+        "id": "chromium-1280-dark",
+        "name": "chromium-1280-dark",
+        "testDir": "/home/runner/work/dibs/dibs/tests/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "round9.spec.ts",
+          "round11.spec.ts",
+          "round12.spec.ts",
+          "round13.spec.ts",
+          "round14.spec.ts",
+          "round15.spec.ts",
+          "round16.spec.ts"
+        ],
+        "timeout": 90000
+      },
+      {
+        "outputDir": "/home/runner/work/dibs/dibs/.tmp/r16/browser-artifacts",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "ci": {
+            "commitHref": "https://github.com/ashwathram-prathap/dibs/commit/74018b95c6d37be2fc68f6b8682e11da341d52a8",
+            "commitHash": "74018b95c6d37be2fc68f6b8682e11da341d52a8",
+            "buildHref": "https://github.com/ashwathram-prathap/dibs/actions/runs/45139260575"
+          },
+          "gitCommit": {
+            "shortHash": "74018b9",
+            "hash": "74018b95c6d37be2fc68f6b8682e11da341d52a8",
+            "subject": "R17: verify opening identity, coalesce live broadcasts and document free-tier bounds",
+            "body": "R17: verify opening identity, coalesce live broadcasts and document free-tier bounds\n",
+            "author": {
+              "name": "Ashwathram Prathap",
+              "email": "prathapashwathram@gmail.com",
+              "time": 1795422661000
+            },
+            "committer": {
+              "name": "Ashwathram Prathap",
+              "email": "prathapashwathram@gmail.com",
+              "time": 1795422661000
+            },
+            "branch": "main"
+          },
+          "actualWorkers": 4
+        },
+        "id": "chromium-1440-dark",
+        "name": "chromium-1440-dark",
+        "testDir": "/home/runner/work/dibs/dibs/tests/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "round9.spec.ts",
+          "round11.spec.ts",
+          "round12.spec.ts",
+          "round13.spec.ts",
+          "round14.spec.ts",
+          "round15.spec.ts",
+          "round16.spec.ts"
+        ],
+        "timeout": 90000
+      },
+      {
+        "outputDir": "/home/runner/work/dibs/dibs/.tmp/r16/browser-artifacts",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "ci": {
+            "commitHref": "https://github.com/ashwathram-prathap/dibs/commit/74018b95c6d37be2fc68f6b8682e11da341d52a8",
+            "commitHash": "74018b95c6d37be2fc68f6b8682e11da341d52a8",
+            "buildHref": "https://github.com/ashwathram-prathap/dibs/actions/runs/45139260575"
+          },
+          "gitCommit": {
+            "shortHash": "74018b9",
+            "hash": "74018b95c6d37be2fc68f6b8682e11da341d52a8",
+            "subject": "R17: verify opening identity, coalesce live broadcasts and document free-tier bounds",
+            "body": "R17: verify opening identity, coalesce live broadcasts and document free-tier bounds\n",
+            "author": {
+              "name": "Ashwathram Prathap",
+              "email": "prathapashwathram@gmail.com",
+              "time": 1795422661000
+            },
+            "committer": {
+              "name": "Ashwathram Prathap",
+              "email": "prathapashwathram@gmail.com",
+              "time": 1795422661000
+            },
+            "branch": "main"
+          },
+          "actualWorkers": 4
+        },
+        "id": "chromium-2560-dark",
+        "name": "chromium-2560-dark",
+        "testDir": "/home/runner/work/dibs/dibs/tests/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "round9.spec.ts",
+          "round11.spec.ts",
+          "round12.spec.ts",
+          "round13.spec.ts",
+          "round14.spec.ts",
+          "round15.spec.ts",
+          "round16.spec.ts"
+        ],
+        "timeout": 90000
+      },
+      {
+        "outputDir": "/home/runner/work/dibs/dibs/.tmp/r16/browser-artifacts",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "ci": {
+            "commitHref": "https://github.com/ashwathram-prathap/dibs/commit/74018b95c6d37be2fc68f6b8682e11da341d52a8",
+            "commitHash": "74018b95c6d37be2fc68f6b8682e11da341d52a8",
+            "buildHref": "https://github.com/ashwathram-prathap/dibs/actions/runs/45139260575"
+          },
+          "gitCommit": {
+            "shortHash": "74018b9",
+            "hash": "74018b95c6d37be2fc68f6b8682e11da341d52a8",
+            "subject": "R17: verify opening identity, coalesce live broadcasts and document free-tier bounds",
+            "body": "R17: verify opening identity, coalesce live broadcasts and document free-tier bounds\n",
+            "author": {
+              "name": "Ashwathram Prathap",
+              "email": "prathapashwathram@gmail.com",
+              "time": 1795422661000
+            },
+            "committer": {
+              "name": "Ashwathram Prathap",
+              "email": "prathapashwathram@gmail.com",
+              "time": 1795422661000
+            },
+            "branch": "main"
+          },
+          "actualWorkers": 4
+        },
+        "id": "webkit-1280-dark",
+        "name": "webkit-1280-dark",
+        "testDir": "/home/runner/work/dibs/dibs/tests/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "round9.spec.ts",
+          "round11.spec.ts",
+          "round12.spec.ts",
+          "round13.spec.ts",
+          "round14.spec.ts",
+          "round15.spec.ts",
+          "round16.spec.ts"
+        ],
+        "timeout": 90000
+      },
+      {
+        "outputDir": "/home/runner/work/dibs/dibs/.tmp/r16/browser-artifacts",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "ci": {
+            "commitHref": "https://github.com/ashwathram-prathap/dibs/commit/74018b95c6d37be2fc68f6b8682e11da341d52a8",
+            "commitHash": "74018b95c6d37be2fc68f6b8682e11da341d52a8",
+            "buildHref": "https://github.com/ashwathram-prathap/dibs/actions/runs/45139260575"
+          },
+          "gitCommit": {
+            "shortHash": "74018b9",
+            "hash": "74018b95c6d37be2fc68f6b8682e11da341d52a8",
+            "subject": "R17: verify opening identity, coalesce live broadcasts and document free-tier bounds",
+            "body": "R17: verify opening identity, coalesce live broadcasts and document free-tier bounds\n",
+            "author": {
+              "name": "Ashwathram Prathap",
+              "email": "prathapashwathram@gmail.com",
+              "time": 1795422661000
+            },
+            "committer": {
+              "name": "Ashwathram Prathap",
+              "email": "prathapashwathram@gmail.com",
+              "time": 1795422661000
+            },
+            "branch": "main"
+          },
+          "actualWorkers": 4
+        },
+        "id": "webkit-1440-dark",
+        "name": "webkit-1440-dark",
+        "testDir": "/home/runner/work/dibs/dibs/tests/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "round9.spec.ts",
+          "round11.spec.ts",
+          "round12.spec.ts",
+          "round13.spec.ts",
+          "round14.spec.ts",
+          "round15.spec.ts",
+          "round16.spec.ts"
+        ],
+        "timeout": 90000
+      },
+      {
+        "outputDir": "/home/runner/work/dibs/dibs/.tmp/r16/browser-artifacts",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "ci": {
+            "commitHref": "https://github.com/ashwathram-prathap/dibs/commit/74018b95c6d37be2fc68f6b8682e11da341d52a8",
+            "commitHash": "74018b95c6d37be2fc68f6b8682e11da341d52a8",
+            "buildHref": "https://github.com/ashwathram-prathap/dibs/actions/runs/45139260575"
+          },
+          "gitCommit": {
+            "shortHash": "74018b9",
+            "hash": "74018b95c6d37be2fc68f6b8682e11da341d52a8",
+            "subject": "R17: verify opening identity, coalesce live broadcasts and document free-tier bounds",
+            "body": "R17: verify opening identity, coalesce live broadcasts and document free-tier bounds\n",
+            "author": {
+              "name": "Ashwathram Prathap",
+              "email": "prathapashwathram@gmail.com",
+              "time": 1795422661000
+            },
+            "committer": {
+              "name": "Ashwathram Prathap",
+              "email": "prathapashwathram@gmail.com",
+              "time": 1795422661000
+            },
+            "branch": "main"
+          },
+          "actualWorkers": 4
+        },
+        "id": "webkit-2560-dark",
+        "name": "webkit-2560-dark",
+        "testDir": "/home/runner/work/dibs/dibs/tests/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "round9.spec.ts",
+          "round11.spec.ts",
+          "round12.spec.ts",
+          "round13.spec.ts",
+          "round14.spec.ts",
+          "round15.spec.ts",
+          "round16.spec.ts"
+        ],
+        "timeout": 90000
+      },
+      {
+        "outputDir": "/home/runner/work/dibs/dibs/.tmp/r16/browser-artifacts",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "ci": {
+            "commitHref": "https://github.com/ashwathram-prathap/dibs/commit/74018b95c6d37be2fc68f6b8682e11da341d52a8",
+            "commitHash": "74018b95c6d37be2fc68f6b8682e11da341d52a8",
+            "buildHref": "https://github.com/ashwathram-prathap/dibs/actions/runs/45139260575"
+          },
+          "gitCommit": {
+            "shortHash": "74018b9",
+            "hash": "74018b95c6d37be2fc68f6b8682e11da341d52a8",
+            "subject": "R17: verify opening identity, coalesce live broadcasts and document free-tier bounds",
+            "body": "R17: verify opening identity, coalesce live broadcasts and document free-tier bounds\n",
+            "author": {
+              "name": "Ashwathram Prathap",
+              "email": "prathapashwathram@gmail.com",
+              "time": 1795422661000
+            },
+            "committer": {
+              "name": "Ashwathram Prathap",
+              "email": "prathapashwathram@gmail.com",
+              "time": 1795422661000
+            },
+            "branch": "main"
+          },
+          "actualWorkers": 4
+        },
+        "id": "firefox-1280-dark",
+        "name": "firefox-1280-dark",
+        "testDir": "/home/runner/work/dibs/dibs/tests/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "round9.spec.ts",
+          "round11.spec.ts",
+          "round12.spec.ts",
+          "round13.spec.ts",
+          "round14.spec.ts",
+          "round15.spec.ts",
+          "round16.spec.ts"
+        ],
+        "timeout": 90000
+      },
+      {
+        "outputDir": "/home/runner/work/dibs/dibs/.tmp/r16/browser-artifacts",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "ci": {
+            "commitHref": "https://github.com/ashwathram-prathap/dibs/commit/74018b95c6d37be2fc68f6b8682e11da341d52a8",
+            "commitHash": "74018b95c6d37be2fc68f6b8682e11da341d52a8",
+            "buildHref": "https://github.com/ashwathram-prathap/dibs/actions/runs/45139260575"
+          },
+          "gitCommit": {
+            "shortHash": "74018b9",
+            "hash": "74018b95c6d37be2fc68f6b8682e11da341d52a8",
+            "subject": "R17: verify opening identity, coalesce live broadcasts and document free-tier bounds",
+            "body": "R17: verify opening identity, coalesce live broadcasts and document free-tier bounds\n",
+            "author": {
+              "name": "Ashwathram Prathap",
+              "email": "prathapashwathram@gmail.com",
+              "time": 1795422661000
+            },
+            "committer": {
+              "name": "Ashwathram Prathap",
+              "email": "prathapashwathram@gmail.com",
+              "time": 1795422661000
+            },
+            "branch": "main"
+          },
+          "actualWorkers": 4
+        },
+        "id": "firefox-1440-dark",
+        "name": "firefox-1440-dark",
+        "testDir": "/home/runner/work/dibs/dibs/tests/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "round9.spec.ts",
+          "round11.spec.ts",
+          "round12.spec.ts",
+          "round13.spec.ts",
+          "round14.spec.ts",
+          "round15.spec.ts",
+          "round16.spec.ts"
+        ],
+        "timeout": 90000
+      },
+      {
+        "outputDir": "/home/runner/work/dibs/dibs/.tmp/r16/browser-artifacts",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "ci": {
+            "commitHref": "https://github.com/ashwathram-prathap/dibs/commit/74018b95c6d37be2fc68f6b8682e11da341d52a8",
+            "commitHash": "74018b95c6d37be2fc68f6b8682e11da341d52a8",
+            "buildHref": "https://github.com/ashwathram-prathap/dibs/actions/runs/45139260575"
+          },
+          "gitCommit": {
+            "shortHash": "74018b9",
+            "hash": "74018b95c6d37be2fc68f6b8682e11da341d52a8",
+            "subject": "R17: verify opening identity, coalesce live broadcasts and document free-tier bounds",
+            "body": "R17: verify opening identity, coalesce live broadcasts and document free-tier bounds\n",
+            "author": {
+              "name": "Ashwathram Prathap",
+              "email": "prathapashwathram@gmail.com",
+              "time": 1795422661000
+            },
+            "committer": {
+              "name": "Ashwathram Prathap",
+              "email": "prathapashwathram@gmail.com",
+              "time": 1795422661000
+            },
+            "branch": "main"
+          },
+          "actualWorkers": 4
+        },
+        "id": "firefox-2560-dark",
+        "name": "firefox-2560-dark",
+        "testDir": "/home/runner/work/dibs/dibs/tests/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "round9.spec.ts",
+          "round11.spec.ts",
+          "round12.spec.ts",
+          "round13.spec.ts",
+          "round14.spec.ts",
+          "round15.spec.ts",
+          "round16.spec.ts"
+        ],
+        "timeout": 90000
+      },
+      {
+        "outputDir": "/home/runner/work/dibs/dibs/.tmp/r16/browser-artifacts",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "ci": {
+            "commitHref": "https://github.com/ashwathram-prathap/dibs/commit/74018b95c6d37be2fc68f6b8682e11da341d52a8",
+            "commitHash": "74018b95c6d37be2fc68f6b8682e11da341d52a8",
+            "buildHref": "https://github.com/ashwathram-prathap/dibs/actions/runs/45139260575"
+          },
+          "gitCommit": {
+            "shortHash": "74018b9",
+            "hash": "74018b95c6d37be2fc68f6b8682e11da341d52a8",
+            "subject": "R17: verify opening identity, coalesce live broadcasts and document free-tier bounds",
+            "body": "R17: verify opening identity, coalesce live broadcasts and document free-tier bounds\n",
+            "author": {
+              "name": "Ashwathram Prathap",
+              "email": "prathapashwathram@gmail.com",
+              "time": 1795422661000
+            },
+            "committer": {
+              "name": "Ashwathram Prathap",
+              "email": "prathapashwathram@gmail.com",
+              "time": 1795422661000
+            },
+            "branch": "main"
+          },
+          "actualWorkers": 4
+        },
+        "id": "320-small-dark",
+        "name": "320-small-dark",
+        "testDir": "/home/runner/work/dibs/dibs/tests/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "round9.spec.ts",
+          "round11.spec.ts",
+          "round12.spec.ts",
+          "round13.spec.ts",
+          "round14.spec.ts",
+          "round15.spec.ts",
+          "round16.spec.ts"
+        ],
+        "timeout": 90000
+      },
+      {
+        "outputDir": "/home/runner/work/dibs/dibs/.tmp/r16/browser-artifacts",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "ci": {
+            "commitHref": "https://github.com/ashwathram-prathap/dibs/commit/74018b95c6d37be2fc68f6b8682e11da341d52a8",
+            "commitHash": "74018b95c6d37be2fc68f6b8682e11da341d52a8",
+            "buildHref": "https://github.com/ashwathram-prathap/dibs/actions/runs/45139260575"
+          },
+          "gitCommit": {
+            "shortHash": "74018b9",
+            "hash": "74018b95c6d37be2fc68f6b8682e11da341d52a8",
+            "subject": "R17: verify opening identity, coalesce live broadcasts and document free-tier bounds",
+            "body": "R17: verify opening identity, coalesce live broadcasts and document free-tier bounds\n",
+            "author": {
+              "name": "Ashwathram Prathap",
+              "email": "prathapashwathram@gmail.com",
+              "time": 1795422661000
+            },
+            "committer": {
+              "name": "Ashwathram Prathap",
+              "email": "prathapashwathram@gmail.com",
+              "time": 1795422661000
+            },
+            "branch": "main"
+          },
+          "actualWorkers": 4
+        },
+        "id": "landscape-phone-dark",
+        "name": "landscape-phone-dark",
+        "testDir": "/home/runner/work/dibs/dibs/tests/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "round9.spec.ts",
+          "round11.spec.ts",
+          "round12.spec.ts",
+          "round13.spec.ts",
+          "round14.spec.ts",
+          "round15.spec.ts",
+          "round16.spec.ts"
+        ],
+        "timeout": 90000
+      },
+      {
+        "outputDir": "/home/runner/work/dibs/dibs/.tmp/r16/browser-artifacts",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "ci": {
+            "commitHref": "https://github.com/ashwathram-prathap/dibs/commit/74018b95c6d37be2fc68f6b8682e11da341d52a8",
+            "commitHash": "74018b95c6d37be2fc68f6b8682e11da341d52a8",
+            "buildHref": "https://github.com/ashwathram-prathap/dibs/actions/runs/45139260575"
+          },
+          "gitCommit": {
+            "shortHash": "74018b9",
+            "hash": "74018b95c6d37be2fc68f6b8682e11da341d52a8",
+            "subject": "R17: verify opening identity, coalesce live broadcasts and document free-tier bounds",
+            "body": "R17: verify opening identity, coalesce live broadcasts and document free-tier bounds\n",
+            "author": {
+              "name": "Ashwathram Prathap",
+              "email": "prathapashwathram@gmail.com",
+              "time": 1795422661000
+            },
+            "committer": {
+              "name": "Ashwathram Prathap",
+              "email": "prathapashwathram@gmail.com",
+              "time": 1795422661000
+            },
+            "branch": "main"
+          },
+          "actualWorkers": 4
+        },
+        "id": "Instagram-iPhone-15-Pro",
+        "name": "Instagram-iPhone-15-Pro",
+        "testDir": "/home/runner/work/dibs/dibs/tests/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "round9.spec.ts",
+          "round11.spec.ts",
+          "round12.spec.ts",
+          "round13.spec.ts",
+          "round14.spec.ts",
+          "round15.spec.ts",
+          "round16.spec.ts"
+        ],
+        "timeout": 90000
+      },
+      {
+        "outputDir": "/home/runner/work/dibs/dibs/.tmp/r16/browser-artifacts",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "ci": {
+            "commitHref": "https://github.com/ashwathram-prathap/dibs/commit/74018b95c6d37be2fc68f6b8682e11da341d52a8",
+            "commitHash": "74018b95c6d37be2fc68f6b8682e11da341d52a8",
+            "buildHref": "https://github.com/ashwathram-prathap/dibs/actions/runs/45139260575"
+          },
+          "gitCommit": {
+            "shortHash": "74018b9",
+            "hash": "74018b95c6d37be2fc68f6b8682e11da341d52a8",
+            "subject": "R17: verify opening identity, coalesce live broadcasts and document free-tier bounds",
+            "body": "R17: verify opening identity, coalesce live broadcasts and document free-tier bounds\n",
+            "author": {
+              "name": "Ashwathram Prathap",
+              "email": "prathapashwathram@gmail.com",
+              "time": 1795422661000
+            },
+            "committer": {
+              "name": "Ashwathram Prathap",
+              "email": "prathapashwathram@gmail.com",
+              "time": 1795422661000
+            },
+            "branch": "main"
+          },
+          "actualWorkers": 4
+        },
+        "id": "Instagram-Pixel-7",
+        "name": "Instagram-Pixel-7",
+        "testDir": "/home/runner/work/dibs/dibs/tests/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "round9.spec.ts",
+          "round11.spec.ts",
+          "round12.spec.ts",
+          "round13.spec.ts",
+          "round14.spec.ts",
+          "round15.spec.ts",
+          "round16.spec.ts"
+        ],
+        "timeout": 90000
+      },
+      {
+        "outputDir": "/home/runner/work/dibs/dibs/.tmp/r16/browser-artifacts",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "ci": {
+            "commitHref": "https://github.com/ashwathram-prathap/dibs/commit/74018b95c6d37be2fc68f6b8682e11da341d52a8",
+            "commitHash": "74018b95c6d37be2fc68f6b8682e11da341d52a8",
+            "buildHref": "https://github.com/ashwathram-prathap/dibs/actions/runs/45139260575"
+          },
+          "gitCommit": {
+            "shortHash": "74018b9",
+            "hash": "74018b95c6d37be2fc68f6b8682e11da341d52a8",
+            "subject": "R17: verify opening identity, coalesce live broadcasts and document free-tier bounds",
+            "body": "R17: verify opening identity, coalesce live broadcasts and document free-tier bounds\n",
+            "author": {
+              "name": "Ashwathram Prathap",
+              "email": "prathapashwathram@gmail.com",
+              "time": 1795422661000
+            },
+            "committer": {
+              "name": "Ashwathram Prathap",
+              "email": "prathapashwathram@gmail.com",
+              "time": 1795422661000
+            },
+            "branch": "main"
+          },
+          "actualWorkers": 4
+        },
+        "id": "TikTok-iPhone-15-Pro",
+        "name": "TikTok-iPhone-15-Pro",
+        "testDir": "/home/runner/work/dibs/dibs/tests/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "round9.spec.ts",
+          "round11.spec.ts",
+          "round12.spec.ts",
+          "round13.spec.ts",
+          "round14.spec.ts",
+          "round15.spec.ts",
+          "round16.spec.ts"
+        ],
+        "timeout": 90000
+      },
+      {
+        "outputDir": "/home/runner/work/dibs/dibs/.tmp/r16/browser-artifacts",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "ci": {
+            "commitHref": "https://github.com/ashwathram-prathap/dibs/commit/74018b95c6d37be2fc68f6b8682e11da341d52a8",
+            "commitHash": "74018b95c6d37be2fc68f6b8682e11da341d52a8",
+            "buildHref": "https://github.com/ashwathram-prathap/dibs/actions/runs/45139260575"
+          },
+          "gitCommit": {
+            "shortHash": "74018b9",
+            "hash": "74018b95c6d37be2fc68f6b8682e11da341d52a8",
+            "subject": "R17: verify opening identity, coalesce live broadcasts and document free-tier bounds",
+            "body": "R17: verify opening identity, coalesce live broadcasts and document free-tier bounds\n",
+            "author": {
+              "name": "Ashwathram Prathap",
+              "email": "prathapashwathram@gmail.com",
+              "time": 1795422661000
+            },
+            "committer": {
+              "name": "Ashwathram Prathap",
+              "email": "prathapashwathram@gmail.com",
+              "time": 1795422661000
+            },
+            "branch": "main"
+          },
+          "actualWorkers": 4
+        },
+        "id": "TikTok-Pixel-7",
+        "name": "TikTok-Pixel-7",
+        "testDir": "/home/runner/work/dibs/dibs/tests/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "round9.spec.ts",
+          "round11.spec.ts",
+          "round12.spec.ts",
+          "round13.spec.ts",
+          "round14.spec.ts",
+          "round15.spec.ts",
+          "round16.spec.ts"
+        ],
+        "timeout": 90000
+      },
+      {
+        "outputDir": "/home/runner/work/dibs/dibs/.tmp/r16/browser-artifacts",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "ci": {
+            "commitHref": "https://github.com/ashwathram-prathap/dibs/commit/74018b95c6d37be2fc68f6b8682e11da341d52a8",
+            "commitHash": "74018b95c6d37be2fc68f6b8682e11da341d52a8",
+            "buildHref": "https://github.com/ashwathram-prathap/dibs/actions/runs/45139260575"
+          },
+          "gitCommit": {
+            "shortHash": "74018b9",
+            "hash": "74018b95c6d37be2fc68f6b8682e11da341d52a8",
+            "subject": "R17: verify opening identity, coalesce live broadcasts and document free-tier bounds",
+            "body": "R17: verify opening identity, coalesce live broadcasts and document free-tier bounds\n",
+            "author": {
+              "name": "Ashwathram Prathap",
+              "email": "prathapashwathram@gmail.com",
+              "time": 1795422661000
+            },
+            "committer": {
+              "name": "Ashwathram Prathap",
+              "email": "prathapashwathram@gmail.com",
+              "time": 1795422661000
+            },
+            "branch": "main"
+          },
+          "actualWorkers": 4
+        },
+        "id": "X-iPhone-15-Pro",
+        "name": "X-iPhone-15-Pro",
+        "testDir": "/home/runner/work/dibs/dibs/tests/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "round9.spec.ts",
+          "round11.spec.ts",
+          "round12.spec.ts",
+          "round13.spec.ts",
+          "round14.spec.ts",
+          "round15.spec.ts",
+          "round16.spec.ts"
+        ],
+        "timeout": 90000
+      },
+      {
+        "outputDir": "/home/runner/work/dibs/dibs/.tmp/r16/browser-artifacts",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "ci": {
+            "commitHref": "https://github.com/ashwathram-prathap/dibs/commit/74018b95c6d37be2fc68f6b8682e11da341d52a8",
+            "commitHash": "74018b95c6d37be2fc68f6b8682e11da341d52a8",
+            "buildHref": "https://github.com/ashwathram-prathap/dibs/actions/runs/45139260575"
+          },
+          "gitCommit": {
+            "shortHash": "74018b9",
+            "hash": "74018b95c6d37be2fc68f6b8682e11da341d52a8",
+            "subject": "R17: verify opening identity, coalesce live broadcasts and document free-tier bounds",
+            "body": "R17: verify opening identity, coalesce live broadcasts and document free-tier bounds\n",
+            "author": {
+              "name": "Ashwathram Prathap",
+              "email": "prathapashwathram@gmail.com",
+              "time": 1795422661000
+            },
+            "committer": {
+              "name": "Ashwathram Prathap",
+              "email": "prathapashwathram@gmail.com",
+              "time": 1795422661000
+            },
+            "branch": "main"
+          },
+          "actualWorkers": 4
+        },
+        "id": "X-Pixel-7",
+        "name": "X-Pixel-7",
+        "testDir": "/home/runner/work/dibs/dibs/tests/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "round9.spec.ts",
+          "round11.spec.ts",
+          "round12.spec.ts",
+          "round13.spec.ts",
+          "round14.spec.ts",
+          "round15.spec.ts",
+          "round16.spec.ts"
+        ],
+        "timeout": 90000
+      }
+    ],
+    "filteredProjects": [
+      {
+        "grep": {},
+        "grepInvert": null,
+        "outputDir": "/home/runner/work/dibs/dibs/.tmp/r16/browser-artifacts",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "ci": {
+            "commitHref": "https://github.com/ashwathram-prathap/dibs/commit/74018b95c6d37be2fc68f6b8682e11da341d52a8",
+            "commitHash": "74018b95c6d37be2fc68f6b8682e11da341d52a8",
+            "buildHref": "https://github.com/ashwathram-prathap/dibs/actions/runs/45139260575"
+          },
+          "gitCommit": {
+            "shortHash": "74018b9",
+            "hash": "74018b95c6d37be2fc68f6b8682e11da341d52a8",
+            "subject": "R17: verify opening identity, coalesce live broadcasts and document free-tier bounds",
+            "body": "R17: verify opening identity, coalesce live broadcasts and document free-tier bounds\n",
+            "author": {
+              "name": "Ashwathram Prathap",
+              "email": "prathapashwathram@gmail.com",
+              "time": 1795422661000
+            },
+            "committer": {
+              "name": "Ashwathram Prathap",
+              "email": "prathapashwathram@gmail.com",
+              "time": 1795422661000
+            },
+            "branch": "main"
+          },
+          "actualWorkers": 4
+        },
+        "name": "firefox-1280-light",
+        "testDir": "/home/runner/work/dibs/dibs/tests/e2e",
+        "snapshotDir": "/home/runner/work/dibs/dibs/tests/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "round9.spec.ts",
+          "round11.spec.ts",
+          "round12.spec.ts",
+          "round13.spec.ts",
+          "round14.spec.ts",
+          "round15.spec.ts",
+          "round16.spec.ts"
+        ],
+        "timeout": 90000,
+        "use": {
+          "baseURL": "http://127.0.0.1:5173",
+          "trace": "retain-on-failure",
+          "browserName": "firefox",
+          "viewport": {
+            "width": 1280,
+            "height": 900
+          },
+          "colorScheme": "light"
+        },
+        "dependencies": [],
+        "ignoreSnapshots": false,
+        "__projectId": "firefox-1280-light"
+      },
+      {
+        "grep": {},
+        "grepInvert": null,
+        "outputDir": "/home/runner/work/dibs/dibs/.tmp/r16/browser-artifacts",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "ci": {
+            "commitHref": "https://github.com/ashwathram-prathap/dibs/commit/74018b95c6d37be2fc68f6b8682e11da341d52a8",
+            "commitHash": "74018b95c6d37be2fc68f6b8682e11da341d52a8",
+            "buildHref": "https://github.com/ashwathram-prathap/dibs/actions/runs/45139260575"
+          },
+          "gitCommit": {
+            "shortHash": "74018b9",
+            "hash": "74018b95c6d37be2fc68f6b8682e11da341d52a8",
+            "subject": "R17: verify opening identity, coalesce live broadcasts and document free-tier bounds",
+            "body": "R17: verify opening identity, coalesce live broadcasts and document free-tier bounds\n",
+            "author": {
+              "name": "Ashwathram Prathap",
+              "email": "prathapashwathram@gmail.com",
+              "time": 1795422661000
+            },
+            "committer": {
+              "name": "Ashwathram Prathap",
+              "email": "prathapashwathram@gmail.com",
+              "time": 1795422661000
+            },
+            "branch": "main"
+          },
+          "actualWorkers": 4
+        },
+        "name": "firefox-1440-light",
+        "testDir": "/home/runner/work/dibs/dibs/tests/e2e",
+        "snapshotDir": "/home/runner/work/dibs/dibs/tests/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "round9.spec.ts",
+          "round11.spec.ts",
+          "round12.spec.ts",
+          "round13.spec.ts",
+          "round14.spec.ts",
+          "round15.spec.ts",
+          "round16.spec.ts"
+        ],
+        "timeout": 90000,
+        "use": {
+          "baseURL": "http://127.0.0.1:5173",
+          "trace": "retain-on-failure",
+          "browserName": "firefox",
+          "viewport": {
+            "width": 1440,
+            "height": 900
+          },
+          "colorScheme": "light"
+        },
+        "dependencies": [],
+        "ignoreSnapshots": false,
+        "__projectId": "firefox-1440-light"
+      },
+      {
+        "grep": {},
+        "grepInvert": null,
+        "outputDir": "/home/runner/work/dibs/dibs/.tmp/r16/browser-artifacts",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "ci": {
+            "commitHref": "https://github.com/ashwathram-prathap/dibs/commit/74018b95c6d37be2fc68f6b8682e11da341d52a8",
+            "commitHash": "74018b95c6d37be2fc68f6b8682e11da341d52a8",
+            "buildHref": "https://github.com/ashwathram-prathap/dibs/actions/runs/45139260575"
+          },
+          "gitCommit": {
+            "shortHash": "74018b9",
+            "hash": "74018b95c6d37be2fc68f6b8682e11da341d52a8",
+            "subject": "R17: verify opening identity, coalesce live broadcasts and document free-tier bounds",
+            "body": "R17: verify opening identity, coalesce live broadcasts and document free-tier bounds\n",
+            "author": {
+              "name": "Ashwathram Prathap",
+              "email": "prathapashwathram@gmail.com",
+              "time": 1795422661000
+            },
+            "committer": {
+              "name": "Ashwathram Prathap",
+              "email": "prathapashwathram@gmail.com",
+              "time": 1795422661000
+            },
+            "branch": "main"
+          },
+          "actualWorkers": 4
+        },
+        "name": "firefox-2560-light",
+        "testDir": "/home/runner/work/dibs/dibs/tests/e2e",
+        "snapshotDir": "/home/runner/work/dibs/dibs/tests/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "round9.spec.ts",
+          "round11.spec.ts",
+          "round12.spec.ts",
+          "round13.spec.ts",
+          "round14.spec.ts",
+          "round15.spec.ts",
+          "round16.spec.ts"
+        ],
+        "timeout": 90000,
+        "use": {
+          "baseURL": "http://127.0.0.1:5173",
+          "trace": "retain-on-failure",
+          "browserName": "firefox",
+          "viewport": {
+            "width": 2560,
+            "height": 900
+          },
+          "colorScheme": "light"
+        },
+        "dependencies": [],
+        "ignoreSnapshots": false,
+        "__projectId": "firefox-2560-light"
+      },
+      {
+        "grep": {},
+        "grepInvert": null,
+        "outputDir": "/home/runner/work/dibs/dibs/.tmp/r16/browser-artifacts",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "ci": {
+            "commitHref": "https://github.com/ashwathram-prathap/dibs/commit/74018b95c6d37be2fc68f6b8682e11da341d52a8",
+            "commitHash": "74018b95c6d37be2fc68f6b8682e11da341d52a8",
+            "buildHref": "https://github.com/ashwathram-prathap/dibs/actions/runs/45139260575"
+          },
+          "gitCommit": {
+            "shortHash": "74018b9",
+            "hash": "74018b95c6d37be2fc68f6b8682e11da341d52a8",
+            "subject": "R17: verify opening identity, coalesce live broadcasts and document free-tier bounds",
+            "body": "R17: verify opening identity, coalesce live broadcasts and document free-tier bounds\n",
+            "author": {
+              "name": "Ashwathram Prathap",
+              "email": "prathapashwathram@gmail.com",
+              "time": 1795422661000
+            },
+            "committer": {
+              "name": "Ashwathram Prathap",
+              "email": "prathapashwathram@gmail.com",
+              "time": 1795422661000
+            },
+            "branch": "main"
+          },
+          "actualWorkers": 4
+        },
+        "name": "firefox-1280-dark",
+        "testDir": "/home/runner/work/dibs/dibs/tests/e2e",
+        "snapshotDir": "/home/runner/work/dibs/dibs/tests/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "round9.spec.ts",
+          "round11.spec.ts",
+          "round12.spec.ts",
+          "round13.spec.ts",
+          "round14.spec.ts",
+          "round15.spec.ts",
+          "round16.spec.ts"
+        ],
+        "timeout": 90000,
+        "use": {
+          "baseURL": "http://127.0.0.1:5173",
+          "trace": "retain-on-failure",
+          "browserName": "firefox",
+          "viewport": {
+            "width": 1280,
+            "height": 900
+          },
+          "colorScheme": "dark"
+        },
+        "dependencies": [],
+        "ignoreSnapshots": false,
+        "__projectId": "firefox-1280-dark"
+      },
+      {
+        "grep": {},
+        "grepInvert": null,
+        "outputDir": "/home/runner/work/dibs/dibs/.tmp/r16/browser-artifacts",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "ci": {
+            "commitHref": "https://github.com/ashwathram-prathap/dibs/commit/74018b95c6d37be2fc68f6b8682e11da341d52a8",
+            "commitHash": "74018b95c6d37be2fc68f6b8682e11da341d52a8",
+            "buildHref": "https://github.com/ashwathram-prathap/dibs/actions/runs/45139260575"
+          },
+          "gitCommit": {
+            "shortHash": "74018b9",
+            "hash": "74018b95c6d37be2fc68f6b8682e11da341d52a8",
+            "subject": "R17: verify opening identity, coalesce live broadcasts and document free-tier bounds",
+            "body": "R17: verify opening identity, coalesce live broadcasts and document free-tier bounds\n",
+            "author": {
+              "name": "Ashwathram Prathap",
+              "email": "prathapashwathram@gmail.com",
+              "time": 1795422661000
+            },
+            "committer": {
+              "name": "Ashwathram Prathap",
+              "email": "prathapashwathram@gmail.com",
+              "time": 1795422661000
+            },
+            "branch": "main"
+          },
+          "actualWorkers": 4
+        },
+        "name": "firefox-1440-dark",
+        "testDir": "/home/runner/work/dibs/dibs/tests/e2e",
+        "snapshotDir": "/home/runner/work/dibs/dibs/tests/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "round9.spec.ts",
+          "round11.spec.ts",
+          "round12.spec.ts",
+          "round13.spec.ts",
+          "round14.spec.ts",
+          "round15.spec.ts",
+          "round16.spec.ts"
+        ],
+        "timeout": 90000,
+        "use": {
+          "baseURL": "http://127.0.0.1:5173",
+          "trace": "retain-on-failure",
+          "browserName": "firefox",
+          "viewport": {
+            "width": 1440,
+            "height": 900
+          },
+          "colorScheme": "dark"
+        },
+        "dependencies": [],
+        "ignoreSnapshots": false,
+        "__projectId": "firefox-1440-dark"
+      },
+      {
+        "grep": {},
+        "grepInvert": null,
+        "outputDir": "/home/runner/work/dibs/dibs/.tmp/r16/browser-artifacts",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "ci": {
+            "commitHref": "https://github.com/ashwathram-prathap/dibs/commit/74018b95c6d37be2fc68f6b8682e11da341d52a8",
+            "commitHash": "74018b95c6d37be2fc68f6b8682e11da341d52a8",
+            "buildHref": "https://github.com/ashwathram-prathap/dibs/actions/runs/45139260575"
+          },
+          "gitCommit": {
+            "shortHash": "74018b9",
+            "hash": "74018b95c6d37be2fc68f6b8682e11da341d52a8",
+            "subject": "R17: verify opening identity, coalesce live broadcasts and document free-tier bounds",
+            "body": "R17: verify opening identity, coalesce live broadcasts and document free-tier bounds\n",
+            "author": {
+              "name": "Ashwathram Prathap",
+              "email": "prathapashwathram@gmail.com",
+              "time": 1795422661000
+            },
+            "committer": {
+              "name": "Ashwathram Prathap",
+              "email": "prathapashwathram@gmail.com",
+              "time": 1795422661000
+            },
+            "branch": "main"
+          },
+          "actualWorkers": 4
+        },
+        "name": "firefox-2560-dark",
+        "testDir": "/home/runner/work/dibs/dibs/tests/e2e",
+        "snapshotDir": "/home/runner/work/dibs/dibs/tests/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "round9.spec.ts",
+          "round11.spec.ts",
+          "round12.spec.ts",
+          "round13.spec.ts",
+          "round14.spec.ts",
+          "round15.spec.ts",
+          "round16.spec.ts"
+        ],
+        "timeout": 90000,
+        "use": {
+          "baseURL": "http://127.0.0.1:5173",
+          "trace": "retain-on-failure",
+          "browserName": "firefox",
+          "viewport": {
+            "width": 2560,
+            "height": 900
+          },
+          "colorScheme": "dark"
+        },
+        "dependencies": [],
+        "ignoreSnapshots": false,
+        "__projectId": "firefox-2560-dark"
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "list",
+        null
+      ],
+      [
+        "json",
+        {
+          "outputFile": "review/round17/firefox-regression-results.json"
+        }
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "default",
+    "updateSourceMethod": "patch",
+    "version": "1.65.1",
+    "workers": 4,
+    "webServer": {
+      "command": "npm run preview -- --mode security-test --port 5173",
+      "url": "http://127.0.0.1:5173",
+      "reuseExistingServer": true
+    }
+  },
+  "suites": [
+    {
+      "title": "round11.spec.ts",
+      "file": "round11.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "R11 rules, free guesses, explicit counters, reminders, settings and deletion",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "firefox-1280-light",
+              "projectName": "firefox-1280-light",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 17656,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-23T08:39:50.816Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            },
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "firefox-1440-light",
+              "projectName": "firefox-1440-light",
+              "results": [
+                {
+                  "workerIndex": 4,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 16220,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-23T08:40:51.603Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            },
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "firefox-2560-light",
+              "projectName": "firefox-2560-light",
+              "results": [
+                {
+                  "workerIndex": 8,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 14603,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-23T08:41:50.493Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            },
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "firefox-1280-dark",
+              "projectName": "firefox-1280-dark",
+              "results": [
+                {
+                  "workerIndex": 12,
+                  "parallelIndex": 2,
+                  "status": "passed",
+                  "duration": 15097,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-23T08:42:50.448Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            },
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "firefox-1440-dark",
+              "projectName": "firefox-1440-dark",
+              "results": [
+                {
+                  "workerIndex": 16,
+                  "parallelIndex": 2,
+                  "status": "passed",
+                  "duration": 16513,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-23T08:43:49.388Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            },
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "firefox-2560-dark",
+              "projectName": "firefox-2560-dark",
+              "results": [
+                {
+                  "workerIndex": 20,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 17473,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-23T08:44:49.125Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "08cc234c304286c01af8-e38c258feb0058d50641",
+          "file": "round11.spec.ts",
+          "line": 3,
+          "column": 1
+        },
+        {
+          "title": "R11 every page has legible type, aligned containers, accessible disclosures and no overflow",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "firefox-1280-light",
+              "projectName": "firefox-1280-light",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 56394,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-23T08:39:50.697Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            },
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "firefox-1440-light",
+              "projectName": "firefox-1440-light",
+              "results": [
+                {
+                  "workerIndex": 5,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 54082,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-23T08:40:51.320Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            },
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "firefox-2560-light",
+              "projectName": "firefox-2560-light",
+              "results": [
+                {
+                  "workerIndex": 9,
+                  "parallelIndex": 2,
+                  "status": "passed",
+                  "duration": 52203,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-23T08:41:53.053Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            },
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "firefox-1280-dark",
+              "projectName": "firefox-1280-dark",
+              "results": [
+                {
+                  "workerIndex": 13,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 53421,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-23T08:42:51.738Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            },
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "firefox-1440-dark",
+              "projectName": "firefox-1440-dark",
+              "results": [
+                {
+                  "workerIndex": 17,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 53152,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-23T08:43:50.139Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            },
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "firefox-2560-dark",
+              "projectName": "firefox-2560-dark",
+              "results": [
+                {
+                  "workerIndex": 21,
+                  "parallelIndex": 2,
+                  "status": "passed",
+                  "duration": 54382,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-23T08:44:50.628Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "08cc234c304286c01af8-d58f8ff2539ab53c5f3f",
+          "file": "round11.spec.ts",
+          "line": 48,
+          "column": 1
+        }
+      ]
+    },
+    {
+      "title": "round12.spec.ts",
+      "file": "round12.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "R12 first visitor sees plain rules and a full worked example in every home state",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "firefox-1280-light",
+              "projectName": "firefox-1280-light",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 2,
+                  "status": "passed",
+                  "duration": 14104,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-23T08:39:50.586Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            },
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "firefox-1440-light",
+              "projectName": "firefox-1440-light",
+              "results": [
+                {
+                  "workerIndex": 6,
+                  "parallelIndex": 2,
+                  "status": "passed",
+                  "duration": 14029,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-23T08:40:52.718Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            },
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "firefox-2560-light",
+              "projectName": "firefox-2560-light",
+              "results": [
+                {
+                  "workerIndex": 10,
+                  "parallelIndex": 3,
+                  "status": "passed",
+                  "duration": 13660,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-23T08:41:56.387Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            },
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "firefox-1280-dark",
+              "projectName": "firefox-1280-dark",
+              "results": [
+                {
+                  "workerIndex": 14,
+                  "parallelIndex": 3,
+                  "status": "passed",
+                  "duration": 14700,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-23T08:42:52.224Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            },
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "firefox-1440-dark",
+              "projectName": "firefox-1440-dark",
+              "results": [
+                {
+                  "workerIndex": 18,
+                  "parallelIndex": 3,
+                  "status": "passed",
+                  "duration": 14377,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-23T08:43:51.779Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            },
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "firefox-2560-dark",
+              "projectName": "firefox-2560-dark",
+              "results": [
+                {
+                  "workerIndex": 22,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 14640,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-23T08:44:54.308Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "6dbda3ab3888b0a868da-61a7a3f4b74febf889a4",
+          "file": "round12.spec.ts",
+          "line": 3,
+          "column": 1
+        }
+      ]
+    },
+    {
+      "title": "round13.spec.ts",
+      "file": "round13.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "R13 hero first, R7 scale, phone action visible, explanation collapses",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "firefox-1280-light",
+              "projectName": "firefox-1280-light",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 3,
+                  "status": "passed",
+                  "duration": 17585,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-23T08:39:51.107Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            },
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "firefox-1440-light",
+              "projectName": "firefox-1440-light",
+              "results": [
+                {
+                  "workerIndex": 7,
+                  "parallelIndex": 3,
+                  "status": "passed",
+                  "duration": 16613,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-23T08:41:00.899Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            },
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "firefox-2560-light",
+              "projectName": "firefox-2560-light",
+              "results": [
+                {
+                  "workerIndex": 11,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 15115,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-23T08:42:03.865Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            },
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "firefox-1280-dark",
+              "projectName": "firefox-1280-dark",
+              "results": [
+                {
+                  "workerIndex": 15,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 14693,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-23T08:42:59.212Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            },
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "firefox-1440-dark",
+              "projectName": "firefox-1440-dark",
+              "results": [
+                {
+                  "workerIndex": 19,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 15338,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-23T08:43:59.833Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            },
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "firefox-2560-dark",
+              "projectName": "firefox-2560-dark",
+              "results": [
+                {
+                  "workerIndex": 23,
+                  "parallelIndex": 3,
+                  "status": "passed",
+                  "duration": 15988,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-23T08:45:04.839Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "58ee6b72ac1a0da6b9f8-26f7b68e92e23cb4118d",
+          "file": "round13.spec.ts",
+          "line": 3,
+          "column": 1
+        },
+        {
+          "title": "R13 sound mapping, double tap and music only after tap",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "firefox-1280-light",
+              "projectName": "firefox-1280-light",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 2,
+                  "status": "passed",
+                  "duration": 13480,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-23T08:40:06.735Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            },
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "firefox-1440-light",
+              "projectName": "firefox-1440-light",
+              "results": [
+                {
+                  "workerIndex": 6,
+                  "parallelIndex": 2,
+                  "status": "passed",
+                  "duration": 14304,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-23T08:41:09.998Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            },
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "firefox-2560-light",
+              "projectName": "firefox-2560-light",
+              "results": [
+                {
+                  "workerIndex": 8,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 13554,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-23T08:42:06.658Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            },
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "firefox-1280-dark",
+              "projectName": "firefox-1280-dark",
+              "results": [
+                {
+                  "workerIndex": 12,
+                  "parallelIndex": 2,
+                  "status": "passed",
+                  "duration": 14167,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-23T08:43:07.375Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            },
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "firefox-1440-dark",
+              "projectName": "firefox-1440-dark",
+              "results": [
+                {
+                  "workerIndex": 16,
+                  "parallelIndex": 2,
+                  "status": "passed",
+                  "duration": 14598,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-23T08:44:07.554Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            },
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "firefox-2560-dark",
+              "projectName": "firefox-2560-dark",
+              "results": [
+                {
+                  "workerIndex": 20,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 14364,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-23T08:45:08.659Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "58ee6b72ac1a0da6b9f8-e93551f679c01e00206a",
+          "file": "round13.spec.ts",
+          "line": 60,
+          "column": 1
+        },
+        {
+          "title": "R13 overlay keyboard keeps the whole form reachable after rules collapse",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "firefox-1280-light",
+              "projectName": "firefox-1280-light",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 6661,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-23T08:40:11.356Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            },
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "firefox-1440-light",
+              "projectName": "firefox-1440-light",
+              "results": [
+                {
+                  "workerIndex": 4,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 6707,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-23T08:41:10.030Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            },
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "firefox-2560-light",
+              "projectName": "firefox-2560-light",
+              "results": [
+                {
+                  "workerIndex": 10,
+                  "parallelIndex": 3,
+                  "status": "passed",
+                  "duration": 5771,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-23T08:42:12.635Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            },
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "firefox-1280-dark",
+              "projectName": "firefox-1280-dark",
+              "results": [
+                {
+                  "workerIndex": 14,
+                  "parallelIndex": 3,
+                  "status": "passed",
+                  "duration": 6102,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-23T08:43:10.383Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            },
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "firefox-1440-dark",
+              "projectName": "firefox-1440-dark",
+              "results": [
+                {
+                  "workerIndex": 18,
+                  "parallelIndex": 3,
+                  "status": "passed",
+                  "duration": 7395,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-23T08:44:09.028Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            },
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "firefox-2560-dark",
+              "projectName": "firefox-2560-dark",
+              "results": [
+                {
+                  "workerIndex": 22,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 5785,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-23T08:45:11.638Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "58ee6b72ac1a0da6b9f8-e92bee75feec67778cfe",
+          "file": "round13.spec.ts",
+          "line": 147,
+          "column": 1
+        }
+      ]
+    },
+    {
+      "title": "round14.spec.ts",
+      "file": "round14.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "R14 payoff, hidden-answer leaderboard, done score and spoiler-free share",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "firefox-1280-light",
+              "projectName": "firefox-1280-light",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 3,
+                  "status": "passed",
+                  "duration": 12947,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-23T08:40:13.465Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            },
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "firefox-1440-light",
+              "projectName": "firefox-1440-light",
+              "results": [
+                {
+                  "workerIndex": 4,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 12262,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-23T08:41:16.837Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            },
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "firefox-2560-light",
+              "projectName": "firefox-2560-light",
+              "results": [
+                {
+                  "workerIndex": 10,
+                  "parallelIndex": 3,
+                  "status": "passed",
+                  "duration": 11696,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-23T08:42:18.453Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            },
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "firefox-1280-dark",
+              "projectName": "firefox-1280-dark",
+              "results": [
+                {
+                  "workerIndex": 15,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 11664,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-23T08:43:15.803Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            },
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "firefox-1440-dark",
+              "projectName": "firefox-1440-dark",
+              "results": [
+                {
+                  "workerIndex": 18,
+                  "parallelIndex": 3,
+                  "status": "passed",
+                  "duration": 12946,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-23T08:44:16.526Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            },
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "firefox-2560-dark",
+              "projectName": "firefox-2560-dark",
+              "results": [
+                {
+                  "workerIndex": 22,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 13092,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-23T08:45:17.452Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "ab448cdedfda3b2fa714-52be429eb0cb8da54ae6",
+          "file": "round14.spec.ts",
+          "line": 3,
+          "column": 1
+        }
+      ]
+    },
+    {
+      "title": "round15.spec.ts",
+      "file": "round15.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "R15 navigation has four labelled icons and disappears around the phone keyboard",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "firefox-1280-light",
+              "projectName": "firefox-1280-light",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 3831,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-23T08:40:18.128Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            },
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "firefox-1440-light",
+              "projectName": "firefox-1440-light",
+              "results": [
+                {
+                  "workerIndex": 7,
+                  "parallelIndex": 3,
+                  "status": "passed",
+                  "duration": 4292,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-23T08:41:19.490Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            },
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "firefox-2560-light",
+              "projectName": "firefox-2560-light",
+              "results": [
+                {
+                  "workerIndex": 8,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 3900,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-23T08:42:20.318Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            },
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "firefox-1280-dark",
+              "projectName": "firefox-1280-dark",
+              "results": [
+                {
+                  "workerIndex": 14,
+                  "parallelIndex": 3,
+                  "status": "passed",
+                  "duration": 4621,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-23T08:43:16.557Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            },
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "firefox-1440-dark",
+              "projectName": "firefox-1440-dark",
+              "results": [
+                {
+                  "workerIndex": 19,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 4627,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-23T08:44:16.836Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            },
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "firefox-2560-dark",
+              "projectName": "firefox-2560-dark",
+              "results": [
+                {
+                  "workerIndex": 20,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 4303,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-23T08:45:23.127Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "fdaa073b31c4ab8277d0-e1079bddffb1690b6082",
+          "file": "round15.spec.ts",
+          "line": 2,
+          "column": 1
+        },
+        {
+          "title": "R15 Copy result stays spoiler-free and native sharing sends only the file",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "firefox-1280-light",
+              "projectName": "firefox-1280-light",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 2,
+                  "status": "passed",
+                  "duration": 7337,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-23T08:40:20.383Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            },
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "firefox-1440-light",
+              "projectName": "firefox-1440-light",
+              "results": [
+                {
+                  "workerIndex": 7,
+                  "parallelIndex": 3,
+                  "status": "passed",
+                  "duration": 7468,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-23T08:41:23.870Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            },
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "firefox-2560-light",
+              "projectName": "firefox-2560-light",
+              "results": [
+                {
+                  "workerIndex": 11,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 6614,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-23T08:42:21.035Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            },
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "firefox-1280-dark",
+              "projectName": "firefox-1280-dark",
+              "results": [
+                {
+                  "workerIndex": 14,
+                  "parallelIndex": 3,
+                  "status": "passed",
+                  "duration": 6679,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-23T08:43:21.280Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            },
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "firefox-1440-dark",
+              "projectName": "firefox-1440-dark",
+              "results": [
+                {
+                  "workerIndex": 19,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 8029,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-23T08:44:21.523Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            },
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "firefox-2560-dark",
+              "projectName": "firefox-2560-dark",
+              "results": [
+                {
+                  "workerIndex": 23,
+                  "parallelIndex": 3,
+                  "status": "passed",
+                  "duration": 7422,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-23T08:45:23.513Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "fdaa073b31c4ab8277d0-45f11c33bbc8a158364a",
+          "file": "round15.spec.ts",
+          "line": 27,
+          "column": 1
+        },
+        {
+          "title": "R15 unavailable clipboard falls back to selectable text",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "firefox-1280-light",
+              "projectName": "firefox-1280-light",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 7604,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-23T08:40:22.021Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            },
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "firefox-1440-light",
+              "projectName": "firefox-1440-light",
+              "results": [
+                {
+                  "workerIndex": 6,
+                  "parallelIndex": 2,
+                  "status": "passed",
+                  "duration": 7104,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-23T08:41:24.351Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            },
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "firefox-2560-light",
+              "projectName": "firefox-2560-light",
+              "results": [
+                {
+                  "workerIndex": 8,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 7630,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-23T08:42:24.317Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            },
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "firefox-1280-dark",
+              "projectName": "firefox-1280-dark",
+              "results": [
+                {
+                  "workerIndex": 12,
+                  "parallelIndex": 2,
+                  "status": "passed",
+                  "duration": 6943,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-23T08:43:21.642Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            },
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "firefox-1440-dark",
+              "projectName": "firefox-1440-dark",
+              "results": [
+                {
+                  "workerIndex": 16,
+                  "parallelIndex": 2,
+                  "status": "passed",
+                  "duration": 7276,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-23T08:44:22.257Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            },
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "firefox-2560-dark",
+              "projectName": "firefox-2560-dark",
+              "results": [
+                {
+                  "workerIndex": 20,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 7246,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-23T08:45:27.491Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "fdaa073b31c4ab8277d0-299bcf42d8fdfc25e355",
+          "file": "round15.spec.ts",
+          "line": 66,
+          "column": 1
+        }
+      ]
+    },
+    {
+      "title": "round16.spec.ts",
+      "file": "round16.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "R16 header controls, timezone focus and readable content",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "firefox-1280-light",
+              "projectName": "firefox-1280-light",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 3,
+                  "status": "passed",
+                  "duration": 11038,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-23T08:40:26.487Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            },
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "firefox-1440-light",
+              "projectName": "firefox-1440-light",
+              "results": [
+                {
+                  "workerIndex": 4,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 10238,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-23T08:41:29.191Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            },
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "firefox-2560-light",
+              "projectName": "firefox-2560-light",
+              "results": [
+                {
+                  "workerIndex": 11,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 9879,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-23T08:42:27.754Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            },
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "firefox-1280-dark",
+              "projectName": "firefox-1280-dark",
+              "results": [
+                {
+                  "workerIndex": 15,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 10035,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-23T08:43:27.572Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            },
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "firefox-1440-dark",
+              "projectName": "firefox-1440-dark",
+              "results": [
+                {
+                  "workerIndex": 18,
+                  "parallelIndex": 3,
+                  "status": "passed",
+                  "duration": 10501,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-23T08:44:29.528Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            },
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "firefox-2560-dark",
+              "projectName": "firefox-2560-dark",
+              "results": [
+                {
+                  "workerIndex": 22,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 11201,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-23T08:45:30.631Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "e261f051a35234793ec6-134e6409bbdedf7a9e21",
+          "file": "round16.spec.ts",
+          "line": 3,
+          "column": 1
+        },
+        {
+          "title": "R16 clock digits have visible spacing in both themes",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "firefox-1280-light",
+              "projectName": "firefox-1280-light",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 2,
+                  "status": "passed",
+                  "duration": 3839,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-23T08:40:27.818Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            },
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "firefox-1440-light",
+              "projectName": "firefox-1440-light",
+              "results": [
+                {
+                  "workerIndex": 7,
+                  "parallelIndex": 3,
+                  "status": "passed",
+                  "duration": 3913,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-23T08:41:31.456Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            },
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "firefox-2560-light",
+              "projectName": "firefox-2560-light",
+              "results": [
+                {
+                  "workerIndex": 10,
+                  "parallelIndex": 3,
+                  "status": "passed",
+                  "duration": 2703,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-23T08:42:30.225Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            },
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "firefox-1280-dark",
+              "projectName": "firefox-1280-dark",
+              "results": [
+                {
+                  "workerIndex": 14,
+                  "parallelIndex": 3,
+                  "status": "passed",
+                  "duration": 4152,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-23T08:43:28.043Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            },
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "firefox-1440-dark",
+              "projectName": "firefox-1440-dark",
+              "results": [
+                {
+                  "workerIndex": 19,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 3809,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-23T08:44:29.602Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            },
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "firefox-2560-dark",
+              "projectName": "firefox-2560-dark",
+              "results": [
+                {
+                  "workerIndex": 23,
+                  "parallelIndex": 3,
+                  "status": "passed",
+                  "duration": 4472,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-23T08:45:31.010Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "e261f051a35234793ec6-e5f0659920a8259684c4",
+          "file": "round16.spec.ts",
+          "line": 35,
+          "column": 1
+        }
+      ]
+    },
+    {
+      "title": "round9.spec.ts",
+      "file": "round9.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "one card completes three wins and two strikes, then shares while other answers stay hidden",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "firefox-1280-light",
+              "projectName": "firefox-1280-light",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 17671,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-23T08:40:29.778Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "file-timing",
+                      "contentType": "application/json",
+                      "body": "eyJtaWxsaXNlY29uZHMiOjEzODU3LCJtYXhUYXBzUGVyR3Vlc3MiOjIsIm5vdGUiOiJOZXh0IGNsYWltIGZvY3VzZXMgdGhlIGlucHV0IGFuZCBpcyB0aGUgZmlyc3QgdGFwIG9mIHRoZSBmb2xsb3dpbmcgZ3Vlc3MuIn0="
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            },
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "firefox-1440-light",
+              "projectName": "firefox-1440-light",
+              "results": [
+                {
+                  "workerIndex": 6,
+                  "parallelIndex": 2,
+                  "status": "passed",
+                  "duration": 17125,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-23T08:41:31.535Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "file-timing",
+                      "contentType": "application/json",
+                      "body": "eyJtaWxsaXNlY29uZHMiOjEzMjEwLCJtYXhUYXBzUGVyR3Vlc3MiOjIsIm5vdGUiOiJOZXh0IGNsYWltIGZvY3VzZXMgdGhlIGlucHV0IGFuZCBpcyB0aGUgZmlyc3QgdGFwIG9mIHRoZSBmb2xsb3dpbmcgZ3Vlc3MuIn0="
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            },
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "firefox-2560-light",
+              "projectName": "firefox-2560-light",
+              "results": [
+                {
+                  "workerIndex": 8,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 16521,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-23T08:42:32.019Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "file-timing",
+                      "contentType": "application/json",
+                      "body": "eyJtaWxsaXNlY29uZHMiOjEyNTc3LCJtYXhUYXBzUGVyR3Vlc3MiOjIsIm5vdGUiOiJOZXh0IGNsYWltIGZvY3VzZXMgdGhlIGlucHV0IGFuZCBpcyB0aGUgZmlyc3QgdGFwIG9mIHRoZSBmb2xsb3dpbmcgZ3Vlc3MuIn0="
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            },
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "firefox-1280-dark",
+              "projectName": "firefox-1280-dark",
+              "results": [
+                {
+                  "workerIndex": 12,
+                  "parallelIndex": 2,
+                  "status": "passed",
+                  "duration": 17410,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-23T08:43:28.654Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "file-timing",
+                      "contentType": "application/json",
+                      "body": "eyJtaWxsaXNlY29uZHMiOjEzNTIxLCJtYXhUYXBzUGVyR3Vlc3MiOjIsIm5vdGUiOiJOZXh0IGNsYWltIGZvY3VzZXMgdGhlIGlucHV0IGFuZCBpcyB0aGUgZmlyc3QgdGFwIG9mIHRoZSBmb2xsb3dpbmcgZ3Vlc3MuIn0="
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            },
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "firefox-1440-dark",
+              "projectName": "firefox-1440-dark",
+              "results": [
+                {
+                  "workerIndex": 16,
+                  "parallelIndex": 2,
+                  "status": "passed",
+                  "duration": 17075,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-23T08:44:29.651Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "file-timing",
+                      "contentType": "application/json",
+                      "body": "eyJtaWxsaXNlY29uZHMiOjEzNTI1LCJtYXhUYXBzUGVyR3Vlc3MiOjIsIm5vdGUiOiJOZXh0IGNsYWltIGZvY3VzZXMgdGhlIGlucHV0IGFuZCBpcyB0aGUgZmlyc3QgdGFwIG9mIHRoZSBmb2xsb3dpbmcgZ3Vlc3MuIn0="
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            },
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "firefox-2560-dark",
+              "projectName": "firefox-2560-dark",
+              "results": [
+                {
+                  "workerIndex": 20,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 16492,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-23T08:45:34.857Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "file-timing",
+                      "contentType": "application/json",
+                      "body": "eyJtaWxsaXNlY29uZHMiOjEyMTY0LCJtYXhUYXBzUGVyR3Vlc3MiOjIsIm5vdGUiOiJOZXh0IGNsYWltIGZvY3VzZXMgdGhlIGlucHV0IGFuZCBpcyB0aGUgZmlyc3QgdGFwIG9mIHRoZSBmb2xsb3dpbmcgZ3Vlc3MuIn0="
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "96c4274cd6722cd0a74a-2a2f9f51dabe61589484",
+          "file": "round9.spec.ts",
+          "line": 4,
+          "column": 1
+        },
+        {
+          "title": "invalid and failed requests preserve the entry, and five strikes close directly",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "firefox-1280-light",
+              "projectName": "firefox-1280-light",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 2,
+                  "status": "passed",
+                  "duration": 9298,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-23T08:40:31.760Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            },
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "firefox-1440-light",
+              "projectName": "firefox-1440-light",
+              "results": [
+                {
+                  "workerIndex": 7,
+                  "parallelIndex": 3,
+                  "status": "passed",
+                  "duration": 8557,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-23T08:41:35.477Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            },
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "firefox-2560-light",
+              "projectName": "firefox-2560-light",
+              "results": [
+                {
+                  "workerIndex": 10,
+                  "parallelIndex": 3,
+                  "status": "passed",
+                  "duration": 8216,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-23T08:42:33.044Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            },
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "firefox-1280-dark",
+              "projectName": "firefox-1280-dark",
+              "results": [
+                {
+                  "workerIndex": 14,
+                  "parallelIndex": 3,
+                  "status": "passed",
+                  "duration": 8246,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-23T08:43:32.267Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            },
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "firefox-1440-dark",
+              "projectName": "firefox-1440-dark",
+              "results": [
+                {
+                  "workerIndex": 19,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 8672,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-23T08:44:33.477Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            },
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "firefox-2560-dark",
+              "projectName": "firefox-2560-dark",
+              "results": [
+                {
+                  "workerIndex": 23,
+                  "parallelIndex": 3,
+                  "status": "passed",
+                  "duration": 9695,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-23T08:45:35.547Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "96c4274cd6722cd0a74a-da31f6e2ab46a35bf63b",
+          "file": "round9.spec.ts",
+          "line": 73,
+          "column": 1
+        },
+        {
+          "title": "theme edges work on every route with consistent header placement",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "firefox-1280-light",
+              "projectName": "firefox-1280-light",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 3,
+                  "status": "passed",
+                  "duration": 18743,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-23T08:40:37.607Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            },
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "firefox-1440-light",
+              "projectName": "firefox-1440-light",
+              "results": [
+                {
+                  "workerIndex": 4,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 20406,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-23T08:41:39.516Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            },
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "firefox-2560-light",
+              "projectName": "firefox-2560-light",
+              "results": [
+                {
+                  "workerIndex": 11,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 17096,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-23T08:42:37.733Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            },
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "firefox-1280-dark",
+              "projectName": "firefox-1280-dark",
+              "results": [
+                {
+                  "workerIndex": 15,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 18011,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-23T08:43:37.676Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            },
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "firefox-1440-dark",
+              "projectName": "firefox-1440-dark",
+              "results": [
+                {
+                  "workerIndex": 18,
+                  "parallelIndex": 3,
+                  "status": "passed",
+                  "duration": 20642,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-23T08:44:40.099Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            },
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "firefox-2560-dark",
+              "projectName": "firefox-2560-dark",
+              "results": [
+                {
+                  "workerIndex": 22,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 14661,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-23T08:45:41.904Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "96c4274cd6722cd0a74a-2a56e0b0cc2d4a6d293c",
+          "file": "round9.spec.ts",
+          "line": 93,
+          "column": 1
+        },
+        {
+          "title": "390 phone keeps claim controls above an emulated keyboard",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "firefox-1280-light",
+              "projectName": "firefox-1280-light",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 2,
+                  "status": "passed",
+                  "duration": 8677,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-23T08:40:41.154Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            },
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "firefox-1440-light",
+              "projectName": "firefox-1440-light",
+              "results": [
+                {
+                  "workerIndex": 7,
+                  "parallelIndex": 3,
+                  "status": "passed",
+                  "duration": 8687,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-23T08:41:44.106Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            },
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "firefox-2560-light",
+              "projectName": "firefox-2560-light",
+              "results": [
+                {
+                  "workerIndex": 10,
+                  "parallelIndex": 3,
+                  "status": "passed",
+                  "duration": 8118,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-23T08:42:41.341Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            },
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "firefox-1280-dark",
+              "projectName": "firefox-1280-dark",
+              "results": [
+                {
+                  "workerIndex": 14,
+                  "parallelIndex": 3,
+                  "status": "passed",
+                  "duration": 8431,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-23T08:43:40.559Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            },
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "firefox-1440-dark",
+              "projectName": "firefox-1440-dark",
+              "results": [
+                {
+                  "workerIndex": 19,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 8742,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-23T08:44:42.203Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            },
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "firefox-2560-dark",
+              "projectName": "firefox-2560-dark",
+              "results": [
+                {
+                  "workerIndex": 23,
+                  "parallelIndex": 3,
+                  "status": "passed",
+                  "duration": 7946,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-23T08:45:45.316Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "96c4274cd6722cd0a74a-46b74167cccacbc77fc4",
+          "file": "round9.spec.ts",
+          "line": 128,
+          "column": 1
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-11-23T08:39:47.999Z",
+    "duration": 368991.819,
+    "expected": 96,
+    "skipped": 0,
+    "unexpected": 0,
+    "flaky": 0
+  }
+}

@@ -306,7 +306,7 @@ try {
     await new Promise((r) => setTimeout(r, 500));
     setupStorage = { ...storageTotals };
     storageTotals.reads = storageTotals.writes = 0;
-    for(const key of Object.keys(causes))delete causes[key];
+    for (const key of Object.keys(causes)) delete causes[key];
   }
   const boot = await http('/bootstrap');
   assert.equal(boot.status, 200);
@@ -335,6 +335,16 @@ try {
       socket = r.webSocket;
       socket.accept();
       socket.addEventListener('message', receive);
+      samples.push({
+        path: '/live',
+        action: 'socket upgrade',
+        transport: 'http',
+        status: 101,
+        reads: Number(r.headers.get('x-d1-rows-read')),
+        writes: Number(r.headers.get('x-d1-rows-written')),
+        metered: r.headers.has('x-d1-rows-read'),
+        ...(await storageDelta()),
+      });
     }
   }
   const send = baseline ? http : rpc;
@@ -422,7 +432,12 @@ try {
     d1RowsRead: rowsRead,
     d1RowsWritten: rowsWritten,
     allMutationsMetered: samples.filter((s) => s.path === '/claim').every((s) => s.metered),
-    samples,
+    samples: samples.map((s) => ({
+      ...s,
+      workerRequests: s.transport === 'http' ? 1 : 0,
+      doRequests: s.transport === 'http' ? 1 : s.transport === 'socket' ? 0.05 : 0,
+      sharedMirrorRequest: !s.transport,
+    })),
     storageCauses: causes,
   };
   mkdirSync('review/round17', { recursive: true });

@@ -2,21 +2,22 @@
 
 **A complete game now costs 7 durable writes in the single-batch measurement: 1 D1 + 6 DO.** Flushing after every accepted guess (six separate mirror intervals) costs **6 D1 + 6 DO = 12**, meeting all three write targets. Typo, verification, viewing, sharing and returning add no writes. This is measured storage work, not an inferred count of SQL statements.
 
-| Action / status | D1 read | D1 written | DO read | DO written | Transport |
-|---|---:|---:|---:|---:|---|
-| /bootstrap / 200 | 0 | 0 | 0 | 0 | http |
-| /verify-session / 200 | 0 | 0 | 0 | 0 | socket |
-| typo / 422 | 0 | 0 | 0 | 0 | socket |
-| claim / 201 | 0 | 0 | 1 | 1 | socket |
-| strike / 409 | 0 | 0 | 1 | 1 | socket |
-| reserved / 409 | 0 | 0 | 1 | 1 | socket |
-| reserved / 409 | 0 | 0 | 1 | 1 | socket |
-| claim / 201 | 0 | 0 | 1 | 1 | socket |
-| claim / 201 | 0 | 0 | 1 | 1 | socket |
-| /leaderboard / 200 | 0 | 0 | 0 | 0 | http |
-| /events/share / 200 | 0 | 0 | 0 | 0 | socket |
-| /batch-mirror / 200 | 0 | 1 | 0 | 0 | shared batch |
-| /bootstrap / 200 | 0 | 0 | 0 | 0 | http |
+| Action / status | D1 read | D1 written | DO read | DO written | API Worker requests | DO requests |
+|---|---:|---:|---:|---:|---:|---:|
+| /bootstrap / 200 | 0 | 0 | 0 | 0 | 1 | 1 |
+| socket upgrade / 101 | 0 | 0 | 0 | 0 | 1 | 1 |
+| /verify-session / 200 | 0 | 0 | 0 | 0 | 0 | 0.05 |
+| typo / 422 | 0 | 0 | 0 | 0 | 0 | 0.05 |
+| claim / 201 | 0 | 0 | 1 | 1 | 0 | 0.05 |
+| strike / 409 | 0 | 0 | 1 | 1 | 0 | 0.05 |
+| reserved / 409 | 0 | 0 | 1 | 1 | 0 | 0.05 |
+| reserved / 409 | 0 | 0 | 1 | 1 | 0 | 0.05 |
+| claim / 201 | 0 | 0 | 1 | 1 | 0 | 0.05 |
+| claim / 201 | 0 | 0 | 1 | 1 | 0 | 0.05 |
+| /leaderboard / 200 | 0 | 0 | 0 | 0 | 1 | 1 |
+| /events/share / 200 | 0 | 0 | 0 | 0 | 0 | 0.05 |
+| /batch-mirror / 200 | 0 | 1 | 0 | 0 | 0 | 0 |
+| /bootstrap / 200 | 0 | 0 | 0 | 0 | 1 | 1 |
 
 | Matched complete game | R16 | R17 one batch | R17 six intervals |
 |---|---:|---:|---:|
@@ -68,3 +69,25 @@ Rarity density uses actual measured percentile ranks, 48 Gaussian-smoothed bins,
 Native file share is pre-rendered and files-only, then URL/text, then explicit copy/download fallback; cancellation is normal. JPEG is 1080px wide at quality 0.85 (0.8 fallback only if needed), flat paper/carbon tone; OG remains light. Real-device AirDrop still requires the owner's Apple-device check; emulation cannot certify the physical transfer.
 
 Practice load, browser results, export byte sizes and production outcome are recorded alongside this report and in MORNING_REPORT.md. No billing changes and no ntfy alert were sent.
+
+## Measured exported file sizes
+
+| Export | R16 PNG bytes | R17 light JPEG bytes | R17 dark JPEG bytes |
+|---|---:|---:|---:|
+| certificate-feed | 146044 | 94607 | 94719 |
+| certificate-story | 160778 | 100523 | 100322 |
+| summary-feed | 124047 | 81178 | 82446 |
+| summary-story | 139300 | 86629 | 87621 |
+| OG 1080×567 | 44935 | 71659 | light only |
+
+All JPEGs are under 350 KB (and the 600 KB hard cap). OG JPEG is larger than the former PNG but still comfortably below target. Original browser exports already used flat tones, so compression/format is the measured saving; grain was not presumed to be the confirmed cause. The initial export proof used a stale preview CSP and was regenerated against the current server with the actual typefaces loaded. The final phone-size review confirms crisp Archivo/Instrument/Plex text.
+
+## Final practice evidence and limitations
+
+The clean GitHub runner completed 500 concurrent live sockets arriving in 119.783 seconds: **p50 124.0 ms, p95 137.0 ms, zero unexpected errors, 1,500 acknowledged/retained claims and exactly one contested-answer winner**. It received 29,430 public broadcasts with no private-answer fields. The HTTP run also passed (p50 194.4 ms, p95 266.2 ms). The fresh account-wide headroom check reported 11,781 D1 writes; reserving a conservative 15,000 for the run left 73,219 (73.2%) of the daily allowance, above the required 30%. CI consumed that check within three minutes; its temporary practice-only secret was removed afterward.
+
+Two local-network load attempts failed with connection timeouts; those reports are retained. They were not counted as passes. Two CPU-heavy catalog tests timed out while browser matrices ran concurrently; the unchanged suite passed all 179 tests when rerun without that contention. Opening rehearsal found and fixed the anonymous-socket identity transition and the obsolete socket's close-handler race; the final six-browser closed-to-live run passed. Real practice verification, notifications, original dates and zero test claims are restored. Physical AirDrop remains an owner check, not a failed automated gate.
+
+The 33 generated static rarity assets are at most 333 bytes. There are 168 curve captures, 213 certificate captures (including exports/baselines) and a 48-screen final design pass. Final automated totals: 179 unit/API tests and 882 browser cases (756 Chromium/WebKit/profile cases plus 126 Firefox cases), with no failures or skips in the final runs. The admin's legacy per-request telemetry does not include new journal traffic unless account-wide analytics is configured; quota planning above uses measured journal costs and account-wide headroom rather than those legacy counters.
+
+Upgrade responses do not expose D1 diagnostic headers; the warmed upgrade path performs only cookie/security checks, no D1 query. Its DO storage delta is measured. Batch-mirror calls are shared scheduled work: their storage is included above, while the cron's invocation is counted in daily overhead. The final baseline DO cause totals exclude setup/control writes.

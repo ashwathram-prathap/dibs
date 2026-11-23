@@ -1,0 +1,50 @@
+{
+  "passed": 882,
+  "failed": 0,
+  "runs": [
+    {
+      "source": "review/round17/browser-results.json",
+      "stats": {
+        "startTime": "2026-11-23T08:30:10.596Z",
+        "duration": 172151.922,
+        "expected": 180,
+        "skipped": 0,
+        "unexpected": 0,
+        "flaky": 0
+      }
+    },
+    {
+      "source": "review/round17/regression-browser-results.json",
+      "stats": {
+        "startTime": "2026-11-23T08:30:10.543Z",
+        "duration": 633940.9090000001,
+        "expected": 576,
+        "skipped": 0,
+        "unexpected": 0,
+        "flaky": 0
+      }
+    },
+    {
+      "source": "review/round17/firefox-final-ci/review/round17/browser-results.json",
+      "stats": {
+        "startTime": "2026-11-23T08:38:00.652Z",
+        "duration": 106437.257,
+        "expected": 30,
+        "skipped": 0,
+        "unexpected": 0,
+        "flaky": 0
+      }
+    },
+    {
+      "source": "review/round17/firefox-final-ci/review/round17/firefox-regression-results.json",
+      "stats": {
+        "startTime": "2026-11-23T08:39:47.999Z",
+        "duration": 368991.819,
+        "expected": 96,
+        "skipped": 0,
+        "unexpected": 0,
+        "flaky": 0
+      }
+    }
+  ]
+}

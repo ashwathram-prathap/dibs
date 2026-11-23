@@ -12,7 +12,7 @@
     "writes": 6
   },
   "mode": "after-local",
-  "at": "2026-11-23T08:15:31.627Z",
+  "at": "2026-11-23T08:45:45.934Z",
   "scenario": "load, verification, typo, 6 guesses (3 claims, 1 taken strike, 2 reserved strikes), leaderboard, share, return visit; separate control player establishes the taken answer",
   "httpRequests": 4,
   "pagesFunctionRequests": 0,
@@ -32,7 +32,24 @@
       "status": 200,
       "reads": 0,
       "writes": 0,
-      "metered": true
+      "metered": true,
+      "workerRequests": 1,
+      "doRequests": 1,
+      "sharedMirrorRequest": false
+    },
+    {
+      "path": "/live",
+      "action": "socket upgrade",
+      "transport": "http",
+      "status": 101,
+      "reads": 0,
+      "writes": 0,
+      "metered": false,
+      "doReads": 0,
+      "doWrites": 0,
+      "workerRequests": 1,
+      "doRequests": 1,
+      "sharedMirrorRequest": false
     },
     {
       "path": "/verify-session",
@@ -43,7 +60,10 @@
       "status": 200,
       "reads": 0,
       "writes": 0,
-      "metered": true
+      "metered": true,
+      "workerRequests": 0,
+      "doRequests": 0.05,
+      "sharedMirrorRequest": false
     },
     {
       "path": "/claim",
@@ -54,7 +74,10 @@
       "status": 422,
       "reads": 0,
       "writes": 0,
-      "metered": true
+      "metered": true,
+      "workerRequests": 0,
+      "doRequests": 0.05,
+      "sharedMirrorRequest": false
     },
     {
       "path": "/claim",
@@ -65,7 +88,10 @@
       "status": 201,
       "reads": 0,
       "writes": 0,
-      "metered": true
+      "metered": true,
+      "workerRequests": 0,
+      "doRequests": 0.05,
+      "sharedMirrorRequest": false
     },
     {
       "path": "/interval-mirror",
@@ -74,7 +100,10 @@
       "writes": 1,
       "status": 200,
       "doReads": 0,
-      "doWrites": 0
+      "doWrites": 0,
+      "workerRequests": 0,
+      "doRequests": 0,
+      "sharedMirrorRequest": true
     },
     {
       "path": "/claim",
@@ -85,7 +114,10 @@
       "status": 409,
       "reads": 0,
       "writes": 0,
-      "metered": true
+      "metered": true,
+      "workerRequests": 0,
+      "doRequests": 0.05,
+      "sharedMirrorRequest": false
     },
     {
       "path": "/interval-mirror",
@@ -94,7 +126,10 @@
       "writes": 1,
       "status": 200,
       "doReads": 0,
-      "doWrites": 0
+      "doWrites": 0,
+      "workerRequests": 0,
+      "doRequests": 0,
+      "sharedMirrorRequest": true
     },
     {
       "path": "/claim",
@@ -105,7 +140,10 @@
       "status": 409,
       "reads": 0,
       "writes": 0,
-      "metered": true
+      "metered": true,
+      "workerRequests": 0,
+      "doRequests": 0.05,
+      "sharedMirrorRequest": false
     },
     {
       "path": "/interval-mirror",
@@ -114,7 +152,10 @@
       "writes": 1,
       "status": 200,
       "doReads": 0,
-      "doWrites": 0
+      "doWrites": 0,
+      "workerRequests": 0,
+      "doRequests": 0,
+      "sharedMirrorRequest": true
     },
     {
       "path": "/claim",
@@ -125,7 +166,10 @@
       "status": 409,
       "reads": 0,
       "writes": 0,
-      "metered": true
+      "metered": true,
+      "workerRequests": 0,
+      "doRequests": 0.05,
+      "sharedMirrorRequest": false
     },
     {
       "path": "/interval-mirror",
@@ -134,7 +178,10 @@
       "writes": 1,
       "status": 200,
       "doReads": 0,
-      "doWrites": 0
+      "doWrites": 0,
+      "workerRequests": 0,
+      "doRequests": 0,
+      "sharedMirrorRequest": true
     },
     {
       "path": "/claim",
@@ -145,7 +192,10 @@
       "status": 201,
       "reads": 0,
       "writes": 0,
-      "metered": true
+      "metered": true,
+      "workerRequests": 0,
+      "doRequests": 0.05,
+      "sharedMirrorRequest": false
     },
     {
       "path": "/interval-mirror",
@@ -154,7 +204,10 @@
       "writes": 1,
       "status": 200,
       "doReads": 0,
-      "doWrites": 0
+      "doWrites": 0,
+      "workerRequests": 0,
+      "doRequests": 0,
+      "sharedMirrorRequest": true
     },
     {
       "path": "/claim",
@@ -165,7 +218,10 @@
       "status": 201,
       "reads": 0,
       "writes": 0,
-      "metered": true
+      "metered": true,
+      "workerRequests": 0,
+      "doRequests": 0.05,
+      "sharedMirrorRequest": false
     },
     {
       "path": "/interval-mirror",
@@ -174,7 +230,10 @@
       "writes": 1,
       "status": 200,
       "doReads": 0,
-      "doWrites": 0
+      "doWrites": 0,
+      "workerRequests": 0,
+      "doRequests": 0,
+      "sharedMirrorRequest": true
     },
     {
       "path": "/leaderboard",
@@ -185,7 +244,10 @@
       "status": 200,
       "reads": 0,
       "writes": 0,
-      "metered": true
+      "metered": true,
+      "workerRequests": 1,
+      "doRequests": 1,
+      "sharedMirrorRequest": false
     },
     {
       "path": "/events/share",
@@ -196,7 +258,10 @@
       "status": 200,
       "reads": 0,
       "writes": 0,
-      "metered": true
+      "metered": true,
+      "workerRequests": 0,
+      "doRequests": 0.05,
+      "sharedMirrorRequest": false
     },
     {
       "path": "/batch-mirror",
@@ -204,7 +269,10 @@
       "writes": 0,
       "status": 200,
       "doReads": 0,
-      "doWrites": 0
+      "doWrites": 0,
+      "workerRequests": 0,
+      "doRequests": 0,
+      "sharedMirrorRequest": true
     },
     {
       "path": "/bootstrap",
@@ -215,7 +283,10 @@
       "status": 200,
       "reads": 0,
       "writes": 0,
-      "metered": true
+      "metered": true,
+      "workerRequests": 1,
+      "doRequests": 1,
+      "sharedMirrorRequest": false
     }
   ],
   "storageCauses": {

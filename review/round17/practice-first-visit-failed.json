@@ -1,0 +1,69 @@
+{
+  "opensAt": "2026-11-23T08:23:24.463Z",
+  "checks": [],
+  "error": "Error: expect(locator).toBeVisible() failed\n\nLocator: locator('.win-stamp')\nExpected: visible\nTimeout: 60000ms\nError: element(s) not found\n\nCall log:\n  - Expect \"toBeVisible\" locator('.win-stamp') with timeout 60000ms\n  - waiting for locator('.win-stamp')\n",
+  "diagnostics": [
+    {
+      "browser": "chromium",
+      "state": {
+        "challenge": true,
+        "verified": true,
+        "status": 201,
+        "failures": [
+          "blob:https://challenges.cloudflare.com/8c7ca41b-5305-42f2-9c0f-6c90badc2ec0: net::ERR_ABORTED"
+        ]
+      },
+      "screen": "ANIMALS\nClaims 0 of 3\nD\nD\nD\nStrikes 0 of 5\nYour answer\nCALL DIBS\n\nClaim this answer as yours.\n\nDibs is packed tonight. Your spot isn't lost. Try again in a few minutes.\n\nHow it works\n\nOne of tonight's 10 golden tickets: 9 letters, starts with H.\n\nShare tonight’s clue\n\n1 claimed · 89,111 open\n\nAnswers appear when the day closes\nToday's leaderboard\nPractice\nRank\tPlayer\tPoints\tClaims\n#1\tRust Panda #efb94459You\t10\t1\n\nAnswers stay hidden until the day closes."
+    },
+    {
+      "browser": "webkit",
+      "state": {
+        "challenge": false,
+        "verified": false,
+        "status": 0,
+        "failures": []
+      },
+      "screen": "ANIMALS\nClaims 0 of 3\nD\nD\nD\nStrikes 0 of 5\nYour answer\nCALL DIBS\n\nClaim this answer as yours.\n\nOne category a day. Name something in it that nobody else has claimed. If you're first, it's yours, and your name goes on it for good.\n\nYou get 3 claims. Each guess someone already took costs a strike (5 max).\n\nExample: Today's category is Animals.\n\nYou type Okapi. Nobody has claimed it yet, so it's yours. YOURS\n\nYou type Lion. Someone already claimed it, so you get a strike.TAKEN\n\nAfter 3 claims or 5 strikes, you're done for the day and get your certificate.\n\nEach category opens at 9:00 PM ET and closes at 9:00 PM ET the next day.\n\nA golden ticket is a secret answer that earns a gold stamp: 10 a day in launch week, then 3 a day.\n\nReserved means too obvious: nobody can claim it, and guessing it costs a strike.\n\nOne of tonight's 10 golden tickets: 9 letters, starts with H.\n\nShare tonight’s clue\n\nOne of tonight's 10 golden tickets: 9 letters, starts with H.\n\nShare tonight’s clue\nToday's leaderboard\nPractice\nRank\tPlayer\tPoints\tClaims\n#1\tRust Panda #efb94459\t10\t1\n\nAnswers stay hidden until the day closes."
+    },
+    {
+      "browser": "chromium",
+      "state": {
+        "challenge": false,
+        "verified": false,
+        "status": 0,
+        "failures": []
+      },
+      "screen": "ANIMALS\nClaims 0 of 3\nD\nD\nD\nStrikes 0 of 5\nYour answer\nCALL DIBS\n\nClaim this answer as yours.\n\nOne category a day. Name something in it that nobody else has claimed. If you're first, it's yours, and your name goes on it for good.\n\nYou get 3 claims. Each guess someone already took costs a strike (5 max).\n\nExample: Today's category is Animals.\n\nYou type Okapi. Nobody has claimed it yet, so it's yours. YOURS\n\nYou type Lion. Someone already claimed it, so you get a strike. TAKEN\n\nAfter 3 claims or 5 strikes, you're done for the day and get your certificate.\n\nEach category opens at 9:00 PM ET and closes at 9:00 PM ET the next day.\n\nA golden ticket is a secret answer that earns a gold stamp: 10 a day in launch week, then 3 a day.\n\nReserved means too obvious: nobody can claim it, and guessing it costs a strike.\n\nOne of tonight's 10 golden tickets: 9 letters, starts with H.\n\nShare tonight’s clue\n\nOne of tonight's 10 golden tickets: 9 letters, starts with H.\n\nShare tonight’s clue\n\n1 claimed · 89,111 open\n\nAnswers appear when the day closes\nToday's leaderboard\nPractice\nRank\tPlayer\tPoints\tClaims\n#1\tRust Panda #efb94459\t10\t1\n\nAnswers stay hidden until the day closes."
+    },
+    {
+      "browser": "webkit",
+      "state": {
+        "challenge": false,
+        "verified": false,
+        "status": 0,
+        "failures": []
+      },
+      "screen": "ANIMALS\nClaims 0 of 3\nD\nD\nD\nStrikes 0 of 5\nYour answer\nCALL DIBS\n\nClaim this answer as yours.\n\nOne category a day. Name something in it that nobody else has claimed. If you're first, it's yours, and your name goes on it for good.\n\nYou get 3 claims. Each guess someone already took costs a strike (5 max).\n\nExample: Today's category is Animals.\n\nYou type Okapi. Nobody has claimed it yet, so it's yours. YOURS\n\nYou type Lion. Someone already claimed it, so you get a strike.TAKEN\n\nAfter 3 claims or 5 strikes, you're done for the day and get your certificate.\n\nEach category opens at 9:00 PM ET and closes at 9:00 PM ET the next day.\n\nA golden ticket is a secret answer that earns a gold stamp: 10 a day in launch week, then 3 a day.\n\nReserved means too obvious: nobody can claim it, and guessing it costs a strike.\n\nOne of tonight's 10 golden tickets: 9 letters, starts with H.\n\nShare tonight’s clue\n\nOne of tonight's 10 golden tickets: 9 letters, starts with H.\n\nShare tonight’s clue\nToday's leaderboard\nPractice\nRank\tPlayer\tPoints\tClaims\n#1\tRust Panda #efb94459\t10\t1\n\nAnswers stay hidden until the day closes."
+    },
+    {
+      "browser": "chromium",
+      "state": {
+        "challenge": false,
+        "verified": false,
+        "status": 0,
+        "failures": []
+      },
+      "screen": "ANIMALS\nClaims 0 of 3\nD\nD\nD\nStrikes 0 of 5\nYour answer\nCALL DIBS\n\nClaim this answer as yours.\n\nOne category a day. Name something in it that nobody else has claimed. If you're first, it's yours, and your name goes on it for good.\n\nYou get 3 claims. Each guess someone already took costs a strike (5 max).\n\nExample: Today's category is Animals.\n\nYou type Okapi. Nobody has claimed it yet, so it's yours. YOURS\n\nYou type Lion. Someone already claimed it, so you get a strike. TAKEN\n\nAfter 3 claims or 5 strikes, you're done for the day and get your certificate.\n\nEach category opens at 9:00 PM ET and closes at 9:00 PM ET the next day.\n\nA golden ticket is a secret answer that earns a gold stamp: 10 a day in launch week, then 3 a day.\n\nReserved means too obvious: nobody can claim it, and guessing it costs a strike.\n\nOne of tonight's 10 golden tickets: 9 letters, starts with H.\n\nShare tonight’s clue\n\nOne of tonight's 10 golden tickets: 9 letters, starts with H.\n\nShare tonight’s clue\n\n1 claimed · 89,111 open\n\nAnswers appear when the day closes\nToday's leaderboard\nPractice\nRank\tPlayer\tPoints\tClaims\n#1\tRust Panda #efb94459\t10\t1\n\nAnswers stay hidden until the day closes."
+    },
+    {
+      "browser": "webkit",
+      "state": {
+        "challenge": false,
+        "verified": false,
+        "status": 0,
+        "failures": []
+      },
+      "screen": "ANIMALS\nClaims 0 of 3\nD\nD\nD\nStrikes 0 of 5\nYour answer\nCALL DIBS\n\nClaim this answer as yours.\n\nOne category a day. Name something in it that nobody else has claimed. If you're first, it's yours, and your name goes on it for good.\n\nYou get 3 claims. Each guess someone already took costs a strike (5 max).\n\nExample: Today's category is Animals.\n\nYou type Okapi. Nobody has claimed it yet, so it's yours. YOURS\n\nYou type Lion. Someone already claimed it, so you get a strike.TAKEN\n\nAfter 3 claims or 5 strikes, you're done for the day and get your certificate.\n\nEach category opens at 9:00 PM ET and closes at 9:00 PM ET the next day.\n\nA golden ticket is a secret answer that earns a gold stamp: 10 a day in launch week, then 3 a day.\n\nReserved means too obvious: nobody can claim it, and guessing it costs a strike.\n\nOne of tonight's 10 golden tickets: 9 letters, starts with H.\n\nShare tonight’s clue\n\nOne of tonight's 10 golden tickets: 9 letters, starts with H.\n\nShare tonight’s clue\nToday's leaderboard\nPractice\nRank\tPlayer\tPoints\tClaims\n#1\tRust Panda #efb94459\t10\t1\n\nAnswers stay hidden until the day closes."
+    }
+  ]
+}
