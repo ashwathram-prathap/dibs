@@ -8,6 +8,8 @@ it('builds the real game title Constructor without treating a prototype property
   try {
     mkdirSync(dir + '/categories');
     mkdirSync(dir + '/worker');
+    mkdirSync(dir + '/scripts');
+    writeFileSync(dir + '/scripts/category-plan.json', JSON.stringify({ retainedCatalogs: [] }));
     writeFileSync(
       dir + '/categories/video-games.json',
       JSON.stringify({

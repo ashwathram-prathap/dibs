@@ -10,3 +10,5 @@
 - Sanity targets are observations, not editorial overrides: Axolotl, Okapi and Quokka remain very popular in the retained measurements and score 10. Chameleon scores 15, Blobfish 45, and Sarcastic fringehead 75. See SAMPLES.md for 30 before/after rows in each category.
 - An authenticated GET-only scoring diagnostic exercises the actual Worker asset fetch and scorer without creating a player/claim or reading golden selections. It is used to verify both deployment origins.
 - R12's 7:05 PM deployed load test is after R19E's 4:30 PM hard stop and will not run. No notification is necessary; zero ntfy alerts planned.
+
+The live schedule additionally pins the older Foods catalog `f0dbabbca22064f9` for November 28, while the current Foods manifest is `c13c215b8bb7b069`. Its exact historical category source is retained as a checksum-verified gzip in `categories/retained/`. Both catalog builders include it, preserving answer ordinals and the scheduled version. This produces 34 catalog versions across 33 categories and 169 new/retained score/curve assets. The historical Foods version had no scoring binaries before this fix; they are now generated too.

@@ -1,0 +1,19 @@
+{
+  "passed": true,
+  "rows": [
+    {
+      "stage": "staging",
+      "origin": "https://practice.dibs-7hz.pages.dev",
+      "publicOriginDeclaration": "var PUBLIC_ORIGIN = true ? \"https://practice.dibs-7hz.pages.dev\" : \"https://dibs.here\";",
+      "sha256": "34cb6579f84793c6a479043085cb25d49136aa7e249b3effdfd926303cba064e",
+      "passed": true
+    },
+    {
+      "stage": "production",
+      "origin": "https://dibs.here",
+      "publicOriginDeclaration": "var PUBLIC_ORIGIN = typeof DIBS_PUBLIC_ORIGIN === \"string\" ? DIBS_PUBLIC_ORIGIN : \"https://dibs.here\";",
+      "sha256": "fc7bf1c4abe63107be1d27dd0a684f19b9b09d6e695dfef28db299f1413d3834",
+      "passed": true
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "at": "2026-11-23T20:20:32.076Z",
+  "chromiumWebkit": {
+    "startTime": "2026-11-23T20:08:40.643Z",
+    "duration": 321618.79500000004,
+    "expected": 168,
+    "skipped": 0,
+    "unexpected": 0,
+    "flaky": 0
+  },
+  "firefox": {
+    "startTime": "2026-11-23T20:10:09.777Z",
+    "duration": 141836.895,
+    "expected": 24,
+    "skipped": 0,
+    "unexpected": 0,
+    "flaky": 0
+  },
+  "firefoxRun": "https://github.com/ashwathram-prathap/dibs/actions/runs/45256303486"
+}
