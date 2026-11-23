@@ -11,9 +11,9 @@ import { registryDate, streak, dropAt } from '../worker/domain';
 import { canReveal } from '../worker/visibility';
 
 describe('R14 saved scoring', () => {
-  it('holds the popular decile at 10, then rises smoothly to 100 in steps of five', () => {
+  it('holds the popular decile at 10, then rises smoothly to 110 in steps of five', () => {
     expect([0, 0.05, 0.1, 0.2, 0.5, 0.94, 1].map(rarityPoints)).toEqual([
-      10, 10, 10, 20, 50, 95, 100,
+      10, 10, 10, 20, 55, 105, 110,
     ]);
     for (let i = 0; i <= 1000; i++) {
       expect(rarityPoints(i / 1000) % 5).toBe(0);
@@ -22,17 +22,17 @@ describe('R14 saved scoring', () => {
   });
   it('ranks within one category, ties fairly and leaves unknown readings unranked', () => {
     expect(rankPopularity([100, 50, 0, null])).toEqual({
-      median: 50,
+      median: 55,
       percentiles: [0, 0.5, 1, null],
     });
     expect(rankPopularity([4, 4, 4, null])).toEqual({
-      median: 50,
+      median: 55,
       percentiles: [0.5, 0.5, 0.5, null],
     });
     expect(rankPopularity([null, null])).toEqual({ median: 50, percentiles: [null, null] });
-    expect(rankPopularity([1, null])).toEqual({ median: 50, percentiles: [0.5, null] });
+    expect(rankPopularity([1, null])).toEqual({ median: 55, percentiles: [0.5, null] });
     expect(rankPopularity([100, 99, 98, 0, 0])).toEqual({
-      median: 50,
+      median: 55,
       percentiles: [0, 0.25, 0.5, 0.875, 0.875],
     });
   });

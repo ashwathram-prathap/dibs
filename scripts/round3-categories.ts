@@ -12,7 +12,7 @@ const base = process.env.DIBS_API || 'https://dibs.here/api';
 const token =
   process.env.ADMIN_TOKEN || readFileSync('.dev.vars', 'utf8').match(/^ADMIN_TOKEN=(.+)$/m)?.[1];
 if (!token) throw Error('ADMIN_TOKEN is required.');
-const plan: string[] = JSON.parse(readFileSync('scripts/category-plan.json', 'utf8'));
+const plan: string[] = JSON.parse(readFileSync('scripts/category-plan.json', 'utf8')).schedule;
 const state = existsSync('.upload-state.json')
   ? JSON.parse(readFileSync('.upload-state.json', 'utf8'))
   : {};

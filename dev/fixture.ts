@@ -1,3 +1,4 @@
+import { rarityPoints } from '../shared/score-points';
 import { clerkReply } from '../shared/moments';
 import { nextDrop } from '../worker/domain';
 const r7 = new URLSearchParams(location.search);
@@ -351,12 +352,21 @@ export async function request(path: string, body?: any): Promise<any> {
       category_id: category.id,
       category_name: category.name,
       category_date: category.date,
-      points: r19
-        ? Math.max(10, Math.round(Number(r7.get('p') || '.6') * 100))
-        : entry === 'Axolotl'
-          ? 160
-          : 60,
-      percentile: r19 ? Number(r7.get('p') || '.6') : 0.6,
+      points: r7.has('r19e')
+        ? r7.get('p') === 'missing'
+          ? 55
+          : rarityPoints(Number(r7.get('p') || '.6'))
+        : r19
+          ? Math.max(10, Math.round(Number(r7.get('p') || '.6') * 100))
+          : entry === 'Axolotl'
+            ? 160
+            : 60,
+      percentile:
+        r7.has('r19e') && r7.get('p') === 'missing'
+          ? null
+          : r19
+            ? Number(r7.get('p') || '.6')
+            : 0.6,
       bonus: entry === 'Axolotl' ? 100 : 0,
       id: 'fixture-' + (claims.length + 1),
       claim_no: claims.length + 1,

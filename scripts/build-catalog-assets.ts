@@ -2,7 +2,7 @@ import { categoryStyle } from '../shared/category-style';
 import { buildBinaryCatalog } from './binary-catalog';
 import { BINARY_CHUNK_BYTES } from '../shared/binary-catalog';
 import { readCategory } from './category-file';
-import { mkdirSync, readdirSync, readFileSync, writeFileSync, rmSync, existsSync } from 'node:fs';
+import { mkdirSync, readdirSync, readFileSync, writeFileSync, existsSync } from 'node:fs';
 import { createHash } from 'node:crypto';
 import { normalize } from '../worker/domain';
 import { shardFor, distanceFrom, type TypoNode, type CatalogRow } from '../shared/catalog';
@@ -37,7 +37,7 @@ if (unchanged && !process.argv.includes('--force')) {
   console.log('Catalog assets already current');
   process.exit(0);
 }
-rmSync('public/catalog', { recursive: true, force: true });
+// Keep previous immutable versions for active days and rollback Workers.
 mkdirSync('public/catalog', { recursive: true });
 const hot: Record<string, any> = {};
 for (const f of readdirSync('categories').filter((f) => f.endsWith('.json'))) {

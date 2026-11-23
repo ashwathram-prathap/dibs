@@ -1,0 +1,95 @@
+{
+  "at": "2026-11-23T20:00:46.034Z",
+  "catalog": 89122,
+  "measured": 64423,
+  "rows": [
+    {
+      "name": "Dog",
+      "index": 2,
+      "daily": 7077.586206896552,
+      "percentile": 0.00003104529508552979,
+      "points": 10,
+      "label": "One of the most familiar animals"
+    },
+    {
+      "name": "Cat",
+      "index": 0,
+      "daily": 13735.827586206897,
+      "percentile": 0,
+      "points": 10,
+      "label": "One of the most familiar animals"
+    },
+    {
+      "name": "Lion",
+      "index": 11,
+      "daily": 3048.9310344827586,
+      "percentile": 0.00028716897954115053,
+      "points": 10,
+      "label": "One of the most familiar animals"
+    },
+    {
+      "name": "Camel",
+      "index": 121,
+      "daily": 1225.8275862068965,
+      "percentile": 0.003026916270839154,
+      "points": 10,
+      "label": "One of the most familiar animals"
+    },
+    {
+      "name": "Deer",
+      "index": 49,
+      "daily": 1788.1724137931035,
+      "percentile": 0.0013815156313060756,
+      "points": 10,
+      "label": "One of the most familiar animals"
+    },
+    {
+      "name": "Chameleon",
+      "index": 266,
+      "daily": 757,
+      "percentile": 0.005883083418707895,
+      "points": 10,
+      "label": "One of the most familiar animals"
+    },
+    {
+      "name": "Okapi",
+      "index": 112,
+      "daily": 1266.2758620689656,
+      "percentile": 0.0028251218527832107,
+      "points": 10,
+      "label": "One of the most familiar animals"
+    },
+    {
+      "name": "Axolotl",
+      "index": 4,
+      "daily": 4020.8275862068967,
+      "percentile": 0.00006209059017105958,
+      "points": 10,
+      "label": "One of the most familiar animals"
+    },
+    {
+      "name": "Quokka",
+      "index": 71,
+      "daily": 1591.0689655172414,
+      "percentile": 0.001769581819875198,
+      "points": 10,
+      "label": "One of the most familiar animals"
+    },
+    {
+      "name": "Sarcastic fringehead",
+      "index": 1673,
+      "daily": 110,
+      "percentile": 0.03154978113066965,
+      "points": 10,
+      "label": "One of the most familiar animals"
+    },
+    {
+      "name": "Blobfish",
+      "index": 994,
+      "daily": 213.6551724137931,
+      "percentile": 0.01937226413337059,
+      "points": 10,
+      "label": "One of the most familiar animals"
+    }
+  ]
+}

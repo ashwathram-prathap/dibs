@@ -1,0 +1,1097 @@
+[
+  {
+    "category": "actors",
+    "catalogVersion": "1f68f6b5340a8880",
+    "total": 137623,
+    "measured": 137411,
+    "poolLimit": 3000,
+    "poolSize": 3000,
+    "median": 55,
+    "missingBefore": 212,
+    "missingAfter": 212,
+    "mappedAnswers": 0,
+    "examples": []
+  },
+  {
+    "category": "airports",
+    "catalogVersion": "8d8792d4f74eee1e",
+    "total": 57109,
+    "measured": 12762,
+    "poolLimit": 3000,
+    "poolSize": 3000,
+    "median": 55,
+    "missingBefore": 44572,
+    "missingAfter": 44347,
+    "mappedAnswers": 225,
+    "examples": [
+      {
+        "answer": "Abernathy Airport",
+        "canonical": "Abernathy Municipal Airport",
+        "title": "Abernathy Municipal Airport"
+      },
+      {
+        "answer": "Adams Field",
+        "canonical": "Clinton National Airport",
+        "title": "Clinton National Airport"
+      },
+      {
+        "answer": "Addington Field",
+        "canonical": "Elizabethtown Regional Airport",
+        "title": "Elizabethtown Regional Airport"
+      },
+      {
+        "answer": "Agua Caliente Airstrip",
+        "canonical": "Agua Caliente Airport",
+        "title": "Agua Caliente Airport"
+      },
+      {
+        "answer": "Aguascalientes Airport",
+        "canonical": "Aguascalientes International Airport",
+        "title": "Aguascalientes International Airport"
+      }
+    ]
+  },
+  {
+    "category": "albums",
+    "catalogVersion": "7b689f83c1956929",
+    "total": 143941,
+    "measured": 140878,
+    "poolLimit": 3000,
+    "poolSize": 3000,
+    "median": 55,
+    "missingBefore": 3084,
+    "missingAfter": 3063,
+    "mappedAnswers": 21,
+    "examples": [
+      {
+        "answer": "Brainwash",
+        "canonical": "Brain Wash EP",
+        "title": "Brain Wash EP"
+      },
+      {
+        "answer": "Commercial",
+        "canonical": "Commercial Album",
+        "title": "Commercial Album"
+      },
+      {
+        "answer": "F",
+        "canonical": "F Album",
+        "title": "F Album"
+      },
+      {
+        "answer": "Gold Rush",
+        "canonical": "Gold",
+        "title": "Gold (Rush album)"
+      },
+      {
+        "answer": "Halflife",
+        "canonical": "Half-Life E.P.",
+        "title": "Half-Life E.P."
+      }
+    ]
+  },
+  {
+    "category": "animals",
+    "catalogVersion": "10210a86838c8eca",
+    "total": 89122,
+    "measured": 64423,
+    "poolLimit": 3000,
+    "poolSize": 3000,
+    "median": 55,
+    "missingBefore": 26995,
+    "missingAfter": 24699,
+    "mappedAnswers": 2296,
+    "examples": [
+      {
+        "answer": "'Bramble' Bramble Hairstreak",
+        "canonical": "Bramble Hairstreak",
+        "title": "Callophrys dumetorum"
+      },
+      {
+        "answer": "'Glandon' Arctic Blue",
+        "canonical": "Glandon Blue",
+        "title": "Agriades glandon"
+      },
+      {
+        "answer": "'Loki' Juniper Hairstreak",
+        "canonical": "Juniper Hairstreak",
+        "title": "Callophrys gryneus"
+      },
+      {
+        "answer": "'Pacific' Sara Orangetip",
+        "canonical": "Sara Orangetip",
+        "title": "Anthocharis sara"
+      },
+      {
+        "answer": "'Pale' Rita Blue",
+        "canonical": "Pallid Blue",
+        "title": "Euphilotes pallescens"
+      }
+    ]
+  },
+  {
+    "category": "architects",
+    "catalogVersion": "791e50276f0e82ae",
+    "total": 17744,
+    "measured": 17692,
+    "poolLimit": 3000,
+    "poolSize": 3000,
+    "median": 55,
+    "missingBefore": 52,
+    "missingAfter": 52,
+    "mappedAnswers": 0,
+    "examples": []
+  },
+  {
+    "category": "arthropods",
+    "catalogVersion": "51bc78890de6c9be",
+    "total": 23621,
+    "measured": 14694,
+    "poolLimit": 3000,
+    "poolSize": 3000,
+    "median": 55,
+    "missingBefore": 8985,
+    "missingAfter": 8927,
+    "mappedAnswers": 58,
+    "examples": [
+      {
+        "answer": "Acarid",
+        "canonical": "Acarid Mites",
+        "title": "Acaridae"
+      },
+      {
+        "answer": "Acarine",
+        "canonical": "Mite",
+        "title": "Mite"
+      },
+      {
+        "answer": "Anopheline",
+        "canonical": "Nail Mosquito",
+        "title": "Anopheles"
+      },
+      {
+        "answer": "Black-Edged Dichomeris Moth",
+        "canonical": "Moth",
+        "title": "Moth"
+      },
+      {
+        "answer": "Blue",
+        "canonical": "Lycaenid",
+        "title": "Lycaenidae"
+      }
+    ]
+  },
+  {
+    "category": "asteroids",
+    "catalogVersion": "75530681294d3f8c",
+    "total": 26637,
+    "measured": 21150,
+    "poolLimit": 3000,
+    "poolSize": 3000,
+    "median": 55,
+    "missingBefore": 5487,
+    "missingAfter": 5487,
+    "mappedAnswers": 0,
+    "examples": []
+  },
+  {
+    "category": "bands",
+    "catalogVersion": "5aa38771254148d7",
+    "total": 49795,
+    "measured": 49678,
+    "poolLimit": 3000,
+    "poolSize": 3000,
+    "median": 55,
+    "missingBefore": 142,
+    "missingAfter": 117,
+    "mappedAnswers": 25,
+    "examples": [
+      {
+        "answer": "16",
+        "canonical": "1.6 Band",
+        "title": "1.6 Band"
+      },
+      {
+        "answer": "A",
+        "canonical": "A Band",
+        "title": "A Band"
+      },
+      {
+        "answer": "Arion",
+        "canonical": "Arion Band",
+        "title": "Arion Band"
+      },
+      {
+        "answer": "DA!",
+        "canonical": "Da Band",
+        "title": "Da Band"
+      },
+      {
+        "answer": "Ef",
+        "canonical": "E. F. Band",
+        "title": "E. F. Band"
+      }
+    ]
+  },
+  {
+    "category": "birds",
+    "catalogVersion": "04985deb94445ed1",
+    "total": 16189,
+    "measured": 12794,
+    "poolLimit": 3000,
+    "poolSize": 3000,
+    "median": 55,
+    "missingBefore": 4326,
+    "missingAfter": 3395,
+    "mappedAnswers": 931,
+    "examples": [
+      {
+        "answer": "Abbott's Sunbird",
+        "canonical": "Souimanga Sunbird",
+        "title": "Souimanga sunbird"
+      },
+      {
+        "answer": "Abyssinian Waxbill",
+        "canonical": "Fawn-breasted Waxbill",
+        "title": "Fawn-breasted waxbill"
+      },
+      {
+        "answer": "African Crimson-winged Finch",
+        "canonical": "Crimson-winged Finch",
+        "title": "Crimson-winged finch"
+      },
+      {
+        "answer": "African Hoopoe",
+        "canonical": "Hoopoe",
+        "title": "Hoopoe"
+      },
+      {
+        "answer": "African Reed Warbler",
+        "canonical": "Common Reed Warbler",
+        "title": "Common reed warbler"
+      }
+    ]
+  },
+  {
+    "category": "castles",
+    "catalogVersion": "a373e1a824a05cc5",
+    "total": 24713,
+    "measured": 19547,
+    "poolLimit": 3000,
+    "poolSize": 3000,
+    "median": 55,
+    "missingBefore": 5734,
+    "missingAfter": 5166,
+    "mappedAnswers": 568,
+    "examples": [
+      {
+        "answer": "'t Huys Dever",
+        "canonical": "Huys Dever",
+        "title": "Huys Dever"
+      },
+      {
+        "answer": "Abinger Motte",
+        "canonical": "Abinger Castle",
+        "title": "Abinger Castle"
+      },
+      {
+        "answer": "Al Hayl Castle",
+        "canonical": "Al Hayl Fort",
+        "title": "Al Hayl Fort"
+      },
+      {
+        "answer": "Al&#299 Q&#257p&#363",
+        "canonical": "Ali Qapu",
+        "title": "Ali Qapu"
+      },
+      {
+        "answer": "Alanya Kalesi",
+        "canonical": "Alanya Castle",
+        "title": "Alanya Castle"
+      }
+    ]
+  },
+  {
+    "category": "cities",
+    "catalogVersion": "00cadebbe95f4404",
+    "total": 149928,
+    "measured": 105173,
+    "poolLimit": 3000,
+    "poolSize": 3000,
+    "median": 55,
+    "missingBefore": 45631,
+    "missingAfter": 44755,
+    "mappedAnswers": 876,
+    "examples": [
+      {
+        "answer": "'s-Gravenwezel",
+        "canonical": "Schilde",
+        "title": "Schilde"
+      },
+      {
+        "answer": "Aartrijke",
+        "canonical": "Zedelgem",
+        "title": "Zedelgem"
+      },
+      {
+        "answer": "Abbazia",
+        "canonical": "Opatija",
+        "title": "Opatija"
+      },
+      {
+        "answer": "Abepura",
+        "canonical": "Jayapura",
+        "title": "Jayapura"
+      },
+      {
+        "answer": "Abrud-Sat",
+        "canonical": "Abrud",
+        "title": "Abrud"
+      }
+    ]
+  },
+  {
+    "category": "composers",
+    "catalogVersion": "65f4199c635d7bbc",
+    "total": 70488,
+    "measured": 70417,
+    "poolLimit": 3000,
+    "poolSize": 3000,
+    "median": 55,
+    "missingBefore": 196,
+    "missingAfter": 71,
+    "mappedAnswers": 125,
+    "examples": [
+      {
+        "answer": "Adam D'Zurilla",
+        "canonical": "Thomas Rankine",
+        "title": "As Friends Rust"
+      },
+      {
+        "answer": "Adam Kennedy",
+        "canonical": "Alexander Julien",
+        "title": "Vision Eternel"
+      },
+      {
+        "answer": "Alan Bergman",
+        "canonical": "Marilyn Bergman",
+        "title": "Alan and Marilyn Bergman"
+      },
+      {
+        "answer": "Antoine Divitis",
+        "canonical": "Antonius Divitis",
+        "title": "Antonius Divitis"
+      },
+      {
+        "answer": "Benj Pasek",
+        "canonical": "Justin Paul",
+        "title": "Pasek and Paul"
+      }
+    ]
+  },
+  {
+    "category": "countries",
+    "catalogVersion": "34d735861a0b55ac",
+    "total": 249,
+    "measured": 249,
+    "poolLimit": 3000,
+    "poolSize": 249,
+    "median": 55,
+    "missingBefore": 0,
+    "missingAfter": 0,
+    "mappedAnswers": 0,
+    "examples": []
+  },
+  {
+    "category": "films",
+    "catalogVersion": "5e6d4def4c7b073b",
+    "total": 159646,
+    "measured": 158806,
+    "poolLimit": 3000,
+    "poolSize": 3000,
+    "median": 55,
+    "missingBefore": 845,
+    "missingAfter": 840,
+    "mappedAnswers": 5,
+    "examples": [
+      {
+        "answer": "Frank",
+        "canonical": "Frank Film",
+        "title": "Frank Film"
+      },
+      {
+        "answer": "Kiss Kiss",
+        "canonical": "Kiss Kiss Bang Bang",
+        "title": "Kiss Kiss Bang Bang"
+      },
+      {
+        "answer": "Rat",
+        "canonical": "Rat Film",
+        "title": "Rat Film"
+      },
+      {
+        "answer": "The Animals",
+        "canonical": "The Animals Film",
+        "title": "The Animals Film"
+      },
+      {
+        "answer": "The Endless",
+        "canonical": "The Endless Film",
+        "title": "The Endless Film"
+      }
+    ]
+  },
+  {
+    "category": "foods",
+    "catalogVersion": "c13c215b8bb7b069",
+    "total": 14011,
+    "measured": 3839,
+    "poolLimit": 3000,
+    "poolSize": 3000,
+    "median": 55,
+    "missingBefore": 10705,
+    "missingAfter": 10172,
+    "mappedAnswers": 533,
+    "examples": [
+      {
+        "answer": "'Mpanatigghi",
+        "canonical": "Empanadas",
+        "title": "Empanada"
+      },
+      {
+        "answer": "Absinth",
+        "canonical": "Absinthe",
+        "title": "Absinthe"
+      },
+      {
+        "answer": "Aceto balsamico",
+        "canonical": "Balsamic vinegars",
+        "title": "Balsamic vinegar"
+      },
+      {
+        "answer": "Acuka",
+        "canonical": "Muhammara",
+        "title": "Muhammara"
+      },
+      {
+        "answer": "Adana kebap",
+        "canonical": "Adana kebabı",
+        "title": "Adana kebabı"
+      }
+    ]
+  },
+  {
+    "category": "footballers",
+    "catalogVersion": "3c42b0dee313f8fd",
+    "total": 208788,
+    "measured": 208220,
+    "poolLimit": 3000,
+    "poolSize": 3000,
+    "median": 55,
+    "missingBefore": 568,
+    "missingAfter": 568,
+    "mappedAnswers": 0,
+    "examples": []
+  },
+  {
+    "category": "fruits-vegetables",
+    "catalogVersion": "7cc25d83172226d8",
+    "total": 1396,
+    "measured": 1177,
+    "poolLimit": 3000,
+    "poolSize": 1177,
+    "median": 55,
+    "missingBefore": 283,
+    "missingAfter": 219,
+    "mappedAnswers": 64,
+    "examples": [
+      {
+        "answer": "Amarelle",
+        "canonical": "Sour cherry",
+        "title": "Prunus cerasus"
+      },
+      {
+        "answer": "Arrowleaf elephant ear",
+        "canonical": "Arrowhead elephant ear",
+        "title": "Xanthosoma sagittifolium"
+      },
+      {
+        "answer": "Artichoke heart",
+        "canonical": "Artichoke",
+        "title": "Artichoke"
+      },
+      {
+        "answer": "Beet",
+        "canonical": "Beetroot",
+        "title": "Beetroot"
+      },
+      {
+        "answer": "Beet green",
+        "canonical": "Beetroot",
+        "title": "Beetroot"
+      }
+    ]
+  },
+  {
+    "category": "islands",
+    "catalogVersion": "dce93ccf83ed0b78",
+    "total": 129033,
+    "measured": 14630,
+    "poolLimit": 3000,
+    "poolSize": 3000,
+    "median": 55,
+    "missingBefore": 115555,
+    "missingAfter": 114403,
+    "mappedAnswers": 1152,
+    "examples": [
+      {
+        "answer": "‘Uiha Island",
+        "canonical": "ʻUiha",
+        "title": "ʻUiha"
+      },
+      {
+        "answer": "Aberdeen Island",
+        "canonical": "Ap Lei Chau",
+        "title": "Ap Lei Chau"
+      },
+      {
+        "answer": "Abner Cay",
+        "canonical": "Berry Islands",
+        "title": "Berry Islands"
+      },
+      {
+        "answer": "Abou Mâya",
+        "canonical": "Abou Maya Island",
+        "title": "Gulf of Tadjoura"
+      },
+      {
+        "answer": "Acadia Islet",
+        "canonical": "Ducie Island",
+        "title": "Ducie Island"
+      }
+    ]
+  },
+  {
+    "category": "lakes",
+    "catalogVersion": "c9a92d2453c458d6",
+    "total": 273738,
+    "measured": 15307,
+    "poolLimit": 3000,
+    "poolSize": 3000,
+    "median": 55,
+    "missingBefore": 259159,
+    "missingAfter": 258431,
+    "mappedAnswers": 728,
+    "examples": [
+      {
+        "answer": "A Lake",
+        "canonical": "Upper Barachois Lake",
+        "title": "List of lakes of Nova Scotia"
+      },
+      {
+        "answer": "Aberdeen Reservoir",
+        "canonical": "Aberdeen Reservoirs",
+        "title": "Aberdeen Reservoirs"
+      },
+      {
+        "answer": "Abrau",
+        "canonical": "Lake Abrau",
+        "title": "Lake Abrau"
+      },
+      {
+        "answer": "Acadia Lake",
+        "canonical": "Upper Barachois Lake",
+        "title": "List of lakes of Nova Scotia"
+      },
+      {
+        "answer": "Acton Lake",
+        "canonical": "Hueston Woods State Park",
+        "title": "Hueston Woods State Park"
+      }
+    ]
+  },
+  {
+    "category": "mountains",
+    "catalogVersion": "16b9c38c78cc2e5b",
+    "total": 389883,
+    "measured": 31299,
+    "poolLimit": 3000,
+    "poolSize": 3000,
+    "median": 55,
+    "missingBefore": 360597,
+    "missingAfter": 358584,
+    "mappedAnswers": 2013,
+    "examples": [
+      {
+        "answer": "Abbott Peak",
+        "canonical": "Mount Erebus",
+        "title": "Mount Erebus"
+      },
+      {
+        "answer": "Abercrombie Crests",
+        "canonical": "Darley Hills",
+        "title": "Darley Hills"
+      },
+      {
+        "answer": "Absalom, Mount",
+        "canonical": "Mount Absalom",
+        "title": "Mount Absalom"
+      },
+      {
+        "answer": "Acarospora Peak",
+        "canonical": "Watson Escarpment",
+        "title": "Watson Escarpment"
+      },
+      {
+        "answer": "Acholi Mountains",
+        "canonical": "Imatong Mountains",
+        "title": "Imatong Mountains"
+      }
+    ]
+  },
+  {
+    "category": "museums",
+    "catalogVersion": "d4659b2a078667f8",
+    "total": 20620,
+    "measured": 20583,
+    "poolLimit": 3000,
+    "poolSize": 3000,
+    "median": 55,
+    "missingBefore": 137,
+    "missingAfter": 37,
+    "mappedAnswers": 100,
+    "examples": [
+      {
+        "answer": "AL-Jedeaah Museum",
+        "canonical": "Jad'iyah Museum",
+        "title": "Jad'iyah Museum"
+      },
+      {
+        "answer": "Arthur M. Sackler Museum",
+        "canonical": "Harvard Art Museums",
+        "title": "Harvard Art Museums"
+      },
+      {
+        "answer": "Asian Gallery New South Wales Art Gallery",
+        "canonical": "Art Gallery of New South Wales",
+        "title": "Art Gallery of New South Wales"
+      },
+      {
+        "answer": "Auschwitz II",
+        "canonical": "Auschwitz concentration camp",
+        "title": "Auschwitz concentration camp"
+      },
+      {
+        "answer": "Bletchley Park museum",
+        "canonical": "Bletchley Park",
+        "title": "Bletchley Park"
+      }
+    ]
+  },
+  {
+    "category": "novels",
+    "catalogVersion": "c943416dcb136d31",
+    "total": 34476,
+    "measured": 34018,
+    "poolLimit": 3000,
+    "poolSize": 3000,
+    "median": 55,
+    "missingBefore": 1673,
+    "missingAfter": 458,
+    "mappedAnswers": 1215,
+    "examples": [
+      {
+        "answer": ".hack//AI buster",
+        "canonical": ".hack//AI buster 2",
+        "title": ".hack"
+      },
+      {
+        "answer": ".hack//Epitaph of Twilight",
+        "canonical": ".hack//AI buster 2",
+        "title": ".hack"
+      },
+      {
+        "answer": "(She) Drunk History",
+        "canonical": "Space Cakes",
+        "title": "John Layman"
+      },
+      {
+        "answer": "2 Die 4",
+        "canonical": "Blood Ties",
+        "title": "Nigel Hinton"
+      },
+      {
+        "answer": "30 Days of Night: Rumors of the Undead",
+        "canonical": "30 Days of Night: Immortal Remains",
+        "title": "30 Days of Night (franchise)"
+      }
+    ]
+  },
+  {
+    "category": "painters",
+    "catalogVersion": "739060aeb113477f",
+    "total": 52966,
+    "measured": 52894,
+    "poolLimit": 3000,
+    "poolSize": 3000,
+    "median": 55,
+    "missingBefore": 72,
+    "missingAfter": 72,
+    "mappedAnswers": 0,
+    "examples": []
+  },
+  {
+    "category": "paintings",
+    "catalogVersion": "9959859ce98921b9",
+    "total": 516458,
+    "measured": 10113,
+    "poolLimit": 3000,
+    "poolSize": 3000,
+    "median": 55,
+    "missingBefore": 506357,
+    "missingAfter": 506345,
+    "mappedAnswers": 12,
+    "examples": [
+      {
+        "answer": "A Friend in Need",
+        "canonical": "Dogs Playing Poker",
+        "title": "Dogs Playing Poker"
+      },
+      {
+        "answer": "Baptism of St. Zenobius",
+        "canonical": "Scenes from the Life of Saint Zenobius",
+        "title": "Scenes from the Life of Saint Zenobius"
+      },
+      {
+        "answer": "Death Dealer",
+        "canonical": "Death Dealer II",
+        "title": "Death Dealer (painting)"
+      },
+      {
+        "answer": "God the Father Blessing Among Angels",
+        "canonical": "San Pietro Polyptych",
+        "title": "San Pietro Polyptych"
+      },
+      {
+        "answer": "Homage to the Square: Ascending",
+        "canonical": "Homage to the Square",
+        "title": "Homage to the Square"
+      }
+    ]
+  },
+  {
+    "category": "plants",
+    "catalogVersion": "f584483f47d38e7d",
+    "total": 43308,
+    "measured": 23465,
+    "poolLimit": 3000,
+    "poolSize": 3000,
+    "median": 55,
+    "missingBefore": 21749,
+    "missingAfter": 19843,
+    "mappedAnswers": 1906,
+    "examples": [
+      {
+        "answer": "Abelmosk",
+        "canonical": "Musk okra",
+        "title": "Abelmoschus moschatus"
+      },
+      {
+        "answer": "Abrams' sandmat",
+        "canonical": "Abram's spurge",
+        "title": "Euphorbia abramsiana"
+      },
+      {
+        "answer": "Abrojo colorado",
+        "canonical": "Wild senna",
+        "title": "Senna hebecarpa"
+      },
+      {
+        "answer": "Abscess root",
+        "canonical": "Polemonium",
+        "title": "Polemonium"
+      },
+      {
+        "answer": "Absinthium",
+        "canonical": "Wormwood",
+        "title": "Artemisia (plant)"
+      }
+    ]
+  },
+  {
+    "category": "poets",
+    "catalogVersion": "51f7d3922649c960",
+    "total": 40826,
+    "measured": 40783,
+    "poolLimit": 3000,
+    "poolSize": 3000,
+    "median": 55,
+    "missingBefore": 63,
+    "missingAfter": 43,
+    "mappedAnswers": 20,
+    "examples": [
+      {
+        "answer": "Audrey Poetker-Thiessen",
+        "canonical": "Audrey Poetker",
+        "title": "Audrey Poetker"
+      },
+      {
+        "answer": "Brother J",
+        "canonical": "Professor X the Overseer",
+        "title": "X Clan"
+      },
+      {
+        "answer": "Donall an Dúna Mac Cairteáin",
+        "canonical": "Liam Mac Curtain an Dúna",
+        "title": "Liam Mac Curtain an Dúna"
+      },
+      {
+        "answer": "Elaine Goodale Eastman",
+        "canonical": "Dora Read Goodale",
+        "title": "Goodale Sisters"
+      },
+      {
+        "answer": "Fear Flaith Ó Gnímh",
+        "canonical": "Fear Flatha Ó Gnímh",
+        "title": "Fear Flatha Ó Gnímh"
+      }
+    ]
+  },
+  {
+    "category": "rivers",
+    "catalogVersion": "e848dc5bda64483a",
+    "total": 846065,
+    "measured": 33597,
+    "poolLimit": 3000,
+    "poolSize": 3000,
+    "median": 55,
+    "missingBefore": 813663,
+    "missingAfter": 812468,
+    "mappedAnswers": 1195,
+    "examples": [
+      {
+        "answer": "(( Hirsch-Bach ))",
+        "canonical": "Gersprenz",
+        "title": "Gersprenz"
+      },
+      {
+        "answer": "Abacan River",
+        "canonical": "Abakan",
+        "title": "Abakan (river)"
+      },
+      {
+        "answer": "Abita",
+        "canonical": "Abita River",
+        "title": "Abita River"
+      },
+      {
+        "answer": "Abraham River",
+        "canonical": "Nahr Ibrahim",
+        "title": "Nahr Ibrahim"
+      },
+      {
+        "answer": "Åbyälven",
+        "canonical": "Åby",
+        "title": "Åby (river)"
+      }
+    ]
+  },
+  {
+    "category": "ships",
+    "catalogVersion": "710de7afbdf266c3",
+    "total": 33356,
+    "measured": 33270,
+    "poolLimit": 3000,
+    "poolSize": 3000,
+    "median": 55,
+    "missingBefore": 321,
+    "missingAfter": 86,
+    "mappedAnswers": 235,
+    "examples": [
+      {
+        "answer": "Aleksander Aberg",
+        "canonical": "Elmar Kivistik",
+        "title": "Estonian Shipping Company"
+      },
+      {
+        "answer": "American Glory",
+        "canonical": "American Pride",
+        "title": "American Cruise Lines"
+      },
+      {
+        "answer": "American Spirit",
+        "canonical": "American Pride",
+        "title": "American Cruise Lines"
+      },
+      {
+        "answer": "American Star",
+        "canonical": "American Pride",
+        "title": "American Cruise Lines"
+      },
+      {
+        "answer": "ARA Almirante Domecq Garcia",
+        "canonical": "USS Braine",
+        "title": "USS Braine"
+      }
+    ]
+  },
+  {
+    "category": "songs",
+    "catalogVersion": "29ccf58663e2b248",
+    "total": 86353,
+    "measured": 85620,
+    "poolLimit": 3000,
+    "poolSize": 3000,
+    "median": 55,
+    "missingBefore": 759,
+    "missingAfter": 733,
+    "mappedAnswers": 26,
+    "examples": [
+      {
+        "answer": "Airport",
+        "canonical": "Airport Song",
+        "title": "Airport Song"
+      },
+      {
+        "answer": "Catch Me",
+        "canonical": "Catch Me I'm Falling",
+        "title": "Catch Me I'm Falling"
+      },
+      {
+        "answer": "Club",
+        "canonical": "Club Song",
+        "title": "Club Song"
+      },
+      {
+        "answer": "Earth",
+        "canonical": "Earth Song",
+        "title": "Earth Song"
+      },
+      {
+        "answer": "Guitar",
+        "canonical": "Guitar Song",
+        "title": "Guitar Song"
+      }
+    ]
+  },
+  {
+    "category": "stations",
+    "catalogVersion": "c5509e1dd2ca6d1a",
+    "total": 128777,
+    "measured": 60962,
+    "poolLimit": 3000,
+    "poolSize": 3000,
+    "median": 55,
+    "missingBefore": 75069,
+    "missingAfter": 67815,
+    "mappedAnswers": 7254,
+    "examples": [
+      {
+        "answer": "9 de Julio",
+        "canonical": "Diagonal Norte",
+        "title": "Carlos Pellegrini (Buenos Aires Underground)"
+      },
+      {
+        "answer": "A-li-shan Station",
+        "canonical": "Alishan railway station",
+        "title": "Alishan railway station"
+      },
+      {
+        "answer": "A.J. Ernststraat",
+        "canonical": "A.J. Ernststraat tram stop",
+        "title": "A.J. Ernststraat tram stop"
+      },
+      {
+        "answer": "Aachen Schanz",
+        "canonical": "Aachen Schanz station",
+        "title": "Aachen Schanz station"
+      },
+      {
+        "answer": "Aachen-Rothe Erde",
+        "canonical": "Aachen-Rothe Erde station",
+        "title": "Aachen-Rothe Erde station"
+      }
+    ]
+  },
+  {
+    "category": "television",
+    "catalogVersion": "d343cb3c81d189d2",
+    "total": 57931,
+    "measured": 57552,
+    "poolLimit": 3000,
+    "poolSize": 3000,
+    "median": 55,
+    "missingBefore": 379,
+    "missingAfter": 379,
+    "mappedAnswers": 0,
+    "examples": []
+  },
+  {
+    "category": "universities",
+    "catalogVersion": "1e087421872a18e5",
+    "total": 24583,
+    "measured": 24443,
+    "poolLimit": 3000,
+    "poolSize": 3000,
+    "median": 55,
+    "missingBefore": 143,
+    "missingAfter": 140,
+    "mappedAnswers": 3,
+    "examples": [
+      {
+        "answer": "Alipurduar College",
+        "canonical": "Alipurduar University",
+        "title": "Alipurduar University"
+      },
+      {
+        "answer": "Central University",
+        "canonical": "Central University Ghana",
+        "title": "Central University Ghana"
+      },
+      {
+        "answer": "MICA",
+        "canonical": "MICA Institute",
+        "title": "MICA Institute"
+      }
+    ]
+  },
+  {
+    "category": "video-games",
+    "catalogVersion": "b3132c41eebaa59a",
+    "total": 181173,
+    "measured": 31367,
+    "poolLimit": 3000,
+    "poolSize": 3000,
+    "median": 55,
+    "missingBefore": 151700,
+    "missingAfter": 149806,
+    "mappedAnswers": 1894,
+    "examples": [
+      {
+        "answer": "18 Wheels of Steel: Extreme Trucker",
+        "canonical": "18 Wheels of Steel",
+        "title": "18 Wheels of Steel"
+      },
+      {
+        "answer": "18 Wheels of Steel: Haulin'",
+        "canonical": "18 Wheels of Steel",
+        "title": "18 Wheels of Steel"
+      },
+      {
+        "answer": "18 Wheels of Steel: Pedal to the Metal",
+        "canonical": "18 Wheels of Steel",
+        "title": "18 Wheels of Steel"
+      },
+      {
+        "answer": "1943 Kai: Midway Kaisen",
+        "canonical": "1943: The Battle of Midway",
+        "title": "1943: The Battle of Midway"
+      },
+      {
+        "answer": "1999: Hore, Mita koto ka! Seikimatsu",
+        "canonical": "Super Mario Bros./Tetris/Nintendo World Cup",
+        "title": "List of Nintendo Entertainment System games"
+      }
+    ]
+  }
+]

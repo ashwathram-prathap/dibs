@@ -53,7 +53,10 @@ export function About({ nextDrop }: { nextDrop: string }) {
             Each night during launch week we post a clue to one golden ticket. The rest stay secret.
           </p>
           <h3>How do points work?</h3>
-          <p>Rarer answers score more. Golden tickets +100. Strikes −10.</p>
+          <p>
+            Rarer answers score more: from 10 for the most familiar to 110 for the rarest. Golden
+            tickets +100; strikes −10.
+          </p>
           <h3>What counts toward a streak?</h3>
           <p>Make a claim on consecutive drops. Missing a drop resets your streak.</p>
           <h3>Is it free?</h3>

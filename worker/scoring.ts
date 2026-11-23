@@ -1,31 +1,44 @@
 import type { Env } from './routes';
 import { catalogMeta } from './catalog';
 import { PUBLIC_ORIGIN } from '../shared/config';
+import { scoreAssetPath } from '../shared/scoring-assets';
 
-// Percentile is 0 at the popular end and 1 at the rare end. The top decile is flat.
-export function rarityPoints(percentile: number) {
-  return Math.round((10 + 100 * Math.max(0, Math.min(1, percentile) - 0.1)) / 5) * 5;
-}
-export function rankPopularity(values: (number | null)[]) {
-  const measured = values.filter((v): v is number => v !== null).sort((a, b) => b - a);
+import { rarityPoints } from '../shared/score-points';
+export { rarityPoints } from '../shared/score-points';
+export function rankPopularity(values: (number | null)[], poolLimit = 3000) {
+  if (!Number.isSafeInteger(poolLimit) || poolLimit < 1)
+    throw Error('Invalid popularity pool size');
+  const measured = values
+    .filter((v): v is number => v !== null && Number.isFinite(v))
+    .sort((a, b) => b - a);
+  const pool = measured.slice(0, Math.min(values.length, poolLimit));
   const ranks = new Map<number, number>();
-  for (let i = 0; i < measured.length;) {
+  for (let i = 0; i < pool.length;) {
     let end = i + 1;
-    while (end < measured.length && measured[end] === measured[i]) end++;
-    // Equal readings share the middle rank; a single reading has the median rank.
+    while (end < pool.length && pool[end] === pool[i]) end++;
+    // Ties share their middle rank. A tie crossing the pool boundary is rarest
+    // for every member, so equal pageviews never receive different scores.
+    const crossesBoundary = end === pool.length && measured[end] === pool[i];
     ranks.set(
-      measured[i],
-      measured.length === 1 ? 0.5 : (i + (end - i - 1) / 2) / (measured.length - 1),
+      pool[i],
+      crossesBoundary ? 1 : pool.length === 1 ? 0.5 : (i + (end - i - 1) / 2) / (pool.length - 1),
     );
     i = end;
   }
-  const scores = measured.map((v) => rarityPoints(ranks.get(v)!)).sort((a, b) => a - b);
+  // Unknown readings use this category's reference-pool median. They never
+  // become measured/rarest merely because the long catalog tail is obscure.
+  const scores = pool.map((v) => rarityPoints(ranks.get(v)!)).sort((a, b) => a - b);
   const median = scores.length
     ? Math.round(
         (scores[Math.floor((scores.length - 1) / 2)] + scores[Math.floor(scores.length / 2)]) / 10,
       ) * 5
     : 50;
-  return { median, percentiles: values.map((v) => (v === null ? null : ranks.get(v)!)) };
+  return {
+    median,
+    percentiles: values.map((v) =>
+      v === null || !Number.isFinite(v) ? null : (ranks.get(v) ?? 1),
+    ),
+  };
 }
 let active: { key: string; data: Promise<{ median: number; ranks: DataView }> } | undefined;
 export async function scoreAnswer(
@@ -39,9 +52,9 @@ export async function scoreAnswer(
   let percentile: number | null = null,
     base = 50;
   if (meta && ordinal !== undefined) {
-    const key = `${meta.slug}/${meta.version}`;
+    const key = scoreAssetPath(meta.slug, meta.version);
     if (active?.key !== key) {
-      const data = fetch(`${PUBLIC_ORIGIN}/catalog/${key}/scores-v2.bin`, {
+      const data = fetch(`${PUBLIC_ORIGIN}${key}`, {
         cf: { cacheTtl: 86400, cacheEverything: true },
       })
         .then(async (r) => {
@@ -62,11 +75,13 @@ export async function scoreAnswer(
     base = percentile === null ? data.median : rarityPoints(percentile);
   }
   // Legacy registers have no retained pageviews: their honest median fallback is 50.
-  const golden = knownGolden ?? !!(await env.DB.prepare(
-    'SELECT 1 FROM daily_specials,json_each(golden_json) WHERE category_id=? AND value=?',
-  )
-    .bind(category.id, answer)
-    .first());
+  const golden =
+    knownGolden ??
+    !!(await env.DB.prepare(
+      'SELECT 1 FROM daily_specials,json_each(golden_json) WHERE category_id=? AND value=?',
+    )
+      .bind(category.id, answer)
+      .first());
   return { points: base + (golden ? 100 : 0), percentile, bonus: golden ? 100 : 0 };
 }
 export function scoreFile(events: { kind: string; points?: number; at: string }[]) {

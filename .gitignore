@@ -178,3 +178,12 @@ review/round19c/practice-preview-ids.json
 review/round19c/practice-scheduling.json
 review/round19c/practice-*-opening-diagnostic.json
 review/final/round19c/
+
+# R19E full-resolution captures and private release state stay local.
+review/round19e/ui/
+review/round19e/*.png
+review/round19e/*browser-results.json
+review/round19e/unit-results.json
+review/round19e/lighthouse*/
+review/round19e/firefox-ci/
+review/final/round19e/
