@@ -1,0 +1,23 @@
+{
+  "at": "2026-11-23T19:14:21.324152+00:00",
+  "applicationCommit": "c1b8a34",
+  "focusedTests": {
+    "startTime": "2026-11-23T19:12:15.021Z",
+    "duration": 24775.778000000002,
+    "expected": 16,
+    "skipped": 0,
+    "unexpected": 0,
+    "flaky": 0
+  },
+  "beforePerformance": [
+    89,
+    88,
+    89,
+    89
+  ],
+  "beforeCls": 0.2120459962642234,
+  "afterPerformance": 99,
+  "afterAccessibility": 100,
+  "afterCls": 0.0347470330012803,
+  "finalIdleRunPending": true
+}
