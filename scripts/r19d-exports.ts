@@ -40,6 +40,8 @@ try {
                 m = this.getTransform();
               const corners = [
                 [-size.actualBoundingBoxLeft, -size.actualBoundingBoxAscent],
+                [size.actualBoundingBoxRight, -size.actualBoundingBoxAscent],
+                [-size.actualBoundingBoxLeft, size.actualBoundingBoxDescent],
                 [size.actualBoundingBoxRight, size.actualBoundingBoxDescent],
               ].map(([dx, dy]) => new DOMPoint(x + dx, y + dy).matrixTransform(m));
               drawings.push({
@@ -116,7 +118,15 @@ try {
                 claims.find((c) => c.golden)!,
                 story,
               );
+              const hideStart = drawings.length;
               const hide = await exportSummary(file, category, story, true);
+              const sealed = await exportCertificate(
+                claims.find((c) => c.golden)!,
+                story,
+                true,
+              );
+              const hiddenDrawings = drawings.slice(hideStart);
+              const caption = (await import('/src/share.ts' as string)).summaryText(file, category);
               const encode = async (f: File) => ({
                 name: f.name,
                 size: f.size,
@@ -130,6 +140,9 @@ try {
                 summary: await encode(summary),
                 certificate: await encode(certificate),
                 hide: await encode(hide),
+                sealed: await encode(sealed),
+                hiddenDrawings,
+                caption,
                 drawings,
                 score: claimScore(claims.find((c) => c.golden)!),
               };
@@ -152,6 +165,7 @@ try {
           summary: data.summary,
           certificate: data.certificate,
           hidden: data.hide,
+          sealed: data.sealed,
         })) {
           assert.ok(file.size < 350000);
           writeFileSync(
@@ -159,6 +173,13 @@ try {
             Buffer.from(file.base64, 'base64'),
           );
         }
+        assert.ok(
+          data.hiddenDrawings.every((d: any) => !/Okapi|Quokka|Sarcastic fringehead/.test(d.value)),
+        );
+        assert.ok(data.hiddenDrawings.some((d: any) => d.value === 'SEALED'));
+        assert.ok(
+          data.caption.includes('160 points') && data.caption.includes('60 + 100 golden bonus'),
+        );
         const urls = data.drawings
           .filter((d: any) => /^practice\.dibs.*\/(c|summary)\//.test(d.value))
           .map((d: any) => d.value);
@@ -173,7 +194,7 @@ try {
           variant,
           story,
           passed: true,
-          bytes: [data.summary.size, data.certificate.size, data.hide.size],
+          bytes: [data.summary.size, data.certificate.size, data.hide.size, data.sealed.size],
           printedUrls: [...new Set(urls)],
         });
       }
@@ -185,5 +206,5 @@ writeFileSync(
   JSON.stringify({ passed: true, results }, null, 2),
 );
 console.log(
-  `Verified ${results.length * 3} exports: bounds, full practice URLs, golden totals and size.`,
+  `Verified ${results.length * 4} exports: bounds, full practice URLs, golden totals and size.`,
 );

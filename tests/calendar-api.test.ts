@@ -1,5 +1,5 @@
 import { LAUNCH_DATE } from '../shared/config';
-import { beforeAll, afterAll, it, expect } from 'vitest';
+import { beforeAll, afterAll, it, expect, vi } from 'vitest';
 import { Miniflare, convertV4MiniflareOptions } from 'miniflare';
 import { build } from 'esbuild';
 import { readFileSync, readdirSync } from 'node:fs';
@@ -9,6 +9,10 @@ const notifications: string[] = [];
 let mf: Miniflare,
   db: any,
   denyAssets = false;
+// Keep normal calendar behavior outside the separately tested launch deployment freeze.
+const fixtureTime = Date.parse('2026-11-25T12:00:00Z');
+vi.useFakeTimers({ toFake: ['Date'] });
+vi.setSystemTime(fixtureTime);
 const now = registryDate();
 const admin = (path = '', body?: any, auth = true) =>
   mf.dispatchFetch('http://localhost/api/admin/schedule' + path, {
@@ -23,7 +27,10 @@ const admin = (path = '', body?: any, auth = true) =>
 const state = async () => (await (await admin()).json()) as any;
 beforeAll(async () => {
   const code = await build({
-    entryPoints: ['worker/index.ts'],
+    stdin: {
+      contents: `import worker from './worker/index'; export {Registry, ImageCache} from './worker/index'; const RealDate=Date; globalThis.Date=class extends RealDate { constructor(...args) { super(...(args.length ? args : [${fixtureTime}])); } static now() { return ${fixtureTime}; } }; export default worker;`,
+      resolveDir: process.cwd(),
+    },
     bundle: true,
     write: false,
     format: 'esm',
@@ -102,7 +109,10 @@ beforeAll(async () => {
     expect(r.status, await r.text()).toBe(200);
   }
 }, 30000);
-afterAll(async () => await mf?.dispose());
+afterAll(async () => {
+  await mf?.dispose();
+  vi.useRealTimers();
+});
 it('requires the admin token and rejects no-peek metadata leaks', async () => {
   expect((await admin('', undefined, false)).status).toBe(404);
   const s = await state();

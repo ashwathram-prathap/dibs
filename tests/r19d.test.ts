@@ -35,3 +35,12 @@ it('uses the stored golden total without adding or losing the bonus in copied re
     expect(summaryText(file, category)).toContain(`${file.points} pts`);
   }
 });
+
+import { filingTime } from '../shared/time';
+it('files the date and time in the selected named zone on either side of midnight', () => {
+  expect(filingTime('2026-11-23T02:52:00Z', 'America/Toronto')).toBe(
+    'Nov 22, 9:52 PM Toronto time',
+  );
+  expect(filingTime('2026-11-23T02:52:00Z', 'Asia/Tokyo')).toBe('Nov 23, 11:52 AM Japan time');
+  expect(filingTime('2026-11-23T02:52:00Z', 'Australia/Sydney')).not.toContain('GMT');
+});

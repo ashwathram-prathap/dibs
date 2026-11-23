@@ -1,3 +1,4 @@
+import { decode as decodeJpeg } from 'jpeg-js';
 import { assertPublicPayload, shapes } from './public-payload-schema';
 import { visibleClaim } from '../worker/visibility';
 import { readCategory } from '../scripts/category-file';
@@ -33,14 +34,28 @@ async function startRegistry(slug: string) {
     format: 'esm',
     platform: 'browser',
     external: ['cloudflare:workers'],
-    loader: { '.wasm': 'binary', '.woff': 'binary', '.otf': 'binary' },
+    plugins: [
+      {
+        name: 'compiled-wasm',
+        setup(b) {
+          b.onResolve({ filter: /\.wasm$/ }, () => ({ path: './resvg.wasm', external: true }));
+        },
+      },
+    ],
+    loader: { '.woff': 'binary', '.otf': 'binary' },
   });
   options = convertV4MiniflareOptions({
     workers: [
       {
         name: 'static-test',
-        modules: true,
-        script: code.outputFiles[0].text,
+        modules: [
+          { type: 'ESModule', path: 'worker.mjs', contents: code.outputFiles[0].text },
+          {
+            type: 'CompiledWasm',
+            path: 'resvg.wasm',
+            contents: readFileSync('node_modules/@resvg/resvg-wasm/index_bg.wasm'),
+          },
+        ],
         compatibilityDate: '2026-11-20',
         d1Databases: ['DB', 'PRESERVE'],
         durableObjects: {
@@ -218,6 +233,24 @@ it('persists explicit owner sharing and never grants another viewer permission o
     expect(event).not.toHaveProperty('display');
   expect(JSON.stringify(shared)).not.toMatch(/answer_id|user_id|sharedClaimIds/);
   expect(await (await call('/leaderboard')).text()).not.toContain(claim.display);
+  for (const [path, preview] of [
+    ['/certificate/' + claim.id, '/og/' + claim.id],
+    [summary, '/og' + summary],
+  ]) {
+    expect((await call(path, { showAnswers: true, theme: 'dark' }, other.cookie)).status).toBe(403);
+    expect((await call(path, { showAnswers: true, theme: 'invalid' }, winner.cookie)).status).toBe(
+      422,
+    );
+    for (const theme of ['dark', 'light']) {
+      expect((await call(path, { showAnswers: true, theme }, winner.cookie)).status).toBe(200);
+      await mf.setOptions(options);
+      db = await mf.getD1Database('DB');
+      const image = await call(preview);
+      expect(image.status).toBe(200);
+      const jpeg = decodeJpeg(new Uint8Array(await image.arrayBuffer()));
+      expect(jpeg.data[0] < 100).toBe(theme === 'dark');
+    }
+  }
   for (const path of ['/certificate/' + claim.id, summary])
     expect((await call(path, { showAnswers: false }, winner.cookie)).status).toBe(200);
   expect(await (await call(summary)).text()).not.toContain(claim.display);
@@ -683,6 +716,10 @@ it('R19B enforces concurrent claim/strike limits and accepts one golden bonus on
   expect(gold.data.claim.bonus).toBe(100);
   expect(gold.data.claim.golden).toBeTruthy();
   expect(gold.data.file.points).toBe(gold.data.claim.points);
+  const goldenBoard: any = await (await call('/leaderboard', undefined, goldPlayer.cookie)).json();
+  expect(goldenBoard.own.points).toBe(gold.data.claim.points);
+  expect(goldenBoard.own.golden).toBe(true);
+  expect(await (await call('/leaderboard')).text()).not.toContain(gold.data.claim.display);
   const retry = await guess(goldPlayer.cookie, catalog.answers[index].display, gold.requestId);
   expect(retry.data.file.points).toBe(gold.data.file.points);
 });

@@ -1,7 +1,7 @@
 import { claimScore } from '../shared/claim-copy';
 import { editionLabel } from '../shared/sharing';
 import { SHARE_INVITATION } from '../shared/copy';
-import { bellPath, bellArea, bellX, bellY, bellSigma } from '../shared/rarity';
+import { rarityLabel, bellPath, bellArea, bellX, bellY, bellSigma } from '../shared/rarity';
 import { cleanStoredHandles } from '../shared/handles';
 import { noOrphan } from '../shared/text';
 import encodeJpeg from './jpeg-encoder';
@@ -17,7 +17,7 @@ import {
   WORDMARK_OFFSET_X,
   WORDMARK_OFFSET_Y,
 } from '../shared/brand';
-import { fitText } from '../shared/typography';
+import { fitText, fitLine } from '../shared/typography';
 import resvgWasm from '@resvg/resvg-wasm/index_bg.wasm';
 import archivoFont from '../public/fonts/archivo-og.woff';
 import archivoExtended from '../public/fonts/archivo-og-latin-ext.woff';
@@ -29,11 +29,21 @@ let fonts: Font[] | undefined;
 let textFont: Font, formFont: Font;
 let ready: Promise<void> | undefined;
 // Render self-hosted type to vector outlines before PNG rasterization. No remote fonts or HTML parser.
-export async function og(claim: any, summary?: any) {
+export async function ogLayout(claim: any, summary?: any, dark = false) {
+  const ink = dark ? '#F1ECE2' : '#1A1A17';
+  const paper = dark ? '#1F1E18' : '#F1ECE2';
+  const gold = dark ? '#e7c86b' : '#795700';
+  const textBounds: {
+    value: string;
+    printed: string;
+    size: number;
+    left: number;
+    top: number;
+    right: number;
+    bottom: number;
+  }[] = [];
   claim = cleanStoredHandles(claim);
   summary = cleanStoredHandles(summary);
-  ready ||= initWasm(resvgWasm);
-  await ready;
   fonts ||= [archivoFont, archivoExtended, archivoVietnamese, archivoSupplement].map((data) =>
     parse(data),
   );
@@ -51,24 +61,43 @@ export async function og(claim: any, summary?: any) {
     x: number,
     y: number,
     size: number,
-    color = '#1A1A17',
+    color = ink,
     role: 'display' | 'text' | 'form' = 'text',
   ) => {
-    const measure = (z: number) =>
+    const measure = (value: string, z: number) =>
       [...value].reduce((n, ch) => {
         const candidate = role === 'text' ? textFont : role === 'form' ? formFont : undefined;
         const face = candidate?.charToGlyphIndex(ch) ? candidate : faceFor(ch);
         return n + ((face.charToGlyph(ch).advanceWidth || 0) * z) / face.unitsPerEm;
       }, 0);
-    while (size > 9 && measure(size) > 1140 - x) size -= 0.5;
+    const fitted = fitLine(noOrphan(value), measure, 1140 - x, size, 14);
+    size = fitted.size;
     let out = '';
-    for (const ch of noOrphan(value)) {
+    const bounds = {
+      value,
+      printed: fitted.text,
+      size,
+      left: Infinity,
+      top: Infinity,
+      right: -Infinity,
+      bottom: -Infinity,
+    };
+    for (const ch of fitted.text) {
       const candidate = role === 'text' ? textFont : role === 'form' ? formFont : undefined;
       const face = candidate?.charToGlyphIndex(ch) ? candidate : faceFor(ch);
       const glyph = face.charToGlyph(ch);
-      out += `<path fill="${color}" d="${svgPath(glyph.getPath(x, y, size).commands)}"/>`;
+      const path = glyph.getPath(x, y, size);
+      if (path.commands.length) {
+        const box = path.getBoundingBox();
+        bounds.left = Math.min(bounds.left, box.x1);
+        bounds.top = Math.min(bounds.top, box.y1);
+        bounds.right = Math.max(bounds.right, box.x2);
+        bounds.bottom = Math.max(bounds.bottom, box.y2);
+      }
+      out += `<path fill="${color}" d="${svgPath(path.commands)}"/>`;
       x += ((glyph.advanceWidth || 0) * size) / face.unitsPerEm;
     }
+    textBounds.push(bounds);
     return out;
   };
   const home = !summary && !claim;
@@ -83,57 +112,81 @@ export async function og(claim: any, summary?: any) {
     lineHeight: 0.95,
   });
   const wordmark = (x: number, y: number, w: number) =>
-    `<g transform="translate(${x} ${y}) scale(${w / WORDMARK_WIDTH}) translate(${WORDMARK_OFFSET_X} ${WORDMARK_OFFSET_Y})"><path fill="#1A1A17" d="${WORDMARK_PATH}"/><path fill="#E1462B" d="M${WORDMARK_BLOCK_X} 67h18v18h-18z"/></g>`;
-  const stamp = `<g transform="translate(965 529) rotate(-3)"><path fill="none" stroke="#E1462B" stroke-width="4" d="M-150-42h300v80h-300z"/>${text('DIBS', -110, 17, 58, '#E1462B', 'display')}</g>`;
-  const gold = '#795700';
+    `<g transform="translate(${x} ${y}) scale(${w / WORDMARK_WIDTH}) translate(${WORDMARK_OFFSET_X} ${WORDMARK_OFFSET_Y})"><path fill="${ink}" d="${WORDMARK_PATH}"/><path fill="#E1462B" d="M${WORDMARK_BLOCK_X} 67h18v18h-18z"/></g>`;
+  const stamp = () =>
+    `<g transform="translate(965 529) rotate(-3)"><path fill="none" stroke="#E1462B" stroke-width="4" d="M-150-42h300v80h-300z"/>${text('DIBS', -110, 17, 58, '#E1462B', 'display')}</g>`;
   const claims = summary?.file?.claims || [];
   const golden = claim?.golden || claims.some((c: any) => c.golden);
   let content: string;
   if (home)
-    content = `${wordmark(60, 73, 500)}${text('One category a day.', 60, 310, 48)}${text("Call it first, it's yours.", 60, 375, 48)}${text(`${MAX_CLAIMS} claims · ${MAX_STRIKES} strikes · new drop ${DROP_TIME_LABEL.replace(':00', '')} ET`, 60, 465, 28)}${stamp}${text(PUBLIC_HOST, 60, 585, 20)}`;
+    content = `${wordmark(60, 73, 500)}${text('One category a day.', 60, 310, 48)}${text("Call it first, it's yours.", 60, 375, 48)}${text(`${MAX_CLAIMS} claims · ${MAX_STRIKES} strikes · new drop ${DROP_TIME_LABEL.replace(':00', '')} ET`, 60, 465, 28)}${stamp()}${text(PUBLIC_HOST, 60, 585, 20)}`;
   else if (claim) {
     const shown = !claim.concealed;
-    content = `${wordmark(960, 45, 170)}${text(`${editionLabel(claim.category_date)}${claim.golden ? ' · Golden ticket' : ' · Certificate'}`, 60, 90, 26, claim.golden ? gold : '#1A1A17')}${text(shown ? claim.display : 'SEALED', 60, 220, 95, '#1A1A17', 'display')}${text(category, 60, 270, 32)}${text(shown ? claimScore(claim) : `${claim.points ?? 0} points · Sealed until the day closes.`, 60, 320, 26)}${text(claim.handle || '', 60, 490, 28)}`;
+    content = `${wordmark(960, 45, 170)}${text(`Form D-1${claim.golden ? ' · Golden ticket' : ''} · ${editionLabel(claim.category_date)}`, 60, 90, 26, claim.golden ? gold : ink)}${text(shown ? claim.display : 'SEALED', 60, 220, 95, ink, 'display')}${text(category, 60, 270, 32)}${text(shown ? claimScore(claim) : `${claim.points ?? 0} points · Sealed until the day closes.`, 60, 320, 26)}${text(claim.handle || '', 60, 490, 28)}`;
     if (shown && claim.percentile != null) {
       const x = bellX(claim.percentile),
         y = bellY(bellSigma(claim.percentile));
-      content += `<g transform="translate(60 345)"><path fill="#1A1A17" opacity=".08" d="${bellArea()}"/><defs><clipPath id="rarity-tail"><rect x="${x}" y="0" width="${520 - x}" height="120"/></clipPath></defs><path fill="${golden ? gold : '#E1462B'}" opacity=".25" clip-path="url(#rarity-tail)" d="${bellArea()}"/><path fill="none" stroke="#1A1A17" stroke-width="2" d="${bellPath()}"/><path stroke="${golden ? gold : '#E1462B'}" stroke-width="3" d="M${x} ${y}V108"/><circle fill="${golden ? gold : '#E1462B'}" cx="${x}" cy="${y}" r="4"/></g>`;
+      content += `<g transform="translate(60 345)"><path fill="${ink}" opacity=".08" d="${bellArea()}"/><defs><clipPath id="rarity-tail"><rect x="${x}" y="0" width="${520 - x}" height="120"/></clipPath></defs><path fill="${golden ? gold : '#E1462B'}" opacity=".25" clip-path="url(#rarity-tail)" d="${bellArea()}"/><path fill="none" stroke="${ink}" stroke-width="2" d="${bellPath()}"/><path stroke="${golden ? gold : '#E1462B'}" stroke-width="3" d="M${x} ${y}V108"/><circle fill="${golden ? gold : '#E1462B'}" cx="${x}" cy="${y}" r="4"/></g>`;
     }
     content +=
       text(SHARE_INVITATION, 60, 545, 26) + text(`${PUBLIC_HOST}/c/${claim.id}`, 60, 585, 20);
   } else {
-    content = `${wordmark(960, 45, 170)}${text(editionLabel(summary.category.date), 60, 80, 24)}${text(title, 60, 170, 80, '#1A1A17', 'display')}${text(`${file.points ?? 0} points${file.rank ? ` · #${file.rank} of ${file.players} players today` : ''}`, 60, 225, 38)}${golden ? text('Golden ticket found', 60, 265, 26, gold) : ''}`;
-    claims.slice(0, 3).forEach((c: any, i: number) => {
-      const y = 310 + i * 62,
-        color = c.golden ? gold : '#1A1A17';
-      if (c.golden) content += `<path stroke="${gold}" stroke-width="1" d="M60 ${y + 32}H1140"/>`;
-      content += `<rect x="60" y="${y - 18}" width="18" height="18" fill="${c.golden ? gold : '#E1462B'}"/>`;
+    content = `${wordmark(960, 45, 170)}${text(editionLabel(summary.category.date), 60, 80, 24)}${text(title, 60, 170, 80, ink, 'display')}${text(`${file.points ?? 0} points${file.rank ? ` · #${file.rank} of ${file.players} players today` : ''}`, 60, 225, 38)}${golden ? text('Golden ticket found', 60, 265, 26, gold) : ''}`;
+    const rows = file.events?.length
+      ? file.events
+      : claims.map((c: any) => ({ kind: 'dibs', claimId: c.id }));
+    const compact = rows.length > 4;
+    let y = compact ? 290 : 310;
+    let claimIndex = 0;
+    rows.slice(0, 7).forEach((event: any, i: number) => {
+      const number = String(i + 1).padStart(2, '0');
+      if (event.kind === 'strike') {
+        content += text(`${number}   Strike · −10`, 60, y, compact ? 19 : 24);
+        y += compact ? 22 : 34;
+        return;
+      }
+      const c = claims.find((c: any) => c.id === event.claimId) || claims[claimIndex];
+      claimIndex++;
+      if (!c) return;
+      const color = c.golden ? gold : ink;
+      content += text(number, 60, y, 18, ink, 'form');
+      content += `<rect x="94" y="${y - 16}" width="16" height="16" fill="${c.golden ? gold : '#E1462B'}"/>`;
       content += text(
-        `${!c.concealed ? c.display : 'Claim'}${c.golden ? ' · Golden ticket · +100' : ''}`,
-        92,
+        `${!c.concealed ? c.display : 'Claim'} · ${c.points ?? 0} points${c.golden ? ' · Golden ticket · +100' : ''}`,
+        125,
         y,
-        28,
+        compact ? 24 : 28,
         color,
       );
       content += text(
-        c.concealed ? `${c.points ?? 0} points` : claimScore(c),
-        92,
-        y + 25,
-        20,
+        c.concealed
+          ? 'Sealed until the day closes.'
+          : (c.bonus ? `${c.points - c.bonus} + ${c.bonus} golden bonus · ` : '') +
+              (c.percentile == null
+                ? 'Standard score (no readership data for this answer)'
+                : rarityLabel(c.percentile, c.category_slug || category)),
+        125,
+        y + (compact ? 20 : 25),
+        compact ? 18 : 20,
         color,
       );
+      if (c.golden)
+        content += `<path stroke="${gold}" stroke-width="1" d="M60 ${y + (compact ? 26 : 32)}H1140"/>`;
+      y += compact ? 44 : 62;
     });
-    content += text(
-      `${file.handle || ''}${file.strikes ? ` · ${file.strikes} strikes · −${file.strikes * 10}` : ''}`,
-      60,
-      505,
-      24,
-    );
+    content += text(file.handle || '', 60, compact ? 520 : 505, 24);
     content +=
-      text(SHARE_INVITATION, 60, 545, 26) +
-      text(`${PUBLIC_HOST}/summary/${file.summaryId || ''}`, 60, 585, 20);
+      text(SHARE_INVITATION, 60, compact ? 555 : 545, 26) +
+      text(`${PUBLIC_HOST}/summary/${file.summaryId || ''}`, 60, compact ? 590 : 585, 20);
   }
-  const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="627"><path fill="#F1ECE2" d="M0 0h1200v627H0z"/><path fill="none" stroke="${golden ? gold : '#1A1A17'}" stroke-width="2" d="M20 20h1160v587H20z"/>${content}</svg>`;
+  const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="627"><path fill="${paper}" d="M0 0h1200v627H0z"/><path fill="none" stroke="${golden ? gold : ink}" stroke-width="2" d="M20 20h1160v587H20z"/>${content}</svg>`;
+  return { svg, textBounds };
+}
+export async function og(claim: any, summary?: any, dark = false) {
+  ready ||= initWasm(resvgWasm);
+  await ready;
+  const { svg } = await ogLayout(claim, summary, dark);
+  const home = !summary && !claim;
   const renderer = new Resvg(svg);
   try {
     const png = renderer.render();

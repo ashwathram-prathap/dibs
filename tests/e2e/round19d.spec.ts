@@ -55,6 +55,21 @@ for (const variant of ['first', 'second', 'third', 'two', 'strikes']) {
       fullPage: true,
       animations: 'disabled',
     });
+    await page.evaluate(() => {
+      history.pushState(null, '', '/leaderboard');
+      dispatchEvent(new PopStateEvent('popstate'));
+    });
+    const marker = page.locator('.leaderboard .own-score .gold-marker');
+    await expect(marker).toBeVisible();
+    await expect(marker).toHaveAttribute('aria-label', 'found a golden ticket');
+    expect(Number(await page.locator('.leaderboard .own-score td').nth(1).textContent())).toBe(
+      total,
+    );
+    await page.screenshot({
+      path: `review/round19d/golden/${info.project.name}/${variant}-leaderboard.png`,
+      fullPage: true,
+      animations: 'disabled',
+    });
   });
 }
 test('R19D reduced motion disables the single gold shimmer', async ({ page }) => {

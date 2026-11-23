@@ -354,9 +354,7 @@ it('orders real players by saved points and keeps completed files spoiler-free',
   expect(shared.file.strikes).toBe(1);
   expect(shared.file.summaryId).toBe(summaryId);
   expect(shared.file.handle).toBe(players[0].me.user.handle);
-  expect(shared.file.events.every((e: any) => !Object.hasOwn(e, 'display'))).toBe(
-    true,
-  );
+  expect(shared.file.events.every((e: any) => !Object.hasOwn(e, 'display'))).toBe(true);
   expect(shared.file.points).toBe(me.file.points);
   expect(JSON.stringify(shared)).not.toContain(players[0].me.user.id);
   expect(
@@ -422,7 +420,7 @@ it('serves unique cached previews to WhatsApp, X, Facebook, iMessage and Discord
       const image = html.match(/property="og:image" content="([^"]+)"/)![1];
       expect(html).toContain(`name="twitter:image" content="${image}"`);
       expect(image).toBe(
-        `${PUBLIC_ORIGIN}/api/og/${kind === 'summary' ? 'summary/' : ''}${id}?v=19f`,
+        `${PUBLIC_ORIGIN}/api/og/${kind === 'summary' ? 'summary/' : ''}${id}?v=19d`,
       );
       const started = performance.now();
       const response = await mf.dispatchFetch(image, { headers: { 'user-agent': agent } });
@@ -581,9 +579,16 @@ it('restores the same file with a hashed key, rate limits guesses, and counts an
   expect(same.me.user.id).toBe(a.me.user.id);
   expect(same.me.file.dibs).toBe(1);
   for (let i = 0; i < 5; i++)
-    expect((await call('/recover', { key: 'DIBS-AAAAA-BBBBB-CCCCC-DDDDD' }, undefined, 'recovery-attacker')).status).toBe(
-      422,
-    );
+    expect(
+      (
+        await call(
+          '/recover',
+          { key: 'DIBS-AAAAA-BBBBB-CCCCC-DDDDD' },
+          undefined,
+          'recovery-attacker',
+        )
+      ).status,
+    ).toBe(422);
   expect(
     (await call('/recover', { key: issued.recoveryKey }, undefined, 'recovery-attacker')).status,
   ).toBe(429);

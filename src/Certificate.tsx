@@ -1,3 +1,4 @@
+import { filingTime } from '../shared/time';
 import { useHideAnswers } from './share-preference';
 import { claimScore } from '../shared/claim-copy';
 import { rarityLabel } from '../shared/rarity';
@@ -75,7 +76,8 @@ export function DaySummary({
         </p>
         <p className="file-tally">
           {file.dibs}/{MAX_CLAIMS} claims · {file.strikes}{' '}
-          {file.strikes === 1 ? 'strike' : 'strikes'} · filed {time(file.completedAt!)}
+          {file.strikes === 1 ? 'strike' : 'strikes'} · filed{' '}
+          {file.completedAt ? filingTime(file.completedAt) : 'in progress'}
         </p>
         <Progress dibs={file.dibs} strikes={file.strikes} />
 
@@ -148,7 +150,7 @@ export function DaySummary({
         </div>
       </article>
       <aside className="day-companions">
-        {file.claims.some((c) => c.golden) && (
+        {owned && file.claims.some((c) => c.golden) && (
           <p className="golden-notice">You found a golden ticket. Show it off.</p>
         )}
         <ShareSheet
@@ -161,6 +163,7 @@ export function DaySummary({
               ? () =>
                   api('/summary/' + encodeURIComponent(file.summaryId!), {
                     showAnswers: !hideAnswers,
+                    theme: document.documentElement.dataset.theme === 'dark' ? 'dark' : 'light',
                   }).then(() => {})
               : undefined
           }
@@ -331,6 +334,7 @@ export function ShareButtons({
           ? () =>
               api('/certificate/' + encodeURIComponent(claim.id), {
                 showAnswers: !hideAnswers,
+                theme: document.documentElement.dataset.theme === 'dark' ? 'dark' : 'light',
               }).then(() => {})
           : undefined
       }

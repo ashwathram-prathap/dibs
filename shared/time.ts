@@ -70,3 +70,13 @@ export function zoneName(zone = viewerZone()) {
   };
   return names[zone] || zone.split('/').pop()!.replaceAll('_', ' ');
 }
+
+// The filing date and clock use the same selected zone, including across midnight.
+export function filingTime(at: string, zone = viewerZone()) {
+  const date = new Intl.DateTimeFormat('en-US', {
+    timeZone: zone,
+    month: 'short',
+    day: 'numeric',
+  }).format(new Date(at));
+  return `${date}, ${localTime(at, zone).label} ${zoneName(zone)} time`;
+}

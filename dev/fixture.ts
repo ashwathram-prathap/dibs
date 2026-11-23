@@ -478,7 +478,7 @@ function board() {
     founder: false,
     points: file().points,
     claims: myClaims.length,
-    golden: false,
+    golden: myClaims.some((c) => c.golden),
     own: true,
   };
   return {

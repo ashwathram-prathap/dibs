@@ -615,7 +615,11 @@ export class DayRegistry extends DurableObject<Env> {
         const state = [...this.all().values()].find((s) => s.file.summaryId === id);
         if (!state) return json({ message: 'Not found.' }, 404);
         const data = { file: this.presentFile(state), category: publicCategory(this.category) };
-        return og(null, publicSummary(data, dayClosed(this.category), !!state.file.shareAnswers));
+        return og(
+          null,
+          publicSummary(data, dayClosed(this.category), !!state.file.shareAnswers),
+          state.file.shareTheme === 'dark',
+        );
       }
       const claim = resolveCertificate(this.owners.values(), id);
       if (!claim) return json({ message: 'Not found.' }, 404);
@@ -627,6 +631,8 @@ export class DayRegistry extends DurableObject<Env> {
           false,
           !!state?.file.sharedClaimIds?.includes(claim.id),
         ),
+        undefined,
+        state?.file.claimShareThemes?.[claim.id] === 'dark',
       );
     }
     if (path === '/backup-code' && req.method === 'GET') {
@@ -693,17 +699,26 @@ export class DayRegistry extends DurableObject<Env> {
         if (!owned || !state || !this.journal)
           return json({ message: 'Only the holder can share this answer.' }, 403);
         const choice = await body(req, 100);
-        if (typeof choice.showAnswers !== 'boolean' || Object.keys(choice).length !== 1)
+        if (
+          typeof choice.showAnswers !== 'boolean' ||
+          Object.keys(choice).some((k) => !['showAnswers', 'theme'].includes(k)) ||
+          (choice.theme !== undefined && !['light', 'dark'].includes(choice.theme))
+        )
           return json({ message: 'Choose whether to show your answer.' }, 422);
         if (
           !!this.state(claim.user_id)?.file.sharedClaimIds?.includes(claim.id) ===
-          choice.showAnswers
+            choice.showAnswers &&
+          (state.file.claimShareThemes?.[claim.id] || 'light') === (choice.theme || 'light')
         )
           return json({ ok: true });
         const updated = structuredClone(this.state(claim.user_id)!);
         const ids = new Set<string>(updated.file.sharedClaimIds || []);
         choice.showAnswers ? ids.add(claim.id) : ids.delete(claim.id);
         updated.file.sharedClaimIds = [...ids];
+        updated.file.claimShareThemes = {
+          ...updated.file.claimShareThemes,
+          [claim.id]: choice.theme || 'light',
+        };
         this.journal.append(updated);
         await this.journal.durable();
         return json({ ok: true });
@@ -727,12 +742,20 @@ export class DayRegistry extends DurableObject<Env> {
         if (!owned || !this.journal)
           return json({ message: 'Only the holder can share these answers.' }, 403);
         const choice = await body(req, 100);
-        if (typeof choice.showAnswers !== 'boolean' || Object.keys(choice).length !== 1)
+        if (
+          typeof choice.showAnswers !== 'boolean' ||
+          Object.keys(choice).some((k) => !['showAnswers', 'theme'].includes(k)) ||
+          (choice.theme !== undefined && !['light', 'dark'].includes(choice.theme))
+        )
           return json({ message: 'Choose whether to show your answers.' }, 422);
-        if (!!this.state(s.user.id)?.file.shareAnswers === choice.showAnswers)
+        if (
+          !!this.state(s.user.id)?.file.shareAnswers === choice.showAnswers &&
+          (s.file.shareTheme || 'light') === (choice.theme || 'light')
+        )
           return json({ ok: true });
         const updated = structuredClone(this.state(s.user.id)!);
         updated.file.shareAnswers = choice.showAnswers;
+        updated.file.shareTheme = choice.theme || 'light';
         this.journal.append(updated);
         await this.journal.durable();
         return json({ ok: true });

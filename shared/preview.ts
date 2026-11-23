@@ -5,7 +5,7 @@ interface Env {
   API: Fetcher;
   ASSETS: Fetcher;
 }
-// Both metadata surfaces use the same anonymous, spoiler-free record.
+// Both metadata surfaces use the anonymous record, including explicit holder sharing consent.
 export function preview(kind: 'certificate' | 'summary'): PagesFunction<Env> {
   return async ({ request, env, params }) => {
     const publicOrigin =
@@ -20,7 +20,7 @@ export function preview(kind: 'certificate' | 'summary'): PagesFunction<Env> {
     const category = data.category?.name || data.claim?.category_name;
     const title = `Dibs · ${category} · ${score.points ?? 0} pts${score.rank ? ' · #' + score.rank + ' of ' + score.players + ' players today' : ''}`;
     const description = GAME_DESCRIPTION;
-    const image = `${publicOrigin}/api/og/${kind === 'summary' ? 'summary/' : ''}${id}?v=19f`;
+    const image = `${publicOrigin}/api/og/${kind === 'summary' ? 'summary/' : ''}${id}?v=19d`;
     const canonical = `${publicOrigin}/${kind}/${id}`;
     const tags: Record<string, string> = {
       'meta[name="robots"]': 'noindex,nofollow',
@@ -32,7 +32,11 @@ export function preview(kind: 'certificate' | 'summary'): PagesFunction<Env> {
       'meta[property="og:image:height"]': '627',
       'meta[property="og:url"]': canonical,
       'meta[property="og:type"]': 'website',
-      'meta[property="og:image:alt"]': title + ' · spoiler-free scorecard',
+      'meta[property="og:image:alt"]':
+        title +
+        (data.file?.sharedAnswers || data.claim?.sharedAnswers
+          ? ' · holder-shared answers'
+          : ' · sealed scorecard'),
       'meta[name="twitter:title"]': title,
       'meta[name="twitter:description"]': description,
       'meta[name="twitter:image"]': image,
