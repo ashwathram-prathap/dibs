@@ -1,0 +1,13 @@
+{
+  "at": "2026-11-23T19:37:59.337243+00:00",
+  "applicationCommit": "c1b8a34",
+  "testCommit": "af8ebfe",
+  "previousRun": "https://github.com/ashwathram-prathap/dibs/actions/runs/45246485067",
+  "reportedHeight": 79.99996948242188,
+  "computedCssMinimum": 80,
+  "geometryTolerancePx": 0.005,
+  "changedCheck": "Require computed min-height exactly 80px and measured box within 0.005px of 80px.",
+  "applicationChanged": false,
+  "fullFirefoxRerun": "https://github.com/ashwathram-prathap/dibs/actions/runs/45250684186",
+  "additionalLocalPayoffCases": 240
+}

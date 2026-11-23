@@ -33,6 +33,12 @@ const gates = {
   chromiumWebkitMatrix: browser[0].passed,
   firefoxMatrix: browser[1].passed && ci.conclusion === 'success',
   browserRegressions: browser[2].passed,
+  localPrecisionRegression: (() => {
+    const stats = read('widget-precision-summary.json').stats;
+    return (
+      stats.expected === 240 && stats.unexpected === 0 && stats.flaky === 0 && stats.skipped === 0
+    );
+  })(),
   finalVisualAssertions: browser[3].passed,
   practiceRehearsal: read('practice-first-visit.json').passed === true,
   archivePracticeDryRun: read('archive-practice-dry-run.json').passed === true,
