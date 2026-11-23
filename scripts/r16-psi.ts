@@ -3,8 +3,9 @@ const phase = process.argv[2] || 'before';
 const dir = `review/round16/psi-${phase}`;
 mkdirSync(dir, { recursive: true });
 const records: any[] = [];
-for (let run = 1; run <= 3; run++)
-  for (const strategy of ['mobile', 'desktop']) {
+const once = process.argv.includes('--once');
+for (let run = 1; run <= (once ? 1 : 3); run++)
+  for (const strategy of once ? ['mobile'] : ['mobile', 'desktop']) {
     const url = new URL('https://www.googleapis.com/pagespeedonline/v5/runPagespeed');
     url.searchParams.set('url', 'https://dibs.here');
     url.searchParams.set('strategy', strategy);
