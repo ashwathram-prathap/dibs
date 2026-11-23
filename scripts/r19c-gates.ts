@@ -39,6 +39,7 @@ const gates = {
   practiceRestored:
     restored.realVerification && restored.notificationsRestored && restored.scheduleRestored,
   practiceAssets: read('practice-asset-integrity.json').passed === true,
+  practiceScoreAssets: read('practice-score-assets.json').passed === true,
   previews: read('practice-bots-after.json').evidence.length === 15,
   lighthouse: lh.categories.performance.score >= 0.9 && lh.categories.accessibility.score >= 0.95,
   productionBuild: read('build-verification.json').passed === true,

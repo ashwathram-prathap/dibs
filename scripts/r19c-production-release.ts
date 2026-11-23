@@ -87,6 +87,9 @@ try {
     '--commit-dirty=true',
   ]);
   ts('Verify deployed script artifacts', 'scripts/r19c-assets.ts', ['https://dibs.here']);
+  ts('Verify all new and rollback scoring assets', 'scripts/r19c-score-assets.ts', [
+    'https://dibs.here',
+  ]);
   ts('Read-only production smoke', 'scripts/r19c-smoke.ts');
   ts('Record released deployment IDs', 'scripts/r19c-deployment-state.ts', ['released']);
   console.log('R19C released; all read-only production checks passed.');
