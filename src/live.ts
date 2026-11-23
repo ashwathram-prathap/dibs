@@ -227,11 +227,18 @@ export function watchRegistry(onError: (message: string) => void) {
       clearTimeout(retry);
     } else {
       // Sleep/wake can leave a TCP connection apparently open but unusable.
-      socket?.close(1000, 'Refresh connection');
-      socket = undefined;
+      // A handshake already in progress is fresh; cancelling it logs a WebKit error.
+      if (socket?.readyState === WebSocket.OPEN) {
+        socket.close(1000, 'Refresh connection');
+        socket = undefined;
+      }
       connect();
       schedule();
     }
+  };
+  const pageShown = (event: PageTransitionEvent) => {
+    // Initial pageshow follows mount; only a back/forward-cache restore needs a wake-up.
+    if (event.persisted) visible();
   };
   const offline = () => {
     clearTimeout(retry);
@@ -241,7 +248,7 @@ export function watchRegistry(onError: (message: string) => void) {
   if (typeof window !== 'undefined') {
     window.addEventListener('online', visible);
     window.addEventListener('offline', offline);
-    window.addEventListener('pageshow', visible);
+    window.addEventListener('pageshow', pageShown);
   }
   connect();
   schedule();
@@ -255,7 +262,7 @@ export function watchRegistry(onError: (message: string) => void) {
     if (typeof window !== 'undefined') {
       window.removeEventListener('online', visible);
       window.removeEventListener('offline', offline);
-      window.removeEventListener('pageshow', visible);
+      window.removeEventListener('pageshow', pageShown);
     }
     for (const request of pending.values()) {
       clearTimeout(request.timer);

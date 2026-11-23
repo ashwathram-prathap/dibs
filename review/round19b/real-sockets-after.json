@@ -1,0 +1,22 @@
+[
+  {
+    "browser": "chromium",
+    "initial": {
+      "connects": 1,
+      "boots": 1,
+      "errors": []
+    },
+    "restoredBoots": 2,
+    "errors": []
+  },
+  {
+    "browser": "webkit",
+    "initial": {
+      "connects": 1,
+      "boots": 1,
+      "errors": []
+    },
+    "restoredBoots": 2,
+    "errors": []
+  }
+]

@@ -1,5 +1,5 @@
 {
-  "passed": true,
+  "passed": false,
   "at": "2026-11-23T13:47:05.813125+00:00",
   "deadline": "2026-11-23T20:00:00Z",
   "verificationCommit": "fee40e211be8d712aa9faf1ff94e8a4d8ca363e3",
@@ -16,6 +16,8 @@
     "lighthouse": true,
     "visual": true,
     "build": true,
-    "source": true
-  }
+    "source": true,
+    "initialSocketHandshake": false
+  },
+  "note": "First release rolled back after WebKit initial-pageshow handshake cancellation; verifying the local fix before another release."
 }

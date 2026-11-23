@@ -1,0 +1,27 @@
+[
+  {
+    "browser": "chromium",
+    "initial": {
+      "connects": 2,
+      "boots": 1,
+      "errors": []
+    },
+    "restoredBoots": 2,
+    "errors": []
+  },
+  {
+    "browser": "webkit",
+    "initial": {
+      "connects": 2,
+      "boots": 0,
+      "errors": [
+        "WebSocket connection to 'ws://127.0.0.1:54023/api/live' failed: WebSocket is closed before the connection is established."
+      ]
+    },
+    "restoredBoots": 1,
+    "errors": [
+      "WebSocket connection to 'ws://127.0.0.1:54023/api/live' failed: WebSocket is closed before the connection is established.",
+      "WebSocket connection to 'ws://127.0.0.1:54023/api/live' failed: WebSocket is closed before the connection is established."
+    ]
+  }
+]

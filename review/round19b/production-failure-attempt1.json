@@ -1,0 +1,5 @@
+{
+  "at": "2026-11-23T13:49:04.662Z",
+  "error": "AssertionError [ERR_ASSERTION]: Read-only production smoke failed; production release halted\n\n1 !== 0\n",
+  "rolledBack": true
+}

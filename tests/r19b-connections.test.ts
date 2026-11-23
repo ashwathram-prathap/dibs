@@ -46,6 +46,10 @@ it('reconnects a visible finished player with bounded backoff and fresh rank syn
   });
   const stop = watchRegistry(() => {});
   try {
+    win.dispatchEvent(new Event('pageshow'));
+    expect(sockets.length).toBe(1); // Initial page load must not cancel a connecting socket.
+    win.dispatchEvent(new Event('online'));
+    expect(sockets.length).toBe(1); // A fresh handshake survives a redundant wake-up.
     sockets[0].readyState = 1;
     sockets[0].onopen();
     await vi.advanceTimersByTimeAsync(1);
