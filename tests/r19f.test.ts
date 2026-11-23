@@ -127,6 +127,14 @@ it('opens the native sheet in the original tap while owner consent is still bein
 
 it('uses the actual smaller pool when a catalog has fewer measured answers', () => {
   expect(rarityLabel(0.94, 'countries')).toContain('249 best-known countries and territories');
+  expect(
+    claimScore({
+      points: 55,
+      percentile: 0.94,
+      category_name: 'Countries & territories',
+      category_slug: 'countries',
+    }),
+  ).toContain('249 best-known countries and territories');
 });
 
 it('counts everyone who claimed for the leaderboard and all finishers for the curve', () => {

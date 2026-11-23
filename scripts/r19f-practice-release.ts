@@ -71,10 +71,10 @@ run('Publish practice assets before Worker', [
   'practice',
   '--commit-dirty=true',
 ]);
-ts('scripts/r19e-assets.ts', [origin]);
-ts('scripts/r19e-score-assets.ts', [origin]);
+ts('scripts/r19f-assets.ts', [origin]);
+ts('scripts/r19f-score-assets.ts', [origin]);
 run('Deploy practice Worker', ['deploy', '-c', config]);
-ts('scripts/r19e-worker-check.ts', ['practice']);
+ts('scripts/r19f-worker-check.ts', ['practice']);
 const before = await api('/today');
 assert.ok(before.response.ok);
 writeFileSync('.tmp/r19f/practice-today-before.json', JSON.stringify(before.data), { mode: 0o600 });
@@ -380,5 +380,5 @@ try {
     );
   }
 }
-ts('scripts/r19e-worker-check.ts', ['practice']);
+ts('scripts/r19f-worker-check.ts', ['practice']);
 console.log('Practice release and preservation checks passed.');

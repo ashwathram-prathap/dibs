@@ -81,14 +81,14 @@ try {
   ]);
   const origin = output.match(/https:\/\/[a-f0-9]+\.dibs-7hz\.pages\.dev/)?.[0];
   assert.ok(origin);
-  ts('Preflight immutable deployment scripts', 'scripts/r19e-preflight-assets.ts', [origin]);
-  ts('Wait for fresh canonical assets', 'scripts/r19e-assets.ts', [
+  ts('Preflight immutable deployment scripts', 'scripts/r19f-preflight-assets.ts', [origin]);
+  ts('Wait for fresh canonical assets', 'scripts/r19f-assets.ts', [
     'https://dibs.here',
     'dist',
     '--fresh',
   ]);
-  ts('Verify coherent production scripts', 'scripts/r19e-assets.ts', ['https://dibs.here']);
-  ts('Preserve all current and rollback score assets', 'scripts/r19e-score-assets.ts', [
+  ts('Verify coherent production scripts', 'scripts/r19f-assets.ts', ['https://dibs.here']);
+  ts('Preserve all current and rollback score assets', 'scripts/r19f-score-assets.ts', [
     'https://dibs.here',
   ]);
   run('Deploy production Worker', './node_modules/.bin/wrangler', [
@@ -96,7 +96,7 @@ try {
     '-c',
     'worker/wrangler.jsonc',
   ]);
-  ts('Verify live scoring reads', 'scripts/r19e-worker-check.ts', ['production']);
+  ts('Verify live scoring reads', 'scripts/r19f-worker-check.ts', ['production']);
   ts('Run read-only production browser smoke', 'scripts/r19f-smoke.ts');
   ts('Verify unchanged production data and schedule', 'scripts/r19f-state.ts', [
     'production',

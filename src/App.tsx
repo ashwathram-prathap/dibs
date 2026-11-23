@@ -933,7 +933,7 @@ function Home({
                 <div className="payoff-curve">
                   <RarityCurve
                     percentile={claim.percentile}
-                    category={today.category.name}
+                    category={today.category.slug}
                     answer={claim.display}
                     golden={claim.golden}
                   />
