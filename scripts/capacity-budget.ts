@@ -5,6 +5,10 @@ import { readFileSync, readdirSync, writeFileSync } from 'node:fs';
 import { registryDate, dropAt } from '../worker/domain';
 const baseline = process.argv.includes('--before');
 const practice = process.argv.includes('--practice');
+const meterStorage = process.argv.includes('--storage');
+if (practice && meterStorage) throw Error('--storage is a local instrumentation mode');
+const storageTotals = { reads: 0, writes: 0 };
+let setupStorage: typeof storageTotals;
 const root = baseline ? '.tmp/r15-baseline/' : '';
 let mf: Miniflare, db: any;
 let manifest: any;
@@ -24,6 +28,31 @@ async function startRegistry(slug: string) {
   const category = readCategory('categories/' + slug + '.json');
   const code = await build({
     entryPoints: [root + 'worker/index.ts'],
+    plugins: meterStorage
+      ? [
+          {
+            name: 'local-storage-meter',
+            setup(b) {
+              b.onLoad({ filter: /\/(registry|leaderboard)\.ts$/ }, async (args) => {
+                let source = readFileSync(args.path, 'utf8');
+                source = source
+                  .replaceAll('this.ctx.storage', '__store(this.ctx.storage)')
+                  .replaceAll('this.storage', '__store(this.storage)')
+                  .replaceAll(
+                    'new Leaderboard(ctx.storage,',
+                    'new Leaderboard(__store(ctx.storage),',
+                  );
+                return {
+                  contents:
+                    `import { __store } from '${process.cwd()}/scripts/capacity-storage-proxy.ts';\n` +
+                    source,
+                  loader: 'ts',
+                };
+              });
+            },
+          },
+        ]
+      : [],
     bundle: true,
     write: false,
     format: 'esm',
@@ -52,6 +81,11 @@ async function startRegistry(slug: string) {
           },
           outboundService: async (req: Request) => {
             const url = new URL(req.url);
+            if (meterStorage && url.origin === 'https://capacity.local') {
+              const m = (await req.json()) as { kind: 'reads' | 'writes'; n: number };
+              storageTotals[m.kind] += m.n;
+              return new Response('ok');
+            }
             if (url.origin === 'https://dibs.here' && url.pathname.startsWith('/catalog/'))
               return new Response(readFileSync('public' + url.pathname), {
                 headers: { 'content-type': 'application/json' },
@@ -192,6 +226,11 @@ try {
     };
     await setup.text();
   }
+  if (meterStorage) {
+    await new Promise((r) => setTimeout(r, 500));
+    setupStorage = { ...storageTotals };
+    storageTotals.reads = storageTotals.writes = 0;
+  }
   const boot = await http('/bootstrap');
   assert.equal(boot.status, 200);
   assert.ok(boot.data.today.category, 'Practice must be open');
@@ -228,7 +267,14 @@ try {
   assert.equal(verified.status, 200, JSON.stringify(verified.data));
   const catalog = readCategory('categories/animals.json');
   const chosen = practice
-    ? [catalog.answers[2000 + Math.floor(Math.random()*1000)].display, 'Dog', 'Dog', 'Dog', catalog.answers[4000 + Math.floor(Math.random()*1000)].display, catalog.answers[6000 + Math.floor(Math.random()*1000)].display]
+    ? [
+        catalog.answers[2000 + Math.floor(Math.random() * 1000)].display,
+        'Dog',
+        'Dog',
+        'Dog',
+        catalog.answers[4000 + Math.floor(Math.random() * 1000)].display,
+        catalog.answers[6000 + Math.floor(Math.random() * 1000)].display,
+      ]
     : [100, 0, 0, 0, 101, 102].map((i) => catalog.answers[i].display);
   for (const [i, answer] of chosen.entries()) {
     const r = await send('/claim', {
@@ -242,10 +288,14 @@ try {
   if (baseline) await http('/leaderboard');
   await send('/events/share', { platform: 'copy-text' });
   await http('/bootstrap'); // Later return: same cookie, authoritative saved file.
+  if (meterStorage) await new Promise((r) => setTimeout(r, 500));
   const rowsRead = samples.reduce((n, s) => n + s.reads, 0),
     rowsWritten = samples.reduce((n, s) => n + s.writes, 0);
   const report = {
     dailySetup,
+    ...(meterStorage
+      ? { doStorageSetup: setupStorage!, doStorageLogicalRows: { ...storageTotals } }
+      : {}),
     mode: practice ? 'practice' : baseline ? 'before-local' : 'after-local',
     at: new Date().toISOString(),
     scenario:
@@ -261,7 +311,7 @@ try {
     samples,
   };
   writeFileSync(
-    'review/round15/capacity-' + report.mode + '.json',
+    'review/round15/capacity-' + (meterStorage ? 'do-storage-' : '') + report.mode + '.json',
     JSON.stringify(report, null, 2),
   );
   console.log(report);
