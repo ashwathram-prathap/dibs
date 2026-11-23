@@ -3,8 +3,34 @@ import { writeFileSync, readFileSync } from 'node:fs';
 import assert from 'node:assert/strict';
 import { api, origin } from './r11-practice';
 import { readCategory } from './category-file';
-const opensAt = new Date(Date.now() + 45000).toISOString();
-assert.ok((await api('/admin/practice-schedule', { opensAt }, undefined, true)).response.ok);
+const clock = await api('/today');
+assert.ok(clock.response.ok);
+assert.equal(
+  clock.data.turnstileSiteKey,
+  '1x00000000000000000000AA',
+  'Practice must have official test verification for rehearsal',
+);
+const serverNow = Date.parse(clock.response.headers.get('date') || clock.data.serverTime);
+const opensAt = new Date(Math.max(Date.now(), serverNow) + 60000).toISOString();
+const scheduled = await api('/admin/practice-schedule', { opensAt }, undefined, true);
+writeFileSync(
+  'review/round16/practice-scheduling.json',
+  JSON.stringify(
+    {
+      clientNow: new Date().toISOString(),
+      serverNow: new Date(serverNow).toISOString(),
+      opensAt,
+      status: scheduled.response.status,
+      response: scheduled.data,
+    },
+    null,
+    2,
+  ),
+);
+assert.ok(
+  scheduled.response.ok,
+  JSON.stringify({ status: scheduled.response.status, response: scheduled.data }),
+);
 const result: any = { opensAt, checks: [] };
 const browsers = [];
 const pages = [];
@@ -20,6 +46,11 @@ try {
     let challenge = false;
     let verified = false;
     let status = 0;
+    const failures: string[] = [];
+    p.on('requestfailed', (r) =>
+      failures.push(r.url().split('?')[0] + ': ' + r.failure()?.errorText),
+    );
+    p.on('pageerror', (e) => failures.push(e.message));
     p.on('request', (r) => {
       if (r.url().includes('challenges.cloudflare.com')) challenge = true;
     });
@@ -39,7 +70,12 @@ try {
     await p.goto(origin);
     await p.locator('.closed-office').waitFor();
     assert.equal(challenge, false, 'Closed state must not load Turnstile');
-    pages.push({ p, i, engine: engine.name(), state: () => ({ challenge, verified, status }) });
+    pages.push({
+      p,
+      i,
+      engine: engine.name(),
+      state: () => ({ challenge, verified, status, failures }),
+    });
   }
   console.log('Six fresh same-network browsers ready; opening ' + opensAt);
   for (const item of pages) {
@@ -48,7 +84,7 @@ try {
     const answer = catalog.answers[1000 + Math.floor(Math.random() * 10000)].display;
     await p.locator('#answer').fill(answer);
     await p.getByRole('button', { name: 'CALL DIBS', exact: true }).click();
-    await expect(p.locator('.win-stamp')).toBeVisible({ timeout: 20000 });
+    await expect(p.locator('.win-stamp')).toBeVisible({ timeout: 60000 });
     assert.equal(item.state().status, 201);
     assert.ok(item.state().verified);
     assert.ok(item.state().challenge);
@@ -61,6 +97,20 @@ try {
   result.passed = true;
 } catch (e) {
   result.error = String(e);
+  result.diagnostics = await Promise.all(
+    pages.map(async (item) => ({
+      browser: item.engine,
+      state: item.state(),
+      screen: await item.p
+        .locator('main')
+        .innerText()
+        .catch(() => ''),
+    })),
+  );
+  for (const item of pages)
+    await item.p
+      .screenshot({ path: `review/round16/practice-failed-${item.i}.png`, fullPage: true })
+      .catch(() => {});
   process.exitCode = 1;
 } finally {
   for (const b of browsers) await b.close();

@@ -3,9 +3,10 @@
 | Audit environment | Mobile P / A / BP / SEO | Desktop P / A / BP / SEO |
 | --- | --- | --- |
 | Before: production Lighthouse, 3 runs | 94 / 100 / 100 / 100 each | 100 / 100 / 100 / 100 each |
+| After: deployed production, 3 runs | 97 / 100 / 100 / 100 each | 100 / 100 / 100 / 100 each |
 | After: local production build, 3 runs | 96–98 / 100 / 100 / 100 (median 96) | 100 / 100 / 100 / 100 each |
 
-Public PSI returned HTTP 429 for all six original requests (daily quota exhausted on Google's public service). The owner authorized local Lighthouse on the production build as the substitute. These are lab measurements, not CrUX field data. Final deployed measurements and the single PSI retry are recorded below after release.
+Public PSI returned HTTP 429 for all six original requests (daily quota exhausted on Google's public service). The owner authorized local Lighthouse on the production build as the substitute. These are lab measurements, not CrUX field data. The single final retry also returned HTTP 429. Deployed Lighthouse meets every numeric target in all six runs; full raw JSON/HTML is in `lighthouse-after/`, and compact values are in `lighthouse-summary.json`.
 
 ## Owner changes
 
@@ -51,6 +52,19 @@ Not every Lighthouse diagnostic is green: unused shared CSS, unused interaction 
 
 Practice first, then production before Monday 3PM ET, with rollback recorded immediately before deployment and automatic rollback on a failed production smoke. The launch remains Monday Nov 23 at 9PM ET. Real practice verification/alerts and its original schedule are restored after the test-key rehearsal. The already-completed R14 guarded 200-player load is not repeated for this frontend release. Production player rows and schedule are compared to a private baseline. No paid service or new secret is introduced; no R11 release gate is edited.
 
-`rollback.json`, `deployment.json`, `practice-release.json`, `practice-first-visit.json`, `practice-restored.json`, `production-release.json`, `production-smoke.json` and `production-preservation.json` are the release evidence. Release status is not complete until those checks and the final tag are present.
+`rollback.json`, `deployment.json`, `practice-release.json`, `practice-first-visit.json`, `practice-restored.json`, `production-release.json`, `production-smoke.json` and `production-preservation.json` are the release evidence. All release checks passed. Production smoke passed all eight Chromium/WebKit × 390/1440 × light/dark combinations with no console errors. Production is still closed. The before/after player rows and schedule are identical (3 users, 0 claims, 0 strikes), including a final count check after the audits.
 
 Rebuild the optimized raster/font assets with Pillow, fonttools and Brotli installed in a project-local Python path, then `python3 scripts/r16-build-assets.py`. Do not re-run the abandoned stylesheet-splitting experiment.
+
+## Deployed result and recovery notes
+
+- Released at **2:00 AM ET, Monday Nov 23**, before the 3PM freeze. Opening remains **Monday 9PM ET**.
+- Production: https://dibs.here · Pages: https://dibs-7hz.pages.dev · API: https://dibs-api.dibs-registry.workers.dev · Practice: https://practice.dibs-7hz.pages.dev.
+- Pages deployment: `18984cdc-6ae5-4bd2-9036-a7ef62611c76`; Worker version: `b90253a7-1151-4d0d-883d-ac31b9b288b0`.
+- Rollback Pages: `829e86fa-9529-4ba0-9ac6-cbaf92edd4ab`; Worker version: `66b24b3a-5551-469c-9854-703d2f59bc20`. No rollback was needed.
+- Deployed mobile performance 97 in all three runs, desktop 100; accessibility, best practices and SEO all 100. Mobile LCP is 2.6–2.7s. One mobile run has a 1.2s FCP metric scored 0.99; this is a lab timing variation, not a new functional defect.
+- Remaining deployed diagnostics: ~14–15KiB shared CSS; ~34–37KiB unexercised interaction JS; same-origin dependency chains; one managed Cloudflare beacon with ~4KiB cache-lifetime savings and ~10KiB legacy-JS diagnostics. The beacon is confirmed present once in the browser network audit, preserving analytics while removing the former duplicate. Its TTL/polyfills are provider-controlled. CSP and HSTS are verified; versioned clock/grain assets have one-year immutable caching.
+- Practice scheduling initially collided with an existing Monday staging row's unique date. The rehearsal temporarily cleared only that staging date and restored all eight original staging dates/statuses afterward. One subsequent claim wait and cleanup request hit timeouts; direct restoration was verified, and cleanup now restores dates in a finally block even if the reset API fails. The final rehearsal passed all six fresh verified claims, with no challenge request while closed. Test users were cleared and real verification/alerts restored. Failed-attempt evidence is retained alongside the final passing records.
+- No production data mutations, billing changes, new secrets or manual ntfy alert were made. Existing unrelated working-tree changes and prior-round evidence were preserved. Physical-device follow-ups and R15 capacity limits remain as previously documented.
+
+Release tag: `r16-done`. Source and release evidence are committed to the private GitHub repository.

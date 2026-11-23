@@ -1,0 +1,5 @@
+{
+  "opensAt": "2026-11-23T06:50:54.766Z",
+  "checks": [],
+  "error": "Error: expect(locator).toBeVisible() failed\n\nLocator: locator('.win-stamp')\nExpected: visible\nTimeout: 20000ms\nError: element(s) not found\n\nCall log:\n  - Expect \"toBeVisible\" locator('.win-stamp') with timeout 20000ms\n  - waiting for locator('.win-stamp')\n"
+}

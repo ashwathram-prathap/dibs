@@ -1,0 +1,17 @@
+{
+  "production": [
+    {
+      "kind": "users",
+      "n": 3
+    },
+    {
+      "kind": "claims",
+      "n": 0
+    },
+    {
+      "kind": "strikes",
+      "n": 0
+    }
+  ],
+  "unchanged": true
+}

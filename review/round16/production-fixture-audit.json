@@ -1,5 +1,6 @@
 {
   "passed": true,
   "jsChunks": 14,
-  "forbiddenDemoMarkers": 0
+  "forbiddenDemoMarkers": 0,
+  "checkedAfterProductionBuild": true
 }

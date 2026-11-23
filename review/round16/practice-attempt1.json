@@ -1,0 +1,42 @@
+[
+  {
+    "name": "Back up practice before rehearsal",
+    "passed": true,
+    "at": "2026-11-23T06:46:24.532Z"
+  },
+  {
+    "name": "Install practice test verification and suppress alerts",
+    "passed": true,
+    "at": "2026-11-23T06:46:43.746Z"
+  },
+  {
+    "name": "Build practice frontend",
+    "passed": true,
+    "at": "2026-11-23T06:46:46.261Z"
+  },
+  {
+    "name": "Deploy practice frontend",
+    "passed": true,
+    "at": "2026-11-23T06:46:58.519Z"
+  },
+  {
+    "name": "Rehearse six fresh browsers from closed to verified claim",
+    "passed": false,
+    "at": "2026-11-23T06:47:01.119Z"
+  },
+  {
+    "name": "Restore original practice schedule",
+    "passed": true,
+    "at": "2026-11-23T06:47:02.370Z"
+  },
+  {
+    "name": "Restore real practice verification",
+    "passed": true,
+    "at": "2026-11-23T06:47:20.424Z"
+  },
+  {
+    "name": "Restore practice notifications",
+    "passed": true,
+    "at": "2026-11-23T06:47:22.007Z"
+  }
+]

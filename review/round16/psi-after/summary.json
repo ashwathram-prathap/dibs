@@ -1,0 +1,10 @@
+[
+  {
+    "strategy": "mobile",
+    "run": 1,
+    "status": 429,
+    "at": "2026-11-23T07:01:50.880Z",
+    "scores": null,
+    "error": "Quota exceeded for quota metric 'Queries' and limit 'Queries per day' of service 'pagespeedonline.googleapis.com' for consumer 'project_number:583797351490'."
+  }
+]

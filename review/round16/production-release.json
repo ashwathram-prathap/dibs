@@ -1,0 +1,57 @@
+[
+  {
+    "name": "Verify release gates",
+    "passed": true,
+    "at": "2026-11-23T06:59:16.836Z"
+  },
+  {
+    "name": "Refresh rollback point",
+    "passed": true,
+    "at": "2026-11-23T06:59:18.097Z"
+  },
+  {
+    "name": "Check production freeze",
+    "passed": true,
+    "at": "2026-11-23T06:59:18.289Z"
+  },
+  {
+    "name": "Configure unchanged production opening",
+    "passed": true,
+    "at": "2026-11-23T06:59:18.458Z"
+  },
+  {
+    "name": "Build house words",
+    "passed": true,
+    "at": "2026-11-23T06:59:24.126Z"
+  },
+  {
+    "name": "Deploy production Worker",
+    "passed": true,
+    "at": "2026-11-23T06:59:42.147Z"
+  },
+  {
+    "name": "Build production frontend",
+    "passed": true,
+    "at": "2026-11-23T07:00:02.913Z"
+  },
+  {
+    "name": "Deploy production Pages",
+    "passed": true,
+    "at": "2026-11-23T07:00:19.830Z"
+  },
+  {
+    "name": "Smoke production and roll back immediately on failure",
+    "passed": true,
+    "at": "2026-11-23T07:00:40.292Z"
+  },
+  {
+    "name": "Record released versions",
+    "passed": true,
+    "at": "2026-11-23T07:00:42.160Z"
+  },
+  {
+    "name": "Verify player rows and schedule preservation",
+    "passed": true,
+    "at": "2026-11-23T07:00:43.477Z"
+  }
+]
