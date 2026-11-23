@@ -45,6 +45,10 @@ test('R18 feedback is a single-column modal with focus trap, Escape, success and
 }) => {
   for (const failed of [false, true]) {
     await page.goto('/?r7-closed' + (failed ? '&feedback-error' : ''));
+    // The async leaderboard changes the footer position while it loads.
+    // Exercise the dialog after that content and its fonts have settled.
+    await page.locator('#leaderboard').waitFor();
+    await page.evaluate(() => document.fonts.ready);
     await page.locator('#feedback summary').click();
     const dialog = page.getByRole('dialog', { name: 'Send feedback' });
     await expect(dialog).toBeVisible();

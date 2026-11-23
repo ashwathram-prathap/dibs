@@ -1,0 +1,13 @@
+{
+  "run": "https://github.com/ashwathram-prathap/dibs/actions/runs/45154945442",
+  "passed": 55,
+  "failed": 1,
+  "failure": "Feedback trigger pointer action raced initial leaderboard/footer layout at 1440 dark.",
+  "evidence": [
+    "First pointer attempt intercepted by Loading scores section.",
+    "Footer target moved between actionability check and press/release while leaderboard finished.",
+    "Dialog remained closed; no CSP violation."
+  ],
+  "change": "Wait for #leaderboard and document.fonts.ready before footer interaction; retain all dialog assertions.",
+  "runtimeChanged": false
+}
