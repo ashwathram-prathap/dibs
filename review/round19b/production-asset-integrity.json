@@ -1,0 +1,118 @@
+{
+  "at": "2026-11-23T14:12:27.585Z",
+  "passed": true,
+  "entry": "/assets/index-DSZgsRQS.js",
+  "rows": [
+    {
+      "path": "Archive-BS6ha_yN.js",
+      "status": 200,
+      "type": "application/javascript",
+      "bytes": 4623,
+      "matches": true
+    },
+    {
+      "path": "Calendar-DIUZMX7d.js",
+      "status": 200,
+      "type": "application/javascript",
+      "bytes": 9590,
+      "matches": true
+    },
+    {
+      "path": "Certificate-DE4lJ3ge.js",
+      "status": 200,
+      "type": "application/javascript",
+      "bytes": 96447,
+      "matches": true
+    },
+    {
+      "path": "Content-Kx3RN9q_.js",
+      "status": 200,
+      "type": "application/javascript",
+      "bytes": 10752,
+      "matches": true
+    },
+    {
+      "path": "Leaderboard-Pj4nhP2y.js",
+      "status": 200,
+      "type": "application/javascript",
+      "bytes": 2335,
+      "matches": true
+    },
+    {
+      "path": "Ledger-BILonD3X.js",
+      "status": 200,
+      "type": "application/javascript",
+      "bytes": 5967,
+      "matches": true
+    },
+    {
+      "path": "Settings-X3yQl9bb.js",
+      "status": 200,
+      "type": "application/javascript",
+      "bytes": 7617,
+      "matches": true
+    },
+    {
+      "path": "index-DSZgsRQS.js",
+      "status": 200,
+      "type": "application/javascript",
+      "bytes": 274173,
+      "matches": true
+    },
+    {
+      "path": "jsx-runtime-B4UN2VIk.js",
+      "status": 200,
+      "type": "application/javascript",
+      "bytes": 9096,
+      "matches": true
+    },
+    {
+      "path": "spelling.worker-CrIfIp-F.js",
+      "status": 200,
+      "type": "application/javascript",
+      "bytes": 1958,
+      "matches": true
+    },
+    {
+      "path": "time-Do7Gbtg7.js",
+      "status": 200,
+      "type": "application/javascript",
+      "bytes": 1737,
+      "matches": true
+    }
+  ],
+  "observations": [
+    {
+      "at": "2026-11-23T14:12:18.023Z",
+      "status": 200,
+      "actual": "/assets/index-DCwjXkFN.js",
+      "expected": "/assets/index-DSZgsRQS.js",
+      "htmlMatches": false,
+      "passed": false
+    },
+    {
+      "at": "2026-11-23T14:12:20.215Z",
+      "status": 200,
+      "actual": "/assets/index-DCwjXkFN.js",
+      "expected": "/assets/index-DSZgsRQS.js",
+      "htmlMatches": false,
+      "passed": false
+    },
+    {
+      "at": "2026-11-23T14:12:22.349Z",
+      "status": 200,
+      "actual": "/assets/index-DCwjXkFN.js",
+      "expected": "/assets/index-DSZgsRQS.js",
+      "htmlMatches": false,
+      "passed": false
+    },
+    {
+      "at": "2026-11-23T14:12:27.585Z",
+      "status": 200,
+      "actual": "/assets/index-DSZgsRQS.js",
+      "expected": "/assets/index-DSZgsRQS.js",
+      "htmlMatches": true,
+      "passed": true
+    }
+  ]
+}

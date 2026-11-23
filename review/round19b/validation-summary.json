@@ -89,5 +89,14 @@
     "tests": 2,
     "passed": true,
     "policy": "Bounded retry; exact HTML entry and every JavaScript SHA-256 must match."
+  },
+  "production": {
+    "passed": true,
+    "smokeCases": 8,
+    "assetChunks": 11,
+    "previewBots": 5,
+    "releasedAt": "2026-11-23T14:12:57.113Z",
+    "attempts": 3,
+    "earlierRollbacks": 2
   }
 }

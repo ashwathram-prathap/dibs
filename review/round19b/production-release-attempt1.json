@@ -1,0 +1,67 @@
+[
+  {
+    "name": "Check exact R19B gates and timing",
+    "passed": true,
+    "at": "2026-11-23T13:47:21.618Z"
+  },
+  {
+    "name": "Record original deployment IDs",
+    "passed": true,
+    "at": "2026-11-23T13:47:24.062Z"
+  },
+  {
+    "name": "Check exact R19B gates and timing",
+    "passed": true,
+    "at": "2026-11-23T13:47:24.249Z"
+  },
+  {
+    "name": "Verify standard deployment freeze",
+    "passed": true,
+    "at": "2026-11-23T13:47:24.408Z"
+  },
+  {
+    "name": "Configure drop",
+    "passed": true,
+    "at": "2026-11-23T13:47:24.570Z"
+  },
+  {
+    "name": "Build house words",
+    "passed": true,
+    "at": "2026-11-23T13:47:29.362Z"
+  },
+  {
+    "name": "Check exact R19B gates and timing",
+    "passed": true,
+    "at": "2026-11-23T13:47:29.538Z"
+  },
+  {
+    "name": "Deploy production Worker",
+    "passed": true,
+    "at": "2026-11-23T13:47:59.114Z"
+  },
+  {
+    "name": "Build production frontend",
+    "passed": true,
+    "at": "2026-11-23T13:48:19.763Z"
+  },
+  {
+    "name": "Check exact R19B gates and timing",
+    "passed": true,
+    "at": "2026-11-23T13:48:30.158Z"
+  },
+  {
+    "name": "Deploy production Pages",
+    "passed": true,
+    "at": "2026-11-23T13:48:44.552Z"
+  },
+  {
+    "name": "Read-only production smoke",
+    "passed": false,
+    "at": "2026-11-23T13:49:00.366Z"
+  },
+  {
+    "name": "Roll back failed release immediately",
+    "passed": true,
+    "at": "2026-11-23T13:49:04.661Z"
+  }
+]

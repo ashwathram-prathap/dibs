@@ -76,5 +76,11 @@
     "classification": "source-level concern",
     "before": "One of six browsers reached the safe reload screen before filing; first harness did not retain caught console details.",
     "after": "Not reproduced with console diagnostics: all six fresh browsers passed. All 11 deployed JS chunks match the build and 20 local timing variants pass. Exact cause remains unconfirmed; retain asset-reliability follow-up in R20."
+  },
+  {
+    "item": "Deployment alias readiness",
+    "classification": "confirmed defect",
+    "before": "Immediate integrity check rejected previous HTML after Pages deployment; attempt 2 rolled back.",
+    "after": "Bounded readiness requires exact HTML entry and every JS hash. Attempt 3 observed old HTML three times, then the new coherent build on attempt four; all 11 scripts matched; eight production smoke cases passed."
   }
 ]
