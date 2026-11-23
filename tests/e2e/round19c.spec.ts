@@ -633,6 +633,7 @@ test('Admin archive confirms, downloads both formats, deletes only the exported 
   await page.goto('/admin/live?r19&r19c');
   await page.locator('#live-token').fill('test-admin');
   await page.getByRole('button', { name: 'Open Live', exact: true }).click();
+  await expect(page.getByRole('button', { name: 'Archive all', exact: true })).toBeVisible();
   await expect(page.locator('.admin-live article img')).toHaveCount(0);
   const button = page.getByRole('button', { name: 'Archive all', exact: true });
   page.once('dialog', (d) => d.dismiss());

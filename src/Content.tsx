@@ -299,7 +299,17 @@ export function LiveAdmin() {
           value={draft}
           onChange={(e) => setDraft(e.target.value)}
         />
-        <button>Open Live</button>
+        <button
+          type="submit"
+          onMouseDown={(e) => {
+            // Safari does not focus clicked buttons. Keep the form focused so
+            // the fixed navigation cannot reappear between down and up.
+            e.preventDefault();
+            e.currentTarget.focus();
+          }}
+        >
+          Open Live
+        </button>
       </form>
       <p role="status">{error}</p>
       {data && (
