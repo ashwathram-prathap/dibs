@@ -2,6 +2,23 @@ import { test, expect } from './security-fixture';
 import type { Page, TestInfo } from '@playwright/test';
 import { mkdirSync } from 'node:fs';
 
+function contrast(foreground: string, background: string) {
+  const luminance = (color: string) => {
+    const values = color
+      .match(/[\d.]+/g)!
+      .slice(0, 3)
+      .map(Number)
+      .map((n) => {
+        const channel = n / 255;
+        return channel <= 0.04045 ? channel / 12.92 : ((channel + 0.055) / 1.055) ** 2.4;
+      });
+    return values[0] * 0.2126 + values[1] * 0.7152 + values[2] * 0.0722;
+  };
+  const a = luminance(foreground),
+    b = luminance(background);
+  return (Math.max(a, b) + 0.05) / (Math.min(a, b) + 0.05);
+}
+
 async function settle(page: Page) {
   await page.evaluate(() => document.fonts.ready);
   await page.evaluate(
@@ -316,6 +333,14 @@ test('Feedback uses shared controls and inline required/length validation, then 
   await expect(dialog).toBeVisible();
   await dialog.getByRole('button', { name: 'Send note' }).click();
   await expect(page.locator('#feedback-validation')).toHaveText('Write a note first.');
+  const errorColors = await dialog.evaluate((el) => ({
+    text: getComputedStyle(el.querySelector('#feedback-validation')!).color,
+    background: getComputedStyle(el).backgroundColor,
+  }));
+  expect(
+    contrast(errorColors.text, errorColors.background),
+    'feedback error AA contrast',
+  ).toBeGreaterThanOrEqual(4.5);
   await expect(page.locator('#feedback-note')).toBeFocused();
   await expect(page.locator('#feedback-note')).toHaveAttribute('aria-invalid', 'true');
   await expect(page.locator('#feedback-limit')).toHaveText('0 / 500');
@@ -473,6 +498,12 @@ test('Share and visitor landing work in browser, standalone, LinkedIn and Instag
       els.map((el) => {
         const r = el.getBoundingClientRect(),
           s = getComputedStyle(el);
+        let background = s.backgroundColor,
+          ancestor = el.parentElement;
+        while (background === 'rgba(0, 0, 0, 0)' && ancestor) {
+          background = getComputedStyle(ancestor).backgroundColor;
+          ancestor = ancestor.parentElement;
+        }
         return {
           height: r.height,
           width: r.width,
@@ -480,6 +511,8 @@ test('Share and visitor landing work in browser, standalone, LinkedIn and Instag
           font: s.fontSize,
           weight: s.fontWeight,
           border: s.borderTopWidth,
+          color: s.color,
+          background,
         };
       }),
     );
@@ -488,6 +521,7 @@ test('Share and visitor landing work in browser, standalone, LinkedIn and Instag
       expect(c.font).toBe(cells[0].font);
       expect(c.weight).toBe(cells[0].weight);
       expect(c.border).toBe(cells[0].border);
+      expect(contrast(c.color, c.background), 'share text AA contrast').toBeGreaterThanOrEqual(4.5);
       for (const other of cells.filter((o) => Math.abs(o.y - c.y) < 1))
         expect(c.width).toBeCloseTo(other.width, 0);
     }

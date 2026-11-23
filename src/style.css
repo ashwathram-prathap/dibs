@@ -7149,8 +7149,11 @@ body {
   padding-right: 1rem;
 }
 .feedback-dialog .feedback-error {
-  color: var(--red);
+  color: #b93420;
   margin: 0;
+}
+html[data-theme='dark'] .feedback-dialog .feedback-error {
+  color: #ff836b;
 }
 .streak-chip {
   gap: 6px;
@@ -7216,7 +7219,7 @@ body {
 }
 .share-area .share-buttons > .primary {
   background: var(--red);
-  color: var(--paper);
+  color: #0f0e0b;
   border-color: var(--ink);
 }
 .share-area .share-hint {
