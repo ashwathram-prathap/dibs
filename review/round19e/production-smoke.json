@@ -1,0 +1,63 @@
+{
+  "passed": true,
+  "at": "2026-11-23T20:37:15.542Z",
+  "nextDrop": "2026-11-24T02:00:00.000Z",
+  "checks": [
+    {
+      "browser": "chromium",
+      "width": 390,
+      "colorScheme": "light",
+      "passed": true,
+      "consoleErrors": []
+    },
+    {
+      "browser": "chromium",
+      "width": 390,
+      "colorScheme": "dark",
+      "passed": true,
+      "consoleErrors": []
+    },
+    {
+      "browser": "chromium",
+      "width": 1440,
+      "colorScheme": "light",
+      "passed": true,
+      "consoleErrors": []
+    },
+    {
+      "browser": "chromium",
+      "width": 1440,
+      "colorScheme": "dark",
+      "passed": true,
+      "consoleErrors": []
+    },
+    {
+      "browser": "webkit",
+      "width": 390,
+      "colorScheme": "light",
+      "passed": true,
+      "consoleErrors": []
+    },
+    {
+      "browser": "webkit",
+      "width": 390,
+      "colorScheme": "dark",
+      "passed": true,
+      "consoleErrors": []
+    },
+    {
+      "browser": "webkit",
+      "width": 1440,
+      "colorScheme": "light",
+      "passed": true,
+      "consoleErrors": []
+    },
+    {
+      "browser": "webkit",
+      "width": 1440,
+      "colorScheme": "dark",
+      "passed": true,
+      "consoleErrors": []
+    }
+  ]
+}

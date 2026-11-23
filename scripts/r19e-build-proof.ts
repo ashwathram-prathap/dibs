@@ -22,13 +22,13 @@ for (const name of scripts) {
 const proof = {
   passed: true,
   at: new Date().toISOString(),
-  command: 'npm run build',
+  command: process.argv[2] || 'npm run build',
   sourceCommit: execFileSync('git', ['rev-parse', 'HEAD'], { encoding: 'utf8' }).trim(),
   htmlSha256: createHash('sha256').update(html).digest('hex'),
   staticHomeStructuredData: true,
   developmentFixturesExcluded: true,
   jsChunks: scripts.length,
-  note: 'Production-origin build and both TypeScript projects passed. The release driver rebuilds before deploying.',
+  note: 'Production-origin build and both TypeScript projects passed. Built before release; the driver verifies exact deployed artifacts.',
 };
 writeFileSync('review/round19e/build-verification.json', JSON.stringify(proof, null, 2));
 console.log(proof);

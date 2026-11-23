@@ -16,5 +16,13 @@
     "unexpected": 0,
     "flaky": 0
   },
-  "firefoxRun": "https://github.com/ashwathram-prathap/dibs/actions/runs/45256303486"
+  "firefoxRun": "https://github.com/ashwathram-prathap/dibs/actions/runs/45256303486",
+  "finalVisual": {
+    "startTime": "2026-11-23T20:22:05.516Z",
+    "duration": 137906.524,
+    "expected": 48,
+    "skipped": 0,
+    "unexpected": 0,
+    "flaky": 0
+  }
 }

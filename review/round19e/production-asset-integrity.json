@@ -1,0 +1,106 @@
+{
+  "at": "2026-11-23T20:35:45.732Z",
+  "passed": true,
+  "entry": "/assets/index-BuurTy7p.js",
+  "inlineStyleHashes": [
+    "5ffa8cd03fa8d3c51f20fd6a741e091848efa9f50fa0220cb327e68945e06729",
+    "837ed39ca45504b0cc7b11d9d04b4676f8269baddf058a76b8d7153ebe29ed5a"
+  ],
+  "rows": [
+    {
+      "path": "Archive-B6HLnUwv.js",
+      "status": 200,
+      "type": "application/javascript",
+      "bytes": 4623,
+      "matches": true
+    },
+    {
+      "path": "Calendar-DIUZMX7d.js",
+      "status": 200,
+      "type": "application/javascript",
+      "bytes": 9590,
+      "matches": true
+    },
+    {
+      "path": "Certificate-CffZflx9.js",
+      "status": 200,
+      "type": "application/javascript",
+      "bytes": 98434,
+      "matches": true
+    },
+    {
+      "path": "Content-B57LeVEv.js",
+      "status": 200,
+      "type": "application/javascript",
+      "bytes": 12883,
+      "matches": true
+    },
+    {
+      "path": "Leaderboard-D9Jvwa0I.js",
+      "status": 200,
+      "type": "application/javascript",
+      "bytes": 2335,
+      "matches": true
+    },
+    {
+      "path": "Ledger-Bt2Ye7Yv.js",
+      "status": 200,
+      "type": "application/javascript",
+      "bytes": 5967,
+      "matches": true
+    },
+    {
+      "path": "Settings-FSbr07fh.js",
+      "status": 200,
+      "type": "application/javascript",
+      "bytes": 9494,
+      "matches": true
+    },
+    {
+      "path": "index-BuurTy7p.js",
+      "status": 200,
+      "type": "application/javascript",
+      "bytes": 277053,
+      "matches": true
+    },
+    {
+      "path": "index-qLR1_SbC.css",
+      "status": 200,
+      "type": "text/css; charset=utf-8",
+      "bytes": 117851,
+      "matches": true
+    },
+    {
+      "path": "jsx-runtime-B4UN2VIk.js",
+      "status": 200,
+      "type": "application/javascript",
+      "bytes": 9096,
+      "matches": true
+    },
+    {
+      "path": "spelling.worker-CrIfIp-F.js",
+      "status": 200,
+      "type": "application/javascript",
+      "bytes": 1958,
+      "matches": true
+    },
+    {
+      "path": "time-Do7Gbtg7.js",
+      "status": 200,
+      "type": "application/javascript",
+      "bytes": 1737,
+      "matches": true
+    }
+  ],
+  "observations": [
+    {
+      "at": "2026-11-23T20:35:45.731Z",
+      "status": 200,
+      "actual": "/assets/index-BuurTy7p.js",
+      "expected": "/assets/index-BuurTy7p.js",
+      "stylesMatch": true,
+      "htmlMatches": true,
+      "passed": true
+    }
+  ]
+}

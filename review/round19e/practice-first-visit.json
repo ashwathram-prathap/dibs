@@ -1,0 +1,25 @@
+{
+  "passed": true,
+  "at": "2026-11-23T20:23:53.728Z",
+  "opensAt": "2026-11-23T20:23:47.379Z",
+  "checks": [
+    {
+      "engine": "chromium",
+      "answer": "Bull shark",
+      "points": 15,
+      "bonus": 0,
+      "percentile": 0.1247,
+      "passed": true,
+      "errors": []
+    },
+    {
+      "engine": "webkit",
+      "answer": "Chameleon",
+      "points": 15,
+      "bonus": 0,
+      "percentile": 0.1264,
+      "passed": true,
+      "errors": []
+    }
+  ]
+}

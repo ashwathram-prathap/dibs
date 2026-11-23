@@ -1,0 +1,11 @@
+{
+  "passed": true,
+  "at": "2026-11-23T20:35:16.463Z",
+  "command": "npx vite build; catalogs and TypeScript already verified by npm run build",
+  "sourceCommit": "38524a42444031465061a79f0cdb335b62569983",
+  "htmlSha256": "592584b0516fef2c8d7fdc1446b989d5747cf268865af729bc7e4ccf3833d609",
+  "staticHomeStructuredData": true,
+  "developmentFixturesExcluded": true,
+  "jsChunks": 11,
+  "note": "Production-origin build and both TypeScript projects passed. Built before release; the driver verifies exact deployed artifacts."
+}

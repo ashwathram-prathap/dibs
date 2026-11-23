@@ -199,10 +199,14 @@ try {
             'Rarer answers score more: from 10 for the most familiar to 110 for the rarest.',
           );
           assert.ok(await p.evaluate(() => document.documentElement.scrollWidth <= innerWidth));
-          await p.screenshot({
-            path: `review/round19e/production-faq-${engine.name()}-${width}-${colorScheme}.png`,
-            fullPage: true,
-          });
+          // WebKit's screenshot API injects `body {}`, rejected by the real CSP.
+          // Exercise WebKit under the unchanged production policy without captures;
+          // its visual captures use the isolated security-test server instead.
+          if (engine === chromium)
+            await p.screenshot({
+              path: `review/round19e/production-faq-${engine.name()}-${width}-${colorScheme}.png`,
+              fullPage: true,
+            });
           assert.deepEqual(errors, []);
           checks.push({
             browser: engine.name(),

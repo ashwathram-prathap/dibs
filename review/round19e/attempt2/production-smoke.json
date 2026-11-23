@@ -1,0 +1,34 @@
+{
+  "passed": false,
+  "checks": [
+    {
+      "browser": "chromium",
+      "width": 390,
+      "colorScheme": "light",
+      "passed": true,
+      "consoleErrors": []
+    },
+    {
+      "browser": "chromium",
+      "width": 390,
+      "colorScheme": "dark",
+      "passed": true,
+      "consoleErrors": []
+    },
+    {
+      "browser": "chromium",
+      "width": 1440,
+      "colorScheme": "light",
+      "passed": true,
+      "consoleErrors": []
+    },
+    {
+      "browser": "chromium",
+      "width": 1440,
+      "colorScheme": "dark",
+      "passed": true,
+      "consoleErrors": []
+    }
+  ],
+  "error": "AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:\n+ actual - expected\n\n+ [\n+   \"Refused to apply a stylesheet because its hash, its nonce, or 'unsafe-inline' does not appear in the style-src directive of the Content Security Policy.\"\n+ ]\n- []\n"
+}

@@ -1,0 +1,10 @@
+{
+  "at": "2026-11-23T20:21:03.163Z",
+  "passed": true,
+  "tests": 238,
+  "passedTests": 238,
+  "failedTests": 0,
+  "files": 52,
+  "command": "npm test -- --maxWorkers=2",
+  "notes": "Initial failures exposed outdated reference-pool expectations and an isolated catalog fixture missing the new plan file; both fixed. A concurrent full run hit two unchanged 30-second catalog-test timeouts; the complete suite passed with two workers."
+}

@@ -6,6 +6,7 @@ import assert from 'node:assert/strict';
 const origin = process.argv[2] || 'https://practice.dibs-7hz.pages.dev';
 assert.ok(['https://dibs.here', 'https://practice.dibs-7hz.pages.dev'].includes(origin));
 const build = process.argv[3] || 'dist';
+const fresh = process.argv.includes('--fresh');
 const builtHtml = readFileSync(build + '/index.html', 'utf8');
 const styleHashes = (html: string) =>
   [...html.matchAll(/<style[^>]*>([\s\S]*?)<\/style>/g)].map((m) =>
@@ -20,10 +21,12 @@ const observations: any[] = [];
 const destination =
   'review/round19e/' +
   (origin.includes('practice') ? 'practice' : 'production') +
+  (fresh ? '-fresh' : '') +
   '-asset-integrity.json';
 const result = await awaitCoherentBuild(async () => {
   assert.ok(Date.now() < Date.parse('2026-11-23T21:30:00Z'), 'R19E deadline reached');
-  const response = await fetch(origin + '/?no-analytics=1', {
+  const query = fresh ? '&r19e-readiness=' + Date.now() : '';
+  const response = await fetch(origin + '/?no-analytics=1' + query, {
     redirect: 'manual',
     cache: 'no-store',
     signal: AbortSignal.timeout(5000),
@@ -36,7 +39,7 @@ const result = await awaitCoherentBuild(async () => {
     response.status === 200 && actual === expected && stylesMatch && !html.includes('cf-chl-');
   if (htmlMatches)
     for (const path of paths) {
-      const r = await fetch(origin + '/assets/' + path, {
+      const r = await fetch(origin + '/assets/' + path + (fresh ? '?' + query.slice(1) : ''), {
         redirect: 'manual',
         cache: 'no-store',
         signal: AbortSignal.timeout(5000),

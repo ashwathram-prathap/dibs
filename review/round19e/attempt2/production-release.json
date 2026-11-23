@@ -1,0 +1,52 @@
+[
+  {
+    "name": "Record production rollback IDs",
+    "passed": true,
+    "at": "2026-11-23T20:29:56.310Z"
+  },
+  {
+    "name": "Verify production state before release",
+    "passed": true,
+    "at": "2026-11-23T20:29:58.062Z"
+  },
+  {
+    "name": "Check launch freeze",
+    "passed": true,
+    "at": "2026-11-23T20:29:58.237Z"
+  },
+  {
+    "name": "Publish production assets before Worker",
+    "passed": true,
+    "at": "2026-11-23T20:30:14.582Z"
+  },
+  {
+    "name": "Preflight immutable deployment scripts",
+    "passed": true,
+    "at": "2026-11-23T20:30:17.056Z"
+  },
+  {
+    "name": "Verify coherent production scripts",
+    "passed": true,
+    "at": "2026-11-23T20:30:19.555Z"
+  },
+  {
+    "name": "Verify every current and rollback scoring asset",
+    "passed": true,
+    "at": "2026-11-23T20:30:27.116Z"
+  },
+  {
+    "name": "Deploy production Worker",
+    "passed": true,
+    "at": "2026-11-23T20:31:04.010Z"
+  },
+  {
+    "name": "Verify live production scoring reads",
+    "passed": true,
+    "at": "2026-11-23T20:31:26.130Z"
+  },
+  {
+    "name": "Read-only production desktop/phone smoke",
+    "passed": false,
+    "at": "2026-11-23T20:31:54.721Z"
+  }
+]

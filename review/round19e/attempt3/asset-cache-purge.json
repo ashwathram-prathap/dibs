@@ -1,0 +1,16 @@
+{
+  "at": "2026-11-23T20:34:36.311Z",
+  "status": 401,
+  "success": false,
+  "files": [
+    "https://dibs.here/assets/Certificate-BiqXvc9M.js",
+    "https://dibs.here/assets/Leaderboard-bGZPfL_N.js",
+    "https://dibs.here/assets/Settings-XZ3lB8Lv.js"
+  ],
+  "errors": [
+    {
+      "code": 10000,
+      "message": "Authentication error"
+    }
+  ]
+}

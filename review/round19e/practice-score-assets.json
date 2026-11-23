@@ -1,0 +1,1191 @@
+{
+  "at": "2026-11-23T20:21:22.889Z",
+  "origin": "https://practice.dibs-7hz.pages.dev",
+  "passed": true,
+  "files": 169,
+  "rows": [
+    {
+      "path": "/catalog/actors/1f68f6b5340a8880/scores-v1.bin",
+      "bytes": 275248,
+      "sha256": "76e432a474e5476894f193d7aa547b650e43df3b617758dd6a13a5d11f69e76b",
+      "status": 200,
+      "passed": true
+    },
+    {
+      "path": "/catalog/actors/1f68f6b5340a8880/scores-v2.bin",
+      "bytes": 275248,
+      "sha256": "76e432a474e5476894f193d7aa547b650e43df3b617758dd6a13a5d11f69e76b",
+      "status": 200,
+      "passed": true
+    },
+    {
+      "path": "/rarity/actors.json",
+      "bytes": 200,
+      "sha256": "8aefd838a42fdecb88311c5b502a0b24768c73f906aa6d67ab54601d7ad57e41",
+      "status": 200,
+      "passed": true
+    },
+    {
+      "path": "/catalog/actors/1f68f6b5340a8880/r19e-pool-v1/scores-v2.bin",
+      "bytes": 275248,
+      "sha256": "cf492bb170706d41c2e2dc0c284a19792fa1ce8de8a110cba612b8328ee933cc",
+      "status": 200,
+      "passed": true
+    },
+    {
+      "path": "/rarity/actors/1f68f6b5340a8880/r19e-pool-v1.json",
+      "bytes": 335,
+      "sha256": "edfbf0871e105624ac9aac7eb83c7ee608fa88ed08ddd9113a3649bad05b917c",
+      "status": 200,
+      "passed": true
+    },
+    {
+      "path": "/catalog/airports/8d8792d4f74eee1e/scores-v1.bin",
+      "bytes": 114220,
+      "sha256": "d3aedeb046c83c4338f5c7b1d2eb59a2d90aa49b9a1347f12118a981cd06e8a0",
+      "status": 200,
+      "passed": true
+    },
+    {
+      "path": "/catalog/airports/8d8792d4f74eee1e/scores-v2.bin",
+      "bytes": 114220,
+      "sha256": "f997e66f3c3b09e3c1df19d9687c79aeabd6dd269be62825b18dfcb8843c18b4",
+      "status": 200,
+      "passed": true
+    },
+    {
+      "path": "/rarity/airports.json",
+      "bytes": 203,
+      "sha256": "2a6a826d404906d21a32142c7d159c27dc9842659e85c12a581d503b68b83b99",
+      "status": 200,
+      "passed": true
+    },
+    {
+      "path": "/catalog/airports/8d8792d4f74eee1e/r19e-pool-v1/scores-v2.bin",
+      "bytes": 114220,
+      "sha256": "aaa38786596f0f6d7282c88561cf195af4aec9a4485ad3eb167f2ee1ed20d40a",
+      "status": 200,
+      "passed": true
+    },
+    {
+      "path": "/rarity/airports/8d8792d4f74eee1e/r19e-pool-v1.json",
+      "bytes": 335,
+      "sha256": "4dcea7626e44b0d1bcc4882c5c1ca96e483f3028f0dc79abbbae4a8b6e0da1dc",
+      "status": 200,
+      "passed": true
+    },
+    {
+      "path": "/catalog/albums/7b689f83c1956929/scores-v1.bin",
+      "bytes": 287884,
+      "sha256": "192c7bfbc084f4766dd92ce5af371fbe127bca82ff6e22969e4594c0d72037fb",
+      "status": 200,
+      "passed": true
+    },
+    {
+      "path": "/catalog/albums/7b689f83c1956929/scores-v2.bin",
+      "bytes": 287884,
+      "sha256": "c9272f67a7b165cc278edef6e0cc043202a66f4be0769f09b78466ae91770065",
+      "status": 200,
+      "passed": true
+    },
+    {
+      "path": "/rarity/albums.json",
+      "bytes": 200,
+      "sha256": "38db0f7ff6ddac4c17a942c67a8d154d3c102327802902df3d325b8ed6e6f701",
+      "status": 200,
+      "passed": true
+    },
+    {
+      "path": "/catalog/albums/7b689f83c1956929/r19e-pool-v1/scores-v2.bin",
+      "bytes": 287884,
+      "sha256": "92bdfff361b15cddd77cee87de3bb3e8a214e431a065e5d938fff0471495f105",
+      "status": 200,
+      "passed": true
+    },
+    {
+      "path": "/rarity/albums/7b689f83c1956929/r19e-pool-v1.json",
+      "bytes": 335,
+      "sha256": "44e0f25d29b5a7348fe23c344eec275f52b0107cff0c09969e9b175e9551a788",
+      "status": 200,
+      "passed": true
+    },
+    {
+      "path": "/catalog/animals/10210a86838c8eca/scores-v1.bin",
+      "bytes": 178246,
+      "sha256": "05ef61c5258ad3d39427cd90209c3f6f6fa1febdc7d3a32812721a9254eae421",
+      "status": 200,
+      "passed": true
+    },
+    {
+      "path": "/catalog/animals/10210a86838c8eca/scores-v2.bin",
+      "bytes": 178246,
+      "sha256": "594fdbe933d3e8e3a70c07e89ff330b95d052a9ffe5d45475d6aca84d9e630b6",
+      "status": 200,
+      "passed": true
+    },
+    {
+      "path": "/rarity/animals.json",
+      "bytes": 207,
+      "sha256": "464ffade110a422d76e85380a65e5060deaa088afc7d0b210996ebdb9a5021aa",
+      "status": 200,
+      "passed": true
+    },
+    {
+      "path": "/catalog/animals/10210a86838c8eca/r19e-pool-v1/scores-v2.bin",
+      "bytes": 178246,
+      "sha256": "f25d6dd9e82bc951ed428d52880b694c2fbf4ad36e161f2c4fd3c896d10c3d76",
+      "status": 200,
+      "passed": true
+    },
+    {
+      "path": "/rarity/animals/10210a86838c8eca/r19e-pool-v1.json",
+      "bytes": 333,
+      "sha256": "d59fe5e0d2375af79a88ee06c0e1083e230d41d1b0fdf7dba5c7a845c8f79982",
+      "status": 200,
+      "passed": true
+    },
+    {
+      "path": "/catalog/architects/791e50276f0e82ae/scores-v1.bin",
+      "bytes": 35490,
+      "sha256": "3f27c59346adda46c07a9624313cdceab821251bdbf09692b557db7610b3fdda",
+      "status": 200,
+      "passed": true
+    },
+    {
+      "path": "/catalog/architects/791e50276f0e82ae/scores-v2.bin",
+      "bytes": 35490,
+      "sha256": "3f27c59346adda46c07a9624313cdceab821251bdbf09692b557db7610b3fdda",
+      "status": 200,
+      "passed": true
+    },
+    {
+      "path": "/rarity/architects.json",
+      "bytes": 319,
+      "sha256": "db0d92ee8ad74af028bbcbe4d20329421029c9de77be1f7dc052895eb0f096b3",
+      "status": 200,
+      "passed": true
+    },
+    {
+      "path": "/catalog/architects/791e50276f0e82ae/r19e-pool-v1/scores-v2.bin",
+      "bytes": 35490,
+      "sha256": "174b3376ba02f12a2db4f36add5f582b4640880862dc25396872495e71fd495f",
+      "status": 200,
+      "passed": true
+    },
+    {
+      "path": "/rarity/architects/791e50276f0e82ae/r19e-pool-v1.json",
+      "bytes": 332,
+      "sha256": "48878cd0a1e4476b6389da8094860b8683db78b74ead87ba44395b08431b91de",
+      "status": 200,
+      "passed": true
+    },
+    {
+      "path": "/catalog/arthropods/51bc78890de6c9be/scores-v1.bin",
+      "bytes": 47244,
+      "sha256": "b0ee102d81a9e426daa1ab12483e057793dd2be395a45284343795e515969fe3",
+      "status": 200,
+      "passed": true
+    },
+    {
+      "path": "/catalog/arthropods/51bc78890de6c9be/scores-v2.bin",
+      "bytes": 47244,
+      "sha256": "126f4d613765e0b18e16f7789b3bbb7823d6586013ff756415fc886bc8910f40",
+      "status": 200,
+      "passed": true
+    },
+    {
+      "path": "/rarity/arthropods.json",
+      "bytes": 322,
+      "sha256": "f379ef945af6e683652f60320c2fa0aed9524eb45af96dc566a2d335dbfbd51d",
+      "status": 200,
+      "passed": true
+    },
+    {
+      "path": "/catalog/arthropods/51bc78890de6c9be/r19e-pool-v1/scores-v2.bin",
+      "bytes": 47244,
+      "sha256": "6ec493f72cf25aa0c5b2075d4048a6fc10874fc345a55f0a75574dbaf2bcbd31",
+      "status": 200,
+      "passed": true
+    },
+    {
+      "path": "/rarity/arthropods/51bc78890de6c9be/r19e-pool-v1.json",
+      "bytes": 335,
+      "sha256": "11038b4b02c2af54318ec25dccc34286964bae08cea660db83d32af579390778",
+      "status": 200,
+      "passed": true
+    },
+    {
+      "path": "/catalog/asteroids/75530681294d3f8c/scores-v1.bin",
+      "bytes": 53276,
+      "sha256": "30547c20ecd915ec3c66fdc9b23868f6ed15b440589d70cca183c75e3aff0a47",
+      "status": 200,
+      "passed": true
+    },
+    {
+      "path": "/catalog/asteroids/75530681294d3f8c/scores-v2.bin",
+      "bytes": 53276,
+      "sha256": "30547c20ecd915ec3c66fdc9b23868f6ed15b440589d70cca183c75e3aff0a47",
+      "status": 200,
+      "passed": true
+    },
+    {
+      "path": "/rarity/asteroids.json",
+      "bytes": 331,
+      "sha256": "07fc895c0e0c4821dce7f463eb259830e1c43abd4d308240ed404a42167744fd",
+      "status": 200,
+      "passed": true
+    },
+    {
+      "path": "/catalog/asteroids/75530681294d3f8c/r19e-pool-v1/scores-v2.bin",
+      "bytes": 53276,
+      "sha256": "9000ce265de39f0daff38a9a73032cc2ab70c496f8596762335575ffe39253c0",
+      "status": 200,
+      "passed": true
+    },
+    {
+      "path": "/rarity/asteroids/75530681294d3f8c/r19e-pool-v1.json",
+      "bytes": 335,
+      "sha256": "4fe42fc11433197b5e70464755190ffad7a101c2ae2a8a461fbf746244ace902",
+      "status": 200,
+      "passed": true
+    },
+    {
+      "path": "/catalog/bands/5aa38771254148d7/scores-v1.bin",
+      "bytes": 99592,
+      "sha256": "e1f31653e29ae6c72831ba12b140252d01bfd58f29b6aaba737740b185e12644",
+      "status": 200,
+      "passed": true
+    },
+    {
+      "path": "/catalog/bands/5aa38771254148d7/scores-v2.bin",
+      "bytes": 99592,
+      "sha256": "2223cbe0cf6302ce812d7a36d7479874a4ecaac0a63d925c996e2519f56d6fd8",
+      "status": 200,
+      "passed": true
+    },
+    {
+      "path": "/rarity/bands.json",
+      "bytes": 199,
+      "sha256": "03ab5e671e139c84d703e5bf2c4c39da7996dc7c8c338b4ade24d3e617178219",
+      "status": 200,
+      "passed": true
+    },
+    {
+      "path": "/catalog/bands/5aa38771254148d7/r19e-pool-v1/scores-v2.bin",
+      "bytes": 99592,
+      "sha256": "795ab3bfa0f7b6b7b204f62d7df1f786068ed2226aebbe937b9ee9808dcb3de2",
+      "status": 200,
+      "passed": true
+    },
+    {
+      "path": "/rarity/bands/5aa38771254148d7/r19e-pool-v1.json",
+      "bytes": 335,
+      "sha256": "04f322c04ba95d4828f52a7591cff77f1916a934aee809be149854d4e4df22c6",
+      "status": 200,
+      "passed": true
+    },
+    {
+      "path": "/catalog/birds/04985deb94445ed1/scores-v1.bin",
+      "bytes": 32380,
+      "sha256": "9cc9a8682909adedecf36db9036d8a4381e4b4d195e6625420f51170559a1553",
+      "status": 200,
+      "passed": true
+    },
+    {
+      "path": "/catalog/birds/04985deb94445ed1/scores-v2.bin",
+      "bytes": 32380,
+      "sha256": "82a59587f0c137eba64e5a230b56c22032eefb69b12ba4e04ca76e9348f22241",
+      "status": 200,
+      "passed": true
+    },
+    {
+      "path": "/rarity/birds.json",
+      "bytes": 207,
+      "sha256": "1d6079e0d68c399a48cc7e40d26fcf1696ba92931a4624fd0c3ccebcb3bb7bc5",
+      "status": 200,
+      "passed": true
+    },
+    {
+      "path": "/catalog/birds/04985deb94445ed1/r19e-pool-v1/scores-v2.bin",
+      "bytes": 32380,
+      "sha256": "37c360197c4bbaa244cf702d8c8ed19cf044ff89de2998c04f9082cfc6e5f19a",
+      "status": 200,
+      "passed": true
+    },
+    {
+      "path": "/rarity/birds/04985deb94445ed1/r19e-pool-v1.json",
+      "bytes": 335,
+      "sha256": "7f6af0c43f8aabc21bcb22eb12a37ac00e34d27e0caaf496746fd9b7a5f96e90",
+      "status": 200,
+      "passed": true
+    },
+    {
+      "path": "/catalog/castles/a373e1a824a05cc5/scores-v1.bin",
+      "bytes": 49428,
+      "sha256": "8083a897a2b419e14bc9cd1e1efe039d1a0c49dbc13d106e7ee336e6050c4e73",
+      "status": 200,
+      "passed": true
+    },
+    {
+      "path": "/catalog/castles/a373e1a824a05cc5/scores-v2.bin",
+      "bytes": 49428,
+      "sha256": "50fed0834b0330e00444fd08cf3d0d19781d0c156f2c63f8fbf54d57fbfdce7e",
+      "status": 200,
+      "passed": true
+    },
+    {
+      "path": "/rarity/castles.json",
+      "bytes": 203,
+      "sha256": "f28e314957d053d1098a4f1252aeb821b70db7e1e74acdc49d69fe54bd43480b",
+      "status": 200,
+      "passed": true
+    },
+    {
+      "path": "/catalog/castles/a373e1a824a05cc5/r19e-pool-v1/scores-v2.bin",
+      "bytes": 49428,
+      "sha256": "31c1a3ac5162bae96b0494704ecc665f31d70668b63782045f9b77e503ebfb52",
+      "status": 200,
+      "passed": true
+    },
+    {
+      "path": "/rarity/castles/a373e1a824a05cc5/r19e-pool-v1.json",
+      "bytes": 298,
+      "sha256": "29aa5874ecaf95bb13ed28e4a20ec9906400f659913571401da22f3292c7e2e8",
+      "status": 200,
+      "passed": true
+    },
+    {
+      "path": "/catalog/cities/00cadebbe95f4404/scores-v1.bin",
+      "bytes": 299858,
+      "sha256": "85f4202737c39fcecd6be4b34d43e24ca4fd3ea0b4f41e84a8e750a552c2c79a",
+      "status": 200,
+      "passed": true
+    },
+    {
+      "path": "/catalog/cities/00cadebbe95f4404/scores-v2.bin",
+      "bytes": 299858,
+      "sha256": "470f6d48bdca75e41abc303693ff2ba976a9c95833bdd9665166769655565cb8",
+      "status": 200,
+      "passed": true
+    },
+    {
+      "path": "/rarity/cities.json",
+      "bytes": 205,
+      "sha256": "069cb85f21b97deb028f3420807356b2d855e6220e9d1bb124f5db471e2210e7",
+      "status": 200,
+      "passed": true
+    },
+    {
+      "path": "/catalog/cities/00cadebbe95f4404/r19e-pool-v1/scores-v2.bin",
+      "bytes": 299858,
+      "sha256": "109582f53e55d1ed6f2e7d70846e61160358e88a40008b73042a512906a956b6",
+      "status": 200,
+      "passed": true
+    },
+    {
+      "path": "/rarity/cities/00cadebbe95f4404/r19e-pool-v1.json",
+      "bytes": 335,
+      "sha256": "21fc2f1631420d0717842a08d2f16f0fe89607b59bbad71079e5124dfd789fad",
+      "status": 200,
+      "passed": true
+    },
+    {
+      "path": "/catalog/composers/65f4199c635d7bbc/scores-v1.bin",
+      "bytes": 140978,
+      "sha256": "cafc63b3206072267541a72a2de79921ee91a8aecacd0aa4c80eb5344f4b5c44",
+      "status": 200,
+      "passed": true
+    },
+    {
+      "path": "/catalog/composers/65f4199c635d7bbc/scores-v2.bin",
+      "bytes": 140978,
+      "sha256": "e310fed3862aebde03039e518f88a3c0816b38ead6df012e564c90a39b0a9f55",
+      "status": 200,
+      "passed": true
+    },
+    {
+      "path": "/rarity/composers.json",
+      "bytes": 199,
+      "sha256": "3dea2c83b8ffd9dfbb26b50e63775dd2291fe9f1f0fa6760882396dc6d45889f",
+      "status": 200,
+      "passed": true
+    },
+    {
+      "path": "/catalog/composers/65f4199c635d7bbc/r19e-pool-v1/scores-v2.bin",
+      "bytes": 140978,
+      "sha256": "dad2b57a4c47e068ebb8b151b41c5459ce5c43bb028e8b4af5b6844e32e69876",
+      "status": 200,
+      "passed": true
+    },
+    {
+      "path": "/rarity/composers/65f4199c635d7bbc/r19e-pool-v1.json",
+      "bytes": 335,
+      "sha256": "fd41b0f7d6928da1d08276f6382452cae6cdb57fbec6ffc7a4c496fec7b149bb",
+      "status": 200,
+      "passed": true
+    },
+    {
+      "path": "/catalog/countries/34d735861a0b55ac/scores-v1.bin",
+      "bytes": 500,
+      "sha256": "88ad54af0a17ae7ebdf5ca7f2c0137bade0366af0876521c375520968ad8cd28",
+      "status": 200,
+      "passed": true
+    },
+    {
+      "path": "/catalog/countries/34d735861a0b55ac/scores-v2.bin",
+      "bytes": 500,
+      "sha256": "88ad54af0a17ae7ebdf5ca7f2c0137bade0366af0876521c375520968ad8cd28",
+      "status": 200,
+      "passed": true
+    },
+    {
+      "path": "/rarity/countries.json",
+      "bytes": 201,
+      "sha256": "2c0f80dc23a786fd244f51d86b00a479899ff13a5da19da4d3aeedb36d9594ee",
+      "status": 200,
+      "passed": true
+    },
+    {
+      "path": "/catalog/countries/34d735861a0b55ac/r19e-pool-v1/scores-v2.bin",
+      "bytes": 500,
+      "sha256": "ff85ae8ea60262e4016aa30824e2c1fc8ea291b2c23f5f5dab72eb38fbe60df4",
+      "status": 200,
+      "passed": true
+    },
+    {
+      "path": "/rarity/countries/34d735861a0b55ac/r19e-pool-v1.json",
+      "bytes": 201,
+      "sha256": "2c0f80dc23a786fd244f51d86b00a479899ff13a5da19da4d3aeedb36d9594ee",
+      "status": 200,
+      "passed": true
+    },
+    {
+      "path": "/catalog/films/5e6d4def4c7b073b/scores-v1.bin",
+      "bytes": 319294,
+      "sha256": "d5fdca81c292466e075f53902d24a50d5dfc2b57793ee0377b50e91a0e495c12",
+      "status": 200,
+      "passed": true
+    },
+    {
+      "path": "/catalog/films/5e6d4def4c7b073b/scores-v2.bin",
+      "bytes": 319294,
+      "sha256": "532db62d3b2c733deb217d9edc67bdd5a3801a928e86da3a835a96407da1ca31",
+      "status": 200,
+      "passed": true
+    },
+    {
+      "path": "/rarity/films.json",
+      "bytes": 200,
+      "sha256": "7a424c9c2e786e7beb7d4485322d4e3a36aae56569e9af6c8d0cdb8e5e3cafcf",
+      "status": 200,
+      "passed": true
+    },
+    {
+      "path": "/catalog/films/5e6d4def4c7b073b/r19e-pool-v1/scores-v2.bin",
+      "bytes": 319294,
+      "sha256": "166180e90bce90b32007aec31831bd0102faddc7250f4a6379babc70af792cbf",
+      "status": 200,
+      "passed": true
+    },
+    {
+      "path": "/rarity/films/5e6d4def4c7b073b/r19e-pool-v1.json",
+      "bytes": 335,
+      "sha256": "b9adac6d7053ea4086bbbf0487771fea658293f1d2c45c7a21e852678e4ded06",
+      "status": 200,
+      "passed": true
+    },
+    {
+      "path": "/catalog/foods/c13c215b8bb7b069/scores-v1.bin",
+      "bytes": 28024,
+      "sha256": "8c9115b990dbda885cc516eb3e4cb03293df13681f50369d365f8101dcc8a3f2",
+      "status": 200,
+      "passed": true
+    },
+    {
+      "path": "/catalog/foods/c13c215b8bb7b069/scores-v2.bin",
+      "bytes": 28024,
+      "sha256": "af6d4086795c3540f9509c78cba104be61011f6f0c4c01112d9b7231d69fbd5a",
+      "status": 200,
+      "passed": true
+    },
+    {
+      "path": "/rarity/foods.json",
+      "bytes": 202,
+      "sha256": "d3de357387fc16b7853bfd75dfcb5bb97b1d000c84cd6328d448d07f0727bd16",
+      "status": 200,
+      "passed": true
+    },
+    {
+      "path": "/catalog/foods/c13c215b8bb7b069/r19e-pool-v1/scores-v2.bin",
+      "bytes": 28024,
+      "sha256": "3a3a5a89425e60f9984a6f19efefffbd9fe7215b3c2e0f2157a343b9e138720c",
+      "status": 200,
+      "passed": true
+    },
+    {
+      "path": "/rarity/foods/c13c215b8bb7b069/r19e-pool-v1.json",
+      "bytes": 332,
+      "sha256": "4290509512ae9df0aa50f62ef77b3ad5eb0ed01b9131510773adae2d82d47bd5",
+      "status": 200,
+      "passed": true
+    },
+    {
+      "path": "/catalog/footballers/3c42b0dee313f8fd/scores-v1.bin",
+      "bytes": 417578,
+      "sha256": "236d2827b76ff32fc4c437253e331dff5966a57d34000f375e3d542490cab845",
+      "status": 200,
+      "passed": true
+    },
+    {
+      "path": "/catalog/footballers/3c42b0dee313f8fd/scores-v2.bin",
+      "bytes": 417578,
+      "sha256": "236d2827b76ff32fc4c437253e331dff5966a57d34000f375e3d542490cab845",
+      "status": 200,
+      "passed": true
+    },
+    {
+      "path": "/rarity/footballers.json",
+      "bytes": 314,
+      "sha256": "f97b6e5fd282a5069ff79b66d3067d13043be5cbfd350cf0536197160f711667",
+      "status": 200,
+      "passed": true
+    },
+    {
+      "path": "/catalog/footballers/3c42b0dee313f8fd/r19e-pool-v1/scores-v2.bin",
+      "bytes": 417578,
+      "sha256": "40760eee843060f86890d6800a594b4a07c21fc1824fd5bd19e38602c2d8b69a",
+      "status": 200,
+      "passed": true
+    },
+    {
+      "path": "/rarity/footballers/3c42b0dee313f8fd/r19e-pool-v1.json",
+      "bytes": 334,
+      "sha256": "11644b6fa62780bf036d126d49e864f0b288529606bcd53be53f5ba41354d6a6",
+      "status": 200,
+      "passed": true
+    },
+    {
+      "path": "/catalog/fruits-vegetables/7cc25d83172226d8/scores-v1.bin",
+      "bytes": 2794,
+      "sha256": "89cb26dea153c94f08d28442186e7973b9e6df34ddf9509bb97b6dfabc277854",
+      "status": 200,
+      "passed": true
+    },
+    {
+      "path": "/catalog/fruits-vegetables/7cc25d83172226d8/scores-v2.bin",
+      "bytes": 2794,
+      "sha256": "af61497b4d9b37411ed4e423da21b8abeec62fb012031aa310133fc5a3b03f37",
+      "status": 200,
+      "passed": true
+    },
+    {
+      "path": "/rarity/fruits-vegetables.json",
+      "bytes": 200,
+      "sha256": "8cb286a0e203ea6ec88a614b323e3275caefd410d7f6d801ac65eac69806c222",
+      "status": 200,
+      "passed": true
+    },
+    {
+      "path": "/catalog/fruits-vegetables/7cc25d83172226d8/r19e-pool-v1/scores-v2.bin",
+      "bytes": 2794,
+      "sha256": "33f270c1bb0456995dc167de0061937f76c10a5d992f3575becce868ae468330",
+      "status": 200,
+      "passed": true
+    },
+    {
+      "path": "/rarity/fruits-vegetables/7cc25d83172226d8/r19e-pool-v1.json",
+      "bytes": 204,
+      "sha256": "e9685aab9db7aed9b394780c6337b4fcfdd59e57464da965552c2fa13e46a6ee",
+      "status": 200,
+      "passed": true
+    },
+    {
+      "path": "/catalog/islands/dce93ccf83ed0b78/scores-v1.bin",
+      "bytes": 258068,
+      "sha256": "53d9cd89b499e5ed8027ead4940e54325462ff4ad276725dc3d0d26fdabb484c",
+      "status": 200,
+      "passed": true
+    },
+    {
+      "path": "/catalog/islands/dce93ccf83ed0b78/scores-v2.bin",
+      "bytes": 258068,
+      "sha256": "2473b5e5d697b32491ea4e0cfabfc3b6651e6f025e7af8ed73100b2ab0146ea0",
+      "status": 200,
+      "passed": true
+    },
+    {
+      "path": "/rarity/islands.json",
+      "bytes": 217,
+      "sha256": "5e74dbaa02048ea0982c47bc472701adaea335bab4f7831f5df3f18fcd02ff61",
+      "status": 200,
+      "passed": true
+    },
+    {
+      "path": "/catalog/islands/dce93ccf83ed0b78/r19e-pool-v1/scores-v2.bin",
+      "bytes": 258068,
+      "sha256": "86d9d103cd42c07f07c0a0e3fd6283857dc4fbfa12031d57b0104c7530a9ede2",
+      "status": 200,
+      "passed": true
+    },
+    {
+      "path": "/rarity/islands/dce93ccf83ed0b78/r19e-pool-v1.json",
+      "bytes": 334,
+      "sha256": "c13533a26e34d61afc6ec20ade334286381c5790b36002d1003a2515c93434e0",
+      "status": 200,
+      "passed": true
+    },
+    {
+      "path": "/catalog/lakes/c9a92d2453c458d6/scores-v1.bin",
+      "bytes": 547478,
+      "sha256": "ff847c4bcd8f37e04bbc8ef42284319e0f6f0c1f2ee762bfdd6790a35fb4cf30",
+      "status": 200,
+      "passed": true
+    },
+    {
+      "path": "/catalog/lakes/c9a92d2453c458d6/scores-v2.bin",
+      "bytes": 547478,
+      "sha256": "bd287d84851b198c01604ee73ea51dd8b0cae9f08e63400b987dccb783cc00d7",
+      "status": 200,
+      "passed": true
+    },
+    {
+      "path": "/rarity/lakes.json",
+      "bytes": 322,
+      "sha256": "3c7a71521631c46f44c9f08d1eaeeca15ee2ccc7ed4ca8f5258f371306b2f023",
+      "status": 200,
+      "passed": true
+    },
+    {
+      "path": "/catalog/lakes/c9a92d2453c458d6/r19e-pool-v1/scores-v2.bin",
+      "bytes": 547478,
+      "sha256": "b4dbb7e49bb54e37d0007d77f9e64aa75b51ec1b4258c485a88156eab695b9df",
+      "status": 200,
+      "passed": true
+    },
+    {
+      "path": "/rarity/lakes/c9a92d2453c458d6/r19e-pool-v1.json",
+      "bytes": 335,
+      "sha256": "466af9df2a3b6d877c518a5ad374b5065a6e4f2a377f14c858e324794a271b30",
+      "status": 200,
+      "passed": true
+    },
+    {
+      "path": "/catalog/mountains/16b9c38c78cc2e5b/scores-v1.bin",
+      "bytes": 779768,
+      "sha256": "8fd373bf160e80295754b23d5f95221cc2d53bc36ec8dc443a72e4a48d7fa1f3",
+      "status": 200,
+      "passed": true
+    },
+    {
+      "path": "/catalog/mountains/16b9c38c78cc2e5b/scores-v2.bin",
+      "bytes": 779768,
+      "sha256": "efbd045cf7aefabd387a5f2a42133e9c2000b7012f393a63b50be934b60e5ae0",
+      "status": 200,
+      "passed": true
+    },
+    {
+      "path": "/rarity/mountains.json",
+      "bytes": 335,
+      "sha256": "11f3d2e3c037598773f7a129f45450bdafa9c4ddf5f5293a8ab56bbe06249812",
+      "status": 200,
+      "passed": true
+    },
+    {
+      "path": "/catalog/mountains/16b9c38c78cc2e5b/r19e-pool-v1/scores-v2.bin",
+      "bytes": 779768,
+      "sha256": "06bc486ca236220bd4ca538ca10b896a90f6806ce43029cbd49715d2789faa83",
+      "status": 200,
+      "passed": true
+    },
+    {
+      "path": "/rarity/mountains/16b9c38c78cc2e5b/r19e-pool-v1.json",
+      "bytes": 333,
+      "sha256": "50bf784eb672754055903b0210ddf010ad1a28d6df5dea9c704db410311829b7",
+      "status": 200,
+      "passed": true
+    },
+    {
+      "path": "/catalog/museums/d4659b2a078667f8/scores-v1.bin",
+      "bytes": 41242,
+      "sha256": "927822d40050fd44441784fbbc210fc6518e96e71dba63c600428b53a20ae6fd",
+      "status": 200,
+      "passed": true
+    },
+    {
+      "path": "/catalog/museums/d4659b2a078667f8/scores-v2.bin",
+      "bytes": 41242,
+      "sha256": "8496bf1dfd163e72457f5be877daa500ea0f9545567e912f3f0f15563e2f9b67",
+      "status": 200,
+      "passed": true
+    },
+    {
+      "path": "/rarity/museums.json",
+      "bytes": 203,
+      "sha256": "adc6b79bebace0f6fb0fff18b95ef092d10711cdcd9936eded97fd7d2175ceda",
+      "status": 200,
+      "passed": true
+    },
+    {
+      "path": "/catalog/museums/d4659b2a078667f8/r19e-pool-v1/scores-v2.bin",
+      "bytes": 41242,
+      "sha256": "3d2f62c7a8da0a9e8438e51f80341310607066dfcc2c193e7410981eb8a54bcd",
+      "status": 200,
+      "passed": true
+    },
+    {
+      "path": "/rarity/museums/d4659b2a078667f8/r19e-pool-v1.json",
+      "bytes": 332,
+      "sha256": "733d2ac68e5feb4303041630cd967692b35ab71084da9658109db2e1672eb92e",
+      "status": 200,
+      "passed": true
+    },
+    {
+      "path": "/catalog/novels/c943416dcb136d31/scores-v1.bin",
+      "bytes": 68954,
+      "sha256": "f4a07ab5e5d704f9020c43cfc07d9c63bf115dec903815056cc7e32b5dd7d6ee",
+      "status": 200,
+      "passed": true
+    },
+    {
+      "path": "/catalog/novels/c943416dcb136d31/scores-v2.bin",
+      "bytes": 68954,
+      "sha256": "01e9144048c254b09d8cad4cd08eafc4ac1ff9f37b79256323b5dc1f883c2561",
+      "status": 200,
+      "passed": true
+    },
+    {
+      "path": "/rarity/novels.json",
+      "bytes": 199,
+      "sha256": "8c114c5174018faaa71d75c0c5d572e070782ba30eb337b4e1a9a62a58e7e27b",
+      "status": 200,
+      "passed": true
+    },
+    {
+      "path": "/catalog/novels/c943416dcb136d31/r19e-pool-v1/scores-v2.bin",
+      "bytes": 68954,
+      "sha256": "5635227b80db94db432c6c81a65314a304aff5429564efa7fce60aa88a078b07",
+      "status": 200,
+      "passed": true
+    },
+    {
+      "path": "/rarity/novels/c943416dcb136d31/r19e-pool-v1.json",
+      "bytes": 334,
+      "sha256": "c82aea70ead6d8e3742a5678ea7c5819798ceb7b73684c45ae65f26b81bb2c01",
+      "status": 200,
+      "passed": true
+    },
+    {
+      "path": "/catalog/painters/739060aeb113477f/scores-v1.bin",
+      "bytes": 105934,
+      "sha256": "3d0b09054e3db66e509f95dbf9306456eb4eb51f15ac5154cc39f379c4525a54",
+      "status": 200,
+      "passed": true
+    },
+    {
+      "path": "/catalog/painters/739060aeb113477f/scores-v2.bin",
+      "bytes": 105934,
+      "sha256": "3d0b09054e3db66e509f95dbf9306456eb4eb51f15ac5154cc39f379c4525a54",
+      "status": 200,
+      "passed": true
+    },
+    {
+      "path": "/rarity/painters.json",
+      "bytes": 276,
+      "sha256": "7a616aa8f3da38dc05b8e055c333a3108df136191f0585ae0d9002f77f955157",
+      "status": 200,
+      "passed": true
+    },
+    {
+      "path": "/catalog/painters/739060aeb113477f/r19e-pool-v1/scores-v2.bin",
+      "bytes": 105934,
+      "sha256": "98b88789f6080465ec19efccdd181e89261ad36aa4e6ca296bee52c73743e228",
+      "status": 200,
+      "passed": true
+    },
+    {
+      "path": "/rarity/painters/739060aeb113477f/r19e-pool-v1.json",
+      "bytes": 335,
+      "sha256": "18b66273a1b08015987eb4cdad322e67bcc134e675779cc136bba8851f54decc",
+      "status": 200,
+      "passed": true
+    },
+    {
+      "path": "/catalog/paintings/9959859ce98921b9/scores-v1.bin",
+      "bytes": 1032918,
+      "sha256": "db1b3ae3655775fe3b70b0cdf99fb5e989a4896c5194f41534fef86034f79e13",
+      "status": 200,
+      "passed": true
+    },
+    {
+      "path": "/catalog/paintings/9959859ce98921b9/scores-v2.bin",
+      "bytes": 1032918,
+      "sha256": "76410d0214d13fad606989bd265f4d67c8aad687d0b34ad60c59bce6de4fba3e",
+      "status": 200,
+      "passed": true
+    },
+    {
+      "path": "/rarity/paintings.json",
+      "bytes": 199,
+      "sha256": "fa559f111faab135d1031be3107b12a9e20ecc65b84720a74808039f98b17230",
+      "status": 200,
+      "passed": true
+    },
+    {
+      "path": "/catalog/paintings/9959859ce98921b9/r19e-pool-v1/scores-v2.bin",
+      "bytes": 1032918,
+      "sha256": "3161d7033edae123f39534b8b392eede90e0d1177fa252d1d47c849f7e9259ff",
+      "status": 200,
+      "passed": true
+    },
+    {
+      "path": "/rarity/paintings/9959859ce98921b9/r19e-pool-v1.json",
+      "bytes": 333,
+      "sha256": "af6262e4bf9e28609c7294e8cf4cf0c7a07e8ebdbd2a78cc766d6a2623fbb9a7",
+      "status": 200,
+      "passed": true
+    },
+    {
+      "path": "/catalog/plants/f584483f47d38e7d/scores-v1.bin",
+      "bytes": 86618,
+      "sha256": "ff187d470488611b8b401185c10076dff8e1062f1f5dcfefaa55de1a7cf87988",
+      "status": 200,
+      "passed": true
+    },
+    {
+      "path": "/catalog/plants/f584483f47d38e7d/scores-v2.bin",
+      "bytes": 86618,
+      "sha256": "20733c8043ce275fcaebe3f67d85fc4c8fd8c58fb258eaf30f0a7a7eb95161be",
+      "status": 200,
+      "passed": true
+    },
+    {
+      "path": "/rarity/plants.json",
+      "bytes": 207,
+      "sha256": "6081759d2c070a750af18331711b57302a85196795d87ddc80e44a92549ef429",
+      "status": 200,
+      "passed": true
+    },
+    {
+      "path": "/catalog/plants/f584483f47d38e7d/r19e-pool-v1/scores-v2.bin",
+      "bytes": 86618,
+      "sha256": "b33f3ece91caa0db6847ef4a4642d741c0a377b49b213e4b61e33fda27666740",
+      "status": 200,
+      "passed": true
+    },
+    {
+      "path": "/rarity/plants/f584483f47d38e7d/r19e-pool-v1.json",
+      "bytes": 335,
+      "sha256": "b0f71a83fa9ee4b04bfcaa9b394cb4c7a9f206879e90f951c0c236713089cc71",
+      "status": 200,
+      "passed": true
+    },
+    {
+      "path": "/catalog/poets/51f7d3922649c960/scores-v1.bin",
+      "bytes": 81654,
+      "sha256": "af02fad040c820fedd1ccdeab3974128b216d518beaaed057b0ec53d30fdeb48",
+      "status": 200,
+      "passed": true
+    },
+    {
+      "path": "/catalog/poets/51f7d3922649c960/scores-v2.bin",
+      "bytes": 81654,
+      "sha256": "7fef3c4e77d9968ac1c5dace255bb6db1c1f1f6f75959dd9a82c460ca9f68f86",
+      "status": 200,
+      "passed": true
+    },
+    {
+      "path": "/rarity/poets.json",
+      "bytes": 204,
+      "sha256": "dbf0874df331d1b1eec735324b9d8775321d386318202b7058339ff1feb3a4ab",
+      "status": 200,
+      "passed": true
+    },
+    {
+      "path": "/catalog/poets/51f7d3922649c960/r19e-pool-v1/scores-v2.bin",
+      "bytes": 81654,
+      "sha256": "565ad0502630a26927aa013c9d63c237f67a960eacbcb7519897e734c2959417",
+      "status": 200,
+      "passed": true
+    },
+    {
+      "path": "/rarity/poets/51f7d3922649c960/r19e-pool-v1.json",
+      "bytes": 333,
+      "sha256": "32460014239040ed927be47213c599d67aa530c55e2b3f52ffec27f4fef73d09",
+      "status": 200,
+      "passed": true
+    },
+    {
+      "path": "/catalog/rivers/e848dc5bda64483a/scores-v1.bin",
+      "bytes": 1692132,
+      "sha256": "0cd1b5e7a456d12e4011734be775a6b010b053243891a2b8a31b475cc3d408a5",
+      "status": 200,
+      "passed": true
+    },
+    {
+      "path": "/catalog/rivers/e848dc5bda64483a/scores-v2.bin",
+      "bytes": 1692132,
+      "sha256": "6fe46256ef3f297b022e40edc6acb5235ad6d175fe797d45e28d55cb0a5a222b",
+      "status": 200,
+      "passed": true
+    },
+    {
+      "path": "/rarity/rivers.json",
+      "bytes": 332,
+      "sha256": "271d8f147cc850e4e56ad4c4c01ee40fc11b1eded1a7481f467e07b766f95569",
+      "status": 200,
+      "passed": true
+    },
+    {
+      "path": "/catalog/rivers/e848dc5bda64483a/r19e-pool-v1/scores-v2.bin",
+      "bytes": 1692132,
+      "sha256": "faadcb9de870e661b91a83686c03cab300c154557ee42fe2635edfe63ad8d26b",
+      "status": 200,
+      "passed": true
+    },
+    {
+      "path": "/rarity/rivers/e848dc5bda64483a/r19e-pool-v1.json",
+      "bytes": 334,
+      "sha256": "7ac4ab39110284b0bff84c82322bdc3c41977b38b792ef3a8357685073a7580e",
+      "status": 200,
+      "passed": true
+    },
+    {
+      "path": "/catalog/ships/710de7afbdf266c3/scores-v1.bin",
+      "bytes": 66714,
+      "sha256": "a2c1bdc3f727fe8bad51d13fed0492e021d92533cc193a4ee68f8e26c260c329",
+      "status": 200,
+      "passed": true
+    },
+    {
+      "path": "/catalog/ships/710de7afbdf266c3/scores-v2.bin",
+      "bytes": 66714,
+      "sha256": "5b9fa847a1abaeca0af9bdb9434629a38049614204ca951812500eda22e838c3",
+      "status": 200,
+      "passed": true
+    },
+    {
+      "path": "/rarity/ships.json",
+      "bytes": 205,
+      "sha256": "e7dc7763a637a525005ef4d28523f314d45a52cfbe8a201137eefa552ffe8cfb",
+      "status": 200,
+      "passed": true
+    },
+    {
+      "path": "/catalog/ships/710de7afbdf266c3/r19e-pool-v1/scores-v2.bin",
+      "bytes": 66714,
+      "sha256": "75337a729bfe8fe28d638755ea67e1c27437da1781c54399d51f4dd7e62127b0",
+      "status": 200,
+      "passed": true
+    },
+    {
+      "path": "/rarity/ships/710de7afbdf266c3/r19e-pool-v1.json",
+      "bytes": 334,
+      "sha256": "ff8f391d9d6071b1a44143172b816448bb7fdece33b528a36ad77fe436d08168",
+      "status": 200,
+      "passed": true
+    },
+    {
+      "path": "/catalog/songs/29ccf58663e2b248/scores-v1.bin",
+      "bytes": 172708,
+      "sha256": "1a86584934c2666a8e798166b78fb4d80d898c9ad910f92b698ca54c3d1f41e9",
+      "status": 200,
+      "passed": true
+    },
+    {
+      "path": "/catalog/songs/29ccf58663e2b248/scores-v2.bin",
+      "bytes": 172708,
+      "sha256": "4684d14cf58be0343b7f6f8ea3f9f4f0277f3a4429b32bcf990b1adf84ed7118",
+      "status": 200,
+      "passed": true
+    },
+    {
+      "path": "/rarity/songs.json",
+      "bytes": 199,
+      "sha256": "eea025242f58a700a4dd0f8763f0e51b69e1d82ef12944de364a52e327c795af",
+      "status": 200,
+      "passed": true
+    },
+    {
+      "path": "/catalog/songs/29ccf58663e2b248/r19e-pool-v1/scores-v2.bin",
+      "bytes": 172708,
+      "sha256": "46e4ef41a27cf018b2067a45531a14ef0b0585fc52fe159e1eab4efbab5f6e67",
+      "status": 200,
+      "passed": true
+    },
+    {
+      "path": "/rarity/songs/29ccf58663e2b248/r19e-pool-v1.json",
+      "bytes": 335,
+      "sha256": "544d6791e445463507828b368137628f273636e14d972149e42871a44fd461f6",
+      "status": 200,
+      "passed": true
+    },
+    {
+      "path": "/catalog/stations/c5509e1dd2ca6d1a/scores-v1.bin",
+      "bytes": 257556,
+      "sha256": "a1dcc24995839205ad268fbd32d32ef73c30c14c0a8856a8c3a36a5a5473be0c",
+      "status": 200,
+      "passed": true
+    },
+    {
+      "path": "/catalog/stations/c5509e1dd2ca6d1a/scores-v2.bin",
+      "bytes": 257556,
+      "sha256": "2ed836ef704775ff9db0fe30ed0cdfff549b4f005e63c421c63cff895b6aaf8c",
+      "status": 200,
+      "passed": true
+    },
+    {
+      "path": "/rarity/stations.json",
+      "bytes": 330,
+      "sha256": "9ea5c6f989b9d088e9ebd9e599565432d144ec4e79a1434433f688fa8086f04b",
+      "status": 200,
+      "passed": true
+    },
+    {
+      "path": "/catalog/stations/c5509e1dd2ca6d1a/r19e-pool-v1/scores-v2.bin",
+      "bytes": 257556,
+      "sha256": "5555e077184d7c493f75478ce473069bba6463c3cc720279d6130f796c855b01",
+      "status": 200,
+      "passed": true
+    },
+    {
+      "path": "/rarity/stations/c5509e1dd2ca6d1a/r19e-pool-v1.json",
+      "bytes": 333,
+      "sha256": "984eafb2d55d5485b6ec2452e46e59ae4dab1b4cff0cca1e54727f1973c8d8dc",
+      "status": 200,
+      "passed": true
+    },
+    {
+      "path": "/catalog/television/d343cb3c81d189d2/scores-v1.bin",
+      "bytes": 115864,
+      "sha256": "6781321638c563274c01df925343bebd97263657bb0dc36e497eeb5c3d5f4252",
+      "status": 200,
+      "passed": true
+    },
+    {
+      "path": "/catalog/television/d343cb3c81d189d2/scores-v2.bin",
+      "bytes": 115864,
+      "sha256": "6781321638c563274c01df925343bebd97263657bb0dc36e497eeb5c3d5f4252",
+      "status": 200,
+      "passed": true
+    },
+    {
+      "path": "/rarity/television.json",
+      "bytes": 199,
+      "sha256": "5d40cb9df771b36d23a5e046ac113500499cb42982ecdccd6ebc79232d7c7339",
+      "status": 200,
+      "passed": true
+    },
+    {
+      "path": "/catalog/television/d343cb3c81d189d2/r19e-pool-v1/scores-v2.bin",
+      "bytes": 115864,
+      "sha256": "abae80c6e14db7aacdc7ba9765f7297b123fe953bbd8e9e28ec446255271adae",
+      "status": 200,
+      "passed": true
+    },
+    {
+      "path": "/rarity/television/d343cb3c81d189d2/r19e-pool-v1.json",
+      "bytes": 333,
+      "sha256": "1b8005738193aa08cd5e3b491a3d17cb3b727786eee981daba8e0598add9e38b",
+      "status": 200,
+      "passed": true
+    },
+    {
+      "path": "/catalog/universities/1e087421872a18e5/scores-v1.bin",
+      "bytes": 49168,
+      "sha256": "5ef72f62b7416d998523c715824546c41b74ecea2f9e277cb12f3a4d5618cd4d",
+      "status": 200,
+      "passed": true
+    },
+    {
+      "path": "/catalog/universities/1e087421872a18e5/scores-v2.bin",
+      "bytes": 49168,
+      "sha256": "be78f0dc64271dbbd5757bfb7466cd6ce64fdb9b4bd5200f2bb72e84b3f258b0",
+      "status": 200,
+      "passed": true
+    },
+    {
+      "path": "/rarity/universities.json",
+      "bytes": 199,
+      "sha256": "04cbe076d36c0129e6d4155c072524747660303523796ec97a5e02a99b58390f",
+      "status": 200,
+      "passed": true
+    },
+    {
+      "path": "/catalog/universities/1e087421872a18e5/r19e-pool-v1/scores-v2.bin",
+      "bytes": 49168,
+      "sha256": "10c1d32c826adeb8815db19e72bc8f809e4aa55536343939b014e34397d4af33",
+      "status": 200,
+      "passed": true
+    },
+    {
+      "path": "/rarity/universities/1e087421872a18e5/r19e-pool-v1.json",
+      "bytes": 334,
+      "sha256": "c6e9f252a0e1948b77c95c0e96a1ddd2a77b3cc6cb40f0d52f2f8b45169e66e0",
+      "status": 200,
+      "passed": true
+    },
+    {
+      "path": "/catalog/video-games/b3132c41eebaa59a/scores-v1.bin",
+      "bytes": 362348,
+      "sha256": "80af768a4e3bf14be72b55382369e5561b098da8094d959b22d225fba6a25011",
+      "status": 200,
+      "passed": true
+    },
+    {
+      "path": "/catalog/video-games/b3132c41eebaa59a/scores-v2.bin",
+      "bytes": 362348,
+      "sha256": "371df92aab41a0edb27ba901060509d94d4cc7b66d2f047e3b1ca0e29f248ea7",
+      "status": 200,
+      "passed": true
+    },
+    {
+      "path": "/rarity/video-games.json",
+      "bytes": 199,
+      "sha256": "9f40ebced4382805df7cab74f2c15e2c90fe64eca9a5591384758452aaec5f82",
+      "status": 200,
+      "passed": true
+    },
+    {
+      "path": "/catalog/video-games/b3132c41eebaa59a/r19e-pool-v1/scores-v2.bin",
+      "bytes": 362348,
+      "sha256": "7833c193a9eb421b9f602cfbc13f643b99a64914a417b26a57c4506147e217e6",
+      "status": 200,
+      "passed": true
+    },
+    {
+      "path": "/rarity/video-games/b3132c41eebaa59a/r19e-pool-v1.json",
+      "bytes": 333,
+      "sha256": "42251f2a6cc0cbfce95e0d205877ae2b7f2b3e36c70c7f4923367e924d7c67ca",
+      "status": 200,
+      "passed": true
+    },
+    {
+      "path": "/catalog/foods/f0dbabbca22064f9/scores-v1.bin",
+      "bytes": 27978,
+      "sha256": "9475917cc159611f39fe18791c42306d8361debca854b48f2bdae0c509262c3c",
+      "status": 200,
+      "passed": true
+    },
+    {
+      "path": "/catalog/foods/f0dbabbca22064f9/scores-v2.bin",
+      "bytes": 27978,
+      "sha256": "3ddd127ceced87daedd5002e9179c4d03d9b10e27a8e2b594f725123a3bd7146",
+      "status": 200,
+      "passed": true
+    },
+    {
+      "path": "/catalog/foods/f0dbabbca22064f9/r19e-pool-v1/scores-v2.bin",
+      "bytes": 27978,
+      "sha256": "bc66c1963ae0e2c73e2a9112ad4cff3f4dd91f923eb846f8d6fb56c4b278a99c",
+      "status": 200,
+      "passed": true
+    },
+    {
+      "path": "/rarity/foods/f0dbabbca22064f9/r19e-pool-v1.json",
+      "bytes": 332,
+      "sha256": "4290509512ae9df0aa50f62ef77b3ad5eb0ed01b9131510773adae2d82d47bd5",
+      "status": 200,
+      "passed": true
+    }
+  ]
+}

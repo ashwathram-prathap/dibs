@@ -1,0 +1,337 @@
+{
+  "passed": true,
+  "files": 66,
+  "baseline": "review/round19c/production-score-assets.json",
+  "rows": [
+    {
+      "path": "/catalog/actors/1f68f6b5340a8880/scores-v1.bin",
+      "sha256": "76e432a474e5476894f193d7aa547b650e43df3b617758dd6a13a5d11f69e76b",
+      "unchanged": true
+    },
+    {
+      "path": "/catalog/actors/1f68f6b5340a8880/scores-v2.bin",
+      "sha256": "76e432a474e5476894f193d7aa547b650e43df3b617758dd6a13a5d11f69e76b",
+      "unchanged": true
+    },
+    {
+      "path": "/catalog/airports/8d8792d4f74eee1e/scores-v1.bin",
+      "sha256": "d3aedeb046c83c4338f5c7b1d2eb59a2d90aa49b9a1347f12118a981cd06e8a0",
+      "unchanged": true
+    },
+    {
+      "path": "/catalog/airports/8d8792d4f74eee1e/scores-v2.bin",
+      "sha256": "f997e66f3c3b09e3c1df19d9687c79aeabd6dd269be62825b18dfcb8843c18b4",
+      "unchanged": true
+    },
+    {
+      "path": "/catalog/albums/7b689f83c1956929/scores-v1.bin",
+      "sha256": "192c7bfbc084f4766dd92ce5af371fbe127bca82ff6e22969e4594c0d72037fb",
+      "unchanged": true
+    },
+    {
+      "path": "/catalog/albums/7b689f83c1956929/scores-v2.bin",
+      "sha256": "c9272f67a7b165cc278edef6e0cc043202a66f4be0769f09b78466ae91770065",
+      "unchanged": true
+    },
+    {
+      "path": "/catalog/animals/10210a86838c8eca/scores-v1.bin",
+      "sha256": "05ef61c5258ad3d39427cd90209c3f6f6fa1febdc7d3a32812721a9254eae421",
+      "unchanged": true
+    },
+    {
+      "path": "/catalog/animals/10210a86838c8eca/scores-v2.bin",
+      "sha256": "594fdbe933d3e8e3a70c07e89ff330b95d052a9ffe5d45475d6aca84d9e630b6",
+      "unchanged": true
+    },
+    {
+      "path": "/catalog/architects/791e50276f0e82ae/scores-v1.bin",
+      "sha256": "3f27c59346adda46c07a9624313cdceab821251bdbf09692b557db7610b3fdda",
+      "unchanged": true
+    },
+    {
+      "path": "/catalog/architects/791e50276f0e82ae/scores-v2.bin",
+      "sha256": "3f27c59346adda46c07a9624313cdceab821251bdbf09692b557db7610b3fdda",
+      "unchanged": true
+    },
+    {
+      "path": "/catalog/arthropods/51bc78890de6c9be/scores-v1.bin",
+      "sha256": "b0ee102d81a9e426daa1ab12483e057793dd2be395a45284343795e515969fe3",
+      "unchanged": true
+    },
+    {
+      "path": "/catalog/arthropods/51bc78890de6c9be/scores-v2.bin",
+      "sha256": "126f4d613765e0b18e16f7789b3bbb7823d6586013ff756415fc886bc8910f40",
+      "unchanged": true
+    },
+    {
+      "path": "/catalog/asteroids/75530681294d3f8c/scores-v1.bin",
+      "sha256": "30547c20ecd915ec3c66fdc9b23868f6ed15b440589d70cca183c75e3aff0a47",
+      "unchanged": true
+    },
+    {
+      "path": "/catalog/asteroids/75530681294d3f8c/scores-v2.bin",
+      "sha256": "30547c20ecd915ec3c66fdc9b23868f6ed15b440589d70cca183c75e3aff0a47",
+      "unchanged": true
+    },
+    {
+      "path": "/catalog/bands/5aa38771254148d7/scores-v1.bin",
+      "sha256": "e1f31653e29ae6c72831ba12b140252d01bfd58f29b6aaba737740b185e12644",
+      "unchanged": true
+    },
+    {
+      "path": "/catalog/bands/5aa38771254148d7/scores-v2.bin",
+      "sha256": "2223cbe0cf6302ce812d7a36d7479874a4ecaac0a63d925c996e2519f56d6fd8",
+      "unchanged": true
+    },
+    {
+      "path": "/catalog/birds/04985deb94445ed1/scores-v1.bin",
+      "sha256": "9cc9a8682909adedecf36db9036d8a4381e4b4d195e6625420f51170559a1553",
+      "unchanged": true
+    },
+    {
+      "path": "/catalog/birds/04985deb94445ed1/scores-v2.bin",
+      "sha256": "82a59587f0c137eba64e5a230b56c22032eefb69b12ba4e04ca76e9348f22241",
+      "unchanged": true
+    },
+    {
+      "path": "/catalog/castles/a373e1a824a05cc5/scores-v1.bin",
+      "sha256": "8083a897a2b419e14bc9cd1e1efe039d1a0c49dbc13d106e7ee336e6050c4e73",
+      "unchanged": true
+    },
+    {
+      "path": "/catalog/castles/a373e1a824a05cc5/scores-v2.bin",
+      "sha256": "50fed0834b0330e00444fd08cf3d0d19781d0c156f2c63f8fbf54d57fbfdce7e",
+      "unchanged": true
+    },
+    {
+      "path": "/catalog/cities/00cadebbe95f4404/scores-v1.bin",
+      "sha256": "85f4202737c39fcecd6be4b34d43e24ca4fd3ea0b4f41e84a8e750a552c2c79a",
+      "unchanged": true
+    },
+    {
+      "path": "/catalog/cities/00cadebbe95f4404/scores-v2.bin",
+      "sha256": "470f6d48bdca75e41abc303693ff2ba976a9c95833bdd9665166769655565cb8",
+      "unchanged": true
+    },
+    {
+      "path": "/catalog/composers/65f4199c635d7bbc/scores-v1.bin",
+      "sha256": "cafc63b3206072267541a72a2de79921ee91a8aecacd0aa4c80eb5344f4b5c44",
+      "unchanged": true
+    },
+    {
+      "path": "/catalog/composers/65f4199c635d7bbc/scores-v2.bin",
+      "sha256": "e310fed3862aebde03039e518f88a3c0816b38ead6df012e564c90a39b0a9f55",
+      "unchanged": true
+    },
+    {
+      "path": "/catalog/countries/34d735861a0b55ac/scores-v1.bin",
+      "sha256": "88ad54af0a17ae7ebdf5ca7f2c0137bade0366af0876521c375520968ad8cd28",
+      "unchanged": true
+    },
+    {
+      "path": "/catalog/countries/34d735861a0b55ac/scores-v2.bin",
+      "sha256": "88ad54af0a17ae7ebdf5ca7f2c0137bade0366af0876521c375520968ad8cd28",
+      "unchanged": true
+    },
+    {
+      "path": "/catalog/films/5e6d4def4c7b073b/scores-v1.bin",
+      "sha256": "d5fdca81c292466e075f53902d24a50d5dfc2b57793ee0377b50e91a0e495c12",
+      "unchanged": true
+    },
+    {
+      "path": "/catalog/films/5e6d4def4c7b073b/scores-v2.bin",
+      "sha256": "532db62d3b2c733deb217d9edc67bdd5a3801a928e86da3a835a96407da1ca31",
+      "unchanged": true
+    },
+    {
+      "path": "/catalog/foods/c13c215b8bb7b069/scores-v1.bin",
+      "sha256": "8c9115b990dbda885cc516eb3e4cb03293df13681f50369d365f8101dcc8a3f2",
+      "unchanged": true
+    },
+    {
+      "path": "/catalog/foods/c13c215b8bb7b069/scores-v2.bin",
+      "sha256": "af6d4086795c3540f9509c78cba104be61011f6f0c4c01112d9b7231d69fbd5a",
+      "unchanged": true
+    },
+    {
+      "path": "/catalog/footballers/3c42b0dee313f8fd/scores-v1.bin",
+      "sha256": "236d2827b76ff32fc4c437253e331dff5966a57d34000f375e3d542490cab845",
+      "unchanged": true
+    },
+    {
+      "path": "/catalog/footballers/3c42b0dee313f8fd/scores-v2.bin",
+      "sha256": "236d2827b76ff32fc4c437253e331dff5966a57d34000f375e3d542490cab845",
+      "unchanged": true
+    },
+    {
+      "path": "/catalog/fruits-vegetables/7cc25d83172226d8/scores-v1.bin",
+      "sha256": "89cb26dea153c94f08d28442186e7973b9e6df34ddf9509bb97b6dfabc277854",
+      "unchanged": true
+    },
+    {
+      "path": "/catalog/fruits-vegetables/7cc25d83172226d8/scores-v2.bin",
+      "sha256": "af61497b4d9b37411ed4e423da21b8abeec62fb012031aa310133fc5a3b03f37",
+      "unchanged": true
+    },
+    {
+      "path": "/catalog/islands/dce93ccf83ed0b78/scores-v1.bin",
+      "sha256": "53d9cd89b499e5ed8027ead4940e54325462ff4ad276725dc3d0d26fdabb484c",
+      "unchanged": true
+    },
+    {
+      "path": "/catalog/islands/dce93ccf83ed0b78/scores-v2.bin",
+      "sha256": "2473b5e5d697b32491ea4e0cfabfc3b6651e6f025e7af8ed73100b2ab0146ea0",
+      "unchanged": true
+    },
+    {
+      "path": "/catalog/lakes/c9a92d2453c458d6/scores-v1.bin",
+      "sha256": "ff847c4bcd8f37e04bbc8ef42284319e0f6f0c1f2ee762bfdd6790a35fb4cf30",
+      "unchanged": true
+    },
+    {
+      "path": "/catalog/lakes/c9a92d2453c458d6/scores-v2.bin",
+      "sha256": "bd287d84851b198c01604ee73ea51dd8b0cae9f08e63400b987dccb783cc00d7",
+      "unchanged": true
+    },
+    {
+      "path": "/catalog/mountains/16b9c38c78cc2e5b/scores-v1.bin",
+      "sha256": "8fd373bf160e80295754b23d5f95221cc2d53bc36ec8dc443a72e4a48d7fa1f3",
+      "unchanged": true
+    },
+    {
+      "path": "/catalog/mountains/16b9c38c78cc2e5b/scores-v2.bin",
+      "sha256": "efbd045cf7aefabd387a5f2a42133e9c2000b7012f393a63b50be934b60e5ae0",
+      "unchanged": true
+    },
+    {
+      "path": "/catalog/museums/d4659b2a078667f8/scores-v1.bin",
+      "sha256": "927822d40050fd44441784fbbc210fc6518e96e71dba63c600428b53a20ae6fd",
+      "unchanged": true
+    },
+    {
+      "path": "/catalog/museums/d4659b2a078667f8/scores-v2.bin",
+      "sha256": "8496bf1dfd163e72457f5be877daa500ea0f9545567e912f3f0f15563e2f9b67",
+      "unchanged": true
+    },
+    {
+      "path": "/catalog/novels/c943416dcb136d31/scores-v1.bin",
+      "sha256": "f4a07ab5e5d704f9020c43cfc07d9c63bf115dec903815056cc7e32b5dd7d6ee",
+      "unchanged": true
+    },
+    {
+      "path": "/catalog/novels/c943416dcb136d31/scores-v2.bin",
+      "sha256": "01e9144048c254b09d8cad4cd08eafc4ac1ff9f37b79256323b5dc1f883c2561",
+      "unchanged": true
+    },
+    {
+      "path": "/catalog/painters/739060aeb113477f/scores-v1.bin",
+      "sha256": "3d0b09054e3db66e509f95dbf9306456eb4eb51f15ac5154cc39f379c4525a54",
+      "unchanged": true
+    },
+    {
+      "path": "/catalog/painters/739060aeb113477f/scores-v2.bin",
+      "sha256": "3d0b09054e3db66e509f95dbf9306456eb4eb51f15ac5154cc39f379c4525a54",
+      "unchanged": true
+    },
+    {
+      "path": "/catalog/paintings/9959859ce98921b9/scores-v1.bin",
+      "sha256": "db1b3ae3655775fe3b70b0cdf99fb5e989a4896c5194f41534fef86034f79e13",
+      "unchanged": true
+    },
+    {
+      "path": "/catalog/paintings/9959859ce98921b9/scores-v2.bin",
+      "sha256": "76410d0214d13fad606989bd265f4d67c8aad687d0b34ad60c59bce6de4fba3e",
+      "unchanged": true
+    },
+    {
+      "path": "/catalog/plants/f584483f47d38e7d/scores-v1.bin",
+      "sha256": "ff187d470488611b8b401185c10076dff8e1062f1f5dcfefaa55de1a7cf87988",
+      "unchanged": true
+    },
+    {
+      "path": "/catalog/plants/f584483f47d38e7d/scores-v2.bin",
+      "sha256": "20733c8043ce275fcaebe3f67d85fc4c8fd8c58fb258eaf30f0a7a7eb95161be",
+      "unchanged": true
+    },
+    {
+      "path": "/catalog/poets/51f7d3922649c960/scores-v1.bin",
+      "sha256": "af02fad040c820fedd1ccdeab3974128b216d518beaaed057b0ec53d30fdeb48",
+      "unchanged": true
+    },
+    {
+      "path": "/catalog/poets/51f7d3922649c960/scores-v2.bin",
+      "sha256": "7fef3c4e77d9968ac1c5dace255bb6db1c1f1f6f75959dd9a82c460ca9f68f86",
+      "unchanged": true
+    },
+    {
+      "path": "/catalog/rivers/e848dc5bda64483a/scores-v1.bin",
+      "sha256": "0cd1b5e7a456d12e4011734be775a6b010b053243891a2b8a31b475cc3d408a5",
+      "unchanged": true
+    },
+    {
+      "path": "/catalog/rivers/e848dc5bda64483a/scores-v2.bin",
+      "sha256": "6fe46256ef3f297b022e40edc6acb5235ad6d175fe797d45e28d55cb0a5a222b",
+      "unchanged": true
+    },
+    {
+      "path": "/catalog/ships/710de7afbdf266c3/scores-v1.bin",
+      "sha256": "a2c1bdc3f727fe8bad51d13fed0492e021d92533cc193a4ee68f8e26c260c329",
+      "unchanged": true
+    },
+    {
+      "path": "/catalog/ships/710de7afbdf266c3/scores-v2.bin",
+      "sha256": "5b9fa847a1abaeca0af9bdb9434629a38049614204ca951812500eda22e838c3",
+      "unchanged": true
+    },
+    {
+      "path": "/catalog/songs/29ccf58663e2b248/scores-v1.bin",
+      "sha256": "1a86584934c2666a8e798166b78fb4d80d898c9ad910f92b698ca54c3d1f41e9",
+      "unchanged": true
+    },
+    {
+      "path": "/catalog/songs/29ccf58663e2b248/scores-v2.bin",
+      "sha256": "4684d14cf58be0343b7f6f8ea3f9f4f0277f3a4429b32bcf990b1adf84ed7118",
+      "unchanged": true
+    },
+    {
+      "path": "/catalog/stations/c5509e1dd2ca6d1a/scores-v1.bin",
+      "sha256": "a1dcc24995839205ad268fbd32d32ef73c30c14c0a8856a8c3a36a5a5473be0c",
+      "unchanged": true
+    },
+    {
+      "path": "/catalog/stations/c5509e1dd2ca6d1a/scores-v2.bin",
+      "sha256": "2ed836ef704775ff9db0fe30ed0cdfff549b4f005e63c421c63cff895b6aaf8c",
+      "unchanged": true
+    },
+    {
+      "path": "/catalog/television/d343cb3c81d189d2/scores-v1.bin",
+      "sha256": "6781321638c563274c01df925343bebd97263657bb0dc36e497eeb5c3d5f4252",
+      "unchanged": true
+    },
+    {
+      "path": "/catalog/television/d343cb3c81d189d2/scores-v2.bin",
+      "sha256": "6781321638c563274c01df925343bebd97263657bb0dc36e497eeb5c3d5f4252",
+      "unchanged": true
+    },
+    {
+      "path": "/catalog/universities/1e087421872a18e5/scores-v1.bin",
+      "sha256": "5ef72f62b7416d998523c715824546c41b74ecea2f9e277cb12f3a4d5618cd4d",
+      "unchanged": true
+    },
+    {
+      "path": "/catalog/universities/1e087421872a18e5/scores-v2.bin",
+      "sha256": "be78f0dc64271dbbd5757bfb7466cd6ce64fdb9b4bd5200f2bb72e84b3f258b0",
+      "unchanged": true
+    },
+    {
+      "path": "/catalog/video-games/b3132c41eebaa59a/scores-v1.bin",
+      "sha256": "80af768a4e3bf14be72b55382369e5561b098da8094d959b22d225fba6a25011",
+      "unchanged": true
+    },
+    {
+      "path": "/catalog/video-games/b3132c41eebaa59a/scores-v2.bin",
+      "sha256": "371df92aab41a0edb27ba901060509d94d4cc7b66d2f047e3b1ca0e29f248ea7",
+      "unchanged": true
+    }
+  ]
+}

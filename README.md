@@ -79,6 +79,14 @@ The builder considers every source row, merges common names and aliases, and mea
 
 House words are the ten highest measured mean daily pageview answers, with deterministic name tie breaks. Golden answers use unbiased draws without replacement excluding the house. A cryptographic commitment is stored before play; its payload is revealed only when the day closes. Public indexes contain all accepted names but never disclose golden selection. Changing a future category through `/api/admin/static-catalog` preserves its date and status and draws new commitments; opened categories cannot be replaced.
 
+## Rarity scoring assets
+
+`npm run build` ranks measured mean daily pageviews within each category's nameable pool. Set its cap in `scripts/category-plan.json` → `rarityPoolSizes` (3,000 by default); smaller catalogs use all measured answers. Outside-pool readings receive percentile 1. Missing readings remain unmeasured and use that category's reference-pool median. The familiar decile scores 10, rising to 110 in five-point steps; saved claim points are never recomputed.
+
+When changing the pool configuration, scoring scale or ranking algorithm, bump `SCORING_VERSION` in `shared/scoring-assets.ts`. Binaries and empirical curves include both catalog and scoring versions; the builder refuses to overwrite different bytes at an existing path. Frozen legacy math recreates the old v1/v2 scoring assets for rollback Workers. `retainedCatalogs` pins checksum-verified historical sources still used by scheduled days, including the older Foods catalog.
+
+Publish and verify Pages assets **before** deploying the Worker in each environment. Its scoring fetch uses the compiled `PUBLIC_ORIGIN`, so practice assets must exist on the practice origin too. The authenticated GET `/api/admin/scoring?id=CATEGORY&q=ANSWER` checks base points and percentiles without creating claims or inspecting golden selections. Reports and 30-answer before/after tables are in `review/round19e/`.
+
 ## Identity, privacy and operation
 
 A hashed recovery key restores the same signed identity in another browser. Key entry is rate limited. Claim requests carry an idempotency UUID so a network retry cannot duplicate a claim or strike. Missing-answer submissions are anonymous, rate limited, retained for 90 days, and visible in admin stats. The Office notice explains storage, retention, 13+ eligibility and self-serve file deletion and the Tell the clerk privacy topic.

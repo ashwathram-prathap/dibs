@@ -1,0 +1,9 @@
+{
+  "origin": "https://practice.dibs-7hz.pages.dev/about",
+  "beforeScreenshotConsoleErrors": [],
+  "afterScreenshotConsoleErrors": [
+    "Refused to apply a stylesheet because its hash, its nonce, or 'unsafe-inline' does not appear in the style-src directive of the Content Security Policy."
+  ],
+  "cause": "Playwright WebKit screenshot injects body {}; production CSP correctly rejects it. Reproduced independently; existing vite.config.ts documents the same behavior.",
+  "resolution": "Keep WebKit production smoke screenshot-free; retain strict zero-console-error assertions and unchanged production CSP. WebKit screenshots already passed on the isolated security-test server."
+}

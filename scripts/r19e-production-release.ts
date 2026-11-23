@@ -21,6 +21,7 @@ function run(name: string, program: string, args: string[]) {
   writeFileSync('review/round19e/production-release.json', JSON.stringify(steps, null, 2));
   assert.equal(result.status, 0, name + ' failed; see private release log');
   time();
+  return result.stdout;
 }
 const ts = (name: string, script: string, args: string[] = []) =>
   run(name, './node_modules/.bin/tsx', [script, ...args]);
@@ -34,7 +35,11 @@ assert.ok(
   unit.success && unit.numFailedTests === 0 && unit.numPassedTests >= 238,
   'Unit/API suite must pass',
 );
-for (const name of ['browser-results.json', 'firefox-browser-results.json']) {
+for (const name of [
+  'browser-results.json',
+  'firefox-browser-results.json',
+  'final-visual-browser-results.json',
+]) {
   const r = report(name);
   assert.ok(
     r.stats.expected > 0 && !r.stats.unexpected && !r.stats.skipped && !r.stats.flaky,
@@ -63,15 +68,31 @@ try {
   ts('Verify production state before release', 'scripts/r19e-state.ts', ['production', '--after']);
   ts('Check launch freeze', 'scripts/check-deploy-freeze.ts', ['--production']);
   changed = true;
-  run('Publish production assets before Worker', './node_modules/.bin/wrangler', [
-    'pages',
-    'deploy',
+  const deploymentOutput = run(
+    'Publish production assets before Worker',
+    './node_modules/.bin/wrangler',
+    [
+      'pages',
+      'deploy',
+      'dist',
+      '--project-name',
+      'dibs',
+      '--branch',
+      'main',
+      '--commit-dirty=true',
+    ],
+  );
+  const deploymentOrigin = deploymentOutput.match(/https:\/\/[a-f0-9]+\.dibs-7hz\.pages\.dev/)?.[0];
+  assert.ok(deploymentOrigin, 'Missing immutable Pages deployment URL');
+  ts('Preflight immutable deployment scripts', 'scripts/r19e-preflight-assets.ts', [
+    deploymentOrigin,
+  ]);
+  // Confirm the alias serves the new files before requesting its cacheable URLs.
+  // A premature plain request can cache Pages' SPA fallback at a future JS URL.
+  ts('Wait for fresh canonical assets', 'scripts/r19e-assets.ts', [
+    'https://dibs.here',
     'dist',
-    '--project-name',
-    'dibs',
-    '--branch',
-    'main',
-    '--commit-dirty=true',
+    '--fresh',
   ]);
   ts('Verify coherent production scripts', 'scripts/r19e-assets.ts', ['https://dibs.here']);
   ts('Verify every current and rollback scoring asset', 'scripts/r19e-score-assets.ts', [

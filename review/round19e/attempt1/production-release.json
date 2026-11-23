@@ -1,0 +1,27 @@
+[
+  {
+    "name": "Record production rollback IDs",
+    "passed": true,
+    "at": "2026-11-23T20:26:22.393Z"
+  },
+  {
+    "name": "Verify production state before release",
+    "passed": true,
+    "at": "2026-11-23T20:26:24.004Z"
+  },
+  {
+    "name": "Check launch freeze",
+    "passed": true,
+    "at": "2026-11-23T20:26:24.184Z"
+  },
+  {
+    "name": "Publish production assets before Worker",
+    "passed": true,
+    "at": "2026-11-23T20:26:40.525Z"
+  },
+  {
+    "name": "Verify coherent production scripts",
+    "passed": false,
+    "at": "2026-11-23T20:27:24.670Z"
+  }
+]
