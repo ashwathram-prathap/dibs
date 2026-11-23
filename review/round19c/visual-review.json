@@ -1,7 +1,7 @@
 {
   "at": "2026-11-23T17:13:50.423472+00:00",
   "passed": false,
-  "pending": "Full validation after reserving space for the live verification widget to remove the measured leaderboard layout shift.",
+  "pending": "Full combined matrix and final idle Lighthouse verification remain pending.",
   "nativeScreensReviewed": [
     "review/final/round19c/settings-open/chromium-1440-light.png",
     "review/final/round19c/settings-open/chromium-390-light.png",
@@ -144,11 +144,16 @@
     "applicationCommit": "d3260f2"
   },
   "finalReview": {
-    "applicationCommit": "d68bf47",
-    "at": "2026-11-23T18:41:37.343246+00:00",
+    "applicationCommit": "c1b8a34",
+    "at": "2026-11-23T19:29:21.622141+00:00",
     "screens": 31,
     "captures": 248,
-    "scope": "All 31 final contact-sheet overviews reviewed after the static fallback correction, plus the new native WebKit 390px dark scrolled Settings capture."
+    "unchangedReviewedSheets": 29,
+    "refreshedSheetsReviewed": [
+      "review/round19c/final-review/settings-open.png",
+      "review/round19c/final-review/settings-scrolled.png"
+    ],
+    "scope": "The new final run reproduced 29 previously reviewed contact sheets byte-for-byte. Both changed Settings sheets were visually reviewed again, plus native 390px light Settings. All 48 final assertions passed."
   },
   "firefoxNativeReview": {
     "at": "2026-11-23T18:55:50.162438+00:00",
