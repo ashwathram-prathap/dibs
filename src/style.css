@@ -5514,3 +5514,4 @@ a:focus-visible,
 .sealed-certificate .cert-answer { letter-spacing:.08em; }
 .sealed-note { font:16px/1.4 Instrument,sans-serif; }
 .sealed-wax { width:64px; height:64px; display:grid; place-items:center; border:3px double currentColor; border-radius:50%; font:900 14px Archivo,sans-serif; }
+@media(max-width:390px) { .certificate .cert-bottom { flex-wrap:wrap; gap:24px; } .certificate .cert-bottom > div:first-child { flex:1 0 100%; } .certificate .cert-bottom .dibs-stamp { margin-left:auto; } }

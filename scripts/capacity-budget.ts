@@ -5,6 +5,7 @@ import { readFileSync, readdirSync, writeFileSync, mkdirSync } from 'node:fs';
 import { registryDate, dropAt } from '../worker/domain';
 const baseline = process.argv.includes('--before');
 const practice = process.argv.includes('--practice');
+const journal = process.argv.includes('--journal');
 const meterStorage = process.argv.includes('--storage');
 if (practice && meterStorage) throw Error('--storage is a local instrumentation mode');
 const storageTotals = { reads: 0, writes: 0 };
@@ -46,9 +47,11 @@ async function startRegistry(slug: string) {
           {
             name: 'local-storage-meter',
             setup(b) {
-              b.onLoad({ filter: /\/(registry|leaderboard)\.ts$/ }, async (args) => {
+              b.onLoad({ filter: /\/(registry|leaderboard|day-registry|event-journal)\.ts$/ }, async (args) => {
                 let source = readFileSync(args.path, 'utf8');
+                if(args.path.endsWith('event-journal.ts')) source=source.replace('storage.sql.exec(', '__store(storage).sql.exec(');
                 source = source
+                  .replaceAll('storage.sql.exec', 'storage.sql.exec')
                   .replaceAll('this.ctx.storage', '__store(this.ctx.storage)')
                   .replaceAll('this.storage', '__store(this.storage)')
                   .replaceAll(
@@ -84,10 +87,12 @@ async function startRegistry(slug: string) {
           d1Databases: ['DB'],
           durableObjects: {
             REGISTRY: { className: 'Registry', useSQLite: true },
+            DAY_REGISTRY: { className: 'DayRegistry', useSQLite: true },
             IMAGE_CACHE: { className: 'ImageCache', useSQLite: true },
           },
           bindings: {
             LOCAL_TEST: 'true',
+            R17_STORAGE: journal ? 'true' : 'false',
             COOKIE_SECRET: 'static-test-secret',
             ADMIN_TOKEN: 'static-test-admin',
             TURNSTILE_SITE_KEY: 'test',
@@ -312,6 +317,7 @@ try {
   // Current leaderboard is already in bootstrap and pushes; baseline opened an HTTP view.
   await http('/leaderboard');
   await send('/events/share', { platform: 'copy-text' });
+  if(journal) { const r=await mf.dispatchFetch('http://localhost/api/admin/r17-flush',{method:'POST',headers:{authorization:'Bearer static-test-admin',origin:'https://dibs.here'}}); const flushed=await r.json(); samples.push({path:'/batch-mirror',reads:Number(r.headers.get('x-d1-rows-read')),writes:Number(r.headers.get('x-d1-rows-written')),status:r.status,...await storageDelta()}); assert.equal(r.status,200,JSON.stringify(flushed)); }
   await http('/bootstrap'); // Later return: same cookie, authoritative saved file.
   if (meterStorage) await new Promise((r) => setTimeout(r, 500));
   const rowsRead = samples.reduce((n, s) => n + s.reads, 0),

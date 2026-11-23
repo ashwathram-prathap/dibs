@@ -1,7 +1,7 @@
 import { test, expect } from './security-fixture';
 import AxeBuilder from '@axe-core/playwright';
 import { mkdirSync } from 'node:fs';
-import { PNG } from 'pngjs';
+import { decode } from 'jpeg-js';
 import { readFileSync } from 'node:fs';
 test('full filing, certificate, sharing and public record', async ({ page }, info) => {
   const dir = 'review/devices/' + info.project.name;
@@ -62,17 +62,17 @@ test('full filing, certificate, sharing and public record', async ({ page }, inf
     'https://dibs.here/summary/fixture-summary?s=copy-link',
   );
   const download = page.waitForEvent('download');
-  await page.getByRole('button', { name: 'Feed PNG' }).click();
+  await page.getByRole('button', { name: 'Feed JPEG' }).click();
   const d = await download;
   await d.saveAs(dir + '/certificate-feed.png');
-  const png = PNG.sync.read(readFileSync(dir + '/certificate-feed.png'));
+  const png = decode(readFileSync(dir + '/certificate-feed.png'));
   expect([png.width, png.height]).toEqual([1080, 1350]);
   await shot('05-share-fallback');
   const story = page.waitForEvent('download');
-  await page.getByRole('button', { name: 'Story PNG' }).click();
+  await page.getByRole('button', { name: 'Story JPEG' }).click();
   const s = await story;
   await s.saveAs(dir + '/certificate-story.png');
-  const sp = PNG.sync.read(readFileSync(dir + '/certificate-story.png'));
+  const sp = decode(readFileSync(dir + '/certificate-story.png'));
   expect([sp.width, sp.height]).toEqual([1080, 1920]);
   await page.getByRole('button', { name: 'Copy text', exact: true }).click();
   await expect(page.locator('.share-hint[role=status]')).not.toBeEmpty();

@@ -256,13 +256,16 @@ it('never leaks other answers through leaderboard, completed-viewer ledger, sock
   for (const path of [
     '/leaderboard',
     '/ledger?category=test',
-    '/certificate/' + firstClaim.id,
     '/summary/' + summary,
   ]) {
     const r = await call(path, undefined, first.cookie);
     expect(r.status).toBe(200);
     expect(await r.text()).not.toMatch(/Animal [0-9]/);
   }
+  const ownCertificate: any = await (await call('/certificate/' + firstClaim.id, undefined, first.cookie)).json();
+  expect(ownCertificate.claim.display).toBe(firstClaim.display);
+  expect(ownCertificate.claim.owned).toBe(true);
+  expect(await (await call('/certificate/' + firstClaim.id)).text()).not.toMatch(/Animal [0-9]/);
   const pages = await mf.getWorker('pages-test');
   const html = await (await pages.fetch(PUBLIC_ORIGIN + '/summary/' + summary)).text();
   expect(html).not.toMatch(/Animal [0-9]/);

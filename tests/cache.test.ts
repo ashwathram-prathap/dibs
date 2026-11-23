@@ -3,7 +3,7 @@ import { Miniflare, convertV4MiniflareOptions } from 'miniflare';
 import { build } from 'esbuild';
 import { readFileSync, writeFileSync, mkdirSync } from 'node:fs';
 import { PUBLIC_ORIGIN } from '../shared/config';
-import { PNG } from 'pngjs';
+import { decode } from 'jpeg-js';
 import { registryDate, dropAt } from '../worker/domain';
 let mf: Miniflare, db: any;
 let summaryId: string, certificateId: string, summaryViewer: string;
@@ -206,7 +206,7 @@ it('keeps the claim race safe behind the coordinator', async () => {
   expect(lost.me.file.strikes).toBe(1);
   expect((await db.prepare('SELECT COUNT(*) n FROM users').first()).n).toBe(1);
   const png = await call('/og/' + data.claim.id);
-  expect(png.headers.get('content-type')).toBe('image/png');
+  expect(png.headers.get('content-type')).toBe('image/jpeg');
   const bytes = await png.arrayBuffer();
   expect(bytes.byteLength).toBeGreaterThan(1000);
   const again = await call('/og/' + data.claim.id);
@@ -421,7 +421,7 @@ it('serves unique cached previews to WhatsApp, X, Facebook, iMessage and Discord
       const image = html.match(/property="og:image" content="([^"]+)"/)![1];
       expect(html).toContain(`name="twitter:image" content="${image}"`);
       expect(image).toBe(
-        `${PUBLIC_ORIGIN}/api/og/${kind === 'summary' ? 'summary/' : ''}${id}?v=14`,
+        `${PUBLIC_ORIGIN}/api/og/${kind === 'summary' ? 'summary/' : ''}${id}?v=17`,
       );
       const started = performance.now();
       const response = await mf.dispatchFetch(image, { headers: { 'user-agent': agent } });
@@ -430,8 +430,8 @@ it('serves unique cached previews to WhatsApp, X, Facebook, iMessage and Discord
       expect(response.status).toBe(200);
       expect(bytes.length).toBeLessThan(300000);
       expect(elapsed).toBeLessThan(2000);
-      const png = PNG.sync.read(bytes);
-      expect([png.width, png.height]).toEqual([1200, 630]);
+      const png = decode(bytes);
+      expect([png.width, png.height]).toEqual([1080, 567]);
       if (original) expect(bytes.equals(original)).toBe(true);
       original = bytes;
       results.push({

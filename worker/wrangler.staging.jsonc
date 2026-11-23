@@ -11,7 +11,8 @@
   },
   "vars": {
     "STAGING": "true",
-    "TURNSTILE_SITE_KEY": "0x4AAAAAAGLNsW8c9WxZVAxQ"
+    "TURNSTILE_SITE_KEY": "0x4AAAAAAGLNsW8c9WxZVAxQ",
+    "R17_STORAGE": "true"
   },
   "d1_databases": [
     {
@@ -30,6 +31,10 @@
       {
         "name": "IMAGE_CACHE",
         "class_name": "ImageCache"
+      },
+      {
+        "name": "DAY_REGISTRY",
+        "class_name": "DayRegistry"
       }
     ],
     "code_update_strategy": {
@@ -43,9 +48,19 @@
         "Registry",
         "ImageCache"
       ]
+    },
+    {
+      "tag": "r17-day-journal",
+      "new_sqlite_classes": [
+        "DayRegistry"
+      ]
     }
   ],
-  "triggers": { "crons": ["* * * * *"] },
+  "triggers": {
+    "crons": [
+      "* * * * *"
+    ]
+  },
   "observability": {
     "enabled": false
   },

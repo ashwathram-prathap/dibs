@@ -24,7 +24,7 @@ test('R15 navigation has four labelled icons and disappears around the phone key
   await expect(page.locator('.theme-toggle')).toBeVisible();
   await expect(page.locator('.music-toggle')).toBeVisible();
 });
-test('R15 Copy result and native share receive exactly the same spoiler-free block', async ({
+test('R15 Copy result stays spoiler-free and native sharing sends only the file', async ({
   page,
 }) => {
   await page.addInitScript(() => {
@@ -57,9 +57,9 @@ test('R15 Copy result and native share receive exactly the same spoiler-free blo
   await page.getByRole('button', { name: 'SHARE', exact: true }).click();
   const data = await page.evaluate(() => ({
     copy: (window as any).copied,
-    share: (window as any).shared.text,
+    shareKeys: Object.keys((window as any).shared),
   }));
-  expect(data.copy).toBe(data.share);
+  expect(data.shareKeys).toEqual(['files']);
   expect(data.copy).toMatch(/^Dibs #\d+ · Animals\n[🟥🟨⬛]+\n/);
   expect(data.copy).not.toMatch(/Okapi|Quokka|Wombat|starts with/);
 });

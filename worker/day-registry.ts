@@ -1,7 +1,12 @@
+import { og } from './og';
+import { isPlatform } from '../shared/sharing';
+import { securityKey } from './security';
+import { withdraw } from './withdraw';
 import { DurableObject } from 'cloudflare:workers';
 import { EventJournal, type JournalFile } from './event-journal';
 import { current, json, body, fileState, publicClaim, safeError, type Env } from './routes';
 import {
+  hmac,
   cookieUser,
   sessionCookie,
   handle,
@@ -35,6 +40,7 @@ export class DayRegistry extends DurableObject<Env> {
   private legacy = new Map<string, JournalFile>();
   private claims = 0;
   private nextCheck = 0;
+  private requestedDay?: string;
   private verified = new Map<string, any>();
   constructor(ctx: DurableObjectState, env: Env) {
     super(ctx, env);
@@ -43,7 +49,14 @@ export class DayRegistry extends DurableObject<Env> {
   private async init(env: Env) {
     if (this.ready) return this.ready;
     this.ready = (async () => {
-      this.category = await current(env);
+      this.category =
+        env.STAGING !== 'true' && this.requestedDay && this.requestedDay !== registryDate()
+          ? await env.DB.prepare(
+              "SELECT * FROM categories WHERE date=? AND status='approved' AND drop_at<=?",
+            )
+              .bind(this.requestedDay, new Date().toISOString())
+              .first<any>()
+          : await current(env);
       if (!this.category) {
         this.nextCheck = Date.now() + 5000;
         return;
@@ -73,6 +86,7 @@ export class DayRegistry extends DurableObject<Env> {
           .first<any>();
         if (!user) continue;
         const file = await fileState(env, this.category.id, user_id);
+        if(file.claims[0]?.founder){user.founder=true;user.handle=file.claims[0].handle;}
         const dates = (
           await env.DB.prepare(
             'SELECT DISTINCT g.date FROM claims c JOIN categories g ON g.id=c.category_id WHERE c.user_id=? AND c.voided=0 ORDER BY g.date DESC LIMIT 370',
@@ -83,8 +97,6 @@ export class DayRegistry extends DurableObject<Env> {
         this.legacy.set(user_id, { user, file, streakDates: dates, requests: {} });
       }
       this.rebuild();
-      // One alarm per minute, shared by the whole category, including after eviction.
-      if (!(await this.ctx.storage.getAlarm())) await this.ctx.storage.setAlarm(Date.now() + 45000);
     })().catch((e) => {
       this.ready = undefined;
       throw e;
@@ -98,7 +110,7 @@ export class DayRegistry extends DurableObject<Env> {
     this.owners.clear();
     this.claims = 0;
     for (const state of this.all().values()) {
-      this.users.set(state.user.id, state.user);
+      this.users.set(state.user.id, {...state.user,streakDates:state.streakDates});
       for (const claim of state.file.claims) {
         this.owners.set(claim.answer_id || claim.display.toLowerCase(), {
           ...claim,
@@ -168,11 +180,12 @@ export class DayRegistry extends DurableObject<Env> {
     let uid = await cookieUser(req, env.COOKIE_SECRET),
       cookie = '';
     if (uid && this.users.has(uid)) return { user: this.users.get(uid), cookie };
-    let user: any;
+    let user: any, legacyIdentity=false;
     if (uid) {
       const saved = await env.DB.prepare('SELECT data FROM r17_players WHERE id=?')
         .bind(uid)
         .first<any>();
+      legacyIdentity=!saved;
       user = saved
         ? JSON.parse(saved.data)
         : await env.DB.prepare('SELECT id,handle,rerolls_used,hidden FROM users WHERE id=?')
@@ -188,13 +201,35 @@ export class DayRegistry extends DurableObject<Env> {
         hidden: 0,
         streakDates: [],
       };
+      user.recoveryHash = await hmac(
+        normalizeFileKey(await fileKey(uid!, env.COOKIE_SECRET)),
+        env.COOKIE_SECRET,
+      );
       await env.DB.prepare('INSERT INTO r17_players(id,data) VALUES(?,?)')
         .bind(uid, JSON.stringify(user))
         .run();
       cookie = await sessionCookie(uid, env.COOKIE_SECRET, isLocal(req, env.LOCAL_TEST));
     }
     if (user) {
-      user.streakDates ||= [];
+      if (!user.streakDates)
+        user.streakDates = (
+          await env.DB.prepare(
+            'SELECT DISTINCT g.date FROM claims c JOIN categories g ON g.id=c.category_id WHERE c.user_id=? AND c.voided=0 ORDER BY g.date DESC LIMIT 370',
+          )
+            .bind(user.id)
+            .all<any>()
+        ).results.map((r) => r.date);
+      const role = await env.DB.prepare('SELECT name FROM founder_role WHERE user_id=?')
+        .bind(user.id)
+        .first<any>();
+      if (role) {
+        user.handle = role.name;
+        user.founder = true;
+      }
+      if(legacyIdentity && this.category) {
+        user.recoveryHash=await hmac(normalizeFileKey(await fileKey(user.id,env.COOKIE_SECRET)),env.COOKIE_SECRET);
+        await env.DB.prepare('INSERT OR IGNORE INTO r17_players(id,data) VALUES(?,?)').bind(user.id,JSON.stringify(user)).run();
+      }
       this.users.set(user.id, user);
     }
     return { user, cookie };
@@ -240,19 +275,81 @@ export class DayRegistry extends DurableObject<Env> {
     const rejected = originFailure(req, isLocal(req, env.LOCAL_TEST));
     if (rejected) return rejected;
     if (!this.category && this.nextCheck && Date.now() >= this.nextCheck) this.ready = undefined;
+    this.requestedDay ||= req.headers.get('x-r17-day') || registryDate();
     await this.init(env);
     const url = new URL(req.url),
       path = url.pathname.replace(/^\/api/, '');
+    if(path==='/admin/r17-moderate' && req.method==='POST') {
+      if(!await constantEqual(req.headers.get('authorization')||'','Bearer '+env.ADMIN_TOKEN))return json({message:'Not found.'},404);
+      const b=await body(req,3000);
+      const selected=[...this.all().values()].filter(s=>s.user.id===b.uid || s.file.claims.some((c:any)=>c.id===b.claimId));
+      for(const state of selected) {
+        if(!this.journal?.files.has(state.user.id))this.journal?.append(state);
+        const role=await env.DB.prepare('SELECT name FROM founder_role WHERE user_id=?').bind(state.user.id).first<any>();
+        const identity=await env.DB.prepare('SELECT handle,hidden FROM users WHERE id=?').bind(state.user.id).first<any>();
+        this.journal?.rewriteUser(state.user.id,s=>{
+          if(b.hide)s.user.hidden=1;
+          if(b.role){s.user.handle=role?.name||identity?.handle||s.user.handle;s.user.founder=!!role;}
+          s.file.claims=s.file.claims.map((c:any)=>({...c,handle:s.user.hidden?'Record withheld':s.user.handle,founder:!s.user.hidden&&!!s.user.founder,voided:c.id===b.claimId?1:c.voided}));
+          s.file.eligible=!s.user.hidden&&!s.file.claims.some((c:any)=>c.voided);s.requests={};return s;
+        });
+      }
+      await this.journal?.durable();await this.flush(env);this.rebuild();this.push();return json({ok:true,changed:selected.length});
+    }
+    if (path === '/admin/r17-remove' && req.method === 'POST') {
+      if (
+        !(await constantEqual(req.headers.get('authorization') || '', 'Bearer ' + env.ADMIN_TOKEN))
+      )
+        return json({ message: 'Not found.' }, 404);
+      const b = await body(req, 3000);
+      await this.removeUser(String(b.uid), env);
+      return json({ ok: true });
+    }
+    if (path === '/admin/r17-reset' && req.method === 'POST') {
+      if (
+        env.STAGING !== 'true' ||
+        !(await constantEqual(req.headers.get('authorization') || '', 'Bearer ' + env.ADMIN_TOKEN))
+      )
+        return json({ message: 'Not found.' }, 404);
+      await this.ctx.storage.deleteAll();
+      await env.DB.batch([
+        env.DB.prepare('DELETE FROM r17_files'),
+        env.DB.prepare('DELETE FROM r17_players'),
+        env.DB.prepare('DELETE FROM r17_boards'),
+      ]);
+      this.ready = undefined;
+      this.journal = undefined;
+      this.category = undefined;
+      this.legacy.clear();
+      this.users.clear();
+      this.owners.clear();
+      this.attempts.clear();
+      for (const ws of this.ctx.getWebSockets()) ws.close(1012, 'Practice reset');
+      return json({ ok: true });
+    }
+    if (path.startsWith('/og/')) {
+      const summary = path.startsWith('/og/summary/'),
+        id = path.slice(summary ? 12 : 4);
+      if (summary) {
+        const state = [...this.all().values()].find((s) => s.file.summaryId === id);
+        if (!state) return json({ message: 'Not found.' }, 404);
+        const data = { file: this.presentFile(state), category: publicCategory(this.category) };
+        return og(null, dayClosed(this.category) ? data : concealSummary(data));
+      }
+      const claim = [...this.owners.values()].find((c) => c.id === id && !c.voided);
+      if (!claim) return json({ message: 'Not found.' }, 404);
+      return og(dayClosed(this.category) ? claim : concealClaim(claim));
+    }
     if (path === '/today') return json(this.today());
     if (path === '/bootstrap' || path === '/me') {
-      const { user, cookie } = await this.user(req, env, true);
+      const { user, cookie } = await this.user(req, env, !!this.category);
       return json(
         path === '/me'
           ? this.me(user)
           : {
               today: this.today(),
               me: this.me(user),
-              leaderboard: this.board(user.id),
+              leaderboard: this.board(user?.id),
               rows: dayClosed(this.category)
                 ? [...this.owners.values()].map(({ user_id, answer_id, ...c }) => c)
                 : [],
@@ -285,6 +382,7 @@ export class DayRegistry extends DurableObject<Env> {
         uid: await cookieUser(req, env.COOKIE_SECRET),
         day: registryDate(),
         diagnostic: env.LOCAL_TEST === 'true',
+        securityKey: await securityKey(req, env.COOKIE_SECRET, env.LOCAL_TEST),
       });
       return new Response(null, { status: 101, webSocket: pair[0] });
     }
@@ -309,20 +407,65 @@ export class DayRegistry extends DurableObject<Env> {
         specials: this.today().specials,
         nextDrop: nextDrop(),
       };
-      return json(dayClosed(this.category) ? data : concealSummary(data));
+      if (dayClosed(this.category)) return json(data);
+      const sealed = concealSummary(data);
+      sealed.file.claims = sealed.file.claims.map((c: any, i: number) => ({
+        ...c,
+        percentile: data.file.claims[i].percentile,
+      }));
+      return json(sealed);
     }
-    if (path === '/events/share' || path === '/events/arrival') return json({ ok: true }); // unused per-player analytics dropped
+    if (path === '/events/share' || path === '/events/arrival') {
+      if (req.method !== 'POST') return json({ message: 'Not found.' }, 404);
+      const b = await body(req, 100);
+      if (!isPlatform(b.platform) || Object.keys(b).some((k) => k !== 'platform'))
+        return json({ message: 'Unknown platform.' }, 422);
+      return json({ ok: true }); // Unused per-player analytics intentionally dropped.
+    }
     if (
       path === '/admin/r17-flush' &&
       req.method === 'POST' &&
       (await constantEqual(req.headers.get('authorization') || '', 'Bearer ' + env.ADMIN_TOKEN))
     ) {
-      await this.journal?.mirror();
+      await this.flush(env);
       return json({
         ok: true,
         files: this.all().size,
         claims: this.owners.size,
         sequence: this.journal?.sequence,
+      });
+    }
+    if (path === '/recover' && req.method === 'POST') {
+      const b = await body(req, 300),
+        key = normalizeFileKey(String(b.key || ''));
+      const network = (await securityKey(req, env.COOKIE_SECRET, env.LOCAL_TEST)) || 'missing';
+      const attempts = (this.attempts.get('recover:' + network) || []).filter(
+        (t) => t > Date.now() - 900000,
+      );
+      if (attempts.length >= 5)
+        return json({ message: 'Too many codes tried; wait 15 minutes.' }, 429);
+      this.attempts.set('recover:' + network, [...attempts, Date.now()]);
+      const row = await env.DB.prepare(
+        "SELECT id FROM r17_players WHERE json_extract(data,'$.recoveryHash')=?",
+      )
+        .bind(await hmac(key, env.COOKIE_SECRET))
+        .first<any>();
+      if (!row) {
+        const legacy = await env.DB.prepare('SELECT user_id FROM recovery_keys WHERE key_hash=?')
+          .bind(await hmac(key, env.COOKIE_SECRET))
+          .first<any>();
+        if (legacy)
+          return json({ ok: true }, 200, {
+            'set-cookie': await sessionCookie(
+              legacy.user_id,
+              env.COOKIE_SECRET,
+              isLocal(req, env.LOCAL_TEST),
+            ),
+          });
+        return json({ message: 'Backup code not found; check it and try again.' }, 422);
+      }
+      return json({ ok: true }, 200, {
+        'set-cookie': await sessionCookie(row.id, env.COOKIE_SECRET, isLocal(req, env.LOCAL_TEST)),
       });
     }
     const { user } = await this.user(req, env);
@@ -338,17 +481,187 @@ export class DayRegistry extends DurableObject<Env> {
     if (req.method !== 'POST') return json({ message: 'Page not found.' }, 404);
     if (path === '/session-check') return json({ ok: true });
     if (path === '/verify-session') {
-      const previous = this.verified.get(user.id);
-      if (previous && previous.expiresAt > Date.now()) return json(previous);
+      const key=user.id+':'+('SOCKET_SECURITY_KEY' in env?env.SOCKET_SECURITY_KEY:await securityKey(req,env.COOKIE_SECRET,env.LOCAL_TEST));
+      const previous = this.verified.get(key);
+      if (previous && previous.expires > Date.now()) return json(previous);
       const b = await body(req, 3000);
       if (!(await verifyChallenge(req, env, b.turnstileToken)))
         return json({ message: 'Verification failed; try again.' }, 400);
       const token = await verificationToken(req, env, user.id);
-      this.verified.set(user.id, token);
+      this.verified.set(key, token);
       return json(token);
+    }
+    if (path === '/feedback') {
+      const b = await body(req, 4000);
+      if (typeof b.text !== 'string' || !b.text.trim() || b.text.length > 500)
+        return json({ message: 'Write up to 500 characters.' }, 422);
+      if (
+        !(await verifiedSession(req, env, user.id, b.sessionToken)) &&
+        !(await verifyChallenge(req, env, b.turnstileToken))
+      )
+        return json({ message: 'Please complete verification.' }, 400);
+      const recent = (this.attempts.get('feedback:' + user.id) || []).filter(
+        (t) => t > Date.now() - 3600000,
+      );
+      if (recent.length >= 3)
+        return json({ message: 'Feedback limit reached; try again in an hour.' }, 429);
+      this.attempts.set('feedback:' + user.id, [...recent, Date.now()]);
+      await env.DB.prepare('INSERT INTO feedback(id,user_id,text,created_at) VALUES(?,?,?,?)')
+        .bind(crypto.randomUUID(), user.id, b.text.trim(), new Date().toISOString())
+        .run();
+      return json({ ok: true, message: 'Feedback received.' });
+    }
+    if (path === '/missing') {
+      const b = await body(req, 300);
+      if (
+        !this.category ||
+        typeof b.answer !== 'string' ||
+        b.answer.length > 120 ||
+        Object.keys(b).some((k) => k !== 'answer')
+      )
+        return json({ message: 'Only the answer can be submitted.' }, 422);
+      const recent = this.attempts.get('missing:' + user.id) || [];
+      if (recent.length >= 10)
+        return json({ message: 'Suggestion limit reached; try again tomorrow.' }, 429);
+      this.attempts.set('missing:' + user.id, [...recent, Date.now()]);
+      await env.DB.prepare(
+        'INSERT INTO missing_answers(day,category_id,answer) VALUES(?,?,?) ON CONFLICT(day,category_id,answer) DO UPDATE SET count=count+1',
+      )
+        .bind(this.category.date, this.category.id, normalize(b.answer))
+        .run();
+      return json({ ok: true, message: 'Suggestion received; no strike charged.' });
+    }
+    if (path === '/me/reroll') {
+      if (this.state(user.id)?.file.dibs || (user.streakDates||[]).length || user.rerolls_used >= 3)
+        return json({ message: 'This handle has been filed. Re-rolls are closed.' }, 403);
+      user.handle = handle() + ' #' + user.id.slice(0, 8);
+      user.rerolls_used++;
+      await env.DB.prepare(
+        'INSERT INTO r17_players(id,data) VALUES(?,?) ON CONFLICT(id) DO UPDATE SET data=excluded.data',
+      )
+        .bind(user.id, JSON.stringify(user))
+        .run();
+      if (this.state(user.id))
+        this.journal?.rewriteUser(user.id, (s) => {
+          s.user = structuredClone(user);
+          return s;
+        });
+      this.rebuild();
+      return json({ user: { id: user.id, handle: user.handle, rerolls_used: user.rerolls_used } });
+    }
+    if (path === '/delete-file') {
+      const b = await body(req, 3000);
+      if (b.confirm !== 'DELETE MY FILE')
+        return json({ message: 'Confirm that you want to permanently remove your file.' }, 422);
+      if (
+        !(await verifiedSession(req, env, user.id, b.sessionToken)) &&
+        !(await verifyChallenge(req, env, b.turnstileToken))
+      )
+        return json({ message: 'Please complete verification.' }, 400);
+      // Flush current work so the cross-day inventory includes the latest day.
+      await this.journal?.mirror(env);
+      const days = (
+        await env.DB.prepare(
+          'SELECT g.date FROM r17_files f JOIN categories g ON g.id=f.category_id WHERE f.user_id=?',
+        )
+          .bind(user.id)
+          .all<any>()
+      ).results;
+      for (const { date } of days) {
+        if (date === this.category?.date) continue;
+        if (!env.DAY_REGISTRY) throw Error('Day namespace unavailable');
+        const r = await env.DAY_REGISTRY.get(
+          env.DAY_REGISTRY.idFromName(env.STAGING === 'true' ? 'practice' : date),
+        ).fetch(
+          new Request('https://registry/api/admin/r17-remove', {
+            method: 'POST',
+            headers: {
+              'content-type': 'application/json',
+              authorization: 'Bearer ' + env.ADMIN_TOKEN,
+              origin: PUBLIC_ORIGIN,
+              'x-r17-day': date,
+            },
+            body: JSON.stringify({ uid: user.id }),
+          }),
+        );
+        if (!r.ok) throw Error('Cross-day removal incomplete; retry');
+      }
+      await this.removeUser(user.id, env);
+      // Legacy ownership survives under anonymous holders, using the existing policy.
+      const old = await env.DB.prepare('SELECT id FROM users WHERE id=?').bind(user.id).first();
+      if (old && env.REGISTRY) {
+        const legacy = await env.REGISTRY.get(env.REGISTRY.idFromName('public-registry-v1')).fetch(
+          new Request(PUBLIC_ORIGIN + '/api/delete-file', {
+            method: 'POST',
+            headers: {
+              origin: PUBLIC_ORIGIN,
+              'content-type': 'application/json',
+              cookie: (
+                await sessionCookie(user.id, env.COOKIE_SECRET, isLocal(req, env.LOCAL_TEST))
+              ).split(';')[0],
+            },
+            body: JSON.stringify(b),
+          }),
+        );
+        if (!legacy.ok) throw Error('Legacy removal incomplete; retry');
+      }
+      await env.DB.prepare('DELETE FROM feedback WHERE user_id=?').bind(user.id).run();
+      await env.DB.prepare('DELETE FROM r17_players WHERE id=?').bind(user.id).run();
+      this.users.delete(user.id);
+      return json(
+        { ok: true, message: 'Your file is removed. Past claims now belong to Withdrawn player.' },
+        200,
+        { 'set-cookie': 'dibs_session=; HttpOnly; SameSite=Lax; Path=/; Max-Age=0' },
+      );
     }
     if (path === '/claim') return this.claim(req, env, user);
     return json({ message: 'Page not found.' }, 404);
+  }
+  private async removeUser(uid: string, env: Env) {
+    const previous = this.state(uid),
+      oldHandle = previous?.user.handle,
+      anonymous = crypto.randomUUID();
+    if (previous) {
+      if (!this.journal?.files.has(uid)) this.journal?.append(previous);
+      this.journal?.rewriteUser(uid, (s) => {
+        s.user = { id: anonymous, handle: 'Withdrawn player', rerolls_used: 3, hidden: 0 };
+        s.streakDates = [];
+        s.requests = {};
+        s.file.claims = s.file.claims.map((c: any) => ({
+          ...c,
+          handle: 'Withdrawn player',
+          founder: false,
+        }));
+        return s;
+      });
+      // Redact references in other players' strikes and replay bodies as well.
+      for (const state of this.journal?.files.values() || [])
+        if (
+          state.user.id !== anonymous &&
+          state.file.events.some((e: any) => e.holder === oldHandle)
+        )
+          this.journal?.rewriteUser(state.user.id, (s) => {
+            s.file.events = s.file.events.map((e: any) =>
+              e.holder === oldHandle
+                ? { ...e, holder: 'Withdrawn player', holderFounder: false }
+                : e,
+            );
+            for (const request of Object.values(s.requests))
+              if (request.body.takenBy === oldHandle) {
+                request.body.takenBy = 'Withdrawn player';
+                request.body.founder = false;
+              }
+            return s;
+          });
+    }
+    await this.journal?.durable();
+    await this.journal?.mirror(env);
+    await env.DB.prepare('DELETE FROM r17_files WHERE category_id=? AND user_id=?')
+      .bind(this.category?.id || '', uid)
+      .run();
+    this.users.delete(uid);
+    this.legacy.delete(uid);
+    this.rebuild();
   }
   private async claim(req: Request, env: Env, user: any): Promise<Response> {
     const b = await body(req),
@@ -413,7 +726,13 @@ export class DayRegistry extends DurableObject<Env> {
     const state: JournalFile = previous
       ? structuredClone(previous)
       : {
-          user: structuredClone(user),
+          user: {
+            id: user.id,
+            handle: user.handle,
+            rerolls_used: user.rerolls_used,
+            hidden: user.hidden,
+            founder: user.founder,
+          },
           file: {
             category_id: g.id,
             claims: [],
@@ -499,7 +818,7 @@ export class DayRegistry extends DurableObject<Env> {
       ...result,
       file: this.presentFile(saved),
       me: this.me(user),
-      leaderboard: this.board(user.id),
+      leaderboard: this.board(user?.id),
       ...(status === 201 && file.dibs === 1
         ? { recoveryKey: await fileKey(user.id, env.COOKIE_SECRET) }
         : {}),
@@ -550,7 +869,11 @@ export class DayRegistry extends DurableObject<Env> {
           },
         );
         const meter = metered(this.env.DB);
-        const r = await this.dispatch(req, { ...this.env, DB: meter.db });
+        const r = await this.dispatch(req, {
+          ...this.env,
+          DB: meter.db,
+          SOCKET_SECURITY_KEY: a.securityKey,
+        });
         ws.send(
           JSON.stringify({
             rpc: b.rpc,
@@ -579,9 +902,17 @@ export class DayRegistry extends DurableObject<Env> {
   webSocketClose(ws: WebSocket, code: number) {
     ws.close([1005, 1006, 1015].includes(code) ? 1000 : code);
   }
+  private async flush(env = this.env) {
+    await this.journal?.mirror(env);
+    if (dayClosed(this.category) && this.category)
+      await env.DB.prepare(
+        'INSERT INTO r17_boards(category_id,data) VALUES(?,?) ON CONFLICT(category_id) DO UPDATE SET data=excluded.data WHERE r17_boards.data!=excluded.data',
+      )
+        .bind(this.category.id, JSON.stringify(this.board()))
+        .run();
+  }
   async alarm() {
     await this.init(this.env);
-    await this.journal?.mirror();
-    if (!dayClosed(this.category)) await this.ctx.storage.setAlarm(Date.now() + 45000);
+    await this.flush();
   }
 }

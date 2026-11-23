@@ -27,3 +27,6 @@
   Cache-Control: no-cache
 /theme.js
   Cache-Control: no-cache
+/rarity/*
+  ! Cache-Control
+  Cache-Control: public, max-age=86400

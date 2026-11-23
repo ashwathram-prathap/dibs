@@ -39,6 +39,28 @@ export class EventJournal {
     this.files.set(value.user.id, copy);
     this.pending.set(value.user.id, { revision, value: copy });
   }
+  rewriteUser(uid: string, transform: (value: JournalFile) => JournalFile) {
+    // Privacy/moderation is rare. Rewrite every retained copy, including old events,
+    // before acknowledging deletion; never keep a hidden original in the journal.
+    this.storage.transactionSync(() => {
+      for (const row of this.storage.sql
+        .exec<{ seq: number; payload: string }>('SELECT seq,payload FROM events')
+        .toArray()) {
+        const value = JSON.parse(row.payload) as JournalFile;
+        if (value.user.id !== uid) continue;
+        const changed = transform(value);
+        this.storage.sql.exec(
+          'UPDATE events SET payload=? WHERE seq=?',
+          JSON.stringify(changed),
+          row.seq,
+        );
+      }
+    });
+    const latest = this.files.get(uid);
+    this.files.delete(uid);
+    this.pending.delete(uid);
+    if (latest) this.append(transform(structuredClone(latest)));
+  }
   async durable() {
     await this.storage.sync();
   }
@@ -70,6 +92,21 @@ export class EventJournal {
           ]),
         )
         .run();
+      // First claim of the day advances the identity's streak once. Repeated
+      // mirrors use a WHERE guard, so they incur reads but no additional writes.
+      for (const [uid, row] of chunk)
+        if (row.value.file.dibs && row.value.streakDates.length) {
+          await env.DB.prepare(
+            "UPDATE r17_players SET data=json_set(data,'$.streakDates',json(?),'$.lastClaimDate',?) WHERE id=? AND COALESCE(json_extract(data,'$.lastClaimDate'),'')!=?",
+          )
+            .bind(
+              JSON.stringify(row.value.streakDates),
+              row.value.streakDates[0],
+              uid,
+              row.value.streakDates[0],
+            )
+            .run();
+        }
       for (const [uid, row] of chunk)
         if (this.pending.get(uid)?.revision === row.revision) this.pending.delete(uid);
     }

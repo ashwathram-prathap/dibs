@@ -51,7 +51,7 @@ test('one card completes three wins and two strikes, then shares while other ans
   await screenshot('closed');
   await page.getByText('More ways to share', { exact: true }).click();
   const download = page.waitForEvent('download');
-  await page.getByRole('button', { name: 'Feed PNG' }).click();
+  await page.getByRole('button', { name: 'Feed JPEG' }).click();
   await (await download).saveAs(dir + '/day-certificate.png');
   await page.getByRole('button', { name: 'Copy text', exact: true }).click();
   await expect(page.locator('.share-hint[role=status]')).not.toBeEmpty();

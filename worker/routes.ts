@@ -1,3 +1,4 @@
+import { prepareR17Admin, finishR17Admin } from './r17-admin';
 import { clientIp, NETWORK_BUSY } from './security';
 import { scoreAnswer, scoreFile } from './scoring';
 import { MAX_CLAIMS, MAX_STRIKES } from '../shared/config';
@@ -1015,6 +1016,48 @@ const handler = {
       const url = new URL(req.url),
         path = url.pathname.replace(/^\/api/, '');
       const stub = env.REGISTRY.get(env.REGISTRY.idFromName('public-registry-v1'));
+      if (
+        env.R17_STORAGE === 'true' &&
+        env.DAY_REGISTRY &&
+        ([
+          '/bootstrap',
+          '/me',
+          '/today',
+          '/live',
+          '/claim',
+          '/leaderboard',
+          '/ledger',
+          '/verify-session',
+          '/session-check',
+          '/events/share',
+          '/events/arrival',
+          '/recover',
+          '/delete-file',
+          '/me/reroll',
+          '/feedback',
+          '/missing',
+          '/admin/r17-flush',
+          '/admin/r17-reset',
+          '/admin/r17-remove',
+        ].includes(path) ||
+          /^\/(certificate|summary|og)\/(?:summary\/)?\d{4}-\d{2}-\d{2}-/.test(path))
+      ) {
+        let date =
+          path.match(/^\/(?:certificate|summary|og)\/(?:summary\/)?(\d{4}-\d{2}-\d{2})-/)?.[1] ||
+          registryDate();
+        if (url.searchParams.get('category'))
+          date =
+            (
+              await env.DB.prepare("SELECT date FROM categories WHERE id=? AND status='approved'")
+                .bind(url.searchParams.get('category'))
+                .first<any>()
+            )?.date || date;
+        const headers = new Headers(req.headers);
+        headers.set('x-r17-day', date);
+        return env.DAY_REGISTRY.get(
+          env.DAY_REGISTRY.idFromName(env.STAGING === 'true' ? 'practice' : date),
+        ).fetch(new Request(req, { headers }));
+      }
       if ((path === '/og' || path.startsWith('/og/')) && env.IMAGE_CACHE) {
         const id = path.slice(4);
         const shard = (parseInt(id.replace(/[^a-f0-9]/gi, '').slice(0, 2) || '0', 16) || 0) % 8;
@@ -1055,12 +1098,36 @@ const handler = {
           });
         return response;
       }
+      if(env.R17_STORAGE==='true'&&path.startsWith('/admin/')) {
+        await prepareR17Admin(req,env);const response=await stub.fetch(req.clone() as Request);const changed=await finishR17Admin(req,env,response);return changed&&response.status===404?json({ok:true}):response;
+      }
       return await stub.fetch(req);
     } catch (e) {
       return safeError(e, env);
     }
   },
   async scheduled(_event: ScheduledController, env: Env) {
+    if (env.R17_STORAGE === 'true' && env.DAY_REGISTRY) {
+      const today = registryDate();
+      const yesterday = new Date(Date.parse(today + 'T12:00:00Z') - 86400000)
+        .toISOString()
+        .slice(0, 10);
+      for (const date of env.STAGING === 'true' ? [today] : [yesterday, today]) {
+        const r = await env.DAY_REGISTRY.get(
+          env.DAY_REGISTRY.idFromName(env.STAGING === 'true' ? 'practice' : date),
+        ).fetch(
+          new Request(PUBLIC_ORIGIN + '/api/admin/r17-flush', {
+            method: 'POST',
+            headers: {
+              origin: PUBLIC_ORIGIN,
+              authorization: 'Bearer ' + env.ADMIN_TOKEN,
+              'x-r17-day': date,
+            },
+          }),
+        );
+        if (!r.ok) throw Error('R17 batch mirror failed; durable journal retained for retry');
+      }
+    }
     await current(env);
     if (env.REGISTRY)
       await env.REGISTRY.get(env.REGISTRY.idFromName('public-registry-v1')).fetch(

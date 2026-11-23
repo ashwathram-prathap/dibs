@@ -137,7 +137,7 @@ for (const kind of ['clean', 'gold-two-strikes', 'five-strikes'])
     );
     for (const format of ['Story', 'Feed']) {
       const download = page.waitForEvent('download');
-      await page.getByRole('button', { name: format + ' PNG', exact: true }).click();
+      await page.getByRole('button', { name: format + ' JPEG', exact: true }).click();
       await (
         await download
       ).saveAs(`${root}/${info.project.name}-${kind}-${format.toLowerCase()}.png`);

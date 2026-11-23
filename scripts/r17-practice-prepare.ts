@@ -1,0 +1,11 @@
+import { execFileSync } from 'node:child_process';
+import { readFileSync,writeFileSync } from 'node:fs';
+import assert from 'node:assert/strict';
+import {api,origin} from './r11-practice';
+assert.equal(origin,'https://practice.dibs-7hz.pages.dev');
+const before=await api('/today');assert.ok(before.response.ok);writeFileSync('review/round17/practice-before.json',JSON.stringify(before.data,null,2));
+const budget=JSON.parse(readFileSync('review/round17/account-write-budget.json','utf8'));assert.ok(budget.allowed && Date.now()-Date.parse(budget.checkedAt)<600000,'Refresh headroom before practice');
+const run=(args:string[])=>execFileSync('./node_modules/.bin/wrangler',args,{stdio:['ignore','pipe','pipe']});
+run(['d1','export','dibs-db-staging','--remote','-c','worker/wrangler.staging.jsonc','--output','.backups/r17-practice-before.sql']);
+writeFileSync('.tmp/r17/practice-migration.log',run(['d1','migrations','apply','dibs-db-staging','--remote','-c','worker/wrangler.staging.jsonc']));
+console.log('Practice backed up; additive migration applied. Production untouched.');

@@ -185,8 +185,11 @@ export async function request(path: string, body?: any): Promise<any> {
           ]
         : [],
     };
-  if (path.startsWith('/certificate/'))
-    return { claim: claims.find((c) => c.id === path.split('/').pop()) || mine };
+  if (path.startsWith('/certificate/')) {
+    const claim = claims.find((c) => c.id === path.split('/').pop()) || mine;
+    const mode = new URLSearchParams(location.search).get('r17');
+    return { claim: mode ? {...claim, category_slug:'animals', percentile: mode==='sealed'?null:Number(new URLSearchParams(location.search).get('p') || '.94'), points:95, revealed:mode==='closed', owned:mode==='holder', concealed:mode==='sealed', display:mode==='sealed'?'Revealed when the day closes':claim.display} : claim };
+  }
   if (path === '/missing')
     return { ok: true, message: 'Submitted to the clerk. No strike charged.' };
   if (path === '/delete-file') return {ok:true,message:'Your file is removed. Past claims now belong to Withdrawn filer.'};
