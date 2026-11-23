@@ -8,6 +8,7 @@ const reports = [
   ['matrix-browser-results.json', 1440],
   ['firefox-ci/review/round19c/firefox-browser-results.json', 720],
   ['regression-browser-results.json', 416],
+  ['final-visual-browser-results.json', 48],
 ] as const;
 const browser = reports.map(([file, expected]) => {
   const r = read(file);
@@ -32,6 +33,7 @@ const gates = {
   chromiumWebkitMatrix: browser[0].passed,
   firefoxMatrix: browser[1].passed && ci.conclusion === 'success',
   browserRegressions: browser[2].passed,
+  finalVisualAssertions: browser[3].passed,
   practiceRehearsal: read('practice-first-visit.json').passed === true,
   archivePracticeDryRun: read('archive-practice-dry-run.json').passed === true,
   practiceRestored:

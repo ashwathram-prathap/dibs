@@ -31,7 +31,9 @@ function Leaderboard(props: import('react').ComponentProps<typeof LeaderboardVie
     <Suspense
       fallback={
         <section className="leaderboard-section" aria-label="Loading scores">
-          <h2>Today's leaderboard</h2>
+          <div className="leaderboard-heading">
+            <h2>Today's leaderboard</h2>
+          </div>
           <p>Loading scores…</p>
         </section>
       }

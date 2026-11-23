@@ -218,9 +218,21 @@ test.afterEach(async ({ page }) => expect((page as any).__errors).toEqual([]));
 test('Settings share aligned controls, sticky opaque header, labels, theme swatches and scroll lock', async ({
   page,
 }, info) => {
+  let releaseLeaderboard!: () => void;
+  const leaderboardReady = new Promise<void>((resolve) => (releaseLeaderboard = resolve));
+  await page.route('**/assets/Leaderboard-*.js', async (route) => {
+    await leaderboardReady;
+    await route.continue();
+  });
   await page.goto('/?r19&r19c&r7-closed');
   await page.locator('.closed-office').waitFor();
-  await audit(page, '.closed-office');
+  try {
+    await expect(page.locator('[aria-label="Loading scores"]')).toBeVisible();
+    await audit(page, '.closed-office');
+  } finally {
+    releaseLeaderboard();
+  }
+  await page.locator('#leaderboard').waitFor();
   await shot(page, info, 'settings-closed');
   await page.evaluate(() => scrollTo(0, document.body.scrollHeight / 2));
   // Opening by keyboard/programmatic activation preserves the scrolled page position.

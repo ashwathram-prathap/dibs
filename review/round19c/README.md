@@ -24,3 +24,5 @@ The R12 evening load test is intentionally skipped: its earliest permitted time 
 Certificate screenshots isolate the complete certificate and temporarily hide external page chrome during capture; all layout and interaction assertions run with the normal chrome. Share screenshots isolate the grid and its hint. The other screen captures retain the full viewport.
 
 The full R19C runner retains explicit screen captures and failure screenshots/error contexts. Playwright traces are opt-in with R19C_TRACE=1: parallel custom-context teardown produced ZIP stream-length errors in tracing, independently of page assertions. The regression runner still retains failure traces. No assertion is skipped for this instrumentation workaround.
+
+The OVERNIGHT final visual pass reuses the same six release tests at 390px and 1440px, in both themes and both local engines (48 additional assertions suites). Its complete screen captures are in `review/final/round19c/`; these remain local alongside the raw matrix, while contact sheets and compact release evidence are committed.
