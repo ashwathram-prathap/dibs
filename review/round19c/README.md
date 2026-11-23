@@ -35,8 +35,10 @@ At very narrow zoomed widths, curve axis labels wrap into separate rows in norma
 
 Rapid Escape/Enter reopening is tested in every Settings configuration. A queued native close from an earlier opening must not close the newly opened dialog; `settings-reopen.json` records the reproduced race and focused repeated checks.
 
-Firefox CI runs all 720 cases in four shards and merges Playwright blob reports into one JSON report. The four-mode sharing scenario has a 180-second Firefox budget on two-core runners; every flow and assertion remains required. Geometry equality uses 0.005px tolerance for Firefox floating-point noise (observed differences of 0.000015px for swatches and 0.000122px for curves).
+Firefox CI runs all 720 cases in twelve shards and merges Playwright blob reports into one JSON report. The four-mode sharing scenario has a 180-second Firefox budget on two-core runners; every flow and assertion remains required. Geometry equality uses 0.005px tolerance for Firefox floating-point noise (observed differences of 0.000015px for swatches and 0.000122px for curves).
 
 Low-power devices use a static SVG stamp. The matrix explicitly enables that fallback for every certificate variant and checks the complete image and text bounds, including below the viewport. The fixed-width fallback clipping at 320px with enlarged text and 200% zoom is reproduced in `static-stamp-proof.json`; `static-stamp-before.png` and `static-stamp-after.png` show the correction.
 
 The live claim form reserves 80px before the delayed verification widget renders. Each matrix payoff case inserts a standard 65px widget and asserts that the leaderboard does not move. `widget-layout-shift-before.json` records the reproducible 88–89 mobile scores; `widget-layout-shift-proof.json` records the corrected measurement. The final Lighthouse gate keeps the original 90 performance / 95 accessibility thresholds.
+
+The verification-slot audit checks the computed minimum height is exactly 80px and compares its measured box to 80px within 0.005px. Firefox reported 79.999969px for the exact 80px box. The complete Firefox matrix is rerun with the corrected numerical check; the unchanged Chromium/WebKit application run also uses the stricter original comparison, followed by all 240 local payoff cases with the corrected check.

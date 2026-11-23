@@ -479,7 +479,8 @@ test('Each claim gets its payoff; third gold and fifth strike wait for the playe
   await settle(page);
   const beforeWidget = (await page.locator('#leaderboard').boundingBox())!.y;
   const verificationSlot = page.locator('.claim-section .turnstile');
-  expect((await verificationSlot.boundingBox())!.height).toBeGreaterThanOrEqual(80);
+  expect(await verificationSlot.evaluate((slot) => getComputedStyle(slot).minHeight)).toBe('80px');
+  expect((await verificationSlot.boundingBox())!.height).toBeCloseTo(80, 2);
   await verificationSlot.evaluate((slot) => {
     const widget = document.createElement('div');
     widget.style.height = '65px';

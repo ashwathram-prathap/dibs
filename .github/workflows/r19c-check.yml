@@ -10,7 +10,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        shard: [1, 2, 3, 4]
+        shard: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
     env:
       NODE_OPTIONS: --max-old-space-size=6144
       R19C_FULL: '1'
@@ -29,7 +29,7 @@ jobs:
           pactl load-module module-null-sink sink_name=dibs_ci
           pactl set-default-sink dibs_ci
       - run: npx vite build --mode security-test
-      - run: npx playwright test -c playwright.r19c.config.ts --shard=${{ matrix.shard }}/4 --reporter=list,blob
+      - run: npx playwright test -c playwright.r19c.config.ts --shard=${{ matrix.shard }}/12 --reporter=list,blob
       - uses: actions/upload-artifact@v4
         if: always()
         with:
