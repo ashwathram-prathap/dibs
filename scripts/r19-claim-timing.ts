@@ -1,3 +1,4 @@
+import { gzipSync } from 'node:zlib';
 import { chromium, webkit, expect } from '@playwright/test';
 import { readFileSync, writeFileSync, existsSync } from 'node:fs';
 import { resolve, extname } from 'node:path';
@@ -11,6 +12,9 @@ assert.equal(today.data.turnstileSiteKey, '1x00000000000000000000AA');
 assert.ok(today.data.category && !today.data.revealed);
 const catalog = readCategory('categories/animals.json');
 const samples: any[] = [];
+const wireSize = (body: Buffer, type: string, headers: Record<string, string> = {}) =>
+  Number(headers['content-length']) ||
+  (/javascript|json|text\//.test(type) ? gzipSync(body).length : body.length);
 // Both engines get the same 150ms RTT and 1.6Mbps response transport shim.
 // WebSocket messages receive one-way 75ms delay; assets are the exact built R18/R19 bytes.
 for (const engine of [chromium, webkit]) {
@@ -24,6 +28,7 @@ for (const engine of [chromium, webkit]) {
       await context.route('**/*', async (route) => {
         const req = route.request(),
           url = new URL(req.url());
+        if (!/^https?:$/.test(url.protocol)) return route.continue();
         if (
           url.origin === origin &&
           !url.pathname.startsWith('/api/') &&
@@ -32,7 +37,14 @@ for (const engine of [chromium, webkit]) {
           const file = resolve(root, url.pathname === '/' ? 'index.html' : '.' + url.pathname);
           if (!file.startsWith(root) || !existsSync(file)) return route.abort();
           const body = readFileSync(file);
-          await new Promise((r) => setTimeout(r, 150 + (body.length / 204800) * 1000));
+          await new Promise((r) =>
+            setTimeout(
+              r,
+              150 +
+                (wireSize(body, /\.(html|js|css)$/.test(file) ? 'text/plain' : 'binary') / 204800) *
+                  1000,
+            ),
+          );
           return route.fulfill({
             status: 200,
             body,
@@ -49,7 +61,15 @@ for (const engine of [chromium, webkit]) {
         }
         const response = await route.fetch();
         const body = await response.body();
-        await new Promise((r) => setTimeout(r, 150 + (body.length / 204800) * 1000));
+        await new Promise((r) =>
+          setTimeout(
+            r,
+            150 +
+              (wireSize(body, response.headers()['content-type'] || '', response.headers()) /
+                204800) *
+                1000,
+          ),
+        );
         return route.fulfill({ response, body });
       });
       await context.routeWebSocket('**/api/live*', (ws) => {
@@ -123,7 +143,8 @@ for (const engine of [chromium, webkit]) {
         verificationRequests: verified,
         proofClaimRequests: claimProofs,
         scriptStartedBeforeTap: scriptAt[0] < liveAt + 3000,
-        transport: '150ms RTT + 1.6Mbps response shim; 75ms each way WebSocket; no CPU throttling',
+        transport:
+          '150ms RTT + 1.6Mbps encoded-response shim; 75ms each way WebSocket; no CPU throttling',
       });
       writeFileSync(`review/round19/claim-timing-${phase}.json`, JSON.stringify(samples, null, 2));
       await context.unrouteAll({ behavior: 'ignoreErrors' });

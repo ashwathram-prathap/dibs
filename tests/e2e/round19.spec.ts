@@ -4,6 +4,9 @@ import { mkdirSync } from 'node:fs';
 const scale = async (page: any, n = 1.3) => {
   await page.evaluate((n: number) => (document.documentElement.style.fontSize = 16 * n + 'px'), n);
   await page.evaluate(() => document.fonts.ready);
+  await page.evaluate(
+    () => new Promise((resolve) => requestAnimationFrame(() => requestAnimationFrame(resolve))),
+  );
 };
 const claim = async (page: any, answer = 'Okapi') => {
   await page.locator('#answer').fill(answer);

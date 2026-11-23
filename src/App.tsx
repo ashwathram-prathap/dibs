@@ -177,12 +177,13 @@ export default function App() {
       );
     };
     viewport?.addEventListener('resize', update);
-    document.addEventListener('focusin', update);
-    document.addEventListener('focusout', update);
+    const focusChanged = () => queueMicrotask(update);
+    document.addEventListener('focusin', focusChanged);
+    document.addEventListener('focusout', focusChanged);
     return () => {
       viewport?.removeEventListener('resize', update);
-      document.removeEventListener('focusin', update);
-      document.removeEventListener('focusout', update);
+      document.removeEventListener('focusin', focusChanged);
+      document.removeEventListener('focusout', focusChanged);
     };
   }, []);
   const [today, setToday] = useState<Today | null>(null);
@@ -722,6 +723,7 @@ function Home({
       setTaken(false);
       setHouseStrike(false);
       setClaim(result.claim);
+      input.current?.blur();
       setLanded(true);
       setStreakMoment(result.me && result.me.streak > me.streak ? result.me.streak : null);
       if (result.me) setMe(result.me);
@@ -780,7 +782,8 @@ function Home({
             ? "Not on today's list; check the spelling."
             : err.message,
       );
-      input.current?.focus();
+      if (err.data?.me?.file?.closed || err.data?.file?.closed) input.current?.blur();
+      else input.current?.focus();
     } finally {
       submitting.current = false;
       setBusy(false);
@@ -929,7 +932,14 @@ function Home({
                     enterKeyHint="go"
                     maxLength={120}
                   />
-                  <button className="primary" disabled={busy || !me.user}>
+                  <button
+                    className="primary"
+                    disabled={busy || !me.user}
+                    onPointerDown={(e) => {
+                      // Keep the keyboard/layout steady until the submit click has landed.
+                      if (document.activeElement === input.current) e.preventDefault();
+                    }}
+                  >
                     {busy ? 'Claiming…' : 'CALL DIBS'}
                     <Icon />
                   </button>

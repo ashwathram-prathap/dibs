@@ -5,12 +5,16 @@ test('R15 navigation has four labelled icons and disappears around the phone key
   await page.goto('/?r6');
   await page.locator('#answer').waitFor();
   const nav = page.getByRole('navigation', { name: 'Main navigation' });
-  expect(await nav.getByRole('link').allTextContents()).toEqual([
-    'Play',
-    'Leaderboard',
-    'Archive',
-    'How it works',
-  ]);
+  expect(
+    await nav
+      .getByRole('link')
+      .evaluateAll((links) => links.map((link) => link.getAttribute('aria-label'))),
+  ).toEqual(['Play', 'Leaderboard', 'Archive', 'How it works']);
+  expect(await nav.getByRole('link').allInnerTexts()).toEqual(
+    page.viewportSize()!.width < 768
+      ? ['Play', 'Board', 'Archive', 'How to play']
+      : ['Play', 'Leaderboard', 'Archive', 'How it works'],
+  );
   expect(await nav.locator('svg').count()).toBe(4);
   const width = page.viewportSize()!.width;
   if (width < 768) {

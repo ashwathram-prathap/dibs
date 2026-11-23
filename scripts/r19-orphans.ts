@@ -25,6 +25,7 @@ for (const [name, engine] of Object.entries(
                 : '/?r19&r6';
         await page.goto('http://127.0.0.1:5199' + url);
         await page.locator('.loading').waitFor({ state: 'hidden' });
+        await page.locator('main h1').waitFor();
         if (screen === 'payoff' || screen === 'done') {
           for (const a of screen === 'done' ? ['Okapi', 'Quokka', 'Wombat'] : ['Okapi']) {
             await page.locator('#answer').fill(a);
@@ -43,7 +44,16 @@ for (const [name, engine] of Object.entries(
           window.dispatchEvent(new Event('resize'));
         });
         await page.evaluate(() => document.fonts.ready);
-        await page.waitForTimeout(100);
+        await page.evaluate(
+          () =>
+            new Promise((resolve) => requestAnimationFrame(() => requestAnimationFrame(resolve))),
+        );
+        await page
+          .waitForFunction(() => document.documentElement.scrollWidth <= innerWidth, undefined, {
+            timeout: 3000,
+          })
+          .catch(() => {});
+        await page.waitForTimeout(150);
         const audit = await page.evaluate(() => {
           const failures: any[] = [];
           let checked = 0;

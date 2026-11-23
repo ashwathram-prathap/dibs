@@ -15,12 +15,24 @@ export default defineConfig({
     timezoneId: 'America/Toronto',
   },
   projects: engines.flatMap((browserName) =>
-    [320, 360, 390, 430, 768, 1024, 1440].flatMap((width) =>
+    [320, 360, 375, 390, 430, 768, 1024, 1440].flatMap((width) =>
       ['light', 'dark'].map((colorScheme) => ({
         name: `${browserName}-${width}-${colorScheme}`,
         use: {
           browserName: browserName as any,
-          viewport: { width, height: width < 768 ? 844 : 1000 },
+          viewport: {
+            width,
+            height:
+              width === 375
+                ? 667
+                : width === 360
+                  ? 800
+                  : width === 430
+                    ? 932
+                    : width < 768
+                      ? 844
+                      : 1000,
+          },
           colorScheme: colorScheme as any,
         },
       })),

@@ -70,6 +70,10 @@ for (const [name, engine] of Object.entries(
           document.documentElement.style.fontSize = 16 * scale + 'px';
         }, scale);
         await page.evaluate(() => document.fonts.ready);
+        await page.evaluate(
+          () =>
+            new Promise((resolve) => requestAnimationFrame(() => requestAnimationFrame(resolve))),
+        );
         const violations = await page.locator('.header-controls').evaluate((panel) => {
           const right = panel.getBoundingClientRect().right;
           return [panel, ...panel.querySelectorAll('*')]
