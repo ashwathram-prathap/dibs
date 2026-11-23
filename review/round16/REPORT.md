@@ -3,7 +3,7 @@
 | Audit environment | Mobile P / A / BP / SEO | Desktop P / A / BP / SEO |
 | --- | --- | --- |
 | Before: production Lighthouse, 3 runs | 94 / 100 / 100 / 100 each | 100 / 100 / 100 / 100 each |
-| After: local production build, 3 runs | 96 / 100 / 100 / 100 each | 100 / 100 / 100 / 100 each |
+| After: local production build, 3 runs | 96–98 / 100 / 100 / 100 (median 96) | 100 / 100 / 100 / 100 each |
 
 Public PSI returned HTTP 429 for all six original requests (daily quota exhausted on Google's public service). The owner authorized local Lighthouse on the production build as the substitute. These are lab measurements, not CrUX field data. Final deployed measurements and the single PSI retry are recorded below after release.
 
@@ -17,7 +17,7 @@ Public PSI returned HTTP 429 for all six original requests (daily quota exhauste
 
 ## Audit-by-audit changes
 
-Values below compare the first baseline production mobile run with the first local production-build run. Deployed results are retained separately because network/CDN/analytics behavior differs.
+Values below compare the first baseline production mobile run with the median local production-build result. Deployed results are retained separately because network/CDN/analytics behavior differs.
 
 | Finding | Cause | Change and result |
 | --- | --- | --- |
@@ -39,6 +39,8 @@ Not every Lighthouse diagnostic is green: unused shared CSS, unused interaction 
 ## Verification and visual review
 
 - Unit/API: 169/169 tests across 38 files. Inline stylesheet hash authorization and trusted response-body handling are covered in the SEO tests.
+- 28/28 browser-engine/device checks at 200% zoom pass (`zoom200.json`).
+- Browser matrix: all 576 cases pass after isolated recovery of four ENOENT trace-teardown errors caused by overlapping local runners. Both affected WebKit profiles passed all 32 cases on rerun. All 72 R16 checks pass against the final focus fix; on narrow screens its repeated activation is tested by keyboard because the open Settings panel overlaps the link. Linux Firefox passes all 96 cases.
 - Final browser and CI summaries are `browser-summary.json` and `firefox-summary.json`; raw reports remain local.
 - 48 final screen captures at 390/1440, both themes, with no horizontal overflow (`after-metrics.json`, `review/final/round16/`). Owner before/after and digit proofs: `owner-review/`.
 - Inspected all 48 final captures through four contact sheets and full-size certificate, content, countdown and Settings examples. The anti-AI checklist passes: paper/ink/stamps, authored icons, no gradients/pills/generic cards, no placeholder copy. The development-proof banner appears only in fixture captures; the production bundle contains no fixture markers.

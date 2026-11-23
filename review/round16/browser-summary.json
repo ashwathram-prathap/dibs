@@ -1,0 +1,62 @@
+{
+  "expected": 576,
+  "unexpected": 0,
+  "skipped": 0,
+  "flaky": 0,
+  "initial": {
+    "startTime": "2026-11-23T06:32:38.799Z",
+    "duration": 587125.926,
+    "expected": 572,
+    "skipped": 0,
+    "unexpected": 4,
+    "flaky": 0
+  },
+  "isolated": {
+    "startTime": "2026-11-23T06:43:04.681Z",
+    "duration": 36660.390999999996,
+    "expected": 32,
+    "skipped": 0,
+    "unexpected": 0,
+    "flaky": 0
+  },
+  "finalFocusPatch": {
+    "startTime": "2026-11-23T06:45:19.787Z",
+    "duration": 45461.669,
+    "expected": 72,
+    "skipped": 0,
+    "unexpected": 0,
+    "flaky": 0
+  },
+  "infrastructureReruns": [
+    {
+      "project": "webkit-1440-dark",
+      "file": "round11.spec.ts",
+      "title": "R11 rules, free guesses, explicit counters, reminders, settings and deletion",
+      "cause": "Overlapping runner deleted trace artifacts; all errors were ENOENT at teardown",
+      "isolatedRerun": "passed"
+    },
+    {
+      "project": "webkit-1440-dark",
+      "file": "round11.spec.ts",
+      "title": "R11 every page has legible type, aligned containers, accessible disclosures and no overflow",
+      "cause": "Overlapping runner deleted trace artifacts; all errors were ENOENT at teardown",
+      "isolatedRerun": "passed"
+    },
+    {
+      "project": "webkit-1440-dark",
+      "file": "round12.spec.ts",
+      "title": "R12 first visitor sees plain rules and a full worked example in every home state",
+      "cause": "Overlapping runner deleted trace artifacts; all errors were ENOENT at teardown",
+      "isolatedRerun": "passed"
+    },
+    {
+      "project": "webkit-1280-dark",
+      "file": "round9.spec.ts",
+      "title": "theme edges work on every route with consistent header placement",
+      "cause": "Overlapping runner deleted trace artifacts; all errors were ENOENT at teardown",
+      "isolatedRerun": "passed"
+    }
+  ],
+  "applicationRevision": "5f2f72366257e8b7cebbe7c82106a3820eb98c76",
+  "note": "Full 576-case behavior matrix plus isolated recovery of four trace-teardown failures and all 72 R16 checks against final focus patch."
+}

@@ -1,0 +1,246 @@
+{
+  "beforeSource": "Production Lighthouse (public PSI quota-blocked)",
+  "afterSource": "Local compressed production build, live production read-only API/robots/sitemap",
+  "before": [
+    {
+      "strategy": "mobile",
+      "run": 1,
+      "scores": {
+        "performance": 94,
+        "accessibility": 100,
+        "best-practices": 100,
+        "seo": 100
+      }
+    },
+    {
+      "strategy": "desktop",
+      "run": 1,
+      "scores": {
+        "performance": 100,
+        "accessibility": 100,
+        "best-practices": 100,
+        "seo": 100
+      }
+    },
+    {
+      "strategy": "mobile",
+      "run": 2,
+      "scores": {
+        "performance": 94,
+        "accessibility": 100,
+        "best-practices": 100,
+        "seo": 100
+      }
+    },
+    {
+      "strategy": "desktop",
+      "run": 2,
+      "scores": {
+        "performance": 100,
+        "accessibility": 100,
+        "best-practices": 100,
+        "seo": 100
+      }
+    },
+    {
+      "strategy": "mobile",
+      "run": 3,
+      "scores": {
+        "performance": 94,
+        "accessibility": 100,
+        "best-practices": 100,
+        "seo": 100
+      }
+    },
+    {
+      "strategy": "desktop",
+      "run": 3,
+      "scores": {
+        "performance": 100,
+        "accessibility": 100,
+        "best-practices": 100,
+        "seo": 100
+      }
+    }
+  ],
+  "after": [
+    {
+      "strategy": "mobile",
+      "run": 1,
+      "scores": {
+        "performance": 98,
+        "accessibility": 100,
+        "best-practices": 100,
+        "seo": 100
+      },
+      "warnings": [],
+      "remainingDiagnostics": [
+        {
+          "id": "largest-contentful-paint",
+          "displayValue": "2.5\u00a0s"
+        },
+        {
+          "id": "interactive",
+          "displayValue": "2.5\u00a0s"
+        },
+        {
+          "id": "unused-css-rules",
+          "displayValue": "Est savings of 13\u00a0KiB"
+        },
+        {
+          "id": "unused-javascript",
+          "displayValue": "Est savings of 36\u00a0KiB"
+        },
+        {
+          "id": "network-dependency-tree-insight",
+          "displayValue": null
+        }
+      ]
+    },
+    {
+      "strategy": "desktop",
+      "run": 1,
+      "scores": {
+        "performance": 100,
+        "accessibility": 100,
+        "best-practices": 100,
+        "seo": 100
+      },
+      "warnings": [],
+      "remainingDiagnostics": [
+        {
+          "id": "unused-css-rules",
+          "displayValue": "Est savings of 14\u00a0KiB"
+        },
+        {
+          "id": "unused-javascript",
+          "displayValue": "Est savings of 36\u00a0KiB"
+        },
+        {
+          "id": "network-dependency-tree-insight",
+          "displayValue": null
+        }
+      ]
+    },
+    {
+      "strategy": "mobile",
+      "run": 2,
+      "scores": {
+        "performance": 96,
+        "accessibility": 100,
+        "best-practices": 100,
+        "seo": 100
+      },
+      "warnings": [],
+      "remainingDiagnostics": [
+        {
+          "id": "largest-contentful-paint",
+          "displayValue": "2.7\u00a0s"
+        },
+        {
+          "id": "interactive",
+          "displayValue": "2.7\u00a0s"
+        },
+        {
+          "id": "unused-css-rules",
+          "displayValue": "Est savings of 13\u00a0KiB"
+        },
+        {
+          "id": "unused-javascript",
+          "displayValue": "Est savings of 36\u00a0KiB"
+        },
+        {
+          "id": "network-dependency-tree-insight",
+          "displayValue": null
+        }
+      ]
+    },
+    {
+      "strategy": "desktop",
+      "run": 2,
+      "scores": {
+        "performance": 100,
+        "accessibility": 100,
+        "best-practices": 100,
+        "seo": 100
+      },
+      "warnings": [],
+      "remainingDiagnostics": [
+        {
+          "id": "largest-contentful-paint",
+          "displayValue": "0.7\u00a0s"
+        },
+        {
+          "id": "unused-css-rules",
+          "displayValue": "Est savings of 14\u00a0KiB"
+        },
+        {
+          "id": "unused-javascript",
+          "displayValue": "Est savings of 36\u00a0KiB"
+        },
+        {
+          "id": "network-dependency-tree-insight",
+          "displayValue": null
+        }
+      ]
+    },
+    {
+      "strategy": "mobile",
+      "run": 3,
+      "scores": {
+        "performance": 96,
+        "accessibility": 100,
+        "best-practices": 100,
+        "seo": 100
+      },
+      "warnings": [],
+      "remainingDiagnostics": [
+        {
+          "id": "largest-contentful-paint",
+          "displayValue": "2.7\u00a0s"
+        },
+        {
+          "id": "interactive",
+          "displayValue": "2.7\u00a0s"
+        },
+        {
+          "id": "unused-css-rules",
+          "displayValue": "Est savings of 13\u00a0KiB"
+        },
+        {
+          "id": "unused-javascript",
+          "displayValue": "Est savings of 36\u00a0KiB"
+        },
+        {
+          "id": "network-dependency-tree-insight",
+          "displayValue": null
+        }
+      ]
+    },
+    {
+      "strategy": "desktop",
+      "run": 3,
+      "scores": {
+        "performance": 100,
+        "accessibility": 100,
+        "best-practices": 100,
+        "seo": 100
+      },
+      "warnings": [],
+      "remainingDiagnostics": [
+        {
+          "id": "unused-css-rules",
+          "displayValue": "Est savings of 14\u00a0KiB"
+        },
+        {
+          "id": "unused-javascript",
+          "displayValue": "Est savings of 36\u00a0KiB"
+        },
+        {
+          "id": "network-dependency-tree-insight",
+          "displayValue": null
+        }
+      ]
+    }
+  ]
+}

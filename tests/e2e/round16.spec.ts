@@ -9,7 +9,9 @@ test('R16 header controls, timezone focus and readable content', async ({ page }
   await expect(page.getByLabel('Timezone', { exact: true })).toBeFocused();
   await expect(page.getByLabel('Timezone', { exact: true })).toBeVisible();
   await page.locator('.sound-toggle').focus();
-  await page.locator('.drop-countdown .text-link').click();
+  // On phones the open panel overlaps this link; exercise its keyboard activation.
+  await page.locator('.drop-countdown .text-link').focus();
+  await page.locator('.drop-countdown .text-link').press('Enter');
   await expect(page.getByLabel('Timezone', { exact: true })).toBeFocused();
   await page.getByLabel('Timezone', { exact: true }).selectOption('America/Vancouver');
   await expect(page.locator('.drop-countdown')).toContainText('PM PT · change in Settings');
