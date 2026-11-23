@@ -1,4 +1,4 @@
-import { Icon, ShareText } from './Icon';
+import { Icon } from './Icon';
 import { useEffect, useRef, useState } from 'react';
 import { api } from './api';
 import { attributedUrl, intentUrl, type Platform } from '../shared/sharing';
@@ -162,26 +162,13 @@ export function ShareSheet({
         </div>
       )}
       {copy && (
-        <div
+        <textarea
           className="share-copy"
           aria-label="Share text to copy"
-          role="textbox"
-          aria-readonly="true"
-          tabIndex={0}
-          onCopy={(e) => {
-            e.preventDefault();
-            e.clipboardData.setData('text/plain', copy);
-          }}
-          onFocus={(e) => {
-            const range = document.createRange();
-            range.selectNodeContents(e.currentTarget);
-            const selection = window.getSelection();
-            selection?.removeAllRanges();
-            selection?.addRange(range);
-          }}
-        >
-          <ShareText text={copy} />
-        </div>
+          readOnly
+          value={copy}
+          onFocus={(e) => e.currentTarget.select()}
+        />
       )}
     </div>
   );

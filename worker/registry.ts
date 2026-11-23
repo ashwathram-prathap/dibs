@@ -469,7 +469,12 @@ export class Registry extends DurableObject<Env> {
     }
     await this.ctx.storage.setAlarm(Date.now() + 86400000);
   }
-  async recordMetric(req: Request, response: Response, totals: { reads: number; writes: number }) {
+  async recordMetric(
+    req: Request,
+    response: Response,
+    totals: { reads: number; writes: number },
+    socketMessage = false,
+  ) {
     const path = new URL(req.url).pathname.replace(/^\/api/, '');
     const now = Date.now(),
       minute = Math.floor(now / 60000),
@@ -491,7 +496,8 @@ export class Registry extends DurableObject<Env> {
       m.verificationFailures += Number(path === '/verify-session' && !response.ok);
       await tx.put(key, m);
       const usage = (await tx.get<any>('usage:' + day)) || { requests: 0, reads: 0, writes: 0 };
-      usage.requests++;
+      usage.requests += Number(!socketMessage);
+      usage.doRequests = (usage.doRequests || 0) + (socketMessage ? 1 / 20 : 1);
       usage.reads += totals.reads;
       usage.writes += totals.writes;
       await tx.put('usage:' + day, usage);
@@ -764,7 +770,7 @@ export class Registry extends DurableObject<Env> {
               'Bearer ' + env.ADMIN_TOKEN,
             ))),
       });
-      this.ctx.waitUntil(this.pushSnapshot());
+      this.ctx.waitUntil(this.pushSnapshot(env, [pair[1]]));
       return new Response(null, { status: 101, webSocket: pair[0] });
     }
     if (path === '/bootstrap' || path === '/me') {
@@ -1429,8 +1435,7 @@ export class Registry extends DurableObject<Env> {
     }
     return json({ message: 'Page not found; return to today.' }, 404);
   }
-  async pushSnapshot(env = this.env) {
-    const sockets = this.ctx.getWebSockets();
+  async pushSnapshot(env = this.env, sockets = this.ctx.getWebSockets()) {
     if (!sockets.length) return;
     const s = await this.fresh(env);
     const board = s.category ? await this.scores.rows(s.category.id) : [];
@@ -1510,7 +1515,9 @@ export class Registry extends DurableObject<Env> {
         } finally {
           if (this.mutations.get(a.uid) === task) this.mutations.delete(a.uid);
         }
-        this.ctx.waitUntil(this.recordMetric(req, response.clone() as Response, meter.totals));
+        this.ctx.waitUntil(
+          this.recordMetric(req, response.clone() as Response, meter.totals, true),
+        );
         ws.send(
           JSON.stringify({
             rpc: b.rpc,

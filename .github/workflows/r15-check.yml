@@ -1,0 +1,44 @@
+name: R15 Firefox and network check
+on:
+  workflow_dispatch:
+    inputs:
+      network:
+        description: Check the deployed practice caller IP
+        type: boolean
+        default: false
+permissions:
+  contents: read
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: npm ci
+      - run: npx playwright install --with-deps firefox
+      - run: |
+          sudo apt-get install -y pulseaudio
+          pulseaudio --start --exit-idle-time=-1
+          pactl load-module module-null-sink sink_name=dibs_ci
+          pactl set-default-sink dibs_ci
+      - run: npx vite build --mode security-test
+      - run: npx playwright test -c playwright.r14.config.ts --project='firefox-*'
+        env:
+          R14_REPORT: review/round15/firefox-results.json
+      - if: inputs.network
+        name: Verify independent network hash
+        env:
+          R15_PRACTICE_ADMIN: ${{ secrets.R15_PRACTICE_ADMIN }}
+        run: node scripts/r15-network-ci.mjs
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: r15-verification
+          path: |
+            review/round15/firefox-results.json
+            review/round15/network-ci.json
+            test-results/
+          retention-days: 14

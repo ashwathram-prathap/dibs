@@ -98,3 +98,14 @@ review/round14/lighthouse*/
 review/round14/browser-results.json
 review/round14/firefox-ci/
 review/final/round14/
+
+# R15 detailed visual and browser evidence stays in the local handoff.
+review/round15/**/*.png
+review/round15/*.png
+!review/round15/icons.png
+review/round15/**/*.webm
+review/round15/*browser-results.json
+review/round15/firefox-results.json
+review/round15/firefox-ci/
+review/round15/lighthouse*/
+review/final/round15/

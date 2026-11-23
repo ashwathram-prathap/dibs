@@ -420,6 +420,7 @@ export default function App() {
   const [me, setMe] = useState<Me | null>(null);
   const [error, setError] = useState('');
   const retryDelay = useRef(3000);
+  const [retryTick, setRetryTick] = useState(0);
   useEffect(() => {
     if (!error) {
       retryDelay.current = 3000;
@@ -430,7 +431,7 @@ export default function App() {
     }, retryDelay.current);
     retryDelay.current = Math.min(60000, retryDelay.current * 2);
     return () => clearTimeout(timer);
-  }, [error, today]);
+  }, [error, retryTick]);
   const refresh = async () => {
     try {
       const data = await api<Snapshot>('/bootstrap');
@@ -440,6 +441,7 @@ export default function App() {
       setError('');
     } catch (e) {
       setError((e as Error).message);
+      setRetryTick((n) => n + 1);
     }
   };
   useEffect(() => {
@@ -2485,6 +2487,9 @@ function LiveAdmin() {
       {data && (
         <>
           <p>Last five minutes · updates every 15 seconds</p>
+          {data.networkWarning && (
+            <p role="alert">A shared network has admitted more than 500 new players today.</p>
+          )}
           <dl className="live-metrics">
             {Object.entries({
               'Active players': data.active,

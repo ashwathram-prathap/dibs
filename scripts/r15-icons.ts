@@ -1,3 +1,4 @@
+import { PNG } from 'pngjs';
 import { readFileSync, writeFileSync } from 'node:fs';
 import opentype from 'opentype.js';
 import { chromium } from '@playwright/test';
@@ -10,10 +11,36 @@ const width = box.x2 - box.x1,
 // Visible ink bounds include the underline; use those bounds, not the font advance.
 const inkHeight = height + 36;
 const glyph = `<g transform="translate(${256 - width / 2 - box.x1} ${256 - inkHeight / 2 - box.y1})"><path fill="#1A1A17" d="${path.toPathData(2)}"/><path fill="#E1462B" d="M${box.x1} ${box.y2 + 18}h${width}v18h-${width}z"/></g>`;
-const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512"><path fill="#F1ECE2" d="M0 0h512v512H0z"/>${glyph}</svg>`;
+let svg = `<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512"><path fill="#F1ECE2" d="M0 0h512v512H0z"/>${glyph}</svg>`;
 writeFileSync('public/favicon.svg', svg);
 const browser = await chromium.launch();
 const page = await browser.newPage();
+// Optical centre uses the pixel mass of visible ink, independent of font advances.
+await page.setViewportSize({ width: 512, height: 512 });
+await page.setContent(`<style>body{margin:0}svg{width:100%;height:100%}</style>${svg}`);
+const rendered = PNG.sync.read(await page.screenshot());
+let mass = 0,
+  inkX = 0,
+  inkY = 0;
+for (let y = 0; y < 512; y++)
+  for (let x = 0; x < 512; x++) {
+    const i = (y * 512 + x) * 4;
+    const weight = Math.max(
+      0,
+      (241 - rendered.data[i] + (236 - rendered.data[i + 1]) + (226 - rendered.data[i + 2])) / 3,
+    );
+    mass += weight;
+    inkX += x * weight;
+    inkY += y * weight;
+  }
+const dx = 256 - inkX / mass,
+  dy = 256 - inkY / mass;
+svg = svg.replace(glyph, `<g transform="translate(${dx} ${dy})">${glyph}</g>`);
+writeFileSync('public/favicon.svg', svg);
+writeFileSync(
+  'review/round15/icon-centering.json',
+  JSON.stringify({ method: 'visible-ink pixel mass', dx, dy, safeZoneRadius: 204.8 }, null, 2),
+);
 const images: string[] = [];
 for (const size of [48, 180, 192, 512]) {
   await page.setViewportSize({ width: size, height: size });
