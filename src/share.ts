@@ -187,7 +187,7 @@ async function drawCurve(
   c.beginPath();
   c.rect(marker, y, x + w - marker, plotHeight);
   c.clip();
-  c.fillStyle = accent;
+  c.fillStyle = '#E1462B';
   c.globalAlpha = 0.25;
   c.fill(area);
   c.restore();
@@ -216,7 +216,7 @@ async function drawCurve(
   c.fillStyle = ink;
   c.font = '400 11px "Instrument Sans"';
   c.textAlign = 'center';
-  c.fillText('You', marker, baseline + 12);
+  c.fillText('You', Math.max(x + 14, Math.min(x + w - 14, marker)), y - 4);
   c.textAlign = 'left';
   formText(c, 'label', 'Familiar', x + (w * 28) / 520, y + h, 10);
   c.textAlign = 'right';

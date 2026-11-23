@@ -1,5 +1,5 @@
 import type { ThemeChoice } from './theme';
-import { useState, useRef, useEffect, type FormEvent } from 'react';
+import { useState, useRef, useEffect, useLayoutEffect, type FormEvent } from 'react';
 import { setMusic } from './music';
 import { soundEnabled, setSoundEnabled, prepareSound } from './sound';
 import { viewerZone } from '../shared/time';
@@ -23,6 +23,47 @@ export function Settings({
   setTheme: (choice: ThemeChoice) => void;
   theme: 'light' | 'dark';
 }) {
+  useLayoutEffect(() => {
+    const panel = document.querySelector<HTMLElement>('.header-controls');
+    if (!panel) return;
+    const controls = [
+      ...panel.querySelectorAll<HTMLElement>(
+        '.control-face, .sound-toggle, .music-toggle, #file-settings > summary',
+      ),
+    ];
+    let frame = 0;
+    const measure = () => {
+      cancelAnimationFrame(frame);
+      frame = requestAnimationFrame(() => {
+        if (!panel.clientWidth) return;
+        let height = parseFloat(getComputedStyle(document.documentElement).fontSize) * 3.5;
+        for (const control of controls) {
+          const range = document.createRange();
+          range.selectNodeContents(control);
+          const style = getComputedStyle(control);
+          height = Math.max(
+            height,
+            Math.ceil(range.getBoundingClientRect().height / parseFloat(style.lineHeight)) *
+              parseFloat(style.lineHeight) +
+              parseFloat(style.paddingTop) +
+              parseFloat(style.paddingBottom) +
+              2,
+          );
+        }
+        panel.style.setProperty('--settings-row-height', Math.ceil(height) + 'px');
+      });
+    };
+    const resize = new ResizeObserver(measure);
+    controls.forEach((c) => resize.observe(c));
+    const changes = new MutationObserver(measure);
+    changes.observe(panel, { childList: true, characterData: true, subtree: true });
+    measure();
+    return () => {
+      cancelAnimationFrame(frame);
+      resize.disconnect();
+      changes.disconnect();
+    };
+  }, []);
   useEffect(() => {
     if (focusZone) document.querySelector<HTMLSelectElement>('.timezone-control select')?.focus();
   }, [focusZone]);

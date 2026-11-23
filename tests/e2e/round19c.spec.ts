@@ -16,10 +16,28 @@ async function shot(page: Page, info: TestInfo, screen: string) {
 }
 async function audit(page: Page, scope = 'main', action?: string) {
   await settle(page);
-  expect(
-    await page.evaluate(() => document.documentElement.scrollWidth > innerWidth + 1),
-    'page overflow',
-  ).toBe(false);
+  const overflow = await page.evaluate(() => ({
+    width: innerWidth,
+    scroll: document.documentElement.scrollWidth,
+    elements: [...document.querySelectorAll<HTMLElement>('body *')]
+      .filter((el) => {
+        const r = el.getBoundingClientRect();
+        return (
+          r.width > 0 &&
+          !el.closest('svg,details:not([open])') &&
+          (r.right > innerWidth + 1 || el.scrollWidth > el.clientWidth + 2)
+        );
+      })
+      .map((el) => ({
+        tag: el.tagName,
+        class: el.className,
+        text: el.textContent?.slice(0, 35),
+        width: el.clientWidth,
+        scroll: el.scrollWidth,
+      }))
+      .slice(-20),
+  }));
+  expect(overflow.scroll, JSON.stringify(overflow)).toBeLessThanOrEqual(overflow.width + 1);
   const clipped = await page.locator(scope).evaluate((root) =>
     [
       ...root.querySelectorAll<HTMLElement>(
@@ -42,6 +60,61 @@ async function audit(page: Page, scope = 'main', action?: string) {
       .map((el) => el.tagName + '.' + el.className + ':' + el.textContent?.slice(0, 60)),
   );
   expect(clipped, 'clipped text').toEqual([]);
+  const overlaps = await page.locator(scope).evaluate((root) => {
+    const labels: { element: Element; text: string; rect: DOMRect }[] = [];
+    const walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT);
+    while (walker.nextNode()) {
+      const node = walker.currentNode,
+        el = node.parentElement;
+      if (
+        !el ||
+        !node.textContent?.trim() ||
+        el.closest('svg,.sr-only,details:not([open]) > :not(summary),select,script,style')
+      )
+        continue;
+      const style = getComputedStyle(el);
+      if (style.visibility !== 'visible' || style.opacity === '0') continue;
+      const range = document.createRange();
+      range.selectNode(node);
+      for (const r of range.getClientRects()) {
+        if (
+          !r.width ||
+          !r.height ||
+          r.bottom < 0 ||
+          r.top > innerHeight ||
+          r.right < 0 ||
+          r.left > innerWidth
+        )
+          continue;
+        const hit = document.elementFromPoint(
+          Math.max(0, Math.min(innerWidth - 1, r.x + r.width / 2)),
+          Math.max(0, Math.min(innerHeight - 1, r.y + r.height / 2)),
+        );
+        if (!hit || !(el.contains(hit) || hit.contains(el))) continue;
+        labels.push({ element: el, text: node.textContent.trim().slice(0, 40), rect: r });
+      }
+    }
+    const hits: string[] = [];
+    for (let i = 0; i < labels.length; i++)
+      for (let j = i + 1; j < labels.length; j++) {
+        const a = labels[i],
+          b = labels[j];
+        if (
+          a.element === b.element ||
+          a.element.contains(b.element) ||
+          b.element.contains(a.element)
+        )
+          continue;
+        if (
+          Math.min(a.rect.right, b.rect.right) - Math.max(a.rect.left, b.rect.left) > 1 &&
+          Math.min(a.rect.bottom, b.rect.bottom) - Math.max(a.rect.top, b.rect.top) > 1
+        )
+          hits.push(a.text + ' / ' + b.text);
+      }
+    return hits;
+  });
+  expect(overlaps, 'overlapping visible text').toEqual([]);
+
   const small = await page.locator(scope).evaluate((root) =>
     [...root.querySelectorAll<HTMLElement>('button, select, textarea, input, summary, a.primary')]
       .filter((el) => {
@@ -63,11 +136,19 @@ async function audit(page: Page, scope = 'main', action?: string) {
       })),
   );
   expect(small, '44px tap targets').toEqual([]);
-  if (action && page.viewportSize()!.width < 768) {
+  if (
+    action &&
+    (page.viewportSize()!.width < 768 ||
+      (page.viewportSize()!.width <= 950 && page.viewportSize()!.height <= 500))
+  ) {
     const r = await page.locator(action).boundingBox();
     expect(r).not.toBeNull();
     expect(r!.y, 'primary above viewport').toBeGreaterThanOrEqual(0);
-    const nav = await page.locator('.masthead nav').boundingBox();
+    const nav = await page
+      .locator('.masthead nav')
+      .evaluate((el) =>
+        getComputedStyle(el).position === 'fixed' ? { y: el.getBoundingClientRect().y } : null,
+      );
     expect(r!.y + r!.height, 'primary below phone viewport').toBeLessThanOrEqual(
       Math.min(page.viewportSize()!.height, nav?.y ?? Infinity) + 1,
     );
@@ -100,7 +181,9 @@ test.beforeEach(async ({ page }, info) => {
   (page as any).__errors = errors;
   await page.addInitScript(
     ({ scale }) => {
-      document.documentElement.style.fontSize = 16 * scale + 'px';
+      document.addEventListener('DOMContentLoaded', () => {
+        document.documentElement.style.fontSize = 16 * scale + 'px';
+      });
       const real = window.matchMedia.bind(window);
       window.matchMedia = (query) =>
         query === '(display-mode: standalone)' && sessionStorage.getItem('r19c-standalone') === '1'
@@ -125,6 +208,7 @@ test('Settings share aligned controls, sticky opaque header, labels, theme swatc
   await expect(panel).toHaveAttribute('open', '');
   await page.locator('.timezone-control').waitFor();
   await expect(page.locator('.timezone-control .control-face')).toHaveText('ET · Toronto');
+  await settle(page);
   const geometry = await panel.evaluate((root) => {
     const controls = [
       ...root.querySelectorAll<HTMLElement>(
@@ -305,7 +389,9 @@ test('Share and visitor landing work in browser, standalone, LinkedIn and Instag
     });
     await p.addInitScript(
       ({ scale, mode }) => {
-        document.documentElement.style.fontSize = 16 * scale + 'px';
+        document.addEventListener('DOMContentLoaded', () => {
+          document.documentElement.style.fontSize = 16 * scale + 'px';
+        });
         if (mode === 'standalone') {
           const real = window.matchMedia.bind(window);
           window.matchMedia = (q) =>
@@ -317,7 +403,7 @@ test('Share and visitor landing work in browser, standalone, LinkedIn and Instag
       },
       { scale: info.project.metadata.fontScale as number, mode },
     );
-    await p.goto('http://127.0.0.1:5204/?r19&r19c&r6');
+    await p.goto('/?r19&r19c&r6');
     await done(p);
     const cells = await p.locator('.share-buttons > *').evaluateAll((els) =>
       els.map((el) => {
@@ -344,7 +430,7 @@ test('Share and visitor landing work in browser, standalone, LinkedIn and Instag
     await audit(p, '.day-summary', '.share-buttons > .primary');
     await shot(p, info, 'share-' + mode);
     for (const route of ['/summary/fixture-summary', '/c/fixture-1']) {
-      await p.goto('http://127.0.0.1:5204' + route + '?r19&r19c&visitor');
+      await p.goto(route + '?r19&r19c&visitor');
       await expect(p.locator('.shared-invitation h1')).toContainText('What can you claim?');
       await expect(p.locator('.shared-invitation')).toContainText('180 points');
       await expect(p.locator('main')).not.toContainText(/Okapi|Pangolin|Wombat|Quokka/);
@@ -357,13 +443,69 @@ test('Share and visitor landing work in browser, standalone, LinkedIn and Instag
       await p.locator('.invitation-action > .primary').click();
       await expect(p.locator('#answer')).toBeFocused();
     }
-    await p.goto(
-      'http://127.0.0.1:5204/summary/fixture-summary?r19&r19c&visitor&revealed&strikeout',
-    );
+    await p.goto('/summary/fixture-summary?r19&r19c&visitor&revealed&strikeout');
     await expect(p.locator('.shared-invitation')).toContainText('struck out');
     await expect(p.locator('.summary-answers')).toContainText('Okapi');
     await expect(p.getByRole('link', { name: 'Play now', exact: true })).toBeVisible();
     expect(errors).toEqual([]);
     await context.close();
   }
+});
+
+test('Admin archive confirms, downloads both formats, deletes only the exported ids and keeps text inert', async ({
+  page,
+}, info) => {
+  const note = {
+    id: 'note-one',
+    topic: 'game',
+    text: '<img src=x onerror=alert(1)> Player note',
+    created_at: '2026-11-23T10:00:00Z',
+    player_hash: 'a'.repeat(64),
+  };
+  const arrived = { ...note, id: 'note-later', text: 'Arrived during export' };
+  let removed: string[] = [];
+  await page.route('**/api/admin/live', (route) =>
+    route.fulfill({
+      json: {
+        active: 0,
+        claimsPerMinute: 0,
+        strikesPerMinute: 0,
+        filesCompleted: 0,
+        errors: 0,
+        turnstileFailureRate: 0,
+        limits: {},
+        usage: {},
+        feedback: [note, arrived],
+      },
+    }),
+  );
+  await page.route('**/api/admin/feedback-archive', async (route) => {
+    expect(route.request().headers().authorization).toBe('Bearer test-admin');
+    if (route.request().method() === 'GET') await route.fulfill({ json: { notes: [note] } });
+    else {
+      removed = route.request().postDataJSON().ids;
+      await route.fulfill({ json: { removed: 1 } });
+    }
+  });
+  await page.goto('/admin/live?r19&r19c');
+  await page.locator('#live-token').fill('test-admin');
+  await page.getByRole('button', { name: 'Open Live', exact: true }).click();
+  await expect(page.locator('.admin-live article img')).toHaveCount(0);
+  const button = page.getByRole('button', { name: 'Archive all', exact: true });
+  page.once('dialog', (d) => d.dismiss());
+  await button.click();
+  expect(removed).toEqual([]);
+  const names: string[] = [];
+  page.on('download', (d) => names.push(d.suggestedFilename()));
+  page.once('dialog', (d) => d.accept());
+  await button.click();
+  await expect(page.getByRole('status').filter({ hasText: 'Archived 1 notes' })).toBeVisible();
+  await expect.poll(() => names.length).toBe(2);
+  expect(names.some((n) => n.endsWith('.json'))).toBe(true);
+  expect(names.some((n) => n.endsWith('.csv'))).toBe(true);
+  expect(removed).toEqual(['note-one']);
+  await expect(page.locator('.admin-live article')).toHaveCount(1);
+  await expect(page.locator('.admin-live article')).toContainText('Arrived during export');
+  await audit(page, '.admin-live');
+  await shot(page, info, 'admin-feedback');
 });

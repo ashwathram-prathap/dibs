@@ -54,7 +54,9 @@ test('R15 Copy result stays spoiler-free and native sharing sends only the file'
   for (const [i, answer] of ['Okapi', 'Quokka', 'Wombat'].entries()) {
     await page.locator('#answer').fill(answer);
     await page.locator('#answer').press('Enter');
-    if (i < 2) await page.getByRole('button', { name: 'Next claim', exact: true }).click();
+    await page
+      .getByRole('button', { name: i < 2 ? 'Next claim' : 'See my results', exact: true })
+      .click();
   }
   await page.getByRole('button', { name: 'Copy result', exact: true }).click();
   await expect(page.getByRole('button', { name: 'Copied', exact: true })).toBeVisible();
@@ -64,7 +66,7 @@ test('R15 Copy result stays spoiler-free and native sharing sends only the file'
     shareKeys: Object.keys((window as any).shared),
   }));
   expect(data.shareKeys).toEqual(['files']);
-  expect(data.copy).toMatch(/^Dibs #\d+ · Animals\n[🟥🟨⬛]+\n/);
+  expect(data.copy).toBe("I scored 180 on today's Dibs (Animals), #1 of 1. dibs.here");
   expect(data.copy).not.toMatch(/Okapi|Quokka|Wombat|starts with/);
 });
 test('R15 unavailable clipboard falls back to selectable text', async ({ page }) => {
@@ -82,10 +84,14 @@ test('R15 unavailable clipboard falls back to selectable text', async ({ page })
   for (const [i, answer] of ['Okapi', 'Quokka', 'Wombat'].entries()) {
     await page.locator('#answer').fill(answer);
     await page.locator('#answer').press('Enter');
-    if (i < 2) await page.getByRole('button', { name: 'Next claim', exact: true }).click();
+    await page
+      .getByRole('button', { name: i < 2 ? 'Next claim' : 'See my results', exact: true })
+      .click();
   }
   await page.getByRole('button', { name: 'Copy result', exact: true }).click();
-  await expect(page.locator('textarea.share-copy')).toHaveValue(/Dibs #[0-9]+ · Animals/);
+  await expect(page.locator('textarea.share-copy')).toHaveValue(
+    /I scored 180 on today's Dibs \(Animals\), #1 of 1\. dibs\.here/,
+  );
   await page.locator('textarea.share-copy').focus();
   expect(
     await page

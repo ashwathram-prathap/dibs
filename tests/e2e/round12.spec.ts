@@ -20,6 +20,7 @@ test('R12 first visitor sees plain rules and a full worked example in every home
     await page.locator('#answer').press('Enter');
     if (answer !== 'Quokka') await page.getByRole('button', { name: 'Next claim' }).click();
   }
+  await page.getByRole('button', { name: 'See my results', exact: true }).click();
   await expect(page.locator('.day-certificate')).toBeVisible();
   await expect(page.locator('.game-explanation')).toBeVisible();
   await page.locator('.header-settings > summary').click();

@@ -1,0 +1,38 @@
+name: R19C Firefox release matrix
+on:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  firefox:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    env:
+      NODE_OPTIONS: --max-old-space-size=6144
+      R19C_FULL: '1'
+      R19C_FIREFOX: '1'
+      R19C_WORKERS: '6'
+      R19C_REPORT: review/round19c/firefox-browser-results.json
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: npm ci
+      - run: npx playwright install --with-deps firefox
+      - run: |
+          sudo apt-get install -y pulseaudio
+          pulseaudio --start --exit-idle-time=-1
+          pactl load-module module-null-sink sink_name=dibs_ci
+          pactl set-default-sink dibs_ci
+      - run: npx vite build --mode security-test
+      - run: npx playwright test -c playwright.r19c.config.ts
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: r19c-firefox
+          path: |
+            review/round19c/firefox-browser-results.json
+            review/round19c/matrix/raw/
+            .tmp/r19c/browser-artifacts-5204/
+          retention-days: 14

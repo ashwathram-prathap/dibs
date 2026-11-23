@@ -75,7 +75,7 @@ test('R18 feedback is a single-column modal with focus trap, Escape, success and
     await page.locator('#feedback-note').fill('The phone feedback form is readable.');
     await page.getByRole('button', { name: 'Send note', exact: true }).click();
     await expect(dialog.getByRole(failed ? 'alert' : 'status')).toContainText(
-      failed ? 'could not be sent' : 'was sent',
+      failed ? 'could not be sent' : 'the clerk got your note',
     );
     const axe = await new AxeBuilder({ page })
       .withTags(['wcag2a', 'wcag2aa', 'wcag21aa'])
@@ -168,6 +168,7 @@ test('R18 clock is solid Archivo and fits every repeated tabular digit; sharing 
       await page.getByRole('button', { name: 'Next claim', exact: true }).click();
     }
   }
+  await page.getByRole('button', { name: 'See my results', exact: true }).click();
   await expect(page.locator('.share-buttons .primary')).toHaveText('Share');
   await expect(page.locator('.copy-result')).not.toHaveClass(/primary/);
   const axe = await new AxeBuilder({ page }).withTags(['wcag2a', 'wcag2aa', 'wcag21aa']).analyze();

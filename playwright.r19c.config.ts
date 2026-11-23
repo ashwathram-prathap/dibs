@@ -1,4 +1,5 @@
 import { defineConfig } from '@playwright/test';
+const port = process.env.R19C_PORT || '5204';
 const full = !!process.env.R19C_FULL;
 const sizes = full
   ? [
@@ -51,9 +52,9 @@ export default defineConfig({
   workers: Number(process.env.R19C_WORKERS || 6),
   timeout: 90000,
   retries: 0,
-  outputDir: '.tmp/r19c/browser-artifacts',
+  outputDir: '.tmp/r19c/browser-artifacts-' + port,
   use: {
-    baseURL: 'http://127.0.0.1:5204',
+    baseURL: 'http://127.0.0.1:' + port,
     timezoneId: 'America/Toronto',
     extraHTTPHeaders: { 'x-dibs-test': '1' },
     trace: 'retain-on-failure',
@@ -67,8 +68,8 @@ export default defineConfig({
     ],
   ],
   webServer: {
-    command: 'npx vite preview --mode security-test --host 127.0.0.1 --port 5204',
-    url: 'http://127.0.0.1:5204',
+    command: 'npx vite preview --mode security-test --host 127.0.0.1 --port ' + port,
+    url: 'http://127.0.0.1:' + port,
     reuseExistingServer: false,
   },
 });

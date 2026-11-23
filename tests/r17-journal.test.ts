@@ -222,6 +222,7 @@ it('R19B exposes only allowed pre-close fields across anonymous and signed publi
     'concealed',
     'revealed',
     'owned',
+    'points',
   ]);
   const allowedFile = new Set([
     'category_id',

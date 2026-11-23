@@ -18,6 +18,7 @@ const done = async (page: any) => {
     if (answer !== 'Wombat')
       await page.getByRole('button', { name: 'Next claim', exact: true }).click();
   }
+  await page.getByRole('button', { name: 'See my results', exact: true }).click();
   await page.locator('.day-certificate').waitFor();
 };
 const shot = async (page: any, folder: string, name: string, fullPage = true) => {

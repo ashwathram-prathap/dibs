@@ -44,6 +44,7 @@ test('one card completes three wins and two strikes, then shares while other ans
       }
     }
   }
+  await page.getByRole('button', { name: 'See my results', exact: true }).click();
   await expect(page.locator('.day-certificate')).toBeVisible();
   await expect(page.locator('.file-tally')).toContainText('3/3 claims · 2 strikes');
   await expect(page.locator('table.ledger')).toHaveCount(0);
@@ -87,6 +88,7 @@ test('invalid and failed requests preserve the entry, and five strikes close dir
     await page.locator('#answer').press('Enter');
     if (i < 4) await expect(page.locator('.strike-count')).toHaveText(`Strike ${i + 1} of 5`);
   }
+  await page.getByRole('button', { name: 'See my results', exact: true }).click();
   await expect(page.locator('.day-certificate')).toBeVisible();
   await expect(page.locator('.file-tally')).toContainText('0/3 claims · 5 strikes');
 });
@@ -142,5 +144,6 @@ test('390 phone keeps claim controls above an emulated keyboard', async ({ page 
       await page.getByRole('button', { name: 'Next claim' }).click();
     }
   }
+  await page.getByRole('button', { name: 'See my results', exact: true }).click();
   await expect(page.locator('.day-certificate')).toBeVisible();
 });

@@ -15,7 +15,8 @@ for (const name of readdirSync('categories').filter((n) => n.endsWith('.json')))
     total: c.answers.length,
     missingBefore: resolved.before,
     missingAfter: resolved.after,
-    mappings: resolved.mappings,
+    mappedAnswers: resolved.mappings.length,
+    examples: resolved.mappings.slice(0, 5),
   });
   const { median, percentiles } = rankPopularity(
     resolved.readings.map((p) => (measured(p) ? p!.total! / p!.days : null)),
@@ -30,6 +31,18 @@ for (const name of readdirSync('categories').filter((n) => n.endsWith('.json')))
     data.writeUInt16LE(p === null ? 65535 : Math.round(p * 10000), (i + 1) * 2),
   );
   writeFileSync(`public/catalog/${c.slug}/${meta.version}/scores-v2.bin`, data);
+  // Retain the original immutable scoring asset for clients running the rollback Worker.
+  const legacy = rankPopularity(
+    c.answers.map((a: any) =>
+      measured(a.pageviews) ? a.pageviews.total / a.pageviews.days : null,
+    ),
+  );
+  const old = Buffer.alloc((legacy.percentiles.length + 1) * 2);
+  old.writeUInt16LE(legacy.median, 0);
+  legacy.percentiles.forEach((p, i) =>
+    old.writeUInt16LE(p === null ? 65535 : Math.round(p * 10000), (i + 1) * 2),
+  );
+  writeFileSync(`public/catalog/${c.slug}/${meta.version}/scores-v1.bin`, old);
 }
 mkdirSync('review/round19c', { recursive: true });
 writeFileSync('review/round19c/popularity-coverage.json', JSON.stringify(coverage, null, 2));

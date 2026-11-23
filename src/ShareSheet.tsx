@@ -110,34 +110,36 @@ export function ShareSheet({
   }
   return (
     <div className="share-area" aria-label="Share Dibs">
-      <div className="share-buttons">
-        <button
-          className="primary"
-          aria-label="SHARE"
-          disabled={!files || busy}
-          onClick={() => void share('native')}
-        >
-          {busy ? 'Sharing…' : files ? 'Share' : 'Preparing image…'} <Icon />
-        </button>
-        <button className="copy-result" onClick={() => void clipboard('copy-text')}>
-          {status === 'Copied' ? 'Copied' : 'Copy result'}
-        </button>
-        <a
-          className="linkedin-share"
-          href={intentUrl('linkedin', text, url)}
-          target="_blank"
-          rel="noopener noreferrer"
-          onClick={() => tap('linkedin')}
-        >
-          Post on LinkedIn
-        </a>
-        <button disabled={!files || busy} onClick={() => void share('feed')}>
-          Download image
-        </button>
+      <div className="share-main">
+        <div className="share-buttons">
+          <button
+            className="primary"
+            aria-label="SHARE"
+            disabled={!files || busy}
+            onClick={() => void share('native')}
+          >
+            {busy ? 'Sharing…' : files ? 'Share' : 'Preparing image…'} <Icon />
+          </button>
+          <button className="copy-result" onClick={() => void clipboard('copy-text')}>
+            {status === 'Copied' ? 'Copied' : 'Copy result'}
+          </button>
+          <a
+            className="linkedin-share"
+            href={intentUrl('linkedin', text, url)}
+            target="_blank"
+            rel="noopener noreferrer"
+            onClick={() => tap('linkedin')}
+          >
+            Post on LinkedIn
+          </a>
+          <button disabled={!files || busy} onClick={() => void share('feed')}>
+            Download image
+          </button>
+        </div>
+        <p className="share-hint">
+          For the best post, download the image and add it to your LinkedIn post.
+        </p>
       </div>
-      <p className="share-hint">
-        For the best post, download the image and add it to your LinkedIn post.
-      </p>
       <details className="share-options">
         <summary>More ways to share</summary>
         <div className="share-platforms" aria-label="Share by platform">

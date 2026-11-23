@@ -32,6 +32,7 @@ test('R14 payoff, hidden-answer leaderboard, done score and spoiler-free share',
     await page.locator('#answer').fill(answer);
     await page.locator('#answer').press('Enter');
   }
+  await page.getByRole('button', { name: 'See my results', exact: true }).click();
   await expect(page.locator('.certificate-score')).toContainText('170 points · #1 of 1 · Streak 1');
   expect(await page.evaluate(() => document.documentElement.scrollWidth > innerWidth)).toBe(false);
   const issues = await new AxeBuilder({ page })

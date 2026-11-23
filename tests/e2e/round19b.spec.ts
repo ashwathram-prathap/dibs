@@ -7,6 +7,7 @@ test('R19B offers a LinkedIn score link and image download without posting', asy
     if (answer !== 'Wombat')
       await page.getByRole('button', { name: 'Next claim', exact: true }).click();
   }
+  await page.getByRole('button', { name: 'See my results', exact: true }).click();
   const link = page.getByRole('link', { name: 'Post on LinkedIn' });
   await expect(link).toHaveAttribute('target', '_blank');
   await expect(link).toHaveAttribute(
@@ -25,7 +26,7 @@ test('R19B offers a LinkedIn score link and image download without posting', asy
 
 test('R19B short certificate URLs render the certificate and share actions', async ({ page }) => {
   await page.goto('/c/fixture-1?no-analytics=1');
-  await expect(page.getByRole('heading', { name: 'On the record.', exact: true })).toBeVisible();
+  await expect(page.locator('.shared-invitation h1')).toContainText('What can you claim?');
   await expect(page.getByRole('link', { name: 'Post on LinkedIn' })).toBeVisible();
   await expect(page.getByRole('button', { name: 'Download image', exact: true })).toBeEnabled();
 });

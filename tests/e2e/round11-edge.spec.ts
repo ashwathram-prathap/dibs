@@ -36,6 +36,8 @@ test('keyboard-only play, announcements and 200 percent zoom', async ({ page }) 
       await expect(page.locator('#answer')).toBeFocused();
     }
   }
+  await expect(page.getByRole('button', { name: 'See my results', exact: true })).toBeFocused();
+  await page.keyboard.press('Enter');
   await expect(page.locator('.day-certificate')).toBeVisible();
   await page.setViewportSize({ width: 1440, height: 900 });
   await page.evaluate(() => {

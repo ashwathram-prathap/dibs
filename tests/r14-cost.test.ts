@@ -1,3 +1,4 @@
+import { resolvePopularity, measured as hasReading } from '../scripts/popularity-aliases';
 import { readCategory } from '../scripts/category-file';
 import { it, expect, beforeAll, afterAll } from 'vitest';
 import { Miniflare, convertV4MiniflareOptions } from 'miniflare';
@@ -121,9 +122,7 @@ it('measures real static-catalog claims and leaderboard polling using D1 result 
         writes: Number(r.headers.get('x-d1-rows-written')),
       });
       if (r.status === 201) {
-        const measured = catalog.answers.filter(
-          (a: any) => a.pageviews.days > 0 && typeof a.pageviews.total === 'number',
-        );
+        const measured = resolvePopularity(catalog.answers).readings.filter(hasReading).map(p => ({ pageviews: p! }));
         const popularity = answer.pageviews.total / answer.pageviews.days;
         const greater = measured.filter(
           (a: any) => a.pageviews.total / a.pageviews.days > popularity,

@@ -113,6 +113,7 @@ export default function App() {
   const [settingsOpen, setSettingsOpen] = useState(
     () => location.hash === '#file-settings' || location.hash.startsWith('#file-key='),
   );
+  const [focusZone, setFocusZone] = useState(false);
   const [settingsLoaded, setSettingsLoaded] = useState(settingsOpen);
   const settingsDialog = useRef<HTMLDialogElement>(null);
   useEffect(() => {
@@ -121,13 +122,16 @@ export default function App() {
     if (settingsOpen && panel && !panel.open) panel.showModal();
     if (!settingsOpen && panel?.open) panel.close();
     if (!settingsOpen) return;
+    const focusFrame = requestAnimationFrame(() => {
+      if (focusZone) panel?.querySelector<HTMLSelectElement>('.timezone-control select')?.focus();
+    });
     const before = document.documentElement.style.overflow;
     document.documentElement.style.overflow = 'hidden';
     return () => {
+      cancelAnimationFrame(focusFrame);
       document.documentElement.style.overflow = before;
     };
-  }, [settingsOpen]);
-  const [focusZone, setFocusZone] = useState(false);
+  }, [settingsOpen, focusZone]);
   useEffect(() => {
     const open = () => {
       setSettingsOpen(true);
@@ -171,10 +175,17 @@ export default function App() {
           ? nav.getBoundingClientRect().height + 'px'
           : '0px',
       );
-    const observer = new ResizeObserver(update);
+    let frame = 0;
+    const observer = new ResizeObserver(() => {
+      cancelAnimationFrame(frame);
+      frame = requestAnimationFrame(update);
+    });
     observer.observe(nav, { box: 'border-box' });
     update();
-    return () => observer.disconnect();
+    return () => {
+      cancelAnimationFrame(frame);
+      observer.disconnect();
+    };
   }, []);
 
   useEffect(() => {
@@ -518,11 +529,19 @@ function CategoryHeading({ name }: { name: string }) {
           Math.floor(((size * (heading.clientWidth - 1)) / width) * 10) / 10 + 'px';
     };
     fit();
-    const observer = new ResizeObserver(fit);
+    let lastWidth = heading.clientWidth,
+      frame = 0;
+    const observer = new ResizeObserver(() => {
+      if (heading.clientWidth === lastWidth) return;
+      lastWidth = heading.clientWidth;
+      cancelAnimationFrame(frame);
+      frame = requestAnimationFrame(fit);
+    });
     observer.observe(heading);
     void document.fonts.ready.then(fit);
     return () => {
       alive = false;
+      cancelAnimationFrame(frame);
       observer.disconnect();
     };
   }, [name]);
@@ -574,6 +593,7 @@ function Home({
   useEffect(() => {
     if (showDone) {
       window.scrollTo(0, 0);
+      document.querySelector<HTMLElement>('.file-closed-stamp')?.focus({ preventScroll: true });
       // The accepted final event already includes the complete file and summary.
       if (!file.summaryId) void refresh();
     }
@@ -852,7 +872,7 @@ function Home({
         </section>
       ) : showDone && file ? (
         <>
-          <span className="file-closed-stamp" role="status">
+          <span className="file-closed-stamp" role="status" tabIndex={-1}>
             Done for today
           </span>
           <DaySummary file={file} today={today} showLedger />
