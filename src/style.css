@@ -7324,14 +7324,14 @@ html[data-theme='dark'] .feedback-dialog .feedback-error {
     400 1rem/1.4 'Instrument Sans',
     sans-serif;
 }
-@media (max-width: 767px) {
+@media (max-width: 767px), (max-width: 950px) and (max-height: 500px) {
   .summary-page:has(.shared-invitation),
   .certificate-page:has(.shared-invitation) {
     padding-bottom: 10rem;
   }
   .invitation-action {
     position: fixed;
-    bottom: var(--tab-height, 64px);
+    bottom: var(--tab-height, 0px);
     left: 0;
     right: 0;
     z-index: 36;
