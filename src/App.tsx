@@ -207,7 +207,17 @@ function Clock({ target, slim = false }: { target: string; slim?: boolean }) {
       </span>
       {!slim && (
         <p>
-          Next drop: <DropTime at={target} />
+          <span>{localTime(target).full}</span> · change in{' '}
+          <button
+            className="text-link"
+            onClick={() => {
+              const panel = document.querySelector<HTMLDetailsElement>('.header-settings');
+              if (panel) panel.open = true;
+              document.querySelector<HTMLSelectElement>('.timezone-control select')?.focus();
+            }}
+          >
+            Settings
+          </button>
         </p>
       )}
       <span className="sr-only">
@@ -257,9 +267,10 @@ function MusicToggle() {
             }
           });
       }}
+      aria-busy={loading}
       title={failed ? 'Music unavailable; tap to retry' : undefined}
     >
-      {loading ? 'Music · loading' : saved && !on ? 'Music · resume' : 'Music'}
+      Music: {on ? 'On' : 'Off'}
     </button>
   );
 }
@@ -276,18 +287,7 @@ function SoundToggle() {
         void prepareSound();
       }}
     >
-      <svg
-        viewBox="0 0 24 24"
-        width="20"
-        height="20"
-        fill="none"
-        stroke="currentColor"
-        strokeWidth="1.5"
-        aria-hidden="true"
-      >
-        <path d="M3 9h4l5-4v14l-5-4H3z" />
-        {on ? <path d="M16 8q5 4 0 8M19 5q8 7 0 14" /> : <path d="m16 9 5 6m0-6-5 6" />}
-      </svg>
+      Sound: {on ? 'On' : 'Off'}
     </button>
   );
 }
@@ -324,7 +324,7 @@ function TimezonePicker() {
     : [[zone, label(zone)], ...common];
   return (
     <label className="timezone-control">
-      Times in {localTime(new Date().toISOString(), zone).zone} · change
+      Time zone
       <select
         aria-label="Timezone"
         value={zone}
@@ -517,25 +517,26 @@ export default function App() {
             <br />
             FIRST COME, FIRST SERVED.
           </p>
-          <details className="header-settings">
-            <summary>Settings</summary>
-            <div className="header-controls">
-              <SoundToggle />
-              <MusicToggle />
-              <button
-                className="theme-toggle"
-                onClick={() => setTheme(theme === 'light' ? 'dark' : 'light')}
-                aria-label={theme === 'light' ? 'Switch to dark mode' : 'Switch to light mode'}
-              >
-                <span className="theme-swatch" />
-                {theme === 'light' ? 'Carbon copy' : 'Paper copy'}
-              </button>
-              <TimezonePicker />
-              <div id="settings-content">
-                <BackupSettings sitekey={today?.turnstileSiteKey || ''} refresh={refresh} />
+          <div className="header-actions">
+            <button
+              className="theme-toggle"
+              onClick={() => setTheme(theme === 'light' ? 'dark' : 'light')}
+              aria-label={theme === 'light' ? 'Switch to dark mode' : 'Switch to light mode'}
+            >
+              {theme === 'light' ? 'Carbon copy' : 'Paper copy'}
+            </button>
+            <details className="header-settings">
+              <summary>Settings</summary>
+              <div className="header-controls">
+                <SoundToggle />
+                <MusicToggle />
+                <TimezonePicker />
+                <div id="settings-content">
+                  <BackupSettings sitekey={today?.turnstileSiteKey || ''} refresh={refresh} />
+                </div>
               </div>
-            </div>
-          </details>
+            </details>
+          </div>
           <nav aria-label="Main navigation">
             {[
               ['/', 'Play', 'play'],
@@ -2143,7 +2144,7 @@ function About({ nextDrop }: { nextDrop: string }) {
             PROPERTY RIGHTS
           </div>
         </section>
-        <aside className="office-note">
+        <aside id="privacy" className="office-note">
           <span className="eyebrow">A note on the record</span>
           <h2>Privacy</h2>
           <p>Your random name and claims are public; a cookie remembers you for one year.</p>
@@ -2173,7 +2174,7 @@ function About({ nextDrop }: { nextDrop: string }) {
           <p>For players 13 and up.</p>
           <p>The founder plays by the same rules.</p>
         </aside>
-        <section className="office-sources">
+        <section id="sources" className="office-sources">
           <div>
             <h2>Sources and attribution</h2>
             <p>

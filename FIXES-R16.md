@@ -1,0 +1,25 @@
+# FIXES-R16: owner review fixes, then PageSpeed Insights (ship to production)
+
+> Owner request (Sun Nov 22, 11:13 PM ET). Runs **after R15 and the rest of R14 have finished**. Ship like FIXES-R12 section 5 (practice first, then production, with the rollback point and smoke test). Production still opens **Mon Nov 23 9:00 PM ET**. **No production deploy after Mon Nov 23 3:00 PM ET.** If you aren't done by then, ship nothing and report. OVERNIGHT.md rules apply. At most one ntfy alert. Don't remove features or weaken security (CSP, HSTS, Turnstile) to gain points.
+
+## Owner review fixes (Mon Nov 23, 12:00 AM ET). Do these BEFORE the PageSpeed work
+1. **Countdown:** the owner prefers the **old clock design** because it fit the theme. Restore the countdown visual from before R15 (compare `e139a08` and `r7-done`, and use whichever is the stamped registry-style clock the owner saw earlier; screenshots in `review/final/` and `review/round13/`). Keep R15's sizing, centring and tabular digits. **Fix the digit spacing in the old design:** pairs like "44", "11" and "00" sit about 1px apart. Add letter-spacing (about 0.04 to 0.08em, or per-digit cells with a fixed gap) so every pair has a clearly visible gap at every size, phone to desktop. Check "44:44:44", "11:11:11" and "00:00:00" in screenshots.
+2. **Spacing and legibility:**
+   - "How it works": the handle/streak line ("Mint Quail Streak 0") sits jammed against the page heading. Give the header row and the page title clear separation (at least 32px), and never let the player line touch a heading.
+   - Body text is far too wide on desktop (lines run the full 2,400px). Cap readable text at **60 to 70 characters** (`max-width: 65ch`), centred in the container, on every content page (How it works, Office, Privacy, Sources, FAQ).
+   - Paragraph line-height 1.5 to 1.6, 0.75 to 1em between paragraphs, consistent section spacing. The example block gets its own spacing so the YOURS/TAKEN stamps don't crowd the lines.
+   - Footer: consistent gaps, with the tagline and links vertically aligned to the wordmark baseline.
+3. **Links in light mode show as default browser blue.** Style every link in both themes: ink-coloured text with a vermilion `#E1462B` underline (1px, offset 3px), a thicker underline on hover and focus, and a visible focus ring. No browser-default blue anywhere (Sources, Office, Privacy, archive, footer). "Send feedback" gets the same link style as the other footer links.
+4. **Header controls:**
+   - Move the **PAPER COPY / CARBON COPY** theme toggle back **outside** Settings, into the header (visible on every page and width, including the mobile header). Drop the odd black bar glyph. Use the plain label or a simple paper/carbon icon plus label.
+   - Show the time zone as plain read-only text beside the countdown, with a small hint: "9:00 PM ET · change in Settings", where "Settings" is a link/button that opens the Settings panel and focuses the time-zone control. The **change** control stays inside Settings. Music gets no hint.
+   - Settings keeps: sound, music, time zone, backup code, delete my file. Fix the Settings panel layout: left-aligned rows, equal spacing, labels "Sound: On/Off" and "Music: Off/On" (not "Music · resume"), the time-zone row aligned with the others, and the backup-code row matching the other rows' style.
+5. Before/after screenshots of each at 390 and 1440, both themes, in `review/round16/owner-review/`.
+
+## Do (PageSpeed)
+1. Run **PageSpeed Insights** on production through the public API (`https://www.googleapis.com/pagespeedonline/v5/runPagespeed?url=https://dibs.here&strategy=mobile` and `&strategy=desktop`, all four categories), **3 runs each**. Save the raw JSON to `review/round16/psi-before/`. Also run local Lighthouse on the production build to iterate quickly. Practice is noindex, so use production (read-only) for the SEO score.
+2. Fix **every** failing or warning audit in Performance, Accessibility, Best Practices and SEO. For each one, record in the report: the audit, the cause, the fix, before and after.
+   Expected areas: LCP (preload the hero font subset, `font-display`, critical CSS), render-blocking resources, unused JS/CSS (code-split archive, leaderboard, settings, music, certificate), JS execution time, image formats and sizes (icons, grain.png to WebP/AVIF where supported), cache lifetimes, the Turnstile script (load it only when the player starts typing, not on first paint), contrast, tap targets, ARIA, heading order, `lang`, the meta description, `robots.txt`, canonical, structured data, and console errors.
+3. **Targets (mobile):** Performance ≥ 95, Accessibility 100, Best Practices 100, SEO 100. Desktop: 100 across the board. If something can't reach 100 because of a third party (for example Turnstile's cookies), explain exactly why and leave it, rather than removing the protection.
+4. Re-run PSI after deploying (3 runs each, mobile and desktop) and save it to `review/round16/psi-after/`. Put a before/after score table at the top of MORNING_REPORT.md.
+5. All existing unit, browser, device-matrix and accessibility tests must still pass. Commit, push, tag `r16-done`.

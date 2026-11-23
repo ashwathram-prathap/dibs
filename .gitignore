@@ -109,3 +109,10 @@ review/round15/firefox-results.json
 review/round15/firefox-ci/
 review/round15/lighthouse*/
 review/final/round15/
+
+# R16 raw audits and full-size visual proof remain in the local handoff.
+review/round16/**/*.png
+review/round16/lighthouse*/
+review/round16/*browser-results.json
+review/round16/firefox-ci/
+review/final/round16/

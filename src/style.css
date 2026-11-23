@@ -5248,3 +5248,230 @@ footer a {
 .hero {
   border-color: var(--ink);
 }
+
+/* R16 owner review: registry clock, readable pages, and visible header controls. */
+a,
+a:visited,
+.text-link,
+.feedback > summary {
+  color: var(--ink);
+  text-decoration: underline;
+  text-decoration-color: #e1462b;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+}
+a:hover,
+a:focus-visible,
+.text-link:hover,
+.text-link:focus-visible,
+.feedback > summary:hover,
+.feedback > summary:focus-visible {
+  text-decoration-thickness: 3px;
+}
+:where(a, button, summary, select, input, textarea):focus-visible {
+  outline: 2px solid var(--ink);
+  outline-offset: 4px;
+}
+.wordmark,
+.footer-logo {
+  text-decoration: none;
+}
+.text-link {
+  background: none;
+  border: 0;
+  padding: 8px 2px;
+  min-height: 44px;
+  font: inherit;
+  cursor: pointer;
+}
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  margin-left: auto;
+}
+.page .header-actions .theme-toggle {
+  display: inline-flex;
+  min-height: 44px;
+  padding: 8px 0;
+  font:
+    16px/1.3 Instrument,
+    sans-serif;
+  text-transform: uppercase;
+  margin: 0;
+}
+.page .header-settings .header-controls {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  gap: 12px;
+  margin: 0;
+}
+.page
+  .header-controls
+  :is(.sound-toggle, .music-toggle, .timezone-control, .file-key-panel > summary) {
+  width: 100%;
+  margin: 0;
+  padding: 8px;
+  min-height: 44px;
+  text-align: left;
+  justify-content: flex-start;
+  font:
+    18px/1.5 Instrument,
+    sans-serif;
+}
+.page .header-controls .timezone-control {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 8px;
+}
+.header-controls .timezone-control select {
+  width: 100%;
+  min-width: 0;
+  font-size: 16px;
+  padding: 8px;
+}
+.header-controls .file-key-panel {
+  border: 0;
+  padding: 0;
+  margin: 0;
+}
+.page .header-controls .file-key-panel > summary {
+  display: flex;
+  gap: 8px;
+  border: 1px solid var(--ink);
+}
+.page:not(.home-page) main {
+  padding-top: 32px;
+}
+.how-page,
+.about-layout,
+.page:has(.about-layout) .page-heading {
+  width: 100%;
+  max-width: 65ch;
+  margin-inline: auto;
+}
+.about-layout,
+.office-sources {
+  display: block;
+}
+.how-page p,
+.about-layout p {
+  max-width: 65ch;
+  line-height: 1.55;
+  margin-block: 0 0.85em;
+}
+.about-layout > *,
+.office-sources > div {
+  margin-block: 0 40px;
+}
+.about-layout h2,
+.how-page h2 {
+  margin-block: 32px 16px;
+}
+.about-layout h3 {
+  margin-block: 24px 12px;
+}
+.worked-example {
+  margin-block: 24px;
+  padding-block: 8px;
+}
+.worked-example p {
+  margin-block: 0 0.85em;
+  line-height: 1.6;
+}
+.example-stamp {
+  margin-block: 4px;
+}
+.page footer {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 16px 24px;
+}
+.page footer :is(a, span, summary) {
+  font-size: 16px;
+}
+.page footer .footer-logo {
+  display: block;
+  line-height: 0;
+}
+.page footer .footer-logo svg {
+  vertical-align: baseline;
+}
+.page footer a:not(.footer-logo),
+.page footer .feedback > summary {
+  display: inline-block;
+  line-height: 1.5;
+  padding-block: 10px;
+  min-height: 44px;
+}
+.page footer .feedback {
+  margin: 0;
+  padding: 0;
+}
+.closed-office .drop-countdown .clock,
+.closed-office .drop-countdown .clock * {
+  font-family: Archivo, sans-serif;
+  font-weight: 900;
+  letter-spacing: 0.055em;
+  font-variant-numeric: tabular-nums;
+  font-feature-settings: 'tnum' 1;
+}
+.closed-office .drop-countdown .clock {
+  font-size: clamp(52px, 15.8vw, 192px);
+}
+@media (max-width: 600px) {
+  .header-actions {
+    gap: 12px;
+  }
+  .page .masthead .brand-mark {
+    width: 108px;
+  }
+  .page .header-actions .theme-toggle {
+    font-size: 14px;
+  }
+  .closed-office .drop-countdown .clock {
+    font-size: clamp(42px, 15.8vw, 95px);
+  }
+}
+@media (max-width: 359px) {
+  .header-actions {
+    gap: 8px;
+  }
+  .page .masthead .brand-mark {
+    width: 80px;
+  }
+}
+@media (max-width: 319px) {
+  .header-actions {
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    gap: 0 8px;
+  }
+  .closed-office .drop-countdown .clock {
+    font-size: 10vw;
+  }
+}
+.header-controls .timezone-control select {
+  position: static;
+  opacity: 1;
+  height: auto;
+  color: var(--ink);
+  background: var(--paper);
+}
+.page footer .footer-logo {
+  display: inline-block;
+  line-height: 1.5;
+  min-height: 44px;
+}
+.page footer .footer-logo svg {
+  vertical-align: -0.05em;
+}
+@media (max-width: 767px) {
+  .page .masthead .header-player { grid-column: 1 / -1; }
+}
+.page footer .footer-logo { min-height: 0; }
+.page footer .footer-logo svg { vertical-align: -0.35em; }

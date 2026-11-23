@@ -1,0 +1,50 @@
+[
+  {
+    "strategy": "mobile",
+    "run": 1,
+    "status": 429,
+    "at": "2026-11-23T06:08:02.249Z",
+    "scores": null,
+    "error": "Quota exceeded for quota metric 'Queries' and limit 'Queries per day' of service 'pagespeedonline.googleapis.com' for consumer 'project_number:583797351490'."
+  },
+  {
+    "strategy": "desktop",
+    "run": 1,
+    "status": 429,
+    "at": "2026-11-23T06:08:02.299Z",
+    "scores": null,
+    "error": "Quota exceeded for quota metric 'Queries' and limit 'Queries per day' of service 'pagespeedonline.googleapis.com' for consumer 'project_number:583797351490'."
+  },
+  {
+    "strategy": "mobile",
+    "run": 2,
+    "status": 429,
+    "at": "2026-11-23T06:08:02.395Z",
+    "scores": null,
+    "error": "Quota exceeded for quota metric 'Queries' and limit 'Queries per day' of service 'pagespeedonline.googleapis.com' for consumer 'project_number:583797351490'."
+  },
+  {
+    "strategy": "desktop",
+    "run": 2,
+    "status": 429,
+    "at": "2026-11-23T06:08:02.442Z",
+    "scores": null,
+    "error": "Quota exceeded for quota metric 'Queries' and limit 'Queries per day' of service 'pagespeedonline.googleapis.com' for consumer 'project_number:583797351490'."
+  },
+  {
+    "strategy": "mobile",
+    "run": 3,
+    "status": 429,
+    "at": "2026-11-23T06:08:02.495Z",
+    "scores": null,
+    "error": "Quota exceeded for quota metric 'Queries' and limit 'Queries per day' of service 'pagespeedonline.googleapis.com' for consumer 'project_number:583797351490'."
+  },
+  {
+    "strategy": "desktop",
+    "run": 3,
+    "status": 429,
+    "at": "2026-11-23T06:08:02.545Z",
+    "scores": null,
+    "error": "Quota exceeded for quota metric 'Queries' and limit 'Queries per day' of service 'pagespeedonline.googleapis.com' for consumer 'project_number:583797351490'."
+  }
+]
