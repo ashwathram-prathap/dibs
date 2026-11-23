@@ -1,0 +1,133 @@
+{
+  "at": "2026-11-23T16:48:43.107731+00:00",
+  "applicationCommit": "d3260f2",
+  "passed": 720,
+  "failed": 0,
+  "screens": [
+    {
+      "screen": "admin-feedback",
+      "captures": 120
+    },
+    {
+      "screen": "certificate-deep-cut",
+      "captures": 120
+    },
+    {
+      "screen": "certificate-familiar",
+      "captures": 120
+    },
+    {
+      "screen": "certificate-golden",
+      "captures": 120
+    },
+    {
+      "screen": "certificate-measured",
+      "captures": 120
+    },
+    {
+      "screen": "certificate-missing",
+      "captures": 120
+    },
+    {
+      "screen": "claim-1",
+      "captures": 120
+    },
+    {
+      "screen": "claim-2",
+      "captures": 120
+    },
+    {
+      "screen": "claim-3",
+      "captures": 120
+    },
+    {
+      "screen": "feedback-required",
+      "captures": 120
+    },
+    {
+      "screen": "feedback-sent",
+      "captures": 120
+    },
+    {
+      "screen": "landing-certificate-Instagram",
+      "captures": 120
+    },
+    {
+      "screen": "landing-certificate-LinkedInApp",
+      "captures": 120
+    },
+    {
+      "screen": "landing-certificate-browser",
+      "captures": 120
+    },
+    {
+      "screen": "landing-certificate-standalone",
+      "captures": 120
+    },
+    {
+      "screen": "landing-closed-Instagram",
+      "captures": 120
+    },
+    {
+      "screen": "landing-closed-LinkedInApp",
+      "captures": 120
+    },
+    {
+      "screen": "landing-closed-browser",
+      "captures": 120
+    },
+    {
+      "screen": "landing-closed-standalone",
+      "captures": 120
+    },
+    {
+      "screen": "landing-summary-Instagram",
+      "captures": 120
+    },
+    {
+      "screen": "landing-summary-LinkedInApp",
+      "captures": 120
+    },
+    {
+      "screen": "landing-summary-browser",
+      "captures": 120
+    },
+    {
+      "screen": "landing-summary-standalone",
+      "captures": 120
+    },
+    {
+      "screen": "settings-closed",
+      "captures": 120
+    },
+    {
+      "screen": "settings-open",
+      "captures": 120
+    },
+    {
+      "screen": "settings-scrolled",
+      "captures": 120
+    },
+    {
+      "screen": "share-Instagram",
+      "captures": 120
+    },
+    {
+      "screen": "share-LinkedInApp",
+      "captures": 120
+    },
+    {
+      "screen": "share-browser",
+      "captures": 120
+    },
+    {
+      "screen": "share-standalone",
+      "captures": 120
+    },
+    {
+      "screen": "strike-five",
+      "captures": 120
+    }
+  ],
+  "totalCaptures": 3720
+}
