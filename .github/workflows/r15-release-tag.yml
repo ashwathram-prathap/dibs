@@ -1,0 +1,23 @@
+name: R15 verified production tag
+on:
+  push:
+    branches: [main]
+    paths: [review/round15/production-smoke.json]
+permissions:
+  contents: write
+jobs:
+  tag:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Verify release evidence and tag
+        run: |
+          node --input-type=module -e "import fs from 'node:fs'; import assert from 'node:assert/strict'; const smoke=JSON.parse(fs.readFileSync('review/round15/production-smoke.json')); const release=JSON.parse(fs.readFileSync('review/round15/deployment.json')); assert.equal(smoke.passed,true); assert.equal(smoke.checks.length,8); assert.ok(release.pages && release.workerVersion);"
+          if git rev-parse refs/tags/r15-done >/dev/null 2>&1; then
+            test "$(git rev-parse refs/tags/r15-done)" = "$GITHUB_SHA"
+          else
+            git tag r15-done "$GITHUB_SHA"
+            git push origin refs/tags/r15-done
+          fi

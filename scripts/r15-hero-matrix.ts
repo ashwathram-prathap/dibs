@@ -137,10 +137,7 @@ for (const engine of [chromium, webkit]) {
         if (text.overflow || !text.heroFits || text.hero!.right > width + 1)
           failures.push('130% text overflow');
         await p.screenshot({ path: `review/round15/matrix/${label}-large-text.png` });
-        await p.evaluate(() => {
-          document.body.style.zoom = '2';
-        });
-        await p.screenshot({ path: `review/round15/matrix/${label}-zoom200.png` });
+        // Phone 200% zoom is checked separately with half-width CSS viewports in r15-zoom.ts.
         await p.goto(base + '/?r7-closed');
         await p.locator('.closed-office .clock').waitFor();
         await p.evaluate(() => document.fonts.ready);

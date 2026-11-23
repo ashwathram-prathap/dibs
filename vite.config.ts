@@ -65,7 +65,7 @@ export default defineConfig(({ mode }) => {
               Object.entries(headers)
                 .map(([k, v]) => '  ' + k + ': ' + v)
                 .join('\n') +
-              '\n  Cache-Control: no-cache\n/assets/*\n  Cache-Control: public, max-age=31536000, immutable\n/fonts/*\n  Cache-Control: public, max-age=2592000\n/audio/*\n  Cache-Control: public, max-age=2592000\n/catalog/*\n  Cache-Control: public, max-age=86400\n',
+              '\n  Cache-Control: no-cache\n/assets/*\n  ! Cache-Control\n  Cache-Control: public, max-age=31536000, immutable\n/fonts/*\n  ! Cache-Control\n  Cache-Control: public, max-age=2592000\n/audio/*\n  ! Cache-Control\n  Cache-Control: public, max-age=2592000\n/catalog/*\n  ! Cache-Control\n  Cache-Control: public, max-age=86400\n',
           );
           if (publicOrigin === PUBLIC_ORIGIN)
             writeFileSync(

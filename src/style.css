@@ -5180,3 +5180,66 @@ footer a {
   min-height: calc(100dvh - 102px);
   font-size: 16px;
 }
+/* At 200% browser zoom a small phone has a 160–215px CSS viewport. */
+@media (max-width: 319px) {
+  body {
+    min-width: 0;
+  }
+  .page {
+    padding-inline: 8px;
+    padding-bottom: calc(160px + env(safe-area-inset-bottom));
+  }
+  .page .masthead {
+    gap: 8px;
+  }
+  .page .masthead .brand-mark {
+    width: 64px;
+  }
+  .header-player-placeholder {
+    min-width: 0;
+  }
+  .masthead nav {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .masthead nav a {
+    overflow-wrap: anywhere;
+  }
+  .header-settings .header-controls {
+    position: fixed;
+    top: 60px;
+    left: 8px;
+    right: 8px;
+    width: auto;
+  }
+  .focused-play .play-heading .category {
+    font-size: 32px;
+    overflow-wrap: anywhere;
+  }
+  .closed-office .clock {
+    font-size: 24px;
+  }
+  .practice-banner,
+  .header-player,
+  .closed-copy,
+  .claim-paper,
+  .game-intro {
+    overflow-wrap: anywhere;
+  }
+  .primary {
+    font-size: 16px;
+    padding-inline: 8px;
+  }
+  .leaderboard td,
+  .leaderboard th {
+    overflow-wrap: anywhere;
+  }
+}
+@media (max-width: 319px) {
+  .page .input-row .primary {
+    gap: 4px;
+    padding-inline: 4px;
+    flex-wrap: wrap;
+    white-space: normal;
+    font-size: 16px;
+  }
+}
