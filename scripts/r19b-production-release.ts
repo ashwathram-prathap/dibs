@@ -29,7 +29,6 @@ try {
   ts('Verify standard deployment freeze', 'scripts/check-deploy-freeze.ts', ['--production']);
   ts('Configure drop', 'scripts/configure-drop.ts');
   ts('Build house words', 'scripts/build-house-words.ts');
-  run('Build production frontend', 'npm', ['run', 'build']);
   gate();
   workerChanged = true;
   run('Deploy production Worker', './node_modules/.bin/wrangler', [
@@ -37,6 +36,7 @@ try {
     '-c',
     'worker/wrangler.jsonc',
   ]);
+  run('Build production frontend', 'npm', ['run', 'build']);
   await new Promise((resolve) => setTimeout(resolve, 10000)); // Let the new admin route propagate.
   const response = await fetch('https://dibs.here/api/bootstrap', { cache: 'no-store' });
   const data: any = await response.json();

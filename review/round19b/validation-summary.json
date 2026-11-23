@@ -11,8 +11,8 @@
     ]
   },
   "fullMatrix": {
-    "startTime": "2026-11-23T13:18:41.323Z",
-    "duration": 355378.08900000004,
+    "startTime": "2026-11-23T13:35:27.901Z",
+    "duration": 329497.44399999996,
     "expected": 400,
     "skipped": 0,
     "unexpected": 0,
@@ -53,5 +53,21 @@
     "inertConfiguration": true,
     "conditionalLoader": true,
     "sha256": "f52f628d279f8f04010ba60d4af1d6dc8d250019c6db9ef756970e48d806d6f2"
-  }
+  },
+  "firefoxPriorRun": {
+    "id": 45183450344,
+    "passed": 54,
+    "failed": 6,
+    "cause": "Stale expected generic certificate caption after the deliberate answer-free caption change; updated both intent and clipboard expectations."
+  },
+  "fullMatrixCommit": "fee40e211be8d712aa9faf1ff94e8a4d8ca363e3",
+  "firefox": {
+    "conclusion": "success",
+    "headSha": "fee40e211be8d712aa9faf1ff94e8a4d8ca363e3",
+    "status": "completed",
+    "url": "https://github.com/ashwathram-prathap/dibs/actions/runs/45185430336",
+    "tests": 60,
+    "passed": true
+  },
+  "verificationCommit": "fee40e211be8d712aa9faf1ff94e8a4d8ca363e3"
 }
