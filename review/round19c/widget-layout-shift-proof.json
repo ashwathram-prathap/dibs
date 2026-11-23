@@ -19,5 +19,8 @@
   "afterPerformance": 99,
   "afterAccessibility": 100,
   "afterCls": 0.0347470330012803,
-  "finalIdleRunPending": true
+  "finalIdleRunPending": false,
+  "finalPerformance": 98,
+  "finalAccessibility": 100,
+  "finalCls": 0.0347470330012803
 }

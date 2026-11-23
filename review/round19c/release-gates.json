@@ -1,0 +1,80 @@
+{
+  "at": "2026-11-23T19:56:09.833Z",
+  "sourceCommit": "d10d5ed5cb68e4bed61f4af972e565213517f5b3",
+  "ciCommit": "af8ebfe93db970f58077e3eb1635fd812c7c33d7",
+  "passed": true,
+  "gates": {
+    "unitApi": true,
+    "chromiumWebkitMatrix": true,
+    "firefoxMatrix": true,
+    "browserRegressions": true,
+    "localPrecisionRegression": true,
+    "finalVisualAssertions": true,
+    "practiceRehearsal": true,
+    "archivePracticeDryRun": true,
+    "practiceRestored": true,
+    "practiceAssets": true,
+    "practiceScoreAssets": true,
+    "previews": true,
+    "lighthouse": true,
+    "productionBuild": true,
+    "contactSheets": true,
+    "visualReview": true
+  },
+  "unit": {
+    "total": 230,
+    "passed": 230
+  },
+  "browser": [
+    {
+      "file": "matrix-browser-results.json",
+      "required": 1440,
+      "startTime": "2026-11-23T19:13:00.457Z",
+      "duration": 2048207.398,
+      "expected": 1440,
+      "skipped": 0,
+      "unexpected": 0,
+      "flaky": 0,
+      "passed": true
+    },
+    {
+      "file": "firefox-ci/review/round19c/firefox-browser-results.json",
+      "required": 720,
+      "startTime": "2026-11-23T19:37:37.340Z",
+      "duration": 561421.6630859375,
+      "expected": 720,
+      "skipped": 0,
+      "unexpected": 0,
+      "flaky": 0,
+      "passed": true
+    },
+    {
+      "file": "regression-browser-results.json",
+      "required": 416,
+      "startTime": "2026-11-23T19:14:27.451Z",
+      "duration": 709003.448,
+      "expected": 416,
+      "skipped": 0,
+      "unexpected": 0,
+      "flaky": 0,
+      "passed": true
+    },
+    {
+      "file": "final-visual-browser-results.json",
+      "required": 48,
+      "startTime": "2026-11-23T19:26:17.731Z",
+      "duration": 149662.691,
+      "expected": 48,
+      "skipped": 0,
+      "unexpected": 0,
+      "flaky": 0,
+      "passed": true
+    }
+  ],
+  "firefoxRun": "https://github.com/ashwathram-prathap/dibs/actions/runs/45250684186",
+  "lighthouse": {
+    "performance": 0.98,
+    "accessibility": 1
+  },
+  "deadline": "2026-11-23T20:00:00Z"
+}

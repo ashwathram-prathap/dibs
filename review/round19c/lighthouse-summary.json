@@ -1,13 +1,14 @@
 {
-  "at": "2026-11-23T16:31:26.705281+00:00",
+  "at": "2026-11-23T19:51:59.609796+00:00",
   "url": "https://practice.dibs-7hz.pages.dev",
-  "sourceCommit": "d3260f213ab78ca64920fd57788cdf539c9f71cf",
+  "applicationCommit": "c1b8a34",
+  "testCommit": "af8ebfe",
   "runs": [
     {
       "strategy": "mobile",
       "run": 1,
       "scores": {
-        "performance": 91,
+        "performance": 98,
         "accessibility": 100,
         "best-practices": 100,
         "seo": 66
@@ -26,5 +27,5 @@
       "warnings": []
     }
   ],
-  "note": "Practice intentionally remains noindex. Mobile uses simulated Slow 4G and 4x CPU throttling."
+  "note": "Practice intentionally remains noindex. Mobile uses simulated Slow 4G and 4x CPU throttling. Final run follows the verification-space correction."
 }
