@@ -39,7 +39,10 @@ export default defineConfig(${JSON.stringify({
     projects,
     reporter: [
       ['list'],
-      ['json', { outputFile: 'review/round19c/final-visual-browser-results.json' }],
+      [
+        'json',
+        { outputFile: process.cwd() + '/review/round19c/final-visual-browser-results.json' },
+      ],
     ],
     webServer: {
       command: 'npx vite preview --mode security-test --host 127.0.0.1 --port 5215',

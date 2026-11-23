@@ -1,0 +1,188 @@
+[
+  {
+    "screen": "admin-feedback",
+    "combinations": 8,
+    "contactSheet": "admin-feedback.png",
+    "gallery": "admin-feedback.html"
+  },
+  {
+    "screen": "certificate-deep-cut",
+    "combinations": 8,
+    "contactSheet": "certificate-deep-cut.png",
+    "gallery": "certificate-deep-cut.html"
+  },
+  {
+    "screen": "certificate-familiar",
+    "combinations": 8,
+    "contactSheet": "certificate-familiar.png",
+    "gallery": "certificate-familiar.html"
+  },
+  {
+    "screen": "certificate-golden",
+    "combinations": 8,
+    "contactSheet": "certificate-golden.png",
+    "gallery": "certificate-golden.html"
+  },
+  {
+    "screen": "certificate-measured",
+    "combinations": 8,
+    "contactSheet": "certificate-measured.png",
+    "gallery": "certificate-measured.html"
+  },
+  {
+    "screen": "certificate-missing",
+    "combinations": 8,
+    "contactSheet": "certificate-missing.png",
+    "gallery": "certificate-missing.html"
+  },
+  {
+    "screen": "claim-1",
+    "combinations": 8,
+    "contactSheet": "claim-1.png",
+    "gallery": "claim-1.html"
+  },
+  {
+    "screen": "claim-2",
+    "combinations": 8,
+    "contactSheet": "claim-2.png",
+    "gallery": "claim-2.html"
+  },
+  {
+    "screen": "claim-3",
+    "combinations": 8,
+    "contactSheet": "claim-3.png",
+    "gallery": "claim-3.html"
+  },
+  {
+    "screen": "feedback-required",
+    "combinations": 8,
+    "contactSheet": "feedback-required.png",
+    "gallery": "feedback-required.html"
+  },
+  {
+    "screen": "feedback-sent",
+    "combinations": 8,
+    "contactSheet": "feedback-sent.png",
+    "gallery": "feedback-sent.html"
+  },
+  {
+    "screen": "landing-certificate-Instagram",
+    "combinations": 8,
+    "contactSheet": "landing-certificate-Instagram.png",
+    "gallery": "landing-certificate-Instagram.html"
+  },
+  {
+    "screen": "landing-certificate-LinkedInApp",
+    "combinations": 8,
+    "contactSheet": "landing-certificate-LinkedInApp.png",
+    "gallery": "landing-certificate-LinkedInApp.html"
+  },
+  {
+    "screen": "landing-certificate-browser",
+    "combinations": 8,
+    "contactSheet": "landing-certificate-browser.png",
+    "gallery": "landing-certificate-browser.html"
+  },
+  {
+    "screen": "landing-certificate-standalone",
+    "combinations": 8,
+    "contactSheet": "landing-certificate-standalone.png",
+    "gallery": "landing-certificate-standalone.html"
+  },
+  {
+    "screen": "landing-closed-Instagram",
+    "combinations": 8,
+    "contactSheet": "landing-closed-Instagram.png",
+    "gallery": "landing-closed-Instagram.html"
+  },
+  {
+    "screen": "landing-closed-LinkedInApp",
+    "combinations": 8,
+    "contactSheet": "landing-closed-LinkedInApp.png",
+    "gallery": "landing-closed-LinkedInApp.html"
+  },
+  {
+    "screen": "landing-closed-browser",
+    "combinations": 8,
+    "contactSheet": "landing-closed-browser.png",
+    "gallery": "landing-closed-browser.html"
+  },
+  {
+    "screen": "landing-closed-standalone",
+    "combinations": 8,
+    "contactSheet": "landing-closed-standalone.png",
+    "gallery": "landing-closed-standalone.html"
+  },
+  {
+    "screen": "landing-summary-Instagram",
+    "combinations": 8,
+    "contactSheet": "landing-summary-Instagram.png",
+    "gallery": "landing-summary-Instagram.html"
+  },
+  {
+    "screen": "landing-summary-LinkedInApp",
+    "combinations": 8,
+    "contactSheet": "landing-summary-LinkedInApp.png",
+    "gallery": "landing-summary-LinkedInApp.html"
+  },
+  {
+    "screen": "landing-summary-browser",
+    "combinations": 8,
+    "contactSheet": "landing-summary-browser.png",
+    "gallery": "landing-summary-browser.html"
+  },
+  {
+    "screen": "landing-summary-standalone",
+    "combinations": 8,
+    "contactSheet": "landing-summary-standalone.png",
+    "gallery": "landing-summary-standalone.html"
+  },
+  {
+    "screen": "settings-closed",
+    "combinations": 8,
+    "contactSheet": "settings-closed.png",
+    "gallery": "settings-closed.html"
+  },
+  {
+    "screen": "settings-open",
+    "combinations": 8,
+    "contactSheet": "settings-open.png",
+    "gallery": "settings-open.html"
+  },
+  {
+    "screen": "settings-scrolled",
+    "combinations": 8,
+    "contactSheet": "settings-scrolled.png",
+    "gallery": "settings-scrolled.html"
+  },
+  {
+    "screen": "share-Instagram",
+    "combinations": 8,
+    "contactSheet": "share-Instagram.png",
+    "gallery": "share-Instagram.html"
+  },
+  {
+    "screen": "share-LinkedInApp",
+    "combinations": 8,
+    "contactSheet": "share-LinkedInApp.png",
+    "gallery": "share-LinkedInApp.html"
+  },
+  {
+    "screen": "share-browser",
+    "combinations": 8,
+    "contactSheet": "share-browser.png",
+    "gallery": "share-browser.html"
+  },
+  {
+    "screen": "share-standalone",
+    "combinations": 8,
+    "contactSheet": "share-standalone.png",
+    "gallery": "share-standalone.html"
+  },
+  {
+    "screen": "strike-five",
+    "combinations": 8,
+    "contactSheet": "strike-five.png",
+    "gallery": "strike-five.html"
+  }
+]

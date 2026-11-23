@@ -1,0 +1,94 @@
+{
+  "at": "2026-11-23T15:24:28.189Z",
+  "passed": true,
+  "entry": "/assets/index-BZgiGc9k.js",
+  "rows": [
+    {
+      "path": "Archive-DlUAn0gc.js",
+      "status": 200,
+      "type": "application/javascript",
+      "bytes": 4623,
+      "matches": true
+    },
+    {
+      "path": "Calendar-DSCOdZmY.js",
+      "status": 200,
+      "type": "application/javascript",
+      "bytes": 9590,
+      "matches": true
+    },
+    {
+      "path": "Certificate-CtBfr7Je.js",
+      "status": 200,
+      "type": "application/javascript",
+      "bytes": 98153,
+      "matches": true
+    },
+    {
+      "path": "Content-BkjtfkUS.js",
+      "status": 200,
+      "type": "application/javascript",
+      "bytes": 12756,
+      "matches": true
+    },
+    {
+      "path": "Leaderboard-DU-QjM8j.js",
+      "status": 200,
+      "type": "application/javascript",
+      "bytes": 2335,
+      "matches": true
+    },
+    {
+      "path": "Ledger-BeobZhwz.js",
+      "status": 200,
+      "type": "application/javascript",
+      "bytes": 5967,
+      "matches": true
+    },
+    {
+      "path": "Settings-Bz5oa_6k.js",
+      "status": 200,
+      "type": "application/javascript",
+      "bytes": 9494,
+      "matches": true
+    },
+    {
+      "path": "index-BZgiGc9k.js",
+      "status": 200,
+      "type": "application/javascript",
+      "bytes": 277030,
+      "matches": true
+    },
+    {
+      "path": "jsx-runtime-B4UN2VIk.js",
+      "status": 200,
+      "type": "application/javascript",
+      "bytes": 9096,
+      "matches": true
+    },
+    {
+      "path": "spelling.worker-D4UD658e.js",
+      "status": 200,
+      "type": "application/javascript",
+      "bytes": 1976,
+      "matches": true
+    },
+    {
+      "path": "time-B2kEtE2D.js",
+      "status": 200,
+      "type": "application/javascript",
+      "bytes": 1755,
+      "matches": true
+    }
+  ],
+  "observations": [
+    {
+      "at": "2026-11-23T15:24:28.188Z",
+      "status": 200,
+      "actual": "/assets/index-BZgiGc9k.js",
+      "expected": "/assets/index-BZgiGc9k.js",
+      "htmlMatches": true,
+      "passed": true
+    }
+  ]
+}
