@@ -95,10 +95,10 @@ for (const scenario of ['file', 'url', 'reject', 'abort'])
     }
     if (scenario === 'url') expect(calls[0].keys).toEqual(['url', 'text']);
     if (scenario === 'reject') {
-      await expect(page.locator('.share-hint').first()).toHaveText(
+      await expect(page.locator('.share-hint[role=status]')).toHaveText(
         "Couldn't share. Link copied instead.",
       );
       expect(await page.evaluate(() => (window as any).copied)).toContain('/certificate/fixture-1');
     }
-    if (scenario === 'abort') await expect(page.locator('.share-hint').first()).toHaveText('');
+    if (scenario === 'abort') await expect(page.locator('.share-hint[role=status]')).toHaveText('');
   });

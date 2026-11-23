@@ -9,7 +9,8 @@ test('R16 header controls, timezone focus and readable content', async ({ page }
   await expect(page.getByLabel('Timezone', { exact: true })).toBeFocused();
   await expect(page.getByLabel('Timezone', { exact: true })).toBeVisible();
   await page.locator('.sound-toggle').focus();
-  // On phones the open panel overlaps this link; exercise its keyboard activation.
+  // Modal Settings keeps the page inert; close it before exercising the link again.
+  await page.keyboard.press('Escape');
   await page.locator('.drop-countdown .text-link').focus();
   await page.locator('.drop-countdown .text-link').press('Enter');
   await expect(page.getByLabel('Timezone', { exact: true })).toBeFocused();
@@ -17,7 +18,7 @@ test('R16 header controls, timezone focus and readable content', async ({ page }
   await expect(page.locator('.drop-countdown')).toContainText('PM PT · change in Settings');
   await expect(page.locator('.sound-toggle')).toHaveText(/Sound: (On|Off)/);
   await expect(page.locator('.music-toggle')).toHaveText('Music: Off');
-  await page.locator('.header-settings > summary').click();
+  await page.locator('.settings-close').click();
   await page.goto('/how-it-works');
   await page.locator('.how-page').waitFor();
   const player = await page.locator('.header-player').boundingBox();

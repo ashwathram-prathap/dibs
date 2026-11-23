@@ -105,7 +105,6 @@ test('theme edges work on every route with consistent header placement', async (
   ]) {
     await page.goto(path);
     await page.locator('.loading').waitFor({ state: 'hidden' });
-    await page.locator('.header-settings > summary').click();
     const toggle = page.locator('.theme-toggle');
     await expect(toggle).toBeVisible();
     const box = (await toggle.boundingBox())!;

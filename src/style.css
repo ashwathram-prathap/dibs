@@ -5102,7 +5102,8 @@ footer {
     min-height: 3rem;
   }
   .keyboard-open .masthead nav {
-    display: none;
+    visibility: hidden;
+    pointer-events: none;
   }
   .masthead .header-player {
     max-width: 100%;
@@ -5145,7 +5146,8 @@ footer {
     margin: 0;
   }
   .keyboard-open .home-page:has(.focused-play) .masthead nav {
-    display: none;
+    visibility: hidden;
+    pointer-events: none;
   }
 }
 footer a {
@@ -7638,5 +7640,20 @@ body {
   .invitation-action > a {
     flex-wrap: wrap;
     padding: 0.5rem;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .claim-section *,
+  .claim-section *::before,
+  .claim-section *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+}
+/* Keep the bottom bar out of an active admin form's pointer path through submit. */
+@media (max-width: 950px) {
+  .page:has(.admin-form :focus) .masthead nav {
+    visibility: hidden;
+    pointer-events: none;
   }
 }

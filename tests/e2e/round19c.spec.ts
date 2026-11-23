@@ -298,6 +298,9 @@ test('Each claim gets its payoff; third gold and fifth strike wait for the playe
       `Yours. ${answer} has your name on it for good.`,
     );
     await expect(page.locator('.payoff-curve .rarity-curve')).toBeVisible();
+    expect(
+      await page.locator('.win-stamp').evaluate((el) => getComputedStyle(el).animationName),
+    ).toBe('none');
     await expect(page.locator('.day-certificate')).toHaveCount(0);
     await audit(page, '.claim-section', '.win-actions > .primary');
     await shot(page, info, 'claim-' + (i + 1));
@@ -447,6 +450,14 @@ test('Share and visitor landing work in browser, standalone, LinkedIn and Instag
     await expect(p.locator('.shared-invitation')).toContainText('struck out');
     await expect(p.locator('.summary-answers')).toContainText('Okapi');
     await expect(p.getByRole('link', { name: 'Play now', exact: true })).toBeVisible();
+    if (mode === 'browser') {
+      await p.goto('/?r19&r19c&r6&persist');
+      await done(p);
+      await p.goto('/summary/fixture-summary?r19&r19c&visitor&persist');
+      await p.locator('.invitation-action > .primary').click();
+      await expect(p.locator('.day-certificate')).toBeVisible();
+      await expect(p.locator('#answer')).toHaveCount(0);
+    }
     expect(errors).toEqual([]);
     await context.close();
   }

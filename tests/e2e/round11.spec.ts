@@ -7,7 +7,7 @@ test('R11 rules, free guesses, explicit counters, reminders, settings and deleti
   await expect(page.locator('#answer')).toBeVisible();
   await page.locator('.header-settings > summary').click();
   await expect(page.getByRole('button', { name: 'Turn stamp sound off' })).toBeVisible();
-  await page.locator('.header-settings > summary').click();
+  await page.locator('.settings-close').click();
   for (const [answer, message] of [
     ['dibs', 'The clerk appreciates the enthusiasm.'],
     ['registrar', 'Flattery will get you nowhere.'],

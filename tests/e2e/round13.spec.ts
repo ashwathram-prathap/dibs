@@ -45,7 +45,6 @@ test('R13 hero first, R7 scale, phone action visible, explanation collapses', as
     (await page.locator('.game-intro').boundingBox())!.y,
   );
   await expect(page.locator('.closed-office .drop-countdown > p')).toBeVisible();
-  await page.locator('.header-settings > summary').click();
   await expect(page.locator('.theme-toggle')).toHaveText(/Carbon copy|Paper copy/);
   const initial = await page.locator('html').getAttribute('data-theme');
   await page
@@ -91,14 +90,14 @@ test('R13 sound mapping, double tap and music only after tap', async ({ page }) 
   expect(await page.evaluate(() => (window as any).stamps)).toEqual([]);
   await page.locator('.header-settings').evaluate((e: HTMLDetailsElement) => (e.open = true));
   await page.getByRole('button', { name: 'Turn stamp sound off' }).click();
-  await page.locator('.header-settings > summary').click();
+  await page.locator('.settings-close').click();
   await page.locator('#answer').fill('Dog');
   await page.locator('#answer').press('Enter');
   await expect(page.locator('.strike-count')).toHaveText('Strike 1 of 5');
   expect(await page.evaluate(() => (window as any).stamps)).toEqual([]);
   await page.locator('.header-settings').evaluate((e: HTMLDetailsElement) => (e.open = true));
   await page.getByRole('button', { name: 'Turn stamp sound on' }).click();
-  await page.locator('.header-settings > summary').click();
+  await page.locator('.settings-close').click();
   await page.locator('#answer').fill('Dog');
   await page.locator('#answer').press('Enter');
   await expect.poll(() => page.evaluate(() => (window as any).stamps)).toEqual([0.115]);
@@ -126,7 +125,7 @@ test('R13 sound mapping, double tap and music only after tap', async ({ page }) 
   await expect.poll(() => audioRequests.length).toBe(1);
   await expect(page.locator('.music-toggle')).toHaveAttribute('aria-pressed', 'true');
   await expect.poll(() => page.evaluate(() => (window as any).musicLoops.length)).toBe(1);
-  await page.locator('.header-settings > summary').click();
+  await page.locator('.settings-close').click();
   await expect(page.locator('.music-toggle')).not.toBeVisible();
   await page.locator('.header-settings > summary').click();
   await expect(page.locator('.music-toggle')).toHaveAttribute('aria-pressed', 'true');

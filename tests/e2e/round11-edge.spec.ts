@@ -58,7 +58,7 @@ test('sound choice persists and reduced motion uses the quiet stamp', async ({ p
   await page.locator('#answer').press('Enter');
   await expect(page.locator('.win-stamp')).toBeVisible();
   expect(await page.locator('.win-stamp').evaluate((e) => getComputedStyle(e).animationName)).toBe(
-    'ink-fade',
+    'none',
   );
 });
 test('empty submission is free and timezone choice persists across pages', async ({ page }) => {

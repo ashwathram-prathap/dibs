@@ -154,7 +154,15 @@ try {
         ts('Restore practice notifications', 'scripts/r19c-practice-setup.ts', ['alerts']);
       }
     }
-    const after = await api('/today');
+    let after = await api('/today');
+    for (
+      let attempt = 0;
+      attempt < 30 && after.data.turnstileSiteKey !== before.data.turnstileSiteKey;
+      attempt++
+    ) {
+      await new Promise((resolve) => setTimeout(resolve, 2000));
+      after = await api('/today');
+    }
     assert.ok(after.response.ok);
     assert.equal(after.data.turnstileSiteKey, before.data.turnstileSiteKey);
     assert.equal(after.data.category.drop_at, category.drop_at);
