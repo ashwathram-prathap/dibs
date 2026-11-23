@@ -1,4 +1,4 @@
-import { filingTime } from '../shared/time';
+import { filingTime, viewerZone } from '../shared/time';
 import { useHideAnswers } from './share-preference';
 import { claimScore } from '../shared/claim-copy';
 import { rarityLabel } from '../shared/rarity';
@@ -43,9 +43,10 @@ export function DaySummary({
   owned?: boolean;
 }) {
   const [hideAnswers, setHideAnswers] = useHideAnswers();
+  const zone = viewerZone();
   const render = useCallback(
-    (story: boolean) => exportSummary(file, today.category!, story, hideAnswers),
-    [file, today.category, hideAnswers],
+    (story: boolean) => exportSummary(file, today.category!, story, hideAnswers, zone),
+    [file, today.category, hideAnswers, zone],
   );
   return (
     <section className="day-summary">

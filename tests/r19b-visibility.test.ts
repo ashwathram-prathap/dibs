@@ -1,3 +1,4 @@
+import { assertPublicPayload, assertOwnerSharedPayload, shapes } from './public-payload-schema';
 import { it, expect } from 'vitest';
 import { concealSummary, visibleClaim, publicSummary } from '../worker/visibility';
 import { dropAt, registryDate } from '../worker/domain';
@@ -37,4 +38,25 @@ it('opens tonight at 9 PM Toronto and respects the DST transition', () => {
   expect(dropAt('2026-11-01')).toBe('2026-11-02T02:00:00.000Z');
   expect(registryDate(new Date('2026-11-24T01:59:59Z'))).toBe('2026-11-22');
   expect(registryDate(new Date('2026-11-24T02:00:00Z'))).toBe('2026-11-23');
+});
+
+it('allows answers only in an explicitly shared owner summary schema', () => {
+  const data = {
+    category: { id: 'animals', name: 'Animals' },
+    file: {
+      claims: [{ id: 'own', display: 'Quokka', points: 160, bonus: 100, golden: true }],
+      events: [
+        { at: 'now', kind: 'dibs', claimId: 'own', display: 'Quokka', golden: true },
+        { at: 'now', kind: 'strike', display: 'SECRET', holder: 'Other player' },
+      ],
+    },
+  };
+  const sealed = JSON.parse(JSON.stringify(publicSummary(data)));
+  assertPublicPayload(sealed, shapes.summary);
+  expect(JSON.stringify(sealed)).not.toMatch(/Quokka|SECRET|Other player/);
+  const shared = JSON.parse(JSON.stringify(publicSummary(data, false, true)));
+  assertOwnerSharedPayload(shared, 'summary');
+  expect(JSON.stringify(shared)).not.toMatch(/SECRET|Other player/);
+  expect(() => assertPublicPayload(shared, shapes.summary)).toThrow();
+  expect(() => assertOwnerSharedPayload(sealed, 'summary')).toThrow();
 });

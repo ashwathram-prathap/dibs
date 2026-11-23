@@ -1,6 +1,7 @@
 import { defineConfig } from '@playwright/test';
 import base from './playwright.config';
 import extra from './playwright.r19-devices.config';
+const port = Number(process.env.R19D_PORT || 5222);
 const projects = [...base.projects!.filter((p) => !p.name?.startsWith('r6-'))];
 for (const p of extra.projects || [])
   if (!projects.some((x) => x.name === p.name)) projects.push(p);
@@ -19,7 +20,7 @@ export default defineConfig({
   workers: 4,
   timeout: 90000,
   outputDir: '.tmp/r19d/browser-artifacts',
-  use: { ...base.use, baseURL: 'http://127.0.0.1:5222', timezoneId: 'America/Toronto' },
+  use: { ...base.use, baseURL: `http://127.0.0.1:${port}`, timezoneId: 'America/Toronto' },
   reporter: [
     ['list'],
     [
@@ -32,8 +33,8 @@ export default defineConfig({
     ],
   ],
   webServer: {
-    command: 'npx vite preview --mode security-test --host 127.0.0.1 --port 5222',
-    url: 'http://127.0.0.1:5222',
+    command: `npx vite preview --mode security-test --host 127.0.0.1 --port ${port}`,
+    url: `http://127.0.0.1:${port}`,
     reuseExistingServer: false,
   },
 });

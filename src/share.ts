@@ -7,7 +7,7 @@ import { noOrphan, countLabel } from '../shared/text';
 import { bellPath, bellArea, bellSigma, bellY, bellX, rarityLabel } from '../shared/rarity';
 import { MAX_CLAIMS } from '../shared/config';
 import { REGISTRAR_STROKE } from '../shared/moments';
-import { edition, localTime, zoneName, filingTime } from '../shared/time';
+import { edition, localTime, zoneName, filingTime, viewerZone } from '../shared/time';
 import { guesses } from '../shared/guesses';
 import { PUBLIC_HOST } from '../shared/config';
 import { type Claim, type DayFile, type Category, serial } from './types';
@@ -261,6 +261,7 @@ export async function exportSummary(
   category: Category,
   story: boolean,
   hideAnswers = false,
+  zone = viewerZone(),
 ) {
   file = cleanStoredHandles(file);
   const dark = document.documentElement.dataset.theme === 'dark';
@@ -313,7 +314,7 @@ export async function exportSummary(
     30,
   );
   const at = file.completedAt || file.claims.at(-1)?.created_at;
-  const filed = at ? ` · filed ${filingTime(at)}` : '';
+  const filed = at ? ` · filed ${filingTime(at, zone)}` : '';
   fitCanvasLine(
     c,
     `${file.dibs}/${MAX_CLAIMS} claims · ${file.strikes} strikes${filed}`,

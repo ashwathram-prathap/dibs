@@ -26,7 +26,11 @@ assert.ok(Date.now() < Date.parse('2026-11-24T00:45:00Z'), 'R19D 7:45 PM ET dead
 const report = (name: string) => JSON.parse(readFileSync('review/round19d/' + name, 'utf8'));
 const unit = report('unit-results.json');
 assert.ok(unit.success && !unit.numFailedTests && unit.numPassedTests >= 250, 'Full unit/API gate');
-for (const name of ['browser-results.json', 'firefox-browser-results.json']) {
+for (const name of [
+  'browser-results.json',
+  'final-browser-results.json',
+  'firefox-browser-results.json',
+]) {
   const r = report(name);
   assert.ok(
     r.stats.expected > 0 && !r.stats.unexpected && !r.stats.skipped && !r.stats.flaky,

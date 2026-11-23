@@ -26,6 +26,16 @@ const file = {
   events: [event],
   comparison,
 };
+const sharedClaim = {
+  ...claimShape,
+  ...fields('sharedAnswers display obscurity percentile bonus golden'),
+};
+const sharedFile = {
+  ...file,
+  sharedAnswers: true as const,
+  claims: [sharedClaim],
+  events: [{ ...event, ...fields('claimId display golden obscurity') }],
+};
 const standing = fields('rank handle founder points claims own golden');
 const board = { rows: [standing], own: standing, total: true, comparison, final: true };
 const today = {
@@ -37,6 +47,15 @@ const today = {
   board: [],
 };
 export const shapes: Record<string, Shape> = {
+  sharedSummary: {
+    owned: true,
+    concealed: true,
+    category,
+    specials,
+    nextDrop: true,
+    file: sharedFile,
+  },
+  sharedCertificate: { claim: sharedClaim, score: file },
   summary: { owned: true, concealed: true, category, specials, nextDrop: true, file },
   certificate: { claim: claimShape, score: file },
   ledger: { rows: [], locked: true },
@@ -75,5 +94,24 @@ export function assertPublicPayload(value: any, shape: Shape, path = 'payload') 
     expect(['answer_id', 'user_id'].includes(key), path + '.' + key).toBe(false);
     expect(Object.hasOwn(shape, key), 'Unlisted ' + path + '.' + key).toBe(true);
     assertPublicPayload(value[key], shape[key], path + '.' + key);
+  }
+}
+
+export function assertOwnerSharedPayload(data: any, kind: 'summary' | 'certificate') {
+  if (kind === 'certificate') {
+    expect(data.claim.sharedAnswers).toBe(true);
+    assertPublicPayload(data, shapes.sharedCertificate);
+    return;
+  }
+  expect(data.file.sharedAnswers).toBe(true);
+  assertPublicPayload(data, shapes.sharedSummary);
+  for (const claim of data.file.claims) expect(claim.sharedAnswers).toBe(true);
+  for (const event of data.file.events) {
+    if (event.kind === 'strike') expect(Object.keys(event).sort()).toEqual(['at', 'kind']);
+    else {
+      const claim = data.file.claims.find((c: any) => c.id === event.claimId);
+      expect(claim).toBeDefined();
+      expect(event.display).toBe(claim.display);
+    }
   }
 }

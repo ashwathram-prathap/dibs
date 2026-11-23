@@ -82,3 +82,47 @@ test('R19D reduced motion disables the single gold shimmer', async ({ page }) =>
     await page.locator('.win-stamp').evaluate((el) => getComputedStyle(el, '::after').display),
   ).toBe('none');
 });
+
+test('R19D changing the selected zone refreshes prepared images and answer hiding is remembered', async ({
+  page,
+}) => {
+  await page.addInitScript(() => {
+    (window as any).__filings = [];
+    const fill = CanvasRenderingContext2D.prototype.fillText;
+    CanvasRenderingContext2D.prototype.fillText = function (value, x, y, ...rest) {
+      if (value.includes('filed ')) (window as any).__filings.push(value);
+      return fill.call(this, value, x, y, ...rest);
+    };
+  });
+  await page.goto('/?r19&r6&gold-first');
+  for (const [i, answer] of ['Okapi', 'Quokka', 'Wombat'].entries()) {
+    await page.locator('#answer').fill(answer);
+    await page.getByRole('button', { name: 'CALL DIBS', exact: true }).click();
+    await page
+      .getByRole('button', { name: i === 2 ? 'See my results' : 'Next claim', exact: true })
+      .click();
+  }
+  await expect(page.getByRole('button', { name: 'SHARE', exact: true })).toBeEnabled();
+  await expect(page.getByLabel('Hide my answers', { exact: true })).not.toBeChecked();
+  await page.evaluate(() => {
+    localStorage.setItem('dibs-timezone', 'Asia/Tokyo');
+    (window as any).__filings = [];
+    dispatchEvent(new Event('dibs-zone'));
+  });
+  await expect(page.locator('.file-tally')).toContainText('Japan time');
+  await expect
+    .poll(() =>
+      page.evaluate(() =>
+        (window as any).__filings.some(
+          (s: string) => s.includes('Japan time') && !s.includes('GMT'),
+        ),
+      ),
+    )
+    .toBe(true);
+  await page.getByLabel('Hide my answers', { exact: true }).check();
+  await page.goto('/certificate/fixture-1?r19&r19c&gold');
+  await expect(page.getByLabel('Hide my answers', { exact: true })).toBeChecked();
+  await expect(page.locator('.cert-answer')).toHaveText('Okapi');
+  await page.goto('/certificate/fixture-1?r19&r19c&gold&visitor');
+  await expect(page.locator('.cert-answer')).toHaveText('SEALED');
+});

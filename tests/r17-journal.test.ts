@@ -1,5 +1,5 @@
 import { decode as decodeJpeg } from 'jpeg-js';
-import { assertPublicPayload, shapes } from './public-payload-schema';
+import { assertOwnerSharedPayload, assertPublicPayload, shapes } from './public-payload-schema';
 import { visibleClaim } from '../worker/visibility';
 import { readCategory } from '../scripts/category-file';
 import { it, expect, beforeAll, afterAll } from 'vitest';
@@ -227,7 +227,9 @@ it('persists explicit owner sharing and never grants another viewer permission o
   const sharedClaim: any = await (await call('/certificate/' + claim.id)).json();
   expect(sharedClaim.claim.display).toBe(claim.display);
   expect(sharedClaim.claim.sharedAnswers).toBe(true);
+  assertOwnerSharedPayload(sharedClaim, 'certificate');
   const shared: any = await (await call(summary)).json();
+  assertOwnerSharedPayload(shared, 'summary');
   expect(shared.file.claims.map((c: any) => c.display)).toContain(claim.display);
   for (const event of shared.file.events.filter((e: any) => e.kind === 'strike'))
     expect(event).not.toHaveProperty('display');
