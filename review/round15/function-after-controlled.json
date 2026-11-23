@@ -1,0 +1,10 @@
+{
+  "functionPaths": {
+    "after-cold": [],
+    "after-warm": []
+  },
+  "apiControlCallsSeen": {
+    "after-cold": 2,
+    "after-warm": 2
+  }
+}

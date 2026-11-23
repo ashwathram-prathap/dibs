@@ -1,0 +1,14 @@
+{
+  "usage": {
+    "requests": 1152,
+    "reads": 102948,
+    "writes": 599,
+    "doRequests": 1648.05,
+    "doReads": 13882,
+    "doWrites": 5344,
+    "doDuration": 42.57619392,
+    "doStorageBytes": 581632,
+    "at": "2026-11-23T04:12:11.597Z"
+  },
+  "source": "Read-only GraphQL using current CLI OAuth; not a configured Worker analytics token."
+}

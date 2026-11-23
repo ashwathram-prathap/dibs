@@ -1,0 +1,107 @@
+{
+  "dailySetup": {
+    "reads": 38,
+    "writes": 74
+  },
+  "mode": "before-local",
+  "at": "2026-11-23T03:44:45.231Z",
+  "scenario": "load, verification, 6 guesses (3 claims, 3 reserved strikes), leaderboard, share, return visit",
+  "httpRequests": 11,
+  "pagesFunctionRequests": 0,
+  "workerRequests": 11,
+  "doRequests": 11,
+  "socketMessages": 0,
+  "d1RowsRead": 491,
+  "d1RowsWritten": 58,
+  "allMutationsMetered": true,
+  "samples": [
+    {
+      "path": "/bootstrap",
+      "transport": "http",
+      "status": 200,
+      "reads": 0,
+      "writes": 0,
+      "metered": true
+    },
+    {
+      "path": "/verify-session",
+      "transport": "http",
+      "status": 200,
+      "reads": 0,
+      "writes": 0,
+      "metered": true
+    },
+    {
+      "path": "/claim",
+      "transport": "http",
+      "status": 201,
+      "reads": 40,
+      "writes": 22,
+      "metered": true
+    },
+    {
+      "path": "/claim",
+      "transport": "http",
+      "status": 409,
+      "reads": 39,
+      "writes": 4,
+      "metered": true
+    },
+    {
+      "path": "/claim",
+      "transport": "http",
+      "status": 409,
+      "reads": 43,
+      "writes": 3,
+      "metered": true
+    },
+    {
+      "path": "/claim",
+      "transport": "http",
+      "status": 409,
+      "reads": 47,
+      "writes": 3,
+      "metered": true
+    },
+    {
+      "path": "/claim",
+      "transport": "http",
+      "status": 201,
+      "reads": 84,
+      "writes": 13,
+      "metered": true
+    },
+    {
+      "path": "/claim",
+      "transport": "http",
+      "status": 201,
+      "reads": 113,
+      "writes": 13,
+      "metered": true
+    },
+    {
+      "path": "/leaderboard",
+      "transport": "http",
+      "status": 200,
+      "reads": 0,
+      "writes": 0,
+      "metered": true
+    },
+    {
+      "path": "/events/share",
+      "transport": "http",
+      "status": 200,
+      "reads": 0,
+      "writes": 0,
+      "metered": true
+    },
+    {
+      "path": "/bootstrap",
+      "transport": "http",
+      "status": 200,
+      "reads": 125,
+      "writes": 0,
+      "metered": true
+    }
+  ]
+}

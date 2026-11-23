@@ -1,0 +1,96 @@
+{
+  "dailySetup": null,
+  "mode": "practice",
+  "at": "2026-11-23T03:40:53.095Z",
+  "scenario": "load, verification, 6 guesses (3 claims, 3 reserved strikes), leaderboard, share, return visit",
+  "httpRequests": 3,
+  "pagesFunctionRequests": 3,
+  "workerRequests": 3,
+  "doRequests": 3.4,
+  "socketMessages": 8,
+  "d1RowsRead": 820,
+  "d1RowsWritten": 53,
+  "allMutationsMetered": true,
+  "samples": [
+    {
+      "path": "/bootstrap",
+      "transport": "http",
+      "status": 200,
+      "reads": 43,
+      "writes": 0,
+      "metered": true
+    },
+    {
+      "path": "/verify-session",
+      "transport": "socket",
+      "status": 200,
+      "reads": 0,
+      "writes": 0,
+      "metered": true
+    },
+    {
+      "path": "/claim",
+      "transport": "socket",
+      "status": 201,
+      "reads": 123,
+      "writes": 21,
+      "metered": true
+    },
+    {
+      "path": "/claim",
+      "transport": "socket",
+      "status": 409,
+      "reads": 87,
+      "writes": 2,
+      "metered": true
+    },
+    {
+      "path": "/claim",
+      "transport": "socket",
+      "status": 409,
+      "reads": 94,
+      "writes": 2,
+      "metered": true
+    },
+    {
+      "path": "/claim",
+      "transport": "socket",
+      "status": 409,
+      "reads": 98,
+      "writes": 2,
+      "metered": true
+    },
+    {
+      "path": "/claim",
+      "transport": "socket",
+      "status": 201,
+      "reads": 150,
+      "writes": 13,
+      "metered": true
+    },
+    {
+      "path": "/claim",
+      "transport": "socket",
+      "status": 201,
+      "reads": 179,
+      "writes": 13,
+      "metered": true
+    },
+    {
+      "path": "/events/share",
+      "transport": "socket",
+      "status": 200,
+      "reads": 0,
+      "writes": 0,
+      "metered": true
+    },
+    {
+      "path": "/bootstrap",
+      "transport": "http",
+      "status": 200,
+      "reads": 46,
+      "writes": 0,
+      "metered": true
+    }
+  ]
+}

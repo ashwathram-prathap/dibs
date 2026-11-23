@@ -1,0 +1,20 @@
+{
+  "at": "2026-11-23T04:35:42.779Z",
+  "checks": [
+    {
+      "trigger": "claim_guard",
+      "exactMatch": true
+    },
+    {
+      "trigger": "count_success",
+      "exactMatch": true
+    }
+  ],
+  "otherTriggersUnchanged": true,
+  "playerCountsUnchanged": true,
+  "counts": {
+    "users": 3,
+    "claims": 0,
+    "strikes": 0
+  }
+}

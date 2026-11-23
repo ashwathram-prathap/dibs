@@ -1,0 +1,25 @@
+{
+  "at": "2026-11-23T04:34:12.473Z",
+  "checks": [
+    {
+      "browser": "chromium",
+      "colorScheme": "light",
+      "passed": true
+    },
+    {
+      "browser": "chromium",
+      "colorScheme": "dark",
+      "passed": true
+    },
+    {
+      "browser": "webkit",
+      "colorScheme": "light",
+      "passed": true
+    },
+    {
+      "browser": "webkit",
+      "colorScheme": "dark",
+      "passed": true
+    }
+  ]
+}

@@ -1,0 +1,770 @@
+[
+  {
+    "engine": "chromium",
+    "theme": "light",
+    "cache": "cold",
+    "frames": [
+      {
+        "background": "rgb(241, 236, 226)",
+        "theme": "light",
+        "fallback": "inset(50%)",
+        "at": 192.39999997615814
+      },
+      {
+        "background": "rgb(241, 236, 226)",
+        "theme": "light",
+        "fallback": "inset(50%)",
+        "at": 833.7999999523163
+      },
+      {
+        "background": "rgb(241, 236, 226)",
+        "theme": "light",
+        "fallback": "inset(50%)",
+        "at": 1093.3999999761581
+      },
+      {
+        "background": "rgb(241, 236, 226)",
+        "theme": "light",
+        "fallback": "inset(50%)",
+        "at": 1200.699999988079
+      },
+      {
+        "background": "rgb(241, 236, 226)",
+        "theme": "light",
+        "fallback": "inset(50%)",
+        "at": 1331.8999999761581
+      },
+      {
+        "background": "rgb(241, 236, 226)",
+        "theme": "light",
+        "fallback": "inset(50%)",
+        "at": 1430.5
+      },
+      {
+        "background": "rgb(241, 236, 226)",
+        "theme": "light",
+        "fallback": "inset(50%)",
+        "at": 1528.2999999523163
+      },
+      {
+        "background": "rgb(241, 236, 226)",
+        "theme": "light",
+        "fallback": "inset(50%)",
+        "at": 1628.7999999523163
+      },
+      {
+        "background": "rgb(241, 236, 226)",
+        "theme": "light",
+        "fallback": "inset(50%)",
+        "at": 1728.5999999642372
+      },
+      {
+        "background": "rgb(241, 236, 226)",
+        "theme": "light",
+        "fallback": "inset(50%)",
+        "at": 1829.5
+      },
+      {
+        "background": "rgb(241, 236, 226)",
+        "theme": "light",
+        "fallback": "inset(50%)",
+        "at": 1929.3999999761581
+      },
+      {
+        "background": "rgb(241, 236, 226)",
+        "theme": "light",
+        "fallback": "inset(50%)",
+        "at": 2029.3999999761581
+      },
+      {
+        "background": "rgb(241, 236, 226)",
+        "theme": "light",
+        "fallback": "inset(50%)",
+        "at": 2147.199999988079
+      },
+      {
+        "background": "rgb(241, 236, 226)",
+        "theme": "light",
+        "fallback": "inset(50%)",
+        "at": 2245
+      }
+    ]
+  },
+  {
+    "engine": "chromium",
+    "theme": "light",
+    "cache": "warm",
+    "frames": [
+      {
+        "background": "rgb(241, 236, 226)",
+        "theme": "light",
+        "fallback": "inset(50%)",
+        "at": 159
+      },
+      {
+        "background": "rgb(241, 236, 226)",
+        "theme": "light",
+        "fallback": "inset(50%)",
+        "at": 806.8000000119209
+      },
+      {
+        "background": "rgb(241, 236, 226)",
+        "theme": "light",
+        "fallback": "inset(50%)",
+        "at": 1069.2000000476837
+      },
+      {
+        "background": "rgb(241, 236, 226)",
+        "theme": "light",
+        "fallback": "inset(50%)",
+        "at": 1163.300000011921
+      },
+      {
+        "background": "rgb(241, 236, 226)",
+        "theme": "light",
+        "fallback": "inset(50%)",
+        "at": 1290.1000000238419
+      },
+      {
+        "background": "rgb(241, 236, 226)",
+        "theme": "light",
+        "fallback": "inset(50%)",
+        "at": 1388.1000000238419
+      },
+      {
+        "background": "rgb(241, 236, 226)",
+        "theme": "light",
+        "fallback": "inset(50%)",
+        "at": 1504.5
+      },
+      {
+        "background": "rgb(241, 236, 226)",
+        "theme": "light",
+        "fallback": "inset(50%)",
+        "at": 1601.1000000238419
+      },
+      {
+        "background": "rgb(241, 236, 226)",
+        "theme": "light",
+        "fallback": "inset(50%)",
+        "at": 1701.9000000357628
+      },
+      {
+        "background": "rgb(241, 236, 226)",
+        "theme": "light",
+        "fallback": "inset(50%)",
+        "at": 1803.6000000238419
+      },
+      {
+        "background": "rgb(241, 236, 226)",
+        "theme": "light",
+        "fallback": "inset(50%)",
+        "at": 1901.4000000357628
+      },
+      {
+        "background": "rgb(241, 236, 226)",
+        "theme": "light",
+        "fallback": "inset(50%)",
+        "at": 2002.4000000357628
+      },
+      {
+        "background": "rgb(241, 236, 226)",
+        "theme": "light",
+        "fallback": "inset(50%)",
+        "at": 2102.2000000476837
+      },
+      {
+        "background": "rgb(241, 236, 226)",
+        "theme": "light",
+        "fallback": "inset(50%)",
+        "at": 2221.5
+      }
+    ]
+  },
+  {
+    "engine": "chromium",
+    "theme": "light",
+    "firstSoundMs": 326.80000001192093,
+    "model": {
+      "latencyMs": 150,
+      "bytesPerSecond": 200000
+    },
+    "note": "playing event is a browser proxy for first audible output; physical speaker latency is not measurable here"
+  },
+  {
+    "engine": "chromium",
+    "theme": "dark",
+    "cache": "cold",
+    "frames": [
+      {
+        "background": "rgb(22, 21, 15)",
+        "theme": "dark",
+        "fallback": "inset(50%)",
+        "at": 201.4000000357628
+      },
+      {
+        "background": "rgb(22, 21, 15)",
+        "theme": "dark",
+        "fallback": "inset(50%)",
+        "at": 831.1999999880791
+      },
+      {
+        "background": "rgb(22, 21, 15)",
+        "theme": "dark",
+        "fallback": "inset(50%)",
+        "at": 1087.699999988079
+      },
+      {
+        "background": "rgb(22, 21, 15)",
+        "theme": "dark",
+        "fallback": "inset(50%)",
+        "at": 1207.199999988079
+      },
+      {
+        "background": "rgb(22, 21, 15)",
+        "theme": "dark",
+        "fallback": "inset(50%)",
+        "at": 1318.199999988079
+      },
+      {
+        "background": "rgb(22, 21, 15)",
+        "theme": "dark",
+        "fallback": "inset(50%)",
+        "at": 1427.300000011921
+      },
+      {
+        "background": "rgb(22, 21, 15)",
+        "theme": "dark",
+        "fallback": "inset(50%)",
+        "at": 1527.199999988079
+      },
+      {
+        "background": "rgb(22, 21, 15)",
+        "theme": "dark",
+        "fallback": "inset(50%)",
+        "at": 1627.800000011921
+      },
+      {
+        "background": "rgb(22, 21, 15)",
+        "theme": "dark",
+        "fallback": "inset(50%)",
+        "at": 1717.9000000357628
+      },
+      {
+        "background": "rgb(22, 21, 15)",
+        "theme": "dark",
+        "fallback": "inset(50%)",
+        "at": 1813.4000000357628
+      },
+      {
+        "background": "rgb(22, 21, 15)",
+        "theme": "dark",
+        "fallback": "inset(50%)",
+        "at": 1911.4000000357628
+      },
+      {
+        "background": "rgb(22, 21, 15)",
+        "theme": "dark",
+        "fallback": "inset(50%)",
+        "at": 2010.199999988079
+      },
+      {
+        "background": "rgb(22, 21, 15)",
+        "theme": "dark",
+        "fallback": "inset(50%)",
+        "at": 2106.5
+      },
+      {
+        "background": "rgb(22, 21, 15)",
+        "theme": "dark",
+        "fallback": "inset(50%)",
+        "at": 2204
+      }
+    ]
+  },
+  {
+    "engine": "chromium",
+    "theme": "dark",
+    "cache": "warm",
+    "frames": [
+      {
+        "background": "rgb(22, 21, 15)",
+        "theme": "dark",
+        "fallback": "inset(50%)",
+        "at": 166.30000001192093
+      },
+      {
+        "background": "rgb(22, 21, 15)",
+        "theme": "dark",
+        "fallback": "inset(50%)",
+        "at": 803.5999999642372
+      },
+      {
+        "background": "rgb(22, 21, 15)",
+        "theme": "dark",
+        "fallback": "inset(50%)",
+        "at": 1064.3999999761581
+      },
+      {
+        "background": "rgb(22, 21, 15)",
+        "theme": "dark",
+        "fallback": "inset(50%)",
+        "at": 1165.800000011921
+      },
+      {
+        "background": "rgb(22, 21, 15)",
+        "theme": "dark",
+        "fallback": "inset(50%)",
+        "at": 1280.300000011921
+      },
+      {
+        "background": "rgb(22, 21, 15)",
+        "theme": "dark",
+        "fallback": "inset(50%)",
+        "at": 1379.3999999761581
+      },
+      {
+        "background": "rgb(22, 21, 15)",
+        "theme": "dark",
+        "fallback": "inset(50%)",
+        "at": 1481
+      },
+      {
+        "background": "rgb(22, 21, 15)",
+        "theme": "dark",
+        "fallback": "inset(50%)",
+        "at": 1579.300000011921
+      },
+      {
+        "background": "rgb(22, 21, 15)",
+        "theme": "dark",
+        "fallback": "inset(50%)",
+        "at": 1677.0999999642372
+      },
+      {
+        "background": "rgb(22, 21, 15)",
+        "theme": "dark",
+        "fallback": "inset(50%)",
+        "at": 1779.0999999642372
+      },
+      {
+        "background": "rgb(22, 21, 15)",
+        "theme": "dark",
+        "fallback": "inset(50%)",
+        "at": 1896.800000011921
+      },
+      {
+        "background": "rgb(22, 21, 15)",
+        "theme": "dark",
+        "fallback": "inset(50%)",
+        "at": 2003
+      },
+      {
+        "background": "rgb(22, 21, 15)",
+        "theme": "dark",
+        "fallback": "inset(50%)",
+        "at": 2090.800000011921
+      },
+      {
+        "background": "rgb(22, 21, 15)",
+        "theme": "dark",
+        "fallback": "inset(50%)",
+        "at": 2186
+      }
+    ]
+  },
+  {
+    "engine": "chromium",
+    "theme": "dark",
+    "firstSoundMs": 329.69999998807907,
+    "model": {
+      "latencyMs": 150,
+      "bytesPerSecond": 200000
+    },
+    "note": "playing event is a browser proxy for first audible output; physical speaker latency is not measurable here"
+  },
+  {
+    "engine": "webkit",
+    "theme": "light",
+    "cache": "cold",
+    "frames": [
+      {
+        "background": "rgb(241, 236, 226)",
+        "theme": "light",
+        "fallback": "inset(50%)",
+        "at": 304
+      },
+      {
+        "background": "rgb(241, 236, 226)",
+        "theme": "light",
+        "fallback": null,
+        "at": 2693
+      },
+      {
+        "background": "rgb(241, 236, 226)",
+        "theme": "light",
+        "fallback": null,
+        "at": 2869
+      },
+      {
+        "background": "rgb(241, 236, 226)",
+        "theme": "light",
+        "fallback": null,
+        "at": 2953
+      },
+      {
+        "background": "rgb(241, 236, 226)",
+        "theme": "light",
+        "fallback": null,
+        "at": 3039
+      },
+      {
+        "background": "rgb(241, 236, 226)",
+        "theme": "light",
+        "fallback": null,
+        "at": 3125
+      },
+      {
+        "background": "rgb(241, 236, 226)",
+        "theme": "light",
+        "fallback": null,
+        "at": 3212
+      },
+      {
+        "background": "rgb(241, 236, 226)",
+        "theme": "light",
+        "fallback": null,
+        "at": 3301
+      },
+      {
+        "background": "rgb(241, 236, 226)",
+        "theme": "light",
+        "fallback": null,
+        "at": 3389
+      },
+      {
+        "background": "rgb(241, 236, 226)",
+        "theme": "light",
+        "fallback": null,
+        "at": 3477
+      },
+      {
+        "background": "rgb(241, 236, 226)",
+        "theme": "light",
+        "fallback": null,
+        "at": 3566
+      },
+      {
+        "background": "rgb(241, 236, 226)",
+        "theme": "light",
+        "fallback": null,
+        "at": 3656
+      },
+      {
+        "background": "rgb(241, 236, 226)",
+        "theme": "light",
+        "fallback": null,
+        "at": 3743
+      },
+      {
+        "background": "rgb(241, 236, 226)",
+        "theme": "light",
+        "fallback": null,
+        "at": 3832
+      }
+    ]
+  },
+  {
+    "engine": "webkit",
+    "theme": "light",
+    "cache": "warm",
+    "frames": [
+      {
+        "background": "rgb(241, 236, 226)",
+        "theme": "light",
+        "fallback": "inset(50%)",
+        "at": 160
+      },
+      {
+        "background": "rgb(241, 236, 226)",
+        "theme": "light",
+        "fallback": null,
+        "at": 2341
+      },
+      {
+        "background": "rgb(241, 236, 226)",
+        "theme": "light",
+        "fallback": null,
+        "at": 2515
+      },
+      {
+        "background": "rgb(241, 236, 226)",
+        "theme": "light",
+        "fallback": null,
+        "at": 2601
+      },
+      {
+        "background": "rgb(241, 236, 226)",
+        "theme": "light",
+        "fallback": null,
+        "at": 2685
+      },
+      {
+        "background": "rgb(241, 236, 226)",
+        "theme": "light",
+        "fallback": null,
+        "at": 2772
+      },
+      {
+        "background": "rgb(241, 236, 226)",
+        "theme": "light",
+        "fallback": null,
+        "at": 2861
+      },
+      {
+        "background": "rgb(241, 236, 226)",
+        "theme": "light",
+        "fallback": null,
+        "at": 2952
+      },
+      {
+        "background": "rgb(241, 236, 226)",
+        "theme": "light",
+        "fallback": null,
+        "at": 3044
+      },
+      {
+        "background": "rgb(241, 236, 226)",
+        "theme": "light",
+        "fallback": null,
+        "at": 3132
+      },
+      {
+        "background": "rgb(241, 236, 226)",
+        "theme": "light",
+        "fallback": null,
+        "at": 3218
+      },
+      {
+        "background": "rgb(241, 236, 226)",
+        "theme": "light",
+        "fallback": null,
+        "at": 3306
+      },
+      {
+        "background": "rgb(241, 236, 226)",
+        "theme": "light",
+        "fallback": null,
+        "at": 3395
+      },
+      {
+        "background": "rgb(241, 236, 226)",
+        "theme": "light",
+        "fallback": null,
+        "at": 3483
+      }
+    ]
+  },
+  {
+    "engine": "webkit",
+    "theme": "light",
+    "firstSoundMs": 259,
+    "model": {
+      "latencyMs": 150,
+      "bytesPerSecond": 200000
+    },
+    "note": "playing event is a browser proxy for first audible output; physical speaker latency is not measurable here"
+  },
+  {
+    "engine": "webkit",
+    "theme": "dark",
+    "cache": "cold",
+    "frames": [
+      {
+        "background": "rgb(22, 21, 15)",
+        "theme": "dark",
+        "fallback": "inset(50%)",
+        "at": 277
+      },
+      {
+        "background": "rgb(22, 21, 15)",
+        "theme": "dark",
+        "fallback": null,
+        "at": 2628
+      },
+      {
+        "background": "rgb(22, 21, 15)",
+        "theme": "dark",
+        "fallback": null,
+        "at": 2805
+      },
+      {
+        "background": "rgb(22, 21, 15)",
+        "theme": "dark",
+        "fallback": null,
+        "at": 2890
+      },
+      {
+        "background": "rgb(22, 21, 15)",
+        "theme": "dark",
+        "fallback": null,
+        "at": 2977
+      },
+      {
+        "background": "rgb(22, 21, 15)",
+        "theme": "dark",
+        "fallback": null,
+        "at": 3064
+      },
+      {
+        "background": "rgb(22, 21, 15)",
+        "theme": "dark",
+        "fallback": null,
+        "at": 3153
+      },
+      {
+        "background": "rgb(22, 21, 15)",
+        "theme": "dark",
+        "fallback": null,
+        "at": 3248
+      },
+      {
+        "background": "rgb(22, 21, 15)",
+        "theme": "dark",
+        "fallback": null,
+        "at": 3335
+      },
+      {
+        "background": "rgb(22, 21, 15)",
+        "theme": "dark",
+        "fallback": null,
+        "at": 3426
+      },
+      {
+        "background": "rgb(22, 21, 15)",
+        "theme": "dark",
+        "fallback": null,
+        "at": 3515
+      },
+      {
+        "background": "rgb(22, 21, 15)",
+        "theme": "dark",
+        "fallback": null,
+        "at": 3604
+      },
+      {
+        "background": "rgb(22, 21, 15)",
+        "theme": "dark",
+        "fallback": null,
+        "at": 3692
+      },
+      {
+        "background": "rgb(22, 21, 15)",
+        "theme": "dark",
+        "fallback": null,
+        "at": 3781
+      }
+    ]
+  },
+  {
+    "engine": "webkit",
+    "theme": "dark",
+    "cache": "warm",
+    "frames": [
+      {
+        "background": "rgb(22, 21, 15)",
+        "theme": "dark",
+        "fallback": "inset(50%)",
+        "at": 165
+      },
+      {
+        "background": "rgb(22, 21, 15)",
+        "theme": "dark",
+        "fallback": null,
+        "at": 2363
+      },
+      {
+        "background": "rgb(22, 21, 15)",
+        "theme": "dark",
+        "fallback": null,
+        "at": 2545
+      },
+      {
+        "background": "rgb(22, 21, 15)",
+        "theme": "dark",
+        "fallback": null,
+        "at": 2640
+      },
+      {
+        "background": "rgb(22, 21, 15)",
+        "theme": "dark",
+        "fallback": null,
+        "at": 2737
+      },
+      {
+        "background": "rgb(22, 21, 15)",
+        "theme": "dark",
+        "fallback": null,
+        "at": 2820
+      },
+      {
+        "background": "rgb(22, 21, 15)",
+        "theme": "dark",
+        "fallback": null,
+        "at": 2902
+      },
+      {
+        "background": "rgb(22, 21, 15)",
+        "theme": "dark",
+        "fallback": null,
+        "at": 2987
+      },
+      {
+        "background": "rgb(22, 21, 15)",
+        "theme": "dark",
+        "fallback": null,
+        "at": 3074
+      },
+      {
+        "background": "rgb(22, 21, 15)",
+        "theme": "dark",
+        "fallback": null,
+        "at": 3164
+      },
+      {
+        "background": "rgb(22, 21, 15)",
+        "theme": "dark",
+        "fallback": null,
+        "at": 3254
+      },
+      {
+        "background": "rgb(22, 21, 15)",
+        "theme": "dark",
+        "fallback": null,
+        "at": 3343
+      },
+      {
+        "background": "rgb(22, 21, 15)",
+        "theme": "dark",
+        "fallback": null,
+        "at": 3431
+      },
+      {
+        "background": "rgb(22, 21, 15)",
+        "theme": "dark",
+        "fallback": null,
+        "at": 3519
+      }
+    ]
+  },
+  {
+    "engine": "webkit",
+    "theme": "dark",
+    "firstSoundMs": 235,
+    "model": {
+      "latencyMs": 150,
+      "bytesPerSecond": 200000
+    },
+    "note": "playing event is a browser proxy for first audible output; physical speaker latency is not measurable here"
+  }
+]

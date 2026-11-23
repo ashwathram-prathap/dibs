@@ -1,0 +1,100 @@
+[
+  {
+    "path": "/",
+    "status": 200,
+    "cache": "no-cache",
+    "csp": true,
+    "hsts": true
+  },
+  {
+    "path": "/assets/index-DW5xDBap.js",
+    "status": 200,
+    "cache": "public, max-age=31536000, immutable",
+    "csp": true,
+    "hsts": true
+  },
+  {
+    "path": "/fonts/archivo-latin-ext.v2.woff2",
+    "status": 200,
+    "cache": "public, max-age=2592000",
+    "csp": true,
+    "hsts": true
+  },
+  {
+    "path": "/fonts/archivo-supplement-400.v2.woff2",
+    "status": 200,
+    "cache": "public, max-age=2592000",
+    "csp": true,
+    "hsts": true
+  },
+  {
+    "path": "/fonts/archivo-supplement-900.v2.woff2",
+    "status": 200,
+    "cache": "public, max-age=2592000",
+    "csp": true,
+    "hsts": true
+  },
+  {
+    "path": "/fonts/archivo-vietnamese.v2.woff2",
+    "status": 200,
+    "cache": "public, max-age=2592000",
+    "csp": true,
+    "hsts": true
+  },
+  {
+    "path": "/fonts/archivo.v2.woff2",
+    "status": 200,
+    "cache": "public, max-age=2592000",
+    "csp": true,
+    "hsts": true
+  },
+  {
+    "path": "/fonts/instrument-latin-ext.v2.woff2",
+    "status": 200,
+    "cache": "public, max-age=2592000",
+    "csp": true,
+    "hsts": true
+  },
+  {
+    "path": "/fonts/instrument.v2.woff2",
+    "status": 200,
+    "cache": "public, max-age=2592000",
+    "csp": true,
+    "hsts": true
+  },
+  {
+    "path": "/fonts/plex.v2.woff2",
+    "status": 200,
+    "cache": "public, max-age=2592000",
+    "csp": true,
+    "hsts": true
+  },
+  {
+    "path": "/audio/waiting-room.v2.webm",
+    "status": 200,
+    "cache": "public, max-age=2592000",
+    "csp": true,
+    "hsts": true
+  },
+  {
+    "path": "/manifest.webmanifest",
+    "status": 200,
+    "cache": "no-cache",
+    "csp": true,
+    "hsts": true
+  },
+  {
+    "path": "/version.json",
+    "status": 200,
+    "cache": "no-cache",
+    "csp": true,
+    "hsts": true
+  },
+  {
+    "path": "/icon-192.v2.png",
+    "status": 200,
+    "cache": "max-age=14400",
+    "csp": true,
+    "hsts": true
+  }
+]

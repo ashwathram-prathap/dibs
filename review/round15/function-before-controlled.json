@@ -1,0 +1,15 @@
+{
+  "before-cold": [
+    "/",
+    "/fonts/archivo.woff2",
+    "/assets/index-BQa3NVhc.js",
+    "/assets/index-DpUdRWBB.css",
+    "/theme.js",
+    "/fonts/instrument.woff2",
+    "/grain.png",
+    "/fonts/plex.woff2"
+  ],
+  "before-warm": [
+    "/"
+  ]
+}

@@ -1,0 +1,64 @@
+{
+  "webm": {
+    "bytes": 280902,
+    "input_i": "-16.00",
+    "input_tp": "-1.81",
+    "input_lra": "3.00",
+    "input_thresh": "-26.15",
+    "output_i": "-16.56",
+    "output_tp": "-2.31",
+    "output_lra": "2.80",
+    "output_thresh": "-26.69",
+    "normalization_type": "dynamic",
+    "target_offset": "0.56"
+  },
+  "m4a": {
+    "bytes": 264139,
+    "input_i": "-16.04",
+    "input_tp": "-1.96",
+    "input_lra": "3.10",
+    "input_thresh": "-26.19",
+    "output_i": "-16.57",
+    "output_tp": "-2.51",
+    "output_lra": "2.90",
+    "output_thresh": "-26.70",
+    "normalization_type": "dynamic",
+    "target_offset": "0.57"
+  },
+  "stamp": {
+    "input_i": "-23.45",
+    "input_tp": "-3.03",
+    "input_lra": "0.80",
+    "input_thresh": "-34.41",
+    "output_i": "-20.86",
+    "output_tp": "-1.00",
+    "output_lra": "0.00",
+    "output_thresh": "-31.82",
+    "normalization_type": "dynamic",
+    "target_offset": "4.86"
+  },
+  "gold": {
+    "input_i": "-22.64",
+    "input_tp": "-3.03",
+    "input_lra": "0.40",
+    "input_thresh": "-32.64",
+    "output_i": "-17.78",
+    "output_tp": "-1.00",
+    "output_lra": "0.10",
+    "output_thresh": "-27.78",
+    "normalization_type": "dynamic",
+    "target_offset": "1.78"
+  },
+  "strike": {
+    "input_i": "-24.15",
+    "input_tp": "-6.02",
+    "input_lra": "0.80",
+    "input_thresh": "-35.11",
+    "output_i": "-18.69",
+    "output_tp": "-1.00",
+    "output_lra": "0.20",
+    "output_thresh": "-29.64",
+    "normalization_type": "dynamic",
+    "target_offset": "2.69"
+  }
+}
