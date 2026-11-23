@@ -193,6 +193,11 @@ export async function request(path: string, body?: any): Promise<any> {
   if (path === '/missing')
     return { ok: true, message: 'Submitted to the clerk. No strike charged.' };
   if (path === '/delete-file') return {ok:true,message:'Your file is removed. Past claims now belong to Withdrawn filer.'};
+  if (path === '/backup-code') return {code:'DIBS-ABCDE-12345-FABCD-67890'};
+  if (path === '/feedback') {
+    if (r7.has('feedback-error')) throw new ApiError(503, {message:'Your feedback could not be sent. Try again.'});
+    return {message:'Your feedback was sent. Thank you.'};
+  }
   if (path === '/recover') return { ok: true };
   if (path === '/claim') {
     const note = clerkReply(body.answer, category.name);

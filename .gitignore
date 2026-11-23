@@ -122,3 +122,11 @@ review/round17/**/*.png
 review/round17/**/*.jpg
 review/round17/*browser-results.json
 public/rarity/
+
+# R18 full-size visual proof and verbose runners remain available locally.
+review/round18/**/*.png
+review/round18/**/*.jpg
+review/round18/*results.json
+review/round18/lighthouse*/
+review/round18/firefox-ci/
+review/final/round18/

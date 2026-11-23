@@ -2,6 +2,9 @@ import { reminder } from '../shared/reminder';
 import { canonicalRedirect, secureResponse } from '../shared/security';
 import { PUBLIC_ORIGIN } from '../shared/config';
 import {
+  homeStructuredData,
+  archiveDescription,
+  sitemap,
   HOME_TITLE,
   HOME_DESCRIPTION,
   archiveTitle,
@@ -17,7 +20,9 @@ export const onRequest: PagesFunction = async ({ request, next, env }) => {
   const redirect = canonicalRedirect(request, false, origin);
   if (redirect) return secureResponse(redirect);
   const api = async (path: string) => {
-    const r = await (env as any).API.fetch(new Request(origin + '/api' + path));
+    const r = await (env as any).API.fetch(
+      new Request(origin + '/api' + path, { signal: AbortSignal.timeout(5000) }),
+    );
     if (!r.ok) throw Error('Registry unavailable');
     return r.json();
   };
@@ -39,40 +44,37 @@ export const onRequest: PagesFunction = async ({ request, next, env }) => {
         staging
           ? 'User-agent: *\nDisallow: /\n'
           : `User-agent: *\nAllow: /\nDisallow: /api/\nDisallow: /admin\nDisallow: /stats\nDisallow: /certificate/\nDisallow: /summary/\nSitemap: ${origin}/sitemap.xml\n`,
-        { headers: { 'content-type': 'text/plain', 'cache-control': 'public,max-age=600' } },
-      );
-    let archive: any;
-    if (!staging && (path === '/archive' || path === '/sitemap.xml'))
-      archive = await api('/archive');
-    if (path === '/sitemap.xml') {
-      const entries = staging
-        ? []
-        : [
-            { loc: '/', lastmod: '2026-11-22' },
-            { loc: '/about', lastmod: '2026-11-22' },
-            ...(archive?.categories || []).map((c: any) => ({
-              loc: '/archive?date=' + c.date,
-              lastmod: c.date,
-            })),
-          ];
-      return new Response(
-        '<?xml version="1.0" encoding="UTF-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">' +
-          entries
-            .map(
-              (e: any) =>
-                `<url><loc>${escapeHtml(origin + e.loc)}</loc><lastmod>${e.lastmod}</lastmod></url>`,
-            )
-            .join('') +
-          '</urlset>',
         {
           headers: {
-            'content-type': 'application/xml',
+            'content-type': 'text/plain; charset=utf-8',
+            'cache-control': 'public,max-age=600',
+          },
+        },
+      );
+    let archive: any;
+    if (path === '/sitemap.xml') {
+      // Crawlers must receive useful XML even during an API outage, malformed
+      // archive response, or a service-binding failure. Robots never calls API.
+      if (!staging) {
+        try {
+          archive = await api('/archive');
+        } catch {
+          archive = undefined;
+        }
+      }
+      return new Response(
+        sitemap(origin, Array.isArray(archive?.categories) ? archive.categories : [], staging),
+        {
+          status: 200,
+          headers: {
+            'content-type': 'application/xml; charset=utf-8',
             'cache-control': 'public,max-age=600',
             ...(staging ? { 'x-robots-tag': 'noindex' } : {}),
           },
         },
       );
     }
+    if (!staging && path === '/archive') archive = await api('/archive');
     if (/^\/catalog\/[^/]+\/manifest\.json$/.test(path)) {
       const asset = await next();
       if (!asset.ok) return asset;
@@ -130,18 +132,7 @@ export const onRequest: PagesFunction = async ({ request, next, env }) => {
       description = HOME_DESCRIPTION,
       canonical = origin + path,
       content = rulesHtml;
-    const structured: any[] = [
-      { '@type': 'WebSite', name: 'Dibs', url: origin, description: HOME_DESCRIPTION },
-      {
-        '@type': 'VideoGame',
-        name: 'Dibs',
-        url: origin,
-        description: HOME_DESCRIPTION,
-        genre: 'word game',
-        isAccessibleForFree: true,
-        offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' },
-      },
-    ];
+    const structured: any[] = homeStructuredData(origin);
     if (path === '/about') {
       title = 'Dibs | Office notice, rules and privacy';
       description = HOME_DESCRIPTION;
@@ -173,7 +164,7 @@ export const onRequest: PagesFunction = async ({ request, next, env }) => {
         const nextBefore =
           ledger.rows?.length === 50 ? Math.min(...ledger.rows.map((r: any) => r.claim_no)) : 0;
         title = archiveTitle(selected);
-        description = HOME_DESCRIPTION;
+        description = archiveDescription(selected);
         canonical = origin + '/archive?date=' + selected.date + (before ? '&before=' + before : '');
         if (before) title += ' | Filings before #' + before;
         content +=

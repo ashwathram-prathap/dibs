@@ -5,7 +5,7 @@ export const CSP = [
   "script-src 'self' 'sha256-157BWqHyTyPFG6i5YK8C+MRWL9RH2aIQ6rGpoTtr4ss=' https://challenges.cloudflare.com https://static.cloudflareinsights.com",
   'frame-src https://challenges.cloudflare.com',
   `connect-src 'self' ${PUBLIC_ORIGIN.replace('https:', 'wss:')} https://cloudflareinsights.com`,
-  "style-src 'self' 'sha256-tGcX84i8QhAiqHzBGNMhpPSbS+0w90QufmkdsrKzfsQ='",
+  "style-src 'self' 'sha256-6MyVuhJlmoNb28bVjxDTnS7EKyyb9/6WKz9HcSsbfos='",
   "img-src 'self' data: blob:",
   "font-src 'self'",
   "object-src 'none'",

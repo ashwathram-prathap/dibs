@@ -1,3 +1,4 @@
+import { backupCode } from './backup-code';
 import { prepareR17Admin, finishR17Admin } from './r17-admin';
 import { clientIp, NETWORK_BUSY } from './security';
 import { scoreAnswer, scoreFile } from './scoring';
@@ -592,6 +593,7 @@ export async function route(req: Request, env: Env): Promise<Response> {
   const rejected = originFailure(req, isLocal(req, env.LOCAL_TEST));
   if (rejected) return rejected;
   if (path.startsWith('/admin/')) return admin(req, env, path);
+  if (path === '/backup-code' && req.method === 'GET') return backupCode(req, env);
   if (path === '/og' || path.startsWith('/og/')) {
     const id = path.slice(4);
     const claim = id
@@ -1020,6 +1022,7 @@ const handler = {
         env.R17_STORAGE === 'true' &&
         env.DAY_REGISTRY &&
         ([
+          '/backup-code',
           '/bootstrap',
           '/me',
           '/today',
@@ -1118,29 +1121,6 @@ const handler = {
       for (const date of env.STAGING === 'true' ? [today] : [yesterday, today]) {
         // Once the previous board is final, never wake its full durable journal
         // merely to rewrite identical mirror rows every minute.
-        if (
-          env.STAGING !== 'true' &&
-          date !== today &&
-          (await env.DB.prepare(
-            'SELECT 1 FROM r17_boards b JOIN categories g ON g.id=b.category_id WHERE g.date=?',
-          )
-            .bind(date)
-            .first())
-        )
-          continue;
-        const r = await env.DAY_REGISTRY.get(
-          env.DAY_REGISTRY.idFromName(env.STAGING === 'true' ? 'practice' : date),
-        ).fetch(
-          new Request(PUBLIC_ORIGIN + '/api/admin/r17-flush', {
-            method: 'POST',
-            headers: {
-              origin: PUBLIC_ORIGIN,
-              authorization: 'Bearer ' + env.ADMIN_TOKEN,
-              'x-r17-day': date,
-            },
-          }),
-        );
-        if (!r.ok) throw Error('R17 batch mirror failed; durable journal retained for retry');
       }
     }
     await current(env);

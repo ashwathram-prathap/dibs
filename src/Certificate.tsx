@@ -118,7 +118,7 @@ export function DaySummary({
           ))}
         </ol>
         <div className="day-cert-holder">
-          <span className="eyebrow">Your name</span>
+          <span className="form-label">Filed under</span>
           <strong>
             <Handle
               name={file.handle || file.claims[0]?.handle || 'Anonymous filer'}
@@ -127,7 +127,7 @@ export function DaySummary({
           </strong>
         </div>
         <div className="cert-footer">
-          <span>ALL CLAIMS ENTIRELY CEREMONIAL.</span>
+          <span>All claims entirely ceremonial.</span>
           <span>{PUBLIC_HOST}</span>
         </div>
       </article>
@@ -176,16 +176,16 @@ export function Certificate({ claim, animated = false }: { claim: Claim; animate
         <div className="cert-rule">
           <span>
             {claim.category_id === 'practice'
-              ? 'PRACTICE — NOT THE PUBLIC RECORD'
-              : 'REGISTRY OF CLAIMS'}
+              ? 'Practice — not the public record'
+              : 'Registry of claims'}
           </span>
-          <span>FORM D-1</span>
+          <span className="form-label">Form D-1</span>
         </div>
         <div className="cert-top">
           <span className="eyebrow">
-            CERTIFICATE OF DIBS
+            Certificate of Dibs
             <br />
-            No. {serial(claim.claim_no)}
+            <span className="form-value">No. {serial(claim.claim_no)}</span>
           </span>
           <span className="cert-emblem" aria-hidden="true">
             <Wordmark />
@@ -210,11 +210,11 @@ export function Certificate({ claim, animated = false }: { claim: Claim; animate
         </h2>
         <div className="cert-category">
           <span>{claim.category_name.toUpperCase()}</span>
-          <span>{dateLabel(claim.category_date)}</span>
+          <time dateTime={claim.category_date}>{dateLabel(claim.category_date)}</time>
         </div>
         <Signature />
         <div className="cert-holder">
-          <span className="eyebrow">Held by</span>
+          <span className="form-label">Held by</span>
           <strong>
             <Handle name={claim.handle} founder={claim.founder} />
           </strong>
@@ -267,7 +267,7 @@ export function Certificate({ claim, animated = false }: { claim: Claim; animate
         </div>
 
         <div className="cert-footer">
-          <span>ONE OF {claim.total_registrable.toLocaleString()}. ONLY ONE YOURS.</span>
+          <span>One of {claim.total_registrable.toLocaleString()}. Only one yours.</span>
           <span>
             {PUBLIC_HOST}/c/{claim.id.slice(0, 16)}
           </span>

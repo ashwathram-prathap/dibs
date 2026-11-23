@@ -111,11 +111,16 @@ export function ShareSheet({
   return (
     <div className="share-area" aria-label="Share Dibs">
       <div className="share-buttons">
-        <button className="primary copy-result" onClick={() => void clipboard('copy-text')}>
-          {status === 'Copied' ? 'Copied' : 'Copy result'}
+        <button
+          className="primary"
+          aria-label="SHARE"
+          disabled={!files || busy}
+          onClick={() => void share('native')}
+        >
+          {busy ? 'Sharing…' : files ? 'Share' : 'Preparing image…'} <Icon />
         </button>
-        <button className="primary" disabled={!files || busy} onClick={() => void share('native')}>
-          {busy ? 'SHARING…' : files ? 'SHARE' : 'PREPARING IMAGE…'} <Icon />
+        <button className="copy-result" onClick={() => void clipboard('copy-text')}>
+          {status === 'Copied' ? 'Copied' : 'Copy result'}
         </button>
       </div>
       <details className="share-options">

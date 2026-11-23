@@ -1,3 +1,4 @@
+import { createPortal } from 'react-dom';
 import { RarityCurve } from './RarityCurve';
 import { Wordmark, Link, Clock, Reminder, Introduction, Rules, Progress } from './ui';
 import { runTurnstile } from './turnstile';
@@ -261,7 +262,7 @@ export default function App() {
       </a>
       <div className={'page ' + (path === '/' ? 'home-page' : '')}>
         {(today?.practice || location.hostname === 'practice.dibs-7hz.pages.dev') && (
-          <div className="practice-banner">PRACTICE — NOT THE PUBLIC RECORD</div>
+          <div className="practice-banner">Practice — not the public record</div>
         )}
         <header className="masthead">
           <Link to="/" className="wordmark" aria-label="Dibs home">
@@ -286,6 +287,12 @@ export default function App() {
             </button>
             <details
               className="header-settings"
+              onKeyDown={(e) => {
+                if (e.key === 'Escape') {
+                  setSettingsOpen(false);
+                  e.currentTarget.querySelector('summary')?.focus();
+                }
+              }}
               open={settingsOpen}
               onToggle={(e) => {
                 setSettingsOpen(e.currentTarget.open);
@@ -293,7 +300,19 @@ export default function App() {
               }}
             >
               <summary>Settings</summary>
-              <div className="header-controls">
+              <div className="header-controls" role="region" aria-label="Settings">
+                <div className="settings-heading">
+                  <h2>Settings</h2>
+                  <button
+                    className="settings-close"
+                    onClick={() => {
+                      setSettingsOpen(false);
+                      document.querySelector<HTMLElement>('.header-settings > summary')?.focus();
+                    }}
+                  >
+                    Close
+                  </button>
+                </div>
                 {(settingsOpen || settingsLoaded) && (
                   <Suspense fallback={<p role="status">Opening settings…</p>}>
                     <Settings
@@ -412,14 +431,18 @@ export default function App() {
           </Suspense>
         </main>
         <footer>
-          <Link to="/" className="footer-logo">
-            <Wordmark />
-          </Link>
-          <span>Call it first. It’s yours.</span>
-          <Link to="/about">Office</Link>
-          <a href="/about#privacy">Privacy</a>
-          <a href="/about#sources">Sources</a>
-          <Feedback sitekey={today?.turnstileSiteKey || ''} />
+          <div className="footer-brand">
+            <Link to="/" className="footer-logo">
+              <Wordmark />
+            </Link>
+            <span>Call it first. It’s yours.</span>
+          </div>
+          <nav className="footer-links" aria-label="Footer">
+            <Link to="/about">Office</Link>
+            <a href="/about#privacy">Privacy</a>
+            <a href="/about#sources">Sources</a>
+            <Feedback sitekey={today?.turnstileSiteKey || ''} />
+          </nav>
         </footer>
       </div>
     </>
@@ -779,7 +802,12 @@ function Home({
                       : ' · popularity unknown'}
                     {!!claim.golden && ' · Golden ticket +100'}
                   </p>
-                  <RarityCurve percentile={claim.percentile} category={today.category.slug} answer={claim.display} golden={claim.golden} />
+                  <RarityCurve
+                    percentile={claim.percentile}
+                    category={today.category.slug}
+                    answer={claim.display}
+                    golden={claim.golden}
+                  />
                   <p>
                     {MAX_CLAIMS - (file?.dibs || 1)} claims left ·{' '}
                     {MAX_STRIKES - (file?.strikes || 0)} strikes left
@@ -998,49 +1026,119 @@ function Feedback({ sitekey }: { sitekey: string }) {
   const [topic, setTopic] = useState('game');
   const [text, setText] = useState(''),
     [message, setMessage] = useState(''),
+    [failed, setFailed] = useState(false),
     [busy, setBusy] = useState(false);
   const box = useRef<HTMLDivElement>(null);
+  const dialog = useRef<HTMLDialogElement>(null);
+  const trigger = useRef<HTMLElement>(null);
+  const open = () => {
+    if (!dialog.current?.open) dialog.current?.showModal();
+  };
+  useEffect(() => {
+    const hash = () => {
+      if (location.hash === '#feedback') open();
+    };
+    hash();
+    window.addEventListener('hashchange', hash);
+    return () => window.removeEventListener('hashchange', hash);
+  }, []);
   return (
-    <details id="feedback" className="feedback">
-      <summary>Send feedback</summary>
-      <form
-        onSubmit={async (e) => {
-          e.preventDefault();
-          if (busy) return;
-          setBusy(true);
-          try {
-            const turnstileToken = isDemo ? 'demo' : await runTurnstile(sitekey, box.current!);
-            const data = await api<{ message: string }>('/feedback', {
-              text,
-              topic,
-              turnstileToken,
-            });
-            setMessage(data.message);
-            setText('');
-          } catch (e) {
-            setMessage((e as Error).message);
-          } finally {
-            setBusy(false);
-          }
-        }}
-      >
-        <label htmlFor="feedback-topic">Topic</label>
-        <select id="feedback-topic" value={topic} onChange={(e) => setTopic(e.target.value)}>
-          <option value="game">Game question</option>
-          <option value="privacy">Privacy question</option>
-        </select>
-        <label htmlFor="feedback-note">Private note · 500 characters max</label>
-        <textarea
-          id="feedback-note"
-          maxLength={topic === 'privacy' ? 482 : 500}
-          value={text}
-          onChange={(e) => setText(e.target.value)}
-          required
-        />
-        <div ref={box} />
-        <button disabled={busy}>{busy ? 'Sending…' : 'Send note'}</button>
-        <p role="status">{message}</p>
-      </form>
-    </details>
+    <>
+      <details id="feedback" className="feedback" open={false}>
+        <summary
+          ref={trigger}
+          onClick={(e) => {
+            e.preventDefault();
+            open();
+          }}
+        >
+          Send feedback
+        </summary>
+      </details>
+      {createPortal(
+        <dialog
+          ref={dialog}
+          className="feedback-dialog"
+          onKeyDown={(e) => {
+            if (e.key !== 'Tab') return;
+            const fields = [
+              ...e.currentTarget.querySelectorAll<HTMLElement>(
+                'button:not(:disabled), input, select, textarea, a[href], [tabindex="0"]',
+              ),
+            ].filter((el) => el.getClientRects().length);
+            const index = fields.indexOf(document.activeElement as HTMLElement);
+            const next = (index + (e.shiftKey ? -1 : 1) + fields.length) % fields.length;
+            e.preventDefault();
+            fields[next]?.focus();
+          }}
+          aria-labelledby="feedback-title"
+          onClose={() => trigger.current?.focus()}
+        >
+          <div className="dialog-heading">
+            <h2 id="feedback-title">Send feedback</h2>
+            <button type="button" onClick={() => dialog.current?.close()}>
+              Close
+            </button>
+          </div>
+          <form
+            onSubmit={async (e) => {
+              e.preventDefault();
+              if (busy) return;
+              setBusy(true);
+              setMessage('');
+              setFailed(false);
+              try {
+                const turnstileToken = isDemo ? 'demo' : await runTurnstile(sitekey, box.current!);
+                const data = await api<{ message: string }>('/feedback', {
+                  text,
+                  topic,
+                  turnstileToken,
+                });
+                setMessage(data.message || 'Your feedback was sent. Thank you.');
+                setText('');
+              } catch (e) {
+                setFailed(true);
+                setMessage((e as Error).message);
+              } finally {
+                setBusy(false);
+              }
+            }}
+          >
+            <div className="feedback-field">
+              <label htmlFor="feedback-topic">Topic</label>
+              <select id="feedback-topic" value={topic} onChange={(e) => setTopic(e.target.value)}>
+                <option value="game">Game question</option>
+                <option value="privacy">Privacy question</option>
+              </select>
+            </div>
+            <div className="feedback-field">
+              <label htmlFor="feedback-note">Private note</label>
+              <textarea
+                id="feedback-note"
+                aria-describedby="feedback-limit"
+                maxLength={topic === 'privacy' ? 482 : 500}
+                value={text}
+                onChange={(e) => setText(e.target.value)}
+                required
+              />
+              <small id="feedback-limit">500 characters max</small>
+            </div>
+            <div ref={box} className="feedback-verification" />
+            <button className="primary" disabled={busy}>
+              {busy ? 'Sending…' : 'Send note'}
+            </button>
+            {message && (
+              <p
+                className={failed ? 'feedback-error' : 'feedback-success'}
+                role={failed ? 'alert' : 'status'}
+              >
+                {message}
+              </p>
+            )}
+          </form>
+        </dialog>,
+        document.body,
+      )}
+    </>
   );
 }

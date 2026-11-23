@@ -1,3 +1,4 @@
+import { backupCode } from './backup-code';
 import { Leaderboard, publicScores } from './leaderboard';
 import { withdraw } from './withdraw';
 import { calendarRoute } from './calendar';
@@ -774,6 +775,7 @@ export class Registry extends DurableObject<Env> {
       this.ctx.waitUntil(this.pushSnapshot(env, [pair[1]]));
       return new Response(null, { status: 101, webSocket: pair[0] });
     }
+    if (path === '/backup-code' && req.method === 'GET') return backupCode(req, env);
     if (path === '/bootstrap' || path === '/me') {
       const snapshot = await this.fresh(env);
       const { session, cookie } = await this.session(req, true);
@@ -889,9 +891,15 @@ export class Registry extends DurableObject<Env> {
       const data: any = await cached.json();
       const g = { id: data.claim.category_id, date: data.claim.category_date };
       const uid = await cookieUser(req, env.COOKIE_SECRET);
-      const owned = !!uid && !!(await env.DB.prepare('SELECT 1 FROM claims WHERE id=? AND user_id=?').bind(data.claim.id, uid).first());
+      const owned =
+        !!uid &&
+        !!(await env.DB.prepare('SELECT 1 FROM claims WHERE id=? AND user_id=?')
+          .bind(data.claim.id, uid)
+          .first());
       const revealed = await canReveal(req, env, g);
-      return json({ claim: revealed || owned ? { ...data.claim, revealed, owned } : concealClaim(data.claim) });
+      return json({
+        claim: revealed || owned ? { ...data.claim, revealed, owned } : concealClaim(data.claim),
+      });
     }
     if (path === '/og' || path.startsWith('/og/')) return this.image(path.slice(4), env);
     if (path === '/answers') return json({ answers: [] }); // Suggestions are a versioned Pages asset.

@@ -1,3 +1,5 @@
+import { pingIndexNow } from '../shared/indexnow';
+import { backupCode } from './backup-code';
 import { cluedId } from './clue';
 import { og } from './og';
 import { isPlatform } from '../shared/sharing';
@@ -498,6 +500,10 @@ export class DayRegistry extends DurableObject<Env> {
       const claim = [...this.owners.values()].find((c) => c.id === id && !c.voided);
       if (!claim) return json({ message: 'Not found.' }, 404);
       return og(dayClosed(this.category) ? claim : concealClaim(claim));
+    }
+    if (path === '/backup-code' && req.method === 'GET') {
+      const uid = await cookieUser(req, env.COOKIE_SECRET);
+      return backupCode(req, env, uid ? this.state(uid)?.user.recoveryHash : undefined);
     }
     if (path === '/today') return json(this.today());
     if (path === '/bootstrap' || path === '/me') {
@@ -1118,12 +1124,15 @@ export class DayRegistry extends DurableObject<Env> {
       clearInterval(this.flushTimer);
       this.flushTimer = undefined;
     }
-    if (dayClosed(this.category) && this.category)
-      await env.DB.prepare(
+    if (dayClosed(this.category) && this.category) {
+      const saved = await env.DB.prepare(
         'INSERT INTO r17_boards(category_id,data) VALUES(?,?) ON CONFLICT(category_id) DO UPDATE SET data=excluded.data WHERE r17_boards.data!=excluded.data',
       )
         .bind(this.category.id, JSON.stringify(this.board()))
         .run();
+      if (saved.meta.changes && env.STAGING !== 'true' && env.LOCAL_TEST !== 'true')
+        await pingIndexNow(['/', '/archive', '/archive?date=' + this.category.date]);
+    }
   }
   async alarm() {
     await this.init(this.env);

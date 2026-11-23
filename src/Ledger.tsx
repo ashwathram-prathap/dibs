@@ -106,16 +106,16 @@ export function Ledger({
         <caption className="sr-only">Claims in {category?.name || 'today’s registry'}</caption>
         <thead>
           <tr>
-            <th>No.</th>
-            <th>ANSWER</th>
-            <th>PLAYER</th>
-            <th className="time-col">TIME</th>
+            <th className="form-label">No.</th>
+            <th className="form-label">ANSWER</th>
+            <th className="form-label">PLAYER</th>
+            <th className="time-col form-label">TIME</th>
           </tr>
         </thead>
         <tbody>
           {filtered.map((r) => (
             <tr key={r.id} className={newIds.has(r.id) ? 'new-row' : ''}>
-              <td>{serial(r.claim_no)}</td>
+              <td className="entry-number">{serial(r.claim_no)}</td>
               <td>
                 <Link to={'/certificate/' + r.id}>
                   {!!r.golden && <Icon name="star" />}

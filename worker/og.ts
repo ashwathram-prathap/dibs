@@ -17,7 +17,10 @@ import archivoFont from '../public/fonts/archivo-og.woff';
 import archivoExtended from '../public/fonts/archivo-og-latin-ext.woff';
 import archivoVietnamese from '../public/fonts/archivo-og-vietnamese.woff';
 import archivoSupplement from '../public/fonts/archivo-supplement-900.otf';
+import instrumentFont from '../public/fonts/instrument-og.otf';
+import plexFont from '../public/fonts/plex-og.woff';
 let fonts: Font[] | undefined;
+let textFont: Font, formFont: Font;
 let ready: Promise<void> | undefined;
 // Render self-hosted type to vector outlines before PNG rasterization. No remote fonts or HTML parser.
 export async function og(claim: any, summary?: any) {
@@ -26,6 +29,8 @@ export async function og(claim: any, summary?: any) {
   fonts ||= [archivoFont, archivoExtended, archivoVietnamese, archivoSupplement].map((data) =>
     parse(data),
   );
+  textFont ||= parse(instrumentFont);
+  formFont ||= parse(plexFont);
   const faceFor = (ch: string) =>
     fonts!.find((face) => face.charToGlyphIndex(ch) !== 0) || fonts![0];
   const width = (value: string, size: number) =>
@@ -33,10 +38,18 @@ export async function og(claim: any, summary?: any) {
       const face = faceFor(ch);
       return n + ((face.charToGlyph(ch).advanceWidth || 0) * size) / face.unitsPerEm;
     }, 0);
-  const text = (value: string, x: number, y: number, size: number, color = '#1A1A17') => {
+  const text = (
+    value: string,
+    x: number,
+    y: number,
+    size: number,
+    color = '#1A1A17',
+    role: 'display' | 'text' | 'form' = 'text',
+  ) => {
     let out = '';
     for (const ch of value) {
-      const face = faceFor(ch);
+      const candidate = role === 'text' ? textFont : role === 'form' ? formFont : undefined;
+      const face = candidate?.charToGlyphIndex(ch) ? candidate : faceFor(ch);
       const glyph = face.charToGlyph(ch);
       out += `<path fill="${color}" d="${svgPath(glyph.getPath(x, y, size).commands)}"/>`;
       x += ((glyph.advanceWidth || 0) * size) / face.unitsPerEm;
@@ -44,7 +57,7 @@ export async function og(claim: any, summary?: any) {
     return out;
   };
   const category = summary?.category?.name || claim?.category_name || 'Animals';
-  const title = (claim ? claim.concealed ? 'SEALED' : claim.display : category).toUpperCase();
+  const title = (claim ? (claim.concealed ? 'SEALED' : claim.display) : category).toUpperCase();
   const { lines, size } = fitText(title, width, 820, {
     startSize: 155,
     minSize: 15,
@@ -53,17 +66,17 @@ export async function og(claim: any, summary?: any) {
     lineHeight: 0.95,
   });
   const number = summary
-    ? 'DAY SUMMARY / ' + summary.file.summaryId.slice(0, 8).toUpperCase()
+    ? 'Day summary / ' + summary.file.summaryId.slice(0, 8).toUpperCase()
     : claim
-      ? 'CERTIFICATE OF DIBS No. ' + String(claim.claim_no).padStart(4, '0')
-      : 'REGISTRY OF CLAIMS / FORM C-1';
-  const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630"><path fill="#F1ECE2" d="M0 0h1200v630H0z"/><g fill="none" stroke="#1A1A17" stroke-width="2"><path d="M20 20h1160v590H20z M30 30h1140v570H30z M60 130h1080 M60 470h1080"/></g>${text(number, 60, 85, 22)}<g transform="translate(960 45) scale(${170 / WORDMARK_WIDTH}) translate(${WORDMARK_OFFSET_X} ${WORDMARK_OFFSET_Y})"><path fill="#1A1A17" d="${WORDMARK_PATH}"/><path fill="#E1462B" d="M${WORDMARK_BLOCK_X} 67h18v18h-18z"/></g>${text(summary ? summary.category.date : claim ? claim.category_date : 'FIRST COME. FIRST SERVED.', 60, 125, 14)}${text(summary ? `${summary.file.dibs}/${MAX_CLAIMS} claims · ${summary.file.strikes} ${summary.file.strikes === 1 ? 'strike' : 'strikes'} / FILE CLOSED` : claim ? 'One more answer claimed.' : `${MAX_CLAIMS} claims. ${MAX_STRIKES} strikes.`, 60, 210, 30)}${lines.map((line, i) => text(line, 60, 240 + size + i * size * 0.95, size)).join('')}${text(summary ? `${summary.file.points ?? 0} pts · ${summary.file.rank ? '#' + summary.file.rank + ' of ' + summary.file.players : 'Unranked'} · Streak ${summary.file.streak || 0}` : claim ? claim.handle : 'Your name stays on it.', 60, 530, 30, claim?.founder ? '#795700' : '#1A1A17')}${claim?.founder || summary?.file?.founder ? text('FOUNDER', 720, 530, 18, '#795700') : ''}${claim ? text(claim.category_name.toUpperCase(), 60, 565, 18) : ''}<g transform="translate(935 538) rotate(-3)"><path fill="none" stroke="#E1462B" stroke-width="4" d="M-150-42h300v80h-300z"/>${text(claim ? 'REGISTERED' : 'DIBS', -132, 14, claim ? 37 : 52, '#E1462B')}</g>${summary ? summary.file.events.map((e: any, i: number) => `<rect x="${600 + i * 34}" y="105" width="22" height="22" fill="${e.kind === 'dibs' ? '#1A1A17' : 'none'}" stroke="#1A1A17" stroke-width="2"/>`).join('') : ''}${text(PUBLIC_HOST + ` / NEXT DROP: ${DROP_TIME_LABEL} ET`, 60, 595, 16)}</svg>`;
-  const renderer = new Resvg(svg, {fitTo:{mode:'width',value:1080}});
+      ? 'Certificate No. ' + String(claim.claim_no).padStart(4, '0')
+      : 'Registry of claims / Form C-1';
+  const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630"><path fill="#F1ECE2" d="M0 0h1200v630H0z"/><g fill="none" stroke="#1A1A17" stroke-width="2"><path d="M20 20h1160v590H20z M60 130h1080 M60 470h1080"/></g>${text(number, 60, 85, 22, '#1A1A17', 'form')}<g transform="translate(960 45) scale(${170 / WORDMARK_WIDTH}) translate(${WORDMARK_OFFSET_X} ${WORDMARK_OFFSET_Y})"><path fill="#1A1A17" d="${WORDMARK_PATH}"/><path fill="#E1462B" d="M${WORDMARK_BLOCK_X} 67h18v18h-18z"/></g>${text(summary ? summary.category.date : claim ? claim.category_date : 'Call it first. It’s yours.', 60, 125, 20, '#1A1A17', summary || claim ? 'form' : 'text')}${text(summary ? `${summary.file.dibs}/${MAX_CLAIMS} claims · ${summary.file.strikes} ${summary.file.strikes === 1 ? 'strike' : 'strikes'} / File closed` : claim ? 'One more answer claimed.' : `${MAX_CLAIMS} claims. ${MAX_STRIKES} strikes.`, 60, 210, 30)}${lines.map((line, i) => text(line, 60, 240 + size + i * size * 0.95, size, '#1A1A17', 'display')).join('')}${text(summary ? `${summary.file.points ?? 0} pts · ${summary.file.rank ? '#' + summary.file.rank + ' of ' + summary.file.players : 'Unranked'} · Streak ${summary.file.streak || 0}` : claim ? claim.handle : 'Your name stays on it.', 60, 530, 30, claim?.founder ? '#795700' : '#1A1A17')}${claim?.founder || summary?.file?.founder ? text('FOUNDER', 720, 530, 18, '#795700') : ''}${claim ? text(claim.category_name.toUpperCase(), 60, 565, 18) : ''}<g transform="translate(935 538) rotate(-3)"><path fill="none" stroke="#E1462B" stroke-width="4" d="M-150-42h300v80h-300z"/>${text(claim ? 'REGISTERED' : 'DIBS', -132, 14, claim ? 37 : 52, '#E1462B', 'display')}</g>${summary ? summary.file.events.map((e: any, i: number) => `<rect x="${600 + i * 34}" y="105" width="22" height="22" fill="${e.kind === 'dibs' ? '#1A1A17' : 'none'}" stroke="#1A1A17" stroke-width="2"/>`).join('') : ''}${text(PUBLIC_HOST + ` / Next drop: ${DROP_TIME_LABEL} ET`, 60, 595, 16)}</svg>`;
+  const renderer = new Resvg(svg, { fitTo: { mode: 'width', value: 1080 } });
   try {
     const png = renderer.render();
     try {
-      const bytes = encodeJpeg({data:png.pixels,width:png.width,height:png.height},85).data;
-      if(bytes.byteLength>600000)throw Error('Preview exceeds image size limit');
+      const bytes = encodeJpeg({ data: png.pixels, width: png.width, height: png.height }, 85).data;
+      if (bytes.byteLength > 600000) throw Error('Preview exceeds image size limit');
       return new Response(bytes.buffer as ArrayBuffer, {
         headers: {
           'content-type': 'image/jpeg',

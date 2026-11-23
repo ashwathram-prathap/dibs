@@ -136,7 +136,9 @@ export function Clock({ target, slim = false }: { target: string; slim?: boolean
       className={slim ? 'round-countdown' : 'drop-countdown'}
       aria-label={slim ? 'Round countdown' : 'Next drop countdown'}
     >
-      <span className="eyebrow">{slim ? 'Round closes in' : 'Opens in'}</span>
+      <span className={slim ? 'eyebrow' : 'eyebrow form-label'}>
+        {slim ? 'Round closes in' : 'Next drop'}
+      </span>
       <span className="clock" aria-hidden="true">
         {remaining
           ? countdown(target, now)
@@ -176,15 +178,22 @@ export function Clock({ target, slim = false }: { target: string; slim?: boolean
 export function Reminder({ at }: { at: string }) {
   const links = reminder(at);
   const appleFirst = /iPhone|iPad|iPod/.test(navigator.userAgent);
-  const mac = /Mac/.test(navigator.platform) && !appleFirst;
   const apple = (
-    <a key="apple" href={'/reminder.ics?at=' + encodeURIComponent(at)}>
-      Apple Calendar{mac ? ' (downloads a file, then open it)' : ''}
+    <a key="apple" aria-label="Apple Calendar" href={'/reminder.ics?at=' + encodeURIComponent(at)}>
+      <span>Apple Calendar</span>
+      <small>Downloads a file. Open it to add</small>
     </a>
   );
   const google = (
-    <a key="google" href={links.google} target="_blank" rel="noopener noreferrer">
-      Google Calendar
+    <a
+      key="google"
+      aria-label="Google Calendar"
+      href={links.google}
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      <span>Google Calendar</span>
+      <small>Opens in a new tab</small>
     </a>
   );
   return (
@@ -205,10 +214,10 @@ export function Reminder({ at }: { at: string }) {
           Five minutes before <DropTime at={at} />. Daily.
         </p>
         {appleFirst ? [apple, google] : [google, apple]}
-        <a href={links.outlook} target="_blank" rel="noopener noreferrer">
-          Outlook
+        <a aria-label="Outlook" href={links.outlook} target="_blank" rel="noopener noreferrer">
+          <span>Outlook</span>
+          <small>Adds one event. Set it to repeat daily</small>
         </a>
-        <small>Outlook opens one event. Set Repeat to Daily.</small>
       </div>
     </details>
   );

@@ -156,6 +156,20 @@ export function BackupSettings({
     () => new URLSearchParams(location.hash.slice(1)).get('file-key') || '',
   );
   const [message, setMessage] = useState('');
+  const [code, setCode] = useState('');
+  const [codeMessage, setCodeMessage] = useState('Opening your code…');
+  const loadCode = async () => {
+    try {
+      const data = await api<{ code: string | null }>('/backup-code');
+      setCode(data.code || '');
+      setCodeMessage(data.code ? '' : 'Your code appears here after your first claim.');
+    } catch {
+      setCodeMessage('Your code could not load. Close Settings and try again.');
+    }
+  };
+  useEffect(() => {
+    void loadCode();
+  }, []);
   useEffect(() => {
     if (location.hash === '#file-settings' || restoreKey) {
       const panel = document.querySelector<HTMLDetailsElement>('.header-settings');
@@ -171,17 +185,48 @@ export function BackupSettings({
       await api('/recover', { key: restoreKey });
       setRestoreKey('');
       await refresh();
+      await loadCode();
       setMessage('Your claims are restored.');
     } catch (e) {
       setMessage((e as Error).message);
     }
   }
   return (
-    <details id="file-settings" className="file-key-panel" open={restoreKey ? true : undefined}>
+    <details
+      id="file-settings"
+      className="file-key-panel"
+      open={restoreKey ? true : undefined}
+      onToggle={(e) => {
+        if (e.currentTarget.open) void loadCode();
+      }}
+    >
       <summary>
         Backup code <Icon name="chevron" />
       </summary>
       <p>{BACKUP_EXPLANATION}</p>
+      <section className="your-backup-code" aria-label="Your backup code">
+        <h3>Your code</h3>
+        {code && (
+          <>
+            <output>{code}</output>
+            <button
+              type="button"
+              onClick={async () => {
+                try {
+                  await navigator.clipboard.writeText(code);
+                  setCodeMessage('Copied. Keep it private.');
+                } catch {
+                  setCodeMessage('Select your code above and copy it.');
+                }
+              }}
+            >
+              Copy
+            </button>
+          </>
+        )}
+        <p role="status">{codeMessage}</p>
+      </section>
+      <h3>Restore on this device</h3>
       <form onSubmit={restore}>
         <label htmlFor="restore-key">Backup code</label>
         <input
@@ -208,7 +253,6 @@ export function DeleteFile({ sitekey, initialKey = '' }: { sitekey: string; init
     <section className="delete-file">
       <h3>Delete my data</h3>
       <p>This removes your name, backup code and streak; past claims stay as ‘Withdrawn player’.</p>
-      <p>{BACKUP_EXPLANATION}</p>
       <label htmlFor="delete-key">Backup code (optional on this device)</label>
       <input
         id="delete-key"

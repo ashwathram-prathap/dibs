@@ -1,20 +1,12 @@
 @font-face {
-  font-family: ArchivoClock;
-  src: url('/fonts/archivo-clock.v1.woff2') format('woff2');
-  font-weight: 100 900;
-  font-stretch: 62% 125%;
-  font-display: swap;
-  unicode-range: U+0030-003A;
-}
-@font-face {
-  font-family: ArchivoSupplement;
+  font-family: Archivo;
   src: url('/fonts/archivo-supplement-400.v2.woff2') format('woff2');
   font-weight: 400;
   font-display: swap;
   unicode-range: U+02BB, U+1E90-1E91;
 }
 @font-face {
-  font-family: ArchivoSupplement;
+  font-family: Archivo;
   src: url('/fonts/archivo-supplement-900.v2.woff2') format('woff2');
   font-weight: 900;
   font-display: swap;
@@ -44,7 +36,7 @@
     U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
 }
 @font-face {
-  font-family: Instrument;
+  font-family: 'Instrument Sans';
   font-style: normal;
   font-display: swap;
   font-weight: 400 700;
@@ -66,7 +58,7 @@
   font-display: swap;
 }
 @font-face {
-  font-family: Instrument;
+  font-family: 'Instrument Sans';
   src: url('/fonts/instrument.v2.woff2') format('woff2');
   unicode-range:
     U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329,
@@ -75,13 +67,13 @@
   font-display: swap;
 }
 @font-face {
-  font-family: Plex;
+  font-family: 'IBM Plex Mono';
   src: url('/fonts/plex.v2.woff2') format('woff2');
   font-weight: 400;
   font-display: swap;
 }
 :root {
-  font-family: Instrument, Archivo, ArchivoSupplement, Arial, sans-serif;
+  font-family: 'Instrument Sans', sans-serif;
   color: #1a1a17;
   background: #f1ece2;
   --paper: #f1ece2;
@@ -89,7 +81,7 @@
   --ink: #1a1a17;
   --muted: #5c5a53;
   --red: #b93420;
-  --blue: #22408f;
+  --blue: #1a1a17;
   --rule: #1a1a17;
   color-scheme: light;
   font-synthesis: none;
@@ -97,7 +89,7 @@
 html[data-theme='dark'] {
   --red: #ff836b;
   --paper: #16150f;
-  --panel: #1a1a17;
+  --panel: #1f1e18;
   --ink: #f1ece2;
   --muted: #e4ddcf;
   --rule: #e4ddcf;
@@ -148,7 +140,7 @@ button {
   border: 1px solid var(--ink);
   background: transparent;
   padding: 11px 17px;
-  font-family: Instrument, sans-serif;
+  font-family: 'Instrument Sans', sans-serif;
   font-size: 0.6875rem;
   letter-spacing: 0.03em;
 }
@@ -196,7 +188,7 @@ p {
 h1,
 h2,
 h3 {
-  font-family: Archivo, ArchivoSupplement, Arial, sans-serif;
+  font-family: Archivo, sans-serif;
 }
 h2 {
   font-size: 2rem;
@@ -222,7 +214,7 @@ strong {
   gap: 38px;
 }
 .wordmark {
-  font-family: Archivo, ArchivoSupplement, Arial, sans-serif;
+  font-family: Archivo, sans-serif;
   font-stretch: 125%;
   font-weight: 900;
   font-size: 5rem;
@@ -236,9 +228,9 @@ strong {
 }
 .mast-note {
   font:
-    0.625rem/1.6 Instrument,
-    monospace;
-  letter-spacing: 0.08em;
+    0.625rem/1.6 'Instrument Sans',
+    sans-serif;
+  letter-spacing: 0.04em;
   margin: 15px 0 0;
 }
 .theme-toggle {
@@ -284,16 +276,16 @@ nav a[aria-current='page']:after {
   margin-left: auto;
   align-self: center;
   font:
-    0.625rem Instrument,
-    monospace;
-  letter-spacing: 0.1em;
+    0.625rem 'Instrument Sans',
+    sans-serif;
+  letter-spacing: 0.04em;
 }
 .reg-strip {
   display: flex;
   justify-content: space-between;
   font:
-    0.625rem/1.6 Instrument,
-    monospace;
+    0.625rem/1.6 'Instrument Sans',
+    sans-serif;
   letter-spacing: 0.04em;
   padding: 17px 0;
   border-bottom: 1px solid var(--ink);
@@ -320,9 +312,9 @@ nav a[aria-current='page']:after {
 .section-number,
 .folio {
   font:
-    0.625rem/1.6 Instrument,
-    monospace;
-  letter-spacing: 0.075em;
+    0.625rem/1.6 'Instrument Sans',
+    sans-serif;
+  letter-spacing: 0.04em;
 }
 .folio {
   color: var(--muted);
@@ -333,7 +325,7 @@ nav a[aria-current='page']:after {
   font-size: clamp(5rem, 13.4vw, 12rem);
   line-height: 0.95;
   letter-spacing: -0.065em;
-  text-transform: uppercase;
+  text-transform: none;
   margin: 20px 0 26px;
   white-space: nowrap;
   overflow: hidden;
@@ -350,8 +342,8 @@ nav a[aria-current='page']:after {
   gap: 14px;
   align-items: center;
   font:
-    0.75rem Instrument,
-    monospace;
+    0.75rem 'Instrument Sans',
+    sans-serif;
 }
 .category-bottom i {
   font-style: normal;
@@ -359,8 +351,8 @@ nav a[aria-current='page']:after {
 }
 .small-stamp {
   font:
-    0.625rem Instrument,
-    monospace;
+    0.625rem 'Instrument Sans',
+    sans-serif;
   border: 1px solid var(--ink);
   padding: 6px 9px;
   transform: rotate(-2deg);
@@ -396,8 +388,8 @@ nav a[aria-current='page']:after {
 }
 .form-heading > span:last-child {
   font:
-    0.75rem Instrument,
-    monospace;
+    0.75rem 'Instrument Sans',
+    sans-serif;
 }
 .input-row {
   display: flex;
@@ -446,7 +438,7 @@ nav a[aria-current='page']:after {
   display: grid;
   grid-template-columns: 1fr auto;
   align-items: center;
-  border-top: 1px dashed var(--ink);
+  border-top: 1px solid var(--ink);
   padding: 18px 0 23px;
   gap: 13px;
 }
@@ -478,8 +470,8 @@ nav a[aria-current='page']:after {
 .form-foot {
   border-top: 1px solid var(--ink);
   font:
-    0.5rem/1.6 Instrument,
-    monospace;
+    0.5rem/1.6 'Instrument Sans',
+    sans-serif;
   letter-spacing: 0.05em;
   padding: 13px 0;
 }
@@ -550,8 +542,8 @@ nav a[aria-current='page']:after {
 .ledger th,
 .record-table th {
   font:
-    0.625rem Instrument,
-    monospace;
+    0.625rem 'Instrument Sans',
+    sans-serif;
   letter-spacing: 0.04em;
   padding: 12px 10px;
   border-top: 2px solid var(--ink);
@@ -583,8 +575,8 @@ nav a[aria-current='page']:after {
 .ledger td:first-child,
 .ledger td:last-child {
   font:
-    0.625rem Instrument,
-    monospace;
+    0.625rem 'Instrument Sans',
+    sans-serif;
 }
 .ledger td:last-child {
   text-align: right;
@@ -592,9 +584,8 @@ nav a[aria-current='page']:after {
 .ledger td:nth-child(2) a {
   font:
     800 1.125rem Archivo,
-    Arial,
     sans-serif;
-  text-transform: uppercase;
+  text-transform: none;
   color: var(--ink);
   text-decoration: none;
 }
@@ -609,8 +600,7 @@ nav a[aria-current='page']:after {
 .ledger .empty-row td {
   text-align: left;
   font:
-    0.8125rem Instrument,
-    Arial,
+    0.8125rem 'Instrument Sans',
     sans-serif;
   padding: 24px 12px;
   line-height: 1.5;
@@ -619,8 +609,8 @@ nav a[aria-current='page']:after {
   display: flex;
   justify-content: space-between;
   font:
-    0.5625rem/1.5 Instrument,
-    monospace;
+    0.5625rem/1.5 'Instrument Sans',
+    sans-serif;
   letter-spacing: 0.04em;
   padding: 14px 0;
   gap: 20px;
@@ -629,7 +619,7 @@ nav a[aria-current='page']:after {
   display: grid;
   grid-template-columns: 1fr 2fr 1fr;
   gap: 20px;
-  border-top: 1px dashed var(--ink);
+  border-top: 1px solid var(--ink);
   margin: 28px 0 45px;
   padding-top: 23px;
   font-size: 0.75rem;
@@ -669,7 +659,7 @@ footer {
   margin-top: 48px;
 }
 .footer-logo {
-  font-family: Archivo, ArchivoSupplement, Arial, sans-serif;
+  font-family: Archivo, sans-serif;
   font-weight: 900;
   font-size: 1.375rem;
   letter-spacing: -0.07em;
@@ -679,8 +669,8 @@ footer {
 .footer-right {
   margin-left: auto;
   font:
-    0.5625rem Instrument,
-    monospace;
+    0.5625rem 'Instrument Sans',
+    sans-serif;
   letter-spacing: 0.04em;
 }
 .certificate {
@@ -692,17 +682,16 @@ footer {
   border: 1px solid var(--ink);
   padding: 28px 38px 20px;
   margin: 0 auto;
-  outline: 1px solid var(--ink);
-  outline-offset: -9px;
+  outline: none;
   overflow: hidden;
 }
 .certificate:before,
 .certificate:after {
-  content: '+';
+  content: none;
   position: absolute;
   font:
-    1.375rem Instrument,
-    monospace;
+    1.375rem 'Instrument Sans',
+    sans-serif;
   top: 2px;
   left: 2px;
 }
@@ -714,8 +703,8 @@ footer {
   display: flex;
   justify-content: space-between;
   font:
-    0.5625rem Instrument,
-    monospace;
+    0.5625rem 'Instrument Sans',
+    sans-serif;
   letter-spacing: 0.05em;
   border-bottom: 1px solid var(--ink);
   padding-bottom: 16px;
@@ -729,7 +718,6 @@ footer {
 .cert-emblem {
   font:
     900 2.375rem Archivo,
-    Arial,
     sans-serif;
   letter-spacing: -0.08em;
   border: 2px solid var(--ink);
@@ -746,7 +734,7 @@ footer {
   font-stretch: 125%;
   letter-spacing: -0.055em;
   line-height: 1;
-  text-transform: uppercase;
+  text-transform: none;
   overflow-wrap: anywhere;
   margin: 0 0 24px;
 }
@@ -760,8 +748,8 @@ footer {
   display: flex;
   justify-content: space-between;
   font:
-    0.625rem/1.5 Instrument,
-    monospace;
+    0.625rem/1.5 'Instrument Sans',
+    sans-serif;
   gap: 16px;
 }
 .cert-holder {
@@ -793,7 +781,7 @@ footer {
 }
 .dibs-stamp {
   color: var(--red);
-  border: 4px double var(--red);
+  border: 1px solid var(--red);
   padding: 6px 16px;
   text-align: center;
   filter: url('#ink');
@@ -802,7 +790,6 @@ footer {
 .dibs-stamp strong {
   font:
     900 4.125rem/0.95 Archivo,
-    Arial,
     sans-serif;
   font-variation-settings: 'wdth' 125;
   letter-spacing: -0.07em;
@@ -810,19 +797,19 @@ footer {
 .dibs-stamp span {
   display: block;
   font:
-    0.5rem Instrument,
-    monospace;
+    0.5rem 'Instrument Sans',
+    sans-serif;
   padding-top: 6px;
   color: var(--ink);
 }
 .cert-footer {
   font:
-    0.5rem/1.6 Instrument,
-    monospace;
+    0.5rem/1.6 'Instrument Sans',
+    sans-serif;
   display: flex;
   justify-content: space-between;
   gap: 14px;
-  border-top: 1px dashed var(--ink);
+  border-top: 1px solid var(--ink);
   padding-top: 15px;
 }
 .filed-section {
@@ -848,8 +835,8 @@ footer {
 }
 .share-hint {
   font:
-    0.625rem/1.8 Instrument,
-    monospace;
+    0.625rem/1.8 'Instrument Sans',
+    sans-serif;
   margin: 17px 0;
   overflow-wrap: anywhere;
 }
@@ -873,7 +860,6 @@ footer {
   place-content: center;
   font:
     0.75rem Archivo,
-    Arial,
     sans-serif;
 }
 .streak .marked {
@@ -897,13 +883,13 @@ footer {
   font-size: 0.8125rem;
 }
 .archive-spine {
-  border-left: 8px double var(--ink);
+  border-left: 1px solid var(--ink);
   writing-mode: vertical-rl;
   padding: 24px;
   font:
-    0.75rem Instrument,
-    monospace;
-  letter-spacing: 0.13em;
+    0.75rem 'Instrument Sans',
+    sans-serif;
+  letter-spacing: 0.04em;
   height: 290px;
   margin-top: 30px;
 }
@@ -914,7 +900,7 @@ footer {
 .archive-date h2 {
   font-size: 3rem;
   margin: 10px 0 0;
-  text-transform: uppercase;
+  text-transform: none;
 }
 .archive-layout .ledger-section {
   padding-top: 20px;
@@ -945,7 +931,7 @@ footer {
 }
 .record-table td:first-child,
 .record-table td:last-child {
-  font-family: Instrument, sans-serif;
+  font-family: 'Instrument Sans', sans-serif;
   font-size: 0.75rem;
 }
 .record-table td:last-child {
@@ -954,8 +940,7 @@ footer {
 .record-table td[colspan] {
   text-align: left;
   font:
-    0.8125rem Instrument,
-    Arial,
+    0.8125rem 'Instrument Sans',
     sans-serif;
 }
 .fine-print {
@@ -990,8 +975,8 @@ footer {
 .rules li:before {
   content: '0' counter(rule);
   font:
-    0.75rem/2 Instrument,
-    monospace;
+    0.75rem/2 'Instrument Sans',
+    sans-serif;
   min-width: 25px;
   flex-shrink: 0;
   white-space: nowrap;
@@ -1001,11 +986,10 @@ footer {
 }
 .about-stamp {
   display: inline-block;
-  border: 4px double var(--ink);
+  border: 1px solid var(--ink);
   transform: rotate(-3deg);
   font:
     900 1.5625rem/0.95 Archivo,
-    Arial,
     sans-serif;
   letter-spacing: -0.02em;
   padding: 15px 20px;
@@ -1051,11 +1035,10 @@ footer {
 .closed-seal {
   font:
     900 4.375rem/1 Archivo,
-    Arial,
     sans-serif;
   letter-spacing: -0.07em;
   transform: rotate(-4deg);
-  border: 4px double var(--ink);
+  border: 1px solid var(--ink);
   padding: 25px 24px;
   justify-self: end;
   margin-top: 12px;
@@ -1063,9 +1046,9 @@ footer {
 .closed-seal span {
   display: block;
   font:
-    0.625rem Instrument,
-    monospace;
-  letter-spacing: 0.08em;
+    0.625rem 'Instrument Sans',
+    sans-serif;
+  letter-spacing: 0.04em;
   margin-top: 15px;
 }
 .notice,
@@ -1080,8 +1063,8 @@ footer {
 }
 .loading {
   font:
-    14px Instrument,
-    monospace;
+    14px 'Instrument Sans',
+    sans-serif;
 }
 .filters {
   position: absolute;
@@ -1124,8 +1107,8 @@ footer {
   color: var(--paper);
   padding: 8px;
   font:
-    0.5625rem Instrument,
-    monospace;
+    0.5625rem 'Instrument Sans',
+    sans-serif;
   text-align: center;
 }
 .admin-form {
@@ -1724,8 +1707,8 @@ html.low-power .dibs-stamp strong {
   align-items: center;
   min-height: 44px;
   font:
-    0.6875rem Instrument,
-    monospace;
+    0.6875rem 'Instrument Sans',
+    sans-serif;
 }
 /* Touch controls retain their physical size even in the dense printed layout. */
 .search input,
@@ -1752,13 +1735,13 @@ body {
 }
 .cert-footer:before,
 .cert-footer:after {
-  content: '+';
+  content: none;
   position: absolute;
   bottom: 1px;
   left: 2px;
   font:
-    1.375rem Instrument,
-    monospace;
+    1.375rem 'Instrument Sans',
+    sans-serif;
 }
 .cert-footer:after {
   left: auto;
@@ -1772,7 +1755,7 @@ body {
   left: max(16px, calc((100% - 700px) / 2));
   width: min(620px, calc(100% - 32px));
   padding: 24px;
-  border: 7px double var(--red);
+  border: 1px solid var(--red);
   background: var(--paper);
   color: var(--ink);
   pointer-events: none;
@@ -1792,13 +1775,13 @@ body {
   font:
     900 clamp(1.5rem, 6vw, 3rem)/1 Archivo,
     sans-serif;
-  text-transform: uppercase;
+  text-transform: none;
   overflow-wrap: anywhere;
 }
 .claim-imprint small {
   font:
-    0.6875rem/1.5 Instrument,
-    monospace;
+    0.6875rem/1.5 'Instrument Sans',
+    sans-serif;
 }
 html.low-power .claim-imprint strong {
   filter: none;
@@ -1852,8 +1835,8 @@ html.low-power .claim-imprint strong {
 }
 .live-strip {
   font:
-    0.6875rem/1.7 Instrument,
-    monospace;
+    0.6875rem/1.7 'Instrument Sans',
+    sans-serif;
   margin: 22px 0 16px;
 }
 .how-it-works {
@@ -1874,8 +1857,8 @@ html.low-power .claim-imprint strong {
   counter-increment: steps;
   content: '0' counter(steps) ' / ';
   font:
-    0.6875rem Instrument,
-    monospace;
+    0.6875rem 'Instrument Sans',
+    sans-serif;
   margin-right: 10px;
 }
 .home-page .clerk-message {
@@ -1918,8 +1901,8 @@ html.low-power .claim-imprint strong {
 .first-filings .open-filing td {
   height: 44px;
   font:
-    0.75rem Instrument,
-    monospace;
+    0.75rem 'Instrument Sans',
+    sans-serif;
   color: var(--muted);
 }
 .archive-specimen {
@@ -1940,8 +1923,8 @@ html.low-power .claim-imprint strong {
   padding: 18px 0;
   border-top: 1px solid var(--ink);
   font:
-    0.75rem/1.5 Instrument,
-    monospace;
+    0.75rem/1.5 'Instrument Sans',
+    sans-serif;
 }
 .specimen-watermark {
   position: absolute;
@@ -2020,8 +2003,8 @@ html.low-power .dibs-stamp strong {
   gap: 12px;
   margin: 0 0 22px;
   font:
-    0.875rem Instrument,
-    monospace;
+    0.875rem 'Instrument Sans',
+    sans-serif;
 }
 .strike-row {
   display: flex;
@@ -2052,7 +2035,7 @@ html.low-power .dibs-stamp strong {
     900 clamp(2.75rem, 9vw, 5.75rem)/0.95 Archivo,
     sans-serif;
   letter-spacing: -0.055em;
-  text-transform: uppercase;
+  text-transform: none;
   margin: 32px 0;
 }
 .summary-answers {
@@ -2108,8 +2091,8 @@ html.low-power .dibs-stamp strong {
 .cleanest li span {
   display: block;
   font:
-    0.75rem Instrument,
-    monospace;
+    0.75rem 'Instrument Sans',
+    sans-serif;
   margin-top: 8px;
 }
 .new-row .time-col,
@@ -2140,13 +2123,13 @@ html.low-power .dibs-stamp strong {
   min-height: 44px;
   padding: 10px 14px;
   font:
-    0.75rem/1.4 Instrument,
-    monospace;
+    0.75rem/1.4 'Instrument Sans',
+    sans-serif;
   text-decoration: none;
   border-radius: 0;
 }
 .share-formats > button {
-  border-style: dashed;
+  border-style: solid;
 }
 .share-manual img {
   display: block;
@@ -2171,8 +2154,8 @@ html.low-power .dibs-stamp strong {
 .platform-table caption {
   text-align: left;
   font:
-    0.75rem/1.7 Instrument,
-    monospace;
+    0.75rem/1.7 'Instrument Sans',
+    sans-serif;
   padding-bottom: 12px;
 }
 .platform-table th:first-child {
@@ -2195,7 +2178,7 @@ html.low-power .dibs-stamp strong {
 }
 
 .opening-notice {
-  font-family: Instrument;
+  font-family: 'Instrument Sans';
   padding: 2rem;
 }
 
@@ -2204,18 +2187,18 @@ html.low-power .dibs-stamp strong {
   padding: 22px 18px;
   border: 3px solid var(--ink);
   font:
-    700 clamp(1rem, 3vw, 1.625rem)/1.3 Instrument,
-    monospace;
+    700 clamp(1rem, 3vw, 1.625rem)/1.3 'Instrument Sans',
+    sans-serif;
   text-align: center;
   margin: 24px 0;
 }
 .house-stamp {
   display: inline-block;
   padding: 10px 14px;
-  border: 3px double currentColor;
+  border: 1px solid currentColor;
   font:
-    700 0.8125rem/1.4 Instrument,
-    monospace;
+    700 0.8125rem/1.4 'Instrument Sans',
+    sans-serif;
   color: #22408f;
 }
 .house-strike {
@@ -2240,8 +2223,8 @@ html.low-power .dibs-stamp strong {
   overflow-wrap: anywhere;
   white-space: pre-wrap;
   font:
-    0.75rem/1.6 Instrument,
-    monospace;
+    0.75rem/1.6 'Instrument Sans',
+    sans-serif;
   margin: 16px 0;
 }
 .daily-specials summary,
@@ -2260,8 +2243,8 @@ html.low-power .dibs-stamp strong {
   padding: 0;
   list-style: none;
   font:
-    500 0.8125rem/1.5 Instrument,
-    monospace;
+    500 0.8125rem/1.5 'Instrument Sans',
+    sans-serif;
 }
 .gold-summary,
 .gold-announcement {
@@ -2342,8 +2325,8 @@ html.low-power .gold-stamp strong {
 .drop-countdown p {
   margin: 0;
   font:
-    1rem/1.5 Instrument,
-    monospace;
+    1rem/1.5 'Instrument Sans',
+    sans-serif;
 }
 .local-drop small {
   font-size: 0.75em;
@@ -2357,8 +2340,8 @@ html.low-power .gold-stamp strong {
 }
 .round-countdown .clock {
   font:
-    500 1rem/1 Instrument,
-    monospace;
+    500 1rem/1 'Instrument Sans',
+    sans-serif;
   font-variant-numeric: tabular-nums;
 }
 .round-countdown .eyebrow {
@@ -2424,8 +2407,8 @@ html.low-power .gold-stamp strong {
 }
 .file-tally {
   font:
-    0.75rem/1.8 Instrument,
-    monospace;
+    0.75rem/1.8 'Instrument Sans',
+    sans-serif;
 }
 .day-certificate .file-progress {
   margin: 20px 0;
@@ -2438,12 +2421,12 @@ html.low-power .gold-stamp strong {
   display: grid;
   grid-template-columns: 28px 1fr;
   gap: 12px;
-  text-transform: uppercase;
+  text-transform: none;
 }
 .guess-number {
   font:
-    0.6875rem/1.8 Instrument,
-    monospace;
+    0.6875rem/1.8 'Instrument Sans',
+    sans-serif;
   padding-top: 4px;
 }
 .day-certificate .summary-answers a {
@@ -2452,8 +2435,8 @@ html.low-power .gold-stamp strong {
 .summary-answers small {
   display: block;
   font:
-    0.6875rem/1.7 Instrument,
-    monospace;
+    0.6875rem/1.7 'Instrument Sans',
+    sans-serif;
   margin-top: 10px;
   text-transform: none;
 }
@@ -2464,8 +2447,8 @@ html.low-power .gold-stamp strong {
   padding: 5px 7px;
   margin-top: 6px;
   font:
-    0.625rem/1.4 Instrument,
-    monospace;
+    0.625rem/1.4 'Instrument Sans',
+    sans-serif;
   transform: rotate(-1deg);
 }
 .gold-mini {
@@ -2487,8 +2470,8 @@ html.low-power .gold-stamp strong {
 }
 .day-cert-holder > span:last-child {
   font:
-    0.75rem Instrument,
-    monospace;
+    0.75rem 'Instrument Sans',
+    sans-serif;
 }
 .day-certificate .cert-footer {
   padding-top: 18px;
@@ -2788,7 +2771,7 @@ html.low-power .gold-stamp strong {
   border: 2px solid var(--red);
   color: var(--red);
   padding: 8px;
-  font-family: Instrument;
+  font-family: 'Instrument Sans';
   animation: win-ink 0.6s ease-out;
 }
 .closed-office {
@@ -2887,7 +2870,7 @@ html.low-power .gold-stamp strong {
 }
 .timezone-control {
   position: relative;
-  font: 14px/1.4 Instrument;
+  font: 14px/1.4 'Instrument Sans';
   min-height: 44px;
   display: flex;
   align-items: center;
@@ -2926,7 +2909,7 @@ html.low-power .gold-stamp strong {
 }
 .founder-stamp {
   display: inline-block;
-  font: 13px/1 Instrument;
+  font: 13px/1 'Instrument Sans';
   border: 1px solid currentColor;
   padding: 4px;
   margin-left: 8px;
@@ -2965,7 +2948,7 @@ html[data-theme='dark'] .founder-handle {
   border-bottom: 1px solid currentColor;
 }
 .install-hint {
-  border-top: 1px dashed var(--ink);
+  border-top: 1px solid var(--ink);
   padding: 12px 0;
 }
 .feedback {
@@ -2987,7 +2970,7 @@ html[data-theme='dark'] .founder-handle {
 }
 .feedback textarea {
   min-height: 120px;
-  font: 18px Instrument;
+  font: 18px 'Instrument Sans';
   color: var(--ink);
   background: var(--paper);
   border: 1px solid var(--ink);
@@ -3007,7 +2990,7 @@ html[data-theme='dark'] .founder-handle {
   padding: 20px 12px;
 }
 .live-metrics dt {
-  font: 14px Instrument;
+  font: 14px 'Instrument Sans';
 }
 .live-metrics dd {
   font: 900 40px Archivo;
@@ -3072,7 +3055,7 @@ html[data-theme='dark'] .founder-handle {
 }
 .proof-heading h2 {
   font: 900 clamp(32px, 4vw, 64px) Archivo;
-  text-transform: uppercase;
+  text-transform: none;
   margin: 0;
 }
 .proof-heading img {
@@ -3080,7 +3063,7 @@ html[data-theme='dark'] .founder-handle {
 }
 .proof-stamp {
   font: 900 50px Archivo;
-  border: 4px double currentColor;
+  border: 1px solid currentColor;
   padding: 4px 16px;
   display: inline-block;
   transform: rotate(-3deg);
@@ -3128,7 +3111,7 @@ html[data-theme='dark'] .founder-handle {
 }
 .day-category h2 {
   font: 900 clamp(36px, 5vw, 64px)/1 Archivo;
-  text-transform: uppercase;
+  text-transform: none;
   margin: 12px 0;
 }
 .claim-paper,
@@ -3150,14 +3133,14 @@ html[data-theme='dark'] .category-plate {
   margin: 0 0 16px 16px;
 }
 .day-certificate {
-  border-block: 2px dashed var(--ink);
+  border-block: 2px solid var(--ink);
 }
 .postmark-date {
   border-block: 2px solid var(--muted);
   width: fit-content;
   padding: 5px 12px;
   transform: rotate(-2deg);
-  font: 14px Instrument;
+  font: 14px 'Instrument Sans';
 }
 .day-cert-holder .official-seal {
   margin-left: auto;
@@ -3434,8 +3417,8 @@ html[data-theme='dark'] .category-plate {
 .calendar-date,
 .auto-label {
   font:
-    14px/1.5 Instrument,
-    monospace;
+    14px/1.5 'Instrument Sans',
+    sans-serif;
 }
 .calendar-grid {
   display: grid;
@@ -3465,7 +3448,7 @@ html[data-theme='dark'] .category-plate {
 .calendar-day small {
   font-size: 13px;
   line-height: 1.45;
-  font-family: Instrument, Arial, sans-serif;
+  font-family: 'Instrument Sans', sans-serif;
   font-weight: 400;
 }
 .calendar-day.selected {
@@ -3943,7 +3926,7 @@ html[data-theme='dark'] :is(.claim-paper, .day-certificate, .certificate) {
   transform: rotate(-4deg);
 }
 .view-certificate {
-  font: 14px Instrument !important;
+  font: 14px 'Instrument Sans' !important;
   text-transform: none;
   margin-left: 8px;
   text-decoration: underline !important;
@@ -4065,10 +4048,10 @@ details[open] > summary .ink-icon {
   height: 42px;
 }
 .registrar-signature span {
-  font: 14px Instrument;
+  font: 14px 'Instrument Sans';
 }
 .win-stamp {
-  border: 4px double currentColor;
+  border: 1px solid currentColor;
   color: var(--red);
   filter: url('#ink');
   animation: stamp-slam 220ms ease-out;
@@ -4368,8 +4351,8 @@ html.low-power .win-stamp {
   padding: 0 5px;
   margin-left: 5px;
   font:
-    700 14px Instrument,
-    monospace;
+    700 14px 'Instrument Sans',
+    sans-serif;
   transform: rotate(-2deg);
 }
 .example-stamp.yours {
@@ -4393,7 +4376,7 @@ html.low-power .win-stamp {
   display: block;
   margin-top: 8px;
   font:
-    400 18px/1.5 Instrument,
+    400 18px/1.5 'Instrument Sans',
     sans-serif;
 }
 .plain-rules {
@@ -4716,8 +4699,8 @@ body {
   min-height: 44px;
   padding: 8px 10px;
   font:
-    18px Instrument,
-    monospace;
+    18px 'Instrument Sans',
+    sans-serif;
 }
 .music-toggle[aria-pressed='true'] {
   box-shadow: inset 0 -3px var(--red);
@@ -4865,7 +4848,7 @@ body {
   font-size: clamp(26px, 4vw, 44px);
 }
 .leaderboard-heading > span {
-  font-family: Instrument, sans-serif;
+  font-family: 'Instrument Sans', sans-serif;
   font-size: 18px;
 }
 .leaderboard {
@@ -4997,7 +4980,7 @@ label,
 .music-toggle,
 .cert-footer,
 .leaderboard-badge {
-  font-family: Instrument, sans-serif;
+  font-family: 'Instrument Sans', sans-serif;
   text-transform: none;
   letter-spacing: normal;
 }
@@ -5059,7 +5042,7 @@ footer {
   align-items: center;
   gap: 6px;
   font:
-    400 17px Instrument,
+    400 17px 'Instrument Sans',
     sans-serif;
   text-transform: none;
   letter-spacing: normal;
@@ -5077,7 +5060,7 @@ footer {
   padding: 12px 0;
   margin: 12px 0;
   font:
-    16px/1.5 Instrument,
+    16px/1.5 'Instrument Sans',
     sans-serif;
 }
 .golden-clue p {
@@ -5138,20 +5121,20 @@ footer {
 
 .clock,
 .clock * {
-  font-family: Instrument, monospace;
+  font-family: 'Instrument Sans', sans-serif;
 }
 #restore-key,
 .file-key-panel strong {
-  font-family: Instrument, monospace;
+  font-family: 'Instrument Sans', sans-serif;
 }
 
 .clock,
 .clock * {
-  font-family: Plex, monospace;
+  font-family: 'Instrument Sans', sans-serif;
 }
 #restore-key,
 .file-key-panel strong {
-  font-family: Plex, monospace;
+  font-family: 'Instrument Sans', sans-serif;
 }
 @media (max-width: 767px) {
   .home-page:has(.focused-play) .masthead nav {
@@ -5307,9 +5290,9 @@ a:focus-visible,
   min-height: 44px;
   padding: 8px 0;
   font:
-    16px/1.3 Instrument,
+    16px/1.3 'Instrument Sans',
     sans-serif;
-  text-transform: uppercase;
+  text-transform: none;
   margin: 0;
 }
 .page .header-settings .header-controls {
@@ -5330,7 +5313,7 @@ a:focus-visible,
   text-align: left;
   justify-content: flex-start;
   font:
-    18px/1.5 Instrument,
+    18px/1.5 'Instrument Sans',
     sans-serif;
 }
 .page .header-controls .timezone-control {
@@ -5426,7 +5409,7 @@ a:focus-visible,
 }
 .closed-office .drop-countdown .clock,
 .closed-office .drop-countdown .clock * {
-  font-family: ArchivoClock, Archivo, sans-serif;
+  font-family: Archivo, sans-serif;
   font-weight: 900;
   letter-spacing: 0.055em;
   font-variant-numeric: tabular-nums;
@@ -5496,22 +5479,593 @@ a:focus-visible,
 }
 
 /* R17: actual catalog density, with labels in CSS pixels at every viewport. */
-.rarity-curve { position:relative; width:100%; max-width:420px; height:88px; margin:8px 0; padding-top:22px; color:var(--ink); font:14px/1.2 Instrument,sans-serif; }
-.rarity-curve svg { display:block; width:100%; height:44px; overflow:visible; }
-.rarity-fill { fill:currentColor; opacity:.07; }
-.rarity-tail { fill:var(--vermilion, #bd341f); opacity:.25; }
-.rarity-gold .rarity-tail { fill:var(--gold, #795700); }
-.rarity-line,.rarity-marker path { fill:none; stroke:currentColor; stroke-width:1.5; vector-effect:non-scaling-stroke; }
-.rarity-line { stroke-dasharray:1; animation:rarity-draw .6s ease-out both; }
-.rarity-marker { fill:currentColor; animation:rarity-slide .6s ease-out both; }
-.rarity-marker-label { position:absolute; top:0; white-space:nowrap; }
-.rarity-axis { display:flex; justify-content:space-between; padding-top:3px; }
-.rarity-mini { max-width:340px; }
-@keyframes rarity-draw { from { stroke-dashoffset:1; } to { stroke-dashoffset:0; } }
-@keyframes rarity-slide { from { transform:translateX(var(--marker-start)); opacity:0; } to { transform:translateX(0); opacity:1; } }
-@media(max-width:600px) { .claim-payoff .rarity-curve { height:56px; margin:4px 0; padding-top:17px; } .claim-payoff .rarity-curve svg { height:21px; } }
-@media(prefers-reduced-motion:reduce) { .rarity-line,.rarity-marker { animation:none; } }
-.sealed-certificate .cert-answer { letter-spacing:.08em; }
-.sealed-note { font:16px/1.4 Instrument,sans-serif; }
-.sealed-wax { width:64px; height:64px; display:grid; place-items:center; border:3px double currentColor; border-radius:50%; font:900 14px Archivo,sans-serif; }
-@media(max-width:390px) { .certificate .cert-bottom { flex-wrap:wrap; gap:24px; } .certificate .cert-bottom > div:first-child { flex:1 0 100%; } .certificate .cert-bottom .dibs-stamp { margin-left:auto; } }
+.rarity-curve {
+  position: relative;
+  width: 100%;
+  max-width: 420px;
+  height: 88px;
+  margin: 8px 0;
+  padding-top: 22px;
+  color: var(--ink);
+  font:
+    14px/1.2 'Instrument Sans',
+    sans-serif;
+}
+.rarity-curve svg {
+  display: block;
+  width: 100%;
+  height: 44px;
+  overflow: visible;
+}
+.rarity-fill {
+  fill: currentColor;
+  opacity: 0.07;
+}
+.rarity-tail {
+  fill: var(--vermilion, #bd341f);
+  opacity: 0.25;
+}
+.rarity-gold .rarity-tail {
+  fill: var(--gold, #795700);
+}
+.rarity-line,
+.rarity-marker path {
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.5;
+  vector-effect: non-scaling-stroke;
+}
+.rarity-line {
+  stroke-dasharray: 1;
+  animation: rarity-draw 0.6s ease-out both;
+}
+.rarity-marker {
+  fill: currentColor;
+  animation: rarity-slide 0.6s ease-out both;
+}
+.rarity-marker-label {
+  position: absolute;
+  top: 0;
+  white-space: nowrap;
+}
+.rarity-axis {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 3px;
+}
+.rarity-mini {
+  max-width: 340px;
+}
+@keyframes rarity-draw {
+  from {
+    stroke-dashoffset: 1;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+@keyframes rarity-slide {
+  from {
+    transform: translateX(var(--marker-start));
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+@media (max-width: 600px) {
+  .claim-payoff .rarity-curve {
+    height: 56px;
+    margin: 4px 0;
+    padding-top: 17px;
+  }
+  .claim-payoff .rarity-curve svg {
+    height: 21px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .rarity-line,
+  .rarity-marker {
+    animation: none;
+  }
+}
+.sealed-certificate .cert-answer {
+  letter-spacing: 0.08em;
+}
+.sealed-note {
+  font:
+    16px/1.4 'Instrument Sans',
+    sans-serif;
+}
+.sealed-wax {
+  width: 64px;
+  height: 64px;
+  display: grid;
+  place-items: center;
+  border: 1px solid currentColor;
+  border-radius: 50%;
+  font:
+    900 14px Archivo,
+    sans-serif;
+}
+@media (max-width: 390px) {
+  .certificate .cert-bottom {
+    flex-wrap: wrap;
+    gap: 24px;
+  }
+  .certificate .cert-bottom > div:first-child {
+    flex: 1 0 100%;
+  }
+  .certificate .cert-bottom .dibs-stamp {
+    margin-left: auto;
+  }
+}
+
+/* R18: one type system; form metadata is opt-in and never inherited by controls. */
+:root {
+  --gold: #795700;
+  --stamp: #e1462b;
+}
+html[data-theme='dark'] {
+  --panel: #1f1e18;
+  --gold: #e7c86b;
+}
+.form-label,
+.form-value,
+.postmark-date,
+.guess-number,
+.cert-category time,
+.ledger time,
+.ledger .entry-number,
+.backup-code,
+.your-backup-code output {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 14px;
+  line-height: 1.5;
+  letter-spacing: 0.03em;
+  font-weight: 400;
+}
+.form-label {
+  text-transform: uppercase;
+}
+:where(button, input, select, textarea, summary) {
+  font-family: 'Instrument Sans', sans-serif;
+}
+#restore-key,
+#delete-key {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 16px;
+}
+.clock,
+.clock * {
+  font-family: Archivo, sans-serif;
+  filter: none;
+  text-shadow: none;
+}
+.closed-office .drop-countdown .clock,
+.closed-office .drop-countdown .clock * {
+  font-family: Archivo, sans-serif;
+  font-weight: 900;
+  font-stretch: 125%;
+  font-variation-settings:
+    'wdth' 125,
+    'wght' 900;
+  font-variant-numeric: tabular-nums;
+  font-feature-settings: 'tnum' 1;
+  letter-spacing: 0.055em;
+  filter: none;
+  text-shadow: none;
+}
+.closed-office .drop-countdown .clock {
+  font-size: clamp(52px, 12vw, 164px);
+  line-height: 1.05;
+  text-align: left;
+  margin: 8px 0 16px;
+}
+.closed-office .drop-countdown > .eyebrow {
+  font-size: 14px;
+}
+.closed-office .drop-countdown > p {
+  font-size: 18px;
+}
+.certificate,
+.summary-paper,
+.day-certificate {
+  outline: none;
+  border: 1px solid var(--rule);
+  background-color: var(--paper);
+  background-image: url('/grain.v2.webp');
+  background-blend-mode: multiply;
+}
+html[data-theme='dark'] :is(.certificate, .summary-paper, .day-certificate) {
+  background-color: var(--panel);
+  background-image: none;
+}
+.certificate::before,
+.certificate::after,
+.cert-footer::before,
+.cert-footer::after {
+  content: none;
+}
+.cert-rule {
+  gap: 16px;
+  align-items: baseline;
+  font-size: 16px;
+  letter-spacing: normal;
+}
+.cert-rule > :first-child {
+  font-family: 'Instrument Sans', sans-serif;
+}
+.cert-top .eyebrow {
+  font-size: 20px;
+}
+.cert-footer {
+  font-size: 14px;
+  letter-spacing: normal;
+}
+.dibs-stamp {
+  border: 1px solid currentColor;
+}
+.dibs-stamp strong,
+.mini-stamp,
+.claim-payoff-stamp {
+  font-family: Archivo, sans-serif;
+}
+.dibs-stamp span {
+  font-family: 'Instrument Sans', sans-serif;
+  font-size: 14px;
+  letter-spacing: normal;
+}
+.sealed-wax {
+  border-radius: 0;
+}
+.practice-banner {
+  font-family: 'Instrument Sans', sans-serif;
+  font-size: 16px;
+  text-transform: none;
+  letter-spacing: normal;
+}
+.share-buttons .copy-result {
+  background: transparent;
+  color: var(--ink);
+  border: 1px solid var(--soft-rule);
+  box-shadow: none;
+}
+.share-buttons > button {
+  min-height: 48px;
+  font-family: 'Instrument Sans', sans-serif;
+  font-size: 18px;
+}
+
+/* A disclosure remains a vertical stack even when its contents exceed the viewport. */
+.page .header-settings .header-controls {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: stretch;
+  gap: 20px;
+  width: min(440px, calc(100vw - 32px));
+  max-height: min(780px, 85dvh);
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  padding: 24px;
+  z-index: 110;
+  box-shadow: none;
+}
+.header-controls > *,
+#settings-content {
+  flex: 0 0 auto;
+  width: 100%;
+  min-width: 0;
+  max-width: 100%;
+}
+.settings-heading,
+.dialog-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+.settings-heading h2,
+.dialog-heading h2 {
+  margin: 0;
+  font:
+    900 28px/1.1 Archivo,
+    sans-serif;
+}
+.settings-heading button {
+  flex: 0 0 auto;
+}
+.page .header-controls .file-key-panel {
+  display: block;
+  outline: none;
+}
+.page .header-controls .file-key-panel > summary {
+  outline: none;
+  border: 1px solid var(--ink);
+}
+.page .header-controls .file-key-panel > summary:focus-visible {
+  outline: 2px solid var(--ink);
+  outline-offset: 3px;
+}
+.header-controls .file-key-panel > p {
+  margin-block: 20px;
+  font-size: 16px;
+}
+.header-controls .file-key-panel h3 {
+  font:
+    600 18px/1.4 'Instrument Sans',
+    sans-serif;
+  margin: 0 0 8px;
+}
+.header-controls .file-key-panel form,
+.delete-file {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 12px;
+}
+.header-controls .file-key-panel :is(input, button) {
+  max-width: 100%;
+}
+.your-backup-code {
+  margin-bottom: 24px;
+}
+.your-backup-code output {
+  display: block;
+  overflow-wrap: anywhere;
+  user-select: all;
+  margin-bottom: 12px;
+}
+.your-backup-code p:empty,
+.file-key-panel p[role='status']:empty {
+  display: none;
+}
+.delete-file {
+  border-top: 1px solid var(--soft-rule);
+  margin-top: 24px;
+  padding-top: 24px;
+}
+.delete-file p {
+  font-size: 16px;
+  margin: 0;
+}
+.header-controls .file-key-panel .delete-file h3 {
+  margin: 0;
+}
+.feedback-dialog {
+  width: min(560px, calc(100% - 48px));
+  max-width: 560px;
+  max-height: calc(100dvh - 48px);
+  padding: 28px;
+  margin: auto;
+  border: 1px solid var(--ink);
+  border-radius: 0;
+  background: var(--paper);
+  color: var(--ink);
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  font:
+    18px/1.5 'Instrument Sans',
+    sans-serif;
+}
+.feedback-dialog::backdrop {
+  background: rgb(22 21 15 / 55%);
+}
+.feedback-dialog .dialog-heading {
+  margin-bottom: 24px;
+}
+.feedback-dialog form {
+  display: grid;
+  gap: 24px;
+}
+.feedback-field {
+  display: grid;
+  gap: 8px;
+  min-width: 0;
+}
+.feedback-field label {
+  font:
+    500 18px/1.5 'Instrument Sans',
+    sans-serif;
+}
+.feedback-dialog :is(select, textarea, button) {
+  width: 100%;
+  font:
+    400 18px/1.5 'Instrument Sans',
+    sans-serif;
+  min-height: 48px;
+}
+.feedback-dialog .dialog-heading button {
+  width: auto;
+}
+.feedback-dialog textarea {
+  min-height: 160px;
+  resize: vertical;
+  padding: 12px;
+  color: var(--ink);
+  background: var(--paper);
+  border: 1px solid var(--ink);
+}
+.feedback-field small {
+  font-size: 14px;
+  color: var(--muted);
+}
+.feedback-dialog .feedback-verification:empty {
+  display: none;
+}
+.feedback-dialog :is(.feedback-success, .feedback-error) {
+  margin: 0;
+  padding-block: 12px;
+  border-top: 1px solid var(--rule);
+}
+.feedback-error {
+  color: var(--red);
+}
+.feedback-dialog :focus-visible {
+  outline: 2px solid var(--ink);
+  outline-offset: 3px;
+}
+.page footer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px 40px;
+  align-items: center;
+  justify-content: space-between;
+}
+.footer-brand {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+.footer-brand span {
+  white-space: nowrap;
+}
+.page footer .footer-logo svg {
+  display: block;
+  vertical-align: initial;
+}
+.footer-links {
+  display: grid;
+  grid-template-columns: repeat(4, max-content);
+  gap: 8px 24px;
+  align-items: center;
+}
+.page footer .footer-links :is(a, summary) {
+  display: flex;
+  align-items: center;
+  min-height: 48px;
+  margin: 0;
+  padding: 8px 0;
+  font:
+    400 16px/1.5 'Instrument Sans',
+    sans-serif;
+  text-transform: none;
+  letter-spacing: normal;
+  border: 0;
+  outline: none;
+  background: none;
+  box-shadow: none;
+  color: var(--ink);
+  text-decoration: underline;
+  text-decoration-color: var(--stamp);
+  text-underline-offset: 4px;
+}
+.page footer .footer-links :is(a, summary):focus-visible {
+  outline: 2px solid var(--ink);
+  outline-offset: 3px;
+}
+.reminder-options {
+  display: grid;
+  gap: 12px;
+}
+.reminder-options > a {
+  display: grid;
+  grid-template-rows: auto 1fr;
+  align-content: center;
+  gap: 4px;
+  padding: 12px 16px;
+  min-height: 88px;
+  border: 1px solid var(--soft-rule);
+  color: var(--ink);
+  text-decoration: none;
+  font:
+    18px/1.5 'Instrument Sans',
+    sans-serif;
+}
+.reminder-options > a small {
+  display: block;
+  color: var(--muted);
+  font:
+    14px/1.5 'Instrument Sans',
+    sans-serif;
+}
+.reminder-options > a:is(:hover, :focus-visible) {
+  background: var(--panel);
+}
+@media (max-width: 767px) {
+  .page .header-settings .header-controls {
+    position: fixed;
+    inset: auto 0 0;
+    width: 100%;
+    max-width: none;
+    max-height: 90dvh;
+    padding: 20px max(20px, env(safe-area-inset-right)) max(24px, env(safe-area-inset-bottom))
+      max(20px, env(safe-area-inset-left));
+  }
+  .feedback-dialog {
+    width: 100%;
+    max-width: none;
+    max-height: 90dvh;
+    margin: auto 0 0;
+    padding: 24px max(20px, env(safe-area-inset-right)) max(24px, env(safe-area-inset-bottom))
+      max(20px, env(safe-area-inset-left));
+  }
+  .page footer {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 16px;
+  }
+  .footer-brand {
+    gap: 20px;
+  }
+  .footer-links {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0 24px;
+  }
+  .footer-brand span {
+    font-size: 16px;
+  }
+  .form-label,
+  .form-value,
+  .postmark-date,
+  .guess-number,
+  .cert-category time,
+  .ledger time,
+  .ledger .entry-number,
+  .backup-code,
+  .your-backup-code output {
+    font-size: 13px;
+  }
+  .cert-rule {
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  .cert-top .eyebrow {
+    font-size: 18px;
+  }
+  .closed-office .drop-countdown .clock {
+    font-size: clamp(44px, calc((100vw - 40px) / 6.2), 111px);
+  }
+}
+/* The body grain overlays paper and carbon at 4%; never tile raw noise on a card. */
+.certificate,
+.summary-paper,
+.day-certificate {
+  background-image: none;
+}
+.header-settings[open] {
+  z-index: 120;
+}
+.page footer .footer-links {
+  border: 0;
+  padding: 0;
+  margin: 0;
+  background: none;
+}
+.share-buttons > .primary,
+.feedback-dialog .primary {
+  font-size: 20px;
+  font-weight: 700;
+}
+.settings-heading {
+  position: sticky;
+  top: -24px;
+  background: var(--paper);
+  z-index: 1;
+  padding-block: 8px;
+}
+.reminder-options {
+  grid-template-rows: auto repeat(3, minmax(100px, 1fr));
+}

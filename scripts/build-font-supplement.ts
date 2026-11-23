@@ -53,7 +53,7 @@ for (const weight of [400, 900]) {
     glyphs,
   });
   const otf = Buffer.from(font.toArrayBuffer());
-  writeFileSync(`public/fonts/archivo-supplement-${weight}.otf`, otf);
-  writeFileSync(`public/fonts/archivo-supplement-${weight}.woff2`, await wawoff2.compress(otf));
+  if (weight === 900) writeFileSync(`public/fonts/archivo-supplement-${weight}.otf`, otf);
+  writeFileSync(`public/fonts/archivo-supplement-${weight}.v2.woff2`, await wawoff2.compress(otf));
 }
 console.log('Built three Archivo-derived orthographic glyphs at regular and black weights.');
