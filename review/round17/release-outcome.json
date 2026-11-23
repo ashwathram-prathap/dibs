@@ -1,0 +1,16 @@
+{
+  "released": true,
+  "releasedAt": "2026-11-23T08:55:07.864Z",
+  "releasedCommit": "4e70462826efd6fabc17caea48971e04d5905fd2",
+  "deadline": "2026-11-23T14:00:00-05:00",
+  "productionSmokePassed": true,
+  "preservationPassed": true,
+  "testFreeReadPassed": true,
+  "pages": "cf4c4790-1cf1-48c3-b224-101f03b8a99c",
+  "worker": "6d7cb066-1179-4773-9456-7140067def1e",
+  "rollbackPages": "18984cdc-6ae5-4bd2-9036-a7ef62611c76",
+  "rollbackWorker": "f30f06e5-dee9-4e20-8940-5831dea4e05c",
+  "originalRollback": "rollback-original.json",
+  "ntfySent": 0,
+  "physicalAirDrop": "Owner real-device check still required"
+}

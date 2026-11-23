@@ -1,0 +1,92 @@
+[
+  {
+    "name": "Check exact R17 gates and timing",
+    "passed": true,
+    "at": "2026-11-23T08:53:18.635Z"
+  },
+  {
+    "name": "Record original deployment IDs",
+    "passed": true,
+    "at": "2026-11-23T08:53:21.341Z"
+  },
+  {
+    "name": "Back up production before migration",
+    "passed": true,
+    "at": "2026-11-23T08:53:23.502Z"
+  },
+  {
+    "name": "Capture all legacy rows and schedule",
+    "passed": true,
+    "at": "2026-11-23T08:53:25.378Z"
+  },
+  {
+    "name": "Check exact R17 gates and timing",
+    "passed": true,
+    "at": "2026-11-23T08:53:25.585Z"
+  },
+  {
+    "name": "Apply additive migrations",
+    "passed": true,
+    "at": "2026-11-23T08:53:26.366Z"
+  },
+  {
+    "name": "Verify exact rows after migration",
+    "passed": true,
+    "at": "2026-11-23T08:53:27.418Z"
+  },
+  {
+    "name": "Verify standard deployment freeze",
+    "passed": true,
+    "at": "2026-11-23T08:53:27.582Z"
+  },
+  {
+    "name": "Configure drop",
+    "passed": true,
+    "at": "2026-11-23T08:53:27.739Z"
+  },
+  {
+    "name": "Build house words",
+    "passed": true,
+    "at": "2026-11-23T08:53:32.455Z"
+  },
+  {
+    "name": "Check exact R17 gates and timing",
+    "passed": true,
+    "at": "2026-11-23T08:53:32.653Z"
+  },
+  {
+    "name": "Deploy production Worker",
+    "passed": true,
+    "at": "2026-11-23T08:54:04.023Z"
+  },
+  {
+    "name": "Build production frontend",
+    "passed": true,
+    "at": "2026-11-23T08:54:35.272Z"
+  },
+  {
+    "name": "Check exact R17 gates and timing",
+    "passed": true,
+    "at": "2026-11-23T08:54:35.465Z"
+  },
+  {
+    "name": "Deploy production Pages",
+    "passed": true,
+    "at": "2026-11-23T08:54:45.905Z"
+  },
+  {
+    "name": "Read-only production smoke",
+    "passed": true,
+    "at": "2026-11-23T08:55:05.145Z"
+  },
+  {
+    "name": "Verify exact rows after smoke",
+    "passed": true,
+    "at": "2026-11-23T08:55:06.602Z"
+  },
+  {
+    "name": "Record released deployment IDs",
+    "passed": true,
+    "at": "2026-11-23T08:55:07.882Z"
+  }
+]
