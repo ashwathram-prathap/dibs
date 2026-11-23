@@ -1,0 +1,5 @@
+{
+  "at": "2026-11-23T14:05:06.572Z",
+  "error": "AssertionError [ERR_ASSERTION]: Verify deployed script artifacts failed; production release halted\n\n1 !== 0\n",
+  "rolledBack": true
+}

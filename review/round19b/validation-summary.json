@@ -1,10 +1,10 @@
 {
   "sourceCommit": "72926bfed181e30e600d3f5cd1d0de6815b46e86",
   "unit": {
-    "files": 49,
-    "tests": 223,
+    "files": 50,
+    "tests": 225,
     "passed": true,
-    "log": "unit-final-bounded.log",
+    "log": "unit-readiness-final.log",
     "earlierResourceTimeouts": [
       "r8.test.ts",
       "house-ranking.test.ts"
@@ -84,5 +84,10 @@
   "practiceOpeningFallback": {
     "observedOnce": true,
     "cause": "Unconfirmed; diagnostic repeat passed all six without reload; all deployed JS chunks matched the build; 20 local timing variants passed."
+  },
+  "assetReadinessGuard": {
+    "tests": 2,
+    "passed": true,
+    "policy": "Bounded retry; exact HTML entry and every JavaScript SHA-256 must match."
   }
 }

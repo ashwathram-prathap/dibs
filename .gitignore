@@ -149,3 +149,15 @@ review/round19b/**/*.html
 review/round19b/*browser-results.json
 review/round19b/lighthouse*/
 review/final/round19b/
+# R19B local inventory and transient diagnostics are not release artifacts.
+review/round19b/status-*.txt
+review/round19b/practice-before.json
+review/round19b/practice-date-conflicts.json
+review/round19b/practice-preview-ids.json
+review/round19b/practice-scheduling.json
+review/round19b/practice-first-visit-before-shortlink.json
+review/round19b/practice-release-before-shortlink.json
+review/round19b/practice-*-opening-diagnostic.json
+review/round19b/practice-score-bots.json
+review/round19b/compression-practice-headers.txt
+review/round19b/production-bots-after-attempt1.json
