@@ -475,6 +475,20 @@ test('Each claim gets its payoff; third gold and fifth strike wait for the playe
 }, info) => {
   await page.emulateMedia({ reducedMotion: 'reduce' });
   await page.goto('/?r19&r19c&r6&gold-third&persist');
+  await page.locator('#leaderboard').waitFor();
+  await settle(page);
+  const beforeWidget = (await page.locator('#leaderboard').boundingBox())!.y;
+  const verificationSlot = page.locator('.claim-section .turnstile');
+  expect((await verificationSlot.boundingBox())!.height).toBeGreaterThanOrEqual(80);
+  await verificationSlot.evaluate((slot) => {
+    const widget = document.createElement('div');
+    widget.style.height = '65px';
+    widget.setAttribute('data-test-verification', '');
+    slot.append(widget);
+  });
+  await settle(page);
+  expect((await page.locator('#leaderboard').boundingBox())!.y).toBeCloseTo(beforeWidget, 2);
+  await verificationSlot.locator('[data-test-verification]').evaluate((widget) => widget.remove());
   for (const [i, answer] of ['Okapi', 'Quokka', 'Wombat'].entries()) {
     await claim(page, answer);
     await expect(page.locator('.claim-payoff')).toContainText(

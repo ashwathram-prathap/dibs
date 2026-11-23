@@ -1,7 +1,7 @@
 {
   "at": "2026-11-23T17:13:50.423472+00:00",
   "passed": false,
-  "pending": "Full combined matrix review remains pending; corrected Firefox extreme stamp, enlarged share grid and narrow Settings reviewed.",
+  "pending": "Full validation after reserving space for the live verification widget to remove the measured leaderboard layout shift.",
   "nativeScreensReviewed": [
     "review/final/round19c/settings-open/chromium-1440-light.png",
     "review/final/round19c/settings-open/chromium-390-light.png",

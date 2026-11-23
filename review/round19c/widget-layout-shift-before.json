@@ -1,0 +1,31 @@
+{
+  "at": "2026-11-23T19:12:20.396148+00:00",
+  "runs": [
+    {
+      "path": "review/round19c/lighthouse-practice/mobile-1.json",
+      "performance": 89,
+      "accessibility": 100,
+      "cls": 0.2120459962642234
+    },
+    {
+      "path": "review/round19c/lighthouse-confirmation/mobile-1.json",
+      "performance": 88,
+      "accessibility": 100,
+      "cls": 0.2120459962642234
+    },
+    {
+      "path": "review/round19c/lighthouse-confirmation/mobile-2.json",
+      "performance": 89,
+      "accessibility": 100,
+      "cls": 0.2120459962642234
+    },
+    {
+      "path": "review/round19c/lighthouse-confirmation/mobile-3.json",
+      "performance": 89,
+      "accessibility": 100,
+      "cls": 0.2120459962642234
+    }
+  ],
+  "cause": "Delayed verification widget expands the live claim form and pushes the leaderboard down.",
+  "fix": "Reserve 80 CSS pixels for the standard 65px verification widget before its script renders; retain normal payoff layout after player interaction."
+}

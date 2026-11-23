@@ -7730,3 +7730,8 @@ html[data-theme='dark'] .feedback-dialog .feedback-error {
     text-align: right;
   }
 }
+
+/* Reserve the live verification widget before its delayed script paints. */
+.claim-section:not(.has-payoff) .turnstile {
+  min-height: 80px;
+}
