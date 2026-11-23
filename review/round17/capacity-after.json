@@ -1,7 +1,7 @@
 {
   "dailySetup": {
     "reads": 41,
-    "writes": 75
+    "writes": 74
   },
   "doStorageSetup": {
     "reads": 3,
@@ -12,15 +12,15 @@
     "writes": 6
   },
   "mode": "after-local",
-  "at": "2026-11-23T07:48:24.671Z",
+  "at": "2026-11-23T08:09:58.108Z",
   "scenario": "load, verification, typo, 6 guesses (3 claims, 1 taken strike, 2 reserved strikes), leaderboard, share, return visit; separate control player establishes the taken answer",
   "httpRequests": 4,
   "pagesFunctionRequests": 0,
   "workerRequests": 4,
   "doRequests": 4.45,
   "socketMessages": 9,
-  "d1RowsRead": 1,
-  "d1RowsWritten": 3,
+  "d1RowsRead": 0,
+  "d1RowsWritten": 1,
   "allMutationsMetered": true,
   "samples": [
     {
@@ -31,7 +31,7 @@
       "transport": "http",
       "status": 200,
       "reads": 0,
-      "writes": 1,
+      "writes": 0,
       "metered": true
     },
     {
@@ -146,8 +146,8 @@
     },
     {
       "path": "/batch-mirror",
-      "reads": 1,
-      "writes": 2,
+      "reads": 0,
+      "writes": 1,
       "status": 200,
       "doReads": 0,
       "doWrites": 0

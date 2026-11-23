@@ -16,6 +16,7 @@ export class EventJournal {
     private storage: DurableObjectStorage,
     private env: Env,
     private category: string,
+    private day: string,
   ) {
     storage.sql.exec(
       'CREATE TABLE IF NOT EXISTS events(seq INTEGER PRIMARY KEY, payload TEXT NOT NULL)',
@@ -77,33 +78,22 @@ export class EventJournal {
   }
   private async flush(env: Env) {
     const rows = [...this.pending.entries()];
-    // D1's bind limit is 100; 20 files = 80 parameters. One multi-row INSERT per chunk.
+    // D1's bind limit is 100; 20 files = 100 parameters. One multi-row INSERT per chunk.
     for (let i = 0; i < rows.length; i += 20) {
       const chunk = rows.slice(i, i + 20);
       const files = env.DB.prepare(
-        `INSERT INTO r17_files(category_id,user_id,revision,data) VALUES ${chunk.map(() => '(?,?,?,?)').join(',')} ON CONFLICT(category_id,user_id) DO UPDATE SET revision=excluded.revision,data=excluded.data WHERE excluded.revision>r17_files.revision`,
+        `INSERT INTO r17_files(category_id,user_id,revision,data,day) VALUES ${chunk.map(() => '(?,?,?,?,?)').join(',')} ON CONFLICT(user_id,day) DO UPDATE SET revision=excluded.revision,data=excluded.data WHERE excluded.revision>r17_files.revision`,
       ).bind(
         ...chunk.flatMap(([uid, row]) => [
           this.category,
           uid,
           row.revision,
           JSON.stringify(row.value),
+          this.day,
         ]),
       );
-      // File snapshot + first-claim streak advance commit together in one D1 round trip.
-      const identities = chunk
-        .filter(([, row]) => row.value.file.dibs && row.value.streakDates.length)
-        .map(([uid, row]) =>
-          env.DB.prepare(
-            "UPDATE r17_players SET data=json_set(data,'$.streakDates',json(?),'$.lastClaimDate',?) WHERE id=? AND COALESCE(json_extract(data,'$.lastClaimDate'),'')<?",
-          ).bind(
-            JSON.stringify(row.value.streakDates),
-            row.value.streakDates[0],
-            uid,
-            row.value.streakDates[0],
-          ),
-        );
-      await env.DB.batch([files, ...identities]);
+      // Identity, once-a-day streak and file share this single mirrored row.
+      await files.run();
       for (const [uid, row] of chunk)
         if (this.pending.get(uid)?.revision === row.revision) this.pending.delete(uid);
     }

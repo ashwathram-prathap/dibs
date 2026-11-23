@@ -1,0 +1,458 @@
+[
+  {
+    "strategy": "mobile",
+    "run": 1,
+    "scores": {
+      "performance": 99,
+      "accessibility": 100,
+      "best-practices": 100,
+      "seo": 66
+    },
+    "warnings": [],
+    "audits": [
+      {
+        "id": "largest-contentful-paint",
+        "title": "Largest Contentful Paint",
+        "score": 0.96,
+        "displayValue": "2.1 s"
+      },
+      {
+        "id": "interactive",
+        "title": "Time to Interactive",
+        "score": 0.99,
+        "displayValue": "2.1 s"
+      },
+      {
+        "id": "unused-css-rules",
+        "title": "Reduce unused CSS",
+        "score": 0.5,
+        "displayValue": "Est savings of 14 KiB",
+        "details": {
+          "type": "opportunity",
+          "headings": [
+            {
+              "key": "url",
+              "valueType": "url",
+              "label": "URL"
+            },
+            {
+              "key": "totalBytes",
+              "valueType": "bytes",
+              "label": "Transfer Size"
+            },
+            {
+              "key": "wastedBytes",
+              "valueType": "bytes",
+              "label": "Est Savings"
+            }
+          ],
+          "items": [
+            {
+              "url": "@font-face{font-family:ArchivoClock;src:url(/fonts/archivo-clock.v1.woff2)format(\"woff2\"); … } …",
+              "wastedBytes": 14323,
+              "wastedPercent": 77.59791841278975,
+              "totalBytes": 18458
+            }
+          ],
+          "overallSavingsMs": 0,
+          "overallSavingsBytes": 14323,
+          "sortedBy": [
+            "wastedBytes"
+          ],
+          "debugData": {
+            "type": "debugdata",
+            "metricSavings": {
+              "FCP": 0,
+              "LCP": 0
+            }
+          }
+        }
+      },
+      {
+        "id": "unused-javascript",
+        "title": "Reduce unused JavaScript",
+        "score": 0,
+        "displayValue": "Est savings of 35 KiB",
+        "details": {
+          "type": "opportunity",
+          "headings": [
+            {
+              "key": "url",
+              "valueType": "url",
+              "subItemsHeading": {
+                "key": "source",
+                "valueType": "code"
+              },
+              "label": "URL"
+            },
+            {
+              "key": "totalBytes",
+              "valueType": "bytes",
+              "subItemsHeading": {
+                "key": "sourceBytes"
+              },
+              "label": "Transfer Size"
+            },
+            {
+              "key": "wastedBytes",
+              "valueType": "bytes",
+              "subItemsHeading": {
+                "key": "sourceWastedBytes"
+              },
+              "label": "Est Savings"
+            }
+          ],
+          "items": [
+            {
+              "url": "https://practice.dibs-7hz.pages.dev/assets/index-3IfM6Pwv.js",
+              "totalBytes": 83491,
+              "wastedBytes": 35658,
+              "wastedPercent": 42.708549871039764
+            }
+          ],
+          "overallSavingsMs": 150,
+          "overallSavingsBytes": 35658,
+          "sortedBy": [
+            "wastedBytes"
+          ],
+          "debugData": {
+            "type": "debugdata",
+            "metricSavings": {
+              "FCP": 0,
+              "LCP": 150
+            }
+          }
+        }
+      },
+      {
+        "id": "is-crawlable",
+        "title": "Page is blocked from indexing",
+        "score": 0,
+        "details": {
+          "type": "table",
+          "headings": [
+            {
+              "key": "source",
+              "valueType": "code",
+              "label": "Blocking Directive Source"
+            }
+          ],
+          "items": [
+            {
+              "source": {
+                "type": "node",
+                "lhId": "1-37-META",
+                "path": "1,HTML,0,HEAD,6,META",
+                "selector": "head > meta",
+                "boundingRect": {
+                  "top": 0,
+                  "bottom": 0,
+                  "left": 0,
+                  "right": 0,
+                  "width": 0,
+                  "height": 0
+                },
+                "snippet": "<meta name=\"robots\" content=\"noindex,nofollow\" />",
+                "nodeLabel": "head > meta"
+              }
+            },
+            {
+              "source": "x-robots-tag: noindex, nofollow"
+            },
+            {
+              "source": {
+                "type": "source-location",
+                "url": "https://practice.dibs-7hz.pages.dev/robots.txt",
+                "urlProvider": "network",
+                "line": 1,
+                "column": 0
+              }
+            }
+          ]
+        }
+      },
+      {
+        "id": "network-dependency-tree-insight",
+        "title": "Network dependency tree",
+        "score": 0,
+        "details": {
+          "type": "list",
+          "items": [
+            {
+              "type": "list-section",
+              "value": {
+                "type": "network-tree",
+                "chains": {
+                  "0BD7AF952E3522A6DF5EC1463680C201": {
+                    "url": "https://practice.dibs-7hz.pages.dev/",
+                    "navStartToEndTime": 164,
+                    "transferSize": 20689,
+                    "isLongest": true,
+                    "children": {
+                      "14158.4": {
+                        "url": "https://practice.dibs-7hz.pages.dev/assets/index-3IfM6Pwv.js",
+                        "navStartToEndTime": 288,
+                        "transferSize": 83805,
+                        "isLongest": true,
+                        "children": {}
+                      },
+                      "14158.24": {
+                        "url": "https://practice.dibs-7hz.pages.dev/fonts/archivo.v2.woff2",
+                        "navStartToEndTime": 274,
+                        "transferSize": 90535,
+                        "children": {}
+                      }
+                    }
+                  }
+                },
+                "longestChain": {
+                  "duration": 288
+                }
+              }
+            },
+            {
+              "type": "list-section",
+              "title": "Preconnected origins",
+              "description": "[preconnect](https://developer.chrome.com/docs/lighthouse/performance/uses-rel-preconnect/) hints help the browser establish a connection earlier in the page load, saving time when the first request for that origin is made. The following are the origins that the page preconnected to.",
+              "value": {
+                "type": "text",
+                "value": "No origins were preconnected"
+              }
+            },
+            {
+              "type": "list-section",
+              "title": "Preconnect candidates",
+              "description": "Add [preconnect](https://developer.chrome.com/docs/lighthouse/performance/uses-rel-preconnect/) hints to your most important origins, but try to use no more than 4",
+              "value": {
+                "type": "text",
+                "value": "No additional origins are good candidates for preconnecting"
+              }
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "strategy": "desktop",
+    "run": 1,
+    "scores": {
+      "performance": 100,
+      "accessibility": 100,
+      "best-practices": 100,
+      "seo": 66
+    },
+    "warnings": [],
+    "audits": [
+      {
+        "id": "unused-css-rules",
+        "title": "Reduce unused CSS",
+        "score": 0.5,
+        "displayValue": "Est savings of 15 KiB",
+        "details": {
+          "type": "opportunity",
+          "headings": [
+            {
+              "key": "url",
+              "valueType": "url",
+              "label": "URL"
+            },
+            {
+              "key": "totalBytes",
+              "valueType": "bytes",
+              "label": "Transfer Size"
+            },
+            {
+              "key": "wastedBytes",
+              "valueType": "bytes",
+              "label": "Est Savings"
+            }
+          ],
+          "items": [
+            {
+              "url": "@font-face{font-family:ArchivoClock;src:url(/fonts/archivo-clock.v1.woff2)format(\"woff2\"); … } …",
+              "wastedBytes": 15216,
+              "wastedPercent": 82.47788939066038,
+              "totalBytes": 18448
+            }
+          ],
+          "overallSavingsMs": 0,
+          "overallSavingsBytes": 15216,
+          "sortedBy": [
+            "wastedBytes"
+          ],
+          "debugData": {
+            "type": "debugdata",
+            "metricSavings": {
+              "FCP": 0,
+              "LCP": 0
+            }
+          }
+        }
+      },
+      {
+        "id": "unused-javascript",
+        "title": "Reduce unused JavaScript",
+        "score": 0,
+        "displayValue": "Est savings of 35 KiB",
+        "details": {
+          "type": "opportunity",
+          "headings": [
+            {
+              "key": "url",
+              "valueType": "url",
+              "subItemsHeading": {
+                "key": "source",
+                "valueType": "code"
+              },
+              "label": "URL"
+            },
+            {
+              "key": "totalBytes",
+              "valueType": "bytes",
+              "subItemsHeading": {
+                "key": "sourceBytes"
+              },
+              "label": "Transfer Size"
+            },
+            {
+              "key": "wastedBytes",
+              "valueType": "bytes",
+              "subItemsHeading": {
+                "key": "sourceWastedBytes"
+              },
+              "label": "Est Savings"
+            }
+          ],
+          "items": [
+            {
+              "url": "https://practice.dibs-7hz.pages.dev/assets/index-3IfM6Pwv.js",
+              "totalBytes": 83451,
+              "wastedBytes": 35641,
+              "wastedPercent": 42.708549871039764
+            }
+          ],
+          "overallSavingsMs": 40,
+          "overallSavingsBytes": 35641,
+          "sortedBy": [
+            "wastedBytes"
+          ],
+          "debugData": {
+            "type": "debugdata",
+            "metricSavings": {
+              "FCP": 0,
+              "LCP": 40
+            }
+          }
+        }
+      },
+      {
+        "id": "is-crawlable",
+        "title": "Page is blocked from indexing",
+        "score": 0,
+        "details": {
+          "type": "table",
+          "headings": [
+            {
+              "key": "source",
+              "valueType": "code",
+              "label": "Blocking Directive Source"
+            }
+          ],
+          "items": [
+            {
+              "source": {
+                "type": "node",
+                "lhId": "1-37-META",
+                "path": "1,HTML,0,HEAD,6,META",
+                "selector": "head > meta",
+                "boundingRect": {
+                  "top": 0,
+                  "bottom": 0,
+                  "left": 0,
+                  "right": 0,
+                  "width": 0,
+                  "height": 0
+                },
+                "snippet": "<meta name=\"robots\" content=\"noindex,nofollow\" />",
+                "nodeLabel": "head > meta"
+              }
+            },
+            {
+              "source": "x-robots-tag: noindex, nofollow"
+            },
+            {
+              "source": {
+                "type": "source-location",
+                "url": "https://practice.dibs-7hz.pages.dev/robots.txt",
+                "urlProvider": "network",
+                "line": 1,
+                "column": 0
+              }
+            }
+          ]
+        }
+      },
+      {
+        "id": "network-dependency-tree-insight",
+        "title": "Network dependency tree",
+        "score": 0,
+        "details": {
+          "type": "list",
+          "items": [
+            {
+              "type": "list-section",
+              "value": {
+                "type": "network-tree",
+                "chains": {
+                  "4ABBAB145D9D6E2135F054620625294E": {
+                    "url": "https://practice.dibs-7hz.pages.dev/",
+                    "navStartToEndTime": 127,
+                    "transferSize": 19936,
+                    "isLongest": true,
+                    "children": {
+                      "14288.4": {
+                        "url": "https://practice.dibs-7hz.pages.dev/assets/index-3IfM6Pwv.js",
+                        "navStartToEndTime": 195,
+                        "transferSize": 84546,
+                        "isLongest": true,
+                        "children": {}
+                      },
+                      "14288.24": {
+                        "url": "https://practice.dibs-7hz.pages.dev/fonts/archivo.v2.woff2",
+                        "navStartToEndTime": 176,
+                        "transferSize": 91213,
+                        "children": {}
+                      }
+                    }
+                  }
+                },
+                "longestChain": {
+                  "duration": 195
+                }
+              }
+            },
+            {
+              "type": "list-section",
+              "title": "Preconnected origins",
+              "description": "[preconnect](https://developer.chrome.com/docs/lighthouse/performance/uses-rel-preconnect/) hints help the browser establish a connection earlier in the page load, saving time when the first request for that origin is made. The following are the origins that the page preconnected to.",
+              "value": {
+                "type": "text",
+                "value": "No origins were preconnected"
+              }
+            },
+            {
+              "type": "list-section",
+              "title": "Preconnect candidates",
+              "description": "Add [preconnect](https://developer.chrome.com/docs/lighthouse/performance/uses-rel-preconnect/) hints to your most important origins, but try to use no more than 4",
+              "value": {
+                "type": "text",
+                "value": "No additional origins are good candidates for preconnecting"
+              }
+            }
+          ]
+        }
+      }
+    ]
+  }
+]

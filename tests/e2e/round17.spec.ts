@@ -41,6 +41,11 @@ test('R17 real curves, marker positions, readable labels and sealed certificate'
       false,
     );
     mkdirSync('review/round17/certificate', { recursive: true });
+    mkdirSync('review/round17/rarity-curve', { recursive: true });
+    if (mode !== 'sealed')
+      await page
+        .locator('.rarity-curve')
+        .screenshot({ path: `review/round17/rarity-curve/${info.project.name}-${mode}-${p}.png` });
     await page.screenshot({
       path: `review/round17/certificate/${info.project.name}-${mode}-${p}.png`,
       fullPage: true,

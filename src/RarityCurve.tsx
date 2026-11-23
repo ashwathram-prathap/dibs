@@ -1,4 +1,4 @@
-import { useEffect, useId, useState } from 'react';
+import { useEffect, useId, useState, type CSSProperties } from 'react';
 import { rarityPath, rarityPosition } from '../shared/rarity';
 type Density = { measured: number; density: number[] };
 const cache = new Map<string, Promise<Density>>();
@@ -76,7 +76,7 @@ export function RarityCurve({
         <path className="rarity-fill" d={path + ' L400,46 L0,46 Z'} />
         <path className="rarity-tail" clipPath={`url(#${id})`} d={path + ' L400,46 L0,46 Z'} />
         <path className="rarity-line" pathLength="1" d={path} />
-        <g className="rarity-marker" style={{ transformOrigin: `${x}px 46px` }}>
+        <g className="rarity-marker" style={{ '--marker-start': `${-x}px` } as CSSProperties}>
           <path d={`M${x},3 V46`} />
           <circle cx={x} cy={44 - h * 40} r="3" />
         </g>

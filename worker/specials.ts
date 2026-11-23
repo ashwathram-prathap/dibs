@@ -112,7 +112,7 @@ export async function specialStatus(env: Env, category: any, reveal = false) {
       .bind(category.id)
       .all<any>()
   ).results;
-  const found = await env.DB.prepare(
+  let found = await env.DB.prepare(
     'SELECT COUNT(*) n FROM claims c JOIN daily_specials s ON s.category_id=c.category_id WHERE c.category_id=? AND c.voided=0 AND c.answer_id IN (SELECT value FROM json_each(s.golden_json))',
   )
     .bind(category.id)
@@ -123,13 +123,41 @@ export async function specialStatus(env: Env, category: any, reveal = false) {
   const clueAnswer = selected
     ? await env.DB.prepare('SELECT display FROM answers WHERE id=?').bind(selected).first<any>()
     : null;
-  const cracked = selected
+  let cracked = selected
     ? await env.DB.prepare(
         "SELECT CASE WHEN u.provider_subject LIKE 'withdrawn:%' THEN 'Withdrawn player' ELSE COALESCE(f.name,u.handle) END handle FROM claims c JOIN users u ON u.id=c.user_id LEFT JOIN founder_role f ON f.user_id=u.id WHERE c.answer_id=? AND c.category_id=? AND c.voided=0 AND u.hidden=0",
       )
         .bind(selected, category.id)
         .first<any>()
     : null;
+  if (closed && env.R17_STORAGE === 'true') {
+    const files = (
+      await env.DB.prepare('SELECT data FROM r17_files WHERE category_id=?')
+        .bind(category.id)
+        .all<any>()
+    ).results.map((r) => JSON.parse(r.data));
+    const mirrored = files.flatMap((s) =>
+      s.file.claims
+        .filter((c: any) => !c.voided)
+        .map((c: any) => ({
+          ...c,
+          handle: s.user.hidden ? 'Record withheld' : s.user.handle,
+          hidden: s.user.hidden,
+        })),
+    );
+    const ids = new Set(mirrored.filter((c) => c.golden).map((c) => c.id));
+    const legacy = (
+      await env.DB.prepare(
+        'SELECT id FROM claims WHERE category_id=? AND voided=0 AND answer_id IN (SELECT value FROM json_each(?))',
+      )
+        .bind(category.id, saved.golden_json)
+        .all<any>()
+    ).results;
+    for (const c of legacy) ids.add(c.id);
+    found = { n: ids.size };
+    const match = mirrored.find((c) => c.answer_id === selected && !c.hidden);
+    if (match) cracked = { handle: match.handle };
+  }
   const base = {
     clue: clueAnswer
       ? {

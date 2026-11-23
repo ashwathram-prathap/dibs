@@ -13,9 +13,19 @@
       "migrations_dir": "../migrations",
     },
   ],
-  "durable_objects": { "bindings": [{ "name": "REGISTRY", "class_name": "Registry" }, { "name": "IMAGE_CACHE", "class_name": "ImageCache" }] },
-  "migrations": [{ "tag": "r2-registry-cache", "new_sqlite_classes": ["Registry", "ImageCache"] }],
+  "durable_objects": {
+    "bindings": [
+      { "name": "REGISTRY", "class_name": "Registry" },
+      { "name": "IMAGE_CACHE", "class_name": "ImageCache" },
+      { "name": "DAY_REGISTRY", "class_name": "DayRegistry" },
+    ],
+  },
+  "migrations": [
+    { "tag": "r2-registry-cache", "new_sqlite_classes": ["Registry", "ImageCache"] },
+    { "tag": "r17-day-journal", "new_sqlite_classes": ["DayRegistry"] },
+  ],
   "vars": {
+    "R17_STORAGE": "true",
     "CF_ACCOUNT_ID": "5cf62cff0219727f2121253b3924f886",
     "TURNSTILE_SITE_KEY": "0x4AAAAAAGLNsW8c9WxZVAxQ",
   },

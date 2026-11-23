@@ -1,3 +1,4 @@
+import { cluedId } from './clue';
 import { og } from './og';
 import { isPlatform } from '../shared/sharing';
 import { securityKey } from './security';
@@ -10,6 +11,8 @@ import {
   cookieUser,
   sessionCookie,
   handle,
+  colors,
+  animals,
   fileKey,
   normalizeFileKey,
   constantEqual,
@@ -68,7 +71,7 @@ export class DayRegistry extends DurableObject<Env> {
         .bind(this.category.id)
         .first<any>();
       this.golden = new Set(JSON.parse(special?.golden_json || '[]'));
-      this.journal = new EventJournal(this.ctx.storage, env, this.category.id);
+      this.journal = new EventJournal(this.ctx.storage, env, this.category.id, this.category.date);
       // Import R16 progress read-only. Original rows are never rewritten or deleted.
       const old = (
         await env.DB.prepare(
@@ -97,7 +100,43 @@ export class DayRegistry extends DurableObject<Env> {
             .bind(user_id)
             .all<any>()
         ).results.map((r) => r.date);
-        this.legacy.set(user_id, { user, file, streakDates: dates, requests: {} });
+        const requests: JournalFile['requests'] = {};
+        const accepted = (
+          await env.DB.prepare(
+            'SELECT id,request_id,request_answer FROM claims WHERE category_id=? AND user_id=? AND request_id IS NOT NULL',
+          )
+            .bind(this.category.id, user_id)
+            .all<any>()
+        ).results;
+        for (const row of accepted) {
+          const claim = file.claims.find((c: any) => c.id === row.id);
+          if (claim)
+            requests[row.request_id] = { answer: row.request_answer, status: 201, body: { claim } };
+        }
+        const rejected = (
+          await env.DB.prepare(
+            'SELECT request_id,request_answer,house,holder_claim_id FROM strikes WHERE category_id=? AND user_id=? AND request_id IS NOT NULL',
+          )
+            .bind(this.category.id, user_id)
+            .all<any>()
+        ).results;
+        for (const row of rejected) {
+          const holder = row.holder_claim_id
+            ? await env.DB.prepare(publicClaim + ' AND c.id=?')
+                .bind(row.holder_claim_id)
+                .first<any>()
+            : null;
+          requests[row.request_id] = {
+            answer: row.request_answer,
+            status: 409,
+            body: {
+              house: !!row.house,
+              takenBy: row.house ? 'RESERVED' : holder?.handle || 'Record withheld',
+              founder: !row.house && !!holder?.founder,
+            },
+          };
+        }
+        this.legacy.set(user_id, { user, file, streakDates: dates, requests });
       }
       this.rebuild();
     })().catch((e) => {
@@ -163,7 +202,21 @@ export class DayRegistry extends DurableObject<Env> {
       specials: g
         ? {
             ...this.specials,
-            houseWords: closed ? this.specials.houseWords : [],
+            houseWords: closed
+              ? (catalogMeta(g)?.house || []).map((r: any) => ({
+                  display: r[1],
+                  handle: 'RESERVED',
+                }))
+              : [],
+            clue: this.specials.clue
+              ? {
+                  ...this.specials.clue,
+                  crackedBy:
+                    rows.find(
+                      (c) => c.answer_id === cluedId([...this.golden], this.specials.commitment),
+                    )?.handle || this.specials.clue.crackedBy,
+                }
+              : null,
             goldenFound: rows.filter((c) => c.golden).length,
           }
         : null,
@@ -183,35 +236,46 @@ export class DayRegistry extends DurableObject<Env> {
     let uid = await cookieUser(req, env.COOKIE_SECRET),
       cookie = '';
     if (uid && this.users.has(uid)) return { user: this.users.get(uid), cookie };
-    let user: any,
-      legacyIdentity = false;
+    let user: any;
     if (uid) {
+      const latest = await env.DB.prepare(
+        'SELECT data FROM r17_files WHERE user_id=? ORDER BY day DESC LIMIT 1',
+      )
+        .bind(uid)
+        .first<any>();
       const saved = await env.DB.prepare('SELECT data FROM r17_players WHERE id=?')
         .bind(uid)
         .first<any>();
-      legacyIdentity = !saved;
-      user = saved
-        ? JSON.parse(saved.data)
-        : await env.DB.prepare('SELECT id,handle,rerolls_used,hidden FROM users WHERE id=?')
-            .bind(uid)
-            .first<any>();
+      if (latest) {
+        const state = JSON.parse(latest.data);
+        user = { ...state.user, streakDates: state.streakDates };
+      }
+      if (saved)
+        user = {
+          ...user,
+          ...JSON.parse(saved.data),
+          streakDates: user?.streakDates || JSON.parse(saved.data).streakDates || [],
+        };
+      if (!user)
+        user = await env.DB.prepare('SELECT id,handle,rerolls_used,hidden FROM users WHERE id=?')
+          .bind(uid)
+          .first<any>();
     }
-    if (!user && create) {
-      uid = crypto.randomUUID();
+    if (!user && (create || uid)) {
+      uid ||= crypto.randomUUID();
+      const seed = parseInt(uid.replaceAll('-', '').slice(0, 8), 16);
       user = {
         id: uid,
-        handle: handle() + ' #' + uid.slice(0, 8),
+        handle:
+          colors[seed % colors.length] +
+          ' ' +
+          animals[Math.floor(seed / colors.length) % animals.length] +
+          ' #' +
+          uid.slice(0, 8),
         rerolls_used: 0,
         hidden: 0,
         streakDates: [],
       };
-      user.recoveryHash = await hmac(
-        normalizeFileKey(await fileKey(uid!, env.COOKIE_SECRET)),
-        env.COOKIE_SECRET,
-      );
-      await env.DB.prepare('INSERT INTO r17_players(id,data) VALUES(?,?)')
-        .bind(uid, JSON.stringify(user))
-        .run();
       cookie = await sessionCookie(uid, env.COOKIE_SECRET, isLocal(req, env.LOCAL_TEST));
     }
     if (user) {
@@ -223,21 +287,16 @@ export class DayRegistry extends DurableObject<Env> {
             .bind(user.id)
             .all<any>()
         ).results.map((r) => r.date);
+      user.recoveryHash ||= await hmac(
+        normalizeFileKey(await fileKey(user.id, env.COOKIE_SECRET)),
+        env.COOKIE_SECRET,
+      );
       const role = await env.DB.prepare('SELECT name FROM founder_role WHERE user_id=?')
         .bind(user.id)
         .first<any>();
       if (role) {
         user.handle = role.name;
         user.founder = true;
-      }
-      if (legacyIdentity && this.category) {
-        user.recoveryHash = await hmac(
-          normalizeFileKey(await fileKey(user.id, env.COOKIE_SECRET)),
-          env.COOKIE_SECRET,
-        );
-        await env.DB.prepare('INSERT OR IGNORE INTO r17_players(id,data) VALUES(?,?)')
-          .bind(user.id, JSON.stringify(user))
-          .run();
       }
       this.users.set(user.id, user);
     }
@@ -294,6 +353,7 @@ export class DayRegistry extends DurableObject<Env> {
       )
         return json({ message: 'Not found.' }, 404);
       const b = await body(req, 3000);
+      if (b.uid) this.users.delete(b.uid);
       const selected = [...this.all().values()].filter(
         (s) => s.user.id === b.uid || s.file.claims.some((c: any) => c.id === b.claimId),
       );
@@ -477,11 +537,15 @@ export class DayRegistry extends DurableObject<Env> {
       if (attempts.length >= 5)
         return json({ message: 'Too many codes tried; wait 15 minutes.' }, 429);
       this.attempts.set('recover:' + network, [...attempts, Date.now()]);
-      const row = await env.DB.prepare(
-        "SELECT id FROM r17_players WHERE json_extract(data,'$.recoveryHash')=?",
-      )
-        .bind(await hmac(key, env.COOKIE_SECRET))
-        .first<any>();
+      const hash = await hmac(key, env.COOKIE_SECRET);
+      const current = [...this.all().values()].find((s) => s.user.recoveryHash === hash);
+      const row = current
+        ? { id: current.user.id }
+        : await env.DB.prepare(
+            "SELECT user_id id FROM r17_files WHERE json_extract(data,'$.user.recoveryHash')=? UNION SELECT id FROM r17_players WHERE json_extract(data,'$.recoveryHash')=?",
+          )
+            .bind(hash, hash)
+            .first<any>();
       if (!row) {
         const legacy = await env.DB.prepare('SELECT user_id FROM recovery_keys WHERE key_hash=?')
           .bind(await hmac(key, env.COOKIE_SECRET))
@@ -504,11 +568,12 @@ export class DayRegistry extends DurableObject<Env> {
     if (path === '/delete-file' && req.method === 'POST') {
       const payload = await body(req.clone() as Request, 3000);
       if (payload.key) {
+        await this.journal?.mirror(env);
         const hash = await hmac(normalizeFileKey(String(payload.key)), env.COOKIE_SECRET);
         const found = await env.DB.prepare(
-          "SELECT id FROM r17_players WHERE json_extract(data,'$.recoveryHash')=? UNION SELECT user_id id FROM recovery_keys WHERE key_hash=?",
+          "SELECT user_id id FROM r17_files WHERE json_extract(data,'$.user.recoveryHash')=? UNION SELECT id FROM r17_players WHERE json_extract(data,'$.recoveryHash')=? UNION SELECT user_id id FROM recovery_keys WHERE key_hash=?",
         )
-          .bind(hash, hash)
+          .bind(hash, hash, hash)
           .first<any>();
         if (!found) return json({ message: 'Backup code not found; check it and try again.' }, 422);
         const headers = new Headers(req.headers);
@@ -529,7 +594,8 @@ export class DayRegistry extends DurableObject<Env> {
         },
         401,
       );
-    if (user.hidden) return json({ message: 'This account is not accepting new filings.' }, 403);
+    if (user.hidden && path !== '/delete-file')
+      return json({ message: 'This account is not accepting new filings.' }, 403);
     if (req.method !== 'POST') return json({ message: 'Page not found.' }, 404);
     if (path === '/session-check') return json({ ok: true });
     if (path === '/verify-session') {
@@ -793,6 +859,7 @@ export class DayRegistry extends DurableObject<Env> {
             rerolls_used: user.rerolls_used,
             hidden: user.hidden,
             founder: user.founder,
+            recoveryHash: user.recoveryHash,
           },
           file: {
             category_id: g.id,

@@ -11,10 +11,27 @@ export async function prepareR17Admin(req: Request, env: Env) {
   if (new URL(req.url).pathname !== '/api/admin/set-founder') return;
   const b = await body(req.clone() as Request),
     target = String(b.target || '');
+  await env.DAY_REGISTRY.get(
+    env.DAY_REGISTRY.idFromName(env.STAGING === 'true' ? 'practice' : registryDate()),
+  ).fetch(
+    new Request(PUBLIC_ORIGIN + '/api/admin/r17-flush', {
+      method: 'POST',
+      headers: {
+        origin: PUBLIC_ORIGIN,
+        authorization: 'Bearer ' + env.ADMIN_TOKEN,
+        'x-r17-day': registryDate(),
+      },
+    }),
+  );
   const row = await env.DB.prepare(
-    "SELECT id,data FROM r17_players WHERE id=? OR json_extract(data,'$.recoveryHash')=?",
+    "SELECT id,data FROM r17_players WHERE id=? OR json_extract(data,'$.recoveryHash')=? UNION SELECT user_id id,json_extract(data,'$.user') data FROM r17_files WHERE user_id=? OR json_extract(data,'$.user.recoveryHash')=?",
   )
-    .bind(target, await hmac(normalizeFileKey(target), env.COOKIE_SECRET))
+    .bind(
+      target,
+      await hmac(normalizeFileKey(target), env.COOKIE_SECRET),
+      target,
+      await hmac(normalizeFileKey(target), env.COOKIE_SECRET),
+    )
     .first<any>();
   if (row) {
     const user = JSON.parse(row.data);
@@ -23,6 +40,12 @@ export async function prepareR17Admin(req: Request, env: Env) {
     )
       .bind(user.id, user.handle, new Date().toISOString(), user.rerolls_used)
       .run();
+    if (user.recoveryHash)
+      await env.DB.prepare(
+        'INSERT OR IGNORE INTO recovery_keys(key_hash,user_id,created_at) VALUES(?,?,?)',
+      )
+        .bind(user.recoveryHash, user.id, new Date().toISOString())
+        .run();
   }
 }
 export async function finishR17Admin(req: Request, env: Env, response: Response) {

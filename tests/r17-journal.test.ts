@@ -40,7 +40,7 @@ async function startRegistry(slug: string) {
         modules: true,
         script: code.outputFiles[0].text,
         compatibilityDate: '2026-11-20',
-        d1Databases: ['DB','PRESERVE'],
+        d1Databases: ['DB', 'PRESERVE'],
         durableObjects: {
           REGISTRY: { className: 'Registry', useSQLite: true },
           DAY_REGISTRY: { className: 'DayRegistry', useSQLite: true },
@@ -288,6 +288,40 @@ it('rejects invalid verification, changed replay answers and cross-origin writes
   expect(forbidden.status).toBe(403);
 });
 
+it('propagates founder-by-backup, voiding and hiding into the durable day', async () => {
+  const p = await account();
+  const first = await guess(p.cookie, catalog.answers[150].display);
+  const admin = async (path: string, data: any) =>
+    mf.dispatchFetch('http://localhost/api/admin/' + path, {
+      method: 'POST',
+      headers: {
+        origin: 'https://dibs.here',
+        authorization: 'Bearer static-test-admin',
+        'content-type': 'application/json',
+      },
+      body: JSON.stringify(data),
+    });
+  expect(
+    (await admin('set-founder', { target: first.data.recoveryKey, name: 'THE REGISTRAR' })).status,
+  ).toBe(200);
+  const owned: any = await (
+    await call('/certificate/' + first.data.claim.id, undefined, p.cookie)
+  ).json();
+  expect(owned.claim.handle).toBe('THE REGISTRAR');
+  expect(owned.claim.founder).toBe(true);
+  expect((await admin('void-claim', { id: first.data.claim.id })).status).toBe(200);
+  const board: any = await (await call('/leaderboard', undefined, p.cookie)).json();
+  expect(board.own).toBeNull();
+  const second = await account();
+  await guess(second.cookie, catalog.answers[151].display);
+  expect((await admin('hide-user', { id: second.data.me.user.id })).status).toBe(200);
+  const hidden: any = await (await call('/leaderboard', undefined, second.cookie)).json();
+  expect(hidden.own).toBeNull();
+  await mf.setOptions(options);
+  db = await mf.getD1Database('DB');
+  expect((await guess((await account()).cookie, catalog.answers[150].display)).status).toBe(409);
+}, 30000);
+
 it('flushes the exact final board and mirror at close, and reveals only after close', async () => {
   const date = registryDate(),
     closedAt = Date.parse(
@@ -316,17 +350,85 @@ it('flushes the exact final board and mirror at close, and reveals only after cl
     await db.prepare('SELECT data FROM r17_files WHERE category_id=?').bind('static').all()
   ).results.map((r: any) => JSON.parse(r.data));
   const ledger: any = await (await call('/ledger?category=static')).json();
-  expect(all.flatMap((s: any) => s.file.claims).length).toBe(ledger.rows.length);
+  expect(all.flatMap((s: any) => s.file.claims.filter((c: any) => !c.voided)).length).toBe(
+    ledger.rows.length,
+  );
 });
 
-it('applies the additive migration without changing any legacy claim, strike, identity or point',async()=>{
- const legacy=await mf.getD1Database('PRESERVE');
- for(const name of readdirSync('migrations').filter(f=>f.endsWith('.sql')&&!f.startsWith('0015')).sort())await legacy.exec(readFileSync('migrations/'+name,'utf8').replace(/^--.*$/gm,'').replace(/CREATE TRIGGER[\s\S]*?\nEND;/g,m=>m.replace(/\n/g,' ')).replace(/\n/g,' '));
- await legacy.prepare('INSERT INTO categories(id,date,name,slug,total_registrable,drop_at,status) VALUES(?,?,?,?,?,?,?)').bind('old','2026-11-20','Animals','animals',2000,'2026-11-21T02:00:00Z','approved').run();
- await legacy.prepare('INSERT INTO answers VALUES(?,?,?,?,?,?)').bind('old-answer','old','aardvark','Aardvark','[]',4).run();
- await legacy.prepare('INSERT INTO users(id,handle,created_at) VALUES(?,?,?)').bind('old-user','Old Holder','2026-11-21T02:00:00Z').run();
- await legacy.prepare('INSERT INTO claims(id,category_id,answer_id,user_id,claim_no,created_at,ip_hash,ip_day,file_no,points,percentile,bonus) VALUES(?,?,?,?,?,?,?,?,?,?,?,?)').bind('old-claim','old','old-answer','old-user',1,'2026-11-21T02:01:00Z','','',1,75,.65,0).run();
- await legacy.prepare('INSERT INTO strikes(category_id,user_id,seq,created_at,guess,house) VALUES(?,?,?,?,?,?)').bind('old','old-user',2,'2026-11-21T02:02:00Z','Cat',1).run();
- const snapshot=async()=>Promise.all(['users','claims','strikes','categories','answers','daily_specials','house_words','recovery_keys','founder_role'].map(async table=>(await legacy.prepare('SELECT * FROM '+table).all()).results));
- const before=await snapshot();await legacy.exec(readFileSync('migrations/0015_r17_journal.sql','utf8').replace(/^--.*$/gm,'').replace(/\n/g,' '));expect(await snapshot()).toEqual(before);
+it('applies the additive migration without changing any legacy claim, strike, identity or point', async () => {
+  const legacy = await mf.getD1Database('PRESERVE');
+  for (const name of readdirSync('migrations')
+    .filter((f) => f.endsWith('.sql') && !f.startsWith('0015') && !f.startsWith('0016'))
+    .sort())
+    await legacy.exec(
+      readFileSync('migrations/' + name, 'utf8')
+        .replace(/^--.*$/gm, '')
+        .replace(/CREATE TRIGGER[\s\S]*?\nEND;/g, (m) => m.replace(/\n/g, ' '))
+        .replace(/\n/g, ' '),
+    );
+  await legacy
+    .prepare(
+      'INSERT INTO categories(id,date,name,slug,total_registrable,drop_at,status) VALUES(?,?,?,?,?,?,?)',
+    )
+    .bind('old', '2026-11-20', 'Animals', 'animals', 2000, '2026-11-21T02:00:00Z', 'approved')
+    .run();
+  await legacy
+    .prepare('INSERT INTO answers VALUES(?,?,?,?,?,?)')
+    .bind('old-answer', 'old', 'aardvark', 'Aardvark', '[]', 4)
+    .run();
+  await legacy
+    .prepare('INSERT INTO users(id,handle,created_at) VALUES(?,?,?)')
+    .bind('old-user', 'Old Holder', '2026-11-21T02:00:00Z')
+    .run();
+  await legacy
+    .prepare(
+      'INSERT INTO claims(id,category_id,answer_id,user_id,claim_no,created_at,ip_hash,ip_day,file_no,points,percentile,bonus) VALUES(?,?,?,?,?,?,?,?,?,?,?,?)',
+    )
+    .bind(
+      'old-claim',
+      'old',
+      'old-answer',
+      'old-user',
+      1,
+      '2026-11-21T02:01:00Z',
+      '',
+      '',
+      1,
+      75,
+      0.65,
+      0,
+    )
+    .run();
+  await legacy
+    .prepare(
+      'INSERT INTO strikes(category_id,user_id,seq,created_at,guess,house) VALUES(?,?,?,?,?,?)',
+    )
+    .bind('old', 'old-user', 2, '2026-11-21T02:02:00Z', 'Cat', 1)
+    .run();
+  const snapshot = async () =>
+    Promise.all(
+      [
+        'users',
+        'claims',
+        'strikes',
+        'categories',
+        'answers',
+        'daily_specials',
+        'house_words',
+        'recovery_keys',
+        'founder_role',
+      ].map(async (table) => (await legacy.prepare('SELECT * FROM ' + table).all()).results),
+    );
+  const before = await snapshot();
+  await legacy.exec(
+    readFileSync('migrations/0015_r17_journal.sql', 'utf8')
+      .replace(/^--.*$/gm, '')
+      .replace(/\n/g, ' '),
+  );
+  await legacy.exec(
+    readFileSync('migrations/0016_r17_file_identity.sql', 'utf8')
+      .replace(/^--.*$/gm, '')
+      .replace(/\n/g, ' '),
+  );
+  expect(await snapshot()).toEqual(before);
 });

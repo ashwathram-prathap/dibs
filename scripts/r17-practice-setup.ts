@@ -21,7 +21,7 @@ if (process.argv[2] === 'test') {
   ]);
   console.log('Practice test verification installed; rehearsal notifications disabled.');
 } else if (process.argv[2] === 'alerts') {
-  const before = JSON.parse(readFileSync('review/round16/practice-before.json', 'utf8'));
+  const before = JSON.parse(readFileSync('review/round17/practice-before.json', 'utf8'));
   if (Date.now() < Date.parse(before.category.drop_at) + 125000)
     throw Error('Wait until the practice drop notification window has ended');
   const topic = readFileSync('FIXES-R9.md', 'utf8').match(/using topic `([^`]+)`/)?.[1];

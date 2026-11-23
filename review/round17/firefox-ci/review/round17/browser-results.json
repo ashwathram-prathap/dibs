@@ -1,0 +1,1390 @@
+{
+  "config": {
+    "argv": [
+      "/opt/hostedtoolcache/node/22.23.5/x64/bin/node",
+      "/home/runner/work/dibs/dibs/node_modules/.bin/playwright",
+      "test",
+      "-c",
+      "playwright.r17.config.ts"
+    ],
+    "configFile": "/home/runner/work/dibs/dibs/playwright.r17.config.ts",
+    "rootDir": "/home/runner/work/dibs/dibs/tests/e2e",
+    "failOnFlakyTests": false,
+    "forbidOnly": false,
+    "fullyParallel": true,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "ci": {
+        "commitHref": "https://github.com/ashwathram-prathap/dibs/commit/31a6e3d4f33bcd17c3932fe211ed8be6ae1c51eb",
+        "commitHash": "31a6e3d4f33bcd17c3932fe211ed8be6ae1c51eb",
+        "buildHref": "https://github.com/ashwathram-prathap/dibs/actions/runs/45134184603"
+      },
+      "gitCommit": {
+        "shortHash": "31a6e3d",
+        "hash": "31a6e3d4f33bcd17c3932fe211ed8be6ae1c51eb",
+        "subject": "R17: pass 500-player practice load and close-time, migration and recovery gates",
+        "body": "R17: pass 500-player practice load and close-time, migration and recovery gates\n",
+        "author": {
+          "name": "Ashwathram Prathap",
+          "email": "prathapashwathram@gmail.com",
+          "time": 1795420273000
+        },
+        "committer": {
+          "name": "Ashwathram Prathap",
+          "email": "prathapashwathram@gmail.com",
+          "time": 1795420273000
+        },
+        "branch": "main"
+      },
+      "actualWorkers": 4
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "/home/runner/work/dibs/dibs/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "ci": {
+            "commitHref": "https://github.com/ashwathram-prathap/dibs/commit/31a6e3d4f33bcd17c3932fe211ed8be6ae1c51eb",
+            "commitHash": "31a6e3d4f33bcd17c3932fe211ed8be6ae1c51eb",
+            "buildHref": "https://github.com/ashwathram-prathap/dibs/actions/runs/45134184603"
+          },
+          "gitCommit": {
+            "shortHash": "31a6e3d",
+            "hash": "31a6e3d4f33bcd17c3932fe211ed8be6ae1c51eb",
+            "subject": "R17: pass 500-player practice load and close-time, migration and recovery gates",
+            "body": "R17: pass 500-player practice load and close-time, migration and recovery gates\n",
+            "author": {
+              "name": "Ashwathram Prathap",
+              "email": "prathapashwathram@gmail.com",
+              "time": 1795420273000
+            },
+            "committer": {
+              "name": "Ashwathram Prathap",
+              "email": "prathapashwathram@gmail.com",
+              "time": 1795420273000
+            },
+            "branch": "main"
+          },
+          "actualWorkers": 4
+        },
+        "id": "firefox-1280-light",
+        "name": "firefox-1280-light",
+        "testDir": "/home/runner/work/dibs/dibs/tests/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "round17.spec.ts"
+        ],
+        "timeout": 90000
+      },
+      {
+        "outputDir": "/home/runner/work/dibs/dibs/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "ci": {
+            "commitHref": "https://github.com/ashwathram-prathap/dibs/commit/31a6e3d4f33bcd17c3932fe211ed8be6ae1c51eb",
+            "commitHash": "31a6e3d4f33bcd17c3932fe211ed8be6ae1c51eb",
+            "buildHref": "https://github.com/ashwathram-prathap/dibs/actions/runs/45134184603"
+          },
+          "gitCommit": {
+            "shortHash": "31a6e3d",
+            "hash": "31a6e3d4f33bcd17c3932fe211ed8be6ae1c51eb",
+            "subject": "R17: pass 500-player practice load and close-time, migration and recovery gates",
+            "body": "R17: pass 500-player practice load and close-time, migration and recovery gates\n",
+            "author": {
+              "name": "Ashwathram Prathap",
+              "email": "prathapashwathram@gmail.com",
+              "time": 1795420273000
+            },
+            "committer": {
+              "name": "Ashwathram Prathap",
+              "email": "prathapashwathram@gmail.com",
+              "time": 1795420273000
+            },
+            "branch": "main"
+          },
+          "actualWorkers": 4
+        },
+        "id": "firefox-1440-light",
+        "name": "firefox-1440-light",
+        "testDir": "/home/runner/work/dibs/dibs/tests/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "round17.spec.ts"
+        ],
+        "timeout": 90000
+      },
+      {
+        "outputDir": "/home/runner/work/dibs/dibs/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "ci": {
+            "commitHref": "https://github.com/ashwathram-prathap/dibs/commit/31a6e3d4f33bcd17c3932fe211ed8be6ae1c51eb",
+            "commitHash": "31a6e3d4f33bcd17c3932fe211ed8be6ae1c51eb",
+            "buildHref": "https://github.com/ashwathram-prathap/dibs/actions/runs/45134184603"
+          },
+          "gitCommit": {
+            "shortHash": "31a6e3d",
+            "hash": "31a6e3d4f33bcd17c3932fe211ed8be6ae1c51eb",
+            "subject": "R17: pass 500-player practice load and close-time, migration and recovery gates",
+            "body": "R17: pass 500-player practice load and close-time, migration and recovery gates\n",
+            "author": {
+              "name": "Ashwathram Prathap",
+              "email": "prathapashwathram@gmail.com",
+              "time": 1795420273000
+            },
+            "committer": {
+              "name": "Ashwathram Prathap",
+              "email": "prathapashwathram@gmail.com",
+              "time": 1795420273000
+            },
+            "branch": "main"
+          },
+          "actualWorkers": 4
+        },
+        "id": "firefox-2560-light",
+        "name": "firefox-2560-light",
+        "testDir": "/home/runner/work/dibs/dibs/tests/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "round17.spec.ts"
+        ],
+        "timeout": 90000
+      },
+      {
+        "outputDir": "/home/runner/work/dibs/dibs/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "ci": {
+            "commitHref": "https://github.com/ashwathram-prathap/dibs/commit/31a6e3d4f33bcd17c3932fe211ed8be6ae1c51eb",
+            "commitHash": "31a6e3d4f33bcd17c3932fe211ed8be6ae1c51eb",
+            "buildHref": "https://github.com/ashwathram-prathap/dibs/actions/runs/45134184603"
+          },
+          "gitCommit": {
+            "shortHash": "31a6e3d",
+            "hash": "31a6e3d4f33bcd17c3932fe211ed8be6ae1c51eb",
+            "subject": "R17: pass 500-player practice load and close-time, migration and recovery gates",
+            "body": "R17: pass 500-player practice load and close-time, migration and recovery gates\n",
+            "author": {
+              "name": "Ashwathram Prathap",
+              "email": "prathapashwathram@gmail.com",
+              "time": 1795420273000
+            },
+            "committer": {
+              "name": "Ashwathram Prathap",
+              "email": "prathapashwathram@gmail.com",
+              "time": 1795420273000
+            },
+            "branch": "main"
+          },
+          "actualWorkers": 4
+        },
+        "id": "firefox-1280-dark",
+        "name": "firefox-1280-dark",
+        "testDir": "/home/runner/work/dibs/dibs/tests/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "round17.spec.ts"
+        ],
+        "timeout": 90000
+      },
+      {
+        "outputDir": "/home/runner/work/dibs/dibs/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "ci": {
+            "commitHref": "https://github.com/ashwathram-prathap/dibs/commit/31a6e3d4f33bcd17c3932fe211ed8be6ae1c51eb",
+            "commitHash": "31a6e3d4f33bcd17c3932fe211ed8be6ae1c51eb",
+            "buildHref": "https://github.com/ashwathram-prathap/dibs/actions/runs/45134184603"
+          },
+          "gitCommit": {
+            "shortHash": "31a6e3d",
+            "hash": "31a6e3d4f33bcd17c3932fe211ed8be6ae1c51eb",
+            "subject": "R17: pass 500-player practice load and close-time, migration and recovery gates",
+            "body": "R17: pass 500-player practice load and close-time, migration and recovery gates\n",
+            "author": {
+              "name": "Ashwathram Prathap",
+              "email": "prathapashwathram@gmail.com",
+              "time": 1795420273000
+            },
+            "committer": {
+              "name": "Ashwathram Prathap",
+              "email": "prathapashwathram@gmail.com",
+              "time": 1795420273000
+            },
+            "branch": "main"
+          },
+          "actualWorkers": 4
+        },
+        "id": "firefox-1440-dark",
+        "name": "firefox-1440-dark",
+        "testDir": "/home/runner/work/dibs/dibs/tests/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "round17.spec.ts"
+        ],
+        "timeout": 90000
+      },
+      {
+        "outputDir": "/home/runner/work/dibs/dibs/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "ci": {
+            "commitHref": "https://github.com/ashwathram-prathap/dibs/commit/31a6e3d4f33bcd17c3932fe211ed8be6ae1c51eb",
+            "commitHash": "31a6e3d4f33bcd17c3932fe211ed8be6ae1c51eb",
+            "buildHref": "https://github.com/ashwathram-prathap/dibs/actions/runs/45134184603"
+          },
+          "gitCommit": {
+            "shortHash": "31a6e3d",
+            "hash": "31a6e3d4f33bcd17c3932fe211ed8be6ae1c51eb",
+            "subject": "R17: pass 500-player practice load and close-time, migration and recovery gates",
+            "body": "R17: pass 500-player practice load and close-time, migration and recovery gates\n",
+            "author": {
+              "name": "Ashwathram Prathap",
+              "email": "prathapashwathram@gmail.com",
+              "time": 1795420273000
+            },
+            "committer": {
+              "name": "Ashwathram Prathap",
+              "email": "prathapashwathram@gmail.com",
+              "time": 1795420273000
+            },
+            "branch": "main"
+          },
+          "actualWorkers": 4
+        },
+        "id": "firefox-2560-dark",
+        "name": "firefox-2560-dark",
+        "testDir": "/home/runner/work/dibs/dibs/tests/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "round17.spec.ts"
+        ],
+        "timeout": 90000
+      }
+    ],
+    "filteredProjects": [
+      {
+        "grep": {},
+        "grepInvert": null,
+        "outputDir": "/home/runner/work/dibs/dibs/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "ci": {
+            "commitHref": "https://github.com/ashwathram-prathap/dibs/commit/31a6e3d4f33bcd17c3932fe211ed8be6ae1c51eb",
+            "commitHash": "31a6e3d4f33bcd17c3932fe211ed8be6ae1c51eb",
+            "buildHref": "https://github.com/ashwathram-prathap/dibs/actions/runs/45134184603"
+          },
+          "gitCommit": {
+            "shortHash": "31a6e3d",
+            "hash": "31a6e3d4f33bcd17c3932fe211ed8be6ae1c51eb",
+            "subject": "R17: pass 500-player practice load and close-time, migration and recovery gates",
+            "body": "R17: pass 500-player practice load and close-time, migration and recovery gates\n",
+            "author": {
+              "name": "Ashwathram Prathap",
+              "email": "prathapashwathram@gmail.com",
+              "time": 1795420273000
+            },
+            "committer": {
+              "name": "Ashwathram Prathap",
+              "email": "prathapashwathram@gmail.com",
+              "time": 1795420273000
+            },
+            "branch": "main"
+          },
+          "actualWorkers": 4
+        },
+        "name": "firefox-1280-light",
+        "testDir": "/home/runner/work/dibs/dibs/tests/e2e",
+        "snapshotDir": "/home/runner/work/dibs/dibs/tests/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "round17.spec.ts"
+        ],
+        "timeout": 90000,
+        "use": {
+          "baseURL": "http://127.0.0.1:5173",
+          "trace": "retain-on-failure",
+          "browserName": "firefox",
+          "viewport": {
+            "width": 1280,
+            "height": 900
+          },
+          "colorScheme": "light"
+        },
+        "dependencies": [],
+        "ignoreSnapshots": false,
+        "__projectId": "firefox-1280-light"
+      },
+      {
+        "grep": {},
+        "grepInvert": null,
+        "outputDir": "/home/runner/work/dibs/dibs/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "ci": {
+            "commitHref": "https://github.com/ashwathram-prathap/dibs/commit/31a6e3d4f33bcd17c3932fe211ed8be6ae1c51eb",
+            "commitHash": "31a6e3d4f33bcd17c3932fe211ed8be6ae1c51eb",
+            "buildHref": "https://github.com/ashwathram-prathap/dibs/actions/runs/45134184603"
+          },
+          "gitCommit": {
+            "shortHash": "31a6e3d",
+            "hash": "31a6e3d4f33bcd17c3932fe211ed8be6ae1c51eb",
+            "subject": "R17: pass 500-player practice load and close-time, migration and recovery gates",
+            "body": "R17: pass 500-player practice load and close-time, migration and recovery gates\n",
+            "author": {
+              "name": "Ashwathram Prathap",
+              "email": "prathapashwathram@gmail.com",
+              "time": 1795420273000
+            },
+            "committer": {
+              "name": "Ashwathram Prathap",
+              "email": "prathapashwathram@gmail.com",
+              "time": 1795420273000
+            },
+            "branch": "main"
+          },
+          "actualWorkers": 4
+        },
+        "name": "firefox-1440-light",
+        "testDir": "/home/runner/work/dibs/dibs/tests/e2e",
+        "snapshotDir": "/home/runner/work/dibs/dibs/tests/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "round17.spec.ts"
+        ],
+        "timeout": 90000,
+        "use": {
+          "baseURL": "http://127.0.0.1:5173",
+          "trace": "retain-on-failure",
+          "browserName": "firefox",
+          "viewport": {
+            "width": 1440,
+            "height": 900
+          },
+          "colorScheme": "light"
+        },
+        "dependencies": [],
+        "ignoreSnapshots": false,
+        "__projectId": "firefox-1440-light"
+      },
+      {
+        "grep": {},
+        "grepInvert": null,
+        "outputDir": "/home/runner/work/dibs/dibs/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "ci": {
+            "commitHref": "https://github.com/ashwathram-prathap/dibs/commit/31a6e3d4f33bcd17c3932fe211ed8be6ae1c51eb",
+            "commitHash": "31a6e3d4f33bcd17c3932fe211ed8be6ae1c51eb",
+            "buildHref": "https://github.com/ashwathram-prathap/dibs/actions/runs/45134184603"
+          },
+          "gitCommit": {
+            "shortHash": "31a6e3d",
+            "hash": "31a6e3d4f33bcd17c3932fe211ed8be6ae1c51eb",
+            "subject": "R17: pass 500-player practice load and close-time, migration and recovery gates",
+            "body": "R17: pass 500-player practice load and close-time, migration and recovery gates\n",
+            "author": {
+              "name": "Ashwathram Prathap",
+              "email": "prathapashwathram@gmail.com",
+              "time": 1795420273000
+            },
+            "committer": {
+              "name": "Ashwathram Prathap",
+              "email": "prathapashwathram@gmail.com",
+              "time": 1795420273000
+            },
+            "branch": "main"
+          },
+          "actualWorkers": 4
+        },
+        "name": "firefox-2560-light",
+        "testDir": "/home/runner/work/dibs/dibs/tests/e2e",
+        "snapshotDir": "/home/runner/work/dibs/dibs/tests/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "round17.spec.ts"
+        ],
+        "timeout": 90000,
+        "use": {
+          "baseURL": "http://127.0.0.1:5173",
+          "trace": "retain-on-failure",
+          "browserName": "firefox",
+          "viewport": {
+            "width": 2560,
+            "height": 900
+          },
+          "colorScheme": "light"
+        },
+        "dependencies": [],
+        "ignoreSnapshots": false,
+        "__projectId": "firefox-2560-light"
+      },
+      {
+        "grep": {},
+        "grepInvert": null,
+        "outputDir": "/home/runner/work/dibs/dibs/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "ci": {
+            "commitHref": "https://github.com/ashwathram-prathap/dibs/commit/31a6e3d4f33bcd17c3932fe211ed8be6ae1c51eb",
+            "commitHash": "31a6e3d4f33bcd17c3932fe211ed8be6ae1c51eb",
+            "buildHref": "https://github.com/ashwathram-prathap/dibs/actions/runs/45134184603"
+          },
+          "gitCommit": {
+            "shortHash": "31a6e3d",
+            "hash": "31a6e3d4f33bcd17c3932fe211ed8be6ae1c51eb",
+            "subject": "R17: pass 500-player practice load and close-time, migration and recovery gates",
+            "body": "R17: pass 500-player practice load and close-time, migration and recovery gates\n",
+            "author": {
+              "name": "Ashwathram Prathap",
+              "email": "prathapashwathram@gmail.com",
+              "time": 1795420273000
+            },
+            "committer": {
+              "name": "Ashwathram Prathap",
+              "email": "prathapashwathram@gmail.com",
+              "time": 1795420273000
+            },
+            "branch": "main"
+          },
+          "actualWorkers": 4
+        },
+        "name": "firefox-1280-dark",
+        "testDir": "/home/runner/work/dibs/dibs/tests/e2e",
+        "snapshotDir": "/home/runner/work/dibs/dibs/tests/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "round17.spec.ts"
+        ],
+        "timeout": 90000,
+        "use": {
+          "baseURL": "http://127.0.0.1:5173",
+          "trace": "retain-on-failure",
+          "browserName": "firefox",
+          "viewport": {
+            "width": 1280,
+            "height": 900
+          },
+          "colorScheme": "dark"
+        },
+        "dependencies": [],
+        "ignoreSnapshots": false,
+        "__projectId": "firefox-1280-dark"
+      },
+      {
+        "grep": {},
+        "grepInvert": null,
+        "outputDir": "/home/runner/work/dibs/dibs/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "ci": {
+            "commitHref": "https://github.com/ashwathram-prathap/dibs/commit/31a6e3d4f33bcd17c3932fe211ed8be6ae1c51eb",
+            "commitHash": "31a6e3d4f33bcd17c3932fe211ed8be6ae1c51eb",
+            "buildHref": "https://github.com/ashwathram-prathap/dibs/actions/runs/45134184603"
+          },
+          "gitCommit": {
+            "shortHash": "31a6e3d",
+            "hash": "31a6e3d4f33bcd17c3932fe211ed8be6ae1c51eb",
+            "subject": "R17: pass 500-player practice load and close-time, migration and recovery gates",
+            "body": "R17: pass 500-player practice load and close-time, migration and recovery gates\n",
+            "author": {
+              "name": "Ashwathram Prathap",
+              "email": "prathapashwathram@gmail.com",
+              "time": 1795420273000
+            },
+            "committer": {
+              "name": "Ashwathram Prathap",
+              "email": "prathapashwathram@gmail.com",
+              "time": 1795420273000
+            },
+            "branch": "main"
+          },
+          "actualWorkers": 4
+        },
+        "name": "firefox-1440-dark",
+        "testDir": "/home/runner/work/dibs/dibs/tests/e2e",
+        "snapshotDir": "/home/runner/work/dibs/dibs/tests/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "round17.spec.ts"
+        ],
+        "timeout": 90000,
+        "use": {
+          "baseURL": "http://127.0.0.1:5173",
+          "trace": "retain-on-failure",
+          "browserName": "firefox",
+          "viewport": {
+            "width": 1440,
+            "height": 900
+          },
+          "colorScheme": "dark"
+        },
+        "dependencies": [],
+        "ignoreSnapshots": false,
+        "__projectId": "firefox-1440-dark"
+      },
+      {
+        "grep": {},
+        "grepInvert": null,
+        "outputDir": "/home/runner/work/dibs/dibs/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "ci": {
+            "commitHref": "https://github.com/ashwathram-prathap/dibs/commit/31a6e3d4f33bcd17c3932fe211ed8be6ae1c51eb",
+            "commitHash": "31a6e3d4f33bcd17c3932fe211ed8be6ae1c51eb",
+            "buildHref": "https://github.com/ashwathram-prathap/dibs/actions/runs/45134184603"
+          },
+          "gitCommit": {
+            "shortHash": "31a6e3d",
+            "hash": "31a6e3d4f33bcd17c3932fe211ed8be6ae1c51eb",
+            "subject": "R17: pass 500-player practice load and close-time, migration and recovery gates",
+            "body": "R17: pass 500-player practice load and close-time, migration and recovery gates\n",
+            "author": {
+              "name": "Ashwathram Prathap",
+              "email": "prathapashwathram@gmail.com",
+              "time": 1795420273000
+            },
+            "committer": {
+              "name": "Ashwathram Prathap",
+              "email": "prathapashwathram@gmail.com",
+              "time": 1795420273000
+            },
+            "branch": "main"
+          },
+          "actualWorkers": 4
+        },
+        "name": "firefox-2560-dark",
+        "testDir": "/home/runner/work/dibs/dibs/tests/e2e",
+        "snapshotDir": "/home/runner/work/dibs/dibs/tests/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "round17.spec.ts"
+        ],
+        "timeout": 90000,
+        "use": {
+          "baseURL": "http://127.0.0.1:5173",
+          "trace": "retain-on-failure",
+          "browserName": "firefox",
+          "viewport": {
+            "width": 2560,
+            "height": 900
+          },
+          "colorScheme": "dark"
+        },
+        "dependencies": [],
+        "ignoreSnapshots": false,
+        "__projectId": "firefox-2560-dark"
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "list",
+        null
+      ],
+      [
+        "json",
+        {
+          "outputFile": "review/round17/browser-results.json"
+        }
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "default",
+    "updateSourceMethod": "patch",
+    "version": "1.65.1",
+    "workers": 4,
+    "webServer": {
+      "command": "npm run preview -- --mode security-test --port 5173",
+      "url": "http://127.0.0.1:5173",
+      "reuseExistingServer": true
+    }
+  },
+  "suites": [
+    {
+      "title": "round17.spec.ts",
+      "file": "round17.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "R17 real curves, marker positions, readable labels and sealed certificate",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "firefox-1280-light",
+              "projectName": "firefox-1280-light",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 17790,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-23T07:58:24.512Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            },
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "firefox-1440-light",
+              "projectName": "firefox-1440-light",
+              "results": [
+                {
+                  "workerIndex": 4,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 18015,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-23T07:58:35.605Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            },
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "firefox-2560-light",
+              "projectName": "firefox-2560-light",
+              "results": [
+                {
+                  "workerIndex": 8,
+                  "parallelIndex": 2,
+                  "status": "passed",
+                  "duration": 16971,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-23T07:58:49.290Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            },
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "firefox-1280-dark",
+              "projectName": "firefox-1280-dark",
+              "results": [
+                {
+                  "workerIndex": 12,
+                  "parallelIndex": 3,
+                  "status": "passed",
+                  "duration": 16954,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-23T07:59:07.594Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            },
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "firefox-1440-dark",
+              "projectName": "firefox-1440-dark",
+              "results": [
+                {
+                  "workerIndex": 16,
+                  "parallelIndex": 2,
+                  "status": "passed",
+                  "duration": 15887,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-23T07:59:22.100Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            },
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "firefox-2560-dark",
+              "projectName": "firefox-2560-dark",
+              "results": [
+                {
+                  "workerIndex": 20,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 14965,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-23T07:59:38.251Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "042c349a669a27f03e1a-5bb329217090cd1e3081",
+          "file": "round17.spec.ts",
+          "line": 3,
+          "column": 1
+        },
+        {
+          "title": "R17 native share file",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "firefox-1280-light",
+              "projectName": "firefox-1280-light",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 6599,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-23T07:58:24.235Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            },
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "firefox-1440-light",
+              "projectName": "firefox-1440-light",
+              "results": [
+                {
+                  "workerIndex": 5,
+                  "parallelIndex": 3,
+                  "status": "passed",
+                  "duration": 7989,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-23T07:58:37.170Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            },
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "firefox-2560-light",
+              "projectName": "firefox-2560-light",
+              "results": [
+                {
+                  "workerIndex": 9,
+                  "parallelIndex": 3,
+                  "status": "passed",
+                  "duration": 7298,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-23T07:58:51.686Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            },
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "firefox-1280-dark",
+              "projectName": "firefox-1280-dark",
+              "results": [
+                {
+                  "workerIndex": 13,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 7607,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-23T07:59:09.774Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            },
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "firefox-1440-dark",
+              "projectName": "firefox-1440-dark",
+              "results": [
+                {
+                  "workerIndex": 17,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 7667,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-23T07:59:25.000Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            },
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "firefox-2560-dark",
+              "projectName": "firefox-2560-dark",
+              "results": [
+                {
+                  "workerIndex": 21,
+                  "parallelIndex": 3,
+                  "status": "passed",
+                  "duration": 8229,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-23T07:59:39.511Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "042c349a669a27f03e1a-d30e29a0df3ad75dc195",
+          "file": "round17.spec.ts",
+          "line": 51,
+          "column": 3
+        },
+        {
+          "title": "R17 native share url",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "firefox-1280-light",
+              "projectName": "firefox-1280-light",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 2,
+                  "status": "passed",
+                  "duration": 6965,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-23T07:58:24.360Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            },
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "firefox-1440-light",
+              "projectName": "firefox-1440-light",
+              "results": [
+                {
+                  "workerIndex": 6,
+                  "parallelIndex": 2,
+                  "status": "passed",
+                  "duration": 6546,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-23T07:58:38.672Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            },
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "firefox-2560-light",
+              "projectName": "firefox-2560-light",
+              "results": [
+                {
+                  "workerIndex": 10,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 7356,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-23T07:58:57.899Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            },
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "firefox-1280-dark",
+              "projectName": "firefox-1280-dark",
+              "results": [
+                {
+                  "workerIndex": 14,
+                  "parallelIndex": 2,
+                  "status": "passed",
+                  "duration": 6848,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-23T07:59:10.285Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            },
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "firefox-1440-dark",
+              "projectName": "firefox-1440-dark",
+              "results": [
+                {
+                  "workerIndex": 18,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 7543,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-23T07:59:24.999Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            },
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "firefox-2560-dark",
+              "projectName": "firefox-2560-dark",
+              "results": [
+                {
+                  "workerIndex": 22,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 8771,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-23T07:59:39.876Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "042c349a669a27f03e1a-316a58e8277d7baddf11",
+          "file": "round17.spec.ts",
+          "line": 51,
+          "column": 3
+        },
+        {
+          "title": "R17 native share reject",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "firefox-1280-light",
+              "projectName": "firefox-1280-light",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 3,
+                  "status": "passed",
+                  "duration": 7486,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-23T07:58:24.458Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            },
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "firefox-1440-light",
+              "projectName": "firefox-1440-light",
+              "results": [
+                {
+                  "workerIndex": 5,
+                  "parallelIndex": 3,
+                  "status": "passed",
+                  "duration": 3693,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-23T07:58:45.978Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            },
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "firefox-2560-light",
+              "projectName": "firefox-2560-light",
+              "results": [
+                {
+                  "workerIndex": 11,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 7453,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-23T07:59:00.697Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            },
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "firefox-1280-dark",
+              "projectName": "firefox-1280-dark",
+              "results": [
+                {
+                  "workerIndex": 15,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 8009,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-23T07:59:13.299Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            },
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "firefox-1440-dark",
+              "projectName": "firefox-1440-dark",
+              "results": [
+                {
+                  "workerIndex": 19,
+                  "parallelIndex": 3,
+                  "status": "passed",
+                  "duration": 7639,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-23T07:59:28.653Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            },
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "firefox-2560-dark",
+              "projectName": "firefox-2560-dark",
+              "results": [
+                {
+                  "workerIndex": 23,
+                  "parallelIndex": 2,
+                  "status": "passed",
+                  "duration": 7456,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-23T07:59:42.281Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "042c349a669a27f03e1a-38caf00c83a9241ff62f",
+          "file": "round17.spec.ts",
+          "line": 51,
+          "column": 3
+        },
+        {
+          "title": "R17 native share abort",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "firefox-1280-light",
+              "projectName": "firefox-1280-light",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 2,
+                  "status": "passed",
+                  "duration": 3622,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-23T07:58:32.207Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            },
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "firefox-1440-light",
+              "projectName": "firefox-1440-light",
+              "results": [
+                {
+                  "workerIndex": 7,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 7686,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-23T07:58:48.475Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            },
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "firefox-2560-light",
+              "projectName": "firefox-2560-light",
+              "results": [
+                {
+                  "workerIndex": 9,
+                  "parallelIndex": 3,
+                  "status": "passed",
+                  "duration": 4006,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-23T07:59:00.816Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            },
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "firefox-1280-dark",
+              "projectName": "firefox-1280-dark",
+              "results": [
+                {
+                  "workerIndex": 13,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 3628,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-23T07:59:18.841Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            },
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "firefox-1440-dark",
+              "projectName": "firefox-1440-dark",
+              "results": [
+                {
+                  "workerIndex": 18,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 3783,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-23T07:59:33.829Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            },
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "firefox-2560-dark",
+              "projectName": "firefox-2560-dark",
+              "results": [
+                {
+                  "workerIndex": 21,
+                  "parallelIndex": 3,
+                  "status": "passed",
+                  "duration": 3308,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-23T07:59:48.967Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "042c349a669a27f03e1a-d294ca3b1e2238e4f934",
+          "file": "round17.spec.ts",
+          "line": 51,
+          "column": 3
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-11-23T07:58:22.794Z",
+    "duration": 91808.17599999999,
+    "expected": 30,
+    "skipped": 0,
+    "unexpected": 0,
+    "flaky": 0
+  }
+}

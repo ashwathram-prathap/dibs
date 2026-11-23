@@ -1,0 +1,235 @@
+{
+  "dailySetup": {
+    "reads": 41,
+    "writes": 74
+  },
+  "doStorageSetup": {
+    "reads": 3,
+    "writes": 3
+  },
+  "doStorageLogicalRows": {
+    "reads": 6,
+    "writes": 6
+  },
+  "mode": "after-local",
+  "at": "2026-11-23T08:09:54.909Z",
+  "scenario": "load, verification, typo, 6 guesses (3 claims, 1 taken strike, 2 reserved strikes), leaderboard, share, return visit; separate control player establishes the taken answer",
+  "httpRequests": 4,
+  "pagesFunctionRequests": 0,
+  "workerRequests": 4,
+  "doRequests": 4.45,
+  "socketMessages": 9,
+  "d1RowsRead": 0,
+  "d1RowsWritten": 6,
+  "allMutationsMetered": true,
+  "samples": [
+    {
+      "path": "/bootstrap",
+      "action": "/bootstrap",
+      "doReads": 0,
+      "doWrites": 0,
+      "transport": "http",
+      "status": 200,
+      "reads": 0,
+      "writes": 0,
+      "metered": true
+    },
+    {
+      "path": "/verify-session",
+      "action": "/verify-session",
+      "doReads": 0,
+      "doWrites": 0,
+      "transport": "socket",
+      "status": 200,
+      "reads": 0,
+      "writes": 0,
+      "metered": true
+    },
+    {
+      "path": "/claim",
+      "action": "typo",
+      "doReads": 0,
+      "doWrites": 0,
+      "transport": "socket",
+      "status": 422,
+      "reads": 0,
+      "writes": 0,
+      "metered": true
+    },
+    {
+      "path": "/claim",
+      "action": "claim",
+      "doReads": 1,
+      "doWrites": 1,
+      "transport": "socket",
+      "status": 201,
+      "reads": 0,
+      "writes": 0,
+      "metered": true
+    },
+    {
+      "path": "/interval-mirror",
+      "action": "mirror after guess 1",
+      "reads": 0,
+      "writes": 1,
+      "status": 200,
+      "doReads": 0,
+      "doWrites": 0
+    },
+    {
+      "path": "/claim",
+      "action": "strike",
+      "doReads": 1,
+      "doWrites": 1,
+      "transport": "socket",
+      "status": 409,
+      "reads": 0,
+      "writes": 0,
+      "metered": true
+    },
+    {
+      "path": "/interval-mirror",
+      "action": "mirror after guess 2",
+      "reads": 0,
+      "writes": 1,
+      "status": 200,
+      "doReads": 0,
+      "doWrites": 0
+    },
+    {
+      "path": "/claim",
+      "action": "reserved",
+      "doReads": 1,
+      "doWrites": 1,
+      "transport": "socket",
+      "status": 409,
+      "reads": 0,
+      "writes": 0,
+      "metered": true
+    },
+    {
+      "path": "/interval-mirror",
+      "action": "mirror after guess 3",
+      "reads": 0,
+      "writes": 1,
+      "status": 200,
+      "doReads": 0,
+      "doWrites": 0
+    },
+    {
+      "path": "/claim",
+      "action": "reserved",
+      "doReads": 1,
+      "doWrites": 1,
+      "transport": "socket",
+      "status": 409,
+      "reads": 0,
+      "writes": 0,
+      "metered": true
+    },
+    {
+      "path": "/interval-mirror",
+      "action": "mirror after guess 4",
+      "reads": 0,
+      "writes": 1,
+      "status": 200,
+      "doReads": 0,
+      "doWrites": 0
+    },
+    {
+      "path": "/claim",
+      "action": "claim",
+      "doReads": 1,
+      "doWrites": 1,
+      "transport": "socket",
+      "status": 201,
+      "reads": 0,
+      "writes": 0,
+      "metered": true
+    },
+    {
+      "path": "/interval-mirror",
+      "action": "mirror after guess 5",
+      "reads": 0,
+      "writes": 1,
+      "status": 200,
+      "doReads": 0,
+      "doWrites": 0
+    },
+    {
+      "path": "/claim",
+      "action": "claim",
+      "doReads": 1,
+      "doWrites": 1,
+      "transport": "socket",
+      "status": 201,
+      "reads": 0,
+      "writes": 0,
+      "metered": true
+    },
+    {
+      "path": "/interval-mirror",
+      "action": "mirror after guess 6",
+      "reads": 0,
+      "writes": 1,
+      "status": 200,
+      "doReads": 0,
+      "doWrites": 0
+    },
+    {
+      "path": "/leaderboard",
+      "action": "/leaderboard",
+      "doReads": 0,
+      "doWrites": 0,
+      "transport": "http",
+      "status": 200,
+      "reads": 0,
+      "writes": 0,
+      "metered": true
+    },
+    {
+      "path": "/events/share",
+      "action": "/events/share",
+      "doReads": 0,
+      "doWrites": 0,
+      "transport": "socket",
+      "status": 200,
+      "reads": 0,
+      "writes": 0,
+      "metered": true
+    },
+    {
+      "path": "/batch-mirror",
+      "reads": 0,
+      "writes": 0,
+      "status": 200,
+      "doReads": 0,
+      "doWrites": 0
+    },
+    {
+      "path": "/bootstrap",
+      "action": "/bootstrap",
+      "doReads": 0,
+      "doWrites": 0,
+      "transport": "http",
+      "status": 200,
+      "reads": 0,
+      "writes": 0,
+      "metered": true
+    }
+  ],
+  "storageCauses": {
+    "CREATE TABLE IF NOT EXISTS events(seq INTEGER PRIMARY KEY, payload TEXT NOT NULL)": {
+      "reads": 1,
+      "writes": 2
+    },
+    "SELECT seq,payload FROM events ORDER BY seq": {
+      "reads": 1,
+      "writes": 0
+    },
+    "INSERT INTO events(seq,payload) VALUES(?,?)": {
+      "reads": 7,
+      "writes": 7
+    }
+  }
+}

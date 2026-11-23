@@ -143,7 +143,7 @@ await Promise.all(
       assert.equal(returned.data.me.file.dibs, 3);
       completed++;
     } catch (e) {
-      errors.push({ player: i, error: String(e) });
+      errors.push({ player: i, error: String(e), cause: String((e as any)?.cause || '') });
     }
   }),
 );

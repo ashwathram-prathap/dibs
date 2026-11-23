@@ -306,6 +306,7 @@ try {
     await new Promise((r) => setTimeout(r, 500));
     setupStorage = { ...storageTotals };
     storageTotals.reads = storageTotals.writes = 0;
+    for(const key of Object.keys(causes))delete causes[key];
   }
   const boot = await http('/bootstrap');
   assert.equal(boot.status, 200);
@@ -364,6 +365,22 @@ try {
       requestId: crypto.randomUUID(),
     });
     assert.equal(r.status, i === 0 || i >= 4 ? 201 : 409, JSON.stringify(r.data));
+    if (journal && process.argv.includes('--spread')) {
+      const mirror = await mf.dispatchFetch('http://localhost/api/admin/r17-flush', {
+        method: 'POST',
+        headers: { authorization: 'Bearer static-test-admin', origin: 'https://dibs.here' },
+      });
+      await mirror.text();
+      samples.push({
+        path: '/interval-mirror',
+        action: 'mirror after guess ' + (i + 1),
+        reads: Number(mirror.headers.get('x-d1-rows-read')),
+        writes: Number(mirror.headers.get('x-d1-rows-written')),
+        status: mirror.status,
+        ...(await storageDelta()),
+      });
+      assert.equal(mirror.status, 200);
+    }
   }
 
   // Current leaderboard is already in bootstrap and pushes; baseline opened an HTTP view.
