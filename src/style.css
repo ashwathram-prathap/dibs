@@ -7859,3 +7859,11 @@ html[data-theme='dark'] .golden-row .guess-number::after {
   padding-block: 0.5rem;
   font-size: 0.875rem;
 }
+
+/* Golden text uses the same AA ink in the live certificate and its exports. */
+.gold-stamp,
+.gold-stamp strong,
+.gold-stamp span {
+  color: var(--gold);
+  border-color: var(--gold);
+}

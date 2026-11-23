@@ -141,8 +141,8 @@ export async function exportCertificate(claim: Claim, story: boolean, hideAnswer
   c.save();
   c.translate(780, h - 265);
   c.rotate(((((claim.claim_no * 7.31) % 7) - 4) * Math.PI) / 180);
-  c.strokeStyle = claim.golden ? '#B8902F' : '#E1462B';
-  c.fillStyle = claim.golden ? '#B8902F' : '#E1462B';
+  c.strokeStyle = claim.golden ? (dark ? '#e7c86b' : '#795700') : '#E1462B';
+  c.fillStyle = claim.golden ? (dark ? '#e7c86b' : '#795700') : '#E1462B';
   c.lineWidth = 5;
   c.strokeRect(-166, -67, 332, 147);
   c.font = '900 110px Archivo';
@@ -193,7 +193,11 @@ async function drawCurve(
   golden: boolean,
 ) {
   const ink = document.documentElement.dataset.theme === 'dark' ? '#F1ECE2' : '#1A1A17';
-  const accent = golden ? '#B8902F' : '#E1462B',
+  const accent = golden
+      ? document.documentElement.dataset.theme === 'dark'
+        ? '#e7c86b'
+        : '#795700'
+      : '#E1462B',
     plotHeight = h - 26;
   const matrix = new DOMMatrix([w / 520, 0, 0, plotHeight / 120, x, y]);
   const area = new Path2D(),
