@@ -1,0 +1,68 @@
+{
+  "passed": true,
+  "production": "No production claims exist before launch; the same production-mode handler passed local API tests. Production remains read-only.",
+  "checks": [
+    {
+      "engine": "chromium",
+      "kind": "claim",
+      "printed": "practice.dibs-7hz.pages.dev/c/2026-11-23-8af15d99-a2fa-4218-9a68-981bb5780d6f",
+      "short": "https://practice.dibs-7hz.pages.dev/c/2026-11-23-8af15",
+      "id": "2026-11-23-8af15d99-a2fa-4218-9a68-981bb5780d6f",
+      "passed": true
+    },
+    {
+      "engine": "chromium",
+      "kind": "claim",
+      "printed": "practice.dibs-7hz.pages.dev/c/2026-11-23-ebead206-bfa9-4c17-bfb8-7e96ff234374",
+      "short": "https://practice.dibs-7hz.pages.dev/c/2026-11-23-ebead",
+      "id": "2026-11-23-ebead206-bfa9-4c17-bfb8-7e96ff234374",
+      "passed": true
+    },
+    {
+      "engine": "chromium",
+      "kind": "claim",
+      "printed": "practice.dibs-7hz.pages.dev/c/2026-11-23-f2f44b5e-b794-40bc-8b03-be69e4cd1d1d",
+      "short": "https://practice.dibs-7hz.pages.dev/c/2026-11-23-f2f44",
+      "id": "2026-11-23-f2f44b5e-b794-40bc-8b03-be69e4cd1d1d",
+      "passed": true
+    },
+    {
+      "engine": "chromium",
+      "kind": "summary",
+      "printed": "practice.dibs-7hz.pages.dev/summary/2026-11-23-b139e917-dfe2-4ecf-b6cb-bada91aed95a",
+      "id": "2026-11-23-b139e917-dfe2-4ecf-b6cb-bada91aed95a",
+      "passed": true
+    },
+    {
+      "engine": "webkit",
+      "kind": "claim",
+      "printed": "practice.dibs-7hz.pages.dev/c/2026-11-23-2abd1bcc-5c73-4c7b-8974-1a8c2499b3af",
+      "short": "https://practice.dibs-7hz.pages.dev/c/2026-11-23-2abd1",
+      "id": "2026-11-23-2abd1bcc-5c73-4c7b-8974-1a8c2499b3af",
+      "passed": true
+    },
+    {
+      "engine": "webkit",
+      "kind": "claim",
+      "printed": "practice.dibs-7hz.pages.dev/c/2026-11-23-53b8888f-6926-4fef-82a5-3e5a2bdc83ce",
+      "short": "https://practice.dibs-7hz.pages.dev/c/2026-11-23-53b88",
+      "id": "2026-11-23-53b8888f-6926-4fef-82a5-3e5a2bdc83ce",
+      "passed": true
+    },
+    {
+      "engine": "webkit",
+      "kind": "claim",
+      "printed": "practice.dibs-7hz.pages.dev/c/2026-11-23-fb5bb5f9-75a5-439c-b685-407768afd1c9",
+      "short": "https://practice.dibs-7hz.pages.dev/c/2026-11-23-fb5bb",
+      "id": "2026-11-23-fb5bb5f9-75a5-439c-b685-407768afd1c9",
+      "passed": true
+    },
+    {
+      "engine": "webkit",
+      "kind": "summary",
+      "printed": "practice.dibs-7hz.pages.dev/summary/2026-11-23-8eb7e1ed-1c01-476d-94bb-0e43f610e7c8",
+      "id": "2026-11-23-8eb7e1ed-1c01-476d-94bb-0e43f610e7c8",
+      "passed": true
+    }
+  ]
+}

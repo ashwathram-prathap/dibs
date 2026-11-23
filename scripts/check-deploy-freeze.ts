@@ -11,4 +11,8 @@ const stage = process.argv.includes('--round19d')
           ? 'part-a'
           : 'base';
 if (process.argv.includes('--production') && deploymentBlocked(Date.now(), stage))
-  throw Error(`Launch freeze: ${stage} production releases are paused until Nov 24 midnight ET.`);
+  throw Error(
+    stage === 'r19d'
+      ? 'R19D production deadline passed: no deployment after Mon Nov 23, 7:45 PM ET.'
+      : `Launch freeze: ${stage} production releases are paused until Nov 24 midnight ET.`,
+  );

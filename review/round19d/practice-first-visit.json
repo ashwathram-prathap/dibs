@@ -1,0 +1,61 @@
+{
+  "passed": true,
+  "at": "2026-11-23T22:41:37.606Z",
+  "opensAt": "2026-11-23T22:40:40.598Z",
+  "checks": [
+    {
+      "engine": "chromium",
+      "answer": "Stinkroach",
+      "points": 65,
+      "bonus": 0,
+      "percentile": 0.5729,
+      "passed": true,
+      "errors": []
+    },
+    {
+      "engine": "chromium",
+      "answer": "Lesser Rhea",
+      "points": 95,
+      "bonus": 0,
+      "percentile": 0.8651,
+      "passed": true,
+      "errors": []
+    },
+    {
+      "engine": "chromium",
+      "answer": "Atlas moth",
+      "points": 45,
+      "bonus": 0,
+      "percentile": 0.3991,
+      "passed": true,
+      "errors": []
+    },
+    {
+      "engine": "webkit",
+      "answer": "Eastern water dragon",
+      "points": 55,
+      "bonus": 0,
+      "percentile": 0.5132,
+      "passed": true,
+      "errors": []
+    },
+    {
+      "engine": "webkit",
+      "answer": "Viscacha",
+      "points": 45,
+      "bonus": 0,
+      "percentile": 0.4265,
+      "passed": true,
+      "errors": []
+    },
+    {
+      "engine": "webkit",
+      "answer": "Wedge-tailed Eagle",
+      "points": 25,
+      "bonus": 0,
+      "percentile": 0.2137,
+      "passed": true,
+      "errors": []
+    }
+  ]
+}

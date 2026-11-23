@@ -1,0 +1,57 @@
+[
+  {
+    "name": "Back up existing practice records",
+    "passed": true,
+    "at": "2026-11-23T22:38:32.717Z"
+  },
+  {
+    "name": "Publish practice assets before Worker",
+    "passed": true,
+    "at": "2026-11-23T22:38:43.648Z"
+  },
+  {
+    "name": "Deploy practice Worker",
+    "passed": true,
+    "at": "2026-11-23T22:39:10.406Z"
+  },
+  {
+    "name": "Suppress practice rehearsal alerts",
+    "passed": true,
+    "at": "2026-11-23T22:39:19.796Z"
+  },
+  {
+    "name": "Install official practice verification secret",
+    "passed": true,
+    "at": "2026-11-23T22:39:21.487Z"
+  },
+  {
+    "name": "Deploy practice test verification",
+    "passed": true,
+    "at": "2026-11-23T22:39:36.425Z"
+  },
+  {
+    "name": "Free the practice rehearsal date",
+    "passed": true,
+    "at": "2026-11-23T22:39:40.598Z"
+  },
+  {
+    "name": "Restore every practice date without resetting claims",
+    "passed": true,
+    "at": "2026-11-23T22:41:38.546Z"
+  },
+  {
+    "name": "Restore real practice verification secret",
+    "passed": true,
+    "at": "2026-11-23T22:41:40.118Z"
+  },
+  {
+    "name": "Deploy final real-verification practice Worker",
+    "passed": true,
+    "at": "2026-11-23T22:41:51.929Z"
+  },
+  {
+    "name": "Restore original practice notification setting",
+    "passed": true,
+    "at": "2026-11-23T22:41:53.102Z"
+  }
+]
