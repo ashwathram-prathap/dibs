@@ -149,7 +149,18 @@ export class Registry extends DurableObject<Env> {
     };
   }
   async newHandle() {
-    return handle();
+    // Legacy users still have a UNIQUE handle column. Reserve a fresh plain pair.
+    return this.ctx.blockConcurrencyWhile(async () => {
+      for (let attempt = 0; attempt < 100; attempt++) {
+        const name = handle();
+        if (await this.ctx.storage.get('handle:' + name)) continue;
+        if (await this.env.DB.prepare('SELECT id FROM users WHERE handle=?').bind(name).first())
+          continue;
+        await this.ctx.storage.put('handle:' + name, 1);
+        return name;
+      }
+      throw Error('Handle pool unavailable');
+    });
   }
   async session(req: Request, create = false): Promise<{ session?: Session; cookie: string }> {
     let id = await cookieUser(req, this.env.COOKIE_SECRET);

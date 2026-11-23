@@ -23,6 +23,7 @@ jobs:
       - run: npx tsx scripts/build-catalog-assets.ts && npx tsx scripts/build-scores.ts && npx vite build --mode security-test
       - run: R19_FIREFOX=1 npx playwright test -c playwright.r19.config.ts
       - run: R19_FULL=1 R19_FIREFOX=1 R19_REPORT=review/round19/firefox-regression-results.json npx playwright test -c playwright.r19.config.ts --project='firefox-390-*' --project='firefox-1440-*'
+      - run: R19_FIREFOX=1 npx playwright test -c playwright.r19-devices.config.ts
       - name: Firefox text and Settings audit
         if: always()
         run: |

@@ -104,12 +104,18 @@ for (const [name, engine] of Object.entries(
           await page.screenshot({
             path: `review/round19/settings/${phase}-${name}-${width}-${scale}-${theme}.png`,
           });
-        writeFileSync(`review/round19/settings/${phase}.json`, JSON.stringify(results, null, 2));
+        writeFileSync(
+          `review/round19/settings/${process.env.R19_FIREFOX ? 'firefox-' : ''}${phase}.json`,
+          JSON.stringify(results, null, 2),
+        );
         await context.close();
       }
   await browser.close();
 }
-writeFileSync(`review/round19/settings/${phase}.json`, JSON.stringify(results, null, 2));
+writeFileSync(
+  `review/round19/settings/${process.env.R19_FIREFOX ? 'firefox-' : ''}${phase}.json`,
+  JSON.stringify(results, null, 2),
+);
 console.log(
   JSON.stringify({
     phase,

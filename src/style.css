@@ -6976,3 +6976,14 @@ body {
     display: inline;
   }
 }
+
+.certificate .cert-bottom {
+  flex-wrap: wrap;
+}
+.certificate .cert-bottom > div:first-child {
+  flex: 1 1 20rem;
+  min-width: 0;
+}
+.certificate .cert-bottom .dibs-stamp {
+  margin-left: auto;
+}
