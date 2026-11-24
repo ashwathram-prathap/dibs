@@ -2,7 +2,7 @@ import { defineConfig } from '@playwright/test';
 import base from './playwright.config';
 // R19I: OVERNIGHT.md device profiles (iPhone SE/15 Pro/15 Pro Max, Pixel 7, Galaxy S9+, iPads,
 // 320px, phone landscape, desktop 1280/1440/2560, in-app user agents), full flow end to end.
-// Firefox desktop profiles run in CI (local Firefox cannot start its profile on this Mac).
+// Firefox runs in the separate local R19I matrix; document local launch blockers without a CI fallback.
 const port = process.env.R19I_DEVICE_PORT || '5247';
 export default defineConfig({
   ...base,

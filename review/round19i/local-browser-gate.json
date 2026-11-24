@@ -1,0 +1,48 @@
+{
+  "at": "2026-11-24T20:12:00.389Z",
+  "source": "review/round19i/browser-results.json (local Playwright run)",
+  "chromiumWebkitPassed": true,
+  "firefox": {
+    "engine": "firefox",
+    "passed": false,
+    "tests": 252,
+    "passedTests": 0,
+    "skipped": 0,
+    "failed": 252,
+    "blocked": true,
+    "attempts": 3
+  },
+  "engines": [
+    {
+      "engine": "chromium",
+      "passed": true,
+      "tests": 252,
+      "passedTests": 246,
+      "skipped": 6,
+      "failed": 0,
+      "blocked": false,
+      "attempts": 1
+    },
+    {
+      "engine": "webkit",
+      "passed": true,
+      "tests": 252,
+      "passedTests": 246,
+      "skipped": 6,
+      "failed": 0,
+      "blocked": false,
+      "attempts": 1
+    },
+    {
+      "engine": "firefox",
+      "passed": false,
+      "tests": 252,
+      "passedTests": 0,
+      "skipped": 0,
+      "failed": 252,
+      "blocked": true,
+      "attempts": 3
+    }
+  ],
+  "limitation": "Firefox cannot start on this Mac, including a fresh browser install and a project-local profile. No CI fallback was used."
+}

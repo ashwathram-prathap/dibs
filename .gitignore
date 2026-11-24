@@ -187,6 +187,7 @@ review/round19e/unit-results.json
 review/round19e/lighthouse*/
 review/round19e/firefox-ci/
 review/final/round19e/
+scripts/peek-golden.ts
 
 # R19G full-resolution visual evidence and raw runner reports.
 review/round19g/ui/
@@ -197,3 +198,10 @@ review/round19g/firefox-ci/
 review/round19g/*browser-results.json
 review/round19g/unit-results.json
 review/final/round19g/
+
+# R19I raw browser evidence and local release diagnostics.
+review/round19i/**/*.png
+review/round19i/*browser-results.json
+review/round19i/device-results.json
+review/round19i/unit-results.json
+review/round19i/lighthouse*/

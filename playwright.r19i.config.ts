@@ -1,6 +1,6 @@
 import { defineConfig } from '@playwright/test';
 // R19I: no second strike for a repeat guess, plus the full R19H three-claim gate. Phone fit at 360×780 and 390×844, 767/768 boundary,
-// 1.3 font scale, both themes, Chromium/WebKit locally and Firefox in CI (R19I_FIREFOX).
+// 1.3 font scale, both themes, all browsers locally (R19I_ENGINES or R19I_FIREFOX).
 const port = process.env.R19I_PORT || '5243';
 const sizes: [number, number, number[]][] = [
   [320, 568, [1]],
