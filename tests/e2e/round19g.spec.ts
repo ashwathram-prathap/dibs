@@ -53,13 +53,12 @@ test('Builder credit stays grouped, accessible and confined to footer and inform
       true,
     );
     if (await footer.isVisible()) {
-      const nameBox = await footer
-        .getByRole('link', { name: 'Ashwathram Prathap', exact: true, includeHidden: true })
-        .boundingBox();
-      const xBox = await footer
-        .getByRole('link', { name: 'Ashwathram Prathap on X', includeHidden: true })
-        .boundingBox();
-      expect(Math.abs(nameBox!.y - xBox!.y)).toBeLessThan(3);
+      // Measure both links in one frame: lazy sections above can still move the footer.
+      const gap = await footer.locator('.creator-credit').evaluate((credit) => {
+        const [name, x] = [...credit.querySelectorAll('a')].map((a) => a.getBoundingClientRect());
+        return Math.abs(name.y - x.y);
+      });
+      expect(gap).toBeLessThan(3);
     }
     const violations = await new AxeBuilder({ page })
       .include('footer')
