@@ -6,13 +6,16 @@ const dir = 'review/round19g/';
 const read = (name: string) => JSON.parse(readFileSync(dir + name, 'utf8'));
 const unit = read('unit-results.json');
 assert.ok(unit.success && !unit.numFailedTests);
-for (const file of ['browser-results.json', 'firefox-browser-results.json']) {
+for (const file of ['browser-results.json']) {
   const r = read(file);
   assert.ok(
     r.stats.expected > 0 && !r.stats.unexpected && !r.stats.flaky && !r.stats.skipped,
     file,
   );
 }
+const firefox = read('firefox-ci-summary.json');
+assert.equal(firefox.conclusion, 'success');
+assert.equal(firefox.passed, 24);
 assert.ok(read('practice-smoke.json').passed);
 const lh = read('lighthouse-practice/mobile.json');
 assert.ok(lh.categories.performance.score >= 0.9 && lh.categories.accessibility.score >= 0.95);

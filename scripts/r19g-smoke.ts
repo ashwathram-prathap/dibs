@@ -14,34 +14,34 @@ for (const [engine, label] of [
   const browser = await engine.launch();
   try {
     for (const width of [360, 1440])
-      for (const colorScheme of ['light', 'dark'] as const) {
-        const context = await browser.newContext({
-          viewport: { width, height: width === 360 ? 844 : 900 },
-          colorScheme,
-          reducedMotion: 'reduce',
-        });
-        const page = await context.newPage();
-        const errors: string[] = [];
-        const mutations: string[] = [];
-        page.on('request', (r) => {
-          if (
-            r.url().startsWith(origin + '/api/') &&
-            !['GET', 'HEAD', 'OPTIONS'].includes(r.method())
-          )
-            mutations.push(r.method() + ' ' + r.url());
-        });
-        page.on('pageerror', (e) => errors.push(e.message));
-        page.on('console', (m) => {
-          if (m.type() !== 'error') return;
-          const source = m.location().url;
-          if (
-            source.includes('challenges.cloudflare.com') ||
-            /%c%[do]|hagen.challenges.cloudflare.com|Fetch API cannot load data:,/.test(m.text())
-          ) {
-            challengeDiagnostics.push({ source, text: m.text() });
-          } else errors.push(m.text());
-        });
+      for (const colorScheme of ['light', 'dark'] as const)
         for (const path of ['/', '/about', '/how-it-works']) {
+          const context = await browser.newContext({
+            viewport: { width, height: width === 360 ? 844 : 900 },
+            colorScheme,
+            reducedMotion: 'reduce',
+          });
+          const page = await context.newPage();
+          const errors: string[] = [];
+          const mutations: string[] = [];
+          page.on('request', (r) => {
+            if (
+              r.url().startsWith(origin + '/api/') &&
+              !['GET', 'HEAD', 'OPTIONS'].includes(r.method())
+            )
+              mutations.push(r.method() + ' ' + r.url());
+          });
+          page.on('pageerror', (e) => errors.push(e.message));
+          page.on('console', (m) => {
+            if (m.type() !== 'error') return;
+            const source = m.location().url;
+            if (
+              source.includes('challenges.cloudflare.com') ||
+              /%c%[do]|hagen.challenges.cloudflare.com|Fetch API cannot load data:,/.test(m.text())
+            ) {
+              challengeDiagnostics.push({ source, text: m.text() });
+            } else errors.push(m.text());
+          });
           const bootstrap = page.waitForResponse(
             (r) => r.url() === origin + '/api/bootstrap' && r.status() === 200,
           );
@@ -78,12 +78,20 @@ for (const [engine, label] of [
               path: `${dir}/${path.replaceAll('/', '') || 'home'}.png`,
               fullPage: true,
             });
-          results.push({ engine: label, width, colorScheme, path, passed: true });
+
+          assert.deepEqual(errors, [], 'Browser console must be clean');
+          assert.deepEqual(mutations, [], 'Smoke must be read-only');
+          results.push({
+            engine: label,
+            width,
+            colorScheme,
+            path,
+            passed: true,
+            consoleErrors: errors,
+            apiMutations: mutations,
+          });
+          await context.close();
         }
-        assert.deepEqual(errors, [], 'Browser console must be clean');
-        assert.deepEqual(mutations, [], 'Smoke must be read-only');
-        await context.close();
-      }
   } finally {
     await browser.close();
   }

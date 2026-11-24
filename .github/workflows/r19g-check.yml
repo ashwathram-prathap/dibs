@@ -24,8 +24,8 @@ jobs:
         with:
           name: r19g-firefox
           path: |
-            review/round19f/firefox-browser-results.json
-            review/round19f/ui/
+            review/round19g/firefox-browser-results.json
+            review/round19g/ui/
             review/devices/
             .tmp/r19g/browser-artifacts/
           retention-days: 14
