@@ -7867,3 +7867,46 @@ html[data-theme='dark'] .golden-row .guess-number::after {
   color: var(--gold);
   border-color: var(--gold);
 }
+
+/* Keep the builder and profile together as one footer group. */
+.page footer .creator-credit {
+  grid-column: 1 / -1;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  white-space: nowrap;
+  font:
+    400 1rem/1.5 'Instrument Sans',
+    sans-serif;
+}
+.page footer .creator-credit > span {
+  font: inherit;
+}
+.page footer .creator-credit .creator-x,
+.builder-note .creator-x {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 2.75rem;
+  min-height: 2.75rem;
+}
+.builder-note {
+  margin-top: 2rem;
+  color: var(--ink);
+}
+.builder-note a {
+  color: var(--ink);
+  text-decoration: underline;
+  text-decoration-color: var(--stamp);
+  text-underline-offset: 0.25rem;
+}
+@media (max-width: 359px) {
+  .page footer .creator-credit {
+    display: grid;
+    grid-template-columns: max-content max-content;
+    gap: 0 0.5rem;
+  }
+  .page footer .creator-credit > span {
+    grid-column: 1 / -1;
+  }
+}

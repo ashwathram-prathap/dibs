@@ -1,3 +1,4 @@
+import { BuilderNote, CreatorLinks } from './CreatorCredit';
 import { claimScore } from '../shared/claim-copy';
 import { goldenPerDay } from '../shared/config';
 import { LAUNCH_EXPLANATION } from '../shared/copy';
@@ -479,6 +480,7 @@ export default function App() {
                   Each night during launch week we post a clue to one golden ticket. The rest stay
                   secret.
                 </p>
+                <BuilderNote />
               </section>
             ) : path === '/about' ? (
               <About nextDrop={today.nextDrop} />
@@ -508,6 +510,10 @@ export default function App() {
             <a href="/about#privacy">Privacy</a>
             <a href="/about#sources">Sources</a>
             <Feedback sitekey={today?.turnstileSiteKey || ''} />
+            <div className="creator-credit">
+              <span>Made by</span>
+              <CreatorLinks />
+            </div>
           </nav>
         </footer>
       </div>

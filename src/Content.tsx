@@ -8,7 +8,7 @@ import {
   RESERVED_EXPLANATION,
 } from '../shared/copy';
 import { archiveCsv, validateArchive } from '../shared/feedback-archive';
-import { SHOW_CREATOR_CREDIT, CREATOR_URL, X_URL } from '../shared/creator';
+import { BuilderNote } from './CreatorCredit';
 import { Rules, DropTime, Link, time } from './ui';
 import { Icon } from './Icon';
 export function About({ nextDrop }: { nextDrop: string }) {
@@ -137,14 +137,10 @@ export function About({ nextDrop }: { nextDrop: string }) {
               Obscurity uses Wikipedia pageviews, grouped from 1 (familiar) to 5 (less read). It
               describes the article’s readership, not your intelligence.
             </p>
-            {SHOW_CREATOR_CREDIT && (
-              <p>
-                Made by <a href={CREATOR_URL}>Ashwathram</a> · <a href={X_URL}>X</a>
-              </p>
-            )}
           </div>
         </section>
       </div>
+      <BuilderNote />
     </>
   );
 }
