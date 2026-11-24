@@ -1,0 +1,47 @@
+[
+  {
+    "name": "Go/no-go (4:00 PM ET)",
+    "passed": true,
+    "at": "2026-11-24T11:12:04.198Z"
+  },
+  {
+    "name": "Capture current rollback point",
+    "passed": true,
+    "at": "2026-11-24T11:12:06.037Z"
+  },
+  {
+    "name": "Production D1 backup (D1 only; not a DO journal backup)",
+    "passed": true,
+    "at": "2026-11-24T11:12:08.493Z"
+  },
+  {
+    "name": "R19H cutoff check before Pages deploy",
+    "passed": true,
+    "at": "2026-11-24T11:12:08.673Z"
+  },
+  {
+    "name": "Deploy production Pages",
+    "passed": true,
+    "at": "2026-11-24T11:12:18.689Z"
+  },
+  {
+    "name": "Wait for fresh canonical assets (cache-bypassed)",
+    "passed": true,
+    "at": "2026-11-24T11:12:20.535Z"
+  },
+  {
+    "name": "Verify canonical build integrity",
+    "passed": true,
+    "at": "2026-11-24T11:12:22.431Z"
+  },
+  {
+    "name": "Read-only live-state production smoke",
+    "passed": true,
+    "at": "2026-11-24T11:12:50.557Z"
+  },
+  {
+    "name": "Record released IDs",
+    "passed": true,
+    "at": "2026-11-24T11:12:52.017Z"
+  }
+]

@@ -1,0 +1,106 @@
+{
+  "at": "2026-11-24T11:12:20.513Z",
+  "passed": true,
+  "entry": "/assets/index-B0Xy_8hu.js",
+  "inlineStyleHashes": [
+    "5ffa8cd03fa8d3c51f20fd6a741e091848efa9f50fa0220cb327e68945e06729",
+    "4161e1456bba854db2341b82d6a685464f6d9c2e810d09599867e04469d89e45"
+  ],
+  "rows": [
+    {
+      "path": "Archive-Ctv7ulH9.js",
+      "status": 200,
+      "type": "application/javascript",
+      "bytes": 4623,
+      "matches": true
+    },
+    {
+      "path": "Calendar-CruvZq1j.js",
+      "status": 200,
+      "type": "application/javascript",
+      "bytes": 9595,
+      "matches": true
+    },
+    {
+      "path": "Certificate-iFqElXXW.js",
+      "status": 200,
+      "type": "application/javascript",
+      "bytes": 101405,
+      "matches": true
+    },
+    {
+      "path": "Content-DwDP5rGI.js",
+      "status": 200,
+      "type": "application/javascript",
+      "bytes": 13047,
+      "matches": true
+    },
+    {
+      "path": "Leaderboard-CECVaVKt.js",
+      "status": 200,
+      "type": "application/javascript",
+      "bytes": 2563,
+      "matches": true
+    },
+    {
+      "path": "Ledger-BkQhsITX.js",
+      "status": 200,
+      "type": "application/javascript",
+      "bytes": 5108,
+      "matches": true
+    },
+    {
+      "path": "Settings-DkaY7G_v.js",
+      "status": 200,
+      "type": "application/javascript",
+      "bytes": 9489,
+      "matches": true
+    },
+    {
+      "path": "index-B0Xy_8hu.js",
+      "status": 200,
+      "type": "application/javascript",
+      "bytes": 286299,
+      "matches": true
+    },
+    {
+      "path": "index-Di3X9HBv.css",
+      "status": 200,
+      "type": "text/css; charset=utf-8",
+      "bytes": 125581,
+      "matches": true
+    },
+    {
+      "path": "jsx-runtime-B4UN2VIk.js",
+      "status": 200,
+      "type": "application/javascript",
+      "bytes": 9096,
+      "matches": true
+    },
+    {
+      "path": "spelling.worker-CrIfIp-F.js",
+      "status": 200,
+      "type": "application/javascript",
+      "bytes": 1958,
+      "matches": true
+    },
+    {
+      "path": "time-C9fgtIlF.js",
+      "status": 200,
+      "type": "application/javascript",
+      "bytes": 2209,
+      "matches": true
+    }
+  ],
+  "observations": [
+    {
+      "at": "2026-11-24T11:12:20.512Z",
+      "status": 200,
+      "actual": "/assets/index-B0Xy_8hu.js",
+      "expected": "/assets/index-B0Xy_8hu.js",
+      "stylesMatch": true,
+      "htmlMatches": true,
+      "passed": true
+    }
+  ]
+}
