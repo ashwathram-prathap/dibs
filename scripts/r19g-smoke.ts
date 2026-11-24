@@ -58,7 +58,7 @@ for (const [engine, label] of [
           ).toHaveAttribute('href', 'https://ashwathram.ca');
           await expect(
             footer.getByRole('link', { name: 'Ashwathram Prathap on X', includeHidden: true }),
-          ).toHaveAttribute('href', 'https://x.com/ashwarathap');
+          ).toHaveAttribute('href', 'https://x.com/ashwaprathap');
           if (path !== '/')
             await expect(page.locator('.builder-note')).toContainText(
               'Dibs is built by Ashwathram Prathap, a student at the University of Waterloo.',

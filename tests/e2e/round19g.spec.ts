@@ -35,7 +35,7 @@ test('Builder credit stays grouped, accessible and confined to footer and inform
         exact: true,
         includeHidden: true,
       });
-      await expect(x).toHaveAttribute('href', 'https://x.com/ashwarathap');
+      await expect(x).toHaveAttribute('href', 'https://x.com/ashwaprathap');
       for (const link of [name, x]) {
         await expect(link).toHaveAttribute('target', '_blank');
         await expect(link).toHaveAttribute('rel', 'noopener noreferrer');
