@@ -71,7 +71,7 @@ test('R19F golden results keep one phone Share action in flow and show owner ans
     await page.locator('#answer').fill(answer);
     await page.getByRole('button', { name: 'CALL DIBS', exact: true }).click();
     if (answer !== 'Wombat')
-      await page.getByRole('button', { name: 'Next claim', exact: true }).click();
+      await page.locator('.next-claim-shortcut').click();
   }
   await expect(page.locator('.golden-notice')).toContainText('Golden ticket.');
   await shot(page, info.project.name, 'gold-payoff');
@@ -104,7 +104,7 @@ test('R19F golden results keep one phone Share action in flow and show owner ans
   await expect.poll(() => page.evaluate(() => (window as any).__copied || '')).toContain('Okapi');
   expect(await page.evaluate(() => (window as any).__copied)).not.toContain("today's Dibs");
   const drawings = await page.evaluate(() => (window as any).__drawn);
-  expect(drawings.some((d: any) => d.value.includes('One category. Three claims.'))).toBe(true);
+  expect(drawings.some((d: any) => d.value.includes('One category. 3 claims a night.'))).toBe(true);
   expect(
     drawings.some((d: any) => d.value.includes('Wombat') && d.value.includes('Golden ticket')),
   ).toBe(true);

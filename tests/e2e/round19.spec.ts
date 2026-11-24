@@ -16,7 +16,7 @@ const done = async (page: any) => {
   for (const answer of ['Okapi', 'Quokka', 'Wombat']) {
     await claim(page, answer);
     if (answer !== 'Wombat')
-      await page.getByRole('button', { name: 'Next claim', exact: true }).click();
+      await page.locator('.next-claim-shortcut').click();
   }
   await page.getByRole('button', { name: 'See my results', exact: true }).click();
   await page.locator('.day-certificate').waitFor();
@@ -159,7 +159,7 @@ test('R19 streak changes once without moving the header, milestone and reset sta
     return { x: r.x, y: r.y + scrollY, width: r.width, height: r.height };
   });
   expect(after).toEqual(before);
-  await page.getByRole('button', { name: 'Next claim', exact: true }).click();
+  await page.locator('.next-claim-shortcut').click();
   await claim(page, 'Quokka');
   await expect(page.locator('.streak-chip strong')).toHaveText('3');
   await expect(page.locator('.streak-payoff')).toHaveCount(0);
@@ -256,7 +256,7 @@ test('R19 prepaint theme, higher contrast, forced colours and reduced motion rem
     expect(
       await page.locator('.win-stamp').evaluate((e) => getComputedStyle(e).borderTopStyle),
     ).toBe('solid');
-    await expect(page.getByRole('button', { name: 'Next claim', exact: true })).toBeVisible();
+    await expect(page.locator('.next-claim-shortcut')).toBeVisible();
   }
   await shot(page, 'preferences', info.project.name, false);
 });

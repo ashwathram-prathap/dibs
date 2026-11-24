@@ -33,7 +33,7 @@ for (const variant of ['first', 'second', 'third', 'two', 'strikes']) {
         });
       }
       await page
-        .getByRole('button', { name: i === 2 ? 'See my results' : 'Next claim', exact: true })
+        .locator(i === 2 ? '.win-actions > .primary' : '.next-claim-shortcut')
         .click();
     }
     await expect(page.locator('.day-certificate')).toContainText('Golden ticket found');
@@ -99,7 +99,7 @@ test('R19D changing the selected zone refreshes prepared images and answer hidin
     await page.locator('#answer').fill(answer);
     await page.getByRole('button', { name: 'CALL DIBS', exact: true }).click();
     await page
-      .getByRole('button', { name: i === 2 ? 'See my results' : 'Next claim', exact: true })
+      .locator(i === 2 ? '.win-actions > .primary' : '.next-claim-shortcut')
       .click();
   }
   await expect(page.getByRole('button', { name: 'SHARE', exact: true })).toBeEnabled();

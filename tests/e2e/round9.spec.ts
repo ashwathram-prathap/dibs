@@ -39,7 +39,7 @@ test('one card completes three wins and two strikes, then shares while other ans
         await expect(page.locator('.win-stamp')).toContainText(answer.toUpperCase());
         await expect(page.locator('.certificate')).toHaveCount(0);
         await screenshot('win-' + wins);
-        await page.getByRole('button', { name: 'Next claim' }).click();
+        await page.locator('.next-claim-shortcut').click();
         await expect(page.locator('#answer')).toBeFocused();
       }
     }
@@ -66,7 +66,7 @@ test('one card completes three wins and two strikes, then shares while other ans
     body: JSON.stringify({
       milliseconds: Date.now() - start,
       maxTapsPerGuess: 2,
-      note: 'Next claim focuses the input and is the first tap of the following guess.',
+      note: 'R19H: the input stays focused after a nonfinal claim; no extra tap is required.',
     }),
     contentType: 'application/json',
   });
@@ -140,7 +140,7 @@ test('390 phone keeps claim controls above an emulated keyboard', async ({ page 
       await expect(page.locator('.strike-count')).toBeVisible();
     else if (answer !== 'Quokka') {
       await expect(page.locator('.win-stamp')).toBeVisible();
-      await page.getByRole('button', { name: 'Next claim' }).click();
+      await page.locator('.next-claim-shortcut').click();
     }
   }
   await page.getByRole('button', { name: 'See my results', exact: true }).click();

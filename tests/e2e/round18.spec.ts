@@ -165,7 +165,7 @@ test('R18 clock is solid Archivo and fits every repeated tabular digit; sharing 
     await page.locator('#answer').press('Enter');
     if (answer !== 'Quokka') {
       expect(await page.locator('.share-buttons').count()).toBe(0);
-      await page.getByRole('button', { name: 'Next claim', exact: true }).click();
+      await page.locator('.next-claim-shortcut').click();
     }
   }
   await page.getByRole('button', { name: 'See my results', exact: true }).click();

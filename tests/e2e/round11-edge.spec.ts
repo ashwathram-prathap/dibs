@@ -16,22 +16,11 @@ test('keyboard-only play, announcements and 200 percent zoom', async ({ page }) 
     await page.keyboard.press('Enter');
     if (answer !== 'Quokka') {
       await expect(page.locator('.win-beat[role=status]')).toContainText(answer.toUpperCase());
-      // Tab follows the document to the Next claim action; no pointer input.
-      let next = await page
-        .getByRole('button', { name: 'Next claim' })
-        .evaluate((e) => e === document.activeElement);
-      for (let i = 0; i < 20 && !next; i++) {
-        await page.keyboard.press('Tab');
-        if (
-          await page
-            .getByRole('button', { name: 'Next claim' })
-            .evaluate((e) => e === document.activeElement)
-        ) {
-          next = true;
-          break;
-        }
-      }
-      expect(next).toBe(true);
+      // R19H: no Next claim tap; the input stays focused and usable for the next claim.
+      await expect(page.locator('#answer')).toBeFocused();
+      // The keyboard focus shortcut only focuses the input; it never submits.
+      await page.keyboard.press('Shift+Tab');
+      await expect(page.locator('.next-claim-shortcut')).toBeFocused();
       await page.keyboard.press('Enter');
       await expect(page.locator('#answer')).toBeFocused();
     }

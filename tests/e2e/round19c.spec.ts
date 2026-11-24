@@ -46,7 +46,7 @@ async function settle(page: Page) {
 }
 async function shot(page: Page, info: TestInfo, screen: string) {
   await settle(page);
-  const directory = `review/round19c/matrix/raw/${screen}`;
+  const directory = `${process.env.R19C_SHOTS || 'review/round19c/matrix'}/raw/${screen}`;
   mkdirSync(directory, { recursive: true });
   const options = {
     path: `${directory}/${info.project.name}.png`,
@@ -305,10 +305,7 @@ async function done(page: Page) {
     await claim(page, answer);
     await expect(page.locator('.win-stamp')).toContainText(answer.toUpperCase());
     await page
-      .getByRole('button', {
-        name: answer === 'Wombat' ? 'See my results' : 'Next claim',
-        exact: true,
-      })
+      .locator(answer === 'Wombat' ? '.win-actions > .primary' : '.next-claim-shortcut')
       .click();
   }
   await page.locator('.day-certificate').waitFor();
@@ -475,9 +472,10 @@ test('Each claim gets its payoff; third gold and fifth strike wait for the playe
 }, info) => {
   await page.emulateMedia({ reducedMotion: 'reduce' });
   await page.goto('/?r19&r19c&r6&gold-third&persist');
-  await page.locator('#leaderboard').waitFor();
+  await page.locator('#answer').waitFor();
   await settle(page);
-  const beforeWidget = (await page.locator('#leaderboard').boundingBox())!.y;
+  // R19H: phones show a collapsed board disclosure, so measure the play section itself.
+  const beforeWidget = (await page.locator('.claim-section').boundingBox())!.height;
   const verificationSlot = page.locator('.claim-section .turnstile');
   expect(await verificationSlot.evaluate((slot) => getComputedStyle(slot).minHeight)).toBe('80px');
   expect((await verificationSlot.boundingBox())!.height).toBeCloseTo(80, 2);
@@ -488,7 +486,7 @@ test('Each claim gets its payoff; third gold and fifth strike wait for the playe
     slot.append(widget);
   });
   await settle(page);
-  expect((await page.locator('#leaderboard').boundingBox())!.y).toBeCloseTo(beforeWidget, 2);
+  expect((await page.locator('.claim-section').boundingBox())!.height).toBeCloseTo(beforeWidget, 2);
   await verificationSlot.locator('[data-test-verification]').evaluate((widget) => widget.remove());
   for (const [i, answer] of ['Okapi', 'Quokka', 'Wombat'].entries()) {
     await claim(page, answer);
@@ -500,9 +498,10 @@ test('Each claim gets its payoff; third gold and fifth strike wait for the playe
       await page.locator('.win-stamp').evaluate((el) => getComputedStyle(el).animationName),
     ).toBe('none');
     await expect(page.locator('.day-certificate')).toHaveCount(0);
-    await audit(page, '.claim-section', '.win-actions > .primary');
+    await audit(page, '.claim-section', i < 2 ? '.next-claim-shortcut' : '.win-actions > .primary');
     await shot(page, info, 'claim-' + (i + 1));
-    if (i < 2) await page.getByRole('button', { name: 'Next claim', exact: true }).click();
+    // R19H: claims 1 and 2 keep the input focused; no Next claim tap is required.
+    if (i < 2) await expect(page.locator('#answer')).toBeFocused();
   }
   await expect(page.locator('.gold-result')).toBeVisible();
   await expect(page.locator('.final-claim-note')).toHaveText("That's 3 of 3. Your day is filed.");
@@ -778,4 +777,359 @@ test('Admin archive confirms, downloads both formats, deletes only the exported 
   await expect(page.locator('.admin-live article')).toContainText('Arrived during export');
   await audit(page, '.admin-live');
   await shot(page, info, 'admin-feedback');
+});
+
+// ---------------------------------------------------------------------------------------------
+// R19H: make all three claims obvious.
+// ---------------------------------------------------------------------------------------------
+const phoneWidth = (page: Page) => page.viewportSize()!.width < 768;
+async function slots(page: Page) {
+  return page
+    .locator('.claim-slots li')
+    .evaluateAll((items) =>
+      items.map((li) =>
+        li.classList.contains('filled') ? li.querySelector('.slot-stamp')!.textContent : null,
+      ),
+    );
+}
+async function strikesLabel(page: Page) {
+  return page.locator('.claim-slots-progress .strike-row').getAttribute('aria-label');
+}
+async function expectNextBlockVisible(page: Page) {
+  await settle(page);
+  const box = await page.locator('.next-claim').evaluate((block) => {
+    const r = block.getBoundingClientRect();
+    const viewport = window.visualViewport!;
+    const nav = document.querySelector<HTMLElement>('.masthead nav');
+    let bottom = viewport.offsetTop + viewport.height;
+    if (nav && getComputedStyle(nav).position === 'fixed') {
+      const n = nav.getBoundingClientRect();
+      if (n.height && n.top > innerHeight / 2) bottom = Math.min(bottom, n.top);
+    }
+    const tables = [...document.querySelectorAll('table.leaderboard')].filter((t) => {
+      const b = t.getBoundingClientRect();
+      return b.height > 0 && b.top < innerHeight;
+    }).length;
+    return { top: r.top, bottom: r.bottom, viewportBottom: bottom, tables };
+  });
+  expect(box.top, 'next-claim block starts in view').toBeGreaterThanOrEqual(-1);
+  expect(box.bottom, 'whole next-claim block in view').toBeLessThanOrEqual(box.viewportBottom + 1);
+  if (phoneWidth(page)) expect(box.tables, 'no leaderboard table above the fold').toBe(0);
+}
+
+test('R19H: slots fill from the server file, strikes stay separate and the next claim needs no tap', async ({
+  page,
+}, info) => {
+  await page.emulateMedia({ reducedMotion: 'reduce' });
+  await page.goto('/?r19&r19c&r6');
+  await page.locator('#answer').waitFor();
+  await expect(page.locator('.slots-heading')).toHaveText('Your 3 claims tonight');
+  await expect.poll(() => slots(page)).toEqual([null, null, null]);
+  await expect.poll(() => strikesLabel(page)).toBe('0 of 5 strikes');
+  await expect(page.locator('.claim-slots')).toHaveAccessibleName('Your 3 claims tonight');
+  await expect(page.locator('.next-claim-heading')).toHaveCount(0);
+  await audit(page, '.claim-section');
+  await shot(page, info, 'r19h-claim-0');
+  // Strike first: strikes never fill claim slots.
+  await claim(page, 'Pangolin');
+  await expect(page.locator('.strike-count')).toContainText('Strike 1 of 5');
+  await expect.poll(() => slots(page)).toEqual([null, null, null]);
+  await expect.poll(() => strikesLabel(page)).toBe('1 of 5 strikes');
+  await claim(page, 'Okapi');
+  await expect(page.locator('.compact-payoff .win-stamp')).toContainText('OKAPI');
+  await expect.poll(() => slots(page)).toEqual(['Okapi', null, null]);
+  await expect(page.locator('.next-claim-heading')).toHaveText('Claim 2 of 3 next');
+  const shortcut = page.locator('.next-claim-shortcut');
+  await expect(shortcut).toHaveText('Claim #2 →');
+  await expect(shortcut).toHaveAttribute('type', 'button');
+  expect((await shortcut.boundingBox())!.height).toBeGreaterThanOrEqual(56);
+  if (phoneWidth(page)) {
+    const [s, form] = await Promise.all([
+      shortcut.boundingBox(),
+      page.locator('.next-claim form').boundingBox(),
+    ]);
+    expect(s!.width).toBeGreaterThanOrEqual(form!.width - 1);
+  }
+  await expect(page.locator('#answer')).toBeFocused();
+  await expect(page.locator('.next-claim .result-panel')).toHaveCount(0);
+  // Nothing separates the payoff from the slots and the next-claim block.
+  expect(
+    await page
+      .locator('.claim-paper > *')
+      .evaluateAll((els) => els.slice(0, 3).map((e) => e.className)),
+  ).toEqual([
+    expect.stringContaining('compact-payoff'),
+    expect.stringContaining('claim-slots-progress'),
+    'next-claim',
+  ]);
+  await expectNextBlockVisible(page);
+  await audit(page, '.claim-section', '.next-claim-shortcut');
+  await shot(page, info, 'r19h-claim-1');
+  // The shortcut only focuses: typed text survives and nothing submits.
+  await page.locator('#answer').fill('Quo');
+  await page.locator('#answer').blur();
+  await shortcut.click();
+  await expect(page.locator('#answer')).toBeFocused();
+  await expect(page.locator('#answer')).toHaveValue('Quo');
+  await expect.poll(() => slots(page)).toEqual(['Okapi', null, null]);
+  // Reserved strike, then a typo with a suggestion: neither fills a slot.
+  await claim(page, 'Dog');
+  await expect(page.locator('.strike-count')).toContainText('Strike 2 of 5');
+  await expect(page.locator('.compact-payoff')).toHaveCount(0);
+  await claim(page, 'Axolot');
+  await expect(page.getByRole('button', { name: 'Did you mean AXOLOTL?' })).toBeVisible();
+  await expect.poll(() => strikesLabel(page)).toBe('2 of 5 strikes');
+  await expect.poll(() => slots(page)).toEqual(['Okapi', null, null]);
+  await claim(page, 'Quokka');
+  await expect.poll(() => slots(page)).toEqual(['Okapi', 'Quokka', null]);
+  await expect(page.locator('.next-claim-heading')).toHaveText('Last claim: make it count');
+  await expect(shortcut).toHaveText('Last claim →');
+  await expect(page.locator('#answer')).toBeFocused();
+  await expectNextBlockVisible(page);
+  await audit(page, '.claim-section', '.next-claim-shortcut');
+  await shot(page, info, 'r19h-claim-2');
+  await claim(page, 'Wombat');
+  // Final: the R19C third-claim moment, focus on See my results, no form or fourth claim.
+  await expect(page.locator('.final-claim-note')).toHaveText("That's 3 of 3. Your day is filed.");
+  await expect(page.getByRole('button', { name: 'See my results', exact: true })).toBeFocused();
+  await expect(page.locator('#answer')).toHaveCount(0);
+  await expect(page.locator('.next-claim, .claim-nudge')).toHaveCount(0);
+  await page.getByRole('button', { name: 'See my results', exact: true }).click();
+  await expect(page.locator('.day-certificate')).toBeVisible();
+  await expect(page.locator('.day-certificate .file-progress')).toContainText('Claims 3 of 3');
+});
+
+for (const wins of [0, 1, 2])
+  test(`R19H: fifth strike after ${wins} claims ends play without filling slots`, async ({
+    page,
+  }) => {
+    await page.emulateMedia({ reducedMotion: 'reduce' });
+    await page.goto('/?r19&r19c&r6&persist');
+    await page.locator('#answer').waitFor();
+    for (const answer of ['Okapi', 'Quokka'].slice(0, wins)) {
+      await claim(page, answer);
+      await expect(page.locator('.compact-payoff')).toBeVisible();
+    }
+    for (let i = 1; i <= 5; i++) {
+      await claim(page, 'Pangolin');
+      if (i < 5) {
+        await expect(page.locator('.strike-count')).toContainText(`Strike ${i} of 5`);
+        await expect.poll(async () => (await slots(page)).filter(Boolean)).toHaveLength(wins);
+        await expect.poll(() => strikesLabel(page)).toBe(`${i} of 5 strikes`);
+      }
+    }
+    await expect(page.locator('.final-strike')).toContainText("That's 5 strikes.");
+    await expect(page.getByRole('button', { name: 'See my results', exact: true })).toBeFocused();
+    await expect(page.locator('#answer, .claim-nudge, .next-claim-heading')).toHaveCount(0);
+    await page.reload();
+    await expect(page.locator('.day-certificate')).toBeVisible();
+    await expect(page.locator('.next-claim-heading')).toHaveCount(0);
+  });
+
+test('R19H: same-night return says how many claims are left and focuses the input', async ({
+  page,
+}) => {
+  await page.goto('/?r19&r19c&r6&persist');
+  await page.locator('#answer').waitFor();
+  await expect(page.locator('.next-claim-heading')).toHaveCount(0);
+  await claim(page, 'Pangolin');
+  await expect(page.locator('.strike-count')).toBeVisible();
+  await page.reload();
+  await expect(page.locator('.next-claim-heading')).toHaveText('You have 3 claims left tonight');
+  await expect(page.locator('#answer')).toBeFocused();
+  await claim(page, 'Okapi');
+  await expect(page.locator('.next-claim-heading')).toHaveText('Claim 2 of 3 next');
+  await page.reload();
+  await expect(page.locator('.next-claim-heading')).toHaveText('You have 2 claims left tonight');
+  await expect.poll(() => slots(page)).toEqual(['Okapi', null, null]);
+  await expect(page.locator('.next-claim-shortcut')).toHaveCount(0);
+  // Back navigation returns to the same prompt; navigation keeps its own focus.
+  await page.goto('/leaderboard?r19&r19c&r6&persist');
+  await page.locator('.leaderboard-section').first().waitFor();
+  const play = page.locator('.masthead nav a[href="/"]');
+  await play.focus();
+  await play.press('Enter');
+  await expect(page.locator('.next-claim-heading')).toHaveText('You have 2 claims left tonight');
+  await expect(page.locator('#answer')).not.toBeFocused();
+  await page.goBack();
+  await page.goForward();
+  await expect(page.locator('.next-claim-heading')).toHaveText('You have 2 claims left tonight');
+  // In-app links drop the fixture query; reload the fixture address before the next claim.
+  await page.goto('/?r19&r19c&r6&persist');
+  await claim(page, 'Quokka');
+  await expect(page.locator('.compact-payoff')).toBeVisible();
+  await page.reload();
+  await expect(page.locator('.next-claim-heading')).toHaveText('You have 1 claim left tonight');
+  // A closed category (server close time passed) never gets the prompt.
+  await page.goto('/?r19&r19c&r6&persist&closes=2020-01-01T02:00:00.000Z');
+  await page.locator('#answer').waitFor();
+  await expect(page.locator('.next-claim-heading')).toHaveCount(0);
+  await expect(page.locator('#answer')).not.toBeFocused();
+  // A completed file never gets the prompt.
+  await page.goto('/?r19&r19c&r6&persist');
+  await claim(page, 'Wombat');
+  await expect(page.locator('.final-claim-note')).toBeVisible();
+  await page.reload();
+  await expect(page.locator('.day-certificate')).toBeVisible();
+  await expect(page.locator('.next-claim-heading')).toHaveCount(0);
+});
+
+test('R19H: one inline nudge after 20 visible seconds; typing, hiding and completion cancel it', async ({
+  page,
+}) => {
+  await page.clock.install();
+  // Close is the server's next drop; the nudge names its time without hard-coding "tomorrow".
+  await page.goto('/?r19&r19c&r6');
+  await page.locator('#answer').waitFor();
+  await claim(page, 'Okapi');
+  await expect(page.locator('.compact-payoff')).toBeVisible();
+  const nudge = page.locator('.claim-nudge');
+  await page.clock.runFor(19000);
+  await expect(nudge).toHaveCount(0);
+  await page.clock.runFor(1500);
+  await expect(nudge).toHaveText(
+    /^2 more claims before \d{1,2}:\d{2}\s[AP]M\s[A-Z]+\s(today|tomorrow|[A-Z][a-z]+day,\s[A-Z][a-z]{2}\s\d+)\.$/,
+  );
+  // Inline, not a modal, and the input keeps focus.
+  await expect(page.locator('#answer')).toBeFocused();
+  expect(await nudge.evaluate((el) => el.closest('dialog, [role=dialog]'))).toBeNull();
+  // Typing cancels it; only one nudge per claim.
+  await page.locator('#answer').pressSequentially('Q');
+  await expect(nudge).toHaveCount(0);
+  await page.clock.runFor(30000);
+  await expect(nudge).toHaveCount(0);
+  await page.locator('#answer').fill('');
+  // Next claim: hiding the page resets the visible-time count.
+  await claim(page, 'Quokka');
+  await expect(page.locator('.next-claim-heading')).toHaveText('Last claim: make it count');
+  await page.clock.runFor(15000);
+  const setHidden = (hidden: boolean) =>
+    page.evaluate((value) => {
+      Object.defineProperty(document, 'hidden', { configurable: true, get: () => value });
+      Object.defineProperty(document, 'visibilityState', {
+        configurable: true,
+        get: () => (value ? 'hidden' : 'visible'),
+      });
+      document.dispatchEvent(new Event('visibilitychange'));
+    }, hidden);
+  await setHidden(true);
+  await page.clock.runFor(30000);
+  await expect(nudge).toHaveCount(0);
+  await setHidden(false);
+  await page.clock.runFor(19000);
+  await expect(nudge).toHaveCount(0);
+  await page.clock.runFor(1500);
+  await expect(nudge).toHaveText(/^1 more claim before /);
+  // Completion removes it and never schedules another.
+  await claim(page, 'Wombat');
+  await expect(page.locator('.final-claim-note')).toBeVisible();
+  await page.clock.runFor(30000);
+  await expect(nudge).toHaveCount(0);
+});
+
+test('R19H: phones get one collapsed leaderboard disclosure with the real rank', async ({
+  page,
+}) => {
+  await page.goto('/?r19&r19c&r6');
+  await page.locator('#answer').waitFor();
+  const disclosure = page.locator('.board-disclosure');
+  if (!phoneWidth(page)) {
+    await expect(disclosure).toHaveCount(0);
+    await expect(page.locator('#leaderboard table.leaderboard')).toBeVisible();
+    return;
+  }
+  await expect(disclosure).toHaveCount(1);
+  await expect(page.locator('table.leaderboard')).toHaveCount(0);
+  await expect(disclosure.locator('summary')).toHaveText('Leaderboard · live standings');
+  await claim(page, 'Okapi');
+  await expect(disclosure.locator('summary')).toHaveText("Leaderboard · you're #4 so far");
+  await expect(page.locator('table.leaderboard, .payoff-board')).toHaveCount(0);
+  // The disclosure sits below the next-claim block.
+  const [block, summary] = await Promise.all([
+    page.locator('.next-claim').boundingBox(),
+    disclosure.locator('summary').boundingBox(),
+  ]);
+  expect(summary!.y).toBeGreaterThanOrEqual(block!.y + block!.height - 1);
+  // Keyboard operation.
+  await disclosure.locator('summary').focus();
+  await page.keyboard.press('Enter');
+  await expect(disclosure).toHaveAttribute('open', '');
+  await expect(disclosure.locator('table.leaderboard')).toBeVisible();
+  const table = (await disclosure.locator('table.leaderboard').boundingBox())!;
+  const form = (await page.locator('.next-claim form').boundingBox())!;
+  expect(table.y).toBeGreaterThan(form.y + form.height - 1);
+  await audit(page, '.claim-section');
+  await page.keyboard.press('Enter');
+  await expect(disclosure).not.toHaveAttribute('open', '');
+  // Final payoff keeps standings collapsed; the done screen shows full standings.
+  await claim(page, 'Quokka');
+  await claim(page, 'Wombat');
+  await expect(page.locator('table.leaderboard')).toHaveCount(0);
+  await page.getByRole('button', { name: 'See my results', exact: true }).click();
+  await expect(page.locator('.board-disclosure')).toHaveCount(0);
+  await expect(page.locator('#leaderboard table.leaderboard')).toBeVisible();
+});
+
+test('R19H: lost acknowledgement retry, live updates and another tab finishing stay consistent', async ({
+  page,
+}) => {
+  await page.goto('/?r19&r19c&r6&lost-ack');
+  await page.locator('#answer').waitFor();
+  await claim(page, 'Okapi');
+  await expect(page.locator('.next-claim .result-panel')).toContainText('Try again');
+  await expect(page.locator('#answer')).toHaveValue('Okapi');
+  // Retrying the same answer reuses the request ID and gets the original claim once.
+  await page.getByRole('button', { name: 'CALL DIBS', exact: true }).click();
+  await expect(page.locator('.compact-payoff .win-stamp')).toContainText('OKAPI');
+  await expect.poll(() => slots(page)).toEqual(['Okapi', null, null]);
+  // Live updates do not re-render or re-announce the result.
+  const mutations = await page.locator('.compact-payoff').evaluate(async (el) => {
+    let count = 0;
+    const observer = new MutationObserver((records) => (count += records.length));
+    observer.observe(el, { subtree: true, childList: true, characterData: true });
+    window.dispatchEvent(new Event('r19h-live-update'));
+    await new Promise((r) => setTimeout(r, 400));
+    window.dispatchEvent(new Event('r19h-live-update'));
+    await new Promise((r) => setTimeout(r, 400));
+    observer.disconnect();
+    return count;
+  });
+  expect(mutations).toBe(0);
+  // Another tab completes the file: this tab moves to the done screen without a fourth claim.
+  await page.evaluate(() => window.dispatchEvent(new Event('r19h-remote-complete')));
+  await expect(page.locator('.day-certificate')).toBeVisible();
+  await expect(page.locator('#answer, .claim-nudge, .next-claim')).toHaveCount(0);
+});
+
+test('R19H: with the keyboard open after a nonfinal claim, input and CALL DIBS stay reachable', async ({
+  page,
+}) => {
+  test.skip(!phoneWidth(page), 'Software keyboards apply to phone widths');
+  await page.goto('/?r19&r19c&r6');
+  await page.locator('#answer').waitFor();
+  await claim(page, 'Okapi');
+  await expect(page.locator('.compact-payoff')).toBeVisible();
+  await expect(page.locator('#answer')).toBeFocused();
+  // Emulate a software keyboard taking ~45% of the screen (DOM focus alone proves no keyboard).
+  const { width, height } = page.viewportSize()!;
+  await page.setViewportSize({ width, height: Math.round(height * 0.55) });
+  await settle(page);
+  await page.waitForTimeout(150);
+  const fit = await page.evaluate(() => {
+    const v = window.visualViewport!;
+    const bottom = v.offsetTop + v.height;
+    const input = document.querySelector('#answer')!.getBoundingClientRect();
+    const button = [
+      ...document.querySelectorAll('.next-claim form .primary'),
+    ][0]!.getBoundingClientRect();
+    return {
+      input: input.top >= 0 && input.bottom <= bottom + 1,
+      button: button.top >= 0 && button.bottom <= bottom + 1,
+    };
+  });
+  expect(fit).toEqual({ input: true, button: true });
+  await page.locator('#answer').fill('Quokka');
+  await page.locator('#answer').press('Enter');
+  await expect(page.locator('.next-claim-heading')).toHaveText('Last claim: make it count');
+  await expect(page.locator('#answer')).toBeFocused();
 });

@@ -60,7 +60,7 @@ import { submittedSpelling } from './spelling';
 import { HOME_TITLE } from '../shared/seo';
 import { Icon } from './Icon';
 
-import { dropTime, localTime, viewerZone, zoneName } from '../shared/time';
+import { closeLabel, dropTime, localTime, viewerZone, zoneName } from '../shared/time';
 
 import { useServerNow, serverNow } from './clock';
 import {
@@ -71,6 +71,7 @@ import {
   useState,
   useRef,
   useMemo,
+  useSyncExternalStore,
   type FormEvent,
 } from 'react';
 
@@ -473,7 +474,7 @@ export default function App() {
             ) : path === '/how-it-works' ? (
               <section className="how-page">
                 <h1>How it works</h1>
-                <Introduction />
+                <Introduction lead />
                 <Rules />
                 <Clue clue={today.specials?.clue} />
                 <p>
@@ -566,6 +567,18 @@ function CategoryHeading({ name }: { name: string }) {
     </h1>
   );
 }
+/** Visible-page inactivity before the one inline reminder after a nonfinal claim. */
+const NUDGE_DELAY = 20000;
+function useMediaQuery(query: string) {
+  return useSyncExternalStore(
+    (change) => {
+      const list = matchMedia(query);
+      list.addEventListener('change', change);
+      return () => list.removeEventListener('change', change);
+    },
+    () => matchMedia(query).matches,
+  );
+}
 function Home({
   today,
   me,
@@ -605,6 +618,33 @@ function Home({
   const [landed, setLanded] = useState(false);
   const [pendingFinal, setPendingFinal] = useState(false);
   const showDone = !!file?.closed && !pendingFinal;
+  // Claims 1 and 2 keep the form mounted under a compact payoff; only the final payoff replaces it.
+  const nonfinal = landed && !pendingFinal && !!claim && !file?.closed;
+  const claimsLeft = Math.max(0, MAX_CLAIMS - (file?.dibs || 0));
+  const closesAt = today.closesAt || null;
+  // Same still-open day (server category ID and close time), prior progress, claims remaining.
+  const [returning, setReturning] = useState(
+    () =>
+      !!today.category &&
+      !!file &&
+      !file.closed &&
+      file.category_id === today.category.id &&
+      file.dibs + file.strikes > 0 &&
+      file.dibs < MAX_CLAIMS &&
+      (!closesAt || serverNow() < Date.parse(closesAt)),
+  );
+  const [nudgeArmed, setNudgeArmed] = useState(false);
+  const [nudge, setNudge] = useState(false);
+  const [boardOpen, setBoardOpen] = useState(false);
+  const phone = useMediaQuery('(max-width: 767px)');
+  const liveRank = useSyncExternalStore(subscribe, () => {
+    const snapshot = getSnapshot();
+    return snapshot?.today.category?.id === today.category?.id
+      ? (snapshot?.leaderboard?.own?.rank ?? null)
+      : null;
+  });
+  const rank = liveRank ?? file?.rank ?? null;
+  const nextBlock = useRef<HTMLDivElement>(null);
   useEffect(() => {
     if (showDone) {
       window.scrollTo(0, 0);
@@ -621,8 +661,57 @@ function Home({
       input.current?.focus({ preventScroll: true });
   }, [me.user?.id, today.category?.id]);
   useEffect(() => {
-    if (landed || pendingFinal) nextDibs.current?.focus({ preventScroll: true });
-  }, [landed, pendingFinal]);
+    // Only the final payoff moves focus, to "See my results". Claims 1 and 2 keep the input.
+    if (pendingFinal) nextDibs.current?.focus({ preventScroll: true });
+  }, [pendingFinal]);
+  useEffect(() => {
+    if (!returning) return;
+    const active = document.activeElement;
+    // Never take focus from navigation, settings or anything the player already chose.
+    if (!active || active === document.body) input.current?.focus({ preventScroll: true });
+  }, []);
+  useLayoutEffect(() => {
+    if (!nonfinal) return;
+    const block = nextBlock.current;
+    const paper = block?.closest('.claim-paper');
+    if (!block || !paper) return;
+    const viewport = window.visualViewport;
+    let bottom = viewport ? viewport.offsetTop + viewport.height : innerHeight;
+    const nav = document.querySelector<HTMLElement>('.masthead nav');
+    if (nav && getComputedStyle(nav).position === 'fixed') {
+      const top = nav.getBoundingClientRect().top;
+      if (top > innerHeight / 2) bottom = Math.min(bottom, top);
+    }
+    // Show the whole next-claim block; keep the payoff's top in view when both fit.
+    const need = block.getBoundingClientRect().bottom - bottom + 8;
+    const want = paper.getBoundingClientRect().top - 8;
+    const shift = need > want ? need : Math.min(Math.max(0, need), want);
+    if (Math.abs(shift) > 1) window.scrollBy(0, shift);
+  }, [nonfinal, claim?.id]);
+  useEffect(() => {
+    if (!nudgeArmed || !nonfinal) return;
+    let timer: ReturnType<typeof setTimeout> | undefined;
+    const start = () => {
+      clearTimeout(timer);
+      if (!document.hidden)
+        timer = setTimeout(() => {
+          setNudge(true);
+          setNudgeArmed(false);
+        }, NUDGE_DELAY);
+    };
+    const visibility = () => {
+      if (document.hidden) {
+        clearTimeout(timer);
+        setNudge(false);
+      } else start();
+    };
+    start();
+    document.addEventListener('visibilitychange', visibility);
+    return () => {
+      clearTimeout(timer);
+      document.removeEventListener('visibilitychange', visibility);
+    };
+  }, [nudgeArmed, nonfinal, answer]);
   const turnstileBox = useRef<HTMLDivElement>(null);
   const verification = useRef<{ token: string; expires: number } | null>(null);
   const verifying = useRef<Promise<string> | null>(null);
@@ -740,6 +829,9 @@ function Home({
     e.preventDefault();
     if (submitting.current || busy || !answer.trim()) return;
     submitting.current = true;
+    setReturning(false);
+    setNudgeArmed(false);
+    setNudge(false);
     void prepareSound();
     setBusy(true);
     setGuessNumber((n) => n + 1);
@@ -782,20 +874,25 @@ function Home({
       playClaimSound(claimSound(201, result), pendingRequest.current!.id);
       pendingRequest.current = null;
       setOutcome(result.claim.golden ? 'GOLD' : 'DIBS');
-      setMessage(result.claim.display.toUpperCase());
+      setMessage('');
       if (result.recoveryKey) setRecoveryKey(result.recoveryKey);
       setAnswer('');
       setTaken(false);
       setHouseStrike(false);
+      setTakenHolder(null);
       setClaim(result.claim);
-      input.current?.blur();
+      const final = !!result.me?.file?.closed;
+      // Claims 1 and 2: the input stays focused and usable. Only the final claim releases it.
+      if (final) input.current?.blur();
       setLanded(true);
-      setPendingFinal(!!result.me?.file?.closed);
+      setPendingFinal(final);
+      setNudgeArmed(!final);
       setStreakMoment(result.me && result.me.streak > me.streak ? result.me.streak : null);
       if (result.me) setMe(result.me);
       publishClaim(result.claim, result.me, result.leaderboard);
     } catch (e) {
       const err = e as ApiError;
+      setLanded(false);
       if (err.status === 409 && (err.data?.me?.file?.closed || err.data?.file?.closed)) {
         setPendingFinal(true);
         input.current?.blur();
@@ -896,17 +993,14 @@ function Home({
         </>
       ) : (
         <section
-          className={'claim-section' + (landed || pendingFinal ? ' has-payoff' : '')}
+          className={'claim-section' + (pendingFinal ? ' has-payoff' : nonfinal ? ' has-next' : '')}
           aria-label="Play today's category"
         >
           <div className="play-heading register-arrival">
             <CategoryHeading name={today.category.name} />
           </div>
           <div className={'claim-paper stock-' + categoryStyle(today.category.slug).stock}>
-            {!landed && !pendingFinal && (
-              <Progress dibs={file?.dibs || 0} strikes={file?.strikes || 0} />
-            )}
-            {landed && claim ? (
+            {pendingFinal && landed && claim ? (
               <div
                 className={'result-panel win-beat ' + (claim.golden ? 'gold-result' : '')}
                 role="status"
@@ -963,10 +1057,9 @@ function Home({
                       setLanded(false);
                       setMessage('');
                       setOutcome('');
-                      requestAnimationFrame(() => input.current?.focus({ preventScroll: true }));
                     }}
                   >
-                    {pendingFinal ? 'See my results' : 'Next claim'} <Icon />
+                    See my results <Icon />
                   </button>
                   <div className="payoff-links">
                     <Link to={'/certificate/' + claim.id}>View certificate</Link>
@@ -975,9 +1068,11 @@ function Home({
                   </div>
                 </div>
                 <RevealTime today={today} reminder={false} />
-                <div className="payoff-board">
-                  <Leaderboard category={today.category.id} practice={today.practice} compact />
-                </div>
+                {!phone && (
+                  <div className="payoff-board">
+                    <Leaderboard category={today.category.id} practice={today.practice} compact />
+                  </div>
+                )}
               </div>
             ) : pendingFinal ? (
               <div className="result-panel final-strike taken" role="status" aria-atomic="true">
@@ -990,111 +1085,228 @@ function Home({
                 </button>
               </div>
             ) : (
-              <form onSubmit={submit}>
-                <label className="sr-only" htmlFor="answer">
-                  Your answer
-                </label>
-                <div className="input-row">
-                  <input
-                    ref={input}
-                    onFocus={(e) => {
-                      void verifySession().catch(() => {});
-                      if (
-                        innerHeight <= 600 &&
-                        innerWidth <= 900 &&
-                        (!window.visualViewport || window.visualViewport.height >= innerHeight - 1)
-                      )
-                        e.currentTarget.closest('.input-row')?.scrollIntoView({ block: 'center' });
-                    }}
-                    id="answer"
-                    name="answer"
-                    value={answer}
-                    placeholder={
-                      today.category.slug === 'animals' ? 'Name an animal…' : 'Name an answer…'
-                    }
-                    onChange={(e) => {
-                      setAnswer(e.target.value);
-                      if (e.target.value.trim()) void verifySession().catch(() => {});
-                    }}
-                    readOnly={busy}
-                    autoComplete="off"
-                    autoCorrect="off"
-                    autoCapitalize="none"
-                    spellCheck={false}
-                    enterKeyHint="go"
-                    maxLength={120}
-                  />
-                  <button
-                    className="primary"
-                    disabled={busy || !me.user}
-                    onPointerDown={(e) => {
-                      // Keep the keyboard/layout steady until the submit click has landed.
-                      if (document.activeElement === input.current) e.preventDefault();
-                    }}
-                  >
-                    {busy ? 'Claiming…' : 'CALL DIBS'}
-                    <Icon />
-                  </button>
-                </div>
-                <p className="claim-subline" role={checking ? 'status' : undefined}>
-                  {checking ? 'Checking you’re human…' : 'Claim this answer as yours.'}
-                </p>
-                {message && (
+              <>
+                {nonfinal && claim && (
                   <div
-                    className={'result-panel ' + (taken ? 'taken' : '')}
+                    className={
+                      'result-panel win-beat compact-payoff ' + (claim.golden ? 'gold-result' : '')
+                    }
                     role="status"
-                    aria-atomic="true"
                   >
-                    <p>
-                      {taken && <Icon name="cross" />}
-                      {taken ? (
-                        <>
-                          {houseStrike
-                            ? 'Reserved by the house. −10 points.'
-                            : `Taken. −10 points. ${countLabel(MAX_STRIKES - (file?.strikes || 0), 'strike')} left.`}
-                        </>
-                      ) : takenHolder?.founder ? (
-                        <>
-                          Taken: {takenHolder.answer} is <Handle name={takenHolder.name} founder />
-                          ’s.
-                        </>
-                      ) : (
-                        message
+                    <strong
+                      className="win-stamp"
+                      style={{ rotate: `${((claim.claim_no * 7.31) % 7) - 4}deg` }}
+                    >
+                      DIBS<span>{claim.display.toUpperCase()}</span>
+                    </strong>
+                    <div className="claim-payoff">
+                      <p>Yours. {claim.display} has your name on it for good.</p>
+                      {!!claim.golden && (
+                        <p className="golden-notice">
+                          <strong>Golden ticket.</strong> One of{' '}
+                          {today.specials?.goldenTotal ?? goldenPerDay(today.category.date)} hidden
+                          tonight.
+                        </p>
                       )}
-                    </p>
-                    {taken && (
-                      <strong className="strike-count">
-                        Strike {file?.strikes || 0} of {MAX_STRIKES}
-                      </strong>
-                    )}
-                    {suggestion && (
-                      <>
-                        <button type="button" onClick={(e) => void submit(e, suggestion)}>
-                          Did you mean {suggestion.toUpperCase()}?
-                        </button>
-                        <button
-                          type="button"
-                          onClick={() => {
-                            setSuggestion(null);
-                            input.current?.focus();
-                          }}
-                        >
-                          Keep my spelling
-                        </button>
-                      </>
-                    )}
-                    {missing && (
-                      <button
-                        type="button"
-                        className="text-button"
-                        onClick={() => void sendMissing()}
-                      >
-                        Send feedback
-                      </button>
-                    )}
+                      <p className="points-earned">
+                        <strong>+{claimScore(claim)}</strong>
+                      </p>
+                      {streakMoment !== null && (
+                        <p className="streak-payoff">
+                          Streak {streakMoment}. Back tomorrow at {localTime(today.nextDrop).label}{' '}
+                          to keep it.
+                        </p>
+                      )}
+                    </div>
                   </div>
                 )}
-              </form>
+                <Progress
+                  dibs={file?.dibs || 0}
+                  strikes={file?.strikes || 0}
+                  answers={[...(file?.claims || [])]
+                    .sort((a, b) => a.claim_no - b.claim_no)
+                    .map((c) => c.display)}
+                />
+                <div className="next-claim" ref={nextBlock}>
+                  {(nonfinal || returning) && claimsLeft > 0 && (
+                    <h2 className="next-claim-heading">
+                      {nonfinal
+                        ? claimsLeft === 1
+                          ? 'Last claim: make it count'
+                          : `Claim ${MAX_CLAIMS - claimsLeft + 1} of ${MAX_CLAIMS} next`
+                        : `You have ${countLabel(claimsLeft, 'claim')} left tonight`}
+                    </h2>
+                  )}
+                  {nonfinal && claimsLeft > 0 && (
+                    <button
+                      type="button"
+                      className="primary next-claim-shortcut"
+                      aria-controls="answer"
+                      onClick={() => {
+                        // Focus only: never submits and never clears what the player typed.
+                        input.current?.focus();
+                        input.current?.closest('.input-row')?.scrollIntoView({ block: 'nearest' });
+                      }}
+                    >
+                      {claimsLeft === 1 ? 'Last claim' : `Claim #${MAX_CLAIMS - claimsLeft + 1}`}{' '}
+                      <span aria-hidden="true">→</span>
+                    </button>
+                  )}
+                  <form onSubmit={submit}>
+                    <label className="sr-only" htmlFor="answer">
+                      Your answer
+                    </label>
+                    <div className="input-row">
+                      <input
+                        ref={input}
+                        onFocus={(e) => {
+                          void verifySession().catch(() => {});
+                          if (
+                            innerHeight <= 600 &&
+                            innerWidth <= 900 &&
+                            (!window.visualViewport ||
+                              window.visualViewport.height >= innerHeight - 1)
+                          )
+                            e.currentTarget
+                              .closest('.input-row')
+                              ?.scrollIntoView({ block: 'center' });
+                        }}
+                        id="answer"
+                        name="answer"
+                        value={answer}
+                        placeholder={
+                          today.category.slug === 'animals' ? 'Name an animal…' : 'Name an answer…'
+                        }
+                        onChange={(e) => {
+                          setAnswer(e.target.value);
+                          setNudge(false);
+                          if (e.target.value.trim()) void verifySession().catch(() => {});
+                        }}
+                        readOnly={busy}
+                        autoComplete="off"
+                        autoCorrect="off"
+                        autoCapitalize="none"
+                        spellCheck={false}
+                        enterKeyHint="go"
+                        maxLength={120}
+                      />
+                      <button
+                        className="primary"
+                        disabled={busy || !me.user}
+                        onPointerDown={(e) => {
+                          // Keep the keyboard/layout steady until the submit click has landed.
+                          if (document.activeElement === input.current) e.preventDefault();
+                        }}
+                      >
+                        {busy ? 'Claiming…' : 'CALL DIBS'}
+                        <Icon />
+                      </button>
+                    </div>
+                    <p className="claim-subline" role={checking ? 'status' : undefined}>
+                      {checking ? 'Checking you’re human…' : 'Claim this answer as yours.'}
+                    </p>
+                    {message && !nonfinal && (
+                      <div
+                        className={'result-panel ' + (taken ? 'taken' : '')}
+                        role="status"
+                        aria-atomic="true"
+                      >
+                        <p>
+                          {taken && <Icon name="cross" />}
+                          {taken ? (
+                            <>
+                              {houseStrike
+                                ? 'Reserved by the house. −10 points.'
+                                : `Taken. −10 points. ${countLabel(MAX_STRIKES - (file?.strikes || 0), 'strike')} left.`}
+                            </>
+                          ) : takenHolder?.founder ? (
+                            <>
+                              Taken: {takenHolder.answer} is{' '}
+                              <Handle name={takenHolder.name} founder />
+                              ’s.
+                            </>
+                          ) : (
+                            message
+                          )}
+                        </p>
+                        {taken && (
+                          <strong className="strike-count">
+                            Strike {file?.strikes || 0} of {MAX_STRIKES}
+                          </strong>
+                        )}
+                        {suggestion && (
+                          <>
+                            <button type="button" onClick={(e) => void submit(e, suggestion)}>
+                              Did you mean {suggestion.toUpperCase()}?
+                            </button>
+                            <button
+                              type="button"
+                              onClick={() => {
+                                setSuggestion(null);
+                                input.current?.focus();
+                              }}
+                            >
+                              Keep my spelling
+                            </button>
+                          </>
+                        )}
+                        {missing && (
+                          <button
+                            type="button"
+                            className="text-button"
+                            onClick={() => void sendMissing()}
+                          >
+                            Send feedback
+                          </button>
+                        )}
+                      </div>
+                    )}
+                  </form>
+                  {nudge &&
+                    nonfinal &&
+                    claimsLeft > 0 &&
+                    closesAt &&
+                    serverNow() < Date.parse(closesAt) && (
+                      <p className="claim-nudge">
+                        {countLabel(claimsLeft, 'more claim', 'more claims')} before{' '}
+                        {closeLabel(closesAt, serverNow())}.
+                      </p>
+                    )}
+                </div>
+              </>
+            )}
+            {phone && (
+              <details
+                className="board-disclosure"
+                open={boardOpen}
+                onToggle={(e) => setBoardOpen(e.currentTarget.open)}
+              >
+                <summary>
+                  <span>Leaderboard · {rank ? `you're #${rank} so far` : 'live standings'}</span>
+                  <Icon name="chevron" />
+                </summary>
+                {boardOpen && (
+                  <Leaderboard category={today.category.id} practice={today.practice} />
+                )}
+              </details>
+            )}
+            {nonfinal && claim && (
+              <div className="payoff-details">
+                <div className="payoff-curve">
+                  <RarityCurve
+                    percentile={claim.percentile}
+                    category={today.category.slug}
+                    answer={claim.display}
+                    golden={claim.golden}
+                  />
+                </div>
+                <div className="payoff-links">
+                  <Link to={'/certificate/' + claim.id}>View certificate</Link>
+                  <span aria-hidden="true">·</span>
+                  <Reminder at={today.closesAt || today.nextDrop} />
+                </div>
+                <RevealTime today={today} reminder={false} />
+              </div>
             )}
             <details
               className="play-introduction play-rules"
@@ -1104,7 +1316,7 @@ function Home({
               <summary>
                 How it works <Icon name="chevron" />
               </summary>
-              <Introduction />
+              <Introduction lead />
               <Rules />
               <Clue clue={today.specials?.clue} />
             </details>
@@ -1141,7 +1353,10 @@ function Home({
           <span>Answers appear when the day closes</span>
         </section>
       )}
-      <Leaderboard category={today.category?.id} practice={today.practice} />
+      {/* Phones get the collapsed disclosure while play remains; done screen keeps full standings. */}
+      {!(playing && phone) && (
+        <Leaderboard category={today.category?.id} practice={today.practice} />
+      )}
       {file?.closed && (
         <>
           {recoveryKey && (

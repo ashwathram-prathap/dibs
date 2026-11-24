@@ -28,7 +28,7 @@ test('R14 payoff, hidden-answer leaderboard, done score and spoiler-free share',
     expect(box.y + box.height).toBeLessThanOrEqual(page.viewportSize()!.height);
   }
   for (const answer of ['Quokka', 'Wombat']) {
-    await page.getByRole('button', { name: 'Next claim', exact: true }).click();
+    await page.locator('.next-claim-shortcut').click();
     await page.locator('#answer').fill(answer);
     await page.locator('#answer').press('Enter');
   }

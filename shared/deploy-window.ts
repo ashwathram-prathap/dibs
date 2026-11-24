@@ -1,7 +1,18 @@
+/** R19H production cutoff and latest go/no-go (Tue Nov 24, 2026, Toronto time). */
+export const R19H_CUTOFF = Date.parse('2026-11-24T17:00:00-05:00');
+export const R19H_GO_NO_GO = Date.parse('2026-11-24T16:00:00-05:00');
 export function deploymentBlocked(
   now: number,
-  stage: 'base' | 'part-a' | 'brand' | 'part-b' | 'r19f' | 'r19d' | 'r19g' = 'base',
+  stage: 'base' | 'part-a' | 'brand' | 'part-b' | 'r19f' | 'r19d' | 'r19g' | 'r19h' = 'base',
 ) {
+  if (stage === 'r19h')
+    // R19H (owner, Tue Nov 24, 4:03 AM ET): production only before 5:00 PM ET that day,
+    // and never inside the daily 8:30–10 PM freeze. Applies to every mutation, rollback included.
+    return (
+      now < Date.parse('2026-11-24T04:03:00-05:00') ||
+      now >= R19H_CUTOFF ||
+      deploymentBlocked(now, 'r19g')
+    );
   if (stage === 'r19g') {
     const parts = new Intl.DateTimeFormat('en-CA', {
       timeZone: 'America/Toronto',

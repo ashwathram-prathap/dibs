@@ -19,6 +19,7 @@ import {
   SCHEDULE_EXPLANATION,
   GOLDEN_EXPLANATION,
   RESERVED_EXPLANATION,
+  NIGHTLY_CLAIMS,
 } from '../shared/copy';
 export function Signature() {
   return (
@@ -261,9 +262,14 @@ export function InstallHint() {
     </aside>
   ) : null;
 }
-export function Introduction() {
+export function Introduction({ lead = false }: { lead?: boolean }) {
   return (
     <section className="game-intro" aria-label="How to play Dibs">
+      {lead && (
+        <p className="nightly-lead">
+          <strong>{NIGHTLY_CLAIMS}</strong>
+        </p>
+      )}
       <div className="game-explanation">
         <p>{GAME_EXPLANATION}</p>
         <p>{LIMIT_EXPLANATION}</p>
@@ -299,7 +305,58 @@ export function Rules({ includeReserved = true }: { includeReserved?: boolean })
     </div>
   );
 }
-export function Progress({ dibs, strikes }: { dibs: number; strikes: number }) {
+export function Progress({
+  dibs,
+  strikes,
+  answers,
+}: {
+  dibs: number;
+  strikes: number;
+  /** Accepted answers from the server file. When present, play shows the three claim slots. */
+  answers?: (string | undefined)[];
+}) {
+  const strikeRow = (
+    <span className="strikes-progress">
+      <strong>
+        Strikes {strikes} of {MAX_STRIKES}
+      </strong>
+      <span className="strike-row" role="img" aria-label={`${strikes} of ${MAX_STRIKES} strikes`}>
+        {Array.from({ length: MAX_STRIKES }, (_, i) => (
+          <i key={i} className={i < strikes ? 'used' : ''} />
+        ))}
+      </span>
+    </span>
+  );
+  if (answers)
+    return (
+      <div className="file-progress claim-slots-progress">
+        <h2 className="slots-heading" id="claim-slots-heading">
+          Your {MAX_CLAIMS} claims tonight
+        </h2>
+        <ol className="claim-slots" aria-labelledby="claim-slots-heading">
+          {Array.from({ length: MAX_CLAIMS }, (_, i) => {
+            const filled = i < dibs;
+            return (
+              <li key={i} className={filled ? 'filled' : 'open'}>
+                <span className="slot-number" aria-hidden="true">
+                  {i + 1}
+                </span>
+                <span className="sr-only">Claim {i + 1}: </span>
+                {filled ? (
+                  <span className="slot-stamp">{answers[i] || 'Claimed'}</span>
+                ) : (
+                  <span className="slot-open">Open</span>
+                )}
+              </li>
+            );
+          })}
+        </ol>
+        <p className="sr-only">
+          {dibs} of {MAX_CLAIMS} claims used.
+        </p>
+        {strikeRow}
+      </div>
+    );
   return (
     <div className="file-progress">
       <span className="dibs-progress">
@@ -314,16 +371,7 @@ export function Progress({ dibs, strikes }: { dibs: number; strikes: number }) {
           ))}
         </span>
       </span>
-      <span className="strikes-progress">
-        <strong>
-          Strikes {strikes} of {MAX_STRIKES}
-        </strong>
-        <span className="strike-row" role="img" aria-label={`${strikes} of ${MAX_STRIKES} strikes`}>
-          {Array.from({ length: MAX_STRIKES }, (_, i) => (
-            <i key={i} className={i < strikes ? 'used' : ''} />
-          ))}
-        </span>
-      </span>
+      {strikeRow}
     </div>
   );
 }

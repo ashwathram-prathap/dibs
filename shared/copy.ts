@@ -15,8 +15,10 @@ export const RARITY_EXPLANATION =
   "Rarity uses English Wikipedia readership. Answers without data get the category's standard score.";
 export const LAUNCH_EXPLANATION =
   'One category a day. Name something nobody else has claimed. Your name stays on it.';
-export const SHARE_INVITATION = `One category. ${MAX_CLAIMS === 3 ? 'Three' : MAX_CLAIMS} claims. What can you claim? dibs.here`;
-export const LIMIT_EXPLANATION = `You get ${MAX_CLAIMS} claims. ${MAX_STRIKES} strikes and you're out. ${SCORING_EXPLANATION}`;
+export const SHARE_INVITATION = `One category. ${MAX_CLAIMS} claims a night. What can you claim? dibs.here`;
+export const LIMIT_EXPLANATION = `${MAX_CLAIMS} claims a night. ${MAX_STRIKES} strikes and you're out. ${SCORING_EXPLANATION}`;
+/** How it works opens with the nightly allowance; many players assumed one round. */
+export const NIGHTLY_CLAIMS = `You get ${MAX_CLAIMS} claims every night.`;
 export const GAME_DESCRIPTION = GAME_EXPLANATION + ' ' + LIMIT_EXPLANATION;
 export const BACKUP_EXPLANATION =
   'Use this code to get your claims back on another device or browser.';

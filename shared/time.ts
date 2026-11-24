@@ -80,3 +80,22 @@ export function filingTime(at: string, zone = viewerZone()) {
   }).format(new Date(at));
   return `${date}, ${localTime(at, zone).label} ${zoneName(zone)} time`;
 }
+
+/** Close time in the viewer's zone, relative to the server clock (never browser midnight). */
+export function closeLabel(at: string, now: number, zone = viewerZone()) {
+  const day = (t: number) =>
+    new Intl.DateTimeFormat('en-CA', { timeZone: zone }).format(new Date(t));
+  const close = day(Date.parse(at));
+  const when =
+    close === day(now)
+      ? 'today'
+      : close === day(now + 86400000)
+        ? 'tomorrow'
+        : new Intl.DateTimeFormat('en-US', {
+            timeZone: zone,
+            weekday: 'long',
+            month: 'short',
+            day: 'numeric',
+          }).format(new Date(at));
+  return `${localTime(at, zone).full} ${when}`;
+}

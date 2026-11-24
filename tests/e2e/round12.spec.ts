@@ -18,7 +18,7 @@ test('R12 first visitor sees plain rules and a full worked example in every home
   for (const answer of ['Axolotl', 'Okapi', 'Quokka']) {
     await page.locator('#answer').fill(answer);
     await page.locator('#answer').press('Enter');
-    if (answer !== 'Quokka') await page.getByRole('button', { name: 'Next claim' }).click();
+    if (answer !== 'Quokka') await page.locator('.next-claim-shortcut').click();
   }
   await page.getByRole('button', { name: 'See my results', exact: true }).click();
   await expect(page.locator('.day-certificate')).toBeVisible();

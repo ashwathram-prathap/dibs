@@ -114,7 +114,7 @@ test('R13 sound mapping, double tap and music only after tap', async ({ page }) 
   await expect.poll(() => page.evaluate(() => (window as any).stamps)).toEqual([0.115, 0.48]);
   // The gold tail lasts 480 ms; separate the next intentional claim from overlap suppression.
   await page.waitForTimeout(500);
-  await page.getByRole('button', { name: 'Next claim', exact: true }).click();
+  await page.locator('.next-claim-shortcut').click();
   await page.locator('#answer').fill('Okapi');
   await page.locator('#answer').press('Enter');
   await expect

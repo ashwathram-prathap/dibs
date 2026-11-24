@@ -55,7 +55,7 @@ test('R15 Copy result stays spoiler-free and native sharing sends only the file'
     await page.locator('#answer').fill(answer);
     await page.locator('#answer').press('Enter');
     await page
-      .getByRole('button', { name: i < 2 ? 'Next claim' : 'See my results', exact: true })
+      .locator(i < 2 ? '.next-claim-shortcut' : '.win-actions > .primary')
       .click();
   }
   await page.getByRole('button', { name: 'Copy result', exact: true }).click();
@@ -85,7 +85,7 @@ test('R15 unavailable clipboard falls back to selectable text', async ({ page })
     await page.locator('#answer').fill(answer);
     await page.locator('#answer').press('Enter');
     await page
-      .getByRole('button', { name: i < 2 ? 'Next claim' : 'See my results', exact: true })
+      .locator(i < 2 ? '.next-claim-shortcut' : '.win-actions > .primary')
       .click();
   }
   await page.getByRole('button', { name: 'Copy result', exact: true }).click();

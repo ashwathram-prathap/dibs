@@ -70,6 +70,9 @@ let claims: any[] = [
 ];
 const originalClaim = claims[0];
 let mine: any = null;
+// Idempotent request IDs, as on the server: a retried request returns its original result.
+const acknowledged = new Map<string, any>();
+let lostOnce = false;
 let myClaims: any[] = [];
 let events: any[] = [];
 if (r7.has('r19c') && r7.has('persist')) {
@@ -132,6 +135,8 @@ export async function request(path: string, body?: any): Promise<any> {
         ? { serverTime: new Date(fixtureNow()).toISOString() }
         : {}),
       category: r7.has('r7-closed') ? null : { ...category },
+      // Server close time (the next drop); tests may pin it to exercise the deadline copy.
+      ...(r7.has('r7-closed') ? {} : { closesAt: r7.get('closes') || nextDrop() }),
       ...(r6 ? { practice: true, specials: specials() } : {}),
       claimed: claims.length,
       lastClaimAt: claims[0]?.created_at || null,
@@ -300,6 +305,15 @@ export async function request(path: string, body?: any): Promise<any> {
     return { message: 'Your feedback was sent. Thank you.' };
   }
   if (path === '/recover') return { ok: true };
+  if (path === '/claim' && body.requestId && acknowledged.has(body.requestId))
+    return acknowledged.get(body.requestId);
+  if (path === '/claim' && r7.has('lost-ack') && !lostOnce) {
+    // The server records the claim, but its acknowledgement never reaches the browser.
+    lostOnce = true;
+    const result = await request('/claim', body);
+    acknowledged.set(body.requestId, result);
+    throw new Error('The clerk didn’t get that. Try again.');
+  }
   if (path === '/claim') {
     const note = clerkReply(body.answer, category.name);
     if (note) throw new ApiError(422, { code: 'CLERK_NOTE', message: note });
@@ -410,7 +424,7 @@ export async function request(path: string, body?: any): Promise<any> {
       claimId: mine.id,
       obscurity: mine.obscurity,
     });
-    return {
+    const accepted = {
       claim: mine,
       me: await request('/me'),
       ...(r19 ? { leaderboard: board() } : {}),
@@ -418,6 +432,8 @@ export async function request(path: string, body?: any): Promise<any> {
         ? { recoveryKey: 'DIBS-01234-56789-ABCDE-F0123' }
         : {}),
     };
+    if (body.requestId) acknowledged.set(body.requestId, accepted);
+    return accepted;
   }
   if (path.startsWith('/summary/'))
     return {
@@ -503,4 +519,35 @@ if (r19)
     const { getSnapshot, publish } = await import('../src/live');
     const snapshot = getSnapshot();
     if (snapshot) publish({ ...snapshot, me: undefined, rows: [], leaderboard: board() });
+  });
+
+// R19H: another tab finishes the file; this tab only hears the server's live snapshot.
+if (r19)
+  window.addEventListener('r19h-remote-complete', async () => {
+    for (const display of ['Narwhal', 'Aardvark', 'Capybara'].slice(0, 3 - myClaims.length)) {
+      const remote = {
+        ...originalClaim,
+        id: 'fixture-remote-' + display,
+        claim_no: claims.length + 1,
+        display,
+        handle: user.handle,
+        created_at: new Date().toISOString(),
+        points: 60,
+        percentile: 0.6,
+      };
+      claims = [remote, ...claims];
+      myClaims.push(remote);
+      events.push({ at: remote.created_at, kind: 'dibs', display, claimId: remote.id });
+    }
+    const { getSnapshot, publish } = await import('../src/live');
+    const snapshot = getSnapshot();
+    if (snapshot)
+      publish({ ...snapshot, me: await request('/me'), rows: [], leaderboard: board() });
+  });
+// R19H: an ordinary live update (another player's claim) with this player's unchanged file.
+if (r19)
+  window.addEventListener('r19h-live-update', async () => {
+    const { getSnapshot, publish } = await import('../src/live');
+    const snapshot = getSnapshot();
+    if (snapshot) publish({ ...snapshot, rows: [], leaderboard: board() });
   });

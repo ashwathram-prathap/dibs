@@ -5,7 +5,7 @@ test('R19B offers a LinkedIn score link and image download without posting', asy
     await page.locator('#answer').fill(answer);
     await page.locator('#answer').press('Enter');
     if (answer !== 'Wombat')
-      await page.getByRole('button', { name: 'Next claim', exact: true }).click();
+      await page.locator('.next-claim-shortcut').click();
   }
   await page.getByRole('button', { name: 'See my results', exact: true }).click();
   const link = page.getByRole('link', { name: 'Post on LinkedIn' });

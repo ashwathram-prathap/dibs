@@ -37,13 +37,13 @@ test('full filing, certificate, sharing and public record', async ({ page }, inf
   await expect(page.locator('.win-stamp')).toContainText('AXOLOTL');
   await shot('03-success');
   await expect(page.locator('table.ledger')).toHaveCount(0);
-  await page.getByRole('button', { name: 'Next claim', exact: true }).click();
+  await page.locator('.next-claim-shortcut').click();
   for (const answer of ['Okapi', 'Quokka']) {
     await input.fill(answer);
     await page.getByRole('button', { name: 'CALL DIBS' }).click();
     if (answer !== 'Quokka') {
       await expect(page.locator('.win-stamp')).toContainText(answer.toUpperCase());
-      await page.getByRole('button', { name: 'Next claim', exact: true }).click();
+      await page.locator('.next-claim-shortcut').click();
     }
   }
   await page.getByRole('button', { name: 'See my results', exact: true }).click();

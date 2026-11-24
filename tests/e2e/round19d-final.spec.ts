@@ -9,7 +9,7 @@ test('R19D final golden callout precedes Share and golden labels retain gold bor
     await page.locator('#answer').fill(answer);
     await page.getByRole('button', { name: 'CALL DIBS', exact: true }).click();
     await page
-      .getByRole('button', { name: i === 2 ? 'See my results' : 'Next claim', exact: true })
+      .locator(i === 2 ? '.win-actions > .primary' : '.next-claim-shortcut')
       .click();
   }
   const share = page.getByRole('button', { name: 'SHARE', exact: true });

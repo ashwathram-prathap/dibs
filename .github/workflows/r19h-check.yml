@@ -1,0 +1,34 @@
+name: R19H Firefox three-claim checks
+on:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  firefox:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    env:
+      NODE_OPTIONS: --max-old-space-size=6144
+      R19H_FIREFOX: '1'
+      R19H_WORKERS: '2'
+      DIBS_TEST_OUT_DIR: .tmp/r19h/after-dist
+      R19C_SHOTS: review/round19h/firefox-matrix
+      R19G_SHOTS: review/round19h/firefox-footer
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: npm ci
+      - run: npx playwright install --with-deps firefox
+      - run: npx vite build --mode security-test
+      - run: npx playwright test -c playwright.r19h.config.ts --grep-invert "Certificates keep points|Share and visitor landing|Admin archive confirms"
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: r19h-firefox
+          path: |
+            review/round19h/firefox-browser-results.json
+            review/round19h/firefox-matrix/
+            .tmp/r19h/browser-artifacts-5233/
+          retention-days: 14
