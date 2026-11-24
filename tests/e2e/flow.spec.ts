@@ -99,8 +99,9 @@ test('five strikes close the file and invalid entries cost nothing', async ({ pa
     "Not on today's list; check the spelling.",
   );
   await expect(page.getByRole('img', { name: '0 of 5 strikes' })).toBeVisible();
+  // R19I: five different taken answers (a repeat is free, never a second strike).
   for (let i = 1; i <= 5; i++) {
-    await input.fill('Pangolin');
+    await input.fill(['Pangolin', 'Gecko', 'Lemur', 'Tapir', 'Ocelot'][i - 1]);
     await page.getByRole('button', { name: 'CALL DIBS' }).click();
     if (i < 5) await expect(page.getByRole('img', { name: `${i} of 5 strikes` })).toBeVisible();
     else await expect(page.locator('.final-strike')).toContainText("That's 5 strikes.");

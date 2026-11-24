@@ -296,6 +296,8 @@ async function audit(page: Page, scope = 'main', action?: string) {
     }
   }
 }
+// R19I: distinct taken answers; repeating a struck answer is free and never submitted.
+const TAKEN = ['Pangolin', 'Gecko', 'Lemur', 'Tapir', 'Ocelot'];
 async function claim(page: Page, answer: string) {
   await page.locator('#answer').fill(answer);
   await page.getByRole('button', { name: 'CALL DIBS', exact: true }).click();
@@ -517,7 +519,7 @@ test('Each claim gets its payoff; third gold and fifth strike wait for the playe
   await expect(page.getByRole('button', { name: 'See my results', exact: true })).toHaveCount(0);
   await page.goto('/?r19&r19c&r6&strike-flow');
   for (let i = 0; i < 5; i++) {
-    await claim(page, 'Pangolin');
+    await claim(page, TAKEN[i]);
     await expect(page.locator('.strike-count')).toContainText(`Strike ${i + 1}`);
     if (i === 3) {
       const positions = await page.locator('.input-row .primary').evaluate(async (el) => {
@@ -916,7 +918,7 @@ for (const wins of [0, 1, 2])
       await expect(page.locator('.compact-payoff')).toBeVisible();
     }
     for (let i = 1; i <= 5; i++) {
-      await claim(page, 'Pangolin');
+      await claim(page, TAKEN[i - 1]);
       if (i < 5) {
         await expect(page.locator('.strike-count')).toContainText(`Strike ${i} of 5`);
         await expect.poll(async () => (await slots(page)).filter(Boolean)).toHaveLength(wins);

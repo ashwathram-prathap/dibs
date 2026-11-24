@@ -5,7 +5,7 @@ for (const variant of ['first', 'second', 'third', 'two', 'strikes']) {
     await page.goto(`/?r19&r6&gold-${variant === 'strikes' ? 'second' : variant}`);
     for (const [i, answer] of ['Okapi', 'Quokka', 'Wombat'].entries()) {
       if (variant === 'strikes') {
-        await page.locator('#answer').fill('Pangolin');
+        await page.locator('#answer').fill(['Pangolin', 'Gecko', 'Lemur'][i]);
         await page.getByRole('button', { name: 'CALL DIBS', exact: true }).click();
         await expect(page.locator('.result-panel.taken')).toBeVisible();
       }

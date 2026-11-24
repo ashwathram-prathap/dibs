@@ -20,6 +20,7 @@ import {
   GOLDEN_EXPLANATION,
   RESERVED_EXPLANATION,
   NIGHTLY_CLAIMS,
+  REPEAT_GUESS_EXPLANATION,
 } from '../shared/copy';
 export function Signature() {
   return (
@@ -292,6 +293,7 @@ export function Introduction({ lead = false }: { lead?: boolean }) {
           </span>
         </p>
       </div>
+      {lead && <p className="repeat-guess-note">{REPEAT_GUESS_EXPLANATION}</p>}
     </section>
   );
 }

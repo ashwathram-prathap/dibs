@@ -179,9 +179,10 @@ it('resolves the literal full and legacy short certificate URLs before the D1 mi
 });
 it('mirrors a complete game in batches, preserving exact state and scores after another restart', async () => {
   for (const answer of [
-    catalog.answers[0].display,
-    catalog.answers[0].display,
-    catalog.answers[0].display,
+    // R19I: three different reserved answers; a repeat of the same one would be free.
+    manifest.house[0][1],
+    manifest.house[1][1],
+    manifest.house[2][1],
     catalog.answers[121].display,
     catalog.answers[122].display,
   ])
@@ -650,7 +651,7 @@ it('R19 counts only finished files, updates the live score percentile, and expos
   ws.addEventListener('message', (e) => messages.push(JSON.parse(String(e.data))));
   for (const p of players)
     for (let i = 0; i < 5; i++)
-      expect((await guess(p.cookie, manifest.house[0][1])).status).toBe(409);
+      expect((await guess(p.cookie, manifest.house[i][1])).status).toBe(409);
   const final: any = await (await call('/leaderboard', undefined, players[0].cookie)).json();
   expect(final.comparison.finished).toBe(before.comparison.finished + 11);
   expect(final.comparison.points).toBe(0);
@@ -680,7 +681,7 @@ it('R19B enforces concurrent claim/strike limits and accepts one golden bonus on
   expect(wins.filter((r) => r.status === 403)).toHaveLength(4);
   const q = await account();
   const strikes = await Promise.all(
-    Array.from({ length: 8 }, () => guess(q.cookie, manifest.house[0][1])),
+    Array.from({ length: 8 }, (_, i) => guess(q.cookie, manifest.house[i][1])),
   );
   expect(strikes.filter((r) => r.status === 409)).toHaveLength(5);
   expect(strikes.filter((r) => r.status === 403)).toHaveLength(3);

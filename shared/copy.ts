@@ -19,6 +19,9 @@ export const SHARE_INVITATION = `One category. ${MAX_CLAIMS} claims a night. Wha
 export const LIMIT_EXPLANATION = `${MAX_CLAIMS} claims a night. ${MAX_STRIKES} strikes and you're out. ${SCORING_EXPLANATION}`;
 /** How it works opens with the nightly allowance; many players assumed one round. */
 export const NIGHTLY_CLAIMS = `You get ${MAX_CLAIMS} claims every night.`;
+/** R19I: a repeat of an already-struck answer is free (server-enforced per answer_id). */
+export const REPEAT_GUESS_EXPLANATION =
+  'Guessing the same taken answer twice never costs a second strike.';
 export const GAME_DESCRIPTION = GAME_EXPLANATION + ' ' + LIMIT_EXPLANATION;
 export const BACKUP_EXPLANATION =
   'Use this code to get your claims back on another device or browser.';

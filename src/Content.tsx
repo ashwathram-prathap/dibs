@@ -6,6 +6,7 @@ import {
   BACKUP_EXPLANATION,
   RARITY_EXPLANATION,
   RESERVED_EXPLANATION,
+  REPEAT_GUESS_EXPLANATION,
 } from '../shared/copy';
 import { archiveCsv, validateArchive } from '../shared/feedback-archive';
 import { BuilderNote } from './CreatorCredit';
@@ -66,6 +67,8 @@ export function About({ nextDrop }: { nextDrop: string }) {
           <p>{RARITY_EXPLANATION}</p>
           <h3>What does reserved mean?</h3>
           <p>{RESERVED_EXPLANATION}</p>
+          <h3>Can the same guess cost two strikes?</h3>
+          <p>No. {REPEAT_GUESS_EXPLANATION}</p>
           <h3>What counts toward a streak?</h3>
           <p>Make a claim on consecutive drops. Missing a drop resets your streak.</p>
           <h3>Is it free?</h3>

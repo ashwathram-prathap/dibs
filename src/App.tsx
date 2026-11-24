@@ -8,6 +8,7 @@ import { useNoOrphans } from './no-orphans';
 import { StreakChip } from './StreakChip';
 import { rarityLabel } from '../shared/rarity';
 import { countLabel } from '../shared/text';
+import { normalize } from '../worker/domain';
 import { useTheme } from './theme';
 import { createPortal } from 'react-dom';
 import { RarityCurve } from './RarityCurve';
@@ -615,6 +616,29 @@ function Home({
       me.file ? { ...me.file, handle: me.file.handle || me.user?.handle, streak: me.streak } : null,
     [me.file, me.user?.handle, me.streak],
   );
+  // R19I: a repeat of an answer already struck tonight is never sent (the server also refuses
+  // to charge it). Exact/case forms come from the server file; plurals/aliases the server
+  // reported as ALREADY_TRIED are remembered for this category only.
+  const [repeatName, setRepeatName] = useState<string | null>(null);
+  const triedAliases = useRef<{ category?: string; keys: Map<string, string> }>({
+    keys: new Map(),
+  });
+  function aliasesTonight() {
+    if (triedAliases.current.category !== today.category?.id)
+      triedAliases.current = { category: today.category?.id, keys: new Map() };
+    return triedAliases.current.keys;
+  }
+  function struckName(value: string): string | null {
+    const key = normalize(value);
+    if (!key || !file || !today.category || file.category_id !== today.category.id) return null;
+    const alias = aliasesTonight().get(key);
+    if (alias) return alias;
+    return file.events?.some(
+      (e) => e.kind === 'strike' && !!e.display && normalize(e.display) === key,
+    )
+      ? value.trim()
+      : null;
+  }
   const [landed, setLanded] = useState(false);
   const [pendingFinal, setPendingFinal] = useState(false);
   const showDone = !!file?.closed && !pendingFinal;
@@ -828,6 +852,20 @@ function Home({
   async function submit(e: FormEvent, confirmed?: string) {
     e.preventDefault();
     if (submitting.current || busy || !answer.trim()) return;
+    const repeat = struckName(confirmed || answer);
+    if (repeat) {
+      setLanded(false);
+      setTaken(false);
+      setHouseStrike(false);
+      setTakenHolder(null);
+      setSuggestion(null);
+      setMissing(false);
+      setRepeatName(repeat);
+      setMessage(`You already tried ${repeat}. No strike.`);
+      input.current?.focus({ preventScroll: true });
+      return;
+    }
+    setRepeatName(null);
     submitting.current = true;
     setReturning(false);
     setNudgeArmed(false);
@@ -920,6 +958,11 @@ function Home({
         });
       }
       setMissing(err.data?.code === 'NOT_REGISTERED');
+      if (err.data?.code === 'ALREADY_TRIED') {
+        const name = err.data.answer || value.trim();
+        aliasesTonight().set(normalize(value), name);
+        setRepeatName(name);
+      }
       setOutcome(
         err.status === 409
           ? err.data.house
@@ -927,11 +970,13 @@ function Home({
             : 'TAKEN'
           : err.data?.code === 'CLERK_NOTE'
             ? 'A NOTE FROM THE CLERK'
-            : err.data?.code === 'NOT_REGISTERED'
-              ? 'NOT ON THE LIST'
-              : err.status === 403
-                ? 'DONE FOR TODAY'
-                : 'TRY AGAIN',
+            : err.data?.code === 'ALREADY_TRIED'
+              ? 'ALREADY TRIED'
+              : err.data?.code === 'NOT_REGISTERED'
+                ? 'NOT ON THE LIST'
+                : err.status === 403
+                  ? 'DONE FOR TODAY'
+                  : 'TRY AGAIN',
       );
       setTaken(err.status === 409);
       setHouseStrike(!!err.data?.house);
@@ -1218,6 +1263,10 @@ function Home({
                               {houseStrike
                                 ? 'Reserved by the house. −10 points.'
                                 : `Taken. −10 points. ${countLabel(MAX_STRIKES - (file?.strikes || 0), 'strike')} left.`}
+                            </>
+                          ) : repeatName ? (
+                            <>
+                              You already tried <strong>{repeatName}</strong>. No strike.
                             </>
                           ) : takenHolder?.founder ? (
                             <>

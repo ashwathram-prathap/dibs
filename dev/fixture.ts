@@ -69,6 +69,17 @@ let claims: any[] = [
   },
 ];
 const originalClaim = claims[0];
+// R19I: more answers held by other players (not on the ledger), so strike flows can use
+// distinct answers: a repeat of an already-struck answer is free, never a second strike.
+const heldElsewhere: Record<string, string> = {
+  Gecko: 'Rust Finch #12',
+  Lemur: 'Sage Heron #7',
+  Tapir: 'Rust Finch #12',
+  Ocelot: 'Sage Heron #7',
+};
+const fixtureAliases: Record<string, string> = { pangolins: 'Pangolin', geckos: 'Gecko' };
+const STRUCK_TODAY = (key: string) =>
+  events.find((e) => e.kind === 'strike' && e.display.toLowerCase() === key.toLowerCase());
 let mine: any = null;
 // Idempotent request IDs, as on the server: a retried request returns its original result.
 const acknowledged = new Map<string, any>();
@@ -320,14 +331,55 @@ export async function request(path: string, body?: any): Promise<any> {
     if (r7.has('r8') && body.answer === 'offline proof')
       throw new Error('The clerk didn’t get that. Try again.');
     if (file().closed) throw new ApiError(403, { message: 'Your file is closed for today.' });
-    if (r6 && body.answer.toLowerCase() === 'dog') {
-      events.push({ at: new Date().toISOString(), kind: 'strike', display: 'DOG', house: true });
+    const typed = body.answer.trim().toLowerCase();
+    const reserved = r6 ? house.find((h) => h.toLowerCase() === typed) : undefined;
+    const resolved =
+      reserved ||
+      fixtureAliases[typed] ||
+      [...Object.keys(heldElsewhere), ...entries].find((h) => h.toLowerCase() === typed);
+    const repeat = resolved && STRUCK_TODAY(resolved);
+    if (repeat)
+      throw new ApiError(422, {
+        code: 'ALREADY_TRIED',
+        message: `You already tried ${resolved}. No strike.`,
+        answer: resolved,
+        house: !!repeat.house,
+        takenBy: repeat.house ? 'RESERVED' : repeat.holder,
+        at: repeat.heldAt,
+        file: file(),
+        me: await request('/me'),
+      });
+    if (reserved) {
+      events.push({
+        at: new Date().toISOString(),
+        kind: 'strike',
+        display: reserved.toUpperCase(),
+        house: true,
+      });
       throw new ApiError(409, {
         house: true,
         takenBy: 'RESERVED',
-        message: 'DOG is reserved: the 10 most obvious answers are off-limits.',
+        message: `${reserved.toUpperCase()} is reserved: the 10 most obvious answers are off-limits.`,
         file: file(),
         me: await request('/me'),
+      });
+    }
+    const elsewhere = resolved && heldElsewhere[resolved];
+    if (elsewhere) {
+      const heldAt = originalClaim.created_at;
+      events.push({
+        at: new Date().toISOString(),
+        kind: 'strike',
+        display: resolved,
+        holder: elsewhere,
+        heldAt,
+      });
+      throw new ApiError(409, {
+        file: file(),
+        me: await request('/me'),
+        takenBy: elsewhere,
+        at: heldAt,
+        message: `${resolved} is already registered to ${elsewhere}. Please call dibs on something else.`,
       });
     }
     const entry =

@@ -44,6 +44,7 @@ import { publicScores, orderScores } from './leaderboard';
 import { clerkReply } from '../shared/moments';
 import { originFailure, isLocal, validText } from '../shared/security';
 import { metered } from './metrics';
+import { resolveLegacyStrikes, struckEvent, type StruckCache } from './repeat-guess';
 
 // Exactly one instance per category/day. A synchronous ownership decision + SQLite
 // append precede the first await; storage.sync and the output gate precede replies.
@@ -68,6 +69,8 @@ export class DayRegistry extends DurableObject<Env> {
   private nextOpening = dropAt(LAUNCH_DATE);
   private requestedDay?: string;
   private verified = new Map<string, any>();
+  /** R19I: answer_id for strikes journaled before strike events carried one (uid + event time). */
+  private legacyStruck: StruckCache = new Map();
   constructor(ctx: DurableObjectState, env: Env) {
     super(ctx, env);
     ctx.setWebSocketAutoResponse(new WebSocketRequestResponsePair('ping', 'pong'));
@@ -489,6 +492,8 @@ export class DayRegistry extends DurableObject<Env> {
       response = new Response(response.body, response);
       response.headers.set('x-d1-rows-read', String(meter.totals.reads));
       response.headers.set('x-d1-rows-written', String(meter.totals.writes));
+      // R19I budget evidence: Durable Object journal appends (local/staging-admin only).
+      response.headers.set('x-do-journal-seq', String(this.journal?.sequence ?? 0));
     }
     return response;
   }
@@ -1105,14 +1110,49 @@ export class DayRegistry extends DurableObject<Env> {
         },
         422,
       );
-    const aid = answerId(g, row),
-      score = await scoreAnswer(env, g, row[0], aid, this.golden.has(aid));
+    const aid = answerId(g, row);
+    // R19I: never charge a second strike for the same resolved answer tonight.
+    await resolveLegacyStrikes(
+      this.legacyStruck,
+      user.id,
+      (this.state(user.id)?.file.events || []) as any[],
+      async (typed) => {
+        const found = await lookup(g, typed);
+        return found ? answerId(g, found) : null;
+      },
+    );
+    const alreadyTried = () => {
+      const s = this.state(user.id);
+      if (!s || s.file.closed) return null;
+      const struck: any = struckEvent(this.legacyStruck, user.id, s.file.events as any[], aid);
+      if (!struck) return null;
+      return json(
+        {
+          code: 'ALREADY_TRIED',
+          message: `You already tried ${row[1]}. No strike.`,
+          answer: row[1],
+          house: !!struck.house,
+          takenBy: struck.house ? 'RESERVED' : struck.holder,
+          founder: !struck.house && !!struck.holderFounder,
+          at: struck.heldAt,
+          file: this.presentFile(s),
+          me: this.me(user),
+        },
+        422,
+      );
+    };
+    const tried = alreadyTried();
+    if (tried) return tried;
+    const score = await scoreAnswer(env, g, row[0], aid, this.golden.has(aid));
     // No await from this replay/ownership check through the durable INSERT.
     const again = replay();
     if (again) return again;
     const previous = this.state(user.id);
     if (previous?.file.closed)
       return json({ message: "You're done for today; see your certificate." }, 403);
+    // Concurrent double-submits: the first strike is appended synchronously below.
+    const triedAgain = alreadyTried();
+    if (triedAgain) return triedAgain;
     const state: JournalFile = previous
       ? structuredClone(previous)
       : {
@@ -1146,6 +1186,7 @@ export class DayRegistry extends DurableObject<Env> {
       file.events.push({
         kind: 'strike',
         at,
+        answerId: aid,
         display: b.answer.trim().toUpperCase(),
         house,
         holder: house ? 'RESERVED' : holder.handle,

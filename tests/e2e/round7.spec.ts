@@ -84,8 +84,10 @@ for (const kind of ['clean', 'gold-two-strikes', 'five-strikes'])
     const order: string[] = [];
     if (kind === 'five-strikes') {
       for (let i = 0; i < 5; i++) {
-        await submit(page, i % 2 ? 'Pangolin' : 'Dog');
-        order.push(i % 2 ? 'Pangolin' : 'DOG');
+        // R19I: five different strikes (a repeat of a struck answer is free).
+        const miss = ['Dog', 'Pangolin', 'Cat', 'Gecko', 'Lion'][i];
+        await submit(page, miss);
+        order.push(i % 2 ? miss : miss.toUpperCase());
         await expect(page.getByRole('img', { name: `${i + 1} of 5 strikes` })).toBeVisible();
       }
     } else {
