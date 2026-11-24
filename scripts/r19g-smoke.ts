@@ -42,7 +42,11 @@ for (const [engine, label] of [
           } else errors.push(m.text());
         });
         for (const path of ['/', '/about', '/how-it-works']) {
+          const bootstrap = page.waitForResponse(
+            (r) => r.url() === origin + '/api/bootstrap' && r.status() === 200,
+          );
           await page.goto(origin + path);
+          await (await bootstrap).finished();
           await expect(page.locator('.loading')).toBeHidden();
           const footer = page.locator('footer');
           await expect(
