@@ -22,6 +22,14 @@ for (const [engine, label] of [
         });
         const page = await context.newPage();
         const errors: string[] = [];
+        const mutations: string[] = [];
+        page.on('request', (r) => {
+          if (
+            r.url().startsWith(origin + '/api/') &&
+            !['GET', 'HEAD', 'OPTIONS'].includes(r.method())
+          )
+            mutations.push(r.method() + ' ' + r.url());
+        });
         page.on('pageerror', (e) => errors.push(e.message));
         page.on('console', (m) => {
           if (m.type() !== 'error') return;
@@ -69,6 +77,7 @@ for (const [engine, label] of [
           results.push({ engine: label, width, colorScheme, path, passed: true });
         }
         assert.deepEqual(errors, [], 'Browser console must be clean');
+        assert.deepEqual(mutations, [], 'Smoke must be read-only');
         await context.close();
       }
   } finally {
