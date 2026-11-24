@@ -187,3 +187,13 @@ review/round19e/unit-results.json
 review/round19e/lighthouse*/
 review/round19e/firefox-ci/
 review/final/round19e/
+
+# R19G full-resolution visual evidence and raw runner reports.
+review/round19g/ui/
+review/round19g/practice/
+review/round19g/production/
+review/round19g/lighthouse*/
+review/round19g/firefox-ci/
+review/round19g/*browser-results.json
+review/round19g/unit-results.json
+review/final/round19g/
