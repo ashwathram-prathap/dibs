@@ -1,8 +1,6 @@
 name: R15 verified production tag
 on:
-  push:
-    branches: [main]
-    paths: [review/round15/production-smoke.json]
+  workflow_dispatch:
 permissions:
   contents: write
 jobs:

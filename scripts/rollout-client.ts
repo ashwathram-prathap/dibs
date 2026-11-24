@@ -1,4 +1,3 @@
-import './test-traffic';
 import { readFileSync, existsSync } from 'node:fs';
 export const practice = process.argv.includes('--practice');
 export const origin =
@@ -16,6 +15,7 @@ export async function admin(path: string, data?: any, retry = 0): Promise<any> {
     headers: {
       authorization: 'Bearer ' + token,
       origin,
+      'x-dibs-test': '1',
       ...(data !== undefined ? { 'content-type': 'application/json' } : {}),
     },
     body: data === undefined ? undefined : JSON.stringify(data),

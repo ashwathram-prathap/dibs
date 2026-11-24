@@ -1,8 +1,5 @@
 name: R16 Firefox and network check
 on:
-  push:
-    branches: [main]
-    paths: [src/**, worker/**, tests/**, scripts/**, .github/workflows/r15-check.yml]
   workflow_dispatch:
     inputs:
       network:

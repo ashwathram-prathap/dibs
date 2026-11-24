@@ -16,53 +16,82 @@ concurrency:
 jobs:
   rollout:
     runs-on: ubuntu-latest
-    timeout-minutes: 25
+    timeout-minutes: 12
     env:
       NODE_OPTIONS: --max-old-space-size=6144
       DIBS_ADMIN_TOKEN: ${{ secrets.DIBS_ADMIN_TOKEN }}
       CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
       CLOUDFLARE_ACCOUNT_ID: 5cf62cff0219727f2121253b3924f886
+      PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD: '1'
     steps:
       - uses: actions/checkout@v4
+        timeout-minutes: 2
+      - name: Skip idle calendars before installing dependencies
+        id: preflight
+        timeout-minutes: 1
+        env:
+          VALIDATE_ONLY: ${{ inputs.validate_only }}
+        run: node scripts/calendar-preflight.mjs
       - uses: actions/setup-node@v4
+        if: steps.preflight.outputs.needed == 'true'
+        timeout-minutes: 1
         with:
           node-version: '22'
-      - run: npm ci
+          cache: npm
+          cache-dependency-path: package-lock.json
+      - name: Install cached dependencies without browser downloads
+        id: dependencies
+        if: steps.preflight.outputs.needed == 'true'
+        timeout-minutes: 2
+        run: npm ci --prefer-offline --no-audit --no-fund
       - name: Respect launch freeze
+        if: steps.preflight.outputs.needed == 'true'
+        timeout-minutes: 1
         run: npx tsx scripts/check-deploy-freeze.ts --production --round9-part-b
       - name: Check credentials
         id: credentials
-        if: ${{ !inputs.validate_only }}
+        if: ${{ steps.preflight.outputs.needed == 'true' && !inputs.validate_only }}
+        timeout-minutes: 1
         run: |
           if [ -z "$CLOUDFLARE_API_TOKEN" ]; then
-            npx tsx scripts/rollout-status.ts blocked 'Cloudflare upload token is missing. See README calendar setup.'
+            npx tsx scripts/rollout-status.ts blocked 'Cloudflare upload token is missing.'
             exit 1
           fi
           test -n "$DIBS_ADMIN_TOKEN"
       - name: Verify pinned complete-source recipes
+        if: steps.preflight.outputs.needed == 'true'
+        timeout-minutes: 2
         run: npm run catalog:coverage && npx tsx scripts/verify-recipes.ts
       - name: Build versioned indexes and front end
+        if: steps.preflight.outputs.needed == 'true'
+        timeout-minutes: 8
         run: npm run build
       - name: Match requests, preserve referenced assets and enforce budgets
-        if: ${{ !inputs.validate_only }}
+        if: ${{ steps.preflight.outputs.needed == 'true' && !inputs.validate_only }}
+        timeout-minutes: 2
         run: |
           npx tsx scripts/calendar-rollout.ts --discover
           npx tsx scripts/calendar-rollout.ts --prune-assets
           npx tsx scripts/check-asset-budget.ts
       - name: Upload immutable assets
-        if: ${{ !inputs.validate_only }}
+        if: ${{ steps.preflight.outputs.needed == 'true' && !inputs.validate_only }}
+        timeout-minutes: 2
         run: npx wrangler pages deploy dist --project-name dibs --branch main
       - name: Publish library, build next seven days and record results
-        if: ${{ !inputs.validate_only }}
+        if: ${{ steps.preflight.outputs.needed == 'true' && !inputs.validate_only }}
+        timeout-minutes: 2
         run: npx tsx scripts/calendar-rollout.ts --publish-library --build --inventory
       - name: Prune inactive platform deployments
-        if: ${{ !inputs.validate_only }}
+        if: ${{ steps.preflight.outputs.needed == 'true' && !inputs.validate_only }}
+        timeout-minutes: 1
         run: npx tsx scripts/prune-platform.ts
       - name: Write a failed run back to the calendar
-        if: ${{ failure() && !inputs.validate_only && steps.credentials.outcome != 'failure' && env.DIBS_ADMIN_TOKEN != '' }}
+        if: ${{ failure() && steps.dependencies.outcome == 'success' && !inputs.validate_only && steps.credentials.outcome != 'failure' && env.DIBS_ADMIN_TOKEN != '' }}
+        timeout-minutes: 1
         run: npx tsx scripts/rollout-status.ts failed 'Rollout failed. Open the private GitHub Actions run for details; existing ready days remain intact.'
       - uses: actions/upload-artifact@v4
-        if: always()
+        if: ${{ always() && steps.preflight.outputs.needed == 'true' }}
+        timeout-minutes: 1
         with:
           name: calendar-coverage
           path: |

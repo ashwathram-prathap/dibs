@@ -95,6 +95,8 @@ The game must work and look right on every common device and browser.
 
 ### Testing
 
+**Never run browser or test matrices in GitHub Actions. Run them locally.**
+
 - Run the Playwright suite on **WebKit, Chromium and Firefox**.
 - Use these device profiles: iPhone SE, iPhone 15 Pro, iPhone 15 Pro Max, Pixel 7, Galaxy S9+ (small Android), iPad Mini, iPad Pro landscape, and desktop at 1280, 1440 and 2560px.
 - For each profile, play the full flow end to end: load, claim, taken, success, certificate, share fallback, ledger. Screenshot every step.
