@@ -89,7 +89,7 @@ for (const [engine, label] of [
               await expect(page.locator('.next-claim-heading')).toHaveCount(0);
               if (width < 768) {
                 await expect(page.locator('.board-disclosure summary')).toHaveText(
-                  /^Leaderboard · (live standings|you're #\d+ so far)$/,
+                  /^Leaderboard\s·\s(live\sstandings|you're\s#\d+\sso\sfar)$/,
                 );
                 await expect(page.locator('table.leaderboard')).toHaveCount(0);
               } else {

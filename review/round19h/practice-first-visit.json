@@ -1,0 +1,40 @@
+{
+  "passed": true,
+  "at": "2026-11-24T10:36:32.769Z",
+  "opensAt": "2026-11-24T10:36:09.673Z",
+  "checks": [
+    {
+      "browser": "chromium-360-light",
+      "passed": true,
+      "strikes": 0,
+      "flow": [
+        "claim",
+        "claim",
+        "claim"
+      ],
+      "errors": []
+    },
+    {
+      "browser": "webkit-390-dark",
+      "passed": true,
+      "strikes": 0,
+      "flow": [
+        "claim",
+        "claim",
+        "claim"
+      ],
+      "errors": []
+    },
+    {
+      "browser": "chromium-1440-dark",
+      "passed": true,
+      "strikes": 0,
+      "flow": [
+        "claim",
+        "claim",
+        "claim"
+      ],
+      "errors": []
+    }
+  ]
+}
