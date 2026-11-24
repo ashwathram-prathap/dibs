@@ -1,0 +1,11 @@
+{
+  "conclusion": "success",
+  "headSha": "f2ef36be671a0583c902176416e7667ec317287e",
+  "url": "https://github.com/ashwathram-prathap/dibs/actions/runs/45378956258",
+  "passed": 282,
+  "skipped": 6,
+  "failed": 0,
+  "duration": "17.1m",
+  "scope": "Firefox Linux: round19c (incl. all R19H tests), round19g and flow.spec at 320–2560px, both themes, 1.3 font scale; phone-only keyboard test skipped at 768px and up.",
+  "earlierRuns": "45372200528 (4 failures) and 45375659575 (2 failures) were test races: navigation-aborted font downloads and a footer measured while a lazy section loaded. Tests hardened; no product change."
+}

@@ -76,6 +76,11 @@ try {
     'main',
     '--commit-dirty=true',
   ]);
+  ts('Wait for fresh canonical assets (cache-bypassed)', 'scripts/r19h-assets.ts', [
+    'https://dibs.here',
+    'dist',
+    '--fresh',
+  ]);
   ts('Verify canonical build integrity', 'scripts/r19h-assets.ts', ['https://dibs.here']);
   ts('Read-only live-state production smoke', 'scripts/r19h-smoke.ts', ['https://dibs.here']);
   ts('Record released IDs', 'scripts/r19h-deployment-state.ts', ['--released']);
