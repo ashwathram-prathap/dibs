@@ -6,7 +6,15 @@ import { specialStatus } from '../worker/specials';
 import { cluedId } from '../worker/clue';
 let mf: Miniflare, db: any;
 beforeAll(async () => {
-  const built = await build({entryPoints:['worker/index.ts'],bundle:true,write:false,format:'esm',platform:'browser',external:['cloudflare:workers'],loader:{'.wasm':'binary','.woff':'binary','.otf':'binary'}});
+  const built = await build({
+    entryPoints: ['worker/index.ts'],
+    bundle: true,
+    write: false,
+    format: 'esm',
+    platform: 'browser',
+    external: ['cloudflare:workers'],
+    loader: { '.wasm': 'binary', '.woff': 'binary', '.otf': 'binary' },
+  });
   mf = new Miniflare(
     convertV4MiniflareOptions({
       workers: [
@@ -14,8 +22,16 @@ beforeAll(async () => {
           name: 'clue-test',
           modules: true,
           script: built.outputFiles[0].text,
-          durableObjects:{REGISTRY:{className:'Registry',useSQLite:true},IMAGE_CACHE:{className:'ImageCache',useSQLite:true}},
-          bindings:{LOCAL_TEST:'true',COOKIE_SECRET:'clue-test-secret',ADMIN_TOKEN:'clue-test-admin',TURNSTILE_SITE_KEY:'test'},
+          durableObjects: {
+            REGISTRY: { className: 'Registry', useSQLite: true },
+            IMAGE_CACHE: { className: 'ImageCache', useSQLite: true },
+          },
+          bindings: {
+            LOCAL_TEST: 'true',
+            COOKIE_SECRET: 'clue-test-secret',
+            ADMIN_TOKEN: 'clue-test-admin',
+            TURNSTILE_SITE_KEY: 'test',
+          },
           compatibilityDate: '2026-11-20',
           d1Databases: ['DB'],
         },
@@ -92,15 +108,30 @@ it('withholds the clue before drop, reveals no answer while live, shows cracked 
 });
 
 it('keeps future clues and answers out of bootstrap, sockets and static HTML', async () => {
-  const headers={origin:'https://dibs.here'};
-  const response=await mf.dispatchFetch('http://localhost/api/bootstrap',{headers});
-  const cookie=response.headers.get('set-cookie')!.split(';')[0];
-  const data=await response.json() as any;
+  // The isolated Worker uses its own real clock; keep this fixture in the future after launch.
+  await db
+    .prepare(
+      "UPDATE categories SET date='2099-01-01', drop_at='2099-01-02T02:00:00Z' WHERE id='clue'",
+    )
+    .run();
+  const headers = { origin: 'https://dibs.here' };
+  const response = await mf.dispatchFetch('http://localhost/api/bootstrap', { headers });
+  const cookie = response.headers.get('set-cookie')!.split(';')[0];
+  const data = (await response.json()) as any;
   expect(data.today.category).toBeNull();
   expect(JSON.stringify(data)).not.toMatch(/Private animal|One of tonight's|golden_json/);
-  const upgrade=await mf.dispatchFetch('http://localhost/api/live',{headers:{...headers,cookie,Upgrade:'websocket'}});
-  const ws=upgrade.webSocket!;expect(ws).toBeTruthy();ws.accept();
-  const message=await new Promise<string>(resolve=>ws.addEventListener('message',e=>resolve(String(e.data)),{once:true}));
-  expect(message).not.toMatch(/Private animal|One of tonight's|golden_json/);ws.close(1000);
-  expect(readFileSync('dist/index.html','utf8')).not.toMatch(/Private animal|One of tonight's|golden_json/);
+  const upgrade = await mf.dispatchFetch('http://localhost/api/live', {
+    headers: { ...headers, cookie, Upgrade: 'websocket' },
+  });
+  const ws = upgrade.webSocket!;
+  expect(ws).toBeTruthy();
+  ws.accept();
+  const message = await new Promise<string>((resolve) =>
+    ws.addEventListener('message', (e) => resolve(String(e.data)), { once: true }),
+  );
+  expect(message).not.toMatch(/Private animal|One of tonight's|golden_json/);
+  ws.close(1000);
+  expect(readFileSync('dist/index.html', 'utf8')).not.toMatch(
+    /Private animal|One of tonight's|golden_json/,
+  );
 });

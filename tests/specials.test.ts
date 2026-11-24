@@ -4,6 +4,7 @@ import { build } from 'esbuild';
 import { readFileSync, readdirSync } from 'node:fs';
 import { createHash } from 'node:crypto';
 import { registryDate, dropAt, normalize } from '../worker/domain';
+import { goldenPerDay } from '../shared/config';
 import houseWords from '../worker/house-words.json';
 let mf: Miniflare, db: any, stage: any;
 const date = registryDate();
@@ -90,8 +91,8 @@ it('publishes only a stable commitment before any claim, including cached payloa
   const a = await account();
   const saved = await db.prepare('SELECT * FROM daily_specials').first();
   const ids = JSON.parse(saved.golden_json);
-  expect(ids).toHaveLength(3);
-  expect(new Set(ids).size).toBe(3);
+  expect(ids).toHaveLength(goldenPerDay(date));
+  expect(new Set(ids).size).toBe(goldenPerDay(date));
   const gold = (
     await db
       .prepare('SELECT display FROM answers WHERE id IN (SELECT value FROM json_each(?))')
@@ -214,7 +215,7 @@ it('reveals every reserved word and verifies the original salted commitment only
   expect(s.verified).toBe(true);
   expect(s.commitment).toBe(original.commitment);
   expect(createHash('sha256').update(s.reveal.payload).digest('hex')).toBe(original.commitment);
-  expect(s.reveal.answers).toHaveLength(3);
+  expect(s.reveal.answers).toHaveLength(goldenPerDay(date));
   expect(s.reveal.seed).toBe(original.seed);
 });
 it('allows reset only in isolated staging and keeps practice open outside the calendar', async () => {

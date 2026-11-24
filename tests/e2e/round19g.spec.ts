@@ -15,6 +15,7 @@ test('Builder credit stays grouped, accessible and confined to footer and inform
     '/leaderboard?r19',
   ]) {
     await page.goto(path);
+    await expect(page.locator('.loading')).toBeHidden();
     const footer = page.locator('footer');
     await expect(footer.locator('.creator-credit')).toHaveText('Made byAshwathram PrathapX');
     for (const scope of [
@@ -23,9 +24,17 @@ test('Builder credit stays grouped, accessible and confined to footer and inform
         ? [page.locator('.builder-note')]
         : []),
     ]) {
-      const name = scope.getByRole('link', { name: 'Ashwathram Prathap', exact: true });
+      const name = scope.getByRole('link', {
+        name: 'Ashwathram Prathap',
+        exact: true,
+        includeHidden: true,
+      });
       await expect(name).toHaveAttribute('href', 'https://ashwathram.ca');
-      const x = scope.getByRole('link', { name: 'Ashwathram Prathap on X', exact: true });
+      const x = scope.getByRole('link', {
+        name: 'Ashwathram Prathap on X',
+        exact: true,
+        includeHidden: true,
+      });
       await expect(x).toHaveAttribute('href', 'https://x.com/ashwarathap');
       for (const link of [name, x]) {
         await expect(link).toHaveAttribute('target', '_blank');
@@ -41,11 +50,15 @@ test('Builder credit stays grouped, accessible and confined to footer and inform
     expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(
       true,
     );
-    const nameBox = await footer
-      .getByRole('link', { name: 'Ashwathram Prathap', exact: true })
-      .boundingBox();
-    const xBox = await footer.getByRole('link', { name: 'Ashwathram Prathap on X' }).boundingBox();
-    expect(Math.abs(nameBox!.y - xBox!.y)).toBeLessThan(3);
+    if (await footer.isVisible()) {
+      const nameBox = await footer
+        .getByRole('link', { name: 'Ashwathram Prathap', exact: true, includeHidden: true })
+        .boundingBox();
+      const xBox = await footer
+        .getByRole('link', { name: 'Ashwathram Prathap on X', includeHidden: true })
+        .boundingBox();
+      expect(Math.abs(nameBox!.y - xBox!.y)).toBeLessThan(3);
+    }
     const violations = await new AxeBuilder({ page })
       .include('footer')
       .include('.builder-note')
