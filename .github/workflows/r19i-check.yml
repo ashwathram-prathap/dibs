@@ -1,0 +1,35 @@
+name: R19I Firefox repeat-guess and three-claim checks
+on:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  firefox:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    env:
+      NODE_OPTIONS: --max-old-space-size=6144
+      R19I_FIREFOX: '1'
+      R19I_WORKERS: '2'
+      DIBS_TEST_OUT_DIR: .tmp/r19i/after-dist
+      R19C_SHOTS: review/round19i/firefox-matrix
+      R19G_SHOTS: review/round19i/firefox-footer
+      R19I_SHOTS: review/round19i/firefox-repeat
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: npm ci
+      - run: npx playwright install --with-deps firefox
+      - run: npx vite build --mode security-test
+      - run: npx playwright test -c playwright.r19i.config.ts --grep-invert "Certificates keep points|Share and visitor landing|Admin archive confirms"
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: r19i-firefox
+          path: |
+            review/round19i/firefox-browser-results.json
+            review/round19i/firefox-matrix/
+            .tmp/r19i/browser-artifacts-5243/
+          retention-days: 14

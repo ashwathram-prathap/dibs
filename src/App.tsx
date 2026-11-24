@@ -958,6 +958,9 @@ function Home({
         });
       }
       setMissing(err.data?.code === 'NOT_REGISTERED');
+      // Remember the form first struck, so a later "lion" reads "You already tried Lion."
+      if (err.status === 409 && !aliasesTonight().has(normalize(value)))
+        aliasesTonight().set(normalize(value), value.trim());
       if (err.data?.code === 'ALREADY_TRIED') {
         const name = err.data.answer || value.trim();
         aliasesTonight().set(normalize(value), name);
