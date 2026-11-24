@@ -1,0 +1,47 @@
+[
+  {
+    "name": "Capture current rollback point",
+    "passed": true,
+    "at": "2026-11-24T04:49:29.767Z"
+  },
+  {
+    "name": "Production backup",
+    "passed": true,
+    "at": "2026-11-24T04:49:31.543Z"
+  },
+  {
+    "name": "Check daily deploy freeze",
+    "passed": true,
+    "at": "2026-11-24T04:49:31.731Z"
+  },
+  {
+    "name": "Deploy production Pages",
+    "passed": true,
+    "at": "2026-11-24T04:49:41.384Z"
+  },
+  {
+    "name": "Verify canonical build integrity",
+    "passed": true,
+    "at": "2026-11-24T04:49:46.554Z"
+  },
+  {
+    "name": "Recheck daily deploy freeze",
+    "passed": true,
+    "at": "2026-11-24T04:49:46.755Z"
+  },
+  {
+    "name": "Deploy production Worker",
+    "passed": true,
+    "at": "2026-11-24T04:49:59.955Z"
+  },
+  {
+    "name": "Read-only production smoke",
+    "passed": true,
+    "at": "2026-11-24T04:50:18.575Z"
+  },
+  {
+    "name": "Record released IDs",
+    "passed": true,
+    "at": "2026-11-24T04:50:19.817Z"
+  }
+]
