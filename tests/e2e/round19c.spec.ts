@@ -315,7 +315,12 @@ test.beforeEach(async ({ page }, info) => {
   const errors: string[] = [];
   page.on('pageerror', (e) => errors.push(e.message));
   page.on('console', (e) => {
-    if (e.type() === 'error') errors.push(e.text());
+    // Firefox reports fonts cancelled by the test's own navigation (NS_BINDING_ABORTED).
+    if (
+      e.type() === 'error' &&
+      !/downloadable font: download failed.*status=2152398850/.test(e.text())
+    )
+      errors.push(e.text());
   });
   (page as any).__errors = errors;
   await page.addInitScript(describeConsoleErrors);

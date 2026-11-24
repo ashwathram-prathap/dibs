@@ -16,6 +16,8 @@ test('Builder credit stays grouped, accessible and confined to footer and inform
   ]) {
     await page.goto(path);
     await expect(page.locator('.loading')).toBeHidden();
+    // Lazy routes show their own loading status first; measure the settled page.
+    await expect(page.getByText('Loading the page…')).toHaveCount(0);
     const footer = page.locator('footer');
     await expect(footer.locator('.creator-credit')).toHaveText('Made byAshwathram PrathapX');
     for (const scope of [
