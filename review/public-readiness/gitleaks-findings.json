@@ -1,0 +1,162 @@
+[
+  {
+    "file": "categories/museums.json",
+    "commit": "bbb7638beab25014c48990f4fcf18ce4ccc8e705",
+    "type": "false positive: public catalog source reference"
+  },
+  {
+    "file": "categories/novels.json",
+    "commit": "e6a6f349e6680af0cb90628f7002dd930ab1f857",
+    "type": "false positive: public Wikipedia description"
+  },
+  {
+    "file": "categories/novels.json",
+    "commit": "e6a6f349e6680af0cb90628f7002dd930ab1f857",
+    "type": "false positive: public Wikipedia description"
+  },
+  {
+    "file": "categories/novels.json",
+    "commit": "e6a6f349e6680af0cb90628f7002dd930ab1f857",
+    "type": "false positive: public Wikipedia description"
+  },
+  {
+    "file": "categories/novels.json",
+    "commit": "e6a6f349e6680af0cb90628f7002dd930ab1f857",
+    "type": "false positive: public Wikipedia description"
+  },
+  {
+    "file": "categories/novels.json",
+    "commit": "e6a6f349e6680af0cb90628f7002dd930ab1f857",
+    "type": "false positive: public Wikipedia description"
+  },
+  {
+    "file": "categories/novels.json",
+    "commit": "e6a6f349e6680af0cb90628f7002dd930ab1f857",
+    "type": "false positive: public Wikipedia description"
+  },
+  {
+    "file": "dev/fixture.ts",
+    "commit": "c33586265066474ff384a058a0e8f632f3852ee6",
+    "type": "false positive: development fixture backup code (generic-api-key)"
+  },
+  {
+    "file": "review/round8/ui/chromium-dark-1440-1x-gold.aria.txt",
+    "commit": "c33586265066474ff384a058a0e8f632f3852ee6",
+    "type": "false positive: development fixture backup code (generic-api-key)"
+  },
+  {
+    "file": "review/round8/ui/chromium-dark-1440-1x-file-key.aria.txt",
+    "commit": "c33586265066474ff384a058a0e8f632f3852ee6",
+    "type": "false positive: development fixture backup code (generic-api-key)"
+  },
+  {
+    "file": "review/round8/ui/chromium-dark-390-1x-gold.aria.txt",
+    "commit": "c33586265066474ff384a058a0e8f632f3852ee6",
+    "type": "false positive: development fixture backup code (generic-api-key)"
+  },
+  {
+    "file": "review/round8/ui/chromium-dark-390-1x-file-key.aria.txt",
+    "commit": "c33586265066474ff384a058a0e8f632f3852ee6",
+    "type": "false positive: development fixture backup code (generic-api-key)"
+  },
+  {
+    "file": "review/round8/ui/chromium-dark-390-2x-gold.aria.txt",
+    "commit": "c33586265066474ff384a058a0e8f632f3852ee6",
+    "type": "false positive: development fixture backup code (generic-api-key)"
+  },
+  {
+    "file": "review/round8/ui/chromium-dark-390-2x-file-key.aria.txt",
+    "commit": "c33586265066474ff384a058a0e8f632f3852ee6",
+    "type": "false positive: development fixture backup code (generic-api-key)"
+  },
+  {
+    "file": "review/round8/ui/chromium-light-1440-1x-file-key.aria.txt",
+    "commit": "c33586265066474ff384a058a0e8f632f3852ee6",
+    "type": "false positive: development fixture backup code (generic-api-key)"
+  },
+  {
+    "file": "review/round8/ui/chromium-light-1440-1x-gold.aria.txt",
+    "commit": "c33586265066474ff384a058a0e8f632f3852ee6",
+    "type": "false positive: development fixture backup code (generic-api-key)"
+  },
+  {
+    "file": "review/round8/ui/chromium-light-390-1x-gold.aria.txt",
+    "commit": "c33586265066474ff384a058a0e8f632f3852ee6",
+    "type": "false positive: development fixture backup code (generic-api-key)"
+  },
+  {
+    "file": "review/round8/ui/chromium-light-390-1x-file-key.aria.txt",
+    "commit": "c33586265066474ff384a058a0e8f632f3852ee6",
+    "type": "false positive: development fixture backup code (generic-api-key)"
+  },
+  {
+    "file": "review/round8/ui/chromium-light-390-2x-file-key.aria.txt",
+    "commit": "c33586265066474ff384a058a0e8f632f3852ee6",
+    "type": "false positive: development fixture backup code (generic-api-key)"
+  },
+  {
+    "file": "review/round8/ui/chromium-light-390-2x-gold.aria.txt",
+    "commit": "c33586265066474ff384a058a0e8f632f3852ee6",
+    "type": "false positive: development fixture backup code (generic-api-key)"
+  },
+  {
+    "file": "review/round8/ui/webkit-dark-1440-1x-gold.aria.txt",
+    "commit": "c33586265066474ff384a058a0e8f632f3852ee6",
+    "type": "false positive: development fixture backup code (generic-api-key)"
+  },
+  {
+    "file": "review/round8/ui/webkit-dark-1440-1x-file-key.aria.txt",
+    "commit": "c33586265066474ff384a058a0e8f632f3852ee6",
+    "type": "false positive: development fixture backup code (generic-api-key)"
+  },
+  {
+    "file": "review/round8/ui/webkit-dark-390-1x-file-key.aria.txt",
+    "commit": "c33586265066474ff384a058a0e8f632f3852ee6",
+    "type": "false positive: development fixture backup code (generic-api-key)"
+  },
+  {
+    "file": "review/round8/ui/webkit-dark-390-1x-gold.aria.txt",
+    "commit": "c33586265066474ff384a058a0e8f632f3852ee6",
+    "type": "false positive: development fixture backup code (generic-api-key)"
+  },
+  {
+    "file": "review/round8/ui/webkit-dark-390-2x-gold.aria.txt",
+    "commit": "c33586265066474ff384a058a0e8f632f3852ee6",
+    "type": "false positive: development fixture backup code (generic-api-key)"
+  },
+  {
+    "file": "review/round8/ui/webkit-dark-390-2x-file-key.aria.txt",
+    "commit": "c33586265066474ff384a058a0e8f632f3852ee6",
+    "type": "false positive: development fixture backup code (generic-api-key)"
+  },
+  {
+    "file": "review/round8/ui/webkit-light-1440-1x-file-key.aria.txt",
+    "commit": "c33586265066474ff384a058a0e8f632f3852ee6",
+    "type": "false positive: development fixture backup code (generic-api-key)"
+  },
+  {
+    "file": "review/round8/ui/webkit-light-1440-1x-gold.aria.txt",
+    "commit": "c33586265066474ff384a058a0e8f632f3852ee6",
+    "type": "false positive: development fixture backup code (generic-api-key)"
+  },
+  {
+    "file": "review/round8/ui/webkit-light-390-1x-gold.aria.txt",
+    "commit": "c33586265066474ff384a058a0e8f632f3852ee6",
+    "type": "false positive: development fixture backup code (generic-api-key)"
+  },
+  {
+    "file": "review/round8/ui/webkit-light-390-1x-file-key.aria.txt",
+    "commit": "c33586265066474ff384a058a0e8f632f3852ee6",
+    "type": "false positive: development fixture backup code (generic-api-key)"
+  },
+  {
+    "file": "review/round8/ui/webkit-light-390-2x-file-key.aria.txt",
+    "commit": "c33586265066474ff384a058a0e8f632f3852ee6",
+    "type": "false positive: development fixture backup code (generic-api-key)"
+  },
+  {
+    "file": "review/round8/ui/webkit-light-390-2x-gold.aria.txt",
+    "commit": "c33586265066474ff384a058a0e8f632f3852ee6",
+    "type": "false positive: development fixture backup code (generic-api-key)"
+  }
+]

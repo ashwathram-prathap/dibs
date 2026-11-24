@@ -205,3 +205,7 @@ review/round19i/*browser-results.json
 review/round19i/device-results.json
 review/round19i/unit-results.json
 review/round19i/lighthouse*/
+
+# Private owner review notes must never enter repository history.
+SPEC-REVIEW-NOTES.md
+PENDING-SPECS-FOR-REVIEW.md

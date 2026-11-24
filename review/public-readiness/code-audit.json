@@ -1,0 +1,21 @@
+{
+  "checkedAt": "2026-11-24T20:35:37.770Z",
+  "golden": {
+    "seedSource": "crypto.getRandomValues(new Uint8Array(32))",
+    "commitment": "SHA-256 of versioned category, seed and sorted selected IDs",
+    "seedAndSelection": "server D1 daily_specials only until close",
+    "codeReviewPassed": true
+  },
+  "houseWords": {
+    "private": false,
+    "trackedLists": 33,
+    "publicManifestStatus": 200,
+    "publicManifestContainsHouseRows": false,
+    "builder": "deterministic first ten ranked rows",
+    "blocker": "Publishing source exposes reserved answers; historical lists and deterministic rankings cannot be hidden by a current-file redaction."
+  },
+  "admin": {
+    "codeReviewPassed": true,
+    "authentication": "server-held bearer credential, constant-time verification and rate limiting"
+  }
+}

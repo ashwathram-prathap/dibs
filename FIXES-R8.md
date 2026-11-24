@@ -84,7 +84,7 @@ Give a table of every category with its entries, scope, coverage score, house wo
    - Log the normalized answer, category and count, anonymously, rate-limited.
    - The admin stats show the top missing submissions per day, so the owner can add real answers to the list next day.
 4. **Privacy page.**
-   - Add a plain-language Privacy section on the Office notice: what's stored (a random ID cookie, claims, a hashed IP with a daily rotating salt, anonymous share/arrival counts, missing-answer submissions), why, how long it's kept, and that nothing is sold or used for ads. Include a contact email placeholder `privacy@dibs.here` for the owner to set up.
+   - Add a plain-language Privacy section on the Office notice: what's stored (a random ID cookie, claims, a hashed IP with a daily rotating salt, anonymous share/arrival counts, missing-answer submissions), why, how long it's kept, and that nothing is sold or used for ads. Include a contact email placeholder `[private contact redacted]` for the owner to set up.
    - Add a short line that the game is for players 13 and up.
 5. **Backups.**
    - Make a nightly export of the production D1 claims, strikes and identities to a private, gitignored location, plus a documented restore command.

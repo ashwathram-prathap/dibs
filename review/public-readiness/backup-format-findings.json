@@ -1,0 +1,577 @@
+[
+  {
+    "file": "dev/fixture.ts",
+    "commit": "5a747d30df75befe4ef32a639d919f62cba56d09",
+    "type": "false positive: fixed development fixture backup code"
+  },
+  {
+    "file": "tests/r17-journal.test.ts",
+    "commit": "5a747d30df75befe4ef32a639d919f62cba56d09",
+    "type": "false positive: invalid backup-code rate-limit test input"
+  },
+  {
+    "file": "dev/fixture.ts",
+    "commit": "44a0d6b1eac35c569db4d92a5e0227f705390cf1",
+    "type": "false positive: fixed development fixture backup code"
+  },
+  {
+    "file": "tests/e2e/round19.spec.ts",
+    "commit": "44a0d6b1eac35c569db4d92a5e0227f705390cf1",
+    "type": "false positive: fixed development fixture backup code"
+  },
+  {
+    "file": "tests/r17-journal.test.ts",
+    "commit": "a0f0a6f957a61a72ebae4801f0417074df0a44b8",
+    "type": "false positive: invalid backup-code rate-limit test input"
+  },
+  {
+    "file": "dev/fixture.ts",
+    "commit": "9b3029e9c915d5441cc680dbf2f61de77863d9b4",
+    "type": "false positive: fixed development fixture backup code"
+  },
+  {
+    "file": "tests/cache.test.ts",
+    "commit": "9b3029e9c915d5441cc680dbf2f61de77863d9b4",
+    "type": "false positive: invalid backup-code rate-limit test input"
+  },
+  {
+    "file": "tests/r17-journal.test.ts",
+    "commit": "9b3029e9c915d5441cc680dbf2f61de77863d9b4",
+    "type": "false positive: invalid backup-code rate-limit test input"
+  },
+  {
+    "file": "dev/fixture.ts",
+    "commit": "09b92a165c86d09f5b65b9ad74217b4fb879fdd8",
+    "type": "false positive: fixed development fixture backup code"
+  },
+  {
+    "file": "dev/fixture.ts",
+    "commit": "2e191270568f43e29b7c5e50cbe4597eb8aaed34",
+    "type": "false positive: fixed development fixture backup code"
+  },
+  {
+    "file": "dev/fixture.ts",
+    "commit": "7c1e9b76af55b4b61fde37ae9a4054399aee8d14",
+    "type": "false positive: fixed development fixture backup code"
+  },
+  {
+    "file": "tests/cache.test.ts",
+    "commit": "7c1e9b76af55b4b61fde37ae9a4054399aee8d14",
+    "type": "false positive: invalid backup-code rate-limit test input"
+  },
+  {
+    "file": "tests/r17-journal.test.ts",
+    "commit": "7c1e9b76af55b4b61fde37ae9a4054399aee8d14",
+    "type": "false positive: invalid backup-code rate-limit test input"
+  },
+  {
+    "file": "tests/r17-journal.test.ts",
+    "commit": "be604f36e211e2f9b75bf787f09d31c2563edd0b",
+    "type": "false positive: invalid backup-code rate-limit test input"
+  },
+  {
+    "file": "dev/fixture.ts",
+    "commit": "2ceff3abf11e869db867909c3a26c6108a520351",
+    "type": "false positive: fixed development fixture backup code"
+  },
+  {
+    "file": "dev/fixture.ts",
+    "commit": "ec875832febcd48e03f098b8c6c06fc766bf1e48",
+    "type": "false positive: fixed development fixture backup code"
+  },
+  {
+    "file": "dev/fixture.ts",
+    "commit": "7707a9845219c1369ba11e94db917eff066223b6",
+    "type": "false positive: fixed development fixture backup code"
+  },
+  {
+    "file": "tests/e2e/round19.spec.ts",
+    "commit": "3e2216bde2da4d2c11a7c78d26a6e47e5f5b3842",
+    "type": "false positive: fixed development fixture backup code"
+  },
+  {
+    "file": "tests/r17-journal.test.ts",
+    "commit": "3e2216bde2da4d2c11a7c78d26a6e47e5f5b3842",
+    "type": "false positive: invalid backup-code rate-limit test input"
+  },
+  {
+    "file": "dev/fixture.ts",
+    "commit": "654ef41e65c50fe5a7d7b893de264243dec51b43",
+    "type": "false positive: fixed development fixture backup code"
+  },
+  {
+    "file": "tests/r17-journal.test.ts",
+    "commit": "13743a3fb9408d0157fa8915dcb5e6cc96b852b8",
+    "type": "false positive: invalid backup-code rate-limit test input"
+  },
+  {
+    "file": "scripts/r19-settings.ts",
+    "commit": "e884bdba82e6b663a31f4e139945b983ffebb09f",
+    "type": "false positive: fixed development fixture backup code"
+  },
+  {
+    "file": "scripts/r19-supplemental.ts",
+    "commit": "e884bdba82e6b663a31f4e139945b983ffebb09f",
+    "type": "false positive: fixed development fixture backup code"
+  },
+  {
+    "file": "tests/cache.test.ts",
+    "commit": "e884bdba82e6b663a31f4e139945b983ffebb09f",
+    "type": "false positive: invalid backup-code rate-limit test input"
+  },
+  {
+    "file": "tests/r17-journal.test.ts",
+    "commit": "e884bdba82e6b663a31f4e139945b983ffebb09f",
+    "type": "false positive: invalid backup-code rate-limit test input"
+  },
+  {
+    "file": "scripts/r19-settings.ts",
+    "commit": "90af84d0ba27b06c3d2a7e55905e091c8182240c",
+    "type": "false positive: fixed development fixture backup code"
+  },
+  {
+    "file": "scripts/r19-supplemental.ts",
+    "commit": "a8ba6639feeb2bee2ed89873d1e68a1954365f4b",
+    "type": "false positive: fixed development fixture backup code"
+  },
+  {
+    "file": "tests/e2e/round19.spec.ts",
+    "commit": "a8ba6639feeb2bee2ed89873d1e68a1954365f4b",
+    "type": "false positive: fixed development fixture backup code"
+  },
+  {
+    "file": "scripts/r19-settings.ts",
+    "commit": "8d0e392ae69001234373bf6185af139288299db1",
+    "type": "false positive: fixed development fixture backup code"
+  },
+  {
+    "file": "tests/e2e/round19.spec.ts",
+    "commit": "8d0e392ae69001234373bf6185af139288299db1",
+    "type": "false positive: fixed development fixture backup code"
+  },
+  {
+    "file": "scripts/r19-settings.ts",
+    "commit": "1bdd7419b7ebf8c1bd16f5c0a6725b28f4a19b8d",
+    "type": "false positive: fixed development fixture backup code"
+  },
+  {
+    "file": "dev/fixture.ts",
+    "commit": "02560644f9a7592f737c3285f9a55aea10ee603a",
+    "type": "false positive: fixed development fixture backup code"
+  },
+  {
+    "file": "tests/e2e/round19.spec.ts",
+    "commit": "02560644f9a7592f737c3285f9a55aea10ee603a",
+    "type": "false positive: fixed development fixture backup code"
+  },
+  {
+    "file": "dev/fixture.ts",
+    "commit": "ad3416ddf3b7ffdff6ee9a28b0c5458a2a6c0501",
+    "type": "false positive: fixed development fixture backup code"
+  },
+  {
+    "file": "tests/e2e/round19.spec.ts",
+    "commit": "ad3416ddf3b7ffdff6ee9a28b0c5458a2a6c0501",
+    "type": "false positive: fixed development fixture backup code"
+  },
+  {
+    "file": "dev/fixture.ts",
+    "commit": "fb330920aef16ebb0cd12db852b148606b7d06c5",
+    "type": "false positive: fixed development fixture backup code"
+  },
+  {
+    "file": "scripts/r19-settings.ts",
+    "commit": "fb330920aef16ebb0cd12db852b148606b7d06c5",
+    "type": "false positive: fixed development fixture backup code"
+  },
+  {
+    "file": "dev/fixture.ts",
+    "commit": "f95d1dc289c1c6a7dcbedbd9e6b4f84649774f1d",
+    "type": "false positive: fixed development fixture backup code"
+  },
+  {
+    "file": "dev/fixture.ts",
+    "commit": "a60279215fc9576242d7bbd045cccc04984fd6d2",
+    "type": "false positive: fixed development fixture backup code"
+  },
+  {
+    "file": "dev/fixture.ts",
+    "commit": "76ccbbdb61e4865fe540f5f0b4db2a59d34c23d8",
+    "type": "false positive: fixed development fixture backup code"
+  },
+  {
+    "file": "dev/fixture.ts",
+    "commit": "42c63fbcda788b7da2862570fc60a17996701816",
+    "type": "false positive: fixed development fixture backup code"
+  },
+  {
+    "file": "dev/fixture.ts",
+    "commit": "47312d38ffe15f65a0642a6301699a7c3fe87264",
+    "type": "false positive: fixed development fixture backup code"
+  },
+  {
+    "file": "review/round8/ui/chromium-dark-1440-1x-file-key.aria.txt",
+    "commit": "bbb7638beab25014c48990f4fcf18ce4ccc8e705",
+    "type": "false positive: fixed development fixture backup code"
+  },
+  {
+    "file": "review/round8/ui/chromium-dark-1440-1x-gold.aria.txt",
+    "commit": "bbb7638beab25014c48990f4fcf18ce4ccc8e705",
+    "type": "false positive: fixed development fixture backup code"
+  },
+  {
+    "file": "review/round8/ui/chromium-dark-390-1x-file-key.aria.txt",
+    "commit": "bbb7638beab25014c48990f4fcf18ce4ccc8e705",
+    "type": "false positive: fixed development fixture backup code"
+  },
+  {
+    "file": "review/round8/ui/chromium-dark-390-2x-file-key.aria.txt",
+    "commit": "bbb7638beab25014c48990f4fcf18ce4ccc8e705",
+    "type": "false positive: fixed development fixture backup code"
+  },
+  {
+    "file": "review/round8/ui/chromium-dark-390-1x-gold.aria.txt",
+    "commit": "bbb7638beab25014c48990f4fcf18ce4ccc8e705",
+    "type": "false positive: fixed development fixture backup code"
+  },
+  {
+    "file": "review/round8/ui/chromium-dark-390-2x-gold.aria.txt",
+    "commit": "bbb7638beab25014c48990f4fcf18ce4ccc8e705",
+    "type": "false positive: fixed development fixture backup code"
+  },
+  {
+    "file": "review/round8/ui/webkit-light-390-1x-gold.aria.txt",
+    "commit": "bbb7638beab25014c48990f4fcf18ce4ccc8e705",
+    "type": "false positive: fixed development fixture backup code"
+  },
+  {
+    "file": "review/round8/ui/chromium-light-1440-1x-file-key.aria.txt",
+    "commit": "bbb7638beab25014c48990f4fcf18ce4ccc8e705",
+    "type": "false positive: fixed development fixture backup code"
+  },
+  {
+    "file": "review/round8/ui/chromium-light-1440-1x-gold.aria.txt",
+    "commit": "bbb7638beab25014c48990f4fcf18ce4ccc8e705",
+    "type": "false positive: fixed development fixture backup code"
+  },
+  {
+    "file": "review/round8/ui/chromium-light-390-1x-file-key.aria.txt",
+    "commit": "bbb7638beab25014c48990f4fcf18ce4ccc8e705",
+    "type": "false positive: fixed development fixture backup code"
+  },
+  {
+    "file": "review/round8/ui/chromium-light-390-2x-file-key.aria.txt",
+    "commit": "bbb7638beab25014c48990f4fcf18ce4ccc8e705",
+    "type": "false positive: fixed development fixture backup code"
+  },
+  {
+    "file": "review/round8/ui/chromium-light-390-1x-gold.aria.txt",
+    "commit": "bbb7638beab25014c48990f4fcf18ce4ccc8e705",
+    "type": "false positive: fixed development fixture backup code"
+  },
+  {
+    "file": "review/round8/ui/chromium-light-390-2x-gold.aria.txt",
+    "commit": "bbb7638beab25014c48990f4fcf18ce4ccc8e705",
+    "type": "false positive: fixed development fixture backup code"
+  },
+  {
+    "file": "review/round8/ui/webkit-dark-1440-1x-file-key.aria.txt",
+    "commit": "bbb7638beab25014c48990f4fcf18ce4ccc8e705",
+    "type": "false positive: fixed development fixture backup code"
+  },
+  {
+    "file": "review/round8/ui/webkit-dark-1440-1x-gold.aria.txt",
+    "commit": "bbb7638beab25014c48990f4fcf18ce4ccc8e705",
+    "type": "false positive: fixed development fixture backup code"
+  },
+  {
+    "file": "review/round8/ui/webkit-dark-390-1x-file-key.aria.txt",
+    "commit": "bbb7638beab25014c48990f4fcf18ce4ccc8e705",
+    "type": "false positive: fixed development fixture backup code"
+  },
+  {
+    "file": "review/round8/ui/webkit-dark-390-2x-file-key.aria.txt",
+    "commit": "bbb7638beab25014c48990f4fcf18ce4ccc8e705",
+    "type": "false positive: fixed development fixture backup code"
+  },
+  {
+    "file": "review/round8/ui/webkit-light-390-2x-file-key.aria.txt",
+    "commit": "bbb7638beab25014c48990f4fcf18ce4ccc8e705",
+    "type": "false positive: fixed development fixture backup code"
+  },
+  {
+    "file": "review/round8/ui/webkit-dark-390-1x-gold.aria.txt",
+    "commit": "bbb7638beab25014c48990f4fcf18ce4ccc8e705",
+    "type": "false positive: fixed development fixture backup code"
+  },
+  {
+    "file": "review/round8/ui/webkit-dark-390-2x-gold.aria.txt",
+    "commit": "bbb7638beab25014c48990f4fcf18ce4ccc8e705",
+    "type": "false positive: fixed development fixture backup code"
+  },
+  {
+    "file": "review/round8/ui/webkit-light-390-2x-gold.aria.txt",
+    "commit": "bbb7638beab25014c48990f4fcf18ce4ccc8e705",
+    "type": "false positive: fixed development fixture backup code"
+  },
+  {
+    "file": "review/round8/ui/webkit-light-1440-1x-file-key.aria.txt",
+    "commit": "bbb7638beab25014c48990f4fcf18ce4ccc8e705",
+    "type": "false positive: fixed development fixture backup code"
+  },
+  {
+    "file": "review/round8/ui/webkit-light-1440-1x-gold.aria.txt",
+    "commit": "bbb7638beab25014c48990f4fcf18ce4ccc8e705",
+    "type": "false positive: fixed development fixture backup code"
+  },
+  {
+    "file": "review/round8/ui/webkit-light-390-1x-file-key.aria.txt",
+    "commit": "bbb7638beab25014c48990f4fcf18ce4ccc8e705",
+    "type": "false positive: fixed development fixture backup code"
+  },
+  {
+    "file": "review/round8/ui/chromium-dark-1440-1x-file-key.aria.txt",
+    "commit": "a36ed39c6c8a96c40e7a30ced429977e46a3f202",
+    "type": "false positive: fixed development fixture backup code"
+  },
+  {
+    "file": "review/round8/ui/chromium-light-1440-1x-file-key.aria.txt",
+    "commit": "a36ed39c6c8a96c40e7a30ced429977e46a3f202",
+    "type": "false positive: fixed development fixture backup code"
+  },
+  {
+    "file": "review/round8/ui/chromium-dark-1440-1x-gold.aria.txt",
+    "commit": "a36ed39c6c8a96c40e7a30ced429977e46a3f202",
+    "type": "false positive: fixed development fixture backup code"
+  },
+  {
+    "file": "review/round8/ui/chromium-light-1440-1x-gold.aria.txt",
+    "commit": "a36ed39c6c8a96c40e7a30ced429977e46a3f202",
+    "type": "false positive: fixed development fixture backup code"
+  },
+  {
+    "file": "review/round8/ui/chromium-dark-390-1x-file-key.aria.txt",
+    "commit": "a36ed39c6c8a96c40e7a30ced429977e46a3f202",
+    "type": "false positive: fixed development fixture backup code"
+  },
+  {
+    "file": "review/round8/ui/chromium-dark-390-2x-file-key.aria.txt",
+    "commit": "a36ed39c6c8a96c40e7a30ced429977e46a3f202",
+    "type": "false positive: fixed development fixture backup code"
+  },
+  {
+    "file": "review/round8/ui/chromium-light-390-2x-file-key.aria.txt",
+    "commit": "a36ed39c6c8a96c40e7a30ced429977e46a3f202",
+    "type": "false positive: fixed development fixture backup code"
+  },
+  {
+    "file": "review/round8/ui/chromium-dark-390-1x-gold.aria.txt",
+    "commit": "a36ed39c6c8a96c40e7a30ced429977e46a3f202",
+    "type": "false positive: fixed development fixture backup code"
+  },
+  {
+    "file": "review/round8/ui/chromium-dark-390-2x-gold.aria.txt",
+    "commit": "a36ed39c6c8a96c40e7a30ced429977e46a3f202",
+    "type": "false positive: fixed development fixture backup code"
+  },
+  {
+    "file": "review/round8/ui/chromium-light-390-2x-gold.aria.txt",
+    "commit": "a36ed39c6c8a96c40e7a30ced429977e46a3f202",
+    "type": "false positive: fixed development fixture backup code"
+  },
+  {
+    "file": "review/round8/ui/chromium-light-390-1x-file-key.aria.txt",
+    "commit": "a36ed39c6c8a96c40e7a30ced429977e46a3f202",
+    "type": "false positive: fixed development fixture backup code"
+  },
+  {
+    "file": "review/round8/ui/chromium-light-390-1x-gold.aria.txt",
+    "commit": "a36ed39c6c8a96c40e7a30ced429977e46a3f202",
+    "type": "false positive: fixed development fixture backup code"
+  },
+  {
+    "file": "review/round8/ui/webkit-dark-1440-1x-file-key.aria.txt",
+    "commit": "a36ed39c6c8a96c40e7a30ced429977e46a3f202",
+    "type": "false positive: fixed development fixture backup code"
+  },
+  {
+    "file": "review/round8/ui/webkit-dark-1440-1x-gold.aria.txt",
+    "commit": "a36ed39c6c8a96c40e7a30ced429977e46a3f202",
+    "type": "false positive: fixed development fixture backup code"
+  },
+  {
+    "file": "review/round8/ui/webkit-dark-390-1x-file-key.aria.txt",
+    "commit": "a36ed39c6c8a96c40e7a30ced429977e46a3f202",
+    "type": "false positive: fixed development fixture backup code"
+  },
+  {
+    "file": "review/round8/ui/webkit-dark-390-2x-file-key.aria.txt",
+    "commit": "a36ed39c6c8a96c40e7a30ced429977e46a3f202",
+    "type": "false positive: fixed development fixture backup code"
+  },
+  {
+    "file": "review/round8/ui/webkit-light-390-1x-file-key.aria.txt",
+    "commit": "a36ed39c6c8a96c40e7a30ced429977e46a3f202",
+    "type": "false positive: fixed development fixture backup code"
+  },
+  {
+    "file": "review/round8/ui/webkit-light-390-2x-file-key.aria.txt",
+    "commit": "a36ed39c6c8a96c40e7a30ced429977e46a3f202",
+    "type": "false positive: fixed development fixture backup code"
+  },
+  {
+    "file": "review/round8/ui/webkit-dark-390-1x-gold.aria.txt",
+    "commit": "a36ed39c6c8a96c40e7a30ced429977e46a3f202",
+    "type": "false positive: fixed development fixture backup code"
+  },
+  {
+    "file": "review/round8/ui/webkit-dark-390-2x-gold.aria.txt",
+    "commit": "a36ed39c6c8a96c40e7a30ced429977e46a3f202",
+    "type": "false positive: fixed development fixture backup code"
+  },
+  {
+    "file": "review/round8/ui/webkit-light-390-1x-gold.aria.txt",
+    "commit": "a36ed39c6c8a96c40e7a30ced429977e46a3f202",
+    "type": "false positive: fixed development fixture backup code"
+  },
+  {
+    "file": "review/round8/ui/webkit-light-390-2x-gold.aria.txt",
+    "commit": "a36ed39c6c8a96c40e7a30ced429977e46a3f202",
+    "type": "false positive: fixed development fixture backup code"
+  },
+  {
+    "file": "review/round8/ui/webkit-light-1440-1x-file-key.aria.txt",
+    "commit": "a36ed39c6c8a96c40e7a30ced429977e46a3f202",
+    "type": "false positive: fixed development fixture backup code"
+  },
+  {
+    "file": "review/round8/ui/webkit-light-1440-1x-gold.aria.txt",
+    "commit": "a36ed39c6c8a96c40e7a30ced429977e46a3f202",
+    "type": "false positive: fixed development fixture backup code"
+  },
+  {
+    "file": "dev/fixture.ts",
+    "commit": "c33586265066474ff384a058a0e8f632f3852ee6",
+    "type": "false positive: fixed development fixture backup code"
+  },
+  {
+    "file": "review/round8/ui/chromium-dark-1440-1x-file-key.aria.txt",
+    "commit": "c33586265066474ff384a058a0e8f632f3852ee6",
+    "type": "false positive: fixed development fixture backup code"
+  },
+  {
+    "file": "review/round8/ui/chromium-dark-1440-1x-gold.aria.txt",
+    "commit": "c33586265066474ff384a058a0e8f632f3852ee6",
+    "type": "false positive: fixed development fixture backup code"
+  },
+  {
+    "file": "review/round8/ui/webkit-light-1440-1x-gold.aria.txt",
+    "commit": "c33586265066474ff384a058a0e8f632f3852ee6",
+    "type": "false positive: fixed development fixture backup code"
+  },
+  {
+    "file": "review/round8/ui/chromium-dark-390-1x-file-key.aria.txt",
+    "commit": "c33586265066474ff384a058a0e8f632f3852ee6",
+    "type": "false positive: fixed development fixture backup code"
+  },
+  {
+    "file": "review/round8/ui/chromium-dark-390-2x-file-key.aria.txt",
+    "commit": "c33586265066474ff384a058a0e8f632f3852ee6",
+    "type": "false positive: fixed development fixture backup code"
+  },
+  {
+    "file": "review/round8/ui/chromium-light-390-2x-file-key.aria.txt",
+    "commit": "c33586265066474ff384a058a0e8f632f3852ee6",
+    "type": "false positive: fixed development fixture backup code"
+  },
+  {
+    "file": "review/round8/ui/chromium-dark-390-1x-gold.aria.txt",
+    "commit": "c33586265066474ff384a058a0e8f632f3852ee6",
+    "type": "false positive: fixed development fixture backup code"
+  },
+  {
+    "file": "review/round8/ui/chromium-dark-390-2x-gold.aria.txt",
+    "commit": "c33586265066474ff384a058a0e8f632f3852ee6",
+    "type": "false positive: fixed development fixture backup code"
+  },
+  {
+    "file": "review/round8/ui/chromium-light-390-2x-gold.aria.txt",
+    "commit": "c33586265066474ff384a058a0e8f632f3852ee6",
+    "type": "false positive: fixed development fixture backup code"
+  },
+  {
+    "file": "review/round8/ui/chromium-light-1440-1x-file-key.aria.txt",
+    "commit": "c33586265066474ff384a058a0e8f632f3852ee6",
+    "type": "false positive: fixed development fixture backup code"
+  },
+  {
+    "file": "review/round8/ui/chromium-light-1440-1x-gold.aria.txt",
+    "commit": "c33586265066474ff384a058a0e8f632f3852ee6",
+    "type": "false positive: fixed development fixture backup code"
+  },
+  {
+    "file": "review/round8/ui/chromium-light-390-1x-file-key.aria.txt",
+    "commit": "c33586265066474ff384a058a0e8f632f3852ee6",
+    "type": "false positive: fixed development fixture backup code"
+  },
+  {
+    "file": "review/round8/ui/chromium-light-390-1x-gold.aria.txt",
+    "commit": "c33586265066474ff384a058a0e8f632f3852ee6",
+    "type": "false positive: fixed development fixture backup code"
+  },
+  {
+    "file": "review/round8/ui/webkit-dark-1440-1x-file-key.aria.txt",
+    "commit": "c33586265066474ff384a058a0e8f632f3852ee6",
+    "type": "false positive: fixed development fixture backup code"
+  },
+  {
+    "file": "review/round8/ui/webkit-dark-1440-1x-gold.aria.txt",
+    "commit": "c33586265066474ff384a058a0e8f632f3852ee6",
+    "type": "false positive: fixed development fixture backup code"
+  },
+  {
+    "file": "review/round8/ui/webkit-dark-390-1x-file-key.aria.txt",
+    "commit": "c33586265066474ff384a058a0e8f632f3852ee6",
+    "type": "false positive: fixed development fixture backup code"
+  },
+  {
+    "file": "review/round8/ui/webkit-dark-390-2x-file-key.aria.txt",
+    "commit": "c33586265066474ff384a058a0e8f632f3852ee6",
+    "type": "false positive: fixed development fixture backup code"
+  },
+  {
+    "file": "review/round8/ui/webkit-dark-390-1x-gold.aria.txt",
+    "commit": "c33586265066474ff384a058a0e8f632f3852ee6",
+    "type": "false positive: fixed development fixture backup code"
+  },
+  {
+    "file": "review/round8/ui/webkit-dark-390-2x-gold.aria.txt",
+    "commit": "c33586265066474ff384a058a0e8f632f3852ee6",
+    "type": "false positive: fixed development fixture backup code"
+  },
+  {
+    "file": "review/round8/ui/webkit-light-1440-1x-file-key.aria.txt",
+    "commit": "c33586265066474ff384a058a0e8f632f3852ee6",
+    "type": "false positive: fixed development fixture backup code"
+  },
+  {
+    "file": "review/round8/ui/webkit-light-390-1x-file-key.aria.txt",
+    "commit": "c33586265066474ff384a058a0e8f632f3852ee6",
+    "type": "false positive: fixed development fixture backup code"
+  },
+  {
+    "file": "review/round8/ui/webkit-light-390-2x-file-key.aria.txt",
+    "commit": "c33586265066474ff384a058a0e8f632f3852ee6",
+    "type": "false positive: fixed development fixture backup code"
+  },
+  {
+    "file": "review/round8/ui/webkit-light-390-1x-gold.aria.txt",
+    "commit": "c33586265066474ff384a058a0e8f632f3852ee6",
+    "type": "false positive: fixed development fixture backup code"
+  },
+  {
+    "file": "review/round8/ui/webkit-light-390-2x-gold.aria.txt",
+    "commit": "c33586265066474ff384a058a0e8f632f3852ee6",
+    "type": "false positive: fixed development fixture backup code"
+  }
+]
