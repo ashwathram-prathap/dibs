@@ -1,0 +1,34 @@
+{
+  "files": 13852,
+  "changed": [
+    "./_headers",
+    "./index.html",
+    "./reminder.ics",
+    "./version.json"
+  ],
+  "added": [
+    "./assets/Archive-Ctv7ulH9.js",
+    "./assets/Calendar-CruvZq1j.js",
+    "./assets/Certificate-iFqElXXW.js",
+    "./assets/Content-DwDP5rGI.js",
+    "./assets/Leaderboard-CECVaVKt.js",
+    "./assets/Ledger-BkQhsITX.js",
+    "./assets/Settings-DkaY7G_v.js",
+    "./assets/index-B0Xy_8hu.js",
+    "./assets/index-Di3X9HBv.css",
+    "./assets/time-C9fgtIlF.js"
+  ],
+  "removed": [
+    "./assets/Archive-BwgE4wlC.js",
+    "./assets/Calendar-eZ_oGWeH.js",
+    "./assets/Certificate-CfRnQrjF.js",
+    "./assets/Content-n_a32CHE.js",
+    "./assets/Leaderboard-yrzKOWo_.js",
+    "./assets/Ledger-Bk-LKi4x.js",
+    "./assets/Settings-Dwi8vzxe.js",
+    "./assets/index-BnExTDh3.js",
+    "./assets/index-rLU2XPKM.css",
+    "./assets/time-CXmkzaBv.js"
+  ],
+  "note": "Compared with the R19G2 production dist; catalogs, scores, art and fonts unchanged."
+}

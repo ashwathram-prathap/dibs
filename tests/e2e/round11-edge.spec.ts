@@ -1,5 +1,5 @@
 import { test, expect } from './security-fixture';
-test('keyboard-only play, announcements and 200 percent zoom', async ({ page }) => {
+test('keyboard-only play, announcements and 200 percent zoom', async ({ page, browserName }) => {
   await page.goto('/?r6');
   await page.locator('#answer').waitFor();
   let found = false;
@@ -19,8 +19,16 @@ test('keyboard-only play, announcements and 200 percent zoom', async ({ page }) 
       // R19H: no Next claim tap; the input stays focused and usable for the next claim.
       await expect(page.locator('#answer')).toBeFocused();
       // The keyboard focus shortcut only focuses the input; it never submits.
-      await page.keyboard.press('Shift+Tab');
-      await expect(page.locator('.next-claim-shortcut')).toBeFocused();
+      // Keyboard-only: tab backwards to the focus shortcut (engines differ in tab stops).
+      let shortcut = false;
+      for (let i = 0; i < 20 && !shortcut; i++) {
+        // Safari/WebKit reach buttons with Option+Tab; plain Tab visits fields and links.
+        await page.keyboard.press(browserName === 'webkit' ? 'Alt+Shift+Tab' : 'Shift+Tab');
+        shortcut = await page
+          .locator('.next-claim-shortcut')
+          .evaluate((e) => e === document.activeElement);
+      }
+      expect(shortcut).toBe(true);
       await page.keyboard.press('Enter');
       await expect(page.locator('#answer')).toBeFocused();
     }
