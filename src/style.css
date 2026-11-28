@@ -2983,7 +2983,7 @@ html[data-theme='dark'] .founder-handle {
 .live-metrics {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  border-top: 2px solid var(--ink);
+  border-top: 1px solid var(--ink);
 }
 .live-metrics > div {
   border-bottom: 1px solid var(--ink);

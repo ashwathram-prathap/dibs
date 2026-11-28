@@ -212,3 +212,6 @@ PENDING-SPECS-FOR-REVIEW.md
 
 # load-test Cloudflare account (owner only)
 wrangler.loadtest.jsonc
+
+# R20 local Lighthouse HTML is reproducible; JSON evidence is retained.
+review/round20/lighthouse-local/*.html
