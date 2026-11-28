@@ -317,7 +317,7 @@ export async function exportSummary(
   const filed = at ? ` · filed ${filingTime(at, zone)}` : '';
   fitCanvasLine(
     c,
-    `${file.dibs}/${MAX_CLAIMS} claims · ${file.strikes} strikes${filed}`,
+    `${file.dibs}/${MAX_CLAIMS} claims · ${countLabel(file.strikes, 'strike')}${filed}`,
     80,
     440,
     920,

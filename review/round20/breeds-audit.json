@@ -1,0 +1,113 @@
+{
+  "catalog": "animals",
+  "answers": 89122,
+  "probes": [
+    {
+      "input": "Siamese cat",
+      "matches": []
+    },
+    {
+      "input": "Siamese",
+      "matches": []
+    },
+    {
+      "input": "Golden retriever",
+      "matches": [
+        {
+          "display": "Golden retriever",
+          "source": "https://wordnet.princeton.edu/"
+        }
+      ]
+    },
+    {
+      "input": "Clydesdale",
+      "matches": []
+    },
+    {
+      "input": "Persian cat",
+      "matches": []
+    },
+    {
+      "input": "Labrador retriever",
+      "matches": []
+    },
+    {
+      "input": "Holstein",
+      "matches": []
+    },
+    {
+      "input": "Merino",
+      "matches": [
+        {
+          "display": "Merino",
+          "source": "https://wordnet.princeton.edu/"
+        }
+      ]
+    },
+    {
+      "input": "Boer goat",
+      "matches": []
+    },
+    {
+      "input": "Berkshire pig",
+      "matches": []
+    },
+    {
+      "input": "Leghorn chicken",
+      "matches": []
+    },
+    {
+      "input": "Rex rabbit",
+      "matches": []
+    }
+  ],
+  "relatedNames": [
+    "Siamese fighting fish",
+    "Siamese crocodile",
+    "Siamese Fireback",
+    "Siamese Cobra",
+    "Siamese Tiger Perch",
+    "Siamese schilbeid catfish",
+    "Siamese Pied Myna",
+    "Siamese mud carp",
+    "Siamese Leaf-toed Gecko",
+    "Siamese algae-eater",
+    "Siamese Supple Skink",
+    "Siamese Blind Snake",
+    "Siamese Green-eyed Gecko",
+    "Siamese bat catfish",
+    "Siamese Rock Gecko",
+    "Blue point Siamese",
+    "Chestnut-headed Partridge (Siamese)",
+    "Curly-coated retriever",
+    "Flat-coated retriever",
+    "Golden retriever",
+    "Merino",
+    "Retriever",
+    "Siamese grain beetle",
+    "Siamese Partridge",
+    "Siamese Peninsula Pitviper",
+    "Siamese Ringlet"
+  ],
+  "source": {
+    "source": "Full reference extraction, editorial common names, Wikipedia PageViewInfo",
+    "scopeNote": "English common names for animals of every kind, including general groups and bird species.",
+    "builtAt": "2026-11-22T05:45:10.525Z",
+    "identityPolicy": "complete-reference-v2",
+    "reviewRequired": true,
+    "coverageRequired": true,
+    "unmeasured": 26995,
+    "license": "See /data/licenses.txt",
+    "completeSources": true,
+    "candidateCount": 89124,
+    "rankingComplete": true,
+    "qualityFilter": null,
+    "ranking": "30 available days; unavailable pageviews retained as unknown, never fabricated",
+    "displayRepair": {
+      "at": "2026-11-22T08:32:35.487Z",
+      "method": "Repair source UTF-8 mojibake, choose plain source aliases or symbol transcriptions, preserve measured readership, deduplicate normalized names and aliases",
+      "changed": 5,
+      "merged": 1
+    }
+  }
+}

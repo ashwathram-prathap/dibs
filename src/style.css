@@ -8202,3 +8202,15 @@ html.low-power .claim-slots .slot-stamp {
   font: 400 1.125rem/1.5 "Instrument Sans", sans-serif;
   overflow-wrap: anywhere;
 }
+
+/* R20 first-visit card: native modal focus containment, one paper rule. */
+.onboarding-dialog {width:min(32rem,calc(100% - 32px));max-height:calc(100dvh - 32px);padding:24px;background:var(--paper);color:var(--ink);border:1px solid var(--ink);box-shadow:none;overflow:auto;}
+.onboarding-dialog::backdrop {background:rgb(26 26 23 / .55);}
+.onboarding-dialog h2 {font:900 32px/1.05 Archivo;margin:0 0 18px;}
+.onboarding-dialog p {font:400 1.125rem/1.5 'Instrument Sans';margin:0 0 16px;}
+.onboarding-dialog .primary {width:100%;min-height:48px;}
+.quick-rules {background:none;border:0;text-decoration:underline;min-height:44px;padding:0;}
+.previous-night {max-width:760px;margin:24px auto;padding:16px;border-block:1px solid var(--ink);font:400 16px/1.5 'Instrument Sans';}
+.previous-night summary {cursor:pointer;min-height:44px;display:flex;align-items:center;font-weight:600;}
+.previous-night h2 {font-size:28px;}.previous-night h3{font-size:20px;}
+.previous-night button {min-height:44px;padding:0;background:none;border:0;text-decoration:underline;}

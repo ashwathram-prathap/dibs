@@ -1,0 +1,45 @@
+{
+  "at": "2026-11-28T06:08:44.042Z",
+  "scope": "Local serialization/audio measurement; not hosted billing or heap profiling",
+  "additionalPerClaimBytes": 162,
+  "additionalThreeClaimSnapshotBytes": 486,
+  "additionalPerGuessWrites": 0,
+  "additionalPerGuessAssetRequests": 0,
+  "poolFetches": "One retained pool asset per cold active category; existing score fetch unchanged",
+  "publicBoardBytes": "No new live public row metadata for concealed claims. Own/final offRegister boolean is 19 bytes when present; aggregate offRegisterPlayers count is one day field.",
+  "audio": [
+    {
+      "kind": "stamp",
+      "generationMs": 1.1704579999999964,
+      "seconds": 0.145,
+      "peak": 0.699999988079071,
+      "rms": 0.12169413261796216,
+      "sampleBytes": 27840
+    },
+    {
+      "kind": "gold",
+      "generationMs": 1.7467910000000018,
+      "seconds": 0.48,
+      "peak": 0.699999988079071,
+      "rms": 0.08796798645590886,
+      "sampleBytes": 92160
+    },
+    {
+      "kind": "strike",
+      "generationMs": 0.12691700000000594,
+      "seconds": 0.115,
+      "peak": 0.5,
+      "rms": 0.13065147961149617,
+      "sampleBytes": 22080
+    },
+    {
+      "kind": "off",
+      "generationMs": 0.6595840000000024,
+      "seconds": 0.5,
+      "peak": 0.699999988079071,
+      "rms": 0.08709634596884827,
+      "sampleBytes": 96000
+    }
+  ],
+  "limitations": "No hosted load: missing account-wide positive DO-duration headroom. Frame/heap and physical device measurements remain unverified."
+}

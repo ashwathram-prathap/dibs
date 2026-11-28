@@ -130,7 +130,7 @@ export async function request(path: string, body?: any): Promise<any> {
   if (path === '/bootstrap')
     return {
       today: await request('/today'),
-      me: await request('/me'),
+      me: {...await request('/me'), ...(r7.has('r20-new')?{firstVisit:true}:{})},
       rows: claims,
       ...(r19 ? { leaderboard: board() } : {}),
     };
@@ -198,6 +198,7 @@ export async function request(path: string, body?: any): Promise<any> {
       ),
     };
   }
+  if(path==='/previous')return r7.has('r20-recap')?{ready:true,category:{date:'2026-11-26',name:'Animals'},file:{rank:3,players:41,points:210,claims:[{id:'yesterday-1',display:'Quokka',points:110},{id:'yesterday-2',display:'Okapi',points:100}]},goldens:[{display:'Wombat',finder:'Tan Dove'},{display:'Echidna',finder:'Unclaimed'}]}:null;
   if (path === '/archive')
     return {
       categories: r6

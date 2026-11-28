@@ -26,6 +26,13 @@ it('keeps golden status out of public catalog assets and client code', () => {
       String(f).endsWith('.json'),
     )) {
       const data = JSON.parse(readFileSync('public/catalog/' + f, 'utf8'));
+      if (String(f).endsWith('/r21-pool-v1.json')) {
+        expect(Object.keys(data).sort()).toEqual(['boundaryPolicy','catalogVersion','count','membership','poolSize','scoringVersion','sourceDigest','version'].sort());
+        expect(data.membership.length).toBe(data.count);
+        expect(data.membership.every((n:number)=>[0,1,2].includes(n))).toBe(true);
+        expect(data.poolSize).toBe(data.membership.filter((n:number)=>n===1).length);
+        continue;
+      }
       if (String(f).endsWith('/clue-types.json')) {
         expect(Array.isArray(data)).toBe(true);
         expect(data.every((code: unknown) => code === null || (typeof code === 'string' && /^[A-Z]{2}$/.test(code)))).toBe(true);

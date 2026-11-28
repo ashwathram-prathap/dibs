@@ -15,6 +15,7 @@ export interface Specials {
   };
 }
 export interface Category {
+  scopeNote?: string;
   specials?: Specials;
   id: string;
   date: string;
@@ -106,6 +107,7 @@ export interface DayFile {
   completedAt: string | null;
 }
 export interface Me {
+  firstVisit?: boolean;
   file?: DayFile | null;
   user: User | null;
   claim: Claim | null;

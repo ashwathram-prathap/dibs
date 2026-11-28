@@ -1,0 +1,14 @@
+{
+  "environment": "Isolated local Miniflare practice; no deployed requests and no network latency. This does not satisfy the deployed load gate.",
+  "players": 200,
+  "arrivalWindowSeconds": 59.7,
+  "guesses": 1096,
+  "p50Ms": 6,
+  "p95Ms": 19,
+  "durationSeconds": 59.731,
+  "unexpectedErrors": [],
+  "errorRate": 0,
+  "uniqueWinningClaims": 1,
+  "measuredD1Writes": 418,
+  "passed": true
+}

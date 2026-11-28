@@ -215,3 +215,13 @@ wrangler.loadtest.jsonc
 
 # R20 local Lighthouse HTML is reproducible; JSON evidence is retained.
 review/round20/lighthouse-local/*.html
+
+# Overnight flow visuals stay local; summaries are tracked.
+review/r21-flow/**/*.png
+review/r21-flow/**/*.webm
+review/r21-flow/lighthouse-practice/*.html
+
+# R20 follow-up raster proof stays local.
+review/round20/followup/**/*.png
+review/round20/og/**/*.png
+review/round20/og/**/*.jpg
