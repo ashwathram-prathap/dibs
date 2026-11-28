@@ -1,0 +1,7 @@
+{
+  "observedAt": "2026-11-28T05:16:00Z",
+  "source": "gh repo view --json visibility --jq .visibility",
+  "visibility": "PUBLIC",
+  "changedByThisRun": false,
+  "note": "Older Nov 24 review recorded PRIVATE; no inference about timing/actor of the intervening change."
+}

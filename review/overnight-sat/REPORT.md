@@ -21,7 +21,7 @@ Committed and pushed `.gitignore` at `1a93f46`, then the local safety candidate 
 - Admin-only current-day funnel with a 60-second cache, exact/cumulative buckets, participant finish rate, consecutive accepted-claim median and explicit exclusions. Frontend pending RPC ceiling.
 - Saturday date/recovery-reserve guards, strict asset boundaries, fail-closed candidate evidence checks and guarded calendar/pruning mutations. Full cross-machine serialization is still a release blocker.
 - Read-only real-night/account evidence, reproducible local tests and CPU/cost scripts, architecture and scaling design, DR limitations and full request inventory.
-- Recorded the owner's Tue Nov 24 house-word decision in `PUBLIC-READINESS.md`. C2 is resolved by decision, not by a secrecy code change. Repository visibility remains private.
+- Recorded the owner's Tue Nov 24 house-word decision in `PUBLIC-READINESS.md`. C2 is resolved by decision, not by a secrecy code change. The final read-only GitHub check returned PUBLIC; this run did not change visibility.
 
 The initial modified review files were stale regenerated R7/R11/R14/R19B fixtures (including old dates and synthetic preview IDs), and were restored as instructed. Tests regenerated some of them again; they were restored again before finishing. The pre-existing `scripts/r11-practice.ts` edit was preserved and not included in our commits. Existing untracked owner specs/scripts/results were left intact. No secrets were committed; staged files were checked against local secret values.
 

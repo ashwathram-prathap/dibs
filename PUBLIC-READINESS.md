@@ -1,6 +1,6 @@
 # Public-readiness review — 24 November 2026
 
-**House-word blocker resolved by owner decision; repository remains private.** No visibility setting was changed. The requested `public-ready` tag identifies this review checkpoint, not a passing security assessment or authorization to publish.
+**House-word blocker resolved by owner decision; this run did not change visibility.** No visibility setting was changed. The requested `public-ready` tag identifies this review checkpoint, not a passing security assessment or authorization to publish.
 
 | Check | Result | Evidence / remaining work |
 | --- | --- | --- |
@@ -17,22 +17,16 @@
 | C3: current tracked build notes | PASS | Scanned all 15 tracked FIXES/SPEC/OVERNIGHT files. Redacted the contact-email placeholder on `FIXES-R8.md:87`; no real personal contact, tokenized admin URL or ntfy topic remains in these current files. Historical placeholder text remains; history was not rewritten. |
 | C4: ownership | PASS | Exact requested all-rights-reserved LICENSE; package is private and UNLICENSED; lock metadata agrees. Third-party attribution files remain intact. |
 | C5: public-facing README | PASS | Game, architecture, free-tier hosting, Codex/Claude build story, rights statement and credits; no admin instructions or credential details. |
-| Repository visibility | PRIVATE | Owner alone controls any future visibility change. |
+| Repository visibility (Nov 28 read-only check) | PUBLIC | Observed with `gh repo view`; this run made no visibility change. |
 
 ## Owner decision recorded
 
-On Tue Nov 24 the owner accepted house words as public game rules. C2 is resolved by that decision, not by a code change or a new secrecy claim. The lists remain derivable from source/history. Golden selections remain private until close under the existing rules. Repository visibility has not changed; publication still requires the owner's separate action. Earlier scanner results retain their original scope and date and are not a new full-history audit.
+On Tue Nov 24 the owner accepted house words as public game rules. C2 is resolved by that decision, not by a code change or a new secrecy claim. The lists remain derivable from source/history. Golden selections remain private until close under the existing rules. A Nov 28 read-only GitHub check returned PUBLIC; this run made no visibility change. Earlier scanner results retain their original scope and date and are not a new full-history audit.
 
 No real secret was found, so no credential rotation is requested by this audit. The exact-value comparison covers locally available secrets; encrypted GitHub Actions secret values are not retrievable. Automated scans cannot guarantee absence of all conceivable secrets. [Scope and counts](review/public-readiness/history-summary.json), [scanner findings](review/public-readiness/gitleaks-findings.json), [backup-format findings](review/public-readiness/backup-format-findings.json), and [code audit](review/public-readiness/code-audit.json) contain no secret values. Findings are recorded only as file, commit and type.
 
-## Owner-only visibility steps — do not perform yet
+## Visibility status — no action taken
 
-After resolving the failed requirement and reviewing this report:
+The original Nov 24 review recorded PRIVATE. The read-only Nov 28 check returned PUBLIC. This run did not perform any visibility operation or infer when or by whom the change occurred. The owner's house-word decision is recorded above; the older security-scan results keep their original date and scope.
 
-1. Open the `ashwathram-prathap/dibs` repository in GitHub.
-2. Go to **Settings → General → Danger Zone → Change visibility**.
-3. Choose **Change to public** and review GitHub's visibility warnings, including exposure of the complete commit history.
-4. Type the repository name when requested and confirm the visibility change yourself.
-5. Verify the public README, LICENSE and third-party attribution links.
-
-This task did not execute those steps. No ntfy alert was sent. Existing unrelated working-tree changes were preserved.
+No ntfy alert was sent. Existing unrelated working-tree changes were preserved.
