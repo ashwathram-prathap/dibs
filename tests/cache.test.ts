@@ -33,7 +33,10 @@ async function account() {
 }
 beforeAll(async () => {
   const result = await build({
-    entryPoints: ['worker/index.ts'],
+    stdin: {
+      contents: `import worker, {ImageCache as BaseImageCache} from './worker/index'; import {og} from './worker/og'; export {Registry} from './worker/index'; export class ImageCache extends BaseImageCache { async seedStaleHome() { await this.ctx.storage.put('image-format',19); await this.ctx.storage.put('image:default:r19f',new Uint8Array([1,2,3]).buffer); return true; } } export default { async fetch(r,env,ctx) { if(new URL(r.url).pathname==='/api/test-current-og') return og(null); if(new URL(r.url).pathname==='/api/test-stale-home') return Response.json(await env.IMAGE_CACHE.get(env.IMAGE_CACHE.idFromName('images-0')).seedStaleHome()); return worker.fetch(r,env,ctx); } };`,
+      resolveDir: process.cwd(),
+    },
     bundle: true,
     write: false,
     format: 'esm',
@@ -778,4 +781,19 @@ it('keeps signed-player event limits when the network is missing without sharing
   expect(statuses.filter((s) => s === 200)).toHaveLength(30);
   expect(statuses[30]).toBe(429);
   expect((await send(b.cookie)).status).toBe(200);
+});
+
+it('R20 replaces a persisted old home preview and caches the current JPEG', async () => {
+  expect((await call('/test-stale-home', {})).status).toBe(200);
+  const response = await call('/og?v=20');
+  expect(response.status).toBe(200);
+  expect(response.headers.get('content-type')).toBe('image/jpeg');
+  const bytes = Buffer.from(await response.arrayBuffer());
+  expect(bytes.length).toBeGreaterThan(1000);
+  expect(bytes.length).toBeLessThan(300000);
+  expect(bytes).toEqual(Buffer.from(await (await call('/test-current-og')).arrayBuffer()));
+  const again = await call('/og?v=20');
+  expect(Buffer.from(await again.arrayBuffer())).toEqual(bytes);
+  expect(evidence.at(-1).reads).toBe(0);
+  expect(evidence.at(-1).writes).toBe(0);
 });

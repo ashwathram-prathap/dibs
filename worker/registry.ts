@@ -366,18 +366,18 @@ export class Registry extends DurableObject<Env> {
     }
   }
   async image(id: string, env: Env): Promise<Response> {
-    if ((await this.ctx.storage.get('image-format')) !== 19) {
+    if ((await this.ctx.storage.get('image-format')) !== 20) {
       await this.ctx.blockConcurrencyWhile(async () => {
-        if ((await this.ctx.storage.get('image-format')) === 19) return;
+        if ((await this.ctx.storage.get('image-format')) === 20) return;
         for (const prefix of ['image:', 'image-expiry:']) {
           const rows = await this.ctx.storage.list({ prefix });
           if (rows.size) await this.ctx.storage.delete([...rows.keys()]);
         }
         await this.ctx.storage.put('image-bytes', 0);
-        await this.ctx.storage.put('image-format', 19);
+        await this.ctx.storage.put('image-format', 20);
       });
     }
-    const key = 'image:' + (id || 'default') + ':r19f';
+    const key = 'image:' + (id || 'default') + ':r20';
     const saved = await this.ctx.storage.get<ArrayBuffer>(key);
     const ttl = id ? 25 : 86400;
     const updated = (await this.ctx.storage.get<number>(key + ':updated')) || 0;
@@ -419,7 +419,7 @@ export class Registry extends DurableObject<Env> {
           await txn.put(key + ':updated', Date.now());
           if (id) {
             await txn.put('image-bytes', used + bytes.byteLength);
-            await txn.put('image-expiry:' + id + ':r19f', {
+            await txn.put('image-expiry:' + id + ':r20', {
               at: Date.now() + 30 * 86400000,
               size: bytes.byteLength,
             });

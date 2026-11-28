@@ -39,6 +39,7 @@ try {
     );
   }
   assert.ok(read('og-proof.json').passed);
+  assert.ok(read('practice-home-preview.json').passed);
   assert.ok(read('practice-smoke.json').passed);
   assert.ok(read('practice-recovery.json').passed);
   assert.ok(read('practice-asset-integrity.json').passed);
@@ -124,6 +125,10 @@ try {
       'deploy',
       '-c',
       'worker/wrangler.jsonc',
+    ]);
+    ts('Verify current production home renderer', 'scripts/r20-home-preview.ts', [
+      'https://dibs.here',
+      '--wait',
     ]);
     ts('Read-only production smoke', 'scripts/r20-smoke.ts', ['https://dibs.here']);
     ts('Capture released IDs', 'scripts/r20-deployment-state.ts', ['--released']);
