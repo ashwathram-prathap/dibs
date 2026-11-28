@@ -1,7 +1,14 @@
 // Saturday owner-amended release: exact artifacts, assets first, rollback applications only.
 import './test-traffic';
 import { spawnSync, execFileSync } from 'node:child_process';
-import { mkdirSync, rmdirSync, readFileSync, writeFileSync, appendFileSync } from 'node:fs';
+import {
+  existsSync,
+  mkdirSync,
+  rmdirSync,
+  readFileSync,
+  writeFileSync,
+  appendFileSync,
+} from 'node:fs';
 import assert from 'node:assert/strict';
 import { artifactDigest } from './r19h-artifact';
 import { releaseDigest } from './r20-artifact';
@@ -9,6 +16,9 @@ import { assertProductionWindow } from '../shared/release-window';
 const dir = 'review/round20/',
   lock = '.tmp/r20/release.lock';
 const read = (name: string) => JSON.parse(readFileSync(dir + name, 'utf8'));
+const pagesOnly = process.argv.includes('--pages-only');
+const lastProof = pagesOnly ? read('release-evidence.json') : undefined;
+const lastRelease = pagesOnly ? read('release-summary.json') : undefined;
 const steps: any[] = [];
 function run(name: string, cmd: string, args: string[]) {
   const r = spawnSync(cmd, args, { encoding: 'utf8', maxBuffer: 32 * 1024 * 1024 });
@@ -22,6 +32,15 @@ const ts = (name: string, path: string, args: string[] = []) =>
   run(name, './node_modules/.bin/tsx', [path, ...args]);
 const guard = () => ts('Fresh candidate and window gate', 'scripts/check-r20-release.ts');
 assertProductionWindow();
+assert.equal(
+  execFileSync('git', ['branch', '--show-current'], { encoding: 'utf8' }).trim(),
+  'main',
+  'R20 production runner requires main',
+);
+assert.ok(
+  !existsSync('shared/flow-rules.ts'),
+  'R21 requires its own complete release gate; do not use the R20 runner',
+);
 mkdirSync(lock);
 try {
   const unit = read('followup-unit-tests.json');
@@ -31,6 +50,7 @@ try {
     'followup-device-tests.json',
     'followup-golden-tests.json',
     'followup-accessibility-tests.json',
+    'final-share-tests.json',
   ]) {
     const report = read(name);
     assert.ok(
@@ -39,9 +59,11 @@ try {
     );
   }
   assert.ok(read('og-proof.json').passed);
+  assert.ok(read('export-proof.json').passed);
   assert.ok(read('practice-home-preview.json').passed);
   assert.ok(read('practice-smoke.json').passed);
   assert.ok(read('practice-recovery.json').passed);
+  assert.ok(read('practice-handler.json').passed);
   assert.ok(read('practice-asset-integrity.json').passed);
   const lh = read('lighthouse-followup/mobile-1.json');
   assert.ok(lh.categories.performance.score >= 0.9 && lh.categories.accessibility.score >= 0.95);
@@ -90,7 +112,7 @@ try {
       noRegression:
         'FOLLOWUP.md: onboarding, owner-authenticated finalized recap, larger OG, pinned Animals scope and strike grammar; safety regressions checked; inherited gaps remain follow-ups',
       browser:
-        'Fresh followup-browser-tests, followup-device-tests and followup-golden-tests; 74 OG fixtures and 18 crop inspections; prior core continuation retained; Firefox and physical devices unverified',
+        'Fresh followup-browser-tests, followup-device-tests, followup-golden-tests, final-share-tests and 128 canvas exports; 74 unchanged OG fixtures and 18 crops; Firefox and physical devices unverified',
     },
     followups: [
       'Full journal-loss RTO/RPO and deletion reconciliation',
@@ -100,6 +122,31 @@ try {
       'Full active-path monitoring and admission bounds',
     ],
   };
+  if (pagesOnly) {
+    assert.equal(
+      proof.workerDigest,
+      lastProof.workerDigest,
+      'Pages-only requires unchanged Worker modules',
+    );
+    assert.equal(
+      proof.configDigest,
+      lastProof.configDigest,
+      'Pages-only requires unchanged Worker config',
+    );
+    assert.equal(
+      proof.schemaDigest,
+      lastProof.schemaDigest,
+      'Pages-only requires unchanged schema',
+    );
+    assert.equal(
+      rollback.workerVersion,
+      lastRelease.deployment.workerVersion,
+      'Live Worker differs from prior verified release',
+    );
+  }
+  (proof.basis as any).deployment = pagesOnly
+    ? 'Pages-only: unchanged verified Worker, config and schema'
+    : 'Pages then Worker';
   writeFileSync(dir + 'release-evidence.json', JSON.stringify(proof, null, 2));
   let changed = false;
   try {
@@ -121,11 +168,12 @@ try {
       '--fresh',
     ]);
     guard();
-    run('Deploy production Worker', './node_modules/.bin/wrangler', [
-      'deploy',
-      '-c',
-      'worker/wrangler.jsonc',
-    ]);
+    if (!pagesOnly)
+      run('Deploy production Worker', './node_modules/.bin/wrangler', [
+        'deploy',
+        '-c',
+        'worker/wrangler.jsonc',
+      ]);
     ts('Verify current production home renderer', 'scripts/r20-home-preview.ts', [
       'https://dibs.here',
       '--wait',
@@ -137,6 +185,7 @@ try {
       JSON.stringify(
         {
           passed: true,
+          pagesOnly,
           at: new Date().toISOString(),
           rollback,
           deployment: read('deployment.json'),
@@ -152,13 +201,14 @@ try {
   } catch (e) {
     if (changed) {
       assertProductionWindow();
-      run('Application Worker rollback', './node_modules/.bin/wrangler', [
-        'rollback',
-        rollback.workerVersion,
-        '-c',
-        'worker/wrangler.jsonc',
-        '--yes',
-      ]);
+      if (!pagesOnly)
+        run('Application Worker rollback', './node_modules/.bin/wrangler', [
+          'rollback',
+          rollback.workerVersion,
+          '-c',
+          'worker/wrangler.jsonc',
+          '--yes',
+        ]);
       assertProductionWindow();
       const r = await fetch(
         account + `pages/projects/dibs/deployments/${rollback.pages}/rollback`,

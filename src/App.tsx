@@ -1,5 +1,5 @@
-import {PreviousNight} from './PreviousNight';
-import {Onboarding} from './Onboarding';
+import { PreviousNight } from './PreviousNight';
+import { Onboarding } from './Onboarding';
 import { BuilderNote, CreatorLinks } from './CreatorCredit';
 import { claimScore } from '../shared/claim-copy';
 import { goldenPerDay } from '../shared/config';
@@ -202,7 +202,14 @@ export default function App() {
     const viewport = window.visualViewport;
     const update = () => {
       const active = document.activeElement;
-      const typing = active instanceof HTMLInputElement || active instanceof HTMLTextAreaElement;
+      const typing =
+        (active instanceof HTMLTextAreaElement ||
+          (active instanceof HTMLInputElement &&
+            ['text', 'search', 'email', 'url', 'tel', 'password', 'number'].includes(
+              active.type,
+            ))) &&
+        !active.readOnly &&
+        !active.disabled;
       document.documentElement.classList.toggle(
         'keyboard-open',
         typing || (!!viewport && viewport.height < window.innerHeight * 0.75),
@@ -478,7 +485,12 @@ export default function App() {
             ) : path === '/how-it-works' ? (
               <section className="how-page">
                 <h1>How it works</h1>
-                <button className="quick-rules" onClick={()=>window.dispatchEvent(new Event('dibs-how-to-play'))}>Quick rules</button>
+                <button
+                  className="quick-rules"
+                  onClick={() => window.dispatchEvent(new Event('dibs-how-to-play'))}
+                >
+                  Quick rules
+                </button>
                 <Introduction lead />
                 <Rules />
                 <Clue clue={today.specials?.clue} />
@@ -1364,7 +1376,9 @@ function Home({
                 <RevealTime today={today} reminder={false} />
               </div>
             )}
-            {today.category.scopeNote && <p className="category-scope">{today.category.scopeNote}</p>}
+            {today.category.scopeNote && (
+              <p className="category-scope">{today.category.scopeNote}</p>
+            )}
             <details
               className="play-introduction play-rules"
               key={guessNumber}
@@ -1401,7 +1415,7 @@ function Home({
           </div>
         </section>
       )}
-      <PreviousNight me={me} today={today}/>
+      <PreviousNight me={me} today={today} />
       <Clue clue={today.specials?.clue} />
       {playing && (
         <section className="locked-ledger" aria-label="Answers hidden until the day closes">

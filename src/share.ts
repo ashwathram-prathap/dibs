@@ -40,10 +40,11 @@ export async function exportCertificate(claim: Claim, story: boolean, hideAnswer
   const h = 1350;
   await paintPaper(c, paper);
   if (story) c.translate(0, (canvas.height - h) / 2);
-  c.strokeStyle = ink;
+  c.strokeStyle = claim.golden ? (dark ? '#e7c86b' : '#795700') : ink;
   c.fillStyle = ink;
   c.lineWidth = 2;
   c.strokeRect(36, 36, 1008, h - 72);
+  c.strokeStyle = ink;
   const text = (s: string, x: number, y: number, size = 26) => {
     c.font = `400 ${size}px "Instrument Sans"`;
     c.fillText(noOrphan(s), x, y);
@@ -61,11 +62,6 @@ export async function exportCertificate(claim: Claim, story: boolean, hideAnswer
   );
   c.fillStyle = claim.golden ? (dark ? '#e7c86b' : '#795700') : ink;
   fitCanvasLine(c, claim.golden ? 'Form D-1 · Golden ticket' : 'Form D-1', 640, 105, 360, 24);
-  if (claim.golden) {
-    c.strokeStyle = c.fillStyle;
-    c.strokeRect(42, 42, 996, h - 84);
-    c.strokeStyle = ink;
-  }
   c.fillStyle = ink;
   line(135);
   text('Certificate of Dibs', 80, 200, 22);

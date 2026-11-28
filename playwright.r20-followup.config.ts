@@ -14,7 +14,10 @@ const projects = process.env.R20_DEVICES
             metadata: { scale },
             use: {
               browserName: browserName as any,
-              viewport: { width, height: width < 768 ? 780 : 900 },
+              viewport: {
+                width,
+                height: process.env.R20_SHARE && width === 320 ? 568 : width < 768 ? 780 : 900,
+              },
               colorScheme: colorScheme as any,
             },
           })),
@@ -23,9 +26,11 @@ const projects = process.env.R20_DEVICES
     );
 export default defineConfig({
   testDir: 'tests/e2e',
-  testMatch: process.env.R20_GOLDEN
-    ? ['round19d.spec.ts', 'round19d-final.spec.ts']
-    : 'round20-followup.spec.ts',
+  testMatch: process.env.R20_SHARE
+    ? 'round20-share-consent.spec.ts'
+    : process.env.R20_GOLDEN
+      ? ['round19d.spec.ts', 'round19d-final.spec.ts']
+      : 'round20-followup.spec.ts',
   workers: 4,
   fullyParallel: true,
   timeout: 60000,

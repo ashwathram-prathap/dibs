@@ -41,5 +41,5 @@
       "sampleBytes": 96000
     }
   ],
-  "limitations": "No hosted load: missing account-wide positive DO-duration headroom. Frame/heap and physical device measurements remain unverified."
+  "limitations": "No hosted load: missing account-wide positive DO-duration headroom. Local browser frame/heap diagnostics are in browser-cost.json; hosted DO profiling and physical device measurements remain unverified."
 }

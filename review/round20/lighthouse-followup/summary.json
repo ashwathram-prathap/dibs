@@ -3,7 +3,7 @@
     "strategy": "mobile",
     "run": 1,
     "scores": {
-      "performance": 96,
+      "performance": 99,
       "accessibility": 100,
       "best-practices": 100,
       "seo": 63
@@ -15,12 +15,6 @@
         "title": "Largest Contentful Paint",
         "score": 0.95,
         "displayValue": "2.1 s"
-      },
-      {
-        "id": "speed-index",
-        "title": "Speed Index",
-        "score": 0.74,
-        "displayValue": "4.4 s"
       },
       {
         "id": "cumulative-layout-shift",
@@ -74,13 +68,13 @@
           "items": [
             {
               "url": "@font-face{font-family:Archivo;src:url(/fonts/archivo-supplement-900.v2.woff2)format(\"woff2\"); … } …",
-              "wastedBytes": 20674,
+              "wastedBytes": 20672,
               "wastedPercent": 83.32398771116499,
-              "totalBytes": 24811
+              "totalBytes": 24809
             }
           ],
           "overallSavingsMs": 0,
-          "overallSavingsBytes": 20674,
+          "overallSavingsBytes": 20672,
           "sortedBy": [
             "wastedBytes"
           ],
@@ -129,14 +123,14 @@
           ],
           "items": [
             {
-              "url": "https://practice.dibs-7hz.pages.dev/assets/index-DMOWWTpw.js",
-              "totalBytes": 90132,
-              "wastedBytes": 39382,
-              "wastedPercent": 43.69416171897088
+              "url": "https://practice.dibs-7hz.pages.dev/assets/index-xyxWkrWi.js",
+              "totalBytes": 90160,
+              "wastedBytes": 39387,
+              "wastedPercent": 43.68566806310093
             }
           ],
           "overallSavingsMs": 300,
-          "overallSavingsBytes": 39382,
+          "overallSavingsBytes": 39387,
           "sortedBy": [
             "wastedBytes"
           ],
@@ -200,7 +194,7 @@
         "id": "cache-insight",
         "title": "Use efficient cache lifetimes",
         "score": 0.5,
-        "displayValue": "Est savings of 1 KiB",
+        "displayValue": "Est savings of 2 KiB",
         "details": {
           "type": "table",
           "headings": [
@@ -225,10 +219,10 @@
           ],
           "items": [
             {
-              "url": "https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/g/ci/a61762558cce5383/1795848057579/CoaKLCBWxsAwFT5cGh-vVIfyxaDQeDy1UBXUWKonqV2dqXM1Kb-MAehUkp7o_6GAgWLujd7kvAeXWVk1KRRTURIHq9p4YZ2675tRdWF-WYWyRvpyJ4E5BfPFNVFSLIIyCb0JxJRdQxLzl-xA25suDP16kdPqJ9g5BXllWJrbgA0zJ2nooHD5zkBF4sO0n4FmAEE7LH7wtVBBohN0qsei0eg2s5HCyMeCH87WsOtNxa82dHSquAoVcnQ_tAqD3Cf2_Dh_BL_R0kgMtS1-674brzX0xYjtnvPpkujmdPnDSWyNGg9GJLjzmbfizcApAHkHWpWU41kdExyc_Ytce0tmClkDEvtfmLzHnFWIfn9brwQqHmj5RjfIG5ruS-2EcCjdLYkT-wXHfP6A_1_0QkeZzviaD5N-wC57xf2gZUh9IA_iPHipMd1gdFMRF-8Asyj5IY4CEhi5ZmM5gsZC3z00Vra0BK_OhvANVfm30XT2bF16JTmiqnNc_c6DSKE_VbXiH8EOxuuu81Gv1HjnrUtZp7QUNlRdfFTHB4-tmu4DFy5OHgo8-hji6ZJOuHVZdwumQGDmkcHOx-c8eNe_wWe54hvT1zc",
+              "url": "https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/g/ci/a617b34d586bebb8/1795851373902/ChXqU7I9YoFr9OG1YMwCudfQBiJ2jJWvdiI5ESBFWyFC7dO7BfcuA7Q5vIdBNPeKbEH5iGE9LToMJtAJj2WABI9kVq4zwBa60nuJwGE5lEcotDfenKS6JIiKQe4TbpZ7rWYYQRi-W0mDuBmfzQmD8pgVjysySnCVBW62fXkmPuSmLxGRmH20T5o4Ms3mwqDQI8b6EXhyfbI_PaNGb7NS8iIUcN2VjtjxZF296cE-g13lT781M2l5uQaOQFKmL4C7kbH0sODH-x4ZbVSsvevAETE1UwTYTvlo6VK3DmoTzdDS94qOpY1Qj_EfEOXi8NTZ_6rX_O6umD3_Gpi7Y4UPfIazT7BonBdvIdJYG4Hym9-4nprse52aZ8xCT_nVp4W1rmPvOHoJVyjSgPGhopJh5uSNP69SueaCGBw9TrvFChYQAt3XbxuFGEAp5rxfm-t4JftvlTKlXZ0mgsfRvldyKtAmyeWubtUXXnpJT3HkyDFetxannvxkgloKOzVKWJYDfE30gkp_7e-QQ2X3eJicjrmmTcXK4mRyQ3lSYUfvXunD5ttuw7a4Cu2NbghJvGkx2jT_BhZeWxqKlt5x5g54ww",
               "cacheLifetimeMs": 0,
-              "totalBytes": 842,
-              "wastedBytes": 842
+              "totalBytes": 1924,
+              "wastedBytes": 1924
             }
           ],
           "sortedBy": [
@@ -239,61 +233,8 @@
           ],
           "debugData": {
             "type": "debugdata",
-            "wastedBytes": 842
+            "wastedBytes": 1924
           }
-        }
-      },
-      {
-        "id": "lcp-breakdown-insight",
-        "title": "LCP breakdown",
-        "score": 0,
-        "details": {
-          "type": "list",
-          "items": [
-            {
-              "type": "table",
-              "headings": [
-                {
-                  "key": "label",
-                  "valueType": "text",
-                  "label": "Subpart"
-                },
-                {
-                  "key": "duration",
-                  "valueType": "ms",
-                  "label": "Duration"
-                }
-              ],
-              "items": [
-                {
-                  "subpart": "timeToFirstByte",
-                  "label": "Time to first byte",
-                  "duration": 82.21800012207031
-                },
-                {
-                  "subpart": "elementRenderDelay",
-                  "label": "Element render delay",
-                  "duration": 3006.37899987793
-                }
-              ]
-            },
-            {
-              "type": "node",
-              "lhId": "page-0-P",
-              "path": "1,HTML,1,BODY,0,DIV,2,DIV,3,MAIN,0,DIV,0,SECTION,1,DIV,3,P",
-              "selector": "div.focused-play > section.claim-section > div.claim-paper > p.category-scope",
-              "boundingRect": {
-                "top": 612,
-                "bottom": 698,
-                "left": 35,
-                "right": 355,
-                "width": 320,
-                "height": 86
-              },
-              "snippet": "<p class=\"category-scope\">",
-              "nodeLabel": "Animal species, general groups and a limited set of breeds count. Many breeds a…"
-            }
-          ]
         }
       },
       {
@@ -308,16 +249,16 @@
               "value": {
                 "type": "network-tree",
                 "chains": {
-                  "320494C507D61CA0555FCA41CFF4A7BA": {
+                  "D0B4C758AFD18D14ED87334F05195FE3": {
                     "url": "https://practice.dibs-7hz.pages.dev/",
-                    "navStartToEndTime": 124,
-                    "transferSize": 27081,
+                    "navStartToEndTime": 128,
+                    "transferSize": 27080,
                     "isLongest": true,
                     "children": {
-                      "74707.4": {
-                        "url": "https://practice.dibs-7hz.pages.dev/assets/index-DMOWWTpw.js",
-                        "navStartToEndTime": 169,
-                        "transferSize": 90438,
+                      "96432.4": {
+                        "url": "https://practice.dibs-7hz.pages.dev/assets/index-xyxWkrWi.js",
+                        "navStartToEndTime": 188,
+                        "transferSize": 90517,
                         "isLongest": true,
                         "children": {}
                       }
@@ -325,7 +266,7 @@
                   }
                 },
                 "longestChain": {
-                  "duration": 169
+                  "duration": 188
                 }
               }
             },
@@ -364,6 +305,12 @@
     "warnings": [],
     "audits": [
       {
+        "id": "largest-contentful-paint",
+        "title": "Largest Contentful Paint",
+        "score": 0.99,
+        "displayValue": "0.7 s"
+      },
+      {
         "id": "unused-css-rules",
         "title": "Reduce unused CSS",
         "score": 0.5,
@@ -390,13 +337,13 @@
           "items": [
             {
               "url": "@font-face{font-family:Archivo;src:url(/fonts/archivo-supplement-900.v2.woff2)format(\"woff2\"); … } …",
-              "wastedBytes": 21103,
+              "wastedBytes": 21093,
               "wastedPercent": 85.02357466099085,
-              "totalBytes": 24820
+              "totalBytes": 24809
             }
           ],
           "overallSavingsMs": 0,
-          "overallSavingsBytes": 21103,
+          "overallSavingsBytes": 21093,
           "sortedBy": [
             "wastedBytes"
           ],
@@ -413,7 +360,7 @@
         "id": "unused-javascript",
         "title": "Reduce unused JavaScript",
         "score": 0,
-        "displayValue": "Est savings of 34 KiB",
+        "displayValue": "Est savings of 35 KiB",
         "details": {
           "type": "opportunity",
           "headings": [
@@ -445,14 +392,14 @@
           ],
           "items": [
             {
-              "url": "https://practice.dibs-7hz.pages.dev/assets/index-DMOWWTpw.js",
-              "totalBytes": 90095,
-              "wastedBytes": 35221,
-              "wastedPercent": 39.092804636697764
+              "url": "https://practice.dibs-7hz.pages.dev/assets/index-xyxWkrWi.js",
+              "totalBytes": 90062,
+              "wastedBytes": 35632,
+              "wastedPercent": 39.563832117046154
             }
           ],
           "overallSavingsMs": 40,
-          "overallSavingsBytes": 35221,
+          "overallSavingsBytes": 35632,
           "sortedBy": [
             "wastedBytes"
           ],
@@ -516,7 +463,7 @@
         "id": "cache-insight",
         "title": "Use efficient cache lifetimes",
         "score": 0.5,
-        "displayValue": "Est savings of 4 KiB",
+        "displayValue": "Est savings of 7 KiB",
         "details": {
           "type": "table",
           "headings": [
@@ -541,10 +488,10 @@
           ],
           "items": [
             {
-              "url": "https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/g/ci/a617627e9ae45383/1795848064157/Cq25zaCiQD_dWeirWP39X3v2A0soTvjh4AbNiGJ1jwfoqPho5W-dWn0akZx8VkIUhrt651-oSv-txYz7paq1sekOZmar0VNVdbuFqHWHIHoSllcIjs6B9BUoZFB3eLRuBQXcZMypl5gTjQFHwMzhVnbYuySQ6e6cC1331rBsb6tak703fDawuGQZS8WD-UnxtThxdS0XBCd1JTyWMvhwl999NyCN3Wh0Ko_7Hk0defSCN-lazD9GQltvYmvxvalXivu2cWXIFFshY9TeTAsq3BtnBe3Z57dHmj60-Ptocg0tFZpzQYfsgxeRqba4Qu6nmoY2w6T0brHAFtLl4mvc_exmu_ezVbOfrBrRGhoCIeuznUW3AlnPvZJENSTfDLlZ-bLntmh4tjZ0UjOvYBTQb1NAeGCjt9XnQWhrbgoDuk4M_EwJnXhMdYF4TL0MsPMzm4bE0RLwpGPyUvxGMe_EGfJTY8Ja0ieWtE6hPMNBFC10tQEbVBmomYjxhk243Op3f7bZ5JFaW_-IEwC59Acne84aSusXyFh214fGfF9DF-TCJAe16sh_JLK8hB7IxJYR6IZ3TN6eK33VoIRbx4nfecRaVQ",
+              "url": "https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/g/ci/a617b377ee11ebb8/1795851380819/Cm7lEBiL6-2X3NBiM7uKlByrBtQEZEOpZ2E2cgARCTlVF6GFGXKEtMfNKBtXXZyfwkzCBxL3PjOJyT7MDual5i0ihZ2rqqP2VrufiHksE7e30onjWhZF3ZwELxX41zeLdniIlTTUg_X2y8fGjePAXAJcPIOe2rc0kKcVw1Ll8WmEhTvvu8SMIYcOUbHrH_1wz1AqsxPmrdnKwkn28G18N5-ZTFhnaFJiYqC2l_4AQ-L0tu1EibF23rEETrCR-wJeom1Ig2dDMsEmvnbUxbTgsTxmQN57HuYHffcAYjLp-KyyVDm2jtbzt2NDeFP_jau8t2zX3SiW_Cxx03UBBGU3aqOli5OQgIqVWgOtWaf0FWlLV1Fm0fYOLCj16l7ReoLOM-AVL6eCM4A24gqyZ0qXAzqfKs5qwJgSYCHhCofvYz6NG-dKekH3nnAaSEQ31YiJ3YvfO4zyFe7Pd88X7MGP0FNjZ9hu9OG_m0AcMZkHMaBZFviHsCsVCJtVYNIPXgbpE1ANClXH4viz3QfVdtYsaUkLSQrVT9bZDkGUJZHmS9LkMCGPYKbS84F1emlcaO0z0fuaanNy0KCJ0tZgJIqe0w",
               "cacheLifetimeMs": 0,
-              "totalBytes": 3662,
-              "wastedBytes": 3662
+              "totalBytes": 6940,
+              "wastedBytes": 6940
             }
           ],
           "sortedBy": [
@@ -555,7 +502,7 @@
           ],
           "debugData": {
             "type": "debugdata",
-            "wastedBytes": 3662
+            "wastedBytes": 6940
           }
         }
       },
@@ -571,16 +518,16 @@
               "value": {
                 "type": "network-tree",
                 "chains": {
-                  "F8A087BA4158D2729D70163A1C34BB8A": {
+                  "43E1264D342B9293B350D71D2A02B0ED": {
                     "url": "https://practice.dibs-7hz.pages.dev/",
-                    "navStartToEndTime": 89,
-                    "transferSize": 26278,
+                    "navStartToEndTime": 75,
+                    "transferSize": 26931,
                     "isLongest": true,
                     "children": {
-                      "74821.4": {
-                        "url": "https://practice.dibs-7hz.pages.dev/assets/index-DMOWWTpw.js",
-                        "navStartToEndTime": 165,
-                        "transferSize": 91176,
+                      "96525.4": {
+                        "url": "https://practice.dibs-7hz.pages.dev/assets/index-xyxWkrWi.js",
+                        "navStartToEndTime": 132,
+                        "transferSize": 91151,
                         "isLongest": true,
                         "children": {}
                       }
@@ -588,7 +535,7 @@
                   }
                 },
                 "longestChain": {
-                  "duration": 165
+                  "duration": 132
                 }
               }
             },

@@ -1,0 +1,4344 @@
+{
+  "config": {
+    "argv": [
+      "/opt/homebrew/Cellar/node/26.13.1_2/bin/node",
+      "/Users/ashwathram/Projects/dibs/node_modules/.bin/playwright",
+      "test",
+      "-c",
+      "playwright.r21.config.ts"
+    ],
+    "configFile": "/Users/ashwathram/Projects/dibs/playwright.r21.config.ts",
+    "rootDir": "/Users/ashwathram/Projects/dibs/tests/e2e",
+    "failOnFlakyTests": false,
+    "forbidOnly": false,
+    "fullyParallel": true,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 4
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "/Users/ashwathram/Projects/dibs/.tmp/r21/artifacts",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "fontScale": 1
+        },
+        "id": "chromium-320-light-font1",
+        "name": "chromium-320-light-font1",
+        "testDir": "/Users/ashwathram/Projects/dibs/tests/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "round21-certificate.spec.ts"
+        ],
+        "timeout": 60000
+      },
+      {
+        "outputDir": "/Users/ashwathram/Projects/dibs/.tmp/r21/artifacts",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "fontScale": 1.3
+        },
+        "id": "chromium-320-light-font1.3",
+        "name": "chromium-320-light-font1.3",
+        "testDir": "/Users/ashwathram/Projects/dibs/tests/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "round21-certificate.spec.ts"
+        ],
+        "timeout": 60000
+      },
+      {
+        "outputDir": "/Users/ashwathram/Projects/dibs/.tmp/r21/artifacts",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "fontScale": 1
+        },
+        "id": "chromium-320-dark-font1",
+        "name": "chromium-320-dark-font1",
+        "testDir": "/Users/ashwathram/Projects/dibs/tests/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "round21-certificate.spec.ts"
+        ],
+        "timeout": 60000
+      },
+      {
+        "outputDir": "/Users/ashwathram/Projects/dibs/.tmp/r21/artifacts",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "fontScale": 1.3
+        },
+        "id": "chromium-320-dark-font1.3",
+        "name": "chromium-320-dark-font1.3",
+        "testDir": "/Users/ashwathram/Projects/dibs/tests/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "round21-certificate.spec.ts"
+        ],
+        "timeout": 60000
+      },
+      {
+        "outputDir": "/Users/ashwathram/Projects/dibs/.tmp/r21/artifacts",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "fontScale": 1
+        },
+        "id": "chromium-360-light-font1",
+        "name": "chromium-360-light-font1",
+        "testDir": "/Users/ashwathram/Projects/dibs/tests/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "round21-certificate.spec.ts"
+        ],
+        "timeout": 60000
+      },
+      {
+        "outputDir": "/Users/ashwathram/Projects/dibs/.tmp/r21/artifacts",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "fontScale": 1.3
+        },
+        "id": "chromium-360-light-font1.3",
+        "name": "chromium-360-light-font1.3",
+        "testDir": "/Users/ashwathram/Projects/dibs/tests/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "round21-certificate.spec.ts"
+        ],
+        "timeout": 60000
+      },
+      {
+        "outputDir": "/Users/ashwathram/Projects/dibs/.tmp/r21/artifacts",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "fontScale": 1
+        },
+        "id": "chromium-360-dark-font1",
+        "name": "chromium-360-dark-font1",
+        "testDir": "/Users/ashwathram/Projects/dibs/tests/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "round21-certificate.spec.ts"
+        ],
+        "timeout": 60000
+      },
+      {
+        "outputDir": "/Users/ashwathram/Projects/dibs/.tmp/r21/artifacts",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "fontScale": 1.3
+        },
+        "id": "chromium-360-dark-font1.3",
+        "name": "chromium-360-dark-font1.3",
+        "testDir": "/Users/ashwathram/Projects/dibs/tests/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "round21-certificate.spec.ts"
+        ],
+        "timeout": 60000
+      },
+      {
+        "outputDir": "/Users/ashwathram/Projects/dibs/.tmp/r21/artifacts",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "fontScale": 1
+        },
+        "id": "chromium-390-light-font1",
+        "name": "chromium-390-light-font1",
+        "testDir": "/Users/ashwathram/Projects/dibs/tests/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "round21-certificate.spec.ts"
+        ],
+        "timeout": 60000
+      },
+      {
+        "outputDir": "/Users/ashwathram/Projects/dibs/.tmp/r21/artifacts",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "fontScale": 1.3
+        },
+        "id": "chromium-390-light-font1.3",
+        "name": "chromium-390-light-font1.3",
+        "testDir": "/Users/ashwathram/Projects/dibs/tests/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "round21-certificate.spec.ts"
+        ],
+        "timeout": 60000
+      },
+      {
+        "outputDir": "/Users/ashwathram/Projects/dibs/.tmp/r21/artifacts",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "fontScale": 1
+        },
+        "id": "chromium-390-dark-font1",
+        "name": "chromium-390-dark-font1",
+        "testDir": "/Users/ashwathram/Projects/dibs/tests/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "round21-certificate.spec.ts"
+        ],
+        "timeout": 60000
+      },
+      {
+        "outputDir": "/Users/ashwathram/Projects/dibs/.tmp/r21/artifacts",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "fontScale": 1.3
+        },
+        "id": "chromium-390-dark-font1.3",
+        "name": "chromium-390-dark-font1.3",
+        "testDir": "/Users/ashwathram/Projects/dibs/tests/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "round21-certificate.spec.ts"
+        ],
+        "timeout": 60000
+      },
+      {
+        "outputDir": "/Users/ashwathram/Projects/dibs/.tmp/r21/artifacts",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "fontScale": 1
+        },
+        "id": "chromium-768-light-font1",
+        "name": "chromium-768-light-font1",
+        "testDir": "/Users/ashwathram/Projects/dibs/tests/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "round21-certificate.spec.ts"
+        ],
+        "timeout": 60000
+      },
+      {
+        "outputDir": "/Users/ashwathram/Projects/dibs/.tmp/r21/artifacts",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "fontScale": 1
+        },
+        "id": "chromium-768-dark-font1",
+        "name": "chromium-768-dark-font1",
+        "testDir": "/Users/ashwathram/Projects/dibs/tests/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "round21-certificate.spec.ts"
+        ],
+        "timeout": 60000
+      },
+      {
+        "outputDir": "/Users/ashwathram/Projects/dibs/.tmp/r21/artifacts",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "fontScale": 1
+        },
+        "id": "chromium-1280-light-font1",
+        "name": "chromium-1280-light-font1",
+        "testDir": "/Users/ashwathram/Projects/dibs/tests/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "round21-certificate.spec.ts"
+        ],
+        "timeout": 60000
+      },
+      {
+        "outputDir": "/Users/ashwathram/Projects/dibs/.tmp/r21/artifacts",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "fontScale": 1
+        },
+        "id": "chromium-1280-dark-font1",
+        "name": "chromium-1280-dark-font1",
+        "testDir": "/Users/ashwathram/Projects/dibs/tests/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "round21-certificate.spec.ts"
+        ],
+        "timeout": 60000
+      },
+      {
+        "outputDir": "/Users/ashwathram/Projects/dibs/.tmp/r21/artifacts",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "fontScale": 1
+        },
+        "id": "chromium-1440-light-font1",
+        "name": "chromium-1440-light-font1",
+        "testDir": "/Users/ashwathram/Projects/dibs/tests/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "round21-certificate.spec.ts"
+        ],
+        "timeout": 60000
+      },
+      {
+        "outputDir": "/Users/ashwathram/Projects/dibs/.tmp/r21/artifacts",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "fontScale": 1
+        },
+        "id": "chromium-1440-dark-font1",
+        "name": "chromium-1440-dark-font1",
+        "testDir": "/Users/ashwathram/Projects/dibs/tests/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "round21-certificate.spec.ts"
+        ],
+        "timeout": 60000
+      },
+      {
+        "outputDir": "/Users/ashwathram/Projects/dibs/.tmp/r21/artifacts",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "fontScale": 1
+        },
+        "id": "chromium-2560-light-font1",
+        "name": "chromium-2560-light-font1",
+        "testDir": "/Users/ashwathram/Projects/dibs/tests/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "round21-certificate.spec.ts"
+        ],
+        "timeout": 60000
+      },
+      {
+        "outputDir": "/Users/ashwathram/Projects/dibs/.tmp/r21/artifacts",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "fontScale": 1
+        },
+        "id": "chromium-2560-dark-font1",
+        "name": "chromium-2560-dark-font1",
+        "testDir": "/Users/ashwathram/Projects/dibs/tests/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "round21-certificate.spec.ts"
+        ],
+        "timeout": 60000
+      },
+      {
+        "outputDir": "/Users/ashwathram/Projects/dibs/.tmp/r21/artifacts",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "fontScale": 1
+        },
+        "id": "webkit-320-light-font1",
+        "name": "webkit-320-light-font1",
+        "testDir": "/Users/ashwathram/Projects/dibs/tests/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "round21-certificate.spec.ts"
+        ],
+        "timeout": 60000
+      },
+      {
+        "outputDir": "/Users/ashwathram/Projects/dibs/.tmp/r21/artifacts",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "fontScale": 1.3
+        },
+        "id": "webkit-320-light-font1.3",
+        "name": "webkit-320-light-font1.3",
+        "testDir": "/Users/ashwathram/Projects/dibs/tests/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "round21-certificate.spec.ts"
+        ],
+        "timeout": 60000
+      },
+      {
+        "outputDir": "/Users/ashwathram/Projects/dibs/.tmp/r21/artifacts",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "fontScale": 1
+        },
+        "id": "webkit-320-dark-font1",
+        "name": "webkit-320-dark-font1",
+        "testDir": "/Users/ashwathram/Projects/dibs/tests/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "round21-certificate.spec.ts"
+        ],
+        "timeout": 60000
+      },
+      {
+        "outputDir": "/Users/ashwathram/Projects/dibs/.tmp/r21/artifacts",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "fontScale": 1.3
+        },
+        "id": "webkit-320-dark-font1.3",
+        "name": "webkit-320-dark-font1.3",
+        "testDir": "/Users/ashwathram/Projects/dibs/tests/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "round21-certificate.spec.ts"
+        ],
+        "timeout": 60000
+      },
+      {
+        "outputDir": "/Users/ashwathram/Projects/dibs/.tmp/r21/artifacts",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "fontScale": 1
+        },
+        "id": "webkit-360-light-font1",
+        "name": "webkit-360-light-font1",
+        "testDir": "/Users/ashwathram/Projects/dibs/tests/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "round21-certificate.spec.ts"
+        ],
+        "timeout": 60000
+      },
+      {
+        "outputDir": "/Users/ashwathram/Projects/dibs/.tmp/r21/artifacts",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "fontScale": 1.3
+        },
+        "id": "webkit-360-light-font1.3",
+        "name": "webkit-360-light-font1.3",
+        "testDir": "/Users/ashwathram/Projects/dibs/tests/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "round21-certificate.spec.ts"
+        ],
+        "timeout": 60000
+      },
+      {
+        "outputDir": "/Users/ashwathram/Projects/dibs/.tmp/r21/artifacts",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "fontScale": 1
+        },
+        "id": "webkit-360-dark-font1",
+        "name": "webkit-360-dark-font1",
+        "testDir": "/Users/ashwathram/Projects/dibs/tests/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "round21-certificate.spec.ts"
+        ],
+        "timeout": 60000
+      },
+      {
+        "outputDir": "/Users/ashwathram/Projects/dibs/.tmp/r21/artifacts",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "fontScale": 1.3
+        },
+        "id": "webkit-360-dark-font1.3",
+        "name": "webkit-360-dark-font1.3",
+        "testDir": "/Users/ashwathram/Projects/dibs/tests/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "round21-certificate.spec.ts"
+        ],
+        "timeout": 60000
+      },
+      {
+        "outputDir": "/Users/ashwathram/Projects/dibs/.tmp/r21/artifacts",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "fontScale": 1
+        },
+        "id": "webkit-390-light-font1",
+        "name": "webkit-390-light-font1",
+        "testDir": "/Users/ashwathram/Projects/dibs/tests/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "round21-certificate.spec.ts"
+        ],
+        "timeout": 60000
+      },
+      {
+        "outputDir": "/Users/ashwathram/Projects/dibs/.tmp/r21/artifacts",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "fontScale": 1.3
+        },
+        "id": "webkit-390-light-font1.3",
+        "name": "webkit-390-light-font1.3",
+        "testDir": "/Users/ashwathram/Projects/dibs/tests/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "round21-certificate.spec.ts"
+        ],
+        "timeout": 60000
+      },
+      {
+        "outputDir": "/Users/ashwathram/Projects/dibs/.tmp/r21/artifacts",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "fontScale": 1
+        },
+        "id": "webkit-390-dark-font1",
+        "name": "webkit-390-dark-font1",
+        "testDir": "/Users/ashwathram/Projects/dibs/tests/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "round21-certificate.spec.ts"
+        ],
+        "timeout": 60000
+      },
+      {
+        "outputDir": "/Users/ashwathram/Projects/dibs/.tmp/r21/artifacts",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "fontScale": 1.3
+        },
+        "id": "webkit-390-dark-font1.3",
+        "name": "webkit-390-dark-font1.3",
+        "testDir": "/Users/ashwathram/Projects/dibs/tests/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "round21-certificate.spec.ts"
+        ],
+        "timeout": 60000
+      },
+      {
+        "outputDir": "/Users/ashwathram/Projects/dibs/.tmp/r21/artifacts",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "fontScale": 1
+        },
+        "id": "webkit-768-light-font1",
+        "name": "webkit-768-light-font1",
+        "testDir": "/Users/ashwathram/Projects/dibs/tests/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "round21-certificate.spec.ts"
+        ],
+        "timeout": 60000
+      },
+      {
+        "outputDir": "/Users/ashwathram/Projects/dibs/.tmp/r21/artifacts",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "fontScale": 1
+        },
+        "id": "webkit-768-dark-font1",
+        "name": "webkit-768-dark-font1",
+        "testDir": "/Users/ashwathram/Projects/dibs/tests/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "round21-certificate.spec.ts"
+        ],
+        "timeout": 60000
+      },
+      {
+        "outputDir": "/Users/ashwathram/Projects/dibs/.tmp/r21/artifacts",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "fontScale": 1
+        },
+        "id": "webkit-1280-light-font1",
+        "name": "webkit-1280-light-font1",
+        "testDir": "/Users/ashwathram/Projects/dibs/tests/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "round21-certificate.spec.ts"
+        ],
+        "timeout": 60000
+      },
+      {
+        "outputDir": "/Users/ashwathram/Projects/dibs/.tmp/r21/artifacts",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "fontScale": 1
+        },
+        "id": "webkit-1280-dark-font1",
+        "name": "webkit-1280-dark-font1",
+        "testDir": "/Users/ashwathram/Projects/dibs/tests/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "round21-certificate.spec.ts"
+        ],
+        "timeout": 60000
+      },
+      {
+        "outputDir": "/Users/ashwathram/Projects/dibs/.tmp/r21/artifacts",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "fontScale": 1
+        },
+        "id": "webkit-1440-light-font1",
+        "name": "webkit-1440-light-font1",
+        "testDir": "/Users/ashwathram/Projects/dibs/tests/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "round21-certificate.spec.ts"
+        ],
+        "timeout": 60000
+      },
+      {
+        "outputDir": "/Users/ashwathram/Projects/dibs/.tmp/r21/artifacts",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "fontScale": 1
+        },
+        "id": "webkit-1440-dark-font1",
+        "name": "webkit-1440-dark-font1",
+        "testDir": "/Users/ashwathram/Projects/dibs/tests/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "round21-certificate.spec.ts"
+        ],
+        "timeout": 60000
+      },
+      {
+        "outputDir": "/Users/ashwathram/Projects/dibs/.tmp/r21/artifacts",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "fontScale": 1
+        },
+        "id": "webkit-2560-light-font1",
+        "name": "webkit-2560-light-font1",
+        "testDir": "/Users/ashwathram/Projects/dibs/tests/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "round21-certificate.spec.ts"
+        ],
+        "timeout": 60000
+      },
+      {
+        "outputDir": "/Users/ashwathram/Projects/dibs/.tmp/r21/artifacts",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "fontScale": 1
+        },
+        "id": "webkit-2560-dark-font1",
+        "name": "webkit-2560-dark-font1",
+        "testDir": "/Users/ashwathram/Projects/dibs/tests/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "round21-certificate.spec.ts"
+        ],
+        "timeout": 60000
+      }
+    ],
+    "filteredProjects": [
+      {
+        "grep": {},
+        "grepInvert": null,
+        "outputDir": "/Users/ashwathram/Projects/dibs/.tmp/r21/artifacts",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "fontScale": 1
+        },
+        "name": "chromium-320-light-font1",
+        "testDir": "/Users/ashwathram/Projects/dibs/tests/e2e",
+        "snapshotDir": "/Users/ashwathram/Projects/dibs/tests/e2e",
+        "testIgnore": [],
+        "testMatch": "round21-certificate.spec.ts",
+        "timeout": 60000,
+        "use": {
+          "baseURL": "http://127.0.0.1:5251",
+          "timezoneId": "America/Toronto",
+          "video": "on",
+          "screenshot": "only-on-failure",
+          "browserName": "chromium",
+          "colorScheme": "light",
+          "viewport": {
+            "width": 320,
+            "height": 568
+          }
+        },
+        "dependencies": [],
+        "ignoreSnapshots": false,
+        "__projectId": "chromium-320-light-font1"
+      },
+      {
+        "grep": {},
+        "grepInvert": null,
+        "outputDir": "/Users/ashwathram/Projects/dibs/.tmp/r21/artifacts",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "fontScale": 1.3
+        },
+        "name": "chromium-320-light-font1.3",
+        "testDir": "/Users/ashwathram/Projects/dibs/tests/e2e",
+        "snapshotDir": "/Users/ashwathram/Projects/dibs/tests/e2e",
+        "testIgnore": [],
+        "testMatch": "round21-certificate.spec.ts",
+        "timeout": 60000,
+        "use": {
+          "baseURL": "http://127.0.0.1:5251",
+          "timezoneId": "America/Toronto",
+          "video": "on",
+          "screenshot": "only-on-failure",
+          "browserName": "chromium",
+          "colorScheme": "light",
+          "viewport": {
+            "width": 320,
+            "height": 568
+          }
+        },
+        "dependencies": [],
+        "ignoreSnapshots": false,
+        "__projectId": "chromium-320-light-font1.3"
+      },
+      {
+        "grep": {},
+        "grepInvert": null,
+        "outputDir": "/Users/ashwathram/Projects/dibs/.tmp/r21/artifacts",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "fontScale": 1
+        },
+        "name": "chromium-320-dark-font1",
+        "testDir": "/Users/ashwathram/Projects/dibs/tests/e2e",
+        "snapshotDir": "/Users/ashwathram/Projects/dibs/tests/e2e",
+        "testIgnore": [],
+        "testMatch": "round21-certificate.spec.ts",
+        "timeout": 60000,
+        "use": {
+          "baseURL": "http://127.0.0.1:5251",
+          "timezoneId": "America/Toronto",
+          "video": "on",
+          "screenshot": "only-on-failure",
+          "browserName": "chromium",
+          "colorScheme": "dark",
+          "viewport": {
+            "width": 320,
+            "height": 568
+          }
+        },
+        "dependencies": [],
+        "ignoreSnapshots": false,
+        "__projectId": "chromium-320-dark-font1"
+      },
+      {
+        "grep": {},
+        "grepInvert": null,
+        "outputDir": "/Users/ashwathram/Projects/dibs/.tmp/r21/artifacts",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "fontScale": 1.3
+        },
+        "name": "chromium-320-dark-font1.3",
+        "testDir": "/Users/ashwathram/Projects/dibs/tests/e2e",
+        "snapshotDir": "/Users/ashwathram/Projects/dibs/tests/e2e",
+        "testIgnore": [],
+        "testMatch": "round21-certificate.spec.ts",
+        "timeout": 60000,
+        "use": {
+          "baseURL": "http://127.0.0.1:5251",
+          "timezoneId": "America/Toronto",
+          "video": "on",
+          "screenshot": "only-on-failure",
+          "browserName": "chromium",
+          "colorScheme": "dark",
+          "viewport": {
+            "width": 320,
+            "height": 568
+          }
+        },
+        "dependencies": [],
+        "ignoreSnapshots": false,
+        "__projectId": "chromium-320-dark-font1.3"
+      },
+      {
+        "grep": {},
+        "grepInvert": null,
+        "outputDir": "/Users/ashwathram/Projects/dibs/.tmp/r21/artifacts",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "fontScale": 1
+        },
+        "name": "chromium-360-light-font1",
+        "testDir": "/Users/ashwathram/Projects/dibs/tests/e2e",
+        "snapshotDir": "/Users/ashwathram/Projects/dibs/tests/e2e",
+        "testIgnore": [],
+        "testMatch": "round21-certificate.spec.ts",
+        "timeout": 60000,
+        "use": {
+          "baseURL": "http://127.0.0.1:5251",
+          "timezoneId": "America/Toronto",
+          "video": "on",
+          "screenshot": "only-on-failure",
+          "browserName": "chromium",
+          "colorScheme": "light",
+          "viewport": {
+            "width": 360,
+            "height": 844
+          }
+        },
+        "dependencies": [],
+        "ignoreSnapshots": false,
+        "__projectId": "chromium-360-light-font1"
+      },
+      {
+        "grep": {},
+        "grepInvert": null,
+        "outputDir": "/Users/ashwathram/Projects/dibs/.tmp/r21/artifacts",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "fontScale": 1.3
+        },
+        "name": "chromium-360-light-font1.3",
+        "testDir": "/Users/ashwathram/Projects/dibs/tests/e2e",
+        "snapshotDir": "/Users/ashwathram/Projects/dibs/tests/e2e",
+        "testIgnore": [],
+        "testMatch": "round21-certificate.spec.ts",
+        "timeout": 60000,
+        "use": {
+          "baseURL": "http://127.0.0.1:5251",
+          "timezoneId": "America/Toronto",
+          "video": "on",
+          "screenshot": "only-on-failure",
+          "browserName": "chromium",
+          "colorScheme": "light",
+          "viewport": {
+            "width": 360,
+            "height": 844
+          }
+        },
+        "dependencies": [],
+        "ignoreSnapshots": false,
+        "__projectId": "chromium-360-light-font1.3"
+      },
+      {
+        "grep": {},
+        "grepInvert": null,
+        "outputDir": "/Users/ashwathram/Projects/dibs/.tmp/r21/artifacts",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "fontScale": 1
+        },
+        "name": "chromium-360-dark-font1",
+        "testDir": "/Users/ashwathram/Projects/dibs/tests/e2e",
+        "snapshotDir": "/Users/ashwathram/Projects/dibs/tests/e2e",
+        "testIgnore": [],
+        "testMatch": "round21-certificate.spec.ts",
+        "timeout": 60000,
+        "use": {
+          "baseURL": "http://127.0.0.1:5251",
+          "timezoneId": "America/Toronto",
+          "video": "on",
+          "screenshot": "only-on-failure",
+          "browserName": "chromium",
+          "colorScheme": "dark",
+          "viewport": {
+            "width": 360,
+            "height": 844
+          }
+        },
+        "dependencies": [],
+        "ignoreSnapshots": false,
+        "__projectId": "chromium-360-dark-font1"
+      },
+      {
+        "grep": {},
+        "grepInvert": null,
+        "outputDir": "/Users/ashwathram/Projects/dibs/.tmp/r21/artifacts",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "fontScale": 1.3
+        },
+        "name": "chromium-360-dark-font1.3",
+        "testDir": "/Users/ashwathram/Projects/dibs/tests/e2e",
+        "snapshotDir": "/Users/ashwathram/Projects/dibs/tests/e2e",
+        "testIgnore": [],
+        "testMatch": "round21-certificate.spec.ts",
+        "timeout": 60000,
+        "use": {
+          "baseURL": "http://127.0.0.1:5251",
+          "timezoneId": "America/Toronto",
+          "video": "on",
+          "screenshot": "only-on-failure",
+          "browserName": "chromium",
+          "colorScheme": "dark",
+          "viewport": {
+            "width": 360,
+            "height": 844
+          }
+        },
+        "dependencies": [],
+        "ignoreSnapshots": false,
+        "__projectId": "chromium-360-dark-font1.3"
+      },
+      {
+        "grep": {},
+        "grepInvert": null,
+        "outputDir": "/Users/ashwathram/Projects/dibs/.tmp/r21/artifacts",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "fontScale": 1
+        },
+        "name": "chromium-390-light-font1",
+        "testDir": "/Users/ashwathram/Projects/dibs/tests/e2e",
+        "snapshotDir": "/Users/ashwathram/Projects/dibs/tests/e2e",
+        "testIgnore": [],
+        "testMatch": "round21-certificate.spec.ts",
+        "timeout": 60000,
+        "use": {
+          "baseURL": "http://127.0.0.1:5251",
+          "timezoneId": "America/Toronto",
+          "video": "on",
+          "screenshot": "only-on-failure",
+          "browserName": "chromium",
+          "colorScheme": "light",
+          "viewport": {
+            "width": 390,
+            "height": 844
+          }
+        },
+        "dependencies": [],
+        "ignoreSnapshots": false,
+        "__projectId": "chromium-390-light-font1"
+      },
+      {
+        "grep": {},
+        "grepInvert": null,
+        "outputDir": "/Users/ashwathram/Projects/dibs/.tmp/r21/artifacts",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "fontScale": 1.3
+        },
+        "name": "chromium-390-light-font1.3",
+        "testDir": "/Users/ashwathram/Projects/dibs/tests/e2e",
+        "snapshotDir": "/Users/ashwathram/Projects/dibs/tests/e2e",
+        "testIgnore": [],
+        "testMatch": "round21-certificate.spec.ts",
+        "timeout": 60000,
+        "use": {
+          "baseURL": "http://127.0.0.1:5251",
+          "timezoneId": "America/Toronto",
+          "video": "on",
+          "screenshot": "only-on-failure",
+          "browserName": "chromium",
+          "colorScheme": "light",
+          "viewport": {
+            "width": 390,
+            "height": 844
+          }
+        },
+        "dependencies": [],
+        "ignoreSnapshots": false,
+        "__projectId": "chromium-390-light-font1.3"
+      },
+      {
+        "grep": {},
+        "grepInvert": null,
+        "outputDir": "/Users/ashwathram/Projects/dibs/.tmp/r21/artifacts",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "fontScale": 1
+        },
+        "name": "chromium-390-dark-font1",
+        "testDir": "/Users/ashwathram/Projects/dibs/tests/e2e",
+        "snapshotDir": "/Users/ashwathram/Projects/dibs/tests/e2e",
+        "testIgnore": [],
+        "testMatch": "round21-certificate.spec.ts",
+        "timeout": 60000,
+        "use": {
+          "baseURL": "http://127.0.0.1:5251",
+          "timezoneId": "America/Toronto",
+          "video": "on",
+          "screenshot": "only-on-failure",
+          "browserName": "chromium",
+          "colorScheme": "dark",
+          "viewport": {
+            "width": 390,
+            "height": 844
+          }
+        },
+        "dependencies": [],
+        "ignoreSnapshots": false,
+        "__projectId": "chromium-390-dark-font1"
+      },
+      {
+        "grep": {},
+        "grepInvert": null,
+        "outputDir": "/Users/ashwathram/Projects/dibs/.tmp/r21/artifacts",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "fontScale": 1.3
+        },
+        "name": "chromium-390-dark-font1.3",
+        "testDir": "/Users/ashwathram/Projects/dibs/tests/e2e",
+        "snapshotDir": "/Users/ashwathram/Projects/dibs/tests/e2e",
+        "testIgnore": [],
+        "testMatch": "round21-certificate.spec.ts",
+        "timeout": 60000,
+        "use": {
+          "baseURL": "http://127.0.0.1:5251",
+          "timezoneId": "America/Toronto",
+          "video": "on",
+          "screenshot": "only-on-failure",
+          "browserName": "chromium",
+          "colorScheme": "dark",
+          "viewport": {
+            "width": 390,
+            "height": 844
+          }
+        },
+        "dependencies": [],
+        "ignoreSnapshots": false,
+        "__projectId": "chromium-390-dark-font1.3"
+      },
+      {
+        "grep": {},
+        "grepInvert": null,
+        "outputDir": "/Users/ashwathram/Projects/dibs/.tmp/r21/artifacts",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "fontScale": 1
+        },
+        "name": "chromium-768-light-font1",
+        "testDir": "/Users/ashwathram/Projects/dibs/tests/e2e",
+        "snapshotDir": "/Users/ashwathram/Projects/dibs/tests/e2e",
+        "testIgnore": [],
+        "testMatch": "round21-certificate.spec.ts",
+        "timeout": 60000,
+        "use": {
+          "baseURL": "http://127.0.0.1:5251",
+          "timezoneId": "America/Toronto",
+          "video": "on",
+          "screenshot": "only-on-failure",
+          "browserName": "chromium",
+          "colorScheme": "light",
+          "viewport": {
+            "width": 768,
+            "height": 900
+          }
+        },
+        "dependencies": [],
+        "ignoreSnapshots": false,
+        "__projectId": "chromium-768-light-font1"
+      },
+      {
+        "grep": {},
+        "grepInvert": null,
+        "outputDir": "/Users/ashwathram/Projects/dibs/.tmp/r21/artifacts",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "fontScale": 1
+        },
+        "name": "chromium-768-dark-font1",
+        "testDir": "/Users/ashwathram/Projects/dibs/tests/e2e",
+        "snapshotDir": "/Users/ashwathram/Projects/dibs/tests/e2e",
+        "testIgnore": [],
+        "testMatch": "round21-certificate.spec.ts",
+        "timeout": 60000,
+        "use": {
+          "baseURL": "http://127.0.0.1:5251",
+          "timezoneId": "America/Toronto",
+          "video": "on",
+          "screenshot": "only-on-failure",
+          "browserName": "chromium",
+          "colorScheme": "dark",
+          "viewport": {
+            "width": 768,
+            "height": 900
+          }
+        },
+        "dependencies": [],
+        "ignoreSnapshots": false,
+        "__projectId": "chromium-768-dark-font1"
+      },
+      {
+        "grep": {},
+        "grepInvert": null,
+        "outputDir": "/Users/ashwathram/Projects/dibs/.tmp/r21/artifacts",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "fontScale": 1
+        },
+        "name": "chromium-1280-light-font1",
+        "testDir": "/Users/ashwathram/Projects/dibs/tests/e2e",
+        "snapshotDir": "/Users/ashwathram/Projects/dibs/tests/e2e",
+        "testIgnore": [],
+        "testMatch": "round21-certificate.spec.ts",
+        "timeout": 60000,
+        "use": {
+          "baseURL": "http://127.0.0.1:5251",
+          "timezoneId": "America/Toronto",
+          "video": "on",
+          "screenshot": "only-on-failure",
+          "browserName": "chromium",
+          "colorScheme": "light",
+          "viewport": {
+            "width": 1280,
+            "height": 900
+          }
+        },
+        "dependencies": [],
+        "ignoreSnapshots": false,
+        "__projectId": "chromium-1280-light-font1"
+      },
+      {
+        "grep": {},
+        "grepInvert": null,
+        "outputDir": "/Users/ashwathram/Projects/dibs/.tmp/r21/artifacts",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "fontScale": 1
+        },
+        "name": "chromium-1280-dark-font1",
+        "testDir": "/Users/ashwathram/Projects/dibs/tests/e2e",
+        "snapshotDir": "/Users/ashwathram/Projects/dibs/tests/e2e",
+        "testIgnore": [],
+        "testMatch": "round21-certificate.spec.ts",
+        "timeout": 60000,
+        "use": {
+          "baseURL": "http://127.0.0.1:5251",
+          "timezoneId": "America/Toronto",
+          "video": "on",
+          "screenshot": "only-on-failure",
+          "browserName": "chromium",
+          "colorScheme": "dark",
+          "viewport": {
+            "width": 1280,
+            "height": 900
+          }
+        },
+        "dependencies": [],
+        "ignoreSnapshots": false,
+        "__projectId": "chromium-1280-dark-font1"
+      },
+      {
+        "grep": {},
+        "grepInvert": null,
+        "outputDir": "/Users/ashwathram/Projects/dibs/.tmp/r21/artifacts",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "fontScale": 1
+        },
+        "name": "chromium-1440-light-font1",
+        "testDir": "/Users/ashwathram/Projects/dibs/tests/e2e",
+        "snapshotDir": "/Users/ashwathram/Projects/dibs/tests/e2e",
+        "testIgnore": [],
+        "testMatch": "round21-certificate.spec.ts",
+        "timeout": 60000,
+        "use": {
+          "baseURL": "http://127.0.0.1:5251",
+          "timezoneId": "America/Toronto",
+          "video": "on",
+          "screenshot": "only-on-failure",
+          "browserName": "chromium",
+          "colorScheme": "light",
+          "viewport": {
+            "width": 1440,
+            "height": 900
+          }
+        },
+        "dependencies": [],
+        "ignoreSnapshots": false,
+        "__projectId": "chromium-1440-light-font1"
+      },
+      {
+        "grep": {},
+        "grepInvert": null,
+        "outputDir": "/Users/ashwathram/Projects/dibs/.tmp/r21/artifacts",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "fontScale": 1
+        },
+        "name": "chromium-1440-dark-font1",
+        "testDir": "/Users/ashwathram/Projects/dibs/tests/e2e",
+        "snapshotDir": "/Users/ashwathram/Projects/dibs/tests/e2e",
+        "testIgnore": [],
+        "testMatch": "round21-certificate.spec.ts",
+        "timeout": 60000,
+        "use": {
+          "baseURL": "http://127.0.0.1:5251",
+          "timezoneId": "America/Toronto",
+          "video": "on",
+          "screenshot": "only-on-failure",
+          "browserName": "chromium",
+          "colorScheme": "dark",
+          "viewport": {
+            "width": 1440,
+            "height": 900
+          }
+        },
+        "dependencies": [],
+        "ignoreSnapshots": false,
+        "__projectId": "chromium-1440-dark-font1"
+      },
+      {
+        "grep": {},
+        "grepInvert": null,
+        "outputDir": "/Users/ashwathram/Projects/dibs/.tmp/r21/artifacts",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "fontScale": 1
+        },
+        "name": "chromium-2560-light-font1",
+        "testDir": "/Users/ashwathram/Projects/dibs/tests/e2e",
+        "snapshotDir": "/Users/ashwathram/Projects/dibs/tests/e2e",
+        "testIgnore": [],
+        "testMatch": "round21-certificate.spec.ts",
+        "timeout": 60000,
+        "use": {
+          "baseURL": "http://127.0.0.1:5251",
+          "timezoneId": "America/Toronto",
+          "video": "on",
+          "screenshot": "only-on-failure",
+          "browserName": "chromium",
+          "colorScheme": "light",
+          "viewport": {
+            "width": 2560,
+            "height": 900
+          }
+        },
+        "dependencies": [],
+        "ignoreSnapshots": false,
+        "__projectId": "chromium-2560-light-font1"
+      },
+      {
+        "grep": {},
+        "grepInvert": null,
+        "outputDir": "/Users/ashwathram/Projects/dibs/.tmp/r21/artifacts",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "fontScale": 1
+        },
+        "name": "chromium-2560-dark-font1",
+        "testDir": "/Users/ashwathram/Projects/dibs/tests/e2e",
+        "snapshotDir": "/Users/ashwathram/Projects/dibs/tests/e2e",
+        "testIgnore": [],
+        "testMatch": "round21-certificate.spec.ts",
+        "timeout": 60000,
+        "use": {
+          "baseURL": "http://127.0.0.1:5251",
+          "timezoneId": "America/Toronto",
+          "video": "on",
+          "screenshot": "only-on-failure",
+          "browserName": "chromium",
+          "colorScheme": "dark",
+          "viewport": {
+            "width": 2560,
+            "height": 900
+          }
+        },
+        "dependencies": [],
+        "ignoreSnapshots": false,
+        "__projectId": "chromium-2560-dark-font1"
+      },
+      {
+        "grep": {},
+        "grepInvert": null,
+        "outputDir": "/Users/ashwathram/Projects/dibs/.tmp/r21/artifacts",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "fontScale": 1
+        },
+        "name": "webkit-320-light-font1",
+        "testDir": "/Users/ashwathram/Projects/dibs/tests/e2e",
+        "snapshotDir": "/Users/ashwathram/Projects/dibs/tests/e2e",
+        "testIgnore": [],
+        "testMatch": "round21-certificate.spec.ts",
+        "timeout": 60000,
+        "use": {
+          "baseURL": "http://127.0.0.1:5251",
+          "timezoneId": "America/Toronto",
+          "video": "on",
+          "screenshot": "only-on-failure",
+          "browserName": "webkit",
+          "colorScheme": "light",
+          "viewport": {
+            "width": 320,
+            "height": 568
+          }
+        },
+        "dependencies": [],
+        "ignoreSnapshots": false,
+        "__projectId": "webkit-320-light-font1"
+      },
+      {
+        "grep": {},
+        "grepInvert": null,
+        "outputDir": "/Users/ashwathram/Projects/dibs/.tmp/r21/artifacts",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "fontScale": 1.3
+        },
+        "name": "webkit-320-light-font1.3",
+        "testDir": "/Users/ashwathram/Projects/dibs/tests/e2e",
+        "snapshotDir": "/Users/ashwathram/Projects/dibs/tests/e2e",
+        "testIgnore": [],
+        "testMatch": "round21-certificate.spec.ts",
+        "timeout": 60000,
+        "use": {
+          "baseURL": "http://127.0.0.1:5251",
+          "timezoneId": "America/Toronto",
+          "video": "on",
+          "screenshot": "only-on-failure",
+          "browserName": "webkit",
+          "colorScheme": "light",
+          "viewport": {
+            "width": 320,
+            "height": 568
+          }
+        },
+        "dependencies": [],
+        "ignoreSnapshots": false,
+        "__projectId": "webkit-320-light-font1.3"
+      },
+      {
+        "grep": {},
+        "grepInvert": null,
+        "outputDir": "/Users/ashwathram/Projects/dibs/.tmp/r21/artifacts",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "fontScale": 1
+        },
+        "name": "webkit-320-dark-font1",
+        "testDir": "/Users/ashwathram/Projects/dibs/tests/e2e",
+        "snapshotDir": "/Users/ashwathram/Projects/dibs/tests/e2e",
+        "testIgnore": [],
+        "testMatch": "round21-certificate.spec.ts",
+        "timeout": 60000,
+        "use": {
+          "baseURL": "http://127.0.0.1:5251",
+          "timezoneId": "America/Toronto",
+          "video": "on",
+          "screenshot": "only-on-failure",
+          "browserName": "webkit",
+          "colorScheme": "dark",
+          "viewport": {
+            "width": 320,
+            "height": 568
+          }
+        },
+        "dependencies": [],
+        "ignoreSnapshots": false,
+        "__projectId": "webkit-320-dark-font1"
+      },
+      {
+        "grep": {},
+        "grepInvert": null,
+        "outputDir": "/Users/ashwathram/Projects/dibs/.tmp/r21/artifacts",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "fontScale": 1.3
+        },
+        "name": "webkit-320-dark-font1.3",
+        "testDir": "/Users/ashwathram/Projects/dibs/tests/e2e",
+        "snapshotDir": "/Users/ashwathram/Projects/dibs/tests/e2e",
+        "testIgnore": [],
+        "testMatch": "round21-certificate.spec.ts",
+        "timeout": 60000,
+        "use": {
+          "baseURL": "http://127.0.0.1:5251",
+          "timezoneId": "America/Toronto",
+          "video": "on",
+          "screenshot": "only-on-failure",
+          "browserName": "webkit",
+          "colorScheme": "dark",
+          "viewport": {
+            "width": 320,
+            "height": 568
+          }
+        },
+        "dependencies": [],
+        "ignoreSnapshots": false,
+        "__projectId": "webkit-320-dark-font1.3"
+      },
+      {
+        "grep": {},
+        "grepInvert": null,
+        "outputDir": "/Users/ashwathram/Projects/dibs/.tmp/r21/artifacts",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "fontScale": 1
+        },
+        "name": "webkit-360-light-font1",
+        "testDir": "/Users/ashwathram/Projects/dibs/tests/e2e",
+        "snapshotDir": "/Users/ashwathram/Projects/dibs/tests/e2e",
+        "testIgnore": [],
+        "testMatch": "round21-certificate.spec.ts",
+        "timeout": 60000,
+        "use": {
+          "baseURL": "http://127.0.0.1:5251",
+          "timezoneId": "America/Toronto",
+          "video": "on",
+          "screenshot": "only-on-failure",
+          "browserName": "webkit",
+          "colorScheme": "light",
+          "viewport": {
+            "width": 360,
+            "height": 844
+          }
+        },
+        "dependencies": [],
+        "ignoreSnapshots": false,
+        "__projectId": "webkit-360-light-font1"
+      },
+      {
+        "grep": {},
+        "grepInvert": null,
+        "outputDir": "/Users/ashwathram/Projects/dibs/.tmp/r21/artifacts",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "fontScale": 1.3
+        },
+        "name": "webkit-360-light-font1.3",
+        "testDir": "/Users/ashwathram/Projects/dibs/tests/e2e",
+        "snapshotDir": "/Users/ashwathram/Projects/dibs/tests/e2e",
+        "testIgnore": [],
+        "testMatch": "round21-certificate.spec.ts",
+        "timeout": 60000,
+        "use": {
+          "baseURL": "http://127.0.0.1:5251",
+          "timezoneId": "America/Toronto",
+          "video": "on",
+          "screenshot": "only-on-failure",
+          "browserName": "webkit",
+          "colorScheme": "light",
+          "viewport": {
+            "width": 360,
+            "height": 844
+          }
+        },
+        "dependencies": [],
+        "ignoreSnapshots": false,
+        "__projectId": "webkit-360-light-font1.3"
+      },
+      {
+        "grep": {},
+        "grepInvert": null,
+        "outputDir": "/Users/ashwathram/Projects/dibs/.tmp/r21/artifacts",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "fontScale": 1
+        },
+        "name": "webkit-360-dark-font1",
+        "testDir": "/Users/ashwathram/Projects/dibs/tests/e2e",
+        "snapshotDir": "/Users/ashwathram/Projects/dibs/tests/e2e",
+        "testIgnore": [],
+        "testMatch": "round21-certificate.spec.ts",
+        "timeout": 60000,
+        "use": {
+          "baseURL": "http://127.0.0.1:5251",
+          "timezoneId": "America/Toronto",
+          "video": "on",
+          "screenshot": "only-on-failure",
+          "browserName": "webkit",
+          "colorScheme": "dark",
+          "viewport": {
+            "width": 360,
+            "height": 844
+          }
+        },
+        "dependencies": [],
+        "ignoreSnapshots": false,
+        "__projectId": "webkit-360-dark-font1"
+      },
+      {
+        "grep": {},
+        "grepInvert": null,
+        "outputDir": "/Users/ashwathram/Projects/dibs/.tmp/r21/artifacts",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "fontScale": 1.3
+        },
+        "name": "webkit-360-dark-font1.3",
+        "testDir": "/Users/ashwathram/Projects/dibs/tests/e2e",
+        "snapshotDir": "/Users/ashwathram/Projects/dibs/tests/e2e",
+        "testIgnore": [],
+        "testMatch": "round21-certificate.spec.ts",
+        "timeout": 60000,
+        "use": {
+          "baseURL": "http://127.0.0.1:5251",
+          "timezoneId": "America/Toronto",
+          "video": "on",
+          "screenshot": "only-on-failure",
+          "browserName": "webkit",
+          "colorScheme": "dark",
+          "viewport": {
+            "width": 360,
+            "height": 844
+          }
+        },
+        "dependencies": [],
+        "ignoreSnapshots": false,
+        "__projectId": "webkit-360-dark-font1.3"
+      },
+      {
+        "grep": {},
+        "grepInvert": null,
+        "outputDir": "/Users/ashwathram/Projects/dibs/.tmp/r21/artifacts",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "fontScale": 1
+        },
+        "name": "webkit-390-light-font1",
+        "testDir": "/Users/ashwathram/Projects/dibs/tests/e2e",
+        "snapshotDir": "/Users/ashwathram/Projects/dibs/tests/e2e",
+        "testIgnore": [],
+        "testMatch": "round21-certificate.spec.ts",
+        "timeout": 60000,
+        "use": {
+          "baseURL": "http://127.0.0.1:5251",
+          "timezoneId": "America/Toronto",
+          "video": "on",
+          "screenshot": "only-on-failure",
+          "browserName": "webkit",
+          "colorScheme": "light",
+          "viewport": {
+            "width": 390,
+            "height": 844
+          }
+        },
+        "dependencies": [],
+        "ignoreSnapshots": false,
+        "__projectId": "webkit-390-light-font1"
+      },
+      {
+        "grep": {},
+        "grepInvert": null,
+        "outputDir": "/Users/ashwathram/Projects/dibs/.tmp/r21/artifacts",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "fontScale": 1.3
+        },
+        "name": "webkit-390-light-font1.3",
+        "testDir": "/Users/ashwathram/Projects/dibs/tests/e2e",
+        "snapshotDir": "/Users/ashwathram/Projects/dibs/tests/e2e",
+        "testIgnore": [],
+        "testMatch": "round21-certificate.spec.ts",
+        "timeout": 60000,
+        "use": {
+          "baseURL": "http://127.0.0.1:5251",
+          "timezoneId": "America/Toronto",
+          "video": "on",
+          "screenshot": "only-on-failure",
+          "browserName": "webkit",
+          "colorScheme": "light",
+          "viewport": {
+            "width": 390,
+            "height": 844
+          }
+        },
+        "dependencies": [],
+        "ignoreSnapshots": false,
+        "__projectId": "webkit-390-light-font1.3"
+      },
+      {
+        "grep": {},
+        "grepInvert": null,
+        "outputDir": "/Users/ashwathram/Projects/dibs/.tmp/r21/artifacts",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "fontScale": 1
+        },
+        "name": "webkit-390-dark-font1",
+        "testDir": "/Users/ashwathram/Projects/dibs/tests/e2e",
+        "snapshotDir": "/Users/ashwathram/Projects/dibs/tests/e2e",
+        "testIgnore": [],
+        "testMatch": "round21-certificate.spec.ts",
+        "timeout": 60000,
+        "use": {
+          "baseURL": "http://127.0.0.1:5251",
+          "timezoneId": "America/Toronto",
+          "video": "on",
+          "screenshot": "only-on-failure",
+          "browserName": "webkit",
+          "colorScheme": "dark",
+          "viewport": {
+            "width": 390,
+            "height": 844
+          }
+        },
+        "dependencies": [],
+        "ignoreSnapshots": false,
+        "__projectId": "webkit-390-dark-font1"
+      },
+      {
+        "grep": {},
+        "grepInvert": null,
+        "outputDir": "/Users/ashwathram/Projects/dibs/.tmp/r21/artifacts",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "fontScale": 1.3
+        },
+        "name": "webkit-390-dark-font1.3",
+        "testDir": "/Users/ashwathram/Projects/dibs/tests/e2e",
+        "snapshotDir": "/Users/ashwathram/Projects/dibs/tests/e2e",
+        "testIgnore": [],
+        "testMatch": "round21-certificate.spec.ts",
+        "timeout": 60000,
+        "use": {
+          "baseURL": "http://127.0.0.1:5251",
+          "timezoneId": "America/Toronto",
+          "video": "on",
+          "screenshot": "only-on-failure",
+          "browserName": "webkit",
+          "colorScheme": "dark",
+          "viewport": {
+            "width": 390,
+            "height": 844
+          }
+        },
+        "dependencies": [],
+        "ignoreSnapshots": false,
+        "__projectId": "webkit-390-dark-font1.3"
+      },
+      {
+        "grep": {},
+        "grepInvert": null,
+        "outputDir": "/Users/ashwathram/Projects/dibs/.tmp/r21/artifacts",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "fontScale": 1
+        },
+        "name": "webkit-768-light-font1",
+        "testDir": "/Users/ashwathram/Projects/dibs/tests/e2e",
+        "snapshotDir": "/Users/ashwathram/Projects/dibs/tests/e2e",
+        "testIgnore": [],
+        "testMatch": "round21-certificate.spec.ts",
+        "timeout": 60000,
+        "use": {
+          "baseURL": "http://127.0.0.1:5251",
+          "timezoneId": "America/Toronto",
+          "video": "on",
+          "screenshot": "only-on-failure",
+          "browserName": "webkit",
+          "colorScheme": "light",
+          "viewport": {
+            "width": 768,
+            "height": 900
+          }
+        },
+        "dependencies": [],
+        "ignoreSnapshots": false,
+        "__projectId": "webkit-768-light-font1"
+      },
+      {
+        "grep": {},
+        "grepInvert": null,
+        "outputDir": "/Users/ashwathram/Projects/dibs/.tmp/r21/artifacts",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "fontScale": 1
+        },
+        "name": "webkit-768-dark-font1",
+        "testDir": "/Users/ashwathram/Projects/dibs/tests/e2e",
+        "snapshotDir": "/Users/ashwathram/Projects/dibs/tests/e2e",
+        "testIgnore": [],
+        "testMatch": "round21-certificate.spec.ts",
+        "timeout": 60000,
+        "use": {
+          "baseURL": "http://127.0.0.1:5251",
+          "timezoneId": "America/Toronto",
+          "video": "on",
+          "screenshot": "only-on-failure",
+          "browserName": "webkit",
+          "colorScheme": "dark",
+          "viewport": {
+            "width": 768,
+            "height": 900
+          }
+        },
+        "dependencies": [],
+        "ignoreSnapshots": false,
+        "__projectId": "webkit-768-dark-font1"
+      },
+      {
+        "grep": {},
+        "grepInvert": null,
+        "outputDir": "/Users/ashwathram/Projects/dibs/.tmp/r21/artifacts",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "fontScale": 1
+        },
+        "name": "webkit-1280-light-font1",
+        "testDir": "/Users/ashwathram/Projects/dibs/tests/e2e",
+        "snapshotDir": "/Users/ashwathram/Projects/dibs/tests/e2e",
+        "testIgnore": [],
+        "testMatch": "round21-certificate.spec.ts",
+        "timeout": 60000,
+        "use": {
+          "baseURL": "http://127.0.0.1:5251",
+          "timezoneId": "America/Toronto",
+          "video": "on",
+          "screenshot": "only-on-failure",
+          "browserName": "webkit",
+          "colorScheme": "light",
+          "viewport": {
+            "width": 1280,
+            "height": 900
+          }
+        },
+        "dependencies": [],
+        "ignoreSnapshots": false,
+        "__projectId": "webkit-1280-light-font1"
+      },
+      {
+        "grep": {},
+        "grepInvert": null,
+        "outputDir": "/Users/ashwathram/Projects/dibs/.tmp/r21/artifacts",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "fontScale": 1
+        },
+        "name": "webkit-1280-dark-font1",
+        "testDir": "/Users/ashwathram/Projects/dibs/tests/e2e",
+        "snapshotDir": "/Users/ashwathram/Projects/dibs/tests/e2e",
+        "testIgnore": [],
+        "testMatch": "round21-certificate.spec.ts",
+        "timeout": 60000,
+        "use": {
+          "baseURL": "http://127.0.0.1:5251",
+          "timezoneId": "America/Toronto",
+          "video": "on",
+          "screenshot": "only-on-failure",
+          "browserName": "webkit",
+          "colorScheme": "dark",
+          "viewport": {
+            "width": 1280,
+            "height": 900
+          }
+        },
+        "dependencies": [],
+        "ignoreSnapshots": false,
+        "__projectId": "webkit-1280-dark-font1"
+      },
+      {
+        "grep": {},
+        "grepInvert": null,
+        "outputDir": "/Users/ashwathram/Projects/dibs/.tmp/r21/artifacts",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "fontScale": 1
+        },
+        "name": "webkit-1440-light-font1",
+        "testDir": "/Users/ashwathram/Projects/dibs/tests/e2e",
+        "snapshotDir": "/Users/ashwathram/Projects/dibs/tests/e2e",
+        "testIgnore": [],
+        "testMatch": "round21-certificate.spec.ts",
+        "timeout": 60000,
+        "use": {
+          "baseURL": "http://127.0.0.1:5251",
+          "timezoneId": "America/Toronto",
+          "video": "on",
+          "screenshot": "only-on-failure",
+          "browserName": "webkit",
+          "colorScheme": "light",
+          "viewport": {
+            "width": 1440,
+            "height": 900
+          }
+        },
+        "dependencies": [],
+        "ignoreSnapshots": false,
+        "__projectId": "webkit-1440-light-font1"
+      },
+      {
+        "grep": {},
+        "grepInvert": null,
+        "outputDir": "/Users/ashwathram/Projects/dibs/.tmp/r21/artifacts",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "fontScale": 1
+        },
+        "name": "webkit-1440-dark-font1",
+        "testDir": "/Users/ashwathram/Projects/dibs/tests/e2e",
+        "snapshotDir": "/Users/ashwathram/Projects/dibs/tests/e2e",
+        "testIgnore": [],
+        "testMatch": "round21-certificate.spec.ts",
+        "timeout": 60000,
+        "use": {
+          "baseURL": "http://127.0.0.1:5251",
+          "timezoneId": "America/Toronto",
+          "video": "on",
+          "screenshot": "only-on-failure",
+          "browserName": "webkit",
+          "colorScheme": "dark",
+          "viewport": {
+            "width": 1440,
+            "height": 900
+          }
+        },
+        "dependencies": [],
+        "ignoreSnapshots": false,
+        "__projectId": "webkit-1440-dark-font1"
+      },
+      {
+        "grep": {},
+        "grepInvert": null,
+        "outputDir": "/Users/ashwathram/Projects/dibs/.tmp/r21/artifacts",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "fontScale": 1
+        },
+        "name": "webkit-2560-light-font1",
+        "testDir": "/Users/ashwathram/Projects/dibs/tests/e2e",
+        "snapshotDir": "/Users/ashwathram/Projects/dibs/tests/e2e",
+        "testIgnore": [],
+        "testMatch": "round21-certificate.spec.ts",
+        "timeout": 60000,
+        "use": {
+          "baseURL": "http://127.0.0.1:5251",
+          "timezoneId": "America/Toronto",
+          "video": "on",
+          "screenshot": "only-on-failure",
+          "browserName": "webkit",
+          "colorScheme": "light",
+          "viewport": {
+            "width": 2560,
+            "height": 900
+          }
+        },
+        "dependencies": [],
+        "ignoreSnapshots": false,
+        "__projectId": "webkit-2560-light-font1"
+      },
+      {
+        "grep": {},
+        "grepInvert": null,
+        "outputDir": "/Users/ashwathram/Projects/dibs/.tmp/r21/artifacts",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "fontScale": 1
+        },
+        "name": "webkit-2560-dark-font1",
+        "testDir": "/Users/ashwathram/Projects/dibs/tests/e2e",
+        "snapshotDir": "/Users/ashwathram/Projects/dibs/tests/e2e",
+        "testIgnore": [],
+        "testMatch": "round21-certificate.spec.ts",
+        "timeout": 60000,
+        "use": {
+          "baseURL": "http://127.0.0.1:5251",
+          "timezoneId": "America/Toronto",
+          "video": "on",
+          "screenshot": "only-on-failure",
+          "browserName": "webkit",
+          "colorScheme": "dark",
+          "viewport": {
+            "width": 2560,
+            "height": 900
+          }
+        },
+        "dependencies": [],
+        "ignoreSnapshots": false,
+        "__projectId": "webkit-2560-dark-font1"
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "list",
+        null
+      ],
+      [
+        "json",
+        {
+          "outputFile": "review/r21-flow/certificate-browser-tests.json"
+        }
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "default",
+    "updateSourceMethod": "patch",
+    "version": "1.65.1",
+    "workers": 4,
+    "webServer": {
+      "command": "npx vite preview --mode security-test --host 127.0.0.1 --port 5251",
+      "url": "http://127.0.0.1:5251",
+      "env": {
+        "DIBS_TEST_OUT_DIR": ".tmp/r21/browser-dist"
+      }
+    }
+  },
+  "suites": [
+    {
+      "title": "round21-certificate.spec.ts",
+      "file": "round21-certificate.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "single certificate keeps off tier, title and private copy truthful",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium-320-light-font1",
+              "projectName": "chromium-320-light-font1",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 4202,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-28T07:15:01.527Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "video",
+                      "contentType": "video/webm",
+                      "path": "/Users/ashwathram/Projects/dibs/.tmp/r21/artifacts/round21-certificate-single-24a6c-e-and-private-copy-truthful-chromium-320-light-font1/video.webm"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            },
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium-320-light-font1.3",
+              "projectName": "chromium-320-light-font1.3",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 3,
+                  "status": "failed",
+                  "duration": 9057,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mnot\u001b[2m.\u001b[22mtoMatch\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected pattern: not \u001b[32m/Okapi|Outside|Off the register/\u001b[39m\nReceived string:      \u001b[31m\"Dibs #6 · Nov 28 · Animals · Owner so far · \u001b[7mOkapi\u001b[27m · Off the register · 110 points · Outside the 3,004 best-known animals · #1 of 1 players today. practice.dibs-7hz.pages.dev https://practice.dibs-7hz.pages.dev/certificate/fixture-2?s=copy-text\"\u001b[39m\n\nCall Log:\n- Timeout 5000ms exceeded while waiting on the predicate",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mnot\u001b[2m.\u001b[22mtoMatch\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected pattern: not \u001b[32m/Okapi|Outside|Off the register/\u001b[39m\nReceived string:      \u001b[31m\"Dibs #6 · Nov 28 · Animals · Owner so far · \u001b[7mOkapi\u001b[27m · Off the register · 110 points · Outside the 3,004 best-known animals · #1 of 1 players today. practice.dibs-7hz.pages.dev https://practice.dibs-7hz.pages.dev/certificate/fixture-2?s=copy-text\"\u001b[39m\n\nCall Log:\n- Timeout 5000ms exceeded while waiting on the predicate\n    at /Users/ashwathram/Projects/dibs/tests/e2e/round21-certificate.spec.ts:60:12",
+                    "location": {
+                      "file": "/Users/ashwathram/Projects/dibs/tests/e2e/round21-certificate.spec.ts",
+                      "column": 12,
+                      "line": 60
+                    },
+                    "snippet": " \u001b[90m 58 |\u001b[39m     \u001b[36mawait\u001b[39m expect\n \u001b[90m 59 |\u001b[39m       \u001b[33m.\u001b[39mpoll(() \u001b[33m=>\u001b[39m page\u001b[33m.\u001b[39mevaluate(() \u001b[33m=>\u001b[39m (window \u001b[36mas\u001b[39m any)\u001b[33m.\u001b[39m__copied \u001b[33m||\u001b[39m \u001b[32m''\u001b[39m))\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 60 |\u001b[39m       \u001b[33m.\u001b[39mnot\u001b[33m.\u001b[39mtoMatch(\u001b[35m/Okapi|Outside|Off the register/\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m            \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 61 |\u001b[39m     \u001b[36mconst\u001b[39m dir \u001b[33m=\u001b[39m \u001b[32m`review/r21-flow/certificate-refresh/${info.project.name}`\u001b[39m\u001b[33m;\u001b[39m\n \u001b[90m 62 |\u001b[39m     mkdirSync(dir\u001b[33m,\u001b[39m { recursive\u001b[33m:\u001b[39m \u001b[36mtrue\u001b[39m })\u001b[33m;\u001b[39m\n \u001b[90m 63 |\u001b[39m     \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mscreenshot({ path\u001b[33m:\u001b[39m \u001b[32m`${dir}/${variant.replace('&', '-')}.png`\u001b[39m\u001b[33m,\u001b[39m fullPage\u001b[33m:\u001b[39m \u001b[36mtrue\u001b[39m })\u001b[33m;\u001b[39m"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "/Users/ashwathram/Projects/dibs/tests/e2e/round21-certificate.spec.ts",
+                        "column": 12,
+                        "line": 60
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mnot\u001b[2m.\u001b[22mtoMatch\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected pattern: not \u001b[32m/Okapi|Outside|Off the register/\u001b[39m\nReceived string:      \u001b[31m\"Dibs #6 · Nov 28 · Animals · Owner so far · \u001b[7mOkapi\u001b[27m · Off the register · 110 points · Outside the 3,004 best-known animals · #1 of 1 players today. practice.dibs-7hz.pages.dev https://practice.dibs-7hz.pages.dev/certificate/fixture-2?s=copy-text\"\u001b[39m\n\nCall Log:\n- Timeout 5000ms exceeded while waiting on the predicate\n\n  58 |     await expect\n  59 |       .poll(() => page.evaluate(() => (window as any).__copied || ''))\n> 60 |       .not.toMatch(/Okapi|Outside|Off the register/);\n     |            ^\n  61 |     const dir = `review/r21-flow/certificate-refresh/${info.project.name}`;\n  62 |     mkdirSync(dir, { recursive: true });\n  63 |     await page.screenshot({ path: `${dir}/${variant.replace('&', '-')}.png`, fullPage: true });\n    at /Users/ashwathram/Projects/dibs/tests/e2e/round21-certificate.spec.ts:60:12"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-28T07:15:01.526Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "/Users/ashwathram/Projects/dibs/.tmp/r21/artifacts/round21-certificate-single-24a6c-e-and-private-copy-truthful-chromium-320-light-font1-3/test-failed-1.png"
+                    },
+                    {
+                      "name": "video",
+                      "contentType": "video/webm",
+                      "path": "/Users/ashwathram/Projects/dibs/.tmp/r21/artifacts/round21-certificate-single-24a6c-e-and-private-copy-truthful-chromium-320-light-font1-3/video.webm"
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "/Users/ashwathram/Projects/dibs/.tmp/r21/artifacts/round21-certificate-single-24a6c-e-and-private-copy-truthful-chromium-320-light-font1-3/error-context.md"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "/Users/ashwathram/Projects/dibs/tests/e2e/round21-certificate.spec.ts",
+                    "column": 12,
+                    "line": 60
+                  }
+                }
+              ],
+              "status": "unexpected"
+            },
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium-320-dark-font1",
+              "projectName": "chromium-320-dark-font1",
+              "results": [
+                {
+                  "workerIndex": 6,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 4206,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-28T07:15:06.098Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "video",
+                      "contentType": "video/webm",
+                      "path": "/Users/ashwathram/Projects/dibs/.tmp/r21/artifacts/round21-certificate-single-24a6c-e-and-private-copy-truthful-chromium-320-dark-font1/video.webm"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            },
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium-320-dark-font1.3",
+              "projectName": "chromium-320-dark-font1.3",
+              "results": [
+                {
+                  "workerIndex": 8,
+                  "parallelIndex": 1,
+                  "status": "failed",
+                  "duration": 9007,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mnot\u001b[2m.\u001b[22mtoMatch\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected pattern: not \u001b[32m/Okapi|Outside|Off the register/\u001b[39m\nReceived string:      \u001b[31m\"Dibs #6 · Nov 28 · Animals · Owner so far · \u001b[7mOkapi\u001b[27m · Off the register · 110 points · Outside the 3,004 best-known animals · #1 of 1 players today. practice.dibs-7hz.pages.dev https://practice.dibs-7hz.pages.dev/certificate/fixture-2?s=copy-text\"\u001b[39m\n\nCall Log:\n- Timeout 5000ms exceeded while waiting on the predicate",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mnot\u001b[2m.\u001b[22mtoMatch\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected pattern: not \u001b[32m/Okapi|Outside|Off the register/\u001b[39m\nReceived string:      \u001b[31m\"Dibs #6 · Nov 28 · Animals · Owner so far · \u001b[7mOkapi\u001b[27m · Off the register · 110 points · Outside the 3,004 best-known animals · #1 of 1 players today. practice.dibs-7hz.pages.dev https://practice.dibs-7hz.pages.dev/certificate/fixture-2?s=copy-text\"\u001b[39m\n\nCall Log:\n- Timeout 5000ms exceeded while waiting on the predicate\n    at /Users/ashwathram/Projects/dibs/tests/e2e/round21-certificate.spec.ts:60:12",
+                    "location": {
+                      "file": "/Users/ashwathram/Projects/dibs/tests/e2e/round21-certificate.spec.ts",
+                      "column": 12,
+                      "line": 60
+                    },
+                    "snippet": " \u001b[90m 58 |\u001b[39m     \u001b[36mawait\u001b[39m expect\n \u001b[90m 59 |\u001b[39m       \u001b[33m.\u001b[39mpoll(() \u001b[33m=>\u001b[39m page\u001b[33m.\u001b[39mevaluate(() \u001b[33m=>\u001b[39m (window \u001b[36mas\u001b[39m any)\u001b[33m.\u001b[39m__copied \u001b[33m||\u001b[39m \u001b[32m''\u001b[39m))\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 60 |\u001b[39m       \u001b[33m.\u001b[39mnot\u001b[33m.\u001b[39mtoMatch(\u001b[35m/Okapi|Outside|Off the register/\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m            \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 61 |\u001b[39m     \u001b[36mconst\u001b[39m dir \u001b[33m=\u001b[39m \u001b[32m`review/r21-flow/certificate-refresh/${info.project.name}`\u001b[39m\u001b[33m;\u001b[39m\n \u001b[90m 62 |\u001b[39m     mkdirSync(dir\u001b[33m,\u001b[39m { recursive\u001b[33m:\u001b[39m \u001b[36mtrue\u001b[39m })\u001b[33m;\u001b[39m\n \u001b[90m 63 |\u001b[39m     \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mscreenshot({ path\u001b[33m:\u001b[39m \u001b[32m`${dir}/${variant.replace('&', '-')}.png`\u001b[39m\u001b[33m,\u001b[39m fullPage\u001b[33m:\u001b[39m \u001b[36mtrue\u001b[39m })\u001b[33m;\u001b[39m"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "/Users/ashwathram/Projects/dibs/tests/e2e/round21-certificate.spec.ts",
+                        "column": 12,
+                        "line": 60
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mnot\u001b[2m.\u001b[22mtoMatch\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected pattern: not \u001b[32m/Okapi|Outside|Off the register/\u001b[39m\nReceived string:      \u001b[31m\"Dibs #6 · Nov 28 · Animals · Owner so far · \u001b[7mOkapi\u001b[27m · Off the register · 110 points · Outside the 3,004 best-known animals · #1 of 1 players today. practice.dibs-7hz.pages.dev https://practice.dibs-7hz.pages.dev/certificate/fixture-2?s=copy-text\"\u001b[39m\n\nCall Log:\n- Timeout 5000ms exceeded while waiting on the predicate\n\n  58 |     await expect\n  59 |       .poll(() => page.evaluate(() => (window as any).__copied || ''))\n> 60 |       .not.toMatch(/Okapi|Outside|Off the register/);\n     |            ^\n  61 |     const dir = `review/r21-flow/certificate-refresh/${info.project.name}`;\n  62 |     mkdirSync(dir, { recursive: true });\n  63 |     await page.screenshot({ path: `${dir}/${variant.replace('&', '-')}.png`, fullPage: true });\n    at /Users/ashwathram/Projects/dibs/tests/e2e/round21-certificate.spec.ts:60:12"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-28T07:15:14.665Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "/Users/ashwathram/Projects/dibs/.tmp/r21/artifacts/round21-certificate-single-24a6c-e-and-private-copy-truthful-chromium-320-dark-font1-3/test-failed-1.png"
+                    },
+                    {
+                      "name": "video",
+                      "contentType": "video/webm",
+                      "path": "/Users/ashwathram/Projects/dibs/.tmp/r21/artifacts/round21-certificate-single-24a6c-e-and-private-copy-truthful-chromium-320-dark-font1-3/video.webm"
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "/Users/ashwathram/Projects/dibs/.tmp/r21/artifacts/round21-certificate-single-24a6c-e-and-private-copy-truthful-chromium-320-dark-font1-3/error-context.md"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "/Users/ashwathram/Projects/dibs/tests/e2e/round21-certificate.spec.ts",
+                    "column": 12,
+                    "line": 60
+                  }
+                }
+              ],
+              "status": "unexpected"
+            },
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium-360-light-font1",
+              "projectName": "chromium-360-light-font1",
+              "results": [
+                {
+                  "workerIndex": 11,
+                  "parallelIndex": 2,
+                  "status": "passed",
+                  "duration": 4062,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-28T07:15:15.554Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "video",
+                      "contentType": "video/webm",
+                      "path": "/Users/ashwathram/Projects/dibs/.tmp/r21/artifacts/round21-certificate-single-24a6c-e-and-private-copy-truthful-chromium-360-light-font1/video.webm"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            },
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium-360-light-font1.3",
+              "projectName": "chromium-360-light-font1.3",
+              "results": [
+                {
+                  "workerIndex": 12,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 4119,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-28T07:15:23.959Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "video",
+                      "contentType": "video/webm",
+                      "path": "/Users/ashwathram/Projects/dibs/.tmp/r21/artifacts/round21-certificate-single-24a6c-e-and-private-copy-truthful-chromium-360-light-font1-3/video.webm"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            },
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium-360-dark-font1",
+              "projectName": "chromium-360-dark-font1",
+              "results": [
+                {
+                  "workerIndex": 15,
+                  "parallelIndex": 2,
+                  "status": "passed",
+                  "duration": 4062,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-28T07:15:27.850Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "video",
+                      "contentType": "video/webm",
+                      "path": "/Users/ashwathram/Projects/dibs/.tmp/r21/artifacts/round21-certificate-single-24a6c-e-and-private-copy-truthful-chromium-360-dark-font1/video.webm"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            },
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium-360-dark-font1.3",
+              "projectName": "chromium-360-dark-font1.3",
+              "results": [
+                {
+                  "workerIndex": 18,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 4170,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-28T07:15:29.294Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "video",
+                      "contentType": "video/webm",
+                      "path": "/Users/ashwathram/Projects/dibs/.tmp/r21/artifacts/round21-certificate-single-24a6c-e-and-private-copy-truthful-chromium-360-dark-font1-3/video.webm"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            },
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium-390-light-font1",
+              "projectName": "chromium-390-light-font1",
+              "results": [
+                {
+                  "workerIndex": 21,
+                  "parallelIndex": 3,
+                  "status": "passed",
+                  "duration": 4058,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-28T07:15:33.333Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "video",
+                      "contentType": "video/webm",
+                      "path": "/Users/ashwathram/Projects/dibs/.tmp/r21/artifacts/round21-certificate-single-24a6c-e-and-private-copy-truthful-chromium-390-light-font1/video.webm"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            },
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium-390-light-font1.3",
+              "projectName": "chromium-390-light-font1.3",
+              "results": [
+                {
+                  "workerIndex": 24,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 4051,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-28T07:15:37.063Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "video",
+                      "contentType": "video/webm",
+                      "path": "/Users/ashwathram/Projects/dibs/.tmp/r21/artifacts/round21-certificate-single-24a6c-e-and-private-copy-truthful-chromium-390-light-font1-3/video.webm"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            },
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium-390-dark-font1",
+              "projectName": "chromium-390-dark-font1",
+              "results": [
+                {
+                  "workerIndex": 27,
+                  "parallelIndex": 2,
+                  "status": "passed",
+                  "duration": 4072,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-28T07:15:40.868Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "video",
+                      "contentType": "video/webm",
+                      "path": "/Users/ashwathram/Projects/dibs/.tmp/r21/artifacts/round21-certificate-single-24a6c-e-and-private-copy-truthful-chromium-390-dark-font1/video.webm"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            },
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium-390-dark-font1.3",
+              "projectName": "chromium-390-dark-font1.3",
+              "results": [
+                {
+                  "workerIndex": 30,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 4132,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-28T07:15:42.598Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "video",
+                      "contentType": "video/webm",
+                      "path": "/Users/ashwathram/Projects/dibs/.tmp/r21/artifacts/round21-certificate-single-24a6c-e-and-private-copy-truthful-chromium-390-dark-font1-3/video.webm"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            },
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium-768-light-font1",
+              "projectName": "chromium-768-light-font1",
+              "results": [
+                {
+                  "workerIndex": 33,
+                  "parallelIndex": 3,
+                  "status": "timedOut",
+                  "duration": 65401,
+                  "error": {
+                    "message": "\u001b[31mTest timeout of 60000ms exceeded.\u001b[39m",
+                    "stack": "\u001b[31mTest timeout of 60000ms exceeded.\u001b[39m"
+                  },
+                  "errors": [
+                    {
+                      "message": "\u001b[31mTest timeout of 60000ms exceeded.\u001b[39m"
+                    },
+                    {
+                      "location": {
+                        "file": "/Users/ashwathram/Projects/dibs/tests/e2e/round21-certificate.spec.ts",
+                        "column": 62,
+                        "line": 46
+                      },
+                      "message": "Error: locator.click: Test timeout of 60000ms exceeded.\nCall log:\n\u001b[2m  - waiting for getByRole('button', { name: 'More', exact: true })\u001b[22m\n\n\n  44 |           : 'Standard score',\n  45 |     );\n> 46 |     await page.getByRole('button', { name: 'More', exact: true }).click();\n     |                                                              ^\n  47 |     await expect(page.locator('.copy-result')).toBeVisible();\n  48 |     await page.locator('.copy-result').click();\n  49 |     await expect\n    at /Users/ashwathram/Projects/dibs/tests/e2e/round21-certificate.spec.ts:46:62"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-28T07:15:46.483Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "/Users/ashwathram/Projects/dibs/.tmp/r21/artifacts/round21-certificate-single-24a6c-e-and-private-copy-truthful-chromium-768-light-font1/test-failed-1.png"
+                    },
+                    {
+                      "name": "video",
+                      "contentType": "video/webm",
+                      "path": "/Users/ashwathram/Projects/dibs/.tmp/r21/artifacts/round21-certificate-single-24a6c-e-and-private-copy-truthful-chromium-768-light-font1/video.webm"
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "/Users/ashwathram/Projects/dibs/.tmp/r21/artifacts/round21-certificate-single-24a6c-e-and-private-copy-truthful-chromium-768-light-font1/error-context.md"
+                    }
+                  ]
+                }
+              ],
+              "status": "unexpected"
+            },
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium-768-dark-font1",
+              "projectName": "chromium-768-dark-font1",
+              "results": [
+                {
+                  "workerIndex": 36,
+                  "parallelIndex": 1,
+                  "status": "timedOut",
+                  "duration": 65877,
+                  "error": {
+                    "message": "\u001b[31mTest timeout of 60000ms exceeded.\u001b[39m",
+                    "stack": "\u001b[31mTest timeout of 60000ms exceeded.\u001b[39m"
+                  },
+                  "errors": [
+                    {
+                      "message": "\u001b[31mTest timeout of 60000ms exceeded.\u001b[39m"
+                    },
+                    {
+                      "location": {
+                        "file": "/Users/ashwathram/Projects/dibs/tests/e2e/round21-certificate.spec.ts",
+                        "column": 62,
+                        "line": 46
+                      },
+                      "message": "Error: locator.click: Test timeout of 60000ms exceeded.\nCall log:\n\u001b[2m  - waiting for getByRole('button', { name: 'More', exact: true })\u001b[22m\n\n\n  44 |           : 'Standard score',\n  45 |     );\n> 46 |     await page.getByRole('button', { name: 'More', exact: true }).click();\n     |                                                              ^\n  47 |     await expect(page.locator('.copy-result')).toBeVisible();\n  48 |     await page.locator('.copy-result').click();\n  49 |     await expect\n    at /Users/ashwathram/Projects/dibs/tests/e2e/round21-certificate.spec.ts:46:62"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-28T07:15:50.124Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "/Users/ashwathram/Projects/dibs/.tmp/r21/artifacts/round21-certificate-single-24a6c-e-and-private-copy-truthful-chromium-768-dark-font1/test-failed-1.png"
+                    },
+                    {
+                      "name": "video",
+                      "contentType": "video/webm",
+                      "path": "/Users/ashwathram/Projects/dibs/.tmp/r21/artifacts/round21-certificate-single-24a6c-e-and-private-copy-truthful-chromium-768-dark-font1/video.webm"
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "/Users/ashwathram/Projects/dibs/.tmp/r21/artifacts/round21-certificate-single-24a6c-e-and-private-copy-truthful-chromium-768-dark-font1/error-context.md"
+                    }
+                  ]
+                }
+              ],
+              "status": "unexpected"
+            },
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium-1280-light-font1",
+              "projectName": "chromium-1280-light-font1",
+              "results": [
+                {
+                  "workerIndex": 39,
+                  "parallelIndex": 2,
+                  "status": "timedOut",
+                  "duration": 60957,
+                  "error": {
+                    "message": "\u001b[31mTest timeout of 60000ms exceeded.\u001b[39m",
+                    "stack": "\u001b[31mTest timeout of 60000ms exceeded.\u001b[39m"
+                  },
+                  "errors": [
+                    {
+                      "message": "\u001b[31mTest timeout of 60000ms exceeded.\u001b[39m"
+                    },
+                    {
+                      "location": {
+                        "file": "/Users/ashwathram/Projects/dibs/tests/e2e/round21-certificate.spec.ts",
+                        "column": 62,
+                        "line": 46
+                      },
+                      "message": "Error: locator.click: Test timeout of 60000ms exceeded.\nCall log:\n\u001b[2m  - waiting for getByRole('button', { name: 'More', exact: true })\u001b[22m\n\n\n  44 |           : 'Standard score',\n  45 |     );\n> 46 |     await page.getByRole('button', { name: 'More', exact: true }).click();\n     |                                                              ^\n  47 |     await expect(page.locator('.copy-result')).toBeVisible();\n  48 |     await page.locator('.copy-result').click();\n  49 |     await expect\n    at /Users/ashwathram/Projects/dibs/tests/e2e/round21-certificate.spec.ts:46:62"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-28T07:16:55.824Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "/Users/ashwathram/Projects/dibs/.tmp/r21/artifacts/round21-certificate-single-24a6c-e-and-private-copy-truthful-chromium-1280-light-font1/test-failed-1.png"
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "/Users/ashwathram/Projects/dibs/.tmp/r21/artifacts/round21-certificate-single-24a6c-e-and-private-copy-truthful-chromium-1280-light-font1/error-context.md"
+                    }
+                  ]
+                }
+              ],
+              "status": "unexpected"
+            },
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium-1280-dark-font1",
+              "projectName": "chromium-1280-dark-font1",
+              "results": [],
+              "status": "skipped"
+            },
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium-1440-light-font1",
+              "projectName": "chromium-1440-light-font1",
+              "results": [],
+              "status": "skipped"
+            },
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium-1440-dark-font1",
+              "projectName": "chromium-1440-dark-font1",
+              "results": [],
+              "status": "skipped"
+            },
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium-2560-light-font1",
+              "projectName": "chromium-2560-light-font1",
+              "results": [],
+              "status": "skipped"
+            },
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium-2560-dark-font1",
+              "projectName": "chromium-2560-dark-font1",
+              "results": [],
+              "status": "skipped"
+            },
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "webkit-320-light-font1",
+              "projectName": "webkit-320-light-font1",
+              "results": [],
+              "status": "skipped"
+            },
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "webkit-320-light-font1.3",
+              "projectName": "webkit-320-light-font1.3",
+              "results": [],
+              "status": "skipped"
+            },
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "webkit-320-dark-font1",
+              "projectName": "webkit-320-dark-font1",
+              "results": [],
+              "status": "skipped"
+            },
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "webkit-320-dark-font1.3",
+              "projectName": "webkit-320-dark-font1.3",
+              "results": [],
+              "status": "skipped"
+            },
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "webkit-360-light-font1",
+              "projectName": "webkit-360-light-font1",
+              "results": [],
+              "status": "skipped"
+            },
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "webkit-360-light-font1.3",
+              "projectName": "webkit-360-light-font1.3",
+              "results": [],
+              "status": "skipped"
+            },
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "webkit-360-dark-font1",
+              "projectName": "webkit-360-dark-font1",
+              "results": [],
+              "status": "skipped"
+            },
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "webkit-360-dark-font1.3",
+              "projectName": "webkit-360-dark-font1.3",
+              "results": [],
+              "status": "skipped"
+            },
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "webkit-390-light-font1",
+              "projectName": "webkit-390-light-font1",
+              "results": [],
+              "status": "skipped"
+            },
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "webkit-390-light-font1.3",
+              "projectName": "webkit-390-light-font1.3",
+              "results": [],
+              "status": "skipped"
+            },
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "webkit-390-dark-font1",
+              "projectName": "webkit-390-dark-font1",
+              "results": [],
+              "status": "skipped"
+            },
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "webkit-390-dark-font1.3",
+              "projectName": "webkit-390-dark-font1.3",
+              "results": [],
+              "status": "skipped"
+            },
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "webkit-768-light-font1",
+              "projectName": "webkit-768-light-font1",
+              "results": [],
+              "status": "skipped"
+            },
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "webkit-768-dark-font1",
+              "projectName": "webkit-768-dark-font1",
+              "results": [],
+              "status": "skipped"
+            },
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "webkit-1280-light-font1",
+              "projectName": "webkit-1280-light-font1",
+              "results": [],
+              "status": "skipped"
+            },
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "webkit-1280-dark-font1",
+              "projectName": "webkit-1280-dark-font1",
+              "results": [],
+              "status": "skipped"
+            },
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "webkit-1440-light-font1",
+              "projectName": "webkit-1440-light-font1",
+              "results": [],
+              "status": "skipped"
+            },
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "webkit-1440-dark-font1",
+              "projectName": "webkit-1440-dark-font1",
+              "results": [],
+              "status": "skipped"
+            },
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "webkit-2560-light-font1",
+              "projectName": "webkit-2560-light-font1",
+              "results": [],
+              "status": "skipped"
+            },
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "webkit-2560-dark-font1",
+              "projectName": "webkit-2560-dark-font1",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "22c878a9dea8cf6a39d9-2a5c390d4c5aadc5c2cd",
+          "file": "round21-certificate.spec.ts",
+          "line": 15,
+          "column": 3
+        },
+        {
+          "title": "single certificate keeps missing tier, title and private copy truthful",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium-320-light-font1",
+              "projectName": "chromium-320-light-font1",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 4239,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-28T07:15:01.526Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "video",
+                      "contentType": "video/webm",
+                      "path": "/Users/ashwathram/Projects/dibs/.tmp/r21/artifacts/round21-certificate-single-6efa5-e-and-private-copy-truthful-chromium-320-light-font1/video.webm"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            },
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium-320-light-font1.3",
+              "projectName": "chromium-320-light-font1.3",
+              "results": [
+                {
+                  "workerIndex": 4,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 9085,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mnot\u001b[2m.\u001b[22mtoMatch\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected pattern: not \u001b[32m/Okapi|Outside|Off the register/\u001b[39m\nReceived string:      \u001b[31m\"Dibs #6 · Nov 28 · Animals · Owner so far · \u001b[7mOkapi\u001b[27m · 55 points · standard score (no readership data for this answer) · #1 of 1 players today. practice.dibs-7hz.pages.dev https://practice.dibs-7hz.pages.dev/certificate/fixture-2?s=copy-text\"\u001b[39m\n\nCall Log:\n- Timeout 5000ms exceeded while waiting on the predicate",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mnot\u001b[2m.\u001b[22mtoMatch\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected pattern: not \u001b[32m/Okapi|Outside|Off the register/\u001b[39m\nReceived string:      \u001b[31m\"Dibs #6 · Nov 28 · Animals · Owner so far · \u001b[7mOkapi\u001b[27m · 55 points · standard score (no readership data for this answer) · #1 of 1 players today. practice.dibs-7hz.pages.dev https://practice.dibs-7hz.pages.dev/certificate/fixture-2?s=copy-text\"\u001b[39m\n\nCall Log:\n- Timeout 5000ms exceeded while waiting on the predicate\n    at /Users/ashwathram/Projects/dibs/tests/e2e/round21-certificate.spec.ts:60:12",
+                    "location": {
+                      "file": "/Users/ashwathram/Projects/dibs/tests/e2e/round21-certificate.spec.ts",
+                      "column": 12,
+                      "line": 60
+                    },
+                    "snippet": " \u001b[90m 58 |\u001b[39m     \u001b[36mawait\u001b[39m expect\n \u001b[90m 59 |\u001b[39m       \u001b[33m.\u001b[39mpoll(() \u001b[33m=>\u001b[39m page\u001b[33m.\u001b[39mevaluate(() \u001b[33m=>\u001b[39m (window \u001b[36mas\u001b[39m any)\u001b[33m.\u001b[39m__copied \u001b[33m||\u001b[39m \u001b[32m''\u001b[39m))\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 60 |\u001b[39m       \u001b[33m.\u001b[39mnot\u001b[33m.\u001b[39mtoMatch(\u001b[35m/Okapi|Outside|Off the register/\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m            \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 61 |\u001b[39m     \u001b[36mconst\u001b[39m dir \u001b[33m=\u001b[39m \u001b[32m`review/r21-flow/certificate-refresh/${info.project.name}`\u001b[39m\u001b[33m;\u001b[39m\n \u001b[90m 62 |\u001b[39m     mkdirSync(dir\u001b[33m,\u001b[39m { recursive\u001b[33m:\u001b[39m \u001b[36mtrue\u001b[39m })\u001b[33m;\u001b[39m\n \u001b[90m 63 |\u001b[39m     \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mscreenshot({ path\u001b[33m:\u001b[39m \u001b[32m`${dir}/${variant.replace('&', '-')}.png`\u001b[39m\u001b[33m,\u001b[39m fullPage\u001b[33m:\u001b[39m \u001b[36mtrue\u001b[39m })\u001b[33m;\u001b[39m"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "/Users/ashwathram/Projects/dibs/tests/e2e/round21-certificate.spec.ts",
+                        "column": 12,
+                        "line": 60
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mnot\u001b[2m.\u001b[22mtoMatch\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected pattern: not \u001b[32m/Okapi|Outside|Off the register/\u001b[39m\nReceived string:      \u001b[31m\"Dibs #6 · Nov 28 · Animals · Owner so far · \u001b[7mOkapi\u001b[27m · 55 points · standard score (no readership data for this answer) · #1 of 1 players today. practice.dibs-7hz.pages.dev https://practice.dibs-7hz.pages.dev/certificate/fixture-2?s=copy-text\"\u001b[39m\n\nCall Log:\n- Timeout 5000ms exceeded while waiting on the predicate\n\n  58 |     await expect\n  59 |       .poll(() => page.evaluate(() => (window as any).__copied || ''))\n> 60 |       .not.toMatch(/Okapi|Outside|Off the register/);\n     |            ^\n  61 |     const dir = `review/r21-flow/certificate-refresh/${info.project.name}`;\n  62 |     mkdirSync(dir, { recursive: true });\n  63 |     await page.screenshot({ path: `${dir}/${variant.replace('&', '-')}.png`, fullPage: true });\n    at /Users/ashwathram/Projects/dibs/tests/e2e/round21-certificate.spec.ts:60:12"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-28T07:15:06.074Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "/Users/ashwathram/Projects/dibs/.tmp/r21/artifacts/round21-certificate-single-6efa5-e-and-private-copy-truthful-chromium-320-light-font1-3/test-failed-1.png"
+                    },
+                    {
+                      "name": "video",
+                      "contentType": "video/webm",
+                      "path": "/Users/ashwathram/Projects/dibs/.tmp/r21/artifacts/round21-certificate-single-6efa5-e-and-private-copy-truthful-chromium-320-light-font1-3/video.webm"
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "/Users/ashwathram/Projects/dibs/.tmp/r21/artifacts/round21-certificate-single-6efa5-e-and-private-copy-truthful-chromium-320-light-font1-3/error-context.md"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "/Users/ashwathram/Projects/dibs/tests/e2e/round21-certificate.spec.ts",
+                    "column": 12,
+                    "line": 60
+                  }
+                }
+              ],
+              "status": "unexpected"
+            },
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium-320-dark-font1",
+              "projectName": "chromium-320-dark-font1",
+              "results": [
+                {
+                  "workerIndex": 6,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 4057,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-28T07:15:10.389Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "video",
+                      "contentType": "video/webm",
+                      "path": "/Users/ashwathram/Projects/dibs/.tmp/r21/artifacts/round21-certificate-single-6efa5-e-and-private-copy-truthful-chromium-320-dark-font1/video.webm"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            },
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium-320-dark-font1.3",
+              "projectName": "chromium-320-dark-font1.3",
+              "results": [
+                {
+                  "workerIndex": 9,
+                  "parallelIndex": 3,
+                  "status": "failed",
+                  "duration": 8942,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mnot\u001b[2m.\u001b[22mtoMatch\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected pattern: not \u001b[32m/Okapi|Outside|Off the register/\u001b[39m\nReceived string:      \u001b[31m\"Dibs #6 · Nov 28 · Animals · Owner so far · \u001b[7mOkapi\u001b[27m · 55 points · standard score (no readership data for this answer) · #1 of 1 players today. practice.dibs-7hz.pages.dev https://practice.dibs-7hz.pages.dev/certificate/fixture-2?s=copy-text\"\u001b[39m\n\nCall Log:\n- Timeout 5000ms exceeded while waiting on the predicate",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mnot\u001b[2m.\u001b[22mtoMatch\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected pattern: not \u001b[32m/Okapi|Outside|Off the register/\u001b[39m\nReceived string:      \u001b[31m\"Dibs #6 · Nov 28 · Animals · Owner so far · \u001b[7mOkapi\u001b[27m · 55 points · standard score (no readership data for this answer) · #1 of 1 players today. practice.dibs-7hz.pages.dev https://practice.dibs-7hz.pages.dev/certificate/fixture-2?s=copy-text\"\u001b[39m\n\nCall Log:\n- Timeout 5000ms exceeded while waiting on the predicate\n    at /Users/ashwathram/Projects/dibs/tests/e2e/round21-certificate.spec.ts:60:12",
+                    "location": {
+                      "file": "/Users/ashwathram/Projects/dibs/tests/e2e/round21-certificate.spec.ts",
+                      "column": 12,
+                      "line": 60
+                    },
+                    "snippet": " \u001b[90m 58 |\u001b[39m     \u001b[36mawait\u001b[39m expect\n \u001b[90m 59 |\u001b[39m       \u001b[33m.\u001b[39mpoll(() \u001b[33m=>\u001b[39m page\u001b[33m.\u001b[39mevaluate(() \u001b[33m=>\u001b[39m (window \u001b[36mas\u001b[39m any)\u001b[33m.\u001b[39m__copied \u001b[33m||\u001b[39m \u001b[32m''\u001b[39m))\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 60 |\u001b[39m       \u001b[33m.\u001b[39mnot\u001b[33m.\u001b[39mtoMatch(\u001b[35m/Okapi|Outside|Off the register/\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m            \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 61 |\u001b[39m     \u001b[36mconst\u001b[39m dir \u001b[33m=\u001b[39m \u001b[32m`review/r21-flow/certificate-refresh/${info.project.name}`\u001b[39m\u001b[33m;\u001b[39m\n \u001b[90m 62 |\u001b[39m     mkdirSync(dir\u001b[33m,\u001b[39m { recursive\u001b[33m:\u001b[39m \u001b[36mtrue\u001b[39m })\u001b[33m;\u001b[39m\n \u001b[90m 63 |\u001b[39m     \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mscreenshot({ path\u001b[33m:\u001b[39m \u001b[32m`${dir}/${variant.replace('&', '-')}.png`\u001b[39m\u001b[33m,\u001b[39m fullPage\u001b[33m:\u001b[39m \u001b[36mtrue\u001b[39m })\u001b[33m;\u001b[39m"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "/Users/ashwathram/Projects/dibs/tests/e2e/round21-certificate.spec.ts",
+                        "column": 12,
+                        "line": 60
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mnot\u001b[2m.\u001b[22mtoMatch\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected pattern: not \u001b[32m/Okapi|Outside|Off the register/\u001b[39m\nReceived string:      \u001b[31m\"Dibs #6 · Nov 28 · Animals · Owner so far · \u001b[7mOkapi\u001b[27m · 55 points · standard score (no readership data for this answer) · #1 of 1 players today. practice.dibs-7hz.pages.dev https://practice.dibs-7hz.pages.dev/certificate/fixture-2?s=copy-text\"\u001b[39m\n\nCall Log:\n- Timeout 5000ms exceeded while waiting on the predicate\n\n  58 |     await expect\n  59 |       .poll(() => page.evaluate(() => (window as any).__copied || ''))\n> 60 |       .not.toMatch(/Okapi|Outside|Off the register/);\n     |            ^\n  61 |     const dir = `review/r21-flow/certificate-refresh/${info.project.name}`;\n  62 |     mkdirSync(dir, { recursive: true });\n  63 |     await page.screenshot({ path: `${dir}/${variant.replace('&', '-')}.png`, fullPage: true });\n    at /Users/ashwathram/Projects/dibs/tests/e2e/round21-certificate.spec.ts:60:12"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-28T07:15:15.329Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "/Users/ashwathram/Projects/dibs/.tmp/r21/artifacts/round21-certificate-single-6efa5-e-and-private-copy-truthful-chromium-320-dark-font1-3/test-failed-1.png"
+                    },
+                    {
+                      "name": "video",
+                      "contentType": "video/webm",
+                      "path": "/Users/ashwathram/Projects/dibs/.tmp/r21/artifacts/round21-certificate-single-6efa5-e-and-private-copy-truthful-chromium-320-dark-font1-3/video.webm"
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "/Users/ashwathram/Projects/dibs/.tmp/r21/artifacts/round21-certificate-single-6efa5-e-and-private-copy-truthful-chromium-320-dark-font1-3/error-context.md"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "/Users/ashwathram/Projects/dibs/tests/e2e/round21-certificate.spec.ts",
+                    "column": 12,
+                    "line": 60
+                  }
+                }
+              ],
+              "status": "unexpected"
+            },
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium-360-light-font1",
+              "projectName": "chromium-360-light-font1",
+              "results": [
+                {
+                  "workerIndex": 11,
+                  "parallelIndex": 2,
+                  "status": "passed",
+                  "duration": 4002,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-28T07:15:19.692Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "video",
+                      "contentType": "video/webm",
+                      "path": "/Users/ashwathram/Projects/dibs/.tmp/r21/artifacts/round21-certificate-single-6efa5-e-and-private-copy-truthful-chromium-360-light-font1/video.webm"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            },
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium-360-light-font1.3",
+              "projectName": "chromium-360-light-font1.3",
+              "results": [
+                {
+                  "workerIndex": 13,
+                  "parallelIndex": 3,
+                  "status": "passed",
+                  "duration": 4070,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-28T07:15:24.566Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "video",
+                      "contentType": "video/webm",
+                      "path": "/Users/ashwathram/Projects/dibs/.tmp/r21/artifacts/round21-certificate-single-6efa5-e-and-private-copy-truthful-chromium-360-light-font1-3/video.webm"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            },
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium-360-dark-font1",
+              "projectName": "chromium-360-dark-font1",
+              "results": [
+                {
+                  "workerIndex": 16,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 4056,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-28T07:15:28.350Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "video",
+                      "contentType": "video/webm",
+                      "path": "/Users/ashwathram/Projects/dibs/.tmp/r21/artifacts/round21-certificate-single-6efa5-e-and-private-copy-truthful-chromium-360-dark-font1/video.webm"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            },
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium-360-dark-font1.3",
+              "projectName": "chromium-360-dark-font1.3",
+              "results": [
+                {
+                  "workerIndex": 19,
+                  "parallelIndex": 2,
+                  "status": "passed",
+                  "duration": 4072,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-28T07:15:32.195Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "video",
+                      "contentType": "video/webm",
+                      "path": "/Users/ashwathram/Projects/dibs/.tmp/r21/artifacts/round21-certificate-single-6efa5-e-and-private-copy-truthful-chromium-360-dark-font1-3/video.webm"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            },
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium-390-light-font1",
+              "projectName": "chromium-390-light-font1",
+              "results": [
+                {
+                  "workerIndex": 22,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 4083,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-28T07:15:33.783Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "video",
+                      "contentType": "video/webm",
+                      "path": "/Users/ashwathram/Projects/dibs/.tmp/r21/artifacts/round21-certificate-single-6efa5-e-and-private-copy-truthful-chromium-390-light-font1/video.webm"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            },
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium-390-light-font1.3",
+              "projectName": "chromium-390-light-font1.3",
+              "results": [
+                {
+                  "workerIndex": 25,
+                  "parallelIndex": 3,
+                  "status": "passed",
+                  "duration": 4085,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-28T07:15:37.696Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "video",
+                      "contentType": "video/webm",
+                      "path": "/Users/ashwathram/Projects/dibs/.tmp/r21/artifacts/round21-certificate-single-6efa5-e-and-private-copy-truthful-chromium-390-light-font1-3/video.webm"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            },
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium-390-dark-font1",
+              "projectName": "chromium-390-dark-font1",
+              "results": [
+                {
+                  "workerIndex": 28,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 4037,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-28T07:15:41.405Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "video",
+                      "contentType": "video/webm",
+                      "path": "/Users/ashwathram/Projects/dibs/.tmp/r21/artifacts/round21-certificate-single-6efa5-e-and-private-copy-truthful-chromium-390-dark-font1/video.webm"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            },
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium-390-dark-font1.3",
+              "projectName": "chromium-390-dark-font1.3",
+              "results": [
+                {
+                  "workerIndex": 31,
+                  "parallelIndex": 2,
+                  "status": "passed",
+                  "duration": 4083,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-28T07:15:45.236Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "video",
+                      "contentType": "video/webm",
+                      "path": "/Users/ashwathram/Projects/dibs/.tmp/r21/artifacts/round21-certificate-single-6efa5-e-and-private-copy-truthful-chromium-390-dark-font1-3/video.webm"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            },
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium-768-light-font1",
+              "projectName": "chromium-768-light-font1",
+              "results": [
+                {
+                  "workerIndex": 34,
+                  "parallelIndex": 0,
+                  "status": "timedOut",
+                  "duration": 65495,
+                  "error": {
+                    "message": "\u001b[31mTest timeout of 60000ms exceeded.\u001b[39m",
+                    "stack": "\u001b[31mTest timeout of 60000ms exceeded.\u001b[39m"
+                  },
+                  "errors": [
+                    {
+                      "message": "\u001b[31mTest timeout of 60000ms exceeded.\u001b[39m"
+                    },
+                    {
+                      "location": {
+                        "file": "/Users/ashwathram/Projects/dibs/tests/e2e/round21-certificate.spec.ts",
+                        "column": 62,
+                        "line": 46
+                      },
+                      "message": "Error: locator.click: Test timeout of 60000ms exceeded.\nCall log:\n\u001b[2m  - waiting for getByRole('button', { name: 'More', exact: true })\u001b[22m\n\n\n  44 |           : 'Standard score',\n  45 |     );\n> 46 |     await page.getByRole('button', { name: 'More', exact: true }).click();\n     |                                                              ^\n  47 |     await expect(page.locator('.copy-result')).toBeVisible();\n  48 |     await page.locator('.copy-result').click();\n  49 |     await expect\n    at /Users/ashwathram/Projects/dibs/tests/e2e/round21-certificate.spec.ts:46:62"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-28T07:15:47.034Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "/Users/ashwathram/Projects/dibs/.tmp/r21/artifacts/round21-certificate-single-6efa5-e-and-private-copy-truthful-chromium-768-light-font1/test-failed-1.png"
+                    },
+                    {
+                      "name": "video",
+                      "contentType": "video/webm",
+                      "path": "/Users/ashwathram/Projects/dibs/.tmp/r21/artifacts/round21-certificate-single-6efa5-e-and-private-copy-truthful-chromium-768-light-font1/video.webm"
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "/Users/ashwathram/Projects/dibs/.tmp/r21/artifacts/round21-certificate-single-6efa5-e-and-private-copy-truthful-chromium-768-light-font1/error-context.md"
+                    }
+                  ]
+                }
+              ],
+              "status": "unexpected"
+            },
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium-768-dark-font1",
+              "projectName": "chromium-768-dark-font1",
+              "results": [
+                {
+                  "workerIndex": 37,
+                  "parallelIndex": 3,
+                  "status": "timedOut",
+                  "duration": 64583,
+                  "error": {
+                    "message": "\u001b[31mTest timeout of 60000ms exceeded.\u001b[39m",
+                    "stack": "\u001b[31mTest timeout of 60000ms exceeded.\u001b[39m"
+                  },
+                  "errors": [
+                    {
+                      "message": "\u001b[31mTest timeout of 60000ms exceeded.\u001b[39m"
+                    },
+                    {
+                      "location": {
+                        "file": "/Users/ashwathram/Projects/dibs/tests/e2e/round21-certificate.spec.ts",
+                        "column": 62,
+                        "line": 46
+                      },
+                      "message": "Error: locator.click: Test timeout of 60000ms exceeded.\nCall log:\n\u001b[2m  - waiting for getByRole('button', { name: 'More', exact: true })\u001b[22m\n\n\n  44 |           : 'Standard score',\n  45 |     );\n> 46 |     await page.getByRole('button', { name: 'More', exact: true }).click();\n     |                                                              ^\n  47 |     await expect(page.locator('.copy-result')).toBeVisible();\n  48 |     await page.locator('.copy-result').click();\n  49 |     await expect\n    at /Users/ashwathram/Projects/dibs/tests/e2e/round21-certificate.spec.ts:46:62"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-28T07:16:52.193Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "/Users/ashwathram/Projects/dibs/.tmp/r21/artifacts/round21-certificate-single-6efa5-e-and-private-copy-truthful-chromium-768-dark-font1/test-failed-1.png"
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "/Users/ashwathram/Projects/dibs/.tmp/r21/artifacts/round21-certificate-single-6efa5-e-and-private-copy-truthful-chromium-768-dark-font1/error-context.md"
+                    }
+                  ]
+                }
+              ],
+              "status": "unexpected"
+            },
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium-1280-light-font1",
+              "projectName": "chromium-1280-light-font1",
+              "results": [
+                {
+                  "workerIndex": 40,
+                  "parallelIndex": 1,
+                  "status": "timedOut",
+                  "duration": 60505,
+                  "error": {
+                    "message": "\u001b[31mTest timeout of 60000ms exceeded.\u001b[39m",
+                    "stack": "\u001b[31mTest timeout of 60000ms exceeded.\u001b[39m"
+                  },
+                  "errors": [
+                    {
+                      "message": "\u001b[31mTest timeout of 60000ms exceeded.\u001b[39m"
+                    },
+                    {
+                      "location": {
+                        "file": "/Users/ashwathram/Projects/dibs/tests/e2e/round21-certificate.spec.ts",
+                        "column": 62,
+                        "line": 46
+                      },
+                      "message": "Error: locator.click: Test timeout of 60000ms exceeded.\nCall log:\n\u001b[2m  - waiting for getByRole('button', { name: 'More', exact: true })\u001b[22m\n\n\n  44 |           : 'Standard score',\n  45 |     );\n> 46 |     await page.getByRole('button', { name: 'More', exact: true }).click();\n     |                                                              ^\n  47 |     await expect(page.locator('.copy-result')).toBeVisible();\n  48 |     await page.locator('.copy-result').click();\n  49 |     await expect\n    at /Users/ashwathram/Projects/dibs/tests/e2e/round21-certificate.spec.ts:46:62"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-28T07:16:56.281Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "/Users/ashwathram/Projects/dibs/.tmp/r21/artifacts/round21-certificate-single-6efa5-e-and-private-copy-truthful-chromium-1280-light-font1/test-failed-1.png"
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "/Users/ashwathram/Projects/dibs/.tmp/r21/artifacts/round21-certificate-single-6efa5-e-and-private-copy-truthful-chromium-1280-light-font1/error-context.md"
+                    }
+                  ]
+                }
+              ],
+              "status": "unexpected"
+            },
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium-1280-dark-font1",
+              "projectName": "chromium-1280-dark-font1",
+              "results": [],
+              "status": "skipped"
+            },
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium-1440-light-font1",
+              "projectName": "chromium-1440-light-font1",
+              "results": [],
+              "status": "skipped"
+            },
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium-1440-dark-font1",
+              "projectName": "chromium-1440-dark-font1",
+              "results": [],
+              "status": "skipped"
+            },
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium-2560-light-font1",
+              "projectName": "chromium-2560-light-font1",
+              "results": [],
+              "status": "skipped"
+            },
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium-2560-dark-font1",
+              "projectName": "chromium-2560-dark-font1",
+              "results": [],
+              "status": "skipped"
+            },
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "webkit-320-light-font1",
+              "projectName": "webkit-320-light-font1",
+              "results": [],
+              "status": "skipped"
+            },
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "webkit-320-light-font1.3",
+              "projectName": "webkit-320-light-font1.3",
+              "results": [],
+              "status": "skipped"
+            },
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "webkit-320-dark-font1",
+              "projectName": "webkit-320-dark-font1",
+              "results": [],
+              "status": "skipped"
+            },
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "webkit-320-dark-font1.3",
+              "projectName": "webkit-320-dark-font1.3",
+              "results": [],
+              "status": "skipped"
+            },
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "webkit-360-light-font1",
+              "projectName": "webkit-360-light-font1",
+              "results": [],
+              "status": "skipped"
+            },
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "webkit-360-light-font1.3",
+              "projectName": "webkit-360-light-font1.3",
+              "results": [],
+              "status": "skipped"
+            },
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "webkit-360-dark-font1",
+              "projectName": "webkit-360-dark-font1",
+              "results": [],
+              "status": "skipped"
+            },
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "webkit-360-dark-font1.3",
+              "projectName": "webkit-360-dark-font1.3",
+              "results": [],
+              "status": "skipped"
+            },
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "webkit-390-light-font1",
+              "projectName": "webkit-390-light-font1",
+              "results": [],
+              "status": "skipped"
+            },
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "webkit-390-light-font1.3",
+              "projectName": "webkit-390-light-font1.3",
+              "results": [],
+              "status": "skipped"
+            },
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "webkit-390-dark-font1",
+              "projectName": "webkit-390-dark-font1",
+              "results": [],
+              "status": "skipped"
+            },
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "webkit-390-dark-font1.3",
+              "projectName": "webkit-390-dark-font1.3",
+              "results": [],
+              "status": "skipped"
+            },
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "webkit-768-light-font1",
+              "projectName": "webkit-768-light-font1",
+              "results": [],
+              "status": "skipped"
+            },
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "webkit-768-dark-font1",
+              "projectName": "webkit-768-dark-font1",
+              "results": [],
+              "status": "skipped"
+            },
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "webkit-1280-light-font1",
+              "projectName": "webkit-1280-light-font1",
+              "results": [],
+              "status": "skipped"
+            },
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "webkit-1280-dark-font1",
+              "projectName": "webkit-1280-dark-font1",
+              "results": [],
+              "status": "skipped"
+            },
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "webkit-1440-light-font1",
+              "projectName": "webkit-1440-light-font1",
+              "results": [],
+              "status": "skipped"
+            },
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "webkit-1440-dark-font1",
+              "projectName": "webkit-1440-dark-font1",
+              "results": [],
+              "status": "skipped"
+            },
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "webkit-2560-light-font1",
+              "projectName": "webkit-2560-light-font1",
+              "results": [],
+              "status": "skipped"
+            },
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "webkit-2560-dark-font1",
+              "projectName": "webkit-2560-dark-font1",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "22c878a9dea8cf6a39d9-652074d30f9e407098aa",
+          "file": "round21-certificate.spec.ts",
+          "line": 15,
+          "column": 3
+        },
+        {
+          "title": "single certificate keeps off&gold tier, title and private copy truthful",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium-320-light-font1",
+              "projectName": "chromium-320-light-font1",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 2,
+                  "status": "passed",
+                  "duration": 4214,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-28T07:15:01.527Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "video",
+                      "contentType": "video/webm",
+                      "path": "/Users/ashwathram/Projects/dibs/.tmp/r21/artifacts/round21-certificate-single-c3d58-e-and-private-copy-truthful-chromium-320-light-font1/video.webm"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            },
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium-320-light-font1.3",
+              "projectName": "chromium-320-light-font1.3",
+              "results": [
+                {
+                  "workerIndex": 5,
+                  "parallelIndex": 2,
+                  "status": "failed",
+                  "duration": 9132,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mnot\u001b[2m.\u001b[22mtoMatch\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected pattern: not \u001b[32m/Okapi|Outside|Off the register/\u001b[39m\nReceived string:      \u001b[31m\"Dibs #6 · Nov 28 · Animals · Owner so far · \u001b[7mOkapi\u001b[27m · Off the register · 160 points · Outside the 3,004 best-known animals · 110 + 50 golden bonus · #1 of 1 players today. practice.dibs-7hz.pages.dev https://practice.dibs-7hz.pages.dev/certificate/fixture-2?s=copy-text\"\u001b[39m\n\nCall Log:\n- Timeout 5000ms exceeded while waiting on the predicate",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mnot\u001b[2m.\u001b[22mtoMatch\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected pattern: not \u001b[32m/Okapi|Outside|Off the register/\u001b[39m\nReceived string:      \u001b[31m\"Dibs #6 · Nov 28 · Animals · Owner so far · \u001b[7mOkapi\u001b[27m · Off the register · 160 points · Outside the 3,004 best-known animals · 110 + 50 golden bonus · #1 of 1 players today. practice.dibs-7hz.pages.dev https://practice.dibs-7hz.pages.dev/certificate/fixture-2?s=copy-text\"\u001b[39m\n\nCall Log:\n- Timeout 5000ms exceeded while waiting on the predicate\n    at /Users/ashwathram/Projects/dibs/tests/e2e/round21-certificate.spec.ts:60:12",
+                    "location": {
+                      "file": "/Users/ashwathram/Projects/dibs/tests/e2e/round21-certificate.spec.ts",
+                      "column": 12,
+                      "line": 60
+                    },
+                    "snippet": " \u001b[90m 58 |\u001b[39m     \u001b[36mawait\u001b[39m expect\n \u001b[90m 59 |\u001b[39m       \u001b[33m.\u001b[39mpoll(() \u001b[33m=>\u001b[39m page\u001b[33m.\u001b[39mevaluate(() \u001b[33m=>\u001b[39m (window \u001b[36mas\u001b[39m any)\u001b[33m.\u001b[39m__copied \u001b[33m||\u001b[39m \u001b[32m''\u001b[39m))\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 60 |\u001b[39m       \u001b[33m.\u001b[39mnot\u001b[33m.\u001b[39mtoMatch(\u001b[35m/Okapi|Outside|Off the register/\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m            \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 61 |\u001b[39m     \u001b[36mconst\u001b[39m dir \u001b[33m=\u001b[39m \u001b[32m`review/r21-flow/certificate-refresh/${info.project.name}`\u001b[39m\u001b[33m;\u001b[39m\n \u001b[90m 62 |\u001b[39m     mkdirSync(dir\u001b[33m,\u001b[39m { recursive\u001b[33m:\u001b[39m \u001b[36mtrue\u001b[39m })\u001b[33m;\u001b[39m\n \u001b[90m 63 |\u001b[39m     \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mscreenshot({ path\u001b[33m:\u001b[39m \u001b[32m`${dir}/${variant.replace('&', '-')}.png`\u001b[39m\u001b[33m,\u001b[39m fullPage\u001b[33m:\u001b[39m \u001b[36mtrue\u001b[39m })\u001b[33m;\u001b[39m"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "/Users/ashwathram/Projects/dibs/tests/e2e/round21-certificate.spec.ts",
+                        "column": 12,
+                        "line": 60
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mnot\u001b[2m.\u001b[22mtoMatch\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected pattern: not \u001b[32m/Okapi|Outside|Off the register/\u001b[39m\nReceived string:      \u001b[31m\"Dibs #6 · Nov 28 · Animals · Owner so far · \u001b[7mOkapi\u001b[27m · Off the register · 160 points · Outside the 3,004 best-known animals · 110 + 50 golden bonus · #1 of 1 players today. practice.dibs-7hz.pages.dev https://practice.dibs-7hz.pages.dev/certificate/fixture-2?s=copy-text\"\u001b[39m\n\nCall Log:\n- Timeout 5000ms exceeded while waiting on the predicate\n\n  58 |     await expect\n  59 |       .poll(() => page.evaluate(() => (window as any).__copied || ''))\n> 60 |       .not.toMatch(/Okapi|Outside|Off the register/);\n     |            ^\n  61 |     const dir = `review/r21-flow/certificate-refresh/${info.project.name}`;\n  62 |     mkdirSync(dir, { recursive: true });\n  63 |     await page.screenshot({ path: `${dir}/${variant.replace('&', '-')}.png`, fullPage: true });\n    at /Users/ashwathram/Projects/dibs/tests/e2e/round21-certificate.spec.ts:60:12"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-28T07:15:06.078Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "/Users/ashwathram/Projects/dibs/.tmp/r21/artifacts/round21-certificate-single-c3d58-e-and-private-copy-truthful-chromium-320-light-font1-3/test-failed-1.png"
+                    },
+                    {
+                      "name": "video",
+                      "contentType": "video/webm",
+                      "path": "/Users/ashwathram/Projects/dibs/.tmp/r21/artifacts/round21-certificate-single-c3d58-e-and-private-copy-truthful-chromium-320-light-font1-3/video.webm"
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "/Users/ashwathram/Projects/dibs/.tmp/r21/artifacts/round21-certificate-single-c3d58-e-and-private-copy-truthful-chromium-320-light-font1-3/error-context.md"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "/Users/ashwathram/Projects/dibs/tests/e2e/round21-certificate.spec.ts",
+                    "column": 12,
+                    "line": 60
+                  }
+                }
+              ],
+              "status": "unexpected"
+            },
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium-320-dark-font1",
+              "projectName": "chromium-320-dark-font1",
+              "results": [
+                {
+                  "workerIndex": 7,
+                  "parallelIndex": 3,
+                  "status": "passed",
+                  "duration": 4125,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-28T07:15:10.884Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "video",
+                      "contentType": "video/webm",
+                      "path": "/Users/ashwathram/Projects/dibs/.tmp/r21/artifacts/round21-certificate-single-c3d58-e-and-private-copy-truthful-chromium-320-dark-font1/video.webm"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            },
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium-320-dark-font1.3",
+              "projectName": "chromium-320-dark-font1.3",
+              "results": [
+                {
+                  "workerIndex": 10,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 8986,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mnot\u001b[2m.\u001b[22mtoMatch\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected pattern: not \u001b[32m/Okapi|Outside|Off the register/\u001b[39m\nReceived string:      \u001b[31m\"Dibs #6 · Nov 28 · Animals · Owner so far · \u001b[7mOkapi\u001b[27m · Off the register · 160 points · Outside the 3,004 best-known animals · 110 + 50 golden bonus · #1 of 1 players today. practice.dibs-7hz.pages.dev https://practice.dibs-7hz.pages.dev/certificate/fixture-2?s=copy-text\"\u001b[39m\n\nCall Log:\n- Timeout 5000ms exceeded while waiting on the predicate",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mnot\u001b[2m.\u001b[22mtoMatch\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected pattern: not \u001b[32m/Okapi|Outside|Off the register/\u001b[39m\nReceived string:      \u001b[31m\"Dibs #6 · Nov 28 · Animals · Owner so far · \u001b[7mOkapi\u001b[27m · Off the register · 160 points · Outside the 3,004 best-known animals · 110 + 50 golden bonus · #1 of 1 players today. practice.dibs-7hz.pages.dev https://practice.dibs-7hz.pages.dev/certificate/fixture-2?s=copy-text\"\u001b[39m\n\nCall Log:\n- Timeout 5000ms exceeded while waiting on the predicate\n    at /Users/ashwathram/Projects/dibs/tests/e2e/round21-certificate.spec.ts:60:12",
+                    "location": {
+                      "file": "/Users/ashwathram/Projects/dibs/tests/e2e/round21-certificate.spec.ts",
+                      "column": 12,
+                      "line": 60
+                    },
+                    "snippet": " \u001b[90m 58 |\u001b[39m     \u001b[36mawait\u001b[39m expect\n \u001b[90m 59 |\u001b[39m       \u001b[33m.\u001b[39mpoll(() \u001b[33m=>\u001b[39m page\u001b[33m.\u001b[39mevaluate(() \u001b[33m=>\u001b[39m (window \u001b[36mas\u001b[39m any)\u001b[33m.\u001b[39m__copied \u001b[33m||\u001b[39m \u001b[32m''\u001b[39m))\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 60 |\u001b[39m       \u001b[33m.\u001b[39mnot\u001b[33m.\u001b[39mtoMatch(\u001b[35m/Okapi|Outside|Off the register/\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m            \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 61 |\u001b[39m     \u001b[36mconst\u001b[39m dir \u001b[33m=\u001b[39m \u001b[32m`review/r21-flow/certificate-refresh/${info.project.name}`\u001b[39m\u001b[33m;\u001b[39m\n \u001b[90m 62 |\u001b[39m     mkdirSync(dir\u001b[33m,\u001b[39m { recursive\u001b[33m:\u001b[39m \u001b[36mtrue\u001b[39m })\u001b[33m;\u001b[39m\n \u001b[90m 63 |\u001b[39m     \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mscreenshot({ path\u001b[33m:\u001b[39m \u001b[32m`${dir}/${variant.replace('&', '-')}.png`\u001b[39m\u001b[33m,\u001b[39m fullPage\u001b[33m:\u001b[39m \u001b[36mtrue\u001b[39m })\u001b[33m;\u001b[39m"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "/Users/ashwathram/Projects/dibs/tests/e2e/round21-certificate.spec.ts",
+                        "column": 12,
+                        "line": 60
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mnot\u001b[2m.\u001b[22mtoMatch\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected pattern: not \u001b[32m/Okapi|Outside|Off the register/\u001b[39m\nReceived string:      \u001b[31m\"Dibs #6 · Nov 28 · Animals · Owner so far · \u001b[7mOkapi\u001b[27m · Off the register · 160 points · Outside the 3,004 best-known animals · 110 + 50 golden bonus · #1 of 1 players today. practice.dibs-7hz.pages.dev https://practice.dibs-7hz.pages.dev/certificate/fixture-2?s=copy-text\"\u001b[39m\n\nCall Log:\n- Timeout 5000ms exceeded while waiting on the predicate\n\n  58 |     await expect\n  59 |       .poll(() => page.evaluate(() => (window as any).__copied || ''))\n> 60 |       .not.toMatch(/Okapi|Outside|Off the register/);\n     |            ^\n  61 |     const dir = `review/r21-flow/certificate-refresh/${info.project.name}`;\n  62 |     mkdirSync(dir, { recursive: true });\n  63 |     await page.screenshot({ path: `${dir}/${variant.replace('&', '-')}.png`, fullPage: true });\n    at /Users/ashwathram/Projects/dibs/tests/e2e/round21-certificate.spec.ts:60:12"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-28T07:15:15.520Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "/Users/ashwathram/Projects/dibs/.tmp/r21/artifacts/round21-certificate-single-c3d58-e-and-private-copy-truthful-chromium-320-dark-font1-3/test-failed-1.png"
+                    },
+                    {
+                      "name": "video",
+                      "contentType": "video/webm",
+                      "path": "/Users/ashwathram/Projects/dibs/.tmp/r21/artifacts/round21-certificate-single-c3d58-e-and-private-copy-truthful-chromium-320-dark-font1-3/video.webm"
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "/Users/ashwathram/Projects/dibs/.tmp/r21/artifacts/round21-certificate-single-c3d58-e-and-private-copy-truthful-chromium-320-dark-font1-3/error-context.md"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "/Users/ashwathram/Projects/dibs/tests/e2e/round21-certificate.spec.ts",
+                    "column": 12,
+                    "line": 60
+                  }
+                }
+              ],
+              "status": "unexpected"
+            },
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium-360-light-font1",
+              "projectName": "chromium-360-light-font1",
+              "results": [
+                {
+                  "workerIndex": 11,
+                  "parallelIndex": 2,
+                  "status": "passed",
+                  "duration": 3934,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-28T07:15:23.699Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "video",
+                      "contentType": "video/webm",
+                      "path": "/Users/ashwathram/Projects/dibs/.tmp/r21/artifacts/round21-certificate-single-c3d58-e-and-private-copy-truthful-chromium-360-light-font1/video.webm"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            },
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium-360-light-font1.3",
+              "projectName": "chromium-360-light-font1.3",
+              "results": [
+                {
+                  "workerIndex": 14,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 4142,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-28T07:15:24.834Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "video",
+                      "contentType": "video/webm",
+                      "path": "/Users/ashwathram/Projects/dibs/.tmp/r21/artifacts/round21-certificate-single-c3d58-e-and-private-copy-truthful-chromium-360-light-font1-3/video.webm"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            },
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium-360-dark-font1",
+              "projectName": "chromium-360-dark-font1",
+              "results": [
+                {
+                  "workerIndex": 17,
+                  "parallelIndex": 3,
+                  "status": "passed",
+                  "duration": 4045,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-28T07:15:28.977Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "video",
+                      "contentType": "video/webm",
+                      "path": "/Users/ashwathram/Projects/dibs/.tmp/r21/artifacts/round21-certificate-single-c3d58-e-and-private-copy-truthful-chromium-360-dark-font1/video.webm"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            },
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium-360-dark-font1.3",
+              "projectName": "chromium-360-dark-font1.3",
+              "results": [
+                {
+                  "workerIndex": 20,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 4065,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-28T07:15:32.704Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "video",
+                      "contentType": "video/webm",
+                      "path": "/Users/ashwathram/Projects/dibs/.tmp/r21/artifacts/round21-certificate-single-c3d58-e-and-private-copy-truthful-chromium-360-dark-font1-3/video.webm"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            },
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium-390-light-font1",
+              "projectName": "chromium-390-light-font1",
+              "results": [
+                {
+                  "workerIndex": 23,
+                  "parallelIndex": 2,
+                  "status": "passed",
+                  "duration": 4024,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-28T07:15:36.556Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "video",
+                      "contentType": "video/webm",
+                      "path": "/Users/ashwathram/Projects/dibs/.tmp/r21/artifacts/round21-certificate-single-c3d58-e-and-private-copy-truthful-chromium-390-light-font1/video.webm"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            },
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium-390-light-font1.3",
+              "projectName": "chromium-390-light-font1.3",
+              "results": [
+                {
+                  "workerIndex": 26,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 4102,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-28T07:15:38.181Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "video",
+                      "contentType": "video/webm",
+                      "path": "/Users/ashwathram/Projects/dibs/.tmp/r21/artifacts/round21-certificate-single-c3d58-e-and-private-copy-truthful-chromium-390-light-font1-3/video.webm"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            },
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium-390-dark-font1",
+              "projectName": "chromium-390-dark-font1",
+              "results": [
+                {
+                  "workerIndex": 29,
+                  "parallelIndex": 3,
+                  "status": "passed",
+                  "duration": 4081,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-28T07:15:42.087Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "video",
+                      "contentType": "video/webm",
+                      "path": "/Users/ashwathram/Projects/dibs/.tmp/r21/artifacts/round21-certificate-single-c3d58-e-and-private-copy-truthful-chromium-390-dark-font1/video.webm"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            },
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium-390-dark-font1.3",
+              "projectName": "chromium-390-dark-font1.3",
+              "results": [
+                {
+                  "workerIndex": 32,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 4113,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-28T07:15:45.736Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "video",
+                      "contentType": "video/webm",
+                      "path": "/Users/ashwathram/Projects/dibs/.tmp/r21/artifacts/round21-certificate-single-c3d58-e-and-private-copy-truthful-chromium-390-dark-font1-3/video.webm"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            },
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium-768-light-font1",
+              "projectName": "chromium-768-light-font1",
+              "results": [
+                {
+                  "workerIndex": 35,
+                  "parallelIndex": 2,
+                  "status": "timedOut",
+                  "duration": 65925,
+                  "error": {
+                    "message": "\u001b[31mTest timeout of 60000ms exceeded.\u001b[39m",
+                    "stack": "\u001b[31mTest timeout of 60000ms exceeded.\u001b[39m"
+                  },
+                  "errors": [
+                    {
+                      "message": "\u001b[31mTest timeout of 60000ms exceeded.\u001b[39m"
+                    },
+                    {
+                      "location": {
+                        "file": "/Users/ashwathram/Projects/dibs/tests/e2e/round21-certificate.spec.ts",
+                        "column": 62,
+                        "line": 46
+                      },
+                      "message": "Error: locator.click: Test timeout of 60000ms exceeded.\nCall log:\n\u001b[2m  - waiting for getByRole('button', { name: 'More', exact: true })\u001b[22m\n\n\n  44 |           : 'Standard score',\n  45 |     );\n> 46 |     await page.getByRole('button', { name: 'More', exact: true }).click();\n     |                                                              ^\n  47 |     await expect(page.locator('.copy-result')).toBeVisible();\n  48 |     await page.locator('.copy-result').click();\n  49 |     await expect\n    at /Users/ashwathram/Projects/dibs/tests/e2e/round21-certificate.spec.ts:46:62"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-28T07:15:49.611Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "/Users/ashwathram/Projects/dibs/.tmp/r21/artifacts/round21-certificate-single-c3d58-e-and-private-copy-truthful-chromium-768-light-font1/test-failed-1.png"
+                    },
+                    {
+                      "name": "video",
+                      "contentType": "video/webm",
+                      "path": "/Users/ashwathram/Projects/dibs/.tmp/r21/artifacts/round21-certificate-single-c3d58-e-and-private-copy-truthful-chromium-768-light-font1/video.webm"
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "/Users/ashwathram/Projects/dibs/.tmp/r21/artifacts/round21-certificate-single-c3d58-e-and-private-copy-truthful-chromium-768-light-font1/error-context.md"
+                    }
+                  ]
+                }
+              ],
+              "status": "unexpected"
+            },
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium-768-dark-font1",
+              "projectName": "chromium-768-dark-font1",
+              "results": [
+                {
+                  "workerIndex": 38,
+                  "parallelIndex": 0,
+                  "status": "timedOut",
+                  "duration": 63932,
+                  "error": {
+                    "message": "\u001b[31mTest timeout of 60000ms exceeded.\u001b[39m",
+                    "stack": "\u001b[31mTest timeout of 60000ms exceeded.\u001b[39m"
+                  },
+                  "errors": [
+                    {
+                      "message": "\u001b[31mTest timeout of 60000ms exceeded.\u001b[39m"
+                    },
+                    {
+                      "location": {
+                        "file": "/Users/ashwathram/Projects/dibs/tests/e2e/round21-certificate.spec.ts",
+                        "column": 62,
+                        "line": 46
+                      },
+                      "message": "Error: locator.click: Test timeout of 60000ms exceeded.\nCall log:\n\u001b[2m  - waiting for getByRole('button', { name: 'More', exact: true })\u001b[22m\n\n\n  44 |           : 'Standard score',\n  45 |     );\n> 46 |     await page.getByRole('button', { name: 'More', exact: true }).click();\n     |                                                              ^\n  47 |     await expect(page.locator('.copy-result')).toBeVisible();\n  48 |     await page.locator('.copy-result').click();\n  49 |     await expect\n    at /Users/ashwathram/Projects/dibs/tests/e2e/round21-certificate.spec.ts:46:62"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-28T07:16:52.846Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "/Users/ashwathram/Projects/dibs/.tmp/r21/artifacts/round21-certificate-single-c3d58-e-and-private-copy-truthful-chromium-768-dark-font1/test-failed-1.png"
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "/Users/ashwathram/Projects/dibs/.tmp/r21/artifacts/round21-certificate-single-c3d58-e-and-private-copy-truthful-chromium-768-dark-font1/error-context.md"
+                    }
+                  ]
+                }
+              ],
+              "status": "unexpected"
+            },
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium-1280-light-font1",
+              "projectName": "chromium-1280-light-font1",
+              "results": [],
+              "status": "skipped"
+            },
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium-1280-dark-font1",
+              "projectName": "chromium-1280-dark-font1",
+              "results": [],
+              "status": "skipped"
+            },
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium-1440-light-font1",
+              "projectName": "chromium-1440-light-font1",
+              "results": [],
+              "status": "skipped"
+            },
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium-1440-dark-font1",
+              "projectName": "chromium-1440-dark-font1",
+              "results": [],
+              "status": "skipped"
+            },
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium-2560-light-font1",
+              "projectName": "chromium-2560-light-font1",
+              "results": [],
+              "status": "skipped"
+            },
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium-2560-dark-font1",
+              "projectName": "chromium-2560-dark-font1",
+              "results": [],
+              "status": "skipped"
+            },
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "webkit-320-light-font1",
+              "projectName": "webkit-320-light-font1",
+              "results": [],
+              "status": "skipped"
+            },
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "webkit-320-light-font1.3",
+              "projectName": "webkit-320-light-font1.3",
+              "results": [],
+              "status": "skipped"
+            },
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "webkit-320-dark-font1",
+              "projectName": "webkit-320-dark-font1",
+              "results": [],
+              "status": "skipped"
+            },
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "webkit-320-dark-font1.3",
+              "projectName": "webkit-320-dark-font1.3",
+              "results": [],
+              "status": "skipped"
+            },
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "webkit-360-light-font1",
+              "projectName": "webkit-360-light-font1",
+              "results": [],
+              "status": "skipped"
+            },
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "webkit-360-light-font1.3",
+              "projectName": "webkit-360-light-font1.3",
+              "results": [],
+              "status": "skipped"
+            },
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "webkit-360-dark-font1",
+              "projectName": "webkit-360-dark-font1",
+              "results": [],
+              "status": "skipped"
+            },
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "webkit-360-dark-font1.3",
+              "projectName": "webkit-360-dark-font1.3",
+              "results": [],
+              "status": "skipped"
+            },
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "webkit-390-light-font1",
+              "projectName": "webkit-390-light-font1",
+              "results": [],
+              "status": "skipped"
+            },
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "webkit-390-light-font1.3",
+              "projectName": "webkit-390-light-font1.3",
+              "results": [],
+              "status": "skipped"
+            },
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "webkit-390-dark-font1",
+              "projectName": "webkit-390-dark-font1",
+              "results": [],
+              "status": "skipped"
+            },
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "webkit-390-dark-font1.3",
+              "projectName": "webkit-390-dark-font1.3",
+              "results": [],
+              "status": "skipped"
+            },
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "webkit-768-light-font1",
+              "projectName": "webkit-768-light-font1",
+              "results": [],
+              "status": "skipped"
+            },
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "webkit-768-dark-font1",
+              "projectName": "webkit-768-dark-font1",
+              "results": [],
+              "status": "skipped"
+            },
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "webkit-1280-light-font1",
+              "projectName": "webkit-1280-light-font1",
+              "results": [],
+              "status": "skipped"
+            },
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "webkit-1280-dark-font1",
+              "projectName": "webkit-1280-dark-font1",
+              "results": [],
+              "status": "skipped"
+            },
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "webkit-1440-light-font1",
+              "projectName": "webkit-1440-light-font1",
+              "results": [],
+              "status": "skipped"
+            },
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "webkit-1440-dark-font1",
+              "projectName": "webkit-1440-dark-font1",
+              "results": [],
+              "status": "skipped"
+            },
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "webkit-2560-light-font1",
+              "projectName": "webkit-2560-light-font1",
+              "results": [],
+              "status": "skipped"
+            },
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "webkit-2560-dark-font1",
+              "projectName": "webkit-2560-dark-font1",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "22c878a9dea8cf6a39d9-5d0518afdad1f8c18983",
+          "file": "round21-certificate.spec.ts",
+          "line": 15,
+          "column": 3
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-11-28T07:15:00.932Z",
+    "duration": 175966.925,
+    "expected": 30,
+    "skipped": 76,
+    "unexpected": 14,
+    "flaky": 0
+  }
+}

@@ -1,0 +1,13 @@
+# R21 practice refresh after R20 follow-up
+
+Merged the verified R20 follow-up into the practice branch: onboarding, recap, larger OG, Animals scope and grammar stay present. Production remains R20; no +50 policy activation, production migration or release tag.
+
+Additional changes: background acknowledgements finish silently without queued reward; off-register server OG now has a red diagonal stamp and rule; actual file titles reach the single-claim certificate/OG/share; catalog count is labelled as accepted catalog, not odds. A restrained red ink impression accompanies the off-register phase. The inherited single-claim golden canvas drew two enclosing frames; it now recolors one frame. Export instrumentation verifies one enclosing frame for each feed/story/concealed image. R20 production will receive that isolated frame correction separately.
+
+New lifecycle coverage exercises lost acknowledgement/retry, authoritative remote completion, background arrival/resume, overlapping results, day rollover, navigation, final fifth strike, and existing typing/IME/media/skip flows. Initial mobile navigation tests tried to click a nav hidden by the focused keyboard; the corrected test blurs the input to use the actual mobile navigation. This was a test interaction error, not relabeled as a pass. The frozen continuation matrix passes 360 cases; the expanded device matrix passes 324. Final certificate consent and pending-navigation checks are separate.
+
+The golden-policy simulation still misses 7–14 nights; its activation remains blocked. Hosted old/new-policy coexistence and +50-compatible recovery, complete hosted frame/heap profiling and physical keyboards remain unverified. No production golden selections inspected; no new per-guess writes.
+
+Additional local evidence: 309 unit/API checks pass; 114 OG fixtures and 18 crops include diagonal off-register, true +50 and title/concealment variants. 176 current-rule/legacy canvas variants and 128 legacy-focused exports pass stored-score, concealment, bounds, encoded-size and exactly-one-frame assertions, including 0/1/2/5 strikes. Local Chromium rAF p95 was 16.7–16.8 ms in three R20 trials and 16.7 ms in three R21 trials; whole-page post-claim heap was about 4.8–5.0 MB versus 5.6–5.7 MB. This is a concurrent local diagnostic, not a hosted memory or physical-frame guarantee.
+
+Final certificate consent matrix: 120/120. A real checkbox-focus/navigation pointer interception was repaired and all six exact narrow-screen regressions pass. Share-label hypothesis was reverted. Hosted practice mobile Lighthouse is 98/100; desktop 100/100. See STATUS.md for final deployment and pending-navigation proof.

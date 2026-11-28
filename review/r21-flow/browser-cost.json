@@ -1,0 +1,66 @@
+{
+  "at": "2026-11-28T07:01:40.493Z",
+  "scope": "Local Chromium fixture diagnostic at 390x844; concurrent local browser validation was running. JS heap is the whole page, not Worker/DO memory; rAF gaps are not physical device frame guarantees. Three trials per build; no causal or hosted capacity claim.",
+  "results": [
+    {
+      "version": "r20",
+      "trial": 0,
+      "heapBefore": 3728023,
+      "heapAfter": 4932699,
+      "frames": 123,
+      "p50GapMs": 16.699999999999818,
+      "p95GapMs": 16.799999999999727,
+      "maxGapMs": 83.29999999999995
+    },
+    {
+      "version": "r20",
+      "trial": 1,
+      "heapBefore": 3726179,
+      "heapAfter": 4812883,
+      "frames": 127,
+      "p50GapMs": 16.699999999999818,
+      "p95GapMs": 16.700000000000273,
+      "maxGapMs": 16.800000000000182
+    },
+    {
+      "version": "r20",
+      "trial": 2,
+      "heapBefore": 3726181,
+      "heapAfter": 5028169,
+      "frames": 127,
+      "p50GapMs": 16.699999999999818,
+      "p95GapMs": 16.799999999999955,
+      "maxGapMs": 16.800000000000182
+    },
+    {
+      "version": "r21",
+      "trial": 0,
+      "heapBefore": 3744284,
+      "heapAfter": 5665882,
+      "frames": 127,
+      "p50GapMs": 16.699999999999818,
+      "p95GapMs": 16.700000000000273,
+      "maxGapMs": 16.800000000000182
+    },
+    {
+      "version": "r21",
+      "trial": 1,
+      "heapBefore": 3751068,
+      "heapAfter": 5597266,
+      "frames": 127,
+      "p50GapMs": 16.699999999999818,
+      "p95GapMs": 16.700000000000273,
+      "maxGapMs": 16.800000000000182
+    },
+    {
+      "version": "r21",
+      "trial": 2,
+      "heapBefore": 3754386,
+      "heapAfter": 5669484,
+      "frames": 127,
+      "p50GapMs": 16.699999999999818,
+      "p95GapMs": 16.700000000000273,
+      "maxGapMs": 16.800000000000182
+    }
+  ]
+}

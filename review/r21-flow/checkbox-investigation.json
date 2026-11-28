@@ -1,0 +1,14 @@
+{
+  "status": "Superseded failed diagnostic",
+  "stats": {
+    "startTime": "2026-11-28T07:27:07.001Z",
+    "duration": 185374.50100000002,
+    "expected": 112,
+    "skipped": 0,
+    "unexpected": 8,
+    "flaky": 0
+  },
+  "cause": "Non-text checkbox focus incorrectly hid mobile navigation; reappearance intercepted pointer-up. Rejected Share label hypothesis reverted. Final proof is certificate-final-tests.json.",
+  "initialFailedScope": "six Chromium 320px 1.3-font cases; local pointer trace proved no second clipboard write until another click",
+  "testCaveat": "Later diagnostic overlapped a test assertion edit, so it is not final candidate evidence."
+}

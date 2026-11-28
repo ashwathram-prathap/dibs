@@ -12,18 +12,38 @@ Skippable acknowledged-result phases; neutral missing-data fallback; versioned r
 
 ## Validation
 
-303 unit/API tests pass, including old/new policy fixtures, public schema, journal/replay/visibility, bounded historical analytics and own-versus-public board marks. 200 Chromium/WebKit checks cover 320–2560px, both themes and 1.3 font scale. Another 180 checks cover OVERNIGHT device/user-agent profiles. 36 read-only hosted smoke checks, immutable asset verification and application rollback/forward preservation passed. Lighthouse practice mobile 98/100 performance/accessibility; desktop 100/100. Raw images and recordings remain local under this directory. No Actions matrices. Local Firefox failed at launch in three attempts (profile/runtime issue, firefox-tests.json); it is unverified.
+Initial practice evidence remains preserved in the original reports. The merged refresh includes the verified R20 follow-up plus the remaining server OG treatment, certificate/title/export handling, single-frame golden canvas correction and silent background acknowledgement handling.
 
-Earlier failed runs are not passes: old test schema lists lacked the additive migration; assertions still expected global golden copy; an unconditional legacy golden lookup exceeded the cold certificate read bound. Those were fixed and rerun. A browser fixture expected outdated error text and used 18px instead of the existing 16px root for font scaling; corrected tests passed the full matrix.
+The final full suite passes 309 checks in final-unit-tests.json; it includes shared stamp-label concealment, pinned tiers and late-ack snapshot guards. The frozen Chromium/WebKit width/theme/1.3-font matrix passes 360 cases at 320–2560px. R20 onboarding/recap regression passes 32 cases; legacy golden regression passes 64. The expanded OVERNIGHT device matrix passed 324 cases; final single-certificate tier/title/consent checks pass 120 cases, separate from that continuation matrix. Twenty-seven 390px/1440px reveal recordings (including phone larger-font cases) were saved under videos-refresh/. AA checks remain in the browser tests.
+
+114 server OG fixtures and 18 actual feed crops pass; red diagonal off-register SVGs, stored +50/+100, titles and concealed views are included. Canvas instrumentation passes 176 current-rule/legacy combinations and 128 focused legacy exports: feed/story, hidden answers, 0/1/2/5 strikes, stored points, bounds, byte limits and exactly one enclosing frame per export. The current app had an inherited extra golden single-certificate frame; that is corrected here and being ported separately to R20 production.
+
+Refreshed practice immutable assets, 36 read-only smoke checks and application rollback/forward preservation pass. Final Lighthouse mobile 98 performance / 100 accessibility and desktop 100/100 are in lighthouse-final/summary.json. No Actions matrices. Local Firefox failed launch in the three previously recorded attempts, so it remains unverified.
+
+Earlier failures remain failures: the first refresh navigation test clicked a mobile nav deliberately hidden while the input/keyboard was focused; blurring before using navigation matches the actual mobile interaction, and the full matrix passed. An OG fixture initially stripped the separately provided public title before rendering; the harness now matches the production boundary. The background test found a real acknowledgement-while-hidden issue, which was fixed before the final matrix. Full reruns replace only their corresponding failed scopes.
+
+Local Chromium diagnostic: three R20 and three R21 trials, rAF p95 about 16.7–16.8 ms and 16.7 ms respectively. Whole-page post-claim heap was approximately 4.8–5.0 MB versus 5.6–5.7 MB. Concurrent local tests were running; this is not hosted DO memory, physical-device frame proof or a causal benchmark. See browser-cost.json and payload-cost.json.
 
 ## Exact remaining acceptance / limitations
 
 - Owner target resolution and an explicit earliest uncommitted effective date; no silent tuning beyond the approved formula.
 - Hosted old/new-policy coexistence and a compatible +50 recovery version. Current rollback proves preservation of existing legacy days only. Never roll an activated +50 day back to R20.
-- Full new-phase lost-ack/two-tab/background/rollover lifecycle and all export combinations remain an expanded acceptance task; existing journal/continuation tests are not relabeled as complete R21 lifecycle evidence.
-- Server OG currently shares truthful tier/title/stored bonus text; the dedicated diagonal off-register SVG row treatment and full feed-crop comparison remain incomplete. Canvas/UI have the red variant.
-- Hosted before/after heap/frame/broadcast profiling and physical software keyboards remain unverified. Measured fixture metadata adds 162 bytes/claim (486/three-claim snapshot), zero new per-guess writes and no extra per-guess asset request. Audio measurements are in payload-cost.json; no capacity claim.
+- New-phase lost-ack/retry, typing/IME/skip/media changes, hidden acknowledgement/resume, overlapping results, rollover/navigation and final fifth strike now have fresh browser evidence. Remote completion uses an authoritative-snapshot fixture; a full hosted two-tab/socket coexistence rehearsal and physical software keyboards remain unverified.
+- Server OG diagonal off-register treatment and crop comparison are now complete. Native in-app crawler UI captures remain unverified; public crawler metadata/cache behavior is covered by local runtime tests.
+- Hosted before/after DO heap/broadcast profiling and physical software keyboards remain unverified; local browser heap/frame diagnostics are reported above. Measured fixture metadata adds 162 bytes/claim (486/three-claim snapshot), zero new per-guess writes and no extra per-guess asset request. Audio measurements are in payload-cost.json; no capacity claim.
 - Public live board marks deliberately omit concealed tiers until close; own row remains marked. This privacy rule takes precedence over the owner's unqualified public-mark request.
 - Historical tier evidence absent from old files remains unclassified, never guessed. Historical date-aligned share/copy intent is unavailable, not zero. First post-ship night and next-night return observations are pending because R21 is not live.
 
 Friday baseline and costs remain in the R20 evidence. No production private answer, seed, draw or identity is exported here.
+
+The small DIBS subtitle now uses the shared pinned tier helper instead of the old obscurity-only Deep cut rule. Single-certificate share text explicitly includes Off the register when consented and omits it when hidden; the file title remains truthful and provisional.
+
+The first single-certificate probe used a Copy result button hidden behind the existing More menu and failed; the corrected test opens More, then uses the actual copy control. Three targeted cases pass; the final width/font matrix passes 120 cases in certificate-final-tests.json. This existing compact share layout is not presented as a newly changed layout.
+
+Late replies are bounded by lifecycle: a reward cannot begin after its view unmounts, and an old-day accepted reply cannot overwrite a newer registry-day snapshot. The matching state regression and same-day retry counter check are in late-snapshot-tests.json; pending-navigation browser evidence is in late-navigation-tests.json.
+
+Final certificate sweep attempt 3 passed 114/120; six narrow enlarged-font copy interactions did not update the clipboard after hiding answers. Pointer-event tracing identified a real inherited bug: a focused checkbox was treated as a software keyboard, so bottom navigation reappeared between pointer-down and pointer-up and swallowed Copy. Keyboard detection now excludes non-text inputs. The six exact failing cases pass; the full rerun is recorded separately. An initial stable-label hypothesis was rejected and reverted.
+
+Final practice client source is 6009f8e; Worker remains 238f5d3e-a055-4f8a-bc2a-dc5f58334f2c. Hosted asset and 36 read-only smoke checks pass. Final artifact is archived locally for restoring practice after the R20 correction rehearsal. The three isolated inherited fixes (single canvas frame, late-day snapshot protection and checkbox keyboard detection) are being ported to main separately.
+
+Pending-reply navigation checks pass 40/40 across both engines, all widths and phone font scales. Final client checks are complete; remaining acceptance above is explicitly unverified or blocked, not silently waived.
