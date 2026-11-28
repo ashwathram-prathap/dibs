@@ -324,7 +324,7 @@ export function Certificate({ claim, animated = false }: { claim: Claim; animate
         </div>
 
         <div className="cert-footer">
-          <span>One of {claim.total_registrable.toLocaleString()}. Only one yours.</span>
+          <span>Accepted catalog: {claim.total_registrable.toLocaleString()} answers.</span>
           <span>
             {PUBLIC_HOST}/c/{claim.id}
           </span>
@@ -338,13 +338,13 @@ export function ShareButtons({
   score,
 }: {
   claim: Claim;
-  score?: Pick<DayFile, 'points' | 'rank' | 'players'>;
+  score?: Pick<DayFile, 'points' | 'rank' | 'players' | 'title'>;
 }) {
   const [hideAnswers, setHideAnswers] = useHideAnswers();
   const owner = claim.owned !== false && !claim.concealed;
   const render = useCallback(
-    (story: boolean) => exportCertificate(claim, story, hideAnswers),
-    [claim, hideAnswers],
+    (story: boolean) => exportCertificate(claim, story, hideAnswers, score?.title),
+    [claim, hideAnswers, score?.title],
   );
   return (
     <ShareSheet
@@ -535,6 +535,7 @@ export function CertificatePage({ id, today }: { id: string; today: Today }) {
       {claim ? (
         <>
           <Certificate claim={claim} />
+          {score?.title && <TitleStamp file={{ ...score, claims: [claim] } as DayFile} />}
           <ShareButtons claim={claim} score={score} />
         </>
       ) : (

@@ -23,6 +23,10 @@ export function useClaimReveal(day?: string) {
     }
     seen.current.add(id);
     if (seen.current.size > 32) seen.current.delete(seen.current.values().next().value!);
+    if (document.hidden) {
+      setPhase('done');
+      return;
+    }
     sound.current = onStamp;
     if (matchMedia('(prefers-reduced-motion: reduce)').matches) {
       finish();

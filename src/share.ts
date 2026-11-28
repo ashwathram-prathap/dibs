@@ -34,7 +34,12 @@ function offStamp(c: CanvasRenderingContext2D, x: number, y: number, size = 24) 
   c.fillText('OFF THE REGISTER', 0, 0);
   c.restore();
 }
-export async function exportCertificate(claim: Claim, story: boolean, hideAnswers = false) {
+export async function exportCertificate(
+  claim: Claim,
+  story: boolean,
+  hideAnswers = false,
+  title?: DayFile['title'],
+) {
   claim = cleanStoredHandles(claim);
   if (hideAnswers || claim.concealed) claim = { ...claim, display: 'SEALED', concealed: true };
   const dark = document.documentElement.dataset.theme === 'dark';
@@ -54,10 +59,11 @@ export async function exportCertificate(claim: Claim, story: boolean, hideAnswer
   const h = 1350;
   await paintPaper(c, paper);
   if (story) c.translate(0, (canvas.height - h) / 2);
-  c.strokeStyle = ink;
+  c.strokeStyle = claim.golden ? (dark ? '#e7c86b' : '#795700') : ink;
   c.fillStyle = ink;
   c.lineWidth = 2;
   c.strokeRect(36, 36, 1008, h - 72);
+  c.strokeStyle = ink;
   const text = (s: string, x: number, y: number, size = 26) => {
     c.font = `400 ${size}px "Instrument Sans"`;
     c.fillText(noOrphan(s), x, y);
@@ -75,11 +81,6 @@ export async function exportCertificate(claim: Claim, story: boolean, hideAnswer
   );
   c.fillStyle = claim.golden ? (dark ? '#e7c86b' : '#795700') : ink;
   fitCanvasLine(c, claim.golden ? 'Form D-1 · Golden ticket' : 'Form D-1', 640, 105, 360, 24);
-  if (claim.golden) {
-    c.strokeStyle = c.fillStyle;
-    c.strokeRect(42, 42, 996, h - 84);
-    c.strokeStyle = ink;
-  }
   c.fillStyle = ink;
   line(135);
   text('Certificate of Dibs', 80, 200, 22);
@@ -179,7 +180,9 @@ export async function exportCertificate(claim: Claim, story: boolean, hideAnswer
   );
   c.restore();
   line(h - 120);
-  text(`One of ${claim.total_registrable.toLocaleString()}. Only one yours.`, 80, h - 80, 17);
+  text(`Accepted catalog: ${claim.total_registrable.toLocaleString()} answers.`, 80, h - 80, 17);
+  if (title)
+    fitCanvasLine(c, title.name + (title.provisional ? ' · so far' : ''), 80, h - 180, 920, 28);
   fitCanvasLine(c, `${PUBLIC_HOST}/c/${claim.id}`, 80, h - 52, 920, 17);
   fitCanvasLine(c, SHARE_INVITATION, 80, h - 148, 920, 23);
   return canvasFile(
@@ -338,7 +341,7 @@ export async function exportSummary(
   const filed = at ? ` · filed ${filingTime(at, zone)}` : '';
   fitCanvasLine(
     c,
-    `${file.dibs}/${MAX_CLAIMS} claims · ${file.strikes} ${file.strikes === 1 ? 'strike' : 'strikes'}${filed}`,
+    `${file.dibs}/${MAX_CLAIMS} claims · ${countLabel(file.strikes, 'strike')}${filed}`,
     80,
     440,
     920,
@@ -407,7 +410,7 @@ export async function exportSummary(
               rarityLabel(claim.percentile, claim.category_slug || claim.category_name)),
         175,
         y + 60,
-        rarityTier(claim.percentile,claim.pool)==='Off the register'?500:825,
+        rarityTier(claim.percentile, claim.pool) === 'Off the register' ? 500 : 825,
         22,
       );
   });
@@ -498,12 +501,12 @@ async function paintPaper(c: CanvasRenderingContext2D, paper: string) {
 
 export function certificateText(
   claim: Claim,
-  score?: Pick<DayFile, 'points' | 'rank' | 'players'>,
+  score?: Pick<DayFile, 'points' | 'rank' | 'players' | 'title'>,
   hideAnswers = false,
 ) {
   const result =
     !hideAnswers && !claim.concealed
       ? `${claim.display} · ${claimScore(claim)}`
       : `${claim.points ?? 0} points`;
-  return `${editionLabel(claim.category_date)} · ${claim.category_name} · ${result}${score?.rank ? ` · #${score.rank} of ${score.players} players today` : ''}. ${PUBLIC_HOST}`;
+  return `${editionLabel(claim.category_date)} · ${claim.category_name}${score?.title ? ' · ' + score.title.name + (score.title.provisional ? ' so far' : '') : ''} · ${result}${score?.rank ? ` · #${score.rank} of ${score.players} players today` : ''}. ${PUBLIC_HOST}`;
 }

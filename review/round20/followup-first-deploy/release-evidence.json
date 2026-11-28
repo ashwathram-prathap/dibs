@@ -1,0 +1,40 @@
+{
+  "at": "2026-11-28T06:44:20.021Z",
+  "commit": "a8d532018f104ce09079c347cbf0c3963d48bef6",
+  "pagesDigest": "fdf99f68046581a70c2b2d742a18937ebcea6e14a5a5c224b89dcc82d738bd96",
+  "workerDigest": "263221482e6ba2a270e9f96fd1d14516ce0e8cdbaf769c61ec4103ff8a45ed04",
+  "configDigest": "50a09cd8f5e785fc896735d1e595dfe4167a236018e7011a2f308a6dfa2b879c",
+  "schemaDigest": "86579435fbfa0a07cf9023f63504612d1fc7ae2406bf37606c66d94964505304",
+  "rollback": {
+    "pages": "b23b86cd-82c1-48f0-8370-42a7c2cb541a",
+    "workerVersion": "56d9c29d-77b4-4e7c-9014-54c978cc48a0",
+    "workerDeployment": "fcc0923b-20cc-4f90-8b9c-515ef317740f",
+    "recordedAt": "2026-11-28T06:44:15.499Z"
+  },
+  "gates": {
+    "correctness": true,
+    "privacy": true,
+    "goldenSecrecy": true,
+    "budget": true,
+    "assets": true,
+    "practice": true,
+    "backup": true,
+    "workingRollback": true,
+    "noRegression": true
+  },
+  "basis": {
+    "correctness": "294 fresh unit/API checks including recap ownership/finalization/redaction and first-visit bootstrap; unchanged scoring/selection",
+    "practice": "practice-smoke.json, practice-recovery.json, practice-asset-integrity.json",
+    "budget": "No hosted load; retained account metrics and unchanged plan. No capacity claim.",
+    "backup": "20261128T064417Z: export complete",
+    "noRegression": "FOLLOWUP.md: onboarding, owner-authenticated finalized recap, larger OG, pinned Animals scope and strike grammar; safety regressions checked; inherited gaps remain follow-ups",
+    "browser": "Fresh followup-browser-tests, followup-device-tests and followup-golden-tests; 74 OG fixtures and 18 crop inspections; prior core continuation retained; Firefox and physical devices unverified"
+  },
+  "followups": [
+    "Full journal-loss RTO/RPO and deletion reconciliation",
+    "Hosted mixed-client rehearsal",
+    "Durable cross-machine campaign ledger",
+    "Physical devices and local Firefox launch",
+    "Full active-path monitoring and admission bounds"
+  ]
+}

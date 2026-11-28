@@ -1,0 +1,788 @@
+{
+  "start": "2026-11-28T05:46:39.595Z",
+  "at": "2026-11-28T06:46:45.952Z",
+  "complete": true,
+  "passed": true,
+  "samples": [
+    {
+      "at": "2026-11-28T05:46:57.482Z",
+      "passed": true,
+      "/today": {
+        "status": 200,
+        "category": "actors",
+        "claimed": 12
+      },
+      "/leaderboard": {
+        "status": 200,
+        "total": 4
+      }
+    },
+    {
+      "at": "2026-11-28T05:47:58.364Z",
+      "passed": true,
+      "/today": {
+        "status": 200,
+        "category": "actors",
+        "claimed": 12
+      },
+      "/leaderboard": {
+        "status": 200,
+        "total": 4
+      }
+    },
+    {
+      "at": "2026-11-28T05:48:59.177Z",
+      "passed": true,
+      "/today": {
+        "status": 200,
+        "category": "actors",
+        "claimed": 12
+      },
+      "/leaderboard": {
+        "status": 200,
+        "total": 4
+      }
+    },
+    {
+      "at": "2026-11-28T05:49:59.997Z",
+      "passed": true,
+      "/today": {
+        "status": 200,
+        "category": "actors",
+        "claimed": 12
+      },
+      "/leaderboard": {
+        "status": 200,
+        "total": 4
+      }
+    },
+    {
+      "at": "2026-11-28T05:51:00.864Z",
+      "passed": true,
+      "/today": {
+        "status": 200,
+        "category": "actors",
+        "claimed": 12
+      },
+      "/leaderboard": {
+        "status": 200,
+        "total": 4
+      }
+    },
+    {
+      "at": "2026-11-28T05:52:01.652Z",
+      "passed": true,
+      "/today": {
+        "status": 200,
+        "category": "actors",
+        "claimed": 12
+      },
+      "/leaderboard": {
+        "status": 200,
+        "total": 4
+      }
+    },
+    {
+      "at": "2026-11-28T05:53:02.453Z",
+      "passed": true,
+      "/today": {
+        "status": 200,
+        "category": "actors",
+        "claimed": 12
+      },
+      "/leaderboard": {
+        "status": 200,
+        "total": 4
+      }
+    },
+    {
+      "at": "2026-11-28T05:54:03.136Z",
+      "passed": true,
+      "/today": {
+        "status": 200,
+        "category": "actors",
+        "claimed": 12
+      },
+      "/leaderboard": {
+        "status": 200,
+        "total": 4
+      }
+    },
+    {
+      "at": "2026-11-28T05:55:04.476Z",
+      "passed": true,
+      "/today": {
+        "status": 200,
+        "category": "actors",
+        "claimed": 12
+      },
+      "/leaderboard": {
+        "status": 200,
+        "total": 4
+      }
+    },
+    {
+      "at": "2026-11-28T05:56:05.238Z",
+      "passed": true,
+      "/today": {
+        "status": 200,
+        "category": "actors",
+        "claimed": 12
+      },
+      "/leaderboard": {
+        "status": 200,
+        "total": 4
+      }
+    },
+    {
+      "at": "2026-11-28T05:57:06.023Z",
+      "passed": true,
+      "/today": {
+        "status": 200,
+        "category": "actors",
+        "claimed": 12
+      },
+      "/leaderboard": {
+        "status": 200,
+        "total": 4
+      }
+    },
+    {
+      "at": "2026-11-28T05:58:06.645Z",
+      "passed": true,
+      "/today": {
+        "status": 200,
+        "category": "actors",
+        "claimed": 12
+      },
+      "/leaderboard": {
+        "status": 200,
+        "total": 4
+      }
+    },
+    {
+      "at": "2026-11-28T05:59:07.366Z",
+      "passed": true,
+      "/today": {
+        "status": 200,
+        "category": "actors",
+        "claimed": 12
+      },
+      "/leaderboard": {
+        "status": 200,
+        "total": 4
+      }
+    },
+    {
+      "at": "2026-11-28T06:00:08.193Z",
+      "passed": true,
+      "/today": {
+        "status": 200,
+        "category": "actors",
+        "claimed": 12
+      },
+      "/leaderboard": {
+        "status": 200,
+        "total": 4
+      }
+    },
+    {
+      "at": "2026-11-28T06:01:08.919Z",
+      "passed": true,
+      "/today": {
+        "status": 200,
+        "category": "actors",
+        "claimed": 12
+      },
+      "/leaderboard": {
+        "status": 200,
+        "total": 4
+      }
+    },
+    {
+      "at": "2026-11-28T06:02:09.949Z",
+      "passed": true,
+      "/today": {
+        "status": 200,
+        "category": "actors",
+        "claimed": 12
+      },
+      "/leaderboard": {
+        "status": 200,
+        "total": 4
+      }
+    },
+    {
+      "at": "2026-11-28T06:03:10.630Z",
+      "passed": true,
+      "/today": {
+        "status": 200,
+        "category": "actors",
+        "claimed": 12
+      },
+      "/leaderboard": {
+        "status": 200,
+        "total": 4
+      }
+    },
+    {
+      "at": "2026-11-28T06:04:11.498Z",
+      "passed": true,
+      "/today": {
+        "status": 200,
+        "category": "actors",
+        "claimed": 12
+      },
+      "/leaderboard": {
+        "status": 200,
+        "total": 4
+      }
+    },
+    {
+      "at": "2026-11-28T06:05:12.322Z",
+      "passed": true,
+      "/today": {
+        "status": 200,
+        "category": "actors",
+        "claimed": 12
+      },
+      "/leaderboard": {
+        "status": 200,
+        "total": 4
+      }
+    },
+    {
+      "at": "2026-11-28T06:06:13.285Z",
+      "passed": true,
+      "/today": {
+        "status": 200,
+        "category": "actors",
+        "claimed": 12
+      },
+      "/leaderboard": {
+        "status": 200,
+        "total": 4
+      }
+    },
+    {
+      "at": "2026-11-28T06:07:14.077Z",
+      "passed": true,
+      "/today": {
+        "status": 200,
+        "category": "actors",
+        "claimed": 12
+      },
+      "/leaderboard": {
+        "status": 200,
+        "total": 4
+      }
+    },
+    {
+      "at": "2026-11-28T06:08:14.772Z",
+      "passed": true,
+      "/today": {
+        "status": 200,
+        "category": "actors",
+        "claimed": 12
+      },
+      "/leaderboard": {
+        "status": 200,
+        "total": 4
+      }
+    },
+    {
+      "at": "2026-11-28T06:09:15.967Z",
+      "passed": true,
+      "/today": {
+        "status": 200,
+        "category": "actors",
+        "claimed": 12
+      },
+      "/leaderboard": {
+        "status": 200,
+        "total": 4
+      }
+    },
+    {
+      "at": "2026-11-28T06:10:16.761Z",
+      "passed": true,
+      "/today": {
+        "status": 200,
+        "category": "actors",
+        "claimed": 12
+      },
+      "/leaderboard": {
+        "status": 200,
+        "total": 4
+      }
+    },
+    {
+      "at": "2026-11-28T06:11:17.476Z",
+      "passed": true,
+      "/today": {
+        "status": 200,
+        "category": "actors",
+        "claimed": 15
+      },
+      "/leaderboard": {
+        "status": 200,
+        "total": 5
+      }
+    },
+    {
+      "at": "2026-11-28T06:12:18.830Z",
+      "passed": true,
+      "/today": {
+        "status": 200,
+        "category": "actors",
+        "claimed": 15
+      },
+      "/leaderboard": {
+        "status": 200,
+        "total": 5
+      }
+    },
+    {
+      "at": "2026-11-28T06:13:19.643Z",
+      "passed": true,
+      "/today": {
+        "status": 200,
+        "category": "actors",
+        "claimed": 15
+      },
+      "/leaderboard": {
+        "status": 200,
+        "total": 5
+      }
+    },
+    {
+      "at": "2026-11-28T06:14:20.370Z",
+      "passed": true,
+      "/today": {
+        "status": 200,
+        "category": "actors",
+        "claimed": 15
+      },
+      "/leaderboard": {
+        "status": 200,
+        "total": 5
+      }
+    },
+    {
+      "at": "2026-11-28T06:15:21.092Z",
+      "passed": true,
+      "/today": {
+        "status": 200,
+        "category": "actors",
+        "claimed": 15
+      },
+      "/leaderboard": {
+        "status": 200,
+        "total": 5
+      }
+    },
+    {
+      "at": "2026-11-28T06:16:21.848Z",
+      "passed": true,
+      "/today": {
+        "status": 200,
+        "category": "actors",
+        "claimed": 15
+      },
+      "/leaderboard": {
+        "status": 200,
+        "total": 5
+      }
+    },
+    {
+      "at": "2026-11-28T06:17:22.528Z",
+      "passed": true,
+      "/today": {
+        "status": 200,
+        "category": "actors",
+        "claimed": 16
+      },
+      "/leaderboard": {
+        "status": 200,
+        "total": 6
+      }
+    },
+    {
+      "at": "2026-11-28T06:18:23.186Z",
+      "passed": true,
+      "/today": {
+        "status": 200,
+        "category": "actors",
+        "claimed": 18
+      },
+      "/leaderboard": {
+        "status": 200,
+        "total": 6
+      }
+    },
+    {
+      "at": "2026-11-28T06:19:23.786Z",
+      "passed": true,
+      "/today": {
+        "status": 200,
+        "category": "actors",
+        "claimed": 18
+      },
+      "/leaderboard": {
+        "status": 200,
+        "total": 6
+      }
+    },
+    {
+      "at": "2026-11-28T06:20:24.385Z",
+      "passed": true,
+      "/today": {
+        "status": 200,
+        "category": "actors",
+        "claimed": 18
+      },
+      "/leaderboard": {
+        "status": 200,
+        "total": 6
+      }
+    },
+    {
+      "at": "2026-11-28T06:21:25.352Z",
+      "passed": true,
+      "/today": {
+        "status": 200,
+        "category": "actors",
+        "claimed": 18
+      },
+      "/leaderboard": {
+        "status": 200,
+        "total": 6
+      }
+    },
+    {
+      "at": "2026-11-28T06:22:26.051Z",
+      "passed": true,
+      "/today": {
+        "status": 200,
+        "category": "actors",
+        "claimed": 18
+      },
+      "/leaderboard": {
+        "status": 200,
+        "total": 6
+      }
+    },
+    {
+      "at": "2026-11-28T06:23:26.775Z",
+      "passed": true,
+      "/today": {
+        "status": 200,
+        "category": "actors",
+        "claimed": 18
+      },
+      "/leaderboard": {
+        "status": 200,
+        "total": 6
+      }
+    },
+    {
+      "at": "2026-11-28T06:24:27.507Z",
+      "passed": true,
+      "/today": {
+        "status": 200,
+        "category": "actors",
+        "claimed": 18
+      },
+      "/leaderboard": {
+        "status": 200,
+        "total": 6
+      }
+    },
+    {
+      "at": "2026-11-28T06:25:28.227Z",
+      "passed": true,
+      "/today": {
+        "status": 200,
+        "category": "actors",
+        "claimed": 18
+      },
+      "/leaderboard": {
+        "status": 200,
+        "total": 6
+      }
+    },
+    {
+      "at": "2026-11-28T06:26:28.821Z",
+      "passed": true,
+      "/today": {
+        "status": 200,
+        "category": "actors",
+        "claimed": 18
+      },
+      "/leaderboard": {
+        "status": 200,
+        "total": 6
+      }
+    },
+    {
+      "at": "2026-11-28T06:27:29.575Z",
+      "passed": true,
+      "/today": {
+        "status": 200,
+        "category": "actors",
+        "claimed": 18
+      },
+      "/leaderboard": {
+        "status": 200,
+        "total": 6
+      }
+    },
+    {
+      "at": "2026-11-28T06:28:30.398Z",
+      "passed": true,
+      "/today": {
+        "status": 200,
+        "category": "actors",
+        "claimed": 18
+      },
+      "/leaderboard": {
+        "status": 200,
+        "total": 6
+      }
+    },
+    {
+      "at": "2026-11-28T06:29:31.375Z",
+      "passed": true,
+      "/today": {
+        "status": 200,
+        "category": "actors",
+        "claimed": 18
+      },
+      "/leaderboard": {
+        "status": 200,
+        "total": 6
+      }
+    },
+    {
+      "at": "2026-11-28T06:30:32.254Z",
+      "passed": true,
+      "/today": {
+        "status": 200,
+        "category": "actors",
+        "claimed": 18
+      },
+      "/leaderboard": {
+        "status": 200,
+        "total": 6
+      }
+    },
+    {
+      "at": "2026-11-28T06:31:33.011Z",
+      "passed": true,
+      "/today": {
+        "status": 200,
+        "category": "actors",
+        "claimed": 18
+      },
+      "/leaderboard": {
+        "status": 200,
+        "total": 6
+      }
+    },
+    {
+      "at": "2026-11-28T06:32:33.702Z",
+      "passed": true,
+      "/today": {
+        "status": 200,
+        "category": "actors",
+        "claimed": 18
+      },
+      "/leaderboard": {
+        "status": 200,
+        "total": 6
+      }
+    },
+    {
+      "at": "2026-11-28T06:33:34.426Z",
+      "passed": true,
+      "/today": {
+        "status": 200,
+        "category": "actors",
+        "claimed": 18
+      },
+      "/leaderboard": {
+        "status": 200,
+        "total": 6
+      }
+    },
+    {
+      "at": "2026-11-28T06:34:35.016Z",
+      "passed": true,
+      "/today": {
+        "status": 200,
+        "category": "actors",
+        "claimed": 18
+      },
+      "/leaderboard": {
+        "status": 200,
+        "total": 6
+      }
+    },
+    {
+      "at": "2026-11-28T06:35:35.870Z",
+      "passed": true,
+      "/today": {
+        "status": 200,
+        "category": "actors",
+        "claimed": 18
+      },
+      "/leaderboard": {
+        "status": 200,
+        "total": 6
+      }
+    },
+    {
+      "at": "2026-11-28T06:36:36.573Z",
+      "passed": true,
+      "/today": {
+        "status": 200,
+        "category": "actors",
+        "claimed": 18
+      },
+      "/leaderboard": {
+        "status": 200,
+        "total": 6
+      }
+    },
+    {
+      "at": "2026-11-28T06:37:37.216Z",
+      "passed": true,
+      "/today": {
+        "status": 200,
+        "category": "actors",
+        "claimed": 18
+      },
+      "/leaderboard": {
+        "status": 200,
+        "total": 6
+      }
+    },
+    {
+      "at": "2026-11-28T06:38:38.040Z",
+      "passed": true,
+      "/today": {
+        "status": 200,
+        "category": "actors",
+        "claimed": 18
+      },
+      "/leaderboard": {
+        "status": 200,
+        "total": 6
+      }
+    },
+    {
+      "at": "2026-11-28T06:39:38.763Z",
+      "passed": true,
+      "/today": {
+        "status": 200,
+        "category": "actors",
+        "claimed": 18
+      },
+      "/leaderboard": {
+        "status": 200,
+        "total": 6
+      }
+    },
+    {
+      "at": "2026-11-28T06:40:39.550Z",
+      "passed": true,
+      "/today": {
+        "status": 200,
+        "category": "actors",
+        "claimed": 18
+      },
+      "/leaderboard": {
+        "status": 200,
+        "total": 6
+      }
+    },
+    {
+      "at": "2026-11-28T06:41:40.855Z",
+      "passed": true,
+      "/today": {
+        "status": 200,
+        "category": "actors",
+        "claimed": 18
+      },
+      "/leaderboard": {
+        "status": 200,
+        "total": 6
+      }
+    },
+    {
+      "at": "2026-11-28T06:42:41.551Z",
+      "passed": true,
+      "/today": {
+        "status": 200,
+        "category": "actors",
+        "claimed": 18
+      },
+      "/leaderboard": {
+        "status": 200,
+        "total": 6
+      }
+    },
+    {
+      "at": "2026-11-28T06:43:42.222Z",
+      "passed": true,
+      "/today": {
+        "status": 200,
+        "category": "actors",
+        "claimed": 18
+      },
+      "/leaderboard": {
+        "status": 200,
+        "total": 6
+      }
+    },
+    {
+      "at": "2026-11-28T06:44:42.856Z",
+      "passed": true,
+      "/today": {
+        "status": 200,
+        "category": "actors",
+        "claimed": 18
+      },
+      "/leaderboard": {
+        "status": 200,
+        "total": 6
+      }
+    },
+    {
+      "at": "2026-11-28T06:45:44.579Z",
+      "passed": true,
+      "/today": {
+        "status": 200,
+        "category": "actors",
+        "claimed": 18
+      },
+      "/leaderboard": {
+        "status": 200,
+        "total": 6
+      }
+    },
+    {
+      "at": "2026-11-28T06:46:45.952Z",
+      "passed": true,
+      "/today": {
+        "status": 200,
+        "category": "actors",
+        "claimed": 18
+      },
+      "/leaderboard": {
+        "status": 200,
+        "total": 6
+      }
+    }
+  ]
+}

@@ -1,4 +1,4 @@
-import {fileTitle,POOL_VERSION} from '../shared/flow-rules';
+import { fileTitle, POOL_VERSION } from '../shared/flow-rules';
 import { rarityPoints } from '../shared/score-points';
 import { clerkReply } from '../shared/moments';
 import { nextDrop } from '../worker/domain';
@@ -116,7 +116,14 @@ function file() {
     events,
     closed,
     completedAt: closed ? events.at(-1)?.at : null,
-    ...(r7.has('r21') ? {title:fileTitle({dibs:myClaims.length,closed,golden:myClaims.some(c=>c.golden)},{final:r7.has('final'),tieRank:1,total:100,finished:100})}:{}),
+    ...(r7.has('r21')
+      ? {
+          title: fileTitle(
+            { dibs: myClaims.length, closed, golden: myClaims.some((c) => c.golden) },
+            { final: r7.has('final'), tieRank: 1, total: 100, finished: 100 },
+          ),
+        }
+      : {}),
   };
 }
 
@@ -132,7 +139,7 @@ export async function request(path: string, body?: any): Promise<any> {
   if (path === '/bootstrap')
     return {
       today: await request('/today'),
-      me: await request('/me'),
+      me: { ...(await request('/me')), ...(r7.has('r20-new') ? { firstVisit: true } : {}) },
       rows: claims,
       ...(r19 ? { leaderboard: board() } : {}),
     };
@@ -200,6 +207,26 @@ export async function request(path: string, body?: any): Promise<any> {
       ),
     };
   }
+  if (path === '/previous')
+    return r7.has('r20-recap')
+      ? {
+          ready: true,
+          category: { date: '2026-11-26', name: 'Animals' },
+          file: {
+            rank: 3,
+            players: 41,
+            points: 210,
+            claims: [
+              { id: 'yesterday-1', display: 'Quokka', points: 110 },
+              { id: 'yesterday-2', display: 'Okapi', points: 100 },
+            ],
+          },
+          goldens: [
+            { display: 'Wombat', finder: 'Tan Dove' },
+            { display: 'Echidna', finder: 'Unclaimed' },
+          ],
+        }
+      : null;
   if (path === '/archive')
     return {
       categories: r6
@@ -287,6 +314,7 @@ export async function request(path: string, body?: any): Promise<any> {
     const claim = claims.find((c) => c.id === path.split('/').pop()) || mine;
     const mode = new URLSearchParams(location.search).get('r17');
     return {
+      ...(r7.has('r21') ? { score: file() } : {}),
       claim: mode
         ? {
             ...claim,
@@ -328,7 +356,7 @@ export async function request(path: string, body?: any): Promise<any> {
     throw new Error('The clerk didn’t get that. Try again.');
   }
   if (path === '/claim') {
-    if(r7.has('r21-slow')) await new Promise(resolve=>setTimeout(resolve,900));
+    if (r7.has('r21-slow')) await new Promise((resolve) => setTimeout(resolve, 900));
     const note = clerkReply(body.answer, category.name);
     if (note) throw new ApiError(422, { code: 'CLERK_NOTE', message: note });
     if (r7.has('r8') && body.answer === 'offline proof')
@@ -469,12 +497,19 @@ export async function request(path: string, body?: any): Promise<any> {
       mine.bonus = mine.golden ? 100 : 0;
       mine.points += mine.bonus;
     }
-    if(r7.has('r21')) {
-      mine.pool={version:POOL_VERSION,catalogVersion:'fixture',scoringVersion:'r19e-pool-v1',poolSize:3004,membership:r7.has('off')||myClaims.length===1?'out':'in'};
-      mine.percentile=r7.has('missing')?null:mine.pool.membership==='out'?1:.8;
-      if(r7.has('missing'))mine.pool.membership='unknown';
-      mine.bonus=mine.golden?50:0;mine.points=(mine.percentile===null?55:rarityPoints(mine.percentile))+mine.bonus;
-      if(mine.pool.membership==='out')mine.offRegisterOrdinal=4;
+    if (r7.has('r21')) {
+      mine.pool = {
+        version: POOL_VERSION,
+        catalogVersion: 'fixture',
+        scoringVersion: 'r19e-pool-v1',
+        poolSize: 3004,
+        membership: r7.has('off') || myClaims.length === 1 ? 'out' : 'in',
+      };
+      mine.percentile = r7.has('missing') ? null : mine.pool.membership === 'out' ? 1 : 0.8;
+      if (r7.has('missing')) mine.pool.membership = 'unknown';
+      mine.bonus = mine.golden ? 50 : 0;
+      mine.points = (mine.percentile === null ? 55 : rarityPoints(mine.percentile)) + mine.bonus;
+      if (mine.pool.membership === 'out') mine.offRegisterOrdinal = 4;
     }
     claims = [mine, ...claims];
     myClaims.push(mine);
@@ -612,4 +647,26 @@ if (r19)
     const { getSnapshot, publish } = await import('../src/live');
     const snapshot = getSnapshot();
     if (snapshot) publish({ ...snapshot, rows: [], leaderboard: board() });
+  });
+
+// Local-only authoritative next-day snapshot, for cancelling a pending visual reward.
+if (r7.has('r21'))
+  window.addEventListener('r21-rollover', async () => {
+    category.id = 'fixture-animals-next';
+    category.date = new Date(Date.parse(category.date + 'T12:00:00Z') + 86400000)
+      .toISOString()
+      .slice(0, 10);
+    myClaims = [];
+    events = [];
+    mine = null;
+    const { getSnapshot, publish } = await import('../src/live');
+    const snapshot = getSnapshot();
+    if (snapshot)
+      publish({
+        ...snapshot,
+        today: { ...snapshot.today, category: { ...category } },
+        me: await request('/me'),
+        rows: [],
+        leaderboard: board(),
+      });
   });

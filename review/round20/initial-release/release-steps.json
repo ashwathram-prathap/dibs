@@ -1,0 +1,52 @@
+[
+  {
+    "name": "Asset limits",
+    "passed": true,
+    "at": "2026-11-28T05:40:35.666Z"
+  },
+  {
+    "name": "Capture rollback IDs",
+    "passed": true,
+    "at": "2026-11-28T05:40:37.048Z"
+  },
+  {
+    "name": "Private production D1 backup (journal loss remains follow-up)",
+    "passed": true,
+    "at": "2026-11-28T05:40:40.571Z"
+  },
+  {
+    "name": "Fresh candidate and window gate",
+    "passed": true,
+    "at": "2026-11-28T05:40:42.394Z"
+  },
+  {
+    "name": "Deploy production immutable assets and Pages",
+    "passed": true,
+    "at": "2026-11-28T05:40:54.598Z"
+  },
+  {
+    "name": "Fresh production assets",
+    "passed": true,
+    "at": "2026-11-28T05:40:56.245Z"
+  },
+  {
+    "name": "Fresh candidate and window gate",
+    "passed": true,
+    "at": "2026-11-28T05:40:57.365Z"
+  },
+  {
+    "name": "Deploy production Worker",
+    "passed": true,
+    "at": "2026-11-28T05:41:11.637Z"
+  },
+  {
+    "name": "Read-only production smoke",
+    "passed": true,
+    "at": "2026-11-28T05:41:48.955Z"
+  },
+  {
+    "name": "Capture released IDs",
+    "passed": true,
+    "at": "2026-11-28T05:41:50.771Z"
+  }
+]

@@ -14,6 +14,13 @@ export function publicCategory(g: any) {
     drop_at,
     status,
     paper: categoryStyle(slug || id),
+    ...(slug === 'animals' &&
+    JSON.parse(g.source_json || '{}').staticCatalog?.version === '10210a86838c8eca'
+      ? {
+          scopeNote:
+            'Animal species, general groups and a limited set of breeds count. Many breeds are not listed.',
+        }
+      : {}),
   };
 }
 export function dayClosed(category: any) {

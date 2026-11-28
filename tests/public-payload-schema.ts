@@ -4,7 +4,7 @@ const fields = (names: string): Record<string, Shape> =>
   Object.fromEntries(names.split(' ').map((k) => [k, true]));
 const comparison = fields('finished percentile rank points'); // Aggregate score percentile, never answer rarity.
 const category = {
-  ...fields('id date name slug total_registrable drop_at status'),
+  ...fields('id date name slug total_registrable drop_at status scopeNote'),
   paper: fields('stock light dark plate'),
 };
 const specials = {
@@ -68,6 +68,7 @@ export const shapes: Record<string, Shape> = {
   bootstrap: {
     today,
     me: {
+      firstVisit: true,
       user: fields('id handle rerolls_used'),
       claim: claimShape,
       file,

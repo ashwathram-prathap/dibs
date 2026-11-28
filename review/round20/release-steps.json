@@ -2,51 +2,56 @@
   {
     "name": "Asset limits",
     "passed": true,
-    "at": "2026-11-28T05:40:35.666Z"
+    "at": "2026-11-28T06:48:17.039Z"
   },
   {
     "name": "Capture rollback IDs",
     "passed": true,
-    "at": "2026-11-28T05:40:37.048Z"
+    "at": "2026-11-28T06:48:18.398Z"
   },
   {
     "name": "Private production D1 backup (journal loss remains follow-up)",
     "passed": true,
-    "at": "2026-11-28T05:40:40.571Z"
+    "at": "2026-11-28T06:48:22.680Z"
   },
   {
     "name": "Fresh candidate and window gate",
     "passed": true,
-    "at": "2026-11-28T05:40:42.394Z"
+    "at": "2026-11-28T06:48:25.180Z"
   },
   {
     "name": "Deploy production immutable assets and Pages",
     "passed": true,
-    "at": "2026-11-28T05:40:54.598Z"
+    "at": "2026-11-28T06:48:36.844Z"
   },
   {
     "name": "Fresh production assets",
     "passed": true,
-    "at": "2026-11-28T05:40:56.245Z"
+    "at": "2026-11-28T06:48:38.071Z"
   },
   {
     "name": "Fresh candidate and window gate",
     "passed": true,
-    "at": "2026-11-28T05:40:57.365Z"
+    "at": "2026-11-28T06:48:38.985Z"
   },
   {
     "name": "Deploy production Worker",
     "passed": true,
-    "at": "2026-11-28T05:41:11.637Z"
+    "at": "2026-11-28T06:48:54.432Z"
+  },
+  {
+    "name": "Verify current production home renderer",
+    "passed": true,
+    "at": "2026-11-28T06:48:56.060Z"
   },
   {
     "name": "Read-only production smoke",
     "passed": true,
-    "at": "2026-11-28T05:41:48.955Z"
+    "at": "2026-11-28T06:49:33.151Z"
   },
   {
     "name": "Capture released IDs",
     "passed": true,
-    "at": "2026-11-28T05:41:50.771Z"
+    "at": "2026-11-28T06:49:34.430Z"
   }
 ]

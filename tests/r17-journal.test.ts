@@ -26,7 +26,7 @@ async function startRegistry(slug: string) {
   const category = readCategory('categories/' + slug + '.json');
   const code = await build({
     stdin: {
-      contents: `import worker, {DayRegistry as BaseDayRegistry} from './worker/index'; export class DayRegistry extends BaseDayRegistry {async testAlarm(){await this.alarm();return {category:(this as any).category?.id};}} const realNow=Date.now;let clock;Date.now=()=>clock??realNow(); export {Registry, ImageCache} from './worker/index'; export default {fetch(req,env,ctx){const instant=new URL(req.url).searchParams.get('fixture-now');if(instant)clock=Number(instant);const date=new URL(req.url).searchParams.get('fixture-day'); if(date && new URL(req.url).pathname==='/api/test-alarm') return env.DAY_REGISTRY.get(env.DAY_REGISTRY.idFromName(date)).testAlarm().then(data=>Response.json(data)); if(date){const headers=new Headers(req.headers);headers.set('x-r17-day',date);return env.DAY_REGISTRY.get(env.DAY_REGISTRY.idFromName(date)).fetch(new Request(req,{headers}));}return worker.fetch(req,env,ctx);}};`,
+      contents: `import worker, {DayRegistry as BaseDayRegistry} from './worker/index'; export class DayRegistry extends BaseDayRegistry {async testSeed(date,s){(this as any).requestedDay=date;await (this as any).init(this.env);(this as any).journal.append(s);await (this as any).journal.durable();(this as any).rebuild();return Response.json({ok:true});} async testAlarm(){await this.alarm();return {category:(this as any).category?.id};}} const realNow=Date.now;let clock;Date.now=()=>clock??realNow(); export {Registry, ImageCache} from './worker/index'; export default {fetch(req,env,ctx){const instant=new URL(req.url).searchParams.get('fixture-now');if(instant)clock=Number(instant);const date=new URL(req.url).searchParams.get('fixture-day'); if(date && new URL(req.url).pathname==='/api/test-recap-seed') return req.json().then(s=>env.DAY_REGISTRY.get(env.DAY_REGISTRY.idFromName(date)).testSeed(date,s)); if(date && new URL(req.url).pathname==='/api/test-alarm') return env.DAY_REGISTRY.get(env.DAY_REGISTRY.idFromName(date)).testAlarm().then(data=>Response.json(data)); if(date){const headers=new Headers(req.headers);headers.set('x-r17-day',date);return env.DAY_REGISTRY.get(env.DAY_REGISTRY.idFromName(date)).fetch(new Request(req,{headers}));}return worker.fetch(req,env,ctx);}};`,
       resolveDir: process.cwd(),
       loader: 'ts',
     },
@@ -930,4 +930,118 @@ it('R20 admin funnel authenticates without a player cookie and exposes only boun
   expect(data).not.toHaveProperty('users');
   expect(data).not.toHaveProperty('seed');
   expect(((await (await get()).json()) as any).asOf).toBe(data.asOf);
+});
+
+it('R20 first-visit signal uses the verified incoming cookie and suppresses returning empty identities', async () => {
+  const fresh = await account();
+  expect(fresh.data.me.firstVisit).toBe(true);
+  const returning: any = await (await call('/bootstrap', undefined, fresh.cookie)).json();
+  expect(returning.me.firstVisit).toBe(false);
+  expect(returning.me.file?.dibs || 0).toBe(0);
+  const publicToday: any = await (await call('/today')).json();
+  expect(publicToday).not.toHaveProperty('firstVisit');
+});
+
+it('R20 previous-night recap is owner-authenticated, finalized and never reveals an open day', async () => {
+  const { sessionCookie } = await import('../worker/identity');
+  const { sha256, commitmentText } = await import('../worker/specials');
+  const date = '2020-11-23',
+    id = 'recap-local-fixture',
+    uid = crypto.randomUUID(),
+    aid = 'recap-answer';
+  await db
+    .prepare(
+      'INSERT INTO categories(id,date,name,slug,total_registrable,drop_at,status,source_json) VALUES(?,?,?,?,?,?,?,?)',
+    )
+    .bind(id, date, 'Animals', 'animals', 2000, dropAt(date), 'approved', '{}')
+    .run();
+  await db
+    .prepare(
+      'INSERT INTO answers(id,category_id,canonical,display,aliases_json,obscurity) VALUES(?,?,?,?,?,?)',
+    )
+    .bind(aid, id, 'recap animal', 'Recap animal', '[]', 4)
+    .run();
+  const seed = 'local-closed-fixture';
+  await db
+    .prepare(
+      'INSERT INTO daily_specials(category_id,seed,golden_json,commitment,committed_at) VALUES(?,?,?,?,?)',
+    )
+    .bind(
+      id,
+      seed,
+      JSON.stringify([aid]),
+      await sha256(commitmentText(id, seed, [aid])),
+      '2020-11-23T00:00:00Z',
+    )
+    .run();
+  const c = {
+    id: date + '-local-claim',
+    user_id: uid,
+    answer_id: aid,
+    category_id: id,
+    claim_no: 1,
+    display: 'Recap animal',
+    handle: 'Recap keeper',
+    points: 160,
+    bonus: 100,
+    golden: true,
+    percentile: 0.6,
+    created_at: '2020-11-24T02:01:00Z',
+  };
+  const s = {
+    user: { id: uid, handle: 'Recap keeper' },
+    file: {
+      category_id: id,
+      summaryId: date + '-local-summary',
+      dibs: 1,
+      strikes: 0,
+      closed: false,
+      eligible: true,
+      points: 160,
+      reachedAt: c.created_at,
+      claims: [c],
+      events: [{ kind: 'dibs', at: c.created_at, claimId: c.id, display: c.display }],
+      golden: true,
+    },
+    streakDates: [date],
+    requests: {},
+  };
+  await db
+    .prepare('INSERT INTO r17_files(user_id,day,category_id,revision,data) VALUES(?,?,?,?,?)')
+    .bind(uid, date, id, 1, JSON.stringify(s))
+    .run();
+  await call('/test-recap-seed?fixture-day=' + date, s);
+  const cookie = (await sessionCookie(uid, 'static-test-secret', true)).split(';')[0],
+    path = '/previous?fixture-day=' + date;
+  expect(await (await call(path)).json()).toBeNull();
+  const result: any = await (await call(path, undefined, cookie)).json();
+  expect(result).toMatchObject({
+    ready: true,
+    file: { rank: 1, players: 1, points: 160 },
+    goldens: [{ display: 'Recap animal', finder: 'Recap keeper' }],
+  });
+  expect(result.file.claims).toHaveLength(1);
+  expect(JSON.stringify(result)).not.toContain(uid);
+  expect(JSON.stringify(result)).not.toContain(seed);
+  expect(result).not.toHaveProperty('events');
+  expect(
+    await db.prepare('SELECT data FROM r17_boards WHERE category_id=?').bind(id).first(),
+  ).toBeTruthy();
+  expect(
+    await (await call('/previous?fixture-day=' + registryDate(), undefined, cookie)).json(),
+  ).toBeNull();
+  await db.exec('ALTER TABLE r17_boards RENAME TO recap_board_outage');
+  try {
+    await call('/test-recap-seed?fixture-day=' + date, s);
+    expect(await (await call(path, undefined, cookie)).json()).toEqual({ pending: true });
+  } finally {
+    await db.exec('ALTER TABLE recap_board_outage RENAME TO r17_boards');
+  }
+  expect(((await (await call(path, undefined, cookie)).json()) as any).ready).toBe(true);
+  s.user = { ...s.user, handle: 'Withdrawn player' } as any;
+  await call('/test-recap-seed?fixture-day=' + date, s);
+  expect(await (await call(path, undefined, cookie)).json()).toBeNull();
+  s.user = { ...s.user, handle: 'Recap reader', hidden: true } as any;
+  await call('/test-recap-seed?fixture-day=' + date, s);
+  expect(await (await call(path, undefined, cookie)).json()).toBeNull();
 });

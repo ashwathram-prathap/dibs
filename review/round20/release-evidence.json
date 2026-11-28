@@ -1,15 +1,15 @@
 {
-  "at": "2026-11-28T05:40:40.571Z",
-  "commit": "e1ae655c410809c97364c8833596928f87598312",
-  "pagesDigest": "fbd1989ae1b31d5d0c5e44807d59b44aba45ece594ab2a816a6318a7935a1736",
-  "workerDigest": "d38c44ff15ede6485669fde3e6a28b4d57bc94af2515c09db778eca966102f72",
-  "configDigest": "db1e65c4c614bde3a45253798627fab34882d301d9616f8c1d14fc73f30512ca",
+  "at": "2026-11-28T06:48:22.681Z",
+  "commit": "6772f2d871c05edbe3e6e63f1a521c2025c6edc9",
+  "pagesDigest": "fdf99f68046581a70c2b2d742a18937ebcea6e14a5a5c224b89dcc82d738bd96",
+  "workerDigest": "c9593eb928d3a5c396fde13957ed235ac60d71b3d5f95e0a462d432a73985c54",
+  "configDigest": "64a806918c21eb14456ef55c3f8f8d7814f7e9c44a915704ddc6f8ec826d63b1",
   "schemaDigest": "86579435fbfa0a07cf9023f63504612d1fc7ae2406bf37606c66d94964505304",
   "rollback": {
-    "pages": "8655ae26-06a7-4929-9fe9-de560dbed835",
-    "workerVersion": "26410237-28f6-4707-86fa-21a3af998a54",
-    "workerDeployment": "5350bff9-d13c-49e9-8d49-96aa9338b1af",
-    "recordedAt": "2026-11-28T05:40:37.030Z"
+    "pages": "abe3ba78-ba35-42a0-90fa-2ede35f5745f",
+    "workerVersion": "6f6054b3-8b6f-4b74-a469-a8fc4e813808",
+    "workerDeployment": "690ccd7e-8c50-4eec-9477-a2209df74106",
+    "recordedAt": "2026-11-28T06:48:18.377Z"
   },
   "gates": {
     "correctness": true,
@@ -23,12 +23,12 @@
     "noRegression": true
   },
   "basis": {
-    "correctness": "291 fresh unit/API checks including journal faults, close race, exact ranks, replay and privacy; unchanged scoring/selection",
+    "correctness": "295 fresh unit/API checks including recap ownership/finalization/redaction and first-visit bootstrap; unchanged scoring/selection",
     "practice": "practice-smoke.json, practice-recovery.json, practice-asset-integrity.json",
     "budget": "No hosted load; retained account metrics and unchanged plan. No capacity claim.",
-    "backup": "20261128T054038Z: export complete",
-    "noRegression": "AUDIT.md amendment: release-gate and smoke corrections only since tested safety candidate; inherited gaps retained as follow-ups",
-    "browser": "Prior 456 continuation + 324 device + fresh 4 admin cases; Firefox and physical devices remain inherited limitations"
+    "backup": "20261128T064820Z: export complete",
+    "noRegression": "FOLLOWUP.md: onboarding, owner-authenticated finalized recap, larger OG, pinned Animals scope and strike grammar; safety regressions checked; inherited gaps remain follow-ups",
+    "browser": "Fresh followup-browser-tests, followup-device-tests and followup-golden-tests; 74 OG fixtures and 18 crop inspections; prior core continuation retained; Firefox and physical devices unverified"
   },
   "followups": [
     "Full journal-loss RTO/RPO and deletion reconciliation",

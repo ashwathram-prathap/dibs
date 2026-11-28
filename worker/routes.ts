@@ -1032,6 +1032,7 @@ const handler = {
         ([
           '/backup-code',
           '/bootstrap',
+          '/previous',
           '/me',
           '/today',
           '/live',
@@ -1057,7 +1058,20 @@ const handler = {
         let date =
           path.match(/^\/(?:certificate|summary|og)\/(?:summary\/)?(\d{4}-\d{2}-\d{2})-/)?.[1] ||
           registryDate();
-        if (url.searchParams.get('category'))
+        if (path === '/previous') {
+          if (env.STAGING === 'true' || !(await cookieUser(req, env.COOKIE_SECRET)))
+            return json(null);
+          date = new Date(Date.parse(registryDate() + 'T12:00:00Z') - 86400000)
+            .toISOString()
+            .slice(0, 10);
+          const committed = await env.DB.prepare(
+            "SELECT g.id FROM categories g JOIN daily_specials s ON s.category_id=g.id WHERE g.date=? AND g.status='approved' LIMIT 1",
+          )
+            .bind(date)
+            .first();
+          if (!committed) return json(null);
+        }
+        if (path !== '/previous' && url.searchParams.get('category'))
           date =
             (
               await env.DB.prepare("SELECT date FROM categories WHERE id=? AND status='approved'")

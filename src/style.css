@@ -8199,38 +8199,250 @@ html.low-power .claim-slots .slot-stamp {
 
 /* Long admin availability labels use body type; numeric results keep Archivo. */
 .admin-live .live-metrics dd.metric-text {
-  font: 400 1.125rem/1.5 "Instrument Sans", sans-serif;
+  font:
+    400 1.125rem/1.5 'Instrument Sans',
+    sans-serif;
   overflow-wrap: anywhere;
 }
 
 /* R21: a single ruled red entry, distinct from the independent golden ticket. */
-.claim-tier { margin-block: .6rem; }
-.tier-stamp { font-weight: 650; }
-.off-register-moment { border-block-start: 1px solid var(--ink); padding-block-start: .6rem; }
-.off-register-stamp, .title-stamp { display: inline-block; font-family: Archivo; font-weight: 900; border: 1px solid currentColor; padding: .2em .35em; line-height: 1.1; }
-.off-register-stamp { color: var(--accessible-red, #B93420); rotate: -3deg; font-size: clamp(18px,4vw,26px); text-transform: uppercase; }
-.claim-tier p { font-size: 16px; margin-block: .35rem; }
-.skip-reveal { min-height: 44px; font-size: 16px; margin-block: .25rem; }
-.title-award { margin-block: 1rem; }
-.title-award p { margin-block: .4rem; font-size: 16px; }
-.title-stamp { font-size: clamp(24px,5vw,38px); rotate: -2deg; }
-.gold-title { color: var(--gold); }
-.dibillionaire-stamp { font-weight: 900; }
-[data-reveal="hold"] .win-stamp { transform: scale(.97); }
-[data-reveal="stamp"] .win-stamp { animation: r21-stamp 300ms ease-out; }
-[data-reveal] .rarity-marker { transition: transform 600ms ease-out; }
-[data-reveal="hold"] .rarity-marker, [data-reveal="stamp"] .rarity-marker { transform: translateX(28px)!important; }
-[data-reveal="tier"] .off-register-stamp { animation: r21-stamp 500ms ease-out; }
-[data-reveal="points"] .points-earned { animation: r21-points 250ms ease-out; }
-@keyframes r21-stamp { from {transform:scale(1.12) translateY(-4px);opacity:.6;} to {transform:none;opacity:1;} }
-@keyframes r21-points { from {transform:translateY(3px);} to {transform:none;} }
-@media (prefers-reduced-motion: reduce) { [data-reveal] * { animation:none!important;transition:none!important; } }
+.claim-tier {
+  margin-block: 0.6rem;
+}
+.tier-stamp {
+  font-weight: 650;
+}
+.off-register-moment {
+  border-block-start: 1px solid var(--ink);
+  padding-block-start: 0.6rem;
+}
+.off-register-stamp,
+.title-stamp {
+  display: inline-block;
+  font-family: Archivo;
+  font-weight: 900;
+  border: 1px solid currentColor;
+  padding: 0.2em 0.35em;
+  line-height: 1.1;
+}
+.off-register-stamp {
+  color: var(--accessible-red, #b93420);
+  rotate: -3deg;
+  font-size: clamp(18px, 4vw, 26px);
+  text-transform: uppercase;
+}
+.claim-tier p {
+  font-size: 16px;
+  margin-block: 0.35rem;
+}
+.skip-reveal {
+  min-height: 44px;
+  font-size: 16px;
+  margin-block: 0.25rem;
+}
+.title-award {
+  margin-block: 1rem;
+}
+.title-award p {
+  margin-block: 0.4rem;
+  font-size: 16px;
+}
+.title-stamp {
+  font-size: clamp(24px, 5vw, 38px);
+  rotate: -2deg;
+}
+.gold-title {
+  color: var(--gold);
+}
+.dibillionaire-stamp {
+  font-weight: 900;
+}
+[data-reveal='hold'] .win-stamp {
+  transform: scale(0.97);
+}
+[data-reveal='stamp'] .win-stamp {
+  animation: r21-stamp 300ms ease-out;
+}
+[data-reveal] .rarity-marker {
+  transition: transform 600ms ease-out;
+}
+[data-reveal='hold'] .rarity-marker,
+[data-reveal='stamp'] .rarity-marker {
+  transform: translateX(28px) !important;
+}
+[data-reveal='tier'] .off-register-stamp {
+  animation: r21-stamp 500ms ease-out;
+}
+[data-reveal='points'] .points-earned {
+  animation: r21-points 250ms ease-out;
+}
+@keyframes r21-stamp {
+  from {
+    transform: scale(1.12) translateY(-4px);
+    opacity: 0.6;
+  }
+  to {
+    transform: none;
+    opacity: 1;
+  }
+}
+@keyframes r21-points {
+  from {
+    transform: translateY(3px);
+  }
+  to {
+    transform: none;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  [data-reveal] * {
+    animation: none !important;
+    transition: none !important;
+  }
+}
 
-[data-theme="dark"] .off-register-stamp {color:#FF836B;}
-.slot-tier {display:block;font:500 13px/1.2 'Instrument Sans';margin-top:.2rem;}
-.off-slot {rotate:-2deg;color:#B93420;}
-[data-theme="dark"] .off-slot {color:#FF836B;}
-.skip-reveal {padding:0;background:none;border:0;font-weight:500;text-decoration:underline;box-shadow:none;}
+[data-theme='dark'] .off-register-stamp {
+  color: #ff836b;
+}
+.slot-tier {
+  display: block;
+  font: 500 13px/1.2 'Instrument Sans';
+  margin-top: 0.2rem;
+}
+.off-slot {
+  rotate: -2deg;
+  color: #b93420;
+}
+[data-theme='dark'] .off-slot {
+  color: #ff836b;
+}
+.skip-reveal {
+  padding: 0;
+  background: none;
+  border: 0;
+  font-weight: 500;
+  text-decoration: underline;
+  box-shadow: none;
+}
 
-.off-register-board {display:inline-block;color:var(--accessible-red,#B93420);margin-inline-start:.4em;rotate:-8deg;font-weight:700;}
-[data-theme="dark"] .off-register-board{color:#FF836B;}
+.off-register-board {
+  display: inline-block;
+  color: var(--accessible-red, #b93420);
+  margin-inline-start: 0.4em;
+  rotate: -8deg;
+  font-weight: 700;
+}
+[data-theme='dark'] .off-register-board {
+  color: #ff836b;
+}
+/* R20 first-visit card: native modal focus containment, one paper rule. */
+.onboarding-dialog {
+  width: min(32rem, calc(100% - 32px));
+  max-height: calc(100dvh - 32px);
+  padding: 24px;
+  background: var(--paper);
+  color: var(--ink);
+  border: 1px solid var(--ink);
+  box-shadow: none;
+  overflow: auto;
+}
+.onboarding-dialog::backdrop {
+  background: rgb(26 26 23 / 0.55);
+}
+.onboarding-dialog h2 {
+  font: 900 32px/1.05 Archivo;
+  margin: 0 0 18px;
+}
+.onboarding-dialog p {
+  font: 400 1.125rem/1.5 'Instrument Sans';
+  margin: 0 0 16px;
+}
+.onboarding-dialog .primary {
+  width: 100%;
+  min-height: 48px;
+}
+.quick-rules {
+  background: none;
+  border: 0;
+  text-decoration: underline;
+  min-height: 44px;
+  padding: 0;
+}
+.previous-night {
+  max-width: 760px;
+  margin: 24px auto;
+  padding: 16px;
+  border-block: 1px solid var(--ink);
+  font: 400 16px/1.5 'Instrument Sans';
+}
+.previous-night summary {
+  cursor: pointer;
+  min-height: 44px;
+  display: flex;
+  align-items: center;
+  font-weight: 600;
+}
+.previous-night h2 {
+  font-size: 28px;
+}
+.previous-night h3 {
+  font-size: 20px;
+}
+.previous-night button {
+  min-height: 44px;
+  padding: 0;
+  background: none;
+  border: 0;
+  text-decoration: underline;
+}
+/* A short ink impression accompanies the red stamp; no extra frame or gold. */
+.off-register-stamp {
+  position: relative;
+}
+.off-register-stamp::after {
+  content: '';
+  position: absolute;
+  right: -10px;
+  bottom: -5px;
+  width: 20px;
+  height: 14px;
+  background: currentColor;
+  opacity: 0;
+  clip-path: polygon(
+    0 45%,
+    30% 30%,
+    25% 0,
+    50% 27%,
+    82% 5%,
+    70% 40%,
+    100% 62%,
+    65% 65%,
+    55% 100%,
+    35% 72%,
+    0 90%
+  );
+  pointer-events: none;
+}
+[data-reveal='tier'] .off-register-stamp::after,
+[data-reveal='points'] .off-register-stamp::after {
+  animation: r21-ink 450ms ease-out;
+}
+@keyframes r21-ink {
+  0% {
+    opacity: 0;
+    transform: scale(0.4);
+  }
+  30% {
+    opacity: 0.6;
+  }
+  100% {
+    opacity: 0;
+    transform: scale(1);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .off-register-stamp::after {
+    animation: none !important;
+    opacity: 0;
+  }
+}

@@ -1,6 +1,8 @@
 import { useClaimReveal } from './useClaimReveal';
 import { ClaimTier } from './ClaimTier';
 import { takenAge, rarityTier } from '../shared/flow-rules';
+import { PreviousNight } from './PreviousNight';
+import { Onboarding } from './Onboarding';
 import { BuilderNote, CreatorLinks } from './CreatorCredit';
 import { claimScore } from '../shared/claim-copy';
 import { goldenPerDay } from '../shared/config';
@@ -438,6 +440,7 @@ export default function App() {
             Design proof · Development fixtures · Not the public record
           </div>
         )}
+        <Onboarding me={me} today={today} path={path} />
         <main id="main">
           <Suspense fallback={<p role="status">Loading the page…</p>}>
             {error ? (
@@ -478,6 +481,12 @@ export default function App() {
             ) : path === '/how-it-works' ? (
               <section className="how-page">
                 <h1>How it works</h1>
+                <button
+                  className="quick-rules"
+                  onClick={() => window.dispatchEvent(new Event('dibs-how-to-play'))}
+                >
+                  Quick rules
+                </button>
                 <Introduction lead />
                 <Rules specials={today.specials} />
                 <Clue clue={today.specials?.clue} />
@@ -1089,7 +1098,12 @@ function Home({
                     </p>
                   )}
                   <p className="points-earned">
-                    <strong>+{claim.pool ? `${claim.points} points${claim.bonus ? ` · ${claim.points!-claim.bonus} + ${claim.bonus} golden bonus` : ''}` : claimScore(claim)}</strong>
+                    <strong>
+                      +
+                      {claim.pool
+                        ? `${claim.points} points${claim.bonus ? ` · ${claim.points! - claim.bonus} + ${claim.bonus} golden bonus` : ''}`
+                        : claimScore(claim)}
+                    </strong>
                   </p>
                   {streakMoment !== null && (
                     <p className="streak-payoff">
@@ -1187,7 +1201,12 @@ function Home({
                         </p>
                       )}
                       <p className="points-earned">
-                        <strong>+{claim.pool ? `${claim.points} points${claim.bonus ? ` · ${claim.points!-claim.bonus} + ${claim.bonus} golden bonus` : ''}` : claimScore(claim)}</strong>
+                        <strong>
+                          +
+                          {claim.pool
+                            ? `${claim.points} points${claim.bonus ? ` · ${claim.points! - claim.bonus} + ${claim.bonus} golden bonus` : ''}`
+                            : claimScore(claim)}
+                        </strong>
                       </p>
                       {streakMoment !== null && (
                         <p className="streak-payoff">
@@ -1403,6 +1422,9 @@ function Home({
                 <RevealTime today={today} reminder={false} />
               </div>
             )}
+            {today.category.scopeNote && (
+              <p className="category-scope">{today.category.scopeNote}</p>
+            )}
             <details
               className="play-introduction play-rules"
               key={guessNumber}
@@ -1439,6 +1461,7 @@ function Home({
           </div>
         </section>
       )}
+      <PreviousNight me={me} today={today} />
       <Clue clue={today.specials?.clue} />
       {playing && (
         <section className="locked-ledger" aria-label="Answers hidden until the day closes">

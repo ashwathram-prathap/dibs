@@ -77,6 +77,8 @@ export class DayRegistry extends DurableObject<Env> {
   private requestedDay?: string;
   private verified = new Map<string, any>();
   /** R19I: answer_id for strikes journaled before strike events carried one (uid + event time). */
+  private recapReadyAt = 0;
+  private recapSpecials: any;
   private legacyStruck: StruckCache = new Map();
   constructor(ctx: DurableObjectState, env: Env) {
     super(ctx, env);
@@ -220,6 +222,8 @@ export class DayRegistry extends DurableObject<Env> {
     return new Map([...this.legacy, ...(this.journal?.files || [])]);
   }
   private rebuild() {
+    this.recapReadyAt = 0;
+    this.recapSpecials = undefined;
     this.standings.reset(this.all().values());
     this.owners.clear();
     this.claims = 0;
@@ -624,12 +628,15 @@ export class DayRegistry extends DurableObject<Env> {
       if (!claim) return json({ message: 'Not found.' }, 404);
       const state = this.state(claim.user_id);
       return og(
-        visibleClaim(
-          claim,
-          dayClosed(this.category),
-          false,
-          !!state?.file.sharedClaimIds?.includes(claim.id),
-        ),
+        {
+          ...visibleClaim(
+            claim,
+            dayClosed(this.category),
+            false,
+            !!state?.file.sharedClaimIds?.includes(claim.id),
+          ),
+          score: { title: state ? this.presentFile(state).title : undefined },
+        },
         undefined,
         state?.file.claimShareThemes?.[claim.id] === 'dark',
       );
@@ -664,6 +671,48 @@ export class DayRegistry extends DurableObject<Env> {
         cacheSeconds: 60,
       });
     }
+    if (path === '/previous' && req.method === 'GET') {
+      const uid = await cookieUser(req, env.COOKIE_SECRET);
+      if (!uid || !this.category || !dayClosed(this.category)) return json(null);
+      const state = this.state(uid);
+      if (
+        !state ||
+        state.user.hidden ||
+        ['Withdrawn player', 'Record withheld'].includes(state.user.handle) ||
+        state.file.eligible === false ||
+        !state.file.events.length
+      )
+        return json(null);
+      try {
+        if (Date.now() - this.recapReadyAt >= 60000) {
+          await this.flush();
+          this.recapSpecials = await specialStatus(env, this.category, true);
+          this.recapReadyAt = Date.now();
+        }
+      } catch {
+        return json({ pending: true });
+      }
+      if (!this.recapSpecials?.verified) return json(null);
+      const own = this.presentFile(state),
+        labels = new Map(this.ledgerRows().map((c: any) => [c.id, c.handle]));
+      return json({
+        ready: true,
+        category: publicCategory(this.category),
+        file: { rank: own.rank, players: own.players, points: own.points, claims: own.claims },
+        goldens: this.recapSpecials.reveal.answers.map((a: any) => {
+          const c = this.owners.get(a.id),
+            holder = c && this.state(c.user_id);
+          return {
+            display: a.display,
+            finder:
+              c && !c.voided && holder && !holder.user.hidden
+                ? labels.get(c.id) || 'Unclaimed'
+                : 'Unclaimed',
+          };
+        }),
+        asOf: new Date(this.recapReadyAt).toISOString(),
+      });
+    }
     if (path === '/today') return json(this.today());
     if (path === '/bootstrap' || path === '/me') {
       const { user, cookie } = await this.user(req, env, !!this.category);
@@ -672,7 +721,7 @@ export class DayRegistry extends DurableObject<Env> {
           ? this.me(user)
           : {
               today: this.today(),
-              me: this.me(user),
+              me: { ...this.me(user), firstVisit: !(await cookieUser(req, env.COOKIE_SECRET)) },
               leaderboard: this.board(user?.id),
               rows: dayClosed(this.category) ? this.ledgerRows() : [],
               version: 17,
