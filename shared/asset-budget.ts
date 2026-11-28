@@ -1,5 +1,7 @@
-export const ASSET_MAX_FILES = 15000;
-export const ASSET_MAX_BYTES = 10000000;
+export const ASSET_MAX_FILES = 20000;
+export const ASSET_MAX_BYTES = 25 * 1024 * 1024;
+// Owner amendment: a warning target for new catalogs, never a historical-asset blocker.
+export const NEW_CATALOG_TARGET_BYTES = 10000000;
 export function assertAssetBudget(files: number, maxFileBytes: number) {
   if (
     !Number.isSafeInteger(files) ||
@@ -10,6 +12,6 @@ export function assertAssetBudget(files: number, maxFileBytes: number) {
     maxFileBytes > ASSET_MAX_BYTES
   )
     throw Error(
-      'R20 asset budget exceeded: at most 15,000 files and 10,000,000 bytes per file. Preserve required historical assets; do not prune them to pass.',
+      'R20 asset budget exceeded: at most 20,000 files and 25 MiB per file. Preserve required historical assets; do not prune them to pass.',
     );
 }

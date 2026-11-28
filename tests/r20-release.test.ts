@@ -20,10 +20,11 @@ it('gates each production operation including recovery with Saturday bounds', ()
   }
 });
 it('enforces exact owner asset boundaries and rejects invalid inventories', () => {
-  expect(() => assertAssetBudget(15000, 10000000)).not.toThrow();
+  expect(() => assertAssetBudget(20000, 25 * 1024 * 1024)).not.toThrow();
+  expect(() => assertAssetBudget(13852, 18386687)).not.toThrow();
   for (const [files, bytes] of [
-    [15001, 1],
-    [1, 10000001],
+    [20001, 1],
+    [1, 25 * 1024 * 1024 + 1],
     [-1, 0],
     [NaN, 0],
   ])

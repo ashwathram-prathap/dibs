@@ -1,6 +1,6 @@
 import { readdirSync, statSync } from 'node:fs';
 import { join } from 'node:path';
-import { assertAssetBudget } from '../shared/asset-budget';
+import { assertAssetBudget, NEW_CATALOG_TARGET_BYTES } from '../shared/asset-budget';
 let files = 0,
   bytes = 0,
   maxFileBytes = 0,
@@ -23,3 +23,8 @@ function walk(dir: string) {
 walk(process.argv[2] || 'dist');
 console.log(JSON.stringify({ files, bytes, maxFileBytes, largestPath }));
 assertAssetBudget(files, maxFileBytes);
+
+if (maxFileBytes > NEW_CATALOG_TARGET_BYTES)
+  console.warn(
+    'Catalog target warning: files above 10,000,000 bytes remain platform-valid; preserve pinned versions.',
+  );

@@ -1,3 +1,15 @@
+# Amendment continuation — 28 November, 00:34 ET
+
+The table below preserves the first attempt's findings. The owner amendment supersedes its release-blocker labels for inherited R19I gaps: full journal-loss RTO/RPO and deletion reconciliation, hosted mixed-version rehearsal, full server admission/monitoring, physical devices, and a durable campaign ledger remain follow-ups. Correctness, answer confidentiality, golden secrecy, working application rollback, backup capture, and the Saturday window still block release. No missing check is converted to a pass.
+
+The platform asset gate is now 20,000 files / 25 MiB. Existing pinned Animals/Cities/Films/Songs files remain byte-for-byte unchanged. 10,000,000 bytes is a new-version warning target. Fresh build passes: 13,852 files; largest 18,386,687 bytes. Official limits rechecked Nov 28 at https://developers.cloudflare.com/pages/platform/limits/ .
+
+Additional continuation findings: old smoke allowed identity-creating GET bootstrap/me, so the new smoke assembles an anonymous envelope from real public today/leaderboard responses and intercepts sockets. It never calls production identity endpoints. Prior relative Wrangler --outdir evidence hashed only a generated README; continuation uses an absolute bundle path and hashes actual deployment modules, excluding timestamp README and source maps. Prior hash is not accepted as Worker artifact proof.
+
+Hosted load stays skipped: no separate account credentials and no complete forecast with positive DO-duration reserve. Fresh account metrics and all attempted local failures remain recorded. Small read-only practice/production smoke is release validation, not hosted capacity proof.
+
+---
+
 # R20 request inventory and prioritized findings
 
 All statuses below describe the local branch. Nothing in R20 is shipped. The required asset gate fails and the required hosted practice/recovery gates have not passed; production is a NO-GO. Optional product work remains requested, rather than being silently removed.
