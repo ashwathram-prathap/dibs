@@ -31,7 +31,7 @@ for (const gate of [
   if (proof.gates?.[gate] !== true) throw Error('R20 required gate missing: ' + gate);
 if (
   !proof.rollback?.pages ||
-  !proof.rollback?.worker ||
+  !proof.rollback?.workerVersion ||
   Date.now() - Date.parse(proof.at) > 3600000
 )
   throw Error('Fresh evidence and rollback IDs required');
