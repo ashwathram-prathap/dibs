@@ -209,3 +209,6 @@ review/round19i/lighthouse*/
 # Private owner review notes must never enter repository history.
 SPEC-REVIEW-NOTES.md
 PENDING-SPECS-FOR-REVIEW.md
+
+# load-test Cloudflare account (owner only)
+wrangler.loadtest.jsonc
