@@ -1,0 +1,71 @@
+{
+  "passed": true,
+  "at": "2026-11-28T05:41:50.772Z",
+  "rollback": {
+    "pages": "8655ae26-06a7-4929-9fe9-de560dbed835",
+    "workerVersion": "26410237-28f6-4707-86fa-21a3af998a54",
+    "workerDeployment": "5350bff9-d13c-49e9-8d49-96aa9338b1af",
+    "recordedAt": "2026-11-28T05:40:37.030Z"
+  },
+  "deployment": {
+    "pages": "b23b86cd-82c1-48f0-8370-42a7c2cb541a",
+    "workerVersion": "56d9c29d-77b4-4e7c-9014-54c978cc48a0",
+    "workerDeployment": "fcc0923b-20cc-4f90-8b9c-515ef317740f",
+    "recordedAt": "2026-11-28T05:41:50.759Z"
+  },
+  "commit": "e1ae655c410809c97364c8833596928f87598312",
+  "pagesDigest": "fbd1989ae1b31d5d0c5e44807d59b44aba45ece594ab2a816a6318a7935a1736",
+  "workerDigest": "d38c44ff15ede6485669fde3e6a28b4d57bc94af2515c09db778eca966102f72",
+  "steps": [
+    {
+      "name": "Asset limits",
+      "passed": true,
+      "at": "2026-11-28T05:40:35.666Z"
+    },
+    {
+      "name": "Capture rollback IDs",
+      "passed": true,
+      "at": "2026-11-28T05:40:37.048Z"
+    },
+    {
+      "name": "Private production D1 backup (journal loss remains follow-up)",
+      "passed": true,
+      "at": "2026-11-28T05:40:40.571Z"
+    },
+    {
+      "name": "Fresh candidate and window gate",
+      "passed": true,
+      "at": "2026-11-28T05:40:42.394Z"
+    },
+    {
+      "name": "Deploy production immutable assets and Pages",
+      "passed": true,
+      "at": "2026-11-28T05:40:54.598Z"
+    },
+    {
+      "name": "Fresh production assets",
+      "passed": true,
+      "at": "2026-11-28T05:40:56.245Z"
+    },
+    {
+      "name": "Fresh candidate and window gate",
+      "passed": true,
+      "at": "2026-11-28T05:40:57.365Z"
+    },
+    {
+      "name": "Deploy production Worker",
+      "passed": true,
+      "at": "2026-11-28T05:41:11.637Z"
+    },
+    {
+      "name": "Read-only production smoke",
+      "passed": true,
+      "at": "2026-11-28T05:41:48.955Z"
+    },
+    {
+      "name": "Capture released IDs",
+      "passed": true,
+      "at": "2026-11-28T05:41:50.771Z"
+    }
+  ]
+}

@@ -16,3 +16,5 @@ Official Pages/DO/D1 limits rechecked Nov 28:
 - https://developers.cloudflare.com/d1/platform/pricing/
 
 No hosted load: separate credentials empty; full shared-account duration forecast/headroom missing. No >50-player local pass or hosted capacity is claimed. Existing COSTS.md assumptions remain unchanged.
+
+Production Pages/Worker deployment and public smoke completed at 00:41 ET. The additional authenticated funnel probe initially reached the old DO handler (401 cookie error). Cloudflare defaults to deferred DO code updates for up to 300 seconds; practice explicitly uses immediate updates. Waiting for the new active handler and verifying its aggregate before tagging. Source rechecked Nov 28: https://developers.cloudflare.com/durable-objects/deployments/durable-objects-code-updates/ . The initial release-guard field mismatch (`worker` versus captured `workerVersion`) stopped before any production deployment and was corrected in `e1ae655`.

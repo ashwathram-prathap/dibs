@@ -912,3 +912,21 @@ it('applies the additive migration without changing any legacy claim, strike, id
   );
   expect(await snapshot()).toEqual(before);
 });
+
+it('R20 admin funnel authenticates without a player cookie and exposes only bounded aggregates', async () => {
+  const url = 'http://localhost/api/admin/r20-funnel';
+  expect((await mf.dispatchFetch(url)).status).toBe(404);
+  const get = () =>
+    mf.dispatchFetch(url, { headers: { authorization: 'Bearer static-test-admin' } });
+  const response = await get();
+  expect(response.status).toBe(200);
+  expect(response.headers.get('set-cookie')).toBeNull();
+  const data: any = await response.json();
+  expect(data.cacheSeconds).toBe(60);
+  expect(data.participants).toBeGreaterThanOrEqual(0);
+  expect(data.claims).toBeGreaterThanOrEqual(0);
+  expect(data).not.toHaveProperty('files');
+  expect(data).not.toHaveProperty('users');
+  expect(data).not.toHaveProperty('seed');
+  expect(((await (await get()).json()) as any).asOf).toBe(data.asOf);
+});

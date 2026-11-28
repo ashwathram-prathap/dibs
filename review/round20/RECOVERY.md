@@ -1,3 +1,9 @@
+# Amendment update — 28 November
+
+The following text preserves the first attempt's limitations. The continuation captured a private production D1 export at release (see `release-evidence.json`), verified rollback artifacts, and performed a hosted practice application rollback/forward recovery with existing score/schedule preservation. Production journals were never reset or restored. Full journal-storage-loss RTO/RPO and deletion reconciliation are inherited R19I gaps accepted as follow-ups by the owner amendment; this does not claim they passed.
+
+---
+
 # Recovery status — local candidate, release blocked
 
 The live authoritative source for accepted R17+ results is each DayRegistry's SQLite `events` journal. Its full private snapshots include claims, strikes, replay responses, identity/recovery hash and streak dates. D1 `r17_files` is a delayed mirror; `r17_players` and legacy tables supplement identity. Catalog ordinals, score assets, config and the existing daily commitment metadata are required to interpret a restored file. `r17_boards` is a derived closed snapshot.
