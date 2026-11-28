@@ -1,0 +1,3130 @@
+{
+  "config": {
+    "argv": [
+      "/opt/homebrew/Cellar/node/26.13.1_2/bin/node",
+      "/Users/ashwathram/Projects/dibs/node_modules/.bin/playwright",
+      "test",
+      "-c",
+      "playwright.r21-check.config.ts"
+    ],
+    "configFile": "/Users/ashwathram/Projects/dibs/playwright.r21-check.config.ts",
+    "rootDir": "/Users/ashwathram/Projects/dibs/tests/e2e",
+    "failOnFlakyTests": false,
+    "forbidOnly": false,
+    "fullyParallel": true,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 4
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "/Users/ashwathram/Projects/dibs/.tmp/r21/keyboard-artifacts",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "fontScale": 1
+        },
+        "id": "chromium-320-light-font1",
+        "name": "chromium-320-light-font1",
+        "testDir": "/Users/ashwathram/Projects/dibs/tests/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "round21-late-ack.spec.ts"
+        ],
+        "timeout": 60000
+      },
+      {
+        "outputDir": "/Users/ashwathram/Projects/dibs/.tmp/r21/keyboard-artifacts",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "fontScale": 1.3
+        },
+        "id": "chromium-320-light-font1.3",
+        "name": "chromium-320-light-font1.3",
+        "testDir": "/Users/ashwathram/Projects/dibs/tests/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "round21-late-ack.spec.ts"
+        ],
+        "timeout": 60000
+      },
+      {
+        "outputDir": "/Users/ashwathram/Projects/dibs/.tmp/r21/keyboard-artifacts",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "fontScale": 1
+        },
+        "id": "chromium-320-dark-font1",
+        "name": "chromium-320-dark-font1",
+        "testDir": "/Users/ashwathram/Projects/dibs/tests/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "round21-late-ack.spec.ts"
+        ],
+        "timeout": 60000
+      },
+      {
+        "outputDir": "/Users/ashwathram/Projects/dibs/.tmp/r21/keyboard-artifacts",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "fontScale": 1.3
+        },
+        "id": "chromium-320-dark-font1.3",
+        "name": "chromium-320-dark-font1.3",
+        "testDir": "/Users/ashwathram/Projects/dibs/tests/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "round21-late-ack.spec.ts"
+        ],
+        "timeout": 60000
+      },
+      {
+        "outputDir": "/Users/ashwathram/Projects/dibs/.tmp/r21/keyboard-artifacts",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "fontScale": 1
+        },
+        "id": "chromium-360-light-font1",
+        "name": "chromium-360-light-font1",
+        "testDir": "/Users/ashwathram/Projects/dibs/tests/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "round21-late-ack.spec.ts"
+        ],
+        "timeout": 60000
+      },
+      {
+        "outputDir": "/Users/ashwathram/Projects/dibs/.tmp/r21/keyboard-artifacts",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "fontScale": 1.3
+        },
+        "id": "chromium-360-light-font1.3",
+        "name": "chromium-360-light-font1.3",
+        "testDir": "/Users/ashwathram/Projects/dibs/tests/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "round21-late-ack.spec.ts"
+        ],
+        "timeout": 60000
+      },
+      {
+        "outputDir": "/Users/ashwathram/Projects/dibs/.tmp/r21/keyboard-artifacts",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "fontScale": 1
+        },
+        "id": "chromium-360-dark-font1",
+        "name": "chromium-360-dark-font1",
+        "testDir": "/Users/ashwathram/Projects/dibs/tests/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "round21-late-ack.spec.ts"
+        ],
+        "timeout": 60000
+      },
+      {
+        "outputDir": "/Users/ashwathram/Projects/dibs/.tmp/r21/keyboard-artifacts",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "fontScale": 1.3
+        },
+        "id": "chromium-360-dark-font1.3",
+        "name": "chromium-360-dark-font1.3",
+        "testDir": "/Users/ashwathram/Projects/dibs/tests/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "round21-late-ack.spec.ts"
+        ],
+        "timeout": 60000
+      },
+      {
+        "outputDir": "/Users/ashwathram/Projects/dibs/.tmp/r21/keyboard-artifacts",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "fontScale": 1
+        },
+        "id": "chromium-390-light-font1",
+        "name": "chromium-390-light-font1",
+        "testDir": "/Users/ashwathram/Projects/dibs/tests/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "round21-late-ack.spec.ts"
+        ],
+        "timeout": 60000
+      },
+      {
+        "outputDir": "/Users/ashwathram/Projects/dibs/.tmp/r21/keyboard-artifacts",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "fontScale": 1.3
+        },
+        "id": "chromium-390-light-font1.3",
+        "name": "chromium-390-light-font1.3",
+        "testDir": "/Users/ashwathram/Projects/dibs/tests/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "round21-late-ack.spec.ts"
+        ],
+        "timeout": 60000
+      },
+      {
+        "outputDir": "/Users/ashwathram/Projects/dibs/.tmp/r21/keyboard-artifacts",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "fontScale": 1
+        },
+        "id": "chromium-390-dark-font1",
+        "name": "chromium-390-dark-font1",
+        "testDir": "/Users/ashwathram/Projects/dibs/tests/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "round21-late-ack.spec.ts"
+        ],
+        "timeout": 60000
+      },
+      {
+        "outputDir": "/Users/ashwathram/Projects/dibs/.tmp/r21/keyboard-artifacts",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "fontScale": 1.3
+        },
+        "id": "chromium-390-dark-font1.3",
+        "name": "chromium-390-dark-font1.3",
+        "testDir": "/Users/ashwathram/Projects/dibs/tests/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "round21-late-ack.spec.ts"
+        ],
+        "timeout": 60000
+      },
+      {
+        "outputDir": "/Users/ashwathram/Projects/dibs/.tmp/r21/keyboard-artifacts",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "fontScale": 1
+        },
+        "id": "chromium-768-light-font1",
+        "name": "chromium-768-light-font1",
+        "testDir": "/Users/ashwathram/Projects/dibs/tests/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "round21-late-ack.spec.ts"
+        ],
+        "timeout": 60000
+      },
+      {
+        "outputDir": "/Users/ashwathram/Projects/dibs/.tmp/r21/keyboard-artifacts",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "fontScale": 1
+        },
+        "id": "chromium-768-dark-font1",
+        "name": "chromium-768-dark-font1",
+        "testDir": "/Users/ashwathram/Projects/dibs/tests/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "round21-late-ack.spec.ts"
+        ],
+        "timeout": 60000
+      },
+      {
+        "outputDir": "/Users/ashwathram/Projects/dibs/.tmp/r21/keyboard-artifacts",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "fontScale": 1
+        },
+        "id": "chromium-1280-light-font1",
+        "name": "chromium-1280-light-font1",
+        "testDir": "/Users/ashwathram/Projects/dibs/tests/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "round21-late-ack.spec.ts"
+        ],
+        "timeout": 60000
+      },
+      {
+        "outputDir": "/Users/ashwathram/Projects/dibs/.tmp/r21/keyboard-artifacts",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "fontScale": 1
+        },
+        "id": "chromium-1280-dark-font1",
+        "name": "chromium-1280-dark-font1",
+        "testDir": "/Users/ashwathram/Projects/dibs/tests/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "round21-late-ack.spec.ts"
+        ],
+        "timeout": 60000
+      },
+      {
+        "outputDir": "/Users/ashwathram/Projects/dibs/.tmp/r21/keyboard-artifacts",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "fontScale": 1
+        },
+        "id": "chromium-1440-light-font1",
+        "name": "chromium-1440-light-font1",
+        "testDir": "/Users/ashwathram/Projects/dibs/tests/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "round21-late-ack.spec.ts"
+        ],
+        "timeout": 60000
+      },
+      {
+        "outputDir": "/Users/ashwathram/Projects/dibs/.tmp/r21/keyboard-artifacts",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "fontScale": 1
+        },
+        "id": "chromium-1440-dark-font1",
+        "name": "chromium-1440-dark-font1",
+        "testDir": "/Users/ashwathram/Projects/dibs/tests/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "round21-late-ack.spec.ts"
+        ],
+        "timeout": 60000
+      },
+      {
+        "outputDir": "/Users/ashwathram/Projects/dibs/.tmp/r21/keyboard-artifacts",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "fontScale": 1
+        },
+        "id": "chromium-2560-light-font1",
+        "name": "chromium-2560-light-font1",
+        "testDir": "/Users/ashwathram/Projects/dibs/tests/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "round21-late-ack.spec.ts"
+        ],
+        "timeout": 60000
+      },
+      {
+        "outputDir": "/Users/ashwathram/Projects/dibs/.tmp/r21/keyboard-artifacts",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "fontScale": 1
+        },
+        "id": "chromium-2560-dark-font1",
+        "name": "chromium-2560-dark-font1",
+        "testDir": "/Users/ashwathram/Projects/dibs/tests/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "round21-late-ack.spec.ts"
+        ],
+        "timeout": 60000
+      },
+      {
+        "outputDir": "/Users/ashwathram/Projects/dibs/.tmp/r21/keyboard-artifacts",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "fontScale": 1
+        },
+        "id": "webkit-320-light-font1",
+        "name": "webkit-320-light-font1",
+        "testDir": "/Users/ashwathram/Projects/dibs/tests/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "round21-late-ack.spec.ts"
+        ],
+        "timeout": 60000
+      },
+      {
+        "outputDir": "/Users/ashwathram/Projects/dibs/.tmp/r21/keyboard-artifacts",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "fontScale": 1.3
+        },
+        "id": "webkit-320-light-font1.3",
+        "name": "webkit-320-light-font1.3",
+        "testDir": "/Users/ashwathram/Projects/dibs/tests/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "round21-late-ack.spec.ts"
+        ],
+        "timeout": 60000
+      },
+      {
+        "outputDir": "/Users/ashwathram/Projects/dibs/.tmp/r21/keyboard-artifacts",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "fontScale": 1
+        },
+        "id": "webkit-320-dark-font1",
+        "name": "webkit-320-dark-font1",
+        "testDir": "/Users/ashwathram/Projects/dibs/tests/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "round21-late-ack.spec.ts"
+        ],
+        "timeout": 60000
+      },
+      {
+        "outputDir": "/Users/ashwathram/Projects/dibs/.tmp/r21/keyboard-artifacts",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "fontScale": 1.3
+        },
+        "id": "webkit-320-dark-font1.3",
+        "name": "webkit-320-dark-font1.3",
+        "testDir": "/Users/ashwathram/Projects/dibs/tests/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "round21-late-ack.spec.ts"
+        ],
+        "timeout": 60000
+      },
+      {
+        "outputDir": "/Users/ashwathram/Projects/dibs/.tmp/r21/keyboard-artifacts",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "fontScale": 1
+        },
+        "id": "webkit-360-light-font1",
+        "name": "webkit-360-light-font1",
+        "testDir": "/Users/ashwathram/Projects/dibs/tests/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "round21-late-ack.spec.ts"
+        ],
+        "timeout": 60000
+      },
+      {
+        "outputDir": "/Users/ashwathram/Projects/dibs/.tmp/r21/keyboard-artifacts",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "fontScale": 1.3
+        },
+        "id": "webkit-360-light-font1.3",
+        "name": "webkit-360-light-font1.3",
+        "testDir": "/Users/ashwathram/Projects/dibs/tests/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "round21-late-ack.spec.ts"
+        ],
+        "timeout": 60000
+      },
+      {
+        "outputDir": "/Users/ashwathram/Projects/dibs/.tmp/r21/keyboard-artifacts",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "fontScale": 1
+        },
+        "id": "webkit-360-dark-font1",
+        "name": "webkit-360-dark-font1",
+        "testDir": "/Users/ashwathram/Projects/dibs/tests/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "round21-late-ack.spec.ts"
+        ],
+        "timeout": 60000
+      },
+      {
+        "outputDir": "/Users/ashwathram/Projects/dibs/.tmp/r21/keyboard-artifacts",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "fontScale": 1.3
+        },
+        "id": "webkit-360-dark-font1.3",
+        "name": "webkit-360-dark-font1.3",
+        "testDir": "/Users/ashwathram/Projects/dibs/tests/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "round21-late-ack.spec.ts"
+        ],
+        "timeout": 60000
+      },
+      {
+        "outputDir": "/Users/ashwathram/Projects/dibs/.tmp/r21/keyboard-artifacts",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "fontScale": 1
+        },
+        "id": "webkit-390-light-font1",
+        "name": "webkit-390-light-font1",
+        "testDir": "/Users/ashwathram/Projects/dibs/tests/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "round21-late-ack.spec.ts"
+        ],
+        "timeout": 60000
+      },
+      {
+        "outputDir": "/Users/ashwathram/Projects/dibs/.tmp/r21/keyboard-artifacts",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "fontScale": 1.3
+        },
+        "id": "webkit-390-light-font1.3",
+        "name": "webkit-390-light-font1.3",
+        "testDir": "/Users/ashwathram/Projects/dibs/tests/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "round21-late-ack.spec.ts"
+        ],
+        "timeout": 60000
+      },
+      {
+        "outputDir": "/Users/ashwathram/Projects/dibs/.tmp/r21/keyboard-artifacts",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "fontScale": 1
+        },
+        "id": "webkit-390-dark-font1",
+        "name": "webkit-390-dark-font1",
+        "testDir": "/Users/ashwathram/Projects/dibs/tests/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "round21-late-ack.spec.ts"
+        ],
+        "timeout": 60000
+      },
+      {
+        "outputDir": "/Users/ashwathram/Projects/dibs/.tmp/r21/keyboard-artifacts",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "fontScale": 1.3
+        },
+        "id": "webkit-390-dark-font1.3",
+        "name": "webkit-390-dark-font1.3",
+        "testDir": "/Users/ashwathram/Projects/dibs/tests/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "round21-late-ack.spec.ts"
+        ],
+        "timeout": 60000
+      },
+      {
+        "outputDir": "/Users/ashwathram/Projects/dibs/.tmp/r21/keyboard-artifacts",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "fontScale": 1
+        },
+        "id": "webkit-768-light-font1",
+        "name": "webkit-768-light-font1",
+        "testDir": "/Users/ashwathram/Projects/dibs/tests/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "round21-late-ack.spec.ts"
+        ],
+        "timeout": 60000
+      },
+      {
+        "outputDir": "/Users/ashwathram/Projects/dibs/.tmp/r21/keyboard-artifacts",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "fontScale": 1
+        },
+        "id": "webkit-768-dark-font1",
+        "name": "webkit-768-dark-font1",
+        "testDir": "/Users/ashwathram/Projects/dibs/tests/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "round21-late-ack.spec.ts"
+        ],
+        "timeout": 60000
+      },
+      {
+        "outputDir": "/Users/ashwathram/Projects/dibs/.tmp/r21/keyboard-artifacts",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "fontScale": 1
+        },
+        "id": "webkit-1280-light-font1",
+        "name": "webkit-1280-light-font1",
+        "testDir": "/Users/ashwathram/Projects/dibs/tests/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "round21-late-ack.spec.ts"
+        ],
+        "timeout": 60000
+      },
+      {
+        "outputDir": "/Users/ashwathram/Projects/dibs/.tmp/r21/keyboard-artifacts",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "fontScale": 1
+        },
+        "id": "webkit-1280-dark-font1",
+        "name": "webkit-1280-dark-font1",
+        "testDir": "/Users/ashwathram/Projects/dibs/tests/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "round21-late-ack.spec.ts"
+        ],
+        "timeout": 60000
+      },
+      {
+        "outputDir": "/Users/ashwathram/Projects/dibs/.tmp/r21/keyboard-artifacts",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "fontScale": 1
+        },
+        "id": "webkit-1440-light-font1",
+        "name": "webkit-1440-light-font1",
+        "testDir": "/Users/ashwathram/Projects/dibs/tests/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "round21-late-ack.spec.ts"
+        ],
+        "timeout": 60000
+      },
+      {
+        "outputDir": "/Users/ashwathram/Projects/dibs/.tmp/r21/keyboard-artifacts",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "fontScale": 1
+        },
+        "id": "webkit-1440-dark-font1",
+        "name": "webkit-1440-dark-font1",
+        "testDir": "/Users/ashwathram/Projects/dibs/tests/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "round21-late-ack.spec.ts"
+        ],
+        "timeout": 60000
+      },
+      {
+        "outputDir": "/Users/ashwathram/Projects/dibs/.tmp/r21/keyboard-artifacts",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "fontScale": 1
+        },
+        "id": "webkit-2560-light-font1",
+        "name": "webkit-2560-light-font1",
+        "testDir": "/Users/ashwathram/Projects/dibs/tests/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "round21-late-ack.spec.ts"
+        ],
+        "timeout": 60000
+      },
+      {
+        "outputDir": "/Users/ashwathram/Projects/dibs/.tmp/r21/keyboard-artifacts",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "fontScale": 1
+        },
+        "id": "webkit-2560-dark-font1",
+        "name": "webkit-2560-dark-font1",
+        "testDir": "/Users/ashwathram/Projects/dibs/tests/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "round21-late-ack.spec.ts"
+        ],
+        "timeout": 60000
+      }
+    ],
+    "filteredProjects": [
+      {
+        "grep": {},
+        "grepInvert": null,
+        "outputDir": "/Users/ashwathram/Projects/dibs/.tmp/r21/keyboard-artifacts",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "fontScale": 1
+        },
+        "name": "chromium-320-light-font1",
+        "testDir": "/Users/ashwathram/Projects/dibs/tests/e2e",
+        "snapshotDir": "/Users/ashwathram/Projects/dibs/tests/e2e",
+        "testIgnore": [],
+        "testMatch": "round21-late-ack.spec.ts",
+        "timeout": 60000,
+        "use": {
+          "baseURL": "http://127.0.0.1:5252",
+          "timezoneId": "America/Toronto",
+          "video": "on",
+          "screenshot": "only-on-failure",
+          "browserName": "chromium",
+          "colorScheme": "light",
+          "viewport": {
+            "width": 320,
+            "height": 568
+          }
+        },
+        "dependencies": [],
+        "ignoreSnapshots": false,
+        "__projectId": "chromium-320-light-font1"
+      },
+      {
+        "grep": {},
+        "grepInvert": null,
+        "outputDir": "/Users/ashwathram/Projects/dibs/.tmp/r21/keyboard-artifacts",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "fontScale": 1.3
+        },
+        "name": "chromium-320-light-font1.3",
+        "testDir": "/Users/ashwathram/Projects/dibs/tests/e2e",
+        "snapshotDir": "/Users/ashwathram/Projects/dibs/tests/e2e",
+        "testIgnore": [],
+        "testMatch": "round21-late-ack.spec.ts",
+        "timeout": 60000,
+        "use": {
+          "baseURL": "http://127.0.0.1:5252",
+          "timezoneId": "America/Toronto",
+          "video": "on",
+          "screenshot": "only-on-failure",
+          "browserName": "chromium",
+          "colorScheme": "light",
+          "viewport": {
+            "width": 320,
+            "height": 568
+          }
+        },
+        "dependencies": [],
+        "ignoreSnapshots": false,
+        "__projectId": "chromium-320-light-font1.3"
+      },
+      {
+        "grep": {},
+        "grepInvert": null,
+        "outputDir": "/Users/ashwathram/Projects/dibs/.tmp/r21/keyboard-artifacts",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "fontScale": 1
+        },
+        "name": "chromium-320-dark-font1",
+        "testDir": "/Users/ashwathram/Projects/dibs/tests/e2e",
+        "snapshotDir": "/Users/ashwathram/Projects/dibs/tests/e2e",
+        "testIgnore": [],
+        "testMatch": "round21-late-ack.spec.ts",
+        "timeout": 60000,
+        "use": {
+          "baseURL": "http://127.0.0.1:5252",
+          "timezoneId": "America/Toronto",
+          "video": "on",
+          "screenshot": "only-on-failure",
+          "browserName": "chromium",
+          "colorScheme": "dark",
+          "viewport": {
+            "width": 320,
+            "height": 568
+          }
+        },
+        "dependencies": [],
+        "ignoreSnapshots": false,
+        "__projectId": "chromium-320-dark-font1"
+      },
+      {
+        "grep": {},
+        "grepInvert": null,
+        "outputDir": "/Users/ashwathram/Projects/dibs/.tmp/r21/keyboard-artifacts",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "fontScale": 1.3
+        },
+        "name": "chromium-320-dark-font1.3",
+        "testDir": "/Users/ashwathram/Projects/dibs/tests/e2e",
+        "snapshotDir": "/Users/ashwathram/Projects/dibs/tests/e2e",
+        "testIgnore": [],
+        "testMatch": "round21-late-ack.spec.ts",
+        "timeout": 60000,
+        "use": {
+          "baseURL": "http://127.0.0.1:5252",
+          "timezoneId": "America/Toronto",
+          "video": "on",
+          "screenshot": "only-on-failure",
+          "browserName": "chromium",
+          "colorScheme": "dark",
+          "viewport": {
+            "width": 320,
+            "height": 568
+          }
+        },
+        "dependencies": [],
+        "ignoreSnapshots": false,
+        "__projectId": "chromium-320-dark-font1.3"
+      },
+      {
+        "grep": {},
+        "grepInvert": null,
+        "outputDir": "/Users/ashwathram/Projects/dibs/.tmp/r21/keyboard-artifacts",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "fontScale": 1
+        },
+        "name": "chromium-360-light-font1",
+        "testDir": "/Users/ashwathram/Projects/dibs/tests/e2e",
+        "snapshotDir": "/Users/ashwathram/Projects/dibs/tests/e2e",
+        "testIgnore": [],
+        "testMatch": "round21-late-ack.spec.ts",
+        "timeout": 60000,
+        "use": {
+          "baseURL": "http://127.0.0.1:5252",
+          "timezoneId": "America/Toronto",
+          "video": "on",
+          "screenshot": "only-on-failure",
+          "browserName": "chromium",
+          "colorScheme": "light",
+          "viewport": {
+            "width": 360,
+            "height": 844
+          }
+        },
+        "dependencies": [],
+        "ignoreSnapshots": false,
+        "__projectId": "chromium-360-light-font1"
+      },
+      {
+        "grep": {},
+        "grepInvert": null,
+        "outputDir": "/Users/ashwathram/Projects/dibs/.tmp/r21/keyboard-artifacts",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "fontScale": 1.3
+        },
+        "name": "chromium-360-light-font1.3",
+        "testDir": "/Users/ashwathram/Projects/dibs/tests/e2e",
+        "snapshotDir": "/Users/ashwathram/Projects/dibs/tests/e2e",
+        "testIgnore": [],
+        "testMatch": "round21-late-ack.spec.ts",
+        "timeout": 60000,
+        "use": {
+          "baseURL": "http://127.0.0.1:5252",
+          "timezoneId": "America/Toronto",
+          "video": "on",
+          "screenshot": "only-on-failure",
+          "browserName": "chromium",
+          "colorScheme": "light",
+          "viewport": {
+            "width": 360,
+            "height": 844
+          }
+        },
+        "dependencies": [],
+        "ignoreSnapshots": false,
+        "__projectId": "chromium-360-light-font1.3"
+      },
+      {
+        "grep": {},
+        "grepInvert": null,
+        "outputDir": "/Users/ashwathram/Projects/dibs/.tmp/r21/keyboard-artifacts",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "fontScale": 1
+        },
+        "name": "chromium-360-dark-font1",
+        "testDir": "/Users/ashwathram/Projects/dibs/tests/e2e",
+        "snapshotDir": "/Users/ashwathram/Projects/dibs/tests/e2e",
+        "testIgnore": [],
+        "testMatch": "round21-late-ack.spec.ts",
+        "timeout": 60000,
+        "use": {
+          "baseURL": "http://127.0.0.1:5252",
+          "timezoneId": "America/Toronto",
+          "video": "on",
+          "screenshot": "only-on-failure",
+          "browserName": "chromium",
+          "colorScheme": "dark",
+          "viewport": {
+            "width": 360,
+            "height": 844
+          }
+        },
+        "dependencies": [],
+        "ignoreSnapshots": false,
+        "__projectId": "chromium-360-dark-font1"
+      },
+      {
+        "grep": {},
+        "grepInvert": null,
+        "outputDir": "/Users/ashwathram/Projects/dibs/.tmp/r21/keyboard-artifacts",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "fontScale": 1.3
+        },
+        "name": "chromium-360-dark-font1.3",
+        "testDir": "/Users/ashwathram/Projects/dibs/tests/e2e",
+        "snapshotDir": "/Users/ashwathram/Projects/dibs/tests/e2e",
+        "testIgnore": [],
+        "testMatch": "round21-late-ack.spec.ts",
+        "timeout": 60000,
+        "use": {
+          "baseURL": "http://127.0.0.1:5252",
+          "timezoneId": "America/Toronto",
+          "video": "on",
+          "screenshot": "only-on-failure",
+          "browserName": "chromium",
+          "colorScheme": "dark",
+          "viewport": {
+            "width": 360,
+            "height": 844
+          }
+        },
+        "dependencies": [],
+        "ignoreSnapshots": false,
+        "__projectId": "chromium-360-dark-font1.3"
+      },
+      {
+        "grep": {},
+        "grepInvert": null,
+        "outputDir": "/Users/ashwathram/Projects/dibs/.tmp/r21/keyboard-artifacts",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "fontScale": 1
+        },
+        "name": "chromium-390-light-font1",
+        "testDir": "/Users/ashwathram/Projects/dibs/tests/e2e",
+        "snapshotDir": "/Users/ashwathram/Projects/dibs/tests/e2e",
+        "testIgnore": [],
+        "testMatch": "round21-late-ack.spec.ts",
+        "timeout": 60000,
+        "use": {
+          "baseURL": "http://127.0.0.1:5252",
+          "timezoneId": "America/Toronto",
+          "video": "on",
+          "screenshot": "only-on-failure",
+          "browserName": "chromium",
+          "colorScheme": "light",
+          "viewport": {
+            "width": 390,
+            "height": 844
+          }
+        },
+        "dependencies": [],
+        "ignoreSnapshots": false,
+        "__projectId": "chromium-390-light-font1"
+      },
+      {
+        "grep": {},
+        "grepInvert": null,
+        "outputDir": "/Users/ashwathram/Projects/dibs/.tmp/r21/keyboard-artifacts",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "fontScale": 1.3
+        },
+        "name": "chromium-390-light-font1.3",
+        "testDir": "/Users/ashwathram/Projects/dibs/tests/e2e",
+        "snapshotDir": "/Users/ashwathram/Projects/dibs/tests/e2e",
+        "testIgnore": [],
+        "testMatch": "round21-late-ack.spec.ts",
+        "timeout": 60000,
+        "use": {
+          "baseURL": "http://127.0.0.1:5252",
+          "timezoneId": "America/Toronto",
+          "video": "on",
+          "screenshot": "only-on-failure",
+          "browserName": "chromium",
+          "colorScheme": "light",
+          "viewport": {
+            "width": 390,
+            "height": 844
+          }
+        },
+        "dependencies": [],
+        "ignoreSnapshots": false,
+        "__projectId": "chromium-390-light-font1.3"
+      },
+      {
+        "grep": {},
+        "grepInvert": null,
+        "outputDir": "/Users/ashwathram/Projects/dibs/.tmp/r21/keyboard-artifacts",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "fontScale": 1
+        },
+        "name": "chromium-390-dark-font1",
+        "testDir": "/Users/ashwathram/Projects/dibs/tests/e2e",
+        "snapshotDir": "/Users/ashwathram/Projects/dibs/tests/e2e",
+        "testIgnore": [],
+        "testMatch": "round21-late-ack.spec.ts",
+        "timeout": 60000,
+        "use": {
+          "baseURL": "http://127.0.0.1:5252",
+          "timezoneId": "America/Toronto",
+          "video": "on",
+          "screenshot": "only-on-failure",
+          "browserName": "chromium",
+          "colorScheme": "dark",
+          "viewport": {
+            "width": 390,
+            "height": 844
+          }
+        },
+        "dependencies": [],
+        "ignoreSnapshots": false,
+        "__projectId": "chromium-390-dark-font1"
+      },
+      {
+        "grep": {},
+        "grepInvert": null,
+        "outputDir": "/Users/ashwathram/Projects/dibs/.tmp/r21/keyboard-artifacts",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "fontScale": 1.3
+        },
+        "name": "chromium-390-dark-font1.3",
+        "testDir": "/Users/ashwathram/Projects/dibs/tests/e2e",
+        "snapshotDir": "/Users/ashwathram/Projects/dibs/tests/e2e",
+        "testIgnore": [],
+        "testMatch": "round21-late-ack.spec.ts",
+        "timeout": 60000,
+        "use": {
+          "baseURL": "http://127.0.0.1:5252",
+          "timezoneId": "America/Toronto",
+          "video": "on",
+          "screenshot": "only-on-failure",
+          "browserName": "chromium",
+          "colorScheme": "dark",
+          "viewport": {
+            "width": 390,
+            "height": 844
+          }
+        },
+        "dependencies": [],
+        "ignoreSnapshots": false,
+        "__projectId": "chromium-390-dark-font1.3"
+      },
+      {
+        "grep": {},
+        "grepInvert": null,
+        "outputDir": "/Users/ashwathram/Projects/dibs/.tmp/r21/keyboard-artifacts",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "fontScale": 1
+        },
+        "name": "chromium-768-light-font1",
+        "testDir": "/Users/ashwathram/Projects/dibs/tests/e2e",
+        "snapshotDir": "/Users/ashwathram/Projects/dibs/tests/e2e",
+        "testIgnore": [],
+        "testMatch": "round21-late-ack.spec.ts",
+        "timeout": 60000,
+        "use": {
+          "baseURL": "http://127.0.0.1:5252",
+          "timezoneId": "America/Toronto",
+          "video": "on",
+          "screenshot": "only-on-failure",
+          "browserName": "chromium",
+          "colorScheme": "light",
+          "viewport": {
+            "width": 768,
+            "height": 900
+          }
+        },
+        "dependencies": [],
+        "ignoreSnapshots": false,
+        "__projectId": "chromium-768-light-font1"
+      },
+      {
+        "grep": {},
+        "grepInvert": null,
+        "outputDir": "/Users/ashwathram/Projects/dibs/.tmp/r21/keyboard-artifacts",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "fontScale": 1
+        },
+        "name": "chromium-768-dark-font1",
+        "testDir": "/Users/ashwathram/Projects/dibs/tests/e2e",
+        "snapshotDir": "/Users/ashwathram/Projects/dibs/tests/e2e",
+        "testIgnore": [],
+        "testMatch": "round21-late-ack.spec.ts",
+        "timeout": 60000,
+        "use": {
+          "baseURL": "http://127.0.0.1:5252",
+          "timezoneId": "America/Toronto",
+          "video": "on",
+          "screenshot": "only-on-failure",
+          "browserName": "chromium",
+          "colorScheme": "dark",
+          "viewport": {
+            "width": 768,
+            "height": 900
+          }
+        },
+        "dependencies": [],
+        "ignoreSnapshots": false,
+        "__projectId": "chromium-768-dark-font1"
+      },
+      {
+        "grep": {},
+        "grepInvert": null,
+        "outputDir": "/Users/ashwathram/Projects/dibs/.tmp/r21/keyboard-artifacts",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "fontScale": 1
+        },
+        "name": "chromium-1280-light-font1",
+        "testDir": "/Users/ashwathram/Projects/dibs/tests/e2e",
+        "snapshotDir": "/Users/ashwathram/Projects/dibs/tests/e2e",
+        "testIgnore": [],
+        "testMatch": "round21-late-ack.spec.ts",
+        "timeout": 60000,
+        "use": {
+          "baseURL": "http://127.0.0.1:5252",
+          "timezoneId": "America/Toronto",
+          "video": "on",
+          "screenshot": "only-on-failure",
+          "browserName": "chromium",
+          "colorScheme": "light",
+          "viewport": {
+            "width": 1280,
+            "height": 900
+          }
+        },
+        "dependencies": [],
+        "ignoreSnapshots": false,
+        "__projectId": "chromium-1280-light-font1"
+      },
+      {
+        "grep": {},
+        "grepInvert": null,
+        "outputDir": "/Users/ashwathram/Projects/dibs/.tmp/r21/keyboard-artifacts",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "fontScale": 1
+        },
+        "name": "chromium-1280-dark-font1",
+        "testDir": "/Users/ashwathram/Projects/dibs/tests/e2e",
+        "snapshotDir": "/Users/ashwathram/Projects/dibs/tests/e2e",
+        "testIgnore": [],
+        "testMatch": "round21-late-ack.spec.ts",
+        "timeout": 60000,
+        "use": {
+          "baseURL": "http://127.0.0.1:5252",
+          "timezoneId": "America/Toronto",
+          "video": "on",
+          "screenshot": "only-on-failure",
+          "browserName": "chromium",
+          "colorScheme": "dark",
+          "viewport": {
+            "width": 1280,
+            "height": 900
+          }
+        },
+        "dependencies": [],
+        "ignoreSnapshots": false,
+        "__projectId": "chromium-1280-dark-font1"
+      },
+      {
+        "grep": {},
+        "grepInvert": null,
+        "outputDir": "/Users/ashwathram/Projects/dibs/.tmp/r21/keyboard-artifacts",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "fontScale": 1
+        },
+        "name": "chromium-1440-light-font1",
+        "testDir": "/Users/ashwathram/Projects/dibs/tests/e2e",
+        "snapshotDir": "/Users/ashwathram/Projects/dibs/tests/e2e",
+        "testIgnore": [],
+        "testMatch": "round21-late-ack.spec.ts",
+        "timeout": 60000,
+        "use": {
+          "baseURL": "http://127.0.0.1:5252",
+          "timezoneId": "America/Toronto",
+          "video": "on",
+          "screenshot": "only-on-failure",
+          "browserName": "chromium",
+          "colorScheme": "light",
+          "viewport": {
+            "width": 1440,
+            "height": 900
+          }
+        },
+        "dependencies": [],
+        "ignoreSnapshots": false,
+        "__projectId": "chromium-1440-light-font1"
+      },
+      {
+        "grep": {},
+        "grepInvert": null,
+        "outputDir": "/Users/ashwathram/Projects/dibs/.tmp/r21/keyboard-artifacts",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "fontScale": 1
+        },
+        "name": "chromium-1440-dark-font1",
+        "testDir": "/Users/ashwathram/Projects/dibs/tests/e2e",
+        "snapshotDir": "/Users/ashwathram/Projects/dibs/tests/e2e",
+        "testIgnore": [],
+        "testMatch": "round21-late-ack.spec.ts",
+        "timeout": 60000,
+        "use": {
+          "baseURL": "http://127.0.0.1:5252",
+          "timezoneId": "America/Toronto",
+          "video": "on",
+          "screenshot": "only-on-failure",
+          "browserName": "chromium",
+          "colorScheme": "dark",
+          "viewport": {
+            "width": 1440,
+            "height": 900
+          }
+        },
+        "dependencies": [],
+        "ignoreSnapshots": false,
+        "__projectId": "chromium-1440-dark-font1"
+      },
+      {
+        "grep": {},
+        "grepInvert": null,
+        "outputDir": "/Users/ashwathram/Projects/dibs/.tmp/r21/keyboard-artifacts",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "fontScale": 1
+        },
+        "name": "chromium-2560-light-font1",
+        "testDir": "/Users/ashwathram/Projects/dibs/tests/e2e",
+        "snapshotDir": "/Users/ashwathram/Projects/dibs/tests/e2e",
+        "testIgnore": [],
+        "testMatch": "round21-late-ack.spec.ts",
+        "timeout": 60000,
+        "use": {
+          "baseURL": "http://127.0.0.1:5252",
+          "timezoneId": "America/Toronto",
+          "video": "on",
+          "screenshot": "only-on-failure",
+          "browserName": "chromium",
+          "colorScheme": "light",
+          "viewport": {
+            "width": 2560,
+            "height": 900
+          }
+        },
+        "dependencies": [],
+        "ignoreSnapshots": false,
+        "__projectId": "chromium-2560-light-font1"
+      },
+      {
+        "grep": {},
+        "grepInvert": null,
+        "outputDir": "/Users/ashwathram/Projects/dibs/.tmp/r21/keyboard-artifacts",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "fontScale": 1
+        },
+        "name": "chromium-2560-dark-font1",
+        "testDir": "/Users/ashwathram/Projects/dibs/tests/e2e",
+        "snapshotDir": "/Users/ashwathram/Projects/dibs/tests/e2e",
+        "testIgnore": [],
+        "testMatch": "round21-late-ack.spec.ts",
+        "timeout": 60000,
+        "use": {
+          "baseURL": "http://127.0.0.1:5252",
+          "timezoneId": "America/Toronto",
+          "video": "on",
+          "screenshot": "only-on-failure",
+          "browserName": "chromium",
+          "colorScheme": "dark",
+          "viewport": {
+            "width": 2560,
+            "height": 900
+          }
+        },
+        "dependencies": [],
+        "ignoreSnapshots": false,
+        "__projectId": "chromium-2560-dark-font1"
+      },
+      {
+        "grep": {},
+        "grepInvert": null,
+        "outputDir": "/Users/ashwathram/Projects/dibs/.tmp/r21/keyboard-artifacts",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "fontScale": 1
+        },
+        "name": "webkit-320-light-font1",
+        "testDir": "/Users/ashwathram/Projects/dibs/tests/e2e",
+        "snapshotDir": "/Users/ashwathram/Projects/dibs/tests/e2e",
+        "testIgnore": [],
+        "testMatch": "round21-late-ack.spec.ts",
+        "timeout": 60000,
+        "use": {
+          "baseURL": "http://127.0.0.1:5252",
+          "timezoneId": "America/Toronto",
+          "video": "on",
+          "screenshot": "only-on-failure",
+          "browserName": "webkit",
+          "colorScheme": "light",
+          "viewport": {
+            "width": 320,
+            "height": 568
+          }
+        },
+        "dependencies": [],
+        "ignoreSnapshots": false,
+        "__projectId": "webkit-320-light-font1"
+      },
+      {
+        "grep": {},
+        "grepInvert": null,
+        "outputDir": "/Users/ashwathram/Projects/dibs/.tmp/r21/keyboard-artifacts",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "fontScale": 1.3
+        },
+        "name": "webkit-320-light-font1.3",
+        "testDir": "/Users/ashwathram/Projects/dibs/tests/e2e",
+        "snapshotDir": "/Users/ashwathram/Projects/dibs/tests/e2e",
+        "testIgnore": [],
+        "testMatch": "round21-late-ack.spec.ts",
+        "timeout": 60000,
+        "use": {
+          "baseURL": "http://127.0.0.1:5252",
+          "timezoneId": "America/Toronto",
+          "video": "on",
+          "screenshot": "only-on-failure",
+          "browserName": "webkit",
+          "colorScheme": "light",
+          "viewport": {
+            "width": 320,
+            "height": 568
+          }
+        },
+        "dependencies": [],
+        "ignoreSnapshots": false,
+        "__projectId": "webkit-320-light-font1.3"
+      },
+      {
+        "grep": {},
+        "grepInvert": null,
+        "outputDir": "/Users/ashwathram/Projects/dibs/.tmp/r21/keyboard-artifacts",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "fontScale": 1
+        },
+        "name": "webkit-320-dark-font1",
+        "testDir": "/Users/ashwathram/Projects/dibs/tests/e2e",
+        "snapshotDir": "/Users/ashwathram/Projects/dibs/tests/e2e",
+        "testIgnore": [],
+        "testMatch": "round21-late-ack.spec.ts",
+        "timeout": 60000,
+        "use": {
+          "baseURL": "http://127.0.0.1:5252",
+          "timezoneId": "America/Toronto",
+          "video": "on",
+          "screenshot": "only-on-failure",
+          "browserName": "webkit",
+          "colorScheme": "dark",
+          "viewport": {
+            "width": 320,
+            "height": 568
+          }
+        },
+        "dependencies": [],
+        "ignoreSnapshots": false,
+        "__projectId": "webkit-320-dark-font1"
+      },
+      {
+        "grep": {},
+        "grepInvert": null,
+        "outputDir": "/Users/ashwathram/Projects/dibs/.tmp/r21/keyboard-artifacts",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "fontScale": 1.3
+        },
+        "name": "webkit-320-dark-font1.3",
+        "testDir": "/Users/ashwathram/Projects/dibs/tests/e2e",
+        "snapshotDir": "/Users/ashwathram/Projects/dibs/tests/e2e",
+        "testIgnore": [],
+        "testMatch": "round21-late-ack.spec.ts",
+        "timeout": 60000,
+        "use": {
+          "baseURL": "http://127.0.0.1:5252",
+          "timezoneId": "America/Toronto",
+          "video": "on",
+          "screenshot": "only-on-failure",
+          "browserName": "webkit",
+          "colorScheme": "dark",
+          "viewport": {
+            "width": 320,
+            "height": 568
+          }
+        },
+        "dependencies": [],
+        "ignoreSnapshots": false,
+        "__projectId": "webkit-320-dark-font1.3"
+      },
+      {
+        "grep": {},
+        "grepInvert": null,
+        "outputDir": "/Users/ashwathram/Projects/dibs/.tmp/r21/keyboard-artifacts",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "fontScale": 1
+        },
+        "name": "webkit-360-light-font1",
+        "testDir": "/Users/ashwathram/Projects/dibs/tests/e2e",
+        "snapshotDir": "/Users/ashwathram/Projects/dibs/tests/e2e",
+        "testIgnore": [],
+        "testMatch": "round21-late-ack.spec.ts",
+        "timeout": 60000,
+        "use": {
+          "baseURL": "http://127.0.0.1:5252",
+          "timezoneId": "America/Toronto",
+          "video": "on",
+          "screenshot": "only-on-failure",
+          "browserName": "webkit",
+          "colorScheme": "light",
+          "viewport": {
+            "width": 360,
+            "height": 844
+          }
+        },
+        "dependencies": [],
+        "ignoreSnapshots": false,
+        "__projectId": "webkit-360-light-font1"
+      },
+      {
+        "grep": {},
+        "grepInvert": null,
+        "outputDir": "/Users/ashwathram/Projects/dibs/.tmp/r21/keyboard-artifacts",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "fontScale": 1.3
+        },
+        "name": "webkit-360-light-font1.3",
+        "testDir": "/Users/ashwathram/Projects/dibs/tests/e2e",
+        "snapshotDir": "/Users/ashwathram/Projects/dibs/tests/e2e",
+        "testIgnore": [],
+        "testMatch": "round21-late-ack.spec.ts",
+        "timeout": 60000,
+        "use": {
+          "baseURL": "http://127.0.0.1:5252",
+          "timezoneId": "America/Toronto",
+          "video": "on",
+          "screenshot": "only-on-failure",
+          "browserName": "webkit",
+          "colorScheme": "light",
+          "viewport": {
+            "width": 360,
+            "height": 844
+          }
+        },
+        "dependencies": [],
+        "ignoreSnapshots": false,
+        "__projectId": "webkit-360-light-font1.3"
+      },
+      {
+        "grep": {},
+        "grepInvert": null,
+        "outputDir": "/Users/ashwathram/Projects/dibs/.tmp/r21/keyboard-artifacts",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "fontScale": 1
+        },
+        "name": "webkit-360-dark-font1",
+        "testDir": "/Users/ashwathram/Projects/dibs/tests/e2e",
+        "snapshotDir": "/Users/ashwathram/Projects/dibs/tests/e2e",
+        "testIgnore": [],
+        "testMatch": "round21-late-ack.spec.ts",
+        "timeout": 60000,
+        "use": {
+          "baseURL": "http://127.0.0.1:5252",
+          "timezoneId": "America/Toronto",
+          "video": "on",
+          "screenshot": "only-on-failure",
+          "browserName": "webkit",
+          "colorScheme": "dark",
+          "viewport": {
+            "width": 360,
+            "height": 844
+          }
+        },
+        "dependencies": [],
+        "ignoreSnapshots": false,
+        "__projectId": "webkit-360-dark-font1"
+      },
+      {
+        "grep": {},
+        "grepInvert": null,
+        "outputDir": "/Users/ashwathram/Projects/dibs/.tmp/r21/keyboard-artifacts",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "fontScale": 1.3
+        },
+        "name": "webkit-360-dark-font1.3",
+        "testDir": "/Users/ashwathram/Projects/dibs/tests/e2e",
+        "snapshotDir": "/Users/ashwathram/Projects/dibs/tests/e2e",
+        "testIgnore": [],
+        "testMatch": "round21-late-ack.spec.ts",
+        "timeout": 60000,
+        "use": {
+          "baseURL": "http://127.0.0.1:5252",
+          "timezoneId": "America/Toronto",
+          "video": "on",
+          "screenshot": "only-on-failure",
+          "browserName": "webkit",
+          "colorScheme": "dark",
+          "viewport": {
+            "width": 360,
+            "height": 844
+          }
+        },
+        "dependencies": [],
+        "ignoreSnapshots": false,
+        "__projectId": "webkit-360-dark-font1.3"
+      },
+      {
+        "grep": {},
+        "grepInvert": null,
+        "outputDir": "/Users/ashwathram/Projects/dibs/.tmp/r21/keyboard-artifacts",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "fontScale": 1
+        },
+        "name": "webkit-390-light-font1",
+        "testDir": "/Users/ashwathram/Projects/dibs/tests/e2e",
+        "snapshotDir": "/Users/ashwathram/Projects/dibs/tests/e2e",
+        "testIgnore": [],
+        "testMatch": "round21-late-ack.spec.ts",
+        "timeout": 60000,
+        "use": {
+          "baseURL": "http://127.0.0.1:5252",
+          "timezoneId": "America/Toronto",
+          "video": "on",
+          "screenshot": "only-on-failure",
+          "browserName": "webkit",
+          "colorScheme": "light",
+          "viewport": {
+            "width": 390,
+            "height": 844
+          }
+        },
+        "dependencies": [],
+        "ignoreSnapshots": false,
+        "__projectId": "webkit-390-light-font1"
+      },
+      {
+        "grep": {},
+        "grepInvert": null,
+        "outputDir": "/Users/ashwathram/Projects/dibs/.tmp/r21/keyboard-artifacts",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "fontScale": 1.3
+        },
+        "name": "webkit-390-light-font1.3",
+        "testDir": "/Users/ashwathram/Projects/dibs/tests/e2e",
+        "snapshotDir": "/Users/ashwathram/Projects/dibs/tests/e2e",
+        "testIgnore": [],
+        "testMatch": "round21-late-ack.spec.ts",
+        "timeout": 60000,
+        "use": {
+          "baseURL": "http://127.0.0.1:5252",
+          "timezoneId": "America/Toronto",
+          "video": "on",
+          "screenshot": "only-on-failure",
+          "browserName": "webkit",
+          "colorScheme": "light",
+          "viewport": {
+            "width": 390,
+            "height": 844
+          }
+        },
+        "dependencies": [],
+        "ignoreSnapshots": false,
+        "__projectId": "webkit-390-light-font1.3"
+      },
+      {
+        "grep": {},
+        "grepInvert": null,
+        "outputDir": "/Users/ashwathram/Projects/dibs/.tmp/r21/keyboard-artifacts",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "fontScale": 1
+        },
+        "name": "webkit-390-dark-font1",
+        "testDir": "/Users/ashwathram/Projects/dibs/tests/e2e",
+        "snapshotDir": "/Users/ashwathram/Projects/dibs/tests/e2e",
+        "testIgnore": [],
+        "testMatch": "round21-late-ack.spec.ts",
+        "timeout": 60000,
+        "use": {
+          "baseURL": "http://127.0.0.1:5252",
+          "timezoneId": "America/Toronto",
+          "video": "on",
+          "screenshot": "only-on-failure",
+          "browserName": "webkit",
+          "colorScheme": "dark",
+          "viewport": {
+            "width": 390,
+            "height": 844
+          }
+        },
+        "dependencies": [],
+        "ignoreSnapshots": false,
+        "__projectId": "webkit-390-dark-font1"
+      },
+      {
+        "grep": {},
+        "grepInvert": null,
+        "outputDir": "/Users/ashwathram/Projects/dibs/.tmp/r21/keyboard-artifacts",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "fontScale": 1.3
+        },
+        "name": "webkit-390-dark-font1.3",
+        "testDir": "/Users/ashwathram/Projects/dibs/tests/e2e",
+        "snapshotDir": "/Users/ashwathram/Projects/dibs/tests/e2e",
+        "testIgnore": [],
+        "testMatch": "round21-late-ack.spec.ts",
+        "timeout": 60000,
+        "use": {
+          "baseURL": "http://127.0.0.1:5252",
+          "timezoneId": "America/Toronto",
+          "video": "on",
+          "screenshot": "only-on-failure",
+          "browserName": "webkit",
+          "colorScheme": "dark",
+          "viewport": {
+            "width": 390,
+            "height": 844
+          }
+        },
+        "dependencies": [],
+        "ignoreSnapshots": false,
+        "__projectId": "webkit-390-dark-font1.3"
+      },
+      {
+        "grep": {},
+        "grepInvert": null,
+        "outputDir": "/Users/ashwathram/Projects/dibs/.tmp/r21/keyboard-artifacts",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "fontScale": 1
+        },
+        "name": "webkit-768-light-font1",
+        "testDir": "/Users/ashwathram/Projects/dibs/tests/e2e",
+        "snapshotDir": "/Users/ashwathram/Projects/dibs/tests/e2e",
+        "testIgnore": [],
+        "testMatch": "round21-late-ack.spec.ts",
+        "timeout": 60000,
+        "use": {
+          "baseURL": "http://127.0.0.1:5252",
+          "timezoneId": "America/Toronto",
+          "video": "on",
+          "screenshot": "only-on-failure",
+          "browserName": "webkit",
+          "colorScheme": "light",
+          "viewport": {
+            "width": 768,
+            "height": 900
+          }
+        },
+        "dependencies": [],
+        "ignoreSnapshots": false,
+        "__projectId": "webkit-768-light-font1"
+      },
+      {
+        "grep": {},
+        "grepInvert": null,
+        "outputDir": "/Users/ashwathram/Projects/dibs/.tmp/r21/keyboard-artifacts",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "fontScale": 1
+        },
+        "name": "webkit-768-dark-font1",
+        "testDir": "/Users/ashwathram/Projects/dibs/tests/e2e",
+        "snapshotDir": "/Users/ashwathram/Projects/dibs/tests/e2e",
+        "testIgnore": [],
+        "testMatch": "round21-late-ack.spec.ts",
+        "timeout": 60000,
+        "use": {
+          "baseURL": "http://127.0.0.1:5252",
+          "timezoneId": "America/Toronto",
+          "video": "on",
+          "screenshot": "only-on-failure",
+          "browserName": "webkit",
+          "colorScheme": "dark",
+          "viewport": {
+            "width": 768,
+            "height": 900
+          }
+        },
+        "dependencies": [],
+        "ignoreSnapshots": false,
+        "__projectId": "webkit-768-dark-font1"
+      },
+      {
+        "grep": {},
+        "grepInvert": null,
+        "outputDir": "/Users/ashwathram/Projects/dibs/.tmp/r21/keyboard-artifacts",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "fontScale": 1
+        },
+        "name": "webkit-1280-light-font1",
+        "testDir": "/Users/ashwathram/Projects/dibs/tests/e2e",
+        "snapshotDir": "/Users/ashwathram/Projects/dibs/tests/e2e",
+        "testIgnore": [],
+        "testMatch": "round21-late-ack.spec.ts",
+        "timeout": 60000,
+        "use": {
+          "baseURL": "http://127.0.0.1:5252",
+          "timezoneId": "America/Toronto",
+          "video": "on",
+          "screenshot": "only-on-failure",
+          "browserName": "webkit",
+          "colorScheme": "light",
+          "viewport": {
+            "width": 1280,
+            "height": 900
+          }
+        },
+        "dependencies": [],
+        "ignoreSnapshots": false,
+        "__projectId": "webkit-1280-light-font1"
+      },
+      {
+        "grep": {},
+        "grepInvert": null,
+        "outputDir": "/Users/ashwathram/Projects/dibs/.tmp/r21/keyboard-artifacts",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "fontScale": 1
+        },
+        "name": "webkit-1280-dark-font1",
+        "testDir": "/Users/ashwathram/Projects/dibs/tests/e2e",
+        "snapshotDir": "/Users/ashwathram/Projects/dibs/tests/e2e",
+        "testIgnore": [],
+        "testMatch": "round21-late-ack.spec.ts",
+        "timeout": 60000,
+        "use": {
+          "baseURL": "http://127.0.0.1:5252",
+          "timezoneId": "America/Toronto",
+          "video": "on",
+          "screenshot": "only-on-failure",
+          "browserName": "webkit",
+          "colorScheme": "dark",
+          "viewport": {
+            "width": 1280,
+            "height": 900
+          }
+        },
+        "dependencies": [],
+        "ignoreSnapshots": false,
+        "__projectId": "webkit-1280-dark-font1"
+      },
+      {
+        "grep": {},
+        "grepInvert": null,
+        "outputDir": "/Users/ashwathram/Projects/dibs/.tmp/r21/keyboard-artifacts",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "fontScale": 1
+        },
+        "name": "webkit-1440-light-font1",
+        "testDir": "/Users/ashwathram/Projects/dibs/tests/e2e",
+        "snapshotDir": "/Users/ashwathram/Projects/dibs/tests/e2e",
+        "testIgnore": [],
+        "testMatch": "round21-late-ack.spec.ts",
+        "timeout": 60000,
+        "use": {
+          "baseURL": "http://127.0.0.1:5252",
+          "timezoneId": "America/Toronto",
+          "video": "on",
+          "screenshot": "only-on-failure",
+          "browserName": "webkit",
+          "colorScheme": "light",
+          "viewport": {
+            "width": 1440,
+            "height": 900
+          }
+        },
+        "dependencies": [],
+        "ignoreSnapshots": false,
+        "__projectId": "webkit-1440-light-font1"
+      },
+      {
+        "grep": {},
+        "grepInvert": null,
+        "outputDir": "/Users/ashwathram/Projects/dibs/.tmp/r21/keyboard-artifacts",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "fontScale": 1
+        },
+        "name": "webkit-1440-dark-font1",
+        "testDir": "/Users/ashwathram/Projects/dibs/tests/e2e",
+        "snapshotDir": "/Users/ashwathram/Projects/dibs/tests/e2e",
+        "testIgnore": [],
+        "testMatch": "round21-late-ack.spec.ts",
+        "timeout": 60000,
+        "use": {
+          "baseURL": "http://127.0.0.1:5252",
+          "timezoneId": "America/Toronto",
+          "video": "on",
+          "screenshot": "only-on-failure",
+          "browserName": "webkit",
+          "colorScheme": "dark",
+          "viewport": {
+            "width": 1440,
+            "height": 900
+          }
+        },
+        "dependencies": [],
+        "ignoreSnapshots": false,
+        "__projectId": "webkit-1440-dark-font1"
+      },
+      {
+        "grep": {},
+        "grepInvert": null,
+        "outputDir": "/Users/ashwathram/Projects/dibs/.tmp/r21/keyboard-artifacts",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "fontScale": 1
+        },
+        "name": "webkit-2560-light-font1",
+        "testDir": "/Users/ashwathram/Projects/dibs/tests/e2e",
+        "snapshotDir": "/Users/ashwathram/Projects/dibs/tests/e2e",
+        "testIgnore": [],
+        "testMatch": "round21-late-ack.spec.ts",
+        "timeout": 60000,
+        "use": {
+          "baseURL": "http://127.0.0.1:5252",
+          "timezoneId": "America/Toronto",
+          "video": "on",
+          "screenshot": "only-on-failure",
+          "browserName": "webkit",
+          "colorScheme": "light",
+          "viewport": {
+            "width": 2560,
+            "height": 900
+          }
+        },
+        "dependencies": [],
+        "ignoreSnapshots": false,
+        "__projectId": "webkit-2560-light-font1"
+      },
+      {
+        "grep": {},
+        "grepInvert": null,
+        "outputDir": "/Users/ashwathram/Projects/dibs/.tmp/r21/keyboard-artifacts",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "fontScale": 1
+        },
+        "name": "webkit-2560-dark-font1",
+        "testDir": "/Users/ashwathram/Projects/dibs/tests/e2e",
+        "snapshotDir": "/Users/ashwathram/Projects/dibs/tests/e2e",
+        "testIgnore": [],
+        "testMatch": "round21-late-ack.spec.ts",
+        "timeout": 60000,
+        "use": {
+          "baseURL": "http://127.0.0.1:5252",
+          "timezoneId": "America/Toronto",
+          "video": "on",
+          "screenshot": "only-on-failure",
+          "browserName": "webkit",
+          "colorScheme": "dark",
+          "viewport": {
+            "width": 2560,
+            "height": 900
+          }
+        },
+        "dependencies": [],
+        "ignoreSnapshots": false,
+        "__projectId": "webkit-2560-dark-font1"
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "list",
+        null
+      ],
+      [
+        "json",
+        {
+          "outputFile": "review/r21-flow/late-navigation-tests.json"
+        }
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "default",
+    "updateSourceMethod": "patch",
+    "version": "1.65.1",
+    "workers": 4,
+    "webServer": {
+      "command": "npx vite preview --mode security-test --host 127.0.0.1 --port 5252",
+      "url": "http://127.0.0.1:5252",
+      "env": {
+        "DIBS_TEST_OUT_DIR": ".tmp/r21/browser-keyboard-dist"
+      }
+    }
+  },
+  "suites": [
+    {
+      "title": "round21-late-ack.spec.ts",
+      "file": "round21-late-ack.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "navigating while an accepted reply is pending never queues a reward after unmount",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium-320-light-font1",
+              "projectName": "chromium-320-light-font1",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 3677,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-28T07:31:53.388Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "video",
+                      "contentType": "video/webm",
+                      "path": "/Users/ashwathram/Projects/dibs/.tmp/r21/keyboard-artifacts/round21-late-ack-navigatin-fb500-eues-a-reward-after-unmount-chromium-320-light-font1/video.webm"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            },
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium-320-light-font1.3",
+              "projectName": "chromium-320-light-font1.3",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 3604,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-28T07:31:53.388Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "video",
+                      "contentType": "video/webm",
+                      "path": "/Users/ashwathram/Projects/dibs/.tmp/r21/keyboard-artifacts/round21-late-ack-navigatin-fb500-eues-a-reward-after-unmount-chromium-320-light-font1-3/video.webm"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            },
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium-320-dark-font1",
+              "projectName": "chromium-320-dark-font1",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 2,
+                  "status": "passed",
+                  "duration": 3669,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-28T07:31:53.389Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "video",
+                      "contentType": "video/webm",
+                      "path": "/Users/ashwathram/Projects/dibs/.tmp/r21/keyboard-artifacts/round21-late-ack-navigatin-fb500-eues-a-reward-after-unmount-chromium-320-dark-font1/video.webm"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            },
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium-320-dark-font1.3",
+              "projectName": "chromium-320-dark-font1.3",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 3,
+                  "status": "passed",
+                  "duration": 3595,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-28T07:31:53.392Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "video",
+                      "contentType": "video/webm",
+                      "path": "/Users/ashwathram/Projects/dibs/.tmp/r21/keyboard-artifacts/round21-late-ack-navigatin-fb500-eues-a-reward-after-unmount-chromium-320-dark-font1-3/video.webm"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            },
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium-360-light-font1",
+              "projectName": "chromium-360-light-font1",
+              "results": [
+                {
+                  "workerIndex": 4,
+                  "parallelIndex": 3,
+                  "status": "passed",
+                  "duration": 3435,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-28T07:31:57.456Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "video",
+                      "contentType": "video/webm",
+                      "path": "/Users/ashwathram/Projects/dibs/.tmp/r21/keyboard-artifacts/round21-late-ack-navigatin-fb500-eues-a-reward-after-unmount-chromium-360-light-font1/video.webm"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            },
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium-360-light-font1.3",
+              "projectName": "chromium-360-light-font1.3",
+              "results": [
+                {
+                  "workerIndex": 5,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 3433,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-28T07:31:57.449Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "video",
+                      "contentType": "video/webm",
+                      "path": "/Users/ashwathram/Projects/dibs/.tmp/r21/keyboard-artifacts/round21-late-ack-navigatin-fb500-eues-a-reward-after-unmount-chromium-360-light-font1-3/video.webm"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            },
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium-360-dark-font1",
+              "projectName": "chromium-360-dark-font1",
+              "results": [
+                {
+                  "workerIndex": 6,
+                  "parallelIndex": 2,
+                  "status": "passed",
+                  "duration": 3451,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-28T07:31:57.500Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "video",
+                      "contentType": "video/webm",
+                      "path": "/Users/ashwathram/Projects/dibs/.tmp/r21/keyboard-artifacts/round21-late-ack-navigatin-fb500-eues-a-reward-after-unmount-chromium-360-dark-font1/video.webm"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            },
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium-360-dark-font1.3",
+              "projectName": "chromium-360-dark-font1.3",
+              "results": [
+                {
+                  "workerIndex": 7,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 3456,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-28T07:31:57.503Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "video",
+                      "contentType": "video/webm",
+                      "path": "/Users/ashwathram/Projects/dibs/.tmp/r21/keyboard-artifacts/round21-late-ack-navigatin-fb500-eues-a-reward-after-unmount-chromium-360-dark-font1-3/video.webm"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            },
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium-390-light-font1",
+              "projectName": "chromium-390-light-font1",
+              "results": [
+                {
+                  "workerIndex": 8,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 3458,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-28T07:32:01.249Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "video",
+                      "contentType": "video/webm",
+                      "path": "/Users/ashwathram/Projects/dibs/.tmp/r21/keyboard-artifacts/round21-late-ack-navigatin-fb500-eues-a-reward-after-unmount-chromium-390-light-font1/video.webm"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            },
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium-390-light-font1.3",
+              "projectName": "chromium-390-light-font1.3",
+              "results": [
+                {
+                  "workerIndex": 9,
+                  "parallelIndex": 3,
+                  "status": "passed",
+                  "duration": 3456,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-28T07:32:01.251Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "video",
+                      "contentType": "video/webm",
+                      "path": "/Users/ashwathram/Projects/dibs/.tmp/r21/keyboard-artifacts/round21-late-ack-navigatin-fb500-eues-a-reward-after-unmount-chromium-390-light-font1-3/video.webm"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            },
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium-390-dark-font1",
+              "projectName": "chromium-390-dark-font1",
+              "results": [
+                {
+                  "workerIndex": 11,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 3495,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-28T07:32:01.383Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "video",
+                      "contentType": "video/webm",
+                      "path": "/Users/ashwathram/Projects/dibs/.tmp/r21/keyboard-artifacts/round21-late-ack-navigatin-fb500-eues-a-reward-after-unmount-chromium-390-dark-font1/video.webm"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            },
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium-390-dark-font1.3",
+              "projectName": "chromium-390-dark-font1.3",
+              "results": [
+                {
+                  "workerIndex": 10,
+                  "parallelIndex": 2,
+                  "status": "passed",
+                  "duration": 3475,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-28T07:32:01.375Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "video",
+                      "contentType": "video/webm",
+                      "path": "/Users/ashwathram/Projects/dibs/.tmp/r21/keyboard-artifacts/round21-late-ack-navigatin-fb500-eues-a-reward-after-unmount-chromium-390-dark-font1-3/video.webm"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            },
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium-768-light-font1",
+              "projectName": "chromium-768-light-font1",
+              "results": [
+                {
+                  "workerIndex": 13,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 3451,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-28T07:32:05.104Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "video",
+                      "contentType": "video/webm",
+                      "path": "/Users/ashwathram/Projects/dibs/.tmp/r21/keyboard-artifacts/round21-late-ack-navigatin-fb500-eues-a-reward-after-unmount-chromium-768-light-font1/video.webm"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            },
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium-768-dark-font1",
+              "projectName": "chromium-768-dark-font1",
+              "results": [
+                {
+                  "workerIndex": 12,
+                  "parallelIndex": 3,
+                  "status": "passed",
+                  "duration": 3450,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-28T07:32:05.098Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "video",
+                      "contentType": "video/webm",
+                      "path": "/Users/ashwathram/Projects/dibs/.tmp/r21/keyboard-artifacts/round21-late-ack-navigatin-fb500-eues-a-reward-after-unmount-chromium-768-dark-font1/video.webm"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            },
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium-1280-light-font1",
+              "projectName": "chromium-1280-light-font1",
+              "results": [
+                {
+                  "workerIndex": 14,
+                  "parallelIndex": 2,
+                  "status": "passed",
+                  "duration": 3435,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-28T07:32:05.312Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "video",
+                      "contentType": "video/webm",
+                      "path": "/Users/ashwathram/Projects/dibs/.tmp/r21/keyboard-artifacts/round21-late-ack-navigatin-fb500-eues-a-reward-after-unmount-chromium-1280-light-font1/video.webm"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            },
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium-1280-dark-font1",
+              "projectName": "chromium-1280-dark-font1",
+              "results": [
+                {
+                  "workerIndex": 15,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 3558,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-28T07:32:05.310Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "video",
+                      "contentType": "video/webm",
+                      "path": "/Users/ashwathram/Projects/dibs/.tmp/r21/keyboard-artifacts/round21-late-ack-navigatin-fb500-eues-a-reward-after-unmount-chromium-1280-dark-font1/video.webm"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            },
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium-1440-light-font1",
+              "projectName": "chromium-1440-light-font1",
+              "results": [
+                {
+                  "workerIndex": 16,
+                  "parallelIndex": 3,
+                  "status": "passed",
+                  "duration": 3455,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-28T07:32:08.906Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "video",
+                      "contentType": "video/webm",
+                      "path": "/Users/ashwathram/Projects/dibs/.tmp/r21/keyboard-artifacts/round21-late-ack-navigatin-fb500-eues-a-reward-after-unmount-chromium-1440-light-font1/video.webm"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            },
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium-1440-dark-font1",
+              "projectName": "chromium-1440-dark-font1",
+              "results": [
+                {
+                  "workerIndex": 17,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 3468,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-28T07:32:08.899Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "video",
+                      "contentType": "video/webm",
+                      "path": "/Users/ashwathram/Projects/dibs/.tmp/r21/keyboard-artifacts/round21-late-ack-navigatin-fb500-eues-a-reward-after-unmount-chromium-1440-dark-font1/video.webm"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            },
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium-2560-light-font1",
+              "projectName": "chromium-2560-light-font1",
+              "results": [
+                {
+                  "workerIndex": 18,
+                  "parallelIndex": 2,
+                  "status": "passed",
+                  "duration": 3371,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-28T07:32:09.175Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "video",
+                      "contentType": "video/webm",
+                      "path": "/Users/ashwathram/Projects/dibs/.tmp/r21/keyboard-artifacts/round21-late-ack-navigatin-fb500-eues-a-reward-after-unmount-chromium-2560-light-font1/video.webm"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            },
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium-2560-dark-font1",
+              "projectName": "chromium-2560-dark-font1",
+              "results": [
+                {
+                  "workerIndex": 19,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 3388,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-28T07:32:09.293Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "video",
+                      "contentType": "video/webm",
+                      "path": "/Users/ashwathram/Projects/dibs/.tmp/r21/keyboard-artifacts/round21-late-ack-navigatin-fb500-eues-a-reward-after-unmount-chromium-2560-dark-font1/video.webm"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            },
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "webkit-320-light-font1",
+              "projectName": "webkit-320-light-font1",
+              "results": [
+                {
+                  "workerIndex": 20,
+                  "parallelIndex": 3,
+                  "status": "passed",
+                  "duration": 3833,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-28T07:32:12.718Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "video",
+                      "contentType": "video/webm",
+                      "path": "/Users/ashwathram/Projects/dibs/.tmp/r21/keyboard-artifacts/round21-late-ack-navigatin-fb500-eues-a-reward-after-unmount-webkit-320-light-font1/video.webm"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            },
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "webkit-320-light-font1.3",
+              "projectName": "webkit-320-light-font1.3",
+              "results": [
+                {
+                  "workerIndex": 21,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 3844,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-28T07:32:12.721Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "video",
+                      "contentType": "video/webm",
+                      "path": "/Users/ashwathram/Projects/dibs/.tmp/r21/keyboard-artifacts/round21-late-ack-navigatin-fb500-eues-a-reward-after-unmount-webkit-320-light-font1-3/video.webm"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            },
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "webkit-320-dark-font1",
+              "projectName": "webkit-320-dark-font1",
+              "results": [
+                {
+                  "workerIndex": 22,
+                  "parallelIndex": 2,
+                  "status": "passed",
+                  "duration": 3726,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-28T07:32:12.890Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "video",
+                      "contentType": "video/webm",
+                      "path": "/Users/ashwathram/Projects/dibs/.tmp/r21/keyboard-artifacts/round21-late-ack-navigatin-fb500-eues-a-reward-after-unmount-webkit-320-dark-font1/video.webm"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            },
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "webkit-320-dark-font1.3",
+              "projectName": "webkit-320-dark-font1.3",
+              "results": [
+                {
+                  "workerIndex": 23,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 3624,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-28T07:32:13.174Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "video",
+                      "contentType": "video/webm",
+                      "path": "/Users/ashwathram/Projects/dibs/.tmp/r21/keyboard-artifacts/round21-late-ack-navigatin-fb500-eues-a-reward-after-unmount-webkit-320-dark-font1-3/video.webm"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            },
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "webkit-360-light-font1",
+              "projectName": "webkit-360-light-font1",
+              "results": [
+                {
+                  "workerIndex": 24,
+                  "parallelIndex": 3,
+                  "status": "passed",
+                  "duration": 3711,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-28T07:32:17.084Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "video",
+                      "contentType": "video/webm",
+                      "path": "/Users/ashwathram/Projects/dibs/.tmp/r21/keyboard-artifacts/round21-late-ack-navigatin-fb500-eues-a-reward-after-unmount-webkit-360-light-font1/video.webm"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            },
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "webkit-360-light-font1.3",
+              "projectName": "webkit-360-light-font1.3",
+              "results": [
+                {
+                  "workerIndex": 25,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 3686,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-28T07:32:17.104Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "video",
+                      "contentType": "video/webm",
+                      "path": "/Users/ashwathram/Projects/dibs/.tmp/r21/keyboard-artifacts/round21-late-ack-navigatin-fb500-eues-a-reward-after-unmount-webkit-360-light-font1-3/video.webm"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            },
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "webkit-360-dark-font1",
+              "projectName": "webkit-360-dark-font1",
+              "results": [
+                {
+                  "workerIndex": 26,
+                  "parallelIndex": 2,
+                  "status": "passed",
+                  "duration": 3638,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-28T07:32:17.252Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "video",
+                      "contentType": "video/webm",
+                      "path": "/Users/ashwathram/Projects/dibs/.tmp/r21/keyboard-artifacts/round21-late-ack-navigatin-fb500-eues-a-reward-after-unmount-webkit-360-dark-font1/video.webm"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            },
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "webkit-360-dark-font1.3",
+              "projectName": "webkit-360-dark-font1.3",
+              "results": [
+                {
+                  "workerIndex": 27,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 3569,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-28T07:32:17.650Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "video",
+                      "contentType": "video/webm",
+                      "path": "/Users/ashwathram/Projects/dibs/.tmp/r21/keyboard-artifacts/round21-late-ack-navigatin-fb500-eues-a-reward-after-unmount-webkit-360-dark-font1-3/video.webm"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            },
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "webkit-390-light-font1",
+              "projectName": "webkit-390-light-font1",
+              "results": [
+                {
+                  "workerIndex": 28,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 3695,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-28T07:32:21.300Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "video",
+                      "contentType": "video/webm",
+                      "path": "/Users/ashwathram/Projects/dibs/.tmp/r21/keyboard-artifacts/round21-late-ack-navigatin-fb500-eues-a-reward-after-unmount-webkit-390-light-font1/video.webm"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            },
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "webkit-390-light-font1.3",
+              "projectName": "webkit-390-light-font1.3",
+              "results": [
+                {
+                  "workerIndex": 29,
+                  "parallelIndex": 3,
+                  "status": "passed",
+                  "duration": 3627,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-28T07:32:21.324Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "video",
+                      "contentType": "video/webm",
+                      "path": "/Users/ashwathram/Projects/dibs/.tmp/r21/keyboard-artifacts/round21-late-ack-navigatin-fb500-eues-a-reward-after-unmount-webkit-390-light-font1-3/video.webm"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            },
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "webkit-390-dark-font1",
+              "projectName": "webkit-390-dark-font1",
+              "results": [
+                {
+                  "workerIndex": 30,
+                  "parallelIndex": 2,
+                  "status": "passed",
+                  "duration": 3607,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-28T07:32:21.490Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "video",
+                      "contentType": "video/webm",
+                      "path": "/Users/ashwathram/Projects/dibs/.tmp/r21/keyboard-artifacts/round21-late-ack-navigatin-fb500-eues-a-reward-after-unmount-webkit-390-dark-font1/video.webm"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            },
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "webkit-390-dark-font1.3",
+              "projectName": "webkit-390-dark-font1.3",
+              "results": [
+                {
+                  "workerIndex": 31,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 3694,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-28T07:32:22.085Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "video",
+                      "contentType": "video/webm",
+                      "path": "/Users/ashwathram/Projects/dibs/.tmp/r21/keyboard-artifacts/round21-late-ack-navigatin-fb500-eues-a-reward-after-unmount-webkit-390-dark-font1-3/video.webm"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            },
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "webkit-768-light-font1",
+              "projectName": "webkit-768-light-font1",
+              "results": [
+                {
+                  "workerIndex": 32,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 3778,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-28T07:32:25.486Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "video",
+                      "contentType": "video/webm",
+                      "path": "/Users/ashwathram/Projects/dibs/.tmp/r21/keyboard-artifacts/round21-late-ack-navigatin-fb500-eues-a-reward-after-unmount-webkit-768-light-font1/video.webm"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            },
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "webkit-768-dark-font1",
+              "projectName": "webkit-768-dark-font1",
+              "results": [
+                {
+                  "workerIndex": 33,
+                  "parallelIndex": 3,
+                  "status": "passed",
+                  "duration": 3815,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-28T07:32:25.511Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "video",
+                      "contentType": "video/webm",
+                      "path": "/Users/ashwathram/Projects/dibs/.tmp/r21/keyboard-artifacts/round21-late-ack-navigatin-fb500-eues-a-reward-after-unmount-webkit-768-dark-font1/video.webm"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            },
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "webkit-1280-light-font1",
+              "projectName": "webkit-1280-light-font1",
+              "results": [
+                {
+                  "workerIndex": 34,
+                  "parallelIndex": 2,
+                  "status": "passed",
+                  "duration": 3722,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-28T07:32:25.804Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "video",
+                      "contentType": "video/webm",
+                      "path": "/Users/ashwathram/Projects/dibs/.tmp/r21/keyboard-artifacts/round21-late-ack-navigatin-fb500-eues-a-reward-after-unmount-webkit-1280-light-font1/video.webm"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            },
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "webkit-1280-dark-font1",
+              "projectName": "webkit-1280-dark-font1",
+              "results": [
+                {
+                  "workerIndex": 35,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 3914,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-28T07:32:26.475Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "video",
+                      "contentType": "video/webm",
+                      "path": "/Users/ashwathram/Projects/dibs/.tmp/r21/keyboard-artifacts/round21-late-ack-navigatin-fb500-eues-a-reward-after-unmount-webkit-1280-dark-font1/video.webm"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            },
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "webkit-1440-light-font1",
+              "projectName": "webkit-1440-light-font1",
+              "results": [
+                {
+                  "workerIndex": 36,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 3805,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-28T07:32:29.760Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "video",
+                      "contentType": "video/webm",
+                      "path": "/Users/ashwathram/Projects/dibs/.tmp/r21/keyboard-artifacts/round21-late-ack-navigatin-fb500-eues-a-reward-after-unmount-webkit-1440-light-font1/video.webm"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            },
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "webkit-1440-dark-font1",
+              "projectName": "webkit-1440-dark-font1",
+              "results": [
+                {
+                  "workerIndex": 37,
+                  "parallelIndex": 3,
+                  "status": "passed",
+                  "duration": 3944,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-28T07:32:29.815Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "video",
+                      "contentType": "video/webm",
+                      "path": "/Users/ashwathram/Projects/dibs/.tmp/r21/keyboard-artifacts/round21-late-ack-navigatin-fb500-eues-a-reward-after-unmount-webkit-1440-dark-font1/video.webm"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            },
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "webkit-2560-light-font1",
+              "projectName": "webkit-2560-light-font1",
+              "results": [
+                {
+                  "workerIndex": 38,
+                  "parallelIndex": 2,
+                  "status": "passed",
+                  "duration": 3800,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-28T07:32:30.334Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "video",
+                      "contentType": "video/webm",
+                      "path": "/Users/ashwathram/Projects/dibs/.tmp/r21/keyboard-artifacts/round21-late-ack-navigatin-fb500-eues-a-reward-after-unmount-webkit-2560-light-font1/video.webm"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            },
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "webkit-2560-dark-font1",
+              "projectName": "webkit-2560-dark-font1",
+              "results": [
+                {
+                  "workerIndex": 39,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 3811,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-28T07:32:31.178Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "video",
+                      "contentType": "video/webm",
+                      "path": "/Users/ashwathram/Projects/dibs/.tmp/r21/keyboard-artifacts/round21-late-ack-navigatin-fb500-eues-a-reward-after-unmount-webkit-2560-dark-font1/video.webm"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "ac6c6e326e39337bff75-93aa129d66194a30fde6",
+          "file": "round21-late-ack.spec.ts",
+          "line": 2,
+          "column": 1
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-11-28T07:31:52.760Z",
+    "duration": 42536.287,
+    "expected": 40,
+    "skipped": 0,
+    "unexpected": 0,
+    "flaky": 0
+  }
+}

@@ -1,14 +1,14 @@
 {
-  "at": "2026-11-28T07:04:45.427Z",
+  "at": "2026-11-28T07:29:18.019Z",
   "passed": true,
-  "entry": "/assets/index-D48rq2AB.js",
+  "entry": "/assets/index-CZOjkycv.js",
   "inlineStyleHashes": [
     "5ffa8cd03fa8d3c51f20fd6a741e091848efa9f50fa0220cb327e68945e06729",
     "0eb73896c711690a4a2ada5d32f76b9b8e0373326d691965b74622aab2bd868c"
   ],
   "rows": [
     {
-      "path": "Archive-BQLU3gPb.js",
+      "path": "Archive-DfR5Gq_l.js",
       "status": 200,
       "type": "application/javascript",
       "bytes": 4681,
@@ -22,14 +22,14 @@
       "matches": true
     },
     {
-      "path": "Certificate-DI7fAcjL.js",
+      "path": "Certificate-DGe6uqno.js",
       "status": 200,
       "type": "application/javascript",
-      "bytes": 102919,
+      "bytes": 102846,
       "matches": true
     },
     {
-      "path": "Content-CzP7Misv.js",
+      "path": "Content-CBwlRFbc.js",
       "status": 200,
       "type": "application/javascript",
       "bytes": 16981,
@@ -43,21 +43,21 @@
       "matches": true
     },
     {
-      "path": "Leaderboard-B9eLyjHG.js",
+      "path": "Leaderboard-Chi8OQW5.js",
       "status": 200,
       "type": "application/javascript",
       "bytes": 2762,
       "matches": true
     },
     {
-      "path": "Ledger-DrS5tNHR.js",
+      "path": "Ledger-YwxH6Ulc.js",
       "status": 200,
       "type": "application/javascript",
       "bytes": 5213,
       "matches": true
     },
     {
-      "path": "Settings-CeytdcyV.js",
+      "path": "Settings-DZPn_9OW.js",
       "status": 200,
       "type": "application/javascript",
       "bytes": 9589,
@@ -78,17 +78,17 @@
       "matches": true
     },
     {
-      "path": "flow-rules-CTOSsCYw.js",
+      "path": "flow-rules-DJTex7Os.js",
       "status": 200,
       "type": "application/javascript",
-      "bytes": 2046,
+      "bytes": 2232,
       "matches": true
     },
     {
-      "path": "index-D48rq2AB.js",
+      "path": "index-CZOjkycv.js",
       "status": 200,
       "type": "application/javascript",
-      "bytes": 291029,
+      "bytes": 291241,
       "matches": true
     },
     {
@@ -122,10 +122,10 @@
   ],
   "observations": [
     {
-      "at": "2026-11-28T07:04:45.426Z",
+      "at": "2026-11-28T07:29:18.019Z",
       "status": 200,
-      "actual": "/assets/index-D48rq2AB.js",
-      "expected": "/assets/index-D48rq2AB.js",
+      "actual": "/assets/index-CZOjkycv.js",
+      "expected": "/assets/index-CZOjkycv.js",
       "stylesMatch": true,
       "htmlMatches": true,
       "passed": true
