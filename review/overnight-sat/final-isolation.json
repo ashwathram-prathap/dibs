@@ -1,0 +1,21 @@
+{
+  "passed": true,
+  "production": {
+    "pages": "54bd068b-1f55-4943-ab2f-35427c5fd085",
+    "workerVersion": "7716b29e-31b0-44e1-9a29-85c521cb838b",
+    "workerDeployment": "58a3dd08-ccdb-4a5b-9d13-8759130dd0b6",
+    "recordedAt": "2026-11-28T07:45:22.973Z"
+  },
+  "practice": {
+    "at": "2026-11-28T07:44:50.082Z",
+    "pages": "fbf1c396-3d56-4159-8bfc-b1020ba8459a",
+    "workerVersion": "238f5d3e-a055-4f8a-bc2a-dc5f58334f2c",
+    "workerDeployment": "4581c47b-8dc3-4fc1-86ed-f94bcd9d54b2",
+    "production": false,
+    "policyActivated": false,
+    "clientSourceCommit": "6009f8e",
+    "workerSourceCommit": "2faedcb",
+    "artifact": "Archived final-verified-dist, matched by restored-practice-assets.json"
+  },
+  "scope": "Production Pages and Worker IDs unchanged after R21 practice restoration; restored practice handler/assets/smoke passed"
+}

@@ -24,3 +24,5 @@ The original findings are preserved in AUDIT-attempt1.md. This status replaces i
 Current follow-up release results are in FOLLOWUP.md and release-summary.json. Initial release evidence is preserved under initial-release/. Old failed broad UI sweep and local load failures are retained as failures; fresh passing suites replace only their tested scopes. No physical-device or hosted-capacity pass is invented.
 
 Final client correction candidate adds single-frame canvas exports, late-day reply protection and correct non-text-input keyboard detection. 297 unit/API and 128 export checks pass; release-summary.json identifies the final verified Pages-only release when complete. Worker/config/schema match the previous verified R20 exactly.
+
+Final correction release verified: source be31f9a, Pages 54bd068b-1f55-4943-ab2f-35427c5fd085, unchanged Worker 7716b29e-31b0-44e1-9a29-85c521cb838b. All fresh gates pass: 297 unit/API, 144 width/font, 144 devices, 64 golden, 36 consent and 128 canvas exports; practice recovery/handler/assets/home/36 smoke, Lighthouse 99/100 mobile and 100/100 desktop; production 36 smoke. Tagged r20-final-done. Exact proof is release-summary.json.

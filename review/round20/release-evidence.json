@@ -1,15 +1,15 @@
 {
-  "at": "2026-11-28T06:48:22.681Z",
-  "commit": "6772f2d871c05edbe3e6e63f1a521c2025c6edc9",
-  "pagesDigest": "fdf99f68046581a70c2b2d742a18937ebcea6e14a5a5c224b89dcc82d738bd96",
+  "at": "2026-11-28T07:42:50.446Z",
+  "commit": "be31f9a995cbc6edce170020ba539a6d03c9ff9f",
+  "pagesDigest": "41a63a8c71082886d6b9632511dbc0e3923663dbb08c6eb444a6847bf8a63f25",
   "workerDigest": "c9593eb928d3a5c396fde13957ed235ac60d71b3d5f95e0a462d432a73985c54",
   "configDigest": "64a806918c21eb14456ef55c3f8f8d7814f7e9c44a915704ddc6f8ec826d63b1",
   "schemaDigest": "86579435fbfa0a07cf9023f63504612d1fc7ae2406bf37606c66d94964505304",
   "rollback": {
-    "pages": "abe3ba78-ba35-42a0-90fa-2ede35f5745f",
-    "workerVersion": "6f6054b3-8b6f-4b74-a469-a8fc4e813808",
-    "workerDeployment": "690ccd7e-8c50-4eec-9477-a2209df74106",
-    "recordedAt": "2026-11-28T06:48:18.377Z"
+    "pages": "3256a048-72cd-4af5-92f3-7930799252c4",
+    "workerVersion": "7716b29e-31b0-44e1-9a29-85c521cb838b",
+    "workerDeployment": "58a3dd08-ccdb-4a5b-9d13-8759130dd0b6",
+    "recordedAt": "2026-11-28T07:42:46.172Z"
   },
   "gates": {
     "correctness": true,
@@ -23,12 +23,13 @@
     "noRegression": true
   },
   "basis": {
-    "correctness": "295 fresh unit/API checks including recap ownership/finalization/redaction and first-visit bootstrap; unchanged scoring/selection",
+    "correctness": "297 fresh unit/API checks including recap ownership/finalization/redaction and first-visit bootstrap; unchanged scoring/selection",
     "practice": "practice-smoke.json, practice-recovery.json, practice-asset-integrity.json",
     "budget": "No hosted load; retained account metrics and unchanged plan. No capacity claim.",
-    "backup": "20261128T064820Z: export complete",
+    "backup": "20261128T074247Z: export complete",
     "noRegression": "FOLLOWUP.md: onboarding, owner-authenticated finalized recap, larger OG, pinned Animals scope and strike grammar; safety regressions checked; inherited gaps remain follow-ups",
-    "browser": "Fresh followup-browser-tests, followup-device-tests and followup-golden-tests; 74 OG fixtures and 18 crop inspections; prior core continuation retained; Firefox and physical devices unverified"
+    "browser": "Fresh followup-browser-tests, followup-device-tests, followup-golden-tests, final-share-tests and 128 canvas exports; 74 unchanged OG fixtures and 18 crops; Firefox and physical devices unverified",
+    "deployment": "Pages-only: unchanged verified Worker, config and schema"
   },
   "followups": [
     "Full journal-loss RTO/RPO and deletion reconciliation",

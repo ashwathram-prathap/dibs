@@ -17,3 +17,7 @@ Active-handler confirmation at 00:46:20 ET: authoritative Friday aggregate = 4 c
 Source 6772f2d, Pages 3256a048-72cd-4af5-92f3-7930799252c4, Worker 7716b29e-31b0-44e1-9a29-85c521cb838b, deployment 58a3dd08-ccdb-4a5b-9d13-8759130dd0b6. First-visit rules, owner-authenticated finalized previous-night recap, larger OG previews and persistent cache-version invalidation, truthful Animals scope, strike grammar and preserved golden treatment are now live. All 295 unit/API checks, 144 width/font cases, 144 device cases, 64 golden cases, focused AA check, 74 OG fixtures, 18 crops, practice recovery and 36/36 production read-only smoke pass. Home renderer bytes verified. See FOLLOWUP.md for exact scope and limitations.
 
 Latest Friday read at 01:47 ET: 6 participants/claimers, 18 claims, 6 finished, mirror fully caught up (18/18; no pending files). Timestamp evidence still shows exactly 9 claims before the first attempt and 9 afterward. Seven future approved dates remain unchanged.
+
+## Final client corrections
+
+Source be31f9a; Pages 54bd068b-1f55-4943-ab2f-35427c5fd085. Golden canvas uses one enclosing frame, late-day claim replies cannot overwrite new-day state, and non-text inputs do not hide mobile navigation. Worker 7716b29e-31b0-44e1-9a29-85c521cb838b, its config and the schema are unchanged. Practice and production checks pass; r20-final-done records completion. R21 practice is restored separately with its policy disabled.
