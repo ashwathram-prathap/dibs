@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 export function useClaimReveal(day?: string) {
   const [phase, setPhase] = useState('done');
+  const mounted = useRef(true);
   const timers = useRef<ReturnType<typeof setTimeout>[]>([]),
     seen = useRef(new Set<string>()),
     sound = useRef<(() => void) | null>(null);
@@ -15,6 +16,7 @@ export function useClaimReveal(day?: string) {
     setPhase('done');
   };
   const begin = (id: string, onStamp: () => void) => {
+    if (!mounted.current) return;
     clear();
     sound.current = null;
     if (seen.current.has(id)) {
@@ -51,6 +53,7 @@ export function useClaimReveal(day?: string) {
       );
   };
   useEffect(() => {
+    mounted.current = true;
     const media = matchMedia('(prefers-reduced-motion: reduce)');
     const reduce = () => {
       if (media.matches) finish();
@@ -65,6 +68,7 @@ export function useClaimReveal(day?: string) {
     media.addEventListener('change', reduce);
     document.addEventListener('visibilitychange', hidden);
     return () => {
+      mounted.current = false;
       clear();
       sound.current = null;
       media.removeEventListener('change', reduce);

@@ -1,3 +1,4 @@
+import { claimStampLabel } from '../shared/flow-rules';
 import { it, expect } from 'vitest';
 import {
   fileTitle,
@@ -142,4 +143,23 @@ it('counts successful claims and titles separately from strike-only participants
     tiers: { Rare: 1 },
     titles: { Claimant: 1 },
   });
+});
+
+it('certificate stamp follows pinned tier and conceals added evidence', () => {
+  const pool: any = {
+    version: 'r21-pool-v1',
+    catalogVersion: 'test',
+    scoringVersion: 'test',
+    poolSize: 3004,
+    membership: 'in',
+  };
+  expect(claimStampLabel({ percentile: 0.8, obscurity: 4, pool })).toBe('Rare');
+  expect(
+    claimStampLabel({ percentile: 1, obscurity: 4, pool: { ...pool, membership: 'out' } }),
+  ).toBe('Off the register');
+  expect(claimStampLabel({ percentile: 1, obscurity: 4, pool, concealed: true })).toBe(
+    'Registered',
+  );
+  expect(claimStampLabel({ percentile: null, pool })).toBe('Standard score');
+  expect(claimStampLabel({ percentile: 0.8, pool, golden: true })).toBe('Golden ticket');
 });

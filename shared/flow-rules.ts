@@ -137,3 +137,19 @@ export function takenAge(at: string | undefined, now: number) {
       ? `${Math.floor(seconds / 60)}m`
       : `${Math.floor(seconds / 3600)}h`;
 }
+
+/** Use the same pinned evidence on the small DIBS stamp as on the main tier. */
+export function claimStampLabel(c: {
+  golden?: boolean | number;
+  concealed?: boolean;
+  percentile?: number | null;
+  obscurity?: number | null;
+  pool?: PoolEvidence;
+}) {
+  if (c.golden) return 'Golden ticket';
+  if (c.concealed) return 'Registered';
+  return (
+    rarityTier(c.percentile, c.pool) ||
+    (c.percentile != null && c.obscurity && c.obscurity >= 4 ? 'Deep cut' : 'Registered')
+  );
+}

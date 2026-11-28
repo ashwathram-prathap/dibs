@@ -50,7 +50,8 @@ export function subscribe(fn: (s: Snapshot) => void) {
   };
 }
 export function publishClaim(claim: Claim, me?: Me, leaderboard?: import('./types').Standings) {
-  if (!latest) return;
+  // An accepted reply may arrive after the next registry day has replaced the snapshot.
+  if (!latest || latest.today.category?.id !== claim.category_id) return;
   const exists = latest.rows.some((r) => r.id === claim.id);
   publish(
     {

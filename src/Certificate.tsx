@@ -1,4 +1,4 @@
-import { rarityTier } from '../shared/flow-rules';
+import { claimStampLabel, rarityTier } from '../shared/flow-rules';
 import { TitleStamp, ClaimTier } from './ClaimTier';
 import { filingTime, viewerZone } from '../shared/time';
 import { useHideAnswers } from './share-preference';
@@ -314,10 +314,8 @@ export function Certificate({ claim, animated = false }: { claim: Claim; animate
                 <>
                   <Icon name="star" /> Golden ticket
                 </>
-              ) : claim.percentile != null && claim.obscurity && claim.obscurity >= 4 ? (
-                'Deep cut'
               ) : (
-                'Registered'
+                claimStampLabel(claim)
               )}
             </span>
           </motion.div>

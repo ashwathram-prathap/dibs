@@ -1,4 +1,4 @@
-import { rarityTier, tierRank, tierCopy } from '../shared/flow-rules';
+import { claimStampLabel, rarityTier, tierRank, tierCopy } from '../shared/flow-rules';
 import { claimScore } from '../shared/claim-copy';
 import { SHARE_INVITATION } from '../shared/copy';
 import { editionLabel } from '../shared/sharing';
@@ -169,15 +169,7 @@ export async function exportCertificate(
   c.fillStyle = ink;
   c.font = '400 24px "Instrument Sans"';
   c.fillStyle = claim.golden ? (dark ? '#e7c86b' : '#7A5C14') : ink;
-  c.fillText(
-    claim.golden
-      ? 'Golden ticket'
-      : claim.percentile != null && claim.obscurity && claim.obscurity >= 4
-        ? 'Deep cut'
-        : 'Registered',
-    0,
-    61,
-  );
+  c.fillText(claimStampLabel(claim), 0, 61);
   c.restore();
   line(h - 120);
   text(`Accepted catalog: ${claim.total_registrable.toLocaleString()} answers.`, 80, h - 80, 17);
@@ -506,7 +498,7 @@ export function certificateText(
 ) {
   const result =
     !hideAnswers && !claim.concealed
-      ? `${claim.display} · ${claimScore(claim)}`
+      ? `${claim.display} · ${rarityTier(claim.percentile, claim.pool) === 'Off the register' ? 'Off the register · ' : ''}${claimScore(claim)}`
       : `${claim.points ?? 0} points`;
   return `${editionLabel(claim.category_date)} · ${claim.category_name}${score?.title ? ' · ' + score.title.name + (score.title.provisional ? ' so far' : '') : ''} · ${result}${score?.rank ? ` · #${score.rank} of ${score.players} players today` : ''}. ${PUBLIC_HOST}`;
 }

@@ -1,7 +1,14 @@
 // Saturday owner-amended release: exact artifacts, assets first, rollback applications only.
 import './test-traffic';
 import { spawnSync, execFileSync } from 'node:child_process';
-import { mkdirSync, rmdirSync, readFileSync, writeFileSync, appendFileSync } from 'node:fs';
+import {
+  existsSync,
+  mkdirSync,
+  rmdirSync,
+  readFileSync,
+  writeFileSync,
+  appendFileSync,
+} from 'node:fs';
 import assert from 'node:assert/strict';
 import { artifactDigest } from './r19h-artifact';
 import { releaseDigest } from './r20-artifact';
@@ -22,6 +29,15 @@ const ts = (name: string, path: string, args: string[] = []) =>
   run(name, './node_modules/.bin/tsx', [path, ...args]);
 const guard = () => ts('Fresh candidate and window gate', 'scripts/check-r20-release.ts');
 assertProductionWindow();
+assert.equal(
+  execFileSync('git', ['branch', '--show-current'], { encoding: 'utf8' }).trim(),
+  'main',
+  'R20 production runner requires main',
+);
+assert.ok(
+  !existsSync('shared/flow-rules.ts'),
+  'R21 requires its own complete release gate; do not use the R20 runner',
+);
 mkdirSync(lock);
 try {
   const unit = read('followup-unit-tests.json');
