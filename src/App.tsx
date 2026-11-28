@@ -1080,7 +1080,7 @@ function Home({
                       Skip animation
                     </button>
                   )}
-                  <p>Yours. {claim.display} has your name on it for good.</p>
+                  {!claim.pool && <p>Yours. {claim.display} has your name on it for good.</p>}
                   {!!claim.golden && (
                     <p className="golden-notice">
                       <strong>Golden ticket.</strong> One of{' '}
@@ -1089,7 +1089,7 @@ function Home({
                     </p>
                   )}
                   <p className="points-earned">
-                    <strong>+{claimScore(claim)}</strong>
+                    <strong>+{claim.pool ? `${claim.points} points${claim.bonus ? ` · ${claim.points!-claim.bonus} + ${claim.bonus} golden bonus` : ''}` : claimScore(claim)}</strong>
                   </p>
                   {streakMoment !== null && (
                     <p className="streak-payoff">
@@ -1178,7 +1178,7 @@ function Home({
                           Skip animation
                         </button>
                       )}
-                      <p>Yours. {claim.display} has your name on it for good.</p>
+                      {!claim.pool && <p>Yours. {claim.display} has your name on it for good.</p>}
                       {!!claim.golden && (
                         <p className="golden-notice">
                           <strong>Golden ticket.</strong> One of{' '}
@@ -1187,7 +1187,7 @@ function Home({
                         </p>
                       )}
                       <p className="points-earned">
-                        <strong>+{claimScore(claim)}</strong>
+                        <strong>+{claim.pool ? `${claim.points} points${claim.bonus ? ` · ${claim.points!-claim.bonus} + ${claim.bonus} golden bonus` : ''}` : claimScore(claim)}</strong>
                       </p>
                       {streakMoment !== null && (
                         <p className="streak-payoff">

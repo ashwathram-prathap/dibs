@@ -36,7 +36,7 @@ function offStamp(c: CanvasRenderingContext2D, x: number, y: number, size = 24) 
 }
 export async function exportCertificate(claim: Claim, story: boolean, hideAnswers = false) {
   claim = cleanStoredHandles(claim);
-  if (hideAnswers || claim.concealed) claim = { ...claim, display: 'SEALED' };
+  if (hideAnswers || claim.concealed) claim = { ...claim, display: 'SEALED', concealed: true };
   const dark = document.documentElement.dataset.theme === 'dark';
   const ink = dark ? '#F1ECE2' : '#1A1A17',
     paper = dark ? '#1F1E18' : '#F1ECE2';
@@ -394,8 +394,8 @@ export async function exportSummary(
       !claim.concealed &&
       rarityTier(claim.percentile, claim.pool) === 'Off the register'
     )
-      offStamp(c, 690, y + 31, 19);
-    if (claim && !claim.concealed)
+      offStamp(c, 700, y + 61, 19);
+    if (!hideAnswers && claim && !claim.concealed)
       fitCanvasLine(
         c,
         (claim.bonus
@@ -407,7 +407,7 @@ export async function exportSummary(
               rarityLabel(claim.percentile, claim.category_slug || claim.category_name)),
         175,
         y + 60,
-        825,
+        rarityTier(claim.percentile,claim.pool)==='Off the register'?500:825,
         22,
       );
   });

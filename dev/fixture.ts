@@ -328,6 +328,7 @@ export async function request(path: string, body?: any): Promise<any> {
     throw new Error('The clerk didn’t get that. Try again.');
   }
   if (path === '/claim') {
+    if(r7.has('r21-slow')) await new Promise(resolve=>setTimeout(resolve,900));
     const note = clerkReply(body.answer, category.name);
     if (note) throw new ApiError(422, { code: 'CLERK_NOTE', message: note });
     if (r7.has('r8') && body.answer === 'offline proof')

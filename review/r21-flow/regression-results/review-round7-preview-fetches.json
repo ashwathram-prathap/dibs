@@ -1,0 +1,72 @@
+[
+  {
+    "kind": "certificate",
+    "platform": "WhatsApp",
+    "bytes": 66491,
+    "milliseconds": 111,
+    "status": 200
+  },
+  {
+    "kind": "certificate",
+    "platform": "X",
+    "bytes": 66491,
+    "milliseconds": 49,
+    "status": 200
+  },
+  {
+    "kind": "certificate",
+    "platform": "Facebook",
+    "bytes": 66491,
+    "milliseconds": 5,
+    "status": 200
+  },
+  {
+    "kind": "certificate",
+    "platform": "iMessage",
+    "bytes": 66491,
+    "milliseconds": 2,
+    "status": 200
+  },
+  {
+    "kind": "certificate",
+    "platform": "Discord",
+    "bytes": 66491,
+    "milliseconds": 2,
+    "status": 200
+  },
+  {
+    "kind": "summary",
+    "platform": "WhatsApp",
+    "bytes": 87232,
+    "milliseconds": 59,
+    "status": 200
+  },
+  {
+    "kind": "summary",
+    "platform": "X",
+    "bytes": 87232,
+    "milliseconds": 9,
+    "status": 200
+  },
+  {
+    "kind": "summary",
+    "platform": "Facebook",
+    "bytes": 87232,
+    "milliseconds": 3,
+    "status": 200
+  },
+  {
+    "kind": "summary",
+    "platform": "iMessage",
+    "bytes": 87232,
+    "milliseconds": 2,
+    "status": 200
+  },
+  {
+    "kind": "summary",
+    "platform": "Discord",
+    "bytes": 87232,
+    "milliseconds": 6,
+    "status": 200
+  }
+]

@@ -20,7 +20,7 @@ export function preview(kind: 'certificate' | 'summary'): PagesFunction<Env> {
     const category = data.category?.name || data.claim?.category_name;
     const title = `Dibs · ${category} · ${score.points ?? 0} pts${score.rank ? ' · #' + score.rank + ' of ' + score.players + ' players today' : ''}`;
     const description = GAME_DESCRIPTION;
-    const image = `${publicOrigin}/api/og/${kind === 'summary' ? 'summary/' : ''}${id}?v=19d`;
+    const image = `${publicOrigin}/api/og/${kind === 'summary' ? 'summary/' : ''}${id}?v=21`;
     const canonical = `${publicOrigin}/${kind}/${id}`;
     const tags: Record<string, string> = {
       'meta[name="robots"]': 'noindex,nofollow',

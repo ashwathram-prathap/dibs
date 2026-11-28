@@ -215,3 +215,8 @@ wrangler.loadtest.jsonc
 
 # R20 local Lighthouse HTML is reproducible; JSON evidence is retained.
 review/round20/lighthouse-local/*.html
+
+# R21 raw local visual and runner evidence.
+review/r21-flow/**/*.png
+review/r21-flow/**/*.webm
+review/r21-flow/lighthouse-practice/*.html

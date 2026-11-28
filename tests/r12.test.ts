@@ -49,7 +49,7 @@ it('public rules, metadata, reminders and share copy use the canonical limits an
   expect(goldenPerDay(LAUNCH_DATE)).toBe(LAUNCH_GOLDEN_PER_DAY);
   expect(goldenPerDay('2026-11-30')).toBe(GOLDEN_PER_DAY);
   expect(GOLDEN_EXPLANATION).toContain(
-    `${LAUNCH_GOLDEN_PER_DAY} a day in launch week, then ${GOLDEN_PER_DAY}`,
+    'count and bonus are shown with the category',
   );
   expect(rulesHtml).toContain(LIMIT_EXPLANATION);
   expect(new URL(reminder('2026-11-24T02:00:00Z').google).searchParams.get('details')).toContain(

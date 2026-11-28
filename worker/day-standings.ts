@@ -48,7 +48,7 @@ export class DayStandings {
     if (
       !s.user.hidden &&
       s.file.eligible !== false &&
-      s.file.claims.some(
+      (s.file.claims || []).some(
         (c: any) => !c.voided && rarityTier(c.percentile, c.pool) === 'Off the register',
       )
     )

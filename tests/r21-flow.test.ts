@@ -97,3 +97,49 @@ it('conceals tier evidence and ordinal from unshared public claims and restores 
   const publicFile = publicSummary({ file: { claims: [c], events: [] }, category: null }).file;
   expect(publicFile.claims[0]).not.toHaveProperty('pool');
 });
+
+it('keeps off-register board marks private until close and recalculates them after withdrawal', async () => {
+  const { DayStandings } = await import('../worker/day-standings');
+  const s: any = {
+    user: { id: 'owner', handle: 'Fixture' },
+    file: {
+      dibs: 1,
+      strikes: 0,
+      points: 110,
+      reachedAt: '2026-01-01',
+      claims: [{ percentile: 1, pool: pool('out') }],
+      events: [],
+    },
+  };
+  const b = new DayStandings();
+  b.reset([s]);
+  expect(b.board().rows[0]).not.toHaveProperty('offRegister');
+  expect(b.board('owner').own).toHaveProperty('offRegister', true);
+  expect(b.board('', true).rows[0]).toHaveProperty('offRegister', true);
+  s.user.hidden = true;
+  b.update(s);
+  expect(b.board('', true).total).toBe(0);
+});
+it('counts successful claims and titles separately from strike-only participants', async () => {
+  const { flowFunnel } = await import('../worker/flow-funnel');
+  const base: any = {
+    user: { id: 'a', handle: 'a' },
+    file: {
+      claims: [{ id: 'c', golden: true, percentile: 0.8, pool: pool() }],
+      strikes: 5,
+      closed: true,
+    },
+  };
+  const r = flowFunnel([
+    base,
+    { user: { id: 'b' }, file: { claims: [], strikes: 1 } },
+    { ...base, user: { id: 'hidden', hidden: true } },
+  ] as any);
+  expect(r).toMatchObject({
+    successfulClaims: 1,
+    uniqueGoldenHits: 1,
+    averageClaimsPerParticipant: 0.5,
+    tiers: { Rare: 1 },
+    titles: { Claimant: 1 },
+  });
+});

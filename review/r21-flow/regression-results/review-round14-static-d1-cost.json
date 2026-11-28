@@ -1,0 +1,320 @@
+{
+  "players": 3,
+  "samples": [
+    {
+      "player": 0,
+      "step": 0,
+      "status": 201,
+      "reads": 48,
+      "writes": 22
+    },
+    {
+      "player": 0,
+      "step": 1,
+      "status": 409,
+      "reads": 39,
+      "writes": 3
+    },
+    {
+      "player": 0,
+      "step": 2,
+      "status": 409,
+      "reads": 43,
+      "writes": 2
+    },
+    {
+      "player": 0,
+      "step": 3,
+      "status": 201,
+      "reads": 88,
+      "writes": 13
+    },
+    {
+      "player": 0,
+      "step": 4,
+      "status": 201,
+      "reads": 117,
+      "writes": 13
+    },
+    {
+      "player": 0,
+      "poll": 0,
+      "status": 200,
+      "reads": 0,
+      "writes": 0
+    },
+    {
+      "player": 0,
+      "poll": 1,
+      "status": 200,
+      "reads": 0,
+      "writes": 0
+    },
+    {
+      "player": 0,
+      "poll": 2,
+      "status": 200,
+      "reads": 0,
+      "writes": 0
+    },
+    {
+      "player": 0,
+      "poll": 3,
+      "status": 200,
+      "reads": 0,
+      "writes": 0
+    },
+    {
+      "player": 0,
+      "poll": 4,
+      "status": 200,
+      "reads": 0,
+      "writes": 0
+    },
+    {
+      "player": 0,
+      "poll": 5,
+      "status": 200,
+      "reads": 0,
+      "writes": 0
+    },
+    {
+      "player": 0,
+      "poll": 6,
+      "status": 200,
+      "reads": 0,
+      "writes": 0
+    },
+    {
+      "player": 0,
+      "poll": 7,
+      "status": 200,
+      "reads": 0,
+      "writes": 0
+    },
+    {
+      "player": 0,
+      "poll": 8,
+      "status": 200,
+      "reads": 0,
+      "writes": 0
+    },
+    {
+      "player": 0,
+      "poll": 9,
+      "status": 200,
+      "reads": 0,
+      "writes": 0
+    },
+    {
+      "player": 1,
+      "step": 0,
+      "status": 201,
+      "reads": 49,
+      "writes": 22
+    },
+    {
+      "player": 1,
+      "step": 1,
+      "status": 409,
+      "reads": 39,
+      "writes": 2
+    },
+    {
+      "player": 1,
+      "step": 2,
+      "status": 409,
+      "reads": 43,
+      "writes": 2
+    },
+    {
+      "player": 1,
+      "step": 3,
+      "status": 201,
+      "reads": 88,
+      "writes": 13
+    },
+    {
+      "player": 1,
+      "step": 4,
+      "status": 201,
+      "reads": 117,
+      "writes": 13
+    },
+    {
+      "player": 1,
+      "poll": 0,
+      "status": 200,
+      "reads": 0,
+      "writes": 0
+    },
+    {
+      "player": 1,
+      "poll": 1,
+      "status": 200,
+      "reads": 0,
+      "writes": 0
+    },
+    {
+      "player": 1,
+      "poll": 2,
+      "status": 200,
+      "reads": 0,
+      "writes": 0
+    },
+    {
+      "player": 1,
+      "poll": 3,
+      "status": 200,
+      "reads": 0,
+      "writes": 0
+    },
+    {
+      "player": 1,
+      "poll": 4,
+      "status": 200,
+      "reads": 0,
+      "writes": 0
+    },
+    {
+      "player": 1,
+      "poll": 5,
+      "status": 200,
+      "reads": 0,
+      "writes": 0
+    },
+    {
+      "player": 1,
+      "poll": 6,
+      "status": 200,
+      "reads": 0,
+      "writes": 0
+    },
+    {
+      "player": 1,
+      "poll": 7,
+      "status": 200,
+      "reads": 0,
+      "writes": 0
+    },
+    {
+      "player": 1,
+      "poll": 8,
+      "status": 200,
+      "reads": 0,
+      "writes": 0
+    },
+    {
+      "player": 1,
+      "poll": 9,
+      "status": 200,
+      "reads": 0,
+      "writes": 0
+    },
+    {
+      "player": 2,
+      "step": 0,
+      "status": 201,
+      "reads": 49,
+      "writes": 22
+    },
+    {
+      "player": 2,
+      "step": 1,
+      "status": 409,
+      "reads": 39,
+      "writes": 2
+    },
+    {
+      "player": 2,
+      "step": 2,
+      "status": 409,
+      "reads": 43,
+      "writes": 2
+    },
+    {
+      "player": 2,
+      "step": 3,
+      "status": 201,
+      "reads": 88,
+      "writes": 13
+    },
+    {
+      "player": 2,
+      "step": 4,
+      "status": 201,
+      "reads": 117,
+      "writes": 13
+    },
+    {
+      "player": 2,
+      "poll": 0,
+      "status": 200,
+      "reads": 0,
+      "writes": 0
+    },
+    {
+      "player": 2,
+      "poll": 1,
+      "status": 200,
+      "reads": 0,
+      "writes": 0
+    },
+    {
+      "player": 2,
+      "poll": 2,
+      "status": 200,
+      "reads": 0,
+      "writes": 0
+    },
+    {
+      "player": 2,
+      "poll": 3,
+      "status": 200,
+      "reads": 0,
+      "writes": 0
+    },
+    {
+      "player": 2,
+      "poll": 4,
+      "status": 200,
+      "reads": 0,
+      "writes": 0
+    },
+    {
+      "player": 2,
+      "poll": 5,
+      "status": 200,
+      "reads": 0,
+      "writes": 0
+    },
+    {
+      "player": 2,
+      "poll": 6,
+      "status": 200,
+      "reads": 0,
+      "writes": 0
+    },
+    {
+      "player": 2,
+      "poll": 7,
+      "status": 200,
+      "reads": 0,
+      "writes": 0
+    },
+    {
+      "player": 2,
+      "poll": 8,
+      "status": 200,
+      "reads": 0,
+      "writes": 0
+    },
+    {
+      "player": 2,
+      "poll": 9,
+      "status": 200,
+      "reads": 0,
+      "writes": 0
+    }
+  ]
+}
