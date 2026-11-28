@@ -1,3 +1,4 @@
+import { tierCopy, rarityTier } from '../shared/flow-rules';
 import { claimScore } from '../shared/claim-copy';
 import { editionLabel } from '../shared/sharing';
 import { SHARE_INVITATION } from '../shared/copy';
@@ -131,7 +132,7 @@ export async function ogLayout(claim: any, summary?: any, dark = false) {
     content +=
       text(SHARE_INVITATION, 60, 545, 26) + text(`${PUBLIC_HOST}/c/${claim.id}`, 60, 585, 20);
   } else {
-    content = `${wordmark(960, 45, 170)}${text(editionLabel(summary.category.date), 60, 80, 24)}${text(title, 60, 170, 80, ink, 'display')}${text(`${file.points ?? 0} points${file.rank ? ` · #${file.rank} of ${file.players} players today` : ''}`, 60, 225, 38)}${golden ? text('Golden ticket found', 60, 265, 26, gold) : ''}`;
+    content = `${wordmark(960, 45, 170)}${text(editionLabel(summary.category.date), 60, 80, 24)}${text(title, 60, 170, 80, ink, 'display')}${text(`${file.points ?? 0} points${file.rank ? ` · #${file.rank} of ${file.players} players today` : ''}`, 60, 225, 38)}${file.title ? text(file.title.name + (file.title.provisional ? ' · so far' : ''), 60, 265, 26, golden ? gold : ink) : golden ? text('Golden ticket found', 60, 265, 26, gold) : ''}`;
     const rows = file.events?.length
       ? file.events
       : claims.map((c: any) => ({ kind: 'dibs', claimId: c.id }));
@@ -152,7 +153,7 @@ export async function ogLayout(claim: any, summary?: any, dark = false) {
       content += text(number, 60, y, 18, ink, 'form');
       content += `<rect x="94" y="${y - 16}" width="16" height="16" fill="${c.golden ? gold : '#E1462B'}"/>`;
       content += text(
-        `${!c.concealed ? c.display : 'Claim'} · ${c.points ?? 0} points${c.golden ? ' · Golden ticket · +100' : ''}`,
+        `${!c.concealed ? c.display : 'Claim'} · ${c.points ?? 0} points${c.golden ? ` · Golden ticket · +${c.bonus ?? 100}` : ''}`,
         125,
         y,
         compact ? 24 : 28,
@@ -164,7 +165,7 @@ export async function ogLayout(claim: any, summary?: any, dark = false) {
           : (c.bonus ? `${c.points - c.bonus} + ${c.bonus} golden bonus · ` : '') +
               (c.percentile == null
                 ? 'Standard score (no readership data for this answer)'
-                : rarityLabel(c.percentile, c.category_slug || category)),
+                : tierCopy(c) || rarityLabel(c.percentile, c.category_slug || category)),
         125,
         y + (compact ? 20 : 25),
         compact ? 18 : 20,

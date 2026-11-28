@@ -1,3 +1,4 @@
+import { rarityTier, tierRank, tierCopy } from '../shared/flow-rules';
 import { claimScore } from '../shared/claim-copy';
 import { SHARE_INVITATION } from '../shared/copy';
 import { editionLabel } from '../shared/sharing';
@@ -20,6 +21,19 @@ import {
 } from '../shared/brand';
 import { fitText, fitLine } from '../shared/typography';
 // Canvas avoids Safari's SVG foreignObject restrictions. Font faces are self-hosted.
+function offStamp(c: CanvasRenderingContext2D, x: number, y: number, size = 24) {
+  c.save();
+  c.translate(x, y);
+  c.rotate((-3 * Math.PI) / 180);
+  c.strokeStyle = c.fillStyle = '#B93420';
+  c.lineWidth = 2;
+  c.font = `900 ${size}px Archivo`;
+  c.textAlign = 'left';
+  const width = c.measureText('OFF THE REGISTER').width;
+  c.strokeRect(-5, -size, width + 10, size + 10);
+  c.fillText('OFF THE REGISTER', 0, 0);
+  c.restore();
+}
 export async function exportCertificate(claim: Claim, story: boolean, hideAnswers = false) {
   claim = cleanStoredHandles(claim);
   if (hideAnswers || claim.concealed) claim = { ...claim, display: 'SEALED' };
@@ -102,6 +116,8 @@ export async function exportCertificate(claim: Claim, story: boolean, hideAnswer
   text(claim.category_name, 80, y + 38, 20);
   formText(c, 'date', claim.category_date, 820, y + 38);
   line(y + 65);
+  if (!claim.concealed && rarityTier(claim.percentile, claim.pool) === 'Off the register')
+    offStamp(c, 400, y + 45, 22);
   const holder = y + 120;
   formText(c, 'label', 'Held by', 80, holder);
   c.font = '600 42px "Instrument Sans"';
@@ -130,7 +146,8 @@ export async function exportCertificate(claim: Claim, story: boolean, hideAnswer
       c,
       claim.percentile == null
         ? 'Standard score (no readership data for this answer)'
-        : rarityLabel(claim.percentile, claim.category_slug || claim.category_name),
+        : tierCopy(claim) ||
+            rarityLabel(claim.percentile, claim.category_slug || claim.category_name),
       80,
       h - 392,
       920,
@@ -254,7 +271,11 @@ async function drawCurve(
 
 export function summaryText(file: DayFile, category: Category, hideAnswers = false) {
   const answers = hideAnswers ? [] : (file.claims || []).filter((c) => !c.concealed && c.display);
-  return `${editionLabel(category.date)} · ${category.name}${answers.length ? ' · ' + answers.map((c) => `${c.display} (${claimScore(c)})`).join(', ') : ''} · ${file.points ?? 0} pts${file.rank ? ` · #${file.rank} of ${file.players} players today` : ''}. ${PUBLIC_HOST}`;
+  const best = answers
+    .map((c) => rarityTier(c.percentile, c.pool))
+    .filter((t) => tierRank(t) >= 0)
+    .sort((a, b) => tierRank(b) - tierRank(a))[0];
+  return `${editionLabel(category.date)} · ${category.name}${file.title ? ' · ' + file.title.name + (file.title.provisional ? ' so far' : '') : ''}${best ? ' · ' + best : ''}${answers.length ? ' · ' + answers.map((c) => `${c.display} (${claimScore(c)})`).join(', ') : ''} · ${file.points ?? 0} pts${file.rank ? ` · #${file.rank} of ${file.players} players today` : ''}. ${PUBLIC_HOST}`;
 }
 export async function exportSummary(
   file: DayFile,
@@ -317,14 +338,25 @@ export async function exportSummary(
   const filed = at ? ` · filed ${filingTime(at, zone)}` : '';
   fitCanvasLine(
     c,
-    `${file.dibs}/${MAX_CLAIMS} claims · ${file.strikes} strikes${filed}`,
+    `${file.dibs}/${MAX_CLAIMS} claims · ${file.strikes} ${file.strikes === 1 ? 'strike' : 'strikes'}${filed}`,
     80,
     440,
     920,
     24,
   );
   c.fillStyle = golden ? gold : ink;
-  fitCanvasLine(c, golden ? 'Golden ticket found' : 'File closed.', 80, 485, 920, 26);
+  fitCanvasLine(
+    c,
+    file.title
+      ? file.title.name + (file.title.provisional ? ' · so far' : '')
+      : golden
+        ? 'Golden ticket found'
+        : 'File closed.',
+    80,
+    485,
+    920,
+    26,
+  );
   const rows = guesses(file),
     rowHeight = Math.min(76, (h - 840) / Math.max(1, rows.length));
   rows.forEach((event, i) => {
@@ -337,13 +369,18 @@ export async function exportSummary(
     formText(c, 'number', String(i + 1).padStart(2, '0'), 80, y + 31, 22);
     c.fillStyle = isGold ? gold : red;
     if (event.kind === 'dibs') c.fillRect(130, y + 13, 20, 20);
+    else {
+      c.strokeStyle = ink;
+      c.lineWidth = 2;
+      c.strokeRect(130, y + 13, 20, 20);
+    }
     const answer = !hideAnswers && claim && !claim.concealed ? claim.display : 'Claim';
     c.fillStyle = isGold ? gold : ink;
     fitCanvasLine(
       c,
       event.kind === 'strike'
-        ? 'Strike · −10'
-        : `${answer}${claim ? ` · ${claim.points ?? 0} points` : ''}${isGold ? ' · Golden ticket · +100' : ''}`,
+        ? 'Strike · −10 points'
+        : `${answer}${claim ? ` · ${claim.points ?? 0} points` : ''}${isGold ? ` · Golden ticket · +${claim?.bonus ?? 100}` : ''}`,
       175,
       y + 31,
       825,
@@ -351,6 +388,13 @@ export async function exportSummary(
       '"Instrument Sans"',
       600,
     );
+    if (
+      !hideAnswers &&
+      claim &&
+      !claim.concealed &&
+      rarityTier(claim.percentile, claim.pool) === 'Off the register'
+    )
+      offStamp(c, 690, y + 31, 19);
     if (claim && !claim.concealed)
       fitCanvasLine(
         c,
@@ -359,7 +403,8 @@ export async function exportSummary(
           : '') +
           (claim.percentile == null
             ? 'Standard score (no readership data for this answer)'
-            : rarityLabel(claim.percentile, claim.category_slug || claim.category_name)),
+            : tierCopy(claim) ||
+              rarityLabel(claim.percentile, claim.category_slug || claim.category_name)),
         175,
         y + 60,
         825,

@@ -1,3 +1,6 @@
+import { flowFunnel } from './flow-funnel';
+import { loadPool, evidence, type Pool } from './pool';
+import { rarityTier } from '../shared/flow-rules';
 import { funnel } from './funnel';
 import { DayStandings } from './day-standings';
 import { resolveCertificate } from '../shared/certificate-id';
@@ -67,6 +70,8 @@ export class DayRegistry extends DurableObject<Env> {
   private flushError: string | null = null;
   private pushTimer?: ReturnType<typeof setTimeout>;
   private flushTimer?: ReturnType<typeof setInterval>;
+  private pool?: Pool;
+  private offRegisterUsers = new Set<string>();
   private nextCheck = 0;
   private nextOpening = dropAt(LAUNCH_DATE);
   private requestedDay?: string;
@@ -104,6 +109,7 @@ export class DayRegistry extends DurableObject<Env> {
         this.nextCheck = Date.now() + 5000;
         return;
       }
+      this.pool = await loadPool(this.category);
       this.specials = await specialStatus(env, this.category);
       const special = await env.DB.prepare(
         'SELECT golden_json FROM daily_specials WHERE category_id=?',
@@ -219,6 +225,7 @@ export class DayRegistry extends DurableObject<Env> {
     this.claims = 0;
     this.visibleClaims = 0;
     this.goldenFound = 0;
+    this.offRegisterUsers.clear();
     this.lastClaimAt = null;
     for (const state of this.all().values()) {
       this.users.set(state.user.id, { ...state.user, streakDates: state.streakDates });
@@ -229,6 +236,12 @@ export class DayRegistry extends DurableObject<Env> {
         });
         this.claims = Math.max(this.claims, claim.claim_no);
         if (!claim.voided) {
+          if (
+            !state.user.hidden &&
+            state.file.eligible !== false &&
+            rarityTier(claim.percentile, claim.pool) === 'Off the register'
+          )
+            this.offRegisterUsers.add(state.user.id);
           this.visibleClaims++;
           this.goldenFound += Number(!!claim.golden);
           if (!this.lastClaimAt || claim.created_at > this.lastClaimAt)
@@ -238,7 +251,7 @@ export class DayRegistry extends DurableObject<Env> {
     }
   }
   private board(uid?: string) {
-    return this.standings.board(uid);
+    return this.standings.board(uid, dayClosed(this.category));
   }
   private state(uid: string): JournalFile | undefined {
     return this.journal?.files.get(uid) || this.legacy.get(uid);
@@ -293,6 +306,7 @@ export class DayRegistry extends DurableObject<Env> {
       rank: board.own?.rank || null,
       players: board.total,
       comparison: board.comparison,
+      title: this.standings.title(state.user.id, dayClosed(this.category)),
       streak: streak(state.streakDates, this.category.date),
       revealed: dayClosed(this.category),
     };
@@ -338,6 +352,7 @@ export class DayRegistry extends DurableObject<Env> {
       closesAt: g ? closeAt(g) : null,
       practice: this.env.STAGING === 'true',
       claimed: this.visibleClaims,
+      offRegisterPlayers: this.offRegisterUsers.size,
       open: g ? g.total_registrable - this.claims - this.specials.houseCount : 0,
       voided: this.claims - this.visibleClaims,
       lastClaimAt: this.lastClaimAt,
@@ -625,7 +640,15 @@ export class DayRegistry extends DurableObject<Env> {
     }
     if (path === '/admin/r20-funnel' && req.method === 'GET') {
       if (!this.funnelCache || Date.now() - this.funnelCache.at >= 60000)
-        this.funnelCache = { at: Date.now(), data: funnel(this.all().values()) };
+        this.funnelCache = {
+          at: Date.now(),
+          data: {
+            ...funnel(this.all().values()),
+            ...flowFunnel(this.all().values(), (id) =>
+              this.standings.title(id, dayClosed(this.category)),
+            ),
+          },
+        };
       return json({
         day: this.category?.date,
         asOf: new Date(this.funnelCache.at).toISOString(),
@@ -1147,7 +1170,14 @@ export class DayRegistry extends DurableObject<Env> {
     };
     const tried = alreadyTried();
     if (tried) return tried;
-    const score = await scoreAnswer(env, g, row[0], aid, this.golden.has(aid));
+    const score = await scoreAnswer(
+      env,
+      g,
+      row[0],
+      aid,
+      this.golden.has(aid),
+      this.specials.goldenBonus ?? 100,
+    );
     // Validation may have crossed close. Never commit using the pre-await check.
     if (dayClosed(g))
       return json({ message: 'The category is closed; check the opening time.' }, 422);
@@ -1225,9 +1255,18 @@ export class DayRegistry extends DurableObject<Env> {
         founder: !!user.founder,
         total_registrable: g.total_registrable - this.specials.houseCount,
         ...score,
-        golden: score.bonus === 100,
+        golden: this.golden.has(aid),
+        pool: evidence(this.pool, row[0]),
+        offRegisterOrdinal: undefined as number | undefined,
         voided: 0,
       };
+      if (rarityTier(claim.percentile, claim.pool) === 'Off the register') {
+        file.offRegisterOrdinal ||= this.offRegisterUsers.has(user.id)
+          ? undefined
+          : this.offRegisterUsers.size + 1;
+        claim.offRegisterOrdinal = file.offRegisterOrdinal;
+        this.offRegisterUsers.add(user.id);
+      }
       file.claims.push(claim);
       file.dibs++;
       file.events.push({

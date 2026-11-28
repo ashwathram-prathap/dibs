@@ -1,0 +1,243 @@
+{
+  "version": "r21-pool-v1",
+  "assets": [
+    {
+      "path": "/catalog/actors/1f68f6b5340a8880/r21-pool-v1.json",
+      "sha256": "22ba0c2a30f9760642577eddfaece58415253753034511a5231c7f98d09cba19",
+      "bytes": 275534,
+      "poolSize": 3000,
+      "catalogCount": 137623
+    },
+    {
+      "path": "/catalog/airports/8d8792d4f74eee1e/r21-pool-v1.json",
+      "sha256": "85e364ed21491002b2309009906ba27836aff7bc9584ef88e079dfe76de84f8c",
+      "bytes": 114505,
+      "poolSize": 3001,
+      "catalogCount": 57109
+    },
+    {
+      "path": "/catalog/albums/7b689f83c1956929/r21-pool-v1.json",
+      "sha256": "d7d9c6e0d7eb2eab62e870ab5ee3486aebfe3438e652386d477e74510306b137",
+      "bytes": 288170,
+      "poolSize": 3000,
+      "catalogCount": 143941
+    },
+    {
+      "path": "/catalog/animals/10210a86838c8eca/r21-pool-v1.json",
+      "sha256": "684d0fdb5af7fc4fc2d37b093c0a8083afe4d0e8adad064f0a7b452f7feb09b1",
+      "bytes": 178531,
+      "poolSize": 3002,
+      "catalogCount": 89122
+    },
+    {
+      "path": "/catalog/architects/791e50276f0e82ae/r21-pool-v1.json",
+      "sha256": "cd8ac456bef162ba97aad957a643cab3dd71c87abebc804e2536c5aa16d3607e",
+      "bytes": 35775,
+      "poolSize": 3012,
+      "catalogCount": 17744
+    },
+    {
+      "path": "/catalog/arthropods/51bc78890de6c9be/r21-pool-v1.json",
+      "sha256": "09fec5a7b63a436bae3bf5fa6eb44931e2ed2b999c764dbb6d32bd90a1068d73",
+      "bytes": 47529,
+      "poolSize": 3004,
+      "catalogCount": 23621
+    },
+    {
+      "path": "/catalog/asteroids/75530681294d3f8c/r21-pool-v1.json",
+      "sha256": "fcb0b94485c80756387ed597cd0511b2bb0012a5f77e8fe56066dbe68c6dbd06",
+      "bytes": 53561,
+      "poolSize": 3091,
+      "catalogCount": 26637
+    },
+    {
+      "path": "/catalog/bands/5aa38771254148d7/r21-pool-v1.json",
+      "sha256": "39146aee04924700932e77204affb3a637366f2fd62a95197c0e3445c6e6691d",
+      "bytes": 99877,
+      "poolSize": 3000,
+      "catalogCount": 49795
+    },
+    {
+      "path": "/catalog/birds/04985deb94445ed1/r21-pool-v1.json",
+      "sha256": "2df4d160c2192fcb2d2da84dbad598b10c9ac24b8ce228f3bd69d3f20f5dcc3e",
+      "bytes": 32665,
+      "poolSize": 3004,
+      "catalogCount": 16189
+    },
+    {
+      "path": "/catalog/castles/a373e1a824a05cc5/r21-pool-v1.json",
+      "sha256": "af12d5cfe6f94eef5bbbfe020b479911358c961dd24771a187770ccb40f3c3e5",
+      "bytes": 49713,
+      "poolSize": 3004,
+      "catalogCount": 24713
+    },
+    {
+      "path": "/catalog/cities/00cadebbe95f4404/r21-pool-v1.json",
+      "sha256": "31a291dd4f73fd4a638727fa724d7e17d7fbd3f21f4001c16434f5c339f54e20",
+      "bytes": 300144,
+      "poolSize": 3000,
+      "catalogCount": 149928
+    },
+    {
+      "path": "/catalog/composers/65f4199c635d7bbc/r21-pool-v1.json",
+      "sha256": "2975d8f48f2c96b074bdcd5562890bd2ad1c5034830500e8199c708e5efb175d",
+      "bytes": 141263,
+      "poolSize": 3000,
+      "catalogCount": 70488
+    },
+    {
+      "path": "/catalog/countries/34d735861a0b55ac/r21-pool-v1.json",
+      "sha256": "b02468eb89d0cd39651a4fa28750b422fee105753e70acb952ea73b5abe3a204",
+      "bytes": 782,
+      "poolSize": 249,
+      "catalogCount": 249
+    },
+    {
+      "path": "/catalog/films/5e6d4def4c7b073b/r21-pool-v1.json",
+      "sha256": "fe34998114f0ef31ec76a5a199966132935f7561d6e3596881abf9c900477822",
+      "bytes": 319580,
+      "poolSize": 3000,
+      "catalogCount": 159646
+    },
+    {
+      "path": "/catalog/foods/c13c215b8bb7b069/r21-pool-v1.json",
+      "sha256": "68630af9e5bf04b28c03d9edf543ec8ffc2aa5e265af8c8a20139390458e97e3",
+      "bytes": 28309,
+      "poolSize": 3000,
+      "catalogCount": 14011
+    },
+    {
+      "path": "/catalog/footballers/3c42b0dee313f8fd/r21-pool-v1.json",
+      "sha256": "d941fff233e75b9d091ef8e4f61890bdbbdd77187585c4f26bea88f62bcf0c5c",
+      "bytes": 417864,
+      "poolSize": 3000,
+      "catalogCount": 208788
+    },
+    {
+      "path": "/catalog/fruits-vegetables/7cc25d83172226d8/r21-pool-v1.json",
+      "sha256": "796ba331e84c399007e29b2638a51b8f964ce936cc9806958016fb582b2d7a99",
+      "bytes": 3078,
+      "poolSize": 1177,
+      "catalogCount": 1396
+    },
+    {
+      "path": "/catalog/islands/dce93ccf83ed0b78/r21-pool-v1.json",
+      "sha256": "d71666860da4ee60d858d229714cf90a30a8922356ceb0185cd6aa6d6fbf60df",
+      "bytes": 258354,
+      "poolSize": 3001,
+      "catalogCount": 129033
+    },
+    {
+      "path": "/catalog/lakes/c9a92d2453c458d6/r21-pool-v1.json",
+      "sha256": "e8261400efdf6a5fa130abe1d553f0e1b4ecc9c587c88b97cb87c148a04a1764",
+      "bytes": 547764,
+      "poolSize": 3004,
+      "catalogCount": 273738
+    },
+    {
+      "path": "/catalog/mountains/16b9c38c78cc2e5b/r21-pool-v1.json",
+      "sha256": "48dac72c37d6134f9cdd4af7acc0a7c9deb16876bf2a234cafaf4f74363e9a08",
+      "bytes": 780054,
+      "poolSize": 3005,
+      "catalogCount": 389883
+    },
+    {
+      "path": "/catalog/museums/d4659b2a078667f8/r21-pool-v1.json",
+      "sha256": "7ea6380f5a74a8d204c76ef6d7652d582a613a8e85384c9ee3b5fd330d786e46",
+      "bytes": 41527,
+      "poolSize": 3001,
+      "catalogCount": 20620
+    },
+    {
+      "path": "/catalog/novels/c943416dcb136d31/r21-pool-v1.json",
+      "sha256": "933bac90d151392f5ae2ed2a428ef95250fc73e6f122406126f5a42648f965bf",
+      "bytes": 69239,
+      "poolSize": 3000,
+      "catalogCount": 34476
+    },
+    {
+      "path": "/catalog/painters/739060aeb113477f/r21-pool-v1.json",
+      "sha256": "4e48121c1ba03318745431cd112b048e2eef0bada4cc43159429ae0c41c0fd8c",
+      "bytes": 106219,
+      "poolSize": 3006,
+      "catalogCount": 52966
+    },
+    {
+      "path": "/catalog/paintings/9959859ce98921b9/r21-pool-v1.json",
+      "sha256": "22694d8647413b544c38ca162520814b26462d1b257fae117b8ce105ffdd226c",
+      "bytes": 1033204,
+      "poolSize": 3003,
+      "catalogCount": 516458
+    },
+    {
+      "path": "/catalog/plants/f584483f47d38e7d/r21-pool-v1.json",
+      "sha256": "fd387a3214123a90f73317cf8c5646c55c1615bdb14560c8c8f676aad2d1e124",
+      "bytes": 86903,
+      "poolSize": 3000,
+      "catalogCount": 43308
+    },
+    {
+      "path": "/catalog/poets/51f7d3922649c960/r21-pool-v1.json",
+      "sha256": "18664793227319e5195537a80947f5a342f41922b280b9d1740dfa2903b96982",
+      "bytes": 81939,
+      "poolSize": 3000,
+      "catalogCount": 40826
+    },
+    {
+      "path": "/catalog/rivers/e848dc5bda64483a/r21-pool-v1.json",
+      "sha256": "db6b1ce59e8a6aefdd4b15ffa6b76bc9327356badf77c3af46ebd71d1e303c0f",
+      "bytes": 1692418,
+      "poolSize": 3067,
+      "catalogCount": 846065
+    },
+    {
+      "path": "/catalog/ships/710de7afbdf266c3/r21-pool-v1.json",
+      "sha256": "1fbf20d0c4c8aab604b5f44e228b671655b7ffa8ee60df024e3e2af1cf98ce11",
+      "bytes": 66999,
+      "poolSize": 3006,
+      "catalogCount": 33356
+    },
+    {
+      "path": "/catalog/songs/29ccf58663e2b248/r21-pool-v1.json",
+      "sha256": "8f9a1fd8d8195ce75c229f7c2e121aade9b183a05d4f73635e8d61ec10ebbbb6",
+      "bytes": 172993,
+      "poolSize": 3001,
+      "catalogCount": 86353
+    },
+    {
+      "path": "/catalog/stations/c5509e1dd2ca6d1a/r21-pool-v1.json",
+      "sha256": "0b6182dba53732db8e0a6c1aab7d669c95b12afd52510285d970db5ccbcbae81",
+      "bytes": 257842,
+      "poolSize": 3010,
+      "catalogCount": 128777
+    },
+    {
+      "path": "/catalog/television/d343cb3c81d189d2/r21-pool-v1.json",
+      "sha256": "353d1fb8102f78f025ce33510112d26824c0c88120dd0c0d23c60681cbe32610",
+      "bytes": 116149,
+      "poolSize": 3000,
+      "catalogCount": 57931
+    },
+    {
+      "path": "/catalog/universities/1e087421872a18e5/r21-pool-v1.json",
+      "sha256": "e379223b4c53703d1cf0a955b5816e9d77f09868d0f54721159ff64b460018c9",
+      "bytes": 49453,
+      "poolSize": 3000,
+      "catalogCount": 24583
+    },
+    {
+      "path": "/catalog/video-games/b3132c41eebaa59a/r21-pool-v1.json",
+      "sha256": "f782b51bd1e449f302a0ac2dfcb8fcde0b973ded6d97188863646039682d49df",
+      "bytes": 362634,
+      "poolSize": 3001,
+      "catalogCount": 181173
+    },
+    {
+      "path": "/catalog/foods/f0dbabbca22064f9/r21-pool-v1.json",
+      "sha256": "42264ef4d4438307b0873941f428b789799af2f7edd1968cf9bdd38708e4f4ed",
+      "bytes": 28263,
+      "poolSize": 3000,
+      "catalogCount": 13988
+    }
+  ]
+}

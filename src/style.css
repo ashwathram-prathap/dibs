@@ -8202,3 +8202,35 @@ html.low-power .claim-slots .slot-stamp {
   font: 400 1.125rem/1.5 "Instrument Sans", sans-serif;
   overflow-wrap: anywhere;
 }
+
+/* R21: a single ruled red entry, distinct from the independent golden ticket. */
+.claim-tier { margin-block: .6rem; }
+.tier-stamp { font-weight: 650; }
+.off-register-moment { border-block-start: 1px solid var(--ink); padding-block-start: .6rem; }
+.off-register-stamp, .title-stamp { display: inline-block; font-family: Archivo; font-weight: 900; border: 1px solid currentColor; padding: .2em .35em; line-height: 1.1; }
+.off-register-stamp { color: var(--accessible-red, #B93420); rotate: -3deg; font-size: clamp(18px,4vw,26px); text-transform: uppercase; }
+.claim-tier p { font-size: 16px; margin-block: .35rem; }
+.skip-reveal { min-height: 44px; font-size: 16px; margin-block: .25rem; }
+.title-award { margin-block: 1rem; }
+.title-award p { margin-block: .4rem; font-size: 16px; }
+.title-stamp { font-size: clamp(24px,5vw,38px); rotate: -2deg; }
+.gold-title { color: var(--gold); }
+.dibillionaire-stamp { font-weight: 900; }
+[data-reveal="hold"] .win-stamp { transform: scale(.97); }
+[data-reveal="stamp"] .win-stamp { animation: r21-stamp 300ms ease-out; }
+[data-reveal] .rarity-marker { transition: transform 600ms ease-out; }
+[data-reveal="hold"] .rarity-marker, [data-reveal="stamp"] .rarity-marker { transform: translateX(28px)!important; }
+[data-reveal="tier"] .off-register-stamp { animation: r21-stamp 500ms ease-out; }
+[data-reveal="points"] .points-earned { animation: r21-points 250ms ease-out; }
+@keyframes r21-stamp { from {transform:scale(1.12) translateY(-4px);opacity:.6;} to {transform:none;opacity:1;} }
+@keyframes r21-points { from {transform:translateY(3px);} to {transform:none;} }
+@media (prefers-reduced-motion: reduce) { [data-reveal] * { animation:none!important;transition:none!important; } }
+
+[data-theme="dark"] .off-register-stamp {color:#FF836B;}
+.slot-tier {display:block;font:500 13px/1.2 'Instrument Sans';margin-top:.2rem;}
+.off-slot {rotate:-2deg;color:#B93420;}
+[data-theme="dark"] .off-slot {color:#FF836B;}
+.skip-reveal {padding:0;background:none;border:0;font-weight:500;text-decoration:underline;box-shadow:none;}
+
+.off-register-board {display:inline-block;color:var(--accessible-red,#B93420);margin-inline-start:.4em;rotate:-8deg;font-weight:700;}
+[data-theme="dark"] .off-register-board{color:#FF836B;}

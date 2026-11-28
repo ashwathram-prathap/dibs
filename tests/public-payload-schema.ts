@@ -8,7 +8,10 @@ const category = {
   paper: fields('stock light dark plate'),
 };
 const specials = {
-  ...fields('houseCount goldenFound goldenTotal commitment committedAt verified'),
+  ...fields('houseCount goldenFound goldenTotal goldenBonus commitment committedAt verified'),
+  policy: fields(
+    'version poolVersion catalogVersion scoringVersion eligibleCount referencePoolSize eligibleDigest count bonus clues digest',
+  ),
   houseWords: [],
   clue: fields('text crackedBy'),
 };
@@ -25,10 +28,12 @@ const file = {
   claims: [claimShape],
   events: [event],
   comparison,
+  title: fields('name reason provisional'),
 };
 const sharedClaim = {
   ...claimShape,
   ...fields('sharedAnswers display obscurity percentile bonus golden'),
+  pool: fields('version catalogVersion scoringVersion membership poolSize'),
 };
 const sharedFile = {
   ...file,
@@ -40,7 +45,7 @@ const standing = fields('rank handle founder points claims own golden');
 const board = { rows: [standing], own: standing, total: true, comparison, final: true };
 const today = {
   ...fields(
-    'serverTime revealed closesAt practice claimed open voided lastClaimAt nextDrop turnstileSiteKey',
+    'serverTime revealed closesAt practice claimed offRegisterPlayers open voided lastClaimAt nextDrop turnstileSiteKey',
   ),
   category,
   specials,

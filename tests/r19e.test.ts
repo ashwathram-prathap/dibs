@@ -95,22 +95,22 @@ it('the Worker reads the new immutable asset and uses its median only for missin
   expect(await scoreAnswer(env, category, 0, 'top', false)).toEqual({
     points: 10,
     percentile: 0,
-    bonus: 0,
+    bonus: 0, golden:false,
   });
   expect(await scoreAnswer(env, category, 1, 'mid', false)).toEqual({
     points: 55,
     percentile: 0.5,
-    bonus: 0,
+    bonus: 0, golden:false,
   });
   expect(await scoreAnswer(env, category, 2, 'tail', true)).toEqual({
     points: 210,
     percentile: 1,
-    bonus: 100,
+    bonus: 100, golden:true,
   });
   expect(await scoreAnswer(env, category, 3, 'unknown', false)).toEqual({
     points: 55,
     percentile: null,
-    bonus: 0,
+    bonus: 0, golden:false,
   });
   expect(fetcher).toHaveBeenCalledTimes(1);
   expect(fetcher.mock.calls[0][0]).toBe('https://dibs.here' + scoreAssetPath('test', '123'));

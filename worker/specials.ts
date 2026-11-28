@@ -1,3 +1,4 @@
+import { prepareDayRules, wantsNewRules, savedPolicy } from './day-rules';
 import { cluedId, clueText, clueEnabled } from './clue';
 import { catalogMeta, rowAt, answerId, persistAnswer, answerType } from './catalog';
 import { goldenPerDay, GOLDEN_PER_DAY } from '../shared/config';
@@ -30,10 +31,21 @@ export function closeAt(category: any) {
 }
 // This object is private: only the commitment and aggregate counts leave the server.
 export async function ensureSpecials(env: Env, category: any) {
-  const saved = await env.DB.prepare('SELECT * FROM daily_specials WHERE category_id=?')
+  const saved = await env.DB.prepare(
+    'SELECT s.*,r.policy_json,r.policy_digest,r.pool_json FROM daily_specials s LEFT JOIN day_rules r ON r.category_id=s.category_id WHERE s.category_id=?',
+  )
     .bind(category.id)
     .first<any>();
-  if (saved) return saved;
+  if (saved) {
+    const policy = savedPolicy(saved);
+    if (
+      policy &&
+      ((await sha256(saved.policy_json)) !== saved.policy_digest ||
+        (await sha256(saved.pool_json)) !== policy.eligibleDigest)
+    )
+      throw Error('Committed rules failed integrity check');
+    return saved;
+  }
   const meta = catalogMeta(category);
   const pool: { id: string; display: string }[] = meta
     ? meta.house.map((r: any) => ({ id: answerId(category, r), display: r[1] }))
@@ -47,12 +59,20 @@ export async function ensureSpecials(env: Env, category: any) {
   const seed = [...crypto.getRandomValues(new Uint8Array(32))]
     .map((n) => n.toString(16).padStart(2, '0'))
     .join('');
+  const rules = wantsNewRules(category) ? await prepareDayRules(category) : null;
   let golden = await selectGolden(
     pool.filter((a) => !house.some((h) => h.id === a.id)).map((a) => a.id),
     seed,
     goldenPerDay(category.date),
   );
-  if (meta) {
+  if (rules && meta) {
+    const eligibleIds = rules.eligible.map((i) => answerId(category, [i, '', null] as any));
+    golden = await selectGolden(eligibleIds, seed, rules.policy.count);
+    const rows = await Promise.all(
+      golden.map((id) => rowAt(category, Number(id.split(':').at(-1)))),
+    );
+    await env.DB.batch([...meta.house, ...rows].map((r) => persistAnswer(env, category, r)));
+  } else if (meta) {
     const chosen = new Set<number>();
     let counter = 0;
     while (chosen.size < goldenPerDay(category.date) && chosen.size < meta.count - 10) {
@@ -67,6 +87,13 @@ export async function ensureSpecials(env: Env, category: any) {
   }
   const commitment = await sha256(commitmentText(category.id, seed, golden));
   await env.DB.batch([
+    ...(rules
+      ? [
+          env.DB.prepare(
+            'INSERT INTO day_rules VALUES(?,?,?,?,?) ON CONFLICT(category_id) DO NOTHING',
+          ).bind(category.id, rules.json, rules.digest, rules.poolJson, new Date().toISOString()),
+        ]
+      : []),
     ...house.map((a) =>
       env.DB.prepare('INSERT OR IGNORE INTO house_words(category_id,answer_id) VALUES(?,?)').bind(
         category.id,
@@ -81,7 +108,9 @@ export async function ensureSpecials(env: Env, category: any) {
       new Date().toISOString(),
     ),
   ]);
-  return env.DB.prepare('SELECT * FROM daily_specials WHERE category_id=?')
+  return env.DB.prepare(
+    'SELECT s.*,r.policy_json,r.policy_digest,r.pool_json FROM daily_specials s LEFT JOIN day_rules r ON r.category_id=s.category_id WHERE s.category_id=?',
+  )
     .bind(category.id)
     .first<any>();
 }
@@ -89,7 +118,9 @@ export async function specialStatus(env: Env, category: any, reveal = false) {
   const closed = reveal && env.STAGING !== 'true' && closeAt(category) <= new Date().toISOString();
   // A missed drop must never manufacture a retrospective proof.
   const saved = closed
-    ? await env.DB.prepare('SELECT * FROM daily_specials WHERE category_id=?')
+    ? await env.DB.prepare(
+        'SELECT s.*,r.policy_json,r.policy_digest,r.pool_json FROM daily_specials s LEFT JOIN day_rules r ON r.category_id=s.category_id WHERE s.category_id=?',
+      )
         .bind(category.id)
         .first<any>()
     : await ensureSpecials(env, category);
@@ -117,7 +148,8 @@ export async function specialStatus(env: Env, category: any, reveal = false) {
   )
     .bind(category.id)
     .first<any>();
-  const selected = clueEnabled(category)
+  const policy = savedPolicy(saved);
+  const selected = clueEnabled(category, Date.now(), !!policy?.clues)
     ? cluedId(JSON.parse(saved.golden_json), saved.commitment)
     : null;
   const clueAnswer = selected
@@ -161,7 +193,12 @@ export async function specialStatus(env: Env, category: any, reveal = false) {
   const base = {
     clue: clueAnswer
       ? {
-          text: clueText(clueAnswer.display, category.date, await answerType(category, selected!)),
+          text: clueText(
+            clueAnswer.display,
+            category.date,
+            await answerType(category, selected!),
+            policy?.count,
+          ),
           crackedBy: cracked?.handle || null,
         }
       : null,
@@ -171,6 +208,8 @@ export async function specialStatus(env: Env, category: any, reveal = false) {
       .map((h) => ({ display: h.display, handle: 'RESERVED' })),
     goldenFound: Number(found?.n || 0),
     goldenTotal: JSON.parse(saved.golden_json).length,
+    goldenBonus: policy?.bonus ?? 100,
+    policy: policy ? { ...policy, digest: saved.policy_digest } : undefined,
     commitment: saved.commitment,
     committedAt: saved.committed_at,
   };
@@ -191,6 +230,12 @@ export async function specialStatus(env: Env, category: any, reveal = false) {
       algorithm: 'SHA-256 of JSON.stringify({v:1,category,seed,answers:sortedAnswerIds})',
       payload: commitmentText(category.id, saved.seed, ids),
     },
-    verified: (await sha256(commitmentText(category.id, saved.seed, ids))) === saved.commitment,
+    verified:
+      (await sha256(commitmentText(category.id, saved.seed, ids))) === saved.commitment &&
+      (!policy ||
+        ((await sha256(saved.policy_json)) === saved.policy_digest &&
+          (await sha256(saved.pool_json)) === policy.eligibleDigest &&
+          ids.length === policy.count &&
+          ids.every((id) => JSON.parse(saved.pool_json).includes(Number(id.split(':').at(-1)))))),
   };
 }

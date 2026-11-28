@@ -139,6 +139,7 @@ beforeAll(async () => {
       .replace(/^--.*$/gm, '')
       .replace(/\n/g, ' '),
   );
+  await db.exec(readFileSync('migrations/0017_day_rules.sql', 'utf8').replace(/^--.*$/gm, '').replace(/\n/g, ' '));
   const date = registryDate();
   await db
     .prepare(

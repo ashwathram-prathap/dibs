@@ -1,3 +1,5 @@
+import { rarityTier } from '../shared/flow-rules';
+import { TitleStamp, ClaimTier } from './ClaimTier';
 import { filingTime, viewerZone } from '../shared/time';
 import { useHideAnswers } from './share-preference';
 import { claimScore } from '../shared/claim-copy';
@@ -70,6 +72,7 @@ export function DaySummary({
           <Signature />
         </div>
         {file.claims.some((c) => c.golden) && <p className="golden-notice">Golden ticket found</p>}
+        <TitleStamp file={file} />
         <p className="certificate-score">
           {countLabel(file.points ?? 0, 'point')}
           {file.rank ? ` · #${file.rank} of ${file.players} players today` : ''} · Streak{' '}
@@ -106,8 +109,25 @@ export function DaySummary({
                     ) : (
                       <strong>{event.display}</strong>
                     )}
-                    <span className={'mini-stamp ' + (event.golden ? 'gold-mini' : '')}>
-                      {event.golden ? 'Golden ticket · +100' : 'DIBS'}
+                    <span
+                      className={
+                        'mini-stamp ' +
+                        (event.golden
+                          ? 'gold-mini'
+                          : rarityTier(
+                                file.claims.find((c) => c.id === event.claimId)?.percentile,
+                                file.claims.find((c) => c.id === event.claimId)?.pool,
+                              ) === 'Off the register'
+                            ? 'off-register-stamp'
+                            : '')
+                      }
+                    >
+                      {event.golden
+                        ? `Golden ticket · +${file.claims.find((c) => c.id === event.claimId)?.bonus ?? 100}`
+                        : rarityTier(
+                            file.claims.find((c) => c.id === event.claimId)?.percentile,
+                            file.claims.find((c) => c.id === event.claimId)?.pool,
+                          ) || 'DIBS'}
                     </span>
                     {file.claims.find((c) => c.id === event.claimId) && (
                       <small className="row-score">
@@ -269,11 +289,13 @@ export function Certificate({ claim, animated = false }: { claim: Claim; animate
             ) : (
               <>
                 <p>{claimScore(claim)}</p>
+                <ClaimTier claim={claim} />
                 <RarityCurve
                   percentile={claim.percentile}
                   category={claim.category_slug || claim.category_name}
                   answer={claim.display}
                   golden={claim.golden}
+                  pool={claim.pool}
                   mini
                 />
               </>

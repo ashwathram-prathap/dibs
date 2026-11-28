@@ -27,5 +27,6 @@ export const BACKUP_EXPLANATION =
   'Use this code to get your claims back on another device or browser.';
 export const FINISH_EXPLANATION = `After ${MAX_CLAIMS} claims or ${MAX_STRIKES} strikes, you're done for the day and get your certificate.`;
 export const SCHEDULE_EXPLANATION = `Each category opens at ${DROP_TIME_LABEL} ET and closes at ${CLOSE_TIME_LABEL} ET the next day.`;
-export const GOLDEN_EXPLANATION = `A golden ticket is a secret answer that earns a gold stamp: ${LAUNCH_GOLDEN_PER_DAY} a day in launch week, then ${GOLDEN_PER_DAY} a day.`;
+export const GOLDEN_EXPLANATION =
+  'Golden tickets are secret answers chosen before opening. Tonight’s count and bonus are shown with the category.';
 export const RESERVED_EXPLANATION = `Each day the house holds the ${RESERVED_COUNT} best-known answers. Guessing one costs a strike.`;

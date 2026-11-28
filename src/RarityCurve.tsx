@@ -1,6 +1,8 @@
+import { tierCopy, type PoolEvidence } from '../shared/flow-rules';
 import { useId } from 'react';
 import { bellArea, bellPath, bellSigma, bellX, bellY, rarityLabel } from '../shared/rarity';
 export function RarityCurve({
+  pool,
   percentile,
   category,
   answer,
@@ -9,6 +11,7 @@ export function RarityCurve({
   score = false,
   finished,
 }: {
+  pool?: PoolEvidence;
   percentile: number | null | undefined;
   category: string;
   answer?: string;
@@ -18,7 +21,7 @@ export function RarityCurve({
   finished?: number;
 }) {
   const id = useId().replace(/:/g, '');
-  const measured = percentile != null;
+  const measured = percentile != null && Number.isFinite(percentile);
   const x = bellX(percentile ?? 0.5),
     y = bellY(bellSigma(percentile ?? 0.5));
   return (
@@ -35,7 +38,7 @@ export function RarityCurve({
           ? 'Standard score (no readership data for this answer)'
           : score
             ? `Better than ${Math.round(percentile! * 100)}% of the ${finished} who finished`
-            : `${answer || 'This claim'}: ${rarityLabel(percentile!, category)}`
+            : `${answer || 'This claim'}: ${tierCopy({ percentile, pool, category_slug: category, category_name: category }) || rarityLabel(percentile!, category)}`
       }
       data-percentile={percentile}
       data-marker-x={measured ? x : undefined}

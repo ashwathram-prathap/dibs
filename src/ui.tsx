@@ -297,12 +297,22 @@ export function Introduction({ lead = false }: { lead?: boolean }) {
     </section>
   );
 }
-export function Rules({ includeReserved = true }: { includeReserved?: boolean }) {
+export function Rules({
+  includeReserved = true,
+  specials,
+}: {
+  includeReserved?: boolean;
+  specials?: import('./types').Specials;
+}) {
   return (
     <div className="plain-rules">
       <p>{FINISH_EXPLANATION}</p>
       <p>{SCHEDULE_EXPLANATION}</p>
-      <p>{GOLDEN_EXPLANATION}</p>
+      <p>
+        {specials
+          ? `${specials.goldenTotal} golden tickets hide in tonight's category. Each adds ${specials.goldenBonus ?? 100} points.`
+          : GOLDEN_EXPLANATION}
+      </p>
       {includeReserved && <p>{RESERVED_EXPLANATION}</p>}
     </div>
   );
@@ -311,11 +321,13 @@ export function Progress({
   dibs,
   strikes,
   answers,
+  tiers,
 }: {
   dibs: number;
   strikes: number;
   /** Accepted answers from the server file. When present, play shows the three claim slots. */
   answers?: (string | undefined)[];
+  tiers?: (import('../shared/flow-rules').Tier | undefined)[];
 }) {
   const strikeRow = (
     <span className="strikes-progress">
@@ -345,7 +357,14 @@ export function Progress({
                 </span>
                 <span className="sr-only">Claim {i + 1}: </span>
                 {filled ? (
-                  <span className="slot-stamp">{answers[i] || 'Claimed'}</span>
+                  <span
+                    className={
+                      'slot-stamp' + (tiers?.[i] === 'Off the register' ? ' off-slot' : '')
+                    }
+                  >
+                    {answers[i] || 'Claimed'}
+                    {tiers?.[i] && <small className="slot-tier">{tiers[i]}</small>}
+                  </span>
                 ) : (
                   <span className="slot-open">Open</span>
                 )}

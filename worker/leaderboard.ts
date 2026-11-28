@@ -79,11 +79,11 @@ export class Leaderboard {
     const key = `scores:${category}:ready`;
     if (await this.storage.get(key)) return;
     const data = await this.env.DB.prepare(
-      `SELECT c.user_id,c.points,c.created_at at,c.file_no seq,'dibs' kind,c.bonus,
+      `SELECT c.user_id,c.points,c.created_at at,c.file_no seq,'dibs' kind,c.bonus,EXISTS(SELECT 1 FROM daily_specials ds,json_each(ds.golden_json) WHERE ds.category_id=c.category_id AND value=c.answer_id) golden,
       CASE WHEN u.provider_subject LIKE 'withdrawn:%' THEN 'Withdrawn player' ELSE COALESCE(f.name,u.handle) END handle,
       (f.user_id IS NOT NULL) founder FROM claims c JOIN users u ON u.id=c.user_id LEFT JOIN founder_role f ON f.user_id=u.id
       WHERE c.category_id=? AND u.hidden=0 AND NOT EXISTS(SELECT 1 FROM claims v WHERE v.category_id=c.category_id AND v.user_id=c.user_id AND v.voided=1)
-      UNION ALL SELECT s.user_id,0,s.created_at,s.seq,'strike',0,
+      UNION ALL SELECT s.user_id,0,s.created_at,s.seq,'strike',0,0,
       CASE WHEN u.provider_subject LIKE 'withdrawn:%' THEN 'Withdrawn player' ELSE COALESCE(f.name,u.handle) END,(f.user_id IS NOT NULL)
       FROM strikes s JOIN users u ON u.id=s.user_id LEFT JOIN founder_role f ON f.user_id=u.id WHERE s.category_id=? AND u.hidden=0
       AND NOT EXISTS(SELECT 1 FROM claims v WHERE v.category_id=s.category_id AND v.user_id=s.user_id AND v.voided=1)
@@ -106,7 +106,7 @@ export class Leaderboard {
         founder: !!e.founder,
         ...scoreFile(events),
         dibs: events.filter((e) => e.kind === 'dibs').length,
-        golden: events.some((e) => e.bonus === 100),
+        golden: events.some((e) => !!e.golden),
         events: events.length,
       });
     }

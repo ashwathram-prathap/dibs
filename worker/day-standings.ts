@@ -1,3 +1,4 @@
+import { fileTitle, rarityTier } from '../shared/flow-rules';
 import type { JournalFile } from './event-journal';
 import { cleanHandle, playerNumber } from '../shared/handles';
 import type { ScoreRow } from './leaderboard';
@@ -24,9 +25,12 @@ export class DayStandings {
   private finishedOwn = new Map<string, number>();
   private top?: any[];
   private loading = false;
+  private off = new Set<string>();
+  private final = false;
   reset(files: Iterable<JournalFile>) {
     this.rows = [];
     this.byId.clear();
+    this.off.clear();
     this.names.clear();
     this.finished = [];
     this.finishedOwn.clear();
@@ -40,6 +44,15 @@ export class DayStandings {
   update(s: JournalFile) {
     const id = s.user.id,
       old = this.byId.get(id);
+    this.off.delete(id);
+    if (
+      !s.user.hidden &&
+      s.file.eligible !== false &&
+      s.file.claims.some(
+        (c: any) => !c.voided && rarityTier(c.percentile, c.pool) === 'Off the register',
+      )
+    )
+      this.off.add(id);
     if (old) {
       this.rows.splice(lower(this.rows, old, compare), 1);
       this.byId.delete(id);
@@ -98,10 +111,22 @@ export class DayStandings {
       points: r.points,
       claims: r.dibs,
       golden: r.golden,
+      ...((own || this.final) && this.off.has(r.user_id) ? { offRegister: true } : {}),
       own,
     };
   }
-  board(uid = '') {
+  title(uid: string, final: boolean) {
+    const r = this.byId.get(uid);
+    if (!r) return null;
+    const tieRank = lower(this.rows, r, (a, b) => b.points - a.points) + 1;
+    return fileTitle(
+      { dibs: r.dibs, closed: this.finishedOwn.has(uid), golden: r.golden },
+      { final, tieRank, total: this.rows.length, finished: this.finished.length },
+    );
+  }
+  board(uid = '', final = false) {
+    if (this.final !== final) this.top = undefined;
+    this.final = final;
     this.top ||= this.rows.slice(0, 25).map((r, i) => this.expose(r, i + 1));
     const r = this.byId.get(uid),
       own = r ? this.expose(r, lower(this.rows, r, compare) + 1, true) : null;

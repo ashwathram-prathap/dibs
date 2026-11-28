@@ -1,3 +1,6 @@
+import { useClaimReveal } from './useClaimReveal';
+import { ClaimTier } from './ClaimTier';
+import { takenAge, rarityTier } from '../shared/flow-rules';
 import { BuilderNote, CreatorLinks } from './CreatorCredit';
 import { claimScore } from '../shared/claim-copy';
 import { goldenPerDay } from '../shared/config';
@@ -476,7 +479,7 @@ export default function App() {
               <section className="how-page">
                 <h1>How it works</h1>
                 <Introduction lead />
-                <Rules />
+                <Rules specials={today.specials} />
                 <Clue clue={today.specials?.clue} />
                 <p>
                   Each night during launch week we post a clue to one golden ticket. The rest stay
@@ -485,7 +488,7 @@ export default function App() {
                 <BuilderNote />
               </section>
             ) : path === '/about' ? (
-              <About nextDrop={today.nextDrop} />
+              <About nextDrop={today.nextDrop} specials={today.specials} />
             ) : path === '/admin/schedule' ? (
               <Calendar />
             ) : path === '/admin/live' ? (
@@ -591,6 +594,7 @@ function Home({
   refresh: () => Promise<void>;
   setMe: (m: Me) => void;
 }) {
+  const reveal = useClaimReveal(today.category?.id);
   const [answer, setAnswer] = useState('');
   const [suggestion, setSuggestion] = useState<string | null>(null);
   const [missing, setMissing] = useState(false);
@@ -609,6 +613,7 @@ function Home({
     name: string;
     founder: boolean;
     answer: string;
+    at?: string;
   } | null>(null);
   const [claim, setClaim] = useState<Claim | null>(me.claim);
   const file = useMemo(
@@ -866,6 +871,7 @@ function Home({
       return;
     }
     setRepeatName(null);
+    reveal.finish();
     submitting.current = true;
     setReturning(false);
     setNudgeArmed(false);
@@ -909,7 +915,8 @@ function Home({
         result = await send(await verifySession());
       }
       if (result.sessionNotice) setSessionNotice(result.sessionNotice);
-      playClaimSound(claimSound(201, result), pendingRequest.current!.id);
+      const acceptedRequest = pendingRequest.current!.id;
+      reveal.begin(acceptedRequest, () => playClaimSound(claimSound(201, result), acceptedRequest));
       pendingRequest.current = null;
       setOutcome(result.claim.golden ? 'GOLD' : 'DIBS');
       setMessage('');
@@ -985,7 +992,12 @@ function Home({
       setHouseStrike(!!err.data?.house);
       setTakenHolder(
         err.status === 409 && !err.data.house
-          ? { name: err.data.takenBy, founder: !!err.data.founder, answer: value.toUpperCase() }
+          ? {
+              name: err.data.takenBy,
+              at: err.data.at,
+              founder: !!err.data.founder,
+              answer: value.toUpperCase(),
+            }
           : null,
       );
       setMessage(
@@ -1050,6 +1062,8 @@ function Home({
           <div className={'claim-paper stock-' + categoryStyle(today.category.slug).stock}>
             {pendingFinal && landed && claim ? (
               <div
+                data-reveal={reveal.phase}
+                onClick={reveal.finish}
                 className={'result-panel win-beat ' + (claim.golden ? 'gold-result' : '')}
                 role="status"
               >
@@ -1060,6 +1074,12 @@ function Home({
                   DIBS<span>{claim.display.toUpperCase()}</span>
                 </strong>
                 <div className="claim-payoff">
+                  <ClaimTier claim={claim} file={file} />
+                  {reveal.phase !== 'done' && (
+                    <button className="skip-reveal" onClick={reveal.finish}>
+                      Skip animation
+                    </button>
+                  )}
                   <p>Yours. {claim.display} has your name on it for good.</p>
                   {!!claim.golden && (
                     <p className="golden-notice">
@@ -1084,6 +1104,7 @@ function Home({
                     category={today.category.slug}
                     answer={claim.display}
                     golden={claim.golden}
+                    pool={claim.pool}
                   />
                 </div>
                 <div className="payoff-counters">
@@ -1101,6 +1122,7 @@ function Home({
                     ref={nextDibs}
                     tabIndex={0}
                     onClick={() => {
+                      reveal.finish();
                       setPendingFinal(false);
                       setLanded(false);
                       setMessage('');
@@ -1139,6 +1161,8 @@ function Home({
                     className={
                       'result-panel win-beat compact-payoff ' + (claim.golden ? 'gold-result' : '')
                     }
+                    data-reveal={reveal.phase}
+                    onClick={reveal.finish}
                     role="status"
                   >
                     <strong
@@ -1148,6 +1172,12 @@ function Home({
                       DIBS<span>{claim.display.toUpperCase()}</span>
                     </strong>
                     <div className="claim-payoff">
+                      <ClaimTier claim={claim} file={file} />
+                      {reveal.phase !== 'done' && (
+                        <button className="skip-reveal" onClick={reveal.finish}>
+                          Skip animation
+                        </button>
+                      )}
                       <p>Yours. {claim.display} has your name on it for good.</p>
                       {!!claim.golden && (
                         <p className="golden-notice">
@@ -1171,6 +1201,7 @@ function Home({
                 <Progress
                   dibs={file?.dibs || 0}
                   strikes={file?.strikes || 0}
+                  tiers={file?.claims.map((c) => rarityTier(c.percentile, c.pool))}
                   answers={[...(file?.claims || [])]
                     .sort((a, b) => a.claim_no - b.claim_no)
                     .map((c) => c.display)}
@@ -1220,12 +1251,14 @@ function Home({
                               ?.scrollIntoView({ block: 'center' });
                         }}
                         id="answer"
+                        onCompositionStart={reveal.finish}
                         name="answer"
                         value={answer}
                         placeholder={
                           today.category.slug === 'animals' ? 'Name an animal…' : 'Name an answer…'
                         }
                         onChange={(e) => {
+                          reveal.finish();
                           setAnswer(e.target.value);
                           setNudge(false);
                           if (e.target.value.trim()) void verifySession().catch(() => {});
@@ -1281,6 +1314,15 @@ function Home({
                             message
                           )}
                         </p>
+                        {taken && takenHolder && !houseStrike && (
+                          <p>
+                            Taken{' '}
+                            {takenAge(takenHolder.at, serverNow())
+                              ? takenAge(takenHolder.at, serverNow()) + ' ago '
+                              : ''}
+                            by <Handle name={takenHolder.name} founder={takenHolder.founder} />.
+                          </p>
+                        )}
                         {taken && (
                           <strong className="strike-count">
                             Strike {file?.strikes || 0} of {MAX_STRIKES}
@@ -1350,6 +1392,7 @@ function Home({
                     category={today.category.slug}
                     answer={claim.display}
                     golden={claim.golden}
+                    pool={claim.pool}
                   />
                 </div>
                 <div className="payoff-links">
@@ -1369,7 +1412,7 @@ function Home({
                 How it works <Icon name="chevron" />
               </summary>
               <Introduction lead />
-              <Rules />
+              <Rules specials={today.specials} />
               <Clue clue={today.specials?.clue} />
             </details>
             {taken && <p className="clerk-aside">{clerkLine('strike', file?.strikes || 0)}</p>}

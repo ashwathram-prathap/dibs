@@ -1,4 +1,6 @@
 export interface Specials {
+  goldenBonus?: number;
+  policy?: { version: string; count: number; bonus: number; eligibleCount: number; digest: string };
   clue?: { text: string; crackedBy: string | null } | null;
   houseCount: number;
   houseWords: { display: string; handle: string }[];
@@ -25,6 +27,8 @@ export interface Category {
   status?: string;
 }
 export interface Claim {
+  pool?: import('../shared/flow-rules').PoolEvidence;
+  offRegisterOrdinal?: number;
   sharedAnswers?: boolean;
   streak?: number;
   category_slug?: string;
@@ -53,6 +57,7 @@ export interface User {
   rerolls_used: number;
 }
 export interface Today {
+  offRegisterPlayers?: number;
   revealed?: boolean;
   closesAt?: string;
   serverTime?: string;
@@ -87,6 +92,7 @@ export interface Guess {
   house?: boolean;
 }
 export interface DayFile {
+  title?: import('../shared/flow-rules').FileTitle | null;
   sharedAnswers?: boolean;
   comparison?: import('../shared/finished-scores').FinishedComparison;
   points?: number;
@@ -115,6 +121,7 @@ export interface Me {
 export const serial = (n: number) => String(n).padStart(4, '0');
 
 export interface Standing {
+  offRegister?: boolean;
   rank: number;
   handle: string;
   founder: boolean;

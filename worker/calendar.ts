@@ -1,3 +1,4 @@
+import { GOLDEN_RULES_VERSION } from './day-rules';
 import { PUBLIC_ORIGIN, LAUNCH_DATE } from '../shared/config';
 import type { Env } from './routes';
 import { dropAt, registryDate, validDate } from './domain';
@@ -175,6 +176,13 @@ async function buildDay(env: Env, d: CalendarDay) {
     .first<any>();
   if (existing && existing.id !== id)
     throw Error('Another register owns this date; seed or move it first.');
+  if (
+    existing &&
+    (await env.DB.prepare('SELECT 1 FROM daily_specials WHERE category_id=?')
+      .bind(existing.id)
+      .first())
+  )
+    throw Error('Committed register is immutable; choose a new day.');
   await env.DB.prepare("UPDATE topic_schedule SET status='building',updated_at=? WHERE date=?")
     .bind(stamp(), d.date)
     .run();
@@ -186,7 +194,11 @@ async function buildDay(env: Env, d: CalendarDay) {
       topic.name,
       d.slug,
       Math.max(2000, manifest.count),
-      JSON.stringify({ staticCatalog: manifest, coverage: JSON.parse(topic.coverage_json) }),
+      JSON.stringify({
+        staticCatalog: manifest,
+        coverage: JSON.parse(topic.coverage_json),
+        ...(env.R21_GOLDEN_POLICY === 'enabled' ? { goldenPolicy: GOLDEN_RULES_VERSION } : {}),
+      }),
       d.date,
       dropAt(d.date),
     )

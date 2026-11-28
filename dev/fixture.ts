@@ -1,3 +1,4 @@
+import {fileTitle,POOL_VERSION} from '../shared/flow-rules';
 import { rarityPoints } from '../shared/score-points';
 import { clerkReply } from '../shared/moments';
 import { nextDrop } from '../worker/domain';
@@ -115,6 +116,7 @@ function file() {
     events,
     closed,
     completedAt: closed ? events.at(-1)?.at : null,
+    ...(r7.has('r21') ? {title:fileTitle({dibs:myClaims.length,closed,golden:myClaims.some(c=>c.golden)},{final:r7.has('final'),tieRank:1,total:100,finished:100})}:{}),
   };
 }
 
@@ -225,7 +227,7 @@ export async function request(path: string, body?: any): Promise<any> {
     };
   if (body && (path.startsWith('/certificate/') || path.startsWith('/summary/')))
     return { ok: true };
-  if (path.startsWith('/certificate/') && r7.has('r19c')) {
+  if (path.startsWith('/certificate/') && r7.has('r19c') && !r7.has('r21')) {
     const p = r7.get('p');
     const owned = !r7.has('visitor');
     const revealed = r7.has('revealed');
@@ -465,6 +467,13 @@ export async function request(path: string, body?: any): Promise<any> {
     if (r19) {
       mine.bonus = mine.golden ? 100 : 0;
       mine.points += mine.bonus;
+    }
+    if(r7.has('r21')) {
+      mine.pool={version:POOL_VERSION,catalogVersion:'fixture',scoringVersion:'r19e-pool-v1',poolSize:3004,membership:r7.has('off')||myClaims.length===1?'out':'in'};
+      mine.percentile=r7.has('missing')?null:mine.pool.membership==='out'?1:.8;
+      if(r7.has('missing'))mine.pool.membership='unknown';
+      mine.bonus=mine.golden?50:0;mine.points=(mine.percentile===null?55:rarityPoints(mine.percentile))+mine.bonus;
+      if(mine.pool.membership==='out')mine.offRegisterOrdinal=4;
     }
     claims = [mine, ...claims];
     myClaims.push(mine);

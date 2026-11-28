@@ -316,6 +316,7 @@ it('R19B exposes only allowed pre-close fields across anonymous and signed publi
     'claims',
     'events',
     'comparison',
+    'title',
   ]);
   for (const cookie of ['', other.cookie, winner.cookie]) {
     const data: any = await (await call(summary, undefined, cookie)).json();

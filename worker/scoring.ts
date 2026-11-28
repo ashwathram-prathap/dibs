@@ -47,6 +47,7 @@ export async function scoreAnswer(
   ordinal: number | undefined,
   answer: string,
   knownGolden?: boolean,
+  dayBonus = 100,
 ) {
   const meta = catalogMeta(category);
   let percentile: number | null = null,
@@ -75,14 +76,18 @@ export async function scoreAnswer(
     base = percentile === null ? data.median : rarityPoints(percentile);
   }
   // Legacy registers have no retained pageviews: their honest median fallback is 50.
-  const golden =
-    knownGolden ??
-    !!(await env.DB.prepare(
-      'SELECT 1 FROM daily_specials,json_each(golden_json) WHERE category_id=? AND value=?',
-    )
-      .bind(category.id, answer)
-      .first());
-  return { points: base + (golden ? 100 : 0), percentile, bonus: golden ? 100 : 0 };
+  const selected =
+    knownGolden === undefined
+      ? await env.DB.prepare(
+          "SELECT COALESCE(json_extract(r.policy_json,'$.bonus'),100) bonus FROM daily_specials s LEFT JOIN day_rules r ON r.category_id=s.category_id,json_each(s.golden_json) WHERE s.category_id=? AND value=?",
+        )
+          .bind(category.id, answer)
+          .first<any>()
+      : null;
+  const golden = knownGolden ?? !!selected;
+  const bonus = golden ? (selected?.bonus ?? dayBonus) : 0;
+  if (![0, 50, 100].includes(bonus)) throw Error('Unknown golden bonus');
+  return { points: base + bonus, percentile, bonus, golden };
 }
 export function scoreFile(events: { kind: string; points?: number; at: string }[]) {
   let raw = 0;

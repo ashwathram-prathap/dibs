@@ -12,7 +12,13 @@ import { archiveCsv, validateArchive } from '../shared/feedback-archive';
 import { BuilderNote } from './CreatorCredit';
 import { Rules, DropTime, Link, time } from './ui';
 import { Icon } from './Icon';
-export function About({ nextDrop }: { nextDrop: string }) {
+export function About({
+  nextDrop,
+  specials,
+}: {
+  nextDrop: string;
+  specials?: import('./types').Specials;
+}) {
   return (
     <>
       <div className="page-heading">
@@ -28,7 +34,7 @@ export function About({ nextDrop }: { nextDrop: string }) {
           <h2>How to play</h2>
           <p>{GAME_EXPLANATION}</p>
           <p>{LIMIT_EXPLANATION}</p>
-          <Rules includeReserved={false} />
+          <Rules includeReserved={false} specials={specials} />
           <details>
             <summary>
               More rules <Icon name="chevron" />
@@ -62,7 +68,7 @@ export function About({ nextDrop }: { nextDrop: string }) {
           <h3>How do points work?</h3>
           <p>
             Rarer answers score more: from 10 for the most familiar to 110 for the rarest. Golden
-            tickets +100; strikes −10.
+            tickets +{specials?.goldenBonus ?? 100}; strikes −10.
           </p>
           <p>{RARITY_EXPLANATION}</p>
           <h3>What does reserved mean?</h3>
@@ -262,6 +268,9 @@ export function Stats() {
 }
 
 export function LiveAdmin() {
+  const [historyDate, setHistoryDate] = useState('');
+  const [history, setHistory] = useState<any>(null);
+  const [historyError, setHistoryError] = useState('');
   const [archiving, setArchiving] = useState(false);
   const [archiveMessage, setArchiveMessage] = useState('');
   const [draft, setDraft] = useState(''),
@@ -361,6 +370,24 @@ export function LiveAdmin() {
               <dl className="live-metrics">
                 {Object.entries({
                   'Participating players': data.funnel.participants,
+                  'Average claims per player':
+                    data.funnel.averageClaimsPerParticipant == null
+                      ? 'Unavailable'
+                      : data.funnel.averageClaimsPerParticipant.toFixed(2),
+                  'Golden hits': data.funnel.uniqueGoldenHits ?? 'Unavailable',
+                  'Unclassified claims': data.funnel.unknownTierClaims ?? 'Unavailable',
+                  ...Object.fromEntries(
+                    Object.entries(data.funnel.tiers || {}).map(([tier, n]) => [
+                      tier + ' claims',
+                      n,
+                    ]),
+                  ),
+                  ...Object.fromEntries(
+                    Object.entries(data.funnel.titles || {}).map(([title, n]) => [
+                      title + ' titles',
+                      n,
+                    ]),
+                  ),
                   'Players with a claim': data.funnel.claimers,
                   'Exactly 1 claim': data.funnel.exactly1,
                   'Exactly 2 claims': data.funnel.exactly2,
@@ -399,6 +426,73 @@ export function LiveAdmin() {
             </>
           ) : (
             <p>Tonight's file counts are unavailable.</p>
+          )}
+          <h2>Closed-night results</h2>
+          <form
+            onSubmit={async (e) => {
+              e.preventDefault();
+              setHistoryError('');
+              setHistory(null);
+              try {
+                const r = await fetch(
+                  '/api/admin/r21-night?date=' + encodeURIComponent(historyDate),
+                  { headers: { authorization: 'Bearer ' + token } },
+                );
+                const d = await r.json();
+                if (!r.ok) throw Error(d.message);
+                setHistory(d);
+              } catch (e) {
+                setHistoryError((e as Error).message);
+              }
+            }}
+          >
+            <label htmlFor="history-date">Registry date (Toronto)</label>
+            <input
+              id="history-date"
+              type="date"
+              required
+              value={historyDate}
+              onChange={(e) => setHistoryDate(e.target.value)}
+            />
+            <button>Read closed night</button>
+          </form>
+          {historyError && <p role="alert">{historyError}</p>}
+          {history && (
+            <>
+              <p>
+                {history.source} As of {history.asOf}.
+              </p>
+              {history.nights.map((n: any) => (
+                <section key={n.date}>
+                  <h3>{n.date}</h3>
+                  <dl className="admin-metrics">
+                    {Object.entries({
+                      Participants: n.participants,
+                      Claimers: n.claimers,
+                      'Accepted claims': n.successfulClaims,
+                      'Average claims': n.averageClaimsPerParticipant ?? 'Unavailable',
+                      'Golden hits': n.uniqueGoldenHits,
+                      'Unclassified claims': n.unknownTierClaims,
+                      ...n.tiers,
+                      ...n.titles,
+                    }).map(([k, v]) => (
+                      <div key={k}>
+                        <dt>{k}</dt>
+                        <dd>{String(v)}</dd>
+                      </div>
+                    ))}
+                  </dl>
+                </section>
+              ))}
+              <p>
+                Next-night return:{' '}
+                {history.returnRate.returned == null
+                  ? 'Unavailable until both nights close'
+                  : `${history.returnRate.returned} of ${history.returnRate.claimers} claimers (${((history.returnRate.rate || 0) * 100).toFixed(1)}%)`}
+                . Deleted, hidden and test identities excluded.
+              </p>
+              <p>{history.shareIntent}</p>
+            </>
           )}
           <h2>Free-tier usage</h2>
           <p>{data.usageNote}</p>

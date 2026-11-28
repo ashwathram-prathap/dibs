@@ -49,6 +49,8 @@ export function visibleClaim(c: any, revealed = false, owned = false, shared = f
     out.points = c.points;
     out.bonus = c.bonus;
     out.golden = c.golden;
+    if (c.pool) out.pool = c.pool;
+    if (owned && c.offRegisterOrdinal) out.offRegisterOrdinal = c.offRegisterOrdinal;
   }
   return out;
 }
@@ -60,6 +62,8 @@ export function publicSpecials(s: any, revealed = false): any {
     houseWords: [],
     goldenFound: s.goldenFound,
     goldenTotal: s.goldenTotal,
+    ...(s.goldenBonus !== undefined ? { goldenBonus: s.goldenBonus } : {}),
+    ...(s.policy ? { policy: s.policy } : {}),
     commitment: s.commitment,
     committedAt: s.committedAt,
     clue: s.clue ? { text: s.clue.text, crackedBy: s.clue.crackedBy } : null,
@@ -99,6 +103,7 @@ export function publicFile(f: any, revealed = false, owned = false): any {
     handle: f.handle,
     founder: f.founder,
     revealed,
+    title: f.title,
     comparison: f.comparison
       ? {
           finished: f.comparison.finished,

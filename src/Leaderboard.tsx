@@ -105,6 +105,15 @@ export function Leaderboard({
                 <td>#{r.rank}</td>
                 <th scope="row">
                   <Handle name={r.handle} founder={r.founder} />
+                  {r.offRegister && (
+                    <span
+                      className="off-register-board"
+                      aria-label="Off the register"
+                      title="Off the register"
+                    >
+                      /
+                    </span>
+                  )}
                   {r.own && <span className="leaderboard-badge">You</span>}
                   {r.golden && (
                     <span

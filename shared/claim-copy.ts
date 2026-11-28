@@ -1,5 +1,7 @@
+import { tierCopy, type PoolEvidence } from './flow-rules';
 import { rarityLabel, standardScoreLabel } from './rarity';
 export function claimScore(c: {
+  pool?: PoolEvidence;
   points?: number;
   bonus?: number;
   golden?: boolean | number;
@@ -12,6 +14,6 @@ export function claimScore(c: {
   const rarity =
     c.percentile == null
       ? standardScoreLabel(points)
-      : `${points} points · ${rarityLabel(c.percentile, c.category_slug || c.category_name)}`;
+      : `${points} points · ${tierCopy(c) || rarityLabel(c.percentile, c.category_slug || c.category_name)}`;
   return rarity + (bonus ? ` · ${points - bonus} + ${bonus} golden bonus` : '');
 }
