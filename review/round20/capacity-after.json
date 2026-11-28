@@ -1,0 +1,238 @@
+{
+  "dailySetup": {
+    "reads": 49,
+    "writes": 102
+  },
+  "doStorageSetup": {
+    "reads": 8,
+    "writes": 10
+  },
+  "doStorageLogicalRows": {
+    "reads": 10,
+    "writes": 9
+  },
+  "mode": "after-local",
+  "at": "2026-11-28T04:58:05.005Z",
+  "scenario": "load, verification, typo, 6 distinct guesses (3 claims, 1 taken strike, 2 reserved strikes), leaderboard, share, return visit; separate control player establishes the taken answer",
+  "httpRequests": 4,
+  "pagesFunctionRequests": 0,
+  "workerRequests": 4,
+  "doRequests": 4.45,
+  "socketMessages": 9,
+  "d1RowsRead": 0,
+  "d1RowsWritten": 1,
+  "allMutationsMetered": true,
+  "samples": [
+    {
+      "path": "/bootstrap",
+      "action": "/bootstrap",
+      "doReads": 1,
+      "doWrites": 1,
+      "transport": "http",
+      "status": 200,
+      "reads": 0,
+      "writes": 0,
+      "metered": true,
+      "workerRequests": 1,
+      "doRequests": 1,
+      "sharedMirrorRequest": false
+    },
+    {
+      "path": "/live",
+      "action": "socket upgrade",
+      "transport": "http",
+      "status": 101,
+      "reads": 0,
+      "writes": 0,
+      "metered": false,
+      "doReads": 0,
+      "doWrites": 0,
+      "workerRequests": 1,
+      "doRequests": 1,
+      "sharedMirrorRequest": false
+    },
+    {
+      "path": "/verify-session",
+      "action": "/verify-session",
+      "doReads": 0,
+      "doWrites": 0,
+      "transport": "socket",
+      "status": 200,
+      "reads": 0,
+      "writes": 0,
+      "metered": true,
+      "workerRequests": 0,
+      "doRequests": 0.05,
+      "sharedMirrorRequest": false
+    },
+    {
+      "path": "/claim",
+      "action": "typo",
+      "doReads": 0,
+      "doWrites": 0,
+      "transport": "socket",
+      "status": 422,
+      "reads": 0,
+      "writes": 0,
+      "metered": true,
+      "workerRequests": 0,
+      "doRequests": 0.05,
+      "sharedMirrorRequest": false
+    },
+    {
+      "path": "/claim",
+      "action": "claim",
+      "doReads": 1,
+      "doWrites": 1,
+      "transport": "socket",
+      "status": 201,
+      "reads": 0,
+      "writes": 0,
+      "metered": true,
+      "workerRequests": 0,
+      "doRequests": 0.05,
+      "sharedMirrorRequest": false
+    },
+    {
+      "path": "/claim",
+      "action": "strike",
+      "doReads": 1,
+      "doWrites": 1,
+      "transport": "socket",
+      "status": 409,
+      "reads": 0,
+      "writes": 0,
+      "metered": true,
+      "workerRequests": 0,
+      "doRequests": 0.05,
+      "sharedMirrorRequest": false
+    },
+    {
+      "path": "/claim",
+      "action": "reserved",
+      "doReads": 1,
+      "doWrites": 1,
+      "transport": "socket",
+      "status": 409,
+      "reads": 0,
+      "writes": 0,
+      "metered": true,
+      "workerRequests": 0,
+      "doRequests": 0.05,
+      "sharedMirrorRequest": false
+    },
+    {
+      "path": "/claim",
+      "action": "reserved",
+      "doReads": 1,
+      "doWrites": 1,
+      "transport": "socket",
+      "status": 409,
+      "reads": 0,
+      "writes": 0,
+      "metered": true,
+      "workerRequests": 0,
+      "doRequests": 0.05,
+      "sharedMirrorRequest": false
+    },
+    {
+      "path": "/claim",
+      "action": "claim",
+      "doReads": 1,
+      "doWrites": 1,
+      "transport": "socket",
+      "status": 201,
+      "reads": 0,
+      "writes": 0,
+      "metered": true,
+      "workerRequests": 0,
+      "doRequests": 0.05,
+      "sharedMirrorRequest": false
+    },
+    {
+      "path": "/claim",
+      "action": "claim",
+      "doReads": 1,
+      "doWrites": 1,
+      "transport": "socket",
+      "status": 201,
+      "reads": 0,
+      "writes": 0,
+      "metered": true,
+      "workerRequests": 0,
+      "doRequests": 0.05,
+      "sharedMirrorRequest": false
+    },
+    {
+      "path": "/leaderboard",
+      "action": "/leaderboard",
+      "doReads": 0,
+      "doWrites": 0,
+      "transport": "http",
+      "status": 200,
+      "reads": 0,
+      "writes": 0,
+      "metered": true,
+      "workerRequests": 1,
+      "doRequests": 1,
+      "sharedMirrorRequest": false
+    },
+    {
+      "path": "/events/share",
+      "action": "/events/share",
+      "doReads": 0,
+      "doWrites": 0,
+      "transport": "socket",
+      "status": 200,
+      "reads": 0,
+      "writes": 0,
+      "metered": true,
+      "workerRequests": 0,
+      "doRequests": 0.05,
+      "sharedMirrorRequest": false
+    },
+    {
+      "path": "/batch-mirror",
+      "reads": 0,
+      "writes": 1,
+      "status": 200,
+      "doReads": 3,
+      "doWrites": 2,
+      "workerRequests": 0,
+      "doRequests": 0,
+      "sharedMirrorRequest": true
+    },
+    {
+      "path": "/bootstrap",
+      "action": "/bootstrap",
+      "doReads": 0,
+      "doWrites": 0,
+      "transport": "http",
+      "status": 200,
+      "reads": 0,
+      "writes": 0,
+      "metered": true,
+      "workerRequests": 1,
+      "doRequests": 1,
+      "sharedMirrorRequest": false
+    }
+  ],
+  "storageCauses": {
+    "KV": {
+      "reads": 3,
+      "writes": 0
+    },
+    "KV put security": {
+      "reads": 0,
+      "writes": 2
+    },
+    "INSERT INTO events(seq,payload) VALUES(?,?)": {
+      "reads": 6,
+      "writes": 6
+    },
+    "INSERT INTO mirror_state(id,sequence) VALUES(1,?) ON CONFLICT(id) DO UPDATE SET sequence=excluded.sequence": {
+      "reads": 1,
+      "writes": 1
+    }
+  }
+}

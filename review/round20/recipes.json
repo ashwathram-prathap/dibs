@@ -1,0 +1,203 @@
+{
+  "at": "2026-11-28T04:55:18.137Z",
+  "checked": [
+    {
+      "slug": "actors",
+      "ready": true,
+      "coverage": 1,
+      "sourcePinned": true
+    },
+    {
+      "slug": "airports",
+      "ready": true,
+      "coverage": 1,
+      "sourcePinned": true
+    },
+    {
+      "slug": "albums",
+      "ready": true,
+      "coverage": 1,
+      "sourcePinned": true
+    },
+    {
+      "slug": "animals",
+      "ready": true,
+      "coverage": 1,
+      "sourcePinned": true
+    },
+    {
+      "slug": "architects",
+      "ready": true,
+      "coverage": 0.9878419452887538,
+      "sourcePinned": true
+    },
+    {
+      "slug": "arthropods",
+      "ready": true,
+      "coverage": 0.9957446808510638,
+      "sourcePinned": true
+    },
+    {
+      "slug": "asteroids",
+      "ready": true,
+      "coverage": 0.985981308411215,
+      "sourcePinned": true
+    },
+    {
+      "slug": "bands",
+      "ready": true,
+      "coverage": 1,
+      "sourcePinned": true
+    },
+    {
+      "slug": "birds",
+      "ready": true,
+      "coverage": 1,
+      "sourcePinned": true
+    },
+    {
+      "slug": "castles",
+      "ready": false,
+      "coverage": 0.9808429118773946,
+      "sourcePinned": true
+    },
+    {
+      "slug": "cities",
+      "ready": true,
+      "coverage": 1,
+      "sourcePinned": true
+    },
+    {
+      "slug": "composers",
+      "ready": true,
+      "coverage": 1,
+      "sourcePinned": true
+    },
+    {
+      "slug": "countries",
+      "ready": true,
+      "coverage": 1,
+      "sourcePinned": true
+    },
+    {
+      "slug": "films",
+      "ready": true,
+      "coverage": 1,
+      "sourcePinned": true
+    },
+    {
+      "slug": "foods",
+      "ready": true,
+      "coverage": 1,
+      "sourcePinned": true
+    },
+    {
+      "slug": "footballers",
+      "ready": false,
+      "coverage": 1,
+      "sourcePinned": true
+    },
+    {
+      "slug": "fruits-vegetables",
+      "ready": true,
+      "coverage": 1,
+      "sourcePinned": true
+    },
+    {
+      "slug": "islands",
+      "ready": true,
+      "coverage": 1,
+      "sourcePinned": true
+    },
+    {
+      "slug": "lakes",
+      "ready": false,
+      "coverage": 0.9954545454545455,
+      "sourcePinned": true
+    },
+    {
+      "slug": "mountains",
+      "ready": false,
+      "coverage": 0.9947916666666666,
+      "sourcePinned": true
+    },
+    {
+      "slug": "museums",
+      "ready": false,
+      "coverage": 0.9869281045751634,
+      "sourcePinned": true
+    },
+    {
+      "slug": "novels",
+      "ready": true,
+      "coverage": 0.9846678023850085,
+      "sourcePinned": true
+    },
+    {
+      "slug": "painters",
+      "ready": false,
+      "coverage": 0.9974293059125964,
+      "sourcePinned": true
+    },
+    {
+      "slug": "paintings",
+      "ready": false,
+      "coverage": 0.9904761904761905,
+      "sourcePinned": true
+    },
+    {
+      "slug": "plants",
+      "ready": true,
+      "coverage": 1,
+      "sourcePinned": true
+    },
+    {
+      "slug": "poets",
+      "ready": false,
+      "coverage": 0.9973614775725593,
+      "sourcePinned": true
+    },
+    {
+      "slug": "rivers",
+      "ready": true,
+      "coverage": 0.9973684210526316,
+      "sourcePinned": true
+    },
+    {
+      "slug": "ships",
+      "ready": false,
+      "coverage": 0.9945054945054945,
+      "sourcePinned": true
+    },
+    {
+      "slug": "songs",
+      "ready": true,
+      "coverage": 1,
+      "sourcePinned": true
+    },
+    {
+      "slug": "stations",
+      "ready": true,
+      "coverage": 0.9877300613496932,
+      "sourcePinned": true
+    },
+    {
+      "slug": "television",
+      "ready": true,
+      "coverage": 1,
+      "sourcePinned": true
+    },
+    {
+      "slug": "universities",
+      "ready": true,
+      "coverage": 0.9892008639308856,
+      "sourcePinned": true
+    },
+    {
+      "slug": "video-games",
+      "ready": false,
+      "coverage": 1,
+      "sourcePinned": true
+    }
+  ]
+}

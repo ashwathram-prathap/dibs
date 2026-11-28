@@ -1,0 +1,132 @@
+{
+  "at": "2026-11-28T04:46:55.864Z",
+  "account": "5cf62cff0219727f2121253b3924f886",
+  "utcDay": "2026-11-28",
+  "configuredLoadAccount": false,
+  "results": {
+    "d1": {
+      "status": 200,
+      "data": {
+        "d1AnalyticsAdaptiveGroups": [
+          {
+            "sum": {
+              "rowsRead": 82445,
+              "rowsWritten": 196
+            }
+          }
+        ]
+      }
+    },
+    "durable": {
+      "status": 200,
+      "data": {
+        "durableObjectsInvocationsAdaptiveGroups": [
+          {
+            "dimensions": {
+              "type": "hibernation"
+            },
+            "sum": {
+              "requests": 48
+            }
+          },
+          {
+            "dimensions": {
+              "type": "jsrpc"
+            },
+            "sum": {
+              "requests": 1
+            }
+          },
+          {
+            "dimensions": {
+              "type": "http"
+            },
+            "sum": {
+              "requests": 1236
+            }
+          },
+          {
+            "dimensions": {
+              "type": "alarm"
+            },
+            "sum": {
+              "requests": 3
+            }
+          }
+        ],
+        "durableObjectsPeriodicGroups": [
+          {
+            "sum": {
+              "duration": 1547.8292289280005,
+              "inboundWebsocketMsgCount": 0,
+              "rowsRead": 12108,
+              "rowsWritten": 2967
+            }
+          }
+        ],
+        "durableObjectsSqlStorageGroups": [
+          {
+            "dimensions": {
+              "namespaceId": "2fadba4d43484668ba1a23e3d9066a47"
+            },
+            "max": {
+              "storedBytes": 331776
+            }
+          },
+          {
+            "dimensions": {
+              "namespaceId": "d8eb6dad25fe4c9eb7e411e3e36c11bb"
+            },
+            "max": {
+              "storedBytes": 172032
+            }
+          },
+          {
+            "dimensions": {
+              "namespaceId": "cf8b6142934e4a298c30a2e48e90538f"
+            },
+            "max": {
+              "storedBytes": 192512
+            }
+          },
+          {
+            "dimensions": {
+              "namespaceId": "034a9ec3f79746b890b62727da29bba0"
+            },
+            "max": {
+              "storedBytes": 282624
+            }
+          },
+          {
+            "dimensions": {
+              "namespaceId": "d2a3b93cb7954c4f84d64cc4c23403ee"
+            },
+            "max": {
+              "storedBytes": 3162112
+            }
+          },
+          {
+            "dimensions": {
+              "namespaceId": "280d50ba2fba4085b48168d4961decbc"
+            },
+            "max": {
+              "storedBytes": 225280
+            }
+          }
+        ]
+      }
+    },
+    "workers": {
+      "status": 200,
+      "data": {
+        "workersInvocationsAdaptive": [
+          {
+            "sum": {
+              "requests": 664
+            }
+          }
+        ]
+      }
+    }
+  }
+}

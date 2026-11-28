@@ -1,0 +1,45 @@
+{
+  "at": "2026-11-28T04:49:06.555Z",
+  "environment": "local Miniflare, synthetic only, test Turnstile",
+  "players": 500,
+  "peakSockets": 0,
+  "simultaneousRequests": 500,
+  "acknowledgements": 0,
+  "durationSeconds": 0.7063322499999999,
+  "quantiles": {
+    "bootstrap": {
+      "samples": 500,
+      "p50": 46.091833000000065,
+      "p95": 54.322625000000016,
+      "p99": 54.79441699999995
+    },
+    "verification": {
+      "samples": 0,
+      "p50": null,
+      "p95": null,
+      "p99": null
+    },
+    "claim": {
+      "samples": 0,
+      "p50": null,
+      "p95": null,
+      "p99": null
+    },
+    "board": {
+      "samples": 0,
+      "p50": null,
+      "p95": null,
+      "p99": null
+    }
+  },
+  "errors": [
+    "TypeError: fetch failed"
+  ],
+  "correctnessPassed": false,
+  "hostedCapacityProven": false,
+  "soak": false,
+  "workerCPU": null,
+  "workerMemory": null,
+  "generatorRSS": 741325640,
+  "networkRTT": "loopback"
+}

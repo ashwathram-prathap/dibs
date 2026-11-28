@@ -1,0 +1,81 @@
+{
+  "at": "2026-11-28T04:41:33.627Z",
+  "active": 0,
+  "claimsPerMinute": 0,
+  "strikesPerMinute": 0,
+  "filesCompleted": 0,
+  "errors": 0,
+  "turnstileFailureRate": 0,
+  "minutes": [
+    {
+      "requests": 2,
+      "errors": 0,
+      "claims": 0,
+      "strikes": 0,
+      "completed": 0,
+      "verifications": 0,
+      "verificationFailures": 0
+    },
+    {
+      "requests": 2,
+      "errors": 0,
+      "claims": 0,
+      "strikes": 0,
+      "completed": 0,
+      "verifications": 0,
+      "verificationFailures": 0
+    },
+    {
+      "requests": 2,
+      "errors": 0,
+      "claims": 0,
+      "strikes": 0,
+      "completed": 0,
+      "verifications": 0,
+      "verificationFailures": 0
+    },
+    {
+      "requests": 2,
+      "errors": 0,
+      "claims": 0,
+      "strikes": 0,
+      "completed": 0,
+      "verifications": 0,
+      "verificationFailures": 0
+    },
+    {
+      "requests": 2,
+      "errors": 0,
+      "claims": 0,
+      "strikes": 0,
+      "completed": 0,
+      "verifications": 0,
+      "verificationFailures": 0
+    }
+  ],
+  "usage": {
+    "requests": 574,
+    "reads": 39553,
+    "writes": 94,
+    "doRequests": 574,
+    "storageBytes": 5132288,
+    "staticFiles": 9663,
+    "maxAssetBytes": 18386687
+  },
+  "networkWarning": false,
+  "limits": {
+    "requests": 100000,
+    "doRequests": 100000,
+    "doReads": 5000000,
+    "doWrites": 100000,
+    "doDuration": 13000,
+    "doStorageBytes": 5000000000,
+    "reads": 5000000,
+    "writes": 100000,
+    "storageBytes": 500000000,
+    "staticFiles": 20000,
+    "maxAssetBytes": 26214400
+  },
+  "analyticsError": "Account-wide quota monitoring needs CF_ANALYTICS_TOKEN with Account Analytics Read. Durable Object storage and duration are unavailable until configured.",
+  "usageNote": "Measured API usage since this release. Excludes static Pages traffic, edge cache hits, external D1 jobs and other Workers. Check account totals in Cloudflare."
+}

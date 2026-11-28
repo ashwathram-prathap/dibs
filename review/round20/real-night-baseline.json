@@ -1,0 +1,112 @@
+{
+  "at": "2026-11-28T04:41:35.485Z",
+  "source": "Read-only D1 delayed mirror; active journal watermark unavailable in R19I. Friday incomplete until next close.",
+  "nights": {
+    "results": [
+      {
+        "day": "2026-11-23",
+        "mirroredFiles": 191,
+        "excluded": 0,
+        "participants": 191,
+        "claimers": 171,
+        "claims": 376,
+        "finished": 113
+      },
+      {
+        "day": "2026-11-24",
+        "mirroredFiles": 215,
+        "excluded": 0,
+        "participants": 215,
+        "claimers": 194,
+        "claims": 432,
+        "finished": 128
+      },
+      {
+        "day": "2026-11-27",
+        "mirroredFiles": 3,
+        "excluded": 0,
+        "participants": 3,
+        "claimers": 3,
+        "claims": 9,
+        "finished": 3
+      }
+    ],
+    "success": true,
+    "meta": {
+      "served_by": "v3-prod",
+      "served_by_region": "ENAM",
+      "served_by_colo": "ORD",
+      "served_by_primary": true,
+      "timings": {
+        "sql_duration_ms": 45.2883
+      },
+      "duration": 45.2883,
+      "changes": 0,
+      "last_row_id": 0,
+      "changed_db": false,
+      "size_after": 5132288,
+      "rows_read": 893,
+      "rows_written": 0,
+      "total_attempts": 1
+    }
+  },
+  "runway": {
+    "results": [
+      {
+        "date": "2026-11-28",
+        "status": "approved",
+        "drop_at": "2026-11-29T02:00:00.000Z"
+      },
+      {
+        "date": "2026-11-29",
+        "status": "approved",
+        "drop_at": "2026-11-30T02:00:00.000Z"
+      },
+      {
+        "date": "2026-11-30",
+        "status": "approved",
+        "drop_at": "2026-12-01T02:00:00.000Z"
+      },
+      {
+        "date": "2026-12-01",
+        "status": "approved",
+        "drop_at": "2026-12-02T02:00:00.000Z"
+      },
+      {
+        "date": "2026-12-02",
+        "status": "approved",
+        "drop_at": "2026-12-03T02:00:00.000Z"
+      },
+      {
+        "date": "2026-12-03",
+        "status": "approved",
+        "drop_at": "2026-12-04T02:00:00.000Z"
+      },
+      {
+        "date": "2026-12-04",
+        "status": "approved",
+        "drop_at": "2026-12-05T02:00:00.000Z"
+      }
+    ],
+    "success": true,
+    "meta": {
+      "served_by": "v3-prod",
+      "served_by_region": "ENAM",
+      "served_by_colo": "ORD",
+      "served_by_primary": true,
+      "timings": {
+        "sql_duration_ms": 0.2131
+      },
+      "duration": 0.2131,
+      "changes": 0,
+      "last_row_id": 0,
+      "changed_db": false,
+      "size_after": 5132288,
+      "rows_read": 7,
+      "rows_written": 0,
+      "total_attempts": 1
+    }
+  },
+  "peakConnections": null,
+  "peakReason": "R19I active day does not retain connection peak analytics."
+}

@@ -1,0 +1,12 @@
+{
+  "at": "2026-11-28T05:15:05.543Z",
+  "commit": "621649e69a2af6a55ac5f53ba94e2f8421063211",
+  "pagesDigest": "667f027ea7602bdce5f7261480825c52a8d08f757d4b9f4a4a977e245b134083",
+  "workerDigest": "cd497284d2cac2b06ee2d038f7549d233eec49a2fa1c8634b24e453c9010e198",
+  "workerSourceConfigDigest": "c280eb54d3bff9c5ce2f44ebbbeb00dd33e76a8e074717705b1967d5a3454971",
+  "schemaDigest": "86579435fbfa0a07cf9023f63504612d1fc7ae2406bf37606c66d94964505304",
+  "browserDigest": "ba350630f68b92ad54de9c4d0c1cc1043c171675ccb7b3082e92a2342ad67092",
+  "productionUnchanged": true,
+  "releaseAllowed": false,
+  "reason": "Required retained assets exceed 10 MB. Hosted practice/recovery and remaining correctness/budget gates incomplete. This is NOT release-evidence.json."
+}

@@ -1,0 +1,18 @@
+{
+  "at": "2026-11-28T04:41:32.591Z",
+  "account": "5cf62cff0219727f2121253b3924f886",
+  "head": "1a93f4601b6a66454114e14602f20b46d35aea16",
+  "pages": "8655ae26-06a7-4929-9fe9-de560dbed835",
+  "pagesCommit": "2a11d01253aefe03942b0c248bf0aa3b5f1e3da8",
+  "worker": {
+    "id": "5350bff9-d13c-49e9-8d49-96aa9338b1af",
+    "versions": [
+      {
+        "version_id": "26410237-28f6-4707-86fa-21a3af998a54",
+        "percentage": 100
+      }
+    ],
+    "created_on": "2026-11-24T20:20:30.61405Z"
+  },
+  "sourceType": "direct upload"
+}

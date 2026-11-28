@@ -1,0 +1,50 @@
+{
+  "releaseAllowed": false,
+  "unit": {
+    "passed": 291,
+    "failed": 0,
+    "success": true
+  },
+  "core": {
+    "passed": 33,
+    "failed": 0
+  },
+  "frozenContinuation": {
+    "startTime": "2026-11-28T05:05:31.340Z",
+    "duration": 338598.361,
+    "expected": 456,
+    "skipped": 12,
+    "unexpected": 0,
+    "flaky": 0
+  },
+  "devices": {
+    "startTime": "2026-11-28T04:57:16.681Z",
+    "duration": 405853.91,
+    "expected": 324,
+    "skipped": 0,
+    "unexpected": 0,
+    "flaky": 0
+  },
+  "adminFinal": {
+    "startTime": "2026-11-28T05:11:56.233Z",
+    "duration": 4139.981000000001,
+    "expected": 4,
+    "skipped": 0,
+    "unexpected": 0,
+    "flaky": 0
+  },
+  "initialBroadSweep": {
+    "startTime": "2026-11-28T04:54:10.139Z",
+    "duration": 699584.929,
+    "expected": 155,
+    "skipped": 12,
+    "unexpected": 553,
+    "flaky": 0,
+    "validReleaseEvidence": false,
+    "reason": "Rebuilt assets during sweep; CSP mismatch. Full fresh broad gate remains unmet."
+  },
+  "firefox": "Blocked after three local launch approaches",
+  "hostedPractice": "Not deployed: asset gate failed",
+  "production": "Unchanged R19I",
+  "r21": "Not started: R20 live prerequisite unmet"
+}

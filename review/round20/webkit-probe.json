@@ -1,0 +1,604 @@
+{
+  "config": {
+    "argv": [
+      "/opt/homebrew/Cellar/node/26.13.1_2/bin/node",
+      "/Users/ashwathram/Projects/dibs/node_modules/.bin/playwright",
+      "test",
+      "-c",
+      "playwright.r19i.config.ts",
+      "--project=webkit-390x844-light-font1",
+      "--grep",
+      "R19I:"
+    ],
+    "configFile": "/Users/ashwathram/Projects/dibs/playwright.r19i.config.ts",
+    "rootDir": "/Users/ashwathram/Projects/dibs/tests/e2e",
+    "failOnFlakyTests": false,
+    "forbidOnly": false,
+    "fullyParallel": true,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 3
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "/Users/ashwathram/Projects/dibs/.tmp/r19i/browser-artifacts-5256",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "fontScale": 1,
+          "zoom": 1,
+          "physicalWidth": 320,
+          "physicalHeight": 568
+        },
+        "id": "webkit-320x568-light-font1",
+        "name": "webkit-320x568-light-font1",
+        "testDir": "/Users/ashwathram/Projects/dibs/tests/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "round19c.spec.ts",
+          "round19g.spec.ts",
+          "round19i.spec.ts"
+        ],
+        "timeout": 120000
+      },
+      {
+        "outputDir": "/Users/ashwathram/Projects/dibs/.tmp/r19i/browser-artifacts-5256",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "fontScale": 1,
+          "zoom": 1,
+          "physicalWidth": 320,
+          "physicalHeight": 568
+        },
+        "id": "webkit-320x568-dark-font1",
+        "name": "webkit-320x568-dark-font1",
+        "testDir": "/Users/ashwathram/Projects/dibs/tests/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "round19c.spec.ts",
+          "round19g.spec.ts",
+          "round19i.spec.ts"
+        ],
+        "timeout": 120000
+      },
+      {
+        "outputDir": "/Users/ashwathram/Projects/dibs/.tmp/r19i/browser-artifacts-5256",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "fontScale": 1,
+          "zoom": 1,
+          "physicalWidth": 360,
+          "physicalHeight": 780
+        },
+        "id": "webkit-360x780-light-font1",
+        "name": "webkit-360x780-light-font1",
+        "testDir": "/Users/ashwathram/Projects/dibs/tests/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "round19c.spec.ts",
+          "round19g.spec.ts",
+          "round19i.spec.ts"
+        ],
+        "timeout": 120000
+      },
+      {
+        "outputDir": "/Users/ashwathram/Projects/dibs/.tmp/r19i/browser-artifacts-5256",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "fontScale": 1.3,
+          "zoom": 1,
+          "physicalWidth": 360,
+          "physicalHeight": 780
+        },
+        "id": "webkit-360x780-light-font1.3",
+        "name": "webkit-360x780-light-font1.3",
+        "testDir": "/Users/ashwathram/Projects/dibs/tests/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "round19c.spec.ts",
+          "round19g.spec.ts",
+          "round19i.spec.ts"
+        ],
+        "timeout": 120000
+      },
+      {
+        "outputDir": "/Users/ashwathram/Projects/dibs/.tmp/r19i/browser-artifacts-5256",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "fontScale": 1,
+          "zoom": 1,
+          "physicalWidth": 360,
+          "physicalHeight": 780
+        },
+        "id": "webkit-360x780-dark-font1",
+        "name": "webkit-360x780-dark-font1",
+        "testDir": "/Users/ashwathram/Projects/dibs/tests/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "round19c.spec.ts",
+          "round19g.spec.ts",
+          "round19i.spec.ts"
+        ],
+        "timeout": 120000
+      },
+      {
+        "outputDir": "/Users/ashwathram/Projects/dibs/.tmp/r19i/browser-artifacts-5256",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "fontScale": 1.3,
+          "zoom": 1,
+          "physicalWidth": 360,
+          "physicalHeight": 780
+        },
+        "id": "webkit-360x780-dark-font1.3",
+        "name": "webkit-360x780-dark-font1.3",
+        "testDir": "/Users/ashwathram/Projects/dibs/tests/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "round19c.spec.ts",
+          "round19g.spec.ts",
+          "round19i.spec.ts"
+        ],
+        "timeout": 120000
+      },
+      {
+        "outputDir": "/Users/ashwathram/Projects/dibs/.tmp/r19i/browser-artifacts-5256",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "fontScale": 1,
+          "zoom": 1,
+          "physicalWidth": 390,
+          "physicalHeight": 844
+        },
+        "id": "webkit-390x844-light-font1",
+        "name": "webkit-390x844-light-font1",
+        "testDir": "/Users/ashwathram/Projects/dibs/tests/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "round19c.spec.ts",
+          "round19g.spec.ts",
+          "round19i.spec.ts"
+        ],
+        "timeout": 120000
+      },
+      {
+        "outputDir": "/Users/ashwathram/Projects/dibs/.tmp/r19i/browser-artifacts-5256",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "fontScale": 1.3,
+          "zoom": 1,
+          "physicalWidth": 390,
+          "physicalHeight": 844
+        },
+        "id": "webkit-390x844-light-font1.3",
+        "name": "webkit-390x844-light-font1.3",
+        "testDir": "/Users/ashwathram/Projects/dibs/tests/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "round19c.spec.ts",
+          "round19g.spec.ts",
+          "round19i.spec.ts"
+        ],
+        "timeout": 120000
+      },
+      {
+        "outputDir": "/Users/ashwathram/Projects/dibs/.tmp/r19i/browser-artifacts-5256",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "fontScale": 1,
+          "zoom": 1,
+          "physicalWidth": 390,
+          "physicalHeight": 844
+        },
+        "id": "webkit-390x844-dark-font1",
+        "name": "webkit-390x844-dark-font1",
+        "testDir": "/Users/ashwathram/Projects/dibs/tests/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "round19c.spec.ts",
+          "round19g.spec.ts",
+          "round19i.spec.ts"
+        ],
+        "timeout": 120000
+      },
+      {
+        "outputDir": "/Users/ashwathram/Projects/dibs/.tmp/r19i/browser-artifacts-5256",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "fontScale": 1.3,
+          "zoom": 1,
+          "physicalWidth": 390,
+          "physicalHeight": 844
+        },
+        "id": "webkit-390x844-dark-font1.3",
+        "name": "webkit-390x844-dark-font1.3",
+        "testDir": "/Users/ashwathram/Projects/dibs/tests/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "round19c.spec.ts",
+          "round19g.spec.ts",
+          "round19i.spec.ts"
+        ],
+        "timeout": 120000
+      },
+      {
+        "outputDir": "/Users/ashwathram/Projects/dibs/.tmp/r19i/browser-artifacts-5256",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "fontScale": 1,
+          "zoom": 1,
+          "physicalWidth": 767,
+          "physicalHeight": 900
+        },
+        "id": "webkit-767x900-light-font1",
+        "name": "webkit-767x900-light-font1",
+        "testDir": "/Users/ashwathram/Projects/dibs/tests/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "round19c.spec.ts",
+          "round19g.spec.ts",
+          "round19i.spec.ts"
+        ],
+        "timeout": 120000
+      },
+      {
+        "outputDir": "/Users/ashwathram/Projects/dibs/.tmp/r19i/browser-artifacts-5256",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "fontScale": 1,
+          "zoom": 1,
+          "physicalWidth": 767,
+          "physicalHeight": 900
+        },
+        "id": "webkit-767x900-dark-font1",
+        "name": "webkit-767x900-dark-font1",
+        "testDir": "/Users/ashwathram/Projects/dibs/tests/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "round19c.spec.ts",
+          "round19g.spec.ts",
+          "round19i.spec.ts"
+        ],
+        "timeout": 120000
+      },
+      {
+        "outputDir": "/Users/ashwathram/Projects/dibs/.tmp/r19i/browser-artifacts-5256",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "fontScale": 1,
+          "zoom": 1,
+          "physicalWidth": 768,
+          "physicalHeight": 1024
+        },
+        "id": "webkit-768x1024-light-font1",
+        "name": "webkit-768x1024-light-font1",
+        "testDir": "/Users/ashwathram/Projects/dibs/tests/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "round19c.spec.ts",
+          "round19g.spec.ts",
+          "round19i.spec.ts"
+        ],
+        "timeout": 120000
+      },
+      {
+        "outputDir": "/Users/ashwathram/Projects/dibs/.tmp/r19i/browser-artifacts-5256",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "fontScale": 1,
+          "zoom": 1,
+          "physicalWidth": 768,
+          "physicalHeight": 1024
+        },
+        "id": "webkit-768x1024-dark-font1",
+        "name": "webkit-768x1024-dark-font1",
+        "testDir": "/Users/ashwathram/Projects/dibs/tests/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "round19c.spec.ts",
+          "round19g.spec.ts",
+          "round19i.spec.ts"
+        ],
+        "timeout": 120000
+      },
+      {
+        "outputDir": "/Users/ashwathram/Projects/dibs/.tmp/r19i/browser-artifacts-5256",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "fontScale": 1,
+          "zoom": 1,
+          "physicalWidth": 1440,
+          "physicalHeight": 900
+        },
+        "id": "webkit-1440x900-light-font1",
+        "name": "webkit-1440x900-light-font1",
+        "testDir": "/Users/ashwathram/Projects/dibs/tests/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "round19c.spec.ts",
+          "round19g.spec.ts",
+          "round19i.spec.ts"
+        ],
+        "timeout": 120000
+      },
+      {
+        "outputDir": "/Users/ashwathram/Projects/dibs/.tmp/r19i/browser-artifacts-5256",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "fontScale": 1,
+          "zoom": 1,
+          "physicalWidth": 1440,
+          "physicalHeight": 900
+        },
+        "id": "webkit-1440x900-dark-font1",
+        "name": "webkit-1440x900-dark-font1",
+        "testDir": "/Users/ashwathram/Projects/dibs/tests/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "round19c.spec.ts",
+          "round19g.spec.ts",
+          "round19i.spec.ts"
+        ],
+        "timeout": 120000
+      },
+      {
+        "outputDir": "/Users/ashwathram/Projects/dibs/.tmp/r19i/browser-artifacts-5256",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "fontScale": 1,
+          "zoom": 1,
+          "physicalWidth": 2560,
+          "physicalHeight": 1440
+        },
+        "id": "webkit-2560x1440-light-font1",
+        "name": "webkit-2560x1440-light-font1",
+        "testDir": "/Users/ashwathram/Projects/dibs/tests/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "round19c.spec.ts",
+          "round19g.spec.ts",
+          "round19i.spec.ts"
+        ],
+        "timeout": 120000
+      },
+      {
+        "outputDir": "/Users/ashwathram/Projects/dibs/.tmp/r19i/browser-artifacts-5256",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "fontScale": 1,
+          "zoom": 1,
+          "physicalWidth": 2560,
+          "physicalHeight": 1440
+        },
+        "id": "webkit-2560x1440-dark-font1",
+        "name": "webkit-2560x1440-dark-font1",
+        "testDir": "/Users/ashwathram/Projects/dibs/tests/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "round19c.spec.ts",
+          "round19g.spec.ts",
+          "round19i.spec.ts"
+        ],
+        "timeout": 120000
+      }
+    ],
+    "filteredProjects": [
+      {
+        "grep": {},
+        "grepInvert": null,
+        "outputDir": "/Users/ashwathram/Projects/dibs/.tmp/r19i/browser-artifacts-5256",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "fontScale": 1,
+          "zoom": 1,
+          "physicalWidth": 390,
+          "physicalHeight": 844
+        },
+        "name": "webkit-390x844-light-font1",
+        "testDir": "/Users/ashwathram/Projects/dibs/tests/e2e",
+        "snapshotDir": "/Users/ashwathram/Projects/dibs/tests/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "round19c.spec.ts",
+          "round19g.spec.ts",
+          "round19i.spec.ts"
+        ],
+        "timeout": 120000,
+        "use": {
+          "baseURL": "http://127.0.0.1:5256",
+          "timezoneId": "America/Toronto",
+          "extraHTTPHeaders": {
+            "x-dibs-test": "1"
+          },
+          "trace": "off",
+          "screenshot": "only-on-failure",
+          "browserName": "webkit",
+          "viewport": {
+            "width": 390,
+            "height": 844
+          },
+          "colorScheme": "light"
+        },
+        "dependencies": [],
+        "ignoreSnapshots": false,
+        "__projectId": "webkit-390x844-light-font1"
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "list",
+        null
+      ],
+      [
+        "json",
+        {
+          "outputFile": "review/round20/webkit-probe.json"
+        }
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "default",
+    "updateSourceMethod": "patch",
+    "version": "1.65.1",
+    "workers": 6,
+    "webServer": {
+      "command": "npx vite preview --mode security-test --host 127.0.0.1 --port 5256",
+      "url": "http://127.0.0.1:5256",
+      "reuseExistingServer": false,
+      "env": {
+        "DIBS_TEST_OUT_DIR": ".tmp/r20/browser-dist"
+      }
+    }
+  },
+  "suites": [
+    {
+      "title": "round19i.spec.ts",
+      "file": "round19i.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "R19I: a repeat taken guess (exact, case, plural) is free and says so inline",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 120000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "webkit-390x844-light-font1",
+              "projectName": "webkit-390x844-light-font1",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 5893,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-28T05:01:15.156Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "1971e33a2149edaf4f6e-eb00fd0a24c4239d18df",
+          "file": "round19i.spec.ts",
+          "line": 47,
+          "column": 1
+        },
+        {
+          "title": "R19I: a repeat reserved guess is free; after a claim the next-claim block stays usable",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 120000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "webkit-390x844-light-font1",
+              "projectName": "webkit-390x844-light-font1",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 5890,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-28T05:01:15.253Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "1971e33a2149edaf4f6e-7a54afd2767f98ccd7d5",
+          "file": "round19i.spec.ts",
+          "line": 81,
+          "column": 1
+        },
+        {
+          "title": "R19I: How it works and the FAQ explain repeat guesses",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 120000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "webkit-390x844-light-font1",
+              "projectName": "webkit-390x844-light-font1",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 2,
+                  "status": "passed",
+                  "duration": 2948,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-28T05:01:15.010Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "1971e33a2149edaf4f6e-554e075c9025ed15996e",
+          "file": "round19i.spec.ts",
+          "line": 114,
+          "column": 1
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-11-28T05:01:08.572Z",
+    "duration": 14251.505000000001,
+    "expected": 3,
+    "skipped": 0,
+    "unexpected": 0,
+    "flaky": 0
+  }
+}

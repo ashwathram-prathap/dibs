@@ -1,0 +1,45 @@
+{
+  "at": "2026-11-28T04:49:30.512Z",
+  "environment": "local Miniflare, synthetic only, test Turnstile",
+  "players": 500,
+  "peakSockets": 0,
+  "simultaneousRequests": 500,
+  "acknowledgements": 0,
+  "durationSeconds": 0.6883330840000002,
+  "quantiles": {
+    "bootstrap": {
+      "samples": 500,
+      "p50": 45.456833000000074,
+      "p95": 50.499374999999986,
+      "p99": 50.905624999999986
+    },
+    "verification": {
+      "samples": 0,
+      "p50": null,
+      "p95": null,
+      "p99": null
+    },
+    "claim": {
+      "samples": 0,
+      "p50": null,
+      "p95": null,
+      "p99": null
+    },
+    "board": {
+      "samples": 0,
+      "p50": null,
+      "p95": null,
+      "p99": null
+    }
+  },
+  "errors": [
+    "TypeError: fetch failed; cause: Error: read ECONNRESET"
+  ],
+  "correctnessPassed": false,
+  "hostedCapacityProven": false,
+  "soak": false,
+  "workerCPU": null,
+  "workerMemory": null,
+  "generatorRSS": 725709840,
+  "networkRTT": "loopback"
+}

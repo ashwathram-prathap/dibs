@@ -1,0 +1,44 @@
+{
+  "at": "2026-11-28T04:58:18.710Z",
+  "bootstrapRampSeconds": 0.5,
+  "environment": "local Miniflare, synthetic only, test Turnstile",
+  "players": 50,
+  "peakSockets": 50,
+  "simultaneousRequests": 50,
+  "acknowledgements": 150,
+  "durationSeconds": 11.525631292,
+  "quantiles": {
+    "bootstrap": {
+      "samples": 50,
+      "p50": 637.417625,
+      "p95": 1240.4454170000008,
+      "p99": 1310.2533750000002
+    },
+    "verification": {
+      "samples": 50,
+      "p50": 263.8655829999989,
+      "p95": 265.00683299999946,
+      "p99": 265.04149999999936
+    },
+    "claim": {
+      "samples": 199,
+      "p50": 392.1660839999986,
+      "p95": 909.1045830000003,
+      "p99": 910.2241670000003
+    },
+    "board": {
+      "samples": 50,
+      "p50": 94.07329100000061,
+      "p95": 103.15754199999901,
+      "p99": 103.19604099999924
+    }
+  },
+  "errors": [],
+  "correctnessPassed": true,
+  "hostedCapacityProven": false,
+  "soak": false,
+  "workerCPU": null,
+  "workerMemory": null,
+  "generatorRSS": 676000736,
+  "networkRTT": "loopback"
+}

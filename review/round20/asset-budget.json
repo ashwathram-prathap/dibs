@@ -1,0 +1,10 @@
+{
+  "passed": false,
+  "files": 13852,
+  "bytes": 1163929019,
+  "maxFileBytes": 18386687,
+  "largestPath": "dist/catalog/films/5e6d4def4c7b073b/full.json",
+  "maxFiles": 15000,
+  "maxBytes": 10000000,
+  "reason": "Required immutable catalogs exceed maximum asset size"
+}

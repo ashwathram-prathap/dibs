@@ -1,0 +1,654 @@
+{
+  "config": {
+    "argv": [
+      "/opt/homebrew/Cellar/node/26.13.1_2/bin/node",
+      "/Users/ashwathram/Projects/dibs/node_modules/.bin/playwright",
+      "test",
+      "-c",
+      "playwright.r19i.config.ts",
+      "--project=firefox-390x844-light-font1",
+      "--grep",
+      "R19I:",
+      "--max-failures=1"
+    ],
+    "configFile": "/Users/ashwathram/Projects/dibs/playwright.r19i.config.ts",
+    "rootDir": "/Users/ashwathram/Projects/dibs/tests/e2e",
+    "failOnFlakyTests": false,
+    "forbidOnly": false,
+    "fullyParallel": true,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 1,
+    "metadata": {
+      "actualWorkers": 3
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "/Users/ashwathram/Projects/dibs/.tmp/r19i/browser-artifacts-5252",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "fontScale": 1,
+          "zoom": 1,
+          "physicalWidth": 320,
+          "physicalHeight": 568
+        },
+        "id": "firefox-320x568-light-font1",
+        "name": "firefox-320x568-light-font1",
+        "testDir": "/Users/ashwathram/Projects/dibs/tests/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "round19c.spec.ts",
+          "round19g.spec.ts",
+          "round19i.spec.ts",
+          "flow.spec.ts"
+        ],
+        "timeout": 120000
+      },
+      {
+        "outputDir": "/Users/ashwathram/Projects/dibs/.tmp/r19i/browser-artifacts-5252",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "fontScale": 1,
+          "zoom": 1,
+          "physicalWidth": 320,
+          "physicalHeight": 568
+        },
+        "id": "firefox-320x568-dark-font1",
+        "name": "firefox-320x568-dark-font1",
+        "testDir": "/Users/ashwathram/Projects/dibs/tests/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "round19c.spec.ts",
+          "round19g.spec.ts",
+          "round19i.spec.ts",
+          "flow.spec.ts"
+        ],
+        "timeout": 120000
+      },
+      {
+        "outputDir": "/Users/ashwathram/Projects/dibs/.tmp/r19i/browser-artifacts-5252",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "fontScale": 1,
+          "zoom": 1,
+          "physicalWidth": 360,
+          "physicalHeight": 780
+        },
+        "id": "firefox-360x780-light-font1",
+        "name": "firefox-360x780-light-font1",
+        "testDir": "/Users/ashwathram/Projects/dibs/tests/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "round19c.spec.ts",
+          "round19g.spec.ts",
+          "round19i.spec.ts",
+          "flow.spec.ts"
+        ],
+        "timeout": 120000
+      },
+      {
+        "outputDir": "/Users/ashwathram/Projects/dibs/.tmp/r19i/browser-artifacts-5252",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "fontScale": 1.3,
+          "zoom": 1,
+          "physicalWidth": 360,
+          "physicalHeight": 780
+        },
+        "id": "firefox-360x780-light-font1.3",
+        "name": "firefox-360x780-light-font1.3",
+        "testDir": "/Users/ashwathram/Projects/dibs/tests/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "round19c.spec.ts",
+          "round19g.spec.ts",
+          "round19i.spec.ts",
+          "flow.spec.ts"
+        ],
+        "timeout": 120000
+      },
+      {
+        "outputDir": "/Users/ashwathram/Projects/dibs/.tmp/r19i/browser-artifacts-5252",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "fontScale": 1,
+          "zoom": 1,
+          "physicalWidth": 360,
+          "physicalHeight": 780
+        },
+        "id": "firefox-360x780-dark-font1",
+        "name": "firefox-360x780-dark-font1",
+        "testDir": "/Users/ashwathram/Projects/dibs/tests/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "round19c.spec.ts",
+          "round19g.spec.ts",
+          "round19i.spec.ts",
+          "flow.spec.ts"
+        ],
+        "timeout": 120000
+      },
+      {
+        "outputDir": "/Users/ashwathram/Projects/dibs/.tmp/r19i/browser-artifacts-5252",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "fontScale": 1.3,
+          "zoom": 1,
+          "physicalWidth": 360,
+          "physicalHeight": 780
+        },
+        "id": "firefox-360x780-dark-font1.3",
+        "name": "firefox-360x780-dark-font1.3",
+        "testDir": "/Users/ashwathram/Projects/dibs/tests/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "round19c.spec.ts",
+          "round19g.spec.ts",
+          "round19i.spec.ts",
+          "flow.spec.ts"
+        ],
+        "timeout": 120000
+      },
+      {
+        "outputDir": "/Users/ashwathram/Projects/dibs/.tmp/r19i/browser-artifacts-5252",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "fontScale": 1,
+          "zoom": 1,
+          "physicalWidth": 390,
+          "physicalHeight": 844
+        },
+        "id": "firefox-390x844-light-font1",
+        "name": "firefox-390x844-light-font1",
+        "testDir": "/Users/ashwathram/Projects/dibs/tests/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "round19c.spec.ts",
+          "round19g.spec.ts",
+          "round19i.spec.ts",
+          "flow.spec.ts"
+        ],
+        "timeout": 120000
+      },
+      {
+        "outputDir": "/Users/ashwathram/Projects/dibs/.tmp/r19i/browser-artifacts-5252",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "fontScale": 1.3,
+          "zoom": 1,
+          "physicalWidth": 390,
+          "physicalHeight": 844
+        },
+        "id": "firefox-390x844-light-font1.3",
+        "name": "firefox-390x844-light-font1.3",
+        "testDir": "/Users/ashwathram/Projects/dibs/tests/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "round19c.spec.ts",
+          "round19g.spec.ts",
+          "round19i.spec.ts",
+          "flow.spec.ts"
+        ],
+        "timeout": 120000
+      },
+      {
+        "outputDir": "/Users/ashwathram/Projects/dibs/.tmp/r19i/browser-artifacts-5252",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "fontScale": 1,
+          "zoom": 1,
+          "physicalWidth": 390,
+          "physicalHeight": 844
+        },
+        "id": "firefox-390x844-dark-font1",
+        "name": "firefox-390x844-dark-font1",
+        "testDir": "/Users/ashwathram/Projects/dibs/tests/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "round19c.spec.ts",
+          "round19g.spec.ts",
+          "round19i.spec.ts",
+          "flow.spec.ts"
+        ],
+        "timeout": 120000
+      },
+      {
+        "outputDir": "/Users/ashwathram/Projects/dibs/.tmp/r19i/browser-artifacts-5252",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "fontScale": 1.3,
+          "zoom": 1,
+          "physicalWidth": 390,
+          "physicalHeight": 844
+        },
+        "id": "firefox-390x844-dark-font1.3",
+        "name": "firefox-390x844-dark-font1.3",
+        "testDir": "/Users/ashwathram/Projects/dibs/tests/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "round19c.spec.ts",
+          "round19g.spec.ts",
+          "round19i.spec.ts",
+          "flow.spec.ts"
+        ],
+        "timeout": 120000
+      },
+      {
+        "outputDir": "/Users/ashwathram/Projects/dibs/.tmp/r19i/browser-artifacts-5252",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "fontScale": 1,
+          "zoom": 1,
+          "physicalWidth": 767,
+          "physicalHeight": 900
+        },
+        "id": "firefox-767x900-light-font1",
+        "name": "firefox-767x900-light-font1",
+        "testDir": "/Users/ashwathram/Projects/dibs/tests/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "round19c.spec.ts",
+          "round19g.spec.ts",
+          "round19i.spec.ts",
+          "flow.spec.ts"
+        ],
+        "timeout": 120000
+      },
+      {
+        "outputDir": "/Users/ashwathram/Projects/dibs/.tmp/r19i/browser-artifacts-5252",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "fontScale": 1,
+          "zoom": 1,
+          "physicalWidth": 767,
+          "physicalHeight": 900
+        },
+        "id": "firefox-767x900-dark-font1",
+        "name": "firefox-767x900-dark-font1",
+        "testDir": "/Users/ashwathram/Projects/dibs/tests/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "round19c.spec.ts",
+          "round19g.spec.ts",
+          "round19i.spec.ts",
+          "flow.spec.ts"
+        ],
+        "timeout": 120000
+      },
+      {
+        "outputDir": "/Users/ashwathram/Projects/dibs/.tmp/r19i/browser-artifacts-5252",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "fontScale": 1,
+          "zoom": 1,
+          "physicalWidth": 768,
+          "physicalHeight": 1024
+        },
+        "id": "firefox-768x1024-light-font1",
+        "name": "firefox-768x1024-light-font1",
+        "testDir": "/Users/ashwathram/Projects/dibs/tests/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "round19c.spec.ts",
+          "round19g.spec.ts",
+          "round19i.spec.ts",
+          "flow.spec.ts"
+        ],
+        "timeout": 120000
+      },
+      {
+        "outputDir": "/Users/ashwathram/Projects/dibs/.tmp/r19i/browser-artifacts-5252",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "fontScale": 1,
+          "zoom": 1,
+          "physicalWidth": 768,
+          "physicalHeight": 1024
+        },
+        "id": "firefox-768x1024-dark-font1",
+        "name": "firefox-768x1024-dark-font1",
+        "testDir": "/Users/ashwathram/Projects/dibs/tests/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "round19c.spec.ts",
+          "round19g.spec.ts",
+          "round19i.spec.ts",
+          "flow.spec.ts"
+        ],
+        "timeout": 120000
+      },
+      {
+        "outputDir": "/Users/ashwathram/Projects/dibs/.tmp/r19i/browser-artifacts-5252",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "fontScale": 1,
+          "zoom": 1,
+          "physicalWidth": 1440,
+          "physicalHeight": 900
+        },
+        "id": "firefox-1440x900-light-font1",
+        "name": "firefox-1440x900-light-font1",
+        "testDir": "/Users/ashwathram/Projects/dibs/tests/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "round19c.spec.ts",
+          "round19g.spec.ts",
+          "round19i.spec.ts",
+          "flow.spec.ts"
+        ],
+        "timeout": 120000
+      },
+      {
+        "outputDir": "/Users/ashwathram/Projects/dibs/.tmp/r19i/browser-artifacts-5252",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "fontScale": 1,
+          "zoom": 1,
+          "physicalWidth": 1440,
+          "physicalHeight": 900
+        },
+        "id": "firefox-1440x900-dark-font1",
+        "name": "firefox-1440x900-dark-font1",
+        "testDir": "/Users/ashwathram/Projects/dibs/tests/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "round19c.spec.ts",
+          "round19g.spec.ts",
+          "round19i.spec.ts",
+          "flow.spec.ts"
+        ],
+        "timeout": 120000
+      },
+      {
+        "outputDir": "/Users/ashwathram/Projects/dibs/.tmp/r19i/browser-artifacts-5252",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "fontScale": 1,
+          "zoom": 1,
+          "physicalWidth": 2560,
+          "physicalHeight": 1440
+        },
+        "id": "firefox-2560x1440-light-font1",
+        "name": "firefox-2560x1440-light-font1",
+        "testDir": "/Users/ashwathram/Projects/dibs/tests/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "round19c.spec.ts",
+          "round19g.spec.ts",
+          "round19i.spec.ts",
+          "flow.spec.ts"
+        ],
+        "timeout": 120000
+      },
+      {
+        "outputDir": "/Users/ashwathram/Projects/dibs/.tmp/r19i/browser-artifacts-5252",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "fontScale": 1,
+          "zoom": 1,
+          "physicalWidth": 2560,
+          "physicalHeight": 1440
+        },
+        "id": "firefox-2560x1440-dark-font1",
+        "name": "firefox-2560x1440-dark-font1",
+        "testDir": "/Users/ashwathram/Projects/dibs/tests/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "round19c.spec.ts",
+          "round19g.spec.ts",
+          "round19i.spec.ts",
+          "flow.spec.ts"
+        ],
+        "timeout": 120000
+      }
+    ],
+    "filteredProjects": [
+      {
+        "grep": {},
+        "grepInvert": null,
+        "outputDir": "/Users/ashwathram/Projects/dibs/.tmp/r19i/browser-artifacts-5252",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "fontScale": 1,
+          "zoom": 1,
+          "physicalWidth": 390,
+          "physicalHeight": 844
+        },
+        "name": "firefox-390x844-light-font1",
+        "testDir": "/Users/ashwathram/Projects/dibs/tests/e2e",
+        "snapshotDir": "/Users/ashwathram/Projects/dibs/tests/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "round19c.spec.ts",
+          "round19g.spec.ts",
+          "round19i.spec.ts",
+          "flow.spec.ts"
+        ],
+        "timeout": 120000,
+        "use": {
+          "baseURL": "http://127.0.0.1:5252",
+          "timezoneId": "America/Toronto",
+          "extraHTTPHeaders": {
+            "x-dibs-test": "1"
+          },
+          "trace": "off",
+          "screenshot": "only-on-failure",
+          "browserName": "firefox",
+          "viewport": {
+            "width": 390,
+            "height": 844
+          },
+          "colorScheme": "light"
+        },
+        "dependencies": [],
+        "ignoreSnapshots": false,
+        "__projectId": "firefox-390x844-light-font1"
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "list",
+        null
+      ],
+      [
+        "json",
+        {
+          "outputFile": "review/round20/firefox-probe.json"
+        }
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "default",
+    "updateSourceMethod": "patch",
+    "version": "1.65.1",
+    "workers": 6,
+    "webServer": {
+      "command": "npx vite preview --mode security-test --host 127.0.0.1 --port 5252",
+      "url": "http://127.0.0.1:5252",
+      "reuseExistingServer": false,
+      "env": {
+        "DIBS_TEST_OUT_DIR": ".tmp/r20/browser-dist"
+      }
+    }
+  },
+  "suites": [
+    {
+      "title": "round19i.spec.ts",
+      "file": "round19i.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "R19I: a repeat taken guess (exact, case, plural) is free and says so inline",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 120000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "firefox-390x844-light-font1",
+              "projectName": "firefox-390x844-light-font1",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 2,
+                  "error": {
+                    "message": "Error: browserType.launch: Failed to launch the browser process.\nBrowser logs:\n\n<launching> /Users/ashwathram/Library/Caches/ms-playwright/firefox-1572/firefox/Nightly.app/Contents/MacOS/firefox -no-remote -headless -profile /var/folders/r6/zvxw5nv934j_h8r0wb_rj2580000gn/T/playwright_firefoxdev_profile-O9zf6t -juggler-pipe -silent\n<launched> pid=46245\n[pid=46245][err] *** You are running in headless mode.\n[pid=46245][err] Could not find profile folder.\n[pid=46245] <process did exit: exitCode=1, signal=null>\n[pid=46245] starting temporary directories cleanup\nCall log:\n\u001b[2m  - <launching> /Users/ashwathram/Library/Caches/ms-playwright/firefox-1572/firefox/Nightly.app/Contents/MacOS/firefox -no-remote -headless -profile /var/folders/r6/zvxw5nv934j_h8r0wb_rj2580000gn/T/playwright_firefoxdev_profile-O9zf6t -juggler-pipe -silent\u001b[22m\n\u001b[2m  - <launched> pid=46245\u001b[22m\n\u001b[2m  - [pid=46245][err] *** You are running in headless mode.\u001b[22m\n\u001b[2m  - [pid=46245][err] Could not find profile folder.\u001b[22m\n\u001b[2m  - [pid=46245] <process did exit: exitCode=1, signal=null>\u001b[22m\n\u001b[2m  - [pid=46245] starting temporary directories cleanup\u001b[22m\n\u001b[2m  - [pid=46245] <gracefully close start>\u001b[22m\n\u001b[2m  - [pid=46245] <kill>\u001b[22m\n\u001b[2m  - [pid=46245] <skipped force kill spawnedProcess.killed=false processClosed=true>\u001b[22m\n\u001b[2m  - [pid=46245] finished temporary directories cleanup\u001b[22m\n\u001b[2m  - [pid=46245] <gracefully close end>\u001b[22m\n",
+                    "stack": "Error: browserType.launch: Failed to launch the browser process.\nBrowser logs:\n\n<launching> /Users/ashwathram/Library/Caches/ms-playwright/firefox-1572/firefox/Nightly.app/Contents/MacOS/firefox -no-remote -headless -profile /var/folders/r6/zvxw5nv934j_h8r0wb_rj2580000gn/T/playwright_firefoxdev_profile-O9zf6t -juggler-pipe -silent\n<launched> pid=46245\n[pid=46245][err] *** You are running in headless mode.\n[pid=46245][err] Could not find profile folder.\n[pid=46245] <process did exit: exitCode=1, signal=null>\n[pid=46245] starting temporary directories cleanup\nCall log:\n\u001b[2m  - <launching> /Users/ashwathram/Library/Caches/ms-playwright/firefox-1572/firefox/Nightly.app/Contents/MacOS/firefox -no-remote -headless -profile /var/folders/r6/zvxw5nv934j_h8r0wb_rj2580000gn/T/playwright_firefoxdev_profile-O9zf6t -juggler-pipe -silent\u001b[22m\n\u001b[2m  - <launched> pid=46245\u001b[22m\n\u001b[2m  - [pid=46245][err] *** You are running in headless mode.\u001b[22m\n\u001b[2m  - [pid=46245][err] Could not find profile folder.\u001b[22m\n\u001b[2m  - [pid=46245] <process did exit: exitCode=1, signal=null>\u001b[22m\n\u001b[2m  - [pid=46245] starting temporary directories cleanup\u001b[22m\n\u001b[2m  - [pid=46245] <gracefully close start>\u001b[22m\n\u001b[2m  - [pid=46245] <kill>\u001b[22m\n\u001b[2m  - [pid=46245] <skipped force kill spawnedProcess.killed=false processClosed=true>\u001b[22m\n\u001b[2m  - [pid=46245] finished temporary directories cleanup\u001b[22m\n\u001b[2m  - [pid=46245] <gracefully close end>\u001b[22m\n"
+                  },
+                  "errors": [
+                    {
+                      "message": "Error: browserType.launch: Failed to launch the browser process.\nBrowser logs:\n\n<launching> /Users/ashwathram/Library/Caches/ms-playwright/firefox-1572/firefox/Nightly.app/Contents/MacOS/firefox -no-remote -headless -profile /var/folders/r6/zvxw5nv934j_h8r0wb_rj2580000gn/T/playwright_firefoxdev_profile-O9zf6t -juggler-pipe -silent\n<launched> pid=46245\n[pid=46245][err] *** You are running in headless mode.\n[pid=46245][err] Could not find profile folder.\n[pid=46245] <process did exit: exitCode=1, signal=null>\n[pid=46245] starting temporary directories cleanup\nCall log:\n\u001b[2m  - <launching> /Users/ashwathram/Library/Caches/ms-playwright/firefox-1572/firefox/Nightly.app/Contents/MacOS/firefox -no-remote -headless -profile /var/folders/r6/zvxw5nv934j_h8r0wb_rj2580000gn/T/playwright_firefoxdev_profile-O9zf6t -juggler-pipe -silent\u001b[22m\n\u001b[2m  - <launched> pid=46245\u001b[22m\n\u001b[2m  - [pid=46245][err] *** You are running in headless mode.\u001b[22m\n\u001b[2m  - [pid=46245][err] Could not find profile folder.\u001b[22m\n\u001b[2m  - [pid=46245] <process did exit: exitCode=1, signal=null>\u001b[22m\n\u001b[2m  - [pid=46245] starting temporary directories cleanup\u001b[22m\n\u001b[2m  - [pid=46245] <gracefully close start>\u001b[22m\n\u001b[2m  - [pid=46245] <kill>\u001b[22m\n\u001b[2m  - [pid=46245] <skipped force kill spawnedProcess.killed=false processClosed=true>\u001b[22m\n\u001b[2m  - [pid=46245] finished temporary directories cleanup\u001b[22m\n\u001b[2m  - [pid=46245] <gracefully close end>\u001b[22m\n"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-28T04:54:30.788Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "/Users/ashwathram/Projects/dibs/.tmp/r19i/browser-artifacts-5252/round19i-R19I-a-repeat-tak-4a7cf--is-free-and-says-so-inline-firefox-390x844-light-font1/error-context.md"
+                    }
+                  ]
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "1971e33a2149edaf4f6e-cf2fc746f1e05fdaa043",
+          "file": "round19i.spec.ts",
+          "line": 47,
+          "column": 1
+        },
+        {
+          "title": "R19I: a repeat reserved guess is free; after a claim the next-claim block stays usable",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 120000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "firefox-390x844-light-font1",
+              "projectName": "firefox-390x844-light-font1",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 1,
+                  "status": "interrupted",
+                  "duration": 2,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-28T04:54:30.784Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "/Users/ashwathram/Projects/dibs/.tmp/r19i/browser-artifacts-5252/round19i-R19I-a-repeat-res-de50e-xt-claim-block-stays-usable-firefox-390x844-light-font1/error-context.md"
+                    }
+                  ]
+                }
+              ],
+              "status": "skipped"
+            }
+          ],
+          "id": "1971e33a2149edaf4f6e-d698701ca3f819331c13",
+          "file": "round19i.spec.ts",
+          "line": 81,
+          "column": 1
+        },
+        {
+          "title": "R19I: How it works and the FAQ explain repeat guesses",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 120000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "firefox-390x844-light-font1",
+              "projectName": "firefox-390x844-light-font1",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 2,
+                  "status": "interrupted",
+                  "duration": 2,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-28T04:54:30.773Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "/Users/ashwathram/Projects/dibs/.tmp/r19i/browser-artifacts-5252/round19i-R19I-How-it-works-46ea9--FAQ-explain-repeat-guesses-firefox-390x844-light-font1/error-context.md"
+                    }
+                  ]
+                }
+              ],
+              "status": "skipped"
+            }
+          ],
+          "id": "1971e33a2149edaf4f6e-b3be00772dd9ac9c6336",
+          "file": "round19i.spec.ts",
+          "line": 114,
+          "column": 1
+        }
+      ]
+    }
+  ],
+  "errors": [
+    {
+      "message": "\u001b[31mTesting stopped early after 1 maximum allowed failures.\u001b[39m"
+    }
+  ],
+  "stats": {
+    "startTime": "2026-11-28T04:54:29.361Z",
+    "duration": 2306.2610000000004,
+    "expected": 0,
+    "skipped": 2,
+    "unexpected": 1,
+    "flaky": 0
+  }
+}
