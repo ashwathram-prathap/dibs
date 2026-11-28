@@ -32,7 +32,7 @@ test('first-visit rules wait for identity, contain focus, dismiss and never repe
   await page.keyboard.press('Tab');
   expect(await d.evaluate((e) => e.contains(document.activeElement))).toBe(true);
   await shot(page, info, 'onboarding');
-  if (info.project.name === 'chromium-390-light')
+  if (info.project.name.startsWith('chromium-390-light'))
     expect(
       (await new AxeBuilder({ page }).withTags(['wcag2a', 'wcag2aa']).analyze()).violations,
     ).toEqual([]);

@@ -24,12 +24,25 @@ const guard = () => ts('Fresh candidate and window gate', 'scripts/check-r20-rel
 assertProductionWindow();
 mkdirSync(lock);
 try {
-  const unit = read('resume-unit-tests.json');
+  const unit = read('followup-unit-tests.json');
   assert.ok(unit.success && unit.numFailedTests === 0 && unit.numPassedTests > 0);
+  for (const name of [
+    'followup-browser-tests.json',
+    'followup-device-tests.json',
+    'followup-golden-tests.json',
+    'followup-accessibility-tests.json',
+  ]) {
+    const report = read(name);
+    assert.ok(
+      report.stats.expected > 0 && report.stats.unexpected === 0 && report.stats.flaky === 0,
+      name,
+    );
+  }
+  assert.ok(read('og-proof.json').passed);
   assert.ok(read('practice-smoke.json').passed);
   assert.ok(read('practice-recovery.json').passed);
   assert.ok(read('practice-asset-integrity.json').passed);
-  const lh = read('lighthouse-practice/mobile-1.json');
+  const lh = read('lighthouse-followup/mobile-1.json');
   assert.ok(lh.categories.performance.score >= 0.9 && lh.categories.accessibility.score >= 0.95);
   ts('Asset limits', 'scripts/check-asset-budget.ts');
   ts('Capture rollback IDs', 'scripts/r20-deployment-state.ts');
@@ -69,15 +82,14 @@ try {
       noRegression: true,
     },
     basis: {
-      correctness:
-        '291 fresh unit/API checks including journal faults, close race, exact ranks, replay and privacy; unchanged scoring/selection',
+      correctness: `${unit.numPassedTests} fresh unit/API checks including recap ownership/finalization/redaction and first-visit bootstrap; unchanged scoring/selection`,
       practice: 'practice-smoke.json, practice-recovery.json, practice-asset-integrity.json',
       budget: 'No hosted load; retained account metrics and unchanged plan. No capacity claim.',
       backup: readFileSync('.backups/last-success.txt', 'utf8').trim(),
       noRegression:
-        'AUDIT.md amendment: release-gate and smoke corrections only since tested safety candidate; inherited gaps retained as follow-ups',
+        'FOLLOWUP.md: onboarding, owner-authenticated finalized recap, larger OG, pinned Animals scope and strike grammar; safety regressions checked; inherited gaps remain follow-ups',
       browser:
-        'Prior 456 continuation + 324 device + fresh 4 admin cases; Firefox and physical devices remain inherited limitations',
+        'Fresh followup-browser-tests, followup-device-tests and followup-golden-tests; 74 OG fixtures and 18 crop inspections; prior core continuation retained; Firefox and physical devices unverified',
     },
     followups: [
       'Full journal-loss RTO/RPO and deletion reconciliation',

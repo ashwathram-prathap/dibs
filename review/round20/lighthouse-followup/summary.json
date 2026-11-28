@@ -1,0 +1,618 @@
+[
+  {
+    "strategy": "mobile",
+    "run": 1,
+    "scores": {
+      "performance": 96,
+      "accessibility": 100,
+      "best-practices": 100,
+      "seo": 63
+    },
+    "warnings": [],
+    "audits": [
+      {
+        "id": "largest-contentful-paint",
+        "title": "Largest Contentful Paint",
+        "score": 0.95,
+        "displayValue": "2.1 s"
+      },
+      {
+        "id": "speed-index",
+        "title": "Speed Index",
+        "score": 0.74,
+        "displayValue": "4.4 s"
+      },
+      {
+        "id": "cumulative-layout-shift",
+        "title": "Cumulative Layout Shift",
+        "score": 0.99,
+        "displayValue": "0.05",
+        "details": {
+          "type": "debugdata",
+          "items": [
+            {
+              "cumulativeLayoutShiftMainFrame": 0.05025827874766964,
+              "newEngineResult": {
+                "cumulativeLayoutShift": 0.05025827874766964,
+                "cumulativeLayoutShiftMainFrame": 0.05025827874766964
+              },
+              "newEngineResultDiffered": false
+            }
+          ]
+        }
+      },
+      {
+        "id": "interactive",
+        "title": "Time to Interactive",
+        "score": 0.99,
+        "displayValue": "2.1 s"
+      },
+      {
+        "id": "unused-css-rules",
+        "title": "Reduce unused CSS",
+        "score": 0.5,
+        "displayValue": "Est savings of 20 KiB",
+        "details": {
+          "type": "opportunity",
+          "headings": [
+            {
+              "key": "url",
+              "valueType": "url",
+              "label": "URL"
+            },
+            {
+              "key": "totalBytes",
+              "valueType": "bytes",
+              "label": "Transfer Size"
+            },
+            {
+              "key": "wastedBytes",
+              "valueType": "bytes",
+              "label": "Est Savings"
+            }
+          ],
+          "items": [
+            {
+              "url": "@font-face{font-family:Archivo;src:url(/fonts/archivo-supplement-900.v2.woff2)format(\"woff2\"); … } …",
+              "wastedBytes": 20674,
+              "wastedPercent": 83.32398771116499,
+              "totalBytes": 24811
+            }
+          ],
+          "overallSavingsMs": 0,
+          "overallSavingsBytes": 20674,
+          "sortedBy": [
+            "wastedBytes"
+          ],
+          "debugData": {
+            "type": "debugdata",
+            "metricSavings": {
+              "FCP": 0,
+              "LCP": 0
+            }
+          }
+        }
+      },
+      {
+        "id": "unused-javascript",
+        "title": "Reduce unused JavaScript",
+        "score": 0,
+        "displayValue": "Est savings of 38 KiB",
+        "details": {
+          "type": "opportunity",
+          "headings": [
+            {
+              "key": "url",
+              "valueType": "url",
+              "subItemsHeading": {
+                "key": "source",
+                "valueType": "code"
+              },
+              "label": "URL"
+            },
+            {
+              "key": "totalBytes",
+              "valueType": "bytes",
+              "subItemsHeading": {
+                "key": "sourceBytes"
+              },
+              "label": "Transfer Size"
+            },
+            {
+              "key": "wastedBytes",
+              "valueType": "bytes",
+              "subItemsHeading": {
+                "key": "sourceWastedBytes"
+              },
+              "label": "Est Savings"
+            }
+          ],
+          "items": [
+            {
+              "url": "https://practice.dibs-7hz.pages.dev/assets/index-DMOWWTpw.js",
+              "totalBytes": 90132,
+              "wastedBytes": 39382,
+              "wastedPercent": 43.69416171897088
+            }
+          ],
+          "overallSavingsMs": 300,
+          "overallSavingsBytes": 39382,
+          "sortedBy": [
+            "wastedBytes"
+          ],
+          "debugData": {
+            "type": "debugdata",
+            "metricSavings": {
+              "FCP": 0,
+              "LCP": 300
+            }
+          }
+        }
+      },
+      {
+        "id": "is-crawlable",
+        "title": "Page is blocked from indexing",
+        "score": 0,
+        "details": {
+          "type": "table",
+          "headings": [
+            {
+              "key": "source",
+              "valueType": "code",
+              "label": "Blocking Directive Source"
+            }
+          ],
+          "items": [
+            {
+              "source": {
+                "type": "node",
+                "lhId": "1-40-META",
+                "path": "1,HTML,0,HEAD,7,META",
+                "selector": "head > meta",
+                "boundingRect": {
+                  "top": 0,
+                  "bottom": 0,
+                  "left": 0,
+                  "right": 0,
+                  "width": 0,
+                  "height": 0
+                },
+                "snippet": "<meta name=\"robots\" content=\"noindex,nofollow\" />",
+                "nodeLabel": "head > meta"
+              }
+            },
+            {
+              "source": "x-robots-tag: noindex, nofollow"
+            },
+            {
+              "source": {
+                "type": "source-location",
+                "url": "https://practice.dibs-7hz.pages.dev/robots.txt",
+                "urlProvider": "network",
+                "line": 1,
+                "column": 0
+              }
+            }
+          ]
+        }
+      },
+      {
+        "id": "cache-insight",
+        "title": "Use efficient cache lifetimes",
+        "score": 0.5,
+        "displayValue": "Est savings of 1 KiB",
+        "details": {
+          "type": "table",
+          "headings": [
+            {
+              "key": "url",
+              "valueType": "url",
+              "label": "Request"
+            },
+            {
+              "key": "cacheLifetimeMs",
+              "valueType": "ms",
+              "label": "Cache TTL",
+              "displayUnit": "duration"
+            },
+            {
+              "key": "totalBytes",
+              "valueType": "bytes",
+              "label": "Transfer Size",
+              "displayUnit": "kb",
+              "granularity": 1
+            }
+          ],
+          "items": [
+            {
+              "url": "https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/g/ci/a61762558cce5383/1795848057579/CoaKLCBWxsAwFT5cGh-vVIfyxaDQeDy1UBXUWKonqV2dqXM1Kb-MAehUkp7o_6GAgWLujd7kvAeXWVk1KRRTURIHq9p4YZ2675tRdWF-WYWyRvpyJ4E5BfPFNVFSLIIyCb0JxJRdQxLzl-xA25suDP16kdPqJ9g5BXllWJrbgA0zJ2nooHD5zkBF4sO0n4FmAEE7LH7wtVBBohN0qsei0eg2s5HCyMeCH87WsOtNxa82dHSquAoVcnQ_tAqD3Cf2_Dh_BL_R0kgMtS1-674brzX0xYjtnvPpkujmdPnDSWyNGg9GJLjzmbfizcApAHkHWpWU41kdExyc_Ytce0tmClkDEvtfmLzHnFWIfn9brwQqHmj5RjfIG5ruS-2EcCjdLYkT-wXHfP6A_1_0QkeZzviaD5N-wC57xf2gZUh9IA_iPHipMd1gdFMRF-8Asyj5IY4CEhi5ZmM5gsZC3z00Vra0BK_OhvANVfm30XT2bF16JTmiqnNc_c6DSKE_VbXiH8EOxuuu81Gv1HjnrUtZp7QUNlRdfFTHB4-tmu4DFy5OHgo8-hji6ZJOuHVZdwumQGDmkcHOx-c8eNe_wWe54hvT1zc",
+              "cacheLifetimeMs": 0,
+              "totalBytes": 842,
+              "wastedBytes": 842
+            }
+          ],
+          "sortedBy": [
+            "wastedBytes"
+          ],
+          "skipSumming": [
+            "cacheLifetimeMs"
+          ],
+          "debugData": {
+            "type": "debugdata",
+            "wastedBytes": 842
+          }
+        }
+      },
+      {
+        "id": "lcp-breakdown-insight",
+        "title": "LCP breakdown",
+        "score": 0,
+        "details": {
+          "type": "list",
+          "items": [
+            {
+              "type": "table",
+              "headings": [
+                {
+                  "key": "label",
+                  "valueType": "text",
+                  "label": "Subpart"
+                },
+                {
+                  "key": "duration",
+                  "valueType": "ms",
+                  "label": "Duration"
+                }
+              ],
+              "items": [
+                {
+                  "subpart": "timeToFirstByte",
+                  "label": "Time to first byte",
+                  "duration": 82.21800012207031
+                },
+                {
+                  "subpart": "elementRenderDelay",
+                  "label": "Element render delay",
+                  "duration": 3006.37899987793
+                }
+              ]
+            },
+            {
+              "type": "node",
+              "lhId": "page-0-P",
+              "path": "1,HTML,1,BODY,0,DIV,2,DIV,3,MAIN,0,DIV,0,SECTION,1,DIV,3,P",
+              "selector": "div.focused-play > section.claim-section > div.claim-paper > p.category-scope",
+              "boundingRect": {
+                "top": 612,
+                "bottom": 698,
+                "left": 35,
+                "right": 355,
+                "width": 320,
+                "height": 86
+              },
+              "snippet": "<p class=\"category-scope\">",
+              "nodeLabel": "Animal species, general groups and a limited set of breeds count. Many breeds a…"
+            }
+          ]
+        }
+      },
+      {
+        "id": "network-dependency-tree-insight",
+        "title": "Network dependency tree",
+        "score": 0,
+        "details": {
+          "type": "list",
+          "items": [
+            {
+              "type": "list-section",
+              "value": {
+                "type": "network-tree",
+                "chains": {
+                  "320494C507D61CA0555FCA41CFF4A7BA": {
+                    "url": "https://practice.dibs-7hz.pages.dev/",
+                    "navStartToEndTime": 124,
+                    "transferSize": 27081,
+                    "isLongest": true,
+                    "children": {
+                      "74707.4": {
+                        "url": "https://practice.dibs-7hz.pages.dev/assets/index-DMOWWTpw.js",
+                        "navStartToEndTime": 169,
+                        "transferSize": 90438,
+                        "isLongest": true,
+                        "children": {}
+                      }
+                    }
+                  }
+                },
+                "longestChain": {
+                  "duration": 169
+                }
+              }
+            },
+            {
+              "type": "list-section",
+              "title": "Preconnected origins",
+              "description": "[preconnect](https://developer.chrome.com/docs/lighthouse/performance/uses-rel-preconnect/) hints help the browser establish a connection earlier in the page load, saving time when the first request for that origin is made. The following are the origins that the page preconnected to.",
+              "value": {
+                "type": "text",
+                "value": "No origins were preconnected"
+              }
+            },
+            {
+              "type": "list-section",
+              "title": "Preconnect candidates",
+              "description": "Add [preconnect](https://developer.chrome.com/docs/lighthouse/performance/uses-rel-preconnect/) hints to your most important origins, but try to use no more than 4",
+              "value": {
+                "type": "text",
+                "value": "No additional origins are good candidates for preconnecting"
+              }
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "strategy": "desktop",
+    "run": 1,
+    "scores": {
+      "performance": 100,
+      "accessibility": 100,
+      "best-practices": 100,
+      "seo": 66
+    },
+    "warnings": [],
+    "audits": [
+      {
+        "id": "unused-css-rules",
+        "title": "Reduce unused CSS",
+        "score": 0.5,
+        "displayValue": "Est savings of 21 KiB",
+        "details": {
+          "type": "opportunity",
+          "headings": [
+            {
+              "key": "url",
+              "valueType": "url",
+              "label": "URL"
+            },
+            {
+              "key": "totalBytes",
+              "valueType": "bytes",
+              "label": "Transfer Size"
+            },
+            {
+              "key": "wastedBytes",
+              "valueType": "bytes",
+              "label": "Est Savings"
+            }
+          ],
+          "items": [
+            {
+              "url": "@font-face{font-family:Archivo;src:url(/fonts/archivo-supplement-900.v2.woff2)format(\"woff2\"); … } …",
+              "wastedBytes": 21103,
+              "wastedPercent": 85.02357466099085,
+              "totalBytes": 24820
+            }
+          ],
+          "overallSavingsMs": 0,
+          "overallSavingsBytes": 21103,
+          "sortedBy": [
+            "wastedBytes"
+          ],
+          "debugData": {
+            "type": "debugdata",
+            "metricSavings": {
+              "FCP": 0,
+              "LCP": 0
+            }
+          }
+        }
+      },
+      {
+        "id": "unused-javascript",
+        "title": "Reduce unused JavaScript",
+        "score": 0,
+        "displayValue": "Est savings of 34 KiB",
+        "details": {
+          "type": "opportunity",
+          "headings": [
+            {
+              "key": "url",
+              "valueType": "url",
+              "subItemsHeading": {
+                "key": "source",
+                "valueType": "code"
+              },
+              "label": "URL"
+            },
+            {
+              "key": "totalBytes",
+              "valueType": "bytes",
+              "subItemsHeading": {
+                "key": "sourceBytes"
+              },
+              "label": "Transfer Size"
+            },
+            {
+              "key": "wastedBytes",
+              "valueType": "bytes",
+              "subItemsHeading": {
+                "key": "sourceWastedBytes"
+              },
+              "label": "Est Savings"
+            }
+          ],
+          "items": [
+            {
+              "url": "https://practice.dibs-7hz.pages.dev/assets/index-DMOWWTpw.js",
+              "totalBytes": 90095,
+              "wastedBytes": 35221,
+              "wastedPercent": 39.092804636697764
+            }
+          ],
+          "overallSavingsMs": 40,
+          "overallSavingsBytes": 35221,
+          "sortedBy": [
+            "wastedBytes"
+          ],
+          "debugData": {
+            "type": "debugdata",
+            "metricSavings": {
+              "FCP": 0,
+              "LCP": 40
+            }
+          }
+        }
+      },
+      {
+        "id": "is-crawlable",
+        "title": "Page is blocked from indexing",
+        "score": 0,
+        "details": {
+          "type": "table",
+          "headings": [
+            {
+              "key": "source",
+              "valueType": "code",
+              "label": "Blocking Directive Source"
+            }
+          ],
+          "items": [
+            {
+              "source": {
+                "type": "node",
+                "lhId": "1-42-META",
+                "path": "1,HTML,0,HEAD,7,META",
+                "selector": "head > meta",
+                "boundingRect": {
+                  "top": 0,
+                  "bottom": 0,
+                  "left": 0,
+                  "right": 0,
+                  "width": 0,
+                  "height": 0
+                },
+                "snippet": "<meta name=\"robots\" content=\"noindex,nofollow\" />",
+                "nodeLabel": "head > meta"
+              }
+            },
+            {
+              "source": "x-robots-tag: noindex, nofollow"
+            },
+            {
+              "source": {
+                "type": "source-location",
+                "url": "https://practice.dibs-7hz.pages.dev/robots.txt",
+                "urlProvider": "network",
+                "line": 1,
+                "column": 0
+              }
+            }
+          ]
+        }
+      },
+      {
+        "id": "cache-insight",
+        "title": "Use efficient cache lifetimes",
+        "score": 0.5,
+        "displayValue": "Est savings of 4 KiB",
+        "details": {
+          "type": "table",
+          "headings": [
+            {
+              "key": "url",
+              "valueType": "url",
+              "label": "Request"
+            },
+            {
+              "key": "cacheLifetimeMs",
+              "valueType": "ms",
+              "label": "Cache TTL",
+              "displayUnit": "duration"
+            },
+            {
+              "key": "totalBytes",
+              "valueType": "bytes",
+              "label": "Transfer Size",
+              "displayUnit": "kb",
+              "granularity": 1
+            }
+          ],
+          "items": [
+            {
+              "url": "https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/g/ci/a617627e9ae45383/1795848064157/Cq25zaCiQD_dWeirWP39X3v2A0soTvjh4AbNiGJ1jwfoqPho5W-dWn0akZx8VkIUhrt651-oSv-txYz7paq1sekOZmar0VNVdbuFqHWHIHoSllcIjs6B9BUoZFB3eLRuBQXcZMypl5gTjQFHwMzhVnbYuySQ6e6cC1331rBsb6tak703fDawuGQZS8WD-UnxtThxdS0XBCd1JTyWMvhwl999NyCN3Wh0Ko_7Hk0defSCN-lazD9GQltvYmvxvalXivu2cWXIFFshY9TeTAsq3BtnBe3Z57dHmj60-Ptocg0tFZpzQYfsgxeRqba4Qu6nmoY2w6T0brHAFtLl4mvc_exmu_ezVbOfrBrRGhoCIeuznUW3AlnPvZJENSTfDLlZ-bLntmh4tjZ0UjOvYBTQb1NAeGCjt9XnQWhrbgoDuk4M_EwJnXhMdYF4TL0MsPMzm4bE0RLwpGPyUvxGMe_EGfJTY8Ja0ieWtE6hPMNBFC10tQEbVBmomYjxhk243Op3f7bZ5JFaW_-IEwC59Acne84aSusXyFh214fGfF9DF-TCJAe16sh_JLK8hB7IxJYR6IZ3TN6eK33VoIRbx4nfecRaVQ",
+              "cacheLifetimeMs": 0,
+              "totalBytes": 3662,
+              "wastedBytes": 3662
+            }
+          ],
+          "sortedBy": [
+            "wastedBytes"
+          ],
+          "skipSumming": [
+            "cacheLifetimeMs"
+          ],
+          "debugData": {
+            "type": "debugdata",
+            "wastedBytes": 3662
+          }
+        }
+      },
+      {
+        "id": "network-dependency-tree-insight",
+        "title": "Network dependency tree",
+        "score": 0,
+        "details": {
+          "type": "list",
+          "items": [
+            {
+              "type": "list-section",
+              "value": {
+                "type": "network-tree",
+                "chains": {
+                  "F8A087BA4158D2729D70163A1C34BB8A": {
+                    "url": "https://practice.dibs-7hz.pages.dev/",
+                    "navStartToEndTime": 89,
+                    "transferSize": 26278,
+                    "isLongest": true,
+                    "children": {
+                      "74821.4": {
+                        "url": "https://practice.dibs-7hz.pages.dev/assets/index-DMOWWTpw.js",
+                        "navStartToEndTime": 165,
+                        "transferSize": 91176,
+                        "isLongest": true,
+                        "children": {}
+                      }
+                    }
+                  }
+                },
+                "longestChain": {
+                  "duration": 165
+                }
+              }
+            },
+            {
+              "type": "list-section",
+              "title": "Preconnected origins",
+              "description": "[preconnect](https://developer.chrome.com/docs/lighthouse/performance/uses-rel-preconnect/) hints help the browser establish a connection earlier in the page load, saving time when the first request for that origin is made. The following are the origins that the page preconnected to.",
+              "value": {
+                "type": "text",
+                "value": "No origins were preconnected"
+              }
+            },
+            {
+              "type": "list-section",
+              "title": "Preconnect candidates",
+              "description": "Add [preconnect](https://developer.chrome.com/docs/lighthouse/performance/uses-rel-preconnect/) hints to your most important origins, but try to use no more than 4",
+              "value": {
+                "type": "text",
+                "value": "No additional origins are good candidates for preconnecting"
+              }
+            }
+          ]
+        }
+      }
+    ]
+  }
+]

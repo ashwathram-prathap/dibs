@@ -2268,6 +2268,1296 @@
       ]
     },
     {
+      "name": "light-strike1-answers-summary",
+      "bytes": 132126,
+      "passed": true,
+      "textBounds": [
+        {
+          "value": "Dibs #1 · Nov 23",
+          "printed": "Dibs #1 · Nov 23",
+          "size": 32,
+          "left": 62.752,
+          "top": 31.64,
+          "right": 284.032,
+          "bottom": 55.32
+        },
+        {
+          "value": "ANIMALS",
+          "printed": "ANIMALS",
+          "size": 64,
+          "left": 60.64,
+          "top": 75.19999999999999,
+          "right": 385.31199999999995,
+          "bottom": 120.768
+        },
+        {
+          "value": "270 points · #3 of 27 players today",
+          "printed": "270 points · #3 of 27 players today",
+          "size": 40,
+          "left": 61.36,
+          "top": 145.8,
+          "right": 673.9600000000002,
+          "bottom": 183.2
+        },
+        {
+          "value": "01",
+          "printed": "01",
+          "size": 28,
+          "left": 61.568,
+          "top": 200.12,
+          "right": 92.28399999999999,
+          "bottom": 220.336
+        },
+        {
+          "value": "Strike · −10 points",
+          "printed": "Strike · −10 points",
+          "size": 32,
+          "left": 126.344,
+          "top": 196.32,
+          "right": 375.912,
+          "bottom": 226.56
+        },
+        {
+          "value": "02",
+          "printed": "02",
+          "size": 28,
+          "left": 61.568,
+          "top": 240.12,
+          "right": 91.836,
+          "bottom": 260.336
+        },
+        {
+          "value": "Okapi · 60 points",
+          "printed": "Okapi · 60 points",
+          "size": 36,
+          "left": 126.8,
+          "top": 233.35999999999999,
+          "right": 395.6839999999999,
+          "bottom": 267.38
+        },
+        {
+          "value": "Rarer than 94% of the 3,000 best-known animals",
+          "printed": "Rarer than 94% of the 3,000 best-known animals",
+          "size": 28,
+          "left": 127.408,
+          "top": 268.28,
+          "right": 753.1520000000004,
+          "bottom": 293.032
+        },
+        {
+          "value": "03",
+          "printed": "03",
+          "size": 28,
+          "left": 61.568,
+          "top": 308.12,
+          "right": 91.304,
+          "bottom": 328.336
+        },
+        {
+          "value": "Quokka · 160 points · Golden ticket · +100",
+          "printed": "Quokka · 160 points · Golden ticket · +100",
+          "size": 36,
+          "left": 126.8,
+          "top": 301.36,
+          "right": 780.0200000000001,
+          "bottom": 335.38
+        },
+        {
+          "value": "60 + 100 golden bonus · Rarer than 94% of the 3,000 best-known animals",
+          "printed": "60 + 100 golden bonus · Rarer than 94% of the 3,000 best-known animals",
+          "size": 28,
+          "left": 126.4,
+          "top": 336.28,
+          "right": 1057.568000000001,
+          "bottom": 363.02
+        },
+        {
+          "value": "04",
+          "printed": "04",
+          "size": 28,
+          "left": 61.568,
+          "top": 376.12,
+          "right": 92.536,
+          "bottom": 396.336
+        },
+        {
+          "value": "Sarcastic fringehead · 60 points",
+          "printed": "Sarcastic fringehead · 60 points",
+          "size": 36,
+          "left": 126.512,
+          "top": 369.68399999999997,
+          "right": 638.5039999999999,
+          "bottom": 403.74
+        },
+        {
+          "value": "Rarer than 94% of the 3,000 best-known animals",
+          "printed": "Rarer than 94% of the 3,000 best-known animals",
+          "size": 28,
+          "left": 127.408,
+          "top": 404.28,
+          "right": 753.1520000000004,
+          "bottom": 429.032
+        },
+        {
+          "value": "Tan Dove",
+          "printed": "Tan Dove",
+          "size": 36,
+          "left": 61.296,
+          "top": 569.08,
+          "right": 217.068,
+          "bottom": 595.36
+        }
+      ]
+    },
+    {
+      "name": "light-strike1-answers-certificate",
+      "bytes": 86291,
+      "passed": true,
+      "textBounds": [
+        {
+          "value": "Form D-1 · Golden ticket · Dibs #1 · Nov 23",
+          "printed": "Form D-1 · Golden ticket · Dibs #1 · Nov 23",
+          "size": 32,
+          "left": 62.752,
+          "top": 66.32,
+          "right": 652.736,
+          "bottom": 90.32
+        },
+        {
+          "value": "Quokka",
+          "printed": "Quokka",
+          "size": 95,
+          "left": 64.275,
+          "top": 151.03,
+          "right": 455.485,
+          "bottom": 232.445
+        },
+        {
+          "value": "Animals",
+          "printed": "Animals",
+          "size": 40,
+          "left": 61.44,
+          "top": 241.2,
+          "right": 208.28,
+          "bottom": 270.4
+        },
+        {
+          "value": "160 points · Rarer than 94% of the 3,000 best-known animals · 60 + 100 golden bonus",
+          "printed": "160 points · Rarer than 94% of the 3,000 …st-known animals · 60 + 100 golden bonus",
+          "size": 28,
+          "left": 60.84,
+          "top": 309.28,
+          "right": 1124.8120000000006,
+          "bottom": 336.02
+        },
+        {
+          "value": "Tan Dove",
+          "printed": "Tan Dove",
+          "size": 40,
+          "left": 61.44,
+          "top": 526.2,
+          "right": 234.52000000000007,
+          "bottom": 555.4
+        }
+      ]
+    },
+    {
+      "name": "light-strike1-sealed-summary",
+      "bytes": 89438,
+      "passed": true,
+      "textBounds": [
+        {
+          "value": "Dibs #1 · Nov 23",
+          "printed": "Dibs #1 · Nov 23",
+          "size": 32,
+          "left": 62.752,
+          "top": 31.64,
+          "right": 284.032,
+          "bottom": 55.32
+        },
+        {
+          "value": "ANIMALS",
+          "printed": "ANIMALS",
+          "size": 64,
+          "left": 60.64,
+          "top": 75.19999999999999,
+          "right": 385.31199999999995,
+          "bottom": 120.768
+        },
+        {
+          "value": "270 points · #3 of 27 players today",
+          "printed": "270 points · #3 of 27 players today",
+          "size": 40,
+          "left": 61.36,
+          "top": 145.8,
+          "right": 673.9600000000002,
+          "bottom": 183.2
+        },
+        {
+          "value": "01",
+          "printed": "01",
+          "size": 28,
+          "left": 61.568,
+          "top": 200.12,
+          "right": 92.28399999999999,
+          "bottom": 220.336
+        },
+        {
+          "value": "Strike · −10 points",
+          "printed": "Strike · −10 points",
+          "size": 32,
+          "left": 126.344,
+          "top": 196.32,
+          "right": 375.912,
+          "bottom": 226.56
+        },
+        {
+          "value": "02",
+          "printed": "02",
+          "size": 28,
+          "left": 61.568,
+          "top": 240.12,
+          "right": 91.836,
+          "bottom": 260.336
+        },
+        {
+          "value": "Claim · 60 points",
+          "printed": "Claim · 60 points",
+          "size": 36,
+          "left": 126.8,
+          "top": 233.72,
+          "right": 394.8199999999999,
+          "bottom": 267.38
+        },
+        {
+          "value": "Sealed until the day closes.",
+          "printed": "Sealed until the day closes.",
+          "size": 28,
+          "left": 126.176,
+          "top": 268.532,
+          "right": 466.824,
+          "bottom": 294.74
+        },
+        {
+          "value": "03",
+          "printed": "03",
+          "size": 28,
+          "left": 61.568,
+          "top": 308.12,
+          "right": 91.304,
+          "bottom": 328.336
+        },
+        {
+          "value": "Claim · 160 points",
+          "printed": "Claim · 160 points",
+          "size": 36,
+          "left": 126.8,
+          "top": 301.71999999999997,
+          "right": 408.8959999999999,
+          "bottom": 335.38
+        },
+        {
+          "value": "Sealed until the day closes.",
+          "printed": "Sealed until the day closes.",
+          "size": 28,
+          "left": 126.176,
+          "top": 336.532,
+          "right": 466.824,
+          "bottom": 362.74
+        },
+        {
+          "value": "04",
+          "printed": "04",
+          "size": 28,
+          "left": 61.568,
+          "top": 376.12,
+          "right": 92.536,
+          "bottom": 396.336
+        },
+        {
+          "value": "Claim · 60 points",
+          "printed": "Claim · 60 points",
+          "size": 36,
+          "left": 126.8,
+          "top": 369.71999999999997,
+          "right": 394.8199999999999,
+          "bottom": 403.38
+        },
+        {
+          "value": "Sealed until the day closes.",
+          "printed": "Sealed until the day closes.",
+          "size": 28,
+          "left": 126.176,
+          "top": 404.532,
+          "right": 466.824,
+          "bottom": 430.74
+        },
+        {
+          "value": "Tan Dove",
+          "printed": "Tan Dove",
+          "size": 36,
+          "left": 61.296,
+          "top": 569.08,
+          "right": 217.068,
+          "bottom": 595.36
+        }
+      ]
+    },
+    {
+      "name": "light-strike1-sealed-certificate",
+      "bytes": 62470,
+      "passed": true,
+      "textBounds": [
+        {
+          "value": "Form D-1 · Dibs #1 · Nov 23",
+          "printed": "Form D-1 · Dibs #1 · Nov 23",
+          "size": 32,
+          "left": 62.752,
+          "top": 66.64,
+          "right": 438.7519999999999,
+          "bottom": 90.32
+        },
+        {
+          "value": "SEALED",
+          "printed": "SEALED",
+          "size": 95,
+          "left": 64.085,
+          "top": 153.5,
+          "right": 472.68000000000006,
+          "bottom": 221.14
+        },
+        {
+          "value": "Animals",
+          "printed": "Animals",
+          "size": 40,
+          "left": 61.44,
+          "top": 241.2,
+          "right": 208.28,
+          "bottom": 270.4
+        },
+        {
+          "value": "160 points · Sealed until the day closes.",
+          "printed": "160 points · Sealed until the day closes.",
+          "size": 36,
+          "left": 61.08,
+          "top": 303.68399999999997,
+          "right": 688.0559999999998,
+          "bottom": 337.38
+        },
+        {
+          "value": "Tan Dove",
+          "printed": "Tan Dove",
+          "size": 40,
+          "left": 61.44,
+          "top": 526.2,
+          "right": 234.52000000000007,
+          "bottom": 555.4
+        }
+      ]
+    },
+    {
+      "name": "light-strike2-answers-summary",
+      "bytes": 137224,
+      "passed": true,
+      "textBounds": [
+        {
+          "value": "Dibs #1 · Nov 23",
+          "printed": "Dibs #1 · Nov 23",
+          "size": 32,
+          "left": 62.752,
+          "top": 31.64,
+          "right": 284.032,
+          "bottom": 55.32
+        },
+        {
+          "value": "ANIMALS",
+          "printed": "ANIMALS",
+          "size": 64,
+          "left": 60.64,
+          "top": 75.19999999999999,
+          "right": 385.31199999999995,
+          "bottom": 120.768
+        },
+        {
+          "value": "260 points · #3 of 27 players today",
+          "printed": "260 points · #3 of 27 players today",
+          "size": 40,
+          "left": 61.36,
+          "top": 145.8,
+          "right": 676.6400000000001,
+          "bottom": 183.2
+        },
+        {
+          "value": "01",
+          "printed": "01",
+          "size": 28,
+          "left": 61.568,
+          "top": 200.12,
+          "right": 92.28399999999999,
+          "bottom": 220.336
+        },
+        {
+          "value": "Strike · −10 points",
+          "printed": "Strike · −10 points",
+          "size": 32,
+          "left": 126.344,
+          "top": 196.32,
+          "right": 375.912,
+          "bottom": 226.56
+        },
+        {
+          "value": "02",
+          "printed": "02",
+          "size": 28,
+          "left": 61.568,
+          "top": 240.12,
+          "right": 91.836,
+          "bottom": 260.336
+        },
+        {
+          "value": "Okapi · 60 points",
+          "printed": "Okapi · 60 points",
+          "size": 36,
+          "left": 126.8,
+          "top": 233.35999999999999,
+          "right": 395.6839999999999,
+          "bottom": 267.38
+        },
+        {
+          "value": "Rarer than 94% of the 3,000 best-known animals",
+          "printed": "Rarer than 94% of the 3,000 best-known animals",
+          "size": 28,
+          "left": 127.408,
+          "top": 268.28,
+          "right": 753.1520000000004,
+          "bottom": 293.032
+        },
+        {
+          "value": "03",
+          "printed": "03",
+          "size": 28,
+          "left": 61.568,
+          "top": 308.12,
+          "right": 91.304,
+          "bottom": 328.336
+        },
+        {
+          "value": "Strike · −10 points",
+          "printed": "Strike · −10 points",
+          "size": 32,
+          "left": 126.344,
+          "top": 304.32,
+          "right": 375.912,
+          "bottom": 334.56
+        },
+        {
+          "value": "04",
+          "printed": "04",
+          "size": 28,
+          "left": 61.568,
+          "top": 348.12,
+          "right": 92.536,
+          "bottom": 368.336
+        },
+        {
+          "value": "Quokka · 160 points · Golden ticket · +100",
+          "printed": "Quokka · 160 points · Golden ticket · +100",
+          "size": 36,
+          "left": 126.8,
+          "top": 341.36,
+          "right": 780.0200000000001,
+          "bottom": 375.38
+        },
+        {
+          "value": "60 + 100 golden bonus · Rarer than 94% of the 3,000 best-known animals",
+          "printed": "60 + 100 golden bonus · Rarer than 94% of the 3,000 best-known animals",
+          "size": 28,
+          "left": 126.4,
+          "top": 376.28,
+          "right": 1057.568000000001,
+          "bottom": 403.02
+        },
+        {
+          "value": "05",
+          "printed": "05",
+          "size": 28,
+          "left": 61.568,
+          "top": 416.12,
+          "right": 91.72399999999999,
+          "bottom": 436.336
+        },
+        {
+          "value": "Sarcastic fringehead · 60 points",
+          "printed": "Sarcastic fringehead · 60 points",
+          "size": 36,
+          "left": 126.512,
+          "top": 409.68399999999997,
+          "right": 638.5039999999999,
+          "bottom": 443.74
+        },
+        {
+          "value": "Rarer than 94% of the 3,000 best-known animals",
+          "printed": "Rarer than 94% of the 3,000 best-known animals",
+          "size": 28,
+          "left": 127.408,
+          "top": 444.28,
+          "right": 753.1520000000004,
+          "bottom": 469.032
+        },
+        {
+          "value": "Tan Dove",
+          "printed": "Tan Dove",
+          "size": 36,
+          "left": 61.296,
+          "top": 569.08,
+          "right": 217.068,
+          "bottom": 595.36
+        }
+      ]
+    },
+    {
+      "name": "light-strike2-answers-certificate",
+      "bytes": 86291,
+      "passed": true,
+      "textBounds": [
+        {
+          "value": "Form D-1 · Golden ticket · Dibs #1 · Nov 23",
+          "printed": "Form D-1 · Golden ticket · Dibs #1 · Nov 23",
+          "size": 32,
+          "left": 62.752,
+          "top": 66.32,
+          "right": 652.736,
+          "bottom": 90.32
+        },
+        {
+          "value": "Quokka",
+          "printed": "Quokka",
+          "size": 95,
+          "left": 64.275,
+          "top": 151.03,
+          "right": 455.485,
+          "bottom": 232.445
+        },
+        {
+          "value": "Animals",
+          "printed": "Animals",
+          "size": 40,
+          "left": 61.44,
+          "top": 241.2,
+          "right": 208.28,
+          "bottom": 270.4
+        },
+        {
+          "value": "160 points · Rarer than 94% of the 3,000 best-known animals · 60 + 100 golden bonus",
+          "printed": "160 points · Rarer than 94% of the 3,000 …st-known animals · 60 + 100 golden bonus",
+          "size": 28,
+          "left": 60.84,
+          "top": 309.28,
+          "right": 1124.8120000000006,
+          "bottom": 336.02
+        },
+        {
+          "value": "Tan Dove",
+          "printed": "Tan Dove",
+          "size": 40,
+          "left": 61.44,
+          "top": 526.2,
+          "right": 234.52000000000007,
+          "bottom": 555.4
+        }
+      ]
+    },
+    {
+      "name": "light-strike2-sealed-summary",
+      "bytes": 94178,
+      "passed": true,
+      "textBounds": [
+        {
+          "value": "Dibs #1 · Nov 23",
+          "printed": "Dibs #1 · Nov 23",
+          "size": 32,
+          "left": 62.752,
+          "top": 31.64,
+          "right": 284.032,
+          "bottom": 55.32
+        },
+        {
+          "value": "ANIMALS",
+          "printed": "ANIMALS",
+          "size": 64,
+          "left": 60.64,
+          "top": 75.19999999999999,
+          "right": 385.31199999999995,
+          "bottom": 120.768
+        },
+        {
+          "value": "260 points · #3 of 27 players today",
+          "printed": "260 points · #3 of 27 players today",
+          "size": 40,
+          "left": 61.36,
+          "top": 145.8,
+          "right": 676.6400000000001,
+          "bottom": 183.2
+        },
+        {
+          "value": "01",
+          "printed": "01",
+          "size": 28,
+          "left": 61.568,
+          "top": 200.12,
+          "right": 92.28399999999999,
+          "bottom": 220.336
+        },
+        {
+          "value": "Strike · −10 points",
+          "printed": "Strike · −10 points",
+          "size": 32,
+          "left": 126.344,
+          "top": 196.32,
+          "right": 375.912,
+          "bottom": 226.56
+        },
+        {
+          "value": "02",
+          "printed": "02",
+          "size": 28,
+          "left": 61.568,
+          "top": 240.12,
+          "right": 91.836,
+          "bottom": 260.336
+        },
+        {
+          "value": "Claim · 60 points",
+          "printed": "Claim · 60 points",
+          "size": 36,
+          "left": 126.8,
+          "top": 233.72,
+          "right": 394.8199999999999,
+          "bottom": 267.38
+        },
+        {
+          "value": "Sealed until the day closes.",
+          "printed": "Sealed until the day closes.",
+          "size": 28,
+          "left": 126.176,
+          "top": 268.532,
+          "right": 466.824,
+          "bottom": 294.74
+        },
+        {
+          "value": "03",
+          "printed": "03",
+          "size": 28,
+          "left": 61.568,
+          "top": 308.12,
+          "right": 91.304,
+          "bottom": 328.336
+        },
+        {
+          "value": "Strike · −10 points",
+          "printed": "Strike · −10 points",
+          "size": 32,
+          "left": 126.344,
+          "top": 304.32,
+          "right": 375.912,
+          "bottom": 334.56
+        },
+        {
+          "value": "04",
+          "printed": "04",
+          "size": 28,
+          "left": 61.568,
+          "top": 348.12,
+          "right": 92.536,
+          "bottom": 368.336
+        },
+        {
+          "value": "Claim · 160 points",
+          "printed": "Claim · 160 points",
+          "size": 36,
+          "left": 126.8,
+          "top": 341.71999999999997,
+          "right": 408.8959999999999,
+          "bottom": 375.38
+        },
+        {
+          "value": "Sealed until the day closes.",
+          "printed": "Sealed until the day closes.",
+          "size": 28,
+          "left": 126.176,
+          "top": 376.532,
+          "right": 466.824,
+          "bottom": 402.74
+        },
+        {
+          "value": "05",
+          "printed": "05",
+          "size": 28,
+          "left": 61.568,
+          "top": 416.12,
+          "right": 91.72399999999999,
+          "bottom": 436.336
+        },
+        {
+          "value": "Claim · 60 points",
+          "printed": "Claim · 60 points",
+          "size": 36,
+          "left": 126.8,
+          "top": 409.71999999999997,
+          "right": 394.8199999999999,
+          "bottom": 443.38
+        },
+        {
+          "value": "Sealed until the day closes.",
+          "printed": "Sealed until the day closes.",
+          "size": 28,
+          "left": 126.176,
+          "top": 444.532,
+          "right": 466.824,
+          "bottom": 470.74
+        },
+        {
+          "value": "Tan Dove",
+          "printed": "Tan Dove",
+          "size": 36,
+          "left": 61.296,
+          "top": 569.08,
+          "right": 217.068,
+          "bottom": 595.36
+        }
+      ]
+    },
+    {
+      "name": "light-strike2-sealed-certificate",
+      "bytes": 62470,
+      "passed": true,
+      "textBounds": [
+        {
+          "value": "Form D-1 · Dibs #1 · Nov 23",
+          "printed": "Form D-1 · Dibs #1 · Nov 23",
+          "size": 32,
+          "left": 62.752,
+          "top": 66.64,
+          "right": 438.7519999999999,
+          "bottom": 90.32
+        },
+        {
+          "value": "SEALED",
+          "printed": "SEALED",
+          "size": 95,
+          "left": 64.085,
+          "top": 153.5,
+          "right": 472.68000000000006,
+          "bottom": 221.14
+        },
+        {
+          "value": "Animals",
+          "printed": "Animals",
+          "size": 40,
+          "left": 61.44,
+          "top": 241.2,
+          "right": 208.28,
+          "bottom": 270.4
+        },
+        {
+          "value": "160 points · Sealed until the day closes.",
+          "printed": "160 points · Sealed until the day closes.",
+          "size": 36,
+          "left": 61.08,
+          "top": 303.68399999999997,
+          "right": 688.0559999999998,
+          "bottom": 337.38
+        },
+        {
+          "value": "Tan Dove",
+          "printed": "Tan Dove",
+          "size": 40,
+          "left": 61.44,
+          "top": 526.2,
+          "right": 234.52000000000007,
+          "bottom": 555.4
+        }
+      ]
+    },
+    {
+      "name": "light-strike5-answers-summary",
+      "bytes": 131646,
+      "passed": true,
+      "textBounds": [
+        {
+          "value": "Dibs #1 · Nov 23",
+          "printed": "Dibs #1 · Nov 23",
+          "size": 32,
+          "left": 62.752,
+          "top": 31.64,
+          "right": 284.032,
+          "bottom": 55.32
+        },
+        {
+          "value": "ANIMALS",
+          "printed": "ANIMALS",
+          "size": 64,
+          "left": 60.64,
+          "top": 75.19999999999999,
+          "right": 385.31199999999995,
+          "bottom": 120.768
+        },
+        {
+          "value": "170 points · #3 of 27 players today",
+          "printed": "170 points · #3 of 27 players today",
+          "size": 40,
+          "left": 61.2,
+          "top": 145.8,
+          "right": 667.8000000000002,
+          "bottom": 183.2
+        },
+        {
+          "value": "01",
+          "printed": "01",
+          "size": 28,
+          "left": 61.568,
+          "top": 200.12,
+          "right": 92.28399999999999,
+          "bottom": 220.336
+        },
+        {
+          "value": "Strike · −10 points",
+          "printed": "Strike · −10 points",
+          "size": 32,
+          "left": 126.344,
+          "top": 196.32,
+          "right": 375.912,
+          "bottom": 226.56
+        },
+        {
+          "value": "02",
+          "printed": "02",
+          "size": 28,
+          "left": 61.568,
+          "top": 240.12,
+          "right": 91.836,
+          "bottom": 260.336
+        },
+        {
+          "value": "Okapi · 60 points",
+          "printed": "Okapi · 60 points",
+          "size": 36,
+          "left": 126.8,
+          "top": 233.35999999999999,
+          "right": 395.6839999999999,
+          "bottom": 267.38
+        },
+        {
+          "value": "Rarer than 94% of the 3,000 best-known animals",
+          "printed": "Rarer than 94% of the 3,000 best-known animals",
+          "size": 28,
+          "left": 127.408,
+          "top": 268.28,
+          "right": 753.1520000000004,
+          "bottom": 293.032
+        },
+        {
+          "value": "03",
+          "printed": "03",
+          "size": 28,
+          "left": 61.568,
+          "top": 308.12,
+          "right": 91.304,
+          "bottom": 328.336
+        },
+        {
+          "value": "Strike · −10 points",
+          "printed": "Strike · −10 points",
+          "size": 32,
+          "left": 126.344,
+          "top": 304.32,
+          "right": 375.912,
+          "bottom": 334.56
+        },
+        {
+          "value": "04",
+          "printed": "04",
+          "size": 28,
+          "left": 61.568,
+          "top": 348.12,
+          "right": 92.536,
+          "bottom": 368.336
+        },
+        {
+          "value": "Quokka · 160 points · Golden ticket · +100",
+          "printed": "Quokka · 160 points · Golden ticket · +100",
+          "size": 36,
+          "left": 126.8,
+          "top": 341.36,
+          "right": 780.0200000000001,
+          "bottom": 375.38
+        },
+        {
+          "value": "60 + 100 golden bonus · Rarer than 94% of the 3,000 best-known animals",
+          "printed": "60 + 100 golden bonus · Rarer than 94% of the 3,000 best-known animals",
+          "size": 28,
+          "left": 126.4,
+          "top": 376.28,
+          "right": 1057.568000000001,
+          "bottom": 403.02
+        },
+        {
+          "value": "05",
+          "printed": "05",
+          "size": 28,
+          "left": 61.568,
+          "top": 416.12,
+          "right": 91.72399999999999,
+          "bottom": 436.336
+        },
+        {
+          "value": "Strike · −10 points",
+          "printed": "Strike · −10 points",
+          "size": 32,
+          "left": 126.344,
+          "top": 412.32,
+          "right": 375.912,
+          "bottom": 442.56
+        },
+        {
+          "value": "06",
+          "printed": "06",
+          "size": 28,
+          "left": 61.568,
+          "top": 456.12,
+          "right": 91.80799999999999,
+          "bottom": 476.336
+        },
+        {
+          "value": "Strike · −10 points",
+          "printed": "Strike · −10 points",
+          "size": 32,
+          "left": 126.344,
+          "top": 452.32,
+          "right": 375.912,
+          "bottom": 482.56
+        },
+        {
+          "value": "07",
+          "printed": "07",
+          "size": 28,
+          "left": 61.568,
+          "top": 496.12,
+          "right": 91.66799999999999,
+          "bottom": 516.336
+        },
+        {
+          "value": "Strike · −10 points",
+          "printed": "Strike · −10 points",
+          "size": 32,
+          "left": 126.344,
+          "top": 492.32,
+          "right": 375.912,
+          "bottom": 522.56
+        },
+        {
+          "value": "Tan Dove",
+          "printed": "Tan Dove",
+          "size": 36,
+          "left": 61.296,
+          "top": 569.08,
+          "right": 217.068,
+          "bottom": 595.36
+        }
+      ]
+    },
+    {
+      "name": "light-strike5-answers-certificate",
+      "bytes": 86291,
+      "passed": true,
+      "textBounds": [
+        {
+          "value": "Form D-1 · Golden ticket · Dibs #1 · Nov 23",
+          "printed": "Form D-1 · Golden ticket · Dibs #1 · Nov 23",
+          "size": 32,
+          "left": 62.752,
+          "top": 66.32,
+          "right": 652.736,
+          "bottom": 90.32
+        },
+        {
+          "value": "Quokka",
+          "printed": "Quokka",
+          "size": 95,
+          "left": 64.275,
+          "top": 151.03,
+          "right": 455.485,
+          "bottom": 232.445
+        },
+        {
+          "value": "Animals",
+          "printed": "Animals",
+          "size": 40,
+          "left": 61.44,
+          "top": 241.2,
+          "right": 208.28,
+          "bottom": 270.4
+        },
+        {
+          "value": "160 points · Rarer than 94% of the 3,000 best-known animals · 60 + 100 golden bonus",
+          "printed": "160 points · Rarer than 94% of the 3,000 …st-known animals · 60 + 100 golden bonus",
+          "size": 28,
+          "left": 60.84,
+          "top": 309.28,
+          "right": 1124.8120000000006,
+          "bottom": 336.02
+        },
+        {
+          "value": "Tan Dove",
+          "printed": "Tan Dove",
+          "size": 40,
+          "left": 61.44,
+          "top": 526.2,
+          "right": 234.52000000000007,
+          "bottom": 555.4
+        }
+      ]
+    },
+    {
+      "name": "light-strike5-sealed-summary",
+      "bytes": 97551,
+      "passed": true,
+      "textBounds": [
+        {
+          "value": "Dibs #1 · Nov 23",
+          "printed": "Dibs #1 · Nov 23",
+          "size": 32,
+          "left": 62.752,
+          "top": 31.64,
+          "right": 284.032,
+          "bottom": 55.32
+        },
+        {
+          "value": "ANIMALS",
+          "printed": "ANIMALS",
+          "size": 64,
+          "left": 60.64,
+          "top": 75.19999999999999,
+          "right": 385.31199999999995,
+          "bottom": 120.768
+        },
+        {
+          "value": "170 points · #3 of 27 players today",
+          "printed": "170 points · #3 of 27 players today",
+          "size": 40,
+          "left": 61.2,
+          "top": 145.8,
+          "right": 667.8000000000002,
+          "bottom": 183.2
+        },
+        {
+          "value": "01",
+          "printed": "01",
+          "size": 28,
+          "left": 61.568,
+          "top": 200.12,
+          "right": 92.28399999999999,
+          "bottom": 220.336
+        },
+        {
+          "value": "Strike · −10 points",
+          "printed": "Strike · −10 points",
+          "size": 32,
+          "left": 126.344,
+          "top": 196.32,
+          "right": 375.912,
+          "bottom": 226.56
+        },
+        {
+          "value": "02",
+          "printed": "02",
+          "size": 28,
+          "left": 61.568,
+          "top": 240.12,
+          "right": 91.836,
+          "bottom": 260.336
+        },
+        {
+          "value": "Claim · 60 points",
+          "printed": "Claim · 60 points",
+          "size": 36,
+          "left": 126.8,
+          "top": 233.72,
+          "right": 394.8199999999999,
+          "bottom": 267.38
+        },
+        {
+          "value": "Sealed until the day closes.",
+          "printed": "Sealed until the day closes.",
+          "size": 28,
+          "left": 126.176,
+          "top": 268.532,
+          "right": 466.824,
+          "bottom": 294.74
+        },
+        {
+          "value": "03",
+          "printed": "03",
+          "size": 28,
+          "left": 61.568,
+          "top": 308.12,
+          "right": 91.304,
+          "bottom": 328.336
+        },
+        {
+          "value": "Strike · −10 points",
+          "printed": "Strike · −10 points",
+          "size": 32,
+          "left": 126.344,
+          "top": 304.32,
+          "right": 375.912,
+          "bottom": 334.56
+        },
+        {
+          "value": "04",
+          "printed": "04",
+          "size": 28,
+          "left": 61.568,
+          "top": 348.12,
+          "right": 92.536,
+          "bottom": 368.336
+        },
+        {
+          "value": "Claim · 160 points",
+          "printed": "Claim · 160 points",
+          "size": 36,
+          "left": 126.8,
+          "top": 341.71999999999997,
+          "right": 408.8959999999999,
+          "bottom": 375.38
+        },
+        {
+          "value": "Sealed until the day closes.",
+          "printed": "Sealed until the day closes.",
+          "size": 28,
+          "left": 126.176,
+          "top": 376.532,
+          "right": 466.824,
+          "bottom": 402.74
+        },
+        {
+          "value": "05",
+          "printed": "05",
+          "size": 28,
+          "left": 61.568,
+          "top": 416.12,
+          "right": 91.72399999999999,
+          "bottom": 436.336
+        },
+        {
+          "value": "Strike · −10 points",
+          "printed": "Strike · −10 points",
+          "size": 32,
+          "left": 126.344,
+          "top": 412.32,
+          "right": 375.912,
+          "bottom": 442.56
+        },
+        {
+          "value": "06",
+          "printed": "06",
+          "size": 28,
+          "left": 61.568,
+          "top": 456.12,
+          "right": 91.80799999999999,
+          "bottom": 476.336
+        },
+        {
+          "value": "Strike · −10 points",
+          "printed": "Strike · −10 points",
+          "size": 32,
+          "left": 126.344,
+          "top": 452.32,
+          "right": 375.912,
+          "bottom": 482.56
+        },
+        {
+          "value": "07",
+          "printed": "07",
+          "size": 28,
+          "left": 61.568,
+          "top": 496.12,
+          "right": 91.66799999999999,
+          "bottom": 516.336
+        },
+        {
+          "value": "Strike · −10 points",
+          "printed": "Strike · −10 points",
+          "size": 32,
+          "left": 126.344,
+          "top": 492.32,
+          "right": 375.912,
+          "bottom": 522.56
+        },
+        {
+          "value": "Tan Dove",
+          "printed": "Tan Dove",
+          "size": 36,
+          "left": 61.296,
+          "top": 569.08,
+          "right": 217.068,
+          "bottom": 595.36
+        }
+      ]
+    },
+    {
+      "name": "light-strike5-sealed-certificate",
+      "bytes": 62470,
+      "passed": true,
+      "textBounds": [
+        {
+          "value": "Form D-1 · Dibs #1 · Nov 23",
+          "printed": "Form D-1 · Dibs #1 · Nov 23",
+          "size": 32,
+          "left": 62.752,
+          "top": 66.64,
+          "right": 438.7519999999999,
+          "bottom": 90.32
+        },
+        {
+          "value": "SEALED",
+          "printed": "SEALED",
+          "size": 95,
+          "left": 64.085,
+          "top": 153.5,
+          "right": 472.68000000000006,
+          "bottom": 221.14
+        },
+        {
+          "value": "Animals",
+          "printed": "Animals",
+          "size": 40,
+          "left": 61.44,
+          "top": 241.2,
+          "right": 208.28,
+          "bottom": 270.4
+        },
+        {
+          "value": "160 points · Sealed until the day closes.",
+          "printed": "160 points · Sealed until the day closes.",
+          "size": 36,
+          "left": 61.08,
+          "top": 303.68399999999997,
+          "right": 688.0559999999998,
+          "bottom": 337.38
+        },
+        {
+          "value": "Tan Dove",
+          "printed": "Tan Dove",
+          "size": 40,
+          "left": 61.44,
+          "top": 526.2,
+          "right": 234.52000000000007,
+          "bottom": 555.4
+        }
+      ]
+    },
+    {
       "name": "dark-first-answers-summary",
       "bytes": 130320,
       "passed": true,
@@ -4473,6 +5763,1296 @@
     },
     {
       "name": "dark-long-sealed-certificate",
+      "bytes": 61126,
+      "passed": true,
+      "textBounds": [
+        {
+          "value": "Form D-1 · Dibs #1 · Nov 23",
+          "printed": "Form D-1 · Dibs #1 · Nov 23",
+          "size": 32,
+          "left": 62.752,
+          "top": 66.64,
+          "right": 438.7519999999999,
+          "bottom": 90.32
+        },
+        {
+          "value": "SEALED",
+          "printed": "SEALED",
+          "size": 95,
+          "left": 64.085,
+          "top": 153.5,
+          "right": 472.68000000000006,
+          "bottom": 221.14
+        },
+        {
+          "value": "Animals",
+          "printed": "Animals",
+          "size": 40,
+          "left": 61.44,
+          "top": 241.2,
+          "right": 208.28,
+          "bottom": 270.4
+        },
+        {
+          "value": "160 points · Sealed until the day closes.",
+          "printed": "160 points · Sealed until the day closes.",
+          "size": 36,
+          "left": 61.08,
+          "top": 303.68399999999997,
+          "right": 688.0559999999998,
+          "bottom": 337.38
+        },
+        {
+          "value": "Tan Dove",
+          "printed": "Tan Dove",
+          "size": 40,
+          "left": 61.44,
+          "top": 526.2,
+          "right": 234.52000000000007,
+          "bottom": 555.4
+        }
+      ]
+    },
+    {
+      "name": "dark-strike1-answers-summary",
+      "bytes": 132044,
+      "passed": true,
+      "textBounds": [
+        {
+          "value": "Dibs #1 · Nov 23",
+          "printed": "Dibs #1 · Nov 23",
+          "size": 32,
+          "left": 62.752,
+          "top": 31.64,
+          "right": 284.032,
+          "bottom": 55.32
+        },
+        {
+          "value": "ANIMALS",
+          "printed": "ANIMALS",
+          "size": 64,
+          "left": 60.64,
+          "top": 75.19999999999999,
+          "right": 385.31199999999995,
+          "bottom": 120.768
+        },
+        {
+          "value": "270 points · #3 of 27 players today",
+          "printed": "270 points · #3 of 27 players today",
+          "size": 40,
+          "left": 61.36,
+          "top": 145.8,
+          "right": 673.9600000000002,
+          "bottom": 183.2
+        },
+        {
+          "value": "01",
+          "printed": "01",
+          "size": 28,
+          "left": 61.568,
+          "top": 200.12,
+          "right": 92.28399999999999,
+          "bottom": 220.336
+        },
+        {
+          "value": "Strike · −10 points",
+          "printed": "Strike · −10 points",
+          "size": 32,
+          "left": 126.344,
+          "top": 196.32,
+          "right": 375.912,
+          "bottom": 226.56
+        },
+        {
+          "value": "02",
+          "printed": "02",
+          "size": 28,
+          "left": 61.568,
+          "top": 240.12,
+          "right": 91.836,
+          "bottom": 260.336
+        },
+        {
+          "value": "Okapi · 60 points",
+          "printed": "Okapi · 60 points",
+          "size": 36,
+          "left": 126.8,
+          "top": 233.35999999999999,
+          "right": 395.6839999999999,
+          "bottom": 267.38
+        },
+        {
+          "value": "Rarer than 94% of the 3,000 best-known animals",
+          "printed": "Rarer than 94% of the 3,000 best-known animals",
+          "size": 28,
+          "left": 127.408,
+          "top": 268.28,
+          "right": 753.1520000000004,
+          "bottom": 293.032
+        },
+        {
+          "value": "03",
+          "printed": "03",
+          "size": 28,
+          "left": 61.568,
+          "top": 308.12,
+          "right": 91.304,
+          "bottom": 328.336
+        },
+        {
+          "value": "Quokka · 160 points · Golden ticket · +100",
+          "printed": "Quokka · 160 points · Golden ticket · +100",
+          "size": 36,
+          "left": 126.8,
+          "top": 301.36,
+          "right": 780.0200000000001,
+          "bottom": 335.38
+        },
+        {
+          "value": "60 + 100 golden bonus · Rarer than 94% of the 3,000 best-known animals",
+          "printed": "60 + 100 golden bonus · Rarer than 94% of the 3,000 best-known animals",
+          "size": 28,
+          "left": 126.4,
+          "top": 336.28,
+          "right": 1057.568000000001,
+          "bottom": 363.02
+        },
+        {
+          "value": "04",
+          "printed": "04",
+          "size": 28,
+          "left": 61.568,
+          "top": 376.12,
+          "right": 92.536,
+          "bottom": 396.336
+        },
+        {
+          "value": "Sarcastic fringehead · 60 points",
+          "printed": "Sarcastic fringehead · 60 points",
+          "size": 36,
+          "left": 126.512,
+          "top": 369.68399999999997,
+          "right": 638.5039999999999,
+          "bottom": 403.74
+        },
+        {
+          "value": "Rarer than 94% of the 3,000 best-known animals",
+          "printed": "Rarer than 94% of the 3,000 best-known animals",
+          "size": 28,
+          "left": 127.408,
+          "top": 404.28,
+          "right": 753.1520000000004,
+          "bottom": 429.032
+        },
+        {
+          "value": "Tan Dove",
+          "printed": "Tan Dove",
+          "size": 36,
+          "left": 61.296,
+          "top": 569.08,
+          "right": 217.068,
+          "bottom": 595.36
+        }
+      ]
+    },
+    {
+      "name": "dark-strike1-answers-certificate",
+      "bytes": 85629,
+      "passed": true,
+      "textBounds": [
+        {
+          "value": "Form D-1 · Golden ticket · Dibs #1 · Nov 23",
+          "printed": "Form D-1 · Golden ticket · Dibs #1 · Nov 23",
+          "size": 32,
+          "left": 62.752,
+          "top": 66.32,
+          "right": 652.736,
+          "bottom": 90.32
+        },
+        {
+          "value": "Quokka",
+          "printed": "Quokka",
+          "size": 95,
+          "left": 64.275,
+          "top": 151.03,
+          "right": 455.485,
+          "bottom": 232.445
+        },
+        {
+          "value": "Animals",
+          "printed": "Animals",
+          "size": 40,
+          "left": 61.44,
+          "top": 241.2,
+          "right": 208.28,
+          "bottom": 270.4
+        },
+        {
+          "value": "160 points · Rarer than 94% of the 3,000 best-known animals · 60 + 100 golden bonus",
+          "printed": "160 points · Rarer than 94% of the 3,000 …st-known animals · 60 + 100 golden bonus",
+          "size": 28,
+          "left": 60.84,
+          "top": 309.28,
+          "right": 1124.8120000000006,
+          "bottom": 336.02
+        },
+        {
+          "value": "Tan Dove",
+          "printed": "Tan Dove",
+          "size": 40,
+          "left": 61.44,
+          "top": 526.2,
+          "right": 234.52000000000007,
+          "bottom": 555.4
+        }
+      ]
+    },
+    {
+      "name": "dark-strike1-sealed-summary",
+      "bytes": 87254,
+      "passed": true,
+      "textBounds": [
+        {
+          "value": "Dibs #1 · Nov 23",
+          "printed": "Dibs #1 · Nov 23",
+          "size": 32,
+          "left": 62.752,
+          "top": 31.64,
+          "right": 284.032,
+          "bottom": 55.32
+        },
+        {
+          "value": "ANIMALS",
+          "printed": "ANIMALS",
+          "size": 64,
+          "left": 60.64,
+          "top": 75.19999999999999,
+          "right": 385.31199999999995,
+          "bottom": 120.768
+        },
+        {
+          "value": "270 points · #3 of 27 players today",
+          "printed": "270 points · #3 of 27 players today",
+          "size": 40,
+          "left": 61.36,
+          "top": 145.8,
+          "right": 673.9600000000002,
+          "bottom": 183.2
+        },
+        {
+          "value": "01",
+          "printed": "01",
+          "size": 28,
+          "left": 61.568,
+          "top": 200.12,
+          "right": 92.28399999999999,
+          "bottom": 220.336
+        },
+        {
+          "value": "Strike · −10 points",
+          "printed": "Strike · −10 points",
+          "size": 32,
+          "left": 126.344,
+          "top": 196.32,
+          "right": 375.912,
+          "bottom": 226.56
+        },
+        {
+          "value": "02",
+          "printed": "02",
+          "size": 28,
+          "left": 61.568,
+          "top": 240.12,
+          "right": 91.836,
+          "bottom": 260.336
+        },
+        {
+          "value": "Claim · 60 points",
+          "printed": "Claim · 60 points",
+          "size": 36,
+          "left": 126.8,
+          "top": 233.72,
+          "right": 394.8199999999999,
+          "bottom": 267.38
+        },
+        {
+          "value": "Sealed until the day closes.",
+          "printed": "Sealed until the day closes.",
+          "size": 28,
+          "left": 126.176,
+          "top": 268.532,
+          "right": 466.824,
+          "bottom": 294.74
+        },
+        {
+          "value": "03",
+          "printed": "03",
+          "size": 28,
+          "left": 61.568,
+          "top": 308.12,
+          "right": 91.304,
+          "bottom": 328.336
+        },
+        {
+          "value": "Claim · 160 points",
+          "printed": "Claim · 160 points",
+          "size": 36,
+          "left": 126.8,
+          "top": 301.71999999999997,
+          "right": 408.8959999999999,
+          "bottom": 335.38
+        },
+        {
+          "value": "Sealed until the day closes.",
+          "printed": "Sealed until the day closes.",
+          "size": 28,
+          "left": 126.176,
+          "top": 336.532,
+          "right": 466.824,
+          "bottom": 362.74
+        },
+        {
+          "value": "04",
+          "printed": "04",
+          "size": 28,
+          "left": 61.568,
+          "top": 376.12,
+          "right": 92.536,
+          "bottom": 396.336
+        },
+        {
+          "value": "Claim · 60 points",
+          "printed": "Claim · 60 points",
+          "size": 36,
+          "left": 126.8,
+          "top": 369.71999999999997,
+          "right": 394.8199999999999,
+          "bottom": 403.38
+        },
+        {
+          "value": "Sealed until the day closes.",
+          "printed": "Sealed until the day closes.",
+          "size": 28,
+          "left": 126.176,
+          "top": 404.532,
+          "right": 466.824,
+          "bottom": 430.74
+        },
+        {
+          "value": "Tan Dove",
+          "printed": "Tan Dove",
+          "size": 36,
+          "left": 61.296,
+          "top": 569.08,
+          "right": 217.068,
+          "bottom": 595.36
+        }
+      ]
+    },
+    {
+      "name": "dark-strike1-sealed-certificate",
+      "bytes": 61126,
+      "passed": true,
+      "textBounds": [
+        {
+          "value": "Form D-1 · Dibs #1 · Nov 23",
+          "printed": "Form D-1 · Dibs #1 · Nov 23",
+          "size": 32,
+          "left": 62.752,
+          "top": 66.64,
+          "right": 438.7519999999999,
+          "bottom": 90.32
+        },
+        {
+          "value": "SEALED",
+          "printed": "SEALED",
+          "size": 95,
+          "left": 64.085,
+          "top": 153.5,
+          "right": 472.68000000000006,
+          "bottom": 221.14
+        },
+        {
+          "value": "Animals",
+          "printed": "Animals",
+          "size": 40,
+          "left": 61.44,
+          "top": 241.2,
+          "right": 208.28,
+          "bottom": 270.4
+        },
+        {
+          "value": "160 points · Sealed until the day closes.",
+          "printed": "160 points · Sealed until the day closes.",
+          "size": 36,
+          "left": 61.08,
+          "top": 303.68399999999997,
+          "right": 688.0559999999998,
+          "bottom": 337.38
+        },
+        {
+          "value": "Tan Dove",
+          "printed": "Tan Dove",
+          "size": 40,
+          "left": 61.44,
+          "top": 526.2,
+          "right": 234.52000000000007,
+          "bottom": 555.4
+        }
+      ]
+    },
+    {
+      "name": "dark-strike2-answers-summary",
+      "bytes": 136946,
+      "passed": true,
+      "textBounds": [
+        {
+          "value": "Dibs #1 · Nov 23",
+          "printed": "Dibs #1 · Nov 23",
+          "size": 32,
+          "left": 62.752,
+          "top": 31.64,
+          "right": 284.032,
+          "bottom": 55.32
+        },
+        {
+          "value": "ANIMALS",
+          "printed": "ANIMALS",
+          "size": 64,
+          "left": 60.64,
+          "top": 75.19999999999999,
+          "right": 385.31199999999995,
+          "bottom": 120.768
+        },
+        {
+          "value": "260 points · #3 of 27 players today",
+          "printed": "260 points · #3 of 27 players today",
+          "size": 40,
+          "left": 61.36,
+          "top": 145.8,
+          "right": 676.6400000000001,
+          "bottom": 183.2
+        },
+        {
+          "value": "01",
+          "printed": "01",
+          "size": 28,
+          "left": 61.568,
+          "top": 200.12,
+          "right": 92.28399999999999,
+          "bottom": 220.336
+        },
+        {
+          "value": "Strike · −10 points",
+          "printed": "Strike · −10 points",
+          "size": 32,
+          "left": 126.344,
+          "top": 196.32,
+          "right": 375.912,
+          "bottom": 226.56
+        },
+        {
+          "value": "02",
+          "printed": "02",
+          "size": 28,
+          "left": 61.568,
+          "top": 240.12,
+          "right": 91.836,
+          "bottom": 260.336
+        },
+        {
+          "value": "Okapi · 60 points",
+          "printed": "Okapi · 60 points",
+          "size": 36,
+          "left": 126.8,
+          "top": 233.35999999999999,
+          "right": 395.6839999999999,
+          "bottom": 267.38
+        },
+        {
+          "value": "Rarer than 94% of the 3,000 best-known animals",
+          "printed": "Rarer than 94% of the 3,000 best-known animals",
+          "size": 28,
+          "left": 127.408,
+          "top": 268.28,
+          "right": 753.1520000000004,
+          "bottom": 293.032
+        },
+        {
+          "value": "03",
+          "printed": "03",
+          "size": 28,
+          "left": 61.568,
+          "top": 308.12,
+          "right": 91.304,
+          "bottom": 328.336
+        },
+        {
+          "value": "Strike · −10 points",
+          "printed": "Strike · −10 points",
+          "size": 32,
+          "left": 126.344,
+          "top": 304.32,
+          "right": 375.912,
+          "bottom": 334.56
+        },
+        {
+          "value": "04",
+          "printed": "04",
+          "size": 28,
+          "left": 61.568,
+          "top": 348.12,
+          "right": 92.536,
+          "bottom": 368.336
+        },
+        {
+          "value": "Quokka · 160 points · Golden ticket · +100",
+          "printed": "Quokka · 160 points · Golden ticket · +100",
+          "size": 36,
+          "left": 126.8,
+          "top": 341.36,
+          "right": 780.0200000000001,
+          "bottom": 375.38
+        },
+        {
+          "value": "60 + 100 golden bonus · Rarer than 94% of the 3,000 best-known animals",
+          "printed": "60 + 100 golden bonus · Rarer than 94% of the 3,000 best-known animals",
+          "size": 28,
+          "left": 126.4,
+          "top": 376.28,
+          "right": 1057.568000000001,
+          "bottom": 403.02
+        },
+        {
+          "value": "05",
+          "printed": "05",
+          "size": 28,
+          "left": 61.568,
+          "top": 416.12,
+          "right": 91.72399999999999,
+          "bottom": 436.336
+        },
+        {
+          "value": "Sarcastic fringehead · 60 points",
+          "printed": "Sarcastic fringehead · 60 points",
+          "size": 36,
+          "left": 126.512,
+          "top": 409.68399999999997,
+          "right": 638.5039999999999,
+          "bottom": 443.74
+        },
+        {
+          "value": "Rarer than 94% of the 3,000 best-known animals",
+          "printed": "Rarer than 94% of the 3,000 best-known animals",
+          "size": 28,
+          "left": 127.408,
+          "top": 444.28,
+          "right": 753.1520000000004,
+          "bottom": 469.032
+        },
+        {
+          "value": "Tan Dove",
+          "printed": "Tan Dove",
+          "size": 36,
+          "left": 61.296,
+          "top": 569.08,
+          "right": 217.068,
+          "bottom": 595.36
+        }
+      ]
+    },
+    {
+      "name": "dark-strike2-answers-certificate",
+      "bytes": 85629,
+      "passed": true,
+      "textBounds": [
+        {
+          "value": "Form D-1 · Golden ticket · Dibs #1 · Nov 23",
+          "printed": "Form D-1 · Golden ticket · Dibs #1 · Nov 23",
+          "size": 32,
+          "left": 62.752,
+          "top": 66.32,
+          "right": 652.736,
+          "bottom": 90.32
+        },
+        {
+          "value": "Quokka",
+          "printed": "Quokka",
+          "size": 95,
+          "left": 64.275,
+          "top": 151.03,
+          "right": 455.485,
+          "bottom": 232.445
+        },
+        {
+          "value": "Animals",
+          "printed": "Animals",
+          "size": 40,
+          "left": 61.44,
+          "top": 241.2,
+          "right": 208.28,
+          "bottom": 270.4
+        },
+        {
+          "value": "160 points · Rarer than 94% of the 3,000 best-known animals · 60 + 100 golden bonus",
+          "printed": "160 points · Rarer than 94% of the 3,000 …st-known animals · 60 + 100 golden bonus",
+          "size": 28,
+          "left": 60.84,
+          "top": 309.28,
+          "right": 1124.8120000000006,
+          "bottom": 336.02
+        },
+        {
+          "value": "Tan Dove",
+          "printed": "Tan Dove",
+          "size": 40,
+          "left": 61.44,
+          "top": 526.2,
+          "right": 234.52000000000007,
+          "bottom": 555.4
+        }
+      ]
+    },
+    {
+      "name": "dark-strike2-sealed-summary",
+      "bytes": 92123,
+      "passed": true,
+      "textBounds": [
+        {
+          "value": "Dibs #1 · Nov 23",
+          "printed": "Dibs #1 · Nov 23",
+          "size": 32,
+          "left": 62.752,
+          "top": 31.64,
+          "right": 284.032,
+          "bottom": 55.32
+        },
+        {
+          "value": "ANIMALS",
+          "printed": "ANIMALS",
+          "size": 64,
+          "left": 60.64,
+          "top": 75.19999999999999,
+          "right": 385.31199999999995,
+          "bottom": 120.768
+        },
+        {
+          "value": "260 points · #3 of 27 players today",
+          "printed": "260 points · #3 of 27 players today",
+          "size": 40,
+          "left": 61.36,
+          "top": 145.8,
+          "right": 676.6400000000001,
+          "bottom": 183.2
+        },
+        {
+          "value": "01",
+          "printed": "01",
+          "size": 28,
+          "left": 61.568,
+          "top": 200.12,
+          "right": 92.28399999999999,
+          "bottom": 220.336
+        },
+        {
+          "value": "Strike · −10 points",
+          "printed": "Strike · −10 points",
+          "size": 32,
+          "left": 126.344,
+          "top": 196.32,
+          "right": 375.912,
+          "bottom": 226.56
+        },
+        {
+          "value": "02",
+          "printed": "02",
+          "size": 28,
+          "left": 61.568,
+          "top": 240.12,
+          "right": 91.836,
+          "bottom": 260.336
+        },
+        {
+          "value": "Claim · 60 points",
+          "printed": "Claim · 60 points",
+          "size": 36,
+          "left": 126.8,
+          "top": 233.72,
+          "right": 394.8199999999999,
+          "bottom": 267.38
+        },
+        {
+          "value": "Sealed until the day closes.",
+          "printed": "Sealed until the day closes.",
+          "size": 28,
+          "left": 126.176,
+          "top": 268.532,
+          "right": 466.824,
+          "bottom": 294.74
+        },
+        {
+          "value": "03",
+          "printed": "03",
+          "size": 28,
+          "left": 61.568,
+          "top": 308.12,
+          "right": 91.304,
+          "bottom": 328.336
+        },
+        {
+          "value": "Strike · −10 points",
+          "printed": "Strike · −10 points",
+          "size": 32,
+          "left": 126.344,
+          "top": 304.32,
+          "right": 375.912,
+          "bottom": 334.56
+        },
+        {
+          "value": "04",
+          "printed": "04",
+          "size": 28,
+          "left": 61.568,
+          "top": 348.12,
+          "right": 92.536,
+          "bottom": 368.336
+        },
+        {
+          "value": "Claim · 160 points",
+          "printed": "Claim · 160 points",
+          "size": 36,
+          "left": 126.8,
+          "top": 341.71999999999997,
+          "right": 408.8959999999999,
+          "bottom": 375.38
+        },
+        {
+          "value": "Sealed until the day closes.",
+          "printed": "Sealed until the day closes.",
+          "size": 28,
+          "left": 126.176,
+          "top": 376.532,
+          "right": 466.824,
+          "bottom": 402.74
+        },
+        {
+          "value": "05",
+          "printed": "05",
+          "size": 28,
+          "left": 61.568,
+          "top": 416.12,
+          "right": 91.72399999999999,
+          "bottom": 436.336
+        },
+        {
+          "value": "Claim · 60 points",
+          "printed": "Claim · 60 points",
+          "size": 36,
+          "left": 126.8,
+          "top": 409.71999999999997,
+          "right": 394.8199999999999,
+          "bottom": 443.38
+        },
+        {
+          "value": "Sealed until the day closes.",
+          "printed": "Sealed until the day closes.",
+          "size": 28,
+          "left": 126.176,
+          "top": 444.532,
+          "right": 466.824,
+          "bottom": 470.74
+        },
+        {
+          "value": "Tan Dove",
+          "printed": "Tan Dove",
+          "size": 36,
+          "left": 61.296,
+          "top": 569.08,
+          "right": 217.068,
+          "bottom": 595.36
+        }
+      ]
+    },
+    {
+      "name": "dark-strike2-sealed-certificate",
+      "bytes": 61126,
+      "passed": true,
+      "textBounds": [
+        {
+          "value": "Form D-1 · Dibs #1 · Nov 23",
+          "printed": "Form D-1 · Dibs #1 · Nov 23",
+          "size": 32,
+          "left": 62.752,
+          "top": 66.64,
+          "right": 438.7519999999999,
+          "bottom": 90.32
+        },
+        {
+          "value": "SEALED",
+          "printed": "SEALED",
+          "size": 95,
+          "left": 64.085,
+          "top": 153.5,
+          "right": 472.68000000000006,
+          "bottom": 221.14
+        },
+        {
+          "value": "Animals",
+          "printed": "Animals",
+          "size": 40,
+          "left": 61.44,
+          "top": 241.2,
+          "right": 208.28,
+          "bottom": 270.4
+        },
+        {
+          "value": "160 points · Sealed until the day closes.",
+          "printed": "160 points · Sealed until the day closes.",
+          "size": 36,
+          "left": 61.08,
+          "top": 303.68399999999997,
+          "right": 688.0559999999998,
+          "bottom": 337.38
+        },
+        {
+          "value": "Tan Dove",
+          "printed": "Tan Dove",
+          "size": 40,
+          "left": 61.44,
+          "top": 526.2,
+          "right": 234.52000000000007,
+          "bottom": 555.4
+        }
+      ]
+    },
+    {
+      "name": "dark-strike5-answers-summary",
+      "bytes": 131585,
+      "passed": true,
+      "textBounds": [
+        {
+          "value": "Dibs #1 · Nov 23",
+          "printed": "Dibs #1 · Nov 23",
+          "size": 32,
+          "left": 62.752,
+          "top": 31.64,
+          "right": 284.032,
+          "bottom": 55.32
+        },
+        {
+          "value": "ANIMALS",
+          "printed": "ANIMALS",
+          "size": 64,
+          "left": 60.64,
+          "top": 75.19999999999999,
+          "right": 385.31199999999995,
+          "bottom": 120.768
+        },
+        {
+          "value": "170 points · #3 of 27 players today",
+          "printed": "170 points · #3 of 27 players today",
+          "size": 40,
+          "left": 61.2,
+          "top": 145.8,
+          "right": 667.8000000000002,
+          "bottom": 183.2
+        },
+        {
+          "value": "01",
+          "printed": "01",
+          "size": 28,
+          "left": 61.568,
+          "top": 200.12,
+          "right": 92.28399999999999,
+          "bottom": 220.336
+        },
+        {
+          "value": "Strike · −10 points",
+          "printed": "Strike · −10 points",
+          "size": 32,
+          "left": 126.344,
+          "top": 196.32,
+          "right": 375.912,
+          "bottom": 226.56
+        },
+        {
+          "value": "02",
+          "printed": "02",
+          "size": 28,
+          "left": 61.568,
+          "top": 240.12,
+          "right": 91.836,
+          "bottom": 260.336
+        },
+        {
+          "value": "Okapi · 60 points",
+          "printed": "Okapi · 60 points",
+          "size": 36,
+          "left": 126.8,
+          "top": 233.35999999999999,
+          "right": 395.6839999999999,
+          "bottom": 267.38
+        },
+        {
+          "value": "Rarer than 94% of the 3,000 best-known animals",
+          "printed": "Rarer than 94% of the 3,000 best-known animals",
+          "size": 28,
+          "left": 127.408,
+          "top": 268.28,
+          "right": 753.1520000000004,
+          "bottom": 293.032
+        },
+        {
+          "value": "03",
+          "printed": "03",
+          "size": 28,
+          "left": 61.568,
+          "top": 308.12,
+          "right": 91.304,
+          "bottom": 328.336
+        },
+        {
+          "value": "Strike · −10 points",
+          "printed": "Strike · −10 points",
+          "size": 32,
+          "left": 126.344,
+          "top": 304.32,
+          "right": 375.912,
+          "bottom": 334.56
+        },
+        {
+          "value": "04",
+          "printed": "04",
+          "size": 28,
+          "left": 61.568,
+          "top": 348.12,
+          "right": 92.536,
+          "bottom": 368.336
+        },
+        {
+          "value": "Quokka · 160 points · Golden ticket · +100",
+          "printed": "Quokka · 160 points · Golden ticket · +100",
+          "size": 36,
+          "left": 126.8,
+          "top": 341.36,
+          "right": 780.0200000000001,
+          "bottom": 375.38
+        },
+        {
+          "value": "60 + 100 golden bonus · Rarer than 94% of the 3,000 best-known animals",
+          "printed": "60 + 100 golden bonus · Rarer than 94% of the 3,000 best-known animals",
+          "size": 28,
+          "left": 126.4,
+          "top": 376.28,
+          "right": 1057.568000000001,
+          "bottom": 403.02
+        },
+        {
+          "value": "05",
+          "printed": "05",
+          "size": 28,
+          "left": 61.568,
+          "top": 416.12,
+          "right": 91.72399999999999,
+          "bottom": 436.336
+        },
+        {
+          "value": "Strike · −10 points",
+          "printed": "Strike · −10 points",
+          "size": 32,
+          "left": 126.344,
+          "top": 412.32,
+          "right": 375.912,
+          "bottom": 442.56
+        },
+        {
+          "value": "06",
+          "printed": "06",
+          "size": 28,
+          "left": 61.568,
+          "top": 456.12,
+          "right": 91.80799999999999,
+          "bottom": 476.336
+        },
+        {
+          "value": "Strike · −10 points",
+          "printed": "Strike · −10 points",
+          "size": 32,
+          "left": 126.344,
+          "top": 452.32,
+          "right": 375.912,
+          "bottom": 482.56
+        },
+        {
+          "value": "07",
+          "printed": "07",
+          "size": 28,
+          "left": 61.568,
+          "top": 496.12,
+          "right": 91.66799999999999,
+          "bottom": 516.336
+        },
+        {
+          "value": "Strike · −10 points",
+          "printed": "Strike · −10 points",
+          "size": 32,
+          "left": 126.344,
+          "top": 492.32,
+          "right": 375.912,
+          "bottom": 522.56
+        },
+        {
+          "value": "Tan Dove",
+          "printed": "Tan Dove",
+          "size": 36,
+          "left": 61.296,
+          "top": 569.08,
+          "right": 217.068,
+          "bottom": 595.36
+        }
+      ]
+    },
+    {
+      "name": "dark-strike5-answers-certificate",
+      "bytes": 85629,
+      "passed": true,
+      "textBounds": [
+        {
+          "value": "Form D-1 · Golden ticket · Dibs #1 · Nov 23",
+          "printed": "Form D-1 · Golden ticket · Dibs #1 · Nov 23",
+          "size": 32,
+          "left": 62.752,
+          "top": 66.32,
+          "right": 652.736,
+          "bottom": 90.32
+        },
+        {
+          "value": "Quokka",
+          "printed": "Quokka",
+          "size": 95,
+          "left": 64.275,
+          "top": 151.03,
+          "right": 455.485,
+          "bottom": 232.445
+        },
+        {
+          "value": "Animals",
+          "printed": "Animals",
+          "size": 40,
+          "left": 61.44,
+          "top": 241.2,
+          "right": 208.28,
+          "bottom": 270.4
+        },
+        {
+          "value": "160 points · Rarer than 94% of the 3,000 best-known animals · 60 + 100 golden bonus",
+          "printed": "160 points · Rarer than 94% of the 3,000 …st-known animals · 60 + 100 golden bonus",
+          "size": 28,
+          "left": 60.84,
+          "top": 309.28,
+          "right": 1124.8120000000006,
+          "bottom": 336.02
+        },
+        {
+          "value": "Tan Dove",
+          "printed": "Tan Dove",
+          "size": 40,
+          "left": 61.44,
+          "top": 526.2,
+          "right": 234.52000000000007,
+          "bottom": 555.4
+        }
+      ]
+    },
+    {
+      "name": "dark-strike5-sealed-summary",
+      "bytes": 95192,
+      "passed": true,
+      "textBounds": [
+        {
+          "value": "Dibs #1 · Nov 23",
+          "printed": "Dibs #1 · Nov 23",
+          "size": 32,
+          "left": 62.752,
+          "top": 31.64,
+          "right": 284.032,
+          "bottom": 55.32
+        },
+        {
+          "value": "ANIMALS",
+          "printed": "ANIMALS",
+          "size": 64,
+          "left": 60.64,
+          "top": 75.19999999999999,
+          "right": 385.31199999999995,
+          "bottom": 120.768
+        },
+        {
+          "value": "170 points · #3 of 27 players today",
+          "printed": "170 points · #3 of 27 players today",
+          "size": 40,
+          "left": 61.2,
+          "top": 145.8,
+          "right": 667.8000000000002,
+          "bottom": 183.2
+        },
+        {
+          "value": "01",
+          "printed": "01",
+          "size": 28,
+          "left": 61.568,
+          "top": 200.12,
+          "right": 92.28399999999999,
+          "bottom": 220.336
+        },
+        {
+          "value": "Strike · −10 points",
+          "printed": "Strike · −10 points",
+          "size": 32,
+          "left": 126.344,
+          "top": 196.32,
+          "right": 375.912,
+          "bottom": 226.56
+        },
+        {
+          "value": "02",
+          "printed": "02",
+          "size": 28,
+          "left": 61.568,
+          "top": 240.12,
+          "right": 91.836,
+          "bottom": 260.336
+        },
+        {
+          "value": "Claim · 60 points",
+          "printed": "Claim · 60 points",
+          "size": 36,
+          "left": 126.8,
+          "top": 233.72,
+          "right": 394.8199999999999,
+          "bottom": 267.38
+        },
+        {
+          "value": "Sealed until the day closes.",
+          "printed": "Sealed until the day closes.",
+          "size": 28,
+          "left": 126.176,
+          "top": 268.532,
+          "right": 466.824,
+          "bottom": 294.74
+        },
+        {
+          "value": "03",
+          "printed": "03",
+          "size": 28,
+          "left": 61.568,
+          "top": 308.12,
+          "right": 91.304,
+          "bottom": 328.336
+        },
+        {
+          "value": "Strike · −10 points",
+          "printed": "Strike · −10 points",
+          "size": 32,
+          "left": 126.344,
+          "top": 304.32,
+          "right": 375.912,
+          "bottom": 334.56
+        },
+        {
+          "value": "04",
+          "printed": "04",
+          "size": 28,
+          "left": 61.568,
+          "top": 348.12,
+          "right": 92.536,
+          "bottom": 368.336
+        },
+        {
+          "value": "Claim · 160 points",
+          "printed": "Claim · 160 points",
+          "size": 36,
+          "left": 126.8,
+          "top": 341.71999999999997,
+          "right": 408.8959999999999,
+          "bottom": 375.38
+        },
+        {
+          "value": "Sealed until the day closes.",
+          "printed": "Sealed until the day closes.",
+          "size": 28,
+          "left": 126.176,
+          "top": 376.532,
+          "right": 466.824,
+          "bottom": 402.74
+        },
+        {
+          "value": "05",
+          "printed": "05",
+          "size": 28,
+          "left": 61.568,
+          "top": 416.12,
+          "right": 91.72399999999999,
+          "bottom": 436.336
+        },
+        {
+          "value": "Strike · −10 points",
+          "printed": "Strike · −10 points",
+          "size": 32,
+          "left": 126.344,
+          "top": 412.32,
+          "right": 375.912,
+          "bottom": 442.56
+        },
+        {
+          "value": "06",
+          "printed": "06",
+          "size": 28,
+          "left": 61.568,
+          "top": 456.12,
+          "right": 91.80799999999999,
+          "bottom": 476.336
+        },
+        {
+          "value": "Strike · −10 points",
+          "printed": "Strike · −10 points",
+          "size": 32,
+          "left": 126.344,
+          "top": 452.32,
+          "right": 375.912,
+          "bottom": 482.56
+        },
+        {
+          "value": "07",
+          "printed": "07",
+          "size": 28,
+          "left": 61.568,
+          "top": 496.12,
+          "right": 91.66799999999999,
+          "bottom": 516.336
+        },
+        {
+          "value": "Strike · −10 points",
+          "printed": "Strike · −10 points",
+          "size": 32,
+          "left": 126.344,
+          "top": 492.32,
+          "right": 375.912,
+          "bottom": 522.56
+        },
+        {
+          "value": "Tan Dove",
+          "printed": "Tan Dove",
+          "size": 36,
+          "left": 61.296,
+          "top": 569.08,
+          "right": 217.068,
+          "bottom": 595.36
+        }
+      ]
+    },
+    {
+      "name": "dark-strike5-sealed-certificate",
       "bytes": 61126,
       "passed": true,
       "textBounds": [

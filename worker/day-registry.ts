@@ -649,7 +649,13 @@ export class DayRegistry extends DurableObject<Env> {
       const uid = await cookieUser(req, env.COOKIE_SECRET);
       if (!uid || !this.category || !dayClosed(this.category)) return json(null);
       const state = this.state(uid);
-      if (!state || state.user.hidden || state.file.eligible === false || !state.file.events.length)
+      if (
+        !state ||
+        state.user.hidden ||
+        ['Withdrawn player', 'Record withheld'].includes(state.user.handle) ||
+        state.file.eligible === false ||
+        !state.file.events.length
+      )
         return json(null);
       try {
         if (Date.now() - this.recapReadyAt >= 60000) {

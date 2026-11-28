@@ -60,28 +60,42 @@ try {
     evidence.push({ name: `${dark ? 'dark' : 'light'}-home`, bytes: bytes.length, passed: true });
   }
   for (const dark of [false, true])
-    for (const variant of ['first', 'second', 'third', 'two', 'strikes', 'long'])
+    for (const variant of [
+      'first',
+      'second',
+      'third',
+      'two',
+      'strikes',
+      'long',
+      'strike1',
+      'strike2',
+      'strike5',
+    ])
       for (const shown of [true, false]) {
-        const claims = ['Okapi', 'Quokka', 'Sarcastic fringehead'].map((display, i) => ({
-          id: '2026-11-23-' + 'a'.repeat(variant === 'long' ? 400 : 36) + i,
-          display,
-          category_name: 'Animals',
-          category_slug: 'animals',
-          category_date: '2026-11-23',
-          category_id: 'fixture',
-          claim_no: i + 1,
-          handle: 'Tan Dove',
-          golden:
-            variant === 'two'
-              ? i !== 1
-              : i ===
-                ['first', 'second', 'third'].indexOf(
-                  variant === 'strikes' || variant === 'long' ? 'second' : variant,
-                ),
-          percentile: 0.94,
-          bonus: 0,
-          points: 60,
-        }));
+        const strikeCount =
+          variant === 'strikes' ? 4 : Number(variant.match(/^strike(\d)$/)?.[1] || 0);
+        const claims = ['Okapi', 'Quokka', 'Sarcastic fringehead']
+          .slice(0, strikeCount === 5 ? 2 : 3)
+          .map((display, i) => ({
+            id: '2026-11-23-' + 'a'.repeat(variant === 'long' ? 400 : 36) + i,
+            display,
+            category_name: 'Animals',
+            category_slug: 'animals',
+            category_date: '2026-11-23',
+            category_id: 'fixture',
+            claim_no: i + 1,
+            handle: 'Tan Dove',
+            golden:
+              variant === 'two'
+                ? i !== 1
+                : i ===
+                  ['first', 'second', 'third'].indexOf(
+                    strikeCount > 0 || variant === 'long' ? 'second' : variant,
+                  ),
+            percentile: 0.94,
+            bonus: 0,
+            points: 60,
+          }));
         claims.forEach((c) => {
           c.bonus = c.golden ? 100 : 0;
           c.points += c.bonus;
@@ -92,15 +106,15 @@ try {
           display: c.display,
           golden: c.golden,
         }));
-        if (variant === 'strikes')
-          for (let i = 0; i < 4; i++)
+        if (strikeCount)
+          for (let i = 0; i < strikeCount; i++)
             events.splice(i * 2, 0, { kind: 'strike', display: 'SECRET STRUCK GUESS' });
         const file = {
           claims,
           events,
           summaryId: '2026-11-23-' + 'b'.repeat(variant === 'long' ? 400 : 36),
-          points: claims.reduce((n, c) => n + c.points, 0) - (variant === 'strikes' ? 40 : 0),
-          strikes: variant === 'strikes' ? 4 : 0,
+          points: Math.max(0, claims.reduce((n, c) => n + c.points, 0) - strikeCount * 10),
+          strikes: strikeCount,
           handle: 'Tan Dove',
           rank: 3,
           players: 27,
@@ -143,10 +157,10 @@ try {
             assert.match(words, /60 \+ 100 golden bonus/);
             assert.ok(words.includes('Golden ticket'));
           } else assert.ok(!/Okapi|Quokka|Sarcastic fringehead/.test(words));
-          if (variant === 'strikes' && kind === 'summary')
+          if (kind === 'summary')
             assert.equal(
               layout.textBounds.filter((b: any) => b.value.includes('Strike · −10')).length,
-              4,
+              strikeCount,
             );
           if (variant === 'long') assert.ok(layout.textBounds.every((b: any) => b.size >= 28));
           const response = await call(false);
