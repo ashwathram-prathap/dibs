@@ -1,14 +1,14 @@
 {
-  "at": "2026-11-28T06:48:38.049Z",
+  "at": "2026-11-28T07:43:05.562Z",
   "passed": true,
-  "entry": "/assets/index-DMOWWTpw.js",
+  "entry": "/assets/index-xyxWkrWi.js",
   "inlineStyleHashes": [
     "5ffa8cd03fa8d3c51f20fd6a741e091848efa9f50fa0220cb327e68945e06729",
     "4d69b57be090c7ab15eb8316fb2c526019eee3970c53651666c8f0269b52ff42"
   ],
   "rows": [
     {
-      "path": "Archive-Ckm-ztiK.js",
+      "path": "Archive-DhTkxVgk.js",
       "status": 200,
       "type": "application/javascript",
       "bytes": 4686,
@@ -22,14 +22,14 @@
       "matches": true
     },
     {
-      "path": "Certificate-D6vLayT_.js",
+      "path": "Certificate-l9mH_X4Y.js",
       "status": 200,
       "type": "application/javascript",
-      "bytes": 101541,
+      "bytes": 101505,
       "matches": true
     },
     {
-      "path": "Content-D1ylpPB-.js",
+      "path": "Content-DpDIAMt9.js",
       "status": 200,
       "type": "application/javascript",
       "bytes": 14891,
@@ -43,14 +43,14 @@
       "matches": true
     },
     {
-      "path": "Leaderboard-4dT0V0q5.js",
+      "path": "Leaderboard-_jyUeK_p.js",
       "status": 200,
       "type": "application/javascript",
       "bytes": 2626,
       "matches": true
     },
     {
-      "path": "Ledger-CFfH8k1c.js",
+      "path": "Ledger-BnTfu5m1.js",
       "status": 200,
       "type": "application/javascript",
       "bytes": 5214,
@@ -64,7 +64,7 @@
       "matches": true
     },
     {
-      "path": "Settings-D1onyFzY.js",
+      "path": "Settings-Dn56YyIx.js",
       "status": 200,
       "type": "application/javascript",
       "bytes": 9589,
@@ -92,10 +92,10 @@
       "matches": true
     },
     {
-      "path": "index-DMOWWTpw.js",
+      "path": "index-xyxWkrWi.js",
       "status": 200,
       "type": "application/javascript",
-      "bytes": 283023,
+      "bytes": 283165,
       "matches": true
     },
     {
@@ -122,10 +122,10 @@
   ],
   "observations": [
     {
-      "at": "2026-11-28T06:48:38.049Z",
+      "at": "2026-11-28T07:43:05.562Z",
       "status": 200,
-      "actual": "/assets/index-DMOWWTpw.js",
-      "expected": "/assets/index-DMOWWTpw.js",
+      "actual": "/assets/index-xyxWkrWi.js",
+      "expected": "/assets/index-xyxWkrWi.js",
       "stylesMatch": true,
       "htmlMatches": true,
       "passed": true

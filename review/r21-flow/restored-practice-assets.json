@@ -1,0 +1,134 @@
+{
+  "at": "2026-11-28T07:44:17.721Z",
+  "passed": true,
+  "entry": "/assets/index-CZOjkycv.js",
+  "inlineStyleHashes": [
+    "5ffa8cd03fa8d3c51f20fd6a741e091848efa9f50fa0220cb327e68945e06729",
+    "0eb73896c711690a4a2ada5d32f76b9b8e0373326d691965b74622aab2bd868c"
+  ],
+  "rows": [
+    {
+      "path": "Archive-DfR5Gq_l.js",
+      "status": 200,
+      "type": "application/javascript",
+      "bytes": 4681,
+      "matches": true
+    },
+    {
+      "path": "Calendar-CosK7-8H.js",
+      "status": 200,
+      "type": "application/javascript",
+      "bytes": 9595,
+      "matches": true
+    },
+    {
+      "path": "Certificate-DGe6uqno.js",
+      "status": 200,
+      "type": "application/javascript",
+      "bytes": 102846,
+      "matches": true
+    },
+    {
+      "path": "Content-CBwlRFbc.js",
+      "status": 200,
+      "type": "application/javascript",
+      "bytes": 16981,
+      "matches": true
+    },
+    {
+      "path": "Icon-ByXjU2i-.js",
+      "status": 200,
+      "type": "application/javascript",
+      "bytes": 1356,
+      "matches": true
+    },
+    {
+      "path": "Leaderboard-Chi8OQW5.js",
+      "status": 200,
+      "type": "application/javascript",
+      "bytes": 2762,
+      "matches": true
+    },
+    {
+      "path": "Ledger-YwxH6Ulc.js",
+      "status": 200,
+      "type": "application/javascript",
+      "bytes": 5213,
+      "matches": true
+    },
+    {
+      "path": "Settings-DZPn_9OW.js",
+      "status": 200,
+      "type": "application/javascript",
+      "bytes": 9589,
+      "matches": true
+    },
+    {
+      "path": "api-B9c313Mn.js",
+      "status": 200,
+      "type": "application/javascript",
+      "bytes": 872,
+      "matches": true
+    },
+    {
+      "path": "copy-BXuOSI1L.js",
+      "status": 200,
+      "type": "application/javascript",
+      "bytes": 1376,
+      "matches": true
+    },
+    {
+      "path": "flow-rules-DJTex7Os.js",
+      "status": 200,
+      "type": "application/javascript",
+      "bytes": 2232,
+      "matches": true
+    },
+    {
+      "path": "index-CZOjkycv.js",
+      "status": 200,
+      "type": "application/javascript",
+      "bytes": 291241,
+      "matches": true
+    },
+    {
+      "path": "index-lb8ee6T2.css",
+      "status": 200,
+      "type": "text/css; charset=utf-8",
+      "bytes": 129170,
+      "matches": true
+    },
+    {
+      "path": "jsx-runtime-B4UN2VIk.js",
+      "status": 200,
+      "type": "application/javascript",
+      "bytes": 9096,
+      "matches": true
+    },
+    {
+      "path": "spelling.worker-D4UD658e.js",
+      "status": 200,
+      "type": "application/javascript",
+      "bytes": 1976,
+      "matches": true
+    },
+    {
+      "path": "time-BYJKwo4t.js",
+      "status": 200,
+      "type": "application/javascript",
+      "bytes": 2227,
+      "matches": true
+    }
+  ],
+  "observations": [
+    {
+      "at": "2026-11-28T07:44:17.721Z",
+      "status": 200,
+      "actual": "/assets/index-CZOjkycv.js",
+      "expected": "/assets/index-CZOjkycv.js",
+      "stylesMatch": true,
+      "htmlMatches": true,
+      "passed": true
+    }
+  ]
+}

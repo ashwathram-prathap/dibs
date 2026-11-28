@@ -47,3 +47,7 @@ Final certificate sweep attempt 3 passed 114/120; six narrow enlarged-font copy 
 Final practice client source is 6009f8e; Worker remains 238f5d3e-a055-4f8a-bc2a-dc5f58334f2c. Hosted asset and 36 read-only smoke checks pass. Final artifact is archived locally for restoring practice after the R20 correction rehearsal. The three isolated inherited fixes (single canvas frame, late-day snapshot protection and checkbox keyboard detection) are being ported to main separately.
 
 Pending-reply navigation checks pass 40/40 across both engines, all widths and phone font scales. Final client checks are complete; remaining acceptance above is explicitly unverified or blocked, not silently waived.
+
+Practice restored after R20 final correction validation: Pages fbf1c396-3d56-4159-8bfc-b1020ba8459a, Worker 238f5d3e-a055-4f8a-bc2a-dc5f58334f2c, deployment 4581c47b-8dc3-4fc1-86ed-f94bcd9d54b2. Client source 6009f8e; final archived artifact, served R21 handler and 36 smoke checks verified in restored-practice-*.json. The isolated three client corrections are now verified on R20 production as well. No policy activation or production R21 release.
+
+Restoration smoke screenshots are stored in restored-practice/; R20 final production screenshots remain in ../round20/production/.

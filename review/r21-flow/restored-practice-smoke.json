@@ -1,0 +1,434 @@
+{
+  "passed": true,
+  "at": "2026-11-28T07:44:48.732Z",
+  "liveState": {
+    "category": "Animals",
+    "categoryId": "practice",
+    "closesAt": "2026-11-24T02:00:00.000Z",
+    "nextDrop": "2026-11-29T02:00:00.000Z",
+    "checkedAt": "2026-11-28T07:44:18.975Z"
+  },
+  "readOnly": "Actual today/leaderboard reads; bootstrap envelope assembled locally with null identity. All identity/verification/mutation routes and WebSocket handshakes blocked. This checks shipped UI/public reads, not live identity bootstrap.",
+  "results": [
+    {
+      "engine": "chromium",
+      "width": 360,
+      "colorScheme": "light",
+      "path": "/",
+      "state": "open",
+      "passed": true,
+      "consoleErrors": [],
+      "blockedRequests": [
+        "turnstile https://challenges.cloudflare.com/turnstile/v0/api.js"
+      ]
+    },
+    {
+      "engine": "chromium",
+      "width": 360,
+      "colorScheme": "light",
+      "path": "/how-it-works",
+      "state": "open",
+      "passed": true,
+      "consoleErrors": [],
+      "blockedRequests": []
+    },
+    {
+      "engine": "chromium",
+      "width": 360,
+      "colorScheme": "light",
+      "path": "/about",
+      "state": "open",
+      "passed": true,
+      "consoleErrors": [],
+      "blockedRequests": []
+    },
+    {
+      "engine": "chromium",
+      "width": 360,
+      "colorScheme": "dark",
+      "path": "/",
+      "state": "open",
+      "passed": true,
+      "consoleErrors": [],
+      "blockedRequests": [
+        "turnstile https://challenges.cloudflare.com/turnstile/v0/api.js"
+      ]
+    },
+    {
+      "engine": "chromium",
+      "width": 360,
+      "colorScheme": "dark",
+      "path": "/how-it-works",
+      "state": "open",
+      "passed": true,
+      "consoleErrors": [],
+      "blockedRequests": []
+    },
+    {
+      "engine": "chromium",
+      "width": 360,
+      "colorScheme": "dark",
+      "path": "/about",
+      "state": "open",
+      "passed": true,
+      "consoleErrors": [],
+      "blockedRequests": []
+    },
+    {
+      "engine": "chromium",
+      "width": 390,
+      "colorScheme": "light",
+      "path": "/",
+      "state": "open",
+      "passed": true,
+      "consoleErrors": [],
+      "blockedRequests": [
+        "turnstile https://challenges.cloudflare.com/turnstile/v0/api.js"
+      ]
+    },
+    {
+      "engine": "chromium",
+      "width": 390,
+      "colorScheme": "light",
+      "path": "/how-it-works",
+      "state": "open",
+      "passed": true,
+      "consoleErrors": [],
+      "blockedRequests": []
+    },
+    {
+      "engine": "chromium",
+      "width": 390,
+      "colorScheme": "light",
+      "path": "/about",
+      "state": "open",
+      "passed": true,
+      "consoleErrors": [],
+      "blockedRequests": []
+    },
+    {
+      "engine": "chromium",
+      "width": 390,
+      "colorScheme": "dark",
+      "path": "/",
+      "state": "open",
+      "passed": true,
+      "consoleErrors": [],
+      "blockedRequests": [
+        "turnstile https://challenges.cloudflare.com/turnstile/v0/api.js"
+      ]
+    },
+    {
+      "engine": "chromium",
+      "width": 390,
+      "colorScheme": "dark",
+      "path": "/how-it-works",
+      "state": "open",
+      "passed": true,
+      "consoleErrors": [],
+      "blockedRequests": []
+    },
+    {
+      "engine": "chromium",
+      "width": 390,
+      "colorScheme": "dark",
+      "path": "/about",
+      "state": "open",
+      "passed": true,
+      "consoleErrors": [],
+      "blockedRequests": []
+    },
+    {
+      "engine": "chromium",
+      "width": 1440,
+      "colorScheme": "light",
+      "path": "/",
+      "state": "open",
+      "passed": true,
+      "consoleErrors": [],
+      "blockedRequests": [
+        "turnstile https://challenges.cloudflare.com/turnstile/v0/api.js",
+        "turnstile https://challenges.cloudflare.com/turnstile/v0/api.js"
+      ]
+    },
+    {
+      "engine": "chromium",
+      "width": 1440,
+      "colorScheme": "light",
+      "path": "/how-it-works",
+      "state": "open",
+      "passed": true,
+      "consoleErrors": [],
+      "blockedRequests": []
+    },
+    {
+      "engine": "chromium",
+      "width": 1440,
+      "colorScheme": "light",
+      "path": "/about",
+      "state": "open",
+      "passed": true,
+      "consoleErrors": [],
+      "blockedRequests": []
+    },
+    {
+      "engine": "chromium",
+      "width": 1440,
+      "colorScheme": "dark",
+      "path": "/",
+      "state": "open",
+      "passed": true,
+      "consoleErrors": [],
+      "blockedRequests": [
+        "turnstile https://challenges.cloudflare.com/turnstile/v0/api.js",
+        "turnstile https://challenges.cloudflare.com/turnstile/v0/api.js"
+      ]
+    },
+    {
+      "engine": "chromium",
+      "width": 1440,
+      "colorScheme": "dark",
+      "path": "/how-it-works",
+      "state": "open",
+      "passed": true,
+      "consoleErrors": [],
+      "blockedRequests": []
+    },
+    {
+      "engine": "chromium",
+      "width": 1440,
+      "colorScheme": "dark",
+      "path": "/about",
+      "state": "open",
+      "passed": true,
+      "consoleErrors": [],
+      "blockedRequests": []
+    },
+    {
+      "engine": "webkit",
+      "width": 360,
+      "colorScheme": "light",
+      "path": "/",
+      "state": "open",
+      "passed": true,
+      "consoleErrors": [],
+      "blockedRequests": [
+        "turnstile https://challenges.cloudflare.com/turnstile/v0/api.js"
+      ]
+    },
+    {
+      "engine": "webkit",
+      "width": 360,
+      "colorScheme": "light",
+      "path": "/how-it-works",
+      "state": "open",
+      "passed": true,
+      "consoleErrors": [],
+      "blockedRequests": []
+    },
+    {
+      "engine": "webkit",
+      "width": 360,
+      "colorScheme": "light",
+      "path": "/about",
+      "state": "open",
+      "passed": true,
+      "consoleErrors": [],
+      "blockedRequests": []
+    },
+    {
+      "engine": "webkit",
+      "width": 360,
+      "colorScheme": "dark",
+      "path": "/",
+      "state": "open",
+      "passed": true,
+      "consoleErrors": [],
+      "blockedRequests": [
+        "turnstile https://challenges.cloudflare.com/turnstile/v0/api.js"
+      ]
+    },
+    {
+      "engine": "webkit",
+      "width": 360,
+      "colorScheme": "dark",
+      "path": "/how-it-works",
+      "state": "open",
+      "passed": true,
+      "consoleErrors": [],
+      "blockedRequests": []
+    },
+    {
+      "engine": "webkit",
+      "width": 360,
+      "colorScheme": "dark",
+      "path": "/about",
+      "state": "open",
+      "passed": true,
+      "consoleErrors": [],
+      "blockedRequests": []
+    },
+    {
+      "engine": "webkit",
+      "width": 390,
+      "colorScheme": "light",
+      "path": "/",
+      "state": "open",
+      "passed": true,
+      "consoleErrors": [],
+      "blockedRequests": [
+        "turnstile https://challenges.cloudflare.com/turnstile/v0/api.js"
+      ]
+    },
+    {
+      "engine": "webkit",
+      "width": 390,
+      "colorScheme": "light",
+      "path": "/how-it-works",
+      "state": "open",
+      "passed": true,
+      "consoleErrors": [],
+      "blockedRequests": []
+    },
+    {
+      "engine": "webkit",
+      "width": 390,
+      "colorScheme": "light",
+      "path": "/about",
+      "state": "open",
+      "passed": true,
+      "consoleErrors": [],
+      "blockedRequests": []
+    },
+    {
+      "engine": "webkit",
+      "width": 390,
+      "colorScheme": "dark",
+      "path": "/",
+      "state": "open",
+      "passed": true,
+      "consoleErrors": [],
+      "blockedRequests": [
+        "turnstile https://challenges.cloudflare.com/turnstile/v0/api.js"
+      ]
+    },
+    {
+      "engine": "webkit",
+      "width": 390,
+      "colorScheme": "dark",
+      "path": "/how-it-works",
+      "state": "open",
+      "passed": true,
+      "consoleErrors": [],
+      "blockedRequests": []
+    },
+    {
+      "engine": "webkit",
+      "width": 390,
+      "colorScheme": "dark",
+      "path": "/about",
+      "state": "open",
+      "passed": true,
+      "consoleErrors": [],
+      "blockedRequests": []
+    },
+    {
+      "engine": "webkit",
+      "width": 1440,
+      "colorScheme": "light",
+      "path": "/",
+      "state": "open",
+      "passed": true,
+      "consoleErrors": [],
+      "blockedRequests": [
+        "turnstile https://challenges.cloudflare.com/turnstile/v0/api.js"
+      ]
+    },
+    {
+      "engine": "webkit",
+      "width": 1440,
+      "colorScheme": "light",
+      "path": "/how-it-works",
+      "state": "open",
+      "passed": true,
+      "consoleErrors": [],
+      "blockedRequests": []
+    },
+    {
+      "engine": "webkit",
+      "width": 1440,
+      "colorScheme": "light",
+      "path": "/about",
+      "state": "open",
+      "passed": true,
+      "consoleErrors": [],
+      "blockedRequests": []
+    },
+    {
+      "engine": "webkit",
+      "width": 1440,
+      "colorScheme": "dark",
+      "path": "/",
+      "state": "open",
+      "passed": true,
+      "consoleErrors": [],
+      "blockedRequests": [
+        "turnstile https://challenges.cloudflare.com/turnstile/v0/api.js"
+      ]
+    },
+    {
+      "engine": "webkit",
+      "width": 1440,
+      "colorScheme": "dark",
+      "path": "/how-it-works",
+      "state": "open",
+      "passed": true,
+      "consoleErrors": [],
+      "blockedRequests": []
+    },
+    {
+      "engine": "webkit",
+      "width": 1440,
+      "colorScheme": "dark",
+      "path": "/about",
+      "state": "open",
+      "passed": true,
+      "consoleErrors": [],
+      "blockedRequests": []
+    }
+  ],
+  "challengeDiagnostics": [
+    {
+      "source": "https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit",
+      "text": "Failed to load resource: net::ERR_FAILED"
+    },
+    {
+      "source": "https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit",
+      "text": "Failed to load resource: net::ERR_FAILED"
+    },
+    {
+      "source": "https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit",
+      "text": "Failed to load resource: net::ERR_FAILED"
+    },
+    {
+      "source": "https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit",
+      "text": "Failed to load resource: net::ERR_FAILED"
+    },
+    {
+      "source": "https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit",
+      "text": "Failed to load resource: net::ERR_FAILED"
+    },
+    {
+      "source": "https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit",
+      "text": "Failed to load resource: net::ERR_FAILED"
+    },
+    {
+      "source": "https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit",
+      "text": "Failed to load resource: net::ERR_FAILED"
+    },
+    {
+      "source": "https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit",
+      "text": "Failed to load resource: net::ERR_FAILED"
+    }
+  ]
+}

@@ -1,7 +1,7 @@
 {
-  "at": "2026-11-28T06:46:45.907Z",
+  "at": "2026-11-28T07:35:27.613Z",
   "passed": true,
-  "previousWorker": "2d01c6df-a737-47ef-aa2f-d9f241617e97",
-  "candidateWorker": "4bee1303-0be0-4ac8-8e72-94967453cdda",
+  "previousWorker": "238f5d3e-a055-4f8a-bc2a-dc5f58334f2c",
+  "candidateWorker": "ea275654-c52a-4762-8871-e5c1c9ae154a",
   "scope": "Application rollback/redeploy, public board read and existing mirrored claim/score/schedule preservation; no journal-loss restore, no new test claims, no mixed concurrent clients."
 }
