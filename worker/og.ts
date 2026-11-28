@@ -103,7 +103,7 @@ export async function ogLayout(claim: any, summary?: any, dark = false) {
     return out;
   };
   const offStamp = (x: number, baseline: number) =>
-    `<g data-tier="off-register" transform="rotate(-3 ${x + 224} ${baseline - 10})"><path stroke="${ink}" stroke-width="1" d="M${x - 12} ${baseline - 8}h470"/><rect x="${x - 8}" y="${baseline - 29}" width="448" height="40" fill="${paper}" stroke="${red}" stroke-width="2"/>${text('Off the register', x, baseline, 28, red, 'display')}</g>`;
+    `<g data-tier="off-register" transform="rotate(-3 ${x + 224} ${baseline - 10})"><path stroke="${ink}" stroke-width="1" d="M${x - 12} ${baseline - 8}h470"/><rect x="${x - 8}" y="${baseline - 29}" width="${width('Off the register', 28) + 16}" height="40" fill="${paper}" stroke="${red}" stroke-width="2"/>${text('Off the register', x, baseline, 28, red, 'display')}</g>`;
   const home = !summary && !claim;
   const category = summary?.category?.name || claim?.category_name || '';
   const file = summary?.file || claim?.score || {};

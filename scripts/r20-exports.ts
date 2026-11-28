@@ -11,7 +11,16 @@ try {
   await page.goto('http://127.0.0.1:5223/?r19');
   await page.evaluate(() => document.fonts.ready);
   for (const theme of ['light', 'dark'])
-    for (const variant of ['first', 'second', 'third', 'two', 'strikes'])
+    for (const variant of [
+      'first',
+      'second',
+      'third',
+      'two',
+      'strikes',
+      'strike1',
+      'strike2',
+      'strike5',
+    ])
       for (const story of [false, true]) {
         const data = await page.evaluate(
           async ({ theme, variant, story }) => {
@@ -62,31 +71,35 @@ try {
               total_registrable: 200000,
               drop_at: '2026-11-22T02:00:00Z',
             };
-            const claims = ['Okapi', 'Quokka', 'Sarcastic fringehead'].map((display, i) => {
-              const golden =
-                variant === 'two'
-                  ? i !== 1
-                  : variant === 'strikes'
-                    ? i === 1
-                    : ['first', 'second', 'third'].indexOf(variant) === i;
-              return {
-                id: `2026-11-22-ad24b000-0000-4000-8000-00000000000${i}`,
-                claim_no: i + 1,
-                display,
-                category_id: 'fixture',
-                category_name: 'Animals',
-                category_slug: 'animals',
-                category_date: '2026-11-22',
-                created_at: '2026-11-23T02:52:00Z',
-                total_registrable: 200000,
-                handle: 'Tan Dove',
-                golden,
-                bonus: golden ? 100 : 0,
-                points: 60 + (golden ? 100 : 0),
-                percentile: 0.55,
-                owned: true,
-              };
-            });
+            const strikeCount =
+              variant === 'strikes' ? 4 : Number(variant.match(/^strike(\d)$/)?.[1] || 0);
+            const claims = ['Okapi', 'Quokka', 'Sarcastic fringehead']
+              .slice(0, strikeCount === 5 ? 2 : 3)
+              .map((display, i) => {
+                const golden =
+                  variant === 'two'
+                    ? i !== 1
+                    : strikeCount > 0
+                      ? i === 1
+                      : ['first', 'second', 'third'].indexOf(variant) === i;
+                return {
+                  id: `2026-11-22-ad24b000-0000-4000-8000-00000000000${i}`,
+                  claim_no: i + 1,
+                  display,
+                  category_id: 'fixture',
+                  category_name: 'Animals',
+                  category_slug: 'animals',
+                  category_date: '2026-11-22',
+                  created_at: '2026-11-23T02:52:00Z',
+                  total_registrable: 200000,
+                  handle: 'Tan Dove',
+                  golden,
+                  bonus: golden ? 100 : 0,
+                  points: 60 + (golden ? 100 : 0),
+                  percentile: 0.55,
+                  owned: true,
+                };
+              });
             const events = claims.map((c) => ({
               at: c.created_at,
               kind: 'dibs',
@@ -94,8 +107,8 @@ try {
               display: c.display,
               golden: c.golden,
             }));
-            if (variant === 'strikes')
-              for (let i = 0; i < 4; i++)
+            if (strikeCount)
+              for (let i = 0; i < strikeCount; i++)
                 events.splice(i * 2, 0, {
                   at: claims[0].created_at,
                   kind: 'strike',
@@ -106,11 +119,11 @@ try {
               summaryId: '2026-11-22-ad24b000-0000-4000-8000-111111111111',
               claims,
               events,
-              dibs: 3,
-              strikes: variant === 'strikes' ? 4 : 0,
+              dibs: claims.length,
+              strikes: strikeCount,
               closed: true,
               completedAt: claims[0].created_at,
-              points: claims.reduce((s, c) => s + c.points, 0) - (variant === 'strikes' ? 40 : 0),
+              points: claims.reduce((s, c) => s + c.points, 0) - strikeCount * 10,
               rank: 3,
               players: 8,
               handle: 'Tan Dove',

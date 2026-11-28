@@ -1,0 +1,517 @@
+{
+  "passed": true,
+  "results": [
+    {
+      "theme": "light",
+      "variant": "first",
+      "story": false,
+      "passed": true,
+      "bytes": [
+        232088,
+        214164,
+        211740,
+        205914
+      ],
+      "printedUrls": [
+        "practice.dibs-7hz.pages.dev/summary/2026-11-22-ad24b000-0000-4000-8000-111111111111",
+        "practice.dibs-7hz.pages.dev/c/2026-11-22-ad24b000-0000-4000-8000-000000000000"
+      ]
+    },
+    {
+      "theme": "light",
+      "variant": "first",
+      "story": true,
+      "passed": true,
+      "bytes": [
+        291857,
+        270696,
+        269557,
+        261253
+      ],
+      "printedUrls": [
+        "practice.dibs-7hz.pages.dev/summary/2026-11-22-ad24b000-0000-4000-8000-111111111111",
+        "practice.dibs-7hz.pages.dev/c/2026-11-22-ad24b000-0000-4000-8000-000000000000"
+      ]
+    },
+    {
+      "theme": "light",
+      "variant": "second",
+      "story": false,
+      "passed": true,
+      "bytes": [
+        232400,
+        216834,
+        211696,
+        205798
+      ],
+      "printedUrls": [
+        "practice.dibs-7hz.pages.dev/summary/2026-11-22-ad24b000-0000-4000-8000-111111111111",
+        "practice.dibs-7hz.pages.dev/c/2026-11-22-ad24b000-0000-4000-8000-000000000001"
+      ]
+    },
+    {
+      "theme": "light",
+      "variant": "second",
+      "story": true,
+      "passed": true,
+      "bytes": [
+        292392,
+        273667,
+        269995,
+        261212
+      ],
+      "printedUrls": [
+        "practice.dibs-7hz.pages.dev/summary/2026-11-22-ad24b000-0000-4000-8000-111111111111",
+        "practice.dibs-7hz.pages.dev/c/2026-11-22-ad24b000-0000-4000-8000-000000000001"
+      ]
+    },
+    {
+      "theme": "light",
+      "variant": "third",
+      "story": false,
+      "passed": true,
+      "bytes": [
+        232888,
+        227333,
+        211974,
+        205854
+      ],
+      "printedUrls": [
+        "practice.dibs-7hz.pages.dev/summary/2026-11-22-ad24b000-0000-4000-8000-111111111111",
+        "practice.dibs-7hz.pages.dev/c/2026-11-22-ad24b000-0000-4000-8000-000000000002"
+      ]
+    },
+    {
+      "theme": "light",
+      "variant": "third",
+      "story": true,
+      "passed": true,
+      "bytes": [
+        292100,
+        280913,
+        269612,
+        261081
+      ],
+      "printedUrls": [
+        "practice.dibs-7hz.pages.dev/summary/2026-11-22-ad24b000-0000-4000-8000-111111111111",
+        "practice.dibs-7hz.pages.dev/c/2026-11-22-ad24b000-0000-4000-8000-000000000002"
+      ]
+    },
+    {
+      "theme": "light",
+      "variant": "two",
+      "story": false,
+      "passed": true,
+      "bytes": [
+        239189,
+        214164,
+        215740,
+        205914
+      ],
+      "printedUrls": [
+        "practice.dibs-7hz.pages.dev/summary/2026-11-22-ad24b000-0000-4000-8000-111111111111",
+        "practice.dibs-7hz.pages.dev/c/2026-11-22-ad24b000-0000-4000-8000-000000000000"
+      ]
+    },
+    {
+      "theme": "light",
+      "variant": "two",
+      "story": true,
+      "passed": true,
+      "bytes": [
+        298780,
+        270696,
+        273609,
+        261253
+      ],
+      "printedUrls": [
+        "practice.dibs-7hz.pages.dev/summary/2026-11-22-ad24b000-0000-4000-8000-111111111111",
+        "practice.dibs-7hz.pages.dev/c/2026-11-22-ad24b000-0000-4000-8000-000000000000"
+      ]
+    },
+    {
+      "theme": "light",
+      "variant": "strikes",
+      "story": false,
+      "passed": true,
+      "bytes": [
+        252560,
+        216834,
+        232082,
+        205798
+      ],
+      "printedUrls": [
+        "practice.dibs-7hz.pages.dev/summary/2026-11-22-ad24b000-0000-4000-8000-111111111111",
+        "practice.dibs-7hz.pages.dev/c/2026-11-22-ad24b000-0000-4000-8000-000000000001"
+      ]
+    },
+    {
+      "theme": "light",
+      "variant": "strikes",
+      "story": true,
+      "passed": true,
+      "bytes": [
+        306584,
+        273667,
+        286750,
+        261212
+      ],
+      "printedUrls": [
+        "practice.dibs-7hz.pages.dev/summary/2026-11-22-ad24b000-0000-4000-8000-111111111111",
+        "practice.dibs-7hz.pages.dev/c/2026-11-22-ad24b000-0000-4000-8000-000000000001"
+      ]
+    },
+    {
+      "theme": "light",
+      "variant": "strike1",
+      "story": false,
+      "passed": true,
+      "bytes": [
+        237686,
+        216834,
+        219292,
+        205798
+      ],
+      "printedUrls": [
+        "practice.dibs-7hz.pages.dev/summary/2026-11-22-ad24b000-0000-4000-8000-111111111111",
+        "practice.dibs-7hz.pages.dev/c/2026-11-22-ad24b000-0000-4000-8000-000000000001"
+      ]
+    },
+    {
+      "theme": "light",
+      "variant": "strike1",
+      "story": true,
+      "passed": true,
+      "bytes": [
+        291747,
+        273667,
+        269827,
+        261212
+      ],
+      "printedUrls": [
+        "practice.dibs-7hz.pages.dev/summary/2026-11-22-ad24b000-0000-4000-8000-111111111111",
+        "practice.dibs-7hz.pages.dev/c/2026-11-22-ad24b000-0000-4000-8000-000000000001"
+      ]
+    },
+    {
+      "theme": "light",
+      "variant": "strike2",
+      "story": false,
+      "passed": true,
+      "bytes": [
+        243228,
+        216834,
+        222086,
+        205798
+      ],
+      "printedUrls": [
+        "practice.dibs-7hz.pages.dev/summary/2026-11-22-ad24b000-0000-4000-8000-111111111111",
+        "practice.dibs-7hz.pages.dev/c/2026-11-22-ad24b000-0000-4000-8000-000000000001"
+      ]
+    },
+    {
+      "theme": "light",
+      "variant": "strike2",
+      "story": true,
+      "passed": true,
+      "bytes": [
+        299972,
+        273667,
+        278226,
+        261212
+      ],
+      "printedUrls": [
+        "practice.dibs-7hz.pages.dev/summary/2026-11-22-ad24b000-0000-4000-8000-111111111111",
+        "practice.dibs-7hz.pages.dev/c/2026-11-22-ad24b000-0000-4000-8000-000000000001"
+      ]
+    },
+    {
+      "theme": "light",
+      "variant": "strike5",
+      "story": false,
+      "passed": true,
+      "bytes": [
+        244387,
+        216834,
+        231554,
+        205798
+      ],
+      "printedUrls": [
+        "practice.dibs-7hz.pages.dev/summary/2026-11-22-ad24b000-0000-4000-8000-111111111111",
+        "practice.dibs-7hz.pages.dev/c/2026-11-22-ad24b000-0000-4000-8000-000000000001"
+      ]
+    },
+    {
+      "theme": "light",
+      "variant": "strike5",
+      "story": true,
+      "passed": true,
+      "bytes": [
+        299370,
+        273667,
+        286231,
+        261212
+      ],
+      "printedUrls": [
+        "practice.dibs-7hz.pages.dev/summary/2026-11-22-ad24b000-0000-4000-8000-111111111111",
+        "practice.dibs-7hz.pages.dev/c/2026-11-22-ad24b000-0000-4000-8000-000000000001"
+      ]
+    },
+    {
+      "theme": "dark",
+      "variant": "first",
+      "story": false,
+      "passed": true,
+      "bytes": [
+        235989,
+        216814,
+        214379,
+        208316
+      ],
+      "printedUrls": [
+        "practice.dibs-7hz.pages.dev/summary/2026-11-22-ad24b000-0000-4000-8000-111111111111",
+        "practice.dibs-7hz.pages.dev/c/2026-11-22-ad24b000-0000-4000-8000-000000000000"
+      ]
+    },
+    {
+      "theme": "dark",
+      "variant": "first",
+      "story": true,
+      "passed": true,
+      "bytes": [
+        296052,
+        273587,
+        272278,
+        263748
+      ],
+      "printedUrls": [
+        "practice.dibs-7hz.pages.dev/summary/2026-11-22-ad24b000-0000-4000-8000-111111111111",
+        "practice.dibs-7hz.pages.dev/c/2026-11-22-ad24b000-0000-4000-8000-000000000000"
+      ]
+    },
+    {
+      "theme": "dark",
+      "variant": "second",
+      "story": false,
+      "passed": true,
+      "bytes": [
+        236424,
+        219363,
+        214403,
+        208205
+      ],
+      "printedUrls": [
+        "practice.dibs-7hz.pages.dev/summary/2026-11-22-ad24b000-0000-4000-8000-111111111111",
+        "practice.dibs-7hz.pages.dev/c/2026-11-22-ad24b000-0000-4000-8000-000000000001"
+      ]
+    },
+    {
+      "theme": "dark",
+      "variant": "second",
+      "story": true,
+      "passed": true,
+      "bytes": [
+        296639,
+        276453,
+        272924,
+        263686
+      ],
+      "printedUrls": [
+        "practice.dibs-7hz.pages.dev/summary/2026-11-22-ad24b000-0000-4000-8000-111111111111",
+        "practice.dibs-7hz.pages.dev/c/2026-11-22-ad24b000-0000-4000-8000-000000000001"
+      ]
+    },
+    {
+      "theme": "dark",
+      "variant": "third",
+      "story": false,
+      "passed": true,
+      "bytes": [
+        236993,
+        229532,
+        214628,
+        208098
+      ],
+      "printedUrls": [
+        "practice.dibs-7hz.pages.dev/summary/2026-11-22-ad24b000-0000-4000-8000-111111111111",
+        "practice.dibs-7hz.pages.dev/c/2026-11-22-ad24b000-0000-4000-8000-000000000002"
+      ]
+    },
+    {
+      "theme": "dark",
+      "variant": "third",
+      "story": true,
+      "passed": true,
+      "bytes": [
+        296428,
+        283339,
+        272401,
+        263484
+      ],
+      "printedUrls": [
+        "practice.dibs-7hz.pages.dev/summary/2026-11-22-ad24b000-0000-4000-8000-111111111111",
+        "practice.dibs-7hz.pages.dev/c/2026-11-22-ad24b000-0000-4000-8000-000000000002"
+      ]
+    },
+    {
+      "theme": "dark",
+      "variant": "two",
+      "story": false,
+      "passed": true,
+      "bytes": [
+        244505,
+        216814,
+        219197,
+        208316
+      ],
+      "printedUrls": [
+        "practice.dibs-7hz.pages.dev/summary/2026-11-22-ad24b000-0000-4000-8000-111111111111",
+        "practice.dibs-7hz.pages.dev/c/2026-11-22-ad24b000-0000-4000-8000-000000000000"
+      ]
+    },
+    {
+      "theme": "dark",
+      "variant": "two",
+      "story": true,
+      "passed": true,
+      "bytes": [
+        304281,
+        273587,
+        277106,
+        263748
+      ],
+      "printedUrls": [
+        "practice.dibs-7hz.pages.dev/summary/2026-11-22-ad24b000-0000-4000-8000-111111111111",
+        "practice.dibs-7hz.pages.dev/c/2026-11-22-ad24b000-0000-4000-8000-000000000000"
+      ]
+    },
+    {
+      "theme": "dark",
+      "variant": "strikes",
+      "story": false,
+      "passed": true,
+      "bytes": [
+        256828,
+        219363,
+        234736,
+        208205
+      ],
+      "printedUrls": [
+        "practice.dibs-7hz.pages.dev/summary/2026-11-22-ad24b000-0000-4000-8000-111111111111",
+        "practice.dibs-7hz.pages.dev/c/2026-11-22-ad24b000-0000-4000-8000-000000000001"
+      ]
+    },
+    {
+      "theme": "dark",
+      "variant": "strikes",
+      "story": true,
+      "passed": true,
+      "bytes": [
+        310566,
+        276453,
+        289473,
+        263686
+      ],
+      "printedUrls": [
+        "practice.dibs-7hz.pages.dev/summary/2026-11-22-ad24b000-0000-4000-8000-111111111111",
+        "practice.dibs-7hz.pages.dev/c/2026-11-22-ad24b000-0000-4000-8000-000000000001"
+      ]
+    },
+    {
+      "theme": "dark",
+      "variant": "strike1",
+      "story": false,
+      "passed": true,
+      "bytes": [
+        241236,
+        219363,
+        221669,
+        208205
+      ],
+      "printedUrls": [
+        "practice.dibs-7hz.pages.dev/summary/2026-11-22-ad24b000-0000-4000-8000-111111111111",
+        "practice.dibs-7hz.pages.dev/c/2026-11-22-ad24b000-0000-4000-8000-000000000001"
+      ]
+    },
+    {
+      "theme": "dark",
+      "variant": "strike1",
+      "story": true,
+      "passed": true,
+      "bytes": [
+        295663,
+        276453,
+        272249,
+        263686
+      ],
+      "printedUrls": [
+        "practice.dibs-7hz.pages.dev/summary/2026-11-22-ad24b000-0000-4000-8000-111111111111",
+        "practice.dibs-7hz.pages.dev/c/2026-11-22-ad24b000-0000-4000-8000-000000000001"
+      ]
+    },
+    {
+      "theme": "dark",
+      "variant": "strike2",
+      "story": false,
+      "passed": true,
+      "bytes": [
+        246998,
+        219363,
+        224667,
+        208205
+      ],
+      "printedUrls": [
+        "practice.dibs-7hz.pages.dev/summary/2026-11-22-ad24b000-0000-4000-8000-111111111111",
+        "practice.dibs-7hz.pages.dev/c/2026-11-22-ad24b000-0000-4000-8000-000000000001"
+      ]
+    },
+    {
+      "theme": "dark",
+      "variant": "strike2",
+      "story": true,
+      "passed": true,
+      "bytes": [
+        303663,
+        276453,
+        280839,
+        263686
+      ],
+      "printedUrls": [
+        "practice.dibs-7hz.pages.dev/summary/2026-11-22-ad24b000-0000-4000-8000-111111111111",
+        "practice.dibs-7hz.pages.dev/c/2026-11-22-ad24b000-0000-4000-8000-000000000001"
+      ]
+    },
+    {
+      "theme": "dark",
+      "variant": "strike5",
+      "story": false,
+      "passed": true,
+      "bytes": [
+        248302,
+        219363,
+        234337,
+        208205
+      ],
+      "printedUrls": [
+        "practice.dibs-7hz.pages.dev/summary/2026-11-22-ad24b000-0000-4000-8000-111111111111",
+        "practice.dibs-7hz.pages.dev/c/2026-11-22-ad24b000-0000-4000-8000-000000000001"
+      ]
+    },
+    {
+      "theme": "dark",
+      "variant": "strike5",
+      "story": true,
+      "passed": true,
+      "bytes": [
+        302964,
+        276453,
+        288873,
+        263686
+      ],
+      "printedUrls": [
+        "practice.dibs-7hz.pages.dev/summary/2026-11-22-ad24b000-0000-4000-8000-111111111111",
+        "practice.dibs-7hz.pages.dev/c/2026-11-22-ad24b000-0000-4000-8000-000000000001"
+      ]
+    }
+  ]
+}
