@@ -42,4 +42,4 @@ The first single-certificate probe used a Copy result button hidden behind the e
 
 Late replies are bounded by lifecycle: a reward cannot begin after its view unmounts, and an old-day accepted reply cannot overwrite a newer registry-day snapshot. The matching state regression and same-day retry counter check are in late-snapshot-tests.json; pending-navigation browser evidence is in late-navigation-tests.json.
 
-Final certificate sweep attempt 3 passed 114/120; six narrow enlarged-font copy interactions did not update the clipboard after hiding answers. Investigation and a new complete rerun are pending; this is not a passing gate.
+Final certificate sweep attempt 3 passed 114/120; six narrow enlarged-font copy interactions did not update the clipboard after hiding answers. Pointer-event tracing identified a real inherited bug: a focused checkbox was treated as a software keyboard, so bottom navigation reappeared between pointer-down and pointer-up and swallowed Copy. Keyboard detection now excludes non-text inputs. The six exact failing cases pass; the full rerun is recorded separately. An initial stable-label hypothesis was rejected and reverted.

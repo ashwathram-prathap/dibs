@@ -55,6 +55,7 @@ for (const variant of ['off', 'missing', 'off&gold'])
         .poll(() => page.evaluate(() => (window as any).__copied || ''))
         .toContain('Off the register');
     await page.getByLabel('Hide my answers', { exact: true }).check();
+    await expect(page.locator('html')).not.toHaveClass(/keyboard-open/);
     await expect(page.locator('.copy-result')).toHaveText('Copy result');
     await expect(page.locator('.linkedin-share')).not.toHaveAttribute('href', /Okapi/);
     await page.locator('.copy-result').click();

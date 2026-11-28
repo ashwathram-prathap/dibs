@@ -205,7 +205,14 @@ export default function App() {
     const viewport = window.visualViewport;
     const update = () => {
       const active = document.activeElement;
-      const typing = active instanceof HTMLInputElement || active instanceof HTMLTextAreaElement;
+      const typing =
+        (active instanceof HTMLTextAreaElement ||
+          (active instanceof HTMLInputElement &&
+            ['text', 'search', 'email', 'url', 'tel', 'password', 'number'].includes(
+              active.type,
+            ))) &&
+        !active.readOnly &&
+        !active.disabled;
       document.documentElement.classList.toggle(
         'keyboard-open',
         typing || (!!viewport && viewport.height < window.innerHeight * 0.75),
