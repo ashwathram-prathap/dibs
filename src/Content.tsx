@@ -276,6 +276,14 @@ export function LiveAdmin() {
         const r = await fetch('/api/admin/live', { headers: { authorization: 'Bearer ' + token } });
         const d = await r.json();
         if (!r.ok) throw Error(d.message);
+        try {
+          const f = await fetch('/api/admin/r20-funnel', {
+            headers: { authorization: 'Bearer ' + token },
+          });
+          d.funnel = f.ok ? await f.json() : null;
+        } catch {
+          d.funnel = null;
+        }
         if (active) {
           setData(d);
           setError('');
@@ -344,6 +352,54 @@ export function LiveAdmin() {
               </div>
             ))}
           </dl>
+          <h2>Tonight's files</h2>
+          {data.funnel ? (
+            <>
+              <p>
+                {data.funnel.day} · As of {data.funnel.asOf}. Updates at most once a minute.
+              </p>
+              <dl className="live-metrics">
+                {Object.entries({
+                  'Participating players': data.funnel.participants,
+                  'Players with a claim': data.funnel.claimers,
+                  'Exactly 1 claim': data.funnel.exactly1,
+                  'Exactly 2 claims': data.funnel.exactly2,
+                  'Exactly 3 claims': data.funnel.exactly3,
+                  'Reached 1 claim': data.funnel.reached1,
+                  'Reached 2 claims': data.funnel.reached2,
+                  'Reached 3 claims': data.funnel.reached3,
+                  'Struck out': data.funnel.struckOut,
+                  'Finished files': data.funnel.finished,
+                  'Finish rate':
+                    data.funnel.finishRate == null
+                      ? 'Unavailable'
+                      : (100 * data.funnel.finishRate).toFixed(1) + '%',
+                  'Median seconds between claims':
+                    data.funnel.medianBetweenClaimsMs == null
+                      ? 'Unavailable'
+                      : (data.funnel.medianBetweenClaimsMs / 1000).toFixed(1),
+                  'Claim intervals sampled': data.funnel.intervalSamples,
+                  'Excluded files': data.funnel.excluded,
+                  'Files awaiting mirror': data.funnel.journal.pendingFiles,
+                }).map(([label, value]) => (
+                  <div key={label}>
+                    <dt>{label}</dt>
+                    <dd className={String(value).length > 8 ? 'metric-text' : undefined}>
+                      {String(value)}
+                    </dd>
+                  </div>
+                ))}
+              </dl>
+              <p>
+                Finish rate counts players with a claim or strike. Finished means three claims or
+                five strikes. Claim intervals exclude strikes. Hidden, withdrawn, test and
+                ineligible files are excluded.
+              </p>
+              {data.funnel.journal.error && <p role="alert">{data.funnel.journal.error}</p>}
+            </>
+          ) : (
+            <p>Tonight's file counts are unavailable.</p>
+          )}
           <h2>Free-tier usage</h2>
           <p>{data.usageNote}</p>
           <ul>

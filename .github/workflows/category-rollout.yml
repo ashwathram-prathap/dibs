@@ -11,7 +11,7 @@ on:
 permissions:
   contents: read
 concurrency:
-  group: dibs-calendar-production
+  group: dibs-production
   cancel-in-progress: false
 jobs:
   rollout:
@@ -76,7 +76,7 @@ jobs:
       - name: Upload immutable assets
         if: ${{ steps.preflight.outputs.needed == 'true' && !inputs.validate_only }}
         timeout-minutes: 2
-        run: npx wrangler pages deploy dist --project-name dibs --branch main
+        run: npx tsx scripts/check-r20-release.ts && npx tsx scripts/check-deploy-freeze.ts --production && npx tsx scripts/check-asset-budget.ts && npx wrangler pages deploy dist --project-name dibs --branch main
       - name: Publish library, build next seven days and record results
         if: ${{ steps.preflight.outputs.needed == 'true' && !inputs.validate_only }}
         timeout-minutes: 2

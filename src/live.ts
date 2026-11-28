@@ -107,6 +107,15 @@ export function watchRegistry(onError: (message: string) => void) {
     )
       return;
     return new Promise<Response>((resolve, reject) => {
+      if (pending.size >= 8) {
+        resolve(
+          new Response(JSON.stringify({ message: 'Busy, retrying. Please try again shortly.' }), {
+            status: 503,
+            headers: { 'retry-after': '2' },
+          }),
+        );
+        return;
+      }
       const id = crypto.randomUUID();
       const timer = setTimeout(() => {
         pending.delete(id);

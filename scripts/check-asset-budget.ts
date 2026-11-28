@@ -1,1 +1,25 @@
-import{readdirSync,statSync}from'node:fs';import{join}from'node:path';let count=0,bytes=0,largest=0;function walk(dir:string){for(const n of readdirSync(dir)){const p=join(dir,n),s=statSync(p);if(s.isDirectory())walk(p);else{count++;bytes+=s.size;largest=Math.max(largest,s.size);}}}walk('dist');if(count>20000||largest>25*1024*1024)throw Error('Pages Free asset budget exceeded.');console.log({files:count,bytes,maxFileBytes:largest});
+import { readdirSync, statSync } from 'node:fs';
+import { join } from 'node:path';
+import { assertAssetBudget } from '../shared/asset-budget';
+let files = 0,
+  bytes = 0,
+  maxFileBytes = 0,
+  largestPath = '';
+function walk(dir: string) {
+  for (const n of readdirSync(dir)) {
+    const p = join(dir, n),
+      s = statSync(p);
+    if (s.isDirectory()) walk(p);
+    else {
+      files++;
+      bytes += s.size;
+      if (s.size > maxFileBytes) {
+        maxFileBytes = s.size;
+        largestPath = p;
+      }
+    }
+  }
+}
+walk(process.argv[2] || 'dist');
+console.log(JSON.stringify({ files, bytes, maxFileBytes, largestPath }));
+assertAssetBudget(files, maxFileBytes);

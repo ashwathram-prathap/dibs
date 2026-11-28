@@ -1,3 +1,4 @@
+import { assertProductionWriter } from '../shared/release-window';
 // Remove inactive Pages deployments older than seven days. Keep the active
 // production deployment and the five newest of each environment for rollback.
 const token = process.env.CLOUDFLARE_API_TOKEN,
@@ -6,6 +7,7 @@ if (!token || !account)
   throw Error('Scoped Cloudflare API credentials required for platform cleanup.');
 const base = `https://api.cloudflare.com/client/v4/accounts/${account}/pages/projects/dibs`;
 async function call(path: string, method = 'GET') {
+  if (method !== 'GET') assertProductionWriter();
   const r = await fetch(base + path, { method, headers: { authorization: 'Bearer ' + token } });
   const d: any = await r.json();
   if (!r.ok || !d.success) throw Error('Pages cleanup API failed (' + r.status + ').');

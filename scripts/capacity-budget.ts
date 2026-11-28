@@ -24,11 +24,13 @@ async function storageDelta() {
   return value;
 }
 let setupStorage: typeof storageTotals;
-const root = process.argv.includes('--r16')
-  ? '.tmp/r17-baseline/'
-  : baseline
-    ? '.tmp/r15-baseline/'
-    : '';
+const root = process.argv.includes('--r20-before')
+  ? '.tmp/r20-baseline/'
+  : process.argv.includes('--r16')
+    ? '.tmp/r17-baseline/'
+    : baseline
+      ? '.tmp/r15-baseline/'
+      : '';
 let mf: Miniflare, db: any;
 let manifest: any;
 const call = (path: string, body?: any, cookie?: string, ip?: string) =>
@@ -363,7 +365,7 @@ try {
         catalog.answers[4000 + Math.floor(Math.random() * 1000)].display,
         catalog.answers[6000 + Math.floor(Math.random() * 1000)].display,
       ]
-    : [100, 110, 0, 0, 101, 102].map((i) => catalog.answers[i].display);
+    : [100, 110, 0, 1, 101, 102].map((i) => catalog.answers[i].display);
   await send('/claim', {
     answer: 'zzzznotananswer',
     sessionToken: verified.data.sessionToken,
@@ -424,7 +426,7 @@ try {
     mode: practice ? 'practice' : baseline ? 'before-local' : 'after-local',
     at: new Date().toISOString(),
     scenario:
-      'load, verification, typo, 6 guesses (3 claims, 1 taken strike, 2 reserved strikes), leaderboard, share, return visit; separate control player establishes the taken answer',
+      'load, verification, typo, 6 distinct guesses (3 claims, 1 taken strike, 2 reserved strikes), leaderboard, share, return visit; separate control player establishes the taken answer',
     httpRequests,
     pagesFunctionRequests: practice ? httpRequests : 0,
     workerRequests: httpRequests,
@@ -441,8 +443,9 @@ try {
     })),
     storageCauses: causes,
   };
-  mkdirSync('review/round17', { recursive: true });
-  writeFileSync('review/round17/capacity-' + label + '.json', JSON.stringify(report, null, 2));
+  const reportDir = process.argv.includes('--r20') ? 'review/round20' : 'review/round17';
+  mkdirSync(reportDir, { recursive: true });
+  writeFileSync(reportDir + '/capacity-' + label + '.json', JSON.stringify(report, null, 2));
   console.log(report);
 } finally {
   socket?.close();

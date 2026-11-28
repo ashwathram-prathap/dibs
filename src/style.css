@@ -8196,3 +8196,9 @@ html.low-power .claim-slots .slot-stamp {
     rotate: none;
   }
 }
+
+/* Long admin availability labels use body type; numeric results keep Archivo. */
+.admin-live .live-metrics dd.metric-text {
+  font: 400 1.125rem/1.5 "Instrument Sans", sans-serif;
+  overflow-wrap: anywhere;
+}

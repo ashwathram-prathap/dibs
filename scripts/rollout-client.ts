@@ -1,3 +1,4 @@
+import { assertProductionWriter } from '../shared/release-window';
 import { readFileSync, existsSync } from 'node:fs';
 export const practice = process.argv.includes('--practice');
 export const origin =
@@ -10,6 +11,7 @@ const token =
   (existsSync(file) ? readFileSync(file, 'utf8').match(/^ADMIN_TOKEN=(.+)$/m)?.[1] : null);
 export async function admin(path: string, data?: any, retry = 0): Promise<any> {
   if (!token) throw Error('DIBS_ADMIN_TOKEN is required.');
+  if (!practice && data !== undefined) assertProductionWriter();
   const r = await fetch(origin + '/api/admin/schedule' + path, {
     method: data === undefined ? 'GET' : 'POST',
     headers: {

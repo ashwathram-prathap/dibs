@@ -1,7 +1,8 @@
+import { funnel } from './funnel';
+import { DayStandings } from './day-standings';
 import { resolveCertificate } from '../shared/certificate-id';
 import { credentialGate } from './credential-gate';
 import { cleanHandle, cleanStoredHandles, displayNames, playerNumber } from '../shared/handles';
-import { finishedComparisons } from './finished-scores';
 import { feedbackText, reserveFeedback } from './feedback';
 import { pingIndexNow } from '../shared/indexnow';
 import { backupCode } from './backup-code';
@@ -40,7 +41,6 @@ import {
   publicFile,
 } from './visibility';
 import { specialStatus, closeAt } from './specials';
-import { publicScores, orderScores } from './leaderboard';
 import { clerkReply } from '../shared/moments';
 import { originFailure, isLocal, validText } from '../shared/security';
 import { metered } from './metrics';
@@ -59,10 +59,12 @@ export class DayRegistry extends DurableObject<Env> {
   private golden = new Set<string>();
   private legacy = new Map<string, JournalFile>();
   private claims = 0;
-  private boardTop?: any[];
-  private boardOwn = new Map<string, any>();
-  private boardTotal = 0;
-  private comparisons = finishedComparisons([]);
+  private visibleClaims = 0;
+  private goldenFound = 0;
+  private lastClaimAt: string | null = null;
+  private standings = new DayStandings();
+  private funnelCache?: { at: number; data: ReturnType<typeof funnel> };
+  private flushError: string | null = null;
   private pushTimer?: ReturnType<typeof setTimeout>;
   private flushTimer?: ReturnType<typeof setInterval>;
   private nextCheck = 0;
@@ -78,6 +80,12 @@ export class DayRegistry extends DurableObject<Env> {
   private async init(env: Env) {
     if (this.ready) return this.ready;
     this.ready = (async () => {
+      // Alarms have no request headers. Preserve this object's date across eviction
+      // so an old day's finalization can never initialize the new day's catalog.
+      const savedDay = await this.ctx.storage.get<string>('registry-day');
+      this.requestedDay ||= savedDay || registryDate();
+      if (savedDay !== this.requestedDay)
+        await this.ctx.storage.put('registry-day', this.requestedDay);
       this.category =
         env.STAGING !== 'true' && this.requestedDay && this.requestedDay !== registryDate()
           ? await env.DB.prepare(
@@ -171,6 +179,12 @@ export class DayRegistry extends DurableObject<Env> {
         this.legacy.set(user_id, cleanStoredHandles({ user, file, streakDates: dates, requests }));
       }
       this.rebuild();
+      // Persist the close wakeup even when no player sends another request.
+      const alarm = await this.ctx.storage.getAlarm();
+      const next = dayClosed(this.category)
+        ? Date.now() + 60000
+        : Math.min(Date.parse(closeAt(this.category)), Date.now() + 60000);
+      if (alarm === null || alarm > next) await this.ctx.storage.setAlarm(next);
       // Keep the single production day in memory until close. Otherwise idle
       // minute crons could repeatedly replay a 60k-event day after hibernation.
       // One 128-MB object for 24h is 11,059.2 GB-s, within the 13,000 free limit.
@@ -182,7 +196,12 @@ export class DayRegistry extends DurableObject<Env> {
         !this.flushTimer
       )
         this.flushTimer = setInterval(
-          () => this.ctx.waitUntil(this.flush(this.env).catch(() => {})),
+          () =>
+            this.ctx.waitUntil(
+              this.flush(this.env).catch(() => {
+                this.flushError = 'Mirror/finalization pending retry';
+              }),
+            ),
           60000,
         );
     })().catch((e) => {
@@ -195,9 +214,12 @@ export class DayRegistry extends DurableObject<Env> {
     return new Map([...this.legacy, ...(this.journal?.files || [])]);
   }
   private rebuild() {
-    this.boardTop = undefined;
+    this.standings.reset(this.all().values());
     this.owners.clear();
     this.claims = 0;
+    this.visibleClaims = 0;
+    this.goldenFound = 0;
+    this.lastClaimAt = null;
     for (const state of this.all().values()) {
       this.users.set(state.user.id, { ...state.user, streakDates: state.streakDates });
       for (const claim of state.file.claims) {
@@ -206,62 +228,17 @@ export class DayRegistry extends DurableObject<Env> {
           user_id: state.user.id,
         });
         this.claims = Math.max(this.claims, claim.claim_no);
+        if (!claim.voided) {
+          this.visibleClaims++;
+          this.goldenFound += Number(!!claim.golden);
+          if (!this.lastClaimAt || claim.created_at > this.lastClaimAt)
+            this.lastClaimAt = claim.created_at;
+        }
       }
     }
   }
   private board(uid?: string) {
-    if (!this.boardTop) {
-      this.comparisons = finishedComparisons([...this.all().values()]);
-      const rows = orderScores(
-        [...this.all().values()]
-          .filter((s) => !s.user.hidden && s.file.eligible !== false && s.file.dibs > 0)
-          .map((s) => ({
-            user_id: s.user.id,
-            handle: s.user.handle,
-            founder: !!s.user.founder,
-            points: s.file.points,
-            dibs: s.file.dibs,
-            golden: s.file.golden,
-            reachedAt: s.file.reachedAt,
-            events: s.file.events.length,
-          })),
-      );
-      this.boardTotal = rows.length;
-      const names = displayNames(
-        rows.map((r) => ({ id: r.user_id, handle: r.handle, founder: r.founder })),
-      );
-      for (const r of rows) r.handle = names.get(r.user_id)!;
-      this.boardTop = publicScores(rows, undefined, 25, true).rows.map((r) => ({
-        rank: r.rank,
-        handle: r.handle,
-        founder: r.founder,
-        points: r.points,
-        claims: r.claims,
-        own: r.own,
-        golden: r.golden,
-      }));
-      this.boardOwn = new Map(
-        rows.map((r, i) => [
-          r.user_id,
-          {
-            rank: i + 1,
-            handle: r.handle,
-            founder: r.founder,
-            points: r.points,
-            claims: r.dibs,
-            golden: r.golden,
-            own: true,
-          },
-        ]),
-      );
-    }
-    const own = this.boardOwn.get(uid || '') || null;
-    return {
-      rows: this.boardTop.map((r) => ({ ...r, own: r.rank === own?.rank })),
-      own,
-      total: this.boardTotal,
-      comparison: this.comparisons.own.get(uid || '') || this.comparisons.empty,
-    };
+    return this.standings.board(uid);
   }
   private state(uid: string): JournalFile | undefined {
     return this.journal?.files.get(uid) || this.legacy.get(uid);
@@ -329,8 +306,10 @@ export class DayRegistry extends DurableObject<Env> {
   }
   private today() {
     const g = this.category,
-      closed = dayClosed(g),
-      rows = [...this.owners.values()].filter((c) => !c.voided);
+      closed = dayClosed(g);
+    const clueClaim = this.specials?.clue
+      ? this.owners.get(cluedId([...this.golden], this.specials.commitment) || '')
+      : undefined;
     return {
       serverTime: new Date().toISOString(),
       category: publicCategory(g),
@@ -347,21 +326,21 @@ export class DayRegistry extends DurableObject<Env> {
               ? {
                   text: this.specials.clue.text,
                   crackedBy:
-                    rows.find(
-                      (c) => c.answer_id === cluedId([...this.golden], this.specials.commitment),
-                    )?.handle || this.specials.clue.crackedBy,
+                    clueClaim && !clueClaim.voided
+                      ? clueClaim.handle
+                      : this.specials.clue.crackedBy,
                 }
               : null,
-            goldenFound: rows.filter((c) => c.golden).length,
+            goldenFound: this.goldenFound,
           }
         : null,
       revealed: closed,
       closesAt: g ? closeAt(g) : null,
       practice: this.env.STAGING === 'true',
-      claimed: rows.length,
+      claimed: this.visibleClaims,
       open: g ? g.total_registrable - this.claims - this.specials.houseCount : 0,
-      voided: this.claims - rows.length,
-      lastClaimAt: rows.at(-1)?.created_at || null,
+      voided: this.claims - this.visibleClaims,
+      lastClaimAt: this.lastClaimAt,
       nextDrop: g ? nextDrop() : this.nextOpening,
       board: [],
       turnstileSiteKey: this.env.TURNSTILE_SITE_KEY,
@@ -562,8 +541,8 @@ export class DayRegistry extends DurableObject<Env> {
         });
       }
       await this.journal?.durable();
-      await this.flush(env);
       this.rebuild();
+      await this.flush(env);
       this.push();
       return json({ ok: true, changed: selected.length });
     }
@@ -643,6 +622,24 @@ export class DayRegistry extends DurableObject<Env> {
     if (path === '/backup-code' && req.method === 'GET') {
       const uid = await cookieUser(req, env.COOKIE_SECRET);
       return backupCode(req, env, uid ? this.state(uid)?.user.recoveryHash : undefined);
+    }
+    if (path === '/admin/r20-funnel' && req.method === 'GET') {
+      if (!this.funnelCache || Date.now() - this.funnelCache.at >= 60000)
+        this.funnelCache = { at: Date.now(), data: funnel(this.all().values()) };
+      return json({
+        day: this.category?.date,
+        asOf: new Date(this.funnelCache.at).toISOString(),
+        source: 'authoritative journal plus deduplicated legacy',
+        ...this.funnelCache.data,
+        journal: {
+          sequence: this.journal?.sequence,
+          mirroredSequence: this.journal?.mirroredSequence,
+          pendingFiles: this.journal?.pending.size,
+          replayBytes: this.journal?.replayBytes,
+          error: this.flushError || this.journal?.lastMirrorError,
+        },
+        cacheSeconds: 60,
+      });
     }
     if (path === '/today') return json(this.today());
     if (path === '/bootstrap' || path === '/me') {
@@ -1038,7 +1035,12 @@ export class DayRegistry extends DurableObject<Env> {
           this.journal?.rewriteUser(state.user.id, (s) => {
             s.file.events = s.file.events.map((e: any) =>
               e.holder === oldHandle
-                ? { ...e, holder: 'Withdrawn player', holderFounder: false }
+                ? {
+                    ...e,
+                    holder: 'Withdrawn player',
+                    holderNumber: undefined,
+                    holderFounder: false,
+                  }
                 : e,
             );
             for (const request of Object.values(s.requests))
@@ -1057,6 +1059,8 @@ export class DayRegistry extends DurableObject<Env> {
     this.users.delete(uid);
     this.legacy.delete(uid);
     this.rebuild();
+    // Closed snapshots must lose deleted handles before deletion is acknowledged.
+    await this.flush(env);
   }
   private async claim(req: Request, env: Env, user: any): Promise<Response> {
     const b = await body(req),
@@ -1144,6 +1148,9 @@ export class DayRegistry extends DurableObject<Env> {
     const tried = alreadyTried();
     if (tried) return tried;
     const score = await scoreAnswer(env, g, row[0], aid, this.golden.has(aid));
+    // Validation may have crossed close. Never commit using the pre-await check.
+    if (dayClosed(g))
+      return json({ message: 'The category is closed; check the opening time.' }, 422);
     // No await from this replay/ownership check through the durable INSERT.
     const again = replay();
     if (again) return again;
@@ -1244,11 +1251,14 @@ export class DayRegistry extends DurableObject<Env> {
     file.summaryId ||= g.date + '-' + crypto.randomUUID();
     state.requests[requestId] = { answer, status, body: result };
     this.journal.append(state);
-    this.boardTop = undefined;
+    this.standings.update(state);
     this.users.set(user.id, { ...state.user, streakDates: state.streakDates });
     if (status === 201) {
       this.owners.set(aid, { ...result.claim, user_id: user.id });
       this.claims = result.claim.claim_no;
+      this.visibleClaims++;
+      this.goldenFound += Number(!!result.claim.golden);
+      this.lastClaimAt = result.claim.created_at;
     }
     await this.journal.durable();
     const saved = this.state(user.id)!;
@@ -1274,18 +1284,12 @@ export class DayRegistry extends DurableObject<Env> {
     }, 1000);
   }
   private broadcast() {
-    const today = this.today();
+    const today = JSON.stringify(this.today());
     for (const ws of this.ctx.getWebSockets()) {
       const a = ws.deserializeAttachment() as any;
       try {
         ws.send(
-          JSON.stringify({
-            today,
-            leaderboard: this.board(a?.uid),
-            rows: [],
-            version: 17,
-            reset: true,
-          }),
+          `{"today":${today},"leaderboard":${JSON.stringify(this.board(a?.uid))},"rows":[],"version":17,"reset":true}`,
         );
       } catch {}
     }
@@ -1360,11 +1364,11 @@ export class DayRegistry extends DurableObject<Env> {
     ws.close([1005, 1006, 1015].includes(code) ? 1000 : code);
   }
   private async flush(env = this.env) {
-    await this.journal?.mirror(env);
     if (dayClosed(this.category) && this.flushTimer) {
       clearInterval(this.flushTimer);
       this.flushTimer = undefined;
     }
+    await this.journal?.mirror(env);
     if (dayClosed(this.category) && this.category) {
       const saved = await env.DB.prepare(
         'INSERT INTO r17_boards(category_id,data) VALUES(?,?) ON CONFLICT(category_id) DO UPDATE SET data=excluded.data WHERE r17_boards.data!=excluded.data',
@@ -1378,6 +1382,17 @@ export class DayRegistry extends DurableObject<Env> {
   async alarm() {
     await expireSecurity(this.ctx.storage);
     await this.init(this.env);
-    await this.flush();
+    try {
+      await this.flush();
+      this.flushError = null;
+    } catch (error) {
+      this.flushError = 'Mirror/finalization pending retry';
+      await this.ctx.storage.setAlarm(Date.now() + 60000);
+      throw error;
+    }
+    if (this.category && !dayClosed(this.category))
+      await this.ctx.storage.setAlarm(
+        Math.min(Date.now() + 60000, Date.parse(closeAt(this.category))),
+      );
   }
 }

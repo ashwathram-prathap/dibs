@@ -1045,6 +1045,7 @@ const handler = {
           '/feedback',
           '/missing',
           '/admin/r17-flush',
+          '/admin/r20-funnel',
           '/admin/r17-reset',
           '/admin/r17-remove',
         ].includes(path) ||

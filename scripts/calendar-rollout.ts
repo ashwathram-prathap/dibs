@@ -1,3 +1,4 @@
+import { assertAssetBudget } from '../shared/asset-budget';
 import {
   readFileSync,
   readdirSync,
@@ -158,8 +159,7 @@ if (flag('--inventory')) {
     }
   }
   walk('dist');
-  if (files > 20000 || maxBytes > 25 * 1024 * 1024)
-    throw Error('Pages Free asset budget exceeded.');
+  assertAssetBudget(files, maxBytes);
   await admin('/assets', { files, bytes, maxBytes, at: new Date().toISOString() });
   if (existsSync('.tmp/calendar-prune.json'))
     for (const date of JSON.parse(readFileSync('.tmp/calendar-prune.json', 'utf8')).archived)

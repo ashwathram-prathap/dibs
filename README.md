@@ -4,7 +4,7 @@
 
 You get three claims and five strikes. Taken or reserved answers cost a strike; unknown answers and repeat guesses do not cost another strike. Rare answers earn more points, and hidden golden tickets add a bonus. Your results become a shareable certificate.
 
-Dibs uses React and TypeScript on Cloudflare Pages, a Worker API, a Durable Object journal for ordered game events, and D1 for persistent records. It runs on Cloudflare's free tier.
+Dibs uses React and TypeScript on Cloudflare Pages, a Worker API, a Durable Object journal for ordered game events, and D1 for persistent records. It runs on Cloudflare's free tier. Live updates use WebSockets with HTTP fallback. Accepted results are acknowledged after the day object's journal is durable; D1 is a delayed mirror. A D1 export alone cannot recover acknowledged events that have not yet reached that mirror.
 
 Built by Ashwathram Prathap with Codex and Claude in about 72 hours, followed by ongoing refinements.
 

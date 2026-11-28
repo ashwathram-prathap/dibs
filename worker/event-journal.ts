@@ -13,6 +13,9 @@ export class EventJournal {
   pending = new Map<string, { revision: number; value: JournalFile }>();
   sequence = 0;
   private flushing?: Promise<void>;
+  mirroredSequence = 0;
+  replayBytes = 0;
+  lastMirrorError: string | null = null;
   constructor(
     private storage: DurableObjectStorage,
     private env: Env,
@@ -22,17 +25,30 @@ export class EventJournal {
     storage.sql.exec(
       'CREATE TABLE IF NOT EXISTS events(seq INTEGER PRIMARY KEY, payload TEXT NOT NULL)',
     );
+    storage.sql.exec(
+      'CREATE TABLE IF NOT EXISTS mirror_state(id INTEGER PRIMARY KEY, sequence INTEGER NOT NULL)',
+    );
+    this.mirroredSequence =
+      storage.sql
+        .exec<{ sequence: number }>('SELECT sequence FROM mirror_state WHERE id=1')
+        .toArray()[0]?.sequence || 0;
+    const cleanedUsers = new Set<string>();
     for (const row of storage.sql.exec<{ seq: number; payload: string }>(
       'SELECT seq,payload FROM events ORDER BY seq',
     )) {
+      this.replayBytes += new TextEncoder().encode(row.payload).byteLength;
       const value = cleanStoredHandles(JSON.parse(row.payload)) as JournalFile;
       const cleaned = JSON.stringify(value);
-      if (cleaned !== row.payload)
+      if (cleaned !== row.payload) {
         storage.sql.exec('UPDATE events SET payload=? WHERE seq=?', cleaned, row.seq);
+        cleanedUsers.add(value.user.id);
+      }
       this.sequence = row.seq;
       this.files.set(value.user.id, value);
-      this.pending.set(value.user.id, { revision: row.seq, value });
+      if (row.seq > this.mirroredSequence)
+        this.pending.set(value.user.id, { revision: row.seq, value });
     }
+    for (const uid of cleanedUsers) this.append(this.files.get(uid)!);
   }
   // Call after every asynchronous validation, with ownership checked again synchronously.
   append(value: JournalFile) {
@@ -75,13 +91,22 @@ export class EventJournal {
       if (this.pending.size) return this.mirror(env);
       return;
     }
-    this.flushing = this.flush(env).finally(() => {
-      this.flushing = undefined;
-    });
+    this.flushing = this.flush(env)
+      .then(() => {
+        this.lastMirrorError = null;
+      })
+      .catch((error) => {
+        this.lastMirrorError = 'D1 mirror failed; journal retained for retry';
+        throw error;
+      })
+      .finally(() => {
+        this.flushing = undefined;
+      });
     return this.flushing;
   }
   private async flush(env: Env) {
     const rows = [...this.pending.entries()];
+    const through = this.sequence;
     // D1's bind limit is 100; 20 files = 100 parameters. One multi-row INSERT per chunk.
     for (let i = 0; i < rows.length; i += 20) {
       const chunk = rows.slice(i, i + 20);
@@ -100,6 +125,16 @@ export class EventJournal {
       await files.run();
       for (const [uid, row] of chunk)
         if (this.pending.get(uid)?.revision === row.revision) this.pending.delete(uid);
+    }
+    // One checkpoint after a successful batch campaign, never a write per guess.
+    // A crash before this checkpoint only causes safe, revision-guarded re-mirroring.
+    if (through > this.mirroredSequence) {
+      this.storage.sql.exec(
+        'INSERT INTO mirror_state(id,sequence) VALUES(1,?) ON CONFLICT(id) DO UPDATE SET sequence=excluded.sequence',
+        through,
+      );
+      await this.storage.sync();
+      this.mirroredSequence = through;
     }
   }
 }

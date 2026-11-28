@@ -9,6 +9,7 @@ import { readFileSync, readdirSync, writeFileSync } from 'node:fs';
 import { registryDate, dropAt } from '../worker/domain';
 let mf: Miniflare, db: any, options: any;
 let manifest: any;
+let scoreBarrier: { entered: () => void; wait: Promise<void> } | undefined;
 const call = (path: string, body?: any, cookie?: string, ip?: string) =>
   mf.dispatchFetch('http://localhost/api' + path, {
     method: body === undefined ? 'GET' : 'POST',
@@ -25,7 +26,7 @@ async function startRegistry(slug: string) {
   const category = readCategory('categories/' + slug + '.json');
   const code = await build({
     stdin: {
-      contents: `import worker from './worker/index'; const realNow=Date.now;let clock;Date.now=()=>clock??realNow(); export {Registry, ImageCache, DayRegistry} from './worker/index'; export default {fetch(req,env,ctx){const instant=new URL(req.url).searchParams.get('fixture-now');if(instant)clock=Number(instant);const date=new URL(req.url).searchParams.get('fixture-day'); if(date){const headers=new Headers(req.headers);headers.set('x-r17-day',date);return env.DAY_REGISTRY.get(env.DAY_REGISTRY.idFromName(date)).fetch(new Request(req,{headers}));}return worker.fetch(req,env,ctx);}};`,
+      contents: `import worker, {DayRegistry as BaseDayRegistry} from './worker/index'; export class DayRegistry extends BaseDayRegistry {async testAlarm(){await this.alarm();return {category:(this as any).category?.id};}} const realNow=Date.now;let clock;Date.now=()=>clock??realNow(); export {Registry, ImageCache} from './worker/index'; export default {fetch(req,env,ctx){const instant=new URL(req.url).searchParams.get('fixture-now');if(instant)clock=Number(instant);const date=new URL(req.url).searchParams.get('fixture-day'); if(date && new URL(req.url).pathname==='/api/test-alarm') return env.DAY_REGISTRY.get(env.DAY_REGISTRY.idFromName(date)).testAlarm().then(data=>Response.json(data)); if(date){const headers=new Headers(req.headers);headers.set('x-r17-day',date);return env.DAY_REGISTRY.get(env.DAY_REGISTRY.idFromName(date)).fetch(new Request(req,{headers}));}return worker.fetch(req,env,ctx);}};`,
       resolveDir: process.cwd(),
       loader: 'ts',
     },
@@ -72,6 +73,10 @@ async function startRegistry(slug: string) {
         },
         outboundService: async (req: Request) => {
           const url = new URL(req.url);
+          if (scoreBarrier && url.pathname.endsWith('/scores-v2.bin')) {
+            scoreBarrier.entered();
+            await scoreBarrier.wait;
+          }
           if (url.origin === 'https://dibs.here' && url.pathname.startsWith('/catalog/'))
             return new Response(readFileSync('public' + url.pathname), {
               headers: { 'content-type': 'application/json' },
@@ -430,6 +435,14 @@ it('keeps streak and recovery identity across the next drop', async () => {
   expect(recovered.status).toBe(200);
   expect(recovered.headers.get('set-cookie')).toContain(winner.data.me.user.id);
 }, 30000);
+it('R20 alarm initialization after eviction retains its registry date without request headers', async () => {
+  await mf.setOptions(options);
+  db = await mf.getD1Database('DB');
+  const r = await mf.dispatchFetch('http://localhost/api/test-alarm?fixture-day=' + nextDate);
+  expect(r.status).toBe(200);
+  expect(await r.json()).toEqual({ category: 'second' });
+}, 30000);
+
 it('anonymises durable copies and mirror, retaining ownership after restart', async () => {
   const removed = await call(
     '/delete-file',
@@ -754,6 +767,40 @@ it('R19B reconciles a deliberately discarded socket ack using the same HTTP requ
   expect(retry.data.replayed).toBe(true);
   expect(retry.data.file.dibs).toBe(1);
 });
+
+it('R20 rejects validation that started before close and completed at the next drop', async () => {
+  await mf.setOptions(options);
+  db = await mf.getD1Database('DB');
+  const p = await account();
+  let entered!: () => void, release!: () => void;
+  const waiting = new Promise<void>((r) => {
+    entered = r;
+  });
+  scoreBarrier = {
+    entered,
+    wait: new Promise<void>((r) => {
+      release = r;
+    }),
+  };
+  const pending = guess(p.cookie, catalog.answers[999].display);
+  try {
+    await waiting;
+    const date = registryDate();
+    const close = Date.parse(
+      dropAt(new Date(Date.parse(date + 'T12:00:00Z') + 86400000).toISOString().slice(0, 10)),
+    );
+    const boundary = await call('/today?fixture-day=' + date + '&fixture-now=' + close);
+    expect(boundary.status, await boundary.text()).toBe(200);
+    release();
+    const rejected = await pending;
+    expect(rejected.status).toBe(422);
+    const me: any = await (await call('/me', undefined, p.cookie)).json();
+    expect(me.file).toBeNull();
+  } finally {
+    release();
+    scoreBarrier = undefined;
+  }
+}, 30000);
 
 it('flushes the exact final board and mirror at close, and reveals only after close', async () => {
   const date = registryDate(),
